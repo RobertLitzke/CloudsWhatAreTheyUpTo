@@ -50,6 +50,11 @@ cannot be inlined: `sw.js`, `manifest.webmanifest` and `icons/`. There is no
 backend; progress and saved keys live in the browser's `localStorage`, with
 export and import on the Settings page.
 
+`dist/` is committed, so the deployable build is in the repo: copy its
+contents to any static host. Rebuild and commit it after changing the app.
+Serve `index.html` and `sw.js` with `Cache-Control: no-cache` so installed
+copies see updates.
+
 `Dockerfile` builds that and serves it from nginx.
 
 ## Layout
