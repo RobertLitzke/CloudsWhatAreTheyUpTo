@@ -345,7 +345,7 @@ export const handFigure: FigureFactory = (ctx, goal) => {
       }
     }
     redraw(sky, ...pieces);
-    f.readout.textContent = `Each piece looks ${deg < 1 ? deg.toFixed(1) : deg.toFixed(0)}° wide: ${deg < 1 ? 'smaller than your little-finger nail' : deg <= 2.5 ? 'about a thumb' : deg <= 5 ? 'up to three fingers' : 'a fist or more'}. Call it ${genus(kind).name.toLowerCase()}.`;
+    f.readout.textContent = `Each piece looks ${deg < 1 ? deg.toFixed(1) : deg.toFixed(0)}° wide: ${deg < 1 ? 'smaller than your little-finger nail' : deg <= 2.5 ? 'about a thumb' : deg <= 5 ? 'between a thumb and three fingers' : 'a fist or more'}. Call it ${genus(kind).name.toLowerCase()}.`;
     if (goal === 'all' && seen.size === 3) t.resolve();
   };
   f.controls.append(
