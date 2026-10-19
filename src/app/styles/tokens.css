@@ -1,5 +1,6 @@
-/* Design tokens. A national-park poster at dusk: deep plum, sunset orange and
-   warm cream, with signage type. */
+/* Design tokens, taken from the poster (art/poster.jpg): deep indigo night,
+   violet and magenta clouds, a peach glow, and the cream of the poster's
+   paper. */
 
 @font-face {
   font-family: 'Oswald';
@@ -19,18 +20,19 @@
 }
 
 :root {
-  --bg: #2b1838; /* keep in sync with theme_color in vite.config.ts and index.html */
-  --bg-2: #3a2047;
-  --panel: #f6ead6;
-  --panel-2: #ead8bb;
-  --ink: #2a1730;
-  --ink-soft: #6b4d63;
-  --text: #fbefdc;
-  --muted: #c8a9b8;
-  --sun: #ffb347;
-  --sun-deep: #ec7a3c;
-  --rose: #c93d5c;
-  --teal: #2f8f8f;
+  --bg: #1b172f; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #2e2c53;
+  --panel: #f6e7c8;
+  --panel-2: #ead3b2;
+  --ink: #2a2547;
+  --ink-soft: #6a5c80;
+  --text: #f6e7c8;
+  --muted: #b6a6cc;
+  --sun: #f6b98e;
+  --sun-deep: #e68999;
+  --rose: #a8448f;
+  --teal: #0e6a80;
+  --title: #cfc8ec;
   --good: #3f9b6a;
   --bad: #c9473f;
   --radius: 14px;

@@ -45,15 +45,17 @@ export const PALETTES: Record<TimeOfDay, Palette> = {
     cloudShade: '#93aab4',
     ink: '#0b1d20',
   },
+  // The poster's evening: teal overhead, magenta and lavender, a peach glow
+  // at the horizon, and violet hills going down to indigo.
   dusk: {
-    sky: ['#2b1838', '#5a2650', '#b2404f', '#ec7a3c', '#fbc15e'],
-    sun: '#ffe08a',
-    ridges: ['#c2554e', '#8e3450', '#5b2147', '#381737'],
-    near: '#1c0d1f',
-    cloudLight: '#ffd7a8',
-    cloudMid: '#f39a7a',
-    cloudShade: '#9a3f62',
-    ink: '#140816',
+    sky: ['#0e4860', '#465778', '#a15793', '#c97fae', '#f2c4a4'],
+    sun: '#fbe7a6',
+    ridges: ['#8d6a94', '#6f5885', '#483668', '#2e2c53'],
+    near: '#1b172f',
+    cloudLight: '#ffdcc4',
+    cloudMid: '#d185b1',
+    cloudShade: '#6e418e',
+    ink: '#17142a',
   },
 };
 

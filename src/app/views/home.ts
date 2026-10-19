@@ -21,10 +21,12 @@ export const homeView: View = (root) => {
   const scene = makeScene({ time: 'dusk', seed: 11, sun: [0.36, 0.7], align: 'xMinYMax' });
   const p = scene.palette;
   scene.sky.append(
-    placeCloud('cirrus', p, 150, 104, 0.7, 3),
+    // Banks of heaped cloud catching the last light, as on the poster.
+    placeCloud('cirrus', p, 120, 138, 0.6, 3),
     placeCloud('altocumulus', p, 300, 120, 0.6, 5),
-    placeCloud('cumulus', p, 46, 170, 0.6, 8),
-    placeCloud('cumulus', p, 290, 172, 0.75, 9),
+    placeCloud('cumulus', p, 170, 180, 1.7, 8),
+    placeCloud('cumulus', p, 28, 186, 1.1, 4),
+    placeCloud('cumulus', p, 330, 184, 1.3, 9),
   );
 
   const nextUp = SHIFTS.find((s) => !save.shifts[s.id]?.done);
@@ -67,8 +69,8 @@ export const homeView: View = (root) => {
           'div.hero-text',
           {},
           el('p.eyebrow', {}, 'Anvil Peak Lookout · Thunderhead National Forest'),
-          el('h1', {}, 'Clouds'),
-          el('p.subtitle', {}, 'What are they up to?'),
+          el('h1.poster-type', {}, 'Clouds'),
+          el('p.subtitle.poster-type', {}, 'What are they up to?'),
         ),
       ),
       el(

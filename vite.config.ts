@@ -27,7 +27,7 @@ export default defineConfig({
       // a second time without a revision and workbox refuses the conflict.
       includeManifestIcons: false,
       workbox: {
-        globPatterns: ['index.html', 'icons/*.{png,svg}'],
+        globPatterns: ['index.html', 'poster.webp', 'icons/*.png'],
         inlineWorkboxRuntime: true,
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
@@ -50,8 +50,8 @@ export default defineConfig({
         short_name: 'Clouds',
         description: 'A cloud-watching game: learn every kind of cloud, what made it and what it means.',
         // Keep in sync with --bg in src/app/styles/tokens.css.
-        theme_color: '#2b1838',
-        background_color: '#2b1838',
+        theme_color: '#1b172f',
+        background_color: '#1b172f',
         display: 'standalone',
         orientation: 'portrait',
         start_url: '.',

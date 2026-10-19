@@ -7,8 +7,11 @@ every kind of cloud, what made it, and what it means for the weather to come.
 Once training is done, the district's cloud-seeding programme opens and you
 start making clouds as well as reading them.
 
-The look is a national-park poster at dusk: flat, saturated, faceted
-landscapes and drawn clouds for teaching, and real photos for testing.
+The look comes from the poster in `art/poster.jpg`, which is also the
+loading screen and the source of the app icons: a violet and magenta evening,
+heaped clouds with peach rims, slanted outlined lettering. The game draws
+flat, lightly geometric landscapes and clouds in that palette for teaching,
+and uses real photos for testing.
 
 ## What is built
 
@@ -43,7 +46,7 @@ across the top if anything on a page is wider than the screen.
 | `npm test` | Vitest: cloud facts, air physics, the save file, dealing the radio check, shift content, photo credits, licence mapping |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5421 |
-| `npm run icons` | Regenerate the PNG icons from `public/icons/icon.svg` |
+| `npm run icons` | Regenerate the PNG icons from a square of `art/poster.jpg` |
 | `npm run photos:find` | List candidate photos from Commons into a contact sheet to pick from |
 | `npm run photos:fetch` | Download the picked photos, resize them and write their credits |
 

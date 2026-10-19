@@ -1,6 +1,7 @@
 import './app/styles/app.css';
 import { el } from './app/dom';
 import { Router } from './app/router';
+import { showSplash } from './app/splash';
 import { watchForUpdates } from './app/update';
 import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
@@ -15,6 +16,7 @@ const NAV: readonly [string, string][] = [
 ];
 
 function boot(): void {
+  showSplash();
   const app = document.getElementById('app')!;
   const links = NAV.map(([path, label]) => el('a', { href: `#${path}` }, label));
   const header = el(

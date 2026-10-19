@@ -5,8 +5,9 @@
 //
 // Heaps are built from polygon puffs whose points never dip below the base, so
 // every heap has the flat bottom a real cumulus has. Each puff is drawn three
-// times: shade, body and highlight, offset upward, which gives the dark
-// underside and lit top without any gradients.
+// times, as on the poster: a dark underside, then a lit copy nudged up and
+// towards the sun, then the body over it, so only a bright rim of the lit copy
+// shows along the top edges.
 
 import { svg } from '../dom';
 import type { GenusId } from '../../core/clouds';
@@ -28,11 +29,15 @@ function puffPoints([cx, cy, r]: Puff, base: number, sides: number, turn: number
 
 function heap(puffs: Puff[], p: Palette, rng: Rng, base = 0, opacity = 1): SVGElement {
   const turns = puffs.map(() => rng() * Math.PI);
-  const layer = (fill: string, dy: number, shrink: number) =>
-    puffs.map(([cx, cy, r], i) =>
-      svg('polygon', { points: puffPoints([cx - shrink * 0.6, cy + dy, r * (1 - shrink * 0.04)], base + dy * 0.2, 8, turns[i]), fill }),
-    );
-  return svg('g', { opacity }, ...layer(p.cloudShade, 0, 0), ...layer(p.cloudMid, -2.5, 1), ...layer(p.cloudLight, -5, 2.4));
+  const layer = (fill: string, dx: number, dy: number, k: number, floor: number) =>
+    puffs.map(([cx, cy, r], i) => svg('polygon', { points: puffPoints([cx + dx, cy + dy, r * k], base + floor, 12, turns[i]), fill }));
+  return svg(
+    'g',
+    { opacity },
+    ...layer(p.cloudShade, 0.6, 0, 1, 0),
+    ...layer(p.cloudLight, -1.6, -3, 1, -1),
+    ...layer(p.cloudMid, 0.9, -1.2, 0.95, -1.6),
+  );
 }
 
 function cumulus(p: Palette, rng: Rng): SVGElement {
