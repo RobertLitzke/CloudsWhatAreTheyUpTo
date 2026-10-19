@@ -15,6 +15,28 @@ export function cloudBase(tempC: number, dewC: number): number {
   return Math.max(0, (tempC - dewC) / (DRY_RATE - DEW_RATE));
 }
 
+// How much vapour there is room for. Water molecules that meet stick more
+// readily the colder they are, so the colder the air, the less water can stay
+// vapour; the rest clumps into droplets.
+
+/** The most water vapour a cubic metre can have at a temperature, in grams (Magnus). */
+export function roomFor(tempC: number): number {
+  const hPa = 6.112 * Math.exp((17.62 * tempC) / (243.12 + tempC));
+  return (hPa * 100 * 1000) / (461.5 * (tempC + 273.15));
+}
+
+/** The temperature at which `grams` per cubic metre is all the room there is. */
+export function dewPointOf(grams: number): number {
+  let lo = -40;
+  let hi = 50;
+  for (let i = 0; i < 40; i++) {
+    const mid = (lo + hi) / 2;
+    if (roomFor(mid) < grams) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
 export interface Parcel {
   heightM: number;
   tempC: number;
