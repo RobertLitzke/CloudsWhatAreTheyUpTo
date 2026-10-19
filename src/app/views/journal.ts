@@ -21,7 +21,7 @@ export const journalView: View = (root) => {
       {},
       el('h1', {}, 'Field journal'),
       notes.length
-        ? el('div.notes', {}, notes.map(([, n]) => el('article.note', {}, el('h3', {}, n.title), el('p', {}, n.text))))
+        ? el('div.notes', {}, notes.map(([, n]) => el('article.note', { className: n.rare ? 'note rare' : 'note' }, el('h3', {}, n.title, n.rare ? el('span.tag', {}, 'Rare') : null), el('p', {}, n.text))))
         : el('p.muted', {}, 'Nothing written yet. Finish a shift and its notes land here.'),
       el('h2', {}, 'The ten kinds of cloud'),
       el(

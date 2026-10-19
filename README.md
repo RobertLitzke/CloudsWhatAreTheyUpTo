@@ -18,18 +18,30 @@ and uses real photos for testing.
 - The shell: a vanilla TypeScript PWA on Vite, inlined into one
   `index.html` as in PatchMatch and Fretron, with a service worker, an update
   banner, and progress in `localStorage` with save-to-file and load.
-- **Shift 1, The three floors of the sky**: what a cloud is (lift a parcel of
-  air until it reaches its dew point), the three heights of cloud, filing
-  drawn clouds onto their floors, building names from their Latin roots, and
-  a radio check where you call in the floor of eight photos. It ends in a
-  signed logbook page.
+- **Five training shifts**, each an illustrated article in the manner of
+  Bartosz Ciechanowski's explainers: paragraphs, words from Juniper over the
+  radio, and live figures with sliders to play with. Each part opens once the
+  small tasks in the figures above it are done; a finished shift opens in
+  full. Every shift ends with a radio check (photos to name, or skies to
+  forecast) and a signed logbook page.
+  1. **The two textures**: what a cloud is, stable and unstable air, cumulus
+     from thermals and stratus from a cooling night.
+  2. **The low sky**: the three floors, stratocumulus under a lid, why most
+     clouds don't rain, and nimbostratus.
+  3. **The middle sky and the hand trick**: names as a code, judging height
+     with your hand at arm's length, self-shadows, altocumulus and
+     altostratus.
+  4. **The ice realm and early warnings**: cirrus hooks, refraction through
+     an ice prism, the 22° halo, and a warm front arriving over 48 hours.
+  5. **Vertical giants and rare boss clouds**: a sounding that grows
+     congestus and cumulonimbus, a storm's life, counting the thunder, and
+     the rare lens, mammatus and Kelvin-Helmholtz clouds.
 - The **field journal**: notes the shifts unlock, and a card for each of the
   ten genera (what it looks like, what made it, what it means).
 - A **photo pipeline** that finds, credits and resizes photos from Wikimedia
   Commons (see below). Until photos are fetched, the radio check uses drawn
   clouds and says so.
-- The shift board lists the planned shifts and the cloud-seeding mode as
-  coming next.
+- The cloud-seeding mode is shown on the board as opening after training.
 
 ## Run
 
@@ -78,14 +90,17 @@ service worker keeps each one once it has been seen.
 ```
 src/core/     pure TypeScript, no DOM; unit-tested
   clouds.ts     the ten genera, the floors, the name roots
-  air.ts        a rising parcel: dry and moist cooling, the cloud base
-  shifts.ts     the tutorial script and journal entries
-  photo-call.ts dealing the radio check
+  air.ts        a rising parcel, the day's sounding, how tall a heap grows
+  sky.ts        angular size, the warm front, night cooling, thunder
+  optics.ts     light through an ice prism, the halo
+  shifts.ts     the five shifts (parts of text, radio and figures), journal
+  photo-call.ts radio-check.ts  dealing the radio checks
   photos.ts     the photo entry shape and accepted licences
   save.ts rng.ts
 src/app/      dom.ts, router.ts, store.ts, update.ts, photos.ts
   scene/        landscape.ts (the view from the tower), drawn.ts (drawn clouds)
-  views/        home, shift (the step players), journal, credits, settings
+  figures/      the live figures, by theme, and index.ts naming them
+  views/        home, shift (the article player), journal, credits, settings
 tools/photos/ find.ts, fetch.ts, commons.ts, config.ts, picks.json
 test/
 ```

@@ -1,0 +1,336 @@
+// Figures about rising air: a parcel lifted to its dew point, the temperature
+// of the sky by height, thermals off a sunny valley, and the glider pilot's
+// chart that says how tall the afternoon's clouds will grow.
+
+import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
+import { svg } from '../dom';
+import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, temp, type FigureFactory } from './kit';
+
+// ---- A parcel lifted --------------------------------------------------------
+
+export const parcelFigure: FigureFactory = (ctx, goal) => {
+  const W = 400;
+  const H = 260;
+  const f = frame(W, H);
+  const ground = 236;
+  const top = 3000;
+  const yOf = (m: number) => ground - (m / top) * 200;
+  // Temperature chart on the right: 0 to 30 °C.
+  const x0 = 236;
+  const x1 = 388;
+  const xOf = (c: number) => x0 + ((c - 0) / 30) * (x1 - x0);
+  let tempC = 24;
+  let dewC = 12;
+  let lift = 0;
+  const t = task();
+
+  const sky = svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#e9f1f4' });
+  const grid = svg('g');
+  for (let m = 0; m <= top; m += 500) {
+    grid.append(line(x0, yOf(m), x1, yOf(m), COL.grid, 1));
+    grid.append(label(x0 - 4, yOf(m) + 3, height(m, ctx.save.units), { 'text-anchor': 'end', class: 'fig-label small' }));
+  }
+  for (let c = 0; c <= 30; c += 10) {
+    grid.append(line(xOf(c), yOf(0), xOf(c), yOf(top), COL.grid, 1));
+    grid.append(label(xOf(c), ground + 14, `${c} °C`, { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }));
+  }
+  const live = svg('g');
+  f.svg.append(sky, svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }), grid, live);
+
+  const paint = () => {
+    const p = parcelAt(lift, tempC, dewC);
+    const base = cloudBase(tempC, dewC);
+    const temps: [number, number][] = [];
+    const dews: [number, number][] = [];
+    for (let m = 0; m <= lift; m += 50) {
+      const q = parcelAt(m, tempC, dewC);
+      temps.push([xOf(q.tempC), yOf(m)]);
+      dews.push([xOf(q.dewC), yOf(m)]);
+    }
+    temps.push([xOf(p.tempC), yOf(lift)]);
+    dews.push([xOf(p.dewC), yOf(lift)]);
+    const bx = 110;
+    const by = yOf(lift);
+    const bubble = p.cloud
+      ? svg('g', {},
+          ...[[-14, 4, 12], [0, -4, 15], [14, 4, 11], [0, 8, 12]].map(([dx, dy, r]) => svg('circle', { cx: bx + dx, cy: by + dy - 6, r, fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 })),
+          svg('rect', { x: bx - 28, y: by + 6, width: 56, height: 8, fill: '#e9f1f4' }))
+      : svg('circle', { cx: bx, cy: by - 10, r: 10, fill: 'rgba(224, 102, 63, 0.18)', stroke: COL.parcel, 'stroke-width': 2 });
+    redraw(live,
+      line(bx, ground, bx, by, COL.parcel, 1, { 'stroke-dasharray': '2 4' }),
+      p.cloud ? line(20, yOf(base), x1, yOf(base), COL.ink, 1, { 'stroke-dasharray': '6 4' }) : null,
+      p.cloud ? label(24, yOf(base) - 5, `cloud base · ${height(base, ctx.save.units)}`, { class: 'fig-label small' }) : null,
+      polyline(dews, COL.dew, 2.5),
+      polyline(temps, COL.parcel, 2.5),
+      svg('circle', { cx: xOf(p.tempC), cy: yOf(lift), r: 3.5, fill: COL.parcel }),
+      svg('circle', { cx: xOf(p.dewC), cy: yOf(lift), r: 3.5, fill: COL.dew }),
+      bubble,
+    );
+    f.readout.replaceChildren(
+      `At ${height(lift, ctx.save.units)} the air is `,
+      el2('b', COL.parcel, temp(p.tempC)),
+      ' and its dew point is ',
+      el2('b', COL.dew, temp(p.dewC)),
+      p.cloud ? '. They have met: the air is cloud.' : `. ${(p.tempC - p.dewC).toFixed(1)}° to go.`,
+    );
+    if (p.cloud && goal === 'base') t.resolve();
+  };
+  const lifter = slider('Lift the air', 0, top, 25, 0, (v) => height(v, ctx.save.units), (v) => { lift = v; paint(); }, 'parcel');
+  const dew = slider('Dew point at the ground', 4, 22, 1, dewC, (v) => `${v} °C`, (v) => { dewC = v; paint(); }, 'dew');
+  f.controls.append(lifter.node);
+  if (goal !== 'base') f.controls.append(dew.node);
+  else void t.promise.then(() => f.controls.append(dew.node));
+  paint();
+  return { node: f.node, done: goal ? t.promise : undefined };
+};
+
+function el2(tag: string, color: string, text: string): HTMLElement {
+  const n = document.createElement(tag);
+  n.style.color = color;
+  n.textContent = text;
+  return n;
+}
+
+// ---- The sky's temperature by height ----------------------------------------
+
+export const freezingFigure: FigureFactory = (ctx, goal) => {
+  const W = 400;
+  const H = 280;
+  const f = frame(W, H);
+  const top = 13000;
+  const bottom = 262;
+  const yOf = (m: number) => bottom - (m / top) * 244;
+  // A standard day: 15 °C at the ground, cooling 6.5 °C per kilometre to 11 km.
+  const tAt = (m: number) => 15 - 6.5 * (Math.min(m, 11000) / 1000);
+  const zero = 15 / 6.5 * 1000;
+  const forty = 55 / 6.5 * 1000;
+  const t = task();
+  const g = svg('g');
+  // Three bands of stuff: droplets, supercooled droplets and ice, ice alone.
+  g.append(
+    svg('rect', { x: 0, y: yOf(zero), width: W, height: bottom - yOf(zero), fill: '#eaf4f2' }),
+    svg('rect', { x: 0, y: yOf(forty), width: W, height: yOf(zero) - yOf(forty), fill: '#e9eef8' }),
+    svg('rect', { x: 0, y: 0, width: W, height: yOf(forty), fill: '#dfe7f7' }),
+    line(0, yOf(zero), W, yOf(zero), COL.dew, 1.5, { 'stroke-dasharray': '6 4' }),
+    line(0, yOf(forty), W, yOf(forty), COL.ice, 1.5, { 'stroke-dasharray': '6 4' }),
+    label(W - 6, yOf(zero) - 5, '0 °C: freezing level', { 'text-anchor': 'end', fill: COL.dew }),
+    label(W - 6, yOf(forty) - 5, '−40 °C: nothing stays liquid', { 'text-anchor': 'end', fill: COL.ice }),
+    label(W - 6, (yOf(0) + yOf(zero)) / 2 + 4, 'droplets', { 'text-anchor': 'end', class: 'fig-label soft' }),
+    label(W - 6, (yOf(zero) + yOf(forty)) / 2 + 4, 'supercooled droplets and ice', { 'text-anchor': 'end', class: 'fig-label soft' }),
+    label(W - 6, yOf(forty) / 2 + 4, 'ice crystals', { 'text-anchor': 'end', class: 'fig-label soft' }),
+  );
+  for (let m = 0; m <= 12000; m += 2000) g.append(label(6, yOf(m) + 4, height(m, ctx.save.units), { class: 'fig-label small' }));
+  // Droplets and crystals as little marks.
+  for (let i = 0; i < 14; i++) {
+    const x = 90 + (i % 7) * 26;
+    const m1 = 300 + (i * 397) % (zero - 400);
+    g.append(svg('circle', { cx: x, cy: yOf(m1), r: 2.4, fill: COL.dew }));
+    const m2 = zero + 300 + (i * 811) % (forty - zero - 600);
+    g.append(i % 2 ? svg('circle', { cx: x + 8, cy: yOf(m2), r: 2.4, fill: COL.dew }) : hex(x + 8, yOf(m2), 3, COL.ice));
+    const m3 = forty + 300 + (i * 523) % (top - forty - 600);
+    g.append(hex(x + 4, yOf(m3), 3.2, COL.ice));
+  }
+  const marker = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: COL.ground }), g, marker);
+  const paint = (m: number) => {
+    const c = tAt(m);
+    redraw(marker,
+      line(60, yOf(m), 300, yOf(m), COL.ink, 1.5),
+      svg('circle', { cx: 60, cy: yOf(m), r: 5, fill: COL.ink }),
+      label(70, yOf(m) - 6, `${height(m, ctx.save.units)} · ${c.toFixed(0)} °C`, { class: 'fig-label bold' }),
+    );
+    const floor = m < 2000 ? 'the low floor' : m < 5000 ? 'the middle floor' : 'the high floor';
+    f.readout.textContent = `${height(m, ctx.save.units)} is on ${floor}. On a mild day it is ${c.toFixed(0)} °C up there${c < -40 ? ', cold enough that every cloud is ice' : c < 0 ? ', below freezing, yet droplets can stay liquid' : ''}.`;
+    if (goal === 'high' && m >= 6000) t.resolve();
+  };
+  f.controls.append(slider('Climb', 0, 12500, 100, 1000, (v) => height(v, ctx.save.units), paint).node);
+  paint(1000);
+  return { node: f.node, done: goal ? t.promise : undefined };
+};
+
+function hex(cx: number, cy: number, r: number, fill: string): SVGElement {
+  const pts = Array.from({ length: 6 }, (_, k) => {
+    const a = (Math.PI / 3) * k;
+    return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`;
+  }).join(' ');
+  return svg('polygon', { points: pts, fill });
+}
+
+// ---- Thermals off a sunny valley ---------------------------------------------
+
+export const thermalsFigure: FigureFactory = (ctx, goal) => {
+  const W = 400;
+  const H = 240;
+  const f = frame(W, H);
+  const ground = 210;
+  const t = task();
+  let sun = 0.2;
+  let base = 90; // y of the cloud base
+  // Fields: dark ones (ploughed, rock, town) warm faster than light ones (forest, lake).
+  const fields = [
+    { x: 0, w: 60, dark: false }, { x: 60, w: 50, dark: true }, { x: 110, w: 70, dark: false },
+    { x: 180, w: 40, dark: true }, { x: 220, w: 80, dark: false }, { x: 300, w: 55, dark: true }, { x: 355, w: 45, dark: false },
+  ];
+  const darkFields = fields.filter((d) => d.dark);
+  const sunG = svg('g');
+  const bubbleG = svg('g');
+  const cloudG = svg('g');
+  const baseG = svg('g');
+  f.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#e3eff3' }),
+    sunG,
+    ...fields.map((d) => svg('rect', { x: d.x, y: ground, width: d.w, height: H - ground, fill: d.dark ? '#5b4a3c' : '#5d7d5a' })),
+    baseG, bubbleG, cloudG,
+  );
+  interface Bubble { x: number; y: number; r: number; v: number }
+  let bubbles: Bubble[] = [];
+  const clouds = darkFields.map((d) => ({ x: d.x + d.w / 2, size: 0 }));
+  let spawn = 0;
+  const paintStatic = () => {
+    const sy = 150 - sun * 120;
+    redraw(sunG, svg('circle', { cx: 340, cy: sy, r: 16, fill: COL.sun }), svg('circle', { cx: 340, cy: sy, r: 26, fill: COL.sun, opacity: 0.25 }));
+    redraw(baseG, line(0, base, W, base, COL.ink, 1, { 'stroke-dasharray': '5 5', opacity: 0.5 }), label(6, base - 4, 'condensation level', { class: 'fig-label small soft' }));
+  };
+  animate(f.node, ctx, (dt) => {
+    spawn += dt * sun * 6;
+    while (spawn > 1) {
+      spawn--;
+      const d = darkFields[Math.floor(Math.random() * darkFields.length)];
+      bubbles.push({ x: d.x + 10 + Math.random() * (d.w - 20), y: ground - 4, r: 4, v: 20 + sun * 40 });
+    }
+    for (const b of bubbles) {
+      b.y -= b.v * dt;
+      b.r += dt * 2.5; // Bubbles spread out as they rise into thinner air.
+    }
+    const arrived = bubbles.filter((b) => b.y <= base);
+    for (const b of arrived) {
+      const c = clouds.reduce((a, c2) => (Math.abs(c2.x - b.x) < Math.abs(a.x - b.x) ? c2 : a));
+      c.size = Math.min(1, c.size + 0.06 * (0.4 + sun));
+    }
+    bubbles = bubbles.filter((b) => b.y > base);
+    for (const c of clouds) c.size = Math.max(0, c.size - dt * 0.03); // Cloud edges mix with dry air and evaporate.
+    redraw(bubbleG, ...bubbles.map((b) => svg('circle', { cx: b.x, cy: b.y, r: b.r, fill: 'rgba(224,102,63,0.15)', stroke: COL.parcel, 'stroke-width': 1 })));
+    redraw(cloudG, ...clouds.filter((c) => c.size > 0.05).map((c) => heapAt(c.x, base, 18 + c.size * 26, 8 + c.size * (20 + sun * 40))));
+    const formed = clouds.filter((c) => c.size > 0.35).length;
+    f.readout.textContent = sun < 0.15
+      ? 'Early morning: the ground is barely warm and the air is still.'
+      : formed
+        ? `${formed} ${formed === 1 ? 'cloud has' : 'clouds have'} formed, each over a patch of ground that heats quickly, and every one with its base on the same level.`
+        : 'Bubbles of warm air are rising off the darker ground.';
+    if (goal === 'clouds' && formed >= 2) t.resolve();
+  });
+  f.controls.append(
+    slider('Sun', 0, 1, 0.01, sun, (v) => (v < 0.15 ? 'dawn' : v < 0.5 ? 'morning' : v < 0.85 ? 'late morning' : 'midday'), (v) => { sun = v; paintStatic(); }, 'sun').node,
+    slider('Moisture', 50, 150, 1, 240 - base, (v) => (v < 80 ? 'dry' : v < 120 ? 'moderate' : 'humid'), (v) => { base = 240 - v; paintStatic(); }, 'dew').node,
+  );
+  paintStatic();
+  return { node: f.node, done: goal ? t.promise : undefined };
+};
+
+/** A plain heap with a flat base at `baseY`, `w` wide and `h` tall, in figure colours. */
+export function heapAt(cx: number, baseY: number, w: number, h: number): SVGElement {
+  const g = svg('g');
+  const n = Math.max(3, Math.round(h / 12));
+  for (let i = 0; i < n; i++) {
+    const y = baseY - (i / n) * h - 6;
+    const spread = w * (1 - (i / n) * 0.45);
+    for (const dx of [-spread * 0.45, 0, spread * 0.45]) {
+      g.append(svg('circle', { cx: cx + dx + (i % 2 ? 3 : -3), cy: y, r: Math.max(6, spread * 0.36), fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 }));
+    }
+  }
+  // Shade under the flat base.
+  g.append(svg('rect', { x: cx - w, y: baseY, width: w * 2, height: 30, fill: 'currentColor', opacity: 0 }));
+  g.append(svg('rect', { x: cx - w * 0.75, y: baseY - 4, width: w * 1.5, height: 4, fill: COL.cloudShade }));
+  return g;
+}
+
+// ---- How tall the clouds grow --------------------------------------------------
+
+export const soundingFigure: FigureFactory = (ctx, goal) => {
+  const W = 400;
+  const H = 300;
+  const f = frame(W, H);
+  const top = 12000;
+  const bottom = 276;
+  const yOf = (m: number) => bottom - (m / top) * 262;
+  const cx0 = 44;
+  const cx1 = 262;
+  const tMin = -60;
+  const tMax = 36;
+  const xOf = (c: number) => cx0 + ((c - tMin) / (tMax - tMin)) * (cx1 - cx0);
+  const env: Environment = { dawnC: 12, lapsePerKm: 6, groundC: 20, inversion: { atM: 2400, deltaC: 3 } };
+  let dewC = 9;
+  const t = task();
+
+  const grid = svg('g');
+  for (let m = 0; m <= top; m += 2000) {
+    grid.append(line(cx0, yOf(m), cx1, yOf(m), COL.grid, 1));
+    grid.append(label(cx0 - 4, yOf(m) + 3, height(m, ctx.save.units), { 'text-anchor': 'end', class: 'fig-label small' }));
+  }
+  for (let c = -60; c <= 30; c += 30) {
+    grid.append(line(xOf(c), yOf(0), xOf(c), yOf(top), COL.grid, 1));
+    grid.append(label(xOf(c), bottom + 14, `${c}°`, { 'text-anchor': 'middle', class: 'fig-label small' }));
+  }
+  const live = svg('g');
+  f.svg.append(
+    svg('rect', { x: 276, y: 0, width: W - 276, height: bottom, fill: '#e3eff3' }),
+    svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: 'transparent' }),
+    svg('rect', { x: 276, y: bottom, width: W - 276, height: H - bottom, fill: COL.ground }),
+    grid,
+    live,
+  );
+
+  const curve = (fn: (m: number) => number, to = top, step = 100): [number, number][] => {
+    const pts: [number, number][] = [];
+    for (let m = 0; m <= to; m += step) pts.push([xOf(fn(m)), yOf(m)]);
+    return pts;
+  };
+  const paint = () => {
+    const col = column(env, dewC);
+    const start = env.groundC + 0.5;
+    const stop = col.topM;
+    const parcelPts = curve((m) => parcelAt(m, start, dewC).tempC, stop, 50);
+    const base = cloudBase(start, dewC);
+    const dewPts = curve((m) => parcelAt(m, start, dewC).dewC, Math.min(base, stop), 50);
+    const cloudX = 338;
+    let cloud: SVGElement | null = null;
+    if (col.baseM != null) {
+      const h = yOf(col.baseM) - yOf(col.topM);
+      cloud = svg('g', {}, heapAt(cloudX, yOf(col.baseM), 22 + Math.min(30, h * 0.18), Math.max(10, h)));
+      if (col.kind === 'cumulonimbus') {
+        const ay = yOf(Math.min(col.topM, 11000));
+        cloud.append(svg('polygon', { points: `${cloudX - 24},${ay + 6} ${cloudX - 56},${ay} ${cloudX + 60},${ay - 2} ${cloudX + 28},${ay + 8}`, fill: COL.cloud, stroke: COL.cloudShade }));
+        for (const dx of [-14, -4, 6, 16]) cloud.append(line(cloudX + dx, yOf(col.baseM), cloudX + dx - 4, bottom, COL.rain, 1.5, { opacity: 0.7 }));
+      }
+    }
+    redraw(live,
+      polyline(curve((m) => dawnTemp(m, env)), COL.env, 1.5, { 'stroke-dasharray': '4 4', opacity: 0.7 }),
+      polyline(curve((m) => envTemp(m, env)), COL.env, 2.5),
+      polyline(dewPts, COL.dew, 2.5),
+      polyline(parcelPts, COL.parcel, 2.5),
+      col.baseM != null ? line(cx0, yOf(col.baseM), W, yOf(col.baseM), COL.ink, 1, { 'stroke-dasharray': '6 4', opacity: 0.6 }) : null,
+      line(cx0, yOf(col.topM), W, yOf(col.topM), COL.ink, 1, { 'stroke-dasharray': '2 3', opacity: 0.6 }),
+      label(cx1 - 2, yOf(mixedTop(env)) + 12, 'stirred layer', { 'text-anchor': 'end', class: 'fig-label small soft' }),
+      cloud,
+    );
+    const names: Record<string, string> = {
+      none: 'No cloud: the thermals stop before they reach their dew point',
+      humilis: 'Cumulus humilis: small, flat, fair-weather heaps',
+      mediocris: 'Cumulus mediocris: heaps as tall as they are wide',
+      congestus: 'Cumulus congestus: towering, sprouting cauliflower tops',
+      cumulonimbus: 'Cumulonimbus: the top has frozen into an anvil of ice',
+    };
+    f.readout.textContent = `${names[col.kind]}.` + (col.baseM != null ? ` Base ${height(col.baseM, ctx.save.units)}, top ${height(col.topM, ctx.save.units)}.` : ` They stop at ${height(col.topM, ctx.save.units)}.`);
+    if (goal && col.kind === goal) t.resolve();
+  };
+  f.controls.append(
+    slider('Sun', 14, 32, 0.5, env.groundC, (v) => `${v} °C at the ground`, (v) => { env.groundC = v; paint(); }, 'sun').node,
+    slider('Moisture', 2, 16, 0.5, dewC, (v) => `dew point ${v} °C`, (v) => { dewC = v; paint(); }, 'dew').node,
+    slider('Lid', 0, 5, 0.5, env.inversion!.deltaC, (v) => (v === 0 ? 'none' : `${v} °C warmer above`), (v) => { env.inversion = v ? { atM: 2400, deltaC: v } : undefined; paint(); }, 'env').node,
+  );
+  if (goal === 'cumulonimbus') {
+    f.controls.append(slider('Instability', 5, 7.5, 0.1, env.lapsePerKm, (v) => `air cools ${v.toFixed(1)} °C/km`, (v) => { env.lapsePerKm = v; paint(); }, 'env').node);
+  }
+  paint();
+  return { node: f.node, done: goal ? t.promise : undefined };
+};

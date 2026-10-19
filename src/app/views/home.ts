@@ -7,14 +7,6 @@ import { placeCloud } from '../scene/drawn';
 import { makeScene } from '../scene/landscape';
 import { getSave } from '../store';
 
-/** Shifts still to be written, shown on the board so the road ahead is visible. */
-const PLANNED: readonly { title: string; teaches: string }[] = [
-  { title: 'The heaps', teaches: 'Cumulus, thermals, and when a fair-weather cloud stops being one' },
-  { title: 'Veils and halos', teaches: 'Cirrus to cirrostratus to altostratus: a warm front coming in' },
-  { title: 'Grey days', teaches: 'Stratus, stratocumulus and nimbostratus, and telling them apart' },
-  { title: 'Towers', teaches: 'Cumulonimbus: how a storm builds, and what the anvil means' },
-];
-
 export const homeView: View = (root) => {
   const save = getSave();
   // Cropped from the left on a phone, so the lookout and the sun stay in view.
@@ -46,15 +38,6 @@ export const homeView: View = (root) => {
         open ? el('a.btn', { href: `#/shift/${s.id}` }, rec?.done ? 'Again' : 'Start') : null,
       );
     }),
-    PLANNED.map((s, i) =>
-      el(
-        'li.shift-card.locked',
-        {},
-        el('span.shift-n', {}, String(SHIFTS.length + i + 1)),
-        el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches)),
-        el('span.tag', {}, 'Coming'),
-      ),
-    ),
   );
 
   root.append(

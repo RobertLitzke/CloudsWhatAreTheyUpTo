@@ -33,3 +33,37 @@ describe('parcel', () => {
     expect(above).toBeLessThan(below);
   });
 });
+
+import { column, envTemp, mixedTop, moistRate } from '../src/core/air';
+
+describe('moist rate', () => {
+  it('is slow in warm cloud and near the dry rate in cold cloud', () => {
+    expect(moistRate(25)).toBeLessThan(5);
+    expect(moistRate(-40)).toBeGreaterThan(9);
+    expect(moistRate(5)).toBeGreaterThan(moistRate(15));
+  });
+});
+
+describe('the afternoon column', () => {
+  const base = { dawnC: 12, lapsePerKm: 6, groundC: 22, inversion: { atM: 2400, deltaC: 3 } };
+
+  it('stirs a deeper layer as the ground warms', () => {
+    expect(mixedTop({ ...base, groundC: 26 })).toBeGreaterThan(mixedTop(base));
+    expect(envTemp(0, base)).toBe(22);
+  });
+
+  it('gives no cloud when thermals stop below the cloud base', () => {
+    expect(column({ ...base, groundC: 14 }, 2).kind).toBe('none');
+  });
+
+  it('gives small heaps under a lid and towers without one', () => {
+    expect(['humilis', 'mediocris']).toContain(column(base, 9).kind);
+    expect(column({ ...base, lapsePerKm: 7, groundC: 28, inversion: undefined }, 9).kind).toBe('cumulonimbus');
+  });
+
+  it('grows taller as the air is less stable', () => {
+    const tops = [5, 6, 7].map((l) => column({ ...base, lapsePerKm: l, inversion: undefined }, 9).topM);
+    expect(tops[0]).toBeLessThan(tops[1]);
+    expect(tops[1]).toBeLessThan(tops[2]);
+  });
+});
