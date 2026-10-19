@@ -11,6 +11,13 @@ import { COL, animate, frame, height, label, line, polyline, redraw, slider, tas
 
 // ---- Stable and unstable: nudge a bubble ------------------------------------
 
+/** The figure's air, from unstable (-1) to stable (1), as how fast it cools with height in °C per km. Below zero it warms with height. */
+const lapseOf = (stability: number) => (stability < 0 ? 9.8 - stability * 3 : 9.8 - stability * 13);
+const M_PER_PX = 10;
+const START_C = 15;
+/** Labels drawn over the cloud stay readable with a rim of sky colour. */
+const halo = { stroke: '#eef3f6', 'stroke-width': 3, 'paint-order': 'stroke' };
+
 export const nudgeFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 250;
@@ -35,17 +42,24 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
       polyline(pts, COL.env, 3),
       label(90, 200, stability < -0.05 ? 'unstable: a hilltop' : stability > 0.05 ? 'stable: a valley' : 'neutral', { 'text-anchor': 'middle', class: 'fig-label' }),
       line(250, 214, 250, 20, COL.grid, 1),
-      line(230, rest, 270, rest, COL.ink, 1, { 'stroke-dasharray': '4 3', opacity: 0.5 }),
-      label(276, rest + 4, 'where it started', { class: 'fig-label small soft' }),
+      line(200, rest, 270, rest, COL.ink, 1, { 'stroke-dasharray': '4 3', opacity: 0.5 }),
+      label(236, rest + 18, 'where it started', { 'text-anchor': 'end', class: 'fig-label small soft' }),
     );
   };
   const paintBall = () => {
     const x = Math.max(-60, Math.min(60, z * 0.6));
     const by = 140 - stability * (x * x) / 60 - 9;
     const py = rest - z;
+    // The bubble cools at the dry rate as it climbs; the air around it at the day's own rate.
+    const m = z * M_PER_PX;
+    const mine = START_C - 9.8 * (m / 1000);
+    const theirs = START_C - lapseOf(stability) * (m / 1000);
     redraw(ball,
       svg('circle', { cx: 90 + x, cy: by, r: 8, fill: COL.parcel }),
       svg('circle', { cx: 250, cy: py, r: 10, fill: 'rgba(224,102,63,0.2)', stroke: COL.parcel, 'stroke-width': 2 }),
+      label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { 'text-anchor': 'end', fill: COL.parcel, class: 'fig-label bold', ...halo }),
+      label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { fill: COL.env, class: 'fig-label bold', ...halo }),
+      label(262, py + 22, mine > theirs + 0.05 ? 'warmer, so lighter' : mine < theirs - 0.05 ? 'colder, so heavier' : 'the same', { class: 'fig-label small soft', ...halo }),
     );
   };
   animate(f.node, ctx, (dt) => {
@@ -59,16 +73,16 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
       running = false;
       z = 150;
       redraw(cloud, heapAt(250, 120, 34, 90));
-      f.readout.textContent = 'Unstable air: once nudged, the bubble is warmer than the air around it and keeps rising on its own. That is how heaps are built: cumulus.';
+      f.readout.textContent = 'Unstable air: the air around cools faster with height than the bubble does, so once nudged the bubble is warmer than its neighbours and keeps rising on its own, until it turns to cloud. That is how heaps are built.';
       triedUnstable.yes = true;
     } else if (stability >= 0 && Math.abs(v) < 0.4 && Math.abs(z) < 1 && dt > 0) {
       running = false;
       z = 0;
       redraw(cloud,
         svg('rect', { x: 150, y: 96, width: 240, height: 14, rx: 7, fill: COL.cloudShade, opacity: 0.85 }),
-        label(270, 90, 'a flat sheet', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+        label(270, 90, 'if a layer is cooled: a flat sheet', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
       );
-      f.readout.textContent = 'Stable air: the bubble is colder than the air around it, sinks back and settles. Nothing climbs on its own, so if air is lifted at all it is lifted gently and as a whole layer, which makes a flat sheet: stratus.';
+      f.readout.textContent = 'Stable air: the air around cools more slowly with height than the bubble does, so the nudged bubble is colder than its neighbours, sinks back and settles. Nothing climbs on its own, so air becomes cloud only when something cools a whole layer gently and together: a flat sheet.';
       triedStable.yes = true;
     }
     paintBall();
@@ -86,7 +100,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
     f.readout.textContent = 'Watch where it goes…';
   });
   f.controls.append(
-    slider('Air', -1, 1, 0.05, stability, (s) => (s < -0.05 ? 'unstable' : s > 0.05 ? 'stable' : 'neutral'), (s) => { stability = s; running = false; z = 0; v = 0; redraw(cloud); paintCurve(); paintBall(); }, 'env').node,
+    slider('Air', -1, 1, 0.05, stability, (s) => `${s < -0.05 ? 'unstable' : s > 0.05 ? 'stable' : 'neutral'}: the air around ${lapseOf(s) >= 0 ? `cools ${lapseOf(s).toFixed(1)} °C` : `warms ${(-lapseOf(s)).toFixed(1)} °C`} per km`, (s) => { stability = s; running = false; z = 0; v = 0; redraw(cloud); paintCurve(); paintBall(); }, 'env').node,
     nudge,
   );
   paintCurve();

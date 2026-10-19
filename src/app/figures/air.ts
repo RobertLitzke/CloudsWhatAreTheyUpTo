@@ -2,7 +2,7 @@
 // of the sky by height, thermals off a sunny valley, and the glider pilot's
 // chart that says how tall the afternoon's clouds will grow.
 
-import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
+import { cloudBase, column, dewPointOf, roomFor, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { svg } from '../dom';
 import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, temp, type FigureFactory } from './kit';
 
@@ -81,6 +81,92 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
   if (goal !== 'base') f.controls.append(dew.node);
   else void t.promise.then(() => f.controls.append(dew.node));
   paint();
+  return { node: f.node, done: goal ? t.promise : undefined };
+};
+
+// ---- A jar of air cooled to its dew point --------------------------------------
+
+export const jarFigure: FigureFactory = (ctx, goal) => {
+  const W = 400;
+  const H = 260;
+  const f = frame(W, H);
+  const t = task();
+  let tempC = 25;
+  let water = 12;
+  // The chart: temperature across (0 to 30 °C), grams per cubic metre up (0 to 32).
+  const x0 = 196;
+  const x1 = 388;
+  const y0 = 222;
+  const y1 = 20;
+  const xOf = (c: number) => x0 + (c / 30) * (x1 - x0);
+  const yOf = (g: number) => y0 - (g / 32) * (y0 - y1);
+  const curve: [number, number][] = [];
+  for (let c = 0; c <= 30; c += 0.5) curve.push([xOf(c), yOf(roomFor(c))]);
+  const axes = svg('g', {},
+    ...[0, 10, 20, 30].map((c) => svg('g', {}, line(xOf(c), y0, xOf(c), y1, COL.grid, 1), label(xOf(c), y0 + 13, `${c} °C`, { 'text-anchor': 'middle', class: 'fig-label small' }))),
+    ...[0, 10, 20, 30].map((g) => svg('g', {}, line(x0, yOf(g), x1, yOf(g), COL.grid, 1), label(x0 - 4, yOf(g) + 3, `${g} g`, { 'text-anchor': 'end', class: 'fig-label small' }))),
+    polyline(curve, COL.env, 2.5),
+    label(xOf(29.5), yOf(roomFor(29.5)) + 16, 'room for vapour', { 'text-anchor': 'end', fill: COL.env, class: 'fig-label small' }),
+  );
+  // The jar, with molecules of vapour jostling in it and droplets once it fogs.
+  const jx = 24;
+  const jy = 40;
+  const jw = 128;
+  const jh = 180;
+  const rand = (k: number) => {
+    const s = Math.sin(k * 127.1) * 43758.5453;
+    return s - Math.floor(s);
+  };
+  const molecules = Array.from({ length: 96 }, (_, i) => ({ x: jx + 8 + rand(i) * (jw - 16), y: jy + 12 + rand(i + 300) * (jh - 20), vx: rand(i + 600) - 0.5, vy: rand(i + 900) - 0.5 }));
+  const drops = Array.from({ length: 60 }, (_, i) => ({ x: jx + 6 + rand(i + 1200) * (jw - 12), y: jy + 10 + rand(i + 1500) * (jh - 16), r: 1.6 + rand(i + 1800) * 2.2 }));
+  const jarG = svg('g');
+  const live = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), axes, live, jarG);
+  const state = () => {
+    const room = roomFor(tempC);
+    return { room, vapour: Math.min(water, room), droplets: Math.max(0, water - room), dew: dewPointOf(water) };
+  };
+  const paintChart = () => {
+    const s = state();
+    redraw(live,
+      line(x0, yOf(water), x1, yOf(water), COL.dew, 2.5),
+      label(x0 + 4, yOf(water) - 5, `water in the jar · ${water} g`, { fill: COL.dew, class: 'fig-label small' }),
+      line(xOf(s.dew), yOf(water), xOf(s.dew), y0, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
+      label(xOf(s.dew), y0 - 4, 'dew point', { 'text-anchor': 'middle', fill: COL.dew, class: 'fig-label small' }),
+      svg('circle', { cx: xOf(s.dew), cy: yOf(water), r: 3.5, fill: COL.dew }),
+      line(xOf(tempC), y0, xOf(tempC), y1, COL.ink, 1.5),
+      svg('circle', { cx: xOf(tempC), cy: yOf(s.room), r: 4, fill: COL.env }),
+    );
+    f.readout.textContent = s.droplets > 0
+      ? `At ${tempC} °C there is room for only ${s.room.toFixed(1)} g of vapour in each cubic metre, and the jar has ${water} g. The extra ${s.droplets.toFixed(1)} g has clumped into droplets: the jar is fogged, a tiny cloud. It happened at ${s.dew.toFixed(1)} °C, the dew point.`
+      : `At ${tempC} °C there is room for ${s.room.toFixed(1)} g of vapour in each cubic metre. The jar has ${water} g, so every molecule stays vapour and the air is clear. Cool it below ${s.dew.toFixed(1)} °C and there won’t be room.`;
+    if (goal === 'fog' && s.droplets > 0.3) t.resolve();
+  };
+  animate(f.node, ctx, (dt) => {
+    const s = state();
+    const speed = 30 + tempC * 2.5;
+    const shown = Math.round(s.vapour * 3);
+    const wet = Math.min(drops.length, Math.round(s.droplets * 12));
+    for (const m of molecules) {
+      m.x += m.vx * speed * dt;
+      m.y += m.vy * speed * dt;
+      if (m.x < jx + 4 || m.x > jx + jw - 4) m.vx = -m.vx;
+      if (m.y < jy + 8 || m.y > jy + jh - 4) m.vy = -m.vy;
+    }
+    redraw(jarG,
+      svg('rect', { x: jx, y: jy, width: jw, height: jh, rx: 14, fill: 'none', stroke: COL.ink, 'stroke-width': 2 }),
+      svg('rect', { x: jx + 18, y: jy - 10, width: jw - 36, height: 12, rx: 3, fill: COL.soft }),
+      s.droplets > 0 ? svg('rect', { x: jx + 2, y: jy + 2, width: jw - 4, height: jh - 4, rx: 12, fill: COL.cloudShade, opacity: Math.min(0.6, s.droplets / 4) }) : null,
+      ...molecules.slice(0, shown).map((m) => svg('circle', { cx: m.x, cy: m.y, r: 1.6, fill: COL.dew })),
+      ...drops.slice(0, wet).map((d) => svg('circle', { cx: d.x, cy: d.y, r: d.r, fill: COL.cloud, stroke: COL.dew, 'stroke-width': 0.8 })),
+      label(jx + jw / 2, jy + jh + 16, s.droplets > 0 ? 'vapour and droplets' : 'vapour only: clear', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    );
+  });
+  f.controls.append(
+    slider('Temperature', 0, 30, 1, tempC, (v) => `${v} °C`, (v) => { tempC = v; paintChart(); }, 'parcel').node,
+    slider('Water in the jar', 4, 20, 1, water, (v) => `${v} g per cubic metre`, (v) => { water = v; paintChart(); }, 'dew').node,
+  );
+  paintChart();
   return { node: f.node, done: goal ? t.promise : undefined };
 };
 
@@ -189,7 +275,7 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
   const paintStatic = () => {
     const sy = 150 - sun * 120;
     redraw(sunG, svg('circle', { cx: 340, cy: sy, r: 16, fill: COL.sun }), svg('circle', { cx: 340, cy: sy, r: 26, fill: COL.sun, opacity: 0.25 }));
-    redraw(baseG, line(0, base, W, base, COL.ink, 1, { 'stroke-dasharray': '5 5', opacity: 0.5 }), label(6, base - 4, 'condensation level', { class: 'fig-label small soft' }));
+    redraw(baseG, line(0, base, W, base, COL.ink, 1, { 'stroke-dasharray': '5 5', opacity: 0.5 }), label(6, base + 12, 'cloud base', { class: 'fig-label small soft' }));
   };
   animate(f.node, ctx, (dt) => {
     spawn += dt * sun * 6;
@@ -215,7 +301,9 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
     f.readout.textContent = sun < 0.15
       ? 'Early morning: the ground is barely warm and the air is still.'
       : formed
-        ? `${formed} ${formed === 1 ? 'cloud has' : 'clouds have'} formed, each over a patch of ground that heats quickly, and every one with its base on the same level.`
+        ? formed === 1
+          ? 'A cloud has formed over a patch of ground that heats quickly. Its base sits where the bubbles reach their dew point.'
+          : `${formed} clouds have formed, each over a patch of ground that heats quickly, and every one with its base on the same level.`
         : 'Bubbles of warm air are rising off the darker ground.';
     if (goal === 'clouds' && formed >= 2) t.resolve();
   });
