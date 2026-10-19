@@ -251,7 +251,7 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
   const ground = 210;
   const t = task();
   let sun = 0.2;
-  let base = 90; // y of the cloud base
+  let base = 130; // y of the cloud base: humid air condenses sooner, so its base is lower
   // Fields: dark ones (ploughed, rock, town) warm faster than light ones (forest, lake).
   const fields = [
     { x: 0, w: 60, dark: false }, { x: 60, w: 50, dark: true }, { x: 110, w: 70, dark: false },
@@ -309,7 +309,7 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
   });
   f.controls.append(
     slider('Sun', 0, 1, 0.01, sun, (v) => (v < 0.15 ? 'dawn' : v < 0.5 ? 'morning' : v < 0.85 ? 'late morning' : 'midday'), (v) => { sun = v; paintStatic(); }, 'sun').node,
-    slider('Moisture', 50, 150, 1, 240 - base, (v) => (v < 80 ? 'dry' : v < 120 ? 'moderate' : 'humid'), (v) => { base = 240 - v; paintStatic(); }, 'dew').node,
+    slider('Moisture', 50, 150, 1, base - 40, (v) => (v < 80 ? 'dry' : v < 120 ? 'moderate' : 'humid'), (v) => { base = 40 + v; paintStatic(); }, 'dew').node,
   );
   paintStatic();
   return { node: f.node, done: goal ? t.promise : undefined };
