@@ -23,10 +23,20 @@ export const LICENSES = {
 
 export type LicenseId = keyof typeof LICENSES;
 
+/** The rare clouds of the last shift, by their journal entry. */
+export const FEATURES = ['lenticularis', 'mammatus', 'fluctus'] as const;
+export type FeatureId = (typeof FEATURES)[number];
+
 export interface Photo {
   /** Stable id, also the file name without extension. */
   id: string;
   genus: GenusId;
+  /**
+   * Set when the photo is of a rare cloud. It is shown with that cloud's
+   * journal note and kept out of the everyday radio checks, where a lens
+   * cloud filed as altocumulus would be an unfair call.
+   */
+  feature?: FeatureId;
   /** Path relative to the page, e.g. photos/cumulus-01.webp. */
   file: string;
   width: number;
@@ -48,6 +58,7 @@ export function problems(p: Partial<Photo>): string[] {
   const out: string[] = [];
   if (!p.id || !/^[a-z0-9-]+$/.test(p.id)) out.push('id must be lower-case letters, digits and dashes');
   if (!p.genus || !isGenusId(p.genus)) out.push(`unknown genus ${p.genus}`);
+  if (p.feature !== undefined && !FEATURES.includes(p.feature)) out.push(`unknown rare cloud ${p.feature}`);
   if (!p.file || !p.file.startsWith('photos/')) out.push('file must live under photos/');
   if (!p.author?.trim()) out.push('no author');
   if (!p.license || !isLicenseId(p.license)) out.push(`licence ${p.license} is not allowed`);
@@ -57,6 +68,11 @@ export function problems(p: Partial<Photo>): string[] {
   return out;
 }
 
+/** The everyday photos of a genus: the rare clouds are left out. */
 export function photosOf(library: readonly Photo[], id: GenusId): Photo[] {
-  return library.filter((p) => p.genus === id);
+  return library.filter((p) => p.genus === id && !p.feature);
+}
+
+export function photosOfFeature(library: readonly Photo[], id: FeatureId): Photo[] {
+  return library.filter((p) => p.feature === id);
 }

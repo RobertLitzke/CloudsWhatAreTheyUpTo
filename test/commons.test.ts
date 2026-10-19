@@ -21,5 +21,6 @@ describe('Commons licences', () => {
 
   it('strips the author HTML', () => {
     expect(plainText('<a href="//commons.wikimedia.org/wiki/User:X">Jane &amp; Joe</a>')).toBe('Jane & Joe');
+    expect(plainText('Simon Eugster --Simon 13:24, 18 April 2006 (UTC)')).toBe('Simon Eugster');
   });
 });
