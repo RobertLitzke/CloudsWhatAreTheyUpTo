@@ -114,7 +114,7 @@ export const flashFigure: FigureFactory = (ctx, goal) => {
       f.readout.textContent = `Boom: ${s} seconds. Sound covers about a kilometre every three seconds, so the strike was about ${strikeKm(s).toFixed(1)} km away.` +
         (s <= 30 ? ' Thirty seconds or less: you are within reach of the next strike. Get inside, and wait 30 minutes after the last thunder.' : ' Far enough for now, but storms move quickly.');
       if (goal === 'strike') t.resolve();
-    } else f.readout.textContent = `Counting: ${Math.floor(since)}…`;
+    } else f.readout.textContent = `Counting (sped up four times, in real seconds): ${Math.floor(since)}…`;
     paint();
   });
   const strike = document.createElement('button');
@@ -260,7 +260,7 @@ export const mammaFigure: FigureFactory = (_ctx, goal) => {
     redraw(g, ...parts);
     f.readout.textContent = sink < 0.3
       ? 'The underside of an anvil, smooth while little is happening.'
-      : 'Mammatus: pockets of cold, cloudy air sinking out of the anvil’s base, like an upside-down cumulus. They look ominous and often follow a strong storm, but they are a sign of its passing, not of a new one.';
+      : 'Mammatus: pockets of cold, cloudy air sinking out of the anvil’s base, like an upside-down cumulus. They look ominous, but they usually hang from the anvil as the storm moves away: a sign the worst has passed, not of a new storm.';
     if (goal === 'pouches' && sink >= 0.6) t.resolve();
   };
   f.controls.append(slider('Sinking air', 0, 1, 0.01, 0.1, (v) => (v < 0.3 ? 'little' : v < 0.6 ? 'some' : 'a lot'), paint, 'ice').node);

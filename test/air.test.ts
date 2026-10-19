@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cloudBase, parcelAt } from '../src/core/air';
+import { cloudBase, dewPointOf, parcelAt, roomFor } from '../src/core/air';
 
 describe('cloud base', () => {
   it('is about 125 m per degree of spread', () => {
@@ -65,5 +65,17 @@ describe('the afternoon column', () => {
     const tops = [5, 6, 7].map((l) => column({ ...base, lapsePerKm: l, inversion: undefined }, 9).topM);
     expect(tops[0]).toBeLessThan(tops[1]);
     expect(tops[1]).toBeLessThan(tops[2]);
+  });
+});
+
+describe('room for vapour', () => {
+  it('is about 30 g at 30 °C and under 5 g at 0 °C', () => {
+    expect(roomFor(30)).toBeGreaterThan(29);
+    expect(roomFor(30)).toBeLessThan(32);
+    expect(roomFor(0)).toBeLessThan(5);
+  });
+
+  it('gives back the temperature it was taken at as a dew point', () => {
+    for (const c of [2, 14, 25]) expect(dewPointOf(roomFor(c))).toBeCloseTo(c, 3);
   });
 });

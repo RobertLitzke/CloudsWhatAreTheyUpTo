@@ -1,12 +1,92 @@
-// Figures about the ice realm: falling crystals smeared into mares' tails, the
+// Figures about the ice realm: an ice crystal growing among supercooled
+// droplets, falling crystals smeared into mares' tails, the
 // prism that makes the 22° halo, the halo itself building up crystal by crystal,
 // and a warm front sliding in over the lookout.
 
+import { fullOverIce, fullOverWater } from '../../core/air';
 import { deviation, minimumDeviation } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
 import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, type FigureFactory } from './kit';
+
+// ---- An ice crystal among supercooled droplets ---------------------------------
+
+export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
+  const W = 400;
+  const H = 240;
+  const f = frame(W, H);
+  const t = task();
+  let tempC = -2;
+  const C = { x: 200, y: 110 };
+  let eaten = 0; // share of the droplets' water now on the crystal, 0 to 1
+  let falling = 0; // px fallen
+  const drops = Array.from({ length: 26 }, (_, i) => {
+    const a = (i / 26) * Math.PI * 2 + (i % 3) * 0.3;
+    const d = 70 + ((i * 37) % 90);
+    return { x: C.x + Math.cos(a) * d * 1.4, y: C.y + Math.sin(a) * d * 0.75 };
+  });
+  let bits: { x: number; y: number; sx: number; sy: number; k: number }[] = [];
+  const scene = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9eef8' }), scene);
+  const grown = () => eaten >= 1;
+  animate(f.node, ctx, (dt) => {
+    const glaciated = tempC <= -38;
+    // Vapour moves from droplets to ice in proportion to how much fuller the air is for the ice.
+    const push = Math.max(0, fullOverWater(tempC) - fullOverIce(tempC));
+    if (!glaciated && push > 0.005 && !grown()) {
+      eaten = Math.min(1, eaten + push * dt * 0.3);
+      if (Math.random() < push * dt * 60) {
+        const d = drops[Math.floor(Math.random() * drops.length)];
+        bits.push({ x: d.x, y: d.y, sx: d.x, sy: d.y, k: 0 });
+      }
+    }
+    const crystal = 4 + 18 * Math.sqrt(eaten);
+    const dropR = 5 * Math.cbrt(1 - eaten);
+    for (const b of bits) {
+      b.k += dt * 0.9;
+      b.x = b.sx + (C.x - b.sx) * b.k;
+      b.y = b.sy + (C.y + falling - b.sy) * b.k;
+    }
+    bits = bits.filter((b) => b.k < 1);
+    if (grown()) falling = Math.min(140, falling + dt * 40);
+    redraw(scene,
+      ...drops.map((d) => glaciated
+        ? hexagon(d.x, d.y, 3.2, COL.ice)
+        : dropR > 0.6 ? svg('circle', { cx: d.x, cy: d.y, r: dropR, fill: COL.cloud, stroke: COL.dew, 'stroke-width': 1 }) : null),
+      ...bits.map((b) => svg('circle', { cx: b.x, cy: b.y, r: 1.4, fill: COL.dew })),
+      star(C.x, C.y + falling, crystal),
+      label(C.x, Math.min(H - 8, C.y + falling + crystal + 14), 'ice crystal', { 'text-anchor': 'middle', fill: COL.ice, class: 'fig-label small' }),
+    );
+    const pct = ((fullOverWater(tempC) / fullOverIce(tempC) - 1) * 100).toFixed(0);
+    f.readout.textContent = tempC >= 0
+      ? 'At 0 °C water and ice are even: neither is gaining on the other.'
+      : glaciated
+        ? 'Below about −38 °C droplets can’t stay liquid: each one freezes on its own, and the cloud turns to ice all at once.'
+        : grown()
+          ? 'The crystal has eaten its neighbours and is heavy enough to fall. Falling through warmer air below, it melts into a raindrop.'
+          : `At ${tempC} °C the air is just full for the droplets, but for the ice it is ${pct}% overfull. Vapour leaves the droplets and freezes onto the crystal: the droplets shrink as the crystal grows.`;
+    if (goal === 'fall' && falling > 60) t.resolve();
+  });
+  f.controls.append(slider('Temperature', -40, 0, 1, tempC, (v) => `${v} °C`, (v) => { tempC = v; }, 'ice').node);
+  return { node: f.node, done: goal ? t.promise : undefined };
+};
+
+function hexagon(cx: number, cy: number, r: number, fill: string): SVGElement {
+  const pts = Array.from({ length: 6 }, (_, k) => `${(cx + r * Math.cos((Math.PI / 3) * k)).toFixed(1)},${(cy + r * Math.sin((Math.PI / 3) * k)).toFixed(1)}`).join(' ');
+  return svg('polygon', { points: pts, fill });
+}
+
+/** A six-armed crystal of radius `r`. */
+function star(cx: number, cy: number, r: number): SVGElement {
+  const g = svg('g');
+  for (let k = 0; k < 6; k++) {
+    const a = (Math.PI / 3) * k;
+    g.append(line(cx, cy, cx + r * Math.cos(a), cy + r * Math.sin(a), COL.ice, Math.max(1.5, r / 6)));
+  }
+  g.append(hexagon(cx, cy, Math.max(2, r * 0.3), COL.ice));
+  return g;
+}
 
 // ---- Mares' tails -------------------------------------------------------------
 
@@ -56,7 +136,7 @@ export const streaksFigure: FigureFactory = (ctx, goal) => {
       ? 'Little change in wind with height: the ice falls nearly straight down in streaks below each tuft.'
       : shear < 0.6
         ? 'The wind slows lower down, so falling crystals drift back behind their tuft and the streaks curve.'
-        : 'Strong shear: long sweeping tails ending in a hook where the crystals formed. Mares’ tails, cirrus uncinus.';
+        : 'Strong shear: long sweeping tails ending in a hook where the crystals formed. Mares’ tails: cirrus uncinus, Latin for hooked.';
     if (goal === 'hooks' && shear >= 0.6) t.resolve();
   };
   f.controls.append(

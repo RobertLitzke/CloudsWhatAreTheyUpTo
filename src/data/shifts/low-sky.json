@@ -1,0 +1,290 @@
+{
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "id": "low-sky",
+  "n": 2,
+  "title": "The low sky",
+  "teaches": "The three floors of the sky, how cloud names work, stratocumulus, and why most clouds never rain",
+  "parts": [
+    {
+      "title": "Three floors",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Morning, Anvil Peak. Yesterday you learned how a cloud forms. Today we start sorting them, and we sort them by altitude, like the floors of a building."
+        },
+        {
+          "kind": "text",
+          "text": "Almost all weather happens in the lowest ten or twelve kilometres of the atmosphere, and meteorologists divide that space into three floors. The **low** floor runs from the ground up to about 2,000 metres. The **middle** floor runs from 2,000 to about 7,000 metres. The **high** floor starts around 5,000 metres, overlapping the middle one, and reaches up to the top of the weather at ten or twelve kilometres. Those heights are only guidelines, and the middle and high floors overlap because what really gives a cloud its character is the temperature where it forms, which shifts from day to day and from summer to winter. A cloud at six kilometres could belong to either the middle or the high floor; you tell which one by what the cloud is made of and how it looks."
+        },
+        {
+          "kind": "text",
+          "text": "Whereas a rising dry bubble always cools at 10 °C per kilometre, the surrounding sky has its own temperature profile shaped by ground heating, sunlight, wind stirring, and large-scale sinking. On an average day, the surrounding air gets colder by about 6.5 °C for every kilometre you climb. That sits right between the two parcel cooling rates from your first shift: it is slower than the 10 °C per kilometre of a clear rising bubble (making clear air stable on an average day), but faster than the 5 °C per kilometre of a cloudy bubble (allowing a cloud, once formed, to keep climbing). If the valley starts at a mild 15 °C, the surrounding air hits freezing (0 °C) a little over two kilometres up, and drops to around −40 °C by nine kilometres. Below freezing, cloud water can freeze into ice, so altitude and temperature determine what a cloud is made of, which in turn determines how it looks. (In the figure, you will notice that cloud droplets often stay liquid well below 0 °C; we will explore why in a later shift on the ice realm.)"
+        },
+        {
+          "kind": "figure",
+          "figure": "freezing",
+          "caption": "A mild summer day, from the valley floor to the top of the weather."
+        },
+        {
+          "kind": "text",
+          "text": "Low clouds consist almost entirely of liquid water droplets packed closely together, often hundreds of them in every cubic centimetre. At the outer edge of a liquid cloud, where it mixes with drier air, those tiny droplets evaporate in seconds, giving low clouds crisp, sharp outlines. Higher up in the sky, more of the cloud water freezes into ice crystals. Ice crystals are much larger than droplets, far fewer in number, and spaced much further apart. In addition, the cold air surrounding high clouds already contains nearly all the water vapour that ice can sustain, so a crystal drifting out into clear air sublimates very slowly. Instead of vanishing in seconds, ice crystals linger for minutes and trail out in long streamers across the sky. As a result, high clouds look thin, silky, and fibrous, with feathery edges. Simply looking at whether a cloud’s edges are *sharp* or *feathery* will usually tell you which floor it belongs to."
+        },
+        {
+          "kind": "figure",
+          "figure": "sort",
+          "caption": "Some of today’s sky.",
+          "task": "File each cloud onto its floor.",
+          "options": {
+            "clouds": [
+              "cumulus",
+              "stratus",
+              "cirrus",
+              "cumulonimbus"
+            ]
+          }
+        },
+        {
+          "kind": "text",
+          "text": "One cloud refuses to stay on a single floor. A full-grown thunderstorm tower, or cumulonimbus, starts on the low floor and punches all the way to the top of the troposphere. It gets a category of its own, which we will cover in the final shift."
+        }
+      ]
+    },
+    {
+      "title": "The names are a code",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Cloud names can sound like Latin incantations at first, but they follow a simple naming system, and you already know half the pieces."
+        },
+        {
+          "kind": "text",
+          "text": "In 1802, an amateur meteorologist in London named Luke Howard classified clouds using Latin roots, and nearly every cloud name used today combines four of his original words with a fifth added later in the century. **Cumulus** means a heap and **stratus** means a layer, the two basic textures from your first shift. **Cirrus** means a curl of hair, describing the wispy ice clouds of the high floor. **Nimbus** means a rain-bearing cloud. The fifth root, **alto**, was added later in the 1800s. Although *alto* literally means high in Latin, *cirrus* was already established for the highest floor, so *alto-* was assigned to the middle floor just below it."
+        },
+        {
+          "kind": "text",
+          "text": "To name a cloud, you combine its floor prefix with its texture. The prefix *cirro-* (from cirrus) places a cloud on the high floor, *alto-* places it on the middle floor, and low-floor clouds take no height prefix at all. A flat layer on the middle floor is therefore an altostratus, while small heaps on the high floor are cirrocumulus."
+        },
+        {
+          "kind": "figure",
+          "figure": "names",
+          "caption": "The sky, one name at a time.",
+          "task": "Build each name from its height and texture.",
+          "options": {
+            "targets": [
+              {
+                "clue": "Rounded heaps in rows on the middle floor",
+                "prefix": "alto",
+                "body": "cumulus"
+              },
+              {
+                "clue": "A grey sheet over the sun on the middle floor",
+                "prefix": "alto",
+                "body": "stratus"
+              },
+              {
+                "clue": "A thin, even veil on the high floor",
+                "prefix": "cirro",
+                "body": "stratus"
+              }
+            ]
+          }
+        },
+        {
+          "kind": "text",
+          "text": "Combining floors and textures gives six of the ten main cloud types (or genera). The remaining four modify the pattern slightly. **Cirrus** on its own refers to detached high-altitude curls and wisps. **Stratocumulus** describes low heaps that have merged into a lumpy layer. **Nimbostratus** is a deep, rain-bearing layer, and **cumulonimbus** is a towering, rain-bearing heap. That makes ten main cloud types in total, all catalogued and photographed in the World Meteorological Organization’s **International Cloud Atlas**, the standard field guide used by weather services around the world."
+        }
+      ]
+    },
+    {
+      "title": "Lumpy sheets: stratocumulus",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Real skies often blend heaps and sheets together, and the most common cloud type on Earth is just such a hybrid: **stratocumulus**. At any given moment, stratocumulus decks cover roughly a fifth of the world’s oceans. Seen from below, stratocumulus looks like a broad layer of rounded lumps, rolls, or patches, darker grey in the thicker centres and brighter toward the edges, usually with small gaps of blue sky showing between the elements."
+        },
+        {
+          "kind": "text",
+          "text": "Stratocumulus forms underneath an **inversion**, a layer where the air gets warmer with height instead of colder. You saw an inversion in your first shift when cold night air pooled on the valley floor; higher up in the sky, an inversion acts like a lid. Because atmospheric stability depends on the temperature profile of each specific layer, the air below the inversion can be well-mixed and unstable even while the inversion layer above it is strongly stable. Beneath the lid, surface heating or wind turbulence stirs the air, sending buoyant bubbles upward that cool to their dew point and form cumulus heaps. As soon as a rising bubble pushes into the warm inversion layer, however, it finds itself colder and denser than the surrounding air and can climb no further. As more rising air continues to arrive from below, the cloud tops flatten and spread sideways against the underside of the lid. When the air is humid, the cloud base forms lower down and a deeper portion of each rising bubble condenses, supplying more cloud water to spread out laterally until neighbouring heaps press together into a continuous, lumpy sheet."
+        },
+        {
+          "kind": "figure",
+          "figure": "spread",
+          "caption": "Morning heaps rising under a layer of warmer air.",
+          "task": "Strengthen the lid and add moisture until the heaps join into a sheet.",
+          "goal": "sheet"
+        },
+        {
+          "kind": "text",
+          "text": "What creates an inversion lid a kilometre or two above the ground? Most often, it comes from air sinking slowly over a wide area. When air converges high in the atmosphere and gently subsides, the total weight of the air column increases, raising the barometric pressure at the ground in what forecasters call a **high-pressure system** (or simply a high). As that upper air sinks into higher pressure, it is compressed and warms at the dry rate of 10 °C per kilometre. Meanwhile, the lowest kilometre or so of the atmosphere is constantly churned by wind and thermals rising off the ground. Any sinking air that reaches the top of this turbulent boundary layer gets mixed in and carried back down and up by the eddies, so the large-scale sinking stops right at the top of the stirred layer. The compressed, warmed air from aloft therefore rests directly on top of cooler air mixed up from the surface, forming a sharp temperature inversion."
+        },
+        {
+          "kind": "text",
+          "text": "Because the inversion lid is maintained by sinking air under high pressure and prevents clouds from growing tall, a sky covered in stratocumulus, however grey and overcast it looks, almost always brings dry, settled weather."
+        }
+      ]
+    },
+    {
+      "title": "Why most clouds don’t rain",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "In your first shift, you saw that typical cloud droplets are only about a hundredth of a millimetre across and settle at less than a centimetre per second, slow enough for the gentlest updraught to keep them suspended. Even if an individual cloud droplet drifts out the bottom of a cloud base, it enters drier air and evaporates within a few metres, long before reaching the ground."
+        },
+        {
+          "kind": "text",
+          "text": "A raindrop is vastly larger. A typical raindrop measures one to two millimetres across, or about a hundred times the diameter of a cloud droplet. Because the volume of a sphere grows with the cube of its diameter (100 × 100 × 100), a raindrop a hundred times wider contains a **million** times as much water. To produce a single raindrop that can survive the fall to the ground, roughly a million microscopic cloud droplets have to merge together."
+        },
+        {
+          "kind": "figure",
+          "figure": "drops",
+          "caption": "One drop, from cloud droplet to raindrop.",
+          "task": "Grow the drop until it falls as rain.",
+          "goal": "rain"
+        },
+        {
+          "kind": "text",
+          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another. A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, aerodynamic drag increases more rapidly and bends the curve, as shown in the figure). A droplet that is five times wider than its neighbours therefore falls about twenty-five times faster, at several centimetres per second rather than a fraction of a centimetre per second. As it falls, it overtakes the smaller, slower droplets in its path and collides with them. Each merger makes the collector drop heavier and faster, allowing it to sweep through a wider column of cloud every second and accelerating its growth. Even so, this collision process takes tens of minutes, during which the growing drop is continuously falling. In a shallow cloud, the drop falls out the base long before it reaches raindrop size and evaporates on the way down. Only a deep cloud, or one with strong updraughts that hold the growing drops aloft, provides enough time for raindrops to mature. (In colder clouds that extend above the freezing level, ice crystals provide a second, faster pathway to rain, which we will examine in the shift on the ice realm.)"
+        },
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "That is why cloud depth matters so much more than how dark the base looks. A thin cloud layer can look dark grey and never drop more than a light drizzle, whereas a deep cloud has the vertical room to make real rain."
+        }
+      ]
+    },
+    {
+      "title": "Radio check",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Radio check, Anvil Peak. First identify the cloud types in these photos, and then give me your forecast for a few changing skies."
+        },
+        {
+          "kind": "figure",
+          "figure": "radioCheck",
+          "caption": "Photos from the other lookouts. Call in each cloud by name.",
+          "options": {
+            "mode": "name",
+            "pool": [
+              "stratocumulus",
+              "stratus",
+              "cumulus"
+            ],
+            "known": [
+              "stratocumulus",
+              "stratus",
+              "cumulus"
+            ],
+            "count": 6
+          }
+        },
+        {
+          "kind": "figure",
+          "figure": "forecast",
+          "caption": "The sky over a few hours, as the other lookouts logged it. What is it up to?",
+          "options": {
+            "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "cumulus",
+                    "when": "10:00"
+                  },
+                  {
+                    "genus": "stratocumulus",
+                    "when": "13:00"
+                  },
+                  {
+                    "genus": "stratocumulus",
+                    "when": "16:00"
+                  }
+                ],
+                "question": "Morning cumulus heaps spread into a lumpy grey sheet by afternoon. Do the crews need rain gear?",
+                "options": [
+                  "No, it will stay dry with at most a spot of drizzle",
+                  "Yes, expect steady rain by evening",
+                  "Thunderstorms are likely"
+                ],
+                "answer": 0,
+                "why": "Cumulus heaps that flatten and spread beneath an inversion form stratocumulus. The inversion lid keeps the cloud layer shallow, so it stays dry or produces light drizzle at most."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "06:00"
+                  },
+                  {
+                    "genus": "stratus",
+                    "when": "08:00"
+                  },
+                  {
+                    "genus": "cumulus",
+                    "when": "12:00"
+                  }
+                ],
+                "question": "A flat grey layer hides the ridges at dawn on a summer morning. What is the most likely forecast?",
+                "options": [
+                  "Rain all day",
+                  "It lifts and burns off by midday",
+                  "It builds into afternoon thunderstorms"
+                ],
+                "answer": 1,
+                "why": "Dawn stratus forms in stable air chilled overnight. As morning sunlight warms the ground, the ground warms the lowest air back above its dew point, evaporating the cloud from the bottom up until the layer lifts off the ridges and dissipates."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "stratocumulus",
+                    "when": "09:00"
+                  },
+                  {
+                    "genus": "stratocumulus",
+                    "when": "15:00"
+                  }
+                ],
+                "question": "A lumpy grey sheet with small gaps of blue has sat over the valley all day under high pressure. Will it soak the crews?",
+                "options": [
+                  "No, the cloud layer is too shallow to produce real rain",
+                  "Yes, expect hours of steady rain",
+                  "Only if it lowers into valley fog"
+                ],
+                "answer": 0,
+                "why": "Sinking air in a high-pressure system maintains a strong inversion lid that keeps stratocumulus shallow, and growing full-sized raindrops requires a deep cloud."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "The troposphere is divided into three cloud floors: low (ground to about 2 km), middle (about 2 to 7 km), and high (about 5 km to the top of the weather). Temperature, rather than exact altitude, is what truly separates them.",
+    "Low clouds consist of closely packed liquid droplets and have crisp, sharp edges; high clouds consist of ice crystals that sublimate slowly, giving them soft, fibrous, feathery edges.",
+    "Cloud names combine roots and height prefixes: cumulus (heap), stratus (layer), cirrus (curl of hair), and nimbus (rain-bearing); cirro- indicates the high floor, alto- the middle floor, and low clouds take no floor prefix.",
+    "Stratocumulus forms when rising heaps hit a stable inversion lid (often created by sinking air in a high-pressure system) and spread sideways into a lumpy sheet that looks grey but stays mostly dry.",
+    "A single raindrop contains roughly a million cloud droplets’ worth of water; colliding and merging that many droplets takes time and vertical depth, which is why shallow clouds rarely produce rain."
+  ],
+  "next": "Next shift covers the middle sky, along with how to estimate a cloud’s altitude using nothing but your hand.",
+  "journal": {
+    "floors": {
+      "title": "The three floors",
+      "text": "Low floor: ground to about 2,000 m, composed of liquid water droplets with sharp edges. Middle floor: about 2,000 to 7,000 m, composed of liquid droplets and some ice. High floor: above about 5,000 m, composed of ice crystals with thin, silky, fibrous edges. Because the atmosphere cools by about 6.5 °C per kilometre on average, these floors correspond to temperature zones. Towering cumulonimbus clouds span all three floors."
+    },
+    "roots": {
+      "title": "Name roots",
+      "text": "Cumulus means a heap, stratus a flat layer, cirrus a curl of hair, and nimbus a rain-bearing cloud. The prefix cirro- places a cloud on the high floor and alto- places it on the middle floor, while low-floor clouds take no prefix. Together these roots form the ten main cloud genera."
+    },
+    "stratocumulus": {
+      "title": "Stratocumulus",
+      "text": "A low layer of rounded lumps and rolls with darker grey centres and small gaps, formed when rising cumulus heaps flatten and spread beneath a stable temperature inversion. It is often capped by sinking air in a high-pressure system, bringing overcast but dry, settled weather. It is the most common cloud type on Earth."
+    },
+    "rain": {
+      "title": "Why most clouds don’t rain",
+      "text": "Typical cloud droplets are about 0.01 mm across and settle at less than a centimetre per second. A raindrop is about a hundred times wider (1 to 2 mm), so its volume is roughly a million times larger. Larger droplets fall faster and sweep up smaller ones in their path, but only a deep cloud provides enough fall distance and time for droplets to grow into raindrops."
+    }
+  }
+}
