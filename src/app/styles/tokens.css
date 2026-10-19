@@ -1,0 +1,40 @@
+/* Design tokens. A national-park poster at dusk: deep plum, sunset orange and
+   warm cream, with signage type. */
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 700;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('../../../node_modules/@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url('../../../node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+:root {
+  --bg: #2b1838; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #3a2047;
+  --panel: #f6ead6;
+  --panel-2: #ead8bb;
+  --ink: #2a1730;
+  --ink-soft: #6b4d63;
+  --text: #fbefdc;
+  --muted: #c8a9b8;
+  --sun: #ffb347;
+  --sun-deep: #ec7a3c;
+  --rose: #c93d5c;
+  --teal: #2f8f8f;
+  --good: #3f9b6a;
+  --bad: #c9473f;
+  --radius: 14px;
+
+  --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;
+}
