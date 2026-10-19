@@ -1,0 +1,159 @@
+{
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "id": "middle-sky",
+  "n": 3,
+  "title": "The middle sky and the hand trick",
+  "teaches": "Altocumulus and altostratus, and judging a cloud’s height with your hand and its shadows",
+  "parts": [
+    {
+      "title": "Clouds in the middle",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Anvil Peak, look up past the ridgelines today. The middle floor is the hardest to read from a tower, and the most useful once you can."
+        },
+        {
+          "kind": "text",
+          "text": "The middle floor runs from about two to seven kilometres up (overlapping the high floor at the top, as you saw), where the air is near or below freezing, and its clouds are usually a mixture of droplets and ice. On most days the thermals from the ground stop on the low floor: the air above them is stable, so they run out of lift within a kilometre or two, and that is where fair-weather cumulus flattens out. (On the stormy days of your last shift the air is unstable all the way up, and the towers punch through every floor; that is the exception, and it gets a shift of its own.) So the clouds of the middle floor are mostly made another way, by broad, gentle lifting: a wide layer of moist air slid slowly upward over hundreds of kilometres. The commonest place for that is where a mass of warm air meets a mass of colder, heavier air and rides up over it, like a wave sliding up a beach. The warm air climbs a very gentle slope, so its clouds appear far out in front of the place where the two meet on the ground, which is why weather people say they come *ahead* of a storm. You will see exactly how that works next shift. Gentle, wide lifting, as you know from your first shift, makes layers."
+        },
+        {
+          "kind": "text",
+          "text": "But a layer up there doesn’t always stay smooth. In your first shift you saw the ground cool on a clear night by radiating invisible infrared light straight out to space. Clouds radiate infrared too. The top of a cloud layer glows its infrared straight up into the cold, empty sky above, and almost nothing glows back, so the top of the layer cools, while its bottom, which glows down at the warmer ground and gets as much back, does not. By day the sun warms the top a little, but a white cloud top reflects most sunlight away, so except around midday the infrared loss wins. The air at the top gets colder and colder compared with the air below it."
+        },
+        {
+          "kind": "text",
+          "text": "Now run the test from your first shift. Inside a cloud, a bubble moving up or down changes temperature at only about 5 °C per kilometre, because condensing or evaporating droplets give or take heat. So that is the number to compare with here, not the 10 °C of clear air. Once the top of the layer is more than about 5 °C per kilometre colder than its bottom, a bubble of chilled air from the top, sinking, stays colder than everything around it and keeps going. In short: the layer churns once its top is more than about 5 °C per kilometre colder than its bottom. So the layer begins to churn within itself: chilled air sinking from the top, warmer air rising to take its place, in cells. Each cell is a loop, up in one place and down beside it. A loop much wider than it is tall would have to drag air a long way sideways, and one much narrower would rub against its neighbours, so the loops that win are roughly round: about as wide as the layer is deep, usually a few hundred metres. Where the air rises the cloud thickens into a lump, and where it sinks the cloud thins or clears. That is how a smooth sheet breaks up into rows of rounded pieces. (The same churning goes on in stratocumulus. Once heaps have spread into a sheet under the inversion, its top glows to space too, and the churning keeps the sheet lumpy.)"
+        },
+        {
+          "kind": "text",
+          "text": "So the middle floor has the same two textures as the low one, layer and lumps, now with the prefix *alto-*. **Altostratus** is the smooth layer. **Altocumulus** is the layer of lumps, rounded patches or rolls with blue between them, sometimes called a flock of sheep."
+        }
+      ]
+    },
+    {
+      "title": "Your hand is a ruler",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Here is the trouble. A layer of altocumulus looks very like a layer of **stratocumulus** below it, or of **cirrocumulus** above it. All three are lumps in a layer. From the ground there is nothing to measure them against, and you have no altimeter. So how do you tell how high they are?"
+        },
+        {
+          "kind": "text",
+          "text": "Use their size. The lumps are about as wide as their layer is deep. Low and middle layers are much alike, a few hundred metres deep, so stratocumulus and altocumulus lumps are about the same real size, a few hundred metres across. The high floor’s layers are thinner, often under a hundred metres, so cirrocumulus grains are smaller as well as further away. Either way, the higher the layer, the smaller its pieces *look*, in the same way a car looks smaller the further away it is. Try it in the figure, which looks high in the sky but not straight overhead, as you would: a 300 m lump 2 km up looks about 7° wide, 5 km up about 3°, and only a 100 m grain 9 km up gets under 1°. What you are really judging is an **angle**: how much of your view one piece covers. And you carry a ruler for angles. Stretch your arm out straight: a fist covers about 10° of sky, three fingers side by side about 5°, a thumb about 2°, and the nail of your little finger about 1°. A bigger hand would cover more sky, but bigger hands come on longer arms, which hold them further from your eye, so the two roughly cancel and the ruler works for almost everyone, children included."
+        },
+        {
+          "kind": "figure",
+          "figure": "hand",
+          "caption": "A layer of lumpy cloud, seen from the ground with your arm stretched out.",
+          "task": "Move the layer through the three floors and see each verdict.",
+          "goal": "all"
+        },
+        {
+          "kind": "text",
+          "text": "The rule of thumb, quite literally: pieces **wider than three fingers** are stratocumulus. Pieces between a **little-finger nail and three fingers**, often about a thumb, are altocumulus. Pieces **smaller than your little-finger nail** are cirrocumulus. Near the boundaries, use the next clue. Measure pieces high in the sky, well away from the horizon. Near the horizon you are looking at the layer from the side and from much further away, so every piece looks squashed and small."
+        }
+      ]
+    },
+    {
+      "title": "Shadows give it away",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "The second clue is shading. Sunlight entering a cloud is scattered by the droplets, bounced in every direction, and much of it bounces back out of the side it came in. So the sunlit top of a cloud is bright, and the deeper you go, the less light is left to come out of the far side. A thin cloud lets most of the light through and stays white all over. A lump a few hundred metres thick sends most of the light back up and lets little through, so from below you see its shaded belly: grey underneath, with bright edges where the sun catches its sides. Grey, not black, because some light does trickle all the way through, and the blue sky and the ground both shine a little light back up onto it."
+        },
+        {
+          "kind": "figure",
+          "figure": "shadow",
+          "caption": "One lump of cloud with the sun above it.",
+          "task": "Thicken the cloud until it shades itself.",
+          "goal": "shade"
+        },
+        {
+          "kind": "text",
+          "text": "Altocumulus pieces are usually thick enough for **shaded bellies**: grey-bottomed sheep in a flock. Cirrocumulus, high and thin and made of ice, is pure white grains with **no shading at all**. So shading mostly settles the altocumulus-or-cirrocumulus question; to tell altocumulus from stratocumulus, which are both shaded, trust your hand."
+        },
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "One altocumulus to remember. If you see little turrets sprouting upward from it on a warm, sticky morning, call me. That’s castellanus, Latin for castle-like. It is your first-shift test failing high up: the middle sky is cooling fast with height, faster than the 5 °C per kilometre of a cloudy bubble, so any bubble that rises from the layer stays warmer than its neighbours and keeps climbing. That is a warning, because on most days what stops the afternoon’s thermals is stable air above them. If the air above is unstable too, nothing stops them, and the towers can climb all the way up. Thunderstorms by afternoon, often."
+        }
+      ]
+    },
+    {
+      "title": "The frosted glass: altostratus",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "**Altostratus** is the middle floor’s smooth layer: a grey or bluish sheet, often covering the whole sky, made of droplets and ice crystals mixed. It is thick enough to hide the sun’s outline but not thick enough to block it, so the sun shows through faintly, as a pale disc behind frosted glass."
+        },
+        {
+          "kind": "figure",
+          "figure": "sunThrough",
+          "caption": "The sun behind a layer of cloud.",
+          "task": "Thicken the layer until the sun looks like it’s behind frosted glass.",
+          "goal": "altostratus"
+        },
+        {
+          "kind": "text",
+          "text": "There are two quick tests for it. Under altostratus **shadows vanish**. Most of the light reaching the ground no longer comes straight from the sun but from the whole glowing sheet, from every direction at once, and light from every direction fills in every shadow. And there is **no halo** around the sun. A halo is made by ice crystals bending sunlight, by one fixed angle, and only works in a thin veil, where a ray of sunlight meets one crystal and comes straight to your eye. In thick altostratus each ray is bent and bounced by crystal after crystal and droplet after droplet, each time in a new direction. Light that set off along the 22° ring gets knocked off it, and light from everywhere else gets knocked onto it, until the light reaching you comes evenly from the whole sheet and the ring is lost in the glow. Halos, and the thin ice veils that make them, are next shift. (The figure also shows the thinner veil and a thicker rain layer; both are coming.)"
+        },
+        {
+          "kind": "text",
+          "text": "Altostratus rarely sits still. Most often it is a stage in something bigger: a veil of cloud spreading in, thickening and lowering ahead of rain."
+        }
+      ]
+    },
+    {
+      "title": "Radio check",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Radio check. This time I just want the floor for each photo: low, middle or high. For a heap, give me the floor its base sits on. Use your hand on lumpy layers, and shading too. For a smooth sheet or a streak, use what you know about each."
+        },
+        {
+          "kind": "figure",
+          "figure": "radioCheck",
+          "caption": "Photos from the other lookouts. Which floor is each cloud on?",
+          "options": {
+            "mode": "floor",
+            "pool": [
+              "stratocumulus",
+              "altocumulus",
+              "altostratus",
+              "cirrocumulus",
+              "stratus",
+              "cumulus",
+              "cirrus"
+            ],
+            "count": 8
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Middle-floor clouds come from broad, gentle lifting; layers whose tops cool by glowing to space churn into lumps.",
+    "At arm’s length a fist is about 10°, three fingers 5°, a thumb 2°, a little-finger nail 1°.",
+    "Lumps wider than three fingers are stratocumulus, a nail to three fingers altocumulus, smaller than a nail cirrocumulus.",
+    "Thick lumps shade themselves: altocumulus has grey bellies, cirrocumulus none.",
+    "Altostratus shows the sun as through frosted glass, with no shadows and no halo; it often thickens ahead of rain.",
+    "Turrets on altocumulus (castellanus) mean the middle sky is unstable: watch for afternoon storms."
+  ],
+  "next": "Next shift, the ice realm: mares’ tails, halos, and the warning they give a day ahead.",
+  "journal": {
+    "hand-trick": {
+      "title": "The hand trick",
+      "text": "At arm’s length a fist is about 10°, three fingers 5°, a thumb 2°, a little-finger nail 1°. The higher a layer, the smaller its lumps look: wider than three fingers is stratocumulus, a nail to three fingers altocumulus, smaller than a nail cirrocumulus. Shaded bellies mean thick cloud: altocumulus or stratocumulus, never cirrocumulus."
+    },
+    "altocumulus": {
+      "title": "Altocumulus",
+      "text": "Rounded patches or rolls with shaded bellies on the middle floor, a nail to three fingers wide at arm’s length: a layer churning into cells as its top cools. Turrets on a warm morning (castellanus) warn of afternoon storms."
+    },
+    "altostratus": {
+      "title": "Altostratus",
+      "text": "A grey or bluish sheet of droplets and ice. The sun shows as through frosted glass, with no shadows and no halo. Usually a veil thickening ahead of rain; rain is likely within hours."
+    }
+  }
+}

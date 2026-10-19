@@ -1,0 +1,375 @@
+{
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "id": "ice-realm",
+  "n": 4,
+  "title": "The ice realm and early warnings",
+  "teaches": "Supercooled water and how ice makes rain; cirrus, cirrostratus and cirrocumulus; the 22° halo; and a warm front read a day ahead, down to nimbostratus",
+  "parts": [
+    {
+      "title": "Above the freezing line",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Anvil Peak, today we go all the way up. The high clouds are thin and pretty, and they are the best early warning this job has."
+        },
+        {
+          "kind": "text",
+          "text": "Climb high enough and the air is below freezing even on a summer afternoon. On average, as you saw in your first shift, the air gets about 6.5 °C colder for every kilometre you climb, so on a day that is 15 °C in the valley the freezing level is a little over two kilometres up, the air at the bottom of the high floor, six kilometres up, is around −24 °C, and near the top of the weather it is colder than −50 °C. You might expect every cloud above the freezing line to be ice. It isn’t, and the reason is one of the strangest facts about water."
+        },
+        {
+          "kind": "text",
+          "text": "For water to freeze, its molecules have to line up into the neat six-sided pattern of an ice crystal, and they need something to start that pattern on, just as vapour needs a speck to start a droplet. In a lake there is always some dust or a rough surface to begin on, so it freezes at 0 °C. A cloud droplet is tiny and clean. It has a speck inside it, the one it condensed on, but ice is fussy: it only starts on a surface whose atoms happen to be spaced like the molecules in an ice crystal, so the first layer of ice can lock onto them. Most specks are salt, smoke or soot, and are no use; only a few kinds of mineral dust and a few others fit, perhaps one speck in a million. So a droplet can cool far below 0 °C and stay liquid. Water like this is called **supercooled**, and most clouds between about 0 °C and −20 °C are full of it. Only below about −38 °C (call it −40 for short, as the figure does) do the molecules finally line up on their own, and every droplet freezes."
+        },
+        {
+          "kind": "figure",
+          "figure": "freezing",
+          "caption": "A mild summer day, from the valley floor to the top of the weather.",
+          "task": "Climb above 6,000 m.",
+          "goal": "high"
+        },
+        {
+          "kind": "text",
+          "text": "So the sky has three bands of temperature, which don’t line up exactly with the three floors: pure droplets below the freezing level, a mixed band of supercooled droplets and a few ice crystals, and pure ice wherever it is colder than about −40 °C, eight or nine kilometres up on a summer day. The high floor straddles the top two bands. Its clouds are ice all the same: at the cold top because nothing else can exist there, and lower down because, as you are about to see, once a few crystals appear among supercooled droplets, the ice wins."
+        }
+      ]
+    },
+    {
+      "title": "How ice makes rain",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "That mixed band is where most of the world’s rain begins. Remember the jar of air from your first shift: at each temperature there is a limit to how crowded vapour can get, the point where molecules join the water as fast as they escape from it. In ice, each molecule is locked into the rigid crystal by its neighbours, so fewer of them manage to break free than from liquid water at the same temperature. Now think about the balance. Molecules land on the surface at a rate set by how crowded the vapour is, and leave it at a rate set by how easily they escape. A surface stops growing or shrinking when the two match. If fewer escape from ice, then fewer need to land on it to match them, and a thinner vapour is enough. So the limit next to ice is lower than the limit next to water. At −12 °C, air that is just full for water holds about 13% more vapour than ice needs to stop growing: it is 13% overfull for ice."
+        },
+        {
+          "kind": "text",
+          "text": "Now put one ice crystal in a cloud of supercooled droplets. It is all the same air, but whether air is “full” is a question about a surface, not about the air: does vapour land on that surface faster than it leaves? Next to the droplets, landing and leaving balance. Next to the crystal, more lands than leaves, so vapour keeps freezing onto the crystal. That thins the vapour, and now next to the droplets fewer molecules land than leave, so the droplets shrink a little, which tops the vapour back up, and that vapour too ends up on the crystal. Molecule by molecule, the crystal eats the droplets around it."
+        },
+        {
+          "kind": "figure",
+          "figure": "iceGrowth",
+          "caption": "One ice crystal among supercooled cloud droplets.",
+          "task": "Find a temperature where the crystal grows fast enough to fall.",
+          "goal": "fall"
+        },
+        {
+          "kind": "text",
+          "text": "The colder it is, the bigger that difference in percentage. But in very cold air there is so little vapour altogether that even a big percentage is only a few molecules, so the crystal grows fastest in between, around −10 to −15 °C. In ten or twenty minutes a crystal can grow heavy enough to fall, and as it falls it bumps into more supercooled droplets, which freeze onto it on contact, and it tangles with other crystals into snowflakes. If the air below is warm, the snow melts on the way down and arrives as rain. So in summer, most of the rain that falls on the forest around you began as snow. Weather radar sees this happen: just below the freezing level, every rain cloud shows a bright band where melting snowflakes, wet on the outside and still big, reflect the radar strongly."
+        },
+        {
+          "kind": "text",
+          "text": "This is the other way to make rain that the last shift promised. Clouds that stay warmer than freezing must build raindrops by collision, slowly. Clouds that reach into the mixed band let ice do the work, much faster. Either way, it takes a deep cloud."
+        }
+      ]
+    },
+    {
+      "title": "Mares’ tails: cirrus",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Up on the high floor, ice crystals make clouds of their own. **Cirrus** is made of falling ice. Crystals form in a moist patch near the top of the weather, grow, and begin to fall. A grown crystal is a tenth of a millimetre or more across, ten times the size of a cloud droplet, so it falls much faster, at about a metre a second. As they fall they pass through air moving at different speeds, because the wind usually gets stronger with height: near the ground, friction with trees and hills slows it, and high up there is nothing to slow it at all. A change of wind with height is called **wind shear**. The crystals that have fallen lower are carried along more slowly and lag behind the patch they came from, so the trail curves."
+        },
+        {
+          "kind": "figure",
+          "figure": "streaks",
+          "caption": "Ice crystals falling from a moist patch high up.",
+          "task": "Add wind shear until the trails curl into hooks.",
+          "goal": "hooks"
+        },
+        {
+          "kind": "text",
+          "text": "Those hooked streaks are the classic **mares’ tails**. The head of the hook is where the crystals form; the long tail is where they fall and slowly turn straight back into vapour in the drier air below, without ever melting. Each crystal is still tiny, but it is bigger than a cloud droplet and there are far fewer of them, perhaps one for every thousand droplets in a low cloud, which is why cirrus looks thin and silky, and why you can often see blue sky through it."
+        },
+        {
+          "kind": "text",
+          "text": "**Cirrocumulus** is the high floor’s lumpy layer: tiny white grains or ripples, with no shading because they are so thin, often in rows like the scales of a fish. Sailors called it a *mackerel sky*. It is short-lived and rarely covers much of the sky."
+        }
+      ]
+    },
+    {
+      "title": "Through a crystal",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Ice crystals do one more thing that droplets cannot: they make halos. First, why light bends at all. Light travels more slowly in ice than in air, by about a quarter. When a beam hits a surface at a slant, one edge of it enters the ice first and slows down first, while the other edge is still racing through the air, so the beam swings round, the way a marching band turns when the players on one side shorten their step. Out the other side the same thing happens in reverse."
+        },
+        {
+          "kind": "text",
+          "text": "Many crystals are tiny six-sided columns or plates, like pencils cut short. Light that enters one face and heads for the next face round, which leans at 120° to it, meets that face at such a shallow slant that it cannot get out: it reflects back inside, the way a stone skimmed flat across a pond bounces off the water. But take a face and skip one, and the two faces lean towards each other at 60°: light that enters one and leaves by the face two along has passed through a 60° prism, like the glass one in a science lab."
+        },
+        {
+          "kind": "figure",
+          "figure": "prism",
+          "caption": "Sunlight through one hexagonal ice crystal.",
+          "task": "Turn the crystal until the light is bent the least.",
+          "goal": "min"
+        },
+        {
+          "kind": "text",
+          "text": "Measure the bend as the angle between the direction the light was going before the crystal and the direction it leaves in. However you turn the crystal, the light is bent by **at least 22°** (21.8° for yellow light, to be exact; the figure uses yellow). And near that smallest angle, turning the crystal hardly changes the bend at all, the way the ground is flat at the very bottom of a valley, while away from it the bend changes quickly. So if crystals are turned every which way, a whole wide range of turns all send light out at close to 22°, while each larger angle gets only a few. Light piles up at the minimum."
+        }
+      ]
+    },
+    {
+      "title": "The 22° halo",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Now fill the sky with millions of crystals, all turned at random. Every one sends some sunlight out at 22° or more, and most of it at close to 22°. Seen from the ground, the light you receive from those crystals comes from all around a ring 22° from the sun."
+        },
+        {
+          "kind": "figure",
+          "figure": "halo",
+          "caption": "Sunlight through a sky of randomly turned crystals.",
+          "task": "Add crystals until the ring appears.",
+          "goal": "ring"
+        },
+        {
+          "kind": "text",
+          "text": "That ring is the **22° halo**. Inside it the sky is darker, since no crystal can bend light by less than 22°, and the inner edge is sharp because that is exactly where the light piles up. The edge is faintly red. Ice slows red light a little less than blue, so red’s smallest bend is a little smaller, about 21.5°, and blue’s a little larger, about 22.4°. The 22° is a round number for the middle of the colours. So the inner edge is red, with the colours mixing back to white further out. It is big. Hold your hand out at arm’s length with the fingers spread wide, and the halo’s radius is about a hand-span from the tip of your thumb to the tip of your little finger."
+        },
+        {
+          "kind": "text",
+          "text": "Only six-sided ice crystals bend light like this, and a whole ring needs them spread evenly across the sky, so a complete halo almost always means **cirrostratus**: a thin, milky veil of ice across the whole sky, so thin that the sun is still sharp and fence posts still cast shadows. On its own it is just a pretty sky. What it means depends on what comes after it."
+        }
+      ]
+    },
+    {
+      "title": "A warm front, from far off",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Here is why you are really up there, Anvil Peak. The high clouds are my early warning."
+        },
+        {
+          "kind": "text",
+          "text": "Large masses of air hundreds of kilometres across drift across the continent, some warm and moist from the south, some cool and dry from the north. Where a warm air mass pushes into a cold one, the boundary between them is called a **warm front**. The warm air is lighter, so instead of shoving the cold air aside it slides up over it, along a boundary that slopes very gently, rising only about one kilometre for every hundred kilometres forward."
+        },
+        {
+          "kind": "text",
+          "text": "That gentle slope is the broad, slow lifting you met in your first shift, on an enormous scale. The warm air rides up it, cools as it rises, and makes cloud all along the slope: wide layers rather than heaps. Because the slope is so shallow, its high end, ten kilometres up, is about a thousand kilometres ahead of the place where the front touches the ground. So as a warm front approaches, the first thing you see is the cloud at its top, and then lower and lower cloud as the front comes on. A typical front moves at about 25 kilometres an hour, so that first cirrus can appear a day and a half before the front itself arrives."
+        },
+        {
+          "kind": "figure",
+          "figure": "front",
+          "caption": "A warm front, moving towards the lookout at about 25 km/h.",
+          "task": "Let the front come in until rain is about to arrive.",
+          "goal": "arrive"
+        },
+        {
+          "kind": "text",
+          "text": "That sequence is the most useful forecast in this job: **cirrus** spreading in from one direction, thickening into a **cirrostratus** veil with a halo, lowering into **altostratus**, where the sun goes dim and the halo fades, and finally a thick grey layer and steady rain. The halo veil passes overhead when the front is still roughly a day away. The rain doesn’t wait for the front itself. Rain needs a deep cloud, one that stretches from up in the mixed band, where ice makes the rain, down to within a couple of kilometres of the ground. Far out along the slope the cloud is all high up; only near the front does it reach that low, over the last couple of hundred kilometres. So from the first halo to the rain is usually **12 to 24 hours**, and once altostratus has dimmed the sun and the cloud is lowering, it is only hours."
+        },
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "The moon makes the same halo at night, through the same veil. The old rhyme has it: ring around the moon, rain soon. It isn’t right every time, but it’s right more often than not."
+        }
+      ]
+    },
+    {
+      "title": "The soaking layer: nimbostratus",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "The last cloud of the front is **nimbostratus**, the rain layer: a dark, even sheet several kilometres deep, from which rain or snow falls steadily for hours. You have every piece of it now. The front’s wide, gentle lifting makes it a layer. And near the front the cloud reaches from low down right up through the freezing level, so its upper part lies in the mixed band, where ice crystals grow, fall, and melt into rain. Lift wide and you get a layer; lift deep and you get rain."
+        },
+        {
+          "kind": "text",
+          "text": "Its name breaks the code a little: *nimbo-* is not a floor but a label for rain. The Cloud Atlas files nimbostratus on the middle floor, because that is where it starts and where most of it lies. But under it, the falling rain partly evaporates, and evaporating takes heat from the air, just as drying sweat cools your skin. The air below cools and fills with vapour until it reaches its dew point, and ragged scraps of low cloud, called **scud**, form beneath the rain layer, so from the ground its dark base seems to sag right down into the low sky."
+        },
+        {
+          "kind": "figure",
+          "figure": "sunThrough",
+          "caption": "The sun behind the front’s layer of cloud.",
+          "task": "Thicken the layer until the sun is gone entirely.",
+          "goal": "nimbostratus"
+        },
+        {
+          "kind": "text",
+          "text": "From the tower, the best test is the sun. Under altostratus you can still find it; under nimbostratus it is gone. And compare it with the lumpy grey sheet from the low sky. Stratocumulus has a *texture*: lumps, rolls, light and dark patches, gaps. Nimbostratus has none. It is evenly dark and blurred by falling rain. If you can see the shape of the cloud, it probably isn’t the one soaking you."
+        }
+      ]
+    },
+    {
+      "title": "Radio check",
+      "blocks": [
+        {
+          "kind": "radio",
+          "who": "juniper",
+          "text": "Radio check. Names first, then tell me what each sky is up to."
+        },
+        {
+          "kind": "figure",
+          "figure": "radioCheck",
+          "caption": "Photos from the other lookouts. Call in each cloud by name.",
+          "options": {
+            "mode": "name",
+            "pool": [
+              "cirrus",
+              "cirrostratus",
+              "cirrocumulus",
+              "altostratus",
+              "nimbostratus",
+              "stratocumulus"
+            ],
+            "known": [
+              "cirrus",
+              "cirrostratus",
+              "cirrocumulus",
+              "altocumulus",
+              "altostratus",
+              "nimbostratus",
+              "stratocumulus"
+            ],
+            "count": 6
+          }
+        },
+        {
+          "kind": "figure",
+          "figure": "forecast",
+          "caption": "The sky over a few hours, as the other lookouts logged it. What is it up to?",
+          "options": {
+            "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "Monday 08:00"
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "14:00"
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "20:00"
+                  }
+                ],
+                "question": "Mares’ tails thickened to a veil with a halo; now the halo has gone and the sun is a dim disc. When will it rain?",
+                "options": [
+                  "It won’t; this is fair weather",
+                  "Within the next several hours",
+                  "In about a week"
+                ],
+                "answer": 1,
+                "why": "Cirrus to cirrostratus to altostratus is a warm front coming in, highest cloud first. Rain usually follows within a day of the halo, sooner now the veil is so thick."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "09:00"
+                  },
+                  {
+                    "genus": "cirrus",
+                    "when": "13:00"
+                  },
+                  {
+                    "genus": "cirrus",
+                    "when": "17:00"
+                  }
+                ],
+                "question": "A few wisps of cirrus all day, not spreading or thickening. What’s up?",
+                "options": [
+                  "Fair weather for now",
+                  "A warm front within hours",
+                  "Thunderstorms this evening"
+                ],
+                "answer": 0,
+                "why": "Cirrus on its own is fair weather. It is the thickening and spreading into a veil that warns of a front."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "altostratus",
+                    "when": "09:00"
+                  },
+                  {
+                    "genus": "nimbostratus",
+                    "when": "12:00"
+                  },
+                  {
+                    "genus": "nimbostratus",
+                    "when": "15:00"
+                  }
+                ],
+                "question": "A grey sheet thickened until the sun vanished and the base looks blurred. What should the crews expect?",
+                "options": [
+                  "A short shower, then sun",
+                  "Steady rain for hours",
+                  "It will burn off by noon"
+                ],
+                "answer": 1,
+                "why": "A featureless layer with no sun behind it is nimbostratus: wide, deep lifting along the front, and steady rain until it passes."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cirrostratus",
+                    "when": "11:00"
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "12:00"
+                  }
+                ],
+                "question": "A milky veil with a ring around the sun. The ring is about how far from the sun?",
+                "options": [
+                  "A thumb’s width",
+                  "A hand-span, about 22°",
+                  "Halfway across the sky"
+                ],
+                "answer": 1,
+                "why": "A spread hand at arm’s length, the smallest bend a six-sided crystal can give."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Cloud droplets stay liquid well below 0 °C (supercooled); only below about −38 °C do they all freeze. High clouds are ice.",
+    "Next to ice the vapour limit is lower than next to water, so a crystal grows by eating supercooled droplets: most rain starts as snow.",
+    "Cirrus hooks are falling crystals bent by winds that change with height.",
+    "Hexagonal ice crystals bend light by at least 22°, which makes the 22° halo in a cirrostratus veil.",
+    "A warm front slides warm air up over cold: cirrus, cirrostratus with a halo, altostratus, then nimbostratus and steady rain, usually 12 to 24 hours after the halo."
+  ],
+  "next": "Last training shift: the giants. Thunderstorms, and a few rare clouds worth staying up for.",
+  "journal": {
+    "ice": {
+      "title": "The ice realm",
+      "text": "Droplets need a rare kind of speck to freeze on, so cloud water stays liquid well below 0 °C: supercooled. Below about −38 °C every droplet freezes. Above the freezing level clouds are a mix of supercooled droplets and ice; high clouds are ice. Crystals are sparse, so high clouds are thin; they fall, so high clouds streak; and they are prisms, so high clouds make halos."
+    },
+    "ice-rain": {
+      "title": "How ice makes rain",
+      "text": "Next to ice, vapour starts sticking at a lower crowding than next to water. So among supercooled droplets an ice crystal grows while the droplets evaporate, fastest around −10 to −15 °C. The crystal falls, gathers more, and melts into rain if the air below is warm. Most rain outside the tropics starts as snow."
+    },
+    "cirrus": {
+      "title": "Cirrus",
+      "text": "Thin white hooks and streaks: mares’ tails. Falling ice crystals bent by winds that change with height. Fair for now; spreading and thickening into a veil warns of a front."
+    },
+    "cirrostratus": {
+      "title": "Cirrostratus",
+      "text": "A thin, milky veil of ice over the whole sky; the sun is still sharp, shadows still fall, and it often wears a 22° halo. Thickening cirrostratus often means rain in 12 to 24 hours."
+    },
+    "cirrocumulus": {
+      "title": "Cirrocumulus",
+      "text": "Tiny white grains or ripples with no shading, smaller than a fingernail at arm’s length: a mackerel sky. Short-lived; often an early sign of a system on the way."
+    },
+    "halo": {
+      "title": "The 22° halo",
+      "text": "Light through a hexagonal ice crystal, in one side and out a side two faces along, bends by at least 22°, and most often close to it. A sky of tumbling crystals makes a ring 22° around the sun or moon, reddish inside: a spread hand at arm’s length."
+    },
+    "warm-front": {
+      "title": "A warm front coming",
+      "text": "Warm air rides up over cold on a slope of about 1 in 100, making layered cloud at every height, the highest up to a thousand kilometres ahead. Cirrus, then cirrostratus with a halo, then altostratus, then nimbostratus and steady rain, usually 12 to 24 hours after the halo."
+    },
+    "nimbostratus": {
+      "title": "Nimbostratus",
+      "text": "A dark, featureless layer kilometres deep, blurred by falling rain, with no sun behind it: the last cloud of a warm front. Wide, deep lifting; ice does the work of making rain. Steady rain or snow for hours."
+    }
+  }
+}

@@ -37,6 +37,14 @@ export function dewPointOf(grams: number): number {
   return (lo + hi) / 2;
 }
 
+/** Vapour pressure in hPa at which air is full next to flat water, and next to ice (Magnus). */
+export function fullOverWater(tempC: number): number {
+  return 6.112 * Math.exp((17.62 * tempC) / (243.12 + tempC));
+}
+export function fullOverIce(tempC: number): number {
+  return 6.112 * Math.exp((22.46 * tempC) / (272.62 + tempC));
+}
+
 export interface Parcel {
   heightM: number;
   tempC: number;
