@@ -2,7 +2,7 @@
 
 import { GENERA, floorInfo } from '../../core/clouds';
 import { JOURNAL } from '../../core/shifts';
-import { photosOf } from '../../core/photos';
+import { FEATURES, photosOf, photosOfFeature, type FeatureId } from '../../core/photos';
 import { el, svg } from '../dom';
 import { photoFigure, PHOTOS } from '../photos';
 import type { View } from '../router';
@@ -21,7 +21,14 @@ export const journalView: View = (root) => {
       {},
       el('h1', {}, 'Field journal'),
       notes.length
-        ? el('div.notes', {}, notes.map(([, n]) => el('article.note', { className: n.rare ? 'note rare' : 'note' }, el('h3', {}, n.title, n.rare ? el('span.tag', {}, 'Rare') : null), el('p', {}, n.text))))
+        ? el(
+            'div.notes',
+            {},
+            notes.map(([id, n]) => {
+              const photo = (FEATURES as readonly string[]).includes(id) ? photosOfFeature(PHOTOS, id as FeatureId)[0] : undefined;
+              return el('article.note', { className: n.rare ? 'note rare' : 'note' }, photo ? photoFigure(photo, n.title) : null, el('h3', {}, n.title, n.rare ? el('span.tag', {}, 'Rare') : null), el('p', {}, n.text));
+            }),
+          )
         : el('p.muted', {}, 'Nothing written yet. Finish a shift and its notes land here.'),
       el('h2', {}, 'The ten kinds of cloud'),
       el(

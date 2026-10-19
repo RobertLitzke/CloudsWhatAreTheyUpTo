@@ -11,7 +11,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { categoryFiles, fileInfo, type FileInfo } from './commons.ts';
-import { CATEGORIES, MIN_WIDTH } from './config.ts';
+import { CATEGORIES, FEATURES, MIN_WIDTH } from './config.ts';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.join(here, 'candidates');
@@ -19,19 +19,33 @@ const PER_GENUS = Number(process.env.PER_GENUS ?? 60);
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
+/**
+ * Categories list files alphabetically, so one keen photographer's series can
+ * fill a whole sheet. Take every author's first photo, then every author's
+ * second, and so on.
+ */
+function spreadByAuthor(files: FileInfo[]): FileInfo[] {
+  const byAuthor = new Map<string, FileInfo[]>();
+  for (const f of files) byAuthor.set(f.author, [...(byAuthor.get(f.author) ?? []), f]);
+  const out: FileInfo[] = [];
+  for (let round = 0; out.length < files.length; round++) for (const list of byAuthor.values()) if (list[round]) out.push(list[round]);
+  return out;
+}
+
 const found: Record<string, FileInfo[]> = {};
-for (const [genus, cats] of Object.entries(CATEGORIES)) {
+const searches = { ...CATEGORIES, ...Object.fromEntries(Object.entries(FEATURES).map(([k, f]) => [k, f.categories])) };
+for (const [genus, cats] of Object.entries(searches)) {
   const titles = new Set<string>();
   for (const cat of cats) {
     try {
-      for (const t of await categoryFiles(cat, PER_GENUS * 3)) titles.add(t);
+      for (const t of await categoryFiles(cat, 500)) titles.add(t);
     } catch (e) {
       console.warn(`  ${cat}: ${(e as Error).message}`);
     }
   }
   const images = [...titles].filter((t) => /\.(jpe?g|png|webp|tiff?)$/i.test(t));
   const infos = (await fileInfo(images, 400)).filter((f) => f.license && f.width >= MIN_WIDTH);
-  found[genus] = infos.slice(0, PER_GENUS);
+  found[genus] = spreadByAuthor(infos).slice(0, PER_GENUS);
   console.log(`${genus}: ${images.length} files, ${infos.length} usable, kept ${found[genus].length}`);
 }
 

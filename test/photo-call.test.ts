@@ -32,6 +32,15 @@ describe('dealFloorCalls', () => {
     }
   });
 
+  it('leaves the rare clouds out of everyday checks', () => {
+    const lens = { ...photo('lenticularis-01', 'altocumulus'), feature: 'lenticularis' as const };
+    for (let seed = 0; seed < 20; seed++) {
+      const calls = dealFloorCalls(['altocumulus'], [lens, photo('altocumulus-01', 'altocumulus')], 3, makeRng(seed));
+      for (const c of calls) expect(c.photo?.id).toBe('altocumulus-01');
+    }
+    expect(dealFloorCalls(['altocumulus'], [lens], 1, makeRng(1))[0].photo).toBeNull();
+  });
+
   it('answers with the genus floor', () => {
     for (const c of dealFloorCalls(POOL, [], 4, makeRng(2))) {
       expect(c.answer).toBe({ cirrus: 'high', altocumulus: 'middle', stratus: 'low', cumulonimbus: 'tower' }[c.genus as string]);

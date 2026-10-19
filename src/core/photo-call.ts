@@ -3,7 +3,7 @@
 // dealt again exactly.
 
 import { genus, type Floor, type GenusId } from './clouds';
-import type { Photo } from './photos';
+import { photosOf, type Photo } from './photos';
 import { shuffle, type Rng } from './rng';
 
 export interface Call {
@@ -30,7 +30,7 @@ export function dealFloorCalls(pool: readonly GenusId[], library: readonly Photo
       if (calls.length && order.length > 1 && order[0] === calls[calls.length - 1].genus) order.push(order.shift()!);
     }
     const id = order.shift()!;
-    const mine = library.filter((p) => p.genus === id);
+    const mine = photosOf(library, id);
     const fresh = mine.filter((p) => !used.has(p.id));
     const choices = fresh.length ? fresh : mine;
     const photo = choices.length ? choices[Math.floor(rng() * choices.length)] : null;
