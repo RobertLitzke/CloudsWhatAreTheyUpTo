@@ -26,6 +26,7 @@ import giants from '../data/shifts/giants.json';
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
   'streaks', 'prism', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'radioCheck', 'forecast',
+  'molecules', 'expand', 'stability', 'heap', 'dayNight', 'fogStratus',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -34,6 +35,8 @@ export type Speaker = 'juniper' | 'you';
 export type Block =
   /** A paragraph of the article. */
   | { kind: 'text'; text: string }
+  /** The few ideas to hold on to, as a short list set apart from the article. */
+  | { kind: 'key'; title: string; points: string[] }
   /** A word over the radio, set apart from the article. */
   | { kind: 'radio'; who: Speaker; text: string }
   /** A live figure. `task` says what to do with it; `goal` tells the figure when it is done. */

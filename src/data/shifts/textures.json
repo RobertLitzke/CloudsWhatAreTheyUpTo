@@ -19,6 +19,18 @@
           "text": "The fire lookouts watch for smoke, while your job is to watch everything above it. Before we get into cloud names, though, you need a solid grasp of what a cloud actually is and how it forms."
         },
         {
+          "kind": "key",
+          "title": "The big ideas of this shift",
+          "points": [
+            "A cloud is liquid water droplets (or ice), not water vapour.",
+            "Water vapour condenses into droplets when air cools to its **dew point**. The more vapour in the air, the higher its dew point.",
+            "Air cools when it rises: there is less air above pressing down, so it expands, and expanding air cools, by about 10 °C per kilometre.",
+            "So most clouds mark places where air is rising.",
+            "Air warmer than its surroundings is lighter, so it rises; cooler air sinks.",
+            "In **unstable** air a rising bubble stays warmer than the air around it and keeps going, building heaps: **cumulus**. In **stable** air it is pushed back, so cloud forms only when a whole layer is lifted or chilled: flat **stratus**."
+          ]
+        },
+        {
           "kind": "text",
           "text": "Think of a boiling kettle. The white plume over the spout is not water vapour. Water vapour is water as a gas, made of individual molecules flying about on their own among the nitrogen and oxygen molecules of the air, and it is completely invisible. If you look closely at a boiling kettle, there is a clear gap right at the spout where the steam is still vapour. The white plume begins a finger’s width further out, where the vapour cools and its molecules clump together into microscopic liquid droplets. Individual gas molecules let light pass straight through, whereas liquid droplets are large enough to scatter light in every direction. Billions of droplets scattering sunlight in all directions look white."
         },
@@ -29,6 +41,11 @@
         {
           "kind": "text",
           "text": "Water molecules in the air are constantly bumping into one another, and they are slightly sticky. Because each molecule is a little positive at one end and negative at the other, they tug on each other when they pass close by. Now and then a few stick together to start a droplet, but in warm air the molecules are jiggling so fast that they quickly shake themselves free again. The colder the air, the slower its molecules move, and the more likely they are to stay stuck once they collide. At the same time, the more water molecules you pack into a cubic metre of air, the more often they run into one another. At any temperature, there is a limit to how crowded the vapour can be before molecules stick together faster than they shake apart. Put in more vapour than that limit, and the excess condenses into liquid droplets. Warm air has a high limit: a cubic metre of air at 30 °C can keep about 30 grams of water as vapour, or roughly two spoonfuls. At 0 °C, that limit drops below 5 grams."
+        },
+        {
+          "kind": "figure",
+          "figure": "molecules",
+          "caption": "The same water molecules in warm air and in cold air."
         },
         {
           "kind": "text",
@@ -73,6 +90,11 @@
         {
           "kind": "text",
           "text": "When air expands, it cools. You have probably felt the opposite effect when pumping up a bicycle tyre, where compressing the air makes the pump warm. You can see expansion cooling directly if you pop open a cold bottle of fizzy drink: as the pressure drops, the gas in the neck expands, cools past its dew point, and forms a brief wisp of fog. Temperature is simply a measure of how fast molecules are jostling around. As a rising parcel expands, its molecules spend energy pushing the surrounding air out of the way, so they come away moving a little more slowly. Nothing cold has touched the parcel; it cools because its own molecules did the work of expanding."
+        },
+        {
+          "kind": "figure",
+          "figure": "expand",
+          "caption": "A parcel of air rising from the ground. Nothing is added or taken away; it just spreads out."
         },
         {
           "kind": "text",
@@ -135,6 +157,11 @@
           "text": "If instead the surrounding air gets colder with height *more slowly* than 10 °C per kilometre, say at 5 °C per kilometre, the nudged parcel arrives colder and denser than its new neighbours. Being heavier than the air around it, it sinks back down to where it started. That air is **stable**. Notice that stable and unstable describe the temperature profile of the surrounding sky on that day, which governs what happens to any parcel that gets nudged."
         },
         {
+          "kind": "figure",
+          "figure": "stability",
+          "caption": "Two days, two skies. Each bubble is nudged up one kilometre and cools 10 °C; what decides its fate is the air around it."
+        },
+        {
           "kind": "text",
           "text": "A ball on a landscape behaves the same way. At the bottom of a valley, push the ball and it rolls back to where it started, which is stable. Balanced on a hilltop, push the ball and it rolls away and keeps going, which is unstable. In the figure, compare the two temperatures beside the bubble as it moves."
         },
@@ -190,6 +217,11 @@
           "text": "Between the cumulus clouds, the sky stays clear. Every bit of air that rises in a thermal must be replaced by air sinking somewhere else. As the air between the thermals sinks into higher pressure, it is compressed and warms by 10 °C per kilometre, moving its temperature further above its dew point so no cloud can form."
         },
         {
+          "kind": "figure",
+          "figure": "heap",
+          "caption": "A fair-weather cumulus, and the air moving around it."
+        },
+        {
           "kind": "radio",
           "who": "juniper",
           "text": "Small cumulus scattered across a blue sky are the best weather this job has. We call them fair-weather cumulus. They appear with the morning sun and fade around sunset, when the ground stops heating the air and the thermals shut down."
@@ -206,6 +238,11 @@
         {
           "kind": "text",
           "text": "Every warm object radiates infrared light, which our eyes cannot see but which carries heat energy away. During the day, the sun pours more energy into the ground than the ground radiates upward. At night no sunlight comes in, and under a clear sky the ground’s infrared radiation escapes straight out to space. As the ground cools, the air resting on it loses heat to the cold surface by contact, the way your hand cools on a cold windowpane. Contact alone chills only the bottom few centimetres, but gentle stirring in the night air, along with the air’s own infrared radiation, spreads the chill upward through the lowest few tens of metres. Clouds radiate infrared heat back down toward the ground as well, which is why a cloudy night stays mild while a clear night turns cold."
+        },
+        {
+          "kind": "figure",
+          "figure": "dayNight",
+          "caption": "What the ground gains and loses, by day and by night."
         },
         {
           "kind": "text",
@@ -225,6 +262,11 @@
         {
           "kind": "text",
           "text": "Fog and **stratus** are the exact same cloud; the name only indicates whether the cloud base touches the ground. When a morning breeze or the first warmth of the sun evaporates the bottom of a fog bank, the layer left hanging above is stratus: a flat, uniform sheet with no distinct features, often low enough to hide the hilltops. Stratus also forms during the day or night whenever warm, moist air drifts across cold ground or cold sea water and gets chilled from below. In either case, stable air is cooled gently as a wide layer, forming an unbroken sheet."
+        },
+        {
+          "kind": "figure",
+          "figure": "fogStratus",
+          "caption": "The same layer of cloud, seen from the valley floor."
         },
         {
           "kind": "text",
