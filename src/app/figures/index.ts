@@ -3,6 +3,7 @@
 import type { FigureId } from '../../core/shifts';
 import { freezingFigure, jarFigure, parcelFigure, soundingFigure, thermalsFigure } from './air';
 import { billowFigure, flashFigure, mammaFigure, stormFigure, waveFigure } from './giants';
+import { dayNightDiagram, expandDiagram, fogStratusDiagram, heapDiagram, moleculesDiagram, stabilityDiagram } from './diagrams';
 import { frontFigure, haloFigure, iceGrowthFigure, prismFigure, streaksFigure } from './ice';
 import type { FigureFactory } from './kit';
 import { dropsFigure, handFigure, nightFigure, nudgeFigure, shadowFigure, spreadFigure, sunThroughFigure } from './layers';
@@ -35,4 +36,10 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   names: namesFigure,
   radioCheck: radioCheckFigure,
   forecast: forecastFigure,
+  molecules: moleculesDiagram,
+  expand: expandDiagram,
+  stability: stabilityDiagram,
+  heap: heapDiagram,
+  dayNight: dayNightDiagram,
+  fogStratus: fogStratusDiagram,
 };

@@ -42,6 +42,8 @@ function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[]): 
   switch (block.kind) {
     case 'text':
       return prose(block.text);
+    case 'key':
+      return el('section.key-ideas', {}, el('p.key-title', {}, block.title), el('ul', {}, ...block.points.map((p) => el('li', {}, prose(p)))));
     case 'radio':
       return el('aside.radio-call', { className: `radio-call ${block.who}` },
         el('div.radio-icon', {}, radioIcon()),

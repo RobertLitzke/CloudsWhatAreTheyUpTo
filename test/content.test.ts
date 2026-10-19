@@ -63,9 +63,13 @@ describe('shifts', () => {
       for (const p of s.parts) {
         expect(p.title, s.id).toBeTruthy();
         for (const b of p.blocks) {
-          expect(['text', 'radio', 'figure'], `${s.id} ${p.title}`).toContain(b.kind);
+          expect(['text', 'radio', 'figure', 'key'], `${s.id} ${p.title}`).toContain(b.kind);
           if (b.kind === 'radio') expect(['juniper', 'you']).toContain(b.who);
-          if (b.kind !== 'figure') {
+          if (b.kind === 'key') {
+            expect(b.title.trim(), `${s.id} ${p.title}`).not.toBe('');
+            expect(b.points.length, `${s.id} ${p.title}`).toBeGreaterThan(0);
+            for (const point of b.points) expect(point.trim()).not.toBe('');
+          } else if (b.kind !== 'figure') {
             expect(b.text.trim(), `${s.id} ${p.title}`).not.toBe('');
             for (const m of b.text.matchAll(/\[\[.+?\|(\w+)\]\]/g)) expect(colours, b.text).toContain(m[1]);
           } else expect(b.caption, `${s.id} ${b.figure}`).toBeTruthy();
