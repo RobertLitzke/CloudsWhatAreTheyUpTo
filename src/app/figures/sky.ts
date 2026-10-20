@@ -12,7 +12,7 @@ import { photoFigure, PHOTOS } from '../photos';
 import { drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from '../ui';
-import { height, task, type FigureContext, type FigureFactory } from './kit';
+import { height, task, textBox, type FigureContext, type FigureFactory } from './kit';
 
 function bands(ctx: FigureContext, onPick?: (f: Floor) => void): SVGElement {
   const g = svg('g', { class: 'bands' });
@@ -99,7 +99,7 @@ export const sortFigure: FigureFactory = (ctx, _goal, options) => {
   scene.sky.append(bands(ctx, choose));
   const node = el('div.fig-body', {},
     el('div.fig-scene', {}, scene.root),
-    feedback,
+    textBox(feedback, 2),
     tray,
     el('div.floor-buttons', {}, FLOOR_BUTTONS.map((f) => el('button.btn.btn-ghost', { type: 'button', onclick: () => choose(f.id) }, f.label))),
   );

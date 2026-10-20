@@ -3,7 +3,7 @@
 // chart that says how tall the afternoon's clouds will grow.
 
 import { cloudBase, column, dewPointOf, roomFor, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
-import { svg } from '../dom';
+import { el, svg } from '../dom';
 import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, temp, type FigureFactory } from './kit';
 
 // ---- A parcel lifted --------------------------------------------------------
@@ -11,7 +11,7 @@ import { COL, animate, frame, height, label, line, polyline, redraw, slider, tas
 export const parcelFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 260;
-  const f = frame(W, H);
+  const f = frame(W, H, 3);
   const ground = 236;
   const top = 3000;
   const yOf = (m: number) => ground - (m / top) * 200;
@@ -89,7 +89,7 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
 export const jarFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 260;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   let tempC = 25;
   let water = 12;
@@ -138,8 +138,8 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
       svg('circle', { cx: xOf(tempC), cy: yOf(s.room), r: 4, fill: COL.env }),
     );
     f.readout.textContent = s.droplets > 0
-      ? `At ${tempC} °C there is room for only ${s.room.toFixed(1)} g of vapour in each cubic metre, and the jar has ${water} g. The extra ${s.droplets.toFixed(1)} g has clumped into droplets: the jar is fogged, a tiny cloud. It happened at ${s.dew.toFixed(1)} °C, the dew point.`
-      : `At ${tempC} °C there is room for ${s.room.toFixed(1)} g of vapour in each cubic metre. The jar has ${water} g, so every molecule stays vapour and the air is clear. Cool it below ${s.dew.toFixed(1)} °C and there won’t be room.`;
+      ? `At ${tempC} °C there is room for only ${s.room.toFixed(1)} g of vapour per cubic metre, but the jar has ${water} g. The extra ${s.droplets.toFixed(1)} g is droplets: a tiny cloud. It began at ${s.dew.toFixed(1)} °C, the dew point.`
+      : `At ${tempC} °C there is room for ${s.room.toFixed(1)} g of vapour in each cubic metre. The jar has ${water} g, so it all stays vapour and the air is clear. Cool it below ${s.dew.toFixed(1)} °C and there won’t be room.`;
     if (goal === 'fog' && s.droplets > 0.3) t.resolve();
   };
   animate(f.node, ctx, (dt) => {
@@ -179,10 +179,12 @@ function el2(tag: string, color: string, text: string): HTMLElement {
 
 // ---- The sky's temperature by height ----------------------------------------
 
-export const freezingFigure: FigureFactory = (ctx, goal) => {
+export const freezingFigure: FigureFactory = (ctx) => {
+  // A still picture: there is nothing to find by moving through it, so every
+  // height carries its temperature and the three kinds of cloud stuff at once.
   const W = 400;
   const H = 280;
-  const f = frame(W, H);
+  const s = svg('svg', { viewBox: `0 0 ${W} ${H}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
   const top = 13000;
   const bottom = 262;
   const yOf = (m: number) => bottom - (m / top) * 244;
@@ -190,7 +192,6 @@ export const freezingFigure: FigureFactory = (ctx, goal) => {
   const tAt = (m: number) => 15 - 6.5 * (Math.min(m, 11000) / 1000);
   const zero = 15 / 6.5 * 1000;
   const forty = 55 / 6.5 * 1000;
-  const t = task();
   const g = svg('g');
   // Three bands of stuff: droplets, supercooled droplets and ice, ice alone.
   g.append(
@@ -205,7 +206,15 @@ export const freezingFigure: FigureFactory = (ctx, goal) => {
     label(W - 6, (yOf(zero) + yOf(forty)) / 2 + 4, 'supercooled droplets and ice', { 'text-anchor': 'end', class: 'fig-label soft' }),
     label(W - 6, yOf(forty) / 2 + 4, 'ice crystals', { 'text-anchor': 'end', class: 'fig-label soft' }),
   );
-  for (let m = 0; m <= 12000; m += 2000) g.append(label(6, yOf(m) + 4, height(m, ctx.save.units), { class: 'fig-label small' }));
+  // The height scale, each mark with the temperature up there.
+  for (let m = 2000; m <= 12000; m += 2000) {
+    const c = Math.round(tAt(m));
+    const mark = label(6, yOf(m) + 4, `${height(m, ctx.save.units)} · `, { class: 'fig-label small' });
+    const t = svg('tspan', { 'font-weight': 700 });
+    t.textContent = `${c < 0 ? '−' : ''}${Math.abs(c)} °C`;
+    mark.append(t);
+    g.append(mark);
+  }
   // Droplets and crystals as little marks.
   for (let i = 0; i < 14; i++) {
     const x = 90 + (i % 7) * 26;
@@ -216,22 +225,11 @@ export const freezingFigure: FigureFactory = (ctx, goal) => {
     const m3 = forty + 300 + (i * 523) % (top - forty - 600);
     g.append(hex(x + 4, yOf(m3), 3.2, COL.ice));
   }
-  const marker = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: COL.ground }), g, marker);
-  const paint = (m: number) => {
-    const c = tAt(m);
-    redraw(marker,
-      line(60, yOf(m), 300, yOf(m), COL.ink, 1.5),
-      svg('circle', { cx: 60, cy: yOf(m), r: 5, fill: COL.ink }),
-      label(70, yOf(m) - 6, `${height(m, ctx.save.units)} · ${c.toFixed(0)} °C`, { class: 'fig-label bold' }),
-    );
-    const floor = m < 2000 ? 'the low floor' : m < 5000 ? 'the middle floor' : 'the high floor';
-    f.readout.textContent = `${height(m, ctx.save.units)} is on ${floor}. On a mild day it is ${c.toFixed(0)} °C up there${c < -40 ? ', cold enough that every cloud is ice' : c < 0 ? ', below freezing, yet droplets can stay liquid' : ''}.`;
-    if (goal === 'high' && m >= 6000) t.resolve();
-  };
-  f.controls.append(slider('Climb', 0, 12500, 100, 1000, (v) => height(v, ctx.save.units), paint).node);
-  paint(1000);
-  return { node: f.node, done: goal ? t.promise : undefined };
+  s.append(
+    svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: COL.ground }), g,
+    label(6, H - 5, 'valley floor · 15 °C', { class: 'fig-label small bold', fill: COL.paper }),
+  );
+  return { node: el('div.fig-body.fig-still', {}, s) };
 };
 
 function hex(cx: number, cy: number, r: number, fill: string): SVGElement {
@@ -337,7 +335,7 @@ export function heapAt(cx: number, baseY: number, w: number, h: number): SVGElem
 export const soundingFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 300;
-  const f = frame(W, H);
+  const f = frame(W, H, 2);
   const top = 12000;
   const bottom = 276;
   const yOf = (m: number) => bottom - (m / top) * 262;

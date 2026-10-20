@@ -1,5 +1,6 @@
-// What every figure is made of. A figure is a drawing with a few controls under
-// it, a caption, and sometimes a small task; it says when the task is done so
+// What every figure is made of. A figure is a drawing, one text box that says
+// what the drawing is and what it is showing now, a few controls, and sometimes
+// a small task; it says when the task is done so
 // the lesson can move on. Figures are drawn on the shift's paper, in ink, with
 // a handful of colours that always mean the same thing in every figure and in
 // the text around them: the rising air is orange, the air around it violet, the
@@ -51,17 +52,28 @@ export interface Frame {
   node: HTMLElement;
   svg: SVGSVGElement;
   controls: HTMLElement;
-  /** A line under the drawing that says what the figure is showing now. */
+  /** The live part of the text box under the drawing: what the figure is showing now. */
   readout: HTMLElement;
 }
 
-/** The standard figure: a drawing `w` by `h` units, scaled to the column. */
-export function frame(w: number, h: number, ...extra: Child[]): Frame {
+/**
+ * The standard figure: a drawing `w` by `h` units, scaled to the column. The
+ * text box under it keeps room for `lines` lines of readout at phone width, so
+ * the controls below stay put while the text changes; the lesson puts the
+ * figure's caption at the top of the same box (views/shift.ts).
+ */
+export function frame(w: number, h: number, lines = 3, ...extra: Child[]): Frame {
   const s = svg('svg', { viewBox: `0 0 ${w} ${h}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
   const readout = el('p.fig-readout');
   const controls = el('div.fig-controls');
-  const node = el('div.fig-body', {}, s, readout, controls, ...extra);
+  const node = el('div.fig-body', {}, s, textBox(readout, lines), controls, ...extra);
   return { node, svg: s, controls, readout };
+}
+
+/** The box a figure's text lives in, `lines` lines of readout tall. */
+export function textBox(readout: HTMLElement, lines = 3): HTMLElement {
+  readout.style.setProperty('--lines', String(lines));
+  return el('div.fig-text', {}, readout);
 }
 
 export interface Slider {

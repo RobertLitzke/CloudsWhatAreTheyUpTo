@@ -24,7 +24,7 @@ const ceilingY = (x: number, stability = 0) => 70 + stability * (x * x) / 60;
 export const nudgeFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 250;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   let stability = -0.6; // below zero unstable, above stable
   let z = 0;
@@ -81,7 +81,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
       running = false;
       z = 150;
       redraw(cloud, heapAt(250, 120, 34, 90));
-      f.readout.textContent = 'Unstable air: the air around cools faster with height than the bubble does, so once nudged the bubble is warmer than its neighbours and keeps rising on its own, until it turns to cloud. That is how heaps are built.';
+      f.readout.textContent = 'Unstable air: the air around cools faster with height than the bubble, so the nudged bubble stays warmer than its neighbours and rises on its own until it is a heap of cloud.';
       triedUnstable.yes = true;
     } else if (stability >= 0 && Math.abs(v) < 0.4 && Math.abs(z) < 1 && dt > 0) {
       running = false;
@@ -90,7 +90,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
         svg('rect', { x: 150, y: 96, width: 240, height: 14, rx: 7, fill: COL.cloudShade, opacity: 0.85 }),
         label(270, 90, 'if a layer is cooled: a flat sheet', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
       );
-      f.readout.textContent = 'Stable air: the air around cools more slowly with height than the bubble does, so the nudged bubble is colder than its neighbours, sinks back and settles. Nothing climbs on its own, so air becomes cloud only when something cools a whole layer gently and together: a flat sheet.';
+      f.readout.textContent = 'Stable air: the air around cools more slowly than the bubble, so the nudged bubble is soon colder and sinks back. Only a whole layer cooled together makes cloud: a flat sheet.';
       triedStable.yes = true;
     }
     paintBall();
@@ -122,7 +122,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
 export const nightFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
   const H = 250;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   const n: Night = { duskC: 16, dewC: 7, clear: 0.5, wind: 0.4 };
   let hour = 10;
@@ -185,7 +185,7 @@ export const nightFigure: FigureFactory = (_ctx, goal) => {
 export const spreadFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
   const H = 220;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   let lid = 0.2;
   let moist = 0.5;
@@ -244,7 +244,7 @@ function fallSpeed(mm: number): number {
 export const dropsFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
   const H = 200;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
@@ -317,7 +317,7 @@ export const sunThroughFigure: FigureFactory = (_ctx, goal) => {
 export const handFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 250;
-  const f = frame(W, H);
+  const f = frame(W, H, 2);
   const t = task();
   const PX_PER_DEG = 9; // about 44° of sky across the figure
   let pieceM = 250;

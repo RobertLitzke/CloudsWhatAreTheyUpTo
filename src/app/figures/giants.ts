@@ -12,7 +12,7 @@ import { COL, animate, frame, label, line, redraw, slider, task, type FigureFact
 export const stormFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
   const H = 270;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   const ground = 246;
   const tropo = 40;
@@ -76,7 +76,7 @@ export const stormFigure: FigureFactory = (_ctx, goal) => {
 export const flashFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 200;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   const ground = 170;
   const you = 40;
@@ -111,8 +111,8 @@ export const flashFigure: FigureFactory = (ctx, goal) => {
       f.node.classList.add('shake');
       setTimeout(() => f.node.classList.remove('shake'), 400);
       const s = Math.round(arrive);
-      f.readout.textContent = `Boom: ${s} seconds. Sound covers about a kilometre every three seconds, so the strike was about ${strikeKm(s).toFixed(1)} km away.` +
-        (s <= 30 ? ' Thirty seconds or less: you are within reach of the next strike. Get inside, and wait 30 minutes after the last thunder.' : ' Far enough for now, but storms move quickly.');
+      f.readout.textContent = `Boom: ${s} seconds. Sound covers a kilometre in about three, so the strike was about ${strikeKm(s).toFixed(1)} km away.` +
+        (s <= 30 ? ' Within 30 seconds: get inside, and stay 30 minutes after the last thunder.' : ' Far enough for now, but storms move quickly.');
       if (goal === 'strike') t.resolve();
     } else f.readout.textContent = `Counting (sped up four times, in real seconds): ${Math.floor(since)}…`;
     paint();
@@ -133,7 +133,7 @@ export const flashFigure: FigureFactory = (ctx, goal) => {
 export const waveFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
   const H = 240;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   let wind = 0.5;
   let level = 0.5;
@@ -184,7 +184,7 @@ export const waveFigure: FigureFactory = (_ctx, goal) => {
     );
     redraw(g, ...parts);
     f.readout.textContent = lenses
-      ? `Lenticular clouds: the air bobs up and down in standing waves downwind of the ridge, and where it rises above its condensation level a smooth lens forms. The air streams through it, but the cloud stays put.`
+      ? 'Lenticular clouds: where a standing wave lifts the air above its condensation level, a smooth lens forms. The air streams through it, but the cloud stays put.'
       : 'Air flowing over the ridge bobs in waves downwind of it. Lower the condensation level (more moisture) or strengthen the wind until the crests turn to cloud.';
     if (goal === 'lens' && lenses > 0) t.resolve();
   };
@@ -245,7 +245,7 @@ export const billowFigure: FigureFactory = (ctx, goal) => {
 export const mammaFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
   const H = 180;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9b48f' }), g);
@@ -260,7 +260,7 @@ export const mammaFigure: FigureFactory = (_ctx, goal) => {
     redraw(g, ...parts);
     f.readout.textContent = sink < 0.3
       ? 'The underside of an anvil, smooth while little is happening.'
-      : 'Mammatus: pockets of cold, cloudy air sinking out of the anvil’s base, like an upside-down cumulus. They look ominous, but they usually hang from the anvil as the storm moves away: a sign the worst has passed, not of a new storm.';
+      : 'Mammatus: pouches of cold, cloudy air sinking from the anvil’s base, an upside-down cumulus. Ominous, but usually a sign the storm is moving away.';
     if (goal === 'pouches' && sink >= 0.6) t.resolve();
   };
   f.controls.append(slider('Sinking air', 0, 1, 0.01, 0.1, (v) => (v < 0.3 ? 'little' : v < 0.6 ? 'some' : 'a lot'), paint, 'ice').node);
