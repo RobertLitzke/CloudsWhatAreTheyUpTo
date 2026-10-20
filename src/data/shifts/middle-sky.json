@@ -1,7 +1,7 @@
 {
   "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "middle-sky",
-  "n": 3,
+  "n": 4,
   "title": "The middle sky and the hand trick",
   "teaches": "Altocumulus and altostratus, and how to judge a cloud’s height using your hand and its shadows",
   "parts": [
@@ -14,7 +14,16 @@
         },
         {
           "kind": "text",
-          "text": "The middle floor runs from about two to seven kilometres up, where the air is near or below freezing and clouds usually consist of a mixture of liquid droplets and ice crystals. On most days, thermals rising from the sun-warmed ground never reach this high; the atmosphere above a kilometre or two is stable, so rising bubbles lose their buoyancy on the low floor where fair-weather cumulus clouds flatten out. (On days with deep instability, storm towers punch through every floor, which we will examine in the final lesson.) Middle-floor clouds usually form instead by broad, gentle lifting, as a wide layer of moist air glides slowly upward over hundreds of kilometres. This happens most often where an advancing mass of warm air meets a mass of colder, denser air and slides up over it along a gradual slope. Because that slope is so gentle, middle-floor clouds appear far out in front of the boundary on the ground, arriving well *ahead* of a storm. Just as on the low floor, lifting a wide layer all together produces flat sheets."
+          "text": "The middle floor runs from about two to seven kilometres up, where the air is near or below freezing and clouds usually consist of a mixture of liquid droplets and ice crystals. On most days, thermals rising from the sun-warmed ground never reach this high; the atmosphere above a kilometre or two is stable, so rising bubbles lose their buoyancy on the low floor where fair-weather cumulus clouds flatten out. (On days with deep instability, storm towers punch through every floor, which we will examine in the final lesson.)"
+        },
+        {
+          "kind": "text",
+          "text": "Middle-floor clouds usually form instead by broad, gentle lifting, as a wide layer of moist air glides slowly upward over hundreds of kilometres. This happens most often where an advancing mass of warm air meets a mass of colder, denser air and slides up over it along a gradual slope. Because that slope is so gentle, middle-floor clouds appear far out in front of the boundary on the ground, arriving well *ahead* of a storm. Just as on the low floor, lifting a wide layer all together produces flat sheets."
+        },
+        {
+          "kind": "figure",
+          "figure": "glide",
+          "caption": "Warm air gliding up over a wedge of cold air."
         },
         {
           "kind": "text",
@@ -22,7 +31,16 @@
         },
         {
           "kind": "text",
-          "text": "Inside a cloud, a parcel of air moving up or down changes temperature by only about 5 °C per kilometre, because condensing or evaporating water droplets release or absorb latent heat. Once radiative cooling makes the top of the cloud layer more than 5 °C per kilometre colder than the base, the layer becomes unstable within itself. A pocket of chilled, dense air at the top sinks and stays colder than the cloudy air around it, while warmer air from the base rises to take its place. The layer begins to overturn in regular convection cells, each forming a loop with rising air in one place and sinking air right beside it. Loops that are much wider than they are tall have to drag air a long way horizontally, while loops that are very narrow experience too much friction against their neighbours, so the cells naturally settle into roughly equal width and height, about as wide as the cloud layer is deep (typically a few hundred metres). Where air rises in each cell, the cloud thickens into a rounded lump; where air sinks, the droplets evaporate and the cloud thins or clears. In this way, a smooth cloud sheet breaks up into a pattern of rounded patches or rolls. (The same radiative cooling at the cloud top drives overturning inside stratocumulus decks on the low floor, keeping them broken into distinct lumps.)"
+          "text": "Inside a cloud, a parcel of air moving up or down changes temperature by only about 5 °C per kilometre, because condensing or evaporating water droplets release or absorb latent heat (the stored heat from the second lesson). Once radiative cooling makes the top of the cloud layer more than 5 °C per kilometre colder than the base, the layer becomes unstable within itself. A pocket of chilled, dense air at the top sinks and stays colder than the cloudy air around it, while warmer air from the base rises to take its place. The layer begins to overturn in regular convection cells, each forming a loop with rising air in one place and sinking air right beside it."
+        },
+        {
+          "kind": "text",
+          "text": "Loops that are much wider than they are tall have to drag air a long way horizontally, while loops that are very narrow experience too much friction against their neighbours, so the cells naturally settle into roughly equal width and height, about as wide as the cloud layer is deep (typically a few hundred metres). Where air rises in each cell, the cloud thickens into a rounded lump; where air sinks, the droplets evaporate and the cloud thins or clears. In this way, a smooth cloud sheet breaks up into a pattern of rounded patches or rolls. (The same cooling at the cloud top also helps keep stratocumulus decks on the low floor stirred and broken into lumps, along with the heating from below.)"
+        },
+        {
+          "kind": "figure",
+          "figure": "overturn",
+          "caption": "A cloud layer cooled from the top, turning over in cells."
         },
         {
           "kind": "text",
@@ -39,7 +57,15 @@
         },
         {
           "kind": "text",
-          "text": "You can judge their height by the apparent size of the individual cloud elements. Because overturning cells are roughly as wide as their cloud layer is deep, low and middle cloud layers (both typically a few hundred metres thick) break into lumps that are a few hundred metres across. High-floor cloud layers are much shallower, often less than a hundred metres thick, so cirrocumulus ripples are physically smaller as well as much further away. Just as a car looks smaller in the distance, the higher a cloud layer sits, the smaller its individual lumps *look* from the ground. In the figure, which views the sky high up where you would normally measure, a 300-metre lump at an altitude of 2 km spans an **angle** of about 7° across your field of view; at 5 km up it spans about 3°, and a 100-metre grain at 9 km spans less than 1°. You always carry a reliable ruler for measuring angles: your own hand held at arm’s length. With your arm stretched out straight, a closed fist covers about 10° of sky, three fingers side by side cover about 5°, a thumb covers about 2°, and the nail of your little finger covers about 1°. Because people with larger hands also have proportionally longer arms that hold the hand further from the eye, the geometry cancels out and these angles hold true for almost everyone."
+          "text": "You can judge their height by the apparent size of the individual cloud elements. Because overturning cells are roughly as wide as their cloud layer is deep, low and middle cloud layers (both typically a few hundred metres thick) break into lumps that are a few hundred metres across. High-floor cloud layers are much shallower, often less than a hundred metres thick, so cirrocumulus ripples are physically smaller as well as much further away. Just as a car looks smaller in the distance, the higher a cloud layer sits, the smaller its individual lumps *look* from the ground."
+        },
+        {
+          "kind": "text",
+          "text": "In the figure, which views the sky high up where you would normally measure, a 300-metre lump at an altitude of 2 km spans an **angle** of about 7° across your field of view; at 5 km up it spans about 3°, and a 100-metre grain at 9 km spans less than 1°."
+        },
+        {
+          "kind": "text",
+          "text": "You always carry a reliable ruler for measuring angles: your own hand held at arm’s length. With your arm stretched out straight, a closed fist covers about 10° of sky, three fingers side by side cover about 5°, a thumb covers about 2°, and the nail of your little finger covers about 1°. Because people with larger hands also have proportionally longer arms that hold the hand further from the eye, the geometry cancels out and these angles hold true for almost everyone."
         },
         {
           "kind": "figure",
@@ -74,7 +100,7 @@
         },
         {
           "kind": "text",
-          "text": "There is one special variety of altocumulus always worth watching for. If you spot miniature turrets sprouting upward from a line of altocumulus on a warm, humid morning, that is altocumulus castellanus, from the Latin for castle-like. Those little towers tell you that the middle sky is cooling with height faster than the 5 °C per kilometre of a rising cloudy parcel, so parcels rising out of the cloud layer stay warmer than their surroundings and keep climbing on their own. On a normal day, stable air on the middle floor caps the afternoon thermals; when castellanus appears in the morning, it warns that the middle floor is already unstable and afternoon thermals can punch all the way up into thunderstorms."
+          "text": "There is one special variety of altocumulus always worth watching for. If you spot miniature turrets sprouting upward from a line of altocumulus on a warm, humid morning, that is altocumulus castellanus, from the Latin for castle-like. Those little towers tell you that the middle sky is cooling with height faster than the 5 °C per kilometre of a rising cloudy parcel, so parcels rising out of the cloud layer stay warmer than their surroundings and keep climbing on their own. On a normal day, the afternoon thermals are capped well below the middle floor; when castellanus appears in the morning, it warns that the middle floor is already unstable and afternoon thermals can punch all the way up into thunderstorms."
         }
       ]
     },
@@ -94,7 +120,11 @@
         },
         {
           "kind": "text",
-          "text": "Two simple checks distinguish altostratus from thinner or thicker sheets. First, under altostratus, **shadows vanish**. Because the cloud deck scatters sunlight thoroughly, most of the light reaching the ground comes evenly from the entire overcast sky rather than in a direct beam from the sun, illuminating objects from all sides and filling in shadows. Second, altostratus produces **no halo** around the sun. An optical halo forms when ice crystals bend sunlight by a fixed angle (22°), which only stays visible in a thin ice veil where a ray of sunlight passes through a single crystal on its way to your eye. In a deep altostratus deck containing both droplets and ice, each light ray is scattered repeatedly from particle to particle in new directions, scrambling any 22° ring into an even glow. (We will examine halos and high ice veils in the next lesson, along with the thicker rain layer shown at the end of the slider.)"
+          "text": "Two simple checks distinguish altostratus from thinner or thicker sheets. First, under altostratus, **shadows vanish**. Because the cloud deck scatters sunlight thoroughly, most of the light reaching the ground comes evenly from the entire overcast sky rather than in a direct beam from the sun, illuminating objects from all sides and filling in shadows."
+        },
+        {
+          "kind": "text",
+          "text": "Second, altostratus produces **no halo** around the sun. An optical halo forms when ice crystals bend sunlight by a fixed angle (22°), which only stays visible in a thin ice veil where a ray of sunlight passes through a single crystal on its way to your eye. In a deep altostratus deck containing both droplets and ice, each light ray is scattered repeatedly from particle to particle in new directions, scrambling any 22° ring into an even glow. (We will examine halos and high ice veils in the next lesson, along with the thicker rain layer shown at the end of the slider.)"
         },
         {
           "kind": "text",

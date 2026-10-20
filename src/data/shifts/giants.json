@@ -1,7 +1,7 @@
 {
   "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "giants",
-  "n": 5,
+  "n": 6,
   "title": "Vertical giants and rare boss clouds",
   "teaches": "How a cumulus grows into a thunderstorm, estimating lightning distance, and spotting rare mountain-wave and shear clouds",
   "parts": [
@@ -22,7 +22,11 @@
         },
         {
           "kind": "text",
-          "text": "Forecasters and glider pilots track this vertical growth on a temperature-height chart called a **sounding**. Twice a day, weather stations release balloons carrying a radio transmitter, thermometer, and humidity sensor that measure the temperature and dew point every few seconds as the balloon ascends. In the figure below, the solid violet line shows the balloon’s report of the surrounding air temperature at each altitude. (The dashed violet line shows the cooler dawn profile before sunlight warmed the ground.) The teal line shows the dew point, and the orange line traces a rising parcel, cooling at 10 °C per kilometre below the cloud base and about 5 °C per kilometre above it. Temperature increases from left to right. At any altitude where the orange parcel line lies to the right of the violet environment line, the parcel is warmer than the surrounding air and keeps accelerating upward. Where the two lines cross, the parcel loses its buoyancy and stops."
+          "text": "Forecasters and glider pilots track this vertical growth on a temperature-height chart called a **sounding**. Twice a day, weather stations release balloons carrying a radio transmitter, thermometer, and humidity sensor that measure the temperature and dew point every few seconds as the balloon ascends."
+        },
+        {
+          "kind": "text",
+          "text": "In the figure below, the solid violet line shows the balloon’s report of the surrounding air temperature at each altitude. (The dashed violet line shows the cooler dawn profile before sunlight warmed the ground.) The teal line shows the dew point, and the orange line traces a rising parcel, cooling at 10 °C per kilometre below the cloud base and about 5 °C per kilometre above it. Temperature increases from left to right. At any altitude where the orange parcel line lies to the right of the violet environment line, the parcel is warmer than the surrounding air and keeps accelerating upward. Where the two lines cross, the parcel loses its buoyancy and stops."
         },
         {
           "kind": "figure",
@@ -38,7 +42,20 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "If there is no low-level inversion to cap a growing tower, it can climb to an altitude of 10 to 12 kilometres. Throughout the lowest layer of the atmosphere (the troposphere), the air generally gets colder with height because it is heated from below by the sun-warmed ground. Around 10 to 12 kilometres up, however, the temperature stops falling with altitude and begins to rise instead. This upper warming is caused by **ozone**, a three-atom form of oxygen (O₃). High in the atmosphere, intense ultraviolet light from the sun splits ordinary two-atom oxygen molecules (O₂) apart, and the free oxygen atoms combine with intact oxygen molecules to form an ozone layer. Ozone strongly absorbs incoming ultraviolet radiation, heating the upper atmosphere from above while shielding the surface below. The boundary where temperature stops falling and starts rising with height is the **tropopause**, marking the base of the **stratosphere**. Because the stratosphere gets warmer with altitude, it acts as a massive, permanent inversion lid across the top of the troposphere that even the strongest thunderstorm updraughts cannot penetrate far."
+          "text": "If there is no low-level inversion to cap a growing tower, it can climb to an altitude of 10 to 12 kilometres. Throughout the lowest layer of the atmosphere (the troposphere), the air generally gets colder with height because it is heated from below by the sun-warmed ground. Around 10 to 12 kilometres up, however, the temperature stops falling with altitude and begins to rise instead."
+        },
+        {
+          "kind": "text",
+          "text": "This upper warming is caused by **ozone**, a three-atom form of oxygen (O₃). High in the atmosphere, intense ultraviolet light from the sun splits ordinary two-atom oxygen molecules (O₂) apart, and the free oxygen atoms combine with intact oxygen molecules to form an ozone layer. Ozone strongly absorbs incoming ultraviolet radiation, heating the upper atmosphere from above while shielding the surface below."
+        },
+        {
+          "kind": "text",
+          "text": "The boundary where temperature stops falling and starts rising with height is the **tropopause**, marking the base of the **stratosphere**. Because the stratosphere gets warmer with altitude, it acts as a massive, permanent inversion lid across the top of the troposphere that even the strongest thunderstorm updraughts cannot penetrate far."
+        },
+        {
+          "kind": "figure",
+          "figure": "tropopause",
+          "caption": "Temperature by height, from the ground into the stratosphere."
         },
         {
           "kind": "text",
@@ -68,7 +85,19 @@
         },
         {
           "kind": "text",
-          "text": "In the **growing stage** (or cumulus stage), the tower consists entirely of warm updraughts carrying moist air skyward and building the cloud upward. The **mature stage** begins when precipitation inside the cloud grows too heavy for the updraughts to support and starts falling toward the ground. Inside strong, gusty updraughts, ice pellets are repeatedly carried up and tumbled through dense clouds of supercooled droplets that freeze onto them in concentric layers, building **hailstones** until they are heavy enough to fall out of the storm. As heavy rain and hail plunge downward, they drag surrounding air down with them. At the same time, drier air mixes into the edges of the storm and evaporates some of the falling rain, chilling the air and making it denser so it plunges faster still. During this mature stage, the storm contains a warm updraught and a cold downdraught side by side, producing its heaviest downpours, hail, lightning, and sudden surface wind gusts. Finally, in the **dissipating stage**, the cold downdraught spreads out across the ground like a miniature cold front, cutting off the inflow of warm, humid air that fuelled the updraught. Starved of warm air from below, the storm rains itself out, often leaving its orphaned ice anvil lingering high overhead."
+          "text": "In the **growing stage** (or cumulus stage), the tower consists entirely of warm updraughts carrying moist air skyward and building the cloud upward."
+        },
+        {
+          "kind": "text",
+          "text": "The **mature stage** begins when precipitation inside the cloud grows too heavy for the updraughts to support and starts falling toward the ground. Inside strong, gusty updraughts, ice pellets are repeatedly carried up and tumbled through dense clouds of supercooled droplets that freeze onto them in concentric layers, building **hailstones** until they are heavy enough to fall out of the storm."
+        },
+        {
+          "kind": "text",
+          "text": "As heavy rain and hail plunge downward, they drag surrounding air down with them. At the same time, drier air mixes into the edges of the storm and evaporates some of the falling rain, chilling the air and making it denser so it plunges faster still. During this mature stage, the storm contains a warm updraught and a cold downdraught side by side, producing its heaviest downpours, hail, lightning, and sudden surface wind gusts."
+        },
+        {
+          "kind": "text",
+          "text": "Finally, in the **dissipating stage**, the cold downdraught spreads out across the ground like a miniature cold front, cutting off the inflow of warm, humid air that fuelled the updraught. Starved of warm air from below, the storm rains itself out, often leaving its orphaned ice anvil lingering high overhead."
         }
       ]
     },
@@ -77,7 +106,20 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Inside a churning cumulonimbus tower, soft hailstones (graupel), ice crystals, and supercooled droplets constantly collide with one another. All atoms have negatively charged **electrons** on their outer shells, and when two objects rub or collide, electric charge can transfer from one surface to the other, just as rubbing a balloon on your hair leaves one negatively charged and the other positively charged. In the mixed-phase zone of a thunderstorm, collisions between small ice crystals and heavier pellets of soft hail systematically leave the tiny ice crystals with a slight positive charge and the heavier hail pellets with a negative charge. The storm’s updraught sweeps the lightweight, positively charged ice crystals high into the anvil while gravity pulls the heavier, negatively charged hail into the middle and lower parts of the cloud, separating electrical charge on a massive scale. Once the voltage difference between these regions (or between the cloud base and the ground) grows strong enough, the electric field strips electrons directly off air molecules, ionizing the air into an electrically conducting plasma channel. Stored charge surges through that narrow channel in a violent spark several kilometres long: **lightning**."
+          "text": "Inside a churning cumulonimbus tower, soft hailstones (graupel), ice crystals, and supercooled droplets constantly collide with one another. All atoms have negatively charged **electrons** on their outer shells, and when two objects rub or collide, electric charge can transfer from one surface to the other, just as rubbing a balloon on your hair leaves one negatively charged and the other positively charged."
+        },
+        {
+          "kind": "text",
+          "text": "In the mixed-phase zone of a thunderstorm, collisions between small ice crystals and heavier pellets of soft hail systematically leave the tiny ice crystals with a slight positive charge and the heavier hail pellets with a negative charge. The storm’s updraught sweeps the lightweight, positively charged ice crystals high into the anvil while gravity pulls the heavier, negatively charged hail into the middle and lower parts of the cloud, separating electrical charge on a massive scale."
+        },
+        {
+          "kind": "figure",
+          "figure": "charge",
+          "caption": "Where a thunderstorm keeps its charge."
+        },
+        {
+          "kind": "text",
+          "text": "Once the voltage difference between these regions (or between the cloud base and the ground) grows strong enough, the electric field strips electrons directly off air molecules, ionizing the air into an electrically conducting plasma channel. Stored charge surges through that narrow channel in a violent spark several kilometres long: **lightning**."
         },
         {
           "kind": "text",
@@ -113,7 +155,11 @@
         },
         {
           "kind": "text",
-          "text": "When a strong, steady wind blows across a mountain ridge into a stable atmosphere, the air is forced up the windward slope, cools at 10 °C per kilometre, and becomes colder and denser than the surrounding air at the ridge crest. Gravity pulls that dense air back down the leeward side, where it picks up speed and overshoots its original starting altitude. Because the surrounding air is stable (warming by less than 10 °C per kilometre going downward), the descending parcel—warming at the full 10 °C per kilometre—becomes warmer and more buoyant than its neighbours at the bottom of the dip and rebounds upward again. The airflow continues oscillating up and down for many kilometres downwind of the ridge in **standing mountain waves**, much like stationary ripples downstream of a boulder in a river. Wherever the wave crests lift a moist layer of air past its dew point, water vapour condenses into a stationary cloud right at the top of the wave."
+          "text": "When a strong, steady wind blows across a mountain ridge into a stable atmosphere, the air is forced up the windward slope, cools at 10 °C per kilometre, and becomes colder and denser than the surrounding air at the ridge crest. Gravity pulls that dense air back down the leeward side, where it picks up speed and overshoots its original starting altitude."
+        },
+        {
+          "kind": "text",
+          "text": "Because the surrounding air is stable (warming by less than 10 °C per kilometre going downward), the descending parcel—warming at the full 10 °C per kilometre—becomes warmer and more buoyant than its neighbours at the bottom of the dip and rebounds upward again. The airflow continues oscillating up and down for many kilometres downwind of the ridge in **standing mountain waves**, much like stationary ripples downstream of a boulder in a river. Wherever the wave crests lift a moist layer of air past its dew point, water vapour condenses into a stationary cloud right at the top of the wave."
         },
         {
           "kind": "figure",

@@ -1,4 +1,4 @@
-// The tutorial series: five lessons of a workbook. Each lesson is a short
+// The tutorial series: six lessons of a workbook. Each lesson is a short
 // illustrated article in the manner of an interactive explainer: paragraphs
 // and live figures to play with. A lesson comes in parts; the next part opens
 // once the figures in this one have had their small task done. The last part
@@ -13,7 +13,8 @@
 // *italic*, and [[words|colour]] to tie a word to the same colour in a figure.
 
 import type { GenusId } from './clouds';
-import textures from '../data/shifts/textures.json';
+import fog from '../data/shifts/fog.json';
+import heaps from '../data/shifts/heaps.json';
 import lowSky from '../data/shifts/low-sky.json';
 import middleSky from '../data/shifts/middle-sky.json';
 import iceRealm from '../data/shifts/ice-realm.json';
@@ -24,6 +25,8 @@ export const FIGURE_IDS = [
   'streaks', 'prism', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'radioCheck', 'forecast',
   'molecules', 'expand', 'stability', 'heap', 'dayNight', 'fogStratus',
   'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
+  'specks', 'inversion', 'burnOff', 'latent', 'kettle', 'density',
+  'glide', 'overturn', 'freezeSeeds', 'escape', 'snowToRain', 'tropopause', 'charge',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -100,7 +103,8 @@ function fromJson(file: ShiftFile, clouds: GenusId[]): Shift {
 
 export const SHIFTS: readonly Shift[] = [
   // -------------------------------------------------------------------------
-  fromJson(textures, ['cumulus', 'stratus']),
+  fromJson(fog, ['stratus']),
+  fromJson(heaps, ['cumulus']),
   fromJson(lowSky, ['stratocumulus']),
   fromJson(middleSky, ['altocumulus', 'altostratus']),
   fromJson(iceRealm, ['cirrus', 'cirrostratus', 'cirrocumulus', 'nimbostratus']),
@@ -113,7 +117,8 @@ export function shiftById(id: string): Shift | undefined {
 
 /** Journal entries and what they say. Shifts unlock them by id. Rare ones are the clouds to stay up for. */
 export const JOURNAL: Record<string, { title: string; text: string; rare?: boolean }> = {
-  ...textures.journal,
+  ...fog.journal,
+  ...heaps.journal,
   ...lowSky.journal,
   ...middleSky.journal,
   ...iceRealm.journal,

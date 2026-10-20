@@ -1,0 +1,305 @@
+{
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "id": "fog",
+  "n": 1,
+  "title": "Fog, the cloud on the ground",
+  "teaches": "What a cloud is made of, and how a clear, still night chills the air into fog that lifts into a grey layer of stratus",
+  "parts": [
+    {
+      "title": "What a cloud is made of",
+      "blocks": [
+        {
+          "kind": "key",
+          "title": "The big ideas of this lesson",
+          "points": [
+            "A cloud is liquid water droplets (or ice), not water vapour.",
+            "Water vapour condenses into droplets when air cools to a certain temperature, its **dew point**. The more vapour in the air, the higher its dew point.",
+            "On a clear night the ground loses its heat to space and chills the air resting on it.",
+            "Cold air is heavy, so it stays at the bottom. Nothing bubbles up through it: the air is **stable**.",
+            "When that still, chilled layer reaches its dew point, it becomes **fog**. Lifted off the ground, the same layer is **stratus**."
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "Think of a boiling kettle. The white plume over the spout is not water vapour. Water vapour is water as a gas, made of individual molecules flying about on their own among the nitrogen and oxygen molecules of the air, and it is completely invisible. If you look closely at a boiling kettle, there is a clear gap right at the spout where the steam is still vapour. The white plume begins a finger’s width further out, where the vapour cools and its molecules clump together into microscopic liquid droplets. Individual gas molecules let light pass straight through, whereas liquid droplets are large enough to scatter light in every direction. Billions of droplets scattering sunlight in all directions look white."
+        },
+        {
+          "kind": "figure",
+          "figure": "kettle",
+          "caption": "A boiling kettle, close up."
+        },
+        {
+          "kind": "text",
+          "text": "A cloud is the same thing on a much larger scale. It is not water vapour, but tiny droplets of liquid water (or, very high up, tiny ice crystals) suspended in the air. So asking “why is there a cloud here?” is really asking “why did invisible vapour condense into liquid droplets here, and not over there?”"
+        },
+        {
+          "kind": "text",
+          "text": "Water molecules in the air are constantly bumping into one another, and they are slightly sticky. Because each molecule is a little positive at one end and negative at the other, they tug on each other when they pass close by. Now and then a few stick together to start a droplet, but in warm air the molecules are jiggling so fast that they quickly shake themselves free again."
+        },
+        {
+          "kind": "text",
+          "text": "The colder the air, the slower its molecules move, and the more likely they are to stay stuck once they collide. At the same time, the more water molecules you pack into a cubic metre of air, the more often they run into one another. At any temperature, there is a limit to how crowded the vapour can be before molecules stick together faster than they shake apart. Put in more vapour than that limit, and the excess condenses into liquid droplets. Warm air has a high limit: a cubic metre of air at 30 °C can keep about 30 grams of water as vapour, or roughly two spoonfuls. At 0 °C, that limit drops below 5 grams."
+        },
+        {
+          "kind": "figure",
+          "figure": "molecules",
+          "caption": "The same water molecules in warm air and in cold air."
+        },
+        {
+          "kind": "text",
+          "text": "People often say that warm air “holds” more water, as if the air were a sponge. In fact, the nitrogen and oxygen aren’t holding anything. The water molecules simply share the air’s temperature, and it is that temperature, together with how crowded the vapour is, that determines whether the molecules stay loose as gas or clump into liquid. When people say air has “room for” a certain amount of water, they just mean that limit before condensation begins."
+        },
+        {
+          "kind": "text",
+          "text": "Now take some air with a fixed amount of water vapour in it and cool it down. At first nothing visible happens, because the vapour has not reached its limit yet. Keep cooling the air, and that limit shrinks until it equals the amount of water vapour actually present. That temperature is the air’s **dew point**. Cool the air below its dew point and the excess vapour condenses into droplets. It takes its name from morning dew on grass, where the cold blades chill the thin layer of air touching them below its dew point."
+        },
+        {
+          "kind": "figure",
+          "figure": "jar",
+          "caption": "A sealed jar of air with some water vapour in it. The violet curve is how much vapour there is room for at each temperature.",
+          "task": "Cool the jar until it fogs.",
+          "goal": "fog"
+        },
+        {
+          "kind": "text",
+          "text": "Move the water slider in the jar and notice how the dew point behaves. First, the dew point depends only on how crowded the vapour is (how many grams of water vapour are in each cubic metre), not on how warm the air happens to be right now. (It is a temperature, but it is the temperature the air *would* have to be cooled to; warming or cooling the air does not move it.) If you add water vapour, the dew point goes up because the molecules are more crowded and need less cooling before they start sticking together. That makes the dew point a direct measure of how humid the air is. A dew point of 20 °C feels muggy, while a dew point of 0 °C feels crisp and dry."
+        },
+        {
+          "kind": "text",
+          "text": "Second, you don’t have to add any water to air to make a cloud. You only have to cool the air down to its dew point."
+        },
+        {
+          "kind": "text",
+          "text": "In the atmosphere, water vapour needs a surface to condense onto. A cluster of just a few water molecules is so tiny and tightly curved that molecules escape from its surface far more easily than new ones stick, so it breaks apart before it can grow. Specks of dust, smoke, or sea salt give water molecules a larger surface to gather on, and every lungful of outdoor air contains millions of such specks. The resulting cloud droplets are tiny, about a hundredth of a millimetre across. Because of air resistance, droplets that small fall at less than a centimetre per second, slow enough for the slightest upward breeze to keep them aloft."
+        },
+        {
+          "kind": "figure",
+          "figure": "specks",
+          "caption": "Where a droplet can start, and how small it is."
+        },
+        {
+          "kind": "text",
+          "text": "So making a cloud comes down to one question: what cools the air to its dew point? The sky has two main ways. It can chill air right where it sits, by cooling the ground underneath it, or it can lift the air up high, where (as the next lesson shows) air cools all by itself. This lesson takes the first and simpler way, the one you can watch on any calm autumn morning: **fog**."
+        }
+      ]
+    },
+    {
+      "title": "A clear, still night",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "To make fog, a broad layer of air has to be cooled gently all together, without lifting it at all. The night does exactly that."
+        },
+        {
+          "kind": "text",
+          "text": "Every warm object radiates infrared light, which our eyes cannot see but which carries heat energy away. During the day, the sun pours more energy into the ground than the ground radiates upward. At night no sunlight comes in, and under a clear sky the ground’s infrared radiation escapes straight out to space."
+        },
+        {
+          "kind": "text",
+          "text": "As the ground cools, the air resting on it loses heat to the cold surface by contact, the way your hand cools on a cold windowpane. Contact alone chills only the bottom few centimetres, but gentle stirring in the night air, along with the air’s own infrared radiation, spreads the chill upward through the lowest few tens of metres. Clouds radiate infrared heat back down toward the ground as well, which is why a cloudy night stays mild while a clear night turns cold."
+        },
+        {
+          "kind": "figure",
+          "figure": "dayNight",
+          "caption": "What the ground gains and loses, by day and by night."
+        },
+        {
+          "kind": "text",
+          "text": "Why does that chilled air stay low? Think first about why air ever rises on its own. Warm air is lighter than the same amount of space filled with cooler air, and it rises for the same reason a hot-air balloon does. A pocket of warm air is under the same pressure as the air immediately around it. Because its molecules are moving faster, however, it takes fewer molecules per cubic metre to push outward and match that surrounding pressure. Having fewer molecules in each cubic metre makes the warm pocket less dense than the cooler air around it, so the heavier surrounding air slides underneath and buoys it upward."
+        },
+        {
+          "kind": "figure",
+          "figure": "density",
+          "caption": "Two boxes of air at the same pressure, one warm and one cold."
+        },
+        {
+          "kind": "text",
+          "text": "Cold air does the opposite. It is denser than the air around it, so it sinks and spreads along the ground. On a still night you can feel it as you walk downhill: the chilled air slides off the slopes and pools in the hollows and valley bottoms, which is why fog so often fills the low places first."
+        },
+        {
+          "kind": "text",
+          "text": "Cooling from below leaves the coldest, densest air at the bottom with warmer air above it. Normally the air gets colder as you go up, so this arrangement is upside down, and it is called an **inversion**. It is also the most stable arrangement possible, because the heaviest air is already as low as it can go. Nothing bubbles upward; the chilled layer simply deepens slowly through the night."
+        },
+        {
+          "kind": "text",
+          "text": "You can often see an inversion on a still morning, when chimney smoke or valley haze rises to a certain height and spreads out flat, unable to climb through the warm layer above."
+        },
+        {
+          "kind": "figure",
+          "figure": "inversion",
+          "caption": "A still morning in a valley: the coldest air at the bottom, a warmer layer above it."
+        },
+        {
+          "kind": "text",
+          "text": "Notice what is not happening to this chilled air: it is not going anywhere. The same grams of water vapour sit in each cubic metre all night, so its dew point stays where it was while its temperature drops toward it, just as in the jar."
+        },
+        {
+          "kind": "figure",
+          "figure": "night",
+          "caption": "A night in a valley.",
+          "task": "Find a night that ends in fog by dawn.",
+          "goal": "fog"
+        },
+        {
+          "kind": "text",
+          "text": "A cloud that forms on the ground is **fog**. In the figure, the cooling slows down later in the night because colder ground radiates less heat. Watch what the wind slider does as well. A light breeze stirs only the bottom few dozen metres of chilled air, spreading the cold upward so the fog grows deeper. A strong wind stirs a much deeper layer, mixing warmer air down from above the inversion so the air near the ground never gets cold enough for fog to form."
+        }
+      ]
+    },
+    {
+      "title": "Fog lifts: stratus",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Fog and **stratus** are the exact same cloud; the name only indicates whether the cloud base touches the ground. When a morning breeze or the first warmth of the sun evaporates the bottom of a fog bank, the layer left hanging above is stratus: a flat, uniform sheet with no distinct features, often low enough to hide the hilltops. Stratus also forms during the day or night whenever warm, moist air drifts across cold ground or cold sea water and gets chilled from below. In either case, stable air is cooled gently as a wide layer, forming an unbroken sheet."
+        },
+        {
+          "kind": "figure",
+          "figure": "fogStratus",
+          "caption": "The same layer of cloud, seen from the valley floor."
+        },
+        {
+          "kind": "text",
+          "text": "Seen from below, stratus looks grey. It is made of the same water droplets as a white cumulus cloud, but because a stratus layer covers the sky, you see only its shaded underside while its sunlit top faces away from you. The flat base of a cumulus cloud looks grey for the same reason; a cumulus looks bright white only where you can see sunlight hitting its sides and rounded top. If you fly above a stratus deck, its upper surface is dazzling white."
+        },
+        {
+          "kind": "text",
+          "text": "A thick layer of stratus can bring drizzle. The tiny droplets inside bump into one another as they drift, and now and then two merge. After an hour or so in a thick layer, enough merging takes place to produce drops a few tenths of a millimetre across. Those larger drops fall at one or two metres per second, far faster than any gentle air current in a quiet, stable layer can hold up, so they sink out of the cloud as drizzle."
+        },
+        {
+          "kind": "text",
+          "text": "Stratus is more of a nuisance than a danger. It brings drizzle at worst, and it usually burns off by late morning. Sunlight filters through the layer and warms the ground, the ground warms the air from below, and once the air’s temperature climbs back above its dew point, the droplets evaporate back into vapour."
+        },
+        {
+          "kind": "figure",
+          "figure": "burnOff",
+          "caption": "A fog bank on a summer morning, from dawn to late morning."
+        },
+        {
+          "kind": "text",
+          "text": "Fog and stratus are the sky’s simplest clouds: air chilled where it lies, in a still layer, with nothing stirring it. But look up on a summer afternoon and most clouds are a kilometre or more above the ground, far from any cold surface, and they are heaped into towers rather than lying flat. Something else is cooling that air: it is being lifted. The next lesson follows a bubble of air as it rises."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "The photos below are real skies. For each one, say whether it is a stratus blanket (or fog) or some other kind of cloud. You will learn the other names soon; for now, just spot the blanket."
+        },
+        {
+          "kind": "text",
+          "text": "**Stratus**: a flat, uniform grey layer with no gaps, no lumps and no pattern, often hiding the hills. Anything with heaps, lumps, gaps of blue or wisps is something else."
+        },
+        {
+          "kind": "figure",
+          "figure": "radioCheck",
+          "caption": "Real photos. Is it stratus?",
+          "options": {
+            "mode": "spot",
+            "target": "stratus",
+            "decoys": [
+              "cumulus",
+              "stratocumulus",
+              "altocumulus"
+            ],
+            "count": 6
+          }
+        },
+        {
+          "kind": "figure",
+          "figure": "forecast",
+          "caption": "The sky over a few hours. What is it up to?",
+          "options": {
+            "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "6 p.m."
+                  },
+                  {
+                    "genus": "stratus",
+                    "when": "10 p.m."
+                  }
+                ],
+                "question": "A grey layer has covered the sky all evening, and a brisk wind is blowing. Will there be fog in the valley by dawn?",
+                "options": [
+                  "Unlikely: the cloud keeps the ground warm and the wind mixes the chill away",
+                  "Yes: grey evenings always end in fog",
+                  "Yes, but only if the wind gets stronger"
+                ],
+                "answer": 0,
+                "why": "Fog needs the ground to lose its heat to a clear sky, and calm or nearly calm air so the chill stays at the bottom. A cloud layer sends heat back down like a blanket, and a brisk wind mixes warmer air down from above."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "7 a.m."
+                  },
+                  {
+                    "genus": "stratus",
+                    "when": "9 a.m."
+                  }
+                ],
+                "question": "At 7 a.m. the valley is full of fog. By 9 a.m. you can see across the fields, but a flat grey ceiling still hides the hilltops. What happened?",
+                "options": [
+                  "The sun warmed the ground, which evaporated the fog from the bottom up, leaving stratus",
+                  "A new cloud blew in from the hills",
+                  "The fog rose because it is lighter than air"
+                ],
+                "answer": 0,
+                "why": "Fog clears from the bottom up: the sun warms the ground, the ground warms the air touching it, and the lowest droplets evaporate first. The layer left hanging above is the same cloud, now called stratus, and it usually goes next."
+              },
+              {
+                "id": "dawn-fog",
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "6 a.m."
+                  },
+                  {
+                    "genus": "stratus",
+                    "when": "8 a.m."
+                  }
+                ],
+                "question": "After a clear, still, damp night, a grey blanket lies on the ground at dawn and hides the hilltops. When can a plane expect to take off?",
+                "options": [
+                  "Mid to late morning, once the sun has burned it off",
+                  "Right away: fog is thinnest at dawn",
+                  "Not today: a blanket like this means a storm"
+                ],
+                "answer": 0,
+                "why": "On a clear, still night the ground cools the air above it below its dew point. After sunrise the sun warms the ground, the ground warms the air, and once the air is warmer than its dew point again the fog evaporates, usually by mid to late morning."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "A cloud is made of liquid droplets (or ice crystals), not water vapour. Air forms a cloud when it cools to its dew point, and the more water vapour a cubic metre of air contains, the higher its dew point.",
+    "Droplets need a speck of dust, smoke or salt to form on, and every lungful of air holds millions of them.",
+    "On a clear night the ground radiates its heat out to space and chills the air resting on it. A cloud overhead sends heat back down and keeps the night mild.",
+    "Cold air is dense and stays at the bottom. Cold air under warmer air is an inversion, the most stable arrangement there is: nothing rises out of it.",
+    "When a still, chilled layer cools to its dew point it becomes fog. Fog lifted off the ground is stratus, a flat grey sheet that brings drizzle at most and usually burns off by late morning."
+  ],
+  "next": "Next lesson lifts the air instead: why rising air cools, and how bubbles of it build heaps of cumulus.",
+  "journal": {
+    "what-is-a-cloud": {
+      "title": "What a cloud is",
+      "text": "A cloud consists of tiny liquid droplets (or ice crystals), not water vapour. Air turns to cloud when cooled to its dew point, the temperature below which excess water vapour condenses into liquid; the more humid the air, the higher its dew point. Each droplet starts on a speck of dust, smoke or salt, and is about a hundredth of a millimetre across."
+    },
+    "fog": {
+      "title": "Fog",
+      "text": "A cloud with its base on the ground. On a clear, still, damp night the ground radiates its heat to space and chills the air resting on it to its dew point. The cold air stays at the bottom under warmer air (an inversion), so fog fills the low places first. A cloudy sky or a breeze prevents it. The morning sun clears it from the bottom up."
+    },
+    "stratus": {
+      "title": "Stratus",
+      "text": "A flat, uniform grey layer low enough to hide the hills, essentially fog whose base is off the ground. It forms by gentle cooling of stable air, either overnight or while drifting over cold ground or water. It brings light drizzle at most and often burns off by midday."
+    }
+  }
+}

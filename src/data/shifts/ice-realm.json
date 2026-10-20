@@ -1,7 +1,7 @@
 {
   "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "ice-realm",
-  "n": 4,
+  "n": 5,
   "title": "The ice realm and early warnings",
   "teaches": "Supercooled water and how ice makes rain, high ice clouds and the 22° halo, and reading an approaching warm front from first cirrus to nimbostratus",
   "parts": [
@@ -14,11 +14,24 @@
         },
         {
           "kind": "text",
-          "text": "Climb high enough and the air stays below freezing even on a summer afternoon. Because the atmosphere cools by an average of about 6.5 °C for every kilometre of altitude, a mild 15 °C day in the valley reaches freezing (0 °C) a little over two kilometres up, drops to around −24 °C near the bottom of the high floor at six kilometres, and falls below −50 °C near the top of the troposphere. You might expect every cloud above the freezing level to be made of ice, yet most of them are still liquid water."
+          "text": "Climb high enough and the air stays below freezing even on a summer afternoon. Because the atmosphere cools by an average of about 6.5 °C for every kilometre of altitude, a mild 15 °C day in the valley reaches freezing (0 °C) a little over two kilometres up, drops to around −24 °C by six kilometres, on the high floor, and falls below −50 °C near the top of the troposphere. You might expect every cloud above the freezing level to be made of ice, yet most of them are still liquid water."
         },
         {
           "kind": "text",
-          "text": "For liquid water to freeze, its jostling molecules have to lock into the regular six-sided lattice of an ice crystal. Just as water vapour needs a microscopic speck to condense onto, liquid water normally needs a solid template to start a crystal growing. In a lake or a puddle, plenty of suspended particles and rough surfaces trigger freezing right at 0 °C. A single cloud droplet, however, contains only the microscopic speck it originally condensed on. To trigger freezing, that speck needs an atomic spacing that closely matches the hexagonal geometry of ice so the first layer of water molecules can lock into place. Common condensation specks like sea salt, smoke, or soot have the wrong structure; only a few specific particles, such as certain mineral dusts, match the pattern of ice, amounting to perhaps one airborne particle in a million. Without an ice-forming nucleus, a tiny cloud droplet remains liquid well below 0 °C. Liquid water below the freezing point is called **supercooled**, and most clouds between 0 °C and −20 °C consist primarily of supercooled droplets. Only when the temperature drops below about −38 °C (rounded to −40 °C in the figure) do water molecules move slowly enough to lock into an ice crystal on their own, freezing every remaining droplet spontaneously."
+          "text": "For liquid water to freeze, its jostling molecules have to lock into the regular six-sided lattice of an ice crystal. Just as water vapour needs a microscopic speck to condense onto, liquid water normally needs a solid template to start a crystal growing. In a lake or a puddle, plenty of suspended particles and rough surfaces trigger freezing right at 0 °C."
+        },
+        {
+          "kind": "text",
+          "text": "A single cloud droplet, however, contains only the microscopic speck it originally condensed on. To trigger freezing, that speck needs an atomic spacing that closely matches the hexagonal geometry of ice so the first layer of water molecules can lock into place. Common condensation specks like sea salt, smoke, or soot have the wrong structure; only a few specific particles, such as certain mineral dusts, match the pattern of ice, amounting to perhaps one airborne particle in a million. Without an ice-forming nucleus, a tiny cloud droplet remains liquid well below 0 °C."
+        },
+        {
+          "kind": "figure",
+          "figure": "freezeSeeds",
+          "caption": "Two supercooled droplets at −15 °C, each on its own speck."
+        },
+        {
+          "kind": "text",
+          "text": "Liquid water below the freezing point is called **supercooled**, and most clouds between 0 °C and −20 °C consist primarily of supercooled droplets. Only when the temperature drops below about −38 °C (rounded to −40 °C in the figure) do water molecules move slowly enough to lock into an ice crystal on their own, freezing every remaining droplet spontaneously."
         },
         {
           "kind": "figure",
@@ -36,7 +49,12 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "That mixed zone of supercooled droplets and ice crystals is where most of the world’s rain begins. In the first lesson, you saw that air reaches its saturation limit when water molecules return to a liquid surface just as fast as they escape from it. In an ice crystal, each water molecule is held more tightly by its neighbours in the rigid lattice than it would be in liquid water at the same sub-freezing temperature, so molecules escape from an ice surface more slowly than from a supercooled droplet. Because molecules leave the ice more slowly, a lower concentration of surrounding water vapour is enough to replace them and keep the crystal in balance. At any temperature below 0 °C, the saturation vapour limit over ice is lower than the saturation limit over supercooled liquid water. At −12 °C, air that is just saturated with respect to liquid water contains about 13% more water vapour than is needed to saturate the air with respect to ice."
+          "text": "That mixed zone of supercooled droplets and ice crystals is where most of the world’s rain begins. In the first lesson, you saw that vapour has a crowding limit, past which its molecules stick together faster than they shake apart. Over a liquid surface, that limit is reached when water molecules return to the surface just as fast as they escape from it. In an ice crystal, each water molecule is held more tightly by its neighbours in the rigid lattice than it would be in liquid water at the same sub-freezing temperature, so molecules escape from an ice surface more slowly than from a supercooled droplet. Because molecules leave the ice more slowly, a lower concentration of surrounding water vapour is enough to replace them and keep the crystal in balance. At any temperature below 0 °C, the saturation vapour limit over ice is lower than the saturation limit over supercooled liquid water. At −12 °C, air that is just saturated with respect to liquid water contains about 13% more water vapour than is needed to saturate the air with respect to ice."
+        },
+        {
+          "kind": "figure",
+          "figure": "escape",
+          "caption": "The same cold air, next to a supercooled droplet and next to ice."
         },
         {
           "kind": "text",
@@ -51,7 +69,16 @@
         },
         {
           "kind": "text",
-          "text": "As the temperature drops further below 0 °C, the percentage gap between the liquid and ice saturation limits widens, but very cold air holds so little water vapour overall that there are fewer molecules available to feed the crystal. The sweet spot where ice crystals grow fastest sits right between −10 °C and −15 °C. Within ten to twenty minutes, a crystal can grow heavy enough to start falling through the cloud. On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow. Weather radar shows this directly: just below the freezing level, rain clouds display a distinct bright band where large, wet, melting snowflakes reflect radar waves much more strongly than the smaller raindrops below."
+          "text": "As the temperature drops further below 0 °C, the percentage gap between the liquid and ice saturation limits widens, but very cold air holds so little water vapour overall that there are fewer molecules available to feed the crystal. The sweet spot where ice crystals grow fastest sits right between −10 °C and −15 °C. Within ten to twenty minutes, a crystal can grow heavy enough to start falling through the cloud."
+        },
+        {
+          "kind": "text",
+          "text": "On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow. Weather radar shows this directly: just below the freezing level, rain clouds display a distinct bright band where large, wet, melting snowflakes reflect radar waves much more strongly than the smaller raindrops below."
+        },
+        {
+          "kind": "figure",
+          "figure": "snowToRain",
+          "caption": "Most summer rain starts as snow."
         },
         {
           "kind": "text",
@@ -103,7 +130,7 @@
         },
         {
           "kind": "text",
-          "text": "The deflection angle is the angle between the ray’s original path from the sun and the direction it travels after leaving the crystal. No matter how you rotate a hexagonal crystal, a ray passing through its 60° prism faces is deflected by **at least 22°** (21.8° for yellow light, as shown in the figure). Even more importantly, right around that minimum angle, rotating the crystal by several degrees barely changes the outgoing angle at all, just as the slope of the ground is nearly flat right at the bottom of a valley. When millions of crystals are tumbling at random angles in the sky, a wide range of crystal orientations all deflect sunlight out at nearly 22°, whereas larger deflection angles receive light from far fewer orientations. As a result, refracted sunlight concentrates strongly right along the 22° minimum angle."
+          "text": "The deflection angle is the angle between the ray’s original path from the sun and the direction it travels after leaving the crystal. No matter how you rotate a hexagonal crystal, a ray passing through its 60° prism faces is deflected by **at least about 22°** (21.8° for yellow light, as shown in the figure). Even more importantly, right around that minimum angle, rotating the crystal by several degrees barely changes the outgoing angle at all, just as the slope of the ground is nearly flat right at the bottom of a valley. When millions of crystals are tumbling at random angles in the sky, a wide range of crystal orientations all deflect sunlight out at nearly 22°, whereas larger deflection angles receive light from far fewer orientations. As a result, refracted sunlight concentrates strongly right along the 22° minimum angle."
         }
       ]
     },
@@ -155,7 +182,11 @@
         },
         {
           "kind": "text",
-          "text": "This top-down progression gives you a reliable timeline from the ground: detached **cirrus** hooks invading from one side of the horizon, thickening into a milky **cirrostratus** veil with a 22° halo, lowering and greying into **altostratus** that dims the sun into a frosted disc and washes out the halo, and finally deepening into an overcast rain deck. Rain begins well before the surface front reaches you, as soon as the cloud deck overhead grows deep enough to span from the ice-growth zone down to the lower sky, typically across the last two or three hundred kilometres ahead of the surface boundary. From the time you first spot a halo in thickening cirrostratus, steady rain usually arrives within **12 to 24 hours**; once altostratus has hidden the sharp disc of the sun, rain is only a few hours away."
+          "text": "This top-down progression gives you a reliable timeline from the ground: detached **cirrus** hooks invading from one side of the horizon, thickening into a milky **cirrostratus** veil with a 22° halo, lowering and greying into **altostratus** that dims the sun into a frosted disc and washes out the halo, and finally deepening into an overcast rain deck."
+        },
+        {
+          "kind": "text",
+          "text": "Rain begins well before the surface front reaches you, as soon as the cloud deck overhead grows deep enough to span from the ice-growth zone down to the lower sky, typically across the last two or three hundred kilometres ahead of the surface boundary. From the time you first spot a halo in thickening cirrostratus, steady rain usually arrives within **12 to 24 hours**; once altostratus has hidden the sharp disc of the sun, rain is only a few hours away."
         },
         {
           "kind": "text",

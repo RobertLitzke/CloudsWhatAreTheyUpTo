@@ -86,6 +86,11 @@ describe('shifts', () => {
         if (b.kind !== 'figure' || b.figure !== 'radioCheck' || b.options?.mode !== 'name') continue;
         for (const g of b.options.pool as string[]) expect([...met], `${s.id} ${g}`).toContain(g);
       }
+      for (const b of blocks(s)) {
+        if (b.kind !== 'figure' || b.figure !== 'radioCheck' || b.options?.mode !== 'spot') continue;
+        expect([...met], `${s.id} spot`).toContain(b.options.target);
+        expect((b.options.decoys as string[]).length, s.id).toBeGreaterThan(0);
+      }
     }
   });
 

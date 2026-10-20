@@ -1,0 +1,154 @@
+{
+  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "talks": [
+    {
+      "id": "heaps-open",
+      "cue": "start",
+      "when": "Tuesday, June 9, 1931 · 7:30 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. Well? Did Hap get off the ground?",
+          "replies": [
+            {
+              "say": "At ten sharp, just as I told him.",
+              "back": "First forecast, first hit. Frame it before your luck changes."
+            },
+            {
+              "say": "He waited. Grumbled, but waited.",
+              "back": "A grumbling pilot on the ground beats a cheerful one in a turnip field."
+            }
+          ]
+        },
+        {
+          "them": "Now Ole. His hay’s still lying in the field, and those puffy clouds come back every morning and sit a mile up, where no cold ground can touch them. So what’s chilling them?",
+          "replies": [
+            {
+              "say": "Something to do with rising air?",
+              "back": "Good nose. That’s tonight’s lesson."
+            },
+            {
+              "say": "No idea.",
+              "back": "Honest. You’ll have one by nine o’clock."
+            },
+            {
+              "say": "The goat?",
+              "back": "That goat chills everything it looks at, but not clouds."
+            }
+          ]
+        },
+        {
+          "them": "Read up on why rising air cools, and why some days the air bubbles up and other days it lies flat. Then work out where Ole’s clouds put their flat bottoms, and call me back.",
+          "replies": [
+            {
+              "say": "On it."
+            },
+            {
+              "say": "Tell Ole to keep the rake handy.",
+              "back": "Ole sleeps with the rake. Don’t ask."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heaps-base",
+      "cue": {
+        "after": "parcel"
+      },
+      "when": "Tuesday, June 9, 1931 · 8:05 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, you there? Here’s one for you. Ole’s thermometer reads 26 degrees this morning, and the dew point is 14. Where will his puffy clouds put their flat bottoms?",
+          "replies": [
+            {
+              "say": "About 1,500 metres up.",
+              "back": "Twelve degrees of gap at 125 metres a degree. Right on the nose. Ole will be impressed. The goat, maybe.",
+              "right": true
+            },
+            {
+              "say": "About 125 metres up.",
+              "back": "That’s one degree’s worth, and you’ve got twelve. Twelve times 125 is 1,500 metres."
+            },
+            {
+              "say": "On the ground, as fog.",
+              "back": "Only if there were no gap at all. Twelve degrees of gap at 125 metres a degree puts the base around 1,500 metres."
+            }
+          ]
+        },
+        {
+          "them": "That flat bottom is the same height all across the sky, because every bubble starts out from the same air. Next time you look up, check. It’s like a shelf.",
+          "replies": [
+            {
+              "say": "I’ll check tomorrow."
+            },
+            {
+              "say": "A shelf of clouds. Huh."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heaps-nudge",
+      "cue": {
+        "after": "nudge"
+      },
+      "when": "Tuesday, June 9, 1931 · 8:40 p.m.",
+      "turns": [
+        {
+          "them": "One more. On a hot afternoon the air around gets colder by 12 degrees a kilometre as you go up. A thermal off Ole’s stubble field cools at 10. Does it keep rising?",
+          "replies": [
+            {
+              "say": "Yes. It stays warmer than the air around it.",
+              "back": "Right. It cools slower than its neighbours, so it keeps its lead and keeps on going. That’s an unstable day.",
+              "right": true
+            },
+            {
+              "say": "No. It’s cooling, so it sinks.",
+              "back": "Everything that rises cools. What matters is whether it cools faster or slower than the air around it. Ten is slower than twelve, so it stays warmer and keeps going."
+            },
+            {
+              "say": "Only if it makes a cloud.",
+              "back": "No cloud needed. Ten is slower than twelve, so it stays warmer than its neighbours and climbs all on its own."
+            }
+          ]
+        },
+        {
+          "them": "Hap says on days like that his airplane rides like a buckboard on a washboard road. Every one of those bumps is a bubble.",
+          "replies": [
+            {
+              "say": "So he’s flying through thermals.",
+              "back": "And complaining about every one of them."
+            },
+            {
+              "say": "Poor Hap.",
+              "back": "Poor airplane."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heaps-check",
+      "cue": "check",
+      "when": "Tuesday, June 9, 1931 · 9:10 p.m.",
+      "turns": [
+        {
+          "them": "Heaps and blankets, all called. Those are the two textures of the whole sky, and everything else is built from them. Now earn your keep: Ole is waiting on his hay.",
+          "replies": [
+            {
+              "say": "Ready."
+            },
+            {
+              "say": "Can I telephone a friend?",
+              "back": "Every telephone in Harrow goes through Mabel at the switchboard, and Mabel can’t keep a secret. Do it yourself."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "locals": {
+    "hay": "Ole Haugen, with forty acres of hay cut and lying in the field, asks:"
+  }
+}

@@ -3,7 +3,7 @@
 import type { FigureId } from '../../core/shifts';
 import { freezingFigure, jarFigure, parcelFigure, soundingFigure, thermalsFigure } from './air';
 import { billowFigure, flashFigure, mammaFigure, stormFigure, waveFigure } from './giants';
-import { collideDiagram, dayNightDiagram, depthDiagram, edgesDiagram, expandDiagram, fogStratusDiagram, heapDiagram, layerKindsDiagram, millionDiagram, moleculesDiagram, nameGridDiagram, stabilityDiagram, subsidenceDiagram } from './diagrams';
+import { burnOffDiagram, chargeDiagram, collideDiagram, dayNightDiagram, densityDiagram, depthDiagram, edgesDiagram, escapeDiagram, expandDiagram, fogStratusDiagram, freezeSeedsDiagram, glideDiagram, heapDiagram, inversionDiagram, kettleDiagram, latentDiagram, layerKindsDiagram, millionDiagram, moleculesDiagram, nameGridDiagram, overturnDiagram, snowToRainDiagram, specksDiagram, stabilityDiagram, subsidenceDiagram, tropopauseDiagram } from './diagrams';
 import { frontFigure, haloFigure, iceGrowthFigure, prismFigure, streaksFigure } from './ice';
 import type { FigureFactory } from './kit';
 import { dropsFigure, handFigure, nightFigure, nudgeFigure, shadowFigure, spreadFigure, sunThroughFigure } from './layers';
@@ -49,4 +49,17 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   million: millionDiagram,
   collide: collideDiagram,
   depth: depthDiagram,
+  specks: specksDiagram,
+  inversion: inversionDiagram,
+  burnOff: burnOffDiagram,
+  latent: latentDiagram,
+  kettle: kettleDiagram,
+  density: densityDiagram,
+  glide: glideDiagram,
+  overturn: overturnDiagram,
+  freezeSeeds: freezeSeedsDiagram,
+  escape: escapeDiagram,
+  snowToRain: snowToRainDiagram,
+  tropopause: tropopauseDiagram,
+  charge: chargeDiagram,
 };

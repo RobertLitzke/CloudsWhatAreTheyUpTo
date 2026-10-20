@@ -22,6 +22,13 @@ describe('migrate', () => {
     expect(s.shifts.bad).toBeUndefined();
   });
 
+  it('carries the old first lesson over to the two it was split into', () => {
+    const s = migrate({ shifts: { textures: { done: true, best: 5, of: 6, finishedAt: '2026-10-19' } } });
+    expect(s.shifts.textures).toBeUndefined();
+    expect(s.shifts.fog).toEqual({ done: true, best: 5, of: 6, finishedAt: '2026-10-19' });
+    expect(s.shifts.heaps).toEqual(s.shifts.fog);
+  });
+
   it('keeps the radio settings and what was heard', () => {
     expect(emptySave().talk).toBe(true);
     const s = migrate({ talk: false, introSeen: true, heard: { intro: [1, '2', -3], junk: 'x' } });

@@ -71,7 +71,7 @@ export const homeView: View = (root, nav) => {
                 el('p', {}, 'You are the new weather forecaster in Harrow: a wheat town with a grain elevator, an airfield and one mail plane, out in the dry hills of eastern Washington.'),
                 el('p', {}, 'Farmers, pilots and the Ladies’ Aid will bring you their questions. An old hand at Walla Walla, a few counties over, will talk you through the answers on the radio, one lesson a week.'),
               ]
-            : [el('p', {}, 'Five short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come.')]),
+            : [el('p', {}, 'Six short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come.')]),
         ),
         nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.shifts[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
         el('h2', {}, 'Lessons'),

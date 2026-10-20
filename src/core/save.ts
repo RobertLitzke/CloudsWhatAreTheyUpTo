@@ -61,6 +61,15 @@ export function migrate(raw: unknown): SaveData {
       };
     }
   }
+  // The first lesson, "textures", was split in two (fog, then heaps); having
+  // done it counts for both.
+  const old = out.shifts.textures;
+  if (old) {
+    out.shifts.fog ??= { ...old };
+    out.shifts.heaps ??= { ...old };
+    delete out.shifts.textures;
+    if (old.done) out.journal = [...new Set([...out.journal, 'fog', 'rising-air'])];
+  }
   return out;
 }
 

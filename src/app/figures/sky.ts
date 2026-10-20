@@ -184,13 +184,16 @@ function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number):
 }
 
 /**
- * options.mode is 'floor' (call in the floor) or 'name' (call in the genus);
+ * options.mode is 'floor' (call in the floor), 'name' (call in the genus) or
+ * 'spot' (say whether it is options.target or not, for a lesson that has met
+ * only one cloud; options.decoys are the others shown, as many as the target);
  * options.pool is the genera dealt; options.known the genera the player has
  * met (look-alike answers are drawn from these); options.count how many.
  */
 export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
   const mode = (options?.mode as string) ?? 'name';
-  const pool = options?.pool as GenusId[];
+  const target = options?.target as GenusId | undefined;
+  const pool = mode === 'spot' ? (options?.decoys as GenusId[]).flatMap((d) => [target!, d]) : (options?.pool as GenusId[]);
   const known = (options?.known as GenusId[]) ?? pool;
   const count = (options?.count as number) ?? 8;
   const size = Math.min(4, Math.max(2, known.length));
@@ -201,6 +204,8 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
   const node = el('div.fig-body.radio-check', {}, pic, body);
   const calls = mode === 'floor'
     ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, options: FLOOR_BUTTONS.map((b) => b.id as string) }))
+    : mode === 'spot'
+    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, options: [target!, 'other'] }))
     : dealNameCalls(pool, known, PHOTOS, count, size, rng).map((c) => ({ genus: c.genus, photo: c.photo, options: c.options as string[] }));
   let right = 0;
   let i = 0;
@@ -213,9 +218,9 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
     }
     const call = calls[i];
     const g = genus(call.genus);
-    const answer = mode === 'floor' ? g.floor : g.id;
+    const answer = mode === 'floor' ? g.floor : mode === 'spot' && g.id !== target ? 'other' : g.id;
     pic.replaceChildren(picture(call.genus, call.photo, i));
-    const labelOf = (o: string) => (mode === 'floor' ? FLOOR_BUTTONS.find((b) => b.id === o)!.label : genus(o as GenusId).name);
+    const labelOf = (o: string) => (mode === 'floor' ? FLOOR_BUTTONS.find((b) => b.id === o)!.label : o === 'other' ? 'Something else' : genus(o as GenusId).name);
     const buttons = call.options.map((o) => {
       const b = el('button.btn.btn-ghost', { type: 'button' }, labelOf(o)) as HTMLButtonElement;
       b.addEventListener('click', () => {
@@ -235,7 +240,7 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
       return b;
     });
     body.replaceChildren(
-      el('p.task', {}, `Photo ${i + 1} of ${calls.length}: ${mode === 'floor' ? 'which floor?' : 'what is it?'}`),
+      el('p.task', {}, `Photo ${i + 1} of ${calls.length}: ${mode === 'floor' ? 'which floor?' : mode === 'spot' ? `${genus(target!).name.toLowerCase()} or not?` : 'what is it?'}`),
       el('div.floor-buttons', {}, buttons),
     );
   };

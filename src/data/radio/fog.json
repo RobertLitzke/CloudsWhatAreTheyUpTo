@@ -2,7 +2,7 @@
   "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
   "talks": [
     {
-      "id": "textures-open",
+      "id": "fog-open",
       "cue": "start",
       "when": "Tuesday, June 2, 1931 · 7:30 p.m.",
       "turns": [
@@ -50,7 +50,7 @@
           ]
         },
         {
-          "them": "Here’s tonight’s homework. Before you can answer either of them, you have to know what a cloud actually is, and it isn’t what you think. Read the lesson, play with the jar, and call me back when Ole’s puffy clouds make sense.",
+          "them": "Here’s tonight’s homework. Before you can answer either of them, you have to know what a cloud actually is, and it isn’t what you think. We’ll start with Hap’s fog, because fog is the simplest cloud there is. Ole’s puffy clouds can wait a week; tell him to keep his eye on them. Read the lesson, play with the jar, and call me back when you know why the valley fills with fog.",
           "replies": [
             {
               "say": "So what is a cloud?",
@@ -64,45 +64,47 @@
       ]
     },
     {
-      "id": "textures-base",
+      "id": "fog-jar",
       "cue": {
-        "after": "parcel"
+        "after": "jar"
       },
       "when": "Tuesday, June 2, 1931 · 8:05 p.m.",
       "turns": [
         {
-          "them": "Harrow, still there? Quick quiz while the coffee’s hot. Ole’s thermometer reads 26 degrees this morning, and the dew point is 14. Where will his puffy clouds put their flat bottoms?",
+          "them": "Harrow, still there? Quick quiz while the coffee’s hot. You’ve got your jar of air at 20 degrees, and you add more water vapour to it. Does its dew point go up or down?",
           "replies": [
             {
-              "say": "About 1,500 metres up.",
-              "back": "Twelve degrees of gap at 125 metres a degree. Right on the nose. Ole will be impressed. The goat, maybe.",
+              "say": "Up.",
+              "back": "Right. More vapour, more crowding, so it takes less cooling before the molecules start to stick. That’s why a muggy evening fogs up a cold milk can so fast.",
               "right": true
             },
             {
-              "say": "About 125 metres up.",
-              "back": "That’s one degree’s worth, and you’ve got twelve. Twelve times 125 is 1,500 metres."
+              "say": "Down.",
+              "back": "Other way round. More vapour means the molecules are more crowded, so they start sticking sooner. The dew point goes up."
             },
             {
-              "say": "On the ground, as fog.",
-              "back": "Only if there were no gap at all. Twelve degrees of gap at 125 metres a degree puts the base around 1,500 metres."
+              "say": "Neither. Only the temperature matters.",
+              "back": "That’s the trap. The dew point depends on how much vapour there is, not on how warm the air happens to be. Add vapour, and up it goes."
             }
           ]
         },
         {
-          "them": "That flat bottom is the same height all across the sky, because every bubble starts out from the same air. Next time you look up, check. It’s like a shelf.",
+          "them": "Try this. On a warm afternoon, fill a glass with cold water from the well and watch it sweat. The glass is a little patch of cold ground, and the air touching it just went past its dew point.",
           "replies": [
             {
-              "say": "I’ll check tomorrow."
+              "say": "So that’s where dew comes from.",
+              "back": "Same trick, done by the whole valley floor overnight."
             },
             {
-              "say": "A shelf of clouds. Huh."
+              "say": "I’ll try it with lemonade.",
+              "back": "Lemonade works. Edna Pruitt’s lemonade works better, but don’t tell her I said so."
             }
           ]
         }
       ]
     },
     {
-      "id": "textures-fog",
+      "id": "fog-night",
       "cue": {
         "after": "night"
       },
@@ -141,12 +143,12 @@
       ]
     },
     {
-      "id": "textures-check",
+      "id": "fog-check",
       "cue": "check",
       "when": "Tuesday, June 2, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Heaps and blankets, all called. The fellows at the radio club will be pleased you got through their photographs. Now earn your keep: Ole and Hap are waiting on their answers.",
+          "them": "Every blanket called, and not one heap mistaken for one. The fellows at the radio club will be pleased you got through their photographs. Now earn your keep: Hap is waiting on his answer.",
           "replies": [
             {
               "say": "Ready."
@@ -161,7 +163,6 @@
     }
   ],
   "locals": {
-    "hay": "Ole Haugen, with forty acres of hay cut and lying in the field, asks:",
     "dawn-fog": "Hap Delaney, who flies the mail out of Harrow Field at first light, asks:"
   }
 }

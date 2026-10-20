@@ -16,7 +16,8 @@
 
 import type { FigureId } from './shifts';
 import intro from '../data/radio/intro.json';
-import textures from '../data/radio/textures.json';
+import fog from '../data/radio/fog.json';
+import heaps from '../data/radio/heaps.json';
 import lowSky from '../data/radio/low-sky.json';
 import middleSky from '../data/radio/middle-sky.json';
 import iceRealm from '../data/radio/ice-realm.json';
@@ -66,7 +67,8 @@ export const ACK = 'Roger. Over.';
 export const INTRO: Talk = intro as Talk;
 
 const BY_SHIFT: Record<string, Radio> = {
-  textures: textures as Radio,
+  fog: fog as Radio,
+  heaps: heaps as Radio,
   'low-sky': lowSky as Radio,
   'middle-sky': middleSky as Radio,
   'ice-realm': iceRealm as Radio,
