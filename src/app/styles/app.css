@@ -327,7 +327,9 @@ body.radio-up main { padding-bottom: 50vh; }
   .radio-slip { transition: none; }
 }
 /* Who in town asked a forecast question, on a typed slip above it. */
-.asker { font: 14px/1.45 'Special Elite', 'Courier New', monospace; background: #f4ead2; color: #2b2620; padding: 8px 12px; margin: 12px 14px 0; border-left: 3px solid #b0894f; }
+.asker { font: 16px/1.5 'Special Elite', 'Courier New', monospace; background: #f4ead2; color: #2b2620; padding: 10px 14px; margin: 12px 14px 4px; border-left: 3px solid #b0894f; }
+.asker p { margin: 0; }
+.asker p + p { margin-top: 8px; }
 .radio-log { display: grid; gap: 8px; }
 .radio-transcript { background: #f4ead2; color: #2b2620; font: 14px/1.5 'Special Elite', 'Courier New', monospace; padding: 10px 14px; border-radius: 3px; }
 .radio-transcript summary { cursor: pointer; margin-bottom: 4px; }

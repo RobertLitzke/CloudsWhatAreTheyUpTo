@@ -282,7 +282,9 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
       return b;
     });
     const asker = q.id ? ctx.local?.(q.id) : undefined;
-    body.replaceChildren(strip, ...(asker ? [el('p.asker', {}, asker)] : []), el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
+    // A question from town comes on one typed slip with who asked it; otherwise it is plain.
+    const ask = asker ? el('div.asker', {}, el('p', {}, asker), el('p', {}, q.question)) : el('p.task', {}, q.question);
+    body.replaceChildren(strip, ask, el('div.answer-list', {}, buttons));
   };
   next();
   return { node, done: t.promise };
