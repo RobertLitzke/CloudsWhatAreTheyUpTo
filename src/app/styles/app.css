@@ -443,7 +443,57 @@ main { display: block; }
   z-index: 20;
   max-width: calc(100vw - 32px);
 }
-.update-dismiss { background: none; border: 0; color: var(--muted); font-size: 1.2rem; cursor: pointer; }
+
+/* The update card: docked across the bottom on a phone, in the corner on a
+   wide screen. A poster-coloured stripe along the top ties it to the art. */
+.update-banner {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  z-index: 20;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 12px;
+  align-items: center;
+  padding: 16px 16px 14px;
+  background: var(--bg-2);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(10, 6, 24, 0.55), inset 0 0 0 1px rgba(207, 200, 236, 0.12);
+  overflow: hidden;
+  animation: update-in 0.28s ease-out;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.update-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--title), var(--rose), var(--sun));
+}
+.update-banner.out { opacity: 0; transform: translateY(12px); }
+.update-icon { width: 44px; height: 44px; border-radius: 12px; display: block; background: linear-gradient(160deg, var(--rose), #6b3a8a); }
+.update-icon svg { width: 100%; height: 100%; display: block; }
+.update-text { display: grid; gap: 2px; min-width: 0; }
+.update-text strong {
+  font: 600 1rem/1.2 var(--display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sun);
+}
+.update-text span { font-size: 0.9rem; line-height: 1.35; color: var(--muted); }
+.update-actions { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.update-actions .btn { min-height: 40px; font-size: 0.85rem; }
+.update-actions .update-later { background: transparent; color: var(--text); box-shadow: inset 0 0 0 1.5px rgba(207, 200, 236, 0.35); }
+.update-actions .update-later:hover { background: rgba(207, 200, 236, 0.08); }
+@media (min-width: 560px) {
+  .update-banner { left: auto; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); width: 380px; }
+}
+@keyframes update-in { from { opacity: 0; transform: translateY(16px); } }
+@media (prefers-reduced-motion: reduce) {
+  .update-banner { animation: none; transition: none; }
+}
 .overflow-alarm { position: fixed; top: 0; left: 0; right: 0; background: #ff7a1a; color: #000; font: 12px monospace; padding: 4px 8px; z-index: 99; }
 .note.rare { background: linear-gradient(135deg, var(--panel), #f3d3e3); }
 .note h3 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
