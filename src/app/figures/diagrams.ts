@@ -133,11 +133,16 @@ export const stabilityDiagram: FigureFactory = () => {
       text(ox + 112, top + 4, `air ${airTop} °C`, { fill: COL.env }),
       unstable ? arrow(bx, top - 18, bx, top - 44, COL.parcel, 2.5) : arrow(bx + 24, top - 6, bx + 24, top + 22, COL.cold, 2.5),
       title(ox + 100, 190, unstable ? 'Bubble 2° warmer: keeps rising' : 'Bubble 4° colder: sinks back', { class: 'fig-label small bold' }),
+      // A balloon under a ceiling: it bows down when unstable, so the balloon drifts away; it is domed when stable, so the balloon floats back.
       unstable
-        ? svg('path', { d: `M${ox + 40},252 Q${ox + 100},192 ${ox + 160},252`, fill: 'none', stroke: COL.ink, 'stroke-width': 2 })
-        : svg('path', { d: `M${ox + 40},212 Q${ox + 100},272 ${ox + 160},212`, fill: 'none', stroke: COL.ink, 'stroke-width': 2 }),
-      svg('circle', { cx: ox + 100, cy: unstable ? 214 : 234, r: 7, fill: COL.parcel }),
-      unstable ? arrow(ox + 110, 214, ox + 130, 222, COL.ink, 1.2) : arrow(ox + 116, 226, ox + 106, 232, COL.ink, 1.2),
+        ? svg('path', { d: `M${ox + 40},194 L${ox + 160},194 L${ox + 160},200 Q${ox + 100},256 ${ox + 40},200 Z`, fill: COL.env, opacity: 0.18 })
+        : svg('path', { d: `M${ox + 40},194 L${ox + 160},194 L${ox + 160},232 Q${ox + 100},176 ${ox + 40},232 Z`, fill: COL.env, opacity: 0.18 }),
+      unstable
+        ? svg('path', { d: `M${ox + 40},200 Q${ox + 100},256 ${ox + 160},200`, fill: 'none', stroke: COL.env, 'stroke-width': 2 })
+        : svg('path', { d: `M${ox + 40},232 Q${ox + 100},176 ${ox + 160},232`, fill: 'none', stroke: COL.env, 'stroke-width': 2 }),
+      svg('circle', { cx: ox + 130, cy: 219, r: 7, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.2, 'stroke-dasharray': '2 2', opacity: unstable ? 0 : 1 }),
+      svg('circle', { cx: ox + 100, cy: unstable ? 236 : 212, r: 7, fill: COL.parcel }),
+      unstable ? arrow(ox + 110, 236, ox + 128, 228, COL.ink, 1.4) : arrow(ox + 122, 217, ox + 110, 213, COL.ink, 1.4),
     ];
   };
   d.svg.append(
