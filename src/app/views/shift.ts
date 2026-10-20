@@ -18,7 +18,7 @@ import { el } from '../dom';
 import { FIGURES } from '../figures';
 import { prose, type FigureContext } from '../figures/kit';
 import type { View } from '../router';
-import { placeCloud, SKY_SPOTS } from '../scene/drawn';
+import { addToSky, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { makeScene, W } from '../scene/landscape';
 import { getSave, updateSave } from '../store';
 import { cueKey, radioFor, type Cue } from '../../core/talk';
@@ -30,7 +30,7 @@ function hero(shift: Shift): HTMLElement {
   const xs = shift.clouds.length === 1 ? [W * 0.55] : shift.clouds.map((_, i) => 70 + (i * (W - 140)) / (shift.clouds.length - 1));
   shift.clouds.forEach((id, i) => {
     const spot = SKY_SPOTS[id];
-    scene.sky.append(placeCloud(id, scene.palette, xs[i], spot.y, spot.scale, i + shift.n));
+    addToSky(scene.sky, placeCloud(id, scene.palette, xs[i], spot.y, spot.scale, i + shift.n));
   });
   return el('div.article-hero', {}, scene.root);
 }

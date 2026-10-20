@@ -8,6 +8,8 @@ import { deviation, minimumDeviation } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
+import { drawCloud } from '../scene/drawn';
+import { PALETTES } from '../scene/landscape';
 import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, type FigureFactory } from './kit';
 
 // ---- An ice crystal among supercooled droplets ---------------------------------
@@ -360,7 +362,7 @@ export const frontFigure: FigureFactory = (ctx, goal) => {
     const view: SVGElement[] = [svg('circle', { cx, cy, r: 44, fill: sky === 'nimbostratus' ? '#5e5a76' : sky === 'altostratus' ? '#9c9ab5' : '#6fa3d6', stroke: COL.ink, 'stroke-width': 2 })];
     if (sky !== 'nimbostratus') view.push(svg('circle', { cx: cx - 12, cy: cy - 6, r: sky === 'altostratus' ? 12 : 7, fill: '#fffbe9', opacity: sky === 'altostratus' ? 0.55 : 1 }));
     if (sky === 'cirrostratus') view.push(svg('circle', { cx: cx - 12, cy: cy - 6, r: 30, fill: 'none', stroke: '#fff', 'stroke-width': 2.5, opacity: 0.7 }));
-    if (sky === 'cirrus') for (const dy of [-22, -4, 16]) view.push(line(cx - 30, cy + dy, cx + 26, cy + dy - 8, '#fff', 2, { opacity: 0.85 }));
+    if (sky === 'cirrus') view.push(svg('g', { transform: `translate(${cx - 6} ${cy + 14}) scale(0.4)` }, drawCloud('cirrus', PALETTES.day, 3)));
     if (sky === 'nimbostratus') for (let i = -3; i <= 3; i++) view.push(line(cx + i * 10, cy - 30, cx + i * 10 - 5, cy + 30, COL.rain, 1.4));
     view.push(label(cx, cy + 60, 'overhead', { 'text-anchor': 'middle', class: 'fig-label small' }));
     redraw(inset, ...view);

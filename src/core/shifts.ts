@@ -23,6 +23,7 @@ export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
   'streaks', 'prism', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'radioCheck', 'forecast',
   'molecules', 'expand', 'stability', 'heap', 'dayNight', 'fogStratus',
+  'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 

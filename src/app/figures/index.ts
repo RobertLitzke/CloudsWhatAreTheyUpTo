@@ -3,7 +3,7 @@
 import type { FigureId } from '../../core/shifts';
 import { freezingFigure, jarFigure, parcelFigure, soundingFigure, thermalsFigure } from './air';
 import { billowFigure, flashFigure, mammaFigure, stormFigure, waveFigure } from './giants';
-import { dayNightDiagram, expandDiagram, fogStratusDiagram, heapDiagram, moleculesDiagram, stabilityDiagram } from './diagrams';
+import { collideDiagram, dayNightDiagram, depthDiagram, edgesDiagram, expandDiagram, fogStratusDiagram, heapDiagram, layerKindsDiagram, millionDiagram, moleculesDiagram, nameGridDiagram, stabilityDiagram, subsidenceDiagram } from './diagrams';
 import { frontFigure, haloFigure, iceGrowthFigure, prismFigure, streaksFigure } from './ice';
 import type { FigureFactory } from './kit';
 import { dropsFigure, handFigure, nightFigure, nudgeFigure, shadowFigure, spreadFigure, sunThroughFigure } from './layers';
@@ -42,4 +42,11 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   heap: heapDiagram,
   dayNight: dayNightDiagram,
   fogStratus: fogStratusDiagram,
+  edges: edgesDiagram,
+  nameGrid: nameGridDiagram,
+  layerKinds: layerKindsDiagram,
+  subsidence: subsidenceDiagram,
+  million: millionDiagram,
+  collide: collideDiagram,
+  depth: depthDiagram,
 };

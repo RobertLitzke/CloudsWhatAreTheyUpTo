@@ -31,6 +31,11 @@
         },
         {
           "kind": "figure",
+          "figure": "edges",
+          "caption": "The edge of a cloud, magnified."
+        },
+        {
+          "kind": "figure",
           "figure": "sort",
           "caption": "Some of today’s sky.",
           "task": "File each cloud onto its floor.",
@@ -90,6 +95,11 @@
           }
         },
         {
+          "kind": "figure",
+          "figure": "nameGrid",
+          "caption": "Three floors and two textures make six names."
+        },
+        {
           "kind": "text",
           "text": "Combining floors and textures gives six of the ten main cloud types (or genera). The remaining four modify the pattern slightly. **Cirrus** on its own refers to detached high-altitude curls and wisps. **Stratocumulus** describes low heaps that have merged into a lumpy layer. **Nimbostratus** is a deep, rain-bearing layer, and **cumulonimbus** is a towering, rain-bearing heap. That makes ten main cloud types in total, all catalogued and photographed in the World Meteorological Organization’s **International Cloud Atlas**, the standard field guide used by weather services around the world."
         }
@@ -115,7 +125,25 @@
         },
         {
           "kind": "text",
+          "text": "Stratus and stratocumulus are both low layers with fairly flat bases, so how do you tell them apart? By what made them, which shows in their texture. **Stratus** forms when a whole layer of stable air is cooled evenly: by a clear night, by moist air drifting over cold ground, or by fog lifting off a valley floor. Nothing stirs it, so it has no pattern at all, just one even, featureless grey sheet, often low enough to hide the hilltops. **Stratocumulus** is built by stirring. Each rising bubble becomes a cell, thicker where the air rises in its middle and thinner where it sinks around its edges. From below, the layer breaks into lumps or rolls with darker centres, brighter rims, and often slits of blue between them. The bases of both are roughly flat; the difference is the pattern of light and shade across the underside."
+        },
+        {
+          "kind": "figure",
+          "figure": "layerKinds",
+          "caption": "Two low layers, made two different ways."
+        },
+        {
+          "kind": "text",
+          "text": "The two often turn into each other. When the morning sun starts stirring a dawn stratus deck from below, it often breaks into the cells of stratocumulus before it burns away."
+        },
+        {
+          "kind": "text",
           "text": "What creates an inversion lid a kilometre or two above the ground? Most often, it comes from air sinking slowly over a wide area. When air converges high in the atmosphere and gently subsides, the total weight of the air column increases, raising the barometric pressure at the ground in what forecasters call a **high-pressure system** (or simply a high). As that upper air sinks into higher pressure, it is compressed and warms at the dry rate of 10 °C per kilometre. Meanwhile, the lowest kilometre or so of the atmosphere is constantly churned by wind and thermals rising off the ground. Any sinking air that reaches the top of this turbulent boundary layer gets mixed in and carried back down and up by the eddies, so the large-scale sinking stops right at the top of the stirred layer. The compressed, warmed air from aloft therefore rests directly on top of cooler air mixed up from the surface, forming a sharp temperature inversion."
+        },
+        {
+          "kind": "figure",
+          "figure": "subsidence",
+          "caption": "Sinking air comes to rest on the stirred layer below, warmer on top of cooler."
         },
         {
           "kind": "text",
@@ -128,7 +156,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "In the first lesson, you saw that typical cloud droplets are only about a hundredth of a millimetre across and settle at less than a centimetre per second, slow enough for the gentlest updraught to keep them suspended. Even if an individual cloud droplet drifts out the bottom of a cloud base, it enters drier air and evaporates within a few metres, long before reaching the ground."
+          "text": "In the first lesson, you saw that typical cloud droplets are only about a hundredth of a millimetre across and settle at less than a centimetre per second, slow enough for the gentlest updraught to keep them suspended. Even if an individual cloud droplet drifts out the bottom of a cloud base, it enters drier air and evaporates within a few centimetres, long before reaching the ground."
         },
         {
           "kind": "text",
@@ -136,18 +164,37 @@
         },
         {
           "kind": "figure",
+          "figure": "million",
+          "caption": "A hundred times wider holds a million times the water."
+        },
+        {
+          "kind": "figure",
           "figure": "drops",
-          "caption": "One drop, from cloud droplet to raindrop.",
-          "task": "Grow the drop until it falls as rain.",
+          "caption": "One drop leaving the base of a cloud, a kilometre above the wheat.",
+          "task": "Find a drop that makes it all the way to the ground.",
           "goal": "rain"
         },
         {
           "kind": "text",
-          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another. A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, aerodynamic drag increases more rapidly and bends the curve, as shown in the figure). A droplet that is five times wider than its neighbours therefore falls about twenty-five times faster, at several centimetres per second rather than a fraction of a centimetre per second. As it falls, it overtakes the smaller, slower droplets in its path and collides with them. Each merger makes the collector drop heavier and faster, allowing it to sweep through a wider column of cloud every second and accelerating its growth. Even so, this collision process takes tens of minutes, during which the growing drop is continuously falling. In a shallow cloud, the drop falls out the base long before it reaches raindrop size and evaporates on the way down. Only a deep cloud, or one with strong updraughts that hold the growing drops aloft, provides enough time for raindrops to mature. (In colder clouds that extend above the freezing level, ice crystals provide a second, faster pathway to rain, which we will examine in the lesson on the ice realm.)"
+          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another. A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, air resistance grows faster still and bends the curve over, as the fall-speed chart in the figure above shows). A droplet that is five times wider than its neighbours therefore falls about twenty-five times faster, at several centimetres per second rather than a fraction of a centimetre per second. As it falls, it overtakes the smaller, slower droplets in its path and collides with them. Each merger makes the collector drop heavier and faster, allowing it to sweep through a wider column of cloud every second and accelerating its growth."
+        },
+        {
+          "kind": "figure",
+          "figure": "collide",
+          "caption": "A drop that gets ahead keeps getting further ahead."
         },
         {
           "kind": "text",
-          "text": "That is why cloud depth matters so much more than how dark the base looks. A thin cloud layer can look dark grey and never drop more than a light drizzle, whereas a deep cloud has the vertical room to make real rain."
+          "text": "Even so, this collision process takes tens of minutes, during which the growing drop is continuously falling. In a shallow cloud, the drop falls out the base long before it reaches raindrop size and evaporates on the way down. Only a deep cloud, or one with strong updraughts that hold the growing drops aloft, provides enough time for raindrops to mature. (In colder clouds that extend above the freezing level, ice crystals provide a second, faster pathway to rain, which we will examine in the lesson on the ice realm.)"
+        },
+        {
+          "kind": "figure",
+          "figure": "depth",
+          "caption": "The same start, in a thin cloud and a deep one."
+        },
+        {
+          "kind": "text",
+          "text": "That is why a cloud’s depth matters more than how dark it looks. Darkness is a poor guide on its own. A deeper cloud does let less light through, but so does a shallow one packed with a great many tiny droplets, and a crowd of tiny droplets is actually worse at making rain: the same water shared among more droplets leaves each one smaller and slower, so they rarely collide. (Smoke and field dust, which give water many more specks to condense on, make exactly such clouds.) Lighting fools the eye too. A cloud’s base always sits in its own shadow, and under a sheet that covers the whole sky there is nothing bright to compare it with. A thin grey layer can look gloomy all day and give no more than drizzle; rain needs a cloud with the depth, and the updraughts, to give its drops time to grow."
         }
       ]
     },

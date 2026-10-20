@@ -235,41 +235,187 @@ function fallSpeed(mm: number): number {
       const [d0, v0] = FALL[i - 1];
       const [d1, v1] = FALL[i];
       const k = (Math.log(mm) - Math.log(d0)) / (Math.log(d1) - Math.log(d0));
-      return v0 + k * (v1 - v0);
+      return Math.exp(Math.log(v0) + k * (Math.log(v1) - Math.log(v0)));
     }
   }
   return FALL[FALL.length - 1][1];
 }
 
-export const dropsFigure: FigureFactory = (_ctx, goal) => {
+/**
+ * How far a drop falls below the cloud base before it has evaporated, in
+ * metres, by diameter in mm, for air at 90% humidity (after Rogers and Yau).
+ * Its life grows with the square of its size and so does its fall speed, so
+ * the distance grows roughly with the fourth power: a cloud droplet is gone in
+ * a few centimetres, a raindrop lasts for kilometres.
+ */
+const SURVIVE: [number, number][] = [[0.01, 0.002], [0.02, 0.033], [0.2, 150], [2, 42000], [5, 260000]];
+
+function surviveM(mm: number, humidity: number): number {
+  let i = 1;
+  while (i < SURVIVE.length - 1 && mm > SURVIVE[i][0]) i++;
+  const [d0, l0] = SURVIVE[i - 1];
+  const [d1, l1] = SURVIVE[i];
+  const k = (Math.log(mm) - Math.log(d0)) / (Math.log(d1) - Math.log(d0));
+  // Drier air takes the water away faster, in proportion to how far it is from saturated.
+  return Math.exp(Math.log(l0) + k * (Math.log(l1) - Math.log(l0))) * (0.1 / (1 - humidity));
+}
+
+const BASE_M = 1000;
+
+export const dropsFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
-  const H = 200;
+  const H = 250;
   const f = frame(W, H, 4);
   const t = task();
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  const paint = (logD: number) => {
-    const mm = Math.pow(10, logD);
-    // Drawn at 40 px per millimetre: a raindrop is big, a cloud droplet a speck.
-    const r = Math.max(0.6, mm * 20);
-    const v = fallSpeed(mm);
-    const count = Math.pow(mm / 0.01, 3);
-    const kind = mm < 0.05 ? 'a cloud droplet' : mm < 0.5 ? 'drizzle' : mm < 2.5 ? 'rain' : 'a big shower drop';
-    redraw(g,
-      svg('circle', { cx: 120, cy: 100, r, fill: COL.rain, opacity: 0.85 }),
-      line(240, 30, 240, 170, COL.ink, 2.8),
-      label(246, 36, 'a hair, 0.07 mm', { class: 'fig-label small soft' }),
-      svg('circle', { cx: 300, cy: 100, r: 0.6, fill: COL.rain }),
-      label(306, 104, 'cloud droplet', { class: 'fig-label small soft' }),
-      label(20, 190, `${mm < 0.1 ? mm.toFixed(3) : mm.toFixed(2)} mm: ${kind}`, { class: 'fig-label bold' }),
-    );
-    const speed = v < 0.1 ? `${(v * 100).toFixed(1)} cm` : `${v.toFixed(1)} m`;
-    f.readout.textContent = `Falls ${speed} a second.` + (count > 2 ? ` It takes about ${count >= 1e6 ? `${(count / 1e6).toFixed(count >= 1e7 ? 0 : 1)} million` : Math.round(count).toLocaleString()} cloud droplets to make one.` : ' The faintest updraft holds it up; this is what clouds are made of.') +
-      (mm >= 0.5 ? ' Only a deep, long-lived cloud can grow drops this big: nimbostratus, or a shower cloud.' : mm >= 0.05 ? ' Shallow low cloud such as stratus and stratocumulus manages drizzle at most.' : '');
-    if (goal === 'rain' && mm >= 0.5) t.resolve();
+  let logD = -2;
+  let up = 0.3;
+  let humidity = 0.7;
+  // The side view: cloud above the base line, then a kilometre of clear air.
+  const top = 14;
+  const baseY = 74;
+  const ground = 226;
+  const colX = 124;
+  const sceneW = 236;
+  const mPerPx = BASE_M / (ground - baseY);
+  // The fall-speed chart, log on both axes.
+  const cx0 = 300;
+  const cx1 = 390;
+  const cy0 = 200;
+  const cy1 = 30;
+  const xOf = (mm: number) => cx0 + ((Math.log10(mm) + 2) / 2.7) * (cx1 - cx0);
+  const yOf = (v: number) => cy0 - ((Math.log10(Math.max(v, 0.001)) + 3) / 4) * (cy0 - cy1);
+  const curve: [number, number][] = [];
+  for (let l = -2; l <= 0.7; l += 0.05) curve.push([xOf(10 ** l), yOf(fallSpeed(10 ** l))]);
+  const square: [number, number][] = [];
+  for (let l = -2; l <= -0.25; l += 0.05) square.push([xOf(10 ** l), yOf(0.003 * (10 ** l / 0.01) ** 2)]);
+
+  const scene = svg('g');
+  const chart = svg('g');
+  const dropG = svg('g');
+  f.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }),
+    svg('rect', { x: 0, y: top, width: sceneW, height: ground - top, fill: '#e7eef4' }),
+    // The cloud, the base line and the ground.
+    svg('rect', { x: 0, y: top, width: sceneW, height: baseY - top, fill: '#d6d3e3' }),
+    line(0, baseY, sceneW, baseY, COL.cloudShade, 3),
+    label(6, baseY + 13, `cloud base, ${height(BASE_M, ctx.save.units)} up`, { class: 'fig-label small soft' }),
+    ...Array.from({ length: 70 }, (_, i) => svg('circle', { cx: (i * 37) % sceneW, cy: top + 4 + ((i * 23) % (baseY - top - 8)), r: 0.9, fill: COL.rain, opacity: 0.35 })),
+    label(6, top + 12, 'inside the cloud', { class: 'fig-label small soft' }),
+    label(6, (baseY + ground) / 2, 'clear air below', { class: 'fig-label small soft' }),
+    svg('rect', { x: 0, y: ground, width: sceneW, height: H - ground, fill: '#b9a55a' }),
+    label(6, ground - 6, 'the wheat', { class: 'fig-label small soft' }),
+    scene,
+    dropG,
+    // The chart's frame.
+    label(cx0 - 26, 18, 'Fall speed', { class: 'fig-label small bold' }),
+    line(cx0, cy1 - 4, cx0, cy0, COL.ink, 1),
+    line(cx0, cy0, cx1, cy0, COL.ink, 1),
+    ...([[0.01, '1 cm/s'], [0.1, '10 cm/s'], [1, '1 m/s'], [10, '10 m/s']] as const).flatMap(([v, s]) => [
+      line(cx0 - 3, yOf(v), cx0, yOf(v), COL.ink, 1),
+      label(cx0 - 5, yOf(v) + 3, s, { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    ]),
+    ...([[0.01, '0.01'], [0.1, '0.1'], [1, '1 mm']] as const).flatMap(([d, s]) => [
+      line(xOf(d), cy0, xOf(d), cy0 + 3, COL.ink, 1),
+      label(xOf(d), cy0 + 13, s, { class: 'fig-label small soft', 'text-anchor': 'middle' }),
+    ]),
+    label((cx0 + cx1) / 2, cy0 + 25, 'drop size', { class: 'fig-label small soft', 'text-anchor': 'middle' }),
+    polyline(square, COL.soft, 1.2, { 'stroke-dasharray': '3 3' }),
+    label(xOf(0.3) - 6, yOf(2.2), 'if speed grew', { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    label(xOf(0.3) - 6, yOf(2.2) + 11, 'as size²', { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    polyline(curve, COL.rain, 2.4),
+    label(cx1, yOf(0.3), 'drag', { class: 'fig-label small', fill: COL.rain, 'text-anchor': 'end' }),
+    label(cx1, yOf(0.3) + 11, 'bends it', { class: 'fig-label small', fill: COL.rain, 'text-anchor': 'end' }),
+    chart,
+  );
+
+  // The drop's trip, worked out once per setting and then played over and over.
+  type Trip = { mm: number; fall: number; net: number; lastsM: number; lands: boolean };
+  let trip: Trip;
+  let y = top + 20;
+  let pause = 0;
+  const work = (): Trip => {
+    const mm = 10 ** logD;
+    const fall = fallSpeed(mm);
+    const lastsM = surviveM(mm, humidity);
+    return { mm, fall, net: fall - up, lastsM, lands: fall > up && lastsM > BASE_M };
   };
-  f.controls.append(slider('Drop size', -2, 0.7, 0.01, -2, (v) => `${Math.pow(10, v) < 0.1 ? Math.pow(10, v).toFixed(3) : Math.pow(10, v).toFixed(2)} mm`, paint, 'dew').node);
-  paint(-2);
+  const rOf = (mm: number) => 1.8 + Math.max(0, Math.log10(mm / 0.01)) * 3.2;
+  const kindOf = (mm: number) => (mm < 0.05 ? 'cloud droplet' : mm < 0.5 ? 'drizzle drop' : mm < 2.5 ? 'raindrop' : 'big shower drop');
+  const speed = (v: number) => (v < 0.1 ? `${(v * 100).toFixed(v < 0.01 ? 1 : 0)} cm` : `${v.toFixed(1)} m`);
+  const updraftArrows = () => up < 0.02
+    ? []
+    : [24, 210].map((x) => svg('g', { opacity: 0.8 },
+      line(x, baseY - 6, x, baseY - 6 - Math.min(48, 10 + up * 9), COL.parcel, 2),
+      svg('polygon', { points: `${x - 4},${baseY - 4 - Math.min(48, 10 + up * 9)} ${x + 4},${baseY - 4 - Math.min(48, 10 + up * 9)} ${x},${baseY - 11 - Math.min(48, 10 + up * 9)}`, fill: COL.parcel }),
+    ));
+
+  const paint = () => {
+    trip = work();
+    y = top + 24;
+    pause = 0;
+    const { mm, fall, net, lastsM, lands } = trip;
+    const gone = Math.min(ground, baseY + lastsM / mPerPx);
+    redraw(scene,
+      ...updraftArrows(),
+      up >= 0.02 ? label(32, baseY - 14, `updraft ${speed(up)}/s`, { class: 'fig-label small', fill: COL.parcel }) : null,
+      net > 0 ? line(colX, baseY, colX, gone, COL.rain, 1, { 'stroke-dasharray': '2 3', opacity: 0.6 }) : null,
+      net > 0 && !lands ? label(colX + 10, Math.max(gone + 4, baseY + 26), `gone after ${lastsM < 1 ? 'under a metre' : height(lastsM, ctx.save.units)}`, { class: 'fig-label small', fill: COL.rain }) : null,
+    );
+    redraw(chart,
+      up >= 0.02 ? line(cx0, yOf(up), cx1, yOf(up), COL.parcel, 1.4, { 'stroke-dasharray': '4 3' }) : null,
+      up >= 0.02 ? label(cx0 + 3, yOf(up) - 4, 'updraft', { class: 'fig-label small', fill: COL.parcel }) : null,
+      svg('circle', { cx: xOf(mm), cy: yOf(fall), r: 4.5, fill: COL.rain, stroke: '#fff', 'stroke-width': 1.5 }),
+    );
+    const size = `${mm < 0.1 ? mm.toFixed(3) : mm.toFixed(2)} mm`;
+    const air = humidity > 0.85 ? 'humid' : humidity > 0.55 ? 'fairly dry' : 'dry';
+    f.readout.textContent = net <= 0
+      ? `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second through the air, but the air is rising faster, so it is carried up and stays in the cloud, where it can go on growing.`
+      : lands
+        ? `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second, faster than the updraft, and is big enough to cross a kilometre of ${air} air: it reaches the ground${mm < 0.5 ? ' as drizzle' : ' as rain'}.`
+        : `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second and drops out of the base, but in ${air} air it evaporates after ${lastsM < 0.1 ? 'a few centimetres' : lastsM < 1 ? 'less than a metre' : `about ${height(lastsM, ctx.save.units)}`}${mm >= 0.2 ? ': a grey streak of virga that never reaches the ground' : ''}.`;
+    if (goal === 'rain' && lands) t.resolve();
+  };
+
+  animate(f.node, ctx, (dt) => {
+    const { mm, net, lastsM } = trip;
+    let r = rOf(mm);
+    if (pause > 0) {
+      pause -= dt;
+      if (pause <= 0) y = top + 24;
+      redraw(dropG);
+      return;
+    }
+    if (net <= 0) {
+      // Carried up: it rides the updraft to the top of the cloud and comes round again.
+      y -= dt * (8 + Math.min(40, -net * 12));
+      if (y < top + 6) y = baseY - 8;
+    } else {
+      // Time is sped up, more for the slow ones, so every trip takes a few seconds.
+      y += dt * (22 + Math.min(70, Math.log10(1 + net * 100) * 24));
+      if (y > baseY) {
+        const below = (y - baseY) * mPerPx;
+        if (below >= lastsM) {
+          pause = 0.8;
+          redraw(dropG, svg('circle', { cx: colX, cy: baseY + lastsM / mPerPx, r: r + 3, fill: 'none', stroke: COL.rain, 'stroke-width': 1, 'stroke-dasharray': '1 2' }));
+          return;
+        }
+        r *= Math.pow(1 - below / lastsM, 0.25);
+        if (y >= ground) {
+          pause = 0.8;
+          redraw(dropG, svg('path', { d: `M${colX - 8},${ground} q4,-7 8,0 q4,-7 8,0`, fill: 'none', stroke: COL.rain, 'stroke-width': 1.5 }));
+          return;
+        }
+      }
+    }
+    redraw(dropG, svg('circle', { cx: colX, cy: y, r: Math.max(0.8, r), fill: COL.rain, stroke: '#fff', 'stroke-width': 0.8 }));
+  });
+
+  f.controls.append(
+    slider('Drop size', -2, 0.7, 0.01, logD, (v) => `${10 ** v < 0.1 ? (10 ** v).toFixed(3) : (10 ** v).toFixed(2)} mm`, (v) => { logD = v; paint(); }, 'dew').node,
+    slider('Updraft', 0, 5, 0.05, up, (v) => (v < 0.02 ? 'none' : `${v < 0.1 ? (v * 100).toFixed(0) + ' cm' : v.toFixed(1) + ' m'}/s`), (v) => { up = v; paint(); }, 'parcel').node,
+    slider('Air below', 0.3, 0.95, 0.01, humidity, (v) => `${Math.round(v * 100)}% humid`, (v) => { humidity = v; paint(); }, 'env').node,
+  );
+  paint();
   return { node: f.node, done: goal ? t.promise : undefined };
 };
 

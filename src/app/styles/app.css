@@ -400,6 +400,7 @@ body.radio-up main { padding-bottom: 50vh; }
 .count { font: 500 0.8rem/1 var(--display); letter-spacing: 0.1em; color: var(--ink-soft); }
 .task { font-weight: 700; margin-bottom: 10px; }
 
+.scene .drawn-cloud { pointer-events: none; }
 .scene .band { fill: transparent; stroke: rgba(255, 255, 255, 0.55); stroke-width: 0.6; stroke-dasharray: 3 3; cursor: pointer; }
 .scene .band:hover { fill: rgba(255, 255, 255, 0.1); }
 .scene .band-label { font: 600 7.5px var(--display); letter-spacing: 0.12em; fill: #fff; opacity: 0.9; }
@@ -446,6 +447,12 @@ body.radio-up main { padding-bottom: 50vh; }
   cursor: pointer;
 }
 .chip.on { background: var(--ink); color: var(--panel); }
+.name-builder { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: start; margin: 10px 0 12px; }
+.name-col { display: grid; gap: 8px; }
+.name-col-title { margin: 0; font: 500 0.72rem/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-soft); }
+.name-col .chip { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; border-radius: 12px; text-align: left; }
+.name-col .chip small { font-size: 0.78rem; opacity: 0.75; }
+.name-plus { align-self: center; font: 600 1.4rem/1 var(--display); color: var(--ink-soft); }
 .name-preview { font: 600 1.4rem/1 var(--display); letter-spacing: 0.06em; margin: 0; text-transform: capitalize; }
 
 .photo { margin: 0; background: #000; }

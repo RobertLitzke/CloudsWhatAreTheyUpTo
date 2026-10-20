@@ -9,7 +9,7 @@ import { dealNameCalls } from '../../core/radio-check';
 import { makeRng, shuffle } from '../../core/rng';
 import { el, svg } from '../dom';
 import { photoFigure, PHOTOS } from '../photos';
-import { drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
+import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from '../ui';
 import { height, task, textBox, type FigureContext, type FigureFactory } from './kit';
@@ -82,7 +82,7 @@ export const sortFigure: FigureFactory = (ctx, _goal, options) => {
     if (g.floor === floor) {
       const i = clouds.indexOf(picked);
       const spot = SKY_SPOTS[picked];
-      scene.sky.append(placeCloud(picked, p, xs[i % xs.length], spot.y, spot.scale * 0.8, i + 3));
+      addToSky(scene.sky, placeCloud(picked, p, xs[i % xs.length], spot.y, spot.scale * 0.8, i + 3));
       cards.get(picked)!.remove();
       left.delete(picked);
       feedback.textContent = `Right: ${g.name} lives ${floor === 'tower' ? 'on the low floor and climbs through all three' : `on the ${floor} floor`}.`;
@@ -128,16 +128,18 @@ export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
     const preview = el('p.name-preview', {}, '…');
     const feedback = el('p.fig-readout');
     const go = el('button.btn', { type: 'button', disabled: true }, 'Call it in') as HTMLButtonElement;
-    const chips = <T extends string>(opts: readonly [T, string][], set: (v: T) => void) => {
-      const buttons = opts.map(([v, text]) => el('button.chip', {
+    // The two halves of a name side by side: a height on the left, a texture
+    // on the right, one picked from each.
+    const column = <T extends string>(title: string, opts: readonly [T, string, string][], set: (v: T) => void) => {
+      const buttons = opts.map(([v, root, means]) => el('button.chip', {
         type: 'button',
         onclick: () => {
           set(v);
           buttons.forEach((b, k) => b.classList.toggle('on', opts[k][0] === v));
           paint();
         },
-      }, text));
-      return el('div.chips', {}, buttons);
+      }, el('b', {}, root), el('small', {}, means)));
+      return el('div.name-col', {}, el('p.name-col-title', {}, title), buttons);
     };
     const paint = () => {
       preview.textContent = prefix && shape ? genus(compose(prefix, shape)).name : `${prefix ? (prefix === 'none' ? '' : `${prefix}-`) : '…'}${shape ?? '…'}`;
@@ -148,7 +150,7 @@ export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
       const said = genus(compose(prefix, shape));
       if (prefix === target.prefix && shape === target.body) {
         const spot = SKY_SPOTS[said.id];
-        scene.sky.append(placeCloud(said.id, p, xs[i % xs.length], spot.y, spot.scale * 0.8, 6 + i));
+        addToSky(scene.sky, placeCloud(said.id, p, xs[i % xs.length], spot.y, spot.scale * 0.8, 6 + i));
         i++;
         show();
       } else {
@@ -158,8 +160,11 @@ export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
     });
     body.replaceChildren(
       el('p.clue', {}, el('span', {}, `Name ${i + 1} of ${targets.length}`), target.clue),
-      chips([['cirro', 'cirro-  high'], ['alto', 'alto-  middle'], ['none', 'no prefix  low']] as const, (v) => (prefix = v)),
-      chips([['cumulus', 'cumulus  heap'], ['stratus', 'stratus  layer']] as const, (v) => (shape = v)),
+      el('div.name-builder', {},
+        column('Height', [['cirro', 'cirro-', 'high'], ['alto', 'alto-', 'middle'], ['none', 'no prefix', 'low']] as const, (v) => (prefix = v)),
+        el('span.name-plus', { 'aria-hidden': 'true' }, '+'),
+        column('Texture', [['cumulus', 'cumulus', 'heap'], ['stratus', 'stratus', 'layer']] as const, (v) => (shape = v)),
+      ),
       el('div.actions', {}, preview, go),
       feedback,
     );
@@ -174,7 +179,7 @@ function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number):
   if (photo) return photoFigure(photo, 'A cloud to identify');
   const scene = makeScene({ time: 'day', seed: 30 + i, town: false, sun: [0.15, 0.25] });
   const spot = SKY_SPOTS[id];
-  scene.sky.append(placeCloud(id, scene.palette, SW / 2, spot.y, spot.scale, i + 1));
+  addToSky(scene.sky, placeCloud(id, scene.palette, SW / 2, spot.y, spot.scale, i + 1));
   return el('figure.photo.sketch', {}, scene.root, el('figcaption', {}, el('p.credit', {}, 'A sketch: no photo of this cloud has been fetched yet.')));
 }
 
@@ -261,7 +266,7 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
     const strip = el('div.sky-strip', {}, q.sky.map((s, k) => {
       const scene = makeScene({ time: 'day', seed: 40 + k, town: false, sun: [0.2, 0.3] });
       const spot = SKY_SPOTS[s.genus];
-      scene.sky.append(placeCloud(s.genus, scene.palette, SW / 2, spot.y, spot.scale, k + 2));
+      addToSky(scene.sky, placeCloud(s.genus, scene.palette, SW / 2, spot.y, spot.scale, k + 2));
       return el('figure', {}, scene.root, el('figcaption', {}, s.when));
     }));
     const asker = q.id ? ctx.local?.(q.id) : undefined;
