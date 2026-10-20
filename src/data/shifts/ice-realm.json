@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "ice-realm",
   "n": 4,
   "title": "The ice realm and early warnings",
@@ -9,9 +9,8 @@
       "title": "Above the freezing line",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Anvil Peak, today we head all the way up to the high floor. High clouds look thin and delicate, and they give the earliest weather warnings you can get from a tower."
+          "kind": "text",
+          "text": "This lesson heads all the way up to the high floor. High clouds look thin and delicate, and they give the earliest weather warnings you can get from the ground."
         },
         {
           "kind": "text",
@@ -39,7 +38,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "That mixed zone of supercooled droplets and ice crystals is where most of the world’s rain begins. In your first shift, you saw that air reaches its saturation limit when water molecules return to a liquid surface just as fast as they escape from it. In an ice crystal, each water molecule is held more tightly by its neighbours in the rigid lattice than it would be in liquid water at the same sub-freezing temperature, so molecules escape from an ice surface more slowly than from a supercooled droplet. Because molecules leave the ice more slowly, a lower concentration of surrounding water vapour is enough to replace them and keep the crystal in balance. At any temperature below 0 °C, the saturation vapour limit over ice is lower than the saturation limit over supercooled liquid water. At −12 °C, air that is just saturated with respect to liquid water contains about 13% more water vapour than is needed to saturate the air with respect to ice."
+          "text": "That mixed zone of supercooled droplets and ice crystals is where most of the world’s rain begins. In the first lesson, you saw that air reaches its saturation limit when water molecules return to a liquid surface just as fast as they escape from it. In an ice crystal, each water molecule is held more tightly by its neighbours in the rigid lattice than it would be in liquid water at the same sub-freezing temperature, so molecules escape from an ice surface more slowly than from a supercooled droplet. Because molecules leave the ice more slowly, a lower concentration of surrounding water vapour is enough to replace them and keep the crystal in balance. At any temperature below 0 °C, the saturation vapour limit over ice is lower than the saturation limit over supercooled liquid water. At −12 °C, air that is just saturated with respect to liquid water contains about 13% more water vapour than is needed to saturate the air with respect to ice."
         },
         {
           "kind": "text",
@@ -54,7 +53,7 @@
         },
         {
           "kind": "text",
-          "text": "As the temperature drops further below 0 °C, the percentage gap between the liquid and ice saturation limits widens, but very cold air holds so little water vapour overall that there are fewer molecules available to feed the crystal. The sweet spot where ice crystals grow fastest sits right between −10 °C and −15 °C. Within ten to twenty minutes, a crystal can grow heavy enough to start falling through the cloud. On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls on the forest around your tower starts out high in the cloud as snow. Weather radar shows this directly: just below the freezing level, rain clouds display a distinct bright band where large, wet, melting snowflakes reflect radar waves much more strongly than the smaller raindrops below."
+          "text": "As the temperature drops further below 0 °C, the percentage gap between the liquid and ice saturation limits widens, but very cold air holds so little water vapour overall that there are fewer molecules available to feed the crystal. The sweet spot where ice crystals grow fastest sits right between −10 °C and −15 °C. Within ten to twenty minutes, a crystal can grow heavy enough to start falling through the cloud. On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow. Weather radar shows this directly: just below the freezing level, rain clouds display a distinct bright band where large, wet, melting snowflakes reflect radar waves much more strongly than the smaller raindrops below."
         },
         {
           "kind": "text",
@@ -138,9 +137,8 @@
       "title": "A warm front, from far off",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Pay close attention to this sequence, Anvil Peak. Watching how high clouds evolve over the course of a day is one of the best ways to spot an incoming storm system."
+          "kind": "text",
+          "text": "Pay close attention to this sequence. Watching how high clouds evolve over the course of a day is one of the best ways to spot an incoming storm system."
         },
         {
           "kind": "text",
@@ -148,22 +146,21 @@
         },
         {
           "kind": "text",
-          "text": "As the warm, moist air glides up that gradual ramp, it expands and cools across a region hundreds of kilometres wide, forming broad cloud sheets at every level along the slope. Because the frontal slope is roughly 1 in 100, the top of the ramp at an altitude of ten kilometres sits nearly a thousand kilometres ahead of the surface boundary where the front touches the ground. To an observer on the tower, an approaching warm front arrives backwards from top to bottom: you see its highest ice clouds first, followed by progressively lower and thicker layers as the wedge of cold air retreats. Since a typical warm front advances at around 25 kilometres per hour, those first high cirrus streaks can appear overhead a day and a half before the surface front arrives."
+          "text": "As the warm, moist air glides up that gradual ramp, it expands and cools across a region hundreds of kilometres wide, forming broad cloud sheets at every level along the slope. Because the frontal slope is roughly 1 in 100, the top of the ramp at an altitude of ten kilometres sits nearly a thousand kilometres ahead of the surface boundary where the front touches the ground. To an observer on the ground, an approaching warm front arrives backwards from top to bottom: you see its highest ice clouds first, followed by progressively lower and thicker layers as the wedge of cold air retreats. Since a typical warm front advances at around 25 kilometres per hour, those first high cirrus streaks can appear overhead a day and a half before the surface front arrives."
         },
         {
           "kind": "figure",
           "figure": "front",
-          "caption": "A warm front, moving towards the lookout at about 25 km/h.",
+          "caption": "A warm front, moving towards you at about 25 km/h.",
           "task": "Let the front come in until rain is about to arrive.",
           "goal": "arrive"
         },
         {
           "kind": "text",
-          "text": "This top-down progression gives you a reliable timeline from the lookout tower: detached **cirrus** hooks invading from one side of the horizon, thickening into a milky **cirrostratus** veil with a 22° halo, lowering and greying into **altostratus** that dims the sun into a frosted disc and washes out the halo, and finally deepening into an overcast rain deck. Rain begins well before the surface front reaches you, as soon as the cloud deck overhead grows deep enough to span from the ice-growth zone down to the lower sky, typically across the last two or three hundred kilometres ahead of the surface boundary. From the time you first spot a halo in thickening cirrostratus, steady rain usually arrives within **12 to 24 hours**; once altostratus has hidden the sharp disc of the sun, rain is only a few hours away."
+          "text": "This top-down progression gives you a reliable timeline from the ground: detached **cirrus** hooks invading from one side of the horizon, thickening into a milky **cirrostratus** veil with a 22° halo, lowering and greying into **altostratus** that dims the sun into a frosted disc and washes out the halo, and finally deepening into an overcast rain deck. Rain begins well before the surface front reaches you, as soon as the cloud deck overhead grows deep enough to span from the ice-growth zone down to the lower sky, typically across the last two or three hundred kilometres ahead of the surface boundary. From the time you first spot a halo in thickening cirrostratus, steady rain usually arrives within **12 to 24 hours**; once altostratus has hidden the sharp disc of the sun, rain is only a few hours away."
         },
         {
-          "kind": "radio",
-          "who": "juniper",
+          "kind": "text",
           "text": "Moonlight refracts through cirrostratus at the exact same 22° angle at night, which is where the old saying 'ring around the moon, rain soon' comes from. Sometimes a high veil passes by without a full front behind it, but when the veil keeps thickening, the old rhyme holds up well."
         }
       ]
@@ -188,22 +185,21 @@
         },
         {
           "kind": "text",
-          "text": "From the tower, the quickest way to tell when thickening altostratus has turned into nimbostratus is to look for the sun: through altostratus you can still make out its pale disc, whereas nimbostratus is so deep and dense that it blots out the sun’s position completely. You can also distinguish nimbostratus from a dark layer of low stratocumulus by its lack of structure. Stratocumulus has a clear underside with distinct lumps, rolls, and contrast between lighter and darker patches; nimbostratus has a uniform, diffuse grey base that looks blurred and indistinct behind curtains of falling rain."
+          "text": "From the ground, the quickest way to tell when thickening altostratus has turned into nimbostratus is to look for the sun: through altostratus you can still make out its pale disc, whereas nimbostratus is so deep and dense that it blots out the sun’s position completely. You can also distinguish nimbostratus from a dark layer of low stratocumulus by its lack of structure. Stratocumulus has a clear underside with distinct lumps, rolls, and contrast between lighter and darker patches; nimbostratus has a uniform, diffuse grey base that looks blurred and indistinct behind curtains of falling rain."
         }
       ]
     },
     {
-      "title": "Radio check",
+      "title": "Check",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Radio check, Anvil Peak. First call in the cloud types from the lookouts’ photos, and then tell me what these changing skies mean for the crews."
+          "kind": "text",
+          "text": "First name the cloud types in the photos, and then say what these changing skies mean for the hours ahead."
         },
         {
           "kind": "figure",
           "figure": "radioCheck",
-          "caption": "Photos from the other lookouts. Call in each cloud by name.",
+          "caption": "Real photos. Name each cloud.",
           "options": {
             "mode": "name",
             "pool": [
@@ -229,10 +225,11 @@
         {
           "kind": "figure",
           "figure": "forecast",
-          "caption": "The sky over a few hours, as the other lookouts logged it. What is it up to?",
+          "caption": "The sky over a few hours. What is it up to?",
           "options": {
             "items": [
               {
+                "id": "binder",
                 "sky": [
                   {
                     "genus": "cirrus",
@@ -247,7 +244,7 @@
                     "when": "20:00"
                   }
                 ],
-                "question": "Mares’ tails thickened into a milky veil with a halo; now the halo has faded and the sun is just a dim disc. When should the crews expect rain?",
+                "question": "Mares’ tails thickened into a milky veil with a halo; now the halo has faded and the sun is just a dim disc. When should you expect rain?",
                 "options": [
                   "No rain expected; this is fair weather",
                   "Within the next several hours",
@@ -281,6 +278,7 @@
                 "why": "Isolated cirrus wisps on their own simply show moist pockets in the upper troposphere. Only when cirrus spreads and thickens into a continuous cirrostratus veil does it warn of an approaching warm front."
               },
               {
+                "id": "washday",
                 "sky": [
                   {
                     "genus": "altostratus",
@@ -295,7 +293,7 @@
                     "when": "15:00"
                   }
                 ],
-                "question": "A grey middle-level sheet has thickened until the sun is completely hidden and the base looks dark and blurred. What should the crews expect?",
+                "question": "A grey middle-level sheet has thickened until the sun is completely hidden and the base looks dark and blurred. What should you expect?",
                 "options": [
                   "A brief passing shower, followed by sun",
                   "Steady rain for several hours",
@@ -337,7 +335,7 @@
     "Sunlight passing through the 60° prism faces of hexagonal ice crystals bends by a minimum of 22°, concentrating light into a 22° halo (roughly a spread hand-span in radius) when a cirrostratus veil covers the sky.",
     "Along an approaching warm front, warm air glides up over a retreating wedge of cold air, producing a top-down sequence of clouds: cirrus, cirrostratus with a halo, altostratus, and finally deep nimbostratus with steady rain arriving 12 to 24 hours after the halo."
   ],
-  "next": "Final training shift: the giants of the sky, from towering thunderstorms to rare mountain wave clouds.",
+  "next": "Final lesson: the giants of the sky, from towering thunderstorms to rare mountain wave clouds.",
   "journal": {
     "ice": {
       "title": "The ice realm",

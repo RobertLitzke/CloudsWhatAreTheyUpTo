@@ -21,6 +21,14 @@ describe('migrate', () => {
     expect(s.shifts.floors).toEqual({ done: true, best: 8, of: 8, finishedAt: '2026-10-19' });
     expect(s.shifts.bad).toBeUndefined();
   });
+
+  it('keeps the radio settings and what was heard', () => {
+    expect(emptySave().talk).toBe(true);
+    const s = migrate({ talk: false, introSeen: true, heard: { intro: [1, '2', -3], junk: 'x' } });
+    expect(s.talk).toBe(false);
+    expect(s.introSeen).toBe(true);
+    expect(s.heard).toEqual({ intro: [1, 2, 0] });
+  });
 });
 
 describe('finishShift', () => {

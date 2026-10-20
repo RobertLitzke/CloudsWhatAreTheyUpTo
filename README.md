@@ -1,11 +1,16 @@
 # Clouds: What are they up to?
 
-A cloud-watching game. You take a summer job as the cloud watcher on Anvil
-Peak, a lookout in the Thunderhead National Forest, and Juniper, the district
-weather officer, trains you over the radio one shift at a time: how to name
-every kind of cloud, what made it, and what it means for the weather to come.
-Once training is done, the district's cloud-seeding programme opens and you
-start making clouds as well as reading them.
+A cloud-watching game. It is the summer of 1931, and you are the new weather
+forecaster in Harrow, a wheat town with an airfield in eastern Washington.
+Farmers, pilots and the Ladies' Aid bring you their weather questions, and an
+old hand at Walla Walla, a few counties over, talks you through the answers
+on the ham radio, one lesson a week: how to name every kind of cloud, what
+made it, and what it means for the weather to come. Once training is done
+the story skips ahead to 1946, when cloud seeding arrives, and you start
+making clouds as well as reading them.
+
+The lessons themselves are a plain workbook; the story lives only in the
+radio talks, which can be switched off in Settings.
 
 The look comes from the poster in `art/poster.jpg`, which is also the
 loading screen and the source of the app icons: a violet and magenta evening,
@@ -18,12 +23,19 @@ and uses real photos for testing.
 - The shell: a vanilla TypeScript PWA on Vite, inlined into one
   `index.html` as in PatchMatch and Fretron, with a service worker, an update
   banner, and progress in `localStorage` with save-to-file and load.
-- **Five training shifts**, each an illustrated article in the manner of
-  Bartosz Ciechanowski's explainers: paragraphs, words from Juniper over the
-  radio, and live figures with sliders to play with. Each part opens once the
-  small tasks in the figures above it are done; a finished shift opens in
-  full. Every shift ends with a radio check (photos to name, or skies to
-  forecast) and a signed logbook page.
+- **Five lessons**, each an illustrated article in the manner of Bartosz
+  Ciechanowski's explainers: paragraphs and live figures with sliders to play
+  with. Each part opens once the small tasks in the figures above it are
+  done; a finished lesson opens in full. Every lesson ends with a check
+  (photos to name, and skies to forecast) and a signed logbook page.
+- **Radio talks** with Walla Walla, typed out on a torn slip of paper at the
+  foot of the screen: an opening talk on first load, then in each lesson one
+  as it opens (with the townsfolk's questions), one or two along the way
+  (a question on what was just read), and one as the check opens, where the
+  townsfolk's questions come back as the last forecasts. Each turn offers up
+  to three replies that rejoin. Shutting a talk is rude, and you are told so;
+  a radio button in the corner brings it back. Heard talks go into the
+  journal's radio log.
   1. **The two textures**: what a cloud is, stable and unstable air, cumulus
      from thermals and stratus from a cooling night.
   2. **The low sky**: the three floors, stratocumulus under a lid, why most
@@ -36,10 +48,10 @@ and uses real photos for testing.
   5. **Vertical giants and rare boss clouds**: a sounding that grows
      congestus and cumulonimbus, a storm's life, counting the thunder, and
      the rare lens, mammatus and Kelvin-Helmholtz clouds.
-- The **field journal**: notes the shifts unlock, and a card for each of the
+- The **field journal**: notes the lessons unlock, and a card for each of the
   ten genera (what it looks like, what made it, what it means).
 - A **photo pipeline** that finds, credits and resizes photos from Wikimedia
-  Commons (see below). Until photos are fetched, the radio check uses drawn
+  Commons (see below). Until photos are fetched, the check uses drawn
   clouds and says so.
 - The cloud-seeding mode is shown on the board as opening after training.
 
@@ -55,7 +67,7 @@ across the top if anything on a page is wider than the screen.
 
 | Command | What it does |
 |---|---|
-| `npm test` | Vitest: cloud facts, air physics, the save file, dealing the radio check, shift content, photo credits, licence mapping |
+| `npm test` | Vitest: cloud facts, air physics, the save file, dealing the photo check, lesson content, radio talks, photo credits, licence mapping |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5421 |
 | `npm run icons` | Regenerate the PNG icons from a square of `art/poster.jpg` |
@@ -93,14 +105,15 @@ src/core/     pure TypeScript, no DOM; unit-tested
   air.ts        a rising parcel, the day's sounding, how tall a heap grows
   sky.ts        angular size, the warm front, night cooling, thunder
   optics.ts     light through an ice prism, the halo
-  shifts.ts     the five shifts (parts of text, radio and figures), journal
-  photo-call.ts radio-check.ts  dealing the radio checks
+  shifts.ts     the five lessons (parts of text and figures), journal
+  talk.ts       the radio talks and the townsfolk's questions
+  photo-call.ts radio-check.ts  dealing the photo checks
   photos.ts     the photo entry shape and accepted licences
   save.ts rng.ts
-src/app/      dom.ts, router.ts, store.ts, update.ts, photos.ts
-  scene/        landscape.ts (the view from the tower), drawn.ts (drawn clouds)
+src/app/      dom.ts, router.ts, store.ts, update.ts, photos.ts, radio.ts (the radio slip)
+  scene/        landscape.ts (wheat country and the town), drawn.ts (drawn clouds)
   figures/      the live figures, by theme, and index.ts naming them
-  views/        home, shift (the article player), journal, credits, settings
+  views/        home, shift (the lesson player), journal, credits, settings
 tools/photos/ find.ts, fetch.ts, commons.ts, config.ts, picks.json
 test/
 ```

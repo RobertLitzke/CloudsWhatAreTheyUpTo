@@ -35,6 +35,8 @@ export interface FigureContext {
   alive: () => boolean;
   /** A figure that is a test reports its result here. */
   score: (right: number, of: number) => void;
+  /** Who in town asked the forecast question with this id, when the radio is on. */
+  local?: (id: string) => string | undefined;
 }
 
 export interface FigureHandle {

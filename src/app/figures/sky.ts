@@ -1,7 +1,6 @@
 // Figures that work on whole clouds rather than the air inside them: filing
 // drawn clouds onto their floors, building names from their roots, and the
-// tests that end a shift (the radio check on photos, and forecasting from a
-// sky).
+// tests that end a lesson (the check on photos, and forecasting from a sky).
 
 import type { Forecast } from '../../core/shifts';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
@@ -173,7 +172,7 @@ export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
 
 function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number): HTMLElement {
   if (photo) return photoFigure(photo, 'A cloud to identify');
-  const scene = makeScene({ time: 'day', seed: 30 + i, tower: false, sun: [0.15, 0.25] });
+  const scene = makeScene({ time: 'day', seed: 30 + i, town: false, sun: [0.15, 0.25] });
   const spot = SKY_SPOTS[id];
   scene.sky.append(placeCloud(id, scene.palette, SW / 2, spot.y, spot.scale, i + 1));
   return el('figure.photo.sketch', {}, scene.root, el('figcaption', {}, el('p.credit', {}, 'A sketch: no photo of this cloud has been fetched yet.')));
@@ -181,7 +180,7 @@ function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number):
 
 /**
  * options.mode is 'floor' (call in the floor) or 'name' (call in the genus);
- * options.pool is the genera dealt; options.known the genera the watcher has
+ * options.pool is the genera dealt; options.known the genera the player has
  * met (look-alike answers are drawn from these); options.count how many.
  */
 export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
@@ -202,7 +201,7 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
   let i = 0;
   const next = () => {
     if (i >= calls.length) {
-      body.replaceChildren(el('p.fig-readout', {}, `Radio check done: ${right} of ${calls.length} called right.`));
+      body.replaceChildren(el('p.fig-readout', {}, `${ctx.save.talk ? 'Radio check' : 'Check'} done: ${right} of ${calls.length} right.`));
       ctx.score(right, calls.length);
       t.resolve();
       return;
@@ -243,7 +242,9 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
 
 
 export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
-  const items = shuffle((options?.items as Forecast[]) ?? [], makeRng(freshSeed()));
+  // Questions from town come last, in order, after the rest shuffled.
+  const all = (options?.items as Forecast[]) ?? [];
+  const items = [...shuffle(all.filter((q) => !q.id), makeRng(freshSeed())), ...all.filter((q) => q.id)];
   const t = task();
   const body = el('div');
   const node = el('div.fig-body', {}, body);
@@ -258,7 +259,7 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
     }
     const q = items[i];
     const strip = el('div.sky-strip', {}, q.sky.map((s, k) => {
-      const scene = makeScene({ time: 'day', seed: 40 + k, tower: false, sun: [0.2, 0.3] });
+      const scene = makeScene({ time: 'day', seed: 40 + k, town: false, sun: [0.2, 0.3] });
       const spot = SKY_SPOTS[s.genus];
       scene.sky.append(placeCloud(s.genus, scene.palette, SW / 2, spot.y, spot.scale, k + 2));
       return el('figure', {}, scene.root, el('figcaption', {}, s.when));
@@ -280,7 +281,8 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
       });
       return b;
     });
-    body.replaceChildren(strip, el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
+    const asker = q.id ? ctx.local?.(q.id) : undefined;
+    body.replaceChildren(strip, ...(asker ? [el('p.asker', {}, asker)] : []), el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
   };
   next();
   return { node, done: t.promise };

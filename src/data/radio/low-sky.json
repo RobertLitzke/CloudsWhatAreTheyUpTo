@@ -1,0 +1,149 @@
+{
+  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "talks": [
+    {
+      "id": "low-sky-open",
+      "cue": "start",
+      "when": "Tuesday, June 16, 1931 · 7:30 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. Did Ole get his hay in dry?",
+          "replies": [
+            {
+              "say": "Dry as a sermon. He sent a pie.",
+              "back": "Rhubarb? Mrs. Haugen makes a rhubarb pie that could end a war. Save me a slice."
+            },
+            {
+              "say": "He did. The goat ate my hat by way of thanks.",
+              "back": "That’s how the goat says thank you. It’s how it says most things."
+            }
+          ]
+        },
+        {
+          "them": "Good. Now, fresh troubles. Edna Pruitt telephoned me, long distance, if you please. The Ladies’ Aid picnic is Sunday afternoon, and if a lumpy grey sheet rolls in she wants to know whether to haul out the tent. And Dutch Kessler at the elevator has three wagons of wheat sitting out under a grey sky that has been parked overhead for two days.",
+          "replies": [
+            {
+              "say": "Grey clouds mean rain, don’t they?",
+              "back": "Not always. Most grey clouds never drop a thing. That’s tonight’s lesson, as it happens."
+            },
+            {
+              "say": "Why does she telephone you and not me?",
+              "back": "She’s known me twenty years and you two weeks. Win the picnic and you win the town."
+            }
+          ]
+        },
+        {
+          "them": "This week you’ll sort clouds by height, learn to read their names, which are Latin but friendly, and find out why most clouds never rain. Then those two questions answer themselves.",
+          "replies": [
+            {
+              "say": "Latin? Nobody said there’d be Latin.",
+              "back": "Four words of it. Even Hap learned them, and Hap thinks a barometer is a kind of rooster."
+            },
+            {
+              "say": "Sounds good."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "low-sky-names",
+      "cue": {
+        "after": "names"
+      },
+      "when": "Tuesday, June 16, 1931 · 8:10 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, quiz. You see a lumpy layer of cloud on the middle floor. Build its name.",
+          "replies": [
+            {
+              "say": "Altocumulus.",
+              "back": "Alto- for the middle floor, cumulus for the lumps. You’re speaking Latin now. Don’t let it go to your head.",
+              "right": true
+            },
+            {
+              "say": "Cirrostratus.",
+              "back": "That’s a smooth, high veil. The middle floor is alto-, and lumps are cumulus: altocumulus."
+            },
+            {
+              "say": "Stratocumulus.",
+              "back": "Close, but that’s the low lumpy sheet. The middle floor takes alto-: altocumulus."
+            }
+          ]
+        },
+        {
+          "them": "Aunt Fern calls every cloud “that one.” She isn’t wrong, but she isn’t helpful.",
+          "replies": [
+            {
+              "say": "Poor Aunt Fern."
+            },
+            {
+              "say": "I’ll stick with Latin."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "low-sky-rain",
+      "cue": {
+        "after": "drops"
+      },
+      "when": "Tuesday, June 16, 1931 · 8:45 p.m.",
+      "turns": [
+        {
+          "them": "So, a dark grey sheet overhead. Does dark mean rain?",
+          "replies": [
+            {
+              "say": "Not by itself. Depth matters more.",
+              "back": "Exactly. A thin sheet can look dark and give nothing but drizzle. It takes a deep cloud to grow drops heavy enough to fall.",
+              "right": true
+            },
+            {
+              "say": "Yes, dark clouds rain.",
+              "back": "That’s the knee talking. A thin sheet can look dark and never give more than drizzle. Depth makes rain, not darkness."
+            },
+            {
+              "say": "Only on Sundays.",
+              "back": "Only during picnics, Edna would say. No: depth makes rain, not darkness."
+            }
+          ]
+        },
+        {
+          "them": "Remember: a raindrop holds about a million cloud droplets’ worth of water. Most droplets never find enough friends.",
+          "replies": [
+            {
+              "say": "A million. That’s a lot of bumping."
+            },
+            {
+              "say": "Poor little droplets."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "low-sky-check",
+      "cue": "check",
+      "when": "Tuesday, June 16, 1931 · 9:15 p.m.",
+      "turns": [
+        {
+          "them": "Check time. The club sent more photographs. Then give Edna and Dutch their answers, and give them straight. Edna can smell a hedge at forty paces.",
+          "replies": [
+            {
+              "say": "Ready."
+            },
+            {
+              "say": "Can I give Edna her answer in writing?",
+              "back": "Coward. Yes."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "locals": {
+    "picnic": "Mrs. Edna Pruitt, who runs the Ladies’ Aid picnic, wants to know if she needs the tent:",
+    "wagons": "Dutch Kessler at the grain elevator, with three wagons of wheat sitting uncovered, asks:"
+  }
+}

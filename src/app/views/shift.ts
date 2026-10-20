@@ -1,33 +1,28 @@
-// A training shift, read as an illustrated article on paper: a view from the
-// tower at the top, then the shift's parts one after another. Each part is
-// paragraphs, words from Juniper over the radio, and live figures from
-// app/figures. The next part opens once every task in this one is done, so the
-// lesson is read in order the first time; a finished shift opens in full. The
-// last part is the radio check, and its score goes into the log at the end.
+// A lesson, read as an illustrated workbook chapter on paper: a sky at the
+// top, then the lesson's parts one after another. Each part is paragraphs and
+// live figures from app/figures. The next part opens once every task in this
+// one is done, so the lesson is read in order the first time; a finished
+// lesson opens in full. The last part is the check, and its score goes into
+// the log at the end.
+//
+// With the radio on, talks with Walla Walla (core/talk.ts) come up over the
+// page as it is read: one as the lesson opens, one or two as figures are
+// done, and one as the check opens. They play only the first time through.
 
 import { genus } from '../../core/clouds';
 import { finishShift } from '../../core/save';
-import { shiftById, type Block, type Part, type Shift } from '../../core/shifts';
-import { el, svg } from '../dom';
+import { SHIFTS, shiftById, type Block, type FigureId, type Part, type Shift } from '../../core/shifts';
+import { el } from '../dom';
 import { FIGURES } from '../figures';
 import { prose, type FigureContext } from '../figures/kit';
 import type { View } from '../router';
 import { placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { makeScene, W } from '../scene/landscape';
 import { getSave, updateSave } from '../store';
+import { cueKey, radioFor, type Cue } from '../../core/talk';
+import { clearRadio, playTalk } from '../radio';
 
-const WHO = { juniper: 'Juniper · District', you: 'You · Anvil Peak' } as const;
-
-function radioIcon(): SVGElement {
-  return svg('svg', { viewBox: '0 0 24 24', 'aria-hidden': 'true' },
-    svg('rect', { x: 6, y: 7, width: 12, height: 15, rx: 2 }),
-    svg('line', { x1: 9, y1: 7, x2: 7, y2: 1 }),
-    svg('rect', { x: 8.5, y: 9.5, width: 7, height: 4, rx: 0.5, class: 'screen' }),
-    svg('circle', { cx: 12, cy: 18, r: 1.8, class: 'screen' }),
-  );
-}
-
-/** The view from the tower, with the clouds this shift is about. */
+/** The sky over the fields, with the clouds this lesson is about. */
 function hero(shift: Shift): HTMLElement {
   const scene = makeScene({ time: shift.n % 2 ? 'dawn' : 'day', seed: 10 + shift.n, sun: [0.78, 0.62] });
   const xs = shift.clouds.length === 1 ? [W * 0.55] : shift.clouds.map((_, i) => 70 + (i * (W - 140)) / (shift.clouds.length - 1));
@@ -38,23 +33,22 @@ function hero(shift: Shift): HTMLElement {
   return el('div.article-hero', {}, scene.root);
 }
 
-function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[]): HTMLElement {
+function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], onDone: (figure: string) => void): HTMLElement {
   switch (block.kind) {
     case 'text':
       return prose(block.text);
     case 'key':
       return el('section.key-ideas', {}, el('p.key-title', {}, block.title), el('ul', {}, ...block.points.map((p) => el('li', {}, prose(p)))));
-    case 'radio':
-      return el('aside.radio-call', { className: `radio-call ${block.who}` },
-        el('div.radio-icon', {}, radioIcon()),
-        el('div', {}, el('p.who', {}, WHO[block.who]), prose(block.text)));
     case 'figure': {
       const handle = FIGURES[block.figure](ctx, block.goal, block.options);
       const status = block.task ? el('p.fig-task', {}, el('span.tick', { 'aria-hidden': 'true' }), block.task) : null;
       const fig = el('figure.fig', {}, status, handle.node, el('figcaption', {}, block.caption));
       if (handle.done) {
         tasks.push(handle.done);
-        void handle.done.then(() => fig.classList.add('done'));
+        void handle.done.then(() => {
+          fig.classList.add('done');
+          onDone(block.figure);
+        });
       }
       return fig;
     }
@@ -71,8 +65,18 @@ export const shiftView: View = (root, nav) => {
   const save = getSave();
   const replay = save.shifts[shift.id]?.done === true;
   const score = { right: 0, of: 0 };
+  const radio = radioFor(shift.id);
+  const talking = save.talk && !replay;
+  /** Put on the radio whatever talk waits for this cue, once. */
+  const cue = (c: Cue) => {
+    if (!talking || !alive) return;
+    for (const t of radio.talks) {
+      if (cueKey(t.cue) === cueKey(c) && !getSave().heard[t.id]) void playTalk(t);
+    }
+  };
   const ctx: FigureContext = {
     save,
+    local: (id) => (save.talk ? radio.locals[id] : undefined),
     alive: () => alive,
     score: (right, of) => {
       score.right += right;
@@ -89,14 +93,14 @@ export const shiftView: View = (root, nav) => {
   root.append(
     el('div.shift', {},
       el('header.shift-head', {},
-        el('a.back', { href: '#/home', 'aria-label': 'Back to the lookout' }, '‹'),
-        el('div', {}, el('p.eyebrow', {}, `Shift ${shift.n} · Anvil Peak`), el('h1', {}, shift.title)),
+        el('a.back', { href: '#/home', 'aria-label': 'Back home' }, '‹'),
+        el('div', {}, el('p.eyebrow', {}, `Lesson ${shift.n}`), el('h1', {}, shift.title)),
         progress,
       ),
       hero(shift),
       el('div.paper', {},
         el('div.article-intro', {},
-          el('p.eyebrow', {}, `Training shift ${shift.n} of 5`),
+          el('p.eyebrow', {}, `Lesson ${shift.n} of ${SHIFTS.length}`),
           el('h1.poster-type', {}, shift.title),
           el('p.lede', {}, shift.teaches + '.'),
           el('ul.meet', {}, shift.clouds.map((id) => el('li', {}, genus(id).name))),
@@ -110,7 +114,7 @@ export const shiftView: View = (root, nav) => {
     const tasks: Promise<void>[] = [];
     const section = el('section.part', {},
       el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title),
-      part.blocks.map((b) => renderBlock(b, ctx, tasks)));
+      part.blocks.map((b) => renderBlock(b, ctx, tasks, (figure) => cue({ after: figure as FigureId }))));
     article.append(section);
     return Promise.all(tasks).then(() => undefined);
   };
@@ -123,7 +127,7 @@ export const shiftView: View = (root, nav) => {
     article.append(box);
     void ready.then(() => {
       btn.disabled = false;
-      hint.textContent = last ? 'Radio check done.' : 'Done. On to the next part.';
+      hint.textContent = last ? 'Check done.' : 'Done. On to the next part.';
     });
     return new Promise((resolve) => btn.addEventListener('click', () => {
       box.remove();
@@ -136,9 +140,9 @@ export const shiftView: View = (root, nav) => {
     const sign = el('button.btn.btn-big', { type: 'button' }, 'Sign the log') as HTMLButtonElement;
     const section = el('section.part.log', {},
       el('div.logbook', {},
-        el('p.eyebrow', {}, `Shift ${shift.n} log · Anvil Peak`),
+        el('p.eyebrow', {}, `Lesson ${shift.n} log`),
         el('h2', {}, shift.title),
-        score.of ? el('p.score', {}, `Radio check: ${score.right} of ${score.of} called right`) : null,
+        score.of ? el('p.score', {}, `${save.talk ? 'Radio check' : 'Check'}: ${score.right} of ${score.of} right`) : null,
         el('ul', {}, shift.learned.map((l) => el('li', {}, l))),
         el('p.next', {}, shift.next),
         el('label', {}, 'Signed, ', name),
@@ -161,9 +165,11 @@ export const shiftView: View = (root, nav) => {
       reached(total - 1);
       await gate(last, true);
     } else {
+      cue('start');
       for (const [i, part] of shift.parts.entries()) {
         reached(i);
         const ready = renderPart(part, i);
+        if (i === shift.parts.length - 1) cue('check');
         if (i > 0) article.lastElementChild!.scrollIntoView({ behavior: 'smooth', block: 'start' });
         await gate(ready, i === shift.parts.length - 1);
         if (!alive) return;
@@ -176,5 +182,6 @@ export const shiftView: View = (root, nav) => {
 
   return () => {
     alive = false;
+    clearRadio();
   };
 };
