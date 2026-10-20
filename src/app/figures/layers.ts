@@ -18,6 +18,9 @@ const START_C = 15;
 /** Labels drawn over the cloud stay readable with a rim of sky colour. */
 const halo = { stroke: '#eef3f6', 'stroke-width': 3, 'paint-order': 'stroke' };
 
+/** The ceiling over the balloon, at `x` pixels to the side of the middle: domed when stable, bowed down when unstable. */
+const ceilingY = (x: number, stability = 0) => 70 + stability * (x * x) / 60;
+
 export const nudgeFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 250;
@@ -35,12 +38,16 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
   const cloud = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#eef3f6' }), svg('rect', { x: 0, y: 214, width: W, height: H - 214, fill: COL.ground }), g, cloud, ball);
   const paintCurve = () => {
-    // The ball-on-a-hill picture of stability, on the left.
+    // The balloon-under-a-ceiling picture of stability, on the left: a domed
+    // ceiling when stable, one that bows down when unstable.
     const pts: [number, number][] = [];
-    for (let x = -60; x <= 60; x += 4) pts.push([90 + x, 140 - stability * (x * x) / 60]);
+    for (let x = -60; x <= 60; x += 4) pts.push([90 + x, ceilingY(x, stability)]);
+    const caption = stability < -0.05 ? ['unstable: the ceiling bows down,', 'so the balloon drifts away'] : stability > 0.05 ? ['stable: a domed ceiling,', 'so the balloon floats back'] : ['neutral: a flat ceiling,', 'so the balloon stays put'];
     redraw(g,
+      svg('polygon', { points: `30,6 150,6 ${pts.map(([x, y]) => `${x},${y}`).reverse().join(' ')}`, fill: COL.env, opacity: 0.12 }),
       polyline(pts, COL.env, 3),
-      label(90, 200, stability < -0.05 ? 'unstable: a hilltop' : stability > 0.05 ? 'stable: a valley' : 'neutral', { 'text-anchor': 'middle', class: 'fig-label' }),
+      label(90, 196, caption[0], { 'text-anchor': 'middle', class: 'fig-label small' }),
+      label(90, 209, caption[1], { 'text-anchor': 'middle', class: 'fig-label small' }),
       line(250, 214, 250, 20, COL.grid, 1),
       line(200, rest, 270, rest, COL.ink, 1, { 'stroke-dasharray': '4 3', opacity: 0.5 }),
       label(236, rest + 18, 'where it started', { 'text-anchor': 'end', class: 'fig-label small soft' }),
@@ -48,13 +55,14 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
   };
   const paintBall = () => {
     const x = Math.max(-60, Math.min(60, z * 0.6));
-    const by = 140 - stability * (x * x) / 60 - 9;
+    const by = ceilingY(x, stability) + 9;
     const py = rest - z;
     // The bubble cools at the dry rate as it climbs; the air around it at the day's own rate.
     const m = z * M_PER_PX;
     const mine = START_C - 9.8 * (m / 1000);
     const theirs = START_C - lapseOf(stability) * (m / 1000);
     redraw(ball,
+      line(90 + x, by + 8, 90 + x, by + 20, COL.ink, 1),
       svg('circle', { cx: 90 + x, cy: by, r: 8, fill: COL.parcel }),
       svg('circle', { cx: 250, cy: py, r: 10, fill: 'rgba(224,102,63,0.2)', stroke: COL.parcel, 'stroke-width': 2 }),
       label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { 'text-anchor': 'end', fill: COL.parcel, class: 'fig-label bold', ...halo }),
