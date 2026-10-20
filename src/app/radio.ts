@@ -143,6 +143,8 @@ function show(q: Queued): void {
     showing = null;
     if (heard) q.resolve(true);
     else {
+      // Shut is closed for whoever waits on it; the corner button can still bring it back.
+      q.resolve(false);
       snubbed.push(q);
       paintReopen();
       butterbar(SNUBS[Math.floor(Math.random() * SNUBS.length)]);

@@ -43,7 +43,7 @@ export interface Turn {
   replies?: Reply[];
 }
 
-/** When a talk comes on: as the lesson opens, after a figure's task is done, or as the final check opens. */
+/** When a talk comes on: as the lesson opens, after a figure's task is done, or in the final check, once the photos are called and before the forecasts. */
 export type Cue = 'start' | 'check' | { after: FigureId };
 
 export interface Talk {

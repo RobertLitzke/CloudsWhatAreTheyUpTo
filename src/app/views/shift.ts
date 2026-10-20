@@ -7,7 +7,9 @@
 //
 // With the radio on, talks with Walla Walla (core/talk.ts) come up over the
 // page as it is read: one as the lesson opens, one or two as figures are
-// done, and one as the check opens. They play only the first time through.
+// done, and one in the check, once the photos are called and before the
+// townsfolk's forecast questions, which wait for it to close. They play only
+// the first time through.
 
 import { genus } from '../../core/clouds';
 import { finishShift } from '../../core/save';
@@ -71,9 +73,11 @@ export const shiftView: View = (root, nav) => {
   const cue = (c: Cue) => {
     if (!talking || !alive) return;
     for (const t of radio.talks) {
-      if (cueKey(t.cue) === cueKey(c) && !getSave().heard[t.id]) void playTalk(t);
+      if (t.cue !== 'check' && cueKey(t.cue) === cueKey(c) && !getSave().heard[t.id]) void playTalk(t);
     }
   };
+  /** The check's talk, if the radio is on and it has not been heard. */
+  const checkTalk = () => (talking ? radio.talks.find((t) => t.cue === 'check' && !getSave().heard[t.id]) : undefined);
   const ctx: FigureContext = {
     save,
     local: (id) => (save.talk ? radio.locals[id] : undefined),
@@ -112,11 +116,26 @@ export const shiftView: View = (root, nav) => {
 
   const renderPart = (part: Part, i: number): Promise<void> => {
     const tasks: Promise<void>[] = [];
-    const section = el('section.part', {},
-      el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title),
-      part.blocks.map((b) => renderBlock(b, ctx, tasks, (figure) => cue({ after: figure as FigureId }))));
+    const render = (b: Block) => renderBlock(b, ctx, tasks, (figure) => cue({ after: figure as FigureId }));
+    const section = el('section.part', {}, el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title));
     article.append(section);
-    return Promise.all(tasks).then(() => undefined);
+    // In the check, the forecasts wait for the photos to be done and the
+    // check talk to close, so two quizzes never run at once.
+    const talk = i === shift.parts.length - 1 ? checkTalk() : undefined;
+    const split = part.blocks.findIndex((b) => b.kind === 'figure' && b.figure === 'forecast');
+    if (!talk || split < 0) {
+      section.append(...part.blocks.map(render));
+      return Promise.all(tasks).then(() => undefined);
+    }
+    section.append(...part.blocks.slice(0, split).map(render));
+    return Promise.all(tasks)
+      .then(() => (alive ? playTalk(talk) : false))
+      .then(() => {
+        if (!alive) return;
+        const before = tasks.length;
+        section.append(...part.blocks.slice(split).map(render));
+        return Promise.all(tasks.slice(before)).then(() => undefined);
+      });
   };
 
   /** A button at the end of a part, enabled once its tasks are done. */
@@ -169,7 +188,6 @@ export const shiftView: View = (root, nav) => {
       for (const [i, part] of shift.parts.entries()) {
         reached(i);
         const ready = renderPart(part, i);
-        if (i === shift.parts.length - 1) cue('check');
         if (i > 0) article.lastElementChild!.scrollIntoView({ behavior: 'smooth', block: 'start' });
         await gate(ready, i === shift.parts.length - 1);
         if (!alive) return;
