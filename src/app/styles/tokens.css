@@ -20,6 +20,15 @@
   src: url('../../../node_modules/@fontsource/special-elite/files/special-elite-latin-400-normal.woff2') format('woff2');
 }
 
+/* The lesson log's handwriting. */
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../../../node_modules/@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
+}
+
 @font-face {
   font-family: 'Nunito Sans';
   font-style: normal;
@@ -49,4 +58,5 @@
 
   --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --display: 'Oswald', 'Arial Narrow', system-ui, sans-serif;
+  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', cursive;
 }
