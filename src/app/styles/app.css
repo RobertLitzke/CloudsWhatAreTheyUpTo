@@ -452,16 +452,27 @@ body.radio-up main { padding-bottom: 50vh; }
 .verdict .said { margin: 0; }
 
 .logbook {
-  background: repeating-linear-gradient(#fdf6e8 0 27px, #e8d6b8 27px 28px);
+  /* Every line in the log is one --rule tall and every gap a whole number of
+     rules, so the text keeps to the ruling however it wraps. The top padding
+     is one rule too, so the ruling starts in step with the first line. */
+  --rule: 30px;
+  --rule-drop: -5px; /* lift the ruling to sit just under the baseline */
+  background: repeating-linear-gradient(transparent 0 calc(var(--rule) - 1px), #e2cfae calc(var(--rule) - 1px) var(--rule)) #fdf6e8;
+  background-position: 0 var(--rule-drop);
   border-radius: 6px;
-  padding: 16px 18px;
+  padding: var(--rule) 18px;
   box-shadow: 0 4px 0 var(--panel-2);
+  color: var(--ink);
+  font: 19px/var(--rule) var(--hand);
 }
+.logbook > * { margin: 0; line-height: var(--rule); }
 .logbook .eyebrow { color: var(--rose); }
-.logbook h2 { color: var(--ink); margin-top: 0; }
-.logbook ul { padding-left: 20px; margin: 0 0 12px; line-height: 28px; }
-.logbook .score { font-weight: 700; color: var(--teal); }
-.logbook .next { font-style: italic; color: var(--ink-soft); }
+.logbook h2 { color: var(--ink); font-size: 1.4rem; }
+.logbook .score { color: var(--teal); margin-bottom: var(--rule); }
+.logbook ul { padding-left: 20px; margin-bottom: var(--rule); }
+.logbook .next { color: var(--ink-soft); margin-bottom: var(--rule); }
+/* The ruling is the signature line, so the field drops its own underline. */
+.logbook .sign { font: 19px var(--hand); height: var(--rule); padding: 0 4px; border-bottom: 0; vertical-align: top; }
 .sign {
   border: 0;
   border-bottom: 2px solid var(--ink);
