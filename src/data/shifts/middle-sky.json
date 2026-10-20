@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "middle-sky",
   "n": 3,
   "title": "The middle sky and the hand trick",
@@ -9,13 +9,12 @@
       "title": "Clouds in the middle",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Anvil Peak, look up past the ridgelines today. The middle floor is the hardest to read from a tower, but it is the most useful for forecasting once you know what to look for."
+          "kind": "text",
+          "text": "Look up past the hilltops. The middle floor is the hardest to read from the ground, but it is the most useful for forecasting once you know what to look for."
         },
         {
           "kind": "text",
-          "text": "The middle floor runs from about two to seven kilometres up, where the air is near or below freezing and clouds usually consist of a mixture of liquid droplets and ice crystals. On most days, thermals rising from the sun-warmed ground never reach this high; the atmosphere above a kilometre or two is stable, so rising bubbles lose their buoyancy on the low floor where fair-weather cumulus clouds flatten out. (On days with deep instability, storm towers punch through every floor, which we will examine in the final shift.) Middle-floor clouds usually form instead by broad, gentle lifting, as a wide layer of moist air glides slowly upward over hundreds of kilometres. This happens most often where an advancing mass of warm air meets a mass of colder, denser air and slides up over it along a gradual slope. Because that slope is so gentle, middle-floor clouds appear far out in front of the boundary on the ground, arriving well *ahead* of a storm. Just as on the low floor, lifting a wide layer all together produces flat sheets."
+          "text": "The middle floor runs from about two to seven kilometres up, where the air is near or below freezing and clouds usually consist of a mixture of liquid droplets and ice crystals. On most days, thermals rising from the sun-warmed ground never reach this high; the atmosphere above a kilometre or two is stable, so rising bubbles lose their buoyancy on the low floor where fair-weather cumulus clouds flatten out. (On days with deep instability, storm towers punch through every floor, which we will examine in the final lesson.) Middle-floor clouds usually form instead by broad, gentle lifting, as a wide layer of moist air glides slowly upward over hundreds of kilometres. This happens most often where an advancing mass of warm air meets a mass of colder, denser air and slides up over it along a gradual slope. Because that slope is so gentle, middle-floor clouds appear far out in front of the boundary on the ground, arriving well *ahead* of a storm. Just as on the low floor, lifting a wide layer all together produces flat sheets."
         },
         {
           "kind": "text",
@@ -74,9 +73,8 @@
           "text": "Altocumulus elements are usually deep enough to show **shaded bellies**, looking like grey-bottomed sheep in a flock. Cirrocumulus, being thin and composed of ice crystals high aloft, consists of pure white grains with **no shading at all**. Checking for shading quickly distinguishes altocumulus from cirrocumulus, while the hand test distinguishes altocumulus from lower, larger stratocumulus."
         },
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "There is one special variety of altocumulus I always want you to call in. If you spot miniature turrets sprouting upward from a line of altocumulus on a warm, humid morning, that is altocumulus castellanus, from the Latin for castle-like. Those little towers tell you that the middle sky is cooling with height faster than the 5 °C per kilometre of a rising cloudy parcel, so parcels rising out of the cloud layer stay warmer than their surroundings and keep climbing on their own. On a normal day, stable air on the middle floor caps the afternoon thermals; when castellanus appears in the morning, it warns that the middle floor is already unstable and afternoon thermals can punch all the way up into thunderstorms."
+          "kind": "text",
+          "text": "There is one special variety of altocumulus always worth watching for. If you spot miniature turrets sprouting upward from a line of altocumulus on a warm, humid morning, that is altocumulus castellanus, from the Latin for castle-like. Those little towers tell you that the middle sky is cooling with height faster than the 5 °C per kilometre of a rising cloudy parcel, so parcels rising out of the cloud layer stay warmer than their surroundings and keep climbing on their own. On a normal day, stable air on the middle floor caps the afternoon thermals; when castellanus appears in the morning, it warns that the middle floor is already unstable and afternoon thermals can punch all the way up into thunderstorms."
         }
       ]
     },
@@ -96,7 +94,7 @@
         },
         {
           "kind": "text",
-          "text": "Two simple checks distinguish altostratus from thinner or thicker sheets. First, under altostratus, **shadows vanish**. Because the cloud deck scatters sunlight thoroughly, most of the light reaching the ground comes evenly from the entire overcast sky rather than in a direct beam from the sun, illuminating objects from all sides and filling in shadows. Second, altostratus produces **no halo** around the sun. An optical halo forms when ice crystals bend sunlight by a fixed angle (22°), which only stays visible in a thin ice veil where a ray of sunlight passes through a single crystal on its way to your eye. In a deep altostratus deck containing both droplets and ice, each light ray is scattered repeatedly from particle to particle in new directions, scrambling any 22° ring into an even glow. (We will examine halos and high ice veils in the next shift, along with the thicker rain layer shown at the end of the slider.)"
+          "text": "Two simple checks distinguish altostratus from thinner or thicker sheets. First, under altostratus, **shadows vanish**. Because the cloud deck scatters sunlight thoroughly, most of the light reaching the ground comes evenly from the entire overcast sky rather than in a direct beam from the sun, illuminating objects from all sides and filling in shadows. Second, altostratus produces **no halo** around the sun. An optical halo forms when ice crystals bend sunlight by a fixed angle (22°), which only stays visible in a thin ice veil where a ray of sunlight passes through a single crystal on its way to your eye. In a deep altostratus deck containing both droplets and ice, each light ray is scattered repeatedly from particle to particle in new directions, scrambling any 22° ring into an even glow. (We will examine halos and high ice veils in the next lesson, along with the thicker rain layer shown at the end of the slider.)"
         },
         {
           "kind": "text",
@@ -105,17 +103,16 @@
       ]
     },
     {
-      "title": "Radio check",
+      "title": "Check",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Radio check, Anvil Peak. For each photo, call in which floor the cloud belongs to: low, middle, or high. For cumulus heaps, report the floor where the base sits. On lumpy layers, use the hand test and check for shaded bellies; on smooth sheets or wispy streaks, use what you know about their edges and how the sun shines through."
+          "kind": "text",
+          "text": "For each photo, decide which floor the cloud belongs to: low, middle, or high. For cumulus heaps, report the floor where the base sits. On lumpy layers, use the hand test and check for shaded bellies; on smooth sheets or wispy streaks, use what you know about their edges and how the sun shines through."
         },
         {
           "kind": "figure",
           "figure": "radioCheck",
-          "caption": "Photos from the other lookouts. Which floor is each cloud on?",
+          "caption": "Real photos. Which floor is each cloud on?",
           "options": {
             "mode": "floor",
             "pool": [
@@ -129,6 +126,57 @@
             ],
             "count": 8
           }
+        },
+        {
+          "kind": "figure",
+          "figure": "forecast",
+          "caption": "The sky over a few hours. What is it up to?",
+          "options": {
+            "items": [
+              {
+                "id": "mail",
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "8 a.m."
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "11 a.m."
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "2 p.m."
+                  }
+                ],
+                "question": "Patches of altocumulus at breakfast have merged into a grey sheet. By early afternoon the sun is a pale disc, as if behind frosted glass, and shadows have gone. What is the sky up to?",
+                "options": [
+                  "A storm system is coming: expect the cloud to lower and steady rain later",
+                  "Fair weather: the sheet will burn off by evening",
+                  "Thunderstorms within the hour"
+                ],
+                "answer": 0,
+                "why": "A middle-floor sheet that keeps thickening is the broad, gentle lifting far out ahead of an approaching front. Altostratus thick enough to wipe out shadows usually lowers into steady rain within hours."
+              },
+              {
+                "id": "how-high",
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "10 a.m."
+                  }
+                ],
+                "question": "High overhead is a layer of rounded lumps with grey bellies. At arm’s length, each lump is about as wide as your thumb. Which floor is it on?",
+                "options": [
+                  "Middle floor: altocumulus",
+                  "Low floor: stratocumulus",
+                  "High floor: cirrocumulus"
+                ],
+                "answer": 0,
+                "why": "Measured high in the sky, lumps between a little-finger nail and three fingers wide are altocumulus. The shaded bellies rule out the thin, pure white grains of cirrocumulus."
+              }
+            ]
+          }
         }
       ]
     }
@@ -141,7 +189,7 @@
     "Altostratus shows the sun dimly as if through frosted glass, casting no ground shadows and forming no halo; it usually thickens ahead of steady rain.",
     "Small turrets sprouting from altocumulus (castellanus) show that the middle atmosphere is unstable, warning of possible afternoon thunderstorms."
   ],
-  "next": "Next shift explores the high ice realm: mares’ tails, 22° halos, and how high clouds warn of approaching weather a day in advance.",
+  "next": "Next lesson explores the high ice realm: mares’ tails, 22° halos, and how high clouds warn of approaching weather a day in advance.",
   "journal": {
     "hand-trick": {
       "title": "The hand trick",

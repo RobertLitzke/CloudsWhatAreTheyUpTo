@@ -1,7 +1,7 @@
 // Figures about the ice realm: an ice crystal growing among supercooled
 // droplets, falling crystals smeared into mares' tails, the
 // prism that makes the 22° halo, the halo itself building up crystal by crystal,
-// and a warm front sliding in over the lookout.
+// and a warm front sliding in overhead.
 
 import { fullOverIce, fullOverWater } from '../../core/air';
 import { deviation, minimumDeviation } from '../../core/optics';

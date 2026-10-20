@@ -13,17 +13,23 @@ export interface ShiftRecord {
 
 export interface SaveData {
   v: 1;
-  /** The watcher's name, as signed on the logbook. Empty until given. */
+  /** The player's name, as signed on the logbook. Empty until given. */
   name: string;
   shifts: Record<string, ShiftRecord>;
   /** Journal entries unlocked, by id. */
   journal: string[];
   units: 'metric' | 'imperial';
+  /** Radio talks on: the story. Off, the lessons are a plain workbook. */
+  talk: boolean;
+  /** The opening talk has been offered once. */
+  introSeen: boolean;
+  /** Talks heard to the end, with the reply picked at each turn. */
+  heard: Record<string, number[]>;
 }
 
 export function emptySave(): SaveData {
-  // Metric by default, because Juniper talks in metres; feet are a setting away.
-  return { v: 1, name: '', shifts: {}, journal: [], units: 'metric' };
+  // Metric by default; feet are a setting away.
+  return { v: 1, name: '', shifts: {}, journal: [], units: 'metric', talk: true, introSeen: false, heard: {} };
 }
 
 const isObj = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
@@ -34,6 +40,13 @@ export function migrate(raw: unknown): SaveData {
   if (!isObj(raw)) return out;
   if (typeof raw.name === 'string') out.name = raw.name.slice(0, 40);
   if (raw.units === 'metric' || raw.units === 'imperial') out.units = raw.units;
+  if (typeof raw.talk === 'boolean') out.talk = raw.talk;
+  if (raw.introSeen === true) out.introSeen = true;
+  if (isObj(raw.heard)) {
+    for (const [id, picks] of Object.entries(raw.heard)) {
+      if (Array.isArray(picks)) out.heard[id] = picks.map((n) => Math.max(0, Math.floor(Number(n) || 0)));
+    }
+  }
   if (Array.isArray(raw.journal)) out.journal = [...new Set(raw.journal.filter((j): j is string => typeof j === 'string'))];
   if (isObj(raw.shifts)) {
     for (const [id, rec] of Object.entries(raw.shifts)) {

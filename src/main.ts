@@ -10,7 +10,7 @@ import { settingsView } from './app/views/settings';
 import { shiftView } from './app/views/shift';
 
 const NAV: readonly [string, string][] = [
-  ['/home', 'Lookout'],
+  ['/home', 'Home'],
   ['/journal', 'Journal'],
   ['/settings', 'Settings'],
 ];

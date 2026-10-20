@@ -1,0 +1,151 @@
+{
+  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "talks": [
+    {
+      "id": "giants-open",
+      "cue": "start",
+      "when": "Tuesday, August 18, 1931 · 7:30 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. Last lesson of training. Ole’s wheat came in dry, so you’re a hero. Don’t let it go to your hat.",
+          "replies": [
+            {
+              "say": "The goat ate my hat.",
+              "back": "So it did. Then don’t let it go to your head."
+            },
+            {
+              "say": "Thank you. I learned from the best.",
+              "back": "Flattery. I’ll allow it."
+            }
+          ]
+        },
+        {
+          "them": "Now, the serious stuff. The county fair committee wants to know whether to hold the rodeo tomorrow afternoon if the heaps keep growing. And Ole’s threshing crew got caught out in a storm last week. They want to know when it’s safe to go back out after the thunder stops.",
+          "replies": [
+            {
+              "say": "Thunderstorms. Finally.",
+              "back": "Don’t sound so pleased. A storm doesn’t care how much you’ve studied."
+            },
+            {
+              "say": "Can’t they just wait until it goes quiet?",
+              "back": "Quiet is the dangerous part. That’s what the crew learned. Nobody was hurt, thank heaven, but a bolt split the old cottonwood by Ole’s barn."
+            }
+          ]
+        },
+        {
+          "them": "This week: how a heap becomes a thunderstorm, how to count the distance to lightning, and a few rare clouds worth staying up for. Then you’re a qualified forecaster.",
+          "replies": [
+            {
+              "say": "And then what?",
+              "back": "Then we’ll see. There’s talk back East of fellows trying to make clouds rain on purpose. Probably nonsense. Probably."
+            },
+            {
+              "say": "Ready."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "giants-storm",
+      "cue": {
+        "after": "storm"
+      },
+      "when": "Tuesday, August 18, 1931 · 8:05 p.m.",
+      "turns": [
+        {
+          "them": "You’ve run one storm through its whole life. When does it throw its lightning and downpours?",
+          "replies": [
+            {
+              "say": "The mature stage, once the downdraught starts.",
+              "back": "Updraught and downdraught side by side. That’s when you want everybody under a roof.",
+              "right": true
+            },
+            {
+              "say": "The growing stage.",
+              "back": "Not yet. Growing, it’s all updraught. The trouble starts when rain and hail fall and drag a downdraught with them: the mature stage."
+            },
+            {
+              "say": "The dissipating stage.",
+              "back": "By then it’s raining itself out. The worst is the mature stage, with updraught and downdraught side by side."
+            }
+          ]
+        },
+        {
+          "them": "The rodeo committee will want a yes or a no, not a lecture. Practise saying no kindly.",
+          "replies": [
+            {
+              "say": "No. Kindly."
+            },
+            {
+              "say": "I’ll bring pie.",
+              "back": "Now you’re thinking like a forecaster."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "giants-flash",
+      "cue": {
+        "after": "flash"
+      },
+      "when": "Tuesday, August 18, 1931 · 8:40 p.m.",
+      "turns": [
+        {
+          "them": "Flash! Then thunder, nine seconds later. How far off?",
+          "replies": [
+            {
+              "say": "About three kilometres.",
+              "back": "Nine divided by three. And that’s under thirty seconds, so everyone indoors.",
+              "right": true
+            },
+            {
+              "say": "About nine kilometres.",
+              "back": "Divide by three: about three kilometres. And under thirty seconds, so everyone indoors."
+            },
+            {
+              "say": "Too far to worry about.",
+              "back": "Three kilometres is close enough to be struck. Under thirty seconds, get indoors."
+            }
+          ]
+        },
+        {
+          "them": "Thirty minutes after the last thunder. Tell Ole’s crew I said so, and that I’ll hear about it if they don’t.",
+          "replies": [
+            {
+              "say": "I’ll tell them."
+            },
+            {
+              "say": "How would you hear about it?",
+              "back": "Mabel at the switchboard. Mabel hears everything."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "giants-check",
+      "cue": "check",
+      "when": "Tuesday, August 18, 1931 · 9:10 p.m.",
+      "turns": [
+        {
+          "them": "Final check. Photographs from the club, then the fair committee and Ole’s crew. Pass this and I’ll stop calling you tenderfoot.",
+          "replies": [
+            {
+              "say": "What will you call me then?",
+              "back": "Harrow. Same as always. But I’ll mean it differently."
+            },
+            {
+              "say": "Ready."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "locals": {
+    "fair": "The county fair committee, deciding whether to hold the rodeo this afternoon, asks:",
+    "threshers": "Ole Haugen’s threshing crew, sheltering in his barn, asks:"
+  }
+}

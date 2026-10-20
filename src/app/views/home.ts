@@ -1,15 +1,18 @@
-// The lookout at dusk, the shift board and what comes after training.
+// The fields at dusk, the lesson board and what comes after training. With the
+// radio on, the page tells the story and the opening talk plays the first time.
 
 import { SHIFTS } from '../../core/shifts';
 import { el } from '../dom';
 import type { View } from '../router';
 import { placeCloud } from '../scene/drawn';
 import { makeScene } from '../scene/landscape';
-import { getSave } from '../store';
+import { getSave, updateSave } from '../store';
+import { INTRO } from '../../core/talk';
+import { clearRadio, playTalk } from '../radio';
 
-export const homeView: View = (root) => {
+export const homeView: View = (root, nav) => {
   const save = getSave();
-  // Cropped from the left on a phone, so the lookout and the sun stay in view.
+  // Cropped from the left on a phone, so the town and the sun stay in view.
   const scene = makeScene({ time: 'dusk', seed: 11, sun: [0.36, 0.7], align: 'xMinYMax' });
   const p = scene.palette;
   scene.sky.append(
@@ -34,7 +37,7 @@ export const homeView: View = (root) => {
         'li.shift-card',
         { className: `shift-card ${rec?.done ? 'done' : open ? 'open' : 'locked'}` },
         el('span.shift-n', {}, String(s.n)),
-        el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), rec?.done ? el('p.score', {}, `Radio check: ${rec.best} of ${rec.of}`) : null),
+        el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), rec?.done ? el('p.score', {}, `${save.talk ? 'Radio check' : 'Check'}: ${rec.best} of ${rec.of}`) : null),
         open ? el('a.btn', { href: `#/shift/${s.id}` }, rec?.done ? 'Again' : 'Start') : null,
       );
     }),
@@ -51,7 +54,7 @@ export const homeView: View = (root) => {
         el(
           'div.hero-text',
           {},
-          el('p.eyebrow', {}, 'Anvil Peak Lookout · Thunderhead National Forest'),
+          el('p.eyebrow', {}, save.talk ? 'Harrow, Adams County, Washington · 1931' : 'A cloud workbook'),
           el('h1.poster-type', {}, 'Clouds'),
           el('p.subtitle.poster-type', {}, 'What are they up to?'),
         ),
@@ -62,20 +65,43 @@ export const homeView: View = (root) => {
         el(
           'div.letter',
           {},
-          el('p', {}, save.name ? `Welcome back, ${save.name}.` : 'You’ve taken the summer job nobody else wanted: cloud watcher on Anvil Peak.'),
-          el('p', {}, 'Every hour, look up, log what’s in the sky and radio the district with what it’s up to. Juniper will train you over the radio, one shift at a time.'),
+          save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
+          ...(save.talk
+            ? [
+                el('p', {}, 'You are the new weather forecaster in Harrow: a wheat town with a grain elevator, an airfield and one mail plane, out in the dry hills of eastern Washington.'),
+                el('p', {}, 'Farmers, pilots and the Ladies’ Aid will bring you their questions. An old hand at Walla Walla, a few counties over, will talk you through the answers on the radio, one lesson a week.'),
+              ]
+            : [el('p', {}, 'Five short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come.')]),
         ),
-        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.shifts[nextUp.id] ? 'Start your first shift' : `Shift ${nextUp.n}: ${nextUp.title}`) : null,
-        el('h2', {}, 'Training shifts'),
+        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.shifts[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
+        el('h2', {}, 'Lessons'),
         board,
         el(
           'div.seeding',
           { className: `seeding ${allDone ? 'open' : 'locked'}` },
           el('h2', {}, 'Cloud seeding'),
-          el('p', {}, 'Once training is done, the district wants you cooking up clouds as well as reading them: set the moisture, the heat and the wind, and make the sky you’re asked for.'),
+          el('p', {}, save.talk
+            ? 'Fifteen years on, word reaches Walla Walla that a fellow at General Electric has made it snow with dry ice. Harrow wants rain. Set the moisture, the heat and the wind, and make the sky you’re asked for.'
+            : 'Once training is done: set the moisture, the heat and the wind, and make the sky you’re asked for.'),
           el('span.tag', {}, allDone ? 'Coming soon' : 'Opens after training'),
         ),
       ),
     ),
   );
+
+  // The opening talk, once, after the poster has had its moment. Turning the
+  // radio off in it redraws the page without the story.
+  let timer = 0;
+  if (save.talk && !save.introSeen) {
+    timer = window.setTimeout(() => {
+      updateSave((s) => ({ ...s, introSeen: true }));
+      void playTalk(INTRO).then((heard) => {
+        if (heard && !getSave().talk) nav.replace('/home');
+      });
+    }, 1800);
+  }
+  return () => {
+    clearTimeout(timer);
+    clearRadio();
+  };
 };

@@ -63,8 +63,7 @@ describe('shifts', () => {
       for (const p of s.parts) {
         expect(p.title, s.id).toBeTruthy();
         for (const b of p.blocks) {
-          expect(['text', 'radio', 'figure', 'key'], `${s.id} ${p.title}`).toContain(b.kind);
-          if (b.kind === 'radio') expect(['juniper', 'you']).toContain(b.who);
+          expect(['text', 'figure', 'key'], `${s.id} ${p.title}`).toContain(b.kind);
           if (b.kind === 'key') {
             expect(b.title.trim(), `${s.id} ${p.title}`).not.toBe('');
             expect(b.points.length, `${s.id} ${p.title}`).toBeGreaterThan(0);
@@ -79,7 +78,7 @@ describe('shifts', () => {
     }
   });
 
-  it('only quiz names the watcher has met by then', () => {
+  it('only quiz names the player has met by then', () => {
     const met = new Set<string>();
     for (const s of SHIFTS) {
       for (const g of s.clouds) met.add(g);

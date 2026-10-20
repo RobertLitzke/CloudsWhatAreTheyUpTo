@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "low-sky",
   "n": 2,
   "title": "The low sky",
@@ -9,9 +9,8 @@
       "title": "Three floors",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Morning, Anvil Peak. Yesterday you learned how a cloud forms. Today we start sorting them, and we sort them by altitude, like the floors of a building."
+          "kind": "text",
+          "text": "The last lesson showed how a cloud forms. This one starts sorting them, and they are sorted by altitude, like the floors of a building."
         },
         {
           "kind": "text",
@@ -19,7 +18,7 @@
         },
         {
           "kind": "text",
-          "text": "Whereas a rising dry bubble always cools at 10 °C per kilometre, the surrounding sky has its own temperature profile shaped by ground heating, sunlight, wind stirring, and large-scale sinking. On an average day, the surrounding air gets colder by about 6.5 °C for every kilometre you climb. That sits right between the two parcel cooling rates from your first shift: it is slower than the 10 °C per kilometre of a clear rising bubble (making clear air stable on an average day), but faster than the 5 °C per kilometre of a cloudy bubble (allowing a cloud, once formed, to keep climbing). If the valley starts at a mild 15 °C, the surrounding air hits freezing (0 °C) a little over two kilometres up, and drops to around −40 °C by nine kilometres. Below freezing, cloud water can freeze into ice, so altitude and temperature determine what a cloud is made of, which in turn determines how it looks. (In the figure, you will notice that cloud droplets often stay liquid well below 0 °C; we will explore why in a later shift on the ice realm.)"
+          "text": "Whereas a rising dry bubble always cools at 10 °C per kilometre, the surrounding sky has its own temperature profile shaped by ground heating, sunlight, wind stirring, and large-scale sinking. On an average day, the surrounding air gets colder by about 6.5 °C for every kilometre you climb. That sits right between the two parcel cooling rates from the first lesson: it is slower than the 10 °C per kilometre of a clear rising bubble (making clear air stable on an average day), but faster than the 5 °C per kilometre of a cloudy bubble (allowing a cloud, once formed, to keep climbing). If the valley starts at a mild 15 °C, the surrounding air hits freezing (0 °C) a little over two kilometres up, and drops to around −40 °C by nine kilometres. Below freezing, cloud water can freeze into ice, so altitude and temperature determine what a cloud is made of, which in turn determines how it looks. (In the figure, you will notice that cloud droplets often stay liquid well below 0 °C; we will explore why in a later lesson on the ice realm.)"
         },
         {
           "kind": "figure",
@@ -46,7 +45,7 @@
         },
         {
           "kind": "text",
-          "text": "One cloud refuses to stay on a single floor. A full-grown thunderstorm tower, or cumulonimbus, starts on the low floor and punches all the way to the top of the troposphere. It gets a category of its own, which we will cover in the final shift."
+          "text": "One cloud refuses to stay on a single floor. A full-grown thunderstorm tower, or cumulonimbus, starts on the low floor and punches all the way to the top of the troposphere. It gets a category of its own, which we will cover in the final lesson."
         }
       ]
     },
@@ -54,13 +53,12 @@
       "title": "The names are a code",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
+          "kind": "text",
           "text": "Cloud names can sound like Latin incantations at first, but they follow a simple naming system, and you already know half the pieces."
         },
         {
           "kind": "text",
-          "text": "In 1802, an amateur meteorologist in London named Luke Howard classified clouds using Latin roots, and nearly every cloud name used today combines four of his original words with a fifth added later in the century. **Cumulus** means a heap and **stratus** means a layer, the two basic textures from your first shift. **Cirrus** means a curl of hair, describing the wispy ice clouds of the high floor. **Nimbus** means a rain-bearing cloud. The fifth root, **alto**, was added later in the 1800s. Although *alto* literally means high in Latin, *cirrus* was already established for the highest floor, so *alto-* was assigned to the middle floor just below it."
+          "text": "In 1802, an amateur meteorologist in London named Luke Howard classified clouds using Latin roots, and nearly every cloud name used today combines four of his original words with a fifth added later in the century. **Cumulus** means a heap and **stratus** means a layer, the two basic textures from the first lesson. **Cirrus** means a curl of hair, describing the wispy ice clouds of the high floor. **Nimbus** means a rain-bearing cloud. The fifth root, **alto**, was added later in the 1800s. Although *alto* literally means high in Latin, *cirrus* was already established for the highest floor, so *alto-* was assigned to the middle floor just below it."
         },
         {
           "kind": "text",
@@ -106,7 +104,7 @@
         },
         {
           "kind": "text",
-          "text": "Stratocumulus forms underneath an **inversion**, a layer where the air gets warmer with height instead of colder. You saw an inversion in your first shift when cold night air pooled on the valley floor; higher up in the sky, an inversion acts like a lid. Because atmospheric stability depends on the temperature profile of each specific layer, the air below the inversion can be well-mixed and unstable even while the inversion layer above it is strongly stable. Beneath the lid, surface heating or wind turbulence stirs the air, sending buoyant bubbles upward that cool to their dew point and form cumulus heaps. As soon as a rising bubble pushes into the warm inversion layer, however, it finds itself colder and denser than the surrounding air and can climb no further. As more rising air continues to arrive from below, the cloud tops flatten and spread sideways against the underside of the lid. When the air is humid, the cloud base forms lower down and a deeper portion of each rising bubble condenses, supplying more cloud water to spread out laterally until neighbouring heaps press together into a continuous, lumpy sheet."
+          "text": "Stratocumulus forms underneath an **inversion**, a layer where the air gets warmer with height instead of colder. You saw an inversion in the first lesson when cold night air pooled on the valley floor; higher up in the sky, an inversion acts like a lid. Because atmospheric stability depends on the temperature profile of each specific layer, the air below the inversion can be well-mixed and unstable even while the inversion layer above it is strongly stable. Beneath the lid, surface heating or wind turbulence stirs the air, sending buoyant bubbles upward that cool to their dew point and form cumulus heaps. As soon as a rising bubble pushes into the warm inversion layer, however, it finds itself colder and denser than the surrounding air and can climb no further. As more rising air continues to arrive from below, the cloud tops flatten and spread sideways against the underside of the lid. When the air is humid, the cloud base forms lower down and a deeper portion of each rising bubble condenses, supplying more cloud water to spread out laterally until neighbouring heaps press together into a continuous, lumpy sheet."
         },
         {
           "kind": "figure",
@@ -130,7 +128,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "In your first shift, you saw that typical cloud droplets are only about a hundredth of a millimetre across and settle at less than a centimetre per second, slow enough for the gentlest updraught to keep them suspended. Even if an individual cloud droplet drifts out the bottom of a cloud base, it enters drier air and evaporates within a few metres, long before reaching the ground."
+          "text": "In the first lesson, you saw that typical cloud droplets are only about a hundredth of a millimetre across and settle at less than a centimetre per second, slow enough for the gentlest updraught to keep them suspended. Even if an individual cloud droplet drifts out the bottom of a cloud base, it enters drier air and evaporates within a few metres, long before reaching the ground."
         },
         {
           "kind": "text",
@@ -145,27 +143,25 @@
         },
         {
           "kind": "text",
-          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another. A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, aerodynamic drag increases more rapidly and bends the curve, as shown in the figure). A droplet that is five times wider than its neighbours therefore falls about twenty-five times faster, at several centimetres per second rather than a fraction of a centimetre per second. As it falls, it overtakes the smaller, slower droplets in its path and collides with them. Each merger makes the collector drop heavier and faster, allowing it to sweep through a wider column of cloud every second and accelerating its growth. Even so, this collision process takes tens of minutes, during which the growing drop is continuously falling. In a shallow cloud, the drop falls out the base long before it reaches raindrop size and evaporates on the way down. Only a deep cloud, or one with strong updraughts that hold the growing drops aloft, provides enough time for raindrops to mature. (In colder clouds that extend above the freezing level, ice crystals provide a second, faster pathway to rain, which we will examine in the shift on the ice realm.)"
+          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another. A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, aerodynamic drag increases more rapidly and bends the curve, as shown in the figure). A droplet that is five times wider than its neighbours therefore falls about twenty-five times faster, at several centimetres per second rather than a fraction of a centimetre per second. As it falls, it overtakes the smaller, slower droplets in its path and collides with them. Each merger makes the collector drop heavier and faster, allowing it to sweep through a wider column of cloud every second and accelerating its growth. Even so, this collision process takes tens of minutes, during which the growing drop is continuously falling. In a shallow cloud, the drop falls out the base long before it reaches raindrop size and evaporates on the way down. Only a deep cloud, or one with strong updraughts that hold the growing drops aloft, provides enough time for raindrops to mature. (In colder clouds that extend above the freezing level, ice crystals provide a second, faster pathway to rain, which we will examine in the lesson on the ice realm.)"
         },
         {
-          "kind": "radio",
-          "who": "juniper",
+          "kind": "text",
           "text": "That is why cloud depth matters so much more than how dark the base looks. A thin cloud layer can look dark grey and never drop more than a light drizzle, whereas a deep cloud has the vertical room to make real rain."
         }
       ]
     },
     {
-      "title": "Radio check",
+      "title": "Check",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Radio check, Anvil Peak. First identify the cloud types in these photos, and then give me your forecast for a few changing skies."
+          "kind": "text",
+          "text": "First identify the cloud types in these photos, and then give your forecast for a few changing skies."
         },
         {
           "kind": "figure",
           "figure": "radioCheck",
-          "caption": "Photos from the other lookouts. Call in each cloud by name.",
+          "caption": "Real photos. Name each cloud.",
           "options": {
             "mode": "name",
             "pool": [
@@ -184,10 +180,11 @@
         {
           "kind": "figure",
           "figure": "forecast",
-          "caption": "The sky over a few hours, as the other lookouts logged it. What is it up to?",
+          "caption": "The sky over a few hours. What is it up to?",
           "options": {
             "items": [
               {
+                "id": "picnic",
                 "sky": [
                   {
                     "genus": "cumulus",
@@ -202,7 +199,7 @@
                     "when": "16:00"
                   }
                 ],
-                "question": "Morning cumulus heaps spread into a lumpy grey sheet by afternoon. Do the crews need rain gear?",
+                "question": "Morning cumulus heaps spread into a lumpy grey sheet by afternoon. Will it rain this afternoon?",
                 "options": [
                   "No, it will stay dry with at most a spot of drizzle",
                   "Yes, expect steady rain by evening",
@@ -236,6 +233,7 @@
                 "why": "Dawn stratus forms in stable air chilled overnight. As morning sunlight warms the ground, the ground warms the lowest air back above its dew point, evaporating the cloud from the bottom up until the layer lifts off the ridges and dissipates."
               },
               {
+                "id": "wagons",
                 "sky": [
                   {
                     "genus": "stratocumulus",
@@ -246,7 +244,7 @@
                     "when": "15:00"
                   }
                 ],
-                "question": "A lumpy grey sheet with small gaps of blue has sat over the valley all day under high pressure. Will it soak the crews?",
+                "question": "A lumpy grey sheet with small gaps of blue has sat over the valley all day under high pressure. Will it bring a soaking rain?",
                 "options": [
                   "No, the cloud layer is too shallow to produce real rain",
                   "Yes, expect hours of steady rain",
@@ -268,7 +266,7 @@
     "Stratocumulus forms when rising heaps hit a stable inversion lid (often created by sinking air in a high-pressure system) and spread sideways into a lumpy sheet that looks grey but stays mostly dry.",
     "A single raindrop contains roughly a million cloud droplets’ worth of water; colliding and merging that many droplets takes time and vertical depth, which is why shallow clouds rarely produce rain."
   ],
-  "next": "Next shift covers the middle sky, along with how to estimate a cloud’s altitude using nothing but your hand.",
+  "next": "Next lesson covers the middle sky, along with how to estimate a cloud’s altitude using nothing but your hand.",
   "journal": {
     "floors": {
       "title": "The three floors",

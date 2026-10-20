@@ -1,4 +1,4 @@
-// Units, name, and moving progress between devices.
+// Units, name, the radio, and moving progress between devices.
 
 import { el } from '../dom';
 import type { View } from '../router';
@@ -44,6 +44,31 @@ export const settingsView: View = (root) => {
           save.units,
           (units) => updateSave((s) => ({ ...s, units })),
         ),
+      ),
+      el(
+        'div.field',
+        {},
+        el('span', {}, 'Radio talks'),
+        segmented(
+          [
+            { value: 1, label: 'On' },
+            { value: 0, label: 'Off' },
+          ] as const,
+          save.talk ? 1 : 0,
+          (on) => updateSave((s) => ({ ...s, talk: on === 1 })),
+        ),
+      ),
+      el('p.muted', {}, 'With the radio on, the lessons come with the story: talks with an old hand at Walla Walla, and questions from the folks in town. Off, the lessons are a plain workbook ending in a check.'),
+      el(
+        'button.btn.btn-ghost',
+        {
+          type: 'button',
+          onclick: () => {
+            updateSave((s) => ({ ...s, talk: true, introSeen: false }));
+            location.hash = '#/home';
+          },
+        },
+        'Hear the opening talk again',
       ),
       el('h2', {}, 'Progress'),
       el('p.muted', {}, 'Progress lives in this browser. Save it to a file to move it to another device.'),

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text and radio blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). Radio \"who\" is \"juniper\" or \"you\".",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "giants",
   "n": 5,
   "title": "Vertical giants and rare boss clouds",
@@ -9,17 +9,12 @@
       "title": "How tall a heap grows",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Last training shift, Anvil Peak. This is the one the lookout is named for."
+          "kind": "text",
+          "text": "Think back to the cumulus in the first lesson. A thermal rises, reaches its dew point and turns to cloud, and then, because condensing vapour gives back heat, its cloudy air cools only about 5 °C per kilometre as it climbs. As long as the air around it cools faster than that, the cloud stays warmer than its neighbours and keeps growing. So the real question about any heap is not whether it can rise, but where it will stop."
         },
         {
           "kind": "text",
-          "text": "Think back to the cumulus in your first shift. A thermal rises, reaches its dew point and turns to cloud, and then, because condensing vapour gives back heat, its cloudy air cools only about 5 °C per kilometre as it climbs. As long as the air around it cools faster than that, the cloud stays warmer than its neighbours and keeps growing. So the real question about any heap is not whether it can rise, but where it will stop."
-        },
-        {
-          "kind": "text",
-          "text": "Three things decide that. The **sun** sets how warm the thermals start. The **moisture** sets the cloud base, and so how soon the cloud gets the extra heat from condensing. And an [[inversion|env]] overhead can stop the cloud dead, just as it flattened the stratocumulus in your second shift. A heap that runs into warm air above it is suddenly colder than its surroundings, and it can climb no further."
+          "text": "Three things decide that. The **sun** sets how warm the thermals start. The **moisture** sets the cloud base, and so how soon the cloud gets the extra heat from condensing. And an [[inversion|env]] overhead can stop the cloud dead, just as it flattened the stratocumulus in the second lesson. A heap that runs into warm air above it is suddenly colder than its surroundings, and it can climb no further."
         },
         {
           "kind": "text",
@@ -32,7 +27,7 @@
         {
           "kind": "figure",
           "figure": "sounding",
-          "caption": "A summer day over the forest, with a warm layer a couple of kilometres up.",
+          "caption": "A summer day over farm country, with a warm layer a couple of kilometres up.",
           "task": "Grow a cumulus congestus: a tower several kilometres tall.",
           "goal": "congestus"
         }
@@ -95,7 +90,7 @@
         {
           "kind": "figure",
           "figure": "flash",
-          "caption": "A storm somewhere off in the forest.",
+          "caption": "A storm somewhere off over the hills.",
           "task": "Make the storm strike, and count.",
           "goal": "strike"
         },
@@ -104,9 +99,8 @@
           "text": "Lightning doesn’t always come down under the storm. The positive charge sits up in the anvil, which spreads many kilometres ahead of the storm, and a bolt from it can run sideways under clear blue sky and come down ten kilometres away. People call it a bolt from the blue."
         },
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "The rule for every crew in the district: if you can count less than thirty seconds, you’re within ten kilometres, close enough to be hit. Get off the ridge, and stay off until thirty minutes after the last thunder. A dying storm can still throw a late bolt, and the half hour is how long it takes to be sure it has really gone."
+          "kind": "text",
+          "text": "The safety rule follows from this: if you can count less than thirty seconds, the storm is within ten kilometres, close enough to be hit. Get indoors, or at least off high, open ground, and stay there until thirty minutes after the last thunder. A dying storm can still throw a late bolt, and the half hour is how long it takes to be sure it has really gone."
         }
       ]
     },
@@ -119,18 +113,18 @@
         },
         {
           "kind": "text",
-          "text": "When a strong, steady wind blows across a mountain ridge, the air is pushed up the windward side and then, in stable air, it overshoots on the far side. It sinks too far, and it is your first-shift test run backwards. In stable air, the surroundings cool by less than 10 °C per kilometre as you go up, so going *down* they warm by less than 10 °C per kilometre. The sinking air warms by the full 10 °C, as all sinking clear air does, so it ends up warmer and lighter than its new neighbours, and rises again. It goes on bobbing up and down downwind of the ridge: the nudged parcel from your first shift, swinging back and forth in a valley. These **standing waves** stay in place, like the ripples downstream of a rock in a river, while the wind blows through them. Where the air rises through the crest of a wave it cools, and if it is moist enough it reaches its dew point and a cloud forms there."
+          "text": "When a strong, steady wind blows across a mountain ridge, the air is pushed up the windward side and then, in stable air, it overshoots on the far side. It sinks too far, and it is the first lesson’s test run backwards. In stable air, the surroundings cool by less than 10 °C per kilometre as you go up, so going *down* they warm by less than 10 °C per kilometre. The sinking air warms by the full 10 °C, as all sinking clear air does, so it ends up warmer and lighter than its new neighbours, and rises again. It goes on bobbing up and down downwind of the ridge: the nudged parcel from the first lesson, swinging back and forth in a valley. These **standing waves** stay in place, like the ripples downstream of a rock in a river, while the wind blows through them. Where the air rises through the crest of a wave it cools, and if it is moist enough it reaches its dew point and a cloud forms there."
         },
         {
           "kind": "figure",
           "figure": "wave",
-          "caption": "Wind blowing over the ridge west of Anvil Peak.",
+          "caption": "Wind blowing over a mountain ridge.",
           "task": "Get the wind and moisture right to make a lens cloud.",
           "goal": "lens"
         },
         {
           "kind": "text",
-          "text": "The result is a **lenticularis**, Latin for lens-shaped, usually an altocumulus, since the crests that hold a cloud are mostly a few kilometres up on the middle floor. Unlike the lumpy altocumulus of your third shift, it is smooth, because it is one crest of one wave, not a churning layer: a smooth lens, or flying saucer, that sits still beside the mountain even in a gale. Air enters its upwind edge, rises and turns to cloud; it leaves the downwind edge, sinks, warms back above its dew point, and the droplets evaporate. The cloud stays put while the air races through it."
+          "text": "The result is a **lenticularis**, Latin for lens-shaped, usually an altocumulus, since the crests that hold a cloud are mostly a few kilometres up on the middle floor. Unlike the lumpy altocumulus of the third lesson, it is smooth, because it is one crest of one wave, not a churning layer: a smooth lens, or flying saucer, that sits still beside the mountain even in a gale. Air enters its upwind edge, rises and turns to cloud; it leaves the downwind edge, sinks, warms back above its dew point, and the droplets evaporate. The cloud stays put while the air races through it."
         }
       ]
     },
@@ -139,7 +133,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Under the anvil of a strong thunderstorm, the sky sometimes fills with smooth, rounded pouches hanging downward. Air laden with ice and droplets sinks out of the anvil’s base. It does warm as it sinks, like any sinking air, but this air is full of ice and droplets, and as it sinks into drier air they evaporate, and evaporating takes up heat. That takes away most of the warming, so the air warms only about 5 °C per kilometre, the cloudy rate from your first shift run backwards, while the surrounding air, going down, warms faster than that, about 6 or 7 °C per kilometre on a typical day. So the sinking air stays cooler than its surroundings and keeps sinking, in rounded lobes: an upside-down heap, just as a cloudy bubble keeps rising because condensing water warms it."
+          "text": "Under the anvil of a strong thunderstorm, the sky sometimes fills with smooth, rounded pouches hanging downward. Air laden with ice and droplets sinks out of the anvil’s base. It does warm as it sinks, like any sinking air, but this air is full of ice and droplets, and as it sinks into drier air they evaporate, and evaporating takes up heat. That takes away most of the warming, so the air warms only about 5 °C per kilometre, the cloudy rate from the first lesson run backwards, while the surrounding air, going down, warms faster than that, about 6 or 7 °C per kilometre on a typical day. So the sinking air stays cooler than its surroundings and keeps sinking, in rounded lobes: an upside-down heap, just as a cloudy bubble keeps rising because condensing water warms it."
         },
         {
           "kind": "figure",
@@ -165,22 +159,21 @@
         },
         {
           "kind": "text",
-          "text": "These are **Kelvin-Helmholtz waves**, called *fluctus* in the International Cloud Atlas, the world’s official book of cloud names. They last only a minute or two before the curls mix themselves away, so a watcher who sees them is a lucky one. To pilots they mean turbulence."
+          "text": "These are **Kelvin-Helmholtz waves**, called *fluctus* in the International Cloud Atlas, the world’s official book of cloud names. They last only a minute or two before the curls mix themselves away, so anyone who sees them is lucky. To pilots they mean turbulence."
         }
       ]
     },
     {
-      "title": "Final radio check",
+      "title": "Final check",
       "blocks": [
         {
-          "kind": "radio",
-          "who": "juniper",
-          "text": "Final radio check, Anvil Peak. Pass this and you’re a qualified cloud watcher."
+          "kind": "text",
+          "text": "The final check. First name each cloud in the photos, then read what a few changing skies are up to."
         },
         {
           "kind": "figure",
           "figure": "radioCheck",
-          "caption": "Photos from the other lookouts. Call in each cloud by name.",
+          "caption": "Real photos. Name each cloud.",
           "options": {
             "mode": "name",
             "pool": [
@@ -207,10 +200,11 @@
         {
           "kind": "figure",
           "figure": "forecast",
-          "caption": "The sky over a few hours, as the other lookouts logged it. What is it up to?",
+          "caption": "The sky over a few hours. What is it up to?",
           "options": {
             "items": [
               {
+                "id": "fair",
                 "sky": [
                   {
                     "genus": "cumulus",
@@ -272,9 +266,10 @@
                   "About 12 km"
                 ],
                 "answer": 1,
-                "why": "12 ÷ 3 is 4 km. Well within reach: get off the ridge."
+                "why": "12 ÷ 3 is 4 km. Well within reach: get indoors."
               },
               {
+                "id": "threshers",
                 "sky": [
                   {
                     "genus": "cumulonimbus",
@@ -285,7 +280,7 @@
                     "when": "17:30"
                   }
                 ],
-                "question": "The storm has gone quiet. The last thunder was ten minutes ago. Can the crew go back up?",
+                "question": "The storm has gone quiet. The last thunder was ten minutes ago. Is it safe to go back outside?",
                 "options": [
                   "Yes, it’s over",
                   "Not yet: wait thirty minutes after the last thunder",
@@ -329,7 +324,7 @@
                     "when": "15:00"
                   }
                 ],
-                "question": "At dawn, little turrets sprout from a layer of altocumulus. What do you radio?",
+                "question": "At dawn, little turrets sprout from a layer of altocumulus. What should you expect?",
                 "options": [
                   "Settled day ahead",
                   "Watch for thunderstorms this afternoon",
@@ -348,10 +343,10 @@
     "A heap grows until it is no longer warmer than the air around it; an inversion can stop it, and forecasters name it by height: humilis, mediocris, congestus.",
     "The tropopause, 10 to 12 km up, is a permanent inversion: a tower that reaches it spreads into an anvil, and a heap that tall and rainy is a cumulonimbus.",
     "A storm cell lives about an hour: updraught, then updraught and downdraught together, then the downdraught smothers it.",
-    "Count from flash to thunder and divide by three for the distance in kilometres. Under thirty seconds, get off the ridge.",
+    "Count from flash to thunder and divide by three for the distance in kilometres. Under thirty seconds, get indoors.",
     "Rare clouds: lens clouds in mountain waves, mammatus under anvils, and Kelvin-Helmholtz waves where fast air slides over slow."
   ],
-  "next": "Training is done. The district’s cloud-seeding programme is yours to try.",
+  "next": "Training is done. Cloud seeding is next.",
   "journal": {
     "cumulonimbus": {
       "title": "Cumulonimbus",
@@ -359,7 +354,7 @@
     },
     "lightning": {
       "title": "Counting the thunder",
-      "text": "Colliding hail and ice crystals separate charge inside a storm until it sparks: lightning, heating the air to about 30,000 °C, which bangs into thunder. Sound travels about a kilometre every three seconds. Count from flash to thunder and divide by three for kilometres. Under thirty seconds, you are within reach: get off the ridge."
+      "text": "Colliding hail and ice crystals separate charge inside a storm until it sparks: lightning, heating the air to about 30,000 °C, which bangs into thunder. Sound travels about a kilometre every three seconds. Count from flash to thunder and divide by three for kilometres. Under thirty seconds, you are within reach: get indoors."
     },
     "lenticularis": {
       "title": "Lens cloud (lenticularis)",

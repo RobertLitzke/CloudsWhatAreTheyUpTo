@@ -19,7 +19,7 @@ export type GenusId =
 /**
  * The floor of the sky a cloud is filed under. A tower has its base on the low
  * floor and its top on the high one; the Atlas files cumulonimbus as low by its
- * base, but to a watcher on the tower it fills all three.
+ * base, but to someone on the ground it fills all three.
  */
 export type Floor = 'high' | 'middle' | 'low' | 'tower';
 

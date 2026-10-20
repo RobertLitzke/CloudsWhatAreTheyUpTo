@@ -1,0 +1,150 @@
+{
+  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "talks": [
+    {
+      "id": "ice-realm-open",
+      "cue": "start",
+      "when": "Tuesday, July 28, 1931 · 7:30 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. I hear Hap made it to Pasco dry. Did he thank you?",
+          "replies": [
+            {
+              "say": "He buzzed my house. Twice.",
+              "back": "That’s Hap’s thank-you. Also his hello, and now and then his apology."
+            },
+            {
+              "say": "He gave me a cigar. I don’t smoke.",
+              "back": "Keep it. Cigars are money in Harrow. Trade it to Dutch for a sack of flour."
+            }
+          ]
+        },
+        {
+          "them": "Harvest is coming. Ole Haugen has the binder out in the wheat, and cut wheat can’t sit wet. He wants to know how much warning he’ll get before rain. And Edna has a week’s washing on the line and wants to know whether the grey sheet coming in means a soaking.",
+          "replies": [
+            {
+              "say": "How much warning can anybody get?",
+              "back": "A day, sometimes more, if you look up high. The ice clouds out in front tell you what’s coming long before it gets here."
+            },
+            {
+              "say": "Edna does her washing on Tuesday?",
+              "back": "Edna does her washing when Edna decides. The weather doesn’t get a vote. That’s your department."
+            }
+          ]
+        },
+        {
+          "them": "This week: the high floor, all ice. And a ring around the sun that’s older than Aunt Fern’s knee.",
+          "replies": [
+            {
+              "say": "Nothing is older than Aunt Fern’s knee.",
+              "back": "Don’t tell her I said so."
+            },
+            {
+              "say": "Ready."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ice-realm-halo",
+      "cue": {
+        "after": "halo"
+      },
+      "when": "Tuesday, July 28, 1931 · 8:05 p.m.",
+      "turns": [
+        {
+          "them": "You’ve got your ring. Hold your hand out at arm’s length: about how far is it from the sun to the ring?",
+          "replies": [
+            {
+              "say": "About a spread hand.",
+              "back": "Twenty-two degrees, a spread hand at arm’s length. Every halo, every time. Ice crystals don’t bend the rules, only the light.",
+              "right": true
+            },
+            {
+              "say": "About a thumb.",
+              "back": "Much bigger than that. Twenty-two degrees is a whole spread hand at arm’s length."
+            },
+            {
+              "say": "It depends on the day.",
+              "back": "That’s the beauty of it: it never does. The crystals bend the light by the same 22 degrees every time."
+            }
+          ]
+        },
+        {
+          "them": "Aunt Fern says a ring around the moon means rain soon. For once she has science on her side. Don’t tell her that either.",
+          "replies": [
+            {
+              "say": "My lips are sealed."
+            },
+            {
+              "say": "Even a knee is right sometimes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ice-realm-front",
+      "cue": {
+        "after": "front"
+      },
+      "when": "Tuesday, July 28, 1931 · 8:40 p.m.",
+      "turns": [
+        {
+          "them": "Now, Ole’s question. A warm front is on its way. In what order do its clouds arrive?",
+          "replies": [
+            {
+              "say": "High clouds first, then middle, then low.",
+              "back": "Top down, like a lid closing. Each step means the front is that much closer.",
+              "right": true
+            },
+            {
+              "say": "Low clouds first.",
+              "back": "Backwards. The warm air slides up over the cold along a long, gentle slope, so the highest clouds arrive first, far out ahead."
+            },
+            {
+              "say": "All at once.",
+              "back": "Then nobody would get any warning and Ole would lose his wheat. High first, then middle, then low."
+            }
+          ]
+        },
+        {
+          "them": "Now you can give Ole a timetable instead of a shrug.",
+          "replies": [
+            {
+              "say": "A timetable. Like the train.",
+              "back": "Except this one runs on time."
+            },
+            {
+              "say": "Better than a shrug."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ice-realm-check",
+      "cue": "check",
+      "when": "Tuesday, July 28, 1931 · 9:10 p.m.",
+      "turns": [
+        {
+          "them": "Check time. Photographs from the club, then Ole and Edna. Harvest and laundry: the two great forces of eastern Washington.",
+          "replies": [
+            {
+              "say": "Ready."
+            },
+            {
+              "say": "Which of them is more dangerous?",
+              "back": "Edna’s laundry. Ole only has wheat."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "locals": {
+    "binder": "Ole Haugen, with the binder out in the wheat, asks:",
+    "washday": "Mrs. Edna Pruitt, with a week’s washing on the line, asks:"
+  }
+}

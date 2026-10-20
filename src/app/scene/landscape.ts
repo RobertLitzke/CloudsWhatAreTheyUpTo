@@ -1,6 +1,7 @@
-// The view from Anvil Peak, drawn in flat, saturated layers: a banded sky, a
-// big low sun, ridges that fade into the haze as they go back, pines on the
-// nearest ridge and the lookout on its peak. Everything is plain polygons so it
+// Wheat country in eastern Washington, drawn in flat, saturated layers: a
+// banded sky, a big low sun, rolling hills that fade into the haze as they go
+// back, contour stripes of wheat on the nearest swell, poplars, and a small
+// town with its grain elevator and airfield. Everything is plain shapes so it
 // stays crisp at any size and costs nothing to ship.
 //
 // The scene is 400 wide and 260 tall. The sky is split into the three floors
@@ -15,8 +16,8 @@ export interface Palette {
   /** Sky, top to horizon. */
   sky: string[];
   sun: string;
-  /** Ridges, farthest first. */
-  ridges: string[];
+  /** Hills, farthest first. */
+  hills: string[];
   near: string;
   cloudLight: string;
   cloudMid: string;
@@ -28,7 +29,7 @@ export const PALETTES: Record<TimeOfDay, Palette> = {
   dawn: {
     sky: ['#3a2d5c', '#7b4b7a', '#d97a7a', '#f4b183', '#fde3a7'],
     sun: '#fff1c9',
-    ridges: ['#c9798a', '#9c5577', '#6d3a63', '#45254c'],
+    hills: ['#c9798a', '#b0677c', '#8a4f6f', '#5e3657'],
     near: '#24152e',
     cloudLight: '#ffe9de',
     cloudMid: '#f2b9b4',
@@ -38,8 +39,8 @@ export const PALETTES: Record<TimeOfDay, Palette> = {
   day: {
     sky: ['#1f6f8b', '#3f9fb5', '#7cc6c8', '#c9e7d6', '#f6e7b8'],
     sun: '#fff6d8',
-    ridges: ['#7fb3a8', '#4f8a86', '#2f6467', '#1d4448'],
-    near: '#0f2a2e',
+    hills: ['#c6c79a', '#b3b072', '#a39150', '#7c6b34'],
+    near: '#3b3016',
     cloudLight: '#ffffff',
     cloudMid: '#dfe9ec',
     cloudShade: '#93aab4',
@@ -50,7 +51,7 @@ export const PALETTES: Record<TimeOfDay, Palette> = {
   dusk: {
     sky: ['#0e4860', '#465778', '#a15793', '#c97fae', '#f2c4a4'],
     sun: '#fbe7a6',
-    ridges: ['#8d6a94', '#6f5885', '#483668', '#2e2c53'],
+    hills: ['#8d6a94', '#7a5f8b', '#5b4677', '#3a3260'],
     near: '#1b172f',
     cloudLight: '#ffdcc4',
     cloudMid: '#d185b1',
@@ -61,7 +62,7 @@ export const PALETTES: Record<TimeOfDay, Palette> = {
 
 export const W = 400;
 export const H = 260;
-/** Where the far ridges meet the sky. */
+/** Where the far hills meet the sky. */
 export const HORIZON = 196;
 
 /** The floors as drawn: y ranges in the scene, top to bottom. */
@@ -71,53 +72,60 @@ export const FLOOR_BANDS = {
   low: { top: 136, bottom: 200 },
 } as const;
 
-/** A ridge line as a closed polygon from the left edge to the right, down to the bottom. */
-function ridge(rng: Rng, baseY: number, rough: number, steps: number): string {
-  const pts: [number, number][] = [];
-  for (let i = 0; i <= steps; i++) {
-    const x = (i / steps) * W;
-    const y = baseY - rng() * rough;
-    pts.push([x, y]);
+/** A line of rolling hills as a closed path from the left edge to the right, down to the bottom. */
+function hills(rng: Rng, baseY: number, amp: number, waves: number): string {
+  // Two sines of random phase: the long, soft swells of the Palouse.
+  const p1 = rng() * Math.PI * 2;
+  const p2 = rng() * Math.PI * 2;
+  const pts: string[] = [];
+  for (let i = 0; i <= 40; i++) {
+    const x = (i / 40) * W;
+    const y = baseY - amp * (0.6 * Math.sin((x / W) * waves * Math.PI + p1) + 0.4 * Math.sin((x / W) * waves * 2.3 * Math.PI + p2));
+    pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
   }
-  return [...pts.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`), `${W},${H}`, `0,${H}`].join(' ');
+  return `M${pts.join(' L')} L${W},${H} L0,${H} Z`;
 }
 
-function pine(x: number, base: number, h: number, fill: string): SVGElement {
-  const w = h * 0.36;
-  // Three stacked triangles: the geometric pine of every park poster.
-  const tiers = [0, 0.3, 0.58].map((t, i) => {
-    const top = base - h + t * h * 0.9;
-    const bottom = top + h * (0.5 - i * 0.06);
-    const half = w * (1 - i * 0.22);
-    return svg('polygon', { points: `${x},${top} ${x + half},${bottom} ${x - half},${bottom}`, fill });
-  });
-  return svg('g', {}, svg('rect', { x: x - 0.8, y: base - h * 0.15, width: 1.6, height: h * 0.15, fill }), ...tiers.reverse());
+/** A Lombardy poplar: the tall, narrow windbreak tree of every farmstead out there. */
+function poplar(x: number, base: number, h: number, fill: string): SVGElement {
+  return svg('g', {},
+    svg('rect', { x: x - 0.6, y: base - h * 0.12, width: 1.2, height: h * 0.12, fill }),
+    svg('ellipse', { cx: x, cy: base - h * 0.55, rx: h * 0.11, ry: h * 0.47, fill }),
+  );
 }
 
-/** The lookout: a cab with a hip roof on a braced tower. */
-function lookout(x: number, base: number, fill: string, glow: string): SVGElement {
-  const legH = 26;
-  const cabW = 20;
-  const cabH = 11;
-  const top = base - legH;
+/** The town: a grain elevator with its annex, a few houses, a water tower, and the airfield's windsock. */
+function town(x: number, base: number, fill: string, glow: string): SVGElement {
+  const house = (hx: number, w: number, h: number) =>
+    svg('polygon', { points: `${hx},${base} ${hx},${base - h} ${hx + w / 2},${base - h - w * 0.45} ${hx + w},${base - h} ${hx + w},${base}`, fill });
   return svg(
     'g',
     {},
-    svg('polygon', { points: `${x - 9},${base} ${x - 6},${top} ${x - 4.6},${top} ${x - 7.4},${base}`, fill }),
-    svg('polygon', { points: `${x + 9},${base} ${x + 6},${top} ${x + 4.6},${top} ${x + 7.4},${base}`, fill }),
-    svg('path', { d: `M${x - 8},${base - 4} L${x + 6.5},${top + 9} M${x + 8},${base - 4} L${x - 6.5},${top + 9} M${x - 7},${top + 12} L${x + 7},${top + 12}`, stroke: fill, 'stroke-width': 1.1 }),
-    svg('rect', { x: x - cabW / 2 - 2, y: top - 1.5, width: cabW + 4, height: 2, fill }),
-    svg('rect', { x: x - cabW / 2, y: top - cabH, width: cabW, height: cabH - 1, fill }),
-    svg('rect', { x: x - cabW / 2 + 2, y: top - cabH + 2, width: cabW - 4, height: 4.5, fill: glow }),
-    svg('polygon', { points: `${x - cabW / 2 - 3},${top - cabH} ${x},${top - cabH - 7} ${x + cabW / 2 + 3},${top - cabH}`, fill }),
+    // The elevator: a tall shaft with a gabled cupola, and a lower annex.
+    svg('rect', { x: x - 10, y: base - 34, width: 20, height: 34, fill }),
+    svg('polygon', { points: `${x - 6},${base - 34} ${x - 6},${base - 40} ${x},${base - 44} ${x + 6},${base - 40} ${x + 6},${base - 34}`, fill }),
+    svg('rect', { x: x + 10, y: base - 20, width: 15, height: 20, fill }),
+    svg('polygon', { points: `${x + 10},${base - 20} ${x + 17.5},${base - 25} ${x + 25},${base - 20}`, fill }),
+    // Houses along the main street.
+    house(x - 30, 9, 6),
+    house(x - 19, 8, 5),
+    house(x + 26, 10, 6),
+    svg('rect', { x: x - 27, y: base - 4.5, width: 2, height: 2, fill: glow }),
+    // The water tower on its legs.
+    svg('path', { d: `M${x + 42},${base} L${x + 44},${base - 14} M${x + 50},${base} L${x + 48},${base - 14}`, stroke: fill, 'stroke-width': 1.2 }),
+    svg('rect', { x: x + 41, y: base - 21, width: 10, height: 7, rx: 1, fill }),
+    svg('polygon', { points: `${x + 40},${base - 21} ${x + 46},${base - 25} ${x + 52},${base - 21}`, fill }),
+    // The airfield's windsock, standing out in the breeze.
+    svg('line', { x1: x + 66, y1: base, x2: x + 66, y2: base - 16, stroke: fill, 'stroke-width': 1 }),
+    svg('polygon', { points: `${x + 66},${base - 16} ${x + 76},${base - 14.5} ${x + 76},${base - 12.5} ${x + 66},${base - 11.5}`, fill }),
   );
 }
 
 export interface SceneOptions {
   time: TimeOfDay;
   seed?: number;
-  /** Draw the lookout on the near ridge. */
-  tower?: boolean;
+  /** Draw the town on the near hill. */
+  town?: boolean;
   /** Which part to keep when the scene is cropped to a box of another shape. */
   align?: 'xMinYMax' | 'xMidYMax';
   /** Sun position as fractions of the width and height. */
@@ -126,7 +134,7 @@ export interface SceneOptions {
 
 export interface Scene {
   root: SVGSVGElement;
-  /** Clouds and anything else in the sky go here: in front of the sky, behind the ridges. */
+  /** Clouds and anything else in the sky go here: in front of the sky, behind the hills. */
   sky: SVGGElement;
   /** In front of everything. */
   front: SVGGElement;
@@ -156,24 +164,24 @@ export function makeScene(opts: SceneOptions): Scene {
   );
   const sky = svg('g', { class: 'scene-sky' }) as SVGGElement;
 
-  const ridges = p.ridges.map((fill, i) =>
-    svg('polygon', { points: ridge(rng, HORIZON - 2 + i * 12, 20 - i * 3, 9 + i * 3), fill }),
-  );
+  const far = p.hills.map((fill, i) => svg('path', { d: hills(rng, HORIZON + 2 + i * 11, 9 - i, 1.6 + i * 0.7), fill }));
 
-  // The near ridge rises to a peak on the left, where the lookout stands.
-  const peakX = 92;
-  const peakY = 214;
-  const near = svg('polygon', {
-    points: `0,${H} 0,232 40,224 ${peakX - 18},${peakY + 4} ${peakX},${peakY} ${peakX + 22},${peakY + 6} 170,236 260,242 330,238 ${W},244 ${W},${H}`,
-    fill: p.near,
-  });
-  const trees: SVGElement[] = [];
-  for (let i = 0; i < 26; i++) {
-    const x = 120 + rng() * 280;
-    const base = 248 + rng() * 10;
-    trees.push(pine(x, base, 14 + rng() * 16, p.near));
-  }
-  for (let i = 0; i < 6; i++) trees.push(pine(4 + i * 9 + rng() * 4, 236, 10 + rng() * 8, p.near));
+  // The near swell, with contour stripes of wheat and fallow following it.
+  const near = svg('path', { d: `M0,232 C70,214 140,214 200,226 S330,246 ${W},230 L${W},${H} L0,${H} Z`, fill: p.near });
+  const stripes = [0, 1, 2, 3].map((k) =>
+    svg('path', {
+      d: `M0,${238 + k * 6} C70,${221 + k * 7} 140,${221 + k * 7} 200,${233 + k * 6} S330,${252 + k * 4} ${W},${237 + k * 6}`,
+      fill: 'none',
+      stroke: p.hills[0],
+      'stroke-width': 1.6,
+      opacity: 0.22,
+    }),
+  );
+  // A windbreak of poplars round a farmstead, and a row along the far road.
+  const farmstead: SVGElement[] = [];
+  for (let i = 0; i < 5; i++) farmstead.push(poplar(270 + i * 7 + rng() * 3, 238 + i * 0.6, 20 + rng() * 6, p.near));
+  const road: SVGElement[] = [];
+  for (let i = 0; i < 7; i++) road.push(poplar(150 + i * 11 + rng() * 4, HORIZON + 26, 7 + rng() * 3, p.hills[p.hills.length - 1]));
 
   const front = svg('g', { class: 'scene-front' }) as SVGGElement;
   const root = svg(
@@ -184,10 +192,12 @@ export function makeScene(opts: SceneOptions): Scene {
     ...bands,
     sun,
     sky,
-    ...ridges,
+    ...far,
+    ...road,
     near,
-    opts.tower !== false ? lookout(peakX, peakY + 1, p.near, p.sun) : svg('g'),
-    ...trees,
+    ...stripes,
+    ...farmstead,
+    opts.town !== false ? town(70, 224, p.near, p.sun) : svg('g'),
     front,
   ) as SVGSVGElement;
   return { root, sky, front, palette: p };
