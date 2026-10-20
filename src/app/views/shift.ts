@@ -42,7 +42,12 @@ function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], o
     case 'figure': {
       const handle = FIGURES[block.figure](ctx, block.goal, block.options);
       const status = block.task ? el('p.fig-task', {}, el('span.tick', { 'aria-hidden': 'true' }), block.task) : null;
-      const fig = el('figure.fig', {}, status, handle.node, el('figcaption', {}, block.caption));
+      // The caption opens the figure's one text box, above what the figure is
+      // showing now; a still or a quiz has no live text, so it gets a box of its own.
+      const caption = el('p.fig-lead', {}, block.caption);
+      const box = handle.node.querySelector('.fig-text');
+      if (box) box.prepend(caption);
+      const fig = el('figure.fig', { 'data-figure': block.figure }, status, handle.node, box ? null : el('div.fig-text', {}, caption));
       if (handle.done) {
         tasks.push(handle.done);
         void handle.done.then(() => {

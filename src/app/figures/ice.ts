@@ -15,7 +15,7 @@ import { COL, animate, frame, height, label, line, polyline, redraw, slider, tas
 export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
   const H = 240;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const t = task();
   let tempC = -2;
   const C = { x: 200, y: 110 };
