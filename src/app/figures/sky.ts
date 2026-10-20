@@ -264,8 +264,12 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
       scene.sky.append(placeCloud(s.genus, scene.palette, SW / 2, spot.y, spot.scale, k + 2));
       return el('figure', {}, scene.root, el('figcaption', {}, s.when));
     }));
+    const asker = q.id ? ctx.local?.(q.id) : undefined;
+    // A question from town comes on one typed slip, with who asked it, the
+    // answers and the reply; otherwise it is all plain.
+    const card = asker ? el('div.asker', {}, el('p', {}, asker), el('p', {}, q.question)) : null;
     const buttons = q.options.map((o, k) => {
-      const b = el('button.btn.btn-ghost.wide', { type: 'button' }, o) as HTMLButtonElement;
+      const b = el(card ? 'button.slip-reply' : 'button.btn.btn-ghost.wide', { type: 'button' }, o) as HTMLButtonElement;
       b.addEventListener('click', () => {
         const good = k === q.answer;
         if (good) right++;
@@ -274,17 +278,15 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
           if (j === q.answer) x.classList.add('right');
         });
         if (!good) b.classList.add('wrong');
+        (card ?? body).append(el('div.verdict', { className: `verdict ${good ? 'good' : 'bad'}` }, el('p', {}, q.why)));
         body.append(
-          el('div.verdict', { className: `verdict ${good ? 'good' : 'bad'}` }, el('p', {}, q.why)),
           el('div.actions', {}, el('span.count', {}, `${i + 1} / ${items.length}`), el('button.btn', { type: 'button', onclick: () => { i++; next(); } }, i === items.length - 1 ? 'Finish' : 'Next')),
         );
       });
       return b;
     });
-    const asker = q.id ? ctx.local?.(q.id) : undefined;
-    // A question from town comes on one typed slip with who asked it; otherwise it is plain.
-    const ask = asker ? el('div.asker', {}, el('p', {}, asker), el('p', {}, q.question)) : el('p.task', {}, q.question);
-    body.replaceChildren(strip, ask, el('div.answer-list', {}, buttons));
+    if (card) card.append(el('div.slip-replies', {}, buttons));
+    body.replaceChildren(strip, ...(card ? [card] : [el('p.task', {}, q.question), el('div.answer-list', {}, buttons)]));
   };
   next();
   return { node, done: t.promise };

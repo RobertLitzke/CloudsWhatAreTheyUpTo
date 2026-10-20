@@ -330,6 +330,11 @@ body.radio-up main { padding-bottom: 50vh; }
 .asker { font: 16px/1.5 'Special Elite', 'Courier New', monospace; background: #f4ead2; color: #2b2620; padding: 10px 14px; margin: 12px 14px 4px; border-left: 3px solid #b0894f; }
 .asker p { margin: 0; }
 .asker p + p { margin-top: 8px; }
+.asker .slip-replies { padding-top: 12px; }
+.asker .slip-reply:disabled { cursor: default; opacity: 0.6; }
+.asker .slip-reply.right { opacity: 1; border-color: var(--good); background: rgba(63, 155, 106, 0.18); }
+.asker .slip-reply.wrong { opacity: 1; border-color: var(--bad); background: rgba(201, 71, 63, 0.14); text-decoration: line-through; }
+.asker .verdict { border-radius: 3px; }
 .radio-log { display: grid; gap: 8px; }
 .radio-transcript { background: #f4ead2; color: #2b2620; font: 14px/1.5 'Special Elite', 'Courier New', monospace; padding: 10px 14px; border-radius: 3px; }
 .radio-transcript summary { cursor: pointer; margin-bottom: 4px; }
