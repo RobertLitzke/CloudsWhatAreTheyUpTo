@@ -375,6 +375,7 @@ body.radio-up main { padding-bottom: 50vh; }
 .fig-label { font: 500 11px var(--font); }
 .fig-label:not([fill]) { fill: var(--ink); }
 .fig-label.small { font-size: 9px; }
+.fig-label.note { font-size: 10px; }
 .fig-label.soft:not([fill]) { fill: var(--ink-soft); }
 .fig-label.bold { font-weight: 700; }
 .fig .shake { animation: shake 0.35s 2; }
@@ -674,3 +675,6 @@ body.radio-up main { padding-bottom: 50vh; }
 .scene .seed-sky { transition: opacity 0.5s; }
 .scene .seed-sky.fade { opacity: 0.4; }
 .seeding .btn { margin-top: 4px; }
+.readings { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 0; margin-top: 0; margin-bottom: 0; }
+.readings li { font-size: 0.85rem; font-weight: 600; background: var(--panel); border-radius: 999px; padding: 3px 10px; }
+.fig .answer-list .btn { line-height: 1.3; }

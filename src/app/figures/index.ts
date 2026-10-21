@@ -4,8 +4,8 @@ import type { FigureId } from '../../core/shifts';
 import { freezingFigure, jarFigure, parcelFigure, soundingFigure, thermalsFigure } from './air';
 import { billowFigure, flashFigure, mammaFigure, stormFigure, waveFigure } from './giants';
 import { burnOffDiagram, chargeDiagram, collideDiagram, dayNightDiagram, densityDiagram, depthDiagram, edgesDiagram, escapeDiagram, expandDiagram, fogStratusDiagram, freezeSeedsDiagram, glideDiagram, heapDiagram, inversionDiagram, kettleDiagram, latentDiagram, layerKindsDiagram, millionDiagram, moleculesDiagram, nameGridDiagram, overturnDiagram, snowToRainDiagram, specksDiagram, stabilityDiagram, subsidenceDiagram, tropopauseDiagram } from './diagrams';
-import { barometerDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, rainShadowFigure, slopeFigure } from './front';
-import { cloudWaterDiagram, coldBoxFigure, dryIceDiagram, latticeDiagram, seedLayerFigure, seedWindowDiagram, trialFigure } from './cold-cloud';
+import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, occlusionDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
+import { agentRangeDiagram, cloudWaterDiagram, coldBoxFigure, conveyorDiagram, dryIceDiagram, fairTestDiagram, fallstreakDiagram, fogHoleDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure, seedWindowDiagram, trialFigure } from './cold-cloud';
 import { frontFigure, haloFigure, iceGrowthFigure, prismFigure, streaksFigure } from './ice';
 import type { FigureFactory } from './kit';
 import { dropsFigure, handFigure, nightFigure, nudgeFigure, shadowFigure, spreadFigure, sunThroughFigure } from './layers';
@@ -70,6 +70,11 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   slope: slopeFigure,
   crossedWinds: crossedWindsDiagram,
   rainShadow: rainShadowFigure,
+  buysBallot: buysBallotDiagram,
+  barograph: barographDiagram,
+  veer: veerDiagram,
+  twoFronts: twoFrontsDiagram,
+  occlusion: occlusionDiagram,
   coldBox: coldBoxFigure,
   dryIce: dryIceDiagram,
   lattice: latticeDiagram,
@@ -77,4 +82,12 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   cloudWater: cloudWaterDiagram,
   seedWindow: seedWindowDiagram,
   trial: trialFigure,
+  iceSteal: iceStealDiagram,
+  iceShortage: iceShortageDiagram,
+  agentRange: agentRangeDiagram,
+  fallstreak: fallstreakDiagram,
+  mountainSeed: mountainSeedDiagram,
+  conveyor: conveyorDiagram,
+  fogHole: fogHoleDiagram,
+  fairTest: fairTestDiagram,
 };

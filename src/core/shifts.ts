@@ -31,8 +31,9 @@ export const FIGURE_IDS = [
   'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
   'specks', 'inversion', 'burnOff', 'latent', 'kettle', 'density',
   'glide', 'overturn', 'freezeSeeds', 'escape', 'snowToRain', 'tropopause', 'charge',
-  'lowMap', 'barometer', 'frontPass', 'slope', 'crossedWinds', 'rainShadow',
+  'lowMap', 'barometer', 'frontPass', 'slope', 'crossedWinds', 'rainShadow', 'buysBallot', 'barograph', 'veer', 'twoFronts', 'occlusion',
   'coldBox', 'dryIce', 'lattice', 'seedLayer', 'cloudWater', 'seedWindow', 'trial',
+  'iceSteal', 'iceShortage', 'agentRange', 'fallstreak', 'mountainSeed', 'conveyor', 'fogHole', 'fairTest',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -55,10 +56,24 @@ export interface Forecast {
   id?: string;
   /** The sky over the hours, oldest first; one drawing per entry. */
   sky: { genus: GenusId; when: string }[];
+  /** What the barometer and the wind vane say, shown as readings under the sky. */
+  instruments?: string[];
+  /** A slice up through the air instead of the sky drawings: the freezing level and the cloud, by height. */
+  profile?: Profile;
   question: string;
   options: string[];
   answer: number;
   why: string;
+}
+
+export interface Profile {
+  /** Height of the 0 °C level, km; temperatures fall 6.5 °C a km above it. */
+  freezeKm: number;
+  clouds: { baseKm: number; topKm: number; name: string }[];
+  /** How high to draw, km. */
+  topKm?: number;
+  /** A note on the ground, such as "dry air below". */
+  ground?: string;
 }
 
 export interface Shift {

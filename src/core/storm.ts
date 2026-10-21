@@ -70,8 +70,8 @@ export function stormPressure(hours: number): number {
   const h = Math.max(-48, Math.min(36, hours));
   if (h < -36) return 1019 - (h + 48) * 0.05;
   if (h < 0) return 1018.4 - ((h + 36) / 36) * 13.4; // 1018 to 1005: about 1 hPa every 3 hours, steadily
-  if (h < WARM_SECTOR_H) return 1005 - (h / WARM_SECTOR_H) * 2.5; // nearly steady in the warm air
-  if (h < WARM_SECTOR_H + 6) return 1002.5 + ((h - WARM_SECTOR_H) / 6) * 9; // a quick rise behind the cold front
+  if (h < WARM_SECTOR_H) return 1005 - (h / WARM_SECTOR_H) * 1.5; // nearly steady in the warm air
+  if (h < WARM_SECTOR_H + 6) return 1003.5 + ((h - WARM_SECTOR_H) / 6) * 8; // a quick rise behind the cold front
   return 1011.5 + ((h - WARM_SECTOR_H - 6) / 18) * 5;
 }
 
@@ -97,15 +97,16 @@ export function stormWeather(hours: number): Weather {
   } else if (h < WARM_SECTOR_H) {
     windFrom = lerp(190, 220, h / WARM_SECTOR_H);
     windKmh = 20;
-    tempC = lerp(13, 16, h / 4);
-    dewC = 11;
+    // Muggy: warm, with a high dew point.
+    tempC = lerp(14, 18, h / 4);
+    dewC = 14;
   } else {
     // The cold front: a sudden shift to the west or northwest, gusty, colder and drier.
     const k = (h - WARM_SECTOR_H) / 3;
     windFrom = lerp(220, 300, k);
     windKmh = lerp(45, 22, (h - WARM_SECTOR_H - 1) / 10);
-    tempC = lerp(16, 8, k);
-    dewC = lerp(11, 0, k);
+    tempC = lerp(18, 8, k);
+    dewC = lerp(14, 0, k);
   }
   return { hPa, tendency, windFrom: ((windFrom % 360) + 360) % 360, windKmh, tempC, dewC };
 }

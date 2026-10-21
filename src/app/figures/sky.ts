@@ -2,7 +2,7 @@
 // drawn clouds onto their floors, building names from their roots, and the
 // tests that end a lesson (the check on photos, and forecasting from a sky).
 
-import type { Forecast } from '../../core/shifts';
+import type { Forecast, Profile } from '../../core/shifts';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
 import { dealFloorCalls } from '../../core/photo-call';
 import { dealNameCalls } from '../../core/radio-check';
@@ -12,7 +12,7 @@ import { photoFigure, PHOTOS } from '../photos';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from '../ui';
-import { height, task, textBox, type FigureContext, type FigureFactory } from './kit';
+import { COL, height, label, line, task, textBox, type FigureContext, type FigureFactory } from './kit';
 
 function bands(ctx: FigureContext, onPick?: (f: Floor) => void): SVGElement {
   const g = svg('g', { class: 'bands' });
@@ -251,6 +251,48 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
 // ---- Forecasting from the sky ------------------------------------------------------
 
 
+/** A slice up through the air: height, the freezing level, temperatures, and the cloud. */
+function profileDrawing(p: Profile): SVGSVGElement {
+  const W = 400;
+  const H = 170;
+  const top = p.topKm ?? Math.max(6, Math.ceil(Math.max(p.freezeKm, ...p.clouds.map((c) => c.topKm)) + 1));
+  const ground = 150;
+  const yOf = (km: number) => ground - (km / top) * (ground - 12);
+  const tempAt = (km: number) => (p.freezeKm - km) * 6.5;
+  const deg = (c: number) => `${c < -0.5 ? '−' : ''}${Math.abs(Math.round(c))} °C`;
+  const s = svg('svg', { viewBox: `0 0 ${W} ${H}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
+  const parts: SVGElement[] = [
+    svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#e3ecf4' }),
+    svg('rect', { x: 0, y: 0, width: W, height: yOf(p.freezeKm), fill: '#cfe0f6', opacity: 0.6 }),
+    svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
+  ];
+  for (let km = top > 8 ? 2 : 1; km <= top; km += top > 8 ? 2 : 1) {
+    parts.push(line(34, yOf(km), 40, yOf(km), COL.ink, 1), label(30, yOf(km) + 3.5, `${km} km`, { class: 'fig-label note soft', 'text-anchor': 'end' }));
+  }
+  parts.push(
+    line(40, yOf(p.freezeKm), W, yOf(p.freezeKm), COL.ice, 1.5, { 'stroke-dasharray': '5 4' }),
+    label(W - 6, yOf(p.freezeKm) - 5, `0 °C at ${p.freezeKm} km: colder above`, { class: 'fig-label note bold', fill: COL.ice, 'text-anchor': 'end' }),
+  );
+  p.clouds.forEach((c, i) => {
+    const x0 = 120 + i * 40;
+    const y0 = yOf(c.topKm);
+    const y1 = yOf(c.baseKm);
+    parts.push(
+      svg('rect', { x: x0, y: y0, width: 150, height: Math.max(4, y1 - y0), rx: 8, fill: '#ffffff', stroke: COL.cloudShade }),
+      label(x0 + 75, (y0 + y1) / 2 + 4, c.name, { class: 'fig-label note bold', 'text-anchor': 'middle' }),
+      ...(y1 - y0 < 24
+        ? [label(x0 - 6, (y0 + y1) / 2 + 4, `${deg(tempAt(c.baseKm))} to ${deg(tempAt(c.topKm))}`, { class: 'fig-label note bold', 'text-anchor': 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' })]
+        : [
+          label(x0 - 6, y0 + 9, `top ${deg(tempAt(c.topKm))}`, { class: 'fig-label note', 'text-anchor': 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' }),
+          label(x0 - 6, y1, `base ${deg(tempAt(c.baseKm))}`, { class: 'fig-label note', 'text-anchor': 'end', fill: tempAt(c.baseKm) < 0 ? COL.ice : '#b0583a' }),
+        ]),
+    );
+  });
+  parts.push(label(W / 2, ground + 14, p.ground ?? `ground: ${deg(tempAt(0))}`, { class: 'fig-label note', fill: '#fff', 'text-anchor': 'middle' }));
+  s.append(...parts);
+  return s;
+}
+
 export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
   // Questions from town come last, in order, after the rest shuffled.
   const all = (options?.items as Forecast[]) ?? [];
@@ -274,6 +316,7 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
       addToSky(scene.sky, placeCloud(s.genus, scene.palette, SW / 2, spot.y, spot.scale, k + 2));
       return el('figure', {}, scene.root, el('figcaption', {}, s.when));
     }));
+    const readings = q.instruments ? el('ul.readings', {}, ...q.instruments.map((r) => el('li', {}, r))) : null;
     const asker = q.id ? ctx.local?.(q.id) : undefined;
     // A question from town comes on one typed slip, with who asked it, the
     // answers and the reply; otherwise it is all plain.
@@ -296,7 +339,7 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
       return b;
     });
     if (card) card.append(el('div.slip-replies', {}, buttons));
-    body.replaceChildren(strip, ...(card ? [card] : [el('p.task', {}, q.question), el('div.answer-list', {}, buttons)]));
+    body.replaceChildren(q.profile ? profileDrawing(q.profile) : strip, readings ?? '', ...(card ? [card] : [el('p.task', {}, q.question), el('div.answer-list', {}, buttons)]));
   };
   next();
   return { node, done: t.promise };

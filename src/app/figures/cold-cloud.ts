@@ -3,7 +3,7 @@
 // of cloud seeded from the air, how much water a cloud really holds, the
 // temperatures where seeding can help, and a seeding trial against luck.
 
-import { coldBox, judge, runTrial, seedLayer, STORMS_PER_WINTER, type Agent } from '../../core/cold-cloud';
+import { coldBox, judge, runTrial, seedLayer, STORMS_PER_WINTER, TRUE_EFFECT, type Agent } from '../../core/cold-cloud';
 import type { GenusId } from '../../core/clouds';
 import { makeRng } from '../../core/rng';
 import { el, svg } from '../dom';
@@ -28,18 +28,233 @@ function fmtCount(n: number): string {
   return `${Math.round(n / 1e6).toLocaleString()} million per litre`;
 }
 
+// ---- Why ice wins -----------------------------------------------------------------
+
+/** A cloud droplet: a white ball with a teal rim. */
+const droplet = (x: number, y: number, r: number) => svg('circle', { cx: x, cy: y, r, fill: '#ffffff', stroke: COL.dew, 'stroke-width': 1.2 });
+
+export const iceStealDiagram: FigureFactory = () => {
+  const d = still(400, 210);
+  const stage = (cx: number, n: string, minutes: string, eaten: number, fall: number) => {
+    const cy = 100;
+    const parts: SVGElement[] = [svg('rect', { x: cx - 62, y: 34, width: 124, height: 134, rx: 8, fill: '#e9eef8' })];
+    const rng = makeRng(4);
+    for (let i = 0; i < 9; i++) {
+      const a = (i / 9) * Math.PI * 2 + rng() * 0.4;
+      const r = 34 + rng() * 14;
+      const x = cx + Math.cos(a) * r;
+      const y = cy + Math.sin(a) * r * 0.9;
+      const dr = 6.5 * Math.cbrt(Math.max(0, 1 - eaten));
+      if (dr > 0.8) parts.push(droplet(x, y, dr));
+      if (eaten < 1 && dr > 0.8) {
+        // Vapour leaving the droplet for the crystal.
+        const k1 = 0.35;
+        const k2 = 0.62;
+        parts.push(arrow(x + (cx - x) * k1, y + (cy - y) * k1, x + (cx - x) * k2, y + (cy - y) * k2, COL.dew, 1.1));
+      }
+    }
+    const size = 5 + 17 * Math.sqrt(eaten);
+    parts.push(flake(cx, cy + fall, size, COL.ice, 2.2));
+    if (fall) parts.push(arrow(cx + 26, cy + fall - 14, cx + 26, cy + fall + 10, COL.ice, 1.6));
+    parts.push(
+      svg('circle', { cx: cx - 50, cy: 46, r: 8, fill: COL.ink }),
+      label(cx - 50, 50, n, { class: 'fig-label bold', fill: '#fff', 'text-anchor': 'middle' }),
+      small(cx + 56, 50, minutes, { 'text-anchor': 'end', class: 'fig-label note bold' }),
+    );
+    return svg('g', {}, ...parts);
+  };
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: COL.paper }),
+    heading(200, 18, 'One crystal among supercooled droplets, at −10 °C'),
+    stage(68, '1', 'start', 0.05, 0),
+    stage(200, '2', '5 minutes', 0.5, 0),
+    stage(332, '3', '15 minutes', 1, 34),
+    small(68, 182, 'droplets (liquid)', { 'text-anchor': 'middle', fill: COL.dew }),
+    small(68, 194, 'and one ice crystal', { 'text-anchor': 'middle', fill: COL.ice }),
+    small(200, 182, 'vapour leaves the droplets', { 'text-anchor': 'middle', fill: COL.dew }),
+    small(200, 194, 'and freezes onto the ice', { 'text-anchor': 'middle', fill: COL.dew }),
+    small(332, 182, 'droplets gone; the crystal', { 'text-anchor': 'middle', fill: COL.ice }),
+    small(332, 194, 'is heavy enough to fall', { 'text-anchor': 'middle', fill: COL.ice }),
+  );
+  return { node: d.node };
+};
+
+export const iceShortageDiagram: FigureFactory = () => {
+  const d = still(400, 250);
+  const rng = makeRng(9);
+  // One litre, packed with droplets.
+  const lx = 14;
+  const ly = 44;
+  const ls = 96;
+  const dots = Array.from({ length: 420 }, () => svg('circle', { cx: lx + 3 + rng() * (ls - 6), cy: ly + 3 + rng() * (ls - 6), r: 1.3, fill: COL.dew, opacity: 0.55 }));
+  // 250 litres, one with an ice-starting speck.
+  const gx = 150;
+  const gy = 44;
+  const cell = 9.6;
+  const boxes: SVGElement[] = [];
+  for (let i = 0; i < 250; i++) {
+    const x = gx + (i % 25) * cell;
+    const y = gy + Math.floor(i / 25) * cell;
+    boxes.push(svg('rect', { x, y, width: cell - 1.6, height: cell - 1.6, fill: i === 163 ? COL.ice : '#dfe6f1' }));
+  }
+  const row = (y: number, t: string, odds: string, w: number) => svg('g', {},
+    small(150, y, t, { class: 'fig-label note bold' }),
+    svg('rect', { x: 196, y: y - 8, width: Math.max(2, w), height: 9, rx: 2, fill: COL.ice }),
+    small(200 + Math.max(2, w), y, odds, {}),
+  );
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 250, fill: COL.paper }),
+    heading(200, 18, 'Plenty of water, hardly any ice'),
+    svg('rect', { x: lx, y: ly, width: ls, height: ls, fill: '#ffffff', stroke: COL.soft }),
+    ...dots,
+    small(lx + ls / 2, ly + ls + 14, 'one litre of cloud:', { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(lx + ls / 2, ly + ls + 26, '100,000 droplets', { 'text-anchor': 'middle', fill: COL.dew }),
+    small(lx + ls / 2, ly + ls + 38, '(a few hundred drawn)', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
+    ...boxes,
+    small(gx, ly + 10 * cell + 14, '250 litres at −10 °C: one ice-starting speck (blue)', { class: 'fig-label note bold' }),
+    small(150, 182, 'Ice-starting specks, colder and colder (longer bar: more of them)', { class: 'fig-label note soft' }),
+    row(198, '−5 °C', 'one in 5,000 litres', 2),
+    row(212, '−10 °C', 'one in 250 litres', 12),
+    row(226, '−15 °C', 'one in 12 litres', 44),
+    row(240, '−20 °C', 'about 1 per litre', 100),
+  );
+  return { node: d.node };
+};
+
+// ---- Which agent works where -------------------------------------------------------
+
+export const agentRangeDiagram: FigureFactory = () => {
+  const d = still(400, 200);
+  const x0 = 96;
+  const x1 = 384;
+  const xOf = (c: number) => x0 + (-c / 45) * (x1 - x0);
+  const bar = (y: number, name: string, from: number, to: number, color: string, note: string, fade?: number) => svg('g', {},
+    small(x0 - 6, y + 4, name, { 'text-anchor': 'end', class: 'fig-label note bold' }),
+    fade != null ? svg('rect', { x: xOf(from), y: y - 7, width: xOf(fade) - xOf(from), height: 14, rx: 3, fill: color, opacity: 0.35 }) : null as unknown as SVGElement,
+    svg('rect', { x: xOf(fade ?? from), y: y - 7, width: xOf(to) - xOf(fade ?? from), height: 14, rx: 3, fill: color }),
+    small(xOf(fade ?? from) + 6, y + 4, note, { fill: '#fff', class: 'fig-label note bold' }),
+  );
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: COL.paper }),
+    heading(200, 18, 'What starts ice, by the cloud’s temperature'),
+    svg('rect', { x: xOf(-38), y: 30, width: x1 - xOf(-38), height: 132, fill: '#cfe0f6', opacity: 0.6 }),
+    bar(46, 'dry ice', 0, -45, COL.ice, 'works at any temperature below 0 °C'),
+    bar(76, 'silver iodide', -5, -45, '#7a5ca3', 'below −5 °C; strong below −10', -10),
+    bar(106, 'natural specks', -12, -38, '#8f8a80', '', -25),
+    small(xOf(-12) + 6, 110, 'few, then plenty by −25 °C', { class: 'fig-label note bold', fill: COL.ink }),
+    small(x0, 128, 'pale: works only weakly', { class: 'fig-label note soft' }),
+    small(xOf(-38) - 4, 136, 'below −38 °C, the cloud', { 'text-anchor': 'end', class: 'fig-label note bold', fill: COL.ice }),
+    small(xOf(-38) - 4, 148, 'freezes by itself →', { 'text-anchor': 'end', fill: COL.ice }),
+    line(x0, 166, x1, 166, COL.ink, 1),
+    ...[0, -5, -10, -20, -30, -40].map((c) => small(xOf(c), 180, deg(c), { 'text-anchor': 'middle', class: 'fig-label note soft' })),
+    small(200, 196, 'Above 0 °C nothing works: there is no supercooled water to freeze.', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
+  );
+  return { node: d.node };
+};
+
+// ---- A fallstreak hole -------------------------------------------------------------
+
+export const fallstreakDiagram: FigureFactory = () => {
+  const d = still(400, 210);
+  const rng = makeRng(21);
+  const holeX = 210;
+  const puffs: SVGElement[] = [];
+  for (let i = 0; i < 90; i++) {
+    const x = rng() * 420 - 10;
+    const y = 70 + rng() * 26;
+    if (Math.hypot((x - holeX) / 1.8, y - 83) < 34) continue;
+    puffs.push(svg('circle', { cx: x, cy: y, r: 7 + rng() * 6, fill: '#ffffff', opacity: 0.95 }));
+  }
+  const streak: SVGElement[] = [];
+  for (let i = 0; i < 26; i++) {
+    const y = 88 + i * 3.4;
+    streak.push(svg('ellipse', { cx: holeX + (i * 0.9) + (rng() - 0.5) * 10, cy: y, rx: 8 - i * 0.2, ry: 2.2, fill: '#ffffff', opacity: 0.8 - i * 0.025 }));
+  }
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: '#86b4dc' }),
+    ...puffs,
+    ...streak,
+    // The aeroplane's climbing path through the layer, half an hour earlier.
+    line(120, 150, 300, 30, COL.ink, 1.2, { 'stroke-dasharray': '4 4', opacity: 0.6 }),
+    small(292, 22, 'an aeroplane climbed', { fill: COL.ink, 'text-anchor': 'end' }),
+    small(292, 34, 'through here', { fill: COL.ink, 'text-anchor': 'end' }),
+    small(12, 62, 'supercooled altocumulus, −15 °C', { fill: COL.ink, class: 'fig-label note bold' }),
+    small(holeX + 46, 120, 'half an hour later: a round hole,', { fill: COL.ink }),
+    small(holeX + 46, 132, 'with a wisp of falling ice in it', { fill: COL.ink }),
+    small(12, 182, 'Air over the propeller tips expands and cools below −40 °C;', { fill: COL.ink }),
+    small(12, 194, 'the ice spreads, eats the droplets, and falls out as a streak.', { fill: COL.ink }),
+  );
+  return { node: d.node };
+};
+
+// ---- Seeding clouds over mountains --------------------------------------------------
+
+export const mountainSeedDiagram: FigureFactory = () => {
+  const d = still(400, 250);
+  const sea = 218;
+  const ridge = (x: number) => {
+    if (x < 60) return sea - 4;
+    if (x < 230) return sea - 4 - 130 * (0.5 - 0.5 * Math.cos(Math.PI * ((x - 60) / 170)));
+    if (x < 320) return sea - 134 + 90 * (0.5 - 0.5 * Math.cos(Math.PI * ((x - 230) / 90)));
+    return sea - 44;
+  };
+  const land: [number, number][] = [];
+  for (let x = 0; x <= 400; x += 4) land.push([x, ridge(x)]);
+  // The cap cloud over the windward slopes and crest.
+  const cloudTop: [number, number][] = [];
+  const cloudBase: [number, number][] = [];
+  for (let x = 120; x <= 292; x += 4) {
+    const k = (x - 120) / 172;
+    cloudTop.push([x, Math.min(150, Math.min(ridge(x) - 8, 150 - 82 * Math.sin(Math.PI * k)))]);
+    cloudBase.push([x, Math.min(150, ridge(x))]);
+  }
+  const snow: SVGElement[] = [];
+  for (let x = 160; x < 226; x += 7) snow.push(flake(x, ridge(x) - 10 - ((x * 7) % 14), 2.6, COL.ice, 1.2));
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 250, fill: '#e3ecf4' }),
+    svg('polygon', { points: [...cloudTop, ...[...cloudBase].reverse()].map((p) => p.join(',')).join(' '), fill: '#ffffff', stroke: COL.cloudShade }),
+    ...snow,
+    svg('polygon', { points: `0,250 ${land.map((p) => p.join(',')).join(' ')} 400,250`, fill: '#a39150' }),
+    // Smoke from a ground burner carried up the slope into the cloud.
+    svg('rect', { x: 96, y: ridge(100) - 8, width: 7, height: 8, fill: COL.ink }),
+    ...Array.from({ length: 12 }, (_, i) => {
+      const k = i / 11;
+      const x = 100 + k * 84;
+      return svg('circle', { cx: x, cy: Math.min(ridge(x) - 10 - k * 10, ridge(100) - 10 - k * 96), r: 3 + k * 6, fill: '#8f8a80', opacity: 0.35 });
+    }),
+    small(20, 176, 'silver iodide', { fill: COL.ink, class: 'fig-label note bold' }),
+    small(20, 188, 'burner', { fill: COL.ink, class: 'fig-label note bold' }),
+    line(62, 186, 94, ridge(100) - 4, COL.ink, 1),
+    // An aeroplane above, as the other way in.
+    svg('g', { transform: 'translate(150 34)' }, svg('ellipse', { cx: 0, cy: 0, rx: 14, ry: 3, fill: COL.ink }), line(-3, 0, 3, -8, COL.ink, 2.5), line(-13, 0, -16, -5, COL.ink, 2)),
+    small(170, 30, 'or an aeroplane, from above', {}),
+    arrow(8, 150, 80, 138, COL.parcel, 2.4),
+    small(8, 120, 'wind: moist', { fill: COL.parcel, class: 'fig-label note bold' }),
+    small(8, 132, 'Pacific air', { fill: COL.parcel }),
+    small(206, 60, 'supercooled cloud', { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(160, 196, 'seeded: more of its water', { fill: '#fff', class: 'fig-label note bold' }),
+    small(160, 208, 'falls as snow on the slopes', { fill: '#fff' }),
+    arrow(272, 74, 340, 120, '#c2452d', 2),
+    small(280, 64, 'unseeded water crosses', { fill: '#c2452d' }),
+    small(280, 76, 'the crest and evaporates', { fill: '#c2452d' }),
+    small(350, sea - 26, 'dry side:', { fill: '#fff', 'text-anchor': 'middle' }),
+    small(350, sea - 14, 'Columbia Basin', { fill: '#fff', 'text-anchor': 'middle' }),
+  );
+  return { node: d.node };
+};
+
 // ---- The cold box -------------------------------------------------------------
 
-const AGENTS: { id: Agent; label: string }[] = [
-  { id: 'none', label: 'Just breathe in' },
-  { id: 'dust', label: 'A pinch of dust' },
-  { id: 'iodide', label: 'Silver iodide smoke' },
-  { id: 'dryIce', label: 'A sliver of dry ice' },
+const AGENTS: { id: Agent; label: string; short: string }[] = [
+  { id: 'none', label: 'Just breathe in', short: 'breath only' },
+  { id: 'dust', label: 'A pinch of dust', short: 'dust' },
+  { id: 'iodide', label: 'Silver iodide smoke', short: 'silver iodide' },
+  { id: 'dryIce', label: 'A sliver of dry ice', short: 'dry ice' },
 ];
 
 export const coldBoxFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
-  const H = 230;
+  const H = 244;
   const f = frame(W, H, 4);
   const t = task();
   let tempC = 2;
@@ -49,7 +264,12 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
   // Droplets of breath: fixed specks of haze in the box.
   const rng = makeRng(7);
   const haze = Array.from({ length: 160 }, () => ({ x: box.x + 8 + rng() * (box.w - 16), y: box.y + 20 + rng() * (box.h - 30) }));
-  const glints = Array.from({ length: 140 }, () => ({ x: box.x + 10 + rng() * (box.w - 20), y: box.y + 14 + rng() * (box.h - 30), r: 2 + rng() * 2.5, s: rng() }));
+  // The lamp's beam: crystals glint only where it lights them.
+  const beamTop = (x: number) => box.y + 30 - ((x - box.x) / box.w) * 20;
+  const beamBottom = (x: number) => box.y + 80 + ((x - box.x) / box.w) * 70;
+  const inBeam = (x: number, y: number) => y > beamTop(x) && y < beamBottom(x);
+  const glints = Array.from({ length: 400 }, () => ({ x: box.x + 10 + rng() * (box.w - 20), y: box.y + 14 + rng() * (box.h - 30), r: 2 + rng() * 2.5, s: rng() }))
+    .filter((c) => inBeam(c.x, c.y)).slice(0, 140);
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
   const describe = () => {
@@ -62,11 +282,11 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
     const r = coldBox(agent, tempC);
     const what = AGENTS.find((a) => a.id === agent)!.label.toLowerCase();
     f.readout.textContent = r.result === 'warm'
-      ? `Above 0 °C there is nothing to freeze: the droplets are ordinary cloud, and ${what} changes nothing.`
+      ? `Above 0 °C there is nothing to freeze: the droplets are ordinary cloud, and ${what} changes nothing.${agent === 'dryIce' ? ' Any crystals in its cold trail melt as soon as they drift out into the box.' : ''}`
       : r.result === 'nothing'
         ? `At ${deg(tempC)}, with ${what}, the droplets stay liquid. Nothing in the box can start ice.`
         : r.result === 'sparkles'
-          ? `At ${deg(tempC)} a few crystals glint in the light: ${fmtCount(r.perL)}, among a hundred thousand droplets. They grow, but the cloud stays.`
+          ? `At ${deg(tempC)} a few crystals glint in the light: ${fmtCount(r.perL)}, among a hundred thousand droplets in each litre. Each grows, but there are far too few to take the cloud’s water: the cloud stays.`
           : `At ${deg(tempC)}, ${agent === 'dryIce' ? 'the dry ice leaves a trail of' : 'the smoke starts'} ${fmtCount(r.perL)} crystals. They eat the droplets, and in a minute the box is snowing: the cloud has turned to ice.`;
     if (goal === 'snow' && r.result === 'snow') t.resolve();
   };
@@ -80,10 +300,10 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
       // The open chest freezer, lined with black velvet, a lamp shining across it.
       svg('rect', { x: box.x - 8, y: box.y - 6, width: box.w + 16, height: box.h + 14, rx: 6, fill: '#d9dde4', stroke: COL.soft, 'stroke-width': 1.5 }),
       svg('rect', { x: box.x, y: box.y, width: box.w, height: box.h, fill: '#1c1830' }),
-      svg('polygon', { points: `${box.x},${box.y + 30} ${box.x + box.w},${box.y + 10} ${box.x + box.w},${box.y + box.h - 10} ${box.x},${box.y + 80}`, fill: '#fff6d8', opacity: 0.12 }),
+      svg('polygon', { points: `${box.x},${beamTop(box.x)} ${box.x + box.w},${beamTop(box.x + box.w)} ${box.x + box.w},${beamBottom(box.x + box.w)} ${box.x},${beamBottom(box.x)}`, fill: '#fff6d8', opacity: 0.2 }),
       svg('rect', { x: box.x - 30, y: box.y + 36, width: 22, height: 30, rx: 4, fill: COL.sun }),
-      small(box.x - 19, box.y + 80, 'lamp', { 'text-anchor': 'middle' }),
-      ...haze.map((d) => svg('circle', { cx: d.x, cy: d.y, r: 2.2, fill: '#e6e2f3', opacity: tempC >= -40 ? 0.35 * (1 - glaciated) : 0 })),
+      small(box.x - 19, box.y + 28, 'lamp', { 'text-anchor': 'middle' }),
+      ...haze.map((d) => svg('circle', { cx: d.x, cy: d.y, r: 2.2, fill: '#e6e2f3', opacity: (inBeam(d.x, d.y) ? 0.5 : 0.15) * (1 - glaciated) })),
     ];
     for (let i = 0; i < shown; i++) {
       const c = glints[i];
@@ -101,6 +321,14 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
     parts.push(
       svg('rect', { x: box.x, y: box.y + box.h - 6, width: box.w, height: 6, fill: '#ffffff', opacity: 0.8 * glaciated }),
       label(box.x + box.w + 16, box.y + 16, deg(tempC), { class: 'fig-label bold', fill: tempC < 0 ? COL.ice : COL.parcel }),
+      agent && agent !== 'none' ? small(box.x + box.w + 16, box.y + 36, 'added:', { class: 'fig-label note soft' }) : null as unknown as SVGElement,
+      agent && agent !== 'none' ? small(box.x + box.w + 16, box.y + 48, AGENTS.find((a) => a.id === agent)!.short, { class: 'fig-label note bold' }) : null as unknown as SVGElement,
+      // The key.
+      svg('circle', { cx: box.x + 4, cy: 226, r: 3, fill: '#bdb6d4' }),
+      small(box.x + 12, 229, 'droplet', {}),
+      flake(box.x + 66, 226, 4, COL.ink, 1.3),
+      small(box.x + 74, 229, 'ice crystal', {}),
+      small(box.x + 140, 229, r?.result === 'sparkles' ? 'not to scale: really far fewer' : 'not to scale', { class: 'fig-label note soft' }),
     );
     redraw(g, ...parts);
   });
@@ -129,34 +357,51 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
 // ---- A dry ice pellet's trail ---------------------------------------------------
 
 export const dryIceDiagram: FigureFactory = () => {
-  const d = still(400, 230);
+  const d = still(400, 236);
   const rng = makeRng(3);
   // The pellet falls from the top; the oldest part of its trail, highest up, has spread the most.
-  const px = 132;
-  const py = 204;
-  const drops = Array.from({ length: 70 }, () => [10 + rng() * 380, 30 + rng() * 180] as [number, number]).filter(([x, y]) => Math.abs(x - px) > 20 + (py - y) * 0.25 && x < 230);
-  const trail = Array.from({ length: 60 }, (_, i) => {
-    const age = 1 - i / 60; // 1 at the top, 0 at the pellet
-    return [px + (rng() - 0.5) * (6 + age * 70), 30 + i * 2.85, 1.2 + age * 1.8] as [number, number, number];
+  const px = 120;
+  const py = 206;
+  const half = (y: number) => 4 + ((py - y) / (py - 30)) * 20;
+  const drops = Array.from({ length: 90 }, () => [10 + rng() * 210, 34 + rng() * 180] as [number, number]).filter(([x, y]) => Math.abs(x - px) > half(y) + 8);
+  const trail = Array.from({ length: 50 }, (_, i) => {
+    const y = 34 + i * 3.3;
+    return [px + (rng() - 0.5) * 2 * half(y), y, 1.3 + ((py - y) / (py - 30)) * 1.8] as [number, number, number];
   });
+  // Crystals that have drifted out of the trail into the cloud, growing.
+  const drifted = Array.from({ length: 10 }, (_, i) => {
+    const y = 40 + i * 8;
+    const side = i % 2 ? 1 : -1;
+    return [px + side * (half(y) + 6 + rng() * 14), y, 2.6] as [number, number, number];
+  });
+  const edge: [number, number][] = [];
+  for (let y = 30; y <= py - 6; y += 6) edge.push([px - half(y), y]);
+  const edge2: [number, number][] = edge.map(([x, y]) => [2 * px - x, y]);
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 230, fill: '#e6eef8' }),
-    ...drops.map(([x, y]) => svg('circle', { cx: x, cy: y, r: 2.6, fill: COL.rain, opacity: 0.35 })),
-    svg('path', { d: `M${px - 40},26 Q${px - 12},120 ${px - 5},${py - 6} L${px + 5},${py - 6} Q${px + 12},120 ${px + 40},26 Z`, fill: '#c8dcf5', opacity: 0.55 }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 236, fill: '#e6eef8' }),
+    ...drops.map(([x, y]) => droplet(x, y, 2.4)),
+    svg('polygon', { points: [...edge, ...[...edge2].reverse()].map((p) => p.join(',')).join(' '), fill: '#bcd3f2', opacity: 0.6 }),
+    svg('polyline', { points: edge.map((p) => p.join(',')).join(' '), fill: 'none', stroke: COL.ice, 'stroke-dasharray': '3 3' }),
+    svg('polyline', { points: edge2.map((p) => p.join(',')).join(' '), fill: 'none', stroke: COL.ice, 'stroke-dasharray': '3 3' }),
     ...trail.map(([x, y, r]) => flake(x, y, r, COL.ice, 1)),
+    ...drifted.map(([x, y, r]) => flake(x, y, r, '#245aa8', 1.3)),
     svg('rect', { x: px - 6, y: py - 6, width: 12, height: 12, fill: '#f8fbff', stroke: COL.ice, 'stroke-width': 1.5 }),
     arrow(px + 14, py - 14, px + 14, py + 14, COL.soft, 1.4),
-    heading(200, 16, 'Behind a falling pellet, the air is chilled below −40 °C'),
-    small(px + 24, py + 10, 'a pellet of dry ice, −78 °C, falling'),
-    small(236, 60, 'In that thin trail, droplets and', { fill: COL.ice }),
-    small(236, 72, 'vapour freeze by themselves:', { fill: COL.ice }),
-    small(236, 84, 'no speck needed.', { fill: COL.ice }),
-    small(236, 112, 'The crystals spread out into the', { fill: COL.ice }),
-    small(236, 124, 'cloud: hundreds of billions from', { fill: COL.ice }),
-    small(236, 136, 'every gram of dry ice.', { fill: COL.ice }),
-    small(236, 164, 'All around: supercooled', { fill: COL.rain }),
-    small(236, 176, 'droplets at −10 °C,', { fill: COL.rain }),
-    small(236, 188, 'waiting for ice.', { fill: COL.rain }),
+    heading(200, 18, 'A falling pellet of dry ice leaves a frozen trail'),
+    small(px + 30, py + 6, 'pellet of dry ice, −78 °C', { class: 'fig-label note bold' }),
+    line(px + half(150) + 2, 150, 236, 136, COL.ice, 1),
+    small(240, 120, 'inside the dashed line, colder', { fill: '#245aa8', class: 'fig-label note bold' }),
+    small(240, 132, 'than −40 °C: droplets freeze', { fill: '#245aa8' }),
+    small(240, 144, 'by themselves, and vapour', { fill: '#245aa8' }),
+    small(240, 156, 'turns straight to ice', { fill: '#245aa8' }),
+    line(px + half(60) + 20, 64, 236, 64, '#245aa8', 1),
+    small(240, 60, 'crystals drift out and grow:', { fill: '#245aa8', class: 'fig-label note bold' }),
+    small(240, 72, 'hundreds of billions', { fill: '#245aa8' }),
+    small(240, 84, 'from each gram', { fill: '#245aa8' }),
+    line(40, 190, 236, 186, COL.dew, 1),
+    droplet(40, 190, 2.4),
+    small(240, 184, 'all around: supercooled', { fill: COL.ink, class: 'fig-label note bold' }),
+    small(240, 196, 'droplets at −10 °C', { fill: COL.ink }),
   );
   return { node: d.node };
 };
@@ -164,7 +409,7 @@ export const dryIceDiagram: FigureFactory = () => {
 // ---- Silver iodide looks like ice ------------------------------------------------
 
 export const latticeDiagram: FigureFactory = () => {
-  const d = still(400, 210);
+  const d = still(400, 250);
   const hexGrid = (cx: number, cy: number, s: number, a: string, b: string | null) => {
     const out: SVGElement[] = [];
     for (let row = -2; row <= 2; row++) {
@@ -176,42 +421,80 @@ export const latticeDiagram: FigureFactory = () => {
         out.push(svg('circle', { cx: x, cy: y, r: 5, fill: alt ? b! : a }));
       }
     }
+    // One six-sided ring outlined.
+    const ring = [[1, 0], [0, -1], [-1, -1], [-1, 0], [-1, 1], [0, 1]].map(([c, r]) => [cx + (c + (r % 2 ? 0.5 : 0)) * s, cy + r * s * 0.866]);
+    out.push(svg('polygon', { points: ring.map((p) => p.join(',')).join(' '), fill: 'none', stroke: COL.ink, 'stroke-width': 1.6 }));
     return out;
   };
   const square = (cx: number, cy: number, s: number) => {
     const out: SVGElement[] = [];
     for (let row = -2; row <= 2; row++) for (let col = -2; col <= 2; col++) out.push(svg('circle', { cx: cx + col * s, cy: cy + row * s, r: (row + col) % 2 ? 4 : 6, fill: (row + col) % 2 ? '#8f8a80' : '#c8c2b6' }));
+    out.push(svg('rect', { x: cx - s, y: cy - s, width: s, height: s, fill: 'none', stroke: COL.ink, 'stroke-width': 1.6 }));
     return out;
   };
+  const key = (x: number, y: number, fill: string, r: number, text: string) => svg('g', {}, svg('circle', { cx: x, cy: y - 3, r, fill }), small(x + 8, y, text, {}));
+  // Spacing, as bars: the difference drawn ten times bigger than it is.
+  const sp = (y: number, w: number, color: string, text: string) => svg('g', {}, svg('rect', { x: 120, y, width: w, height: 7, fill: color }), small(124 + w, y + 7, text, {}));
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: COL.paper }),
-    heading(68, 20, 'Ice'),
-    ...hexGrid(68, 92, 21, COL.ice, null),
-    small(68, 158, 'six-sided, its molecules', { 'text-anchor': 'middle' }),
-    small(68, 170, '0.452 nm apart', { 'text-anchor': 'middle' }),
-    heading(200, 20, 'Silver iodide'),
-    ...hexGrid(200, 92, 21.3, '#a0a6b0', '#7a5ca3'),
-    small(200, 158, 'six-sided too, its atoms', { 'text-anchor': 'middle' }),
-    small(200, 170, '0.459 nm apart: 1.5% off', { 'text-anchor': 'middle' }),
-    heading(332, 20, 'Salt'),
-    ...square(332, 92, 21),
-    small(332, 158, 'square: the wrong shape', { 'text-anchor': 'middle' }),
-    small(332, 170, 'for ice to copy', { 'text-anchor': 'middle' }),
-    small(200, 198, 'A supercooled droplet freezes on whatever looks enough like ice.', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 250, fill: COL.paper }),
+    heading(200, 16, 'Looking straight down on one flat layer of each crystal'),
+    heading(68, 36, 'Ice'),
+    ...hexGrid(68, 96, 21, COL.ice, null),
+    key(30, 150, COL.ice, 4, 'water molecule'),
+    heading(200, 36, 'Silver iodide'),
+    ...hexGrid(200, 96, 21.3, '#a0a6b0', '#7a5ca3'),
+    key(158, 150, '#a0a6b0', 4, 'silver'),
+    key(206, 150, '#7a5ca3', 4, 'iodine'),
+    heading(332, 36, 'Salt'),
+    ...square(332, 96, 21),
+    key(292, 150, '#c8c2b6', 5, 'chlorine'),
+    key(346, 150, '#8f8a80', 3.5, 'sodium'),
+    small(68, 170, 'six-sided', { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(200, 170, 'six-sided, nearly the same size', { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(332, 170, 'square: the wrong shape', { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(10, 194, 'spacing,', { class: 'fig-label note soft' }),
+    small(10, 206, 'gap drawn ×10:', { class: 'fig-label note soft' }),
+    sp(186, 120, COL.ice, 'ice 0.452 nm'),
+    sp(198, 139, '#7a5ca3', 'silver iodide 0.459 nm (+1.5%)'),
+    small(200, 230, 'A supercooled droplet freezes on whatever looks enough like ice. Salt is a fine speck', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
+    small(200, 242, 'for droplets to form on (Lesson 1), but useless for starting ice.', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
   );
   return { node: d.node };
 };
 
 // ---- Seeding a layer from the air ------------------------------------------------
 
+/** Two log scales under the seeded layer: how many crystals, and how big each grows. */
+function gauges(s: { perL: number; sizeMm: number; result: string }): SVGElement[] {
+  const x0 = 110;
+  const x1 = 390;
+  const scale = (y: number, lo: number, hi: number, v: number, zones: [number, number, string, string][], ticks: [number, string][], name: string) => {
+    const xOf = (q: number) => x0 + ((Math.log10(q) - lo) / (hi - lo)) * (x1 - x0);
+    const vx = Math.max(x0, Math.min(x1, xOf(Math.max(v, 10 ** lo))));
+    return [
+      small(x0 - 6, y + 8, name, { 'text-anchor': 'end', class: 'fig-label note bold' }),
+      ...zones.map(([a, b, fill, text]) => svg('g', {},
+        svg('rect', { x: xOf(a), y, width: xOf(b) - xOf(a), height: 11, fill }),
+        small((xOf(a) + xOf(b)) / 2, y + 8.5, text, { 'text-anchor': 'middle', class: 'fig-label note', fill: COL.ink }))),
+      ...ticks.map(([q, text]) => small(xOf(q), y + 21, text, { 'text-anchor': 'middle', class: 'fig-label note soft' })),
+      svg('polygon', { points: `${vx},${y - 1} ${vx - 5},${y - 8} ${vx + 5},${y - 8}`, fill: COL.ink }),
+    ];
+  };
+  if (s.result === 'warm') return [small(200, 262, 'Above 0 °C: no supercooled water, nothing to seed.', { 'text-anchor': 'middle', class: 'fig-label note bold' })];
+  return [
+    ...scale(236, -1, 4, s.perL, [[0.1, 0.3, '#eeeeee', ''], [0.3, 5, '#dfe9f6', 'flurries'], [5, 3000, '#bfe3c9', 'a hole'], [3000, 1e4, '#e4dbef', 'veil']], [[1, '1'], [10, '10'], [100, '100'], [1000, '1,000']], 'crystals a litre'),
+    ...scale(272, -1.5, 0.7, s.sizeMm, [[10 ** -1.5, 0.15, '#e4dbef', 'too small to fall'], [0.15, 10 ** 0.7, '#bfe3c9', 'big enough to fall']], [[0.1, '0.1 mm'], [1, '1 mm']], 'each crystal'),
+  ];
+}
+
 export const seedLayerFigure: FigureFactory = (ctx, goal) => {
   const W = 400;
-  const H = 240;
+  const H = 300;
   const f = frame(W, H, 4);
   const t = task();
   const top = 70;
   const base = 112;
-  const ground = 214;
+  const ground = 206;
   const x0 = 130;
   const x1 = 270;
   let lb = 0.001;
@@ -224,7 +507,7 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
   f.svg.append(g);
   const describe = () => {
     const s = seedLayer(lb, tempC);
-    const size = s.sizeMm >= 1 ? `${s.sizeMm.toFixed(1)} mm` : `${(s.sizeMm * 1000).toFixed(0)} µm`;
+    const size = `${s.sizeMm >= 1 ? s.sizeMm.toFixed(1) : s.sizeMm.toFixed(2)} mm`;
     f.readout.textContent = s.result === 'warm'
       ? `At ${deg(tempC)} the layer is not supercooled: the dry ice chills a trail for a moment, and the cloud closes behind it. Nothing changes.`
       : s.result === 'nothing'
@@ -244,34 +527,37 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
     const inPatch = (x: number) => x > x0 - spread && x < x1 + spread;
     const parts: SVGElement[] = [
       svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#7fb0d6' }),
-      svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: '#b3b072' }),
-      ...[40, 120, 200, 280, 360].map((x) => line(x, ground + 4, x + 30, ground + 14, '#a39150', 2)),
+      svg('rect', { x: 0, y: ground, width: W, height: 14, fill: '#b3b072' }),
+      svg('rect', { x: 0, y: ground + 14, width: W, height: H - ground - 14, fill: COL.paper }),
+      ...[40, 120, 200, 280, 360].map((x) => line(x, ground + 3, x + 30, ground + 11, '#a39150', 2)),
     ];
     for (const p of puffs) {
       let op = 0.95;
       let fill = '#ffffff';
       if (inPatch(p.x)) {
         if (s.result === 'hole') op = 0.95 * (1 - k);
-        if (s.result === 'overseeded') fill = '#dfeaf8';
-        if (s.result === 'overseeded') op = 0.95 - 0.35 * k;
+        if (s.result === 'overseeded') op = 0.95 * (1 - k);
       }
       if (op > 0.02) parts.push(svg('circle', { cx: p.x, cy: p.y, r: p.r, fill, opacity: op }));
     }
-    if (s.result === 'overseeded' && k > 0.2) {
-      for (let x = x0 - spread; x < x1 + spread; x += 9) parts.push(line(x, top + 6, x + 14, base - 6, '#ffffff', 1.2, { opacity: 0.6 * k }));
+    if (s.result === 'overseeded' && k > 0) {
+      // A smooth, silky veil of tiny ice where the puffy layer was.
+      parts.push(svg('rect', { x: x0 - spread, y: top + 2, width: x1 - x0 + 2 * spread, height: base - top - 4, rx: 10, fill: '#c3cfe6', opacity: 0.9 * k }));
+      for (let x = x0 - spread + 4; x < x1 + spread - 10; x += 8) parts.push(line(x, top + 8, x + 10, base - 8, '#ffffff', 1, { opacity: 0.7 * k }));
+      if (k > 0.5) parts.push(small((x0 + x1) / 2, base + 16, 'a veil of ice too fine to fall', { 'text-anchor': 'middle', fill: COL.ink, class: 'fig-label note bold' }));
     }
-    // Snow out of the bottom of the patch: a fall streak that evaporates in the dry air below.
-    const snowing = s.result === 'hole' ? 1 : s.result === 'flurries' ? 0.18 : 0;
+    // Snow out of the bottom of the patch, as big as the crystals have grown.
+    const snowing = s.result === 'hole' ? 1 : s.result === 'flurries' ? 0.12 : 0;
     if (snowing && k > 0) {
-      for (const fl of flakes.slice(0, Math.round(flakes.length * snowing))) {
-        const y = base + ((age * 22 + fl.s * 80) % 80);
-        const fade = 1 - (y - base) / 80;
-        parts.push(flake(fl.x + (y - base) * 0.2, y, s.result === 'flurries' ? 3 : 2, '#ffffff', 1.2), svg('circle', { cx: fl.x + (y - base) * 0.2, cy: y, r: 0.1, opacity: fade }));
+      const r = Math.max(1.5, Math.min(5, 1.5 + s.sizeMm * 1.6));
+      for (const fl of flakes.slice(0, Math.max(3, Math.round(flakes.length * snowing)))) {
+        const y = base + ((age * 22 + fl.s * 100) % (ground - base));
+        parts.push(flake(fl.x + (y - base) * 0.2, y, r, '#ffffff', 1.3));
       }
-      parts.push(small(x1 + 20, base + 40, 'snow, evaporating', { fill: '#fff' }), small(x1 + 20, base + 52, 'as it falls', { fill: '#fff' }));
+      parts.push(small(x1 + 24, base + 40, s.result === 'hole' ? 'snow' : 'a few flurries', { fill: '#fff', class: 'fig-label note bold' }));
     }
-    // The aeroplane, once across, dropping pellets.
-    const px = -40 + Math.min(1, age / 1.6) * (W + 80);
+    // The aeroplane, across and round again, dropping pellets on its first pass.
+    const px = -40 + ((age / 4) % 1) * (W + 80);
     parts.push(
       svg('g', { transform: `translate(${px} 48)` },
         svg('ellipse', { cx: 0, cy: 0, rx: 16, ry: 3.5, fill: COL.ink }),
@@ -279,11 +565,12 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
         line(-3, 0, 3, -9, COL.ink, 3), line(-3, 0, 3, 9, COL.ink, 2),
         line(-15, 0, -18, -6, COL.ink, 2.5)),
     );
-    if (lb > 0.005 && age < 2.4) for (let x = x0; x < Math.min(x1, px); x += 14) parts.push(svg('rect', { x, y: 52 + (age * 60 - (x - x0) / 30) % 40, width: 3, height: 3, fill: '#ffffff' }));
+    if (lb > 0.005 && age < 4) for (let x = x0; x < Math.min(x1, px); x += 14) parts.push(svg('rect', { x, y: 52 + (age * 60 - (x - x0) / 30) % 40, width: 3, height: 3, fill: '#ffffff' }));
     parts.push(
       line(x0, 36, x1, 36, COL.ink, 1, { 'stroke-dasharray': '3 3' }),
       small((x0 + x1) / 2, 32, 'seeded from here to here', { 'text-anchor': 'middle' }),
-      small(6, top - 4, `a layer of cloud at ${deg(tempC)}`, { fill: '#fff' }),
+      small(10, top - 6, `a supercooled layer at ${deg(tempC)}`, { fill: COL.ink, class: 'fig-label note bold' }),
+      ...gauges(s),
     );
     redraw(g, ...parts);
   });
@@ -292,10 +579,9 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
     describe();
   };
   f.controls.append(
-    slider('Dry ice per mile', -3, 2, 0.05, -3, (v) => {
+    slider('Dry ice, pounds a mile', -3, 2, 0.05, -3, (v) => {
       const lbs = Math.pow(10, v);
-      const g = (lbs * 453.6) / 1.609;
-      return `${lbs < 0.1 ? lbs.toFixed(3) : lbs < 10 ? lbs.toFixed(1) : lbs.toFixed(0)} lb (${g < 10 ? g.toFixed(1) : Math.round(g).toLocaleString()} g a km)`;
+      return `${lbs < 0.1 ? lbs.toFixed(3) : lbs < 10 ? lbs.toFixed(1) : lbs.toFixed(0)} lb a mile`;
     }, (v) => { lb = Math.pow(10, v); restart(); }, 'ice').node,
     slider('Layer temperature', -15, 3, 1, tempC, (v) => deg(v), (v) => { tempC = v; restart(); }, 'ice').node,
   );
@@ -306,29 +592,65 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
 // ---- How much water a cloud holds --------------------------------------------------
 
 export const cloudWaterDiagram: FigureFactory = () => {
-  const d = still(400, 250);
-  const base = 200;
+  const d = still(400, 240);
+  const base = 180;
   const mmPx = 10; // a bar 10 px tall per millimetre of water
   const bar = (x: number, mm: number, value: string, broken = false) => {
     const h = Math.max(1.5, Math.min(140, mm * mmPx));
     return svg('g', {},
       svg('rect', { x: x - 22, y: base - h, width: 44, height: h, fill: COL.rain }),
       broken ? svg('g', {}, svg('rect', { x: x - 26, y: base - 104, width: 52, height: 8, fill: COL.paper }), line(x - 26, base - 98, x + 26, base - 104, COL.ink, 1), line(x - 26, base - 90, x + 26, base - 96, COL.ink, 1)) : null as unknown as SVGElement,
-      small(x, base - h - 6, value, { 'text-anchor': 'middle', class: 'fig-label small bold' }),
+      small(x, base - h - 6, value, { 'text-anchor': 'middle', class: 'fig-label note bold' }),
     );
   };
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 250, fill: COL.paper }),
-    heading(200, 18, 'Water on the ground, wrung out of the sky'),
-    small(200, 34, 'A cloud is not a full bucket: a storm keeps making new cloud for hours.', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 240, fill: COL.paper }),
     line(20, base, 380, base, COL.ink, 1.5),
     bar(70, 0.2, '0.2 mm'), bar(200, 12, '10 to 15 mm'), bar(330, 250, '250 mm', true),
+    arrow(30, 146, 46, base - 2, COL.ink, 1.2),
+    small(30, 140, 'this sliver', { 'text-anchor': 'middle' }),
+    small(200, 34, '60 times the cloud', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
+    small(200, base + 46, 'The year’s bar is cut short to fit: it is really 20 storm days’ worth.', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
     small(70, base + 14, 'all the water in a', { 'text-anchor': 'middle' }),
     small(70, base + 26, 'cloud layer 1 km deep', { 'text-anchor': 'middle' }),
     small(200, base + 14, 'a day of steady rain', { 'text-anchor': 'middle' }),
     small(200, base + 26, 'from a passing storm', { 'text-anchor': 'middle' }),
     small(330, base + 14, 'a whole year in the', { 'text-anchor': 'middle' }),
-    small(330, base + 26, 'Columbia Basin', { 'text-anchor': 'middle' }),
+    small(330, base + 26, 'dry Columbia Basin', { 'text-anchor': 'middle' }),
+  );
+  return { node: d.node };
+};
+
+export const conveyorDiagram: FigureFactory = () => {
+  const d = still(400, 230);
+  const ground = 196;
+  const cloud = svg('path', { d: 'M120,112 Q118,84 146,82 Q156,58 190,64 Q214,46 244,64 Q276,60 282,86 Q306,92 298,114 Z', fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 1.2 });
+  const rain = Array.from({ length: 14 }, (_, i) => line(140 + i * 11, 118, 134 + i * 11, ground - 2, COL.rain, 1.4, { opacity: 0.7 }));
+  const gauge = (x: number, mm: number, when: string) => svg('g', {},
+    svg('rect', { x: x - 9, y: ground - 46, width: 18, height: 46, fill: '#ffffff', stroke: COL.soft }),
+    svg('rect', { x: x - 8, y: ground - 1 - mm * 3, width: 16, height: mm * 3, fill: COL.rain }),
+    small(x, ground + 14, when, { 'text-anchor': 'middle', fill: '#fff' }),
+    small(x, ground - 52, `${mm} mm`, { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+  );
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#e3ecf4' }),
+    svg('rect', { x: 0, y: ground, width: 400, height: 34, fill: COL.ground }),
+    // New moist air streams in and is lifted through the cloud.
+    arrow(4, 170, 100, 160, COL.parcel, 2.6),
+    arrow(4, 150, 96, 140, COL.parcel, 2.6),
+    arrow(118, 150, 150, 104, COL.parcel, 2),
+    small(112, 160, 'lifted', { 'text-anchor': 'end', fill: COL.parcel }),
+    small(6, 118, 'new moist air keeps', { fill: COL.parcel, class: 'fig-label note bold' }),
+    small(6, 130, 'arriving off the Pacific', { fill: COL.parcel }),
+    arrow(300, 70, 380, 54, COL.soft, 1.6),
+    small(306, 48, 'dried air leaves', { fill: COL.soft }),
+    ...rain,
+    cloud,
+    small(210, 90, 'holds only 0.2 mm', { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(210, 102, 'at any moment', { 'text-anchor': 'middle' }),
+    gauge(312, 1, '1 h'), gauge(346, 6, '6 h'), gauge(380, 12, '12 h'),
+    small(346, 124, 'rain gauge', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
+    heading(200, 20, 'A cloud is a conveyor, not a bucket'),
   );
   return { node: d.node };
 };
@@ -336,31 +658,109 @@ export const cloudWaterDiagram: FigureFactory = () => {
 // ---- Where seeding can help ----------------------------------------------------------
 
 export const seedWindowDiagram: FigureFactory = () => {
-  const d = still(400, 300);
-  const yOf = (c: number) => 10 + ((10 - c) / 50) * 280;
+  const d = still(400, 320);
+  const yOf = (c: number) => 12 + ((10 - c) / 60) * 290;
+  const bx = 124; // bands start here; the height scales sit to the left
   const band = (from: number, to: number, fill: string, lines: string[], color: string) => {
-    const mid = (yOf(from) + yOf(to)) / 2 - ((lines.length - 1) * 12) / 2 + 3;
+    const mid = (yOf(from) + yOf(to)) / 2 - ((lines.length - 1) * 12) / 2 + 3.5;
     return svg('g', {},
-      svg('rect', { x: 0, y: yOf(from), width: 400, height: yOf(to) - yOf(from), fill }),
-      ...lines.map((text, i) => small(52, mid + i * 12, text, { fill: color, ...(i === 0 ? { class: 'fig-label small bold' } : {}) })),
+      svg('rect', { x: bx, y: yOf(from), width: 400 - bx, height: yOf(to) - yOf(from), fill }),
+      ...lines.map((text, i) => small(bx + 6, mid + i * 12, text, { fill: color, ...(i === 0 ? { class: 'fig-label note bold' } : {}) })),
     );
   };
+  // How high each temperature is, in summer (warm ground) and in winter (0 °C at the ground).
+  const heightScale = (x: number, groundC: number, title: string) => svg('g', {},
+    small(x - 6, 9, title, { class: 'fig-label note bold' }),
+    small(x - 6, yOf(-50) + 14, groundC > 10 ? 'ground 20 °C' : 'ground 0 °C', { class: 'fig-label note soft' }),
+    line(x, yOf(Math.min(10, groundC)), x, yOf(-50), COL.soft, 1),
+    ...[0, 2, 4, 6, 8].map((km) => {
+      const c = groundC - 6.5 * km;
+      return c <= 10 && c >= -50 ? svg('g', {}, line(x - 3, yOf(c), x + 3, yOf(c), COL.soft, 1), small(x + 5, yOf(c) + 3.5, `${km} km`, { class: 'fig-label note soft' })) : null as unknown as SVGElement;
+    }),
+  );
   const cloud = (id: GenusId, x: number, c: number, s: number) => svg('g', { transform: `translate(${x} ${yOf(c)}) scale(${s})` }, drawCloud(id, PALETTES.day, 4));
   d.svg.append(
-    band(10, 0, '#f8e3d6', ['Above 0 °C: water, but nothing to freeze;', 'seeding with ice does nothing'], '#b0583a'),
-    band(0, -5, '#e8eef8', ['0 to −5 °C: dry ice works, silver iodide not yet'], COL.ink),
-    band(-5, -25, '#cfe0f6', ['−5 to −25 °C: the seeding window', 'plenty of supercooled water,', 'and little ice of its own'], '#2f5fa8'),
-    band(-25, -38, '#e8eef8', ['−25 to −38 °C: nature’s own specks', 'freeze enough of it already'], COL.ink),
-    band(-38, -40, '#f2f6fc', ['Below −38 °C: all ice'], COL.ink),
-    ...[10, 0, -10, -20, -30, -40].map((c) => small(6, Math.min(296, yOf(c) + 3), `${c < 0 ? '−' : ''}${Math.abs(c)} °C`, { class: 'fig-label small soft' })),
-    cloud('cumulus', 330, 5, 0.45),
-    small(330, yOf(5) + 12, 'summer cumulus', { 'text-anchor': 'middle' }),
-    cloud('stratocumulus', 330, -9, 0.45),
-    small(330, yOf(-9) + 12, 'winter fog and stratus', { 'text-anchor': 'middle' }),
-    cloud('altocumulus', 330, -19, 0.45),
-    small(330, yOf(-19) + 12, 'altocumulus', { 'text-anchor': 'middle' }),
-    cloud('cirrus', 330, -33, 0.55),
-    small(330, yOf(-33) + 12, 'cirrus', { 'text-anchor': 'middle' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 320, fill: COL.paper }),
+    band(10, 0, '#f8e3d6', ['Above 0 °C: nothing to freeze'], '#b0583a'),
+    band(0, -5, '#f3e6b8', ['0 to −5 °C: dry ice only'], '#7a5a10'),
+    band(-5, -25, '#cfe0f6', ['−5 to −25 °C: the seeding window', 'supercooled water, and', 'little ice of its own'], '#2f5fa8'),
+    band(-25, -38, '#e4dbef', ['−25 to −38 °C: natural specks', 'take over, more so the colder'], COL.env),
+    band(-38, -50, '#f2f6fc', ['Below −38 °C: all ice'], COL.ink),
+    ...[10, 0, -10, -20, -30, -40, -50].map((c) => small(bx - 4, yOf(c) + 3.5, deg(c), { 'text-anchor': 'end', class: 'fig-label note soft' })),
+    heightScale(10, 20, 'summer'),
+    heightScale(54, 0, 'winter'),
+    cloud('cumulus', 350, 4, 0.42),
+    small(350, yOf(4) + 14, 'summer cumulus', { 'text-anchor': 'middle' }),
+    cloud('stratus', 350, -8, 0.42),
+    small(350, yOf(-8) + 14, 'winter fog, stratus', { 'text-anchor': 'middle' }),
+    cloud('altocumulus', 350, -18, 0.42),
+    small(350, yOf(-18) + 14, 'winter altocumulus', { 'text-anchor': 'middle' }),
+    cloud('cirrus', 350, -44, 0.5),
+    small(350, yOf(-44) + 14, 'cirrus', { 'text-anchor': 'middle' }),
+  );
+  return { node: d.node };
+};
+
+// ---- Where it works: fog, and a fair test -------------------------------------------
+
+export const fogHoleDiagram: FigureFactory = () => {
+  const d = still(400, 204);
+  const ground = 170;
+  const rng = makeRng(31);
+  const fog: SVGElement[] = [];
+  for (let i = 0; i < 120; i++) {
+    const x = rng() * 420 - 10;
+    const y = 96 + rng() * 70;
+    if (Math.abs(x - 210) < 70 - (y - 96) * 0.2) continue;
+    fog.push(svg('circle', { cx: x, cy: y, r: 10 + rng() * 8, fill: '#f2f2f6', opacity: 0.9 }));
+  }
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#9cc0e0' }),
+    ...fog,
+    ...Array.from({ length: 16 }, (_, i) => flake(160 + (i % 8) * 14, 120 + Math.floor(i / 8) * 22 + (i % 3) * 5, 2.4, '#ffffff', 1.2)),
+    svg('rect', { x: 0, y: ground, width: 400, height: 34, fill: '#8a8f7a' }),
+    svg('rect', { x: 130, y: ground + 8, width: 160, height: 12, fill: '#4a4a52' }),
+    ...[150, 180, 210, 240, 270].map((x) => line(x, ground + 14, x + 12, ground + 14, '#ffffff', 1.5)),
+    svg('g', { transform: 'translate(120 60)' }, svg('ellipse', { cx: 0, cy: 0, rx: 14, ry: 3, fill: COL.ink }), line(-3, 0, 3, -8, COL.ink, 2.5), line(-13, 0, -16, -5, COL.ink, 2)),
+    line(140, 62, 290, 62, COL.ink, 1, { 'stroke-dasharray': '3 3' }),
+    small(140, 54, 'dry ice dropped along the runway', {}),
+    small(8, 112, 'supercooled fog, −7 °C', { class: 'fig-label note bold' }),
+    small(296, 112, 'a clear hole for', { class: 'fig-label note bold' }),
+    small(296, 124, 'an hour or so', {}),
+    small(8, 20, 'Fog warmer than 0 °C: no effect at all.', { class: 'fig-label note soft' }),
+  );
+  return { node: d.node };
+};
+
+export const fairTestDiagram: FigureFactory = () => {
+  const d = still(400, 230);
+  const coins = ['H', 'T', 'T', 'H', 'H', 'T', 'H', 'T', 'T', 'H'];
+  const row = coins.map((c, i) => {
+    const x = 30 + i * 37;
+    return svg('g', {},
+      svg('path', { d: `M${x - 13},48 Q${x - 14},36 ${x - 4},36 Q${x},28 ${x + 8},34 Q${x + 16},34 ${x + 14},48 Z`, fill: c === 'H' ? '#bcd3f2' : '#ffffff', stroke: COL.cloudShade }),
+      svg('circle', { cx: x, cy: 66, r: 8, fill: '#e2c46d', stroke: '#b0894f' }),
+      label(x, 70, c, { class: 'fig-label bold', 'text-anchor': 'middle', fill: '#6b5420' }),
+      small(x, 88, c === 'H' ? 'seed' : 'leave', { 'text-anchor': 'middle', fill: c === 'H' ? COL.ice : COL.soft }),
+    );
+  });
+  const area = (x: number, name: string, fill: string, note: string) => svg('g', {},
+    svg('ellipse', { cx: x, cy: 168, rx: 62, ry: 30, fill, stroke: COL.soft }),
+    small(x, 166, name, { 'text-anchor': 'middle', class: 'fig-label note bold' }),
+    small(x, 178, note, { 'text-anchor': 'middle' }),
+  );
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 230, fill: COL.paper }),
+    heading(200, 18, 'Two ways to keep luck out'),
+    ...row,
+    line(10, 104, 390, 104, COL.grid, 1),
+    small(10, 122, 'Toss a coin for each storm before it comes, and compare.', { class: 'fig-label note bold' }),
+    arrow(10, 152, 392, 152, COL.soft, 1.6),
+    arrow(10, 186, 392, 186, COL.soft, 1.6),
+    small(10, 146, 'storms', { fill: COL.soft }),
+    area(150, 'target area', '#cfe0f6', 'seeded'),
+    area(300, 'control area', '#ece8df', 'never seeded'),
+    small(8, 214, 'The same storms cross both areas. Compare the target with the control.', {}),
   );
   return { node: d.node };
 };
@@ -369,47 +769,71 @@ export const seedWindowDiagram: FigureFactory = () => {
 
 export const trialFigure: FigureFactory = (_ctx, goal) => {
   const W = 400;
-  const H = 210;
-  const f = frame(W, H, 4);
+  const H = 292;
+  const f = frame(W, H, 5);
   const t = task();
   let winters = 1;
   let random = true;
+  let draw = 0; // which run of winters: "new winters" deals another
+  let truth = false;
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  const x0 = 70;
+  const x0 = 84;
   const x1 = 390;
   const xOf = (mm: number) => x0 + ((Math.log(mm) - Math.log(1.5)) / (Math.log(45) - Math.log(1.5))) * (x1 - x0);
-  const rows = { seeded: 62, unseeded: 142 };
+  const rows = { seeded: 50, unseeded: 118 };
+  // The number line for the result: how many times the snow, 0.5 to 2.5.
+  const r0 = 84;
+  const r1 = 390;
+  const rOf = (v: number) => r0 + ((Math.min(2.5, Math.max(0.5, v)) - 0.5) / 2) * (r1 - r0);
   const paint = () => {
     // The same storms each time, so more winters only add to what was seen.
-    const storms = runTrial(winters, random, random ? 1 : 2);
+    const storms = runTrial(winters, random, (random ? 1 : 2) + draw * 10);
     const v = judge(storms);
     const jitter = makeRng(5);
     const dots = storms.map((s) => {
-      const y = (s.seeded ? rows.seeded : rows.unseeded) + (jitter() - 0.5) * 50;
+      const y = (s.seeded ? rows.seeded : rows.unseeded) + (jitter() - 0.5) * 44;
       return svg('circle', { cx: Math.max(x0, Math.min(x1, xOf(s.mm))), cy: y, r: winters > 12 ? 1.8 : 2.6, fill: s.seeded ? COL.ice : COL.soft, opacity: 0.6 });
     });
-    const gm = (seeded: boolean) => {
-      const l = storms.filter((s) => s.seeded === seeded).map((s) => Math.log(s.mm));
-      return Math.exp(l.reduce((a, b) => a + b, 0) / Math.max(1, l.length));
-    };
+    const gm = (list: number[]) => Math.exp(list.map((m) => Math.log(m)).reduce((a, b) => a + b, 0) / Math.max(1, list.length));
+    const seededMm = gm(storms.filter((s) => s.seeded).map((s) => s.mm));
+    const otherMm = gm(storms.filter((s) => !s.seeded).map((s) => s.mm));
+    const pickedNatural = gm(storms.filter((s) => s.seeded).map((s) => s.natural));
+    const ry = 238;
     redraw(g,
       ...dots,
-      line(xOf(gm(true)), rows.seeded - 30, xOf(gm(true)), rows.seeded + 30, COL.ice, 2.5),
-      line(xOf(gm(false)), rows.unseeded - 30, xOf(gm(false)), rows.unseeded + 30, COL.ink, 2.5),
-      label(6, rows.seeded + 4, 'seeded', { class: 'fig-label bold', fill: COL.ice }),
+      line(xOf(seededMm), rows.seeded - 26, xOf(seededMm), rows.seeded + 26, COL.ice, 2.5),
+      line(xOf(otherMm), rows.unseeded - 26, xOf(otherMm), rows.unseeded + 26, COL.ink, 2.5),
+      !random ? line(xOf(pickedNatural), rows.seeded - 26, xOf(pickedNatural), rows.seeded + 26, COL.ice, 1.5, { 'stroke-dasharray': '3 3' }) : null,
+      !random ? small(Math.min(x1 - 4, xOf(pickedNatural) - 4), rows.seeded + 38, 'dashed: the same storms, unseeded', { 'text-anchor': 'end', fill: COL.ice }) : null,
+      label(6, rows.seeded + 4, random ? 'seeded' : 'picked,', { class: 'fig-label bold', fill: COL.ice }),
+      !random ? label(6, rows.seeded + 17, 'seeded', { class: 'fig-label bold', fill: COL.ice }) : null,
       label(6, rows.unseeded + 4, 'not seeded', { class: 'fig-label bold', fill: COL.soft }),
-      line(x0, 188, x1, 188, COL.ink, 1),
-      ...[2, 5, 10, 20, 40].map((mm) => small(xOf(mm), 200, `${mm} mm`, { 'text-anchor': 'middle', class: 'fig-label small soft' })),
-      small(x0, 14, `${storms.length} storms; a line marks each group’s typical storm`, { class: 'fig-label small soft' }),
+      line(x0, 148, x1, 148, COL.ink, 1),
+      ...[2, 5, 10, 20, 40].map((mm) => small(xOf(mm), 160, `${mm}`, { 'text-anchor': 'middle', class: 'fig-label note soft' })),
+      small(x0 - 6, 160, 'mm of water', { 'text-anchor': 'end', class: 'fig-label note soft' }),
+      small(x0, 14, `${storms.length} storms; each dot is one storm’s snow; the line is each group’s middle storm`, { class: 'fig-label note soft' }),
+      // The verdict: how many times the snow, and the range luck allows.
+      small(x0 - 6, ry + 4, 'seeded ÷', { 'text-anchor': 'end', class: 'fig-label note bold' }),
+      small(x0 - 6, ry + 16, 'not seeded', { 'text-anchor': 'end', class: 'fig-label note bold' }),
+      line(r0, ry + 14, r1, ry + 14, COL.ink, 1),
+      ...[0.5, 1, 1.5, 2, 2.5].map((k) => small(rOf(k), ry + 27, `${k}×`, { 'text-anchor': 'middle', class: 'fig-label note soft' })),
+      line(rOf(1), ry - 22, rOf(1), ry + 14, COL.ink, 1.2, { 'stroke-dasharray': '3 3' }),
+      small(rOf(1), ry - 26, 'no difference', { 'text-anchor': 'middle', class: 'fig-label note soft' }),
+      random ? svg('rect', { x: rOf(v.low), y: ry - 5, width: rOf(v.high) - rOf(v.low), height: 10, rx: 5, fill: v.low > 1 ? '#bfe3c9' : '#e4dbef' }) : null,
+      random ? small(r1, ry - 26, 'bar: the range luck allows', { 'text-anchor': 'end', class: 'fig-label note soft' }) : null,
+      svg('circle', { cx: rOf(v.ratio), cy: ry, r: 4.5, fill: COL.ice }),
+      v.ratio > 2.5 ? small(r1 - 8, ry - 8, `${v.ratio.toFixed(1)}× →`, { 'text-anchor': 'end', fill: COL.ice, class: 'fig-label note bold' }) : null,
+      truth ? line(rOf(TRUE_EFFECT), ry - 22, rOf(TRUE_EFFECT), ry + 14, '#3f9b6a', 2.2) : null,
+      truth ? small(rOf(TRUE_EFFECT) + 4, ry + 42, 'the truth: seeding adds 15%', { fill: '#3f9b6a', class: 'fig-label note bold' }) : null,
     );
     const times = `${v.ratio.toFixed(2)} times`;
-    const range = `Luck alone could have made it anywhere from ${v.low.toFixed(2)} to ${v.high.toFixed(2)} times.`;
+    const range = `Luck alone could have put it anywhere from ${v.low.toFixed(2)} to ${v.high.toFixed(2)} times.`;
     f.readout.textContent = !random
-      ? `The seeded storms brought ${times} the snow of the others. But the seeder picked the storms that looked most promising, and those would have snowed more anyway. Most of this is the storms, not the dry ice.`
+      ? `The picked storms brought ${times} the snow of the others. But unseeded, the same storms would still have brought ${(pickedNatural / otherMm).toFixed(2)} times as much: the seeder picked storms that were going to snow anyway. Most of the gap is the pick, not the dry ice.`
       : v.low > 1
         ? `Seeded storms brought ${times} the snow of the others. ${range} The whole range is above 1: after ${winters} winters, seeding has made a difference, and a small one.`
-        : `Seeded storms brought ${times} the snow of the others. ${range} That takes in 1, “no difference”, so ${winters === 1 ? 'one winter' : `${winters} winters`} can’t tell.`;
+        : `Seeded storms brought ${times} the snow of the others. ${range} That range includes 1, “no difference”, so ${winters === 1 ? 'one winter' : `${winters} winters`} can’t tell.`;
     if (goal === 'clear' && random && v.low > 1) t.resolve();
   };
   const seg = el('div.seg', {}, ...[['Coin toss', true], ['Seeder’s pick', false]].map(([text, r]) => el('button', {
@@ -421,9 +845,14 @@ export const trialFigure: FigureFactory = (_ctx, goal) => {
       paint();
     },
   }, text as string)));
+  const buttons = el('div.chips', {},
+    el('button.chip', { type: 'button', onclick: () => { draw++; paint(); } }, 'New winters'),
+    el('button.chip', { type: 'button', onclick: (e: MouseEvent) => { truth = !truth; (e.currentTarget as HTMLElement).textContent = truth ? 'Hide the truth' : 'Show the true effect'; paint(); } }, 'Show the true effect'),
+  );
   f.controls.append(
     slider('Winters', 1, 30, 1, winters, (v) => `${v} (${v * STORMS_PER_WINTER} storms)`, (v) => { winters = v; paint(); }, 'ice').node,
     el('label.fig-slider', {}, el('span', {}, 'Which storms are seeded'), seg),
+    buttons,
   );
   paint();
   return { node: f.node, done: goal ? t.promise : undefined };

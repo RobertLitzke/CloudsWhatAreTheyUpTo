@@ -103,6 +103,8 @@ export const STORMS_PER_WINTER = 20;
 export interface Storm {
   /** Snowfall, as water, in millimetres. */
   mm: number;
+  /** What it would have brought without seeding. */
+  natural: number;
   seeded: boolean;
 }
 
@@ -127,7 +129,7 @@ export function runTrial(winters: number, random: boolean, seed: number): Storm[
     // The seeder's eye is good but not perfect.
     const looksGood = z + 0.6 * gauss(rng) > 0;
     const seeded = random ? coin : looksGood;
-    storms.push({ mm: natural * (seeded ? TRUE_EFFECT : 1), seeded });
+    storms.push({ mm: natural * (seeded ? TRUE_EFFECT : 1), natural, seeded });
   }
   return storms;
 }
