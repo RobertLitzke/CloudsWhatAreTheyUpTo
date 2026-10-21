@@ -40,3 +40,19 @@ export function haloHistogram(samples: readonly number[], apexDeg = 60, maxDeg =
   }
   return bins;
 }
+
+export type V = [number, number];
+
+/**
+ * Snell's law for a ray: refract the unit direction `d` at a surface with unit
+ * normal `n` (pointing against `d`), from index `n1` into `n2`. Null when the
+ * ray is reflected back instead.
+ */
+export function refract(d: V, n: V, n1: number, n2: number): V | null {
+  const r = n1 / n2;
+  const c = -(n[0] * d[0] + n[1] * d[1]);
+  const k = 1 - r * r * (1 - c * c);
+  if (k < 0) return null;
+  const s = r * c - Math.sqrt(k);
+  return [d[0] * r + n[0] * s, d[1] * r + n[1] * s];
+}

@@ -5,6 +5,7 @@
 
 import { angularSize, fogHour, layerBySize, nightTemp, type Night } from '../../core/sky';
 import { genus } from '../../core/clouds';
+import { dropFate, fallSpeed } from '../../core/drops';
 import { svg } from '../dom';
 import { heapAt, label, line, polyline, redraw, small } from './draw';
 import { COL, animate, figure, frame, height, slider, tint } from './kit';
@@ -221,40 +222,6 @@ export const spreadFigure = figure(['sheet'], (_ctx, t) => {
 
 // ---- Droplets and drops --------------------------------------------------------
 
-const FALL: [number, number][] = [[0.01, 0.003], [0.05, 0.08], [0.1, 0.27], [0.2, 0.7], [0.5, 2.1], [1, 4], [2, 6.5], [3, 8], [5, 9.1]];
-
-function fallSpeed(mm: number): number {
-  if (mm <= FALL[0][0]) return FALL[0][1];
-  for (let i = 1; i < FALL.length; i++) {
-    if (mm <= FALL[i][0]) {
-      const [d0, v0] = FALL[i - 1];
-      const [d1, v1] = FALL[i];
-      const k = (Math.log(mm) - Math.log(d0)) / (Math.log(d1) - Math.log(d0));
-      return Math.exp(Math.log(v0) + k * (Math.log(v1) - Math.log(v0)));
-    }
-  }
-  return FALL[FALL.length - 1][1];
-}
-
-/**
- * How far a drop falls below the cloud base before it has evaporated, in
- * metres, by diameter in mm, for air at 90% humidity (after Rogers and Yau).
- * Its life grows with the square of its size and so does its fall speed, so
- * the distance grows roughly with the fourth power: a cloud droplet is gone in
- * a few centimetres, a raindrop lasts for kilometres.
- */
-const SURVIVE: [number, number][] = [[0.01, 0.002], [0.02, 0.033], [0.2, 150], [2, 42000], [5, 260000]];
-
-function surviveM(mm: number, humidity: number): number {
-  let i = 1;
-  while (i < SURVIVE.length - 1 && mm > SURVIVE[i][0]) i++;
-  const [d0, l0] = SURVIVE[i - 1];
-  const [d1, l1] = SURVIVE[i];
-  const k = (Math.log(mm) - Math.log(d0)) / (Math.log(d1) - Math.log(d0));
-  // Drier air takes the water away faster, in proportion to how far it is from saturated.
-  return Math.exp(Math.log(l0) + k * (Math.log(l1) - Math.log(l0))) * (0.1 / (1 - humidity));
-}
-
 const BASE_M = 1000;
 
 export const dropsFigure = figure(['rain'], (ctx, t) => {
@@ -323,16 +290,10 @@ export const dropsFigure = figure(['rain'], (ctx, t) => {
   );
 
   // The drop's trip, worked out once per setting and then played over and over.
-  type Trip = { mm: number; fall: number; net: number; lastsM: number; lands: boolean };
-  let trip: Trip;
+  let trip: ReturnType<typeof dropFate>;
   let y = top + 20;
   let pause = 0;
-  const work = (): Trip => {
-    const mm = 10 ** logD;
-    const fall = fallSpeed(mm);
-    const lastsM = surviveM(mm, humidity);
-    return { mm, fall, net: fall - up, lastsM, lands: fall > up && lastsM > BASE_M };
-  };
+  const work = () => dropFate(10 ** logD, up, humidity, BASE_M);
   const rOf = (mm: number) => 1.8 + Math.max(0, Math.log10(mm / 0.01)) * 3.2;
   const kindOf = (mm: number) => (mm < 0.05 ? 'cloud droplet' : mm < 0.5 ? 'drizzle drop' : mm < 2.5 ? 'raindrop' : 'big shower drop');
   const speed = (v: number) => (v < 0.1 ? `${(v * 100).toFixed(v < 0.01 ? 1 : 0)} cm` : `${v.toFixed(1)} m`);

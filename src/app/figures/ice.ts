@@ -4,7 +4,7 @@
 // and a warm front sliding in overhead.
 
 import { fullOverIce, fullOverWater } from '../../core/air';
-import { deviation, minimumDeviation } from '../../core/optics';
+import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
@@ -134,20 +134,10 @@ export const streaksFigure = figure(['hooks'], (ctx, t) => {
 
 // ---- One prism -----------------------------------------------------------------
 
-type V = [number, number];
 const add = (a: V, b: V): V => [a[0] + b[0], a[1] + b[1]];
 const mul = (a: V, k: number): V => [a[0] * k, a[1] * k];
 const dot = (a: V, b: V) => a[0] * b[0] + a[1] * b[1];
 const unit = (deg: number): V => [Math.cos((deg * Math.PI) / 180), Math.sin((deg * Math.PI) / 180)];
-
-/** Refract unit direction d at a surface with unit normal n (pointing against d), from index n1 to n2. */
-function refract(d: V, n: V, n1: number, n2: number): V | null {
-  const r = n1 / n2;
-  const c = -dot(n, d);
-  const k = 1 - r * r * (1 - c * c);
-  if (k < 0) return null;
-  return add(mul(d, r), mul(n, r * c - Math.sqrt(k)));
-}
 
 export const prismFigure = figure(['min'], (_ctx, t) => {
   const W = 400;
@@ -185,7 +175,7 @@ export const prismFigure = figure(['min'], (_ctx, t) => {
     const mid = mul(add(faceIn[0], faceIn[1]), 0.5);
     const entry = mid;
     const start = add(entry, mul(d0, -90));
-    const d1 = refract(d0, nIn, 1, 1.31);
+    const d1 = refract(d0, nIn, 1, ICE_N);
     let exit: V | null = null;
     let d2: V | null = null;
     if (d1) {
@@ -193,7 +183,7 @@ export const prismFigure = figure(['min'], (_ctx, t) => {
       const p = faceOut[0];
       const tHit = dot(add(p, mul(entry, -1)), nOut) / dot(d1, nOut);
       exit = add(entry, mul(d1, tHit));
-      d2 = refract(d1, mul(nOut, -1), 1.31, 1);
+      d2 = refract(d1, mul(nOut, -1), ICE_N, 1);
     }
     const dev = deviation(inc);
     const parts: SVGElement[] = [
