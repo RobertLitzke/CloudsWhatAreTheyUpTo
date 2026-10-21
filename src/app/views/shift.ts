@@ -27,8 +27,8 @@ import { clearRadio, playTalk } from '../radio';
 /** The sky over the fields, with the clouds this lesson is about. */
 function hero(shift: Shift): HTMLElement {
   const scene = makeScene({ time: shift.n % 2 ? 'dawn' : 'day', seed: 10 + shift.n, sun: [0.78, 0.62] });
-  const xs = shift.clouds.length === 1 ? [W * 0.55] : shift.clouds.map((_, i) => 70 + (i * (W - 140)) / (shift.clouds.length - 1));
-  shift.clouds.forEach((id, i) => {
+  const xs = shift.sky.length === 1 ? [W * 0.55] : shift.sky.map((_, i) => 70 + (i * (W - 140)) / (shift.sky.length - 1));
+  shift.sky.forEach((id, i) => {
     const spot = SKY_SPOTS[id];
     addToSky(scene.sky, placeCloud(id, scene.palette, xs[i], spot.y, spot.scale, i + shift.n));
   });
@@ -112,7 +112,7 @@ export const shiftView: View = (root, nav) => {
           el('p.eyebrow', {}, `Lesson ${shift.n} of ${SHIFTS.length}`),
           el('h1.poster-type', {}, shift.title),
           el('p.lede', {}, shift.teaches + '.'),
-          el('ul.meet', {}, shift.clouds.map((id) => el('li', {}, genus(id).name))),
+          shift.clouds.length ? el('ul.meet', {}, shift.clouds.map((id) => el('li', {}, genus(id).name))) : null,
         ),
         article,
       ),

@@ -1,0 +1,508 @@
+{
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "id": "front",
+  "n": 7,
+  "title": "Reading an approaching front",
+  "teaches": "How a whole storm is put together, what the barometer and the wind say as it comes, why warm fronts soak and cold fronts squall, the rain shadow east of the Cascades, and one forecast that uses every lesson so far",
+  "parts": [
+    {
+      "title": "One storm, many clouds",
+      "blocks": [
+        {
+          "kind": "key",
+          "title": "The big ideas of this lesson",
+          "points": [
+            "The storms that bring most of our rain are whirls of air a thousand kilometres or more across, called **lows**. A low has a warm front, a warm sector and a cold front, and drifts east at about 30 km an hour.",
+            "The **barometer** weighs the air overhead. A steady fall says a low is coming; a sharp rise says its cold front has gone by.",
+            "A warm front lifts air gently up a long ramp, so it brings wide layers and long, light rain. A cold front shoves air up a steep nose, so it brings a narrow line of towers and short, hard showers.",
+            "With your back to the wind, low pressure is on your left. The way the wind turns, and the way the high cloud moves across it, tell you whether the weather is getting worse or better.",
+            "Air that crosses a mountain range rains out on the way up and comes down the far side warmer and drier: a **rain shadow**."
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "Lesson 5 followed the cloud of a warm front from the first wisp of cirrus down to the soaking nimbostratus. That front was only one edge of something much bigger. This lesson steps back to see the whole storm, and adds the instruments a forecaster reads alongside the sky: the barometer, the wind vane and the thermometer."
+        },
+        {
+          "kind": "text",
+          "text": "By the end you should be able to watch one sky for two days and say what each cloud in it means, using everything from the first six lessons at once."
+        },
+        {
+          "kind": "text",
+          "text": "Across the middle latitudes, cold air from the north and warm air from the south meet along a long, wavering boundary. Every few days a kink in that boundary grows into a great whirl of air a thousand kilometres or more across. Near its centre the air pressure is lower than all around it, so forecasters call the whole thing a **low**, or a mid-latitude storm."
+        },
+        {
+          "kind": "text",
+          "text": "Air drawn in toward the low does not flow straight to its centre. Because the Earth turns beneath it, air moving across the northern half of the world is steered a little to the right, so the inflowing air ends up circling the low anticlockwise. That turning wind drags warm air north on the low’s eastern side and cold air south on its western side."
+        },
+        {
+          "kind": "text",
+          "text": "Where the warm air advances on cold air, its leading edge is the **warm front**. Where cold air advances on warm air, its edge is the **cold front**. The wedge of warm air between them is the **warm sector**."
+        },
+        {
+          "kind": "figure",
+          "figure": "lowMap",
+          "caption": "A storm seen from above, as on a weather map."
+        },
+        {
+          "kind": "text",
+          "text": "On a weather map the warm front wears red half-moons and the cold front blue triangles, each pointing the way its front is going. The whole whirl drifts east, carried along by the westerly winds high overhead, at something like 30 km an hour."
+        },
+        {
+          "kind": "text",
+          "text": "A town in the storm’s path meets its parts in order: first the high cloud far ahead of the warm front, then the warm front itself, then the warm sector, then the cold front and the cold air behind it. The rest of this lesson takes them one at a time."
+        }
+      ]
+    },
+    {
+      "title": "The weight of the air",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Air has weight. The column of air standing on each square metre of ground, all the way up to the top of the atmosphere, weighs about ten tonnes. You do not feel it because it presses on you from every side at once, and from inside your body too, so the pushes balance."
+        },
+        {
+          "kind": "text",
+          "text": "In 1643 Evangelista Torricelli found a way to weigh that column. He filled a long glass tube with mercury, a liquid metal fourteen times heavier than water, and stood it upside down in a dish of mercury. The mercury in the tube sank a little and then stopped, about 760 millimetres high, with nothing at all in the space above it."
+        },
+        {
+          "kind": "text",
+          "text": "What holds it up is the air pressing down on the open dish. When the column of air overhead weighs more, it pushes the mercury a little higher; when it weighs less, the mercury sinks. That instrument is a **barometer**."
+        },
+        {
+          "kind": "figure",
+          "figure": "barometer",
+          "caption": "What a barometer weighs."
+        },
+        {
+          "kind": "text",
+          "text": "Forecasters give the pressure in hectopascals, also called millibars: about 1013 at sea level on an average day. American barometers read the height of the mercury in inches, where the same average day is 29.92. A deep storm can drag the pressure down to 980 hectopascals or below; a strong high can push it past 1035."
+        },
+        {
+          "kind": "text",
+          "text": "Why does the pressure fall as a low comes? Near the ground, air spirals in toward the low and rises. That rising air is what makes the storm’s cloud: lifted air cools to its dew point, just as in Lesson 2. If air rises out of the column faster than it flows in at the bottom, there is less air overhead, and the column weighs less."
+        },
+        {
+          "kind": "text",
+          "text": "A high is the reverse. Air sinks from above, warming and drying as it is squeezed, so highs bring clear, settled weather. The same sinking air makes the warm lid that flattens heaps into stratocumulus, from Lesson 3."
+        },
+        {
+          "kind": "text",
+          "text": "The number on the barometer matters less than which way it is moving. A barometer that falls steadily, about one hectopascal every three hours, for half a day or more, says a low is on its way. A fall faster than a hectopascal an hour says a strong storm with strong winds. A rise says the storm is going."
+        },
+        {
+          "kind": "text",
+          "text": "That is why a forecaster keeps a **barograph**: a pen on an arm, moved by a sealed metal capsule that swells and shrinks with the pressure, drawing on a paper drum that clockwork turns once a week. One glance shows not only the pressure now but how it has been going."
+        }
+      ]
+    },
+    {
+      "title": "A storm goes by",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Now follow a whole storm across a town. The figure is a slice through the storm from west to east, like the warm front in Lesson 5, but long enough to hold the warm front, the warm sector and the cold front together. The storm slides in from the left; the barograph underneath traces the pressure as it goes."
+        },
+        {
+          "kind": "text",
+          "text": "Under the slice, the colder air is shaded blue. Watch where it is: under the warm front’s long ramp, and behind the cold front’s steep nose. Keep an eye on the wind, the temperature and the dew point in the text as well as the cloud overhead."
+        },
+        {
+          "kind": "figure",
+          "figure": "frontPass",
+          "caption": "A storm crossing a town, west to east, with the barograph below.",
+          "task": "Let the whole storm go by, until the barometer is rising again.",
+          "goal": "pass"
+        },
+        {
+          "kind": "text",
+          "text": "**Ahead of the warm front**, the barometer starts falling about the time the first cirrus appears, and keeps falling steadily as the cloud thickens. The wind turns anticlockwise, from south toward southeast, and freshens, because the town lies on the low’s east side, where air is streaming in toward its centre."
+        },
+        {
+          "kind": "text",
+          "text": "Once the rain starts, it falls through the cold air under the front. Some of it evaporates on the way down, adding vapour to that air and raising its dew point. Before long the air near the ground reaches its dew point too, and ragged scud, low stratus or even fog forms beneath the nimbostratus: Lesson 1’s cloud, made a new way."
+        },
+        {
+          "kind": "text",
+          "text": "**In the warm sector**, the warm front goes by and everything changes at once. The wind swings round to the south or southwest, the temperature jumps, and the air feels muggy, because its dew point is high. The barometer stops falling and holds nearly steady. The sky is often a grey, broken deck of stratocumulus or stratus, with the sun breaking through now and then."
+        },
+        {
+          "kind": "text",
+          "text": "**At the cold front**, the barometer reaches its lowest point and then turns sharply upward. A line of towering cumulus and cumulonimbus marches in from the west: a squall of gusty wind and heavy showers that seldom lasts more than an hour, sometimes with thunder. The wind swings to the west or northwest, and the temperature and the dew point both drop."
+        },
+        {
+          "kind": "text",
+          "text": "**Behind the cold front**, the sky clears from the west and the air is so clean that distant hills look close. The cold air is now flowing over ground still warm from the warm sector, and air heated from below is unstable, as in Lesson 2: bright, crisp heaps of cumulus pop up, and a few may grow big enough to shower. The barometer keeps rising."
+        },
+        {
+          "kind": "text",
+          "text": "When the wind drops on the first night behind the front, the sky is clear, the air is still and the ground is damp from the rain. That is Lesson 1’s recipe for fog in the hollows, or in autumn for the first frost."
+        }
+      ]
+    },
+    {
+      "title": "Gentle ramps and steep noses",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Why is a warm front’s cloud a wide sheet of layers, while a cold front’s cloud is a narrow line of towers? Both fronts lift warm air. The difference is how steeply."
+        },
+        {
+          "kind": "text",
+          "text": "At a warm front, the warm air is doing the pushing. It cannot shove the heavy cold air aside, so it rides up over it on a long, gentle ramp, rising one kilometre for every hundred or more. At a cold front, the cold air is doing the pushing. Dense cold air drives in under the warm air like the blade of a snowplough, and friction with the ground holds back its lowest layer, so its nose is blunt: one in fifty, or steeper still near the ground."
+        },
+        {
+          "kind": "text",
+          "text": "How fast the air is lifted is the front’s speed multiplied by its slope. A front moving at 30 km an hour is going about 8 metres a second; on a ramp of one in a hundred, the air climbs 8 centimetres a second: a slow crawl. Lifted that gently, the air cools a little at a time over a wide area, and spreads into layers."
+        },
+        {
+          "kind": "text",
+          "text": "On a nose of one in thirty, the same air is shoved up four times as fast, all at once, straight out of the moist warm sector. It passes its cloud base in a few minutes, and if it is even slightly unstable, it keeps rising on its own, as cumulus does in Lesson 2. The front sets off towers."
+        },
+        {
+          "kind": "figure",
+          "figure": "slope",
+          "caption": "Warm air carried up the face of a front. Heights are stretched 20 times.",
+          "task": "Steepen the front until the lifted air builds towers.",
+          "goal": "towers"
+        },
+        {
+          "kind": "text",
+          "text": "Notice what happens to the rain in the figure. A front lifts about the same amount of water either way, about ten millimetres. A gentle front spreads it over a wide belt, so any one spot gets hours of light, steady rain: the soaking kind that sinks into a field. A steep front squeezes it into a narrow band, so it comes down hard and is over quickly, and much of it runs off."
+        },
+        {
+          "kind": "text",
+          "text": "That is why the warm front’s rain is called **steady** and the cold front’s rain is called **showers**, and why a forecaster can tell which front is coming from the shape of the cloud alone."
+        },
+        {
+          "kind": "text",
+          "text": "Cold fronts usually move faster than warm fronts, and in an older storm the cold front can catch up with the warm front ahead of it. The warm sector is then lifted right off the ground, and the two fronts join into an **occluded front**, drawn on maps as a purple line with both half-moons and triangles. Its sky is a mixture: layers with showers hidden inside them. Many Pacific storms are already occluded by the time they reach the Northwest."
+        }
+      ]
+    },
+    {
+      "title": "Reading the wind",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "In 1857 the Dutch meteorologist Christophorus Buys Ballot wrote down a rule that sailors had half known for centuries. In the northern half of the world, stand with your back to the wind, and low pressure is on your left, a little ahead of you. (South of the equator, it is on your right.)"
+        },
+        {
+          "kind": "text",
+          "text": "Since lows drift from west to east, the wind tells you where the low is, and the way the wind changes tells you where it is going. When a low passes north of you, as most storms crossing the northern United States do, the wind turns clockwise through the storm: from southeast, to south, to southwest, then west or northwest behind the cold front."
+        },
+        {
+          "kind": "text",
+          "text": "A wind turning clockwise is said to **veer**; turning anticlockwise, it **backs**. A backing wind with a falling barometer means the weather is getting worse. A veering wind with a rising barometer means it is getting better."
+        },
+        {
+          "kind": "text",
+          "text": "The high cloud gives you a second wind vane. The wind up at cirrus height usually blows from a different direction than the wind at the ground, and the angle between the two says something about where the warm and the cold air lie."
+        },
+        {
+          "kind": "text",
+          "text": "The **crossed-winds rule** turns that into a quick test. Stand with your back to the wind at the ground and watch the high cloud. If it is moving across from your left, a low is approaching and the weather will get worse. If it comes from your right, the low is moving away and the weather will improve. If it moves straight toward you or away from you, along the same line as the surface wind, expect little change for now."
+        },
+        {
+          "kind": "figure",
+          "figure": "crossedWinds",
+          "caption": "The crossed-winds rule, for the northern half of the world."
+        },
+        {
+          "kind": "text",
+          "text": "Like every rule of thumb, it needs a real sky to work on: watch the highest cloud you can see, not low scud, which moves with the surface wind. And it is best used with the barometer and the clouds’ own sequence, not instead of them."
+        }
+      ]
+    },
+    {
+      "title": "East of the mountains",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "A Pacific storm reaching eastern Washington has first to cross the Cascades, a wall of mountains about two kilometres high with peaks well above that. The difference it makes is easy to measure. Seattle, west of the range, gets about 950 millimetres of rain a year; the western slopes and passes get 2,000 to 3,000; the Columbia Basin, on the dry side, gets 150 to 300."
+        },
+        {
+          "kind": "text",
+          "text": "You already know why from Lesson 2. Air driven up the western slopes cools at the dry rate, about 10 °C a kilometre, until it reaches its dew point; then it cools at the slower cloudy rate, because condensing water warms it. Much of the water it condenses falls out as rain and snow on the slopes."
+        },
+        {
+          "kind": "text",
+          "text": "Coming down the far side, the air is squeezed and warms. But now it has no cloud left to evaporate, and evaporation is what would have slowed the warming, so it warms at the full dry rate all the way down. It reaches the basin warmer and much drier than it set out from the coast at the same height."
+        },
+        {
+          "kind": "figure",
+          "figure": "rainShadow",
+          "caption": "Pacific air blown over the Cascades into the Columbia Basin. Heights are stretched.",
+          "task": "Raise the mountains until the air reaching the basin has less than half the vapour it has room for.",
+          "goal": "shadow"
+        },
+        {
+          "kind": "text",
+          "text": "This is a **rain shadow**, and it changes how a storm looks from the basin. The high cloud arrives right on time, since it rides well above the mountains: cirrus, the halo, altostratus. But the rain is often thin, a few sprinkles, or streaks of **virga**, rain that hangs from the cloud and evaporates before it reaches the ground."
+        },
+        {
+          "kind": "text",
+          "text": "The cold front loses less on the way over. Its gusts come down into the basin as strong as ever, and over dry, bare fields after harvest they can lift dust into a brown wall miles high. Farther east, as the land rises again toward the Blue Mountains and Idaho, the air is lifted once more and the rain comes back."
+        },
+        {
+          "kind": "text",
+          "text": "Winter adds one more trick. Cold air pools in the basin for days under an inversion, as in Lesson 1, while milder air from the Pacific rides over the top of it. Rain from that milder air can fall into the frozen layer below and freeze on whatever it touches; and when no storm comes to stir the pool, fog and stratus can sit in the basin for a week without burning off."
+        }
+      ]
+    },
+    {
+      "title": "One sky, two days",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Here is a storm read the way a forecaster reads it, hour by hour, with every lesson in play. It is an early autumn storm reaching the Columbia Basin."
+        },
+        {
+          "kind": "text",
+          "text": "**Monday dawn.** Fog lies in the low fields after a clear, calm night (Lesson 1), and burns off by mid-morning. A few flat cumulus form, and stay flat under the warm lid of the high that has kept the week fine (Lessons 2 and 3). The barometer reads high and steady."
+        },
+        {
+          "kind": "text",
+          "text": "**Monday afternoon.** Cirrus hooks spread in from the west (Lesson 5). The barometer has started to fall, about one hectopascal every three hours. With your back to a light southeast wind, the cirrus is moving across from your left: a low is coming."
+        },
+        {
+          "kind": "text",
+          "text": "**Monday night.** A ring round the moon: cirrostratus with its 22° halo. The cloud sends the ground’s heat back down, so there is no fog or frost tonight (Lesson 1)."
+        },
+        {
+          "kind": "text",
+          "text": "**Tuesday morning.** Altostratus, with the sun a dim disc behind frosted glass and no shadows (Lesson 4), lowering through the morning into grey nimbostratus. The rain is light, because the Cascades have taken most of it: a rain shadow."
+        },
+        {
+          "kind": "text",
+          "text": "**Tuesday afternoon.** The warm front goes by. The wind veers to the southwest, it turns mild and muggy, and the barometer steadies. A broken grey deck of stratocumulus (Lesson 3)."
+        },
+        {
+          "kind": "text",
+          "text": "**Tuesday evening.** A dark line of towers in the west: the cold front. A gust front, a brief downpour, perhaps thunder: count from flash to bang and divide by three (Lesson 6). The wind swings to the northwest and the barometer jumps."
+        },
+        {
+          "kind": "text",
+          "text": "**Wednesday.** A cold, clear, gusty morning; by midday, crisp cumulus heaps over the hills, set off by cold air over warm ground (Lesson 2). The barometer keeps climbing. That night the wind drops and the sky stays clear: the first frost."
+        },
+        {
+          "kind": "key",
+          "title": "Reading a storm as it comes",
+          "points": [
+            "First cirrus spreading from the west, barometer starting to fall: a low is coming. Rain within a day or so.",
+            "A halo, then altostratus that wipes out shadows: rain within hours. A backing wind and a falling barometer agree.",
+            "The warm front goes by: the wind veers, it turns mild and muggy, the barometer steadies.",
+            "A line of towers in the west, and the barometer turning up: the cold front’s squall. Then clearing, colder, gusty, with heaps.",
+            "East of the Cascades, expect the rain to be lighter than the cloud promises, and the cold front’s wind to be as strong as ever."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "First name the clouds in the photos. Then read each sky, with its barometer and its wind, and say what is coming."
+        },
+        {
+          "kind": "figure",
+          "figure": "radioCheck",
+          "caption": "Real photos. Name each cloud.",
+          "options": {
+            "mode": "name",
+            "pool": [
+              "cirrus",
+              "cirrostratus",
+              "altostratus",
+              "nimbostratus",
+              "stratocumulus",
+              "cumulonimbus",
+              "cumulus"
+            ],
+            "known": [
+              "cirrus",
+              "cirrocumulus",
+              "cirrostratus",
+              "altocumulus",
+              "altostratus",
+              "nimbostratus",
+              "stratocumulus",
+              "stratus",
+              "cumulus",
+              "cumulonimbus"
+            ],
+            "count": 8
+          }
+        },
+        {
+          "kind": "figure",
+          "figure": "forecast",
+          "caption": "A sky, a barometer and a wind. What is coming?",
+          "options": {
+            "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "noon"
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "6 p.m."
+                  }
+                ],
+                "question": "Cirrus at noon has spread into a milky veil by evening. The barometer has fallen 3 hPa since noon, and the wind has backed from south to southeast. What is coming?",
+                "options": [
+                  "A warm front, with rain likely within a day",
+                  "A cold front, with a squall within the hour",
+                  "A fine, settled spell"
+                ],
+                "answer": 0,
+                "why": "Cirrus thickening into cirrostratus, a steadily falling barometer and a backing wind all say the same thing: the warm front of a low is on its way, and its rain is usually less than a day off."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cumulonimbus",
+                    "when": "6 p.m."
+                  },
+                  {
+                    "genus": "cumulus",
+                    "when": "next day, noon"
+                  }
+                ],
+                "question": "A squall came through at six with a gust and a downpour. Since then the wind has swung to the northwest and the barometer has risen 4 hPa in three hours. What is tomorrow like?",
+                "options": [
+                  "Clear and cooler, gusty, with crisp cumulus by midday",
+                  "Steady rain all day",
+                  "Warm and muggy"
+                ],
+                "answer": 0,
+                "why": "The cold front has gone by. Behind it come colder, drier air, a veering wind and a rising barometer; cold air over warm ground sets off bright heaps of cumulus by midday."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "9 a.m."
+                  },
+                  {
+                    "genus": "cirrus",
+                    "when": "1 p.m."
+                  }
+                ],
+                "question": "With your back to a south wind, you watch high cirrus moving across the sky from your left to your right. What does the crossed-winds rule say?",
+                "options": [
+                  "A low is approaching: the weather will get worse",
+                  "The low is moving away: the weather will get better",
+                  "Nothing: the rule only works with low cloud"
+                ],
+                "answer": 0,
+                "why": "Back to the surface wind, with the high cloud coming from your left, a low is on its way. The rule needs the highest cloud you can see, not low scud, which moves with the surface wind."
+              },
+              {
+                "id": "wheat",
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "Monday 4 p.m."
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "Monday 9 p.m."
+                  }
+                ],
+                "question": "Mares’ tails at teatime, a ring round the moon by bedtime, and the barometer down since noon. I want rain on my new-sown winter wheat. Should I drill it tomorrow?",
+                "options": [
+                  "Yes: drill early tomorrow, the rain is likely within a day",
+                  "No: mares’ tails mean a dry week",
+                  "Wait a week, the rain is far off"
+                ],
+                "answer": 0,
+                "why": "Cirrus thickening into a halo-making veil with a falling barometer is the warm front’s cloud arriving. Its rain usually follows within a day: light, steady rain, just the kind that settles new-sown seed."
+              },
+              {
+                "id": "mail",
+                "sky": [
+                  {
+                    "genus": "nimbostratus",
+                    "when": "Tuesday 10 a.m."
+                  },
+                  {
+                    "genus": "stratocumulus",
+                    "when": "3 p.m."
+                  },
+                  {
+                    "genus": "cumulonimbus",
+                    "when": "8 p.m."
+                  }
+                ],
+                "question": "The rain stopped at noon. It’s mild and muggy now, the wind is southwest and the barometer has stopped falling. I’m due to fly the mail to Spokane at seven tonight. Any trouble?",
+                "options": [
+                  "Yes: the cold front is still to come, with a squall line. Fly in the morning",
+                  "No: the storm is over",
+                  "Only fog"
+                ],
+                "answer": 0,
+                "why": "Mild, muggy air, a southwest wind and a steady barometer after the rain mean the warm front has gone and you are in the warm sector. The cold front, with its line of towers and gusts, is still to come."
+              },
+              {
+                "id": "bazaar",
+                "sky": [
+                  {
+                    "genus": "cirrostratus",
+                    "when": "Friday night"
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "Saturday 9 a.m."
+                  }
+                ],
+                "question": "There was a ring round the moon last night and it’s grey this morning. The Seattle paper says a big rain is coming. Will our bazaar on the green be rained out?",
+                "options": [
+                  "Expect light rain at most: the Cascades take most of it. Put up a tent",
+                  "Expect a downpour like Seattle’s",
+                  "Not a drop: grey skies here never rain"
+                ],
+                "answer": 0,
+                "why": "The warm front’s high cloud arrives on time over the mountains, but its rain is mostly wrung out on the western slopes. East of the Cascades, expect sprinkles or light rain, so a tent will do."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Mid-latitude storms are lows a thousand kilometres or more across, with winds circling them anticlockwise (in the northern half of the world); a warm front, a warm sector and a cold front pass a town in order as the storm drifts east at about 30 km an hour.",
+    "A barometer weighs the air overhead (about 1013 hPa, or 29.92 inches of mercury, on an average day); a steady fall says a low is coming, and a sharp rise follows its cold front.",
+    "The wind backs to the southeast ahead of a warm front, veers to the southwest in the warm sector, and swings to the west or northwest behind the cold front, which brings colder, drier air, clearing skies and crisp cumulus.",
+    "A warm front lifts air slowly up a gentle ramp, making wide layers and long, light rain; a cold front shoves air up a steep nose, making a line of towers and short, heavy showers.",
+    "With your back to the wind, low pressure is on your left; high cloud crossing from your left says the weather will worsen, from your right that it will improve.",
+    "Air crossing the Cascades rains out on the western slopes and comes down into the Columbia Basin warmer and drier: a rain shadow, where storms bring their cloud on time but much less rain."
+  ],
+  "next": "Training is done. Next: cloud seeding, and how a supercooled cloud can be made to snow.",
+  "journal": {
+    "lows": {
+      "title": "A storm’s anatomy",
+      "text": "Mid-latitude storms are lows, whirls of air a thousand kilometres or more across where the pressure is lowest at the centre. Winds circle a low anticlockwise in the northern half of the world, drawing warm air north on its east side and cold air south on its west. The warm front leads, the warm sector follows, and the cold front brings up the rear, as the whole storm drifts east at about 30 km an hour."
+    },
+    "barometer": {
+      "title": "The barometer",
+      "text": "A barometer weighs the column of air overhead: about ten tonnes on every square metre, enough to hold up 760 mm of mercury (29.92 inches, 1013 hPa). Its trend matters more than its reading. A steady fall of about 1 hPa every three hours says a low is coming; a fall faster than 1 hPa an hour, a strong storm; a sharp rise, the cold front gone by."
+    },
+    "cold-front": {
+      "title": "A cold front",
+      "text": "Dense cold air drives in under warm air with a steep, blunt nose, lifting it fast enough to set off a narrow line of towering cumulus and cumulonimbus. It brings a squall of gusts and heavy showers, often in under an hour; the wind swings to the west or northwest, temperature and dew point drop, the barometer jumps, and clear, cold air with crisp cumulus follows."
+    },
+    "crossed-winds": {
+      "title": "Reading the wind",
+      "text": "Stand with your back to the wind and low pressure is on your left (Buys Ballot’s rule, for the northern half of the world). A wind that backs while the barometer falls means worse weather; one that veers while it rises, better. With your back to the surface wind, high cloud coming from your left says a low is approaching; from your right, that it is moving away."
+    },
+    "rain-shadow": {
+      "title": "The rain shadow",
+      "text": "Air forced up the Cascades cools to its dew point and rains out on the western slopes; coming down the far side with no cloud left, it warms at the full dry rate and reaches the Columbia Basin warmer and drier than it started. Seattle gets about 950 mm of rain a year, the passes 2,000 to 3,000 mm, the basin 150 to 300 mm. Storms arrive in the basin with their high cloud on time, but often with only sprinkles or virga."
+    }
+  }
+}

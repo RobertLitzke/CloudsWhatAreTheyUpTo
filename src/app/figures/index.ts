@@ -4,6 +4,8 @@ import type { FigureId } from '../../core/shifts';
 import { freezingFigure, jarFigure, parcelFigure, soundingFigure, thermalsFigure } from './air';
 import { billowFigure, flashFigure, mammaFigure, stormFigure, waveFigure } from './giants';
 import { burnOffDiagram, chargeDiagram, collideDiagram, dayNightDiagram, densityDiagram, depthDiagram, edgesDiagram, escapeDiagram, expandDiagram, fogStratusDiagram, freezeSeedsDiagram, glideDiagram, heapDiagram, inversionDiagram, kettleDiagram, latentDiagram, layerKindsDiagram, millionDiagram, moleculesDiagram, nameGridDiagram, overturnDiagram, snowToRainDiagram, specksDiagram, stabilityDiagram, subsidenceDiagram, tropopauseDiagram } from './diagrams';
+import { barometerDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, rainShadowFigure, slopeFigure } from './front';
+import { cloudWaterDiagram, coldBoxFigure, dryIceDiagram, latticeDiagram, seedLayerFigure, seedWindowDiagram, trialFigure } from './cold-cloud';
 import { frontFigure, haloFigure, iceGrowthFigure, prismFigure, streaksFigure } from './ice';
 import type { FigureFactory } from './kit';
 import { dropsFigure, handFigure, nightFigure, nudgeFigure, shadowFigure, spreadFigure, sunThroughFigure } from './layers';
@@ -62,4 +64,17 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   snowToRain: snowToRainDiagram,
   tropopause: tropopauseDiagram,
   charge: chargeDiagram,
+  lowMap: lowMapDiagram,
+  barometer: barometerDiagram,
+  frontPass: frontPassFigure,
+  slope: slopeFigure,
+  crossedWinds: crossedWindsDiagram,
+  rainShadow: rainShadowFigure,
+  coldBox: coldBoxFigure,
+  dryIce: dryIceDiagram,
+  lattice: latticeDiagram,
+  seedLayer: seedLayerFigure,
+  cloudWater: cloudWaterDiagram,
+  seedWindow: seedWindowDiagram,
+  trial: trialFigure,
 };

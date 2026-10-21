@@ -1,0 +1,153 @@
+{
+  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "talks": [
+    {
+      "id": "seeding-open",
+      "cue": "start",
+      "when": "Saturday, November 23, 1946 · 7:00 p.m.",
+      "turns": [
+        {
+          "them": "W7HAR, W7HAR, this is W7DQ, Walla Walla. Fifteen years, and the same old crackle. Are you still up there, Harrow?",
+          "replies": [
+            {
+              "say": "Still here. Older.",
+              "back": "Older is the only direction anybody goes. I’ve gone a fair way down it myself."
+            },
+            {
+              "say": "W7DQ! I thought you’d retired.",
+              "back": "They took our sets off the air for the war. I retired from the radio, not from the weather. Now we’re back on, and so am I."
+            }
+          ]
+        },
+        {
+          "them": "Have you seen the papers? A fellow at General Electric back East, Schaefer, flew over a mountain in Massachusetts ten days ago, dropped dry ice on a cloud, and made it snow. On purpose.",
+          "replies": [
+            {
+              "say": "Can we do that here?",
+              "back": "That’s why I’m calling. Half the county has read it, and Mabel has read it to the other half."
+            },
+            {
+              "say": "Sounds like the rainmakers at the county fair.",
+              "back": "That’s what I said. Then I read the report. This one is real physics. Mostly."
+            }
+          ]
+        },
+        {
+          "them": "And your Hap Delaney came home from the war with a surplus crop duster and a head full of ideas. He has already priced dry ice from the ice house in Spokane.",
+          "replies": [
+            {
+              "say": "Hap with a duster. Heaven help the sky.",
+              "back": "Heaven may have to. You’ll have to help it first."
+            },
+            {
+              "say": "Then we’d better learn how it works.",
+              "back": "Good. There’s a new workbook on the train. Same as before: read it, and bring me the questions."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seeding-box",
+      "cue": {
+        "after": "coldBox"
+      },
+      "when": "Saturday, November 23, 1946 · 7:35 p.m.",
+      "turns": [
+        {
+          "them": "So you’ve made it snow in a box. At −3 °C, which one works?",
+          "replies": [
+            {
+              "say": "Dry ice.",
+              "back": "By sheer cold. Silver iodide doesn’t wake up until about −5.",
+              "right": true
+            },
+            {
+              "say": "Silver iodide.",
+              "back": "Not yet at −3. It wants about −5 or colder. Dry ice works at any temperature below freezing."
+            },
+            {
+              "say": "Neither.",
+              "back": "Dry ice does. It makes its own ice by sheer cold."
+            }
+          ]
+        },
+        {
+          "them": "Schaefer’s box was an ordinary home freezer lined with black velvet. Don’t tell Edna. She’ll want to know what became of the velvet.",
+          "replies": [
+            {
+              "say": "She’ll want it back.",
+              "back": "Fifteen years, and she still has the receipt for that tablecloth."
+            },
+            {
+              "say": "Is it really that simple?",
+              "back": "The box is simple. The flying is not."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seeding-layer",
+      "cue": {
+        "after": "seedLayer"
+      },
+      "when": "Saturday, November 23, 1946 · 8:10 p.m.",
+      "turns": [
+        {
+          "them": "Hap asked me straight out: more dry ice is better, isn’t it?",
+          "replies": [
+            {
+              "say": "No. Too much and the crystals stay too small to fall.",
+              "back": "Overseeded: all that ice and not a flake on the ground. Tell him a pound a mile, give or take.",
+              "right": true
+            },
+            {
+              "say": "Yes, the more the better.",
+              "back": "Overseed it and each crystal gets a crumb of water and never grows big enough to fall. About a pound a mile does it."
+            },
+            {
+              "say": "It doesn’t matter how much.",
+              "back": "It matters a great deal. Too little gives flurries, too much gives a veil of ice. About a pound a mile."
+            }
+          ]
+        },
+        {
+          "them": "He’ll want to try it on the next grey deck that settles over the basin. Rime on the fences is your sign that it’s supercooled.",
+          "replies": [
+            {
+              "say": "I’ll watch the fences."
+            },
+            {
+              "say": "And if it’s above freezing?",
+              "back": "Then he can save the dry ice for the ice cream social."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seeding-check",
+      "cue": "check",
+      "when": "Saturday, November 23, 1946 · 8:40 p.m.",
+      "turns": [
+        {
+          "them": "Photographs first, the same as ever. Then Hap and Dutch have questions. Hap’s are louder.",
+          "replies": [
+            {
+              "say": "Ready."
+            },
+            {
+              "say": "Dutch has questions?",
+              "back": "Dutch Kessler always has questions. He just asks them slowly."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "locals": {
+    "hap": "Hap Delaney, in the cockpit of his crop duster, calls:",
+    "dutch": "Dutch Kessler, on the roof of the elevator, asks:"
+  }
+}

@@ -22,6 +22,9 @@ import lowSky from '../data/radio/low-sky.json';
 import middleSky from '../data/radio/middle-sky.json';
 import iceRealm from '../data/radio/ice-realm.json';
 import giants from '../data/radio/giants.json';
+import front from '../data/radio/front.json';
+import seeding from '../data/radio/seeding.json';
+import seedingLimits from '../data/radio/seeding-limits.json';
 
 export const STATIONS = {
   them: { call: 'W7DQ', place: 'Walla Walla' },
@@ -73,6 +76,9 @@ const BY_SHIFT: Record<string, Radio> = {
   'middle-sky': middleSky as Radio,
   'ice-realm': iceRealm as Radio,
   giants: giants as Radio,
+  front: front as Radio,
+  seeding: seeding as Radio,
+  'seeding-limits': seedingLimits as Radio,
 };
 
 export function radioFor(shiftId: string): Radio {

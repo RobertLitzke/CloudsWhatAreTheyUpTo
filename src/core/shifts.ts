@@ -1,4 +1,5 @@
-// The tutorial series: six lessons of a workbook. Each lesson is a short
+// The tutorial series: nine lessons of a workbook, seven of training and two on
+// cloud seeding. Each lesson is a short
 // illustrated article in the manner of an interactive explainer: paragraphs
 // and live figures to play with. A lesson comes in parts; the next part opens
 // once the figures in this one have had their small task done. The last part
@@ -19,6 +20,9 @@ import lowSky from '../data/shifts/low-sky.json';
 import middleSky from '../data/shifts/middle-sky.json';
 import iceRealm from '../data/shifts/ice-realm.json';
 import giants from '../data/shifts/giants.json';
+import front from '../data/shifts/front.json';
+import seeding from '../data/shifts/seeding.json';
+import seedingLimits from '../data/shifts/seeding-limits.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -27,6 +31,8 @@ export const FIGURE_IDS = [
   'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
   'specks', 'inversion', 'burnOff', 'latent', 'kettle', 'density',
   'glide', 'overturn', 'freezeSeeds', 'escape', 'snowToRain', 'tropopause', 'charge',
+  'lowMap', 'barometer', 'frontPass', 'slope', 'crossedWinds', 'rainShadow',
+  'coldBox', 'dryIce', 'lattice', 'seedLayer', 'cloudWater', 'seedWindow', 'trial',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -61,6 +67,10 @@ export interface Shift {
   title: string;
   /** The clouds this shift introduces. */
   clouds: GenusId[];
+  /** The clouds drawn over the fields at the top of the lesson: the ones it introduces, or the ones it is about. */
+  sky: GenusId[];
+  /** Training, or the lessons on cloud seeding that come after it. */
+  book: 'training' | 'seeding';
   /** One line for the shift board. */
   teaches: string;
   parts: Part[];
@@ -87,12 +97,14 @@ interface ShiftFile {
   next: string;
   journal: Record<string, { title: string; text: string; rare?: boolean }>;
 }
-function fromJson(file: ShiftFile, clouds: GenusId[]): Shift {
+function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; book?: Shift['book'] } = {}): Shift {
   return {
     id: file.id,
     n: file.n,
     title: file.title,
     clouds,
+    sky: more.sky ?? clouds,
+    book: more.book ?? 'training',
     teaches: file.teaches,
     parts: file.parts as Part[],
     learned: file.learned,
@@ -109,6 +121,10 @@ export const SHIFTS: readonly Shift[] = [
   fromJson(middleSky, ['altocumulus', 'altostratus']),
   fromJson(iceRealm, ['cirrus', 'cirrostratus', 'cirrocumulus', 'nimbostratus']),
   fromJson(giants, ['cumulonimbus']),
+  // These meet no new clouds: they put the ones already met to work.
+  fromJson(front, [], { sky: ['cirrostratus', 'altostratus', 'cumulonimbus'] }),
+  fromJson(seeding, [], { sky: ['altocumulus', 'stratus'], book: 'seeding' }),
+  fromJson(seedingLimits, [], { sky: ['cumulus', 'altocumulus'], book: 'seeding' }),
 ];
 
 export function shiftById(id: string): Shift | undefined {
@@ -123,4 +139,7 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...middleSky.journal,
   ...iceRealm.journal,
   ...giants.journal,
+  ...front.journal,
+  ...seeding.journal,
+  ...seedingLimits.journal,
 };

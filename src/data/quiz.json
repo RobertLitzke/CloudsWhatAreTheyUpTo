@@ -308,6 +308,171 @@
       ],
       "answer": 0,
       "why": "Castellanus shows the middle sky is already unstable, so afternoon thermals can climb into storms."
+    },
+    {
+      "id": "barometer-fall",
+      "question": "A barometer has fallen steadily, about 1 hPa every three hours, since morning. What does it say?",
+      "options": [
+        "A low is on its way",
+        "A high is building",
+        "Nothing: only the reading matters, not the trend"
+      ],
+      "answer": 0,
+      "why": "Pressure falls as a low comes, because air near its centre rises out of the column overhead faster than it flows in. The trend matters more than the number."
+    },
+    {
+      "id": "barometer-weighs",
+      "question": "What does a barometer actually measure?",
+      "options": [
+        "The weight of the column of air overhead",
+        "How much water vapour is in the air",
+        "How fast the wind is blowing"
+      ],
+      "answer": 0,
+      "why": "About ten tonnes of air stand on every square metre, enough to hold up 760 mm of mercury. A lighter column means lower pressure."
+    },
+    {
+      "id": "warm-sector",
+      "question": "The warm front has just gone by. What changes?",
+      "options": [
+        "The wind veers to the southwest, it turns mild and muggy, and the barometer steadies",
+        "The wind swings northwest and it turns cold",
+        "The barometer jumps up sharply"
+      ],
+      "answer": 0,
+      "why": "Behind the warm front is the warm sector: warm, humid air, a south or southwest wind and a nearly steady barometer, until the cold front comes."
+    },
+    {
+      "id": "cold-front-sky",
+      "question": "What does a cold front usually bring as it passes?",
+      "options": [
+        "A line of towering cloud, a gusty squall and brief heavy showers, then clearing and colder air",
+        "Hours of light, steady rain",
+        "Fog and drizzle"
+      ],
+      "answer": 0,
+      "why": "Dense cold air drives in under warm air with a steep nose, lifting it fast enough to set off towers. The wind swings west or northwest and the barometer jumps."
+    },
+    {
+      "id": "front-steepness",
+      "question": "Why does a warm front bring long, steady rain and a cold front short, heavy showers?",
+      "options": [
+        "A warm front lifts air slowly up a gentle ramp; a cold front shoves it up a steep nose",
+        "Warm fronts carry more water",
+        "Cold fronts move more slowly"
+      ],
+      "answer": 0,
+      "why": "Lifting speed is the front’s speed times its slope. Gentle lifting spreads the rain over a wide belt; steep lifting squeezes it into a narrow band."
+    },
+    {
+      "id": "buys-ballot",
+      "question": "With your back to the wind (north of the equator), where is low pressure?",
+      "options": [
+        "On your left, a little ahead",
+        "On your right",
+        "Straight behind you"
+      ],
+      "answer": 0,
+      "why": "Buys Ballot’s rule, 1857. South of the equator it is on your right."
+    },
+    {
+      "id": "crossed-winds",
+      "question": "Your back is to the surface wind, and high cirrus is moving across from your left. What does that suggest?",
+      "options": [
+        "A low is approaching: the weather will get worse",
+        "The low is moving away: the weather will improve",
+        "Nothing at all"
+      ],
+      "answer": 0,
+      "why": "The crossed-winds rule. High cloud from your right would mean the low is moving away."
+    },
+    {
+      "id": "rain-shadow",
+      "question": "Why does air reach the Columbia Basin drier and warmer than it left the coast?",
+      "options": [
+        "It rains out on the Cascades’ western slopes, then warms at the dry rate all the way down",
+        "The basin is closer to the sun",
+        "The Columbia River heats it"
+      ],
+      "answer": 0,
+      "why": "Going up, the air cools at the dry rate, then more slowly as cloud. Coming down with no cloud left, it warms at the full dry rate: a rain shadow."
+    },
+    {
+      "id": "supercooled-wait",
+      "question": "Why can a supercooled cloud sit for hours without snowing?",
+      "options": [
+        "It has almost no ice to start with: ice-starting specks are rare",
+        "It has too little water",
+        "Its droplets are too warm"
+      ],
+      "answer": 0,
+      "why": "At −10 °C a litre of cloud has about a hundred thousand droplets and perhaps one ice-starting speck in every few hundred litres. What it lacks is ice, not water."
+    },
+    {
+      "id": "dry-ice",
+      "question": "How does dry ice make a supercooled cloud snow?",
+      "options": [
+        "It chills its trail below −40 °C, where droplets and vapour freeze on their own",
+        "Its crystals are shaped like ice",
+        "It adds water to the cloud"
+      ],
+      "answer": 0,
+      "why": "Dry ice is −78 °C. It works by cold alone, in any cloud colder than 0 °C, leaving hundreds of billions of crystals per gram."
+    },
+    {
+      "id": "silver-iodide",
+      "question": "Why does silver iodide start ice?",
+      "options": [
+        "Its six-sided crystals are spaced almost exactly like ice",
+        "It is very cold",
+        "It soaks up water vapour"
+      ],
+      "answer": 0,
+      "why": "Its atoms sit only 1.5 percent further apart than the molecules of ice, so droplets freeze on it as if it were ice, below about −5 °C."
+    },
+    {
+      "id": "overseeding",
+      "question": "A layer was seeded with far too much dry ice. What happens?",
+      "options": [
+        "So many crystals share the water that they stay too small to fall",
+        "It snows twice as hard",
+        "Nothing: extra dry ice just melts"
+      ],
+      "answer": 0,
+      "why": "Overseeding. Tens to hundreds of crystals per litre snow a layer out; thousands per litre leave a lingering veil of ice."
+    },
+    {
+      "id": "seed-warm",
+      "question": "Can seeding make rain from a cloud warmer than 0 °C all through?",
+      "options": [
+        "No: there is no supercooled water for ice to grow from",
+        "Yes, with dry ice",
+        "Yes, with silver iodide"
+      ],
+      "answer": 0,
+      "why": "Seeding gives ice to supercooled water. A warm cloud has nothing to freeze."
+    },
+    {
+      "id": "seed-drought",
+      "question": "Why can’t seeding end a drought under a strong high?",
+      "options": [
+        "Sinking air keeps the sky clear: there is no cloud to seed",
+        "Seeding only works at night",
+        "The air is too cold"
+      ],
+      "answer": 0,
+      "why": "Seeding cannot lift air or make cloud. It can only give ice to supercooled water that is already there."
+    },
+    {
+      "id": "fair-trial",
+      "question": "How can you tell whether seeding really added snow?",
+      "options": [
+        "Seed storms picked by chance and compare with unseeded ones over many winters",
+        "Seed the storms that look most promising and see if they snow",
+        "Seed one storm and watch it closely"
+      ],
+      "answer": 0,
+      "why": "Storms vary so much by themselves that only chance-picked storms, in large numbers, can show a real effect of ten or fifteen percent."
     }
   ]
 }

@@ -1,0 +1,343 @@
+{
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "id": "seeding",
+  "n": 8,
+  "title": "Seeds of ice",
+  "teaches": "Why a supercooled cloud can wait for hours to snow, how dry ice and silver iodide give it ice, and what a layer of cloud does when it is seeded",
+  "parts": [
+    {
+      "title": "A cloud waiting for ice",
+      "blocks": [
+        {
+          "kind": "key",
+          "title": "The big ideas of this lesson",
+          "points": [
+            "Most clouds between 0 °C and −20 °C are **supercooled**: liquid water below freezing, waiting for something to start ice.",
+            "Once there is ice, the crystals grow at the droplets’ expense and fall as snow. In a supercooled cloud, what is missing is not water but ice.",
+            "**Dry ice** (−78 °C) makes ice by sheer cold, in any cloud colder than 0 °C. **Silver iodide** makes ice by looking like it, in clouds colder than about −5 °C.",
+            "Seeding a layer with the right amount of ice snows a hole in it. Too little gives a few flurries; too much gives crystals too small to fall: **overseeding**."
+          ]
+        },
+        {
+          "kind": "text",
+          "text": "Lesson 5 left a puzzle unfinished. Most clouds between 0 °C and −20 °C are made of liquid droplets, below freezing but not frozen: **supercooled**. A droplet freezes only when something gives its molecules a template to line up on, and only about one speck in a million in ordinary air can do that."
+        },
+        {
+          "kind": "text",
+          "text": "Count them in a litre of cloud at −10 °C. There are about a hundred thousand droplets, and perhaps one ice-starting speck in every few hundred litres. A cloud like that can sit for hours, full of water that would fall as snow if only it had some ice."
+        },
+        {
+          "kind": "text",
+          "text": "Because once there is ice, Lesson 5’s machinery takes over. Air that is just full of vapour for the droplets is overfull for ice, so vapour leaves the droplets and freezes onto the crystals. The crystals grow, the droplets shrink, and in a quarter of an hour the crystals are heavy enough to fall: snow, which may melt into rain lower down."
+        },
+        {
+          "kind": "figure",
+          "figure": "iceGrowth",
+          "caption": "One ice crystal among supercooled droplets, from Lesson 5.",
+          "task": "Find a temperature where the crystal grows fast enough to fall.",
+          "goal": "fall"
+        },
+        {
+          "kind": "text",
+          "text": "So in a supercooled cloud, the rain is held back not by a shortage of water but by a shortage of ice. That is the whole idea behind cloud seeding: give the cloud the ice it is missing."
+        },
+        {
+          "kind": "text",
+          "text": "You can see supercooled water for yourself on a winter morning in the Columbia Basin. When freezing fog sits in the basin for days at −5 or −10 °C, every fence wire, twig and blade of grass grows a thick white fur of **rime** on its windward side. Each droplet stays liquid in the air and freezes the instant it touches something solid, which gives it the surface it was missing."
+        }
+      ]
+    },
+    {
+      "title": "The cold box",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "In 1946, at the General Electric laboratory in Schenectady, New York, Vincent Schaefer was working with the chemist Irving Langmuir on how ice forms on aeroplanes: supercooled droplets that hit a wing freeze onto it, just like rime on a fence. To study them, Schaefer made clouds of his own."
+        },
+        {
+          "kind": "text",
+          "text": "He used an ordinary chest freezer, lined it with black velvet, and breathed into it. His breath made a small cloud of droplets that stayed supercooled at −10 to −20 °C. A lamp shining across the box lit up any ice crystal as a tiny glint against the black. Schaefer dropped in talc, salt, sulphur, soil and dozens of other dusts, hoping to find one that would start ice. Hardly anything did."
+        },
+        {
+          "kind": "text",
+          "text": "One hot day in July 1946, the freezer was struggling to stay cold, and Schaefer dropped in a lump of dry ice to cool it down. At once the light beam filled with millions of glittering crystals, and the whole cloud turned to ice and settled to the floor of the box as snow."
+        },
+        {
+          "kind": "figure",
+          "figure": "coldBox",
+          "caption": "A freezer full of breath-cloud, lit from the side, as in Schaefer’s laboratory.",
+          "task": "Make it snow in the box.",
+          "goal": "snow"
+        },
+        {
+          "kind": "text",
+          "text": "Try each thing at a few temperatures. Above 0 °C, nothing works, because there is nothing to freeze: the droplets are ordinary cloud. Below it, ordinary dust starts a few crystals only when the box is very cold. Silver iodide smoke does nothing until about −5 °C and then fills the box. Dry ice works at every temperature below freezing."
+        }
+      ]
+    },
+    {
+      "title": "Why dry ice works",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Dry ice is frozen carbon dioxide, at −78 °C. It is not a template at all; it works by cold alone. A falling pellet chills a thin trail of air behind it below −40 °C, and there, as Lesson 5 showed, droplets freeze by themselves, with no speck needed. Vapour in the trail freezes straight into tiny crystals too."
+        },
+        {
+          "kind": "figure",
+          "figure": "dryIce",
+          "caption": "Why a pellet of dry ice makes so much ice."
+        },
+        {
+          "kind": "text",
+          "text": "Each gram of dry ice leaves hundreds of billions of crystals behind it. They drift out of the trail into the surrounding cloud, which can be at any temperature below freezing, and grow there at the droplets’ expense."
+        },
+        {
+          "kind": "text",
+          "text": "Dry ice has a drawback: it has to be carried up in an aeroplane and dropped into the cloud, or onto its top, and a pellet is used up in a fall of a kilometre or two. It works only where it is put."
+        },
+        {
+          "kind": "text",
+          "text": "On 13 November 1946, Schaefer flew over Mount Greylock in western Massachusetts with a few pounds of crushed dry ice and dropped it along a line across the top of a supercooled cloud layer. Within five minutes the cloud below his path had turned to snow, which streamed out of its base in long trails. The air beneath was dry, and the snow evaporated before it reached the ground. But for the first time, someone had made a cloud snow on purpose."
+        }
+      ]
+    },
+    {
+      "title": "A crystal that is not ice",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Bernard Vonnegut, a chemist in the same laboratory, took a different approach. If the rare natural specks work because their atoms are arranged like ice, why not find a substance whose crystals are arranged like ice and make a great deal of it?"
+        },
+        {
+          "kind": "text",
+          "text": "He searched tables of crystal shapes and found **silver iodide**. Its crystals are six-sided, like ice, and its atoms sit just 1.5 percent further apart than the molecules in ice. A supercooled droplet that touches a speck of silver iodide finds a template almost as good as ice itself. In November 1946, its smoke filled the cold box with crystals."
+        },
+        {
+          "kind": "figure",
+          "figure": "lattice",
+          "caption": "Ice, silver iodide and salt, seen along their crystal faces."
+        },
+        {
+          "kind": "text",
+          "text": "Silver iodide has two great advantages over dry ice. A little goes a very long way: a single gram, burned into smoke, makes about a million billion specks. And it does not have to be dropped from above: smoke from burners on the ground can be carried up into clouds over the mountains by the wind."
+        },
+        {
+          "kind": "text",
+          "text": "Its drawback is that the match with ice is close but not perfect, so it needs the cloud to be colder than about −5 °C, and it works far better below −10 °C. In a cloud at −3 °C, dry ice works and silver iodide does not."
+        }
+      ]
+    },
+    {
+      "title": "Opening a hole in the sky",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "What happens when a whole layer of supercooled cloud is seeded? The crystals share out the layer’s water between them, and how much each one gets decides everything."
+        },
+        {
+          "kind": "text",
+          "text": "With very few crystals, each one has plenty of water to itself and grows big, but there are too few of them to empty the layer: a few flurries fall, and the cloud carries on. With tens or hundreds of crystals in each litre, the water is taken quickly, the crystals grow big enough to fall, and the layer snows itself out, leaving a hole."
+        },
+        {
+          "kind": "text",
+          "text": "With far too many crystals, thousands in each litre, the water is shared out so thinly that every crystal stays tiny, too small to fall. The cloud turns from droplets to ice and simply hangs there as a silky veil. That is **overseeding**, and a pilot who thinks more is always better will get it."
+        },
+        {
+          "kind": "figure",
+          "figure": "seedLayer",
+          "caption": "A supercooled layer, seeded from an aeroplane flying above it.",
+          "task": "Seed the layer just enough to snow a hole in it.",
+          "goal": "hole"
+        },
+        {
+          "kind": "text",
+          "text": "A useful rule of thumb from the first flights was about a pound of dry ice for every mile flown. The snow from a seeded layer often evaporates on its way down, as Schaefer’s did, if the air beneath is dry. For seeding to put anything on the ground, the cloud must be deep enough to grow big flakes, and the air under it moist enough to let them through."
+        },
+        {
+          "kind": "text",
+          "text": "Nature makes the same holes. An aeroplane climbing through a supercooled layer of altocumulus can freeze a patch of it: air rushing over its wings and propeller tips expands and cools sharply, below −40 °C at the tips. Half an hour later there is a round hole in the layer with a wisp of falling ice in its middle, a **fallstreak hole**. Seeing one tells you the layer was supercooled."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "kind": "text",
+          "text": "Seeding starts with knowing your cloud, so first name the clouds in the photos. Then, for each sky, decide what seeding would do."
+        },
+        {
+          "kind": "figure",
+          "figure": "radioCheck",
+          "caption": "Real photos. Name each cloud.",
+          "options": {
+            "mode": "name",
+            "pool": [
+              "altocumulus",
+              "altostratus",
+              "stratus",
+              "stratocumulus",
+              "cumulus",
+              "cirrus"
+            ],
+            "known": [
+              "cirrus",
+              "cirrocumulus",
+              "cirrostratus",
+              "altocumulus",
+              "altostratus",
+              "nimbostratus",
+              "stratocumulus",
+              "stratus",
+              "cumulus",
+              "cumulonimbus"
+            ],
+            "count": 6
+          }
+        },
+        {
+          "kind": "figure",
+          "figure": "forecast",
+          "caption": "A sky to seed, or not? What would seeding do?",
+          "options": {
+            "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "cumulus",
+                    "when": "2 p.m."
+                  },
+                  {
+                    "genus": "cumulus",
+                    "when": "4 p.m."
+                  }
+                ],
+                "question": "On a hot July afternoon, small cumulus have bases at 1.5 km and tops at 2.5 km. The freezing level is 4 km up. Will dropping dry ice into them make rain?",
+                "options": [
+                  "No: they are warmer than 0 °C all through, with nothing to freeze",
+                  "Yes: dry ice works on any cloud",
+                  "Yes, but only silver iodide"
+                ],
+                "answer": 0,
+                "why": "Seeding gives ice to supercooled water. These clouds never reach the freezing level, so their droplets are ordinary warm water; dry ice chills a trail for a moment, and the cloud carries on."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "10 a.m."
+                  },
+                  {
+                    "genus": "altocumulus",
+                    "when": "11 a.m."
+                  }
+                ],
+                "question": "A layer of altocumulus at −3 °C is supercooled. Silver iodide smoke from a ground burner reaches it. What happens?",
+                "options": [
+                  "Very little: silver iodide needs about −5 °C or colder",
+                  "It snows out at once",
+                  "It turns to rain"
+                ],
+                "answer": 0,
+                "why": "Silver iodide is a near match for ice, but not a perfect one, so it starts ice only below about −5 °C. At −3 °C, dry ice would work: it makes ice by cold alone."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "stratocumulus",
+                    "when": "9 a.m."
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "10 a.m."
+                  }
+                ],
+                "question": "A pilot dumped his whole load into a supercooled layer: a hundred pounds a mile. The layer turned white and silky, but not a flake fell. Why?",
+                "options": [
+                  "Overseeding: so many crystals that each stayed too small to fall",
+                  "The dry ice melted before it reached the cloud",
+                  "The cloud was too warm"
+                ],
+                "answer": 0,
+                "why": "The crystals share out the cloud’s water. With thousands in every litre, each gets only a speck and never grows heavy enough to fall. About a pound a mile is enough to snow a hole."
+              },
+              {
+                "id": "hap",
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "9 a.m."
+                  },
+                  {
+                    "genus": "stratus",
+                    "when": "11 a.m."
+                  }
+                ],
+                "question": "A grey deck has sat over the county for three days at about −8 °C, and there’s rime on every fence post. I’ve got two hundred pounds of dry ice in the duster. Will it do anything?",
+                "options": [
+                  "Yes: the rime shows it’s supercooled. A pound or so a mile should snow holes in it",
+                  "No: dry ice only works in summer",
+                  "No: it’s too cold to snow"
+                ],
+                "answer": 0,
+                "why": "Rime is supercooled droplets freezing on contact, so the deck is liquid below freezing: just what seeding works on. Spread it thin: about a pound a mile, not the whole load."
+              },
+              {
+                "id": "dutch",
+                "sky": [
+                  {
+                    "genus": "altostratus",
+                    "when": "1 p.m."
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "1:30 p.m."
+                  }
+                ],
+                "question": "I watched the snow come streaming out of the cloud where the duster went over, but none of it reached my roof. Did the seeding fail?",
+                "options": [
+                  "The cloud did snow, but the snow evaporated in the dry air below",
+                  "Yes: there was no snow",
+                  "The snow blew to Idaho"
+                ],
+                "answer": 0,
+                "why": "Trails of snow that hang from a cloud and vanish on the way down are virga. The seeding worked on the cloud; the dry air beneath took the snow back, just as it did over Mount Greylock in 1946."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "A supercooled cloud can stay liquid for hours below 0 °C, because ice-starting specks are rare: about one in every few hundred litres at −10 °C, against a hundred thousand droplets in each litre.",
+    "Once ice appears, crystals grow at the droplets’ expense and fall as snow; in a supercooled cloud, what holds back the snow is a shortage of ice, not of water.",
+    "Dry ice (−78 °C) chills its trail below −40 °C, where droplets and vapour freeze on their own, making hundreds of billions of crystals per gram in any cloud colder than 0 °C.",
+    "Silver iodide’s six-sided crystals match ice to within 1.5 percent, so its smoke starts ice in clouds colder than about −5 °C; a gram makes about a million billion specks, and it can be sent up from the ground.",
+    "A seeded layer with tens to hundreds of crystals per litre snows out, leaving a hole; too few give flurries, and too many (overseeding) stay too small to fall. Snow from a seeded cloud can evaporate before it reaches dry ground."
+  ],
+  "next": "Next: what seeding can and can’t do, and how to tell whether it worked.",
+  "journal": {
+    "supercooled": {
+      "title": "Clouds waiting for ice",
+      "text": "Most clouds between 0 °C and −20 °C are supercooled liquid, because ice-starting specks are so rare. Once ice appears, it grows at the droplets’ expense and falls as snow, so a supercooled cloud is short of ice, not of water. Rime on winter fences is supercooled fog freezing the instant it touches something solid."
+    },
+    "dry-ice": {
+      "title": "Dry ice",
+      "text": "Frozen carbon dioxide at −78 °C. A falling pellet chills its trail below −40 °C, where droplets and vapour freeze without any speck, leaving hundreds of billions of crystals per gram. It works in any cloud colder than 0 °C but must be dropped from an aeroplane. Vincent Schaefer found it in his cold box at General Electric in July 1946 and first seeded a cloud with it over Mount Greylock, Massachusetts, on 13 November 1946."
+    },
+    "silver-iodide": {
+      "title": "Silver iodide",
+      "text": "A six-sided crystal whose atoms sit only 1.5 percent further apart than the molecules of ice, so supercooled droplets freeze on it as if it were ice. It starts working below about −5 °C, and best below −10 °C. One gram burned into smoke makes about a million billion specks, which burners on the ground can send up into mountain clouds. Bernard Vonnegut found it in November 1946."
+    },
+    "overseeding": {
+      "title": "Seeding a layer",
+      "text": "Seeded crystals share out a cloud’s water. A few per litre grow big but leave the layer as it was; tens to hundreds per litre snow it out, leaving a hole; thousands per litre each get so little water that they stay too small to fall, and the layer turns into a lingering veil of ice. An early rule of thumb was a pound of dry ice per mile flown."
+    },
+    "fallstreak": {
+      "title": "Fallstreak holes",
+      "text": "A round hole in a layer of supercooled altocumulus, with a wisp of falling ice in the middle. An aeroplane climbing through the layer chills the air over its wings and propeller tips below −40 °C, freezing a patch of the cloud, which then snows itself out. Seeing one means the layer was supercooled.",
+      "rare": true
+    }
+  }
+}

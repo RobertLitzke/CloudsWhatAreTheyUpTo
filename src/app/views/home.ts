@@ -25,12 +25,15 @@ export const homeView: View = (root, nav) => {
   );
 
   const nextUp = SHIFTS.find((s) => !save.shifts[s.id]?.done);
+  const training = SHIFTS.filter((s) => s.book === 'training');
+  const seeding = SHIFTS.filter((s) => s.book === 'seeding');
+  const trained = training.every((s) => save.shifts[s.id]?.done);
   const allDone = !nextUp;
 
-  const board = el(
+  const boardOf = (lessons: readonly (typeof SHIFTS)[number][]) => el(
     'ol.shift-board',
     {},
-    SHIFTS.map((s) => {
+    lessons.map((s) => {
       const rec = save.shifts[s.id];
       const open = rec?.done || s === nextUp;
       return el(
@@ -54,7 +57,7 @@ export const homeView: View = (root, nav) => {
         el(
           'div.hero-text',
           {},
-          el('p.eyebrow', {}, save.talk ? 'Harrow, Adams County, Washington · 1931' : 'A cloud workbook'),
+          el('p.eyebrow', {}, save.talk ? `Harrow, Adams County, Washington · ${trained ? 1946 : 1931}` : 'A cloud workbook'),
           el('h1.poster-type', {}, 'Clouds'),
           el('p.subtitle.poster-type', {}, 'What are they up to?'),
         ),
@@ -71,18 +74,21 @@ export const homeView: View = (root, nav) => {
                 el('p', {}, 'You are the new weather forecaster in Harrow: a wheat town with a grain elevator, an airfield and one mail plane, out in the dry hills of eastern Washington.'),
                 el('p', {}, 'Farmers, pilots and the Ladies’ Aid will bring you their questions. An old hand at Walla Walla, a few counties over, will talk you through the answers on the radio, one lesson a week.'),
               ]
-            : [el('p', {}, 'Six short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come.')]),
+            : [el('p', {}, `${training.length} short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come. Then ${seeding.length} on cloud seeding.`)]),
         ),
         nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.shifts[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
         el('h2', {}, 'Lessons'),
-        board,
+        boardOf(training),
+        el('h2', {}, 'Cloud seeding'),
+        el('p', {}, save.talk
+          ? 'Fifteen years on, word reaches Walla Walla that a fellow at General Electric has made it snow with dry ice. Harrow wants rain.'
+          : 'Once training is done: how a supercooled cloud can be made to snow, and what seeding can and can’t do.'),
+        boardOf(seeding),
         el(
           'div.seeding',
-          { className: `seeding ${allDone ? 'open' : 'locked'}` },
-          el('h2', {}, 'Cloud seeding'),
-          el('p', {}, save.talk
-            ? 'Fifteen years on, word reaches Walla Walla that a fellow at General Electric has made it snow with dry ice. Harrow wants rain. Set the moisture, the heat and the wind, and make the sky you’re asked for.'
-            : 'Once training is done: set the moisture, the heat and the wind, and make the sky you’re asked for.'),
+          { className: `seeding ${trained ? 'open' : 'locked'}` },
+          el('h2', {}, 'Make the sky'),
+          el('p', {}, 'Set the moisture, the heat and the wind, and make the sky you’re asked for.'),
           el('a.btn', { href: '#/seed' }, allDone ? 'Take the orders' : 'Try it before training is done'),
         ),
       ),
