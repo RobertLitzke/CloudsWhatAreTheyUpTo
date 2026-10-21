@@ -3,13 +3,15 @@
 // dealt again exactly.
 
 import { genus, type Floor, type GenusId } from './clouds';
-import { photosOf, type Photo } from './photos';
+import { mirrorFor, photosOf, type Photo } from './photos';
 import { shuffle, type Rng } from './rng';
 
 export interface Call {
   genus: GenusId;
   /** The photo to show, or null when the library has none for this genus and a drawing stands in. */
   photo: Photo | null;
+  /** Show the photo flipped left to right, for variety. */
+  mirrored: boolean;
   answer: Floor;
 }
 
@@ -35,7 +37,7 @@ export function dealFloorCalls(pool: readonly GenusId[], library: readonly Photo
     const choices = fresh.length ? fresh : mine;
     const photo = choices.length ? choices[Math.floor(rng() * choices.length)] : null;
     if (photo) used.add(photo.id);
-    calls.push({ genus: id, photo, answer: genus(id).floor });
+    calls.push({ genus: id, photo, mirrored: photo ? mirrorFor(photo, rng) : false, answer: genus(id).floor });
   }
   return calls;
 }

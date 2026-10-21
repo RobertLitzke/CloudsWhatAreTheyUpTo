@@ -11,13 +11,16 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import sharp from 'sharp';
 import { fileInfo, politeFetch } from './commons.ts';
-import { FEATURES, STORE_WIDTH } from './config.ts';
+import { FEATURES, STORE_WIDTH, WEBP } from './config.ts';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..', '..');
 const photoDir = path.join(root, 'public', 'photos');
-/** A pick is a file title, or a title with the genus it shows (for a rare cloud that forms on several). */
-type Pick = string | { title: string; genus: string };
+/**
+ * A pick is a file title, or a title with the genus it shows (for a rare cloud
+ * that forms on several) and noMirror for a photo with writing or a landmark in it.
+ */
+type Pick = string | { title: string; genus?: string; noMirror?: true };
 const picks: Record<string, Pick[]> = JSON.parse(await readFile(path.join(here, 'picks.json'), 'utf8'));
 
 await mkdir(photoDir, { recursive: true });
@@ -26,7 +29,9 @@ const keep = new Set<string>();
 
 for (const [key, list] of Object.entries(picks)) {
   const feature = Object.hasOwn(FEATURES, key) ? key : undefined;
-  const genusOf = new Map(list.map((p) => (typeof p === 'string' ? [p, feature ? FEATURES[key].genus : key] : [p.title, p.genus])));
+  const genusDefault = feature ? FEATURES[key].genus : key;
+  const genusOf = new Map(list.map((p) => (typeof p === 'string' ? [p, genusDefault] : [p.title, p.genus ?? genusDefault])));
+  const noMirror = new Set(list.flatMap((p) => (typeof p !== 'string' && p.noMirror ? [p.title] : [])));
   const infos = await fileInfo([...genusOf.keys()], STORE_WIDTH);
   // Commons returns files in its own order; keep the order they were picked in.
   const order = [...genusOf.keys()];
@@ -49,7 +54,7 @@ for (const [key, list] of Object.entries(picks)) {
     const out = await sharp(Buffer.from(await res.arrayBuffer()))
       .rotate()
       .resize({ width: STORE_WIDTH, withoutEnlargement: true })
-      .webp({ quality: 78 })
+      .webp(WEBP)
       .toBuffer({ resolveWithObject: true });
     await writeFile(path.join(photoDir, file), out.data);
     keep.add(file);
@@ -57,6 +62,7 @@ for (const [key, list] of Object.entries(picks)) {
       id,
       genus,
       ...(feature ? { feature } : {}),
+      ...(noMirror.has(info.title) ? { noMirror: true } : {}),
       file: `photos/${file}`,
       width: out.info.width,
       height: out.info.height,

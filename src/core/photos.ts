@@ -4,6 +4,7 @@
 // app shows them under the photo and on the Credits page.
 
 import { isGenusId, type GenusId } from './clouds';
+import type { Rng } from './rng';
 
 /**
  * Licences a photo may carry. Public domain and the attribution licences
@@ -37,6 +38,12 @@ export interface Photo {
    * cloud filed as altocumulus would be an unfair call.
    */
   feature?: FeatureId;
+  /**
+   * Set when the photo must not be shown mirrored: it has writing in it, or a
+   * landmark someone would know. Every other photo is flipped left to right
+   * half the time, so the same few photos make more different-looking cards.
+   */
+  noMirror?: true;
   /** Path relative to the page, e.g. photos/cumulus-01.webp. */
   file: string;
   width: number;
@@ -58,6 +65,7 @@ export function problems(p: Partial<Photo>): string[] {
   const out: string[] = [];
   if (!p.id || !/^[a-z0-9-]+$/.test(p.id)) out.push('id must be lower-case letters, digits and dashes');
   if (!p.genus || !isGenusId(p.genus)) out.push(`unknown genus ${p.genus}`);
+  if (p.noMirror !== undefined && p.noMirror !== true) out.push('noMirror must be true or left out');
   if (p.feature !== undefined && !FEATURES.includes(p.feature)) out.push(`unknown rare cloud ${p.feature}`);
   if (!p.file || !p.file.startsWith('photos/')) out.push('file must live under photos/');
   if (!p.author?.trim()) out.push('no author');
@@ -71,6 +79,11 @@ export function problems(p: Partial<Photo>): string[] {
 /** The everyday photos of a genus: the rare clouds are left out. */
 export function photosOf(library: readonly Photo[], id: GenusId): Photo[] {
   return library.filter((p) => p.genus === id && !p.feature);
+}
+
+/** Whether to show this photo mirrored this time. */
+export function mirrorFor(p: Photo, rng: Rng): boolean {
+  return !p.noMirror && rng() < 0.5;
 }
 
 export function photosOfFeature(library: readonly Photo[], id: FeatureId): Photo[] {

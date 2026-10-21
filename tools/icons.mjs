@@ -1,5 +1,6 @@
 // Make the PNG icons the manifest and iOS need from the poster
-// (art/poster.jpg): a square of the clouds with the seeding plane in it.
+// (art/poster.jpg): a square of the clouds with the seeding plane in it. Also
+// writes public/poster.webp, the whole poster as the loading screen shows it.
 // Run `npm run icons` after changing the poster or the crop.
 //
 // The maskable variant is the same square shrunk a little, because Android
@@ -25,12 +26,23 @@ async function render(size, out, inset = 1) {
     const front = await img.png().toBuffer();
     img = sharp(back).composite([{ input: front, gravity: 'center' }]);
   }
-  const png = await img.png({ compressionLevel: 9, palette: true, quality: 90 }).toBuffer();
+  const png = await img.png({ compressionLevel: 9, palette: true, quality: 90, effort: 10 }).toBuffer();
   await writeFile(path.join(iconsDir, out), png);
   return `${out} (${size}x${size}, ${(png.length / 1024).toFixed(1)} kB)`;
 }
 
+/** The loading screen fills a phone, so 900 wide is plenty even at 2x. */
+async function poster() {
+  const webp = await sharp(path.join(root, 'art', 'poster.jpg'))
+    .resize({ width: 900 })
+    .webp({ quality: 74, effort: 6, smartSubsample: true })
+    .toBuffer();
+  await writeFile(path.join(root, 'public', 'poster.webp'), webp);
+  return `poster.webp (900 wide, ${(webp.length / 1024).toFixed(1)} kB)`;
+}
+
 const results = await Promise.all([
+  poster(),
   render(192, 'icon-192.png'),
   render(512, 'icon-512.png'),
   render(512, 'icon-512-maskable.png', 0.8),

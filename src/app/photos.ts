@@ -19,11 +19,12 @@ export function credit(p: Photo): HTMLElement {
   );
 }
 
-export function photoFigure(p: Photo, alt: string): HTMLElement {
+/** A photo with its credit. `mirrored` flips the picture, never the credit. */
+export function photoFigure(p: Photo, alt: string, mirrored = false): HTMLElement {
   return el(
     'figure.photo',
     {},
-    el('img', { src: p.file, alt, width: p.width, height: p.height, decoding: 'async' }),
+    el('img', { src: p.file, alt, width: p.width, height: p.height, decoding: 'async', className: mirrored ? 'mirrored' : undefined }),
     el('figcaption', {}, credit(p)),
   );
 }

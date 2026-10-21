@@ -41,6 +41,16 @@ describe('dealFloorCalls', () => {
     expect(dealFloorCalls(['altocumulus'], [lens], 1, makeRng(1))[0].photo).toBeNull();
   });
 
+  it('mirrors about half the photos, but never one marked noMirror', () => {
+    const plain = photo('cirrus-01', 'cirrus');
+    const lettered = { ...photo('cirrus-02', 'cirrus'), noMirror: true as const };
+    const flips = dealFloorCalls(['cirrus'], [plain], 200, makeRng(3)).filter((c) => c.mirrored).length;
+    expect(flips).toBeGreaterThan(60);
+    expect(flips).toBeLessThan(140);
+    expect(dealFloorCalls(['cirrus'], [lettered], 50, makeRng(4)).some((c) => c.mirrored)).toBe(false);
+    expect(dealFloorCalls(['cirrus'], [], 5, makeRng(5)).some((c) => c.mirrored)).toBe(false);
+  });
+
   it('answers with the genus floor', () => {
     for (const c of dealFloorCalls(POOL, [], 4, makeRng(2))) {
       expect(c.answer).toBe({ cirrus: 'high', altocumulus: 'middle', stratus: 'low', cumulonimbus: 'tower' }[c.genus as string]);

@@ -2,6 +2,7 @@
 // each cloud, scheduled by spaced repetition (core/quiz.ts). A sitting is a
 // handful of cards; one missed comes back again before the sitting ends.
 
+import { mirrorFor } from '../../core/photos';
 import { buildDeck, deal, GAPS_DAYS, review, tally, type Card } from '../../core/quiz';
 import { makeRng, shuffle } from '../../core/rng';
 import { el } from '../dom';
@@ -91,7 +92,7 @@ export const quizView: View = (root) => {
         });
         return b;
       });
-      if (card.photo) body.append(photoFigure(card.photo, 'A cloud to name'));
+      if (card.photo) body.append(photoFigure(card.photo, 'A cloud to name', mirrorFor(card.photo, Math.random)));
       body.append(
         el('p.task', {}, card.question),
         el('div.answer-list', {}, buttons),

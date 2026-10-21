@@ -30,5 +30,10 @@ export const FEATURES: Record<string, { genus: string; categories: string[] }> =
 
 /** Candidates narrower than this are skipped: they would look soft on a phone. */
 export const MIN_WIDTH = 1200;
-/** The width photos are stored at. */
-export const STORE_WIDTH = 1280;
+/**
+ * The width photos are stored at. Photos never show wider than about 700 CSS
+ * pixels, so 1024 is sharp on a phone at 2x and a third the bytes of 1280.
+ */
+export const STORE_WIDTH = 1024;
+/** WebP settings: quality 70 with the slowest, smallest encoder. */
+export const WEBP = { quality: 70, effort: 6, smartSubsample: true } as const;

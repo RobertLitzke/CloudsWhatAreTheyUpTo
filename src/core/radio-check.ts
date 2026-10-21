@@ -10,6 +10,7 @@ import { dealFloorCalls } from './photo-call';
 export interface NameCall {
   genus: GenusId;
   photo: Photo | null;
+  mirrored: boolean;
   options: GenusId[];
 }
 
@@ -32,6 +33,7 @@ export function dealNameCalls(pool: readonly GenusId[], known: readonly GenusId[
   return dealFloorCalls(pool, library, count, rng).map((c) => ({
     genus: c.genus,
     photo: c.photo,
+    mirrored: c.mirrored,
     options: nameOptions(c.genus, known, size, rng),
   }));
 }

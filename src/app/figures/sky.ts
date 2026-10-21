@@ -175,8 +175,8 @@ export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
 
 // ---- The radio check -------------------------------------------------------------
 
-function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number): HTMLElement {
-  if (photo) return photoFigure(photo, 'A cloud to identify');
+function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number, mirrored: boolean): HTMLElement {
+  if (photo) return photoFigure(photo, 'A cloud to identify', mirrored);
   const scene = makeScene({ time: 'day', seed: 30 + i, town: false, sun: [0.15, 0.25] });
   const spot = SKY_SPOTS[id];
   addToSky(scene.sky, placeCloud(id, scene.palette, SW / 2, spot.y, spot.scale, i + 1));
@@ -203,10 +203,10 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
   const body = el('div');
   const node = el('div.fig-body.radio-check', {}, pic, body);
   const calls = mode === 'floor'
-    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, options: FLOOR_BUTTONS.map((b) => b.id as string) }))
+    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: FLOOR_BUTTONS.map((b) => b.id as string) }))
     : mode === 'spot'
-    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, options: [target!, 'other'] }))
-    : dealNameCalls(pool, known, PHOTOS, count, size, rng).map((c) => ({ genus: c.genus, photo: c.photo, options: c.options as string[] }));
+    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: [target!, 'other'] }))
+    : dealNameCalls(pool, known, PHOTOS, count, size, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: c.options as string[] }));
   let right = 0;
   let i = 0;
   const next = () => {
@@ -219,7 +219,7 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
     const call = calls[i];
     const g = genus(call.genus);
     const answer = mode === 'floor' ? g.floor : mode === 'spot' && g.id !== target ? 'other' : g.id;
-    pic.replaceChildren(picture(call.genus, call.photo, i));
+    pic.replaceChildren(picture(call.genus, call.photo, i, call.mirrored));
     const labelOf = (o: string) => (mode === 'floor' ? FLOOR_BUTTONS.find((b) => b.id === o)!.label : o === 'other' ? 'Something else' : genus(o as GenusId).name);
     const buttons = call.options.map((o) => {
       const b = el('button.btn.btn-ghost', { type: 'button' }, labelOf(o)) as HTMLButtonElement;

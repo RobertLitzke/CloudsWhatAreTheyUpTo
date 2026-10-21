@@ -457,6 +457,7 @@ body.radio-up main { padding-bottom: 50vh; }
 
 .photo { margin: 0; background: #000; }
 .photo img { display: block; width: 100%; height: auto; aspect-ratio: 400 / 260; object-fit: cover; }
+.photo img.mirrored { transform: scaleX(-1); }
 .photo figcaption { background: var(--bg); padding: 4px 16px 22px; }
 .credit { font-size: 0.72rem; color: var(--muted); margin: 0; }
 .credit a { color: var(--muted); }
