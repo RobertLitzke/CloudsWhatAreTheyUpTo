@@ -19,7 +19,7 @@ export function redraw(g: SVGElement, ...children: (SVGElement | null | false)[]
   g.replaceChildren(...(children.filter(Boolean) as SVGElement[]));
 }
 
-// ---- Text ---------------------------------------------------------------------
+// ---- Text -------------------------------------------------------------------
 
 export interface TextStyle {
   /** 9 px or 10 px; 11 px when absent. */
@@ -55,7 +55,7 @@ export const note = (x: number, y: number, text: string, style: TextStyle = {}) 
 /** A bold title, centred on x. */
 export const heading = (x: number, y: number, text: string, style: TextStyle = {}) => label(x, y, text, { bold: true, anchor: 'middle', ...style });
 
-// ---- Lines --------------------------------------------------------------------
+// ---- Lines ------------------------------------------------------------------
 
 export function line(x1: number, y1: number, x2: number, y2: number, stroke: string, width = 1.5, extra: Attrs = {}): SVGElement {
   return svg('line', { x1, y1, x2, y2, stroke, 'stroke-width': width, 'stroke-linecap': 'round', ...extra });
@@ -95,7 +95,7 @@ export function curve(a: P, c: P, b: P, n = 40): P[] {
   });
 }
 
-// ---- Shapes -------------------------------------------------------------------
+// ---- Shapes -----------------------------------------------------------------
 
 /** A hexagon of radius `r`, with a corner at angle `turn` (radians). */
 export function hexagon(cx: number, cy: number, r: number, attrs: Attrs, turn = 0): SVGElement {

@@ -1,15 +1,17 @@
 // Every figure a shift can use, by the id core/shifts.ts names it with.
 
 import type { FigureId } from '../../core/shifts';
-import { freezingFigure, jarFigure, parcelFigure, soundingFigure, thermalsFigure } from './air';
-import { billowFigure, flashFigure, mammaFigure, stormFigure, waveFigure } from './giants';
-import { burnOffDiagram, chargeDiagram, collideDiagram, dayNightDiagram, densityDiagram, depthDiagram, edgesDiagram, escapeDiagram, expandDiagram, fogStratusDiagram, freezeSeedsDiagram, glideDiagram, heapDiagram, inversionDiagram, kettleDiagram, latentDiagram, layerKindsDiagram, millionDiagram, moleculesDiagram, nameGridDiagram, overturnDiagram, snowToRainDiagram, specksDiagram, stabilityDiagram, subsidenceDiagram, tropopauseDiagram } from './diagrams';
+import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inversionDiagram, jarFigure, kettleDiagram, moleculesDiagram, nightFigure, specksDiagram } from './fog';
 import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, occlusionDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
-import { agentRangeDiagram, cloudWaterDiagram, coldBoxFigure, conveyorDiagram, dryIceDiagram, fairTestDiagram, fallstreakDiagram, fogHoleDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure, seedWindowDiagram, trialFigure } from './cold-cloud';
-import { frontFigure, haloFigure, iceGrowthFigure, prismFigure, streaksFigure } from './ice';
+import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, tropopauseDiagram, waveFigure } from './giants';
+import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, stabilityDiagram, thermalsFigure } from './heaps';
+import { escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, iceGrowthFigure, prismFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
+import { collideDiagram, depthDiagram, dropsFigure, edgesDiagram, freezingFigure, layerKindsDiagram, millionDiagram, nameGridDiagram, spreadFigure, subsidenceDiagram } from './low-sky';
+import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughFigure } from './middle-sky';
+import { forecastFigure, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
+import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure } from './seeding';
+import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
 import type { FigureFactory } from './kit';
-import { dropsFigure, handFigure, nightFigure, nudgeFigure, shadowFigure, spreadFigure, sunThroughFigure } from './layers';
-import { forecastFigure, namesFigure, radioCheckFigure, sortFigure } from './sky';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
   jar: jarFigure,

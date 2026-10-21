@@ -1,13 +1,135 @@
-// Figures about the vertical giants and the rare ones: a thunderstorm's life,
-// counting the seconds to the thunder, standing waves over a ridge, wind-shear
-// billows, and mammatus pouches under an anvil.
+// Figures about the vertical giants and the rare ones: how tall heaps grow,
+// a thunderstorm's life, counting the seconds to the thunder, standing waves
+// over a ridge, wind-shear billows, mammatus pouches under an anvil, and
+// stills of the tropopause and a storm's charges.
 
-import { strikeKm } from '../../core/sky';
+import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { svg } from '../dom';
-import { heapAt, line, points, redraw, small } from './draw';
-import { COL, animate, figure, frame, slider } from './kit';
+import { arrow, heading, heapAt, line, points, polyline, redraw, small, still } from './draw';
+import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
+import { strikeKm } from '../../core/sky';
 
-// ---- A thunderstorm's life ------------------------------------------------------
+// ---- How tall the clouds grow -----------------------------------------------
+
+export const soundingFigure = figure(['cumulonimbus', 'humilis', 'mediocris', 'congestus'], (ctx, t) => {
+  const W = 400;
+  const H = 300;
+  const f = frame(W, H, 2);
+  const top = 12000;
+  const bottom = 276;
+  const yOf = (m: number) => bottom - (m / top) * 262;
+  const cx0 = 44;
+  const cx1 = 262;
+  const tMin = -60;
+  const tMax = 36;
+  const xOf = (c: number) => cx0 + ((c - tMin) / (tMax - tMin)) * (cx1 - cx0);
+  const env: Environment = { dawnC: 12, lapsePerKm: 6, groundC: 20, inversion: { atM: 2400, deltaC: 3 } };
+  let dewC = 9;
+
+  const grid = svg('g');
+  for (let m = 0; m <= top; m += 2000) {
+    grid.append(line(cx0, yOf(m), cx1, yOf(m), COL.grid, 1));
+    grid.append(small(cx0 - 4, yOf(m) + 3, height(m, ctx.save.units), { anchor: 'end' }));
+  }
+  for (let c = -60; c <= 30; c += 30) {
+    grid.append(line(xOf(c), yOf(0), xOf(c), yOf(top), COL.grid, 1));
+    grid.append(small(xOf(c), bottom + 14, `${c}°`, { anchor: 'middle' }));
+  }
+  const live = svg('g');
+  f.svg.append(
+    svg('rect', { x: 276, y: 0, width: W - 276, height: bottom, fill: '#e3eff3' }),
+    svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: 'transparent' }),
+    svg('rect', { x: 276, y: bottom, width: W - 276, height: H - bottom, fill: COL.ground }),
+    grid,
+    live,
+  );
+
+  const curve = (fn: (m: number) => number, to = top, step = 100): [number, number][] => {
+    const pts: [number, number][] = [];
+    for (let m = 0; m <= to; m += step) pts.push([xOf(fn(m)), yOf(m)]);
+    return pts;
+  };
+  const paint = () => {
+    const col = column(env, dewC);
+    const start = env.groundC + 0.5;
+    const stop = col.topM;
+    const parcelPts = curve((m) => parcelAt(m, start, dewC).tempC, stop, 50);
+    const base = cloudBase(start, dewC);
+    const dewPts = curve((m) => parcelAt(m, start, dewC).dewC, Math.min(base, stop), 50);
+    const cloudX = 338;
+    let cloud: SVGElement | null = null;
+    if (col.baseM != null) {
+      const h = yOf(col.baseM) - yOf(col.topM);
+      cloud = svg('g', {}, heapAt(cloudX, yOf(col.baseM), 22 + Math.min(30, h * 0.18), Math.max(10, h)));
+      if (col.kind === 'cumulonimbus') {
+        const ay = yOf(Math.min(col.topM, 11000));
+        cloud.append(svg('polygon', { points: `${cloudX - 24},${ay + 6} ${cloudX - 56},${ay} ${cloudX + 60},${ay - 2} ${cloudX + 28},${ay + 8}`, fill: COL.cloud, stroke: COL.cloudShade }));
+        for (const dx of [-14, -4, 6, 16]) cloud.append(line(cloudX + dx, yOf(col.baseM), cloudX + dx - 4, bottom, COL.rain, 1.5, { opacity: 0.7 }));
+      }
+    }
+    redraw(live,
+      polyline(curve((m) => dawnTemp(m, env)), COL.env, 1.5, { 'stroke-dasharray': '4 4', opacity: 0.7 }),
+      polyline(curve((m) => envTemp(m, env)), COL.env, 2.5),
+      polyline(dewPts, COL.dew, 2.5),
+      polyline(parcelPts, COL.parcel, 2.5),
+      col.baseM != null ? line(cx0, yOf(col.baseM), W, yOf(col.baseM), COL.ink, 1, { 'stroke-dasharray': '6 4', opacity: 0.6 }) : null,
+      line(cx0, yOf(col.topM), W, yOf(col.topM), COL.ink, 1, { 'stroke-dasharray': '2 3', opacity: 0.6 }),
+      small(cx1 - 2, yOf(mixedTop(env)) + 12, 'stirred layer', { soft: true, anchor: 'end' }),
+      cloud,
+    );
+    const names: Record<string, string> = {
+      none: 'No cloud: the thermals stop before they reach their dew point',
+      humilis: 'Cumulus humilis: small, flat, fair-weather heaps',
+      mediocris: 'Cumulus mediocris: heaps as tall as they are wide',
+      congestus: 'Cumulus congestus: towering, sprouting cauliflower tops',
+      cumulonimbus: 'Cumulonimbus: the top has frozen into an anvil of ice',
+    };
+    f.readout.textContent = `${names[col.kind]}.` + (col.baseM != null ? ` Base ${height(col.baseM, ctx.save.units)}, top ${height(col.topM, ctx.save.units)}.` : ` They stop at ${height(col.topM, ctx.save.units)}.`);
+    if (t.goal && col.kind === t.goal) t.done();
+  };
+  f.controls.append(
+    slider('Sun', 14, 32, 0.5, env.groundC, (v) => `${v} °C at the ground`, (v) => { env.groundC = v; paint(); }, 'sun').node,
+    slider('Moisture', 2, 16, 0.5, dewC, (v) => `dew point ${v} °C`, (v) => { dewC = v; paint(); }, 'dew').node,
+    slider('Lid', 0, 5, 0.5, env.inversion!.deltaC, (v) => (v === 0 ? 'none' : `${v} °C warmer above`), (v) => { env.inversion = v ? { atM: 2400, deltaC: v } : undefined; paint(); }, 'env').node,
+  );
+  if (t.goal === 'cumulonimbus') {
+    f.controls.append(slider('Instability', 5, 7.5, 0.1, env.lapsePerKm, (v) => `air cools ${v.toFixed(1)} °C/km`, (v) => { env.lapsePerKm = v; paint(); }, 'env').node);
+  }
+  paint();
+  return f.node;
+});
+
+// ---- The lid at the top of the weather --------------------------------------
+
+export const tropopauseDiagram: FigureFactory = () => {
+  const d = still(400, 250);
+  const ground = 230;
+  const yOf = (km: number) => ground - km * 13.5;
+  const xOf = (c: number) => 262 + (c + 60) * 1.6;
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: yOf(11), fill: '#e6e2f3' }),
+    svg('rect', { x: 0, y: yOf(11), width: 400, height: ground - yOf(11), fill: COL.air }),
+    svg('rect', { x: 0, y: ground, width: 400, height: 20, fill: COL.ground }),
+    line(0, yOf(11), 400, yOf(11), COL.env, 1.4, { 'stroke-dasharray': '5 4' }),
+    // A storm tower whose top spreads into an anvil under the lid.
+    svg('path', { d: `M60,${ground} L60,${yOf(4)} Q50,${yOf(8)} 80,${yOf(10)} L20,${yOf(10.6)} Q90,${yOf(11.6)} 200,${yOf(10.8)} L120,${yOf(10)} Q150,${yOf(7)} 130,${yOf(4)} L130,${ground} Z`, fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 1.2 }),
+    arrow(95, yOf(2), 95, yOf(9.6), COL.parcel, 2.2),
+    arrow(110, yOf(10.4), 180, yOf(10.5), COL.parcel, 1.6),
+    // The temperature profile.
+    line(xOf(-60), 20, xOf(-60), ground, COL.ink, 1),
+    polyline([[xOf(20), yOf(0)], [xOf(-55), yOf(11)], [xOf(-55), yOf(13)], [xOf(-45), yOf(16)]], COL.env, 2.4),
+    heading(325, 16, 'Temperature'),
+    small(6, yOf(15.6), 'stratosphere: warmer going up', { fill: COL.env }),
+    small(142, yOf(3), 'troposphere:', { soft: true }),
+    small(142, yOf(2), 'colder going up', { soft: true }),
+    small(396, yOf(11) + 12, 'tropopause, 10–12 km', { anchor: 'end', fill: COL.env }),
+    small(6, yOf(12.6), 'the tower can’t climb on: its top spreads into an anvil'),
+    small(396, ground + 14, 'warmer →', { anchor: 'end', fill: '#fff' }),
+  );
+  return { node: d.node };
+};
+
+// ---- A thunderstorm's life --------------------------------------------------
 
 export const stormFigure = figure(['end'], (_ctx, t) => {
   const W = 400;
@@ -70,7 +192,33 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
   return f.node;
 });
 
-// ---- Flash, then bang ------------------------------------------------------------
+// ---- Where a storm keeps its charge -----------------------------------------
+
+export const chargeDiagram: FigureFactory = () => {
+  const d = still(400, 240);
+  const ground = 218;
+  const sign = (x: number, y: number, plus: boolean) => heading(x, y, plus ? '+' : '−', { fill: plus ? COL.redInk : COL.blue });
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#dfe3ec' }),
+    svg('rect', { x: 0, y: ground, width: 400, height: 22, fill: COL.ground }),
+    svg('path', { d: `M110,170 L100,90 Q100,50 70,44 L40,38 Q140,20 300,34 L230,46 Q200,60 210,100 L220,170 Q165,182 110,170 Z`, fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 1.4 }),
+    ...[[90, 40], [130, 36], [170, 34], [210, 36], [250, 36]].map(([x, y]) => sign(x, y + 4, true)),
+    ...[[130, 120], [160, 128], [190, 120], [145, 140], [175, 142]].map(([x, y]) => sign(x, y, false)),
+    small(260, 24, 'light ice crystals: +', { fill: COL.redInk }),
+    small(260, 36, 'swept up into the anvil', { fill: COL.redInk }),
+    small(165, 158, 'heavier soft hail: −', { anchor: 'middle', fill: COL.blue }),
+    polyline([[160, 172], [150, 190], [164, 196], [152, ground]], '#f2c12e', 3),
+    polyline([[292, 40], [302, 100], [290, 120], [306, 180], [296, 200], [304, ground]], '#f2c12e', 2.4),
+    small(316, 150, 'a bolt from'),
+    small(316, 162, 'the anvil can'),
+    small(316, 174, 'land 10 km off'),
+    small(20, 200, 'collisions in the cold middle', { soft: true }),
+    small(20, 212, 'sort the charges apart', { soft: true }),
+  );
+  return { node: d.node };
+};
+
+// ---- Flash, then bang -------------------------------------------------------
 
 export const flashFigure = figure(['strike'], (ctx, t) => {
   const W = 400;
@@ -126,7 +274,7 @@ export const flashFigure = figure(['strike'], (ctx, t) => {
   return f.node;
 });
 
-// ---- Waves over a ridge -----------------------------------------------------------
+// ---- Waves over a ridge -----------------------------------------------------
 
 export const waveFigure = figure(['lens'], (_ctx, t) => {
   const W = 400;
@@ -193,7 +341,34 @@ export const waveFigure = figure(['lens'], (_ctx, t) => {
   return f.node;
 });
 
-// ---- Kelvin-Helmholtz billows ---------------------------------------------------
+// ---- Mammatus ---------------------------------------------------------------
+
+export const mammaFigure = figure(['pouches'], (_ctx, t) => {
+  const W = 400;
+  const H = 180;
+  const f = frame(W, H, 4);
+  const g = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9b48f' }), g);
+  const paint = (sink: number) => {
+    const parts: SVGElement[] = [svg('rect', { x: 0, y: 0, width: W, height: 60, fill: '#8f6f8e' })];
+    for (let i = 0; i < 12; i++) {
+      const cx = 18 + i * 34 + (i % 2) * 6;
+      const r = 10 + sink * 10;
+      parts.push(svg('ellipse', { cx, cy: 58 + sink * 14, rx: r + 4, ry: 6 + sink * 22, fill: '#a07c98' }));
+      parts.push(svg('ellipse', { cx: cx - 3, cy: 56 + sink * 10, rx: r, ry: 3 + sink * 14, fill: '#b98fa8', opacity: 0.8 }));
+    }
+    redraw(g, ...parts);
+    f.readout.textContent = sink < 0.3
+      ? 'The underside of an anvil, smooth while little is happening.'
+      : 'Mammatus: pouches of cold, cloudy air sinking from the anvil’s base, an upside-down cumulus. Ominous, but usually a sign the storm is moving away.';
+    if (t.goal === 'pouches' && sink >= 0.6) t.done();
+  };
+  f.controls.append(slider('Sinking air', 0, 1, 0.01, 0.1, (v) => (v < 0.3 ? 'little' : v < 0.6 ? 'some' : 'a lot'), paint, 'ice').node);
+  paint(0.1);
+  return f.node;
+});
+
+// ---- Kelvin-Helmholtz billows -----------------------------------------------
 
 export const billowFigure = figure(['curl'], (ctx, t) => {
   const W = 400;
@@ -233,32 +408,5 @@ export const billowFigure = figure(['curl'], (ctx, t) => {
   };
   f.controls.append(slider('Difference in wind', 0, 1, 0.01, shear, (v) => (v < 0.3 ? 'small' : v < 0.6 ? 'large' : 'very large'), (v) => { shear = v; paint(); }, 'ice').node);
   paint();
-  return f.node;
-});
-
-// ---- Mammatus --------------------------------------------------------------------
-
-export const mammaFigure = figure(['pouches'], (_ctx, t) => {
-  const W = 400;
-  const H = 180;
-  const f = frame(W, H, 4);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9b48f' }), g);
-  const paint = (sink: number) => {
-    const parts: SVGElement[] = [svg('rect', { x: 0, y: 0, width: W, height: 60, fill: '#8f6f8e' })];
-    for (let i = 0; i < 12; i++) {
-      const cx = 18 + i * 34 + (i % 2) * 6;
-      const r = 10 + sink * 10;
-      parts.push(svg('ellipse', { cx, cy: 58 + sink * 14, rx: r + 4, ry: 6 + sink * 22, fill: '#a07c98' }));
-      parts.push(svg('ellipse', { cx: cx - 3, cy: 56 + sink * 10, rx: r, ry: 3 + sink * 14, fill: '#b98fa8', opacity: 0.8 }));
-    }
-    redraw(g, ...parts);
-    f.readout.textContent = sink < 0.3
-      ? 'The underside of an anvil, smooth while little is happening.'
-      : 'Mammatus: pouches of cold, cloudy air sinking from the anvil’s base, an upside-down cumulus. Ominous, but usually a sign the storm is moving away.';
-    if (t.goal === 'pouches' && sink >= 0.6) t.done();
-  };
-  f.controls.append(slider('Sinking air', 0, 1, 0.01, 0.1, (v) => (v < 0.3 ? 'little' : v < 0.6 ? 'some' : 'a lot'), paint, 'ice').node);
-  paint(0.1);
   return f.node;
 });

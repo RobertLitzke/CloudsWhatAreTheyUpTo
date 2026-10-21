@@ -12,7 +12,7 @@ import { PALETTES } from '../scene/landscape';
 import { arrow, curve, heading, label, line, note, points, polyline, redraw, still, type P } from './draw';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 
-// ---- Shared bits ---------------------------------------------------------------
+// ---- Shared bits ------------------------------------------------------------
 
 /** The land on a weather map, and an occluded front on it. */
 const MAP = '#eef0e6';
@@ -61,7 +61,7 @@ function town(x: number, y: number, color: string = COL.ink): SVGElement {
   );
 }
 
-// ---- A storm seen from above -------------------------------------------------------
+// ---- A storm seen from above ------------------------------------------------
 
 export const lowMapDiagram: FigureFactory = () => {
   const d = still(400, 290);
@@ -125,7 +125,7 @@ export const lowMapDiagram: FigureFactory = () => {
   return { node: d.node };
 };
 
-// ---- What a barometer weighs -----------------------------------------------------
+// ---- What a barometer weighs ------------------------------------------------
 
 export const barometerDiagram: FigureFactory = () => {
   const d = still(400, 250);
@@ -224,7 +224,7 @@ export const barographDiagram: FigureFactory = () => {
   return { node: d.node };
 };
 
-// ---- A whole storm goes by ----------------------------------------------------------
+// ---- A whole storm goes by --------------------------------------------------
 
 const SKY_FILL: Partial<Record<GenusId, string>> = {
   cirrus: '#ffffff',
@@ -443,7 +443,7 @@ export const frontPassFigure = figure(['pass'], (ctx, t) => {
   return f.node;
 });
 
-// ---- How steep a front is ----------------------------------------------------------
+// ---- How steep a front is ---------------------------------------------------
 
 export const slopeFigure = figure(['towers'], (ctx, t) => {
   const W = 400;
@@ -539,7 +539,7 @@ export const slopeFigure = figure(['towers'], (ctx, t) => {
   return f.node;
 });
 
-// ---- Crossed winds ------------------------------------------------------------------
+// ---- Crossed winds ----------------------------------------------------------
 
 export const crossedWindsDiagram: FigureFactory = () => {
   const d = still(400, 252);
@@ -577,7 +577,7 @@ export const crossedWindsDiagram: FigureFactory = () => {
   return { node: d.node };
 };
 
-// ---- Buys Ballot's rule, and the wind veering through a storm -----------------------
+// ---- Buys Ballot's rule, and the wind veering through a storm ---------------
 
 export const buysBallotDiagram: FigureFactory = () => {
   const d = still(400, 220);
@@ -640,7 +640,7 @@ export const veerDiagram: FigureFactory = () => {
   return { node: d.node };
 };
 
-// ---- Warm and cold fronts side by side, and the occluded front ------------------------
+// ---- Warm and cold fronts side by side, and the occluded front --------------
 
 export const twoFrontsDiagram: FigureFactory = () => {
   const d = still(400, 244);
@@ -756,7 +756,7 @@ export const occlusionDiagram: FigureFactory = () => {
   return { node: d.node };
 };
 
-// ---- Over the Cascades ----------------------------------------------------------------
+// ---- Over the Cascades ------------------------------------------------------
 
 export const rainShadowFigure = figure(['shadow'], (ctx, t) => {
   const W = 400;

@@ -51,7 +51,7 @@ function hint(id: GenusId): string {
   }
 }
 
-// ---- File clouds onto their floors -------------------------------------------
+// ---- File clouds onto their floors ------------------------------------------
 
 export const sortFigure = quiz((ctx, t, options) => {
   const clouds = (options?.clouds as GenusId[]) ?? ['cirrus', 'altocumulus', 'stratus', 'cumulus', 'cumulonimbus'];
@@ -106,7 +106,7 @@ export const sortFigure = quiz((ctx, t, options) => {
   return node;
 });
 
-// ---- Build a name ---------------------------------------------------------------
+// ---- Build a name -----------------------------------------------------------
 
 export const namesFigure = quiz((_ctx, t, options) => {
   const targets = (options?.targets as { clue: string; prefix: Prefix; body: Body }[]) ?? [];
@@ -172,7 +172,7 @@ export const namesFigure = quiz((_ctx, t, options) => {
   return el('div.fig-body', {}, el('div.fig-scene', {}, scene.root), body);
 });
 
-// ---- The radio check -------------------------------------------------------------
+// ---- The radio check --------------------------------------------------------
 
 function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number, mirrored: boolean): HTMLElement {
   if (photo) return photoFigure(photo, 'A cloud to identify', mirrored);
@@ -246,7 +246,7 @@ export const radioCheckFigure = quiz((ctx, t, options) => {
   return node;
 });
 
-// ---- Forecasting from the sky ------------------------------------------------------
+// ---- Forecasting from the sky -----------------------------------------------
 
 
 /** A slice up through the air: height, the freezing level, temperatures, and the cloud. */

@@ -181,6 +181,9 @@ export function height(m: number, units: SaveData['units']): string {
   return `${feet(m).toLocaleString()} ft`;
 }
 
+/** A whole-degree temperature with a proper minus sign. */
+export const deg = (c: number) => `${c < 0 ? '−' : ''}${Math.abs(c)} °C`;
+
 export function temp(c: number): string {
   return `${c.toFixed(1)} °C`;
 }

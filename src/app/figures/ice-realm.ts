@@ -1,19 +1,73 @@
 // Figures about the ice realm: an ice crystal growing among supercooled
-// droplets, falling crystals smeared into mares' tails, the
-// prism that makes the 22° halo, the halo itself building up crystal by crystal,
-// and a warm front sliding in overhead.
+// droplets, falling crystals smeared into mares' tails, the prism that makes
+// the 22° halo, the halo building up crystal by crystal, a warm front sliding
+// in overhead, and stills of what makes a droplet freeze, why ice wins the
+// vapour, and snow becoming rain.
 
+import { svg } from '../dom';
+import { genus } from '../../core/clouds';
+import { drawCloud } from '../scene/drawn';
+import { PALETTES } from '../scene/landscape';
+import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, redraw, small, still } from './draw';
+import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 import { fullOverIce, fullOverWater } from '../../core/air';
 import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
-import { genus } from '../../core/clouds';
-import { svg } from '../dom';
-import { drawCloud } from '../scene/drawn';
-import { PALETTES } from '../scene/landscape';
-import { crystal, hexagon, label, line, points, polyline, redraw, small } from './draw';
-import { COL, animate, figure, frame, height, slider } from './kit';
 
-// ---- An ice crystal among supercooled droplets ---------------------------------
+// ---- What makes a droplet freeze --------------------------------------------
+
+export const freezeSeedsDiagram: FigureFactory = () => {
+  const d = still(400, 200);
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: COL.air }),
+    line(200, 0, 200, 176, '#fff', 2),
+    heading(100, 22, 'On salt or soot'),
+    svg('circle', { cx: 100, cy: 92, r: 40, fill: COL.rain, opacity: 0.3, stroke: COL.rain, 'stroke-width': 2 }),
+    svg('rect', { x: 92, y: 84, width: 16, height: 16, fill: COL.dust }),
+    small(100, 152, 'Wrong shape: no template.', { anchor: 'middle' }),
+    small(100, 166, 'Stays liquid, supercooled.', { anchor: 'middle', fill: COL.rain }),
+    heading(300, 22, 'On a rare dust grain'),
+    hexagon(300, 92, 40, { fill: '#eef5ff', stroke: COL.ice, 'stroke-width': 2 }, Math.PI / 6),
+    hexagon(300, 92, 10, { fill: '#a7845b' }, Math.PI / 6),
+    small(300, 152, 'Its atoms line up like ice:', { anchor: 'middle' }),
+    small(300, 166, 'the droplet freezes.', { anchor: 'middle', fill: COL.ice }),
+    small(200, 190, 'About one speck in a million can do this. Below −38 °C, every droplet freezes anyway.', { soft: true, anchor: 'middle' }),
+  );
+  return { node: d.node };
+};
+
+// ---- Ice holds its molecules tighter ----------------------------------------
+
+export const escapeDiagram: FigureFactory = () => {
+  const d = still(400, 210);
+  const mol = (x: number, y: number) => svg('circle', { cx: x, cy: y, r: 2.6, fill: COL.dew });
+  const out = (cx: number, cy: number, r: number, angles: number[]) => angles.flatMap((a) => {
+    const x = cx + (r + 4) * Math.cos(a);
+    const y = cy + (r + 4) * Math.sin(a);
+    return [arrow(x, y, x + 16 * Math.cos(a), y + 16 * Math.sin(a), COL.parcel, 1.3), mol(x + 20 * Math.cos(a), y + 20 * Math.sin(a))];
+  });
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: COL.air }),
+    heading(100, 22, 'Supercooled droplet'),
+    heading(300, 22, 'Ice crystal'),
+    svg('circle', { cx: 100, cy: 96, r: 34, fill: COL.rain, opacity: 0.35, stroke: COL.rain, 'stroke-width': 2 }),
+    ...out(100, 96, 34, [0.2, 1.1, 2.0, 2.9, 3.8, 4.6, 5.5]),
+    hexagon(300, 96, 34, { fill: '#f4f9ff', stroke: COL.ice, 'stroke-width': 2 }),
+    ...out(300, 96, 34, [0.9, 3.6]),
+    small(100, 160, 'Molecules escape easily,', { anchor: 'middle' }),
+    small(100, 173, 'so it needs more vapour', { anchor: 'middle' }),
+    small(100, 186, 'around to stay in balance', { anchor: 'middle' }),
+    small(300, 160, 'Locked in the lattice, few', { anchor: 'middle' }),
+    small(300, 173, 'escape: less vapour is', { anchor: 'middle' }),
+    small(300, 186, 'enough to make it grow', { anchor: 'middle' }),
+    arrow(146, 60, 254, 60, COL.dew, 2),
+    small(200, 52, 'vapour drifts over', { anchor: 'middle', fill: COL.dew }),
+    small(200, 204, 'At −12 °C, air just right for the droplet has 13% more vapour than the ice needs.', { soft: true, anchor: 'middle' }),
+  );
+  return { node: d.node };
+};
+
+// ---- An ice crystal among supercooled droplets ------------------------------
 
 export const iceGrowthFigure = figure(['fall'], (ctx, t) => {
   const W = 400;
@@ -74,7 +128,36 @@ export const iceGrowthFigure = figure(['fall'], (ctx, t) => {
   return f.node;
 });
 
-// ---- Mares' tails -------------------------------------------------------------
+// ---- Snow becomes rain ------------------------------------------------------
+
+export const snowToRainDiagram: FigureFactory = () => {
+  const d = still(400, 250);
+  const ground = 228;
+  const freeze = 150;
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: COL.air }),
+    svg('rect', { x: 20, y: 18, width: 250, height: 150, rx: 14, fill: '#e1deea' }),
+    svg('rect', { x: 20, y: 40, width: 250, height: 36, fill: '#d3e1f3', opacity: 0.8 }),
+    line(0, freeze, 400, freeze, COL.dew, 1.4, { 'stroke-dasharray': '5 4' }),
+    svg('rect', { x: 0, y: ground, width: 400, height: 22, fill: COL.ground }),
+    flake(140, 56, 4, COL.ice, 1.6), flake(140, 96, 7, COL.ice, 1.6), flake(140, 128, 10, COL.ice, 1.6),
+    svg('ellipse', { cx: 140, cy: 160, rx: 9, ry: 7, fill: COL.rain, opacity: 0.6 }),
+    svg('rect', { x: 110, y: 152, width: 60, height: 16, fill: COL.sun, opacity: 0.25 }),
+    svg('circle', { cx: 140, cy: 192, r: 3, fill: COL.rain }),
+    svg('circle', { cx: 140, cy: 214, r: 3, fill: COL.rain }),
+    small(280, 50, '−10 to −15 °C: ice crystals', { fill: COL.ice }),
+    small(280, 63, 'grow fastest', { fill: COL.ice }),
+    small(280, 100, 'they fall, catch droplets', { fill: COL.ink }),
+    small(280, 113, 'and clump into snowflakes', { fill: COL.ink }),
+    small(396, freeze - 6, '0 °C: freezing level', { anchor: 'end', fill: COL.dew }),
+    small(280, 168, 'melting: a bright band', { fill: COL.sunInk }),
+    small(280, 181, 'on weather radar', { fill: COL.sunInk }),
+    small(280, 206, 'raindrops', { fill: COL.rain }),
+  );
+  return { node: d.node };
+};
+
+// ---- Mares' tails -----------------------------------------------------------
 
 export const streaksFigure = figure(['hooks'], (ctx, t) => {
   const W = 400;
@@ -132,7 +215,7 @@ export const streaksFigure = figure(['hooks'], (ctx, t) => {
   return f.node;
 });
 
-// ---- One prism -----------------------------------------------------------------
+// ---- One prism --------------------------------------------------------------
 
 const add = (a: V, b: V): V => [a[0] + b[0], a[1] + b[1]];
 const mul = (a: V, k: number): V => [a[0] * k, a[1] * k];
@@ -226,7 +309,7 @@ export const prismFigure = figure(['min'], (_ctx, t) => {
   return f.node;
 });
 
-// ---- The halo, crystal by crystal ----------------------------------------------
+// ---- The halo, crystal by crystal -------------------------------------------
 
 export const haloFigure = figure(['ring'], (_ctx, t) => {
   const W = 400;
@@ -280,7 +363,7 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   return f.node;
 });
 
-// ---- A warm front comes in ----------------------------------------------------
+// ---- A warm front comes in --------------------------------------------------
 
 export const frontFigure = figure(['arrive'], (ctx, t) => {
   const W = 400;

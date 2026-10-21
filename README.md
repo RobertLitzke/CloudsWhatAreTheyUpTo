@@ -64,10 +64,14 @@ npm run dev
 
 Opens on http://localhost:5420. On the dev server an orange strip appears
 across the top if anything on a page is wider than the screen.
+http://localhost:5420/figures.html shows every lesson figure on one page, for
+checking drawings without playing through (dev server only). Add `?frozen` for
+the same picture on every load, `?imperial` for imperial units, or
+`?only=<figure id>` for one figure.
 
 | Command | What it does |
 |---|---|
-| `npm test` | Vitest: cloud facts, air physics, the save file, dealing the photo check, lesson content, radio talks, photo credits, licence mapping |
+| `npm test` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, radio talks, photo credits, licence mapping |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5421 |
 | `npm run icons` | Regenerate the PNG icons from a square of `art/poster.jpg` |
@@ -105,6 +109,7 @@ src/core/     pure TypeScript, no DOM; unit-tested
   air.ts        a rising parcel, the day's sounding, how tall a heap grows
   sky.ts        angular size, the warm front, night cooling, thunder
   optics.ts     light through an ice prism, the halo
+  drops.ts      how fast drops fall and how far they get before evaporating
   shifts.ts     the five lessons (parts of text and figures), journal
   talk.ts       the radio talks and the townsfolk's questions
   photo-call.ts radio-check.ts  dealing the photo checks
@@ -112,7 +117,10 @@ src/core/     pure TypeScript, no DOM; unit-tested
   save.ts rng.ts
 src/app/      dom.ts, router.ts, store.ts, update.ts, photos.ts, radio.ts (the radio slip)
   scene/        landscape.ts (wheat country and the town), drawn.ts (drawn clouds)
-  figures/      the live figures, by theme, and index.ts naming them
+  figures/      one file per lesson (fog.ts … seeding-limits.ts) with its live and
+                still figures in lesson order; quizzes.ts the photo and forecast
+                checks; kit.ts what a figure is (frame, slider, goals, colours);
+                draw.ts the drawing pieces; index.ts naming them all
   views/        home, shift (the lesson player), journal, credits, settings
 tools/photos/ find.ts, fetch.ts, commons.ts, config.ts, picks.json
 test/
