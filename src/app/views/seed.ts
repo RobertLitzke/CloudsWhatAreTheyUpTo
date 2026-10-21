@@ -219,18 +219,21 @@ export const seedView: View = (root) => {
     if (reduced()) return finish();
     const t0 = performance.now();
     const dur = 2600;
+    let last = t0;
     const tick = (now: number) => {
       if (!alive) return;
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
       const k = Math.min(1, (now - t0) / dur);
       const x = -30 + k * (W + 60);
       craft.setAttribute('transform', `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
       if (x > 20 && x < W - 20) {
         if (smoke) trailPts.push(`${(x - 10).toFixed(1)},${(y + 1).toFixed(1)}`);
-        else if (Math.random() < 0.5) dots.push({ x: x - 4, y: y + 2, v: 10 + Math.random() * 20 });
+        else if (Math.random() < dt * 30) dots.push({ x: x - 4, y: y + 2, v: 10 + Math.random() * 20 });
       }
       trail.setAttribute('points', trailPts.join(' '));
       for (const d of dots) {
-        d.y += d.v * 0.016;
+        d.y += d.v * dt;
       }
       pellets.replaceChildren(...dots.map((d) => svg('circle', { cx: d.x.toFixed(1), cy: d.y.toFixed(1), r: 0.9, fill: '#fff' })));
       if (k < 1) flying = requestAnimationFrame(tick);

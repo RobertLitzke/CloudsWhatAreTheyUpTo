@@ -57,8 +57,8 @@ export type ColorKey = keyof typeof COL;
 
 export interface FigureContext {
   save: SaveData;
-  /** Figures that animate only run while this is true and they are on screen. */
-  alive: () => boolean;
+  /** Aborted when the lesson closes; figures that animate stop then, and only run while on screen. */
+  closed: AbortSignal;
   /** A figure that is a test reports its result here. */
   score: (right: number, of: number) => void;
   /** Who in town asked the forecast question with this id, when the radio is on. */
@@ -195,12 +195,7 @@ export function animate(node: Element, ctx: FigureContext, tick: (dt: number) =>
   let running = false;
   let last = 0;
   const loop = (now: number) => {
-    if (!ctx.alive()) {
-      io.disconnect();
-      running = false;
-      return;
-    }
-    if (!visible) {
+    if (ctx.closed.aborted || !visible) {
       running = false;
       return;
     }
@@ -217,6 +212,7 @@ export function animate(node: Element, ctx: FigureContext, tick: (dt: number) =>
     }
   });
   io.observe(node);
+  ctx.closed.addEventListener('abort', () => io.disconnect(), { once: true });
 }
 
 // ---------------------------------------------------------------------------

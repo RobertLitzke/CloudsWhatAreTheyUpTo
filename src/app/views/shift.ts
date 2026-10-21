@@ -69,6 +69,7 @@ export const shiftView: View = (root, nav) => {
     return;
   }
   let alive = true;
+  const closed = new AbortController();
   const save = getSave();
   const replay = save.shifts[shift.id]?.done === true;
   const score = { right: 0, of: 0 };
@@ -86,7 +87,7 @@ export const shiftView: View = (root, nav) => {
   const ctx: FigureContext = {
     save,
     local: (id) => (save.talk ? radio.locals[id] : undefined),
-    alive: () => alive,
+    closed: closed.signal,
     score: (right, of) => {
       score.right += right;
       score.of += of;
@@ -205,6 +206,7 @@ export const shiftView: View = (root, nav) => {
 
   return () => {
     alive = false;
+    closed.abort();
     clearRadio();
   };
 };

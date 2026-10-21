@@ -44,7 +44,7 @@ describe('figures', () => {
   for (const units of ['metric', 'imperial'] as const) {
     it(`all build without throwing (${units})`, () => {
       const save = { ...emptySave(), units };
-      const ctx: FigureContext = { save, alive: () => false, score: () => {}, local: () => undefined };
+      const ctx: FigureContext = { save, closed: AbortSignal.abort(), score: () => {}, local: () => undefined };
       for (const id of FIGURE_IDS) {
         const use = uses.find((u) => u.block.figure === id)?.block;
         const handle = FIGURES[id](ctx, use?.goal, use?.options);
