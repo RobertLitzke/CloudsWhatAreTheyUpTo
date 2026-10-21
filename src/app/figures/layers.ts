@@ -6,8 +6,8 @@
 import { angularSize, fogHour, layerBySize, nightTemp, type Night } from '../../core/sky';
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
-import { heapAt } from './air';
-import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, type FigureFactory } from './kit';
+import { heapAt, label, line, polyline, redraw, small } from './draw';
+import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
 
 // ---- Stable and unstable: nudge a bubble ------------------------------------
 
@@ -15,8 +15,6 @@ import { COL, animate, frame, height, label, line, polyline, redraw, slider, tas
 const lapseOf = (stability: number) => (stability < 0 ? 9.8 - stability * 3 : 9.8 - stability * 13);
 const M_PER_PX = 10;
 const START_C = 15;
-/** Labels drawn over the cloud stay readable with a rim of sky colour. */
-const halo = { stroke: '#eef3f6', 'stroke-width': 3, 'paint-order': 'stroke' };
 
 /** The ceiling over the balloon, at `x` pixels to the side of the middle: domed when stable, bowed down when unstable. */
 const ceilingY = (x: number, stability = 0) => 70 + stability * (x * x) / 60;
@@ -46,11 +44,11 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
     redraw(g,
       svg('polygon', { points: `30,6 150,6 ${pts.map(([x, y]) => `${x},${y}`).reverse().join(' ')}`, fill: COL.env, opacity: 0.12 }),
       polyline(pts, COL.env, 3),
-      label(90, 196, caption[0], { 'text-anchor': 'middle', class: 'fig-label small' }),
-      label(90, 209, caption[1], { 'text-anchor': 'middle', class: 'fig-label small' }),
+      small(90, 196, caption[0], { anchor: 'middle' }),
+      small(90, 209, caption[1], { anchor: 'middle' }),
       line(250, 214, 250, 20, COL.grid, 1),
       line(200, rest, 270, rest, COL.ink, 1, { 'stroke-dasharray': '4 3', opacity: 0.5 }),
-      label(236, rest + 18, 'where it started', { 'text-anchor': 'end', class: 'fig-label small soft' }),
+      small(236, rest + 18, 'where it started', { soft: true, anchor: 'end' }),
     );
   };
   const paintBall = () => {
@@ -65,9 +63,9 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
       line(90 + x, by + 8, 90 + x, by + 20, COL.ink, 1),
       svg('circle', { cx: 90 + x, cy: by, r: 8, fill: COL.parcel }),
       svg('circle', { cx: 250, cy: py, r: 10, fill: 'rgba(224,102,63,0.2)', stroke: COL.parcel, 'stroke-width': 2 }),
-      label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { 'text-anchor': 'end', fill: COL.parcel, class: 'fig-label bold', ...halo }),
-      label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { fill: COL.env, class: 'fig-label bold', ...halo }),
-      label(262, py + 22, mine > theirs + 0.05 ? 'warmer, so lighter' : mine < theirs - 0.05 ? 'colder, so heavier' : 'the same', { class: 'fig-label small soft', ...halo }),
+      label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { bold: true, anchor: 'end', fill: COL.parcel, halo: '#eef3f6' }),
+      label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { bold: true, fill: COL.env, halo: '#eef3f6' }),
+      small(262, py + 22, mine > theirs + 0.05 ? 'warmer, so lighter' : mine < theirs - 0.05 ? 'colder, so heavier' : 'the same', { soft: true, halo: '#eef3f6' }),
     );
   };
   animate(f.node, ctx, (dt) => {
@@ -88,7 +86,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
       z = 0;
       redraw(cloud,
         svg('rect', { x: 150, y: 96, width: 240, height: 14, rx: 7, fill: COL.cloudShade, opacity: 0.85 }),
-        label(270, 90, 'if a layer is cooled: a flat sheet', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+        small(270, 90, 'if a layer is cooled: a flat sheet', { soft: true, anchor: 'middle' }),
       );
       f.readout.textContent = 'Stable air: the air around cools more slowly than the bubble, so the nudged bubble is soon colder and sinks back. Only a whole layer cooled together makes cloud: a flat sheet.';
       triedStable.yes = true;
@@ -133,8 +131,8 @@ export const nightFigure: FigureFactory = (_ctx, goal) => {
   const chart = svg('g');
   const scene = svg('g');
   const axes = svg('g', {},
-    ...[0, 5, 10, 15, 20].map((c) => svg('g', {}, line(x0, yOf(c), x1, yOf(c), COL.grid, 1), label(x0 - 4, yOf(c) + 3, `${c}°`, { 'text-anchor': 'end', class: 'fig-label small' }))),
-    ...[0, 3, 6, 9, 12].map((h) => label(xOf(h), 216, h === 0 ? 'sunset' : h === 12 ? 'dawn' : `${h} h`, { 'text-anchor': 'middle', class: 'fig-label small' })),
+    ...[0, 5, 10, 15, 20].map((c) => svg('g', {}, line(x0, yOf(c), x1, yOf(c), COL.grid, 1), small(x0 - 4, yOf(c) + 3, `${c}°`, { anchor: 'end' }))),
+    ...[0, 3, 6, 9, 12].map((h) => small(xOf(h), 216, h === 0 ? 'sunset' : h === 12 ? 'dawn' : `${h} h`, { anchor: 'middle' })),
   );
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), axes, chart, scene);
   const paint = () => {
@@ -144,9 +142,9 @@ export const nightFigure: FigureFactory = (_ctx, goal) => {
     const foggy = fh != null && hour >= fh;
     redraw(chart,
       line(x0, yOf(n.dewC), x1, yOf(n.dewC), COL.dew, 2.5),
-      label(x1, yOf(n.dewC) + 14, 'dew point', { 'text-anchor': 'end', fill: COL.dew, class: 'fig-label small' }),
+      small(x1, yOf(n.dewC) + 14, 'dew point', { anchor: 'end', fill: COL.dew }),
       polyline(pts, COL.warm, 2.5),
-      label(x0 + 4, yOf(n.duskC) - 6, 'air near the ground', { fill: COL.warm, class: 'fig-label small' }),
+      small(x0 + 4, yOf(n.duskC) - 6, 'air near the ground', { fill: COL.warm }),
       line(xOf(hour), yOf(0), xOf(hour), yOf(20), COL.ink, 1, { 'stroke-dasharray': '3 3' }),
       fh != null ? svg('circle', { cx: xOf(fh), cy: yOf(n.dewC), r: 4, fill: COL.dew }) : null,
     );
@@ -205,7 +203,7 @@ export const spreadFigure: FigureFactory = (_ctx, goal) => {
     const coverage = Math.min(1, (spread * 2 * n) / W);
     redraw(g,
       lid > 0.05 ? svg('rect', { x: 0, y: lidY - 6, width: W, height: 6, fill: COL.env, opacity: 0.25 + lid * 0.5 }) : null,
-      lid > 0.05 ? label(W - 6, lidY - 10, 'warm lid', { 'text-anchor': 'end', fill: COL.env, class: 'fig-label small' }) : null,
+      lid > 0.05 ? small(W - 6, lidY - 10, 'warm lid', { anchor: 'end', fill: COL.env }) : null,
       ...parts,
     );
     const sheet = coverage > 0.85;
@@ -298,33 +296,33 @@ export const dropsFigure: FigureFactory = (ctx, goal) => {
     // The cloud, the base line and the ground.
     svg('rect', { x: 0, y: top, width: sceneW, height: baseY - top, fill: '#d6d3e3' }),
     line(0, baseY, sceneW, baseY, COL.cloudShade, 3),
-    label(6, baseY + 13, `cloud base, ${height(BASE_M, ctx.save.units)} up`, { class: 'fig-label small soft' }),
+    small(6, baseY + 13, `cloud base, ${height(BASE_M, ctx.save.units)} up`, { soft: true }),
     ...Array.from({ length: 70 }, (_, i) => svg('circle', { cx: (i * 37) % sceneW, cy: top + 4 + ((i * 23) % (baseY - top - 8)), r: 0.9, fill: COL.rain, opacity: 0.35 })),
-    label(6, top + 12, 'inside the cloud', { class: 'fig-label small soft' }),
-    label(6, (baseY + ground) / 2, 'clear air below', { class: 'fig-label small soft' }),
+    small(6, top + 12, 'inside the cloud', { soft: true }),
+    small(6, (baseY + ground) / 2, 'clear air below', { soft: true }),
     svg('rect', { x: 0, y: ground, width: sceneW, height: H - ground, fill: '#b9a55a' }),
-    label(6, ground - 6, 'the wheat', { class: 'fig-label small soft' }),
+    small(6, ground - 6, 'the wheat', { soft: true }),
     scene,
     dropG,
     // The chart's frame.
-    label(cx0 - 26, 18, 'Fall speed', { class: 'fig-label small bold' }),
+    small(cx0 - 26, 18, 'Fall speed', { bold: true }),
     line(cx0, cy1 - 4, cx0, cy0, COL.ink, 1),
     line(cx0, cy0, cx1, cy0, COL.ink, 1),
     ...([[0.01, '1 cm/s'], [0.1, '10 cm/s'], [1, '1 m/s'], [10, '10 m/s']] as const).flatMap(([v, s]) => [
       line(cx0 - 3, yOf(v), cx0, yOf(v), COL.ink, 1),
-      label(cx0 - 5, yOf(v) + 3, s, { class: 'fig-label small soft', 'text-anchor': 'end' }),
+      small(cx0 - 5, yOf(v) + 3, s, { soft: true, anchor: 'end' }),
     ]),
     ...([[0.01, '0.01'], [0.1, '0.1'], [1, '1 mm']] as const).flatMap(([d, s]) => [
       line(xOf(d), cy0, xOf(d), cy0 + 3, COL.ink, 1),
-      label(xOf(d), cy0 + 13, s, { class: 'fig-label small soft', 'text-anchor': 'middle' }),
+      small(xOf(d), cy0 + 13, s, { soft: true, anchor: 'middle' }),
     ]),
-    label((cx0 + cx1) / 2, cy0 + 25, 'drop size', { class: 'fig-label small soft', 'text-anchor': 'middle' }),
+    small((cx0 + cx1) / 2, cy0 + 25, 'drop size', { soft: true, anchor: 'middle' }),
     polyline(square, COL.soft, 1.2, { 'stroke-dasharray': '3 3' }),
-    label(xOf(0.3) - 6, yOf(2.2), 'if speed grew', { class: 'fig-label small soft', 'text-anchor': 'end' }),
-    label(xOf(0.3) - 6, yOf(2.2) + 11, 'as size²', { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    small(xOf(0.3) - 6, yOf(2.2), 'if speed grew', { soft: true, anchor: 'end' }),
+    small(xOf(0.3) - 6, yOf(2.2) + 11, 'as size²', { soft: true, anchor: 'end' }),
     polyline(curve, COL.rain, 2.4),
-    label(cx1, yOf(0.3), 'drag', { class: 'fig-label small', fill: COL.rain, 'text-anchor': 'end' }),
-    label(cx1, yOf(0.3) + 11, 'bends it', { class: 'fig-label small', fill: COL.rain, 'text-anchor': 'end' }),
+    small(cx1, yOf(0.3), 'drag', { anchor: 'end', fill: COL.rain }),
+    small(cx1, yOf(0.3) + 11, 'bends it', { anchor: 'end', fill: COL.rain }),
     chart,
   );
 
@@ -357,13 +355,13 @@ export const dropsFigure: FigureFactory = (ctx, goal) => {
     const gone = Math.min(ground, baseY + lastsM / mPerPx);
     redraw(scene,
       ...updraftArrows(),
-      up >= 0.02 ? label(32, baseY - 14, `updraft ${speed(up)}/s`, { class: 'fig-label small', fill: COL.parcel }) : null,
+      up >= 0.02 ? small(32, baseY - 14, `updraft ${speed(up)}/s`, { fill: COL.parcel }) : null,
       net > 0 ? line(colX, baseY, colX, gone, COL.rain, 1, { 'stroke-dasharray': '2 3', opacity: 0.6 }) : null,
-      net > 0 && !lands ? label(colX + 10, Math.max(gone + 4, baseY + 26), `gone after ${lastsM < 1 ? 'under a metre' : height(lastsM, ctx.save.units)}`, { class: 'fig-label small', fill: COL.rain }) : null,
+      net > 0 && !lands ? small(colX + 10, Math.max(gone + 4, baseY + 26), `gone after ${lastsM < 1 ? 'under a metre' : height(lastsM, ctx.save.units)}`, { fill: COL.rain }) : null,
     );
     redraw(chart,
       up >= 0.02 ? line(cx0, yOf(up), cx1, yOf(up), COL.parcel, 1.4, { 'stroke-dasharray': '4 3' }) : null,
-      up >= 0.02 ? label(cx0 + 3, yOf(up) - 4, 'updraft', { class: 'fig-label small', fill: COL.parcel }) : null,
+      up >= 0.02 ? small(cx0 + 3, yOf(up) - 4, 'updraft', { fill: COL.parcel }) : null,
       svg('circle', { cx: xOf(mm), cy: yOf(fall), r: 4.5, fill: COL.rain, stroke: '#fff', 'stroke-width': 1.5 }),
     );
     const size = `${mm < 0.1 ? mm.toFixed(3) : mm.toFixed(2)} mm`;
@@ -479,9 +477,9 @@ export const handFigure: FigureFactory = (ctx, goal) => {
     svg('rect', { x: 290, y: 140, width: fistW, height: 70, rx: 18, fill: '#e6b89c', opacity: 0.92 }),
     svg('rect', { x: 290 - 2 * PX_PER_DEG, y: 150, width: 2 * PX_PER_DEG, height: 46, rx: 8, fill: '#ddaa8c', opacity: 0.95 }),
     svg('rect', { x: 290 + fistW - 1 * PX_PER_DEG - 2, y: 124, width: PX_PER_DEG, height: 22, rx: 4, fill: '#ddaa8c' }),
-    label(290 + fistW / 2, 232, 'fist ≈ 10°', { 'text-anchor': 'middle', class: 'fig-label small' }),
-    label(290 - PX_PER_DEG, 214, 'thumb ≈ 2°', { 'text-anchor': 'middle', class: 'fig-label small' }),
-    label(290 + fistW - 2, 118, 'nail ≈ 1°', { 'text-anchor': 'middle', class: 'fig-label small' }),
+    small(290 + fistW / 2, 232, 'fist ≈ 10°', { anchor: 'middle' }),
+    small(290 - PX_PER_DEG, 214, 'thumb ≈ 2°', { anchor: 'middle' }),
+    small(290 + fistW - 2, 118, 'nail ≈ 1°', { anchor: 'middle' }),
   );
   const paint = () => {
     // Looking up high in the sky (about 60° up), so the distance is a little more than the height.

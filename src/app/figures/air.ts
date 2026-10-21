@@ -4,7 +4,8 @@
 
 import { cloudBase, column, dewPointOf, roomFor, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { el, svg } from '../dom';
-import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, temp, type FigureFactory } from './kit';
+import { heapAt, hexagon, label, line, polyline, redraw, small, still } from './draw';
+import { COL, animate, frame, height, slider, task, temp, type FigureFactory } from './kit';
 
 // ---- A parcel lifted --------------------------------------------------------
 
@@ -28,11 +29,11 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
   const grid = svg('g');
   for (let m = 0; m <= top; m += 500) {
     grid.append(line(x0, yOf(m), x1, yOf(m), COL.grid, 1));
-    grid.append(label(x0 - 4, yOf(m) + 3, height(m, ctx.save.units), { 'text-anchor': 'end', class: 'fig-label small' }));
+    grid.append(small(x0 - 4, yOf(m) + 3, height(m, ctx.save.units), { anchor: 'end' }));
   }
   for (let c = 0; c <= 30; c += 10) {
     grid.append(line(xOf(c), yOf(0), xOf(c), yOf(top), COL.grid, 1));
-    grid.append(label(xOf(c), ground + 14, `${c} °C`, { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }));
+    grid.append(small(xOf(c), ground + 14, `${c} °C`, { anchor: 'middle', fill: '#fff' }));
   }
   const live = svg('g');
   f.svg.append(sky, svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }), grid, live);
@@ -59,7 +60,7 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
     redraw(live,
       line(bx, ground, bx, by, COL.parcel, 1, { 'stroke-dasharray': '2 4' }),
       p.cloud ? line(20, yOf(base), x1, yOf(base), COL.ink, 1, { 'stroke-dasharray': '6 4' }) : null,
-      p.cloud ? label(24, yOf(base) - 5, `cloud base · ${height(base, ctx.save.units)}`, { class: 'fig-label small' }) : null,
+      p.cloud ? small(24, yOf(base) - 5, `cloud base · ${height(base, ctx.save.units)}`) : null,
       polyline(dews, COL.dew, 2.5),
       polyline(temps, COL.parcel, 2.5),
       svg('circle', { cx: xOf(p.tempC), cy: yOf(lift), r: 3.5, fill: COL.parcel }),
@@ -68,9 +69,9 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
     );
     f.readout.replaceChildren(
       `At ${height(lift, ctx.save.units)} the air is `,
-      el2('b', COL.parcel, temp(p.tempC)),
+      el('b', { style: { color: COL.parcel } }, temp(p.tempC)),
       ' and its dew point is ',
-      el2('b', COL.dew, temp(p.dewC)),
+      el('b', { style: { color: COL.dew } }, temp(p.dewC)),
       p.cloud ? '. They have met: the air is cloud.' : `. ${(p.tempC - p.dewC).toFixed(1)}° to go.`,
     );
     if (p.cloud && goal === 'base') t.resolve();
@@ -103,10 +104,10 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
   const curve: [number, number][] = [];
   for (let c = 0; c <= 30; c += 0.5) curve.push([xOf(c), yOf(roomFor(c))]);
   const axes = svg('g', {},
-    ...[0, 10, 20, 30].map((c) => svg('g', {}, line(xOf(c), y0, xOf(c), y1, COL.grid, 1), label(xOf(c), y0 + 13, `${c} °C`, { 'text-anchor': 'middle', class: 'fig-label small' }))),
-    ...[0, 10, 20, 30].map((g) => svg('g', {}, line(x0, yOf(g), x1, yOf(g), COL.grid, 1), label(x0 - 4, yOf(g) + 3, `${g} g`, { 'text-anchor': 'end', class: 'fig-label small' }))),
+    ...[0, 10, 20, 30].map((c) => svg('g', {}, line(xOf(c), y0, xOf(c), y1, COL.grid, 1), small(xOf(c), y0 + 13, `${c} °C`, { anchor: 'middle' }))),
+    ...[0, 10, 20, 30].map((g) => svg('g', {}, line(x0, yOf(g), x1, yOf(g), COL.grid, 1), small(x0 - 4, yOf(g) + 3, `${g} g`, { anchor: 'end' }))),
     polyline(curve, COL.env, 2.5),
-    label(xOf(29.5), yOf(roomFor(29.5)) + 16, 'room for vapour', { 'text-anchor': 'end', fill: COL.env, class: 'fig-label small' }),
+    small(xOf(29.5), yOf(roomFor(29.5)) + 16, 'room for vapour', { anchor: 'end', fill: COL.env }),
   );
   // The jar, with molecules of vapour jostling in it and droplets once it fogs.
   const jx = 24;
@@ -130,9 +131,9 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
     const s = state();
     redraw(live,
       line(x0, yOf(water), x1, yOf(water), COL.dew, 2.5),
-      label(x0 + 4, yOf(water) - 5, `water in the jar · ${water} g`, { fill: COL.dew, class: 'fig-label small' }),
+      small(x0 + 4, yOf(water) - 5, `water in the jar · ${water} g`, { fill: COL.dew }),
       line(xOf(s.dew), yOf(water), xOf(s.dew), y0, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
-      label(xOf(s.dew), y0 - 4, 'dew point', { 'text-anchor': 'middle', fill: COL.dew, class: 'fig-label small' }),
+      small(xOf(s.dew), y0 - 4, 'dew point', { anchor: 'middle', fill: COL.dew }),
       svg('circle', { cx: xOf(s.dew), cy: yOf(water), r: 3.5, fill: COL.dew }),
       line(xOf(tempC), y0, xOf(tempC), y1, COL.ink, 1.5),
       svg('circle', { cx: xOf(tempC), cy: yOf(s.room), r: 4, fill: COL.env }),
@@ -159,7 +160,7 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
       s.droplets > 0 ? svg('rect', { x: jx + 2, y: jy + 2, width: jw - 4, height: jh - 4, rx: 12, fill: COL.cloudShade, opacity: Math.min(0.6, s.droplets / 4) }) : null,
       ...molecules.slice(0, shown).map((m) => svg('circle', { cx: m.x, cy: m.y, r: 1.6, fill: COL.dew })),
       ...drops.slice(0, wet).map((d) => svg('circle', { cx: d.x, cy: d.y, r: d.r, fill: COL.cloud, stroke: COL.dew, 'stroke-width': 0.8 })),
-      label(jx + jw / 2, jy + jh + 16, s.droplets > 0 ? 'vapour and droplets' : 'vapour only: clear', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+      small(jx + jw / 2, jy + jh + 16, s.droplets > 0 ? 'vapour and droplets' : 'vapour only: clear', { soft: true, anchor: 'middle' }),
     );
   });
   f.controls.append(
@@ -170,13 +171,6 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
   return { node: f.node, done: goal ? t.promise : undefined };
 };
 
-function el2(tag: string, color: string, text: string): HTMLElement {
-  const n = document.createElement(tag);
-  n.style.color = color;
-  n.textContent = text;
-  return n;
-}
-
 // ---- The sky's temperature by height ----------------------------------------
 
 export const freezingFigure: FigureFactory = (ctx) => {
@@ -184,7 +178,7 @@ export const freezingFigure: FigureFactory = (ctx) => {
   // height carries its temperature and the three kinds of cloud stuff at once.
   const W = 400;
   const H = 280;
-  const s = svg('svg', { viewBox: `0 0 ${W} ${H}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
+  const d = still(W, H);
   const top = 13000;
   const bottom = 262;
   const yOf = (m: number) => bottom - (m / top) * 244;
@@ -200,16 +194,16 @@ export const freezingFigure: FigureFactory = (ctx) => {
     svg('rect', { x: 0, y: 0, width: W, height: yOf(forty), fill: '#dfe7f7' }),
     line(0, yOf(zero), W, yOf(zero), COL.dew, 1.5, { 'stroke-dasharray': '6 4' }),
     line(0, yOf(forty), W, yOf(forty), COL.ice, 1.5, { 'stroke-dasharray': '6 4' }),
-    label(W - 6, yOf(zero) - 5, '0 °C: freezing level', { 'text-anchor': 'end', fill: COL.dew }),
-    label(W - 6, yOf(forty) - 5, '−40 °C: nothing stays liquid', { 'text-anchor': 'end', fill: COL.ice }),
-    label(W - 6, (yOf(0) + yOf(zero)) / 2 + 4, 'droplets', { 'text-anchor': 'end', class: 'fig-label soft' }),
-    label(W - 6, (yOf(zero) + yOf(forty)) / 2 + 4, 'supercooled droplets and ice', { 'text-anchor': 'end', class: 'fig-label soft' }),
-    label(W - 6, yOf(forty) / 2 + 4, 'ice crystals', { 'text-anchor': 'end', class: 'fig-label soft' }),
+    label(W - 6, yOf(zero) - 5, '0 °C: freezing level', { anchor: 'end', fill: COL.dew }),
+    label(W - 6, yOf(forty) - 5, '−40 °C: nothing stays liquid', { anchor: 'end', fill: COL.ice }),
+    label(W - 6, (yOf(0) + yOf(zero)) / 2 + 4, 'droplets', { soft: true, anchor: 'end' }),
+    label(W - 6, (yOf(zero) + yOf(forty)) / 2 + 4, 'supercooled droplets and ice', { soft: true, anchor: 'end' }),
+    label(W - 6, yOf(forty) / 2 + 4, 'ice crystals', { soft: true, anchor: 'end' }),
   );
   // The height scale, each mark with the temperature up there.
   for (let m = 2000; m <= 12000; m += 2000) {
     const c = Math.round(tAt(m));
-    const mark = label(6, yOf(m) + 4, `${height(m, ctx.save.units)} · `, { class: 'fig-label small' });
+    const mark = small(6, yOf(m) + 4, `${height(m, ctx.save.units)} · `);
     const t = svg('tspan', { 'font-weight': 700 });
     t.textContent = `${c < 0 ? '−' : ''}${Math.abs(c)} °C`;
     mark.append(t);
@@ -221,24 +215,16 @@ export const freezingFigure: FigureFactory = (ctx) => {
     const m1 = 300 + (i * 397) % (zero - 400);
     g.append(svg('circle', { cx: x, cy: yOf(m1), r: 2.4, fill: COL.dew }));
     const m2 = zero + 300 + (i * 811) % (forty - zero - 600);
-    g.append(i % 2 ? svg('circle', { cx: x + 8, cy: yOf(m2), r: 2.4, fill: COL.dew }) : hex(x + 8, yOf(m2), 3, COL.ice));
+    g.append(i % 2 ? svg('circle', { cx: x + 8, cy: yOf(m2), r: 2.4, fill: COL.dew }) : hexagon(x + 8, yOf(m2), 3, { fill: COL.ice }));
     const m3 = forty + 300 + (i * 523) % (top - forty - 600);
-    g.append(hex(x + 4, yOf(m3), 3.2, COL.ice));
+    g.append(hexagon(x + 4, yOf(m3), 3.2, { fill: COL.ice }));
   }
-  s.append(
+  d.svg.append(
     svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: COL.ground }), g,
-    label(6, H - 5, 'valley floor · 15 °C', { class: 'fig-label small bold', fill: COL.paper }),
+    small(6, H - 5, 'valley floor · 15 °C', { bold: true, fill: COL.paper }),
   );
-  return { node: el('div.fig-body.fig-still', {}, s) };
+  return { node: d.node };
 };
-
-function hex(cx: number, cy: number, r: number, fill: string): SVGElement {
-  const pts = Array.from({ length: 6 }, (_, k) => {
-    const a = (Math.PI / 3) * k;
-    return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`;
-  }).join(' ');
-  return svg('polygon', { points: pts, fill });
-}
 
 // ---- Thermals off a sunny valley ---------------------------------------------
 
@@ -273,7 +259,7 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
   const paintStatic = () => {
     const sy = 150 - sun * 120;
     redraw(sunG, svg('circle', { cx: 340, cy: sy, r: 16, fill: COL.sun }), svg('circle', { cx: 340, cy: sy, r: 26, fill: COL.sun, opacity: 0.25 }));
-    redraw(baseG, line(0, base, W, base, COL.ink, 1, { 'stroke-dasharray': '5 5', opacity: 0.5 }), label(6, base + 12, 'cloud base', { class: 'fig-label small soft' }));
+    redraw(baseG, line(0, base, W, base, COL.ink, 1, { 'stroke-dasharray': '5 5', opacity: 0.5 }), small(6, base + 12, 'cloud base', { soft: true }));
   };
   animate(f.node, ctx, (dt) => {
     spawn += dt * sun * 6;
@@ -313,23 +299,6 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
   return { node: f.node, done: goal ? t.promise : undefined };
 };
 
-/** A plain heap with a flat base at `baseY`, `w` wide and `h` tall, in figure colours. */
-export function heapAt(cx: number, baseY: number, w: number, h: number): SVGElement {
-  const g = svg('g');
-  const n = Math.max(3, Math.round(h / 12));
-  for (let i = 0; i < n; i++) {
-    const y = baseY - (i / n) * h - 6;
-    const spread = w * (1 - (i / n) * 0.45);
-    for (const dx of [-spread * 0.45, 0, spread * 0.45]) {
-      g.append(svg('circle', { cx: cx + dx + (i % 2 ? 3 : -3), cy: y, r: Math.max(6, spread * 0.36), fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 }));
-    }
-  }
-  // Shade under the flat base.
-  g.append(svg('rect', { x: cx - w, y: baseY, width: w * 2, height: 30, fill: 'currentColor', opacity: 0 }));
-  g.append(svg('rect', { x: cx - w * 0.75, y: baseY - 4, width: w * 1.5, height: 4, fill: COL.cloudShade }));
-  return g;
-}
-
 // ---- How tall the clouds grow --------------------------------------------------
 
 export const soundingFigure: FigureFactory = (ctx, goal) => {
@@ -351,11 +320,11 @@ export const soundingFigure: FigureFactory = (ctx, goal) => {
   const grid = svg('g');
   for (let m = 0; m <= top; m += 2000) {
     grid.append(line(cx0, yOf(m), cx1, yOf(m), COL.grid, 1));
-    grid.append(label(cx0 - 4, yOf(m) + 3, height(m, ctx.save.units), { 'text-anchor': 'end', class: 'fig-label small' }));
+    grid.append(small(cx0 - 4, yOf(m) + 3, height(m, ctx.save.units), { anchor: 'end' }));
   }
   for (let c = -60; c <= 30; c += 30) {
     grid.append(line(xOf(c), yOf(0), xOf(c), yOf(top), COL.grid, 1));
-    grid.append(label(xOf(c), bottom + 14, `${c}°`, { 'text-anchor': 'middle', class: 'fig-label small' }));
+    grid.append(small(xOf(c), bottom + 14, `${c}°`, { anchor: 'middle' }));
   }
   const live = svg('g');
   f.svg.append(
@@ -396,7 +365,7 @@ export const soundingFigure: FigureFactory = (ctx, goal) => {
       polyline(parcelPts, COL.parcel, 2.5),
       col.baseM != null ? line(cx0, yOf(col.baseM), W, yOf(col.baseM), COL.ink, 1, { 'stroke-dasharray': '6 4', opacity: 0.6 }) : null,
       line(cx0, yOf(col.topM), W, yOf(col.topM), COL.ink, 1, { 'stroke-dasharray': '2 3', opacity: 0.6 }),
-      label(cx1 - 2, yOf(mixedTop(env)) + 12, 'stirred layer', { 'text-anchor': 'end', class: 'fig-label small soft' }),
+      small(cx1 - 2, yOf(mixedTop(env)) + 12, 'stirred layer', { soft: true, anchor: 'end' }),
       cloud,
     );
     const names: Record<string, string> = {

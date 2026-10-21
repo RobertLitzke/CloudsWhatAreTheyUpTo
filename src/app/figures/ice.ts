@@ -10,7 +10,8 @@ import { genus } from '../../core/clouds';
 import { svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { COL, animate, frame, height, label, line, polyline, redraw, slider, task, type FigureFactory } from './kit';
+import { crystal, hexagon, label, line, polyline, redraw, small } from './draw';
+import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
 
 // ---- An ice crystal among supercooled droplets ---------------------------------
 
@@ -43,7 +44,7 @@ export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
         bits.push({ x: d.x, y: d.y, sx: d.x, sy: d.y, k: 0 });
       }
     }
-    const crystal = 4 + 18 * Math.sqrt(eaten);
+    const size = 4 + 18 * Math.sqrt(eaten);
     const dropR = 5 * Math.cbrt(1 - eaten);
     for (const b of bits) {
       b.k += dt * 0.9;
@@ -54,11 +55,11 @@ export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
     if (grown()) falling = Math.min(140, falling + dt * 40);
     redraw(scene,
       ...drops.map((d) => glaciated
-        ? hexagon(d.x, d.y, 3.2, COL.ice)
+        ? hexagon(d.x, d.y, 3.2, { fill: COL.ice })
         : dropR > 0.6 ? svg('circle', { cx: d.x, cy: d.y, r: dropR, fill: COL.cloud, stroke: COL.dew, 'stroke-width': 1 }) : null),
       ...bits.map((b) => svg('circle', { cx: b.x, cy: b.y, r: 1.4, fill: COL.dew })),
-      star(C.x, C.y + falling, crystal),
-      label(C.x, Math.min(H - 8, C.y + falling + crystal + 14), 'ice crystal', { 'text-anchor': 'middle', fill: COL.ice, class: 'fig-label small' }),
+      crystal(C.x, C.y + falling, size),
+      small(C.x, Math.min(H - 8, C.y + falling + size + 14), 'ice crystal', { anchor: 'middle', fill: COL.ice }),
     );
     const pct = ((fullOverWater(tempC) / fullOverIce(tempC) - 1) * 100).toFixed(0);
     f.readout.textContent = tempC >= 0
@@ -73,22 +74,6 @@ export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
   f.controls.append(slider('Temperature', -40, 0, 1, tempC, (v) => `${v} °C`, (v) => { tempC = v; }, 'ice').node);
   return { node: f.node, done: goal ? t.promise : undefined };
 };
-
-function hexagon(cx: number, cy: number, r: number, fill: string): SVGElement {
-  const pts = Array.from({ length: 6 }, (_, k) => `${(cx + r * Math.cos((Math.PI / 3) * k)).toFixed(1)},${(cy + r * Math.sin((Math.PI / 3) * k)).toFixed(1)}`).join(' ');
-  return svg('polygon', { points: pts, fill });
-}
-
-/** A six-armed crystal of radius `r`. */
-function star(cx: number, cy: number, r: number): SVGElement {
-  const g = svg('g');
-  for (let k = 0; k < 6; k++) {
-    const a = (Math.PI / 3) * k;
-    g.append(line(cx, cy, cx + r * Math.cos(a), cy + r * Math.sin(a), COL.ice, Math.max(1.5, r / 6)));
-  }
-  g.append(hexagon(cx, cy, Math.max(2, r * 0.3), COL.ice));
-  return g;
-}
 
 // ---- Mares' tails -------------------------------------------------------------
 
@@ -227,20 +212,20 @@ export const prismFigure: FigureFactory = (_ctx, goal) => {
         line(entry[0], entry[1], exit[0], exit[1], COL.sun, 3),
         line(exit[0], exit[1], end[0], end[1], COL.sun, 3),
         line(exit[0], exit[1], ghost[0], ghost[1], COL.soft, 1.2, { 'stroke-dasharray': '4 4' }),
-        label(end[0] + 4, end[1] + 4, dev != null ? `bent ${dev.toFixed(1)}°` : '', { class: 'fig-label bold' }),
+        label(end[0] + 4, end[1] + 4, dev != null ? `bent ${dev.toFixed(1)}°` : '', { bold: true }),
       );
     } else {
-      parts.push(label(20, 226, 'The light is trapped inside and comes out another face.', { class: 'fig-label small soft' }));
+      parts.push(small(20, 226, 'The light is trapped inside and comes out another face.', { soft: true }));
     }
     redraw(g, ...parts);
     redraw(plot,
       line(px0, py0, px1, py0, COL.grid, 1),
       line(px0, yOf(minD), px1, yOf(minD), COL.parcel, 1.2, { 'stroke-dasharray': '5 4' }),
-      label(px1, yOf(minD) + 12, '22°: the least it can bend', { 'text-anchor': 'end', fill: COL.parcel, class: 'fig-label small' }),
+      small(px1, yOf(minD) + 12, '22°: the least it can bend', { anchor: 'end', fill: COL.parcel }),
       polyline(curve, COL.ice, 2.5),
       dev != null ? svg('circle', { cx: xOf(inc), cy: yOf(dev), r: 4.5, fill: COL.sun, stroke: COL.ink }) : null,
-      label(px0, py0 + 14, 'angle the light comes in at →', { class: 'fig-label small soft' }),
-      label(px0, 34, 'how much it is bent', { class: 'fig-label small soft' }),
+      small(px0, py0 + 14, 'angle the light comes in at →', { soft: true }),
+      small(px0, 34, 'how much it is bent', { soft: true }),
     );
     f.readout.textContent = dev == null
       ? 'At this angle the light cannot get out of the far face.'
@@ -291,7 +276,7 @@ export const haloFigure: FigureFactory = (_ctx, goal) => {
     })));
     redraw(overlay, hand ? svg('g', {},
       line(C[0], C[1], C[0] + 22 * PX, C[1], '#fff', 1, { 'stroke-dasharray': '3 3' }),
-      label(C[0] + 11 * PX, C[1] - 6, 'hand span ≈ 22°', { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }),
+      small(C[0] + 11 * PX, C[1] - 6, 'hand span ≈ 22°', { anchor: 'middle', fill: '#fff' }),
     ) : null);
     f.readout.textContent = n < 200
       ? `${n} crystals: each sends a speck of light out at its own angle.`
@@ -332,9 +317,9 @@ export const frontFigure: FigureFactory = (ctx, goal) => {
     const parts: SVGElement[] = [
       svg('polygon', { points: `${frontX},${ground} ${pts.map((p) => p.join(',')).join(' ')} -10,0 ${W + 10},0 ${W + 10},${ground}`, fill: '#f6dccf', opacity: 0.7 }),
       polyline(pts, COL.warm, 2.5),
-      label(Math.min(W - 60, frontX + 8), ground - 10, 'warm front', { fill: COL.warm, class: 'fig-label small' }),
-      label(Math.min(W - 70, frontX + 30), 40, 'warm air', { fill: COL.warm, class: 'fig-label' }),
-      label(8, ground - 8, 'cold air', { fill: COL.cold, class: 'fig-label' }),
+      small(Math.min(W - 60, frontX + 8), ground - 10, 'warm front', { fill: COL.warm }),
+      label(Math.min(W - 70, frontX + 30), 40, 'warm air', { fill: COL.warm }),
+      label(8, ground - 8, 'cold air', { fill: COL.cold }),
     ];
     // Cloud along the frontal surface: thick and low near the front, thin and high far ahead.
     const bands: [number, number, string, string][] = [
@@ -346,13 +331,13 @@ export const frontFigure: FigureFactory = (ctx, goal) => {
       const thick = name === 'nimbostratus' ? 3500 : name === 'altostratus' ? 1800 : 700;
       parts.push(svg('polygon', { points: `${xa},${yOf(h0)} ${xb},${yOf(h1)} ${xb},${yOf(h1 + thick * 0.3)} ${xa},${yOf(h0 + thick)}`, fill, opacity: 0.9 }));
       if (name === 'nimbostratus') for (let x = xb; x < xa; x += 9) parts.push(line(x, yOf(h0 + 200) + 2, x - 4, ground, COL.rain, 1.2, { opacity: 0.6 }));
-      parts.push(label((xa + xb) / 2, yOf((h0 + h1) / 2) - 14, name, { 'text-anchor': 'middle', class: 'fig-label small soft' }));
+      parts.push(small((xa + xb) / 2, yOf((h0 + h1) / 2) - 14, name, { soft: true, anchor: 'middle' }));
     }
     parts.push(
       svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
       svg('rect', { x: obsX - 5, y: ground - 16, width: 10, height: 10, fill: COL.ink }),
       line(obsX - 4, ground, obsX - 2, ground - 6, COL.ink, 1.5), line(obsX + 4, ground, obsX + 2, ground - 6, COL.ink, 1.5),
-      label(obsX, ground + 16, 'you', { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }),
+      small(obsX, ground + 16, 'you', { anchor: 'middle', fill: '#fff' }),
     );
     redraw(g, ...parts);
     // What you see overhead.
@@ -364,7 +349,7 @@ export const frontFigure: FigureFactory = (ctx, goal) => {
     if (sky === 'cirrostratus') view.push(svg('circle', { cx: cx - 12, cy: cy - 6, r: 30, fill: 'none', stroke: '#fff', 'stroke-width': 2.5, opacity: 0.7 }));
     if (sky === 'cirrus') view.push(svg('g', { transform: `translate(${cx - 6} ${cy + 14}) scale(0.4)` }, drawCloud('cirrus', PALETTES.day, 3)));
     if (sky === 'nimbostratus') for (let i = -3; i <= 3; i++) view.push(line(cx + i * 10, cy - 30, cx + i * 10 - 5, cy + 30, COL.rain, 1.4));
-    view.push(label(cx, cy + 60, 'overhead', { 'text-anchor': 'middle', class: 'fig-label small' }));
+    view.push(small(cx, cy + 60, 'overhead', { anchor: 'middle' }));
     redraw(inset, ...view);
     const h = frontHeightM(hours);
     f.readout.textContent = sky === 'clear'

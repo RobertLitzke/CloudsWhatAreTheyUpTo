@@ -12,7 +12,8 @@ import { photoFigure, PHOTOS } from '../photos';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from '../ui';
-import { COL, height, label, line, task, textBox, type FigureContext, type FigureFactory } from './kit';
+import { line, note } from './draw';
+import { COL, height, task, textBox, type FigureContext, type FigureFactory } from './kit';
 
 function bands(ctx: FigureContext, onPick?: (f: Floor) => void): SVGElement {
   const g = svg('g', { class: 'bands' });
@@ -267,11 +268,11 @@ function profileDrawing(p: Profile): SVGSVGElement {
     svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
   ];
   for (let km = top > 8 ? 2 : 1; km <= top; km += top > 8 ? 2 : 1) {
-    parts.push(line(34, yOf(km), 40, yOf(km), COL.ink, 1), label(30, yOf(km) + 3.5, `${km} km`, { class: 'fig-label note soft', 'text-anchor': 'end' }));
+    parts.push(line(34, yOf(km), 40, yOf(km), COL.ink, 1), note(30, yOf(km) + 3.5, `${km} km`, { soft: true, anchor: 'end' }));
   }
   parts.push(
     line(40, yOf(p.freezeKm), W, yOf(p.freezeKm), COL.ice, 1.5, { 'stroke-dasharray': '5 4' }),
-    label(W - 6, yOf(p.freezeKm) - 5, `0 °C at ${p.freezeKm} km: colder above`, { class: 'fig-label note bold', fill: COL.ice, 'text-anchor': 'end' }),
+    note(W - 6, yOf(p.freezeKm) - 5, `0 °C at ${p.freezeKm} km: colder above`, { bold: true, anchor: 'end', fill: COL.ice }),
   );
   p.clouds.forEach((c, i) => {
     const x0 = 120 + i * 40;
@@ -279,16 +280,16 @@ function profileDrawing(p: Profile): SVGSVGElement {
     const y1 = yOf(c.baseKm);
     parts.push(
       svg('rect', { x: x0, y: y0, width: 150, height: Math.max(4, y1 - y0), rx: 8, fill: '#ffffff', stroke: COL.cloudShade }),
-      label(x0 + 75, (y0 + y1) / 2 + 4, c.name, { class: 'fig-label note bold', 'text-anchor': 'middle' }),
+      note(x0 + 75, (y0 + y1) / 2 + 4, c.name, { bold: true, anchor: 'middle' }),
       ...(y1 - y0 < 24
-        ? [label(x0 - 6, (y0 + y1) / 2 + 4, `${deg(tempAt(c.baseKm))} to ${deg(tempAt(c.topKm))}`, { class: 'fig-label note bold', 'text-anchor': 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' })]
+        ? [note(x0 - 6, (y0 + y1) / 2 + 4, `${deg(tempAt(c.baseKm))} to ${deg(tempAt(c.topKm))}`, { bold: true, anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' })]
         : [
-          label(x0 - 6, y0 + 9, `top ${deg(tempAt(c.topKm))}`, { class: 'fig-label note', 'text-anchor': 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' }),
-          label(x0 - 6, y1, `base ${deg(tempAt(c.baseKm))}`, { class: 'fig-label note', 'text-anchor': 'end', fill: tempAt(c.baseKm) < 0 ? COL.ice : '#b0583a' }),
+          note(x0 - 6, y0 + 9, `top ${deg(tempAt(c.topKm))}`, { anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' }),
+          note(x0 - 6, y1, `base ${deg(tempAt(c.baseKm))}`, { anchor: 'end', fill: tempAt(c.baseKm) < 0 ? COL.ice : '#b0583a' }),
         ]),
     );
   });
-  parts.push(label(W / 2, ground + 14, p.ground ?? `ground: ${deg(tempAt(0))}`, { class: 'fig-label note', fill: '#fff', 'text-anchor': 'middle' }));
+  parts.push(note(W / 2, ground + 14, p.ground ?? `ground: ${deg(tempAt(0))}`, { anchor: 'middle', fill: '#fff' }));
   s.append(...parts);
   return s;
 }

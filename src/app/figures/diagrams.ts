@@ -2,50 +2,17 @@
 // from the text around it. They break up the long stretches of prose between
 // the live figures.
 
-import { el, svg } from '../dom';
+import {  svg } from '../dom';
 import type { GenusId } from '../../core/clouds';
 import { drawCloud, SHEETS } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { COL, label, line, polyline, type FigureFactory } from './kit';
-
-function diagram(w: number, h: number): { node: HTMLElement; svg: SVGSVGElement } {
-  const s = svg('svg', { viewBox: `0 0 ${w} ${h}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
-  return { node: el('div.fig-body.fig-still', {}, s), svg: s };
-}
-
-function arrow(x1: number, y1: number, x2: number, y2: number, color: string, width = 2): SVGElement {
-  const a = Math.atan2(y2 - y1, x2 - x1);
-  const head = 5 + width * 1.5;
-  const tip = (da: number) => `${x2 - head * Math.cos(a + da)},${y2 - head * Math.sin(a + da)}`;
-  return svg('g', {},
-    line(x1, y1, x2 - head * 0.7 * Math.cos(a), y2 - head * 0.7 * Math.sin(a), color, width),
-    svg('polygon', { points: `${x2},${y2} ${tip(0.45)} ${tip(-0.45)}`, fill: color }));
-}
-
-/** An arrow drawn as a wave, for infrared light, going straight up or down. */
-function wavy(x: number, y1: number, y2: number, color: string, width = 2): SVGElement {
-  const pts: [number, number][] = [];
-  const dir = Math.sign(y2 - y1);
-  const len = Math.abs(y2 - y1) - 8;
-  for (let d = 0; d <= len; d += 2) pts.push([x + 4 * Math.sin(d / 4), y1 + dir * d]);
-  return svg('g', {}, polyline(pts, color, width), arrow(x, y2 - dir * 9, x, y2, color, width));
-}
-
-/** A cumulus-like puff from circles, with a flat base cut at `base` when given. */
-function puff(cx: number, cy: number, s: number, cut?: { base: number; sky: string }): SVGElement {
-  const blobs: [number, number, number][] = [[-22, 6, 16], [0, -8, 22], [22, 4, 17], [-8, -24, 14], [12, -22, 15], [0, 10, 18]];
-  const g = svg('g', {}, ...blobs.map(([dx, dy, r]) => svg('circle', { cx: cx + dx * s, cy: cy + dy * s, r: r * s, fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 })));
-  if (cut) g.append(svg('rect', { x: cx - 50 * s, y: cut.base, width: 100 * s, height: 40 * s, fill: cut.sky }));
-  return g;
-}
-
-const text = (x: number, y: number, s: string, attrs: Record<string, string | number> = {}) => label(x, y, s, { class: 'fig-label small', ...attrs });
-const title = (x: number, y: number, s: string, attrs: Record<string, string | number> = {}) => label(x, y, s, { class: 'fig-label bold', 'text-anchor': 'middle', ...attrs });
+import { arrow, flake, heading, hexagon, label, line, polyline, puff, small, still, wavy } from './draw';
+import { COL, type FigureFactory } from './kit';
 
 // ---- Molecules, warm and cold ------------------------------------------------
 
 export const moleculesDiagram: FigureFactory = () => {
-  const d = diagram(400, 200);
+  const d = still(400, 200);
   const warm: [number, number, number][] = [[40, 60, 0.3], [90, 50, 2.4], [150, 70, 4.2], [60, 110, 5.5], [120, 115, 1.2], [170, 125, 3.3], [35, 155, 1.9], [100, 160, 4.9], [155, 165, 0.8]];
   const cluster: [number, number][] = [];
   for (let row = -2; row <= 2; row++) {
@@ -57,16 +24,16 @@ export const moleculesDiagram: FigureFactory = () => {
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 200, height: 200, fill: '#fbeee6' }),
     svg('rect', { x: 200, y: 0, width: 200, height: 200, fill: '#e6eef8' }),
-    title(100, 22, 'Warm: fast molecules bounce apart'),
-    title(300, 22, 'Cold: slow molecules stick'),
+    heading(100, 22, 'Warm: fast molecules bounce apart'),
+    heading(300, 22, 'Cold: slow molecules stick'),
     ...warm.map(([x, y, a]) => arrow(x, y, x + 24 * Math.cos(a), y + 24 * Math.sin(a), COL.parcel, 1.5)),
     ...warm.map(([x, y]) => mol(x, y)),
     ...strays.map(([x, y, a]) => arrow(x, y, x + 16 * Math.cos(a), y + 16 * Math.sin(a), COL.cold, 1.5)),
     ...strays.map(([x, y]) => mol(x, y)),
     svg('circle', { cx: 300, cy: 115, r: 30, fill: 'none', stroke: COL.dew, 'stroke-width': 1, 'stroke-dasharray': '3 3' }),
     ...cluster.map(([x, y]) => mol(x, y)),
-    text(100, 190, 'They stay apart as vapour', { 'text-anchor': 'middle' }),
-    text(300, 190, 'They clump into a droplet', { 'text-anchor': 'middle' }),
+    small(100, 190, 'They stay apart as vapour', { anchor: 'middle' }),
+    small(300, 190, 'They clump into a droplet', { anchor: 'middle' }),
   );
   return { node: d.node };
 };
@@ -74,7 +41,7 @@ export const moleculesDiagram: FigureFactory = () => {
 // ---- Rising air expands and cools --------------------------------------------
 
 export const expandDiagram: FigureFactory = () => {
-  const d = diagram(400, 240);
+  const d = still(400, 240);
   const ground = 216;
   const yOf = (km: number) => ground - 18 - km * 72;
   const dots: SVGElement[] = [];
@@ -94,22 +61,22 @@ export const expandDiagram: FigureFactory = () => {
     ...dots,
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: COL.ground }),
     ...[0, 1, 2].map((km) => line(0, yOf(km), 236, yOf(km), COL.grid, 1, { 'stroke-dasharray': '3 3' })),
-    text(8, yOf(0) - 4, 'near the ground', { class: 'fig-label small soft' }),
-    text(8, yOf(1) - 4, '1 km up', { class: 'fig-label small soft' }),
-    text(8, yOf(2) - 4, '2 km up', { class: 'fig-label small soft' }),
+    small(8, yOf(0) - 4, 'near the ground', { soft: true }),
+    small(8, yOf(1) - 4, '1 km up', { soft: true }),
+    small(8, yOf(2) - 4, '2 km up', { soft: true }),
     arrow(120, yOf(0) - 16, 120, yOf(2) + 30, COL.parcel, 1.5),
     ...parcels.map(([km, r]) => svg('circle', { cx: 160, cy: yOf(km), r, fill: 'rgba(224, 102, 63, 0.16)', stroke: COL.parcel, 'stroke-width': 2 })),
-    ...parcels.map(([km, r, t]) => label(160 + r + 6, yOf(km) + 4, t, { class: 'fig-label bold', fill: COL.parcel, stroke: '#e9f1f4', 'stroke-width': 4, 'paint-order': 'stroke' })),
+    ...parcels.map(([km, r, t]) => label(160 + r + 6, yOf(km) + 4, t, { bold: true, fill: COL.parcel, halo: '#e9f1f4', haloWidth: 4 })),
     ...[1.6, 3.2, 4.7].map((a) => arrow(160 + 28 * Math.cos(a), yOf(2) + 28 * Math.sin(a), 160 + 38 * Math.cos(a), yOf(2) + 38 * Math.sin(a), COL.parcel, 1.2)),
-    text(252, 44, 'Higher up there is less air'),
-    text(252, 58, 'pressing down, so the parcel'),
-    text(252, 72, 'spreads out as it rises.'),
-    text(252, 98, 'Spreading out takes energy'),
-    text(252, 112, 'from its own molecules, so'),
-    text(252, 126, 'it cools: about 10 °C for'),
-    text(252, 140, 'every kilometre it climbs.'),
-    text(252, 172, 'The dots are the air around:', { class: 'fig-label small soft' }),
-    text(252, 186, 'crowded low, thinner aloft.', { class: 'fig-label small soft' }),
+    small(252, 44, 'Higher up there is less air'),
+    small(252, 58, 'pressing down, so the parcel'),
+    small(252, 72, 'spreads out as it rises.'),
+    small(252, 98, 'Spreading out takes energy'),
+    small(252, 112, 'from its own molecules, so'),
+    small(252, 126, 'it cools: about 10 °C for'),
+    small(252, 140, 'every kilometre it climbs.'),
+    small(252, 172, 'The dots are the air around:', { soft: true }),
+    small(252, 186, 'crowded low, thinner aloft.', { soft: true }),
   );
   return { node: d.node };
 };
@@ -117,25 +84,25 @@ export const expandDiagram: FigureFactory = () => {
 // ---- Stable and unstable, in numbers -------------------------------------------
 
 export const stabilityDiagram: FigureFactory = () => {
-  const d = diagram(400, 256);
+  const d = still(400, 256);
   const panel = (ox: number, unstable: boolean): SVGElement[] => {
     const airTop = unstable ? 8 : 15;
     const top = 92;
     const bottom = 158;
     const bx = ox + 58;
     return [
-      title(ox + 100, 20, unstable ? 'Unstable' : 'Stable'),
-      text(ox + 100, 34, `The air around cools ${unstable ? 12 : 5} °C per km`, { 'text-anchor': 'middle', fill: COL.env }),
+      heading(ox + 100, 20, unstable ? 'Unstable' : 'Stable'),
+      small(ox + 100, 34, `The air around cools ${unstable ? 12 : 5} °C per km`, { anchor: 'middle', fill: COL.env }),
       line(bx, bottom - 14, bx, top + 18, COL.parcel, 1, { 'stroke-dasharray': '2 3' }),
-      text(bx + 6, (top + bottom) / 2 + 3, 'nudged up 1 km', { class: 'fig-label small soft' }),
+      small(bx + 6, (top + bottom) / 2 + 3, 'nudged up 1 km', { soft: true }),
       svg('circle', { cx: bx, cy: bottom, r: 14, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.5, 'stroke-dasharray': '3 3' }),
-      label(bx, bottom + 4, '20°', { 'text-anchor': 'middle', class: 'fig-label small', fill: COL.parcel }),
-      text(ox + 112, bottom + 4, 'air 20 °C', { fill: COL.env }),
+      small(bx, bottom + 4, '20°', { anchor: 'middle', fill: COL.parcel }),
+      small(ox + 112, bottom + 4, 'air 20 °C', { fill: COL.env }),
       svg('circle', { cx: bx, cy: top, r: 16, fill: unstable ? 'rgba(224, 102, 63, 0.22)' : 'rgba(127, 168, 216, 0.3)', stroke: COL.parcel, 'stroke-width': 2 }),
-      label(bx, top + 4, '10°', { 'text-anchor': 'middle', class: 'fig-label bold', fill: COL.parcel }),
-      text(ox + 112, top + 4, `air ${airTop} °C`, { fill: COL.env }),
+      heading(bx, top + 4, '10°', { fill: COL.parcel }),
+      small(ox + 112, top + 4, `air ${airTop} °C`, { fill: COL.env }),
       unstable ? arrow(bx, top - 18, bx, top - 44, COL.parcel, 2.5) : arrow(bx + 24, top - 6, bx + 24, top + 22, COL.cold, 2.5),
-      title(ox + 100, 190, unstable ? 'Bubble 2° warmer: keeps rising' : 'Bubble 5° colder: sinks back', { class: 'fig-label small bold' }),
+      small(ox + 100, 190, unstable ? 'Bubble 2° warmer: keeps rising' : 'Bubble 5° colder: sinks back', { bold: true, anchor: 'middle' }),
       // A balloon under a ceiling: it bows down when unstable, so the balloon drifts away; it is domed when stable, so the balloon floats back.
       unstable
         ? svg('path', { d: `M${ox + 40},194 L${ox + 160},194 L${ox + 160},200 Q${ox + 100},256 ${ox + 40},200 Z`, fill: COL.env, opacity: 0.18 })
@@ -160,7 +127,7 @@ export const stabilityDiagram: FigureFactory = () => {
 // ---- Anatomy of a heap ---------------------------------------------------------
 
 export const heapDiagram: FigureFactory = () => {
-  const d = diagram(400, 240);
+  const d = still(400, 240);
   const sky = '#dcebf3';
   const ground = 216;
   const base = 118;
@@ -175,15 +142,15 @@ export const heapDiagram: FigureFactory = () => {
     svg('path', { d: 'M172,52 C125,36 85,50 70,84', fill: 'none', stroke: COL.env, 'stroke-width': 2 }),
     arrow(330, 84, 330, 196, COL.env, 2),
     arrow(70, 84, 70, 196, COL.env, 2),
-    text(396, base - 5, 'dew-point level', { 'text-anchor': 'end', fill: COL.dew }),
-    text(208, 28, 'bright top, still rising', { fill: COL.ink }),
-    text(208, base + 16, 'flat base: rising air', { fill: COL.parcel }),
-    text(208, base + 28, 'reaches its dew point', { fill: COL.parcel }),
-    text(214, ground - 14, 'sun-warmed ground', { fill: COL.ink }),
-    text(338, 150, 'sinking air', { fill: COL.env }),
-    text(338, 162, 'warms: clear', { fill: COL.env }),
-    text(62, 150, 'sinking air', { fill: COL.env, 'text-anchor': 'end' }),
-    text(62, 162, 'warms: clear', { fill: COL.env, 'text-anchor': 'end' }),
+    small(396, base - 5, 'dew-point level', { anchor: 'end', fill: COL.dew }),
+    small(208, 28, 'bright top, still rising', { fill: COL.ink }),
+    small(208, base + 16, 'flat base: rising air', { fill: COL.parcel }),
+    small(208, base + 28, 'reaches its dew point', { fill: COL.parcel }),
+    small(214, ground - 14, 'sun-warmed ground', { fill: COL.ink }),
+    small(338, 150, 'sinking air', { fill: COL.env }),
+    small(338, 162, 'warms: clear', { fill: COL.env }),
+    small(62, 150, 'sinking air', { anchor: 'end', fill: COL.env }),
+    small(62, 162, 'warms: clear', { anchor: 'end', fill: COL.env }),
   );
   return { node: d.node };
 };
@@ -191,7 +158,7 @@ export const heapDiagram: FigureFactory = () => {
 // ---- Day and night at the ground ---------------------------------------------------
 
 export const dayNightDiagram: FigureFactory = () => {
-  const d = diagram(400, 210);
+  const d = still(400, 210);
   const ground = 160;
   const stars: [number, number][] = [[226, 22], [262, 48], [300, 18], [340, 40], [380, 24], [236, 76], [372, 84]];
   d.svg.append(
@@ -201,19 +168,19 @@ export const dayNightDiagram: FigureFactory = () => {
     svg('circle', { cx: 34, cy: 30, r: 14, fill: COL.sun }),
     ...[60, 92, 124].map((x) => arrow(x - 18, 34, x, ground - 4, COL.sun, 3)),
     ...[150, 176].map((x) => wavy(x, ground - 4, 70, COL.warm, 1.2)),
-    text(196, 64, 'infrared out', { 'text-anchor': 'end', fill: COL.parcel }),
-    text(56, 22, 'sunlight in', { fill: '#b06a10' }),
+    small(196, 64, 'infrared out', { anchor: 'end', fill: COL.parcel }),
+    small(56, 22, 'sunlight in', { fill: '#b06a10' }),
     svg('rect', { x: 200, y: ground - 30, width: 200, height: 30, fill: COL.cold, opacity: 0.55 }),
     ...[222, 266, 310].map((x) => wavy(x, ground - 4, 20, COL.warm, 2)),
-    text(394, 100, 'infrared out', { 'text-anchor': 'end', fill: COL.warm }),
-    text(388, ground - 18, 'coldest air pools', { 'text-anchor': 'end', fill: '#fff' }),
-    text(388, ground - 6, 'at the bottom', { 'text-anchor': 'end', fill: '#fff' }),
+    small(394, 100, 'infrared out', { anchor: 'end', fill: COL.warm }),
+    small(388, ground - 18, 'coldest air pools', { anchor: 'end', fill: '#fff' }),
+    small(388, ground - 6, 'at the bottom', { anchor: 'end', fill: '#fff' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 50, fill: COL.ground }),
-    title(100, ground + 18, 'Day: more in than out', { fill: '#fff' }),
-    text(100, ground + 32, 'The ground warms.', { 'text-anchor': 'middle', fill: '#fff' }),
-    title(300, ground + 18, 'Night: only out', { fill: '#fff' }),
-    text(300, ground + 32, 'The ground cools, and chills', { 'text-anchor': 'middle', fill: '#fff' }),
-    text(300, ground + 44, 'the air resting on it.', { 'text-anchor': 'middle', fill: '#fff' }),
+    heading(100, ground + 18, 'Day: more in than out', { fill: '#fff' }),
+    small(100, ground + 32, 'The ground warms.', { anchor: 'middle', fill: '#fff' }),
+    heading(300, ground + 18, 'Night: only out', { fill: '#fff' }),
+    small(300, ground + 32, 'The ground cools, and chills', { anchor: 'middle', fill: '#fff' }),
+    small(300, ground + 44, 'the air resting on it.', { anchor: 'middle', fill: '#fff' }),
   );
   return { node: d.node };
 };
@@ -221,7 +188,7 @@ export const dayNightDiagram: FigureFactory = () => {
 // ---- Fog and stratus are one cloud ---------------------------------------------------
 
 export const fogStratusDiagram: FigureFactory = () => {
-  const d = diagram(400, 200);
+  const d = still(400, 200);
   const valley = (ox: number) => `M${ox},84 L${ox + 34},92 Q${ox + 100},200 ${ox + 166},94 L${ox + 200},86 L${ox + 200},200 L${ox},200 Z`;
   const person = (x: number, y: number) => svg('g', {},
     svg('circle', { cx: x, cy: y - 13, r: 3, fill: COL.ink }),
@@ -242,11 +209,11 @@ export const fogStratusDiagram: FigureFactory = () => {
     person(300, 147),
     line(300, 128, 300, 104, COL.soft, 1, { 'stroke-dasharray': '2 3' }),
     line(200, 0, 200, 200, '#fff', 2),
-    title(100, 22, 'Fog: base on the ground'),
-    title(300, 22, 'Stratus: base off the ground'),
-    text(100, 38, 'You are inside the cloud', { 'text-anchor': 'middle' }),
-    text(300, 38, 'Same layer, lifted: a grey ceiling', { 'text-anchor': 'middle' }),
-    text(308, 120, 'cloud base', { class: 'fig-label small soft' }),
+    heading(100, 22, 'Fog: base on the ground'),
+    heading(300, 22, 'Stratus: base off the ground'),
+    small(100, 38, 'You are inside the cloud', { anchor: 'middle' }),
+    small(300, 38, 'Same layer, lifted: a grey ceiling', { anchor: 'middle' }),
+    small(308, 120, 'cloud base', { soft: true }),
   );
   return { node: d.node };
 };
@@ -254,7 +221,7 @@ export const fogStratusDiagram: FigureFactory = () => {
 // ---- Sharp edges and feathery edges --------------------------------------------
 
 export const edgesDiagram: FigureFactory = () => {
-  const d = diagram(400, 214);
+  const d = still(400, 214);
   const day = PALETTES.day;
   // Seeded scatter, so the picture is the same every time.
   let seed = 7;
@@ -281,8 +248,7 @@ export const edgesDiagram: FigureFactory = () => {
     const y = 106 + rnd() * 68 + t * 8;
     if (rnd() < 1 - t * 0.75 && Math.hypot(x - 300, y - 140) < 38) {
       const r = 2.2 + rnd() * 1.4;
-      const pts = Array.from({ length: 6 }, (_, k) => `${(x + r * Math.cos((k * Math.PI) / 3)).toFixed(1)},${(y + r * Math.sin((k * Math.PI) / 3)).toFixed(1)}`).join(' ');
-      crystals.push(svg('polygon', { points: pts, fill: 'none', stroke: COL.ice, 'stroke-width': 1.1 }));
+      crystals.push(hexagon(x, y, r, { fill: 'none', stroke: COL.ice, 'stroke-width': 1.1 }));
     }
   }
   const cirrus = drawCloud('cirrus', day, 4);
@@ -295,18 +261,18 @@ export const edgesDiagram: FigureFactory = () => {
     svg('rect', { x: 0, y: 26, width: 400, height: 64, fill: day.sky[1] }),
     heap,
     cirrus,
-    title(100, 18, 'Low: liquid droplets'),
-    title(300, 18, 'High: ice crystals'),
+    heading(100, 18, 'Low: liquid droplets'),
+    heading(300, 18, 'High: ice crystals'),
     line(110, 70, 112, 104, COL.ink, 1, { 'stroke-dasharray': '2 2' }),
     line(296, 66, 296, 102, COL.ink, 1, { 'stroke-dasharray': '2 2' }),
     ...lens(100, 140, 40, '#ffffff'),
     ...drops,
     ...lens(300, 140, 40, '#ffffff'),
     ...crystals,
-    text(100, 196, 'Crowded and tiny: at the edge they', { 'text-anchor': 'middle' }),
-    text(100, 208, 'evaporate in seconds. A crisp outline.', { 'text-anchor': 'middle' }),
-    text(300, 196, 'Few, large and slow to vanish: they', { 'text-anchor': 'middle' }),
-    text(300, 208, 'drift off in trails. A feathery edge.', { 'text-anchor': 'middle' }),
+    small(100, 196, 'Crowded and tiny: at the edge they', { anchor: 'middle' }),
+    small(100, 208, 'evaporate in seconds. A crisp outline.', { anchor: 'middle' }),
+    small(300, 196, 'Few, large and slow to vanish: they', { anchor: 'middle' }),
+    small(300, 208, 'drift off in trails. A feathery edge.', { anchor: 'middle' }),
   );
   return { node: d.node };
 };
@@ -314,7 +280,7 @@ export const edgesDiagram: FigureFactory = () => {
 // ---- Floors times textures: six names ---------------------------------------------
 
 export const nameGridDiagram: FigureFactory = () => {
-  const d = diagram(400, 262);
+  const d = still(400, 262);
   const day = PALETTES.day;
   const rows: [string, string, string, GenusId, GenusId][] = [
     ['High', 'cirro-', day.sky[0], 'cirrocumulus', 'cirrostratus'],
@@ -329,24 +295,24 @@ export const nameGridDiagram: FigureFactory = () => {
   rows.forEach(([floor, prefix, sky, heap, sheet], r) => {
     const y = top + r * rowH;
     cells.push(
-      title(left / 2, y + rowH / 2 - 2, floor),
-      text(left / 2, y + rowH / 2 + 12, prefix, { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+      heading(left / 2, y + rowH / 2 - 2, floor),
+      small(left / 2, y + rowH / 2 + 12, prefix, { soft: true, anchor: 'middle' }),
     );
     [heap, sheet].forEach((id, c) => {
       const x = left + c * colW;
       const scale = id === 'cumulus' ? 0.8 : 0.9;
       const cloud = SHEETS.has(id) ? drawCloud(id, day, 3, colW / 2 / scale) : drawCloud(id, day, 3);
       cloud.setAttribute('transform', `translate(${x + colW / 2} ${y + rowH - 26}) scale(${scale})`);
-      const name = label(x + colW / 2, y + rowH - 8, id, { 'text-anchor': 'middle', class: 'fig-label bold', fill: '#fff', stroke: 'rgba(11, 29, 32, 0.45)', 'stroke-width': 3, 'paint-order': 'stroke' });
+      const name = heading(x + colW / 2, y + rowH - 8, id, { fill: '#fff', halo: 'rgba(11, 29, 32, 0.45)' });
       cells.push(svg('rect', { x, y, width: colW, height: rowH, fill: sky }), cloud, name);
     });
   });
   d.svg.append(
     ...cells,
-    title(left + colW / 2, 16, '+ cumulus'),
-    text(left + colW / 2, 28, 'heaps', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
-    title(left + colW * 1.5, 16, '+ stratus'),
-    text(left + colW * 1.5, 28, 'a layer', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    heading(left + colW / 2, 16, '+ cumulus'),
+    small(left + colW / 2, 28, 'heaps', { soft: true, anchor: 'middle' }),
+    heading(left + colW * 1.5, 16, '+ stratus'),
+    small(left + colW * 1.5, 28, 'a layer', { soft: true, anchor: 'middle' }),
     ...[1, 2].map((r) => line(left, top + r * rowH, 400, top + r * rowH, '#fff', 2)),
     line(left + colW, top, left + colW, top + 3 * rowH, '#fff', 2),
   );
@@ -356,7 +322,7 @@ export const nameGridDiagram: FigureFactory = () => {
 // ---- Stratus and stratocumulus ----------------------------------------------------------
 
 export const layerKindsDiagram: FigureFactory = () => {
-  const d = diagram(400, 262);
+  const d = still(400, 262);
   const grey = '#b3bccb';
   const dark = '#8f98ab';
   const sky = '#dcebf3';
@@ -389,29 +355,29 @@ export const layerKindsDiagram: FigureFactory = () => {
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: sky }),
     svg('rect', { x: 0, y: ground, width: 400, height: 6, fill: COL.ground }),
-    title(100, 18, 'Stratus: cooled evenly'),
-    title(300, 18, 'Stratocumulus: stirred'),
+    heading(100, 18, 'Stratus: cooled evenly'),
+    heading(300, 18, 'Stratocumulus: stirred'),
     // Stratus: an even sheet, nothing moving in it.
     svg('rect', { x: 14, y: 62, width: 172, height: 34, fill: grey }),
     ...[40, 100, 160].map((x) => arrow(x, 112, x, 126, COL.cold, 1.6)),
-    text(100, 50, 'one still, even layer', { 'text-anchor': 'middle' }),
-    text(100, 110, 'chilled from below', { 'text-anchor': 'middle', fill: '#4f79a8' }),
+    small(100, 50, 'one still, even layer', { anchor: 'middle' }),
+    small(100, 110, 'chilled from below', { anchor: 'middle', fill: '#4f79a8' }),
     // Stratocumulus: cells under the lid, each with its own up and down.
     svg('rect', { x: 200, y: 56, width: 200, height: 6, fill: COL.env, opacity: 0.45 }),
-    text(396, 50, 'warm lid', { 'text-anchor': 'end', fill: COL.env }),
+    small(396, 50, 'warm lid', { anchor: 'end', fill: COL.env }),
     ...cells,
     loop(225), loop(315),
-    text(300, 112, 'up in the middle, down at the edges', { 'text-anchor': 'middle' }),
+    small(300, 112, 'up in the middle, down at the edges', { anchor: 'middle' }),
     // From below.
     svg('rect', { x: 0, y: 138, width: 400, height: 124, fill: '#cfe0ec' }),
-    text(100, 154, 'from below:', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
-    text(300, 154, 'from below:', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    small(100, 154, 'from below:', { soft: true, anchor: 'middle' }),
+    small(300, 154, 'from below:', { soft: true, anchor: 'middle' }),
     svg('rect', { x: 14, y: 162, width: 172, height: 62, rx: 6, fill: grey }),
     svg('rect', { x: 214, y: 162, width: 172, height: 62, rx: 6, fill: '#7fb3d5' }),
-    text(100, 240, 'an even grey ceiling, no pattern', { 'text-anchor': 'middle' }),
-    text(100, 253, 'drizzle at most', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
-    text(300, 240, 'lumps: dark centres, bright rims', { 'text-anchor': 'middle' }),
-    text(300, 253, 'and gaps of blue between', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    small(100, 240, 'an even grey ceiling, no pattern', { anchor: 'middle' }),
+    small(100, 253, 'drizzle at most', { soft: true, anchor: 'middle' }),
+    small(300, 240, 'lumps: dark centres, bright rims', { anchor: 'middle' }),
+    small(300, 253, 'and gaps of blue between', { soft: true, anchor: 'middle' }),
   );
   // The from-below panel is cut to its frame.
   const clip = svg('clipPath', { id: 'layer-kinds-clip' }, svg('rect', { x: 214, y: 162, width: 172, height: 62, rx: 6 }));
@@ -423,7 +389,7 @@ export const layerKindsDiagram: FigureFactory = () => {
 // ---- Sinking air makes the lid -------------------------------------------------------------
 
 export const subsidenceDiagram: FigureFactory = () => {
-  const d = diagram(400, 240);
+  const d = still(400, 240);
   const ground = 212;
   const lid = 112;
   const eddy = (cx: number, cy: number, r: number) => svg('g', {},
@@ -436,24 +402,24 @@ export const subsidenceDiagram: FigureFactory = () => {
     svg('rect', { x: 0, y: 0, width: 262, height: ground, fill: '#e9f1f4' }),
     svg('rect', { x: 0, y: lid, width: 262, height: ground - lid, fill: '#f1ece2' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: COL.ground }),
-    title(120, 18, 'High pressure: air sinking slowly'),
+    heading(120, 18, 'High pressure: air sinking slowly'),
     ...[18, 160, 205, 250].map((x) => arrow(x, 30, x, lid - 22, COL.env, 2)),
-    text(32, 62, 'squeezed as it sinks,', { fill: COL.env }),
-    text(32, 75, 'so it warms', { fill: COL.env }),
+    small(32, 62, 'squeezed as it sinks,', { fill: COL.env }),
+    small(32, 75, 'so it warms', { fill: COL.env }),
     svg('rect', { x: 0, y: lid - 8, width: 262, height: 8, fill: COL.env, opacity: 0.45 }),
-    text(6, lid - 12, 'the lid: warm air resting on cool air', { fill: COL.env }),
+    small(6, lid - 12, 'the lid: warm air resting on cool air', { fill: COL.env }),
     eddy(60, 150, 22), eddy(150, 162, 26), eddy(222, 146, 18),
-    text(6, ground - 8, 'stirred by wind and thermals from the ground', { fill: COL.parcel }),
+    small(6, ground - 8, 'stirred by wind and thermals from the ground', { fill: COL.parcel }),
     // The profile.
     line(gx(4), 30, gx(4), ground, COL.ink, 1),
     line(gx(4), ground, 396, ground, COL.ink, 1),
     polyline([[gx(24), gy(0)], [gx(14.5), gy(1.9)], [gx(19), gy(2.15)], [gx(9), gy(3.5)]], COL.env, 2.4),
-    label(398, ground + 14, 'temperature →', { class: 'fig-label small', fill: '#fff', 'text-anchor': 'end' }),
-    label(gx(4) - 4, 36, 'height', { class: 'fig-label small soft', 'text-anchor': 'end' }),
-    label(gx(19) + 5, gy(2.15) - 2, 'warmer', { class: 'fig-label small', fill: COL.env }),
-    label(gx(19) + 5, gy(2.15) + 9, 'going up', { class: 'fig-label small', fill: COL.env }),
-    label(gx(20) - 6, gy(1) + 4, 'cooler', { class: 'fig-label small soft', 'text-anchor': 'end' }),
-    label(gx(20) - 6, gy(1) + 15, 'with height', { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    small(398, ground + 14, 'temperature →', { anchor: 'end', fill: '#fff' }),
+    small(gx(4) - 4, 36, 'height', { soft: true, anchor: 'end' }),
+    small(gx(19) + 5, gy(2.15) - 2, 'warmer', { fill: COL.env }),
+    small(gx(19) + 5, gy(2.15) + 9, 'going up', { fill: COL.env }),
+    small(gx(20) - 6, gy(1) + 4, 'cooler', { soft: true, anchor: 'end' }),
+    small(gx(20) - 6, gy(1) + 15, 'with height', { soft: true, anchor: 'end' }),
   );
   return { node: d.node };
 };
@@ -461,7 +427,7 @@ export const subsidenceDiagram: FigureFactory = () => {
 // ---- A million droplets in one raindrop -----------------------------------------------------
 
 export const millionDiagram: FigureFactory = () => {
-  const d = diagram(400, 210);
+  const d = still(400, 210);
   const cx = 104;
   const cy = 104;
   const r = 60;
@@ -487,18 +453,18 @@ export const millionDiagram: FigureFactory = () => {
     svg('circle', { cx, cy, r, fill: COL.rain, opacity: 0.35 }),
     svg('circle', { cx, cy, r, fill: 'none', stroke: COL.rain, 'stroke-width': 2 }),
     ...row,
-    title(cx, 24, 'One raindrop, 1 mm'),
-    text(cx, cy - 8, '100 cloud droplets', { 'text-anchor': 'middle' }),
-    text(cx, cy + 16, 'fit side by side', { 'text-anchor': 'middle' }),
+    heading(cx, 24, 'One raindrop, 1 mm'),
+    small(cx, cy - 8, '100 cloud droplets', { anchor: 'middle' }),
+    small(cx, cy + 16, 'fit side by side', { anchor: 'middle' }),
     svg('circle', { cx: 30, cy: 188, r: 0.8, fill: COL.ink }),
-    text(38, 191, 'one cloud droplet, 0.01 mm, at the same scale', { class: 'fig-label small soft' }),
+    small(38, 191, 'one cloud droplet, 0.01 mm, at the same scale', { soft: true }),
     face([[ox, oy], [ox + s, oy], [ox + s, oy + s], [ox, oy + s]], '#d9e6f5'),
     face([[ox, oy], [ox + s * k, oy - s * k], [ox + s + s * k, oy - s * k], [ox + s, oy]], '#eef3fa'),
     face([[ox + s, oy], [ox + s + s * k, oy - s * k], [ox + s + s * k, oy + s - s * k], [ox + s, oy + s]], '#b9cde6'),
     ...grid,
-    title(ox + s * 0.7, 24, 'Wide, tall and deep'),
-    text(ox + s / 2, oy + s + 18, '100 × 100 × 100', { 'text-anchor': 'middle' }),
-    title(ox + s / 2, oy + s + 34, '= 1,000,000 droplets'),
+    heading(ox + s * 0.7, 24, 'Wide, tall and deep'),
+    small(ox + s / 2, oy + s + 18, '100 × 100 × 100', { anchor: 'middle' }),
+    heading(ox + s / 2, oy + s + 34, '= 1,000,000 droplets'),
   );
   return { node: d.node };
 };
@@ -506,41 +472,41 @@ export const millionDiagram: FigureFactory = () => {
 // ---- Collecting: a big drop sweeps up small ones ------------------------------------------------
 
 export const collideDiagram: FigureFactory = () => {
-  const d = diagram(400, 230);
+  const d = still(400, 230);
   let seed = 11;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
   const dropX = 120;
   const dropY = 72;
   const dropR = 9;
-  const small: SVGElement[] = [];
+  const specks: SVGElement[] = [];
   for (let i = 0; i < 70; i++) {
     const x = 12 + rnd() * 226;
     const y = 30 + rnd() * 190;
     if (Math.hypot(x - dropX, y - dropY) < dropR + 6) continue;
     const inPath = Math.abs(x - dropX) < dropR && y > dropY;
-    small.push(svg('circle', { cx: x, cy: y, r: 1.6 + rnd() * 1.2, fill: inPath ? COL.dew : COL.rain, opacity: inPath ? 1 : 0.55 }));
-    if (i % 5 === 0 && !inPath) small.push(line(x, y + 4, x, y + 9, COL.soft, 1));
+    specks.push(svg('circle', { cx: x, cy: y, r: 1.6 + rnd() * 1.2, fill: inPath ? COL.dew : COL.rain, opacity: inPath ? 1 : 0.55 }));
+    if (i % 5 === 0 && !inPath) specks.push(line(x, y + 4, x, y + 9, COL.soft, 1));
   }
   // The same drop a little later, and later still: bigger, faster.
   const stages: [number, number, number][] = [[50, 4, 14], [110, 7, 26], [180, 11, 40]];
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 250, height: 230, fill: '#eceaf2' }),
-    title(125, 18, 'Inside a warm cloud'),
+    heading(125, 18, 'Inside a warm cloud'),
     line(dropX - dropR, dropY, dropX - dropR, 228, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
     line(dropX + dropR, dropY, dropX + dropR, 228, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
-    ...small,
+    ...specks,
     svg('circle', { cx: dropX, cy: dropY, r: dropR, fill: COL.rain }),
     arrow(dropX, dropY + dropR + 2, dropX, dropY + dropR + 34, COL.ink, 2),
-    text(dropX + 14, dropY - 4, 'a bigger drop falls faster'),
-    text(dropX + 16, 150, 'droplets in its path', { fill: COL.dew }),
-    text(dropX + 16, 162, 'are swept up', { fill: COL.dew }),
-    text(14, 222, 'small droplets barely fall', { class: 'fig-label small soft' }),
-    title(325, 18, 'It snowballs'),
+    small(dropX + 14, dropY - 4, 'a bigger drop falls faster'),
+    small(dropX + 16, 150, 'droplets in its path', { fill: COL.dew }),
+    small(dropX + 16, 162, 'are swept up', { fill: COL.dew }),
+    small(14, 222, 'small droplets barely fall', { soft: true }),
+    heading(325, 18, 'It snowballs'),
     ...stages.flatMap(([y, r, len], i) => [
       svg('circle', { cx: 300, cy: y + 10, r, fill: COL.rain }),
       arrow(300, y + 12 + r, 300, y + 12 + r + len * 0.6, COL.ink, 1.6),
-      text(318, y + 14, ['grows a little,', 'falls faster,', 'sweeps a wider'][i]),
-      text(318, y + 26, ['falls a little faster', 'grows faster', 'path each second'][i]),
+      small(318, y + 14, ['grows a little,', 'falls faster,', 'sweeps a wider'][i]),
+      small(318, y + 26, ['falls a little faster', 'grows faster', 'path each second'][i]),
     ]),
   );
   return { node: d.node };
@@ -549,7 +515,7 @@ export const collideDiagram: FigureFactory = () => {
 // ---- Shallow and deep clouds -----------------------------------------------------------------
 
 export const depthDiagram: FigureFactory = () => {
-  const d = diagram(400, 240);
+  const d = still(400, 240);
   const ground = 214;
   const cloud = '#d6d3e3';
   // Shallow: the drop leaves the base still small and dries out on the way down.
@@ -561,21 +527,21 @@ export const depthDiagram: FigureFactory = () => {
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#e7eef4' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: '#b9a55a' }),
     line(200, 0, 200, ground, '#fff', 2),
-    title(100, 18, 'Shallow: no time to grow'),
-    title(300, 18, 'Deep: time to grow'),
+    heading(100, 18, 'Shallow: no time to grow'),
+    heading(300, 18, 'Deep: time to grow'),
     svg('rect', { x: 20, y: 38, width: 160, height: 40, rx: 8, fill: cloud }),
     ...shallow.map(([x, y, r, o]) => svg('circle', { cx: x, cy: y, r, fill: COL.rain, opacity: o })),
-    text(112, 124, 'falls out small', { fill: COL.rain }),
-    text(112, 136, 'and evaporates', { fill: COL.rain }),
-    text(100, 196, 'grey, maybe drizzle', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    small(112, 124, 'falls out small', { fill: COL.rain }),
+    small(112, 136, 'and evaporates', { fill: COL.rain }),
+    small(100, 196, 'grey, maybe drizzle', { soft: true, anchor: 'middle' }),
     svg('rect', { x: 220, y: 30, width: 160, height: 120, rx: 10, fill: cloud }),
     ...[240, 360].map((x) => arrow(x, 136, x, 60, COL.parcel, 2)),
-    text(232, 146, 'updraft', { fill: COL.parcel, class: 'fig-label small' }),
+    small(232, 146, 'updraft', { fill: COL.parcel }),
     polyline(path, COL.rain, 1, { 'stroke-dasharray': '2 3', opacity: 0.7 }),
     ...along.map(([x, y, r]) => svg('circle', { cx: x, cy: y, r, fill: COL.rain })),
     svg('path', { d: `M292,${ground} q4,-7 8,0 q4,-7 8,0`, fill: 'none', stroke: COL.rain, 'stroke-width': 1.5 }),
-    text(312, 182, 'falls out big:', { fill: COL.rain }),
-    text(312, 194, 'rain', { fill: COL.rain }),
+    small(312, 182, 'falls out big:', { fill: COL.rain }),
+    small(312, 194, 'rain', { fill: COL.rain }),
   );
   return { node: d.node };
 };
@@ -583,7 +549,7 @@ export const depthDiagram: FigureFactory = () => {
 // ---- Where a droplet starts ------------------------------------------------------------------
 
 export const specksDiagram: FigureFactory = () => {
-  const d = diagram(400, 210);
+  const d = still(400, 210);
   const mol = (x: number, y: number) => svg('circle', { cx: x, cy: y, r: 3.2, fill: COL.dew });
   // Left: a bare cluster, too tightly curved to hold on to its molecules.
   const bare: [number, number][] = [[62, 92], [69, 88], [66, 98], [74, 96], [58, 99]];
@@ -599,29 +565,29 @@ export const specksDiagram: FigureFactory = () => {
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 266, height: 210, fill: '#e6eef8' }),
     svg('rect', { x: 266, y: 0, width: 134, height: 210, fill: '#efe9f4' }),
-    title(66, 22, 'Alone: falls apart'),
+    heading(66, 22, 'Alone: falls apart'),
     ...escaping.map(([x, y, a]) => arrow(x, y, x + 14 * Math.cos(a), y + 14 * Math.sin(a), COL.parcel, 1.3)),
     ...escaping.map(([x, y]) => mol(x, y)),
     ...bare.map(([x, y]) => mol(x, y)),
-    text(66, 150, 'A few molecules make', { 'text-anchor': 'middle' }),
-    text(66, 163, 'a ball so tiny that they', { 'text-anchor': 'middle' }),
-    text(66, 176, 'escape faster than', { 'text-anchor': 'middle' }),
-    text(66, 189, 'new ones stick.', { 'text-anchor': 'middle' }),
-    title(200, 22, 'On a speck: grows'),
+    small(66, 150, 'A few molecules make', { anchor: 'middle' }),
+    small(66, 163, 'a ball so tiny that they', { anchor: 'middle' }),
+    small(66, 176, 'escape faster than', { anchor: 'middle' }),
+    small(66, 189, 'new ones stick.', { anchor: 'middle' }),
+    heading(200, 22, 'On a speck: grows'),
     svg('polygon', { points: '191,90 204,84 211,95 206,107 193,105', fill: '#a7845b' }),
     ...coat.map(([x, y]) => mol(x, y)),
-    text(200, 150, 'Dust, smoke or salt', { 'text-anchor': 'middle' }),
-    text(200, 163, 'gives them a wide, flat', { 'text-anchor': 'middle' }),
-    text(200, 176, 'surface to gather on:', { 'text-anchor': 'middle' }),
-    text(200, 189, 'a droplet starts.', { 'text-anchor': 'middle' }),
-    title(333, 22, 'How small?'),
+    small(200, 150, 'Dust, smoke or salt', { anchor: 'middle' }),
+    small(200, 163, 'gives them a wide, flat', { anchor: 'middle' }),
+    small(200, 176, 'surface to gather on:', { anchor: 'middle' }),
+    small(200, 189, 'a droplet starts.', { anchor: 'middle' }),
+    heading(333, 22, 'How small?'),
     svg('circle', { cx: 333, cy: 76, r: 35, fill: '#6b5440', opacity: 0.85 }),
-    text(333, 124, 'a hair, end on', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    small(333, 124, 'a hair, end on', { soft: true, anchor: 'middle' }),
     svg('circle', { cx: 333, cy: 76, r: 5, fill: '#ffffff', stroke: COL.dew, 'stroke-width': 1.5 }),
-    text(333, 150, 'The white dot is a', { 'text-anchor': 'middle' }),
-    text(333, 163, 'cloud droplet. Seven', { 'text-anchor': 'middle' }),
-    text(333, 176, 'fit across a hair. It', { 'text-anchor': 'middle' }),
-    text(333, 189, 'falls under 1 cm a second.', { 'text-anchor': 'middle' }),
+    small(333, 150, 'The white dot is a', { anchor: 'middle' }),
+    small(333, 163, 'cloud droplet. Seven', { anchor: 'middle' }),
+    small(333, 176, 'fit across a hair. It', { anchor: 'middle' }),
+    small(333, 189, 'falls under 1 cm a second.', { anchor: 'middle' }),
   );
   return { node: d.node };
 };
@@ -629,7 +595,7 @@ export const specksDiagram: FigureFactory = () => {
 // ---- An inversion on a still morning -----------------------------------------------------------
 
 export const inversionDiagram: FigureFactory = () => {
-  const d = diagram(400, 230);
+  const d = still(400, 230);
   const ground = 206;
   const lid = 92;
   const hills = 'M0,120 L40,128 Q130,240 220,132 L262,122 L262,230 L0,230 Z';
@@ -646,10 +612,10 @@ export const inversionDiagram: FigureFactory = () => {
     svg('polygon', { points: '114,171 129,160 144,171', fill: '#9b6b52' }),
     svg('rect', { x: 125, y: 156, width: 5, height: 12, fill: '#9b6b52' }),
     ...smoke.map(([x, y, r]) => svg('circle', { cx: x, cy: y, r, fill: '#a9a3b4', opacity: 0.5 })),
-    text(6, lid - 26, 'warmer layer above: the lid', { fill: '#b0583a' }),
-    text(6, lid + 14, 'smoke rises, then spreads flat', { class: 'fig-label small soft' }),
-    text(6, 200, 'coldest, heaviest air pools in the bottom', { fill: '#fff' }),
-    title(130, 18, 'A still morning in a valley'),
+    small(6, lid - 26, 'warmer layer above: the lid', { fill: '#b0583a' }),
+    small(6, lid + 14, 'smoke rises, then spreads flat', { soft: true }),
+    small(6, 200, 'coldest, heaviest air pools in the bottom', { fill: '#fff' }),
+    heading(130, 18, 'A still morning in a valley'),
     // The profile.
     svg('rect', { x: 262, y: 0, width: 138, height: ground, fill: '#f6f2ea' }),
     svg('rect', { x: 262, y: ground, width: 138, height: 230 - ground, fill: COL.ground }),
@@ -657,14 +623,14 @@ export const inversionDiagram: FigureFactory = () => {
     line(272, 30, 272, ground, COL.ink, 1),
     polyline([[290, ground], [362, lid], [318, 30]], COL.env, 2.4),
     line(262, lid, 400, lid, COL.grid, 1, { 'stroke-dasharray': '3 3' }),
-    title(331, 18, 'Temperature'),
-    label(306, gy(4), 'cold at the ground', { class: 'fig-label small', fill: '#4f79a8' }),
-    label(318, gy(78), 'warmer', { class: 'fig-label small', fill: COL.env, 'text-anchor': 'end' }),
-    label(318, gy(66), 'going up', { class: 'fig-label small', fill: COL.env, 'text-anchor': 'end' }),
-    label(326, 56, 'then colder', { class: 'fig-label small soft', 'text-anchor': 'end' }),
-    label(326, 68, 'as usual', { class: 'fig-label small soft', 'text-anchor': 'end' }),
-    label(396, 222, 'warmer →', { class: 'fig-label small', fill: '#fff', 'text-anchor': 'end' }),
-    label(270, 222, 'height ↑', { class: 'fig-label small', fill: '#fff' }),
+    heading(331, 18, 'Temperature'),
+    small(306, gy(4), 'cold at the ground', { fill: '#4f79a8' }),
+    small(318, gy(78), 'warmer', { anchor: 'end', fill: COL.env }),
+    small(318, gy(66), 'going up', { anchor: 'end', fill: COL.env }),
+    small(326, 56, 'then colder', { soft: true, anchor: 'end' }),
+    small(326, 68, 'as usual', { soft: true, anchor: 'end' }),
+    small(396, 222, 'warmer →', { anchor: 'end', fill: '#fff' }),
+    small(270, 222, 'height ↑', { fill: '#fff' }),
   );
   return { node: d.node };
 };
@@ -672,7 +638,7 @@ export const inversionDiagram: FigureFactory = () => {
 // ---- Fog burning off ---------------------------------------------------------------------------
 
 export const burnOffDiagram: FigureFactory = () => {
-  const d = diagram(400, 224);
+  const d = still(400, 224);
   const w = 400 / 3;
   const panel = (i: number): SVGElement[] => {
     const ox = i * w;
@@ -706,9 +672,9 @@ export const burnOffDiagram: FigureFactory = () => {
     ...[0, 1, 2].flatMap(panel),
     svg('rect', { x: 0, y: 176, width: 400, height: 48, fill: COL.ground }),
     ...captions.flatMap(([t, a, b], i) => [
-      label(i * w + w / 2, 192, t, { class: 'fig-label small bold', fill: '#fff', 'text-anchor': 'middle' }),
-      label(i * w + w / 2, 205, a, { class: 'fig-label small', fill: '#fff', 'text-anchor': 'middle' }),
-      label(i * w + w / 2, 217, b, { class: 'fig-label small', fill: '#fff', 'text-anchor': 'middle' }),
+      small(i * w + w / 2, 192, t, { bold: true, anchor: 'middle', fill: '#fff' }),
+      small(i * w + w / 2, 205, a, { anchor: 'middle', fill: '#fff' }),
+      small(i * w + w / 2, 217, b, { anchor: 'middle', fill: '#fff' }),
     ]),
     line(w, 0, w, 176, '#fff', 2),
     line(2 * w, 0, 2 * w, 176, '#fff', 2),
@@ -719,7 +685,7 @@ export const burnOffDiagram: FigureFactory = () => {
 // ---- Why a cloudy bubble keeps rising --------------------------------------------------------------
 
 export const latentDiagram: FigureFactory = () => {
-  const d = diagram(400, 250);
+  const d = still(400, 250);
   const x0 = 40;
   const y0 = 222;
   const gx = (c: number) => x0 + (c + 2) * 9.5;
@@ -733,30 +699,30 @@ export const latentDiagram: FigureFactory = () => {
     svg('rect', { x: 0, y: 0, width: 400, height: y0, fill: '#eef2f7' }),
     svg('rect', { x: x0, y: gy(3), width: 400 - x0, height: gy(1) - gy(3), fill: '#ffffff', opacity: 0.7 }),
     line(x0, gy(1), 400, gy(1), COL.dew, 1.2, { 'stroke-dasharray': '5 4' }),
-    label(396, gy(1) + 14, 'cloud base', { class: 'fig-label small', fill: COL.dew, 'text-anchor': 'end' }),
-    ...[1, 2, 3].map((km) => label(x0 - 6, gy(km) + 4, `${km} km`, { class: 'fig-label small soft', 'text-anchor': 'end' })),
-    label(x0 - 6, y0 + 4, 'ground', { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    small(396, gy(1) + 14, 'cloud base', { anchor: 'end', fill: COL.dew }),
+    ...[1, 2, 3].map((km) => small(x0 - 6, gy(km) + 4, `${km} km`, { soft: true, anchor: 'end' })),
+    small(x0 - 6, y0 + 4, 'ground', { soft: true, anchor: 'end' }),
     line(x0, 10, x0, y0, COL.ink, 1),
     line(x0, y0, 400, y0, COL.ink, 1),
-    label(398, y0 + 18, 'warmer →', { class: 'fig-label small soft', 'text-anchor': 'end' }),
+    small(398, y0 + 18, 'warmer →', { soft: true, anchor: 'end' }),
     polyline(pts(env), COL.env, 2.6),
     polyline(pts(dry.slice(1)), COL.parcel, 1.6, { 'stroke-dasharray': '4 4' }),
     polyline(pts(dry.slice(0, 2)), COL.parcel, 2.6),
     polyline(pts(wet), COL.parcel, 2.6),
-    label(gx(25) + 6, gy(0.15), 'air around', { class: 'fig-label small', fill: COL.env }),
+    small(gx(25) + 6, gy(0.15), 'air around', { fill: COL.env }),
     svg('circle', { cx: gx(8), cy: gy(2), r: 4, fill: COL.env }),
     svg('circle', { cx: gx(6), cy: gy(2), r: 4, fill: '#fff', stroke: COL.parcel, 'stroke-width': 2 }),
     svg('circle', { cx: gx(11), cy: gy(2), r: 4, fill: COL.parcel }),
-    label(gx(20) + 6, gy(0.55), 'bubble: 10 °C per km', { class: 'fig-label small', fill: COL.parcel }),
-    label(gx(8) + 10, gy(2.6), 'in cloud: 5 °C per km', { class: 'fig-label small', fill: COL.parcel }),
-    label(gx(13) - 10, gy(1.3), 'if it stayed dry', { class: 'fig-label small', fill: COL.parcel, 'text-anchor': 'end' }),
-    label(252, 62, 'At 2 km:', { class: 'fig-label small bold' }),
-    label(252, 78, 'cloudy bubble 11 °C', { class: 'fig-label small bold', fill: COL.parcel }),
-    label(252, 92, 'air around 8 °C', { class: 'fig-label small', fill: COL.env }),
-    label(252, 106, 'dry bubble 6 °C', { class: 'fig-label small', fill: COL.parcel }),
-    label(252, 124, 'The cloudy one is 3° warmer', { class: 'fig-label small' }),
-    label(252, 137, 'and keeps rising; a dry one', { class: 'fig-label small' }),
-    label(252, 150, 'would be 2° colder and stop.', { class: 'fig-label small' }),
+    small(gx(20) + 6, gy(0.55), 'bubble: 10 °C per km', { fill: COL.parcel }),
+    small(gx(8) + 10, gy(2.6), 'in cloud: 5 °C per km', { fill: COL.parcel }),
+    small(gx(13) - 10, gy(1.3), 'if it stayed dry', { anchor: 'end', fill: COL.parcel }),
+    small(252, 62, 'At 2 km:', { bold: true }),
+    small(252, 78, 'cloudy bubble 11 °C', { bold: true, fill: COL.parcel }),
+    small(252, 92, 'air around 8 °C', { fill: COL.env }),
+    small(252, 106, 'dry bubble 6 °C', { fill: COL.parcel }),
+    small(252, 124, 'The cloudy one is 3° warmer'),
+    small(252, 137, 'and keeps rising; a dry one'),
+    small(252, 150, 'would be 2° colder and stop.'),
   );
   return { node: d.node };
 };
@@ -764,7 +730,7 @@ export const latentDiagram: FigureFactory = () => {
 // ---- A kettle: vapour is invisible -------------------------------------------------------------
 
 export const kettleDiagram: FigureFactory = () => {
-  const d = diagram(400, 200);
+  const d = still(400, 200);
   // The spout's mouth, and the plume that starts a little way out from it.
   const mx = 128;
   const my = 120;
@@ -780,14 +746,14 @@ export const kettleDiagram: FigureFactory = () => {
     line(mx + 4, 140, 172, 140, COL.ink, 1),
     line(mx + 4, 136, mx + 4, 144, COL.ink, 1),
     line(172, 136, 172, 144, COL.ink, 1),
-    text(150, 158, 'clear gap', { 'text-anchor': 'middle' }),
-    text(150, 171, 'invisible vapour:', { 'text-anchor': 'middle', fill: COL.dew }),
-    text(150, 184, 'single molecules', { 'text-anchor': 'middle', fill: COL.dew }),
-    text(250, 130, 'white plume: the vapour', { fill: COL.ink }),
-    text(250, 143, 'has cooled and clumped', { fill: COL.ink }),
-    text(250, 156, 'into tiny droplets that', { fill: COL.ink }),
-    text(250, 169, 'scatter light', { fill: COL.ink }),
-    title(200, 22, 'Steam you can see is not vapour'),
+    small(150, 158, 'clear gap', { anchor: 'middle' }),
+    small(150, 171, 'invisible vapour:', { anchor: 'middle', fill: COL.dew }),
+    small(150, 184, 'single molecules', { anchor: 'middle', fill: COL.dew }),
+    small(250, 130, 'white plume: the vapour', { fill: COL.ink }),
+    small(250, 143, 'has cooled and clumped', { fill: COL.ink }),
+    small(250, 156, 'into tiny droplets that', { fill: COL.ink }),
+    small(250, 169, 'scatter light', { fill: COL.ink }),
+    heading(200, 22, 'Steam you can see is not vapour'),
   );
   return { node: d.node };
 };
@@ -795,7 +761,7 @@ export const kettleDiagram: FigureFactory = () => {
 // ---- Warm air is lighter --------------------------------------------------------------------------
 
 export const densityDiagram: FigureFactory = () => {
-  const d = diagram(400, 220);
+  const d = still(400, 220);
   let seed = 5;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
   const box = (ox: number, n: number, len: number, color: string): SVGElement[] => {
@@ -810,16 +776,16 @@ export const densityDiagram: FigureFactory = () => {
   };
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: 220, fill: '#f3eff6' }),
-    title(100, 24, 'Warm: fast, fewer'),
-    title(300, 24, 'Cold: slow, more'),
+    heading(100, 24, 'Warm: fast, fewer'),
+    heading(300, 24, 'Cold: slow, more'),
     ...box(25, 9, 22, COL.parcel),
     ...box(225, 20, 14, COL.cold),
-    text(100, 180, 'Each fast molecule hits hard, so', { 'text-anchor': 'middle' }),
-    text(100, 193, 'fewer are needed to push back:', { 'text-anchor': 'middle' }),
-    text(100, 206, 'lighter, so it rises', { 'text-anchor': 'middle', class: 'fig-label small bold', fill: COL.parcel }),
-    text(300, 180, 'Slow molecules hit gently, so', { 'text-anchor': 'middle' }),
-    text(300, 193, 'it takes more of them:', { 'text-anchor': 'middle' }),
-    text(300, 206, 'heavier, so it sinks', { 'text-anchor': 'middle', class: 'fig-label small bold', fill: '#4f79a8' }),
+    small(100, 180, 'Each fast molecule hits hard, so', { anchor: 'middle' }),
+    small(100, 193, 'fewer are needed to push back:', { anchor: 'middle' }),
+    small(100, 206, 'lighter, so it rises', { bold: true, anchor: 'middle', fill: COL.parcel }),
+    small(300, 180, 'Slow molecules hit gently, so', { anchor: 'middle' }),
+    small(300, 193, 'it takes more of them:', { anchor: 'middle' }),
+    small(300, 206, 'heavier, so it sinks', { bold: true, anchor: 'middle', fill: '#4f79a8' }),
   );
   return { node: d.node };
 };
@@ -827,7 +793,7 @@ export const densityDiagram: FigureFactory = () => {
 // ---- Warm air gliding up over cold ----------------------------------------------------------------
 
 export const glideDiagram: FigureFactory = () => {
-  const d = diagram(400, 210);
+  const d = still(400, 210);
   const ground = 180;
   // The cold wedge: its top slopes gently up from the front (right) to the left.
   const wedge = `M0,${ground} L0,96 L330,${ground} Z`;
@@ -842,14 +808,14 @@ export const glideDiagram: FigureFactory = () => {
     arrow(390, 168, 300, 126, COL.parcel, 2.5),
     arrow(290, 120, 170, 66, COL.parcel, 2.5),
     arrow(160, 60, 60, 30, COL.parcel, 2),
-    text(396, 98, 'warm, moist air', { 'text-anchor': 'end', fill: COL.parcel }),
-    text(6, 160, 'cold, heavy air', { fill: '#4f79a8' }),
-    text(330, ground + 18, 'the front, on the ground', { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }),
-    text(80, 62, 'high, thin', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
-    text(180, 106, 'middle sheets', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
-    text(270, 156, 'thick, low', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
-    title(200, 18, 'Seen from far ahead, the cloud comes first'),
-    text(6, ground + 18, '← hundreds of km ahead', { fill: '#fff', class: 'fig-label small' }),
+    small(396, 98, 'warm, moist air', { anchor: 'end', fill: COL.parcel }),
+    small(6, 160, 'cold, heavy air', { fill: '#4f79a8' }),
+    small(330, ground + 18, 'the front, on the ground', { anchor: 'middle', fill: '#fff' }),
+    small(80, 62, 'high, thin', { soft: true, anchor: 'middle' }),
+    small(180, 106, 'middle sheets', { soft: true, anchor: 'middle' }),
+    small(270, 156, 'thick, low', { soft: true, anchor: 'middle' }),
+    heading(200, 18, 'Seen from far ahead, the cloud comes first'),
+    small(6, ground + 18, '← hundreds of km ahead', { fill: '#fff' }),
   );
   return { node: d.node };
 };
@@ -857,7 +823,7 @@ export const glideDiagram: FigureFactory = () => {
 // ---- A cloud layer turning over ----------------------------------------------------------------------
 
 export const overturnDiagram: FigureFactory = () => {
-  const d = diagram(400, 230);
+  const d = still(400, 230);
   const top = 92;
   const base = 152;
   const cells: SVGElement[] = [];
@@ -874,11 +840,11 @@ export const overturnDiagram: FigureFactory = () => {
     svg('rect', { x: 0, y: top, width: 400, height: base - top, fill: '#eceaf2' }),
     ...cells,
     ...[60, 160, 260, 360].map((x) => wavy(x, top - 4, 48, COL.warm, 1.6)),
-    text(6, 18, 'The top radiates heat to the cold, clear sky', { fill: '#b0583a' }),
-    text(6, 32, 'and gets little back: it cools.', { fill: '#b0583a' }),
-    text(6, 176, 'The base is kept warm by heat from the ground below.', { fill: '#b0583a' }),
-    text(6, 208, 'Chilled air at the top sinks (blue), warmer air rises (orange):', { class: 'fig-label small' }),
-    text(6, 222, 'lumps where it rises, thin gaps where it sinks.', { class: 'fig-label small' }),
+    small(6, 18, 'The top radiates heat to the cold, clear sky', { fill: '#b0583a' }),
+    small(6, 32, 'and gets little back: it cools.', { fill: '#b0583a' }),
+    small(6, 176, 'The base is kept warm by heat from the ground below.', { fill: '#b0583a' }),
+    small(6, 208, 'Chilled air at the top sinks (blue), warmer air rises (orange):'),
+    small(6, 222, 'lumps where it rises, thin gaps where it sinks.'),
   );
   return { node: d.node };
 };
@@ -886,22 +852,21 @@ export const overturnDiagram: FigureFactory = () => {
 // ---- What makes a droplet freeze ----------------------------------------------------------------------
 
 export const freezeSeedsDiagram: FigureFactory = () => {
-  const d = diagram(400, 200);
-  const hex = (cx: number, cy: number, r: number, attrs: Record<string, string | number>) => svg('polygon', { points: Array.from({ length: 6 }, (_, k) => `${(cx + r * Math.cos((k * Math.PI) / 3 + Math.PI / 6)).toFixed(1)},${(cy + r * Math.sin((k * Math.PI) / 3 + Math.PI / 6)).toFixed(1)}`).join(' '), ...attrs });
+  const d = still(400, 200);
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: '#e6eef8' }),
     line(200, 0, 200, 176, '#fff', 2),
-    title(100, 22, 'On salt or soot'),
+    heading(100, 22, 'On salt or soot'),
     svg('circle', { cx: 100, cy: 92, r: 40, fill: COL.rain, opacity: 0.3, stroke: COL.rain, 'stroke-width': 2 }),
     svg('rect', { x: 92, y: 84, width: 16, height: 16, fill: '#8f8a80' }),
-    text(100, 152, 'Wrong shape: no template.', { 'text-anchor': 'middle' }),
-    text(100, 166, 'Stays liquid, supercooled.', { 'text-anchor': 'middle', fill: COL.rain }),
-    title(300, 22, 'On a rare dust grain'),
-    hex(300, 92, 40, { fill: '#eef5ff', stroke: COL.ice, 'stroke-width': 2 }),
-    hex(300, 92, 10, { fill: '#a7845b' }),
-    text(300, 152, 'Its atoms line up like ice:', { 'text-anchor': 'middle' }),
-    text(300, 166, 'the droplet freezes.', { 'text-anchor': 'middle', fill: COL.ice }),
-    text(200, 190, 'About one speck in a million can do this. Below −38 °C, every droplet freezes anyway.', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    small(100, 152, 'Wrong shape: no template.', { anchor: 'middle' }),
+    small(100, 166, 'Stays liquid, supercooled.', { anchor: 'middle', fill: COL.rain }),
+    heading(300, 22, 'On a rare dust grain'),
+    hexagon(300, 92, 40, { fill: '#eef5ff', stroke: COL.ice, 'stroke-width': 2 }, Math.PI / 6),
+    hexagon(300, 92, 10, { fill: '#a7845b' }, Math.PI / 6),
+    small(300, 152, 'Its atoms line up like ice:', { anchor: 'middle' }),
+    small(300, 166, 'the droplet freezes.', { anchor: 'middle', fill: COL.ice }),
+    small(200, 190, 'About one speck in a million can do this. Below −38 °C, every droplet freezes anyway.', { soft: true, anchor: 'middle' }),
   );
   return { node: d.node };
 };
@@ -909,31 +874,30 @@ export const freezeSeedsDiagram: FigureFactory = () => {
 // ---- Ice holds its molecules tighter -------------------------------------------------------------------
 
 export const escapeDiagram: FigureFactory = () => {
-  const d = diagram(400, 210);
+  const d = still(400, 210);
   const mol = (x: number, y: number) => svg('circle', { cx: x, cy: y, r: 2.6, fill: COL.dew });
   const out = (cx: number, cy: number, r: number, angles: number[]) => angles.flatMap((a) => {
     const x = cx + (r + 4) * Math.cos(a);
     const y = cy + (r + 4) * Math.sin(a);
     return [arrow(x, y, x + 16 * Math.cos(a), y + 16 * Math.sin(a), COL.parcel, 1.3), mol(x + 20 * Math.cos(a), y + 20 * Math.sin(a))];
   });
-  const hex = Array.from({ length: 6 }, (_, k) => `${(300 + 34 * Math.cos((k * Math.PI) / 3)).toFixed(1)},${(96 + 34 * Math.sin((k * Math.PI) / 3)).toFixed(1)}`).join(' ');
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: '#eaf0f8' }),
-    title(100, 22, 'Supercooled droplet'),
-    title(300, 22, 'Ice crystal'),
+    heading(100, 22, 'Supercooled droplet'),
+    heading(300, 22, 'Ice crystal'),
     svg('circle', { cx: 100, cy: 96, r: 34, fill: COL.rain, opacity: 0.35, stroke: COL.rain, 'stroke-width': 2 }),
     ...out(100, 96, 34, [0.2, 1.1, 2.0, 2.9, 3.8, 4.6, 5.5]),
-    svg('polygon', { points: hex, fill: '#f4f9ff', stroke: COL.ice, 'stroke-width': 2 }),
+    hexagon(300, 96, 34, { fill: '#f4f9ff', stroke: COL.ice, 'stroke-width': 2 }),
     ...out(300, 96, 34, [0.9, 3.6]),
-    text(100, 160, 'Molecules escape easily,', { 'text-anchor': 'middle' }),
-    text(100, 173, 'so it needs more vapour', { 'text-anchor': 'middle' }),
-    text(100, 186, 'around to stay in balance', { 'text-anchor': 'middle' }),
-    text(300, 160, 'Locked in the lattice, few', { 'text-anchor': 'middle' }),
-    text(300, 173, 'escape: less vapour is', { 'text-anchor': 'middle' }),
-    text(300, 186, 'enough to make it grow', { 'text-anchor': 'middle' }),
+    small(100, 160, 'Molecules escape easily,', { anchor: 'middle' }),
+    small(100, 173, 'so it needs more vapour', { anchor: 'middle' }),
+    small(100, 186, 'around to stay in balance', { anchor: 'middle' }),
+    small(300, 160, 'Locked in the lattice, few', { anchor: 'middle' }),
+    small(300, 173, 'escape: less vapour is', { anchor: 'middle' }),
+    small(300, 186, 'enough to make it grow', { anchor: 'middle' }),
     arrow(146, 60, 254, 60, COL.dew, 2),
-    text(200, 52, 'vapour drifts over', { 'text-anchor': 'middle', fill: COL.dew, class: 'fig-label small' }),
-    text(200, 204, 'At −12 °C, air just right for the droplet has 13% more vapour than the ice needs.', { 'text-anchor': 'middle', class: 'fig-label small soft' }),
+    small(200, 52, 'vapour drifts over', { anchor: 'middle', fill: COL.dew }),
+    small(200, 204, 'At −12 °C, air just right for the droplet has 13% more vapour than the ice needs.', { soft: true, anchor: 'middle' }),
   );
   return { node: d.node };
 };
@@ -941,29 +905,28 @@ export const escapeDiagram: FigureFactory = () => {
 // ---- Snow becomes rain ----------------------------------------------------------------------------------
 
 export const snowToRainDiagram: FigureFactory = () => {
-  const d = diagram(400, 250);
+  const d = still(400, 250);
   const ground = 228;
   const freeze = 150;
-  const flake = (x: number, y: number, r: number) => svg('g', {}, ...[0, 1, 2].map((k) => line(x - r * Math.cos((k * Math.PI) / 3), y - r * Math.sin((k * Math.PI) / 3), x + r * Math.cos((k * Math.PI) / 3), y + r * Math.sin((k * Math.PI) / 3), COL.ice, 1.6)));
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#eef2f7' }),
     svg('rect', { x: 20, y: 18, width: 250, height: 150, rx: 14, fill: '#e1deea' }),
     svg('rect', { x: 20, y: 40, width: 250, height: 36, fill: '#d3e1f3', opacity: 0.8 }),
     line(0, freeze, 400, freeze, COL.dew, 1.4, { 'stroke-dasharray': '5 4' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 22, fill: COL.ground }),
-    flake(140, 56, 4), flake(140, 96, 7), flake(140, 128, 10),
+    flake(140, 56, 4, COL.ice, 1.6), flake(140, 96, 7, COL.ice, 1.6), flake(140, 128, 10, COL.ice, 1.6),
     svg('ellipse', { cx: 140, cy: 160, rx: 9, ry: 7, fill: COL.rain, opacity: 0.6 }),
     svg('rect', { x: 110, y: 152, width: 60, height: 16, fill: COL.sun, opacity: 0.25 }),
     svg('circle', { cx: 140, cy: 192, r: 3, fill: COL.rain }),
     svg('circle', { cx: 140, cy: 214, r: 3, fill: COL.rain }),
-    text(280, 50, '−10 to −15 °C: ice crystals', { fill: COL.ice }),
-    text(280, 63, 'grow fastest', { fill: COL.ice }),
-    text(280, 100, 'they fall, catch droplets', { fill: COL.ink }),
-    text(280, 113, 'and clump into snowflakes', { fill: COL.ink }),
-    text(396, freeze - 6, '0 °C: freezing level', { 'text-anchor': 'end', fill: COL.dew }),
-    text(280, 168, 'melting: a bright band', { fill: '#b06a10' }),
-    text(280, 181, 'on weather radar', { fill: '#b06a10' }),
-    text(280, 206, 'raindrops', { fill: COL.rain }),
+    small(280, 50, '−10 to −15 °C: ice crystals', { fill: COL.ice }),
+    small(280, 63, 'grow fastest', { fill: COL.ice }),
+    small(280, 100, 'they fall, catch droplets', { fill: COL.ink }),
+    small(280, 113, 'and clump into snowflakes', { fill: COL.ink }),
+    small(396, freeze - 6, '0 °C: freezing level', { anchor: 'end', fill: COL.dew }),
+    small(280, 168, 'melting: a bright band', { fill: '#b06a10' }),
+    small(280, 181, 'on weather radar', { fill: '#b06a10' }),
+    small(280, 206, 'raindrops', { fill: COL.rain }),
   );
   return { node: d.node };
 };
@@ -971,7 +934,7 @@ export const snowToRainDiagram: FigureFactory = () => {
 // ---- The lid at the top of the weather ----------------------------------------------------------------
 
 export const tropopauseDiagram: FigureFactory = () => {
-  const d = diagram(400, 250);
+  const d = still(400, 250);
   const ground = 230;
   const yOf = (km: number) => ground - km * 13.5;
   const xOf = (c: number) => 262 + (c + 60) * 1.6;
@@ -987,13 +950,13 @@ export const tropopauseDiagram: FigureFactory = () => {
     // The temperature profile.
     line(xOf(-60), 20, xOf(-60), ground, COL.ink, 1),
     polyline([[xOf(20), yOf(0)], [xOf(-55), yOf(11)], [xOf(-55), yOf(13)], [xOf(-45), yOf(16)]], COL.env, 2.4),
-    title(325, 16, 'Temperature'),
-    text(6, yOf(15.6), 'stratosphere: warmer going up', { class: 'fig-label small', fill: COL.env }),
-    text(142, yOf(3), 'troposphere:', { class: 'fig-label small soft' }),
-    text(142, yOf(2), 'colder going up', { class: 'fig-label small soft' }),
-    text(396, yOf(11) + 12, 'tropopause, 10–12 km', { 'text-anchor': 'end', fill: COL.env, class: 'fig-label small' }),
-    text(6, yOf(12.6), 'the tower can’t climb on: its top spreads into an anvil', { class: 'fig-label small' }),
-    text(396, ground + 14, 'warmer →', { 'text-anchor': 'end', fill: '#fff', class: 'fig-label small' }),
+    heading(325, 16, 'Temperature'),
+    small(6, yOf(15.6), 'stratosphere: warmer going up', { fill: COL.env }),
+    small(142, yOf(3), 'troposphere:', { soft: true }),
+    small(142, yOf(2), 'colder going up', { soft: true }),
+    small(396, yOf(11) + 12, 'tropopause, 10–12 km', { anchor: 'end', fill: COL.env }),
+    small(6, yOf(12.6), 'the tower can’t climb on: its top spreads into an anvil'),
+    small(396, ground + 14, 'warmer →', { anchor: 'end', fill: '#fff' }),
   );
   return { node: d.node };
 };
@@ -1001,25 +964,25 @@ export const tropopauseDiagram: FigureFactory = () => {
 // ---- Where a storm keeps its charge ------------------------------------------------------------------
 
 export const chargeDiagram: FigureFactory = () => {
-  const d = diagram(400, 240);
+  const d = still(400, 240);
   const ground = 218;
-  const sign = (x: number, y: number, plus: boolean) => label(x, y, plus ? '+' : '−', { class: 'fig-label bold', fill: plus ? '#c2452d' : '#2f5fa8', 'text-anchor': 'middle' });
+  const sign = (x: number, y: number, plus: boolean) => heading(x, y, plus ? '+' : '−', { fill: plus ? '#c2452d' : '#2f5fa8' });
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#dfe3ec' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 22, fill: COL.ground }),
     svg('path', { d: `M110,170 L100,90 Q100,50 70,44 L40,38 Q140,20 300,34 L230,46 Q200,60 210,100 L220,170 Q165,182 110,170 Z`, fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 1.4 }),
     ...[[90, 40], [130, 36], [170, 34], [210, 36], [250, 36]].map(([x, y]) => sign(x, y + 4, true)),
     ...[[130, 120], [160, 128], [190, 120], [145, 140], [175, 142]].map(([x, y]) => sign(x, y, false)),
-    text(260, 24, 'light ice crystals: +', { fill: '#c2452d', class: 'fig-label small' }),
-    text(260, 36, 'swept up into the anvil', { fill: '#c2452d', class: 'fig-label small' }),
-    text(165, 158, 'heavier soft hail: −', { fill: '#2f5fa8', class: 'fig-label small', 'text-anchor': 'middle' }),
+    small(260, 24, 'light ice crystals: +', { fill: '#c2452d' }),
+    small(260, 36, 'swept up into the anvil', { fill: '#c2452d' }),
+    small(165, 158, 'heavier soft hail: −', { anchor: 'middle', fill: '#2f5fa8' }),
     polyline([[160, 172], [150, 190], [164, 196], [152, ground]], '#f2c12e', 3),
     polyline([[292, 40], [302, 100], [290, 120], [306, 180], [296, 200], [304, ground]], '#f2c12e', 2.4),
-    text(316, 150, 'a bolt from', { class: 'fig-label small' }),
-    text(316, 162, 'the anvil can', { class: 'fig-label small' }),
-    text(316, 174, 'land 10 km off', { class: 'fig-label small' }),
-    text(20, 200, 'collisions in the cold middle', { class: 'fig-label small soft' }),
-    text(20, 212, 'sort the charges apart', { class: 'fig-label small soft' }),
+    small(316, 150, 'a bolt from'),
+    small(316, 162, 'the anvil can'),
+    small(316, 174, 'land 10 km off'),
+    small(20, 200, 'collisions in the cold middle', { soft: true }),
+    small(20, 212, 'sort the charges apart', { soft: true }),
   );
   return { node: d.node };
 };

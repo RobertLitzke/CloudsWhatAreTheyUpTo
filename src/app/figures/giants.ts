@@ -4,8 +4,8 @@
 
 import { strikeKm } from '../../core/sky';
 import { svg } from '../dom';
-import { heapAt } from './air';
-import { COL, animate, frame, label, line, redraw, slider, task, type FigureFactory } from './kit';
+import { heapAt, line, redraw, small } from './draw';
+import { COL, animate, frame, slider, task, type FigureFactory } from './kit';
 
 // ---- A thunderstorm's life ------------------------------------------------------
 
@@ -19,7 +19,7 @@ export const stormFigure: FigureFactory = (_ctx, goal) => {
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#dfe7f0' }),
     line(0, tropo, W, tropo, COL.env, 1, { 'stroke-dasharray': '6 4' }),
-    label(W - 6, tropo - 5, 'tropopause: the ceiling of the weather', { 'text-anchor': 'end', fill: COL.env, class: 'fig-label small' }),
+    small(W - 6, tropo - 5, 'tropopause: the ceiling of the weather', { anchor: 'end', fill: COL.env }),
     g,
     svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
   );
@@ -49,7 +49,7 @@ export const stormFigure: FigureFactory = (_ctx, goal) => {
       const gust = 40 + k * 120;
       parts.push(
         svg('path', { d: `M${cx + 30},${ground} q${gust / 2},-26 ${gust},0`, fill: 'none', stroke: COL.ice, 'stroke-width': 2, 'stroke-dasharray': '4 3' }),
-        label(cx + 30 + gust, ground - 6, 'gust front', { fill: COL.ice, class: 'fig-label small' }),
+        small(cx + 30 + gust, ground - 6, 'gust front', { fill: COL.ice }),
       );
       if (min > 22 && min < 30) parts.push(svg('polyline', { points: `${cx - 10},${baseY + 6} ${cx - 20},${baseY + 26} ${cx - 8},${baseY + 26} ${cx - 22},${ground}`, fill: 'none', stroke: COL.sun, 'stroke-width': 3 }));
     } else {
@@ -92,8 +92,8 @@ export const flashFigure: FigureFactory = (ctx, goal) => {
     const parts: SVGElement[] = [
       svg('rect', { x: sx - 40, y: 30, width: 80, height: 34, rx: 14, fill: '#2e2a45' }),
       svg('rect', { x: you - 4, y: ground - 14, width: 8, height: 14, fill: '#fff' }),
-      label(you, ground + 16, 'you', { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }),
-      label(sx, 24, `storm · ${km} km away`, { 'text-anchor': 'middle', fill: '#fff', class: 'fig-label small' }),
+      small(you, ground + 16, 'you', { anchor: 'middle', fill: '#fff' }),
+      small(sx, 24, `storm · ${km} km away`, { anchor: 'middle', fill: '#fff' }),
     ];
     if (since >= 0 && since < 0.4) parts.push(svg('polyline', { points: `${sx},64 ${sx - 10},100 ${sx + 4},104 ${sx - 8},${ground}`, fill: 'none', stroke: '#fff7c2', 'stroke-width': 3 }), svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#fff', opacity: 0.25 }));
     if (since >= 0 && !heard) {
@@ -179,7 +179,7 @@ export const waveFigure: FigureFactory = (_ctx, goal) => {
     for (let x = 0; x <= W; x += 4) tp.push([x, terrain(x)]);
     parts.push(
       line(0, condY, W, condY, COL.dew, 1, { 'stroke-dasharray': '5 4' }),
-      label(W - 6, condY + 12, 'condensation level', { 'text-anchor': 'end', fill: COL.dew, class: 'fig-label small' }),
+      small(W - 6, condY + 12, 'condensation level', { anchor: 'end', fill: COL.dew }),
       svg('polygon', { points: `0,${H} ${tp.map((p) => p.join(',')).join(' ')} ${W},${H}`, fill: COL.ground }),
     );
     redraw(g, ...parts);
@@ -222,8 +222,8 @@ export const billowFigure: FigureFactory = (ctx, goal) => {
     }
     parts.push(svg('rect', { x: 0, y: 110, width: W, height: 22, fill: '#fff', stroke: 'none' }));
     parts.push(
-      svg('g', { opacity: 0.7 }, line(10, 30, 10 + 40 + shear * 60, 30, '#fff', 2), label(16, 22, 'fast air above', { fill: '#fff', class: 'fig-label small' })),
-      svg('g', { opacity: 0.7 }, line(10, 170, 40, 170, '#fff', 2), label(16, 162, 'slow air below', { fill: '#fff', class: 'fig-label small' })),
+      svg('g', { opacity: 0.7 }, line(10, 30, 10 + 40 + shear * 60, 30, '#fff', 2), small(16, 22, 'fast air above', { fill: '#fff' })),
+      svg('g', { opacity: 0.7 }, line(10, 170, 40, 170, '#fff', 2), small(16, 162, 'slow air below', { fill: '#fff' })),
     );
     redraw(g, ...parts);
   });

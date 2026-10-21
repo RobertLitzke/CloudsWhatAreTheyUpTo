@@ -127,26 +127,6 @@ export function temp(c: number): string {
   return `${c.toFixed(1)} °C`;
 }
 
-/** Text in a drawing. */
-export function label(x: number, y: number, text: string, attrs: Record<string, string | number> = {}): SVGElement {
-  const t = svg('text', { x, y, class: 'fig-label', ...attrs });
-  t.textContent = text;
-  return t;
-}
-
-export function line(x1: number, y1: number, x2: number, y2: number, stroke: string, width = 1.5, extra: Record<string, string | number> = {}): SVGElement {
-  return svg('line', { x1, y1, x2, y2, stroke, 'stroke-width': width, 'stroke-linecap': 'round', ...extra });
-}
-
-export function polyline(points: [number, number][], stroke: string, width = 2, extra: Record<string, string | number> = {}): SVGElement {
-  return svg('polyline', { points: points.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' '), fill: 'none', stroke, 'stroke-width': width, 'stroke-linejoin': 'round', 'stroke-linecap': 'round', ...extra });
-}
-
-/** Replace a group's children. */
-export function redraw(g: SVGElement, ...children: (SVGElement | null | false)[]): void {
-  g.replaceChildren(...(children.filter(Boolean) as SVGElement[]));
-}
-
 /**
  * Run `tick` every frame while the figure is on screen and the shift is open.
  * `tick` gets the seconds since the last frame (capped, so a tab that was
