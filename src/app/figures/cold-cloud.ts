@@ -10,7 +10,7 @@ import { el, svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
 import { arrow, flake, heading, label, line, note, points, redraw, still } from './draw';
-import { COL, animate, frame, slider, task, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, slider, type FigureFactory } from './kit';
 
 /** Ground for a result that seeding wants (a hole, crystals big enough to fall), and for one it overshoots. */
 const JUST_RIGHT = '#bfe3c9';
@@ -251,11 +251,10 @@ const AGENTS: { id: Agent; label: string; short: string }[] = [
   { id: 'dryIce', label: 'A sliver of dry ice', short: 'dry ice' },
 ];
 
-export const coldBoxFigure: FigureFactory = (ctx, goal) => {
+export const coldBoxFigure = figure(['snow'], (ctx, t) => {
   const W = 400;
   const H = 244;
   const f = frame(W, H, 4);
-  const t = task();
   let tempC = 2;
   let agent: Agent | null = null;
   let age = 0; // seconds since the agent went in
@@ -287,7 +286,7 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
         : r.result === 'sparkles'
           ? `At ${deg(tempC)} a few crystals glint in the light: ${fmtCount(r.perL)}, among a hundred thousand droplets in each litre. Each grows, but there are far too few to take the cloud’s water: the cloud stays.`
           : `At ${deg(tempC)}, ${agent === 'dryIce' ? 'the dry ice leaves a trail of' : 'the smoke starts'} ${fmtCount(r.perL)} crystals. They eat the droplets, and in a minute the box is snowing: the cloud has turned to ice.`;
-    if (goal === 'snow' && r.result === 'snow') t.resolve();
+    if (t.goal === 'snow' && r.result === 'snow') t.done();
   };
   animate(f.node, ctx, (dt) => {
     age += dt;
@@ -350,8 +349,8 @@ export const coldBoxFigure: FigureFactory = (ctx, goal) => {
     chips,
   );
   describe();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- A dry ice pellet's trail ---------------------------------------------------
 
@@ -486,11 +485,10 @@ function gauges(s: { perL: number; sizeMm: number; result: string }): SVGElement
   ];
 }
 
-export const seedLayerFigure: FigureFactory = (ctx, goal) => {
+export const seedLayerFigure = figure(['hole'], (ctx, t) => {
   const W = 400;
   const H = 300;
   const f = frame(W, H, 4);
-  const t = task();
   const top = 70;
   const base = 112;
   const ground = 206;
@@ -516,7 +514,7 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
           : s.result === 'hole'
             ? `${fmtCount(s.perL)}, each growing to about ${size}: big enough to fall. In half an hour the crystals have taken the layer’s water and snowed out of it, leaving a hole.`
             : `${fmtCount(s.perL)}: so many that each gets only a speck of water and stays ${size} across, too small to fall. Overseeded: the layer turns to a veil of ice that hangs there.`;
-    if (goal === 'hole' && s.result === 'hole') t.resolve();
+    if (t.goal === 'hole' && s.result === 'hole') t.done();
   };
   animate(f.node, ctx, (dt) => {
     age += dt;
@@ -585,8 +583,8 @@ export const seedLayerFigure: FigureFactory = (ctx, goal) => {
     slider('Layer temperature', -15, 3, 1, tempC, (v) => deg(v), (v) => { tempC = v; restart(); }, 'ice').node,
   );
   describe();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- How much water a cloud holds --------------------------------------------------
 
@@ -766,11 +764,10 @@ export const fairTestDiagram: FigureFactory = () => {
 
 // ---- Did it work? ----------------------------------------------------------------------
 
-export const trialFigure: FigureFactory = (_ctx, goal) => {
+export const trialFigure = figure(['clear'], (_ctx, t) => {
   const W = 400;
   const H = 292;
   const f = frame(W, H, 5);
-  const t = task();
   let winters = 1;
   let random = true;
   let draw = 0; // which run of winters: "new winters" deals another
@@ -833,7 +830,7 @@ export const trialFigure: FigureFactory = (_ctx, goal) => {
       : v.low > 1
         ? `Seeded storms brought ${times} the snow of the others. ${range} The whole range is above 1: after ${winters} winters, seeding has made a difference, and a small one.`
         : `Seeded storms brought ${times} the snow of the others. ${range} That range includes 1, “no difference”, so ${winters === 1 ? 'one winter' : `${winters} winters`} can’t tell.`;
-    if (goal === 'clear' && random && v.low > 1) t.resolve();
+    if (t.goal === 'clear' && random && v.low > 1) t.done();
   };
   const seg = el('div.seg', {}, ...[['Coin toss', true], ['Seeder’s pick', false]].map(([text, r]) => el('button', {
     type: 'button',
@@ -854,5 +851,5 @@ export const trialFigure: FigureFactory = (_ctx, goal) => {
     buttons,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});

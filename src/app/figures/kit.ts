@@ -71,7 +71,46 @@ export interface FigureHandle {
   done?: Promise<void>;
 }
 
-export type FigureFactory = (ctx: FigureContext, goal?: string, options?: Record<string, unknown>) => FigureHandle;
+export type Options = Record<string, unknown>;
+
+/**
+ * Makes a figure for a lesson block. A live figure lists the `goals` a lesson
+ * may set it, so the content test can catch a goal that no figure would ever
+ * meet; a quiz is always a task. Stills have neither.
+ */
+export type FigureFactory = ((ctx: FigureContext, goal?: string, options?: Options) => FigureHandle) & {
+  goals?: readonly string[];
+  quiz?: true;
+};
+
+/** A figure's task, as the figure sees it. */
+export interface Task {
+  /** What the lesson asked for; absent when the figure is only to be played with. */
+  readonly goal?: string;
+  /** Mark the task done. Safe to call again. */
+  done: () => void;
+  readonly promise: Promise<void>;
+}
+
+/** A live figure, which knows the goals in `goals`. */
+export function figure(goals: readonly string[], build: (ctx: FigureContext, t: Task, options?: Options) => HTMLElement): FigureFactory {
+  const make = (ctx: FigureContext, goal?: string, options?: Options): FigureHandle => {
+    const p = promised();
+    const node = build(ctx, { goal, done: p.resolve, promise: p.promise }, options);
+    return { node, done: goal ? p.promise : undefined };
+  };
+  return Object.assign(make, { goals });
+}
+
+/** A figure that is a test: its task is to be answered, whatever the lesson says. */
+export function quiz(build: (ctx: FigureContext, t: Task, options?: Options) => HTMLElement): FigureFactory {
+  const make = (ctx: FigureContext, _goal?: string, options?: Options): FigureHandle => {
+    const p = promised();
+    const node = build(ctx, { done: p.resolve, promise: p.promise }, options);
+    return { node, done: p.promise };
+  };
+  return Object.assign(make, { quiz: true as const });
+}
 
 export interface Frame {
   node: HTMLElement;
@@ -130,17 +169,11 @@ export function slider(label: string, min: number, max: number, step: number, va
   };
 }
 
-/** A promise with its resolver, for a figure's task. */
-export function task(): { promise: Promise<void>; resolve: () => void; isDone: () => boolean } {
+/** A promise with its resolver, settled once. */
+function promised(): { promise: Promise<void>; resolve: () => void } {
   let resolve!: () => void;
-  let done = false;
-  const promise = new Promise<void>((r) => (resolve = () => {
-    if (!done) {
-      done = true;
-      r();
-    }
-  }));
-  return { promise, resolve, isDone: () => done };
+  const promise = new Promise<void>((r) => (resolve = r));
+  return { promise, resolve };
 }
 
 export function height(m: number, units: SaveData['units']): string {

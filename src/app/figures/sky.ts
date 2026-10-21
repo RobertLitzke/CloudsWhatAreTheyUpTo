@@ -13,7 +13,7 @@ import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from '../ui';
 import { line, note } from './draw';
-import { COL, height, task, textBox, type FigureContext, type FigureFactory } from './kit';
+import { COL, height, quiz, textBox, type FigureContext } from './kit';
 
 function bands(ctx: FigureContext, onPick?: (f: Floor) => void): SVGElement {
   const g = svg('g', { class: 'bands' });
@@ -53,11 +53,10 @@ function hint(id: GenusId): string {
 
 // ---- File clouds onto their floors -------------------------------------------
 
-export const sortFigure: FigureFactory = (ctx, _goal, options) => {
+export const sortFigure = quiz((ctx, t, options) => {
   const clouds = (options?.clouds as GenusId[]) ?? ['cirrus', 'altocumulus', 'stratus', 'cumulus', 'cumulonimbus'];
   const scene = makeScene({ time: 'day', seed: 21, sun: [0.62, 0.3] });
   const p = scene.palette;
-  const t = task();
   const left = new Set(clouds);
   let picked: GenusId | null = null;
   const xs = [90, 170, 90, 200, 320, 260, 140];
@@ -88,7 +87,7 @@ export const sortFigure: FigureFactory = (ctx, _goal, options) => {
       left.delete(picked);
       feedback.textContent = `Right: ${g.name} lives ${floor === 'tower' ? 'on the low floor and climbs through all three' : `on the ${floor} floor`}.`;
       picked = null;
-      if (left.size === 0) t.resolve();
+      if (left.size === 0) t.done();
     } else {
       const card = cards.get(picked)!;
       card.classList.remove('wrong');
@@ -104,23 +103,22 @@ export const sortFigure: FigureFactory = (ctx, _goal, options) => {
     tray,
     el('div.floor-buttons', {}, FLOOR_BUTTONS.map((f) => el('button.btn.btn-ghost', { type: 'button', onclick: () => choose(f.id) }, f.label))),
   );
-  return { node, done: t.promise };
-};
+  return node;
+});
 
 // ---- Build a name ---------------------------------------------------------------
 
-export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
+export const namesFigure = quiz((_ctx, t, options) => {
   const targets = (options?.targets as { clue: string; prefix: Prefix; body: Body }[]) ?? [];
   const scene = makeScene({ time: 'day', seed: 21, sun: [0.62, 0.3] });
   const p = scene.palette;
-  const t = task();
   const body = el('div');
   const xs = [110, 250, 190, 320];
   let i = 0;
   const show = () => {
     if (i >= targets.length) {
       body.replaceChildren(el('p.fig-readout', {}, 'All called in correctly.'));
-      t.resolve();
+      t.done();
       return;
     }
     const target = targets[i];
@@ -171,8 +169,8 @@ export const namesFigure: FigureFactory = (_ctx, _goal, options) => {
     );
   };
   show();
-  return { node: el('div.fig-body', {}, el('div.fig-scene', {}, scene.root), body), done: t.promise };
-};
+  return el('div.fig-body', {}, el('div.fig-scene', {}, scene.root), body);
+});
 
 // ---- The radio check -------------------------------------------------------------
 
@@ -191,7 +189,7 @@ function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number, 
  * options.pool is the genera dealt; options.known the genera the player has
  * met (look-alike answers are drawn from these); options.count how many.
  */
-export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
+export const radioCheckFigure = quiz((ctx, t, options) => {
   const mode = (options?.mode as string) ?? 'name';
   const target = options?.target as GenusId | undefined;
   const pool = mode === 'spot' ? (options?.decoys as GenusId[]).flatMap((d) => [target!, d]) : (options?.pool as GenusId[]);
@@ -199,7 +197,6 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
   const count = (options?.count as number) ?? 8;
   const size = Math.min(4, Math.max(2, known.length));
   const rng = makeRng(freshSeed());
-  const t = task();
   const pic = el('div.fig-scene');
   const body = el('div');
   const node = el('div.fig-body.radio-check', {}, pic, body);
@@ -214,7 +211,7 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
     if (i >= calls.length) {
       body.replaceChildren(el('p.fig-readout', {}, `${ctx.save.talk ? 'Radio check' : 'Check'} done: ${right} of ${calls.length} right.`));
       ctx.score(right, calls.length);
-      t.resolve();
+      t.done();
       return;
     }
     const call = calls[i];
@@ -246,8 +243,8 @@ export const radioCheckFigure: FigureFactory = (ctx, _goal, options) => {
     );
   };
   next();
-  return { node, done: t.promise };
-};
+  return node;
+});
 
 // ---- Forecasting from the sky ------------------------------------------------------
 
@@ -294,11 +291,10 @@ function profileDrawing(p: Profile): SVGSVGElement {
   return s;
 }
 
-export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
+export const forecastFigure = quiz((ctx, t, options) => {
   // Questions from town come last, in order, after the rest shuffled.
   const all = (options?.items as Forecast[]) ?? [];
   const items = [...shuffle(all.filter((q) => !q.id), makeRng(freshSeed())), ...all.filter((q) => q.id)];
-  const t = task();
   const body = el('div');
   const node = el('div.fig-body', {}, body);
   let right = 0;
@@ -307,7 +303,7 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
     if (i >= items.length) {
       body.replaceChildren(el('p.fig-readout', {}, `Forecasts done: ${right} of ${items.length} right.`));
       ctx.score(right, items.length);
-      t.resolve();
+      t.done();
       return;
     }
     const q = items[i];
@@ -343,5 +339,5 @@ export const forecastFigure: FigureFactory = (ctx, _goal, options) => {
     body.replaceChildren(q.profile ? profileDrawing(q.profile) : strip, readings ?? '', ...(card ? [card] : [el('p.task', {}, q.question), el('div.answer-list', {}, buttons)]));
   };
   next();
-  return { node, done: t.promise };
-};
+  return node;
+});

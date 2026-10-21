@@ -10,7 +10,7 @@ import {  svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
 import { arrow, curve, heading, label, line, note, points, polyline, redraw, still, type P } from './draw';
-import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 
 // ---- Shared bits ---------------------------------------------------------------
 
@@ -262,11 +262,10 @@ function skyText(h: number): string {
 
 const SKY_INK: Partial<Record<GenusId, string>> = { nimbostratus: '#ffffff', altostratus: COL.ink };
 
-export const frontPassFigure: FigureFactory = (ctx, goal) => {
+export const frontPassFigure = figure(['pass'], (ctx, t) => {
   const W = 400;
   const H = 326;
   const f = frame(W, H, 5);
-  const t = task();
   const ground = 196;
   const kmPx = 14.5; // vertical: 12 km in 174 px
   const hourPx = 4.4; // horizontal: 30 km in 4.4 px, so heights are stretched about 100 times
@@ -437,20 +436,19 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
     const inHg = (w.hPa / 33.864).toFixed(2);
     const trend = w.tendency < -0.8 ? 'falling' : w.tendency > 0.8 ? (w.tendency > 3 ? 'rising fast' : 'rising') : 'nearly steady';
     f.readout.textContent = `${hoursText(h)}. ${skyText(h)} Barometer ${w.hPa.toFixed(0)} hPa (${inHg} in), ${trend}. Wind from the ${compass(w.windFrom)}, ${wind}. ${w.tempC.toFixed(0)} °C, dew point ${w.dewC.toFixed(0)} °C.`;
-    if (goal === 'pass' && h >= WARM_SECTOR_H + 3) t.resolve();
+    if (t.goal === 'pass' && h >= WARM_SECTOR_H + 3) t.done();
   };
   f.controls.append(slider('Hour', H0, H1, 1, H0, (v) => (v < 0 ? `${v} h` : `+${v} h`), paint, 'env').node);
   paint(H0);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- How steep a front is ----------------------------------------------------------
 
-export const slopeFigure: FigureFactory = (ctx, goal) => {
+export const slopeFigure = figure(['towers'], (ctx, t) => {
   const W = 400;
   const H = 220;
   const f = frame(W, H, 4);
-  const t = task();
   const ground = 196;
   const kmPx = 20; // vertical; horizontally 1 px is 1 km, so heights are stretched 20 times
   const nose = 330;
@@ -529,7 +527,7 @@ export const slopeFigure: FigureFactory = (ctx, goal) => {
         : 'Abrupt lifting: the air is shoved up into towers.';
     const like = slope >= 70 ? ' (as steep as a warm front)' : slope <= 55 ? ' (as steep as a cold front’s nose)' : '';
     f.readout.textContent = `1 in ${slope.toFixed(0)}${like}: the warm air climbs ${speed} a second. ${kind} Rain on any one spot lasts about ${lift.rainHours < 3 ? lift.rainHours.toFixed(1) : lift.rainHours.toFixed(0)} hours, ${lift.mmPerHour.toFixed(1)} mm an hour.`;
-    if (goal === 'towers' && lift.kind === 'towers') t.resolve();
+    if (t.goal === 'towers' && lift.kind === 'towers') t.done();
   };
   // Steeper to the right: the slider runs over the logarithm of the slope.
   f.controls.append(slider('Steepness', 0, 1, 0.01, 0.33, (v) => `1 in ${Math.round(200 * Math.pow(25 / 200, v))}`, (v) => {
@@ -538,8 +536,8 @@ export const slopeFigure: FigureFactory = (ctx, goal) => {
   }, 'parcel').node);
   slope = 200 * Math.pow(25 / 200, 0.33);
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Crossed winds ------------------------------------------------------------------
 
@@ -760,11 +758,10 @@ export const occlusionDiagram: FigureFactory = () => {
 
 // ---- Over the Cascades ----------------------------------------------------------------
 
-export const rainShadowFigure: FigureFactory = (ctx, goal) => {
+export const rainShadowFigure = figure(['shadow'], (ctx, t) => {
   const W = 400;
   const H = 278;
   const f = frame(W, H, 5);
-  const t = task();
   const sea = 222;
   const kmPx = 48;
   const crestX = 196;
@@ -848,12 +845,12 @@ export const rainShadowFigure: FigureFactory = (ctx, goal) => {
         ? ' It reaches the basin a little warmer and drier than it was.'
         : '';
     f.readout.textContent = climb + down;
-    if (goal === 'shadow' && c.eastRH < 0.5 && c.wrungG > 0) t.resolve();
+    if (t.goal === 'shadow' && c.eastRH < 0.5 && c.wrungG > 0) t.done();
   };
   f.controls.append(
     slider('Mountains', 0.5, 3, 0.1, crestM / 1000, (v) => height(v * 1000, ctx.save.units), (v) => { crestM = v * 1000; paint(); }, 'ink').node,
     slider('Pacific air’s dew point', 4, 13, 1, dew, (v) => `${v} °C`, (v) => { dew = v; paint(); }, 'dew').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});

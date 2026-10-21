@@ -11,15 +11,14 @@ import { svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
 import { crystal, hexagon, label, line, points, polyline, redraw, small } from './draw';
-import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, slider } from './kit';
 
 // ---- An ice crystal among supercooled droplets ---------------------------------
 
-export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
+export const iceGrowthFigure = figure(['fall'], (ctx, t) => {
   const W = 400;
   const H = 240;
   const f = frame(W, H, 4);
-  const t = task();
   let tempC = -2;
   const C = { x: 200, y: 110 };
   let eaten = 0; // share of the droplets' water now on the crystal, 0 to 1
@@ -69,19 +68,18 @@ export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
         : grown()
           ? 'The crystal has eaten its neighbours and is heavy enough to fall. Falling through warmer air below, it melts into a raindrop.'
           : `At ${tempC} °C the air is just full for the droplets, but for the ice it is ${pct}% overfull. Vapour leaves the droplets and freezes onto the crystal: the droplets shrink as the crystal grows.`;
-    if (goal === 'fall' && falling > 60) t.resolve();
+    if (t.goal === 'fall' && falling > 60) t.done();
   });
   f.controls.append(slider('Temperature', -40, 0, 1, tempC, (v) => `${v} °C`, (v) => { tempC = v; }, 'ice').node);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Mares' tails -------------------------------------------------------------
 
-export const streaksFigure: FigureFactory = (ctx, goal) => {
+export const streaksFigure = figure(['hooks'], (ctx, t) => {
   const W = 400;
   const H = 220;
   const f = frame(W, H);
-  const t = task();
   let shear = 0.1;
   let fall = 0.5;
   let drift = 0;
@@ -124,15 +122,15 @@ export const streaksFigure: FigureFactory = (ctx, goal) => {
       : shear < 0.6
         ? 'The wind slows lower down, so falling crystals drift back behind their tuft and the streaks curve.'
         : 'Strong shear: long sweeping tails ending in a hook where the crystals formed. Mares’ tails: cirrus uncinus, Latin for hooked.';
-    if (goal === 'hooks' && shear >= 0.6) t.resolve();
+    if (t.goal === 'hooks' && shear >= 0.6) t.done();
   };
   f.controls.append(
     slider('Wind shear', 0, 1, 0.01, shear, (v) => (v < 0.25 ? 'little' : v < 0.6 ? 'some' : 'strong'), (v) => { shear = v; paint(); }, 'ice').node,
     slider('Crystal size', 0, 1, 0.01, fall, (v) => (v < 0.35 ? 'tiny, falls slowly' : v < 0.7 ? 'medium' : 'large, falls fast'), (v) => { fall = v; }, 'ice').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- One prism -----------------------------------------------------------------
 
@@ -151,11 +149,10 @@ function refract(d: V, n: V, n1: number, n2: number): V | null {
   return add(mul(d, r), mul(n, r * c - Math.sqrt(k)));
 }
 
-export const prismFigure: FigureFactory = (_ctx, goal) => {
+export const prismFigure = figure(['min'], (_ctx, t) => {
   const W = 400;
   const H = 240;
   const f = frame(W, H);
-  const t = task();
   const g = svg('g');
   const plot = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g, plot);
@@ -232,20 +229,19 @@ export const prismFigure: FigureFactory = (_ctx, goal) => {
       : Math.abs(dev - minD) < 0.6
         ? `Bent ${dev.toFixed(1)}°: the minimum. Nearby angles all bend almost exactly this much, so light piles up here.`
         : `Bent ${dev.toFixed(1)}°. Turn the crystal and find the angle where the bend is smallest.`;
-    if (goal === 'min' && dev != null && Math.abs(dev - minD) < 0.6) t.resolve();
+    if (t.goal === 'min' && dev != null && Math.abs(dev - minD) < 0.6) t.done();
   };
   f.controls.append(slider('Turn the crystal', 14, 89, 0.5, 70, (v) => `${v.toFixed(0)}°`, paint, 'ice').node);
   paint(70);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- The halo, crystal by crystal ----------------------------------------------
 
-export const haloFigure: FigureFactory = (_ctx, goal) => {
+export const haloFigure = figure(['ring'], (_ctx, t) => {
   const W = 400;
   const H = 260;
   const f = frame(W, H);
-  const t = task();
   const C: V = [200, 130];
   const PX = 4.4; // px per degree
   const dots = svg('g');
@@ -281,7 +277,7 @@ export const haloFigure: FigureFactory = (_ctx, goal) => {
     f.readout.textContent = n < 200
       ? `${n} crystals: each sends a speck of light out at its own angle.`
       : `${n.toLocaleString()} crystals: the light crowds at 22° from the sun into a ring, with a sharp, reddish inner edge and darker sky inside.`;
-    if (goal === 'ring' && n >= 1500) t.resolve();
+    if (t.goal === 'ring' && n >= 1500) t.done();
   };
   const count = slider('Crystals', 0, 3, 0.01, 1, (v) => Math.round(Math.pow(10, v + 0.6)).toLocaleString(), (v) => paint(Math.round(Math.pow(10, v + 0.6))), 'ice');
   const handBtn = document.createElement('button');
@@ -291,16 +287,15 @@ export const haloFigure: FigureFactory = (_ctx, goal) => {
   handBtn.addEventListener('click', () => { hand = !hand; paint(Math.round(Math.pow(10, count.value() + 0.6))); });
   f.controls.append(count.node, handBtn);
   paint(Math.round(Math.pow(10, 1.6)));
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- A warm front comes in ----------------------------------------------------
 
-export const frontFigure: FigureFactory = (ctx, goal) => {
+export const frontFigure = figure(['arrive'], (ctx, t) => {
   const W = 400;
   const H = 260;
   const f = frame(W, H);
-  const t = task();
   const ground = 226;
   const obsX = 40;
   const KM_PX = 0.34; // 1,000 km across the figure
@@ -356,12 +351,12 @@ export const frontFigure: FigureFactory = (ctx, goal) => {
       ? `${hours} hours out. The front is ${Math.round(hours * FRONT_KMH)} km away and its cloud is still beyond the horizon.`
       : `${hours} hours before the front. Overhead, its surface is ${height(h, ctx.save.units)} up: ${genus(sky).name.toLowerCase()}.` +
         (sky === 'cirrostratus' ? ' Watch for the halo: rain is likely within a day.' : sky === 'nimbostratus' ? ' Steady rain.' : '');
-    if (goal === 'arrive' && hours <= 3) t.resolve();
+    if (t.goal === 'arrive' && hours <= 3) t.done();
   };
   f.controls.append(slider('Hours before it arrives', 0, 48, 1, 48, (v) => `${v} h`, paint, 'warm').node);
   // The slider runs forward in time from left to right.
   const s = f.controls.querySelector('input')!;
   s.style.direction = 'rtl';
   paint(48);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});

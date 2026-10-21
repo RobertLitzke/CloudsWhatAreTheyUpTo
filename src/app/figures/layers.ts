@@ -7,7 +7,7 @@ import { angularSize, fogHour, layerBySize, nightTemp, type Night } from '../../
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
 import { heapAt, label, line, polyline, redraw, small } from './draw';
-import { COL, animate, frame, height, slider, task, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, slider, tint } from './kit';
 
 // ---- Stable and unstable: nudge a bubble ------------------------------------
 
@@ -19,11 +19,10 @@ const START_C = 15;
 /** The ceiling over the balloon, at `x` pixels to the side of the middle: domed when stable, bowed down when unstable. */
 const ceilingY = (x: number, stability = 0) => 70 + stability * (x * x) / 60;
 
-export const nudgeFigure: FigureFactory = (ctx, goal) => {
+export const nudgeFigure = figure(['both'], (ctx, t) => {
   const W = 400;
   const H = 250;
   const f = frame(W, H, 4);
-  const t = task();
   let stability = -0.6; // below zero unstable, above stable
   let z = 0;
   let v = 0;
@@ -92,7 +91,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
       triedStable.yes = true;
     }
     paintBall();
-    if (goal === 'both' && triedStable.yes && triedUnstable.yes) t.resolve();
+    if (t.goal === 'both' && triedStable.yes && triedUnstable.yes) t.done();
   });
   const nudge = document.createElement('button');
   nudge.className = 'btn btn-small';
@@ -112,16 +111,15 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
   paintCurve();
   paintBall();
   f.readout.textContent = 'Set the air, then nudge the bubble.';
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- A clear night -----------------------------------------------------------
 
-export const nightFigure: FigureFactory = (_ctx, goal) => {
+export const nightFigure = figure(['fog'], (_ctx, t) => {
   const W = 400;
   const H = 250;
   const f = frame(W, H, 4);
-  const t = task();
   const n: Night = { duskC: 16, dewC: 7, clear: 0.5, wind: 0.4 };
   let hour = 10;
   const x0 = 40;
@@ -166,7 +164,7 @@ export const nightFigure: FigureFactory = (_ctx, goal) => {
         : n.wind > 0.6
           ? 'Too windy: the wind stirs the chilled air at the ground up into warmer air above, so no fog. At most a low layer of stratus.'
           : 'The air never cools to its dew point tonight: a clear night, no fog.';
-    if (goal === 'fog' && foggy) t.resolve();
+    if (t.goal === 'fog' && foggy) t.done();
   };
   f.controls.append(
     slider('Sky', 0, 1, 0.05, n.clear, (v) => (v < 0.3 ? 'overcast' : v < 0.7 ? 'some cloud' : 'clear'), (v) => { n.clear = v; paint(); }, 'ink').node,
@@ -175,16 +173,15 @@ export const nightFigure: FigureFactory = (_ctx, goal) => {
     slider('Clock', 0, 12, 0.25, hour, (v) => (v === 0 ? 'sunset' : v === 12 ? 'dawn' : `${v} h after sunset`), (v) => { hour = v; paint(); }, 'ink').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Heaps spreading under a lid ---------------------------------------------
 
-export const spreadFigure: FigureFactory = (_ctx, goal) => {
+export const spreadFigure = figure(['sheet'], (_ctx, t) => {
   const W = 400;
   const H = 220;
   const f = frame(W, H, 4);
-  const t = task();
   let lid = 0.2;
   let moist = 0.5;
   const g = svg('g');
@@ -212,15 +209,15 @@ export const spreadFigure: FigureFactory = (_ctx, goal) => {
       : lid > 0.5
         ? 'The lid flattens the tops. Add moisture and they spread sideways.'
         : 'Separate heaps: cumulus, free to grow up.';
-    if (goal === 'sheet' && sheet) t.resolve();
+    if (t.goal === 'sheet' && sheet) t.done();
   };
   f.controls.append(
     slider('Lid', 0, 1, 0.05, lid, (v) => (v < 0.1 ? 'none' : v < 0.6 ? 'weak' : 'strong'), (v) => { lid = v; paint(); }, 'env').node,
     slider('Moisture', 0, 1, 0.05, moist, (v) => (v < 0.35 ? 'dry' : v < 0.7 ? 'moist' : 'very moist'), (v) => { moist = v; paint(); }, 'dew').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Droplets and drops --------------------------------------------------------
 
@@ -260,11 +257,10 @@ function surviveM(mm: number, humidity: number): number {
 
 const BASE_M = 1000;
 
-export const dropsFigure: FigureFactory = (ctx, goal) => {
+export const dropsFigure = figure(['rain'], (ctx, t) => {
   const W = 400;
   const H = 250;
   const f = frame(W, H, 4);
-  const t = task();
   let logD = -2;
   let up = 0.3;
   let humidity = 0.7;
@@ -371,7 +367,7 @@ export const dropsFigure: FigureFactory = (ctx, goal) => {
       : lands
         ? `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second, faster than the updraft, and is big enough to cross a kilometre of ${air} air: it reaches the ground${mm < 0.5 ? ' as drizzle' : ' as rain'}.`
         : `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second and drops out of the base, but in ${air} air it evaporates after ${lastsM < 0.1 ? 'a few centimetres' : lastsM < 1 ? 'less than a metre' : `about ${height(lastsM, ctx.save.units)}`}${mm >= 0.2 ? ': a grey streak of virga that never reaches the ground' : ''}.`;
-    if (goal === 'rain' && lands) t.resolve();
+    if (t.goal === 'rain' && lands) t.done();
   };
 
   animate(f.node, ctx, (dt) => {
@@ -414,16 +410,15 @@ export const dropsFigure: FigureFactory = (ctx, goal) => {
     slider('Air below', 0.3, 0.95, 0.01, humidity, (v) => `${Math.round(v * 100)}% humid`, (v) => { humidity = v; paint(); }, 'env').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- The sun through thickening cloud ----------------------------------------
 
-export const sunThroughFigure: FigureFactory = (_ctx, goal) => {
+export const sunThroughFigure = figure(['cirrostratus', 'altostratus', 'nimbostratus'], (_ctx, t) => {
   const W = 400;
   const H = 230;
   const f = frame(W, H);
-  const t = task();
   const g = svg('g');
   f.svg.append(g);
   const paint = (thick: number) => {
@@ -449,20 +444,19 @@ export const sunThroughFigure: FigureFactory = (_ctx, goal) => {
       nimbostratus: 'Nimbostratus: the sun is gone and rain or snow is falling steadily.',
     };
     f.readout.textContent = words[stage];
-    if (goal === stage) t.resolve();
+    if (t.goal === stage) t.done();
   };
   f.controls.append(slider('Thickness', 0, 1, 0.01, 0.1, (v) => (v < 0.33 ? 'thin' : v < 0.72 ? 'thick' : 'very thick'), paint, 'ink').node);
   paint(0.1);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- The hand trick ----------------------------------------------------------
 
-export const handFigure: FigureFactory = (ctx, goal) => {
+export const handFigure = figure(['all'], (ctx, t) => {
   const W = 400;
   const H = 250;
   const f = frame(W, H, 2);
-  const t = task();
   const PX_PER_DEG = 9; // about 44° of sky across the figure
   let pieceM = 250;
   let layerM = 4000;
@@ -498,23 +492,22 @@ export const handFigure: FigureFactory = (ctx, goal) => {
     }
     redraw(sky, ...pieces);
     f.readout.textContent = `Each piece looks ${deg < 1 ? deg.toFixed(1) : deg.toFixed(0)}° wide: ${deg < 1 ? 'smaller than your little-finger nail' : deg <= 2.5 ? 'about a thumb' : deg <= 5 ? 'between a thumb and three fingers' : 'a fist or more'}. Call it ${genus(kind).name.toLowerCase()}.`;
-    if (goal === 'all' && seen.size === 3) t.resolve();
+    if (t.goal === 'all' && seen.size === 3) t.done();
   };
   f.controls.append(
     slider('Layer height', 500, 10000, 100, layerM, (v) => height(v, ctx.save.units), (v) => { layerM = v; paint(); }, 'ink').node,
     slider('Piece size', 50, 800, 10, pieceM, (v) => `${v} m across`, (v) => { pieceM = v; paint(); }, 'ink').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Self-shadows ------------------------------------------------------------
 
-export const shadowFigure: FigureFactory = (_ctx, goal) => {
+export const shadowFigure = figure(['shade'], (_ctx, t) => {
   const W = 400;
   const H = 180;
   const f = frame(W, H);
-  const t = task();
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#86b8d8' }), g);
   const paint = (depth: number) => {
@@ -537,9 +530,9 @@ export const shadowFigure: FigureFactory = (_ctx, goal) => {
       : kind === 'altocumulus'
         ? 'Thicker pieces block some light: grey shading on their undersides. Altocumulus is usually shaded on part of each piece.'
         : 'Thick pieces block most of the light: dark grey bellies. Low, thick cloud such as stratocumulus has the darkest shading.';
-    if (goal === 'shade' && depth >= 700) t.resolve();
+    if (t.goal === 'shade' && depth >= 700) t.done();
   };
   f.controls.append(slider('Thickness', 50, 1400, 10, 100, (v) => `${v} m deep`, paint, 'ink').node);
   paint(100);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});

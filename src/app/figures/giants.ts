@@ -5,15 +5,14 @@
 import { strikeKm } from '../../core/sky';
 import { svg } from '../dom';
 import { heapAt, line, points, redraw, small } from './draw';
-import { COL, animate, frame, slider, task, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, slider } from './kit';
 
 // ---- A thunderstorm's life ------------------------------------------------------
 
-export const stormFigure: FigureFactory = (_ctx, goal) => {
+export const stormFigure = figure(['end'], (_ctx, t) => {
   const W = 400;
   const H = 270;
   const f = frame(W, H, 4);
-  const t = task();
   const ground = 246;
   const tropo = 40;
   const g = svg('g');
@@ -64,20 +63,19 @@ export const stormFigure: FigureFactory = (_ctx, goal) => {
     }
     redraw(g, ...parts);
     f.readout.textContent = `${min} minutes. ${stage}`;
-    if (goal === 'end' && min >= 50) t.resolve();
+    if (t.goal === 'end' && min >= 50) t.done();
   };
   f.controls.append(slider('Time', 0, 60, 1, 0, (v) => `${v} min`, paint, 'ink').node);
   paint(0);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Flash, then bang ------------------------------------------------------------
 
-export const flashFigure: FigureFactory = (ctx, goal) => {
+export const flashFigure = figure(['strike'], (ctx, t) => {
   const W = 400;
   const H = 200;
   const f = frame(W, H, 4);
-  const t = task();
   const ground = 170;
   const you = 40;
   let km = 6;
@@ -113,7 +111,7 @@ export const flashFigure: FigureFactory = (ctx, goal) => {
       const s = Math.round(arrive);
       f.readout.textContent = `Boom: ${s} seconds. Sound covers a kilometre in about three, so the strike was about ${strikeKm(s).toFixed(1)} km away.` +
         (s <= 30 ? ' Within 30 seconds: get inside, and stay 30 minutes after the last thunder.' : ' Far enough for now, but storms move quickly.');
-      if (goal === 'strike') t.resolve();
+      if (t.goal === 'strike') t.done();
     } else f.readout.textContent = `Counting (sped up four times, in real seconds): ${Math.floor(since)}…`;
     paint();
   });
@@ -125,16 +123,15 @@ export const flashFigure: FigureFactory = (ctx, goal) => {
   f.controls.append(slider('Storm distance', 1, 20, 1, km, (v) => `${v} km`, (v) => { km = v; since = -1; paint(); }, 'ink').node, strike);
   f.readout.textContent = 'Set the storm’s distance, then make it strike. Light arrives at once; the thunder takes its time. (Four times real speed.)';
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Waves over a ridge -----------------------------------------------------------
 
-export const waveFigure: FigureFactory = (_ctx, goal) => {
+export const waveFigure = figure(['lens'], (_ctx, t) => {
   const W = 400;
   const H = 240;
   const f = frame(W, H, 4);
-  const t = task();
   let wind = 0.5;
   let level = 0.5;
   const ground = 210;
@@ -186,23 +183,22 @@ export const waveFigure: FigureFactory = (_ctx, goal) => {
     f.readout.textContent = lenses
       ? 'Lenticular clouds: where a standing wave lifts the air above its condensation level, a smooth lens forms. The air streams through it, but the cloud stays put.'
       : 'Air flowing over the ridge bobs in waves downwind of it. Lower the condensation level (more moisture) or strengthen the wind until the crests turn to cloud.';
-    if (goal === 'lens' && lenses > 0) t.resolve();
+    if (t.goal === 'lens' && lenses > 0) t.done();
   };
   f.controls.append(
     slider('Wind', 0, 1, 0.01, wind, (v) => (v < 0.35 ? 'light' : v < 0.7 ? 'strong' : 'gale'), (v) => { wind = v; paint(); }, 'ice').node,
     slider('Moisture', 0, 1, 0.01, level, (v) => (v < 0.35 ? 'dry' : v < 0.7 ? 'moist' : 'very moist'), (v) => { level = v; paint(); }, 'dew').node,
   );
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Kelvin-Helmholtz billows ---------------------------------------------------
 
-export const billowFigure: FigureFactory = (ctx, goal) => {
+export const billowFigure = figure(['curl'], (ctx, t) => {
   const W = 400;
   const H = 200;
   const f = frame(W, H);
-  const t = task();
   let shear = 0.2;
   let phase = 0;
   const g = svg('g');
@@ -233,20 +229,19 @@ export const billowFigure: FigureFactory = (ctx, goal) => {
       : shear < 0.6
         ? 'The faster upper air drags waves into the top of the layer.'
         : 'Kelvin-Helmholtz billows (fluctus): the waves curl over like breakers. They last only minutes, and they mark turbulence pilots avoid.';
-    if (goal === 'curl' && shear >= 0.6) t.resolve();
+    if (t.goal === 'curl' && shear >= 0.6) t.done();
   };
   f.controls.append(slider('Difference in wind', 0, 1, 0.01, shear, (v) => (v < 0.3 ? 'small' : v < 0.6 ? 'large' : 'very large'), (v) => { shear = v; paint(); }, 'ice').node);
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- Mammatus --------------------------------------------------------------------
 
-export const mammaFigure: FigureFactory = (_ctx, goal) => {
+export const mammaFigure = figure(['pouches'], (_ctx, t) => {
   const W = 400;
   const H = 180;
   const f = frame(W, H, 4);
-  const t = task();
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9b48f' }), g);
   const paint = (sink: number) => {
@@ -261,9 +256,9 @@ export const mammaFigure: FigureFactory = (_ctx, goal) => {
     f.readout.textContent = sink < 0.3
       ? 'The underside of an anvil, smooth while little is happening.'
       : 'Mammatus: pouches of cold, cloudy air sinking from the anvil’s base, an upside-down cumulus. Ominous, but usually a sign the storm is moving away.';
-    if (goal === 'pouches' && sink >= 0.6) t.resolve();
+    if (t.goal === 'pouches' && sink >= 0.6) t.done();
   };
   f.controls.append(slider('Sinking air', 0, 1, 0.01, 0.1, (v) => (v < 0.3 ? 'little' : v < 0.6 ? 'some' : 'a lot'), paint, 'ice').node);
   paint(0.1);
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});

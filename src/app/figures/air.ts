@@ -5,11 +5,11 @@
 import { cloudBase, column, dewPointOf, roomFor, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { el, svg } from '../dom';
 import { heapAt, hexagon, label, line, polyline, redraw, small, still } from './draw';
-import { COL, animate, frame, height, slider, task, temp, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, slider, temp, tint, type FigureFactory } from './kit';
 
 // ---- A parcel lifted --------------------------------------------------------
 
-export const parcelFigure: FigureFactory = (ctx, goal) => {
+export const parcelFigure = figure(['base'], (ctx, t) => {
   const W = 400;
   const H = 260;
   const f = frame(W, H, 3);
@@ -23,7 +23,6 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
   let tempC = 24;
   let dewC = 12;
   let lift = 0;
-  const t = task();
 
   const sky = svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air });
   const grid = svg('g');
@@ -74,24 +73,23 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
       el('b', { style: { color: COL.dew } }, temp(p.dewC)),
       p.cloud ? '. They have met: the air is cloud.' : `. ${(p.tempC - p.dewC).toFixed(1)}° to go.`,
     );
-    if (p.cloud && goal === 'base') t.resolve();
+    if (p.cloud && t.goal === 'base') t.done();
   };
   const lifter = slider('Lift the air', 0, top, 25, 0, (v) => height(v, ctx.save.units), (v) => { lift = v; paint(); }, 'parcel');
   const dew = slider('Dew point at the ground', 4, 22, 1, dewC, (v) => `${v} °C`, (v) => { dewC = v; paint(); }, 'dew');
   f.controls.append(lifter.node);
-  if (goal !== 'base') f.controls.append(dew.node);
+  if (t.goal !== 'base') f.controls.append(dew.node);
   else void t.promise.then(() => f.controls.append(dew.node));
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- A jar of air cooled to its dew point --------------------------------------
 
-export const jarFigure: FigureFactory = (ctx, goal) => {
+export const jarFigure = figure(['fog'], (ctx, t) => {
   const W = 400;
   const H = 260;
   const f = frame(W, H, 4);
-  const t = task();
   let tempC = 25;
   let water = 12;
   // The chart: temperature across (0 to 30 °C), grams per cubic metre up (0 to 32).
@@ -141,7 +139,7 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
     f.readout.textContent = s.droplets > 0
       ? `At ${tempC} °C there is room for only ${s.room.toFixed(1)} g of vapour per cubic metre, but the jar has ${water} g. The extra ${s.droplets.toFixed(1)} g is droplets: a tiny cloud. It began at ${s.dew.toFixed(1)} °C, the dew point.`
       : `At ${tempC} °C there is room for ${s.room.toFixed(1)} g of vapour in each cubic metre. The jar has ${water} g, so it all stays vapour and the air is clear. Cool it below ${s.dew.toFixed(1)} °C and there won’t be room.`;
-    if (goal === 'fog' && s.droplets > 0.3) t.resolve();
+    if (t.goal === 'fog' && s.droplets > 0.3) t.done();
   };
   animate(f.node, ctx, (dt) => {
     const s = state();
@@ -168,8 +166,8 @@ export const jarFigure: FigureFactory = (ctx, goal) => {
     slider('Water in the jar', 4, 20, 1, water, (v) => `${v} g per cubic metre`, (v) => { water = v; paintChart(); }, 'dew').node,
   );
   paintChart();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- The sky's temperature by height ----------------------------------------
 
@@ -228,12 +226,11 @@ export const freezingFigure: FigureFactory = (ctx) => {
 
 // ---- Thermals off a sunny valley ---------------------------------------------
 
-export const thermalsFigure: FigureFactory = (ctx, goal) => {
+export const thermalsFigure = figure(['clouds'], (ctx, t) => {
   const W = 400;
   const H = 240;
   const f = frame(W, H);
   const ground = 210;
-  const t = task();
   let sun = 0.2;
   let base = 130; // y of the cloud base: humid air condenses sooner, so its base is lower
   // Fields: dark ones (ploughed, rock, town) warm faster than light ones (forest, lake).
@@ -289,19 +286,19 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
           ? 'A cloud has formed over a patch of ground that heats quickly. Its base sits where the bubbles reach their dew point.'
           : `${formed} clouds have formed, each over a patch of ground that heats quickly, and every one with its base on the same level.`
         : 'Bubbles of warm air are rising off the darker ground.';
-    if (goal === 'clouds' && formed >= 2) t.resolve();
+    if (t.goal === 'clouds' && formed >= 2) t.done();
   });
   f.controls.append(
     slider('Sun', 0, 1, 0.01, sun, (v) => (v < 0.15 ? 'dawn' : v < 0.5 ? 'morning' : v < 0.85 ? 'late morning' : 'midday'), (v) => { sun = v; paintStatic(); }, 'sun').node,
     slider('Moisture', 50, 150, 1, base - 40, (v) => (v < 80 ? 'dry' : v < 120 ? 'moderate' : 'humid'), (v) => { base = 40 + v; paintStatic(); }, 'dew').node,
   );
   paintStatic();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
 
 // ---- How tall the clouds grow --------------------------------------------------
 
-export const soundingFigure: FigureFactory = (ctx, goal) => {
+export const soundingFigure = figure(['cumulonimbus', 'humilis', 'mediocris', 'congestus'], (ctx, t) => {
   const W = 400;
   const H = 300;
   const f = frame(W, H, 2);
@@ -315,7 +312,6 @@ export const soundingFigure: FigureFactory = (ctx, goal) => {
   const xOf = (c: number) => cx0 + ((c - tMin) / (tMax - tMin)) * (cx1 - cx0);
   const env: Environment = { dawnC: 12, lapsePerKm: 6, groundC: 20, inversion: { atM: 2400, deltaC: 3 } };
   let dewC = 9;
-  const t = task();
 
   const grid = svg('g');
   for (let m = 0; m <= top; m += 2000) {
@@ -376,16 +372,16 @@ export const soundingFigure: FigureFactory = (ctx, goal) => {
       cumulonimbus: 'Cumulonimbus: the top has frozen into an anvil of ice',
     };
     f.readout.textContent = `${names[col.kind]}.` + (col.baseM != null ? ` Base ${height(col.baseM, ctx.save.units)}, top ${height(col.topM, ctx.save.units)}.` : ` They stop at ${height(col.topM, ctx.save.units)}.`);
-    if (goal && col.kind === goal) t.resolve();
+    if (t.goal && col.kind === t.goal) t.done();
   };
   f.controls.append(
     slider('Sun', 14, 32, 0.5, env.groundC, (v) => `${v} °C at the ground`, (v) => { env.groundC = v; paint(); }, 'sun').node,
     slider('Moisture', 2, 16, 0.5, dewC, (v) => `dew point ${v} °C`, (v) => { dewC = v; paint(); }, 'dew').node,
     slider('Lid', 0, 5, 0.5, env.inversion!.deltaC, (v) => (v === 0 ? 'none' : `${v} °C warmer above`), (v) => { env.inversion = v ? { atM: 2400, deltaC: v } : undefined; paint(); }, 'env').node,
   );
-  if (goal === 'cumulonimbus') {
+  if (t.goal === 'cumulonimbus') {
     f.controls.append(slider('Instability', 5, 7.5, 0.1, env.lapsePerKm, (v) => `air cools ${v.toFixed(1)} °C/km`, (v) => { env.lapsePerKm = v; paint(); }, 'env').node);
   }
   paint();
-  return { node: f.node, done: goal ? t.promise : undefined };
-};
+  return f.node;
+});
