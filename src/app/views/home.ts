@@ -83,7 +83,7 @@ export const homeView: View = (root, nav) => {
           el('p', {}, save.talk
             ? 'Fifteen years on, word reaches Walla Walla that a fellow at General Electric has made it snow with dry ice. Harrow wants rain. Set the moisture, the heat and the wind, and make the sky you’re asked for.'
             : 'Once training is done: set the moisture, the heat and the wind, and make the sky you’re asked for.'),
-          el('span.tag', {}, allDone ? 'Coming soon' : 'Opens after training'),
+          el('a.btn', { href: '#/seed' }, allDone ? 'Take the orders' : 'Try it before training is done'),
         ),
       ),
     ),

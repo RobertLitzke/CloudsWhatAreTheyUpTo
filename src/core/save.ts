@@ -27,11 +27,13 @@ export interface SaveData {
   heard: Record<string, number[]>;
   /** Quiz cards seen, by card id: their spaced-repetition box and when each is next due (core/quiz.ts). */
   quiz: Record<string, { box: number; due: number }>;
+  /** Seeding orders filled, by id (core/orders.ts). */
+  orders: string[];
 }
 
 export function emptySave(): SaveData {
   // Metric by default; feet are a setting away.
-  return { v: 1, name: '', shifts: {}, journal: [], units: 'metric', talk: true, introSeen: false, heard: {}, quiz: {} };
+  return { v: 1, name: '', shifts: {}, journal: [], units: 'metric', talk: true, introSeen: false, heard: {}, quiz: {}, orders: [] };
 }
 
 const isObj = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
@@ -57,6 +59,7 @@ export function migrate(raw: unknown): SaveData {
       if (Number.isFinite(due)) out.quiz[id] = { box, due };
     }
   }
+  if (Array.isArray(raw.orders)) out.orders = [...new Set(raw.orders.filter((o): o is string => typeof o === 'string'))];
   if (Array.isArray(raw.journal)) out.journal = [...new Set(raw.journal.filter((j): j is string => typeof j === 'string'))];
   if (isObj(raw.shifts)) {
     for (const [id, rec] of Object.entries(raw.shifts)) {

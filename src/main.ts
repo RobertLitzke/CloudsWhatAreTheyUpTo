@@ -7,6 +7,7 @@ import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
 import { journalView } from './app/views/journal';
 import { quizView } from './app/views/quiz';
+import { seedView } from './app/views/seed';
 import { settingsView } from './app/views/settings';
 import { shiftView } from './app/views/shift';
 
@@ -44,6 +45,7 @@ function boot(): void {
     .add('/home', homeView)
     .add('/shift/:id', shiftView)
     .add('/quiz', quizView)
+    .add('/seed', seedView)
     .add('/journal', journalView)
     .add('/credits', creditsView)
     .add('/settings', settingsView)
