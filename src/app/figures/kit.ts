@@ -26,7 +26,32 @@ export const COL = {
   ground: '#3d3459',
   warm: '#e88a6a',
   cold: '#7fa8d8',
+  // Darker versions of the hues above, for text and thin lines on pale ground.
+  warmInk: '#b0583a',
+  coldInk: '#4f79a8',
+  sunInk: '#b06a10',
+  // Weather-map red and blue: warm and cold fronts, the low's L, and text that
+  // has to stand out (a charge, a warning).
+  red: '#d0472f',
+  redInk: '#b03a25',
+  blue: '#2f62b0',
+  // Grounds a drawing is set on.
+  sky: '#dcebf3',
+  air: '#e9eef6',
+  warmSide: '#fbeee6',
+  warmAir: '#f7e2d4',
+  subzero: '#cfe0f6',
+  fog: '#f4f4f8',
+  stratus: '#e4e2ec',
+  field: '#a39150',
+  dust: '#8f8a80',
 } as const;
+
+/** A colour at the given opacity, for a translucent fill. */
+export function tint(hex: string, alpha: number): string {
+  const n = parseInt(hex.slice(1), 16);
+  return `rgba(${n >> 16}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
+}
 
 export type ColorKey = keyof typeof COL;
 

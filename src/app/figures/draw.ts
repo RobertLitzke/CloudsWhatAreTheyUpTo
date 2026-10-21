@@ -66,7 +66,7 @@ export function polyline(points: P[], stroke: string, width = 2, extra: Attrs = 
 }
 
 /** Points as an SVG `points` list, unrounded. */
-export const points = (pts: readonly P[]) => pts.map((p) => p.join(',')).join(' ');
+export const points = (pts: readonly (readonly number[])[]) => pts.map((p) => p.join(',')).join(' ');
 
 export function arrow(x1: number, y1: number, x2: number, y2: number, color: string, width = 2): SVGElement {
   const a = Math.atan2(y2 - y1, x2 - x1);

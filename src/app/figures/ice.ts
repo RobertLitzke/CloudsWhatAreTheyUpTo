@@ -10,7 +10,7 @@ import { genus } from '../../core/clouds';
 import { svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { crystal, hexagon, label, line, polyline, redraw, small } from './draw';
+import { crystal, hexagon, label, line, points, polyline, redraw, small } from './draw';
 import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
 
 // ---- An ice crystal among supercooled droplets ---------------------------------
@@ -31,7 +31,7 @@ export const iceGrowthFigure: FigureFactory = (ctx, goal) => {
   });
   let bits: { x: number; y: number; sx: number; sy: number; k: number }[] = [];
   const scene = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9eef8' }), scene);
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.air }), scene);
   const grown = () => eaten >= 1;
   animate(f.node, ctx, (dt) => {
     const glaciated = tempC <= -38;
@@ -315,7 +315,7 @@ export const frontFigure: FigureFactory = (ctx, goal) => {
     const pts: [number, number][] = [];
     for (let x = frontX; x >= -10; x -= 4) pts.push([x, Math.max(surf(x), 0)]);
     const parts: SVGElement[] = [
-      svg('polygon', { points: `${frontX},${ground} ${pts.map((p) => p.join(',')).join(' ')} -10,0 ${W + 10},0 ${W + 10},${ground}`, fill: '#f6dccf', opacity: 0.7 }),
+      svg('polygon', { points: `${frontX},${ground} ${points(pts)} -10,0 ${W + 10},0 ${W + 10},${ground}`, fill: '#f6dccf', opacity: 0.7 }),
       polyline(pts, COL.warm, 2.5),
       small(Math.min(W - 60, frontX + 8), ground - 10, 'warm front', { fill: COL.warm }),
       label(Math.min(W - 70, frontX + 30), 40, 'warm air', { fill: COL.warm }),

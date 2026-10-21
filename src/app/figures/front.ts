@@ -9,10 +9,14 @@ import { genus, type GenusId } from '../../core/clouds';
 import {  svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { arrow, curve, heading, label, line, note, polyline, redraw, still, type P } from './draw';
+import { arrow, curve, heading, label, line, note, points, polyline, redraw, still, type P } from './draw';
 import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
 
 // ---- Shared bits ---------------------------------------------------------------
+
+/** The land on a weather map, and an occluded front on it. */
+const MAP = '#eef0e6';
+const OCCLUDED = '#8a3fa0';
 
 /**
  * A front as drawn on a weather map: a line with half-moons (warm) or
@@ -20,7 +24,7 @@ import { COL, animate, frame, height, slider, task, type FigureFactory } from '.
  * the left or right of the line's direction of drawing.
  */
 function frontOnMap(pts: P[], kind: 'warm' | 'cold', side: 1 | -1, tint?: string): SVGElement {
-  const color = tint ?? (kind === 'warm' ? '#d0472f' : '#2f62b0');
+  const color = tint ?? (kind === 'warm' ? COL.red : COL.blue);
   const g = svg('g', {}, polyline(pts, color, 3));
   let run = 0;
   for (let i = 1; i < pts.length; i++) {
@@ -85,8 +89,8 @@ export const lowMapDiagram: FigureFactory = () => {
     note(x, trackY + 19, text, { anchor: 'middle', fill: COL.ink }),
   );
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 258, fill: '#eef0e6' }),
-    svg('polygon', { points: sector.map((p) => p.join(',')).join(' '), fill: '#f8d9c6', opacity: 0.8 }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 258, fill: MAP }),
+    svg('polygon', { points: points(sector), fill: '#f8d9c6', opacity: 0.8 }),
     // The cloud shield: wide ahead of the warm front, a narrow band along the cold one.
     svg('path', { d: `M150,70 Q260,40 370,110 Q380,170 320,190 Q270,150 230,112 Q190,96 150,92 Z`, fill: '#ffffff', opacity: 0.85, stroke: COL.cloudShade }),
     svg('path', { d: `M150,92 Q160,170 92,240 L74,232 Q136,170 138,96 Z`, fill: '#ffffff', opacity: 0.85, stroke: COL.cloudShade }),
@@ -94,15 +98,15 @@ export const lowMapDiagram: FigureFactory = () => {
     ...winds,
     frontOnMap(warm, 'warm', 1),
     frontOnMap(cold, 'cold', -1),
-    label(L[0] - 18, L[1] + 4, 'L', { bold: true, fill: '#d0472f', attrs: { 'font-size': 18 } }),
-    note(L[0] - 50, L[1] - 26, 'low pressure', { fill: '#b03a25' }),
+    label(L[0] - 18, L[1] + 4, 'L', { bold: true, fill: COL.red, attrs: { 'font-size': 18 } }),
+    note(L[0] - 50, L[1] - 26, 'low pressure', { fill: COL.redInk }),
     note(8, 250, 'rings: isobars, lines of equal pressure', { soft: true }),
     note(262, 64, 'cloud shield', { soft: true, anchor: 'middle' }),
-    note(300, 196, 'warm front', { fill: '#b03a25' }),
-    note(118, 214, 'cold front', { fill: '#2f62b0' }),
-    note(196, 236, 'warm sector', { anchor: 'middle', fill: '#b0583a' }),
-    note(26, 120, 'cold air', { fill: '#2f62b0' }),
-    note(336, 234, 'cold air', { fill: '#2f62b0' }),
+    note(300, 196, 'warm front', { fill: COL.redInk }),
+    note(118, 214, 'cold front', { fill: COL.blue }),
+    note(196, 236, 'warm sector', { anchor: 'middle', fill: COL.warmInk }),
+    note(26, 120, 'cold air', { fill: COL.blue }),
+    note(336, 234, 'cold air', { fill: COL.blue }),
     line(368, trackY, 70, trackY, COL.ink, 1.3, { 'stroke-dasharray': '4 3' }),
     stop(330, '1', 'ahead'), stop(222, '2', 'warm sector'), stop(100, '3', 'behind'),
     town(380, trackY - 6),
@@ -139,7 +143,7 @@ export const barometerDiagram: FigureFactory = () => {
     note(sx + 40, yOfP(p) + 3.5, word, { soft: true }),
   );
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 250, fill: '#eef3f8' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 250, fill: COL.air }),
     svg('rect', { x: 0, y: ground, width: 400, height: 28, fill: COL.ground }),
     // A column of air standing on a patch of ground, thinning upward.
     ...Array.from({ length: 9 }, (_, i) => svg('rect', { x: 30, y: 24 + i * 22, width: 60, height: 22, fill: COL.env, opacity: 0.06 + i * 0.045 })),
@@ -271,7 +275,7 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
   const xs = Array.from({ length: 135 }, (_, i) => i * 3);
   const g = svg('g');
   const baro = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#e3ecf4' }), g, baro);
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air }), g, baro);
   const units = ctx.save.units;
   // The barograph: the pen traces pressure against time as the storm goes by.
   const bx0 = 34;
@@ -289,11 +293,11 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
     // The air masses: cold under the warm front's ramp and behind the cold front, warm between.
     const warmTop: P[] = xs.map((x) => [x, yOf(Math.min(11000, warmSurfaceM(tau(x))))]);
     const coldTop: P[] = xs.map((x) => [x, yOf(coldSurfaceM(tau(x)))]);
-    parts.push(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#f7e2d4', opacity: 0.55 }));
-    parts.push(svg('polygon', { points: `0,${ground} ${warmTop.map((p) => p.join(',')).join(' ')} ${W},${ground}`, fill: COL.cold, opacity: 0.3 }));
-    parts.push(svg('polygon', { points: `0,${ground} ${coldTop.map((p) => p.join(',')).join(' ')} ${W},${ground}`, fill: COL.cold, opacity: 0.45 }));
+    parts.push(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.warmAir, opacity: 0.55 }));
+    parts.push(svg('polygon', { points: `0,${ground} ${points(warmTop)} ${W},${ground}`, fill: COL.cold, opacity: 0.3 }));
+    parts.push(svg('polygon', { points: `0,${ground} ${points(coldTop)} ${W},${ground}`, fill: COL.cold, opacity: 0.45 }));
     parts.push(polyline(warmTop, COL.warm, 2));
-    parts.push(polyline(coldTop, '#4f79a8', 2));
+    parts.push(polyline(coldTop, COL.coldInk, 2));
     // Stretches of the same cloud, for drawing sheets as one shape and naming each.
     interface Run { genus: GenusId; x0: number; x1: number; top: P[]; base: P[] }
     let run: Run | null = null;
@@ -317,7 +321,7 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
       const last = r.top[r.top.length - 1][0] + 3;
       r.top.push([last, r.top[r.top.length - 1][1]]);
       r.base.push([last, r.base[r.base.length - 1][1]]);
-      parts.push(svg('polygon', { points: [...r.top, ...[...r.base].reverse()].map((p) => p.join(',')).join(' '), fill: SKY_FILL[r.genus] ?? '#fff', stroke: COL.cloudShade, 'stroke-width': 0.8, opacity: 0.95 }));
+      parts.push(svg('polygon', { points: points([...r.top, ...[...r.base].reverse()]), fill: SKY_FILL[r.genus] ?? '#fff', stroke: COL.cloudShade, 'stroke-width': 0.8, opacity: 0.95 }));
       if (r.genus === 'nimbostratus') for (const [x, y] of r.base.filter((_, i) => i % 2 === 0)) parts.push(line(x, y, x - 3, ground, COL.rain, 1, { opacity: 0.7 }));
     }
     // Cirrus as streaks of falling ice, cumulus as separate heaps.
@@ -376,8 +380,8 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
       const right = x > W - 60;
       tags.push(note(right ? x - 4 : x + 4, y, text, { bold: true, fill: color, anchor: right ? 'end' : undefined }));
     };
-    frontTag(wfX, 'warm front', '#b03a25');
-    frontTag(cfX, 'cold front', '#2f62b0', Math.abs(wfX - cfX) < 80 ? 14 : 0);
+    frontTag(wfX, 'warm front', COL.redInk);
+    frontTag(cfX, 'cold front', COL.blue, Math.abs(wfX - cfX) < 80 ? 14 : 0);
     const mass = (x0: number, x1: number, text: string, color: string, y: number) => {
       const a = Math.max(0, x0);
       const b = Math.min(W, x1);
@@ -387,9 +391,9 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
       if (b - a < 70 || nearTown(x)) return;
       tags.push(note(x, y, text, { anchor: 'middle', fill: color }));
     };
-    mass(wfX, W + 200, 'cold air', '#2f62b0', ground - 20);
-    mass(cfX, wfX, 'warm sector', '#b0583a', ground - 48);
-    mass(-200, cfX, 'colder air', '#2f62b0', ground - 64);
+    mass(wfX, W + 200, 'cold air', COL.blue, ground - 20);
+    mass(cfX, wfX, 'warm sector', COL.warmInk, ground - 48);
+    mass(-200, cfX, 'colder air', COL.blue, ground - 64);
     parts.push(
       line(townX, 16, townX, ground, COL.ink, 1, { 'stroke-dasharray': '3 4', opacity: 0.5 }),
       note(townX, 12, 'over the town', { anchor: 'middle' }),
@@ -421,9 +425,9 @@ export const frontPassFigure: FigureFactory = (ctx, goal) => {
       ...[1000, 1010, 1020].map((p) => line(bx0, byOf(p), bx1, byOf(p), COL.grid, 1)),
       ...[1000, 1010, 1020].map((p) => note(bx0 - 3, byOf(p) + 3, String(p), { soft: true, anchor: 'end' })),
       line(bxOf(0), by1 - 4, bxOf(0), by0, COL.warm, 1.2, { 'stroke-dasharray': '2 3' }),
-      line(bxOf(WARM_SECTOR_H), by1 - 4, bxOf(WARM_SECTOR_H), by0, '#4f79a8', 1.2, { 'stroke-dasharray': '2 3' }),
-      note(bxOf(0) - 3, by1 + 4, 'warm front', { anchor: 'end', fill: '#b03a25' }),
-      note(bxOf(WARM_SECTOR_H) + 3, by1 + 4, 'cold front', { fill: '#2f62b0' }),
+      line(bxOf(WARM_SECTOR_H), by1 - 4, bxOf(WARM_SECTOR_H), by0, COL.coldInk, 1.2, { 'stroke-dasharray': '2 3' }),
+      note(bxOf(0) - 3, by1 + 4, 'warm front', { anchor: 'end', fill: COL.redInk }),
+      note(bxOf(WARM_SECTOR_H) + 3, by1 + 4, 'cold front', { fill: COL.blue }),
       line(bx0, by0, bx1, by0, COL.ink, 1),
       ...[-36, -24, -12, 0, 12, 24].map((k) => note(bxOf(k), by0 + 13, k === 0 ? '0 h' : k < 0 ? `${k} h` : `+${k} h`, { soft: true, anchor: 'middle' })),
       note(bx0, by0 + 24, 'hours from the warm front', { soft: true }),
@@ -452,7 +456,7 @@ export const slopeFigure: FigureFactory = (ctx, goal) => {
   const nose = 330;
   const g = svg('g');
   const dots = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#f6ece4' }), g, dots);
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.warmSide }), g, dots);
   let slope = 100;
   // Bits of warm air carried up the ramp at the front's speed: the steeper the ramp, the faster they climb.
   const parcels = [0, 0.25, 0.5, 0.75].map((k) => ({ k }));
@@ -474,13 +478,13 @@ export const slopeFigure: FigureFactory = (ctx, goal) => {
     const path: P[] = [[W, ground - 8], [nose, ground - 8]];
     for (let x = nose - 8; x >= 0; x -= 8) path.push([x, Math.max(18, surfY(x) - 8)]);
     const parts: SVGElement[] = [
-      svg('polygon', { points: `${nose},${ground} ${top.map((p) => p.join(',')).join(' ')} -4,${ground}`, fill: COL.cold, opacity: 0.4 }),
-      polyline(top, '#4f79a8', 2.5),
+      svg('polygon', { points: `${nose},${ground} ${points(top)} -4,${ground}`, fill: COL.cold, opacity: 0.4 }),
+      polyline(top, COL.coldInk, 2.5),
       polyline(path, COL.parcel, 1.2, { 'stroke-dasharray': '3 3', opacity: 0.8 }),
       svg('rect', { x: 10, y: 20, width: 92, height: 34, rx: 4, fill: '#ffffff', opacity: 0.85 }),
-      note(16, 33, 'cold air, pushing:', { bold: true, fill: '#2f62b0' }),
-      arrow(16, 44, 70, 44, '#2f62b0', 2),
-      note(74, 47, 'front', { fill: '#2f62b0' }),
+      note(16, 33, 'cold air, pushing:', { bold: true, fill: COL.blue }),
+      arrow(16, 44, 70, 44, COL.blue, 2),
+      note(74, 47, 'front', { fill: COL.blue }),
       note(W - 4, ground - 30, 'warm,', { anchor: 'end', fill: COL.parcel }),
       note(W - 4, ground - 18, 'moist air', { anchor: 'end', fill: COL.parcel }),
     ];
@@ -507,7 +511,7 @@ export const slopeFigure: FigureFactory = (ctx, goal) => {
         sheet.push([x, Math.max(6, yb - depth)]);
         under.push([x, yb]);
       }
-      parts.push(svg('polygon', { points: [...sheet, ...under.reverse()].map((p) => p.join(',')).join(' '), fill: lift.kind === 'thick' ? '#cfcade' : '#ffffff', stroke: COL.cloudShade, 'stroke-linejoin': 'round' }));
+      parts.push(svg('polygon', { points: points([...sheet, ...under.reverse()]), fill: lift.kind === 'thick' ? '#cfcade' : '#ffffff', stroke: COL.cloudShade, 'stroke-linejoin': 'round' }));
     }
     const step = Math.max(4, 16 - lift.mmPerHour * 3);
     parts.push(svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }));
@@ -547,8 +551,8 @@ export const crossedWindsDiagram: FigureFactory = () => {
     return svg('g', {},
       svg('rect', { x: cx - 95, y: 30, width: 190, height: 160, rx: 10, fill: '#5d8fc0', opacity: 0.18 }),
       // Buys Ballot: with the wind at your back, the low is on your left.
-      label(cx - 74, 116, 'L', { bold: true, fill: '#d0472f', attrs: { 'font-size': 16, opacity: 0.8 } }),
-      note(cx - 76, 130, 'the low', { fill: '#b03a25' }),
+      label(cx - 74, 116, 'L', { bold: true, fill: COL.red, attrs: { 'font-size': 16, opacity: 0.8 } }),
+      note(cx - 76, 130, 'the low', { fill: COL.redInk }),
       // High cloud crossing.
       wisp(cx - 40 * dir, 64), wisp(cx + 20 * dir, 82),
       arrow(cx - 80 * dir, 54, cx + 80 * dir, 54, COL.ice, 2.2),
@@ -584,10 +588,10 @@ export const buysBallotDiagram: FigureFactory = () => {
   // A person east of the low, wind blowing round the low anticlockwise and a little in.
   const you: P = [214, 128];
   d.svg.append(
-      svg('rect', { x: 0, y: 0, width: 400, height: 220, fill: '#eef0e6' }),
+      svg('rect', { x: 0, y: 0, width: 400, height: 220, fill: MAP }),
       ...rings,
-      label(L[0] - 6, L[1] + 6, 'L', { bold: true, fill: '#d0472f', attrs: { 'font-size': 18 } }),
-      note(L[0], L[1] + 22, 'low pressure', { anchor: 'middle', fill: '#b03a25' }),
+      label(L[0] - 6, L[1] + 6, 'L', { bold: true, fill: COL.red, attrs: { 'font-size': 18 } }),
+      note(L[0], L[1] + 22, 'low pressure', { anchor: 'middle', fill: COL.redInk }),
       // The wind at the person: from the south-southeast, curving round the low.
       arrow(you[0] + 10, you[1] + 52, you[0] + 2, you[1] + 14, COL.soft, 3),
       note(you[0] + 16, you[1] + 46, 'wind at your back', { fill: COL.soft }),
@@ -596,9 +600,9 @@ export const buysBallotDiagram: FigureFactory = () => {
       note(you[0] + 14, you[1] - 6, 'you, facing', { fill: COL.ink }),
       note(you[0] + 14, you[1] + 5, 'downwind', { fill: COL.ink }),
       // Your left hand points at the low, a little ahead.
-      arrow(you[0] - 16, you[1] - 4, L[0] + 32, L[1] + 2, '#d0472f', 1.8),
-      note(150, 136, 'your left arm', { anchor: 'middle', fill: '#b03a25' }),
-      note(150, 148, 'points at the low', { anchor: 'middle', fill: '#b03a25' }),
+      arrow(you[0] - 16, you[1] - 4, L[0] + 32, L[1] + 2, COL.red, 1.8),
+      note(150, 136, 'your left arm', { anchor: 'middle', fill: COL.redInk }),
+      note(150, 148, 'points at the low', { anchor: 'middle', fill: COL.redInk }),
       note(392, 22, 'N ↑', { anchor: 'end' }),
       heading(290, 22, 'Buys Ballot’s rule'),
       note(290, 38, 'in the northern half of the world;', { soft: true, anchor: 'middle' }),
@@ -654,8 +658,8 @@ export const twoFrontsDiagram: FigureFactory = () => {
     const pts: P[] = [];
     if (warmFront) for (let x = nose; x <= x0 + w; x += 3) pts.push([x, Math.max(30, surf(x))]);
     else for (let x = nose; x >= x0; x -= 3) pts.push([x, Math.max(30, surf(x))]);
-    const coldPoly = svg('polygon', { points: `${nose},${ground} ${pts.map((p) => p.join(',')).join(' ')} ${warmFront ? x0 + w : x0},${ground}`, fill: COL.cold, opacity: 0.4 });
-    const parts: SVGElement[] = [svg('rect', { x: x0, y: 26, width: w, height: ground - 26, fill: '#f7e2d4', opacity: 0.7 }), coldPoly, polyline(pts, warmFront ? COL.warm : '#4f79a8', 2.5)];
+    const coldPoly = svg('polygon', { points: `${nose},${ground} ${points(pts)} ${warmFront ? x0 + w : x0},${ground}`, fill: COL.cold, opacity: 0.4 });
+    const parts: SVGElement[] = [svg('rect', { x: x0, y: 26, width: w, height: ground - 26, fill: COL.warmAir, opacity: 0.7 }), coldPoly, polyline(pts, warmFront ? COL.warm : COL.coldInk, 2.5)];
     if (warmFront) {
       // Layers riding up the ramp, ahead (to the east) of the surface front.
       const sheet = (dx0: number, dx1: number, off: number, depth: number, fill: string) => {
@@ -665,9 +669,9 @@ export const twoFrontsDiagram: FigureFactory = () => {
           base.push([x, surf(x) - off]);
           top.push([x, surf(x) - off - depth]);
         }
-        return svg('polygon', { points: [...top, ...base.reverse()].map((p) => p.join(',')).join(' '), fill, stroke: COL.cloudShade, opacity: 0.95 });
+        return svg('polygon', { points: points([...top, ...base.reverse()]), fill, stroke: COL.cloudShade, opacity: 0.95 });
       };
-      parts.push(sheet(4, 50, 2, 60, '#8f8aa6'), sheet(50, 100, 4, 30, '#c6c3d6'), sheet(100, 146, 4, 10, '#eef0f7'));
+      parts.push(sheet(4, 50, 2, 60, SKY_FILL.nimbostratus!), sheet(50, 100, 4, 30, SKY_FILL.altostratus!), sheet(100, 146, 4, 10, SKY_FILL.cirrostratus!));
       for (let x = nose + 4; x < nose + 50; x += 5) parts.push(line(x, surf(x) - 2, x - 3, ground, COL.rain, 1, { opacity: 0.6 }));
       parts.push(
         note(nose + 30, 104, 'nimbo-', { bold: true, anchor: 'middle', fill: '#fff' }),
@@ -675,7 +679,7 @@ export const twoFrontsDiagram: FigureFactory = () => {
         note(nose + 80, 72, 'altostratus', { bold: true, anchor: 'middle' }),
         note(nose + 116, 42, 'cirrostratus', { bold: true, anchor: 'middle' }),
         arrow(x0 + 8, 44, x0 + 30, 44, COL.warm, 2),
-        note(x0 + 4, 36, 'warm air pushing', { fill: '#b0583a' }),
+        note(x0 + 4, 36, 'warm air pushing', { fill: COL.warmInk }),
         line(nose, ground + 6, nose + 50, ground + 6, COL.rain, 3),
         note(nose + 25, ground + 18, 'steady rain, 300 km', { anchor: 'middle', fill: '#fff' }),
       );
@@ -686,8 +690,8 @@ export const twoFrontsDiagram: FigureFactory = () => {
         svg('path', { d: `M${nose + 2},44 Q${nose + 26},30 ${nose + 30},44 Z`, fill: '#ffffff', stroke: COL.cloudShade }),
         ...[-14, -8, -2, 4, 10].map((dx) => line(nose + dx, ground - 22, nose + dx - 3, ground, COL.rain, 1.6, { opacity: 0.75 })),
         note(nose - 14, 40, 'cumulonimbus', { bold: true, anchor: 'end' }),
-        arrow(x0 + 8, 140, x0 + 34, 140, '#2f62b0', 2),
-        note(x0 + 4, 132, 'cold air pushing', { fill: '#2f62b0' }),
+        arrow(x0 + 8, 140, x0 + 34, 140, COL.blue, 2),
+        note(x0 + 4, 132, 'cold air pushing', { fill: COL.blue }),
         line(nose - 16, ground + 6, nose + 12, ground + 6, COL.rain, 3),
         note(nose - 2, ground + 18, 'showers, 50 km', { anchor: 'middle', fill: '#fff' }),
       );
@@ -727,18 +731,18 @@ export const occlusionDiagram: FigureFactory = () => {
       const meet: P = [cx + 16, 92];
       const occ = curve([L[0] + 6, L[1] + 4], [cx - 4, 64], meet, 12);
       parts.push(
-        frontOnMap(occ.filter((_, i) => i % 2 === 0), 'warm', 1, '#8a3fa0'),
-        frontOnMap(occ.filter((_, i) => i % 2 === 1), 'cold', 1, '#8a3fa0'),
+        frontOnMap(occ.filter((_, i) => i % 2 === 0), 'warm', 1, OCCLUDED),
+        frontOnMap(occ.filter((_, i) => i % 2 === 1), 'cold', 1, OCCLUDED),
         frontOnMap(curve(meet, [cx + 26, 104], [cx + 44, 124], 10), 'warm', 1),
         frontOnMap(curve(meet, [cx + 10, 112], [cx + 6, 134], 10), 'cold', -1),
-        note(cx - 22, 90, 'occluded', { anchor: 'end', fill: '#8a3fa0' }),
-        note(cx - 22, 101, 'front', { anchor: 'end', fill: '#8a3fa0' }),
+        note(cx - 22, 90, 'occluded', { anchor: 'end', fill: OCCLUDED }),
+        note(cx - 22, 101, 'front', { anchor: 'end', fill: OCCLUDED }),
       );
     }
     return svg('g', {},
-      svg('rect', { x: cx - 62, y: 28, width: 124, height: 118, rx: 8, fill: '#eef0e6' }),
+      svg('rect', { x: cx - 62, y: 28, width: 124, height: 118, rx: 8, fill: MAP }),
       ...parts,
-      label(L[0] - 6, L[1] + 6, 'L', { bold: true, fill: '#d0472f', attrs: { 'font-size': 15 } }),
+      label(L[0] - 6, L[1] + 6, 'L', { bold: true, fill: COL.red, attrs: { 'font-size': 15 } }),
       svg('circle', { cx: cx - 50, cy: 40, r: 8, fill: COL.ink }),
       heading(cx - 50, 44, n, { fill: '#fff' }),
       ...text.map((s, i) => note(cx, 158 + i * 11, s, { anchor: 'middle' })),
@@ -768,7 +772,7 @@ export const rainShadowFigure: FigureFactory = (ctx, goal) => {
   let crestM = 700;
   let dew = 10;
   const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e3ecf4' }), g);
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.air }), g);
   /** Height of the land at x, in metres: a coastal plain, the range, then the basin. */
   const land = (x: number) => {
     if (x < 36) return -50;
@@ -803,7 +807,7 @@ export const rainShadowFigure: FigureFactory = (ctx, goal) => {
         top.push([x, yOf(lo + (250 + 450 * k) * fade)]);
       }
       if (top.length > 1) {
-        parts.push(svg('polygon', { points: [...top, ...[...bottom].reverse()].map((p) => p.join(',')).join(' '), fill: '#ffffff', stroke: COL.cloudShade, 'stroke-linejoin': 'round', opacity: 0.95 }));
+        parts.push(svg('polygon', { points: points([...top, ...[...bottom].reverse()]), fill: '#ffffff', stroke: COL.cloudShade, 'stroke-linejoin': 'round', opacity: 0.95 }));
         for (const [x, y] of top.filter(([x], i) => i % 2 === 0 && x < crestX)) parts.push(line(x + 2, y + 5, x - 2, yOf(land(x)) - 1, COL.rain, 1.2, { opacity: Math.min(0.9, c.wrungG / 3) }));
       }
       parts.push(
@@ -813,18 +817,18 @@ export const rainShadowFigure: FigureFactory = (ctx, goal) => {
     }
     parts.push(
       svg('rect', { x: 0, y: sea, width: 40, height: H - sea, fill: '#5a8fd8', opacity: 0.6 }),
-      svg('polygon', { points: `0,${H} ${terrain.map((p) => p.join(',')).join(' ')} ${W},${H}`, fill: '#a39150' }),
+      svg('polygon', { points: `0,${H} ${points(terrain)} ${W},${H}`, fill: COL.field }),
       polyline(terrain, '#7c6b34', 1.5),
       // The air's path: up the western slopes, down into the basin.
       arrow(4, yOf(180), 84, yOf(250), COL.parcel, 2.2),
-      arrow(crestX + 18, yOf(crestM + 200), 330, yOf(BASIN_M + 220), '#c2452d', 2.2),
+      arrow(crestX + 18, yOf(crestM + 200), 330, yOf(BASIN_M + 220), COL.redInk, 2.2),
       note(6, sea + 13, 'Pacific', { fill: '#fff' }),
       note(crestX, Math.max(48, yOf(crestM + 700)), `crest: ${c.crestC.toFixed(0)} °C`, { bold: true, anchor: 'middle', fill: COL.ink }),
       note(W - 6, sea + 13, `Columbia Basin, ${height(BASIN_M, ctx.save.units)} up`, { anchor: 'end', fill: '#fff' }),
       note(6, 14, `coast, sea level: ${COAST_C} °C,`, { bold: true, fill: COL.parcel }),
       note(6, 26, `dew point ${dew} °C`, { fill: COL.parcel }),
-      note(W - 6, 14, `basin: ${c.eastC.toFixed(0)} °C, dew point ${c.eastDewC.toFixed(0)} °C`, { bold: true, anchor: 'end', fill: '#c2452d' }),
-      note(W - 6, 26, `${Math.round(c.eastRH * 100)}% of the vapour it has room for`, { anchor: 'end', fill: '#c2452d' }),
+      note(W - 6, 14, `basin: ${c.eastC.toFixed(0)} °C, dew point ${c.eastDewC.toFixed(0)} °C`, { bold: true, anchor: 'end', fill: COL.redInk }),
+      note(W - 6, 26, `${Math.round(c.eastRH * 100)}% of the vapour it has room for`, { anchor: 'end', fill: COL.redInk }),
       note(W - 6, 38, `(coast air simply lifted to ${height(BASIN_M, ctx.save.units)}: ${(COAST_C - DRY_RATE * BASIN_M).toFixed(0)} °C)`, { soft: true, anchor: 'end' }),
       // Rain and snow in a year, under the part of the land that gets it.
       svg('rect', { x: 0, y: 238, width: W, height: H - 238, fill: COL.paper }),

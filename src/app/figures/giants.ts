@@ -4,7 +4,7 @@
 
 import { strikeKm } from '../../core/sky';
 import { svg } from '../dom';
-import { heapAt, line, redraw, small } from './draw';
+import { heapAt, line, points, redraw, small } from './draw';
 import { COL, animate, frame, slider, task, type FigureFactory } from './kit';
 
 // ---- A thunderstorm's life ------------------------------------------------------
@@ -160,7 +160,7 @@ export const waveFigure: FigureFactory = (_ctx, goal) => {
     let lenses = 0;
     for (const y0 of [70, 100, 130, 160, 190]) {
       const pts = stream(y0);
-      parts.push(svg('polyline', { points: pts.map((p) => p.join(',')).join(' '), fill: 'none', stroke: COL.ice, 'stroke-width': 1.2, opacity: 0.6 }));
+      parts.push(svg('polyline', { points: points(pts), fill: 'none', stroke: COL.ice, 'stroke-width': 1.2, opacity: 0.6 }));
       // Wherever this line of air is lifted above the condensation level, it is cloud.
       let run: [number, number][] = [];
       const flush = () => {
@@ -180,7 +180,7 @@ export const waveFigure: FigureFactory = (_ctx, goal) => {
     parts.push(
       line(0, condY, W, condY, COL.dew, 1, { 'stroke-dasharray': '5 4' }),
       small(W - 6, condY + 12, 'condensation level', { anchor: 'end', fill: COL.dew }),
-      svg('polygon', { points: `0,${H} ${tp.map((p) => p.join(',')).join(' ')} ${W},${H}`, fill: COL.ground }),
+      svg('polygon', { points: `0,${H} ${points(tp)} ${W},${H}`, fill: COL.ground }),
     );
     redraw(g, ...parts);
     f.readout.textContent = lenses

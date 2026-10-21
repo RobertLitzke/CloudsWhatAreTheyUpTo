@@ -5,7 +5,7 @@
 import { cloudBase, column, dewPointOf, roomFor, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { el, svg } from '../dom';
 import { heapAt, hexagon, label, line, polyline, redraw, small, still } from './draw';
-import { COL, animate, frame, height, slider, task, temp, type FigureFactory } from './kit';
+import { COL, animate, frame, height, slider, task, temp, tint, type FigureFactory } from './kit';
 
 // ---- A parcel lifted --------------------------------------------------------
 
@@ -25,7 +25,7 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
   let lift = 0;
   const t = task();
 
-  const sky = svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#e9f1f4' });
+  const sky = svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air });
   const grid = svg('g');
   for (let m = 0; m <= top; m += 500) {
     grid.append(line(x0, yOf(m), x1, yOf(m), COL.grid, 1));
@@ -55,8 +55,8 @@ export const parcelFigure: FigureFactory = (ctx, goal) => {
     const bubble = p.cloud
       ? svg('g', {},
           ...[[-14, 4, 12], [0, -4, 15], [14, 4, 11], [0, 8, 12]].map(([dx, dy, r]) => svg('circle', { cx: bx + dx, cy: by + dy - 6, r, fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 })),
-          svg('rect', { x: bx - 28, y: by + 6, width: 56, height: 8, fill: '#e9f1f4' }))
-      : svg('circle', { cx: bx, cy: by - 10, r: 10, fill: 'rgba(224, 102, 63, 0.18)', stroke: COL.parcel, 'stroke-width': 2 });
+          svg('rect', { x: bx - 28, y: by + 6, width: 56, height: 8, fill: COL.air }))
+      : svg('circle', { cx: bx, cy: by - 10, r: 10, fill: tint(COL.parcel, 0.18), stroke: COL.parcel, 'stroke-width': 2 });
     redraw(live,
       line(bx, ground, bx, by, COL.parcel, 1, { 'stroke-dasharray': '2 4' }),
       p.cloud ? line(20, yOf(base), x1, yOf(base), COL.ink, 1, { 'stroke-dasharray': '6 4' }) : null,
@@ -190,7 +190,7 @@ export const freezingFigure: FigureFactory = (ctx) => {
   // Three bands of stuff: droplets, supercooled droplets and ice, ice alone.
   g.append(
     svg('rect', { x: 0, y: yOf(zero), width: W, height: bottom - yOf(zero), fill: '#eaf4f2' }),
-    svg('rect', { x: 0, y: yOf(forty), width: W, height: yOf(zero) - yOf(forty), fill: '#e9eef8' }),
+    svg('rect', { x: 0, y: yOf(forty), width: W, height: yOf(zero) - yOf(forty), fill: COL.air }),
     svg('rect', { x: 0, y: 0, width: W, height: yOf(forty), fill: '#dfe7f7' }),
     line(0, yOf(zero), W, yOf(zero), COL.dew, 1.5, { 'stroke-dasharray': '6 4' }),
     line(0, yOf(forty), W, yOf(forty), COL.ice, 1.5, { 'stroke-dasharray': '6 4' }),
@@ -279,7 +279,7 @@ export const thermalsFigure: FigureFactory = (ctx, goal) => {
     }
     bubbles = bubbles.filter((b) => b.y > base);
     for (const c of clouds) c.size = Math.max(0, c.size - dt * 0.03); // Cloud edges mix with dry air and evaporate.
-    redraw(bubbleG, ...bubbles.map((b) => svg('circle', { cx: b.x, cy: b.y, r: b.r, fill: 'rgba(224,102,63,0.15)', stroke: COL.parcel, 'stroke-width': 1 })));
+    redraw(bubbleG, ...bubbles.map((b) => svg('circle', { cx: b.x, cy: b.y, r: b.r, fill: tint(COL.parcel, 0.15), stroke: COL.parcel, 'stroke-width': 1 })));
     redraw(cloudG, ...clouds.filter((c) => c.size > 0.05).map((c) => heapAt(c.x, base, 18 + c.size * 26, 8 + c.size * (20 + sun * 40))));
     const formed = clouds.filter((c) => c.size > 0.35).length;
     f.readout.textContent = sun < 0.15

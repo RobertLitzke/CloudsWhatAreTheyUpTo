@@ -7,7 +7,7 @@ import { angularSize, fogHour, layerBySize, nightTemp, type Night } from '../../
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
 import { heapAt, label, line, polyline, redraw, small } from './draw';
-import { COL, animate, frame, height, slider, task, type FigureFactory } from './kit';
+import { COL, animate, frame, height, slider, task, tint, type FigureFactory } from './kit';
 
 // ---- Stable and unstable: nudge a bubble ------------------------------------
 
@@ -34,7 +34,7 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
   const g = svg('g');
   const ball = svg('g');
   const cloud = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#eef3f6' }), svg('rect', { x: 0, y: 214, width: W, height: H - 214, fill: COL.ground }), g, cloud, ball);
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.air }), svg('rect', { x: 0, y: 214, width: W, height: H - 214, fill: COL.ground }), g, cloud, ball);
   const paintCurve = () => {
     // The balloon-under-a-ceiling picture of stability, on the left: a domed
     // ceiling when stable, one that bows down when unstable.
@@ -62,10 +62,10 @@ export const nudgeFigure: FigureFactory = (ctx, goal) => {
     redraw(ball,
       line(90 + x, by + 8, 90 + x, by + 20, COL.ink, 1),
       svg('circle', { cx: 90 + x, cy: by, r: 8, fill: COL.parcel }),
-      svg('circle', { cx: 250, cy: py, r: 10, fill: 'rgba(224,102,63,0.2)', stroke: COL.parcel, 'stroke-width': 2 }),
-      label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { bold: true, anchor: 'end', fill: COL.parcel, halo: '#eef3f6' }),
-      label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { bold: true, fill: COL.env, halo: '#eef3f6' }),
-      small(262, py + 22, mine > theirs + 0.05 ? 'warmer, so lighter' : mine < theirs - 0.05 ? 'colder, so heavier' : 'the same', { soft: true, halo: '#eef3f6' }),
+      svg('circle', { cx: 250, cy: py, r: 10, fill: tint(COL.parcel, 0.2), stroke: COL.parcel, 'stroke-width': 2 }),
+      label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { bold: true, anchor: 'end', fill: COL.parcel, halo: COL.air }),
+      label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { bold: true, fill: COL.env, halo: COL.air }),
+      small(262, py + 22, mine > theirs + 0.05 ? 'warmer, so lighter' : mine < theirs - 0.05 ? 'colder, so heavier' : 'the same', { soft: true, halo: COL.air }),
     );
   };
   animate(f.node, ctx, (dt) => {
@@ -292,7 +292,7 @@ export const dropsFigure: FigureFactory = (ctx, goal) => {
   const dropG = svg('g');
   f.svg.append(
     svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }),
-    svg('rect', { x: 0, y: top, width: sceneW, height: ground - top, fill: '#e7eef4' }),
+    svg('rect', { x: 0, y: top, width: sceneW, height: ground - top, fill: COL.air }),
     // The cloud, the base line and the ground.
     svg('rect', { x: 0, y: top, width: sceneW, height: baseY - top, fill: '#d6d3e3' }),
     line(0, baseY, sceneW, baseY, COL.cloudShade, 3),

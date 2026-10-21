@@ -6,8 +6,8 @@ import {  svg } from '../dom';
 import type { GenusId } from '../../core/clouds';
 import { drawCloud, SHEETS } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { arrow, flake, heading, hexagon, label, line, polyline, puff, small, still, wavy } from './draw';
-import { COL, type FigureFactory } from './kit';
+import { arrow, flake, heading, hexagon, label, line, points, polyline, puff, small, still, wavy } from './draw';
+import { COL, tint, type FigureFactory } from './kit';
 
 // ---- Molecules, warm and cold ------------------------------------------------
 
@@ -22,8 +22,8 @@ export const moleculesDiagram: FigureFactory = () => {
   const strays: [number, number, number][] = [[235, 60, 0.6], [365, 70, 2.6], [372, 160, 4.4]];
   const mol = (x: number, y: number) => svg('circle', { cx: x, cy: y, r: 5, fill: COL.dew });
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 200, height: 200, fill: '#fbeee6' }),
-    svg('rect', { x: 200, y: 0, width: 200, height: 200, fill: '#e6eef8' }),
+    svg('rect', { x: 0, y: 0, width: 200, height: 200, fill: COL.warmSide }),
+    svg('rect', { x: 200, y: 0, width: 200, height: 200, fill: COL.air }),
     heading(100, 22, 'Warm: fast molecules bounce apart'),
     heading(300, 22, 'Cold: slow molecules stick'),
     ...warm.map(([x, y, a]) => arrow(x, y, x + 24 * Math.cos(a), y + 24 * Math.sin(a), COL.parcel, 1.5)),
@@ -57,7 +57,7 @@ export const expandDiagram: FigureFactory = () => {
   }
   const parcels: [number, number, string][] = [[0, 15, '24 °C'], [1, 20, '14 °C'], [2, 26, '4 °C']];
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#e9f1f4' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: COL.air }),
     ...dots,
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: COL.ground }),
     ...[0, 1, 2].map((km) => line(0, yOf(km), 236, yOf(km), COL.grid, 1, { 'stroke-dasharray': '3 3' })),
@@ -65,8 +65,8 @@ export const expandDiagram: FigureFactory = () => {
     small(8, yOf(1) - 4, '1 km up', { soft: true }),
     small(8, yOf(2) - 4, '2 km up', { soft: true }),
     arrow(120, yOf(0) - 16, 120, yOf(2) + 30, COL.parcel, 1.5),
-    ...parcels.map(([km, r]) => svg('circle', { cx: 160, cy: yOf(km), r, fill: 'rgba(224, 102, 63, 0.16)', stroke: COL.parcel, 'stroke-width': 2 })),
-    ...parcels.map(([km, r, t]) => label(160 + r + 6, yOf(km) + 4, t, { bold: true, fill: COL.parcel, halo: '#e9f1f4', haloWidth: 4 })),
+    ...parcels.map(([km, r]) => svg('circle', { cx: 160, cy: yOf(km), r, fill: tint(COL.parcel, 0.16), stroke: COL.parcel, 'stroke-width': 2 })),
+    ...parcels.map(([km, r, t]) => label(160 + r + 6, yOf(km) + 4, t, { bold: true, fill: COL.parcel, halo: COL.air, haloWidth: 4 })),
     ...[1.6, 3.2, 4.7].map((a) => arrow(160 + 28 * Math.cos(a), yOf(2) + 28 * Math.sin(a), 160 + 38 * Math.cos(a), yOf(2) + 38 * Math.sin(a), COL.parcel, 1.2)),
     small(252, 44, 'Higher up there is less air'),
     small(252, 58, 'pressing down, so the parcel'),
@@ -98,7 +98,7 @@ export const stabilityDiagram: FigureFactory = () => {
       svg('circle', { cx: bx, cy: bottom, r: 14, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.5, 'stroke-dasharray': '3 3' }),
       small(bx, bottom + 4, '20°', { anchor: 'middle', fill: COL.parcel }),
       small(ox + 112, bottom + 4, 'air 20 °C', { fill: COL.env }),
-      svg('circle', { cx: bx, cy: top, r: 16, fill: unstable ? 'rgba(224, 102, 63, 0.22)' : 'rgba(127, 168, 216, 0.3)', stroke: COL.parcel, 'stroke-width': 2 }),
+      svg('circle', { cx: bx, cy: top, r: 16, fill: unstable ? tint(COL.parcel, 0.22) : tint(COL.cold, 0.3), stroke: COL.parcel, 'stroke-width': 2 }),
       heading(bx, top + 4, '10°', { fill: COL.parcel }),
       small(ox + 112, top + 4, `air ${airTop} °C`, { fill: COL.env }),
       unstable ? arrow(bx, top - 18, bx, top - 44, COL.parcel, 2.5) : arrow(bx + 24, top - 6, bx + 24, top + 22, COL.cold, 2.5),
@@ -116,8 +116,8 @@ export const stabilityDiagram: FigureFactory = () => {
     ];
   };
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 200, height: 256, fill: '#fbeee6' }),
-    svg('rect', { x: 200, y: 0, width: 200, height: 256, fill: '#e6eef8' }),
+    svg('rect', { x: 0, y: 0, width: 200, height: 256, fill: COL.warmSide }),
+    svg('rect', { x: 200, y: 0, width: 200, height: 256, fill: COL.air }),
     ...panel(0, true),
     ...panel(200, false),
   );
@@ -128,7 +128,7 @@ export const stabilityDiagram: FigureFactory = () => {
 
 export const heapDiagram: FigureFactory = () => {
   const d = still(400, 240);
-  const sky = '#dcebf3';
+  const sky = COL.sky;
   const ground = 216;
   const base = 118;
   d.svg.append(
@@ -162,14 +162,14 @@ export const dayNightDiagram: FigureFactory = () => {
   const ground = 160;
   const stars: [number, number][] = [[226, 22], [262, 48], [300, 18], [340, 40], [380, 24], [236, 76], [372, 84]];
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 200, height: ground, fill: '#dcebf3' }),
+    svg('rect', { x: 0, y: 0, width: 200, height: ground, fill: COL.sky }),
     svg('rect', { x: 200, y: 0, width: 200, height: ground, fill: '#2b2843' }),
     ...stars.map(([x, y]) => svg('circle', { cx: x, cy: y, r: 1.3, fill: '#fff' })),
     svg('circle', { cx: 34, cy: 30, r: 14, fill: COL.sun }),
     ...[60, 92, 124].map((x) => arrow(x - 18, 34, x, ground - 4, COL.sun, 3)),
     ...[150, 176].map((x) => wavy(x, ground - 4, 70, COL.warm, 1.2)),
     small(196, 64, 'infrared out', { anchor: 'end', fill: COL.parcel }),
-    small(56, 22, 'sunlight in', { fill: '#b06a10' }),
+    small(56, 22, 'sunlight in', { fill: COL.sunInk }),
     svg('rect', { x: 200, y: ground - 30, width: 200, height: 30, fill: COL.cold, opacity: 0.55 }),
     ...[222, 266, 310].map((x) => wavy(x, ground - 4, 20, COL.warm, 2)),
     small(394, 100, 'infrared out', { anchor: 'end', fill: COL.warm }),
@@ -195,16 +195,16 @@ export const fogStratusDiagram: FigureFactory = () => {
     line(x, y - 10, x, y - 2, COL.ink, 2),
     line(x - 3, y, x, y - 3, COL.ink, 1.5), line(x + 3, y, x, y - 3, COL.ink, 1.5));
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: '#dcebf3' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: COL.sky }),
     // Fog: the layer sits in the valley, so the ground holds it from below.
-    svg('rect', { x: 0, y: 116, width: 200, height: 84, fill: '#f4f4f8' }),
+    svg('rect', { x: 0, y: 116, width: 200, height: 84, fill: COL.fog }),
     svg('path', { d: valley(0), fill: COL.ground }),
     person(100, 147),
-    svg('rect', { x: 0, y: 116, width: 200, height: 84, fill: '#f4f4f8', opacity: 0.6 }),
+    svg('rect', { x: 0, y: 116, width: 200, height: 84, fill: COL.fog, opacity: 0.6 }),
     svg('path', { d: valley(0), fill: COL.ground }),
     // Stratus: the same layer lifted off the valley floor, hiding the ridges.
     svg('path', { d: valley(200), fill: COL.ground }),
-    svg('rect', { x: 200, y: 62, width: 200, height: 36, fill: '#e4e2ec' }),
+    svg('rect', { x: 200, y: 62, width: 200, height: 36, fill: COL.stratus }),
     line(200, 98, 400, 98, COL.cloudShade, 3),
     person(300, 147),
     line(300, 128, 300, 104, COL.soft, 1, { 'stroke-dasharray': '2 3' }),
@@ -256,7 +256,7 @@ export const edgesDiagram: FigureFactory = () => {
   const heap = drawCloud('cumulus', day, 4);
   heap.setAttribute('transform', 'translate(92 82) scale(1.05)');
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 200, height: 214, fill: '#e6eef8' }),
+    svg('rect', { x: 0, y: 0, width: 200, height: 214, fill: COL.air }),
     svg('rect', { x: 200, y: 0, width: 200, height: 214, fill: '#dde6f4' }),
     svg('rect', { x: 0, y: 26, width: 400, height: 64, fill: day.sky[1] }),
     heap,
@@ -325,7 +325,7 @@ export const layerKindsDiagram: FigureFactory = () => {
   const d = still(400, 262);
   const grey = '#b3bccb';
   const dark = '#8f98ab';
-  const sky = '#dcebf3';
+  const sky = COL.sky;
   const ground = 132;
   // Side views.
   const cells: SVGElement[] = [];
@@ -361,7 +361,7 @@ export const layerKindsDiagram: FigureFactory = () => {
     svg('rect', { x: 14, y: 62, width: 172, height: 34, fill: grey }),
     ...[40, 100, 160].map((x) => arrow(x, 112, x, 126, COL.cold, 1.6)),
     small(100, 50, 'one still, even layer', { anchor: 'middle' }),
-    small(100, 110, 'chilled from below', { anchor: 'middle', fill: '#4f79a8' }),
+    small(100, 110, 'chilled from below', { anchor: 'middle', fill: COL.coldInk }),
     // Stratocumulus: cells under the lid, each with its own up and down.
     svg('rect', { x: 200, y: 56, width: 200, height: 6, fill: COL.env, opacity: 0.45 }),
     small(396, 50, 'warm lid', { anchor: 'end', fill: COL.env }),
@@ -399,7 +399,7 @@ export const subsidenceDiagram: FigureFactory = () => {
   const gx = (c: number) => 290 + (c - 4) * 3.5;
   const gy = (km: number) => ground - km * 52;
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 262, height: ground, fill: '#e9f1f4' }),
+    svg('rect', { x: 0, y: 0, width: 262, height: ground, fill: COL.air }),
     svg('rect', { x: 0, y: lid, width: 262, height: ground - lid, fill: '#f1ece2' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: COL.ground }),
     heading(120, 18, 'High pressure: air sinking slowly'),
@@ -438,7 +438,7 @@ export const millionDiagram: FigureFactory = () => {
   const ox = 262;
   const oy = 70;
   const k = 0.45; // depth offset
-  const face = (pts: [number, number][], fill: string) => svg('polygon', { points: pts.map((p) => p.join(',')).join(' '), fill, stroke: COL.ink, 'stroke-width': 1 });
+  const face = (pts: [number, number][], fill: string) => svg('polygon', { points: points(pts), fill, stroke: COL.ink, 'stroke-width': 1 });
   const grid: SVGElement[] = [];
   for (let i = 1; i < 10; i++) {
     const t = (i / 10) * s;
@@ -524,7 +524,7 @@ export const depthDiagram: FigureFactory = () => {
   const path: [number, number][] = [[300, 140], [292, 110], [300, 70], [312, 40], [320, 60], [316, 100], [306, 130], [300, 160], [300, 200]];
   const along: [number, number, number][] = [[292, 110, 1.6], [312, 40, 2.4], [316, 100, 3.6], [306, 130, 4.6], [300, 186, 5.4]];
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#e7eef4' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: COL.air }),
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: '#b9a55a' }),
     line(200, 0, 200, ground, '#fff', 2),
     heading(100, 18, 'Shallow: no time to grow'),
@@ -563,7 +563,7 @@ export const specksDiagram: FigureFactory = () => {
   }
   // Right: a hair, a droplet and a drizzle drop at one scale (1 px = 1 µm, roughly).
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 266, height: 210, fill: '#e6eef8' }),
+    svg('rect', { x: 0, y: 0, width: 266, height: 210, fill: COL.air }),
     svg('rect', { x: 266, y: 0, width: 134, height: 210, fill: '#efe9f4' }),
     heading(66, 22, 'Alone: falls apart'),
     ...escaping.map(([x, y, a]) => arrow(x, y, x + 14 * Math.cos(a), y + 14 * Math.sin(a), COL.parcel, 1.3)),
@@ -604,7 +604,7 @@ export const inversionDiagram: FigureFactory = () => {
   // The profile on the right: colder going up, except through the warm layer.
   const gy = (h: number) => ground - h;
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 262, height: ground, fill: '#e9eef6' }),
+    svg('rect', { x: 0, y: 0, width: 262, height: ground, fill: COL.air }),
     svg('rect', { x: 0, y: lid - 20, width: 262, height: 20, fill: COL.warm, opacity: 0.25 }),
     svg('rect', { x: 0, y: lid, width: 262, height: ground - lid, fill: COL.cold, opacity: 0.28 }),
     svg('path', { d: hills, fill: COL.ground }),
@@ -612,7 +612,7 @@ export const inversionDiagram: FigureFactory = () => {
     svg('polygon', { points: '114,171 129,160 144,171', fill: '#9b6b52' }),
     svg('rect', { x: 125, y: 156, width: 5, height: 12, fill: '#9b6b52' }),
     ...smoke.map(([x, y, r]) => svg('circle', { cx: x, cy: y, r, fill: '#a9a3b4', opacity: 0.5 })),
-    small(6, lid - 26, 'warmer layer above: the lid', { fill: '#b0583a' }),
+    small(6, lid - 26, 'warmer layer above: the lid', { fill: COL.warmInk }),
     small(6, lid + 14, 'smoke rises, then spreads flat', { soft: true }),
     small(6, 200, 'coldest, heaviest air pools in the bottom', { fill: '#fff' }),
     heading(130, 18, 'A still morning in a valley'),
@@ -624,7 +624,7 @@ export const inversionDiagram: FigureFactory = () => {
     polyline([[290, ground], [362, lid], [318, 30]], COL.env, 2.4),
     line(262, lid, 400, lid, COL.grid, 1, { 'stroke-dasharray': '3 3' }),
     heading(331, 18, 'Temperature'),
-    small(306, gy(4), 'cold at the ground', { fill: '#4f79a8' }),
+    small(306, gy(4), 'cold at the ground', { fill: COL.coldInk }),
     small(318, gy(78), 'warmer', { anchor: 'end', fill: COL.env }),
     small(318, gy(66), 'going up', { anchor: 'end', fill: COL.env }),
     small(326, 56, 'then colder', { soft: true, anchor: 'end' }),
@@ -645,15 +645,15 @@ export const burnOffDiagram: FigureFactory = () => {
     const valley = `M${ox},74 L${ox + 22},80 Q${ox + w / 2},186 ${ox + w - 22},82 L${ox + w},76 L${ox + w},176 L${ox},176 Z`;
     const sun: [number, number] = [[ox + 18, 66], [ox + 30, 34], [ox + w / 2, 18]][i] as [number, number];
     const out: SVGElement[] = [
-      svg('rect', { x: ox, y: 0, width: w, height: 176, fill: ['#e7e3ef', '#dcebf3', '#cfe6f5'][i] }),
+      svg('rect', { x: ox, y: 0, width: w, height: 176, fill: ['#e7e3ef', COL.sky, '#cfe6f5'][i] }),
       svg('circle', { cx: sun[0], cy: sun[1], r: 9, fill: COL.sun }),
     ];
-    if (i === 0) out.push(svg('rect', { x: ox, y: 96, width: w, height: 80, fill: '#f4f4f8' }));
+    if (i === 0) out.push(svg('rect', { x: ox, y: 96, width: w, height: 80, fill: COL.fog }));
     out.push(svg('path', { d: valley, fill: COL.ground }));
-    if (i === 0) out.push(svg('rect', { x: ox, y: 96, width: w, height: 80, fill: '#f4f4f8', opacity: 0.6 }));
+    if (i === 0) out.push(svg('rect', { x: ox, y: 96, width: w, height: 80, fill: COL.fog, opacity: 0.6 }));
     if (i === 1) {
       out.push(
-        svg('rect', { x: ox, y: 60, width: w, height: 32, fill: '#e4e2ec' }),
+        svg('rect', { x: ox, y: 60, width: w, height: 32, fill: COL.stratus }),
         line(ox, 92, ox + w, 92, COL.cloudShade, 2.5),
         ...[ox + 46, ox + 66, ox + 86].map((x) => arrow(x, 150, x, 112, COL.parcel, 1.4)),
       );
@@ -696,7 +696,7 @@ export const latentDiagram: FigureFactory = () => {
   const wet: [number, number][] = [[16, 1], [11, 2], [6, 3]];
   const pts = (a: [number, number][]) => a.map(([c, km]) => [gx(c), gy(km)] as [number, number]);
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: y0, fill: '#eef2f7' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: y0, fill: COL.air }),
     svg('rect', { x: x0, y: gy(3), width: 400 - x0, height: gy(1) - gy(3), fill: '#ffffff', opacity: 0.7 }),
     line(x0, gy(1), 400, gy(1), COL.dew, 1.2, { 'stroke-dasharray': '5 4' }),
     small(396, gy(1) + 14, 'cloud base', { anchor: 'end', fill: COL.dew }),
@@ -737,7 +737,7 @@ export const kettleDiagram: FigureFactory = () => {
   const plume: [number, number, number, number][] = [[178, 108, 9, 0.75], [196, 100, 12, 0.85], [218, 90, 15, 0.9], [244, 80, 18, 0.85], [272, 70, 21, 0.7], [302, 62, 23, 0.5], [332, 56, 24, 0.3]];
   const vapour: [number, number][] = [[136, 116], [144, 121], [150, 113], [158, 118], [140, 110], [164, 111], [154, 124]];
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: '#e9eef6' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: COL.air }),
     svg('path', { d: 'M10,200 L10,150 Q10,118 46,116 L70,116 Q98,116 98,146 L98,200 Z', fill: '#8a7fa6' }),
     svg('rect', { x: 40, y: 108, width: 26, height: 9, rx: 3, fill: '#6f6590' }),
     svg('path', { d: `M94,150 L${mx},${my - 6} L${mx + 4},${my + 6} L96,172 Z`, fill: '#8a7fa6' }),
@@ -785,7 +785,7 @@ export const densityDiagram: FigureFactory = () => {
     small(100, 206, 'lighter, so it rises', { bold: true, anchor: 'middle', fill: COL.parcel }),
     small(300, 180, 'Slow molecules hit gently, so', { anchor: 'middle' }),
     small(300, 193, 'it takes more of them:', { anchor: 'middle' }),
-    small(300, 206, 'heavier, so it sinks', { bold: true, anchor: 'middle', fill: '#4f79a8' }),
+    small(300, 206, 'heavier, so it sinks', { bold: true, anchor: 'middle', fill: COL.coldInk }),
   );
   return { node: d.node };
 };
@@ -798,7 +798,7 @@ export const glideDiagram: FigureFactory = () => {
   // The cold wedge: its top slopes gently up from the front (right) to the left.
   const wedge = `M0,${ground} L0,96 L330,${ground} Z`;
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#f6ece4' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: COL.warmSide }),
     svg('path', { d: wedge, fill: COL.cold, opacity: 0.45 }),
     svg('rect', { x: 0, y: ground, width: 400, height: 30, fill: COL.ground }),
     // Sheets of cloud along the slope, highest and thinnest far ahead.
@@ -809,7 +809,7 @@ export const glideDiagram: FigureFactory = () => {
     arrow(290, 120, 170, 66, COL.parcel, 2.5),
     arrow(160, 60, 60, 30, COL.parcel, 2),
     small(396, 98, 'warm, moist air', { anchor: 'end', fill: COL.parcel }),
-    small(6, 160, 'cold, heavy air', { fill: '#4f79a8' }),
+    small(6, 160, 'cold, heavy air', { fill: COL.coldInk }),
     small(330, ground + 18, 'the front, on the ground', { anchor: 'middle', fill: '#fff' }),
     small(80, 62, 'high, thin', { soft: true, anchor: 'middle' }),
     small(180, 106, 'middle sheets', { soft: true, anchor: 'middle' }),
@@ -836,13 +836,13 @@ export const overturnDiagram: FigureFactory = () => {
     );
   }
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 230, fill: '#dcebf3' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 230, fill: COL.sky }),
     svg('rect', { x: 0, y: top, width: 400, height: base - top, fill: '#eceaf2' }),
     ...cells,
     ...[60, 160, 260, 360].map((x) => wavy(x, top - 4, 48, COL.warm, 1.6)),
-    small(6, 18, 'The top radiates heat to the cold, clear sky', { fill: '#b0583a' }),
-    small(6, 32, 'and gets little back: it cools.', { fill: '#b0583a' }),
-    small(6, 176, 'The base is kept warm by heat from the ground below.', { fill: '#b0583a' }),
+    small(6, 18, 'The top radiates heat to the cold, clear sky', { fill: COL.warmInk }),
+    small(6, 32, 'and gets little back: it cools.', { fill: COL.warmInk }),
+    small(6, 176, 'The base is kept warm by heat from the ground below.', { fill: COL.warmInk }),
     small(6, 208, 'Chilled air at the top sinks (blue), warmer air rises (orange):'),
     small(6, 222, 'lumps where it rises, thin gaps where it sinks.'),
   );
@@ -854,11 +854,11 @@ export const overturnDiagram: FigureFactory = () => {
 export const freezeSeedsDiagram: FigureFactory = () => {
   const d = still(400, 200);
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: '#e6eef8' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 200, fill: COL.air }),
     line(200, 0, 200, 176, '#fff', 2),
     heading(100, 22, 'On salt or soot'),
     svg('circle', { cx: 100, cy: 92, r: 40, fill: COL.rain, opacity: 0.3, stroke: COL.rain, 'stroke-width': 2 }),
-    svg('rect', { x: 92, y: 84, width: 16, height: 16, fill: '#8f8a80' }),
+    svg('rect', { x: 92, y: 84, width: 16, height: 16, fill: COL.dust }),
     small(100, 152, 'Wrong shape: no template.', { anchor: 'middle' }),
     small(100, 166, 'Stays liquid, supercooled.', { anchor: 'middle', fill: COL.rain }),
     heading(300, 22, 'On a rare dust grain'),
@@ -882,7 +882,7 @@ export const escapeDiagram: FigureFactory = () => {
     return [arrow(x, y, x + 16 * Math.cos(a), y + 16 * Math.sin(a), COL.parcel, 1.3), mol(x + 20 * Math.cos(a), y + 20 * Math.sin(a))];
   });
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: '#eaf0f8' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: COL.air }),
     heading(100, 22, 'Supercooled droplet'),
     heading(300, 22, 'Ice crystal'),
     svg('circle', { cx: 100, cy: 96, r: 34, fill: COL.rain, opacity: 0.35, stroke: COL.rain, 'stroke-width': 2 }),
@@ -909,7 +909,7 @@ export const snowToRainDiagram: FigureFactory = () => {
   const ground = 228;
   const freeze = 150;
   d.svg.append(
-    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#eef2f7' }),
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: COL.air }),
     svg('rect', { x: 20, y: 18, width: 250, height: 150, rx: 14, fill: '#e1deea' }),
     svg('rect', { x: 20, y: 40, width: 250, height: 36, fill: '#d3e1f3', opacity: 0.8 }),
     line(0, freeze, 400, freeze, COL.dew, 1.4, { 'stroke-dasharray': '5 4' }),
@@ -924,8 +924,8 @@ export const snowToRainDiagram: FigureFactory = () => {
     small(280, 100, 'they fall, catch droplets', { fill: COL.ink }),
     small(280, 113, 'and clump into snowflakes', { fill: COL.ink }),
     small(396, freeze - 6, '0 °C: freezing level', { anchor: 'end', fill: COL.dew }),
-    small(280, 168, 'melting: a bright band', { fill: '#b06a10' }),
-    small(280, 181, 'on weather radar', { fill: '#b06a10' }),
+    small(280, 168, 'melting: a bright band', { fill: COL.sunInk }),
+    small(280, 181, 'on weather radar', { fill: COL.sunInk }),
     small(280, 206, 'raindrops', { fill: COL.rain }),
   );
   return { node: d.node };
@@ -940,7 +940,7 @@ export const tropopauseDiagram: FigureFactory = () => {
   const xOf = (c: number) => 262 + (c + 60) * 1.6;
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: yOf(11), fill: '#e6e2f3' }),
-    svg('rect', { x: 0, y: yOf(11), width: 400, height: ground - yOf(11), fill: '#eef3f8' }),
+    svg('rect', { x: 0, y: yOf(11), width: 400, height: ground - yOf(11), fill: COL.air }),
     svg('rect', { x: 0, y: ground, width: 400, height: 20, fill: COL.ground }),
     line(0, yOf(11), 400, yOf(11), COL.env, 1.4, { 'stroke-dasharray': '5 4' }),
     // A storm tower whose top spreads into an anvil under the lid.
@@ -966,16 +966,16 @@ export const tropopauseDiagram: FigureFactory = () => {
 export const chargeDiagram: FigureFactory = () => {
   const d = still(400, 240);
   const ground = 218;
-  const sign = (x: number, y: number, plus: boolean) => heading(x, y, plus ? '+' : '−', { fill: plus ? '#c2452d' : '#2f5fa8' });
+  const sign = (x: number, y: number, plus: boolean) => heading(x, y, plus ? '+' : '−', { fill: plus ? COL.redInk : COL.blue });
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#dfe3ec' }),
     svg('rect', { x: 0, y: ground, width: 400, height: 22, fill: COL.ground }),
     svg('path', { d: `M110,170 L100,90 Q100,50 70,44 L40,38 Q140,20 300,34 L230,46 Q200,60 210,100 L220,170 Q165,182 110,170 Z`, fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 1.4 }),
     ...[[90, 40], [130, 36], [170, 34], [210, 36], [250, 36]].map(([x, y]) => sign(x, y + 4, true)),
     ...[[130, 120], [160, 128], [190, 120], [145, 140], [175, 142]].map(([x, y]) => sign(x, y, false)),
-    small(260, 24, 'light ice crystals: +', { fill: '#c2452d' }),
-    small(260, 36, 'swept up into the anvil', { fill: '#c2452d' }),
-    small(165, 158, 'heavier soft hail: −', { anchor: 'middle', fill: '#2f5fa8' }),
+    small(260, 24, 'light ice crystals: +', { fill: COL.redInk }),
+    small(260, 36, 'swept up into the anvil', { fill: COL.redInk }),
+    small(165, 158, 'heavier soft hail: −', { anchor: 'middle', fill: COL.blue }),
     polyline([[160, 172], [150, 190], [164, 196], [152, ground]], '#f2c12e', 3),
     polyline([[292, 40], [302, 100], [290, 120], [306, 180], [296, 200], [304, ground]], '#f2c12e', 2.4),
     small(316, 150, 'a bolt from'),

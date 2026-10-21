@@ -263,8 +263,8 @@ function profileDrawing(p: Profile): SVGSVGElement {
   const deg = (c: number) => `${c < -0.5 ? '−' : ''}${Math.abs(Math.round(c))} °C`;
   const s = svg('svg', { viewBox: `0 0 ${W} ${H}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
   const parts: SVGElement[] = [
-    svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#e3ecf4' }),
-    svg('rect', { x: 0, y: 0, width: W, height: yOf(p.freezeKm), fill: '#cfe0f6', opacity: 0.6 }),
+    svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air }),
+    svg('rect', { x: 0, y: 0, width: W, height: yOf(p.freezeKm), fill: COL.subzero, opacity: 0.6 }),
     svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
   ];
   for (let km = top > 8 ? 2 : 1; km <= top; km += top > 8 ? 2 : 1) {
@@ -282,10 +282,10 @@ function profileDrawing(p: Profile): SVGSVGElement {
       svg('rect', { x: x0, y: y0, width: 150, height: Math.max(4, y1 - y0), rx: 8, fill: '#ffffff', stroke: COL.cloudShade }),
       note(x0 + 75, (y0 + y1) / 2 + 4, c.name, { bold: true, anchor: 'middle' }),
       ...(y1 - y0 < 24
-        ? [note(x0 - 6, (y0 + y1) / 2 + 4, `${deg(tempAt(c.baseKm))} to ${deg(tempAt(c.topKm))}`, { bold: true, anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' })]
+        ? [note(x0 - 6, (y0 + y1) / 2 + 4, `${deg(tempAt(c.baseKm))} to ${deg(tempAt(c.topKm))}`, { bold: true, anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : COL.warmInk })]
         : [
-          note(x0 - 6, y0 + 9, `top ${deg(tempAt(c.topKm))}`, { anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : '#b0583a' }),
-          note(x0 - 6, y1, `base ${deg(tempAt(c.baseKm))}`, { anchor: 'end', fill: tempAt(c.baseKm) < 0 ? COL.ice : '#b0583a' }),
+          note(x0 - 6, y0 + 9, `top ${deg(tempAt(c.topKm))}`, { anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : COL.warmInk }),
+          note(x0 - 6, y1, `base ${deg(tempAt(c.baseKm))}`, { anchor: 'end', fill: tempAt(c.baseKm) < 0 ? COL.ice : COL.warmInk }),
         ]),
     );
   });
