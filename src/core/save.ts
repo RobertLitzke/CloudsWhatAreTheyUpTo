@@ -25,11 +25,13 @@ export interface SaveData {
   introSeen: boolean;
   /** Talks heard to the end, with the reply picked at each turn. */
   heard: Record<string, number[]>;
+  /** Quiz cards seen, by card id: their spaced-repetition box and when each is next due (core/quiz.ts). */
+  quiz: Record<string, { box: number; due: number }>;
 }
 
 export function emptySave(): SaveData {
   // Metric by default; feet are a setting away.
-  return { v: 1, name: '', shifts: {}, journal: [], units: 'metric', talk: true, introSeen: false, heard: {} };
+  return { v: 1, name: '', shifts: {}, journal: [], units: 'metric', talk: true, introSeen: false, heard: {}, quiz: {} };
 }
 
 const isObj = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
@@ -45,6 +47,14 @@ export function migrate(raw: unknown): SaveData {
   if (isObj(raw.heard)) {
     for (const [id, picks] of Object.entries(raw.heard)) {
       if (Array.isArray(picks)) out.heard[id] = picks.map((n) => Math.max(0, Math.floor(Number(n) || 0)));
+    }
+  }
+  if (isObj(raw.quiz)) {
+    for (const [id, st] of Object.entries(raw.quiz)) {
+      if (!isObj(st)) continue;
+      const box = Math.max(0, Math.floor(Number(st.box) || 0));
+      const due = Number(st.due);
+      if (Number.isFinite(due)) out.quiz[id] = { box, due };
     }
   }
   if (Array.isArray(raw.journal)) out.journal = [...new Set(raw.journal.filter((j): j is string => typeof j === 'string'))];

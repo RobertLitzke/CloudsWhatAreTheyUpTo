@@ -6,11 +6,13 @@ import { watchForUpdates } from './app/update';
 import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
 import { journalView } from './app/views/journal';
+import { quizView } from './app/views/quiz';
 import { settingsView } from './app/views/settings';
 import { shiftView } from './app/views/shift';
 
 const NAV: readonly [string, string][] = [
   ['/home', 'Home'],
+  ['/quiz', 'Quiz'],
   ['/journal', 'Journal'],
   ['/settings', 'Settings'],
 ];
@@ -41,6 +43,7 @@ function boot(): void {
   router
     .add('/home', homeView)
     .add('/shift/:id', shiftView)
+    .add('/quiz', quizView)
     .add('/journal', journalView)
     .add('/credits', creditsView)
     .add('/settings', settingsView)

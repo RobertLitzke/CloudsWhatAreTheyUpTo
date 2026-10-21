@@ -613,3 +613,15 @@ body.radio-up main { padding-bottom: 50vh; }
 .key-ideas li p { margin: 0; }
 /* A still picture has no readout or controls under it. */
 .fig-still { padding: 0; }
+
+/* ---- Quiz: flash cards with spaced repetition ------------------------------ */
+.quiz-tally { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 16px 0; }
+.quiz-tally .stat { border-radius: 10px; padding: 10px 6px; text-align: center; box-shadow: inset 0 0 0 2px var(--text); color: var(--text); }
+.quiz-tally strong { display: block; font-size: 1.5rem; }
+.quiz-tally span { font-size: 0.85rem; opacity: 0.75; }
+.quiz-card .photo { margin: 0 0 12px; }
+.quiz-card .verdict p { margin: 0 0 4px; }
+.quiz .btn-ghost { color: var(--text); box-shadow: inset 0 0 0 2px var(--text); text-decoration: none; }
+.quiz .btn-ghost.right, .quiz .btn-ghost.wrong { color: #fff; box-shadow: none; }
+/* Answers can be whole sentences: plain type, not the poster lettering. */
+.quiz .answer-list .btn { font: inherit; font-weight: 600; text-transform: none; letter-spacing: normal; line-height: 1.35; padding-top: 12px; padding-bottom: 12px; border-radius: 16px; }

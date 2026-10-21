@@ -1,0 +1,313 @@
+{
+  "_howTo": "Questions for the quiz, on the ideas behind the lessons. Edit freely. \"answer\" is the index of the right option. Cards about each cloud's look, causes and weather, and the photo cards, are made from core/clouds.ts and the photo library, not from this file.",
+  "cards": [
+    {
+      "id": "vapour",
+      "question": "What is the white plume over a boiling kettle made of?",
+      "options": [
+        "Tiny droplets of liquid water",
+        "Water vapour",
+        "Hot air"
+      ],
+      "answer": 0,
+      "why": "Water vapour is invisible. The plume starts a finger’s width from the spout, where the vapour has cooled and clumped into droplets that scatter light."
+    },
+    {
+      "id": "dew-point",
+      "question": "What is the dew point?",
+      "options": [
+        "The temperature the air must be cooled to before its vapour condenses",
+        "The temperature at which dew evaporates",
+        "How warm the air is right now"
+      ],
+      "answer": 0,
+      "why": "Cool air to its dew point and the excess vapour condenses into droplets. It depends only on how much vapour there is."
+    },
+    {
+      "id": "dew-point-up",
+      "question": "You add more water vapour to a jar of air. What happens to its dew point?",
+      "options": [
+        "It goes up",
+        "It goes down",
+        "It stays the same"
+      ],
+      "answer": 0,
+      "why": "More crowded vapour starts sticking with less cooling, so the dew point rises. A high dew point means humid air."
+    },
+    {
+      "id": "specks",
+      "question": "What does a cloud droplet need to form on?",
+      "options": [
+        "A speck of dust, smoke or salt",
+        "Another droplet",
+        "Nothing; vapour clumps on its own"
+      ],
+      "answer": 0,
+      "why": "A cluster of a few molecules falls apart. A speck gives them a surface to gather on, and the air holds millions of them in every lungful."
+    },
+    {
+      "id": "clear-night",
+      "question": "Why does a clear night get colder than a cloudy one?",
+      "options": [
+        "The ground’s heat radiates straight out to space",
+        "Clear air is colder to begin with",
+        "Clouds give off their own heat"
+      ],
+      "answer": 0,
+      "why": "Under a clear sky the ground’s infrared escapes to space. A cloud sends some of it back down, like a blanket."
+    },
+    {
+      "id": "fog-recipe",
+      "question": "What kind of night makes valley fog by dawn?",
+      "options": [
+        "Clear, calm and damp",
+        "Cloudy and windy",
+        "Any night after a hot day"
+      ],
+      "answer": 0,
+      "why": "A clear sky lets the ground cool, calm air leaves the chill at the bottom, and damp air has its dew point close by."
+    },
+    {
+      "id": "inversion",
+      "question": "What is an inversion?",
+      "options": [
+        "Warmer air lying on top of colder air",
+        "Air that rises and sinks in loops",
+        "A cloud that forms upside down"
+      ],
+      "answer": 0,
+      "why": "Normally air gets colder going up. In an inversion it gets warmer, which is the most stable arrangement: nothing rises through it."
+    },
+    {
+      "id": "fog-stratus",
+      "question": "What is the difference between fog and stratus?",
+      "options": [
+        "Only whether the base touches the ground",
+        "Fog is made of vapour, stratus of droplets",
+        "Stratus is much higher, on the middle floor"
+      ],
+      "answer": 0,
+      "why": "They are the same cloud. Lift a fog bank off the valley floor and it is called stratus."
+    },
+    {
+      "id": "burn-off",
+      "question": "How does morning fog clear?",
+      "options": [
+        "From the bottom up, as the sun warms the ground",
+        "From the top down, as the sun warms its top",
+        "The wind blows it away every time"
+      ],
+      "answer": 0,
+      "why": "The sun warms the ground, the ground warms the air touching it, and the lowest droplets evaporate first, often leaving a layer of stratus for a while."
+    },
+    {
+      "id": "rising-cools",
+      "question": "Why does rising air cool?",
+      "options": [
+        "It expands into the lower pressure higher up",
+        "It touches colder air",
+        "It loses its water vapour"
+      ],
+      "answer": 0,
+      "why": "With less air pressing down, it spreads out, and the work of spreading out comes from its own molecules’ energy."
+    },
+    {
+      "id": "dry-rate",
+      "question": "How fast does a rising bubble of clear air cool?",
+      "options": [
+        "About 10 °C per kilometre",
+        "About 2 °C per kilometre",
+        "About 6.5 °C per kilometre"
+      ],
+      "answer": 0,
+      "why": "10 °C per kilometre, every day. (6.5 is the average of the air around, and 2 is how fast the bubble’s dew point falls.)"
+    },
+    {
+      "id": "cloud-base",
+      "question": "Temperature 26 °C, dew point 14 °C. Where will cumulus bases be?",
+      "options": [
+        "About 1,500 metres up",
+        "About 125 metres up",
+        "About 12 kilometres up"
+      ],
+      "answer": 0,
+      "why": "The gap closes by 8 °C per kilometre, so each degree is about 125 m: 12 × 125 = 1,500 m."
+    },
+    {
+      "id": "humid-base",
+      "question": "On a humid day, are cumulus bases low or high?",
+      "options": [
+        "Low",
+        "High",
+        "Humidity makes no difference"
+      ],
+      "answer": 0,
+      "why": "Humid air starts with its dew point close to its temperature, so a rising bubble reaches it quickly."
+    },
+    {
+      "id": "unstable",
+      "question": "When is the air unstable?",
+      "options": [
+        "When it cools with height faster than a rising bubble does",
+        "When it is warmer than yesterday",
+        "Whenever there is a cloud"
+      ],
+      "answer": 0,
+      "why": "Then a nudged bubble stays warmer than its neighbours and keeps rising on its own."
+    },
+    {
+      "id": "latent",
+      "question": "Why does a cloudy bubble cool only about 5 °C per kilometre, not 10?",
+      "options": [
+        "Condensing water gives off heat",
+        "The cloud shades it from the cold",
+        "It stops expanding inside the cloud"
+      ],
+      "answer": 0,
+      "why": "Condensing vapour releases the heat it took to evaporate (latent heat), warming the bubble from within."
+    },
+    {
+      "id": "flat-bases",
+      "question": "Why do the cumulus in one sky share the same flat base?",
+      "options": [
+        "The air they rise from is well mixed, so they reach their dew point at the same height",
+        "A layer of warm air flattens them",
+        "Gravity pulls the droplets to one level"
+      ],
+      "answer": 0,
+      "why": "By mid-morning thermals have stirred the lowest kilometre evenly, so every bubble condenses at nearly the same height."
+    },
+    {
+      "id": "floors",
+      "question": "What decides which floor a cloud belongs to?",
+      "options": [
+        "The temperature where it forms, which sets what it is made of",
+        "Only how thick it is",
+        "Whether it rains"
+      ],
+      "answer": 0,
+      "why": "Low clouds are liquid droplets, high clouds are ice; the middle is a mix. Heights are only guides."
+    },
+    {
+      "id": "edges",
+      "question": "A cloud has soft, feathery edges. Which floor is it most likely on?",
+      "options": [
+        "High: it is made of ice",
+        "Low: it is made of droplets",
+        "There is no way to tell"
+      ],
+      "answer": 0,
+      "why": "Ice crystals linger and trail off; crowded droplets evaporate in seconds and leave crisp edges."
+    },
+    {
+      "id": "hand-trick",
+      "question": "A lumpy layer’s pieces look about as wide as your thumb at arm’s length. What is it?",
+      "options": [
+        "Altocumulus",
+        "Stratocumulus",
+        "Cirrocumulus"
+      ],
+      "answer": 0,
+      "why": "Wider than three fingers is stratocumulus; smaller than your little-finger nail is cirrocumulus; in between is altocumulus."
+    },
+    {
+      "id": "why-no-rain",
+      "question": "Why do most clouds never rain?",
+      "options": [
+        "Their droplets are too small to fall far before evaporating",
+        "They are too high up",
+        "They are made of vapour"
+      ],
+      "answer": 0,
+      "why": "A raindrop holds about a million cloud droplets, and only a deep cloud gives drops time to grow that big."
+    },
+    {
+      "id": "supercooled",
+      "question": "Most clouds between 0 °C and −20 °C are made of…",
+      "options": [
+        "Liquid droplets, supercooled",
+        "Ice crystals",
+        "Water vapour"
+      ],
+      "answer": 0,
+      "why": "Droplets need a rare ice-shaped speck to freeze. Without one they stay liquid down to about −38 °C."
+    },
+    {
+      "id": "ice-rain",
+      "question": "Where does most summer rain start?",
+      "options": [
+        "As snow high in the cloud",
+        "As droplets near the base",
+        "As hail"
+      ],
+      "answer": 0,
+      "why": "Ice crystals grow fast at the expense of supercooled droplets, fall as snow, and melt below the freezing level."
+    },
+    {
+      "id": "halo",
+      "question": "A ring 22° around the sun means the sky is full of…",
+      "options": [
+        "Hexagonal ice crystals: cirrostratus",
+        "Water droplets: altostratus",
+        "Dust"
+      ],
+      "answer": 0,
+      "why": "Hexagonal crystals act as 60° prisms that bend light by at least about 22°. A thickening halo veil often means rain within a day."
+    },
+    {
+      "id": "warm-front",
+      "question": "In what order do clouds arrive ahead of a warm front?",
+      "options": [
+        "Cirrus, cirrostratus, altostratus, nimbostratus",
+        "Nimbostratus, altostratus, cirrostratus, cirrus",
+        "Cumulus, cumulonimbus, then clear"
+      ],
+      "answer": 0,
+      "why": "Warm air slides up a gentle slope over the cold, so its highest clouds show first, up to a day and a half ahead."
+    },
+    {
+      "id": "anvil",
+      "question": "Why does a thunderstorm’s top spread into a flat anvil?",
+      "options": [
+        "It hits the tropopause, where the air starts warming with height",
+        "The wind is strongest at the top",
+        "The ice is lighter than the droplets"
+      ],
+      "answer": 0,
+      "why": "Above the tropopause the stratosphere warms with height, a lid that even a storm updraught can barely pierce."
+    },
+    {
+      "id": "thunder-count",
+      "question": "You count 9 seconds between flash and thunder. How far away was the strike?",
+      "options": [
+        "About 3 km",
+        "About 9 km",
+        "About 30 km"
+      ],
+      "answer": 0,
+      "why": "Sound takes about 3 seconds per kilometre. Under 30 seconds, the storm is close enough to strike you: go indoors."
+    },
+    {
+      "id": "lenticular",
+      "question": "A smooth lens-shaped cloud sits still over a ridge in a strong wind. What makes it?",
+      "options": [
+        "A standing wave in stable air flowing over the mountain",
+        "A thunderstorm about to form",
+        "Smoke from a fire"
+      ],
+      "answer": 0,
+      "why": "Air rises over each wave crest, condenses, and evaporates again on the way down, so the cloud stays put while the wind blows through it."
+    },
+    {
+      "id": "castellanus",
+      "question": "Little turrets sprout from altocumulus on a warm morning. What should you expect?",
+      "options": [
+        "Thunderstorms later in the day",
+        "A clear, calm afternoon",
+        "Fog tonight"
+      ],
+      "answer": 0,
+      "why": "Castellanus shows the middle sky is already unstable, so afternoon thermals can climb into storms."
+    }
+  ]
+}
