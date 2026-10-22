@@ -45,12 +45,13 @@ export const kettleDiagram: FigureFactory = () => {
 export const moleculesDiagram: FigureFactory = () => {
   const d = still(400, 200);
   const warm: [number, number, number][] = [[40, 60, 0.3], [90, 50, 2.4], [150, 70, 4.2], [60, 110, 5.5], [120, 115, 1.2], [170, 125, 3.3], [35, 155, 1.9], [100, 160, 4.9], [155, 165, 0.8]];
+  // The same nine molecules on both sides: seven stuck in a droplet, two still loose.
   const cluster: [number, number][] = [];
-  for (let row = -2; row <= 2; row++) {
-    const n = 5 - Math.abs(row);
+  for (let row = -1; row <= 1; row++) {
+    const n = 3 - Math.abs(row);
     for (let i = 0; i < n; i++) cluster.push([300 + (i - (n - 1) / 2) * 11, 115 + row * 9.5]);
   }
-  const strays: [number, number, number][] = [[235, 60, 0.6], [365, 70, 2.6], [372, 160, 4.4]];
+  const strays: [number, number, number][] = [[235, 60, 0.6], [370, 160, 4.4]];
   const mol = (x: number, y: number) => svg('circle', { cx: x, cy: y, r: 5, fill: COL.dew });
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 200, height: 200, fill: COL.warmSide }),
@@ -61,7 +62,7 @@ export const moleculesDiagram: FigureFactory = () => {
     ...warm.map(([x, y]) => mol(x, y)),
     ...strays.map(([x, y, a]) => arrow(x, y, x + 16 * Math.cos(a), y + 16 * Math.sin(a), COL.cold, 1.5)),
     ...strays.map(([x, y]) => mol(x, y)),
-    svg('circle', { cx: 300, cy: 115, r: 30, fill: 'none', stroke: COL.dew, 'stroke-width': 1, 'stroke-dasharray': '3 3' }),
+    svg('circle', { cx: 300, cy: 115, r: 21, fill: 'none', stroke: COL.dew, 'stroke-width': 1, 'stroke-dasharray': '3 3' }),
     ...cluster.map(([x, y]) => mol(x, y)),
     small(100, 190, 'They stay apart as vapour', { anchor: 'middle' }),
     small(300, 190, 'They clump into a droplet', { anchor: 'middle' }),
