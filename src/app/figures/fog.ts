@@ -1,7 +1,7 @@
 // Figures for the fog lesson: a jar of air cooled to its dew point, a clear
 // night cooling to fog, and stills of molecules, day and night at the ground,
-// fog and stratus, specks, a valley inversion, fog burning off, a kettle and
-// why warm air is lighter.
+// why the ground grows colder than the air, fog and stratus, specks, a valley
+// inversion, fog burning off, a kettle and why warm air is lighter.
 
 import { dewPointOf, roomFor } from '../../core/air';
 import { svg } from '../dom';
@@ -227,6 +227,44 @@ export const dayNightDiagram: FigureFactory = () => {
     heading(300, ground + 18, 'Night: only out', { fill: '#fff' }),
     small(300, ground + 32, 'The ground cools, and chills', { anchor: 'middle', fill: '#fff' }),
     small(300, ground + 44, 'the air resting on it.', { anchor: 'middle', fill: '#fff' }),
+  );
+  return { node: d.node };
+};
+
+// ---- The ground out-radiates the air ---------------------------------------
+
+export const radiatorsDiagram: FigureFactory = () => {
+  const d = still(400, 230);
+  const ground = 176;
+  const stars: [number, number][] = [[176, 24], [228, 44], [262, 16], [300, 40], [352, 22], [384, 54], [20, 60]];
+  // A few molecules of air, far apart; only a couple of them give off a little infrared.
+  const air: [number, number][] = [[30, 150], [74, 96], [118, 140], [176, 112], [212, 158], [222, 64], [62, 164], [270, 128], [128, 72]];
+  const blades = Array.from({ length: 40 }, (_, i) => 4 + i * 10);
+  const tick = (y: number) => line(280, y, 288, y, '#fff', 1);
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#2b2843' }),
+    ...stars.map(([x, y]) => svg('circle', { cx: x, cy: y, r: 1.3, fill: '#fff' })),
+    ...air.map(([x, y]) => svg('circle', { cx: x, cy: y, r: 2.4, fill: '#bdb6d6' })),
+    ...[[74, 96], [212, 158]].map(([x, y]) => wavy(x + 6, y, y - 22, COL.warm, 1)),
+    small(8, 112, 'clear air: thin and', { fill: '#fff' }),
+    small(8, 125, 'see-through, it barely', { fill: '#fff' }),
+    small(8, 138, 'glows at all', { fill: '#fff' }),
+    // The ground's infrared goes straight through the air and away.
+    ...[150, 196, 242].map((x) => wavy(x, ground - 4, 8, COL.warm, 2.4)),
+    small(140, 22, 'the ground’s infrared', { anchor: 'end', fill: COL.warm }),
+    small(140, 35, 'passes straight out', { anchor: 'end', fill: COL.warm }),
+    svg('rect', { x: 0, y: ground, width: 400, height: 230 - ground, fill: COL.ground }),
+    ...blades.map((x) => line(x, ground, x + 2, ground - 7, '#cfe0f6', 1.4)),
+    // Temperatures on a still, clear night, a little before dawn.
+    line(284, 70, 284, ground, '#fff', 1),
+    tick(80), tick(140), tick(ground - 2),
+    small(292, 78, 'head height', { fill: '#fff' }),
+    small(292, 91, 'about 4 °C', { fill: COL.cold }),
+    small(292, 138, 'knee height', { fill: '#fff' }),
+    small(292, 151, 'about 2 °C', { fill: COL.cold }),
+    small(292, ground - 12, 'grass: 0 °C, frost', { fill: COL.subzero, bold: true }),
+    heading(200, ground + 20, 'The ground radiates far better than the air', { fill: '#fff' }),
+    small(200, ground + 36, 'so it cools first, then chills the air touching it.', { anchor: 'middle', fill: '#fff' }),
   );
   return { node: d.node };
 };

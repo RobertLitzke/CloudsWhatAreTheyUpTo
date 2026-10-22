@@ -1,7 +1,7 @@
 // Every figure a shift can use, by the id core/shifts.ts names it with.
 
 import type { FigureId } from '../../core/shifts';
-import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inversionDiagram, jarFigure, kettleDiagram, moleculesDiagram, nightFigure, specksDiagram } from './fog';
+import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inversionDiagram, jarFigure, kettleDiagram, moleculesDiagram, nightFigure, radiatorsDiagram, specksDiagram } from './fog';
 import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, occlusionDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
 import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, tropopauseDiagram, waveFigure } from './giants';
 import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, stabilityDiagram, thermalsFigure } from './heaps';
@@ -45,6 +45,7 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   stability: stabilityDiagram,
   heap: heapDiagram,
   dayNight: dayNightDiagram,
+  radiators: radiatorsDiagram,
   fogStratus: fogStratusDiagram,
   edges: edgesDiagram,
   nameGrid: nameGridDiagram,

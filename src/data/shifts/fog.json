@@ -14,7 +14,7 @@
           "points": [
             "A cloud is liquid water droplets (or ice), not water vapour.",
             "Water vapour condenses into droplets when air cools to a certain temperature, its **dew point**. The more vapour in the air, the higher its dew point.",
-            "On a clear night the ground loses its heat to space and chills the air resting on it.",
+            "On a clear night the ground radiates its heat away to space far faster than the thin air above it, so the ground grows colder than the air and chills the layer resting on it.",
             "Cold air is heavy, so it stays at the bottom. Nothing bubbles up through it: the air is **stable**.",
             "When that still, chilled layer reaches its dew point, it becomes **fog**. Lifted off the ground, the same layer is **stratus**."
           ]
@@ -96,7 +96,20 @@
         },
         {
           "kind": "text",
-          "text": "As the ground cools, the air resting on it loses heat to the cold surface by contact, the way your hand cools on a cold windowpane. Contact alone chills only the bottom few centimetres, but gentle stirring in the night air, along with the air’s own infrared radiation, spreads the chill upward through the lowest few tens of metres. Clouds radiate infrared heat back down toward the ground as well, which is why a cloudy night stays mild while a clear night turns cold."
+          "text": "But the air is losing heat at night too, so how does the ground end up colder than the air above it? The two are very different radiators. Soil, stubble and grass are solid stuff, packed with molecules, and they glow strongly in infrared, like every solid or liquid surface. Clear air is thin and mostly nitrogen and oxygen, which hardly give off or soak up infrared at all; only its small share of water vapour and carbon dioxide does. To infrared, a few metres of clear air are almost as see-through as they are to our eyes."
+        },
+        {
+          "kind": "text",
+          "text": "So at night the ground’s infrared shoots straight up through the air and away, and the surface cools quickly, while the air above it, which barely radiates, cools only slowly. Nothing tops the surface back up, either: air carries heat poorly, and the warmth stored deeper in the soil creeps up only slowly. By dawn on a still, clear night the grass can be several degrees colder than the air at head height. That is why you can find frost on the grass or on a car roof while a thermometer at eye level still reads above freezing."
+        },
+        {
+          "kind": "figure",
+          "figure": "radiators",
+          "caption": "A still, clear night just before dawn: the ground and the air above it."
+        },
+        {
+          "kind": "text",
+          "text": "Now the ground is colder than the air touching it, so that air loses heat to the cold surface by contact, the way your hand cools on a cold windowpane. Contact alone chills only the bottom few centimetres, but gentle stirring in the night air, along with the little infrared the air gives off itself, spreads the chill upward through the lowest few tens of metres. Clouds are a different matter: their droplets radiate infrared as strongly as the ground does, and they send it back down toward the ground, which is why a cloudy night stays mild while a clear night turns cold."
         },
         {
           "kind": "figure",
@@ -283,7 +296,7 @@
   "learned": [
     "A cloud is made of liquid droplets (or ice crystals), not water vapour. Air forms a cloud when it cools to its dew point, and the more water vapour a cubic metre of air contains, the higher its dew point.",
     "Droplets need a speck of dust, smoke or salt to form on, and every lungful of air holds millions of them.",
-    "On a clear night the ground radiates its heat out to space and chills the air resting on it. A cloud overhead sends heat back down and keeps the night mild.",
+    "On a clear night the ground radiates its heat out to space much faster than the thin, see-through air does, so it grows colder than the air and chills the layer resting on it. A cloud overhead sends heat back down and keeps the night mild.",
     "Cold air is dense and stays at the bottom. Cold air under warmer air is an inversion, the most stable arrangement there is: nothing rises out of it.",
     "When a still, chilled layer cools to its dew point it becomes fog. Fog lifted off the ground is stratus, a flat grey sheet that brings drizzle at most and usually burns off by late morning."
   ],
@@ -295,7 +308,7 @@
     },
     "fog": {
       "title": "Fog",
-      "text": "A cloud with its base on the ground. On a clear, still, damp night the ground radiates its heat to space and chills the air resting on it to its dew point. The cold air stays at the bottom under warmer air (an inversion), so fog fills the low places first. A cloudy sky or a breeze prevents it. The morning sun clears it from the bottom up."
+      "text": "A cloud with its base on the ground. On a clear, still, damp night the ground radiates its heat to space faster than the air does, grows colder than the air, and chills the air resting on it to its dew point. The cold air stays at the bottom under warmer air (an inversion), so fog fills the low places first. A cloudy sky or a breeze prevents it. The morning sun clears it from the bottom up."
     },
     "stratus": {
       "title": "Stratus",
