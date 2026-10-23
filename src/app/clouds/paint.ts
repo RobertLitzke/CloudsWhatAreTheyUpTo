@@ -8,7 +8,7 @@ import { svg } from '../dom';
 import type { Palette } from '../scene/landscape';
 import { billow, fbm } from './noise';
 import { grade, rampOf, type RGB } from './ramp';
-import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet } from './shapes';
+import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet, cellPuffs } from './shapes';
 import type { Tones } from './flat';
 import type { View } from './volume';
 
@@ -207,6 +207,7 @@ export function fieldOf(cloud: Cloud, p: Tones, sun: readonly number[] = SUN): F
     case 'layer': return layerField(cloud, p, sun);
     case 'cirrus': return cirrusField(cloud, p);
     case 'sheet': return sheetField(cloud, p);
+    case 'cells': return layerField({ kind: 'layer', x0: cloud.x0, x1: cloud.x1, top: cloud.top, bottom: cloud.bottom, density: cloud.density, puffs: cellPuffs(cloud) }, p, sun);
   }
 }
 

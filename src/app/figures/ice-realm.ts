@@ -7,6 +7,8 @@
 import { svg } from '../dom';
 import { genus } from '../../core/clouds';
 import { drawCloud } from '../scene/drawn';
+import { realClouds } from '../clouds/real';
+import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
 import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, redraw, small, still } from './draw';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
@@ -159,15 +161,14 @@ export const snowToRainDiagram: FigureFactory = () => {
 
 // ---- Mares' tails -----------------------------------------------------------
 
-export const streaksFigure = figure(['hooks'], (ctx, t) => {
+export const streaksFigure = figure(['hooks'], (_ctx, t) => {
   const W = 400;
   const H = 220;
   const f = frame(W, H);
   let shear = 0.1;
   let fall = 0.5;
-  let drift = 0;
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#5d8fc0' }), g);
+  const clouds = realClouds({ width: W, height: H, sun: [W * 0.7, -200, -100], tones: DAY });
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#5d8fc0' }), clouds.node);
   const arrows = svg('g');
   f.svg.append(arrows);
   const paintArrows = () => {
@@ -177,29 +178,28 @@ export const streaksFigure = figure(['hooks'], (ctx, t) => {
       return svg('g', { opacity: 0.6 }, line(8, y, 8 + len, y, '#fff', 1.5), svg('polygon', { points: `${8 + len},${y - 3} ${14 + len},${y} ${8 + len},${y + 3}`, fill: '#fff' }));
     }));
   };
-  animate(f.node, ctx, (dt) => {
-    drift = (drift + dt * 18) % 100;
-    const tails: SVGElement[] = [];
-    for (let i = 0; i < 5; i++) {
-      const hx = ((i * 100 + drift) % 500) - 50;
-      const hy = 34 + (i % 2) * 14;
+  const paintStreaks = () => {
+    const strands = [0, 1, 2, 3, 4].map((i) => {
+      const hx = 70 + i * 78 + (i % 2) * 10;
+      const hy = 30 + (i % 2) * 14;
       // A crystal released from the head falls at `vs` and, as it reaches
       // slower air, lags further and further behind the head that dropped it.
       const vs = 40 + fall * 60;
-      const pts: [number, number][] = [];
-      for (let tau = 0; tau <= 2.6; tau += 0.1) {
+      const pts: [number, number, number][] = [];
+      for (let tau = 0; tau <= 2.6; tau += 0.13) {
         const y = hy + vs * tau;
-        if (y > H) break;
+        if (y > H + 10) break;
         const lag = shear * 60 * tau * tau * (vs / 70);
-        pts.push([hx - lag, y]);
+        // A dense tuft at the head, the streak thinning as its crystals spread out.
+        pts.push([hx - lag, y, tau < 0.15 ? 5.5 : Math.max(0.8, 3.4 - tau * 1.1)]);
       }
-      tails.push(polyline(pts, '#fff', 3.2, { opacity: 0.75 }));
-      tails.push(svg('circle', { cx: hx, cy: hy, r: 6, fill: '#fff' }));
-    }
-    redraw(g, ...tails);
-  });
+      return { pts };
+    });
+    clouds.draw([{ kind: 'cirrus', strands }]);
+  };
   const paint = () => {
     paintArrows();
+    paintStreaks();
     f.readout.textContent = shear < 0.25
       ? 'Little change in wind with height: the ice falls nearly straight down in streaks below each tuft.'
       : shear < 0.6
@@ -209,7 +209,7 @@ export const streaksFigure = figure(['hooks'], (ctx, t) => {
   };
   f.controls.append(
     slider('Wind shear', 0, 1, 0.01, shear, (v) => (v < 0.25 ? 'little' : v < 0.6 ? 'some' : 'strong'), (v) => { shear = v; paint(); }, 'ice').node,
-    slider('Crystal size', 0, 1, 0.01, fall, (v) => (v < 0.35 ? 'tiny, falls slowly' : v < 0.7 ? 'medium' : 'large, falls fast'), (v) => { fall = v; }, 'ice').node,
+    slider('Crystal size', 0, 1, 0.01, fall, (v) => (v < 0.35 ? 'tiny, falls slowly' : v < 0.7 ? 'medium' : 'large, falls fast'), (v) => { fall = v; paintStreaks(); }, 'ice').node,
   );
   paint();
   return f.node;

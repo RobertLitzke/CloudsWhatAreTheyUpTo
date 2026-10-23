@@ -10,7 +10,7 @@
 import { svg } from '../dom';
 import { makeRng } from '../../core/rng';
 import type { Palette } from '../scene/landscape';
-import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet } from './shapes';
+import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet, cellPuffs } from './shapes';
 
 /** The three tones a cloud is drawn in; every scene palette has them. */
 export type Tones = Pick<Palette, 'cloudShade' | 'cloudMid' | 'cloudLight'>;
@@ -183,6 +183,6 @@ function layer(c: Layer, t: Tones): SVGElement {
 /** A described sky in flat vector, lit from the scene's sun (the cloud lab's test sky). */
 export function flatClouds(clouds: Cloud[], p: Palette): { node: SVGElement; ms: number } {
   const t0 = performance.now();
-  const g = svg('g', {}, ...clouds.map((c) => (c.kind === 'heap' ? heap(c, p) : c.kind === 'layer' ? layer(c, p) : c.kind === 'sheet' ? celSheet(c, p) : celCirrus(c, p))));
+  const g = svg('g', {}, ...clouds.map((c) => (c.kind === 'heap' ? heap(c, p) : c.kind === 'layer' ? layer(c, p) : c.kind === 'sheet' ? celSheet(c, p) : c.kind === 'cells' ? celCells(cellPuffs(c), p) : celCirrus(c, p))));
   return { node: g, ms: performance.now() - t0 };
 }

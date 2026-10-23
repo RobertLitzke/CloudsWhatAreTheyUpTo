@@ -62,7 +62,58 @@ export interface Sheet {
   detail?: number;
 }
 
-export type Cloud = Heap | Layer | Cirrus | Sheet;
+/**
+ * A sheet of cells on a grid, made up on the fly rather than listed, so it can
+ * hold thousands of pieces: altocumulus, cirrocumulus, stratocumulus, a
+ * supercooled layer. Rows alternate half a cell, and every cell is nudged a
+ * little and sized a little differently, by `seed`.
+ */
+export interface Cells {
+  kind: 'cells';
+  x0: number;
+  x1: number;
+  top: number;
+  bottom: number;
+  /** Distance between cell centres. */
+  size: number;
+  /** Radius of each piece. */
+  r: number;
+  /** Vertical squash of a piece. */
+  flat: number;
+  density: number;
+  seed: number;
+  /** A hole cut in the sheet (a fallstreak hole): centre and radii. */
+  hole?: [x: number, y: number, rx: number, ry: number];
+}
+
+export type Cloud = Heap | Layer | Cirrus | Sheet | Cells;
+
+/** A cell sheet as a list of puffs, for the renderers that need one. */
+export function cellPuffs(c: Cells): Puff[] {
+  const out: Puff[] = [];
+  const rowH = c.size * 0.8;
+  for (let j = Math.floor(c.top / rowH); j * rowH <= c.bottom; j++) {
+    for (let i = Math.floor(c.x0 / c.size) - 1; i * c.size <= c.x1; i++) {
+      const h1 = cellHash(i, j, c.seed);
+      const h2 = cellHash(i + 31, j + 17, c.seed);
+      const x = (i + 0.5 + (j & 1) * 0.5 + (h1 - 0.5) * 0.35) * c.size;
+      const y = (j + 0.5 + (h2 - 0.5) * 0.3) * rowH;
+      if (x < c.x0 || x > c.x1 || y < c.top || y > c.bottom) continue;
+      if (c.hole) {
+        const [hx, hy, rx, ry] = c.hole;
+        if (((x - hx) / rx) ** 2 + ((y - hy) / ry) ** 2 < 1) continue;
+      }
+      out.push({ x, y, z: 0, r: c.r * (0.8 + 0.4 * h1), flat: c.flat });
+    }
+  }
+  return out;
+}
+
+/** The same hash as the shader's, so both renderers place the same cells. */
+export function cellHash(i: number, j: number, seed: number): number {
+  const v = Math.sin(i * 127.1 + j * 311.7 + seed * 74.7) * 43758.5453;
+  return v - Math.floor(v);
+}
 
 /** Where the sun is, in scene units; light comes from here. */
 export const SUN: [number, number] = [340, 52];

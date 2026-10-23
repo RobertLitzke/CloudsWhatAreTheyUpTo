@@ -5,7 +5,9 @@
 import { angularSize, layerBySize } from '../../core/sky';
 import { genus } from '../../core/clouds';
 import { svg } from '../dom';
-import { arrow, heading, line, redraw, small, still, wavy } from './draw';
+import { realClouds } from '../clouds/real';
+import { DAY, GREY, STORM } from '../clouds/tones';
+import { arrow, heading, line, small, still, wavy } from './draw';
 import { COL, figure, frame, height, slider, type FigureFactory } from './kit';
 
 // ---- Warm air gliding up over cold ------------------------------------------
@@ -106,22 +108,19 @@ export const handFigure = figure(['all'], (ctx, t) => {
     small(x0 - 44, 176, 'thumb ≈ 2°', { anchor: 'end', halo: '#fff' }),
     small(littleX + lw + 4, littleTip + 8, 'nail ≈ 1°', { halo: '#fff' }),
   );
+  // Seen from below, with the sun high above the layer: light comes down
+  // through each piece, so the thin rims glow and the thick middles go grey.
+  const clouds = realClouds({ width: W, height: H, sun: [W * 0.6, -300, -80], tones: DAY });
+  sky.append(clouds.node);
   const paint = () => {
     // Looking up high in the sky (about 60° up), so the distance is a little more than the height.
     const deg = angularSize(pieceM, layerM / Math.sin((60 * Math.PI) / 180));
     const px = deg * PX_PER_DEG;
     const kind = layerBySize(deg);
     seen.add(kind);
-    const pieces: SVGElement[] = [];
-    const step = Math.max(px * 1.5, 8);
-    let row = 0;
-    for (let y = 18; y < 130; y += step * 0.8, row++) {
-      for (let x = 8 + (row % 2) * step * 0.5; x < W; x += step) {
-        pieces.push(svg('ellipse', { cx: x, cy: y, rx: px / 2, ry: px / 2.6, fill: '#fff', opacity: 0.95 }));
-        if (kind !== 'cirrocumulus') pieces.push(svg('ellipse', { cx: x + px * 0.05, cy: y + px * 0.18, rx: px / 2.4, ry: px / 5, fill: kind === 'stratocumulus' ? '#8c8aa6' : '#b9bfd3', opacity: 0.8 }));
-      }
-    }
-    redraw(sky, ...pieces);
+    // High pieces are thin enough to glow; low ones are thick, with grey bellies.
+    const look = kind === 'cirrocumulus' ? { density: 0.45, tones: DAY } : kind === 'altocumulus' ? { density: 1, tones: DAY } : { density: 1.6, tones: GREY };
+    clouds.draw([{ kind: 'cells', x0: -10, x1: W + 10, top: 4, bottom: 140, size: Math.max(px * 1.5, 6), r: Math.max(px / 2, 1.2), flat: 0.75, density: look.density, seed: 3 }], { tones: look.tones });
     f.readout.textContent = `Each piece looks ${deg < 1 ? deg.toFixed(1) : deg.toFixed(0)}° wide: ${deg < 1 ? 'smaller than your little-finger nail' : deg <= 2.5 ? 'about a thumb' : deg <= 5 ? 'between a thumb and three fingers' : 'a fist or more'}. Call it ${genus(kind).name.toLowerCase()}.`;
     if (t.goal === 'all' && seen.size === 3) t.done();
   };
@@ -139,22 +138,14 @@ export const shadowFigure = figure(['shade'], (_ctx, t) => {
   const W = 400;
   const H = 180;
   const f = frame(W, H);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#86b8d8' }), g);
+  // The sun is above and a little behind the pieces, as when you look up at them.
+  const clouds = realClouds({ width: W, height: H, sun: [W / 2, -400, 160], tones: DAY });
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#86b8d8' }), clouds.node);
   const paint = (depth: number) => {
-    // Light coming from above and behind: thin pieces glow through, thick ones
-    // block it and their undersides go grey.
-    const dark = Math.min(0.85, depth / 1200);
-    const parts: SVGElement[] = [];
-    for (let i = 0; i < 5; i++) {
-      const x = 44 + i * 78;
-      const r = 18 + depth / 60;
-      parts.push(
-        svg('ellipse', { cx: x, cy: 80, rx: r, ry: r * 0.7, fill: '#fff' }),
-        svg('ellipse', { cx: x + 2, cy: 80 + r * 0.32, rx: r * 0.9, ry: r * 0.38, fill: `rgba(70, 64, 100, ${dark})` }),
-      );
-    }
-    redraw(g, ...parts);
+    // Thin pieces let the light through; thick ones block it and their undersides go grey.
+    const r = 18 + depth / 60;
+    const puffs = [0, 1, 2, 3, 4].map((i) => ({ x: 44 + i * 78, y: 80, z: 0, r, flat: 0.7 }));
+    clouds.draw([{ kind: 'layer', x0: 20, x1: 380, top: 60, bottom: 100, puffs, density: 0.08 + depth / 550 }], { tones: depth > 900 ? GREY : DAY });
     const kind = depth < 200 ? 'cirrocumulus' : depth < 700 ? 'altocumulus' : 'stratocumulus';
     f.readout.textContent = kind === 'cirrocumulus'
       ? 'Thin pieces let the light through: pure white, no shading at all. High cloud never has self-shadows.'
@@ -179,17 +170,25 @@ export const sunThroughDiagram: FigureFactory = () => {
     ['Altostratus', 0.5, 'sun as if through frosted', 'glass: no halo, no shadows'],
     ['Nimbostratus', 0.9, 'sun gone; steady', 'rain or snow'],
   ];
+  // Each sky is one sheet of cloud, thicker from left to right, drawn over the
+  // sun: the sheet itself decides how much of the sun gets through.
+  const tones = (thick: number) => (thick > 0.8 ? STORM : thick > 0.4 ? GREY : DAY);
   const panel = ([name, thick, a, b]: [string, number, string, string], i: number): SVGElement[] => {
     const ox = i * pw;
     const cx = ox + pw / 2;
-    const sunOpacity = Math.max(0, 1 - thick * 1.25);
-    const blur = thick * 14;
     const shadow = Math.max(0, 1 - thick * 3);
+    const sheet = realClouds({ width: pw, height: ground, sun: [pw / 2, -100, 300], tones: tones(thick) }, [{
+      kind: 'sheet', x0: -40, x1: pw + 40, top: -30, bottom: ground + 10, density: 0.15 + thick * 2.4, detail: 14,
+    }]);
     return [
-      svg('rect', { x: ox, y: 0, width: pw, height: ground, fill: `hsl(250, ${18 - thick * 10}%, ${80 - thick * 45}%)` }),
-      svg('circle', { cx, cy: 54, r: 12 + blur, fill: '#fff8e0', opacity: sunOpacity * (blur > 2 ? 0.6 : 1) }),
-      svg('circle', { cx, cy: 54, r: 12, fill: '#fffbe9', opacity: sunOpacity * (1 - thick) }),
+      svg('rect', { x: ox, y: 0, width: pw, height: ground, fill: '#7fb4d6' }),
+      // Under nimbostratus the sun is gone altogether.
+      thick < 0.8 ? svg('circle', { cx, cy: 54, r: 26, fill: '#fff8e0', opacity: 0.35 }) : null,
+      thick < 0.8 ? svg('circle', { cx, cy: 54, r: 12, fill: '#fffbe9' }) : null,
       thick < 0.33 ? svg('circle', { cx, cy: 54, r: 40, fill: 'none', stroke: '#fff', 'stroke-width': 3.5, opacity: 0.6 * (1 - thick * 2) }) : null,
+      svg('g', { transform: `translate(${ox} 0)` }, sheet.node),
+      // Through altostratus the sun is a smudge of light in the sheet, as through frosted glass.
+      thick > 0.33 && thick < 0.8 ? svg('circle', { cx, cy: 54, r: 18, fill: '#fffbe9', opacity: 0.35 }) : null,
       thick > 0.72 ? svg('g', { opacity: Math.min(1, (thick - 0.72) * 5) }, ...Array.from({ length: 10 }, (_, k) => line(ox + 6 + k * 14, 84 + (k % 3) * 8, ox + k * 14, ground, COL.rain, 1.3))) : null,
       svg('rect', { x: ox, y: ground, width: pw, height: 16, fill: '#4d5a3f' }),
       line(cx - 20, ground, cx - 20, ground - 34, '#3b2f28', 3.5),
