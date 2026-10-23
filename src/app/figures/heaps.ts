@@ -149,6 +149,19 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
 
 // ---- Stable and unstable, in numbers ----------------------------------------
 
+/** A spring standing on the ground at `y0`, its top at `y1`. */
+const spring = (x: number, y0: number, y1: number) => {
+  const pts: [number, number][] = [[x, y0]];
+  const turns = 7;
+  for (let i = 0; i < turns * 2; i++) pts.push([x + (i % 2 ? 6 : -6), y0 + ((y1 - y0) * (i + 0.5)) / (turns * 2)]);
+  pts.push([x, y1]);
+  return polyline(pts, COL.ink, 1.3);
+};
+/** The weight on the spring, sitting on top at `y`, or its outline where it was lifted to. */
+const weightAt = (x: number, y: number, ghost = false) => svg('rect', { x: x - 11, y: y - 10, width: 22, height: 10, rx: 2, ...(ghost ? { fill: 'none', stroke: COL.parcel, 'stroke-dasharray': '2 2' } : { fill: COL.parcel }) });
+/** A cork centred at `y`, or its outline where it was held. */
+const corkAt = (x: number, y: number, ghost = false) => svg('rect', { x: x - 10, y: y - 6, width: 20, height: 12, rx: 4, ...(ghost ? { fill: 'none', stroke: COL.parcel, 'stroke-dasharray': '2 2' } : { fill: COL.parcel }) });
+
 export const stabilityDiagram: FigureFactory = () => {
   const d = still(400, 256);
   const panel = (ox: number, unstable: boolean): SVGElement[] => {
@@ -169,14 +182,21 @@ export const stabilityDiagram: FigureFactory = () => {
       small(ox + 112, top + 4, `air ${airTop} °C`, { fill: COL.env }),
       unstable ? arrow(bx, top - 18, bx, top - 44, COL.parcel, 2.5) : arrow(bx + 24, top - 6, bx + 24, top + 22, COL.cold, 2.5),
       small(ox + 100, 190, unstable ? 'Bubble 2° warmer: keeps rising' : 'Bubble 5° colder: sinks back', { bold: true, anchor: 'middle' }),
-      // The ball picture: on a hilltop when unstable, so a nudge sends it rolling away; in a bowl when stable, so it rolls back.
-      svg('path', { d: unstable ? `M${ox + 40},246 Q${ox + 100},174 ${ox + 160},246 L${ox + 160},256 L${ox + 40},256 Z` : `M${ox + 40},198 Q${ox + 100},270 ${ox + 160},198 L${ox + 160},256 L${ox + 40},256 Z`, fill: COL.env, opacity: 0.18 }),
-      svg('path', { d: unstable ? `M${ox + 40},246 Q${ox + 100},174 ${ox + 160},246` : `M${ox + 40},198 Q${ox + 100},270 ${ox + 160},198`, fill: 'none', stroke: COL.env, 'stroke-width': 2 }),
-      unstable
-        ? svg('circle', { cx: ox + 100, cy: 202, r: 7, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.2, 'stroke-dasharray': '2 2' })
-        : svg('circle', { cx: ox + 128, cy: 217, r: 7, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.2, 'stroke-dasharray': '2 2' }),
-      unstable ? svg('circle', { cx: ox + 122, cy: 207, r: 7, fill: COL.parcel }) : svg('circle', { cx: ox + 100, cy: 227, r: 7, fill: COL.parcel }),
-      unstable ? arrow(ox + 132, 212, ox + 150, 226, COL.ink, 1.4) : arrow(ox + 119, 223, ox + 110, 226, COL.ink, 1.4),
+      // Stable: a weight on a spring, lifted, is pulled back down. Unstable: a cork at the bottom of a pool, let go, shoots up.
+      ...(unstable
+        ? [
+            svg('rect', { x: ox + 70, y: 198, width: 60, height: 54, fill: tint(COL.ice, 0.18), stroke: COL.ice, 'stroke-width': 1.2 }),
+            corkAt(ox + 100, 242, true),
+            corkAt(ox + 100, 216),
+            arrow(ox + 116, 236, ox + 116, 206, COL.ink, 1.4),
+          ]
+        : [
+            line(ox + 70, 252, ox + 130, 252, COL.ink, 2),
+            spring(ox + 100, 252, 224),
+            weightAt(ox + 100, 206, true),
+            weightAt(ox + 100, 224),
+            arrow(ox + 118, 202, ox + 118, 222, COL.ink, 1.4),
+          ]),
     ];
   };
   d.svg.append(
@@ -195,8 +215,6 @@ const lapseOf = (stability: number) => (stability < 0 ? 9.8 - stability * 3 : 9.
 const M_PER_PX = 10;
 const START_C = 15;
 
-/** The ground under the ball, at `x` pixels to the side of the middle: a bowl when stable, a hilltop when unstable. */
-const groundY = (x: number, stability = 0) => 120 - stability * (x * x) / 72;
 
 export const nudgeFigure = figure(['both'], (ctx, t) => {
   const W = 400;
@@ -214,15 +232,13 @@ export const nudgeFigure = figure(['both'], (ctx, t) => {
   const cloud = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.air }), svg('rect', { x: 0, y: 214, width: W, height: H - 214, fill: COL.ground }), g, cloud, ball);
   const paintCurve = () => {
-    // The ball picture of stability, on the left: a bowl when stable, a
-    // hilltop when unstable. Rolling right stands for the bubble climbing.
-    const pts: [number, number][] = [];
-    for (let x = -60; x <= 60; x += 4) pts.push([90 + x, groundY(x, stability)]);
-    const caption = stability < -0.05 ? ['unstable: a ball on a hilltop,', 'so a nudge sends it rolling away'] : stability > 0.05 ? ['stable: a ball in a bowl,', 'so it rolls back'] : ['neutral: a ball on flat ground,', 'so it stays where it is put'];
+    // The picture of stability, on the left: a weight on a spring when
+    // stable, a cork at the bottom of a pool when unstable.
+    const caption = stability < -0.05 ? ['unstable: a cork underwater,', 'let go, it shoots to the top'] : stability > 0.05 ? ['stable: a weight on a spring,', 'lifted, it is pulled back down'] : ['neutral: a float in still water,', 'it stays wherever it is put'];
     redraw(g,
-      svg('polygon', { points: `30,182 150,182 ${pts.map(([x, y]) => `${x},${y}`).reverse().join(' ')}`, fill: COL.env, opacity: 0.12 }),
-      polyline(pts, COL.env, 3),
-      small(90, 36, 'rolling right = the bubble rising', { soft: true, anchor: 'middle' }),
+      stability > 0.05
+        ? line(50, 182, 130, 182, COL.ink, 2.5)
+        : svg('rect', { x: 50, y: 40, width: 80, height: 142, fill: tint(COL.ice, 0.18), stroke: COL.ice, 'stroke-width': 1.5 }),
       small(90, 196, caption[0], { anchor: 'middle' }),
       small(90, 209, caption[1], { anchor: 'middle' }),
       line(250, 214, 250, 20, COL.grid, 1),
@@ -231,19 +247,18 @@ export const nudgeFigure = figure(['both'], (ctx, t) => {
     );
   };
   const paintBall = () => {
-    const x = Math.max(-54, Math.min(54, z * 0.6));
-    // Sit the ball on the ground, along the ground's normal.
-    const slope = (-2 * stability * x) / 72;
-    const n = Math.hypot(1, slope);
-    const bx = 90 + x + (8 * slope) / n;
-    const by = groundY(x, stability) - 8 / n;
+    // The weight or cork moves up and down with the bubble.
+    const lift = Math.max(-40, Math.min(130, z * 0.85));
+    const thing = stability > 0.05
+      ? svg('g', {}, spring(90, 182, 130 - lift), svg('rect', { x: 76, y: 116 - lift, width: 28, height: 14, rx: 2, fill: COL.parcel }))
+      : svg('rect', { x: 77, y: (stability < -0.05 ? 166 : 104) - Math.min(lift, stability < -0.05 ? 126 : 64), width: 26, height: 14, rx: 5, fill: COL.parcel });
     const py = rest - z;
     // The bubble cools at the dry rate as it climbs; the air around it at the day's own rate.
     const m = z * M_PER_PX;
     const mine = START_C - 9.8 * (m / 1000);
     const theirs = START_C - lapseOf(stability) * (m / 1000);
     redraw(ball,
-      svg('circle', { cx: bx, cy: by, r: 8, fill: COL.parcel }),
+      thing,
       svg('circle', { cx: 250, cy: py, r: 10, fill: tint(COL.parcel, 0.2), stroke: COL.parcel, 'stroke-width': 2 }),
       label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { bold: true, anchor: 'end', fill: COL.parcel, halo: COL.air }),
       label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { bold: true, fill: COL.env, halo: COL.air }),
