@@ -14,39 +14,58 @@ export const expandDiagram: FigureFactory = () => {
   const d = still(400, 240);
   const ground = 216;
   const yOf = (km: number) => ground - 18 - km * 72;
+  // The parcel holds the same molecules all the way up and widens as it
+  // climbs, so its dots thin out. The air around is drawn just as crowded as
+  // the parcel at each height: the two are at the same pressure.
+  const MOLECULES = 12;
+  const radiusAt = (km: number) => 15 * (26 / 15) ** (km / 2);
+  const spacingAt = (y: number) => radiusAt((yOf(0) - y) / 72) * Math.sqrt(Math.PI / MOLECULES);
+  const parcels: [number, string][] = [[0, '24 °C'], [1, '14 °C'], [2, '4 °C']];
+  const px = 160;
+  const inParcel = (x: number, y: number) => parcels.some(([km]) => Math.hypot(x - px, y - yOf(km)) < radiusAt(km) + 3);
   const dots: SVGElement[] = [];
-  // Background dots for the air, crowded near the ground and sparse aloft.
   let y = ground - 4;
-  let gap = 7;
   let row = 0;
-  while (y > 8) {
-    for (let x = 4 + (row % 2) * gap * 0.5; x < 236; x += gap) dots.push(svg('circle', { cx: x, cy: y, r: 1.1, fill: COL.soft, opacity: 0.35 }));
+  while (y > 6) {
+    const gap = spacingAt(y);
+    for (let x = 4 + (row % 2) * gap * 0.5; x < 236; x += gap) {
+      if (!inParcel(x, y)) dots.push(svg('circle', { cx: x, cy: y, r: 1.3, fill: COL.env, opacity: 0.45 }));
+    }
     y -= gap;
-    gap *= 1.045;
     row++;
   }
-  const parcels: [number, number, string][] = [[0, 15, '24 °C'], [1, 20, '14 °C'], [2, 26, '4 °C']];
+  // The parcel's own molecules, spread evenly over its disc.
+  const molecules = (km: number) => Array.from({ length: MOLECULES }, (_, i) => {
+    const r = radiusAt(km) * 0.8 * Math.sqrt((i + 0.5) / MOLECULES);
+    const a = i * 2.39996 + km;
+    return svg('circle', { cx: px + r * Math.cos(a), cy: yOf(km) + r * Math.sin(a), r: 1.6, fill: COL.parcel });
+  });
+  const top = radiusAt(2);
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: COL.air }),
     ...dots,
     svg('rect', { x: 0, y: ground, width: 400, height: 240 - ground, fill: COL.ground }),
     ...[0, 1, 2].map((km) => line(0, yOf(km), 236, yOf(km), COL.grid, 1, { 'stroke-dasharray': '3 3' })),
-    small(8, yOf(0) - 4, 'near the ground', { soft: true }),
-    small(8, yOf(1) - 4, '1 km up', { soft: true }),
-    small(8, yOf(2) - 4, '2 km up', { soft: true }),
+    small(8, yOf(0) - 4, 'near the ground', { soft: true, halo: COL.air }),
+    small(8, yOf(1) - 4, '1 km up', { soft: true, halo: COL.air }),
+    small(8, yOf(2) - 4, '2 km up', { soft: true, halo: COL.air }),
     arrow(120, yOf(0) - 16, 120, yOf(2) + 30, COL.parcel, 1.5),
-    ...parcels.map(([km, r]) => svg('circle', { cx: 160, cy: yOf(km), r, fill: tint(COL.parcel, 0.16), stroke: COL.parcel, 'stroke-width': 2 })),
-    ...parcels.map(([km, r, t]) => label(160 + r + 6, yOf(km) + 4, t, { bold: true, fill: COL.parcel, halo: COL.air, haloWidth: 4 })),
-    ...[1.6, 3.2, 4.7].map((a) => arrow(160 + 28 * Math.cos(a), yOf(2) + 28 * Math.sin(a), 160 + 38 * Math.cos(a), yOf(2) + 38 * Math.sin(a), COL.parcel, 1.2)),
-    small(252, 44, 'Higher up there is less air'),
-    small(252, 58, 'pressing down, so the parcel'),
-    small(252, 72, 'spreads out as it rises.'),
-    small(252, 98, 'Spreading out takes energy'),
-    small(252, 112, 'from its own molecules, so'),
-    small(252, 126, 'it cools: about 10 °C for'),
-    small(252, 140, 'every kilometre it climbs.'),
-    small(252, 172, 'The dots are the air around:', { soft: true }),
-    small(252, 186, 'crowded low, thinner aloft.', { soft: true }),
+    ...parcels.map(([km]) => svg('circle', { cx: px, cy: yOf(km), r: radiusAt(km), fill: COL.air, stroke: COL.parcel, 'stroke-width': 2 })),
+    ...parcels.flatMap(([km]) => molecules(km)),
+    ...parcels.map(([km, t]) => label(px + radiusAt(km) + 6, yOf(km) + 4, t, { bold: true, fill: COL.parcel, halo: COL.air, haloWidth: 4 })),
+    ...[1.6, 3.2, 4.7].map((a) => arrow(px + (top + 2) * Math.cos(a), yOf(2) + (top + 2) * Math.sin(a), px + (top + 12) * Math.cos(a), yOf(2) + (top + 12) * Math.sin(a), COL.parcel, 1.2)),
+    small(252, 30, 'Higher up there is less air'),
+    small(252, 44, 'pressing down, so the parcel'),
+    small(252, 58, 'spreads out as it rises.'),
+    small(252, 84, 'Spreading out takes energy'),
+    small(252, 98, 'from its own molecules, so'),
+    small(252, 112, 'it cools: about 10 °C for'),
+    small(252, 126, 'every kilometre it climbs.'),
+    small(252, 148, `Orange dots: the parcel’s own`, { fill: COL.parcel }),
+    small(252, 161, `${MOLECULES} molecules, the same ${MOLECULES} at`, { fill: COL.parcel }),
+    small(252, 174, 'every height, more spread out.', { fill: COL.parcel }),
+    small(252, 190, 'Violet dots: the air around,', { fill: COL.env }),
+    small(252, 203, 'thinning out just as fast.', { fill: COL.env }),
   );
   return { node: d.node };
 };
