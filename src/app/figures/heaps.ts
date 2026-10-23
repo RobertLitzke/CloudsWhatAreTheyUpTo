@@ -169,16 +169,14 @@ export const stabilityDiagram: FigureFactory = () => {
       small(ox + 112, top + 4, `air ${airTop} °C`, { fill: COL.env }),
       unstable ? arrow(bx, top - 18, bx, top - 44, COL.parcel, 2.5) : arrow(bx + 24, top - 6, bx + 24, top + 22, COL.cold, 2.5),
       small(ox + 100, 190, unstable ? 'Bubble 2° warmer: keeps rising' : 'Bubble 5° colder: sinks back', { bold: true, anchor: 'middle' }),
-      // A balloon under a ceiling: it bows down when unstable, so the balloon drifts away; it is domed when stable, so the balloon floats back.
+      // The ball picture: on a hilltop when unstable, so a nudge sends it rolling away; in a bowl when stable, so it rolls back.
+      svg('path', { d: unstable ? `M${ox + 40},246 Q${ox + 100},174 ${ox + 160},246 L${ox + 160},256 L${ox + 40},256 Z` : `M${ox + 40},198 Q${ox + 100},270 ${ox + 160},198 L${ox + 160},256 L${ox + 40},256 Z`, fill: COL.env, opacity: 0.18 }),
+      svg('path', { d: unstable ? `M${ox + 40},246 Q${ox + 100},174 ${ox + 160},246` : `M${ox + 40},198 Q${ox + 100},270 ${ox + 160},198`, fill: 'none', stroke: COL.env, 'stroke-width': 2 }),
       unstable
-        ? svg('path', { d: `M${ox + 40},194 L${ox + 160},194 L${ox + 160},200 Q${ox + 100},256 ${ox + 40},200 Z`, fill: COL.env, opacity: 0.18 })
-        : svg('path', { d: `M${ox + 40},194 L${ox + 160},194 L${ox + 160},232 Q${ox + 100},176 ${ox + 40},232 Z`, fill: COL.env, opacity: 0.18 }),
-      unstable
-        ? svg('path', { d: `M${ox + 40},200 Q${ox + 100},256 ${ox + 160},200`, fill: 'none', stroke: COL.env, 'stroke-width': 2 })
-        : svg('path', { d: `M${ox + 40},232 Q${ox + 100},176 ${ox + 160},232`, fill: 'none', stroke: COL.env, 'stroke-width': 2 }),
-      svg('circle', { cx: ox + 130, cy: 219, r: 7, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.2, 'stroke-dasharray': '2 2', opacity: unstable ? 0 : 1 }),
-      svg('circle', { cx: ox + 100, cy: unstable ? 236 : 212, r: 7, fill: COL.parcel }),
-      unstable ? arrow(ox + 110, 236, ox + 128, 228, COL.ink, 1.4) : arrow(ox + 122, 217, ox + 110, 213, COL.ink, 1.4),
+        ? svg('circle', { cx: ox + 100, cy: 202, r: 7, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.2, 'stroke-dasharray': '2 2' })
+        : svg('circle', { cx: ox + 128, cy: 217, r: 7, fill: 'none', stroke: COL.parcel, 'stroke-width': 1.2, 'stroke-dasharray': '2 2' }),
+      unstable ? svg('circle', { cx: ox + 122, cy: 207, r: 7, fill: COL.parcel }) : svg('circle', { cx: ox + 100, cy: 227, r: 7, fill: COL.parcel }),
+      unstable ? arrow(ox + 132, 212, ox + 150, 226, COL.ink, 1.4) : arrow(ox + 119, 223, ox + 110, 226, COL.ink, 1.4),
     ];
   };
   d.svg.append(
@@ -197,8 +195,8 @@ const lapseOf = (stability: number) => (stability < 0 ? 9.8 - stability * 3 : 9.
 const M_PER_PX = 10;
 const START_C = 15;
 
-/** The ceiling over the balloon, at `x` pixels to the side of the middle: domed when stable, bowed down when unstable. */
-const ceilingY = (x: number, stability = 0) => 70 + stability * (x * x) / 60;
+/** The ground under the ball, at `x` pixels to the side of the middle: a bowl when stable, a hilltop when unstable. */
+const groundY = (x: number, stability = 0) => 120 - stability * (x * x) / 72;
 
 export const nudgeFigure = figure(['both'], (ctx, t) => {
   const W = 400;
@@ -216,14 +214,15 @@ export const nudgeFigure = figure(['both'], (ctx, t) => {
   const cloud = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.air }), svg('rect', { x: 0, y: 214, width: W, height: H - 214, fill: COL.ground }), g, cloud, ball);
   const paintCurve = () => {
-    // The balloon-under-a-ceiling picture of stability, on the left: a domed
-    // ceiling when stable, one that bows down when unstable.
+    // The ball picture of stability, on the left: a bowl when stable, a
+    // hilltop when unstable. Rolling right stands for the bubble climbing.
     const pts: [number, number][] = [];
-    for (let x = -60; x <= 60; x += 4) pts.push([90 + x, ceilingY(x, stability)]);
-    const caption = stability < -0.05 ? ['unstable: the ceiling bows down,', 'so the balloon drifts away'] : stability > 0.05 ? ['stable: a domed ceiling,', 'so the balloon floats back'] : ['neutral: a flat ceiling,', 'so the balloon stays put'];
+    for (let x = -60; x <= 60; x += 4) pts.push([90 + x, groundY(x, stability)]);
+    const caption = stability < -0.05 ? ['unstable: a ball on a hilltop,', 'so a nudge sends it rolling away'] : stability > 0.05 ? ['stable: a ball in a bowl,', 'so it rolls back'] : ['neutral: a ball on flat ground,', 'so it stays where it is put'];
     redraw(g,
-      svg('polygon', { points: `30,6 150,6 ${pts.map(([x, y]) => `${x},${y}`).reverse().join(' ')}`, fill: COL.env, opacity: 0.12 }),
+      svg('polygon', { points: `30,182 150,182 ${pts.map(([x, y]) => `${x},${y}`).reverse().join(' ')}`, fill: COL.env, opacity: 0.12 }),
       polyline(pts, COL.env, 3),
+      small(90, 36, 'rolling right = the bubble rising', { soft: true, anchor: 'middle' }),
       small(90, 196, caption[0], { anchor: 'middle' }),
       small(90, 209, caption[1], { anchor: 'middle' }),
       line(250, 214, 250, 20, COL.grid, 1),
@@ -232,16 +231,19 @@ export const nudgeFigure = figure(['both'], (ctx, t) => {
     );
   };
   const paintBall = () => {
-    const x = Math.max(-60, Math.min(60, z * 0.6));
-    const by = ceilingY(x, stability) + 9;
+    const x = Math.max(-54, Math.min(54, z * 0.6));
+    // Sit the ball on the ground, along the ground's normal.
+    const slope = (-2 * stability * x) / 72;
+    const n = Math.hypot(1, slope);
+    const bx = 90 + x + (8 * slope) / n;
+    const by = groundY(x, stability) - 8 / n;
     const py = rest - z;
     // The bubble cools at the dry rate as it climbs; the air around it at the day's own rate.
     const m = z * M_PER_PX;
     const mine = START_C - 9.8 * (m / 1000);
     const theirs = START_C - lapseOf(stability) * (m / 1000);
     redraw(ball,
-      line(90 + x, by + 8, 90 + x, by + 20, COL.ink, 1),
-      svg('circle', { cx: 90 + x, cy: by, r: 8, fill: COL.parcel }),
+      svg('circle', { cx: bx, cy: by, r: 8, fill: COL.parcel }),
       svg('circle', { cx: 250, cy: py, r: 10, fill: tint(COL.parcel, 0.2), stroke: COL.parcel, 'stroke-width': 2 }),
       label(238, py - 10, `bubble ${mine.toFixed(1)} °C`, { bold: true, anchor: 'end', fill: COL.parcel, halo: COL.air }),
       label(262, py - 10, `around it ${theirs.toFixed(1)} °C`, { bold: true, fill: COL.env, halo: COL.air }),
