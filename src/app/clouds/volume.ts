@@ -184,7 +184,7 @@ void main() {
       float li = tl * mix(0.5, 1.0, powder) * (0.75 + 0.25 * lift) + 0.06 + 0.22 * lift;
       if (kind == 2) li = 0.9;
       if (kind == 3) li = tl * 0.75 + 0.2;
-      if (kind == 1 || kind == 4) li = tl * 0.92 + 0.08;
+      if (kind == 1 || kind == 4) li = tl * 0.7 + 0.3;
       float a = 1.0 - exp(-d * sigma * dz);
       cl += ct * a * li;
       ct *= 1.0 - a;

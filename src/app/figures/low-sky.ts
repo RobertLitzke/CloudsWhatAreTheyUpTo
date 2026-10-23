@@ -9,6 +9,8 @@ import { COL, animate, figure, frame, height, slider, type FigureFactory } from 
 import { type GenusId } from '../../core/clouds';
 import { dropFate, fallSpeed } from '../../core/drops';
 import { drawCloud, SHEETS } from '../scene/drawn';
+import { realClouds } from '../clouds/real';
+import { GREY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
 
 // ---- The sky's temperature by height ----------------------------------------
@@ -215,7 +217,6 @@ export const spreadFigure = figure(['sheet'], (_ctx, t) => {
 export const layerKindsDiagram: FigureFactory = () => {
   const d = still(400, 262);
   const grey = '#b3bccb';
-  const dark = '#8f98ab';
   const sky = COL.sky;
   const ground = 132;
   // Side views.
@@ -229,20 +230,17 @@ export const layerKindsDiagram: FigureFactory = () => {
     arrow(cx, 92, cx, 70, COL.parcel, 1.4),
     svg('path', { d: `M${cx + 3},68 Q${cx + 16},66 ${cx + 17},80`, fill: 'none', stroke: COL.env, 'stroke-width': 1.4 }),
     arrow(cx + 17, 80, cx + 17, 92, COL.env, 1.4));
-  // Views from below.
-  const blobs: SVGElement[] = [];
-  for (let r = 0; r < 4; r++) {
-    for (let c = 0; c < 6; c++) {
-      const cx = 214 + c * 33 + (r % 2) * 15 + ((r * 7 + c * 5) % 6);
-      const cy = 168 + r * 18 + ((c * 3) % 4);
-      const rx = 16 + ((r + c) % 3) * 1.5;
-      blobs.push(
-        svg('ellipse', { cx, cy, rx, ry: 10, fill: '#d3d8e2' }),
-        svg('ellipse', { cx: cx + 1, cy: cy + 1, rx: rx * 0.72, ry: 7, fill: grey }),
-        svg('ellipse', { cx: cx + 1.5, cy: cy + 1.5, rx: rx * 0.4, ry: 4, fill: dark, opacity: 0.7 }),
-      );
-    }
-  }
+  // Views from below, with the sun high above the layer: the stratus sheet is
+  // an even grey; each stratocumulus lump is dark where it is thickest and
+  // bright at its thin rims.
+  const pw = 172;
+  const ph = 62;
+  const stratus = realClouds({ width: pw, height: ph, sun: [pw / 2, -100, 300], tones: GREY }, [
+    { kind: 'sheet', x0: -60, x1: pw + 60, top: -40, bottom: ph + 40, density: 3, detail: 12 },
+  ]);
+  const lumps = realClouds({ width: pw, height: ph, sun: [pw / 2, ph / 2, 400], tones: GREY }, [
+    { kind: 'cells', x0: -20, x1: pw + 20, top: -16, bottom: ph + 16, size: 30, r: 16, flat: 0.68, density: 0.8, seed: 7 },
+  ]);
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: sky }),
     svg('rect', { x: 0, y: ground, width: 400, height: 6, fill: COL.ground }),
@@ -264,16 +262,16 @@ export const layerKindsDiagram: FigureFactory = () => {
     small(100, 154, 'from below:', { soft: true, anchor: 'middle' }),
     small(300, 154, 'from below:', { soft: true, anchor: 'middle' }),
     svg('rect', { x: 14, y: 162, width: 172, height: 62, rx: 6, fill: grey }),
+    svg('g', { transform: 'translate(14 162)', 'clip-path': 'url(#layer-kinds-clip-a)' }, stratus.node),
     svg('rect', { x: 214, y: 162, width: 172, height: 62, rx: 6, fill: '#7fb3d5' }),
+    svg('g', { transform: 'translate(214 162)', 'clip-path': 'url(#layer-kinds-clip-a)' }, lumps.node),
     small(100, 240, 'an even grey ceiling, no pattern', { anchor: 'middle' }),
     small(100, 253, 'drizzle at most', { soft: true, anchor: 'middle' }),
     small(300, 240, 'lumps: dark centres, bright rims', { anchor: 'middle' }),
     small(300, 253, 'and gaps of blue between', { soft: true, anchor: 'middle' }),
   );
-  // The from-below panel is cut to its frame.
-  const clip = svg('clipPath', { id: 'layer-kinds-clip' }, svg('rect', { x: 214, y: 162, width: 172, height: 62, rx: 6 }));
-  const g = svg('g', { 'clip-path': 'url(#layer-kinds-clip)' }, ...blobs);
-  d.svg.append(svg('defs', {}, clip), g);
+  // The from-below panels are cut to their rounded frames.
+  d.svg.append(svg('defs', {}, svg('clipPath', { id: 'layer-kinds-clip-a' }, svg('rect', { x: 0, y: 0, width: pw, height: ph, rx: 6 }))));
   return { node: d.node };
 };
 

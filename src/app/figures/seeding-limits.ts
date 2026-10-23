@@ -7,6 +7,8 @@ import type { GenusId } from '../../core/clouds';
 import { makeRng } from '../../core/rng';
 import { el, svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
+import { realClouds } from '../clouds/real';
+import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
 import { arrow, flake, heading, label, line, note, redraw, still } from './draw';
 import { COL, deg, figure, frame, slider, type FigureFactory } from './kit';
@@ -129,17 +131,12 @@ export const seedWindowDiagram: FigureFactory = () => {
 export const fogHoleDiagram: FigureFactory = () => {
   const d = still(400, 204);
   const ground = 170;
-  const rng = makeRng(31);
-  const fog: SVGElement[] = [];
-  for (let i = 0; i < 120; i++) {
-    const x = rng() * 420 - 10;
-    const y = 96 + rng() * 70;
-    if (Math.abs(x - 210) < 70 - (y - 96) * 0.2) continue;
-    fog.push(svg('circle', { cx: x, cy: y, r: 10 + rng() * 8, fill: '#f2f2f6', opacity: 0.9 }));
-  }
+  // The fog bank either side of the hole the seeding cleared.
+  const fog = (x0: number, x1: number) => ({ kind: 'sheet' as const, x0, x1, top: 104, bottom: ground + 8, density: 2.2, detail: 12 });
+  const clouds = realClouds({ width: 400, height: ground, sun: [300, -200, -200], tones: DAY }, [fog(-40, 150), fog(270, 440)]);
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: ground, fill: '#9cc0e0' }),
-    ...fog,
+    clouds.node,
     ...Array.from({ length: 16 }, (_, i) => flake(160 + (i % 8) * 14, 120 + Math.floor(i / 8) * 22 + (i % 3) * 5, 2.4, '#ffffff', 1.2)),
     svg('rect', { x: 0, y: ground, width: 400, height: 34, fill: '#8a8f7a' }),
     svg('rect', { x: 130, y: ground + 8, width: 160, height: 12, fill: '#4a4a52' }),

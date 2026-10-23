@@ -6,6 +6,8 @@
 import { coldBox, seedLayer, type Agent } from '../../core/cold-cloud';
 import { makeRng } from '../../core/rng';
 import { el, svg } from '../dom';
+import { realClouds } from '../clouds/real';
+import { DAY } from '../clouds/tones';
 import { arrow, flake, heading, label, line, note, points, redraw, still } from './draw';
 import { COL, animate, deg, figure, frame, slider, type FigureFactory } from './kit';
 
@@ -457,7 +459,8 @@ export const seedLayerFigure = figure(['hole'], (ctx, t) => {
   let tempC = -10;
   let age = 0;
   const rng = makeRng(11);
-  const puffs = Array.from({ length: 70 }, (_, i) => ({ x: (i / 70) * (W + 20) - 10, y: top + 8 + rng() * (base - top - 16), r: 9 + rng() * 9 }));
+  const clouds = realClouds({ width: W, height: H, sun: [W * 0.7, -200, -160], tones: DAY });
+  let drawn = '';
   const flakes = Array.from({ length: 50 }, () => ({ x: x0 + rng() * (x1 - x0), s: rng() }));
   const g = svg('g');
   f.svg.append(g);
@@ -480,22 +483,23 @@ export const seedLayerFigure = figure(['hole'], (ctx, t) => {
     const s = seedLayer(lb, tempC);
     const k = Math.min(1, Math.max(0, (age - 1.2) / 4)); // how far the seeded patch has gone
     const spread = 16 * k;
-    const inPatch = (x: number) => x > x0 - spread && x < x1 + spread;
     const parts: SVGElement[] = [
       svg('rect', { x: 0, y: 0, width: W, height: ground, fill: '#7fb0d6' }),
       svg('rect', { x: 0, y: ground, width: W, height: 14, fill: '#b3b072' }),
       svg('rect', { x: 0, y: ground + 14, width: W, height: H - ground - 14, fill: COL.paper }),
       ...[40, 120, 200, 280, 360].map((x) => line(x, ground + 3, x + 30, ground + 11, COL.field, 2)),
     ];
-    for (const p of puffs) {
-      let op = 0.95;
-      let fill = '#ffffff';
-      if (inPatch(p.x)) {
-        if (s.result === 'hole') op = 0.95 * (1 - k);
-        if (s.result === 'overseeded') op = 0.95 * (1 - k);
-      }
-      if (op > 0.02) parts.push(svg('circle', { cx: p.x, cy: p.y, r: p.r, fill, opacity: op }));
+    // The layer, with the seeded patch eaten away as the crystals take its water
+    // (redrawn in tenths, as the patch goes).
+    const gone = s.result === 'hole' || s.result === 'overseeded' ? Math.round(k * 10) / 10 : 0;
+    const key = `${gone}`;
+    if (key !== drawn) {
+      drawn = key;
+      const half = ((x1 - x0) / 2 + 16 * gone) * gone;
+      clouds.draw([{ kind: 'cells', x0: -10, x1: W + 10, top: top - 4, bottom: base + 4, size: 14, r: 10, flat: 0.7, density: 0.6, seed: 11,
+        hole: half > 1 ? [(x0 + x1) / 2, (top + base) / 2, half, 60] : undefined }]);
     }
+    parts.push(clouds.node);
     if (s.result === 'overseeded' && k > 0) {
       // A smooth, silky veil of tiny ice where the puffy layer was.
       parts.push(svg('rect', { x: x0 - spread, y: top + 2, width: x1 - x0 + 2 * spread, height: base - top - 4, rx: 10, fill: '#c3cfe6', opacity: 0.9 * k }));
@@ -549,24 +553,16 @@ export const seedLayerFigure = figure(['hole'], (ctx, t) => {
 
 export const fallstreakDiagram: FigureFactory = () => {
   const d = still(400, 210);
-  const rng = makeRng(21);
   const holeX = 210;
-  const puffs: SVGElement[] = [];
-  for (let i = 0; i < 90; i++) {
-    const x = rng() * 420 - 10;
-    const y = 70 + rng() * 26;
-    if (Math.hypot((x - holeX) / 1.8, y - 83) < 34) continue;
-    puffs.push(svg('circle', { cx: x, cy: y, r: 7 + rng() * 6, fill: '#ffffff', opacity: 0.95 }));
-  }
-  const streak: SVGElement[] = [];
-  for (let i = 0; i < 26; i++) {
-    const y = 88 + i * 3.4;
-    streak.push(svg('ellipse', { cx: holeX + (i * 0.9) + (rng() - 0.5) * 10, cy: y, rx: 8 - i * 0.2, ry: 2.2, fill: '#ffffff', opacity: 0.8 - i * 0.025 }));
-  }
+  // A wisp of ice falling out of the hole, drifting a little as it goes.
+  const wisp = Array.from({ length: 12 }, (_, i): [number, number, number] => [holeX + i * 2.4 + Math.sin(i) * 2, 84 + i * 8, Math.max(1.2, 7 - i * 0.5)]);
+  const clouds = realClouds({ width: 400, height: 210, sun: [300, -200, -160], tones: DAY }, [
+    { kind: 'cells', x0: -10, x1: 410, top: 62, bottom: 102, size: 12, r: 8.5, flat: 0.7, density: 0.6, seed: 21, hole: [holeX, 83, 60, 30] },
+    { kind: 'cirrus', strands: [{ pts: wisp }] },
+  ]);
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: 210, fill: '#86b4dc' }),
-    ...puffs,
-    ...streak,
+    clouds.node,
     // The aeroplane's climbing path through the layer, half an hour earlier.
     line(120, 150, 300, 30, COL.ink, 1.2, { 'stroke-dasharray': '4 4', opacity: 0.6 }),
     note(292, 22, 'an aeroplane climbed', { anchor: 'end', fill: COL.ink }),
