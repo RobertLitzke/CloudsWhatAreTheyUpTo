@@ -82,6 +82,9 @@ export const shiftView: View = (root, nav) => {
       if (t.cue !== 'check' && cueKey(t.cue) === cueKey(c) && !getSave().heard[t.id]) void playTalk(t);
     }
   };
+  /** Talks cued by a finished figure, held until the reader presses Continue, so they have read the text after it first. */
+  const held: Cue[] = [];
+  const release = () => held.splice(0).forEach(cue);
   /** The check's talk, if the radio is on and it has not been heard. */
   const checkTalk = () => (talking ? radio.talks.find((t) => t.cue === 'check' && !getSave().heard[t.id]) : undefined);
   const ctx: FigureContext = {
@@ -122,7 +125,7 @@ export const shiftView: View = (root, nav) => {
 
   const renderPart = (part: Part, i: number): Promise<void> => {
     const tasks: Promise<void>[] = [];
-    const render = (b: Block) => renderBlock(b, ctx, tasks, (figure) => cue({ after: figure as FigureId }));
+    const render = (b: Block) => renderBlock(b, ctx, tasks, (figure) => held.push({ after: figure as FigureId }));
     const section = el('section.part', {}, el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title));
     article.append(section);
     // In the check, the forecasts wait for the photos to be done and the
@@ -197,6 +200,7 @@ export const shiftView: View = (root, nav) => {
         if (i > 0) article.lastElementChild!.scrollIntoView({ behavior: 'smooth', block: 'start' });
         await gate(ready, i === shift.parts.length - 1);
         if (!alive) return;
+        release();
       }
     }
     if (!alive) return;

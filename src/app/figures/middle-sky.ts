@@ -80,16 +80,31 @@ export const handFigure = figure(['all'], (ctx, t) => {
   const sky = svg('g');
   const hand = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#7fb4d6' }), sky, hand);
-  // The hand at arm's length, drawn at its true angular size: fist about 10°,
-  // three fingers about 5°, thumb about 2°, little-finger nail about 1°.
-  const fistW = 10 * PX_PER_DEG;
+  // A hand held up at arm's length, palm out, drawn at its true angular size:
+  // three fingers about 5°, the thumb about 2°, the little-finger nail about 1°.
+  const skin = '#e8bfa2';
+  const crease = '#c18d70';
+  const finger = (x: number, w: number, tip: number) => svg('rect', { x, y: tip, width: w, height: 190 - tip, rx: w / 2, fill: skin, stroke: crease, 'stroke-width': 1 });
+  const fw = (5 / 3) * PX_PER_DEG; // one of three fingers
+  const lw = 1.3 * PX_PER_DEG; // the little finger
+  const x0 = 292;
+  const tips = [100, 90, 98];
+  const littleTip = 116;
+  const littleX = x0 + 3 * fw;
+  const bracket = (xa: number, xb: number, y: number) => svg('path', { d: `M${xa},${y + 4} V${y} H${xb} V${y + 4}`, fill: 'none', stroke: COL.ink, 'stroke-width': 1.2 });
   hand.append(
-    svg('rect', { x: 290, y: 140, width: fistW, height: 70, rx: 18, fill: '#e6b89c', opacity: 0.92 }),
-    svg('rect', { x: 290 - 2 * PX_PER_DEG, y: 150, width: 2 * PX_PER_DEG, height: 46, rx: 8, fill: '#ddaa8c', opacity: 0.95 }),
-    svg('rect', { x: 290 + fistW - 1 * PX_PER_DEG - 2, y: 124, width: PX_PER_DEG, height: 22, rx: 4, fill: '#ddaa8c' }),
-    small(290 + fistW / 2, 232, 'fist ≈ 10°', { anchor: 'middle' }),
-    small(290 - PX_PER_DEG, 214, 'thumb ≈ 2°', { anchor: 'middle' }),
-    small(290 + fistW - 2, 118, 'nail ≈ 1°', { anchor: 'middle' }),
+    // The thumb, sticking out to the side.
+    svg('rect', { x: x0 - PX_PER_DEG, y: 146, width: 2 * PX_PER_DEG, height: 84, rx: PX_PER_DEG, fill: skin, stroke: crease, 'stroke-width': 1, transform: `rotate(-32 ${x0} 230)` }),
+    ...tips.map((tip, i) => finger(x0 + i * fw, fw, tip)),
+    finger(littleX, lw, littleTip),
+    svg('rect', { x: x0 - 4, y: 168, width: 3 * fw + lw + 8, height: 100, rx: 16, fill: skin }),
+    ...[1, 2, 3].map((i) => line(x0 + i * fw, 160, x0 + i * fw, 172, crease, 1)),
+    svg('rect', { x: littleX + (lw - PX_PER_DEG) / 2, y: littleTip + 2, width: PX_PER_DEG, height: 9, rx: 3, fill: '#f6ddcd', stroke: crease, 'stroke-width': 0.8 }),
+    bracket(x0, x0 + 3 * fw, 190),
+    small(x0 + 1.5 * fw, 204, 'three fingers', { anchor: 'middle' }),
+    small(x0 + 1.5 * fw, 216, '≈ 5°', { anchor: 'middle' }),
+    small(x0 - 44, 176, 'thumb ≈ 2°', { anchor: 'end', halo: '#fff' }),
+    small(littleX + lw + 4, littleTip + 8, 'nail ≈ 1°', { halo: '#fff' }),
   );
   const paint = () => {
     // Looking up high in the sky (about 60° up), so the distance is a little more than the height.
