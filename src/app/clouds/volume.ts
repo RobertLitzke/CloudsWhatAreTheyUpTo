@@ -316,7 +316,7 @@ export function marchClouds(clouds: Cloud[], view: View): HTMLCanvasElement | nu
       const r = c.puffs.reduce((m, q) => Math.max(m, q.r), 0);
       box.set([c.x0 - r * 1.3, c.top - r * 1.3, c.x1 + r * 1.3, c.bottom + r * 1.3], i * 4);
       info.set([1, first, n, Math.max(9, reach)], i * 4);
-      shape.set([0, r * 1.2, Math.max(1.2, r * 0.38), c.density ?? 1], i * 4);
+      shape.set([0, r * 1.2, c.detail ?? Math.max(1.2, r * 0.38), c.density ?? 1], i * 4);
     }
   });
   const u = (n: string) => g.getUniformLocation(prog!, n);

@@ -5,6 +5,7 @@
 
 import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { svg } from '../dom';
+import { realClouds } from '../clouds/real';
 import { arrow, heading, heapAt, line, points, polyline, redraw, small, still } from './draw';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 import { strikeKm } from '../../core/sky';
@@ -347,17 +348,18 @@ export const mammaFigure = figure(['pouches'], (_ctx, t) => {
   const W = 400;
   const H = 180;
   const f = frame(W, H, 4);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9b48f' }), g);
+  // Late light from low in the west, under the anvil: pouches lit from below and the side.
+  const clouds = realClouds({ width: W, height: H, sun: [-200, H + 60, -150], tones: { cloudShade: '#5e4466', cloudMid: '#a97f9e', cloudLight: '#f6cdb4' } });
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#e9b48f' }), clouds.node);
   const paint = (sink: number) => {
-    const parts: SVGElement[] = [svg('rect', { x: 0, y: 0, width: W, height: 60, fill: '#8f6f8e' })];
-    for (let i = 0; i < 12; i++) {
-      const cx = 18 + i * 34 + (i % 2) * 6;
-      const r = 10 + sink * 10;
-      parts.push(svg('ellipse', { cx, cy: 58 + sink * 14, rx: r + 4, ry: 6 + sink * 22, fill: '#a07c98' }));
-      parts.push(svg('ellipse', { cx: cx - 3, cy: 56 + sink * 10, rx: r, ry: 3 + sink * 14, fill: '#b98fa8', opacity: 0.8 }));
-    }
-    redraw(g, ...parts);
+    const pouches = Array.from({ length: 12 }, (_, i) => {
+      const r = 12 + sink * 10;
+      return { x: 18 + i * 34 + (i % 2) * 6, y: 50 + sink * 16, z: 0, r, flat: (5 + sink * 22) / r };
+    });
+    clouds.draw([
+      { kind: 'sheet', x0: -60, x1: W + 60, top: -40, bottom: 54, density: 3, detail: 6 },
+      { kind: 'layer', x0: 0, x1: W, top: 40, bottom: 90, puffs: pouches, density: 1.2, detail: 30 },
+    ]);
     f.readout.textContent = sink < 0.3
       ? 'The underside of an anvil, smooth while little is happening.'
       : 'Mammatus: pouches of cold, cloudy air sinking from the anvil’s base, an upside-down cumulus. Ominous, but usually a sign the storm is moving away.';

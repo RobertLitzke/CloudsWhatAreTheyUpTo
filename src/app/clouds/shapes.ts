@@ -33,6 +33,8 @@ export interface Heap {
 export interface Layer {
   kind: 'layer';
   density?: number;
+  /** Size of the bumps eaten into each puff; large is smooth (mammatus), small is cauliflower. */
+  detail?: number;
   top: number;
   bottom: number;
   x0: number;
