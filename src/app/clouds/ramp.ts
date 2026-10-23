@@ -2,7 +2,7 @@
 // mid in the half light, light where the sun hits. Every renderer grades its
 // clouds through this, so they keep the poster's colours at any time of day.
 
-import type { Palette } from '../../src/app/scene/landscape';
+import type { Palette } from '../scene/landscape';
 
 export type RGB = [number, number, number];
 
@@ -17,7 +17,7 @@ export interface Ramp {
   light: RGB;
 }
 
-export function rampOf(p: Palette): Ramp {
+export function rampOf(p: Pick<Palette, 'cloudShade' | 'cloudMid' | 'cloudLight'>): Ramp {
   return { shade: rgb(p.cloudShade), mid: rgb(p.cloudMid), light: rgb(p.cloudLight) };
 }
 

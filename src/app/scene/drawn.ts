@@ -1,75 +1,62 @@
-// Drawn clouds, one recipe per genus, in the same flat, faceted style as the
-// landscape. These are the "mock clouds" of the lessons; the real thing is
-// always a photo. Each drawing sits on its own base line at y = 0, centred on
-// x = 0, and is about 80 units wide; the caller places and scales it.
+// Drawn clouds, one recipe per genus, in the flat, cel-shaded style of the
+// clouds library (clouds/flat.ts). These are the "mock clouds" of the lessons;
+// the real thing is always a photo. Each drawing sits on its own base line at
+// y = 0, centred on x = 0, and is about 80 units wide; the caller places and
+// scales it.
 //
-// Heaps are built from polygon puffs whose points never dip below the base, so
-// every heap has the flat bottom a real cumulus has. Each puff is drawn three
-// times, as on the poster: a dark underside, then a lit copy nudged up and
-// towards the sun, then the body over it, so only a bright rim of the lit copy
-// shows along the top edges.
+// Heaps are lobes with a flat base, each lobe in three hard-edged tones lit
+// from the upper right, so each lobe throws a crescent of shadow on the one
+// below it, as on the poster.
 
 import { svg } from '../dom';
 import type { GenusId } from '../../core/clouds';
 import { makeRng, type Rng } from '../../core/rng';
+import { celCells, celHeap } from '../clouds/flat';
+import { heap as heapPuffs, type Puff } from '../clouds/shapes';
 import { W, type Palette } from './landscape';
 
-type Puff = [cx: number, cy: number, r: number];
-
-function puffPoints([cx, cy, r]: Puff, base: number, sides: number, turn: number): string {
-  const pts: string[] = [];
-  for (let i = 0; i < sides; i++) {
-    const a = turn + (i / sides) * Math.PI * 2;
-    const x = cx + Math.cos(a) * r;
-    const y = Math.min(base, cy + Math.sin(a) * r);
-    pts.push(`${x.toFixed(1)},${y.toFixed(1)}`);
-  }
-  return pts.join(' ');
+function cumulus(p: Palette, seed: number): SVGElement {
+  return celHeap(heapPuffs(0, 0, 80, 40, seed, false).puffs, p, { base: 0, seed });
 }
 
-function heap(puffs: Puff[], p: Palette, rng: Rng, base = 0, opacity = 1): SVGElement {
-  const turns = puffs.map(() => rng() * Math.PI);
-  const layer = (fill: string, dx: number, dy: number, k: number, floor: number) =>
-    puffs.map(([cx, cy, r], i) => svg('polygon', { points: puffPoints([cx + dx, cy + dy, r * k], base + floor, 12, turns[i]), fill }));
-  return svg(
-    'g',
-    { opacity },
-    ...layer(p.cloudShade, 0.6, 0, 1, 0),
-    ...layer(p.cloudLight, -1.6, -3, 1, -1),
-    ...layer(p.cloudMid, 0.9, -1.2, 0.95, -1.6),
-  );
-}
-
-function cumulus(p: Palette, rng: Rng): SVGElement {
-  return heap(
-    [
-      [-24, -6, 11],
-      [-10, -14, 15],
-      [8, -18, 17],
-      [24, -9, 12],
-      [0, -4, 12],
-    ],
-    p,
-    rng,
-  );
-}
-
-function cumulonimbus(p: Palette, rng: Rng): SVGElement {
-  const tower: Puff[] = [];
-  for (let i = 0; i < 9; i++) {
-    const y = -8 - i * 13;
-    tower.push([-18 + rng() * 6, y, 13], [0 + rng() * 4, y - 4, 15], [17 - rng() * 6, y, 12]);
-  }
+function cumulonimbus(p: Palette, rng: Rng, seed: number): SVGElement {
+  // A tower of turrets, each a cumulus dome rising out of the one below:
+  // drawn top down, so each lower turret sits in front of the one above it.
+  const turrets: [w: number, h: number, base: number][] = [[66, 44, -84], [60, 46, -58], [64, 44, -30], [74, 42, 0]];
+  const tower = svg('g', {}, ...turrets.map(([w, h, base], i) => {
+    const puffs = heapPuffs(rng() * 4 - 2, base, w, h, seed * 7 + i, false).puffs;
+    return base === 0 ? celHeap(puffs, p, { base: 0, seed: seed + i }) : celHeap(puffs, p, { seed: seed + i });
+  }));
   const anvilY = -128;
   const anvil = svg('g', {},
-    svg('polygon', { points: `-26,${anvilY + 6} -62,${anvilY - 2} -50,${anvilY - 10} 46,${anvilY - 12} 74,${anvilY - 4} 30,${anvilY + 6}`, fill: p.cloudMid }),
-    svg('polygon', { points: `-50,${anvilY - 10} 46,${anvilY - 12} 74,${anvilY - 4} 40,${anvilY - 6} -30,${anvilY - 5}`, fill: p.cloudLight }),
+    // Underside in shade, a lit top, and a bright sunward edge.
+    svg('polygon', { points: `-26,${anvilY + 8} -66,${anvilY - 1} -54,${anvilY - 11} 48,${anvilY - 13} 78,${anvilY - 4} 30,${anvilY + 8}`, fill: p.cloudShade }),
+    svg('polygon', { points: `-62,${anvilY - 3} -54,${anvilY - 11} 48,${anvilY - 13} 78,${anvilY - 4} 40,${anvilY - 2} -20,${anvilY - 1}`, fill: p.cloudMid }),
+    svg('polygon', { points: `-40,${anvilY - 10} 48,${anvilY - 13} 78,${anvilY - 4} 56,${anvilY - 7} 0,${anvilY - 8}`, fill: p.cloudLight }),
   );
   const rain = svg('g', { opacity: 0.55 },
-    ...[-20, -12, -4, 4, 12, 20].map((x) => svg('line', { x1: x, y1: 0, x2: x - 5, y2: 26, stroke: p.cloudShade, 'stroke-width': 2.2 })),
+    ...[-22, -14, -6, 2, 10, 18, 26].map((x) => svg('line', { x1: x, y1: 0, x2: x - 5, y2: 26, stroke: p.cloudShade, 'stroke-width': 2.2 })),
   );
-  const base = svg('polygon', { points: '-34,-2 34,-2 30,4 -30,4', fill: p.cloudShade });
-  return svg('g', {}, rain, anvil, heap(tower, p, rng), base);
+  return svg('g', {}, rain, anvil, tower);
+}
+
+function stratocumulus(p: Palette, rng: Rng, seed: number): SVGElement {
+  // A row of broad, flattened, greyer rolls: lit less than a cumulus.
+  const puffs: Puff[] = [];
+  for (let i = 0; i < 8; i++) puffs.push({ x: -60 + i * 17 + rng() * 3, y: -6 - rng() * 3, z: 0, r: 10 + rng() * 4, flat: 0.7 });
+  return celHeap(puffs, { cloudShade: p.cloudShade, cloudMid: mix(p.cloudMid, p.cloudShade), cloudLight: p.cloudMid }, { base: 0, shadow: 4, bumps: false, seed });
+}
+
+function altocumulus(p: Palette, rng: Rng): SVGElement {
+  // Rows of rounded cells, smaller towards the back of the sheet.
+  const cells: Puff[] = [];
+  for (let r = 0; r < 3; r++) {
+    const k = 1 - r * 0.14;
+    for (let i = 0; i < 6 - r; i++) {
+      cells.push({ x: (-48 + r * 8 + i * 18 + rng() * 4) * k, y: -4 - r * 9, z: 0, r: (6 + rng() * 2) * k, flat: 0.72 });
+    }
+  }
+  return celCells(cells, p);
 }
 
 // The sheets (stratus, altostratus, nimbostratus, cirrostratus) are drawn
@@ -103,24 +90,6 @@ function stratus(p: Palette, rng: Rng, span: number): SVGElement {
     svg('polygon', { points: [...top, ...lit].join(' '), fill: p.cloudMid, opacity: 0.9 }),
     svg('polygon', { points: `${-span},-9 ${span},-9 ${span},1 ${-span},1`, fill: p.cloudShade, opacity: 0.4 }),
   );
-}
-
-function stratocumulus(p: Palette, rng: Rng): SVGElement {
-  const puffs: Puff[] = [];
-  for (let i = 0; i < 8; i++) puffs.push([-60 + i * 17, -5 - rng() * 4, 9 + rng() * 4]);
-  return heap(puffs, { ...p, cloudLight: p.cloudMid, cloudMid: mix(p.cloudMid, p.cloudShade) }, rng);
-}
-
-function altocumulus(p: Palette, rng: Rng): SVGElement {
-  const rows: SVGElement[] = [];
-  for (let r = 0; r < 3; r++) {
-    const puffs: Puff[] = [];
-    for (let i = 0; i < 6 - r; i++) puffs.push([-48 + r * 8 + i * 18 + rng() * 4, -3, 5 + rng() * 2]);
-    const g = heap(puffs, p, rng);
-    g.setAttribute('transform', `translate(0 ${-r * 10}) scale(${1 - r * 0.12})`);
-    rows.push(g);
-  }
-  return svg('g', {}, ...rows.reverse());
 }
 
 function altostratus(p: Palette, span: number): SVGElement {
@@ -196,15 +165,16 @@ function cirrus(p: Palette, rng: Rng): SVGElement {
 }
 
 function cirrocumulus(p: Palette, rng: Rng): SVGElement {
-  const dots: SVGElement[] = [];
+  // Grains too small to show a shadow side by eye: ripples of tiny cells.
+  const grains: Puff[] = [];
   for (let r = 0; r < 5; r++) {
     for (let i = 0; i < 14; i++) {
       const x = -60 + i * 9 + (r % 2) * 4 + rng() * 2;
       const y = -2 - r * 5 + Math.sin(i * 0.8) * 1.5;
-      dots.push(svg('circle', { cx: x, cy: y, r: 1.4 + rng() * 0.8, fill: p.cloudLight, opacity: 0.9 }));
+      grains.push({ x, y, z: 0, r: 1.8 + rng() * 0.8, flat: 0.8 });
     }
   }
-  return svg('g', {}, ...dots);
+  return svg('g', { opacity: 0.92 }, celCells(grains, { cloudShade: p.cloudMid, cloudMid: p.cloudLight, cloudLight: p.cloudLight }));
 }
 
 function cirrostratus(p: Palette, span: number): SVGElement {
@@ -228,10 +198,10 @@ export const SHEETS: ReadonlySet<GenusId> = new Set(['stratus', 'altostratus', '
 export function drawCloud(id: GenusId, p: Palette, seed = 1, span = 90): SVGElement {
   const rng = makeRng(seed);
   switch (id) {
-    case 'cumulus': return cumulus(p, rng);
-    case 'cumulonimbus': return cumulonimbus(p, rng);
+    case 'cumulus': return cumulus(p, seed);
+    case 'cumulonimbus': return cumulonimbus(p, rng, seed);
     case 'stratus': return stratus(p, rng, span);
-    case 'stratocumulus': return stratocumulus(p, rng);
+    case 'stratocumulus': return stratocumulus(p, rng, seed);
     case 'altocumulus': return altocumulus(p, rng);
     case 'altostratus': return altostratus(p, span);
     case 'nimbostratus': return nimbostratus(p, span);

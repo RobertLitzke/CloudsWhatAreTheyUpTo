@@ -7,9 +7,9 @@
 
 import { svg } from '../../src/app/dom';
 import type { Palette } from '../../src/app/scene/landscape';
-import { fieldOf } from './paint';
-import { grade, rampOf, type RGB } from './ramp';
-import type { Cloud } from './scene';
+import { fieldOf } from '../../src/app/clouds/paint';
+import { grade, rampOf, type RGB } from '../../src/app/clouds/ramp';
+import type { Cloud } from '../../src/app/clouds/shapes';
 
 /** Brightness cut points: everything at or above each is drawn in that band's tone. */
 const BANDS = [0, 0.34, 0.5, 0.64, 0.78, 0.9];

@@ -1,13 +1,13 @@
-// One sky, described once, for comparing ways of drawing real-looking clouds.
-// Each renderer in this folder draws the same clouds from this description, in
-// the 400 x 260 units of the landscape scene, so the prototypes differ only in
-// how a cloud is drawn, never in what is drawn.
+// Clouds described once, as shapes in a drawing's own units, for every way of
+// drawing them: in flat vector (flat.ts), ray-marched on the GPU (volume.ts),
+// or painted on a canvas when there is no GPU (paint.ts).
 //
-// A heap is a stack of puffs (spheres) with a flat base; a layer of
-// altocumulus is a sheet of small flattened puffs; cirrus is a few strands,
-// each a line with a width, ending in a falling hook.
+// A heap is a stack of puffs (spheres) with a flat base; a layer is a sheet of
+// small flattened puffs (altocumulus, stratocumulus); cirrus is a few strands,
+// each a line with a width, ending in a falling hook; a sheet is an even slab
+// (stratus, fog, altostratus, a cirrostratus veil).
 
-import { makeRng } from '../../src/core/rng';
+import { makeRng } from '../../core/rng';
 
 export interface Puff {
   x: number;
@@ -21,6 +21,8 @@ export interface Puff {
 
 export interface Heap {
   kind: 'heap';
+  /** How thick the cloud is, 1 for an ordinary cumulus; less lets more light through. */
+  density?: number;
   cx: number;
   base: number;
   w: number;
@@ -30,6 +32,7 @@ export interface Heap {
 
 export interface Layer {
   kind: 'layer';
+  density?: number;
   top: number;
   bottom: number;
   x0: number;
@@ -47,12 +50,25 @@ export interface Cirrus {
   strands: Strand[];
 }
 
-export type Cloud = Heap | Layer | Cirrus;
+export interface Sheet {
+  kind: 'sheet';
+  x0: number;
+  x1: number;
+  top: number;
+  bottom: number;
+  /** 0..1: a thin veil to a thick grey blanket. */
+  density: number;
+  /** Size of the lumps on its top and base, in the drawing's units. */
+  detail?: number;
+}
+
+export type Cloud = Heap | Layer | Cirrus | Sheet;
 
 /** Where the sun is, in scene units; light comes from here. */
 export const SUN: [number, number] = [340, 52];
 
-export function heap(cx: number, base: number, w: number, h: number, seed: number): Heap {
+/** A heap of cumulus: lobes along a domed outline over a few big filling puffs. `inner` adds lobes bulging out of the face, for the volume renderer. */
+export function heap(cx: number, base: number, w: number, h: number, seed: number, inner = true): Heap {
   const rng = makeRng(seed);
   const puffs: Puff[] = [];
   // The outline is a dome, a little off-centre, steeper on the sunless side.
@@ -69,7 +85,7 @@ export function heap(cx: number, base: number, w: number, h: number, seed: numbe
     const y = Math.min(base - r * 0.3, top(x) + r * 0.95);
     puffs.push({ x, y, z: (rng() - 0.5) * r, r, flat: 1 });
     // A second lobe just inside, bulging towards the viewer.
-    if (r > h * 0.18) puffs.push({ x: x + (rng() - 0.5) * r * 0.6, y: y + r * (0.7 + 0.4 * rng()), z: -r * 0.5, r: r * (0.75 + 0.2 * rng()), flat: 1 });
+    if (inner && r > h * 0.18) puffs.push({ x: x + (rng() - 0.5) * r * 0.6, y: y + r * (0.7 + 0.4 * rng()), z: -r * 0.5, r: r * (0.75 + 0.2 * rng()), flat: 1 });
     x += r * (0.9 + 0.4 * rng());
   }
   // Filling: big puffs inside the body, and a row along the base.

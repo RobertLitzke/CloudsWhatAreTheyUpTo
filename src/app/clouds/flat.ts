@@ -1,0 +1,188 @@
+// Clouds as flat, cel-shaded vector: the look of the simplified drawings (the
+// genus drawings on the home screen, lesson headers, journal and quizzes, and
+// the simplified figures). Every lobe is a ball in three hard-edged tones
+// (shade, mid, light), each tone the lobe's own shape moved towards the sun
+// and clipped to it, so every lobe gets a crescent of shadow on its far side.
+// Lobes are laid lowest first, so each one's shadow falls as a crease on the
+// lobe below. Small bumps along the rims give the cauliflower edge. Plain
+// shapes only: crisp at any size, and as cheap to animate as any drawing.
+
+import { svg } from '../dom';
+import { makeRng } from '../../core/rng';
+import type { Palette } from '../scene/landscape';
+import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet } from './shapes';
+
+/** The three tones a cloud is drawn in; every scene palette has them. */
+export type Tones = Pick<Palette, 'cloudShade' | 'cloudMid' | 'cloudLight'>;
+
+/** Which way the sun is, as a unit vector in the drawing's units (y down). */
+export type Light = [x: number, y: number];
+
+/** Sun high and to the right, as in most of the drawings. */
+export const UPPER_RIGHT: Light = [0.6, -0.8];
+
+let count = 0;
+
+export function unit(x: number, y: number): Light {
+  const n = Math.hypot(x, y) || 1;
+  return [x / n, y / n];
+}
+
+interface Lobe {
+  main: Puff;
+  /** Small bumps on its upper rim: the cauliflower. */
+  bumps: Puff[];
+}
+
+function lobes(puffs: Puff[], seed: number, base?: number): Lobe[] {
+  const rng = makeRng(seed);
+  return puffs.map((q) => {
+    const bumps: Puff[] = [];
+    if (q.r >= 5) {
+      const n = 1 + Math.floor(rng() * 2);
+      for (let i = 0; i < n; i++) {
+        const a = Math.PI * (1.15 + (0.7 * (i + 0.2 + rng() * 0.6)) / n);
+        const r = q.r * (0.36 + 0.12 * rng());
+        const y = q.y + Math.sin(a) * q.r * q.flat * 0.8;
+        if (base !== undefined && y > base - r) continue;
+        bumps.push({ x: q.x + Math.cos(a) * q.r * 0.8, y, z: q.z, r, flat: q.flat });
+      }
+    }
+    return { main: q, bumps };
+  });
+}
+
+function disc(q: Puff, dx: number, dy: number, k: number, fill: string): SVGElement {
+  return svg('ellipse', { cx: (q.x + dx).toFixed(2), cy: (q.y + dy).toFixed(2), rx: (q.r * k).toFixed(2), ry: (q.r * q.flat * k).toFixed(2), fill });
+}
+
+/**
+ * A lobe in three tones. Each tone is the lobe's whole shape (ball and bumps)
+ * moved towards the sun and shrunk, clipped to the shape itself: what is left
+ * of the darker tone underneath is the shadow on the far side.
+ */
+function lobe(L: Lobe, [lx, ly]: Light, t: Tones): SVGElement {
+  const id = `cel${++count}`;
+  const all = [L.main, ...L.bumps];
+  const tone = (shift: number, k: number, fill: string) => svg('g', {}, ...all.map((q) => disc(q, lx * q.r * shift, ly * q.r * shift, k, fill)));
+  return svg('g', { 'clip-path': `url(#${id})` },
+    svg('clipPath', { id }, ...all.map((q) => disc(q, 0, 0, 1, '#000'))),
+    tone(0, 1, t.cloudShade),
+    tone(0.22, 1, t.cloudMid),
+    tone(0.45, 0.84, t.cloudLight),
+  );
+}
+
+export interface HeapOptions {
+  light?: Light;
+  /** A flat base along this line: nothing is drawn below it, and the bottom is in shade. */
+  base?: number;
+  /** How far up the shaded base reaches, in the drawing's units. */
+  shadow?: number;
+  /** Cauliflower bumps on the lobes. */
+  bumps?: boolean;
+  seed?: number;
+}
+
+/** A heap of lobes in flat vector: cumulus, a tower, a row of stratocumulus. */
+export function celHeap(puffs: Puff[], t: Tones, o: HeapOptions = {}): SVGElement {
+  const light = o.light ?? UPPER_RIGHT;
+  const id = `cel${++count}`;
+  const ls = (o.bumps === false ? puffs.map((main) => ({ main, bumps: [] })) : lobes(puffs, o.seed ?? count, o.base))
+    // Lowest first, so each lobe's shadow falls on the one below it.
+    .sort((a, b) => b.main.y + b.main.r * b.main.flat - (a.main.y + a.main.r * a.main.flat));
+  const g = svg('g', {}, ...ls.map((L) => lobe(L, light, t)));
+  if (o.base === undefined) return g;
+  let x0 = Infinity, x1 = -Infinity, top = Infinity;
+  for (const q of puffs) {
+    x0 = Math.min(x0, q.x - q.r * 1.6);
+    x1 = Math.max(x1, q.x + q.r * 1.6);
+    top = Math.min(top, q.y - q.r * 1.6);
+  }
+  const base = o.base;
+  const h = base - top;
+  // The base in shadow: a wavy hard edge a little way up.
+  const y0 = base - (o.shadow ?? h * 0.2);
+  const pts: string[] = [];
+  for (let i = 0; i <= 24; i++) {
+    const x = x0 + ((x1 - x0) * i) / 24;
+    pts.push(`${x.toFixed(1)},${(y0 + Math.sin(i * 1.7 + x0) * h * 0.035).toFixed(1)}`);
+  }
+  const union = ls.flatMap((L) => [L.main, ...L.bumps]).map((q) => disc(q, 0, 0, 1, '#000'));
+  return svg('g', { 'clip-path': `url(#${id}b)` },
+    svg('clipPath', { id: `${id}b` }, svg('rect', { x: x0, y: top, width: x1 - x0, height: base - top })),
+    svg('clipPath', { id: `${id}u` }, ...union),
+    g,
+    svg('g', { 'clip-path': `url(#${id}u)` },
+      svg('polygon', { points: `${pts.join(' ')} ${x1},${base + 1} ${x0},${base + 1}`, fill: t.cloudShade, opacity: 0.55 })),
+  );
+}
+
+/** A sheet of cells, such as altocumulus: small flattened lobes with no bumps, each with its own shade. */
+export function celCells(puffs: Puff[], t: Tones, light: Light = UPPER_RIGHT): SVGElement {
+  const cells = [...puffs].sort((a, b) => a.y - b.y);
+  // Cells are lit more from above than from the side.
+  const l = unit(light[0] * 0.6, light[1] * 0.6 - 0.5);
+  return svg('g', {}, ...cells.map((q) => lobe({ main: q, bumps: [] }, [l[0] * 0.8, l[1] * 0.8], t)));
+}
+
+/** Cirrus strands: a broad ribbon in two tones with fine fibres along it. */
+export function celCirrus(c: Cirrus, t: Tones, seed = 9): SVGElement {
+  const rng = makeRng(seed);
+  const g = svg('g', { opacity: 0.9 });
+  for (const s of c.strands) {
+    const side = (sgn: number, k: number, dy: number) => s.pts.map(([x, y, hw], i) => {
+      const [ax, ay] = s.pts[Math.max(0, i - 1)];
+      const [bx, by] = s.pts[Math.min(s.pts.length - 1, i + 1)];
+      const [tx, ty] = unit(bx - ax, by - ay);
+      return `${(x - ty * hw * k * sgn).toFixed(1)},${(y + dy + tx * hw * k * sgn).toFixed(1)}`;
+    });
+    g.append(
+      svg('polygon', { points: [...side(1, 1.5, 0.6), ...side(-1, 1.5, 0.6).reverse()].join(' '), fill: t.cloudMid, opacity: 0.7 }),
+      svg('polygon', { points: [...side(1, 1.1, -0.3), ...side(-1, 1.1, -0.3).reverse()].join(' '), fill: t.cloudLight, opacity: 0.85 }),
+    );
+    for (let f = 0; f < 3; f++) {
+      const off = (rng() - 0.5) * 2.4;
+      const from = Math.floor(rng() * 4);
+      const pts = s.pts.slice(from).map(([x, y]) => `${x.toFixed(1)},${(y + off).toFixed(1)}`);
+      g.append(svg('polyline', { points: pts.join(' '), fill: 'none', stroke: t.cloudLight, 'stroke-width': 0.5, 'stroke-linecap': 'round' }));
+    }
+  }
+  return g;
+}
+
+/** A sheet in flat bands: a rolling lit top, the body, and a shaded, ragged base. */
+export function celSheet(c: Sheet, t: Tones, seed = 5): SVGElement {
+  const rng = makeRng(seed);
+  const d = c.detail ?? Math.max(2, (c.bottom - c.top) * 0.3);
+  const n = Math.max(4, Math.round((c.x1 - c.x0) / (d * 2)));
+  const xs = Array.from({ length: n + 1 }, (_, i) => c.x0 + ((c.x1 - c.x0) * i) / n);
+  const edge = (y: number, amp: number) => xs.map((x) => [x, y + (rng() - 0.5) * amp] as const);
+  const top = edge(c.top, d);
+  const lit = edge(c.top + d * 0.9, d * 0.8);
+  const shade = edge(c.bottom - d * 0.9, d * 0.8);
+  const bot = edge(c.bottom, d * 0.6);
+  const poly = (a: readonly (readonly [number, number])[], b: readonly (readonly [number, number])[], fill: string, opacity = 1) =>
+    svg('polygon', { points: [...a, ...[...b].reverse()].map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' '), fill, opacity });
+  const o = 0.35 + 0.65 * c.density;
+  return svg('g', { opacity: o },
+    poly(top, bot, t.cloudMid),
+    poly(top, lit, t.cloudLight),
+    poly(shade, bot, t.cloudShade, 0.6 + 0.4 * c.density),
+  );
+}
+
+function heap(c: Heap, t: Tones): SVGElement {
+  return celHeap(c.puffs, t, { light: unit(SUN[0] - c.cx, SUN[1] - (c.base - c.h / 2)), base: c.base, shadow: c.h * 0.24 });
+}
+
+function layer(c: Layer, t: Tones): SVGElement {
+  return celCells(c.puffs, t, unit(SUN[0] - (c.x0 + c.x1) / 2, SUN[1] - (c.top + c.bottom) / 2));
+}
+
+/** A described sky in flat vector, lit from the scene's sun (the cloud lab's test sky). */
+export function flatClouds(clouds: Cloud[], p: Palette): { node: SVGElement; ms: number } {
+  const t0 = performance.now();
+  const g = svg('g', {}, ...clouds.map((c) => (c.kind === 'heap' ? heap(c, p) : c.kind === 'layer' ? layer(c, p) : c.kind === 'sheet' ? celSheet(c, p) : celCirrus(c, p))));
+  return { node: g, ms: performance.now() - t0 };
+}

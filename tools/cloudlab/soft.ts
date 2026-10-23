@@ -6,7 +6,7 @@
 
 import { svg } from '../../src/app/dom';
 import type { Palette } from '../../src/app/scene/landscape';
-import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff } from './scene';
+import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff } from '../../src/app/clouds/shapes';
 
 let count = 0;
 
@@ -104,6 +104,6 @@ export function softClouds(clouds: Cloud[], p: Palette): { node: SVGElement; ms:
   const t0 = performance.now();
   const defs = svg('defs');
   const g = svg('g', {}, defs);
-  for (const c of clouds) g.append(c.kind === 'heap' ? heap(c, p, defs) : c.kind === 'layer' ? layer(c, p, defs) : cirrus(c, p, defs));
+  for (const c of clouds) g.append(c.kind === 'heap' ? heap(c, p, defs) : c.kind === 'layer' ? layer(c, p, defs) : c.kind === 'cirrus' ? cirrus(c, p, defs) : svg('g'));
   return { node: g, ms: performance.now() - t0 };
 }

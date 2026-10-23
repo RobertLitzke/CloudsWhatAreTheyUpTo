@@ -6,12 +6,13 @@ import '../../src/app/styles/app.css';
 import { el } from '../../src/app/dom';
 import { placeCloud } from '../../src/app/scene/drawn';
 import { makeScene, type TimeOfDay } from '../../src/app/scene/landscape';
-import { paintClouds } from './paint';
-import { SUN, testSky } from './scene';
+import { paintClouds } from '../../src/app/clouds/paint';
+import { SUN, testSky } from '../../src/app/clouds/shapes';
 import { softClouds } from './soft';
-import { flatClouds } from './flat';
+import { flatClouds } from '../../src/app/clouds/flat';
 import { contourClouds } from './contour';
-import { marchClouds } from './volume';
+import { marchClouds } from '../../src/app/clouds/volume';
+import { svg } from '../../src/app/dom';
 
 type Renderer = (time: TimeOfDay) => { node: SVGElement; ms: number };
 
@@ -35,7 +36,11 @@ const RENDERERS: Record<string, [string, Renderer]> = {
   flat: ['D: cel-shaded flat vector', (time) => flatClouds(testSky(), makeScene({ time }).palette)],
   contour: ['E: traced light, flat vector', (time) => contourClouds(testSky(), makeScene({ time }).palette)],
   paint: ['B: canvas density painter', (time) => paintClouds(testSky(), makeScene({ time }).palette)],
-  volume: ['C: WebGL ray-marched volumes', (time) => marchClouds(testSky(), makeScene({ time }).palette)],
+  volume: ['C: WebGL ray-marched volumes', (time) => {
+    const t0 = performance.now();
+    const canvas = marchClouds(testSky(), { width: 400, height: 260, sun: [SUN[0], SUN[1], -40], tones: makeScene({ time }).palette, scale: 3 });
+    return { node: svg('image', { href: canvas?.toDataURL() ?? '', width: 400, height: 260 }), ms: performance.now() - t0 };
+  }],
 };
 
 const q = new URLSearchParams(location.search);
