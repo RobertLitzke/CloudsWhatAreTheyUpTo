@@ -56,6 +56,9 @@ function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], o
           fig.classList.add('done');
           onDone(block.figure);
         });
+      } else {
+        // A still has nothing to finish; a talk cued after it waits for Continue all the same.
+        onDone(block.figure);
       }
       return fig;
     }

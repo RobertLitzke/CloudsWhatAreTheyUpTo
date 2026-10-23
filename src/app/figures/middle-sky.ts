@@ -1,4 +1,4 @@
-// Figures for the middle sky: the sun through thickening cloud, the hand
+// Figures for the middle sky: the sun through ever thicker cloud, the hand
 // trick, self-shadows, and stills of warm air gliding up over cold and a
 // cloud layer turning over.
 
@@ -170,38 +170,35 @@ export const shadowFigure = figure(['shade'], (_ctx, t) => {
 
 // ---- The sun through thickening cloud ---------------------------------------
 
-export const sunThroughFigure = figure(['cirrostratus', 'altostratus', 'nimbostratus'], (_ctx, t) => {
-  const W = 400;
-  const H = 230;
-  const f = frame(W, H);
-  const g = svg('g');
-  f.svg.append(g);
-  const paint = (thick: number) => {
-    const stage = thick < 0.33 ? 'cirrostratus' : thick < 0.72 ? 'altostratus' : 'nimbostratus';
-    const skyL = 80 - thick * 45;
-    const sky = `hsl(250, ${18 - thick * 10}%, ${skyL}%)`;
+export const sunThroughDiagram: FigureFactory = () => {
+  const d = still(400, 222);
+  const pw = 400 / 3;
+  const ground = 150;
+  const stages: [string, number, string, string][] = [
+    ['Cirrostratus', 0.1, 'sharp sun, a halo,', 'shadows on the ground'],
+    ['Altostratus', 0.5, 'sun as if through frosted', 'glass: no halo, no shadows'],
+    ['Nimbostratus', 0.9, 'sun gone; steady', 'rain or snow'],
+  ];
+  const panel = ([name, thick, a, b]: [string, number, string, string], i: number): SVGElement[] => {
+    const ox = i * pw;
+    const cx = ox + pw / 2;
     const sunOpacity = Math.max(0, 1 - thick * 1.25);
     const blur = thick * 14;
     const shadow = Math.max(0, 1 - thick * 3);
-    redraw(g,
-      svg('rect', { x: 0, y: 0, width: W, height: H, fill: sky }),
-      svg('circle', { cx: 200, cy: 70, r: 14 + blur, fill: '#fff8e0', opacity: sunOpacity * (blur > 2 ? 0.6 : 1) }),
-      svg('circle', { cx: 200, cy: 70, r: 14, fill: '#fffbe9', opacity: sunOpacity * (1 - thick) }),
-      stage === 'cirrostratus' ? svg('circle', { cx: 200, cy: 70, r: 52, fill: 'none', stroke: '#fff', 'stroke-width': 4, opacity: 0.6 * (1 - thick * 2) }) : null,
-      stage === 'nimbostratus' ? svg('g', { opacity: (thick - 0.72) * 3 }, ...Array.from({ length: 30 }, (_, i) => line(i * 14, 100 + (i % 3) * 10, i * 14 - 8, 196, COL.rain, 1.3))) : null,
-      svg('rect', { x: 0, y: 196, width: W, height: 34, fill: '#4d5a3f' }),
-      line(140, 196, 140, 150, '#3b2f28', 4),
-      svg('polygon', { points: `140,198 ${140 + 60},${206} ${140 + 60},${202}`, fill: '#000', opacity: 0.45 * shadow }),
-    );
-    const words: Record<string, string> = {
-      cirrostratus: 'Cirrostratus: a thin ice veil. The sun is sharp, posts still cast shadows, and there is often a halo.',
-      altostratus: 'Altostratus: a thicker sheet of droplets and ice. The sun shows as if through frosted glass: no halo, no shadows.',
-      nimbostratus: 'Nimbostratus: the sun is gone and rain or snow is falling steadily.',
-    };
-    f.readout.textContent = words[stage];
-    if (t.goal === stage) t.done();
+    return [
+      svg('rect', { x: ox, y: 0, width: pw, height: ground, fill: `hsl(250, ${18 - thick * 10}%, ${80 - thick * 45}%)` }),
+      svg('circle', { cx, cy: 54, r: 12 + blur, fill: '#fff8e0', opacity: sunOpacity * (blur > 2 ? 0.6 : 1) }),
+      svg('circle', { cx, cy: 54, r: 12, fill: '#fffbe9', opacity: sunOpacity * (1 - thick) }),
+      thick < 0.33 ? svg('circle', { cx, cy: 54, r: 40, fill: 'none', stroke: '#fff', 'stroke-width': 3.5, opacity: 0.6 * (1 - thick * 2) }) : null,
+      thick > 0.72 ? svg('g', { opacity: Math.min(1, (thick - 0.72) * 5) }, ...Array.from({ length: 10 }, (_, k) => line(ox + 6 + k * 14, 84 + (k % 3) * 8, ox + k * 14, ground, COL.rain, 1.3))) : null,
+      svg('rect', { x: ox, y: ground, width: pw, height: 16, fill: '#4d5a3f' }),
+      line(cx - 20, ground, cx - 20, ground - 34, '#3b2f28', 3.5),
+      svg('polygon', { points: `${cx - 20},${ground + 2} ${cx + 22},${ground + 9} ${cx + 22},${ground + 5}`, fill: '#000', opacity: 0.45 * shadow }),
+      heading(cx, 184, name),
+      small(cx, 198, a, { anchor: 'middle' }),
+      small(cx, 210, b, { anchor: 'middle' }),
+    ].filter(Boolean) as SVGElement[];
   };
-  f.controls.append(slider('Thickness', 0, 1, 0.01, 0.1, (v) => (v < 0.33 ? 'thin' : v < 0.72 ? 'thick' : 'very thick'), paint, 'ink').node);
-  paint(0.1);
-  return f.node;
-});
+  d.svg.append(...stages.flatMap(panel), ...[1, 2].map((i) => line(i * pw, 0, i * pw, ground + 16, '#fff', 2)));
+  return { node: d.node };
+};

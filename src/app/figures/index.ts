@@ -7,7 +7,7 @@ import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, 
 import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, stabilityDiagram, thermalsFigure } from './heaps';
 import { escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, iceGrowthFigure, prismFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
 import { collideDiagram, depthDiagram, dropsFigure, edgesDiagram, freezingFigure, layerKindsDiagram, millionDiagram, nameGridDiagram, spreadFigure, subsidenceDiagram } from './low-sky';
-import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughFigure } from './middle-sky';
+import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughDiagram } from './middle-sky';
 import { forecastFigure, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
 import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure } from './seeding';
 import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
@@ -24,7 +24,7 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   night: nightFigure,
   spread: spreadFigure,
   drops: dropsFigure,
-  sunThrough: sunThroughFigure,
+  sunThrough: sunThroughDiagram,
   hand: handFigure,
   shadow: shadowFigure,
   streaks: streaksFigure,

@@ -33,11 +33,11 @@ describe('radio talks', () => {
     }
   });
 
-  it('only wait on figures in their lesson that have a task', () => {
+  it('only wait on figures in their lesson', () => {
     for (const s of SHIFTS) {
-      const tasked = blocks(s.id).filter((b) => b.kind === 'figure' && b.task).map((b) => (b as { figure: string }).figure);
+      const shown = blocks(s.id).filter((b) => b.kind === 'figure').map((b) => (b as { figure: string }).figure);
       for (const t of radioFor(s.id).talks) {
-        if (typeof t.cue === 'object') expect(tasked, `${s.id} ${t.id}`).toContain(t.cue.after);
+        if (typeof t.cue === 'object') expect(shown, `${s.id} ${t.id}`).toContain(t.cue.after);
       }
     }
   });
