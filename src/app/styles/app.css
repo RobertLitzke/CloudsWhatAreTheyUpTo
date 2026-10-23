@@ -240,7 +240,19 @@ main { display: block; }
   line-height: 1.62;
 }
 .article-intro .eyebrow { color: var(--rose); margin: 0 0 4px; }
-.article-intro h1 { color: var(--ink); font-size: 2rem; line-height: 1.05; margin: 0 0 8px; }
+/* Magenta letters on an ink drop shadow, so the two tones read apart on the
+   paper. Tilting about the bottom-left corner keeps the last line's start
+   where the layout put it, so the gap to the lede is the margin, one line
+   or two. */
+.article-intro h1 {
+  color: var(--rose);
+  -webkit-text-stroke: 0.04em var(--ink);
+  text-shadow: 0.07em 0.09em 0 var(--ink);
+  transform-origin: 0 100%;
+  font-size: 2rem;
+  line-height: 1.12;
+  margin: 18px 0 20px;
+}
 .lede { font-size: 1.12rem; color: var(--ink-soft); margin: 0 0 10px; }
 .meet { list-style: none; padding: 0; margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 6px; }
 .meet li { background: var(--ink); color: var(--paper); border-radius: 999px; padding: 3px 12px; font: 600 0.78rem/1.6 var(--display); letter-spacing: 0.08em; text-transform: uppercase; }
