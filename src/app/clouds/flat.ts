@@ -10,7 +10,7 @@
 import { svg } from '../dom';
 import { makeRng } from '../../core/rng';
 import type { Palette } from '../scene/landscape';
-import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet, cellPuffs } from './shapes';
+import { SUN, heap as heapShape, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet, cellPuffs } from './shapes';
 
 /** The three tones a cloud is drawn in; every scene palette has them. */
 export type Tones = Pick<Palette, 'cloudShade' | 'cloudMid' | 'cloudLight'>;
@@ -115,6 +115,51 @@ export function celHeap(puffs: Puff[], t: Tones, o: HeapOptions = {}): SVGElemen
     g,
     svg('g', { 'clip-path': `url(#${id}u)` },
       svg('polygon', { points: `${pts.join(' ')} ${x1},${base + 1} ${x0},${base + 1}`, fill: t.cloudShade, opacity: 0.55 })),
+  );
+}
+
+/**
+ * A cumulus of any shape in flat vector, flat base at `base`: a dome when it
+ * is wider than tall, a tower of turrets, each a dome rising out of the one
+ * below, when it is taller.
+ */
+export function celCumulus(cx: number, base: number, width: number, height: number, t: Tones, seed = 1, light: Light = UPPER_RIGHT): SVGElement {
+  const rng = makeRng(seed);
+  if (height <= width * 0.9) {
+    return celHeap(heapShape(cx, base, width, height, seed, false).puffs, t, { base, seed, light });
+  }
+  // A tower: a column of lobes in pairs, bulging out a little to either side,
+  // under a cauliflower crown. One heap, so every lobe's shadow creases the
+  // one below it, as on the dome.
+  const crownH = width * 0.55;
+  const rowH = width * 0.42;
+  const rows = Math.max(1, Math.round((height - crownH * 0.6) / rowH));
+  const step = (height - crownH * 0.6) / rows;
+  const puffs: Puff[] = [];
+  for (let k = 0; k < rows; k++) {
+    const y = base - (k + 0.55) * step;
+    const r = width * (0.33 + 0.05 * rng());
+    const side = k & 1 ? 1 : -1;
+    puffs.push({ x: cx + side * width * (0.13 + 0.05 * rng()), y, z: 0, r, flat: 1 });
+    puffs.push({ x: cx - side * width * (0.11 + 0.05 * rng()), y: y - step * 0.45, z: 0, r: r * 0.92, flat: 1 });
+  }
+  puffs.push(...heapShape(cx + (rng() - 0.5) * width * 0.1, base - height + crownH, width * 1.05, crownH, seed, false).puffs);
+  return celHeap(puffs, t, { base, seed, light, shadow: Math.min(height * 0.12, width * 0.3) });
+}
+
+/**
+ * An anvil in flat bands: a wedge from tip `x0` to tip `x1`, thickest where
+ * the tower feeds it (from `c0` to `c1`), its top along `top`. The underside
+ * in shade, a lit body, and a bright sunward upper edge.
+ */
+export function celAnvil(x0: number, x1: number, c0: number, c1: number, top: number, bottom: number, t: Tones): SVGElement {
+  const h = bottom - top;
+  const pt = (x: number, y: number) => `${x.toFixed(1)},${y.toFixed(1)}`;
+  const at = (k: number) => [pt(c0, top + h * k), pt(x0, top + h * 0.3 * k + h * 0.15), pt(x0 + (c0 - x0) * 0.4, top + h * 0.05), pt(x1, top), pt(c1, top + h * k)].join(' ');
+  return svg('g', {},
+    svg('polygon', { points: at(1), fill: t.cloudShade }),
+    svg('polygon', { points: at(0.65), fill: t.cloudMid }),
+    svg('polygon', { points: [pt(c0 - (c0 - x0) * 0.3, top + h * 0.2), pt(x0 + (c0 - x0) * 0.4, top + h * 0.05), pt(x1, top), pt(x1 - (x1 - c1) * 0.25, top + h * 0.12), pt(c1, top + h * 0.3)].join(' '), fill: t.cloudLight }),
   );
 }
 

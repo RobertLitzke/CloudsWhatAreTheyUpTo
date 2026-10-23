@@ -11,7 +11,7 @@
 import { svg } from '../dom';
 import type { GenusId } from '../../core/clouds';
 import { makeRng, type Rng } from '../../core/rng';
-import { celCells, celHeap } from '../clouds/flat';
+import { celCells, celCumulus, celHeap } from '../clouds/flat';
 import { heap as heapPuffs, type Puff } from '../clouds/shapes';
 import { W, type Palette } from './landscape';
 
@@ -19,14 +19,8 @@ function cumulus(p: Palette, seed: number): SVGElement {
   return celHeap(heapPuffs(0, 0, 80, 40, seed, false).puffs, p, { base: 0, seed });
 }
 
-function cumulonimbus(p: Palette, rng: Rng, seed: number): SVGElement {
-  // A tower of turrets, each a cumulus dome rising out of the one below:
-  // drawn top down, so each lower turret sits in front of the one above it.
-  const turrets: [w: number, h: number, base: number][] = [[66, 44, -84], [60, 46, -58], [64, 44, -30], [74, 42, 0]];
-  const tower = svg('g', {}, ...turrets.map(([w, h, base], i) => {
-    const puffs = heapPuffs(rng() * 4 - 2, base, w, h, seed * 7 + i, false).puffs;
-    return base === 0 ? celHeap(puffs, p, { base: 0, seed: seed + i }) : celHeap(puffs, p, { seed: seed + i });
-  }));
+function cumulonimbus(p: Palette, seed: number): SVGElement {
+  const tower = celCumulus(0, 0, 74, 130, p, seed);
   const anvilY = -128;
   const anvil = svg('g', {},
     // Underside in shade, a lit top, and a bright sunward edge.
@@ -199,7 +193,7 @@ export function drawCloud(id: GenusId, p: Palette, seed = 1, span = 90): SVGElem
   const rng = makeRng(seed);
   switch (id) {
     case 'cumulus': return cumulus(p, seed);
-    case 'cumulonimbus': return cumulonimbus(p, rng, seed);
+    case 'cumulonimbus': return cumulonimbus(p, seed);
     case 'stratus': return stratus(p, rng, span);
     case 'stratocumulus': return stratocumulus(p, rng, seed);
     case 'altocumulus': return altocumulus(p, rng);

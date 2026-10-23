@@ -6,6 +6,8 @@
 import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { svg } from '../dom';
 import { realClouds } from '../clouds/real';
+import { celAnvil, celCumulus, celHeap } from '../clouds/flat';
+import { FIGURE } from '../clouds/tones';
 import { arrow, heading, heapAt, line, points, polyline, redraw, small, still } from './draw';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 import { strikeKm } from '../../core/sky';
@@ -113,7 +115,8 @@ export const tropopauseDiagram: FigureFactory = () => {
     svg('rect', { x: 0, y: ground, width: 400, height: 20, fill: COL.ground }),
     line(0, yOf(11), 400, yOf(11), COL.env, 1.4, { 'stroke-dasharray': '5 4' }),
     // A storm tower whose top spreads into an anvil under the lid.
-    svg('path', { d: `M60,${ground} L60,${yOf(4)} Q50,${yOf(8)} 80,${yOf(10)} L20,${yOf(10.6)} Q90,${yOf(11.6)} 200,${yOf(10.8)} L120,${yOf(10)} Q150,${yOf(7)} 130,${yOf(4)} L130,${ground} Z`, fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 1.2 }),
+    celCumulus(95, yOf(1.2), 80, yOf(1.2) - yOf(10.4), FIGURE, 4),
+    celAnvil(20, 200, 68, 124, yOf(11.3), yOf(10.1), FIGURE),
     arrow(95, yOf(2), 95, yOf(9.6), COL.parcel, 2.2),
     arrow(110, yOf(10.4), 180, yOf(10.5), COL.parcel, 1.6),
     // The temperature profile.
@@ -162,8 +165,9 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
       const anvil = 60 + k * 90;
       parts.push(
         heapAt(cx, baseY, 46, baseY - tropo - 10),
-        svg('polygon', { points: `${cx - 40},${tropo + 18} ${cx - 40 - anvil * 0.4},${tropo + 4} ${cx + 40 + anvil},${tropo} ${cx + 40},${tropo + 22}`, fill: '#fff', stroke: COL.cloudShade }),
-        svg('circle', { cx, cy: tropo - 2, r: 10, fill: '#fff', stroke: COL.cloudShade }),
+        celAnvil(cx - 40 - anvil * 0.4, cx + 40 + anvil, cx - 40, cx + 40, tropo - 2, tropo + 22, FIGURE),
+        // The overshooting top, punching just above the lid.
+        celHeap([{ x: cx, y: tropo - 2, z: 0, r: 10, flat: 0.9 }], FIGURE, { bumps: false }),
         up(cx - 20, baseY + 30, tropo + 40),
         down(cx + 22, baseY - 60, ground - 6),
         ...Array.from({ length: 8 }, (_, i) => line(cx + 6 + i * 6, baseY + 4, cx + 2 + i * 6, ground, COL.rain, 1.4, { opacity: 0.8 })),
@@ -179,7 +183,7 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
       const k = (min - 40) / 20;
       parts.push(
         svg('g', { opacity: 1 - k * 0.7 }, heapAt(cx, baseY + 10, 40, 80 - k * 50)),
-        svg('polygon', { points: `${cx - 50 + k * 40},${tropo + 18} ${cx - 90 + k * 40},${tropo + 4} ${cx + 160 + k * 30},${tropo} ${cx + 60 + k * 40},${tropo + 22}`, fill: '#fff', stroke: COL.cloudShade, opacity: 0.95 }),
+        celAnvil(cx - 90 + k * 40, cx + 160 + k * 30, cx - 50 + k * 40, cx + 60 + k * 40, tropo, tropo + 22 - k * 6, FIGURE),
         down(cx, baseY - 30, ground - 6),
         ...Array.from({ length: 4 }, (_, i) => line(cx - 10 + i * 8, baseY + 14, cx - 14 + i * 8, ground, COL.rain, 1.2, { opacity: 0.6 - k * 0.5 })),
       );

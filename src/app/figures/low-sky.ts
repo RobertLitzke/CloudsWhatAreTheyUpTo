@@ -182,12 +182,12 @@ export const spreadFigure = figure(['sheet'], (_ctx, t) => {
   const paint = () => {
     const base = 150;
     const lidY = 150 - 30 - (1 - lid) * 80; // A strong lid sits low and close above the cloud base.
-    const spread = 18 + lid * moist * 34;
+    const spread = 24 + lid * moist * 28;
     const n = 6;
     const parts: SVGElement[] = [];
     for (let i = 0; i < n; i++) {
       const cx = 30 + i * 68;
-      const h = Math.min(base - lidY, 26 + moist * 70);
+      const h = Math.min(base - lidY, 24 + moist * 52);
       parts.push(heapAt(cx, base, spread, h));
     }
     const coverage = Math.min(1, (spread * 2 * n) / W);

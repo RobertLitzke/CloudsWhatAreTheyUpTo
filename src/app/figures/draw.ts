@@ -3,6 +3,8 @@
 // what a figure is; this file only draws.
 
 import { el, svg } from '../dom';
+import { celCumulus, celHeap } from '../clouds/flat';
+import { FIGURE } from '../clouds/tones';
 import { COL } from './kit';
 
 export type Attrs = Record<string, string | number>;
@@ -122,26 +124,14 @@ export function crystal(cx: number, cy: number, r: number): SVGElement {
   return g;
 }
 
-/** A cumulus-like puff from circles, with a flat base cut at `base` when given. */
+/** A cumulus-like puff of lobes in flat, cel-shaded vector, cut flat at `base` when given. */
 export function puff(cx: number, cy: number, s: number, cut?: { base: number; sky: string }): SVGElement {
   const blobs: [number, number, number][] = [[-22, 6, 16], [0, -8, 22], [22, 4, 17], [-8, -24, 14], [12, -22, 15], [0, 10, 18]];
-  const g = svg('g', {}, ...blobs.map(([dx, dy, r]) => svg('circle', { cx: cx + dx * s, cy: cy + dy * s, r: r * s, fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 })));
-  if (cut) g.append(svg('rect', { x: cx - 50 * s, y: cut.base, width: 100 * s, height: 40 * s, fill: cut.sky }));
-  return g;
+  const puffs = blobs.map(([dx, dy, r]) => ({ x: cx + dx * s, y: cy + dy * s, z: 0, r: r * s, flat: 1 }));
+  return celHeap(puffs, FIGURE, { base: cut?.base, seed: Math.round(cx) });
 }
 
-/** A plain heap with a flat base at `baseY`, `w` wide and `h` tall, in figure colours. */
+/** A heap with a flat base at `baseY`, about `w` * 1.6 wide and `h` tall, in flat, cel-shaded vector: a dome, or a tower of turrets when tall. */
 export function heapAt(cx: number, baseY: number, w: number, h: number): SVGElement {
-  const g = svg('g');
-  const n = Math.max(3, Math.round(h / 12));
-  for (let i = 0; i < n; i++) {
-    const y = baseY - (i / n) * h - 6;
-    const spread = w * (1 - (i / n) * 0.45);
-    for (const dx of [-spread * 0.45, 0, spread * 0.45]) {
-      g.append(svg('circle', { cx: cx + dx + (i % 2 ? 3 : -3), cy: y, r: Math.max(6, spread * 0.36), fill: COL.cloud, stroke: COL.cloudShade, 'stroke-width': 1 }));
-    }
-  }
-  // Shade under the flat base.
-  g.append(svg('rect', { x: cx - w * 0.75, y: baseY - 4, width: w * 1.5, height: 4, fill: COL.cloudShade }));
-  return g;
+  return celCumulus(cx, baseY, w * 1.6, h + 6, FIGURE, Math.round(cx));
 }
