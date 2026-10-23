@@ -523,12 +523,16 @@ export const collideDiagram: FigureFactory = () => {
   const dropX = 120;
   const dropY = 72;
   const dropR = 9;
+  // The drop grows as it sweeps droplets up, so the path it clears widens on the way down.
+  const laterR = 14;
+  const pathR = (y: number) => dropR + ((laterR - dropR) * (y - dropY)) / (228 - dropY);
   const specks: SVGElement[] = [];
   for (let i = 0; i < 70; i++) {
     const x = 12 + rnd() * 226;
     const y = 30 + rnd() * 190;
     if (Math.hypot(x - dropX, y - dropY) < dropR + 6) continue;
-    const inPath = Math.abs(x - dropX) < dropR && y > dropY;
+    if (Math.hypot(x - dropX, y - 196) < pathR(196) + 3) continue;
+    const inPath = y > dropY && Math.abs(x - dropX) < pathR(y);
     specks.push(svg('circle', { cx: x, cy: y, r: 1.6 + rnd() * 1.2, fill: inPath ? COL.dew : COL.rain, opacity: inPath ? 1 : 0.55 }));
     if (i % 5 === 0 && !inPath) specks.push(line(x, y + 4, x, y + 9, COL.soft, 1));
   }
@@ -537,15 +541,19 @@ export const collideDiagram: FigureFactory = () => {
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 250, height: 230, fill: '#eceaf2' }),
     heading(125, 18, 'Inside a warm cloud'),
-    line(dropX - dropR, dropY, dropX - dropR, 228, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
-    line(dropX + dropR, dropY, dropX + dropR, 228, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
+    line(dropX - dropR, dropY, dropX - laterR, 228, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
+    line(dropX + dropR, dropY, dropX + laterR, 228, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
     ...specks,
+    svg('circle', { cx: dropX, cy: 196, r: pathR(196), fill: 'none', stroke: COL.rain, 'stroke-width': 1.2, 'stroke-dasharray': '2 2' }),
     svg('circle', { cx: dropX, cy: dropY, r: dropR, fill: COL.rain }),
     arrow(dropX, dropY + dropR + 2, dropX, dropY + dropR + 34, COL.ink, 2),
     small(dropX + 14, dropY - 4, 'a bigger drop falls faster'),
     small(dropX + 16, 150, 'droplets in its path', { fill: COL.dew }),
     small(dropX + 16, 162, 'are swept up', { fill: COL.dew }),
-    small(14, 222, 'small droplets barely fall', { soft: true }),
+    small(14, 210, 'small droplets', { soft: true }),
+    small(14, 222, 'barely fall', { soft: true }),
+    small(dropX + 18, 199, 'later: bigger,', { fill: COL.rain }),
+    small(dropX + 18, 211, 'a wider path', { fill: COL.rain }),
     heading(325, 18, 'It snowballs'),
     ...stages.flatMap(([y, r, len], i) => [
       svg('circle', { cx: 300, cy: y + 10, r, fill: COL.rain }),
