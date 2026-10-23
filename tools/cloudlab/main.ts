@@ -9,6 +9,8 @@ import { makeScene, type TimeOfDay } from '../../src/app/scene/landscape';
 import { paintClouds } from './paint';
 import { SUN, testSky } from './scene';
 import { softClouds } from './soft';
+import { flatClouds } from './flat';
+import { contourClouds } from './contour';
 import { marchClouds } from './volume';
 
 type Renderer = (time: TimeOfDay) => { node: SVGElement; ms: number };
@@ -30,6 +32,8 @@ const today: Renderer = (time) => {
 const RENDERERS: Record<string, [string, Renderer]> = {
   today: ['Today: flat drawn puffs', today],
   soft: ['A: soft SVG filters', (time) => softClouds(testSky(), makeScene({ time }).palette)],
+  flat: ['D: cel-shaded flat vector', (time) => flatClouds(testSky(), makeScene({ time }).palette)],
+  contour: ['E: traced light, flat vector', (time) => contourClouds(testSky(), makeScene({ time }).palette)],
   paint: ['B: canvas density painter', (time) => paintClouds(testSky(), makeScene({ time }).palette)],
   volume: ['C: WebGL ray-marched volumes', (time) => marchClouds(testSky(), makeScene({ time }).palette)],
 };

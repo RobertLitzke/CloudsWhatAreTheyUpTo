@@ -40,9 +40,11 @@ function relief(puffs: Puff[], x: number, y: number, soft = 0): number {
   return best;
 }
 
-interface Field {
+export interface Field {
   box: [number, number, number, number];
   density(x: number, y: number): number;
+  /** Brightness 0..1 at a point of density `d`, before grading. */
+  light(x: number, y: number, d: number): number;
   shade(x: number, y: number, d: number, out: RGB): number;
 }
 
@@ -81,7 +83,7 @@ function lumpyField(L: Lumps, ramp: ReturnType<typeof rampOf>, box: Field['box']
   return {
     box,
     density,
-    shade(x, y, d, out) {
+    light(x, y, d) {
       // The surface's slope, from the relief either side.
       const v = zs(x, y);
       const gx = (zs(x + e, y) - v) / e;
@@ -95,7 +97,10 @@ function lumpyField(L: Lumps, ramp: ReturnType<typeof rampOf>, box: Field['box']
       let l = (0.5 * lam + 0.5 * t) * lightness(y) + 0.08;
       // The sunlit rim: thin cloud the sun shines straight through.
       l += (1 - d) * t * 0.3;
-      grade(ramp, clamp(l), out);
+      return clamp(l);
+    },
+    shade(x, y, d, out) {
+      grade(ramp, this.light(x, y, d), out);
       return d;
     },
   };
@@ -160,6 +165,7 @@ function cirrusField(c: Cirrus, p: Palette): Field {
   return {
     box: [x0 - 8, y0 - 8, x1 + 8, y1 + 8],
     density,
+    light: (_x, _y, d) => 0.82 + 0.18 * (1 - d),
     shade(_x, _y, d, out) {
       grade(ramp, 0.82 + 0.18 * (1 - d), out);
       return clamp(d * 0.85);
@@ -170,6 +176,10 @@ function cirrusField(c: Cirrus, p: Palette): Field {
 function unit(x: number, y: number): [number, number] {
   const n = Math.hypot(x, y) || 1;
   return [x / n, y / n];
+}
+
+export function fieldOf(cloud: Cloud, p: Palette): Field {
+  return cloud.kind === 'heap' ? heapField(cloud, p) : cloud.kind === 'layer' ? layerField(cloud, p) : cirrusField(cloud, p);
 }
 
 /** The clouds as one image to lay over a scene's sky, and how long they took. */
@@ -187,7 +197,7 @@ export function paintClouds(clouds: Cloud[], p: Palette, scale = 3): { node: SVG
   const alp = new Float32Array(cw * ch);
   const c: RGB = [0, 0, 0];
   for (const cloud of clouds) {
-    const f = cloud.kind === 'heap' ? heapField(cloud, p) : cloud.kind === 'layer' ? layerField(cloud, p) : cirrusField(cloud, p);
+    const f = fieldOf(cloud, p);
     const [bx0, by0, bx1, by1] = f.box;
     const px0 = Math.max(0, Math.floor(bx0 * scale)), px1 = Math.min(cw, Math.ceil(bx1 * scale));
     const py0 = Math.max(0, Math.floor(by0 * scale)), py1 = Math.min(ch, Math.ceil(by1 * scale));
