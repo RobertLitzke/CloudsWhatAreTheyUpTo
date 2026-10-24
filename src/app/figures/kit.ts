@@ -47,6 +47,20 @@ export const COL = {
   dust: '#8f8a80',
 } as const;
 
+/**
+ * The colours of a weather radar screen, from the weakest echo shown (5 dBZ)
+ * up in steps of 5: blues for drizzle and snow, greens for rain, yellow and
+ * red for heavy rain, magenta and purple for hail. Every radar figure uses
+ * them, as every radar app does, so the reader can carry them to a real one.
+ */
+export const RADAR = ['#9fe3e8', '#5ab8e8', '#3a7bd5', '#4cc94c', '#2fa13a', '#1f7a2e', '#f2e03a', '#f2b02e', '#f07a22', '#e0352a', '#b81f2a', '#8f1020', '#e040c8', '#9a50c8'] as const;
+
+/** The radar colour for an echo of `d` dBZ, or null when it is too faint to show. */
+export function radarColor(d: number): string | null {
+  if (!(d >= 5)) return null;
+  return RADAR[Math.min(RADAR.length - 1, Math.floor((d - 5) / 5))];
+}
+
 /** A colour at the given opacity, for a translucent fill. */
 export function tint(hex: string, alpha: number): string {
   const n = parseInt(hex.slice(1), 16);

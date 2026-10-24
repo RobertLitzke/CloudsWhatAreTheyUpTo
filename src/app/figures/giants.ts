@@ -1,5 +1,5 @@
 // Figures about the vertical giants and the rare ones: how tall heaps grow,
-// a thunderstorm's life, counting the seconds to the thunder, standing waves
+// a thunderstorm's life and how it looks on radar, counting the seconds to the thunder, standing waves
 // over a ridge, wind-shear billows, mammatus pouches under an anvil, and
 // stills of the tropopause and a storm's charges.
 
@@ -8,7 +8,8 @@ import { svg } from '../dom';
 import { realClouds } from '../clouds/real';
 import { celAnvil, celCumulus, celHeap } from '../clouds/flat';
 import { FIGURE } from '../clouds/tones';
-import { arrow, heading, heapAt, line, points, polyline, redraw, small, still } from './draw';
+import { arrow, heading, heapAt, line, points, polyline, radarImage, radarKey, redraw, small, still } from './draw';
+import { fbm } from '../clouds/noise';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 import { strikeKm } from '../../core/sky';
 
@@ -196,6 +197,69 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
   paint(0);
   return f.node;
 });
+
+// ---- A thunderstorm on radar ------------------------------------------------
+
+export const stormRadarDiagram: FigureFactory = (ctx) => {
+  const W = 400;
+  const H = 268;
+  const d = still(W, H);
+  const ground = 212;
+  const kmPx = 14;
+  const yOf = (km: number) => ground - km * kmPx;
+  const panels = [24, 150, 276];
+  const PW = 124;
+  const bell = (v: number, s: number) => Math.exp(-((v / s) ** 2));
+  // Each stage's echo, by distance from the tower's middle (px) and height (km).
+  const stages: ((dx: number, km: number) => number)[] = [
+    // Growing: the first rain forms high in the tower, where there is ice; none has reached the ground.
+    (dx, km) => 38 * bell(dx, 15) * bell(km - 6, 1.5) + 4,
+    // Mature: a core of heavy rain and hail from the ground up; a faint anvil drifting downwind.
+    (dx, km) => Math.max(
+      (km < 9.5 ? 52 + 12 * bell(km - 5, 1.6) - 3 * Math.max(0, km - 7) : 0) * bell(dx, 15 + km * 0.6),
+      (18 - dx * 0.05) * bell(km - 10.9, 0.75) * bell((dx - 18) / 50, 1),
+    ),
+    // Dissipating: the downdraught has won; the last rain falls out of the bottom, the anvil lingers.
+    (dx, km) => Math.max(
+      (km < 4 ? 34 - km * 3 : 0) * bell(dx, 24),
+      14 * bell(km - 10.5, 0.7) * bell((dx - 14) / 52, 1),
+    ),
+  ];
+  const tower = (x: number, kind: number) => {
+    const cx = x + 44;
+    const base = yOf(1.4);
+    const top = yOf(kind === 0 ? 8 : 12.2);
+    const lobes = kind === 0
+      ? `M${cx - 30},${base} C${cx - 36},${top + 60} ${cx - 22},${top} ${cx},${top} C${cx + 22},${top} ${cx + 36},${top + 60} ${cx + 30},${base} Z`
+      : `M${cx - 26},${base} L${cx - 22},${yOf(9.6)} L${cx - 40},${yOf(10.2)} Q${cx - 30},${top} ${cx},${top} L${cx + 76},${yOf(11.7)} L${cx + 76},${yOf(10.3)} L${cx + 22},${yOf(9.6)} L${cx + 26},${base} Z`;
+    return svg('path', { d: lobes, fill: '#ffffff', opacity: kind === 2 ? 0.55 : 0.85, stroke: COL.cloudShade, 'stroke-width': 1.2 });
+  };
+  const notes = [['Growing', 'first echo high up;', 'no rain at the ground'], ['Mature', 'a core from the ground', 'up; hail in the middle'], ['Dissipating', 'the rain falls out;', 'the anvil lingers']];
+  d.svg.append(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air }));
+  panels.forEach((x, k) => d.svg.append(tower(x, k)));
+  d.svg.append(radarImage(0, 0, W, ground, 3, (x, y) => {
+    const k = panels.findIndex((p) => x >= p && x < p + PW);
+    if (k < 0) return -Infinity;
+    const km = (ground - y) / kmPx;
+    const v = stages[k](x - (panels[k] + 44), km);
+    const n = v + (fbm(x / 9, y / 9) - 0.5) * 8;
+    return n < 8 ? -Infinity : n;
+  }));
+  d.svg.append(
+    svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.paper }),
+    line(0, ground, W, ground, COL.ground, 3),
+    ...[5, 10].map((km) => small(2, yOf(km) + 3, ctx.save.units === 'metric' ? `${km} km` : `${Math.round(km * 3.281)}k ft`, { soft: true })),
+    ...panels.flatMap((x, k) => [
+      heading(x + PW / 2, 14, notes[k][0]),
+      small(x + PW / 2, ground + 12, notes[k][1], { anchor: 'middle' }),
+      small(x + PW / 2, ground + 22, notes[k][2], { anchor: 'middle' }),
+      k ? line(x - 2, 22, x - 2, ground, COL.grid, 1) : null,
+    ].filter(Boolean) as SVGElement[]),
+    small(panels[0] + 4, yOf(1.4) + 10, 'white: the cloud', { soft: true }),
+    radarKey(12, 250, 376),
+  );
+  return { node: d.node };
+};
 
 // ---- Where a storm keeps its charge -----------------------------------------
 

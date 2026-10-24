@@ -34,6 +34,7 @@ export const FIGURE_IDS = [
   'lowMap', 'barometer', 'frontPass', 'slope', 'crossedWinds', 'rainShadow', 'buysBallot', 'barograph', 'veer', 'twoFronts', 'occlusion',
   'coldBox', 'dryIce', 'lattice', 'seedLayer', 'cloudWater', 'seedWindow', 'trial',
   'iceSteal', 'iceShortage', 'agentRange', 'fallstreak', 'mountainSeed', 'conveyor', 'fogHole', 'fairTest',
+  'radarEcho', 'brightBand', 'stormRadar', 'radarMap', 'frontRadar', 'seedLines',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 

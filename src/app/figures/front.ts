@@ -1,15 +1,18 @@
 // Figures for reading an approaching front: a storm seen from above, what a
 // barometer weighs, a whole storm going over a town hour by hour with the
 // barograph tracing it, how a front's steepness sets its cloud and rain, the
-// crossed-winds rule, and what the Cascades wring out of a Pacific storm.
+// storm and its fronts on radar, the crossed-winds rule, and what the
+// Cascades wring out of a Pacific storm.
 
 import { DRY_RATE } from '../../core/air';
 import { compass, crossRange, frontLift, stormSky, stormWeather, BASIN_M, COAST_C, coldSurfaceM, warmSurfaceM, WARM_SECTOR_H } from '../../core/storm';
 import { genus, type GenusId } from '../../core/clouds';
-import {  svg } from '../dom';
+import { svg } from '../dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
-import { arrow, curve, heading, label, line, note, points, polyline, redraw, still, type P } from './draw';
+import { arrow, curve, heading, label, line, note, points, polyline, radarImage, radarKey, redraw, still, type P } from './draw';
+import { fbm } from '../clouds/noise';
+import { rainDbz } from '../../core/radar';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 
 // ---- Shared bits ------------------------------------------------------------
@@ -530,6 +533,140 @@ export const slopeFigure = figure(['towers'], (ctx, t) => {
     if (t.goal === 'towers' && lift.kind === 'towers') t.done();
   };
   // Steeper to the right: the slider runs over the logarithm of the slope.
+  f.controls.append(slider('Steepness', 0, 1, 0.01, 0.33, (v) => `1 in ${Math.round(200 * Math.pow(25 / 200, v))}`, (v) => {
+    slope = 200 * Math.pow(25 / 200, v);
+    paint();
+  }, 'parcel').node);
+  slope = 200 * Math.pow(25 / 200, 0.33);
+  paint();
+  return f.node;
+});
+
+// ---- The storm on radar -----------------------------------------------------
+
+/** How far a point is from a line through `pts`, and which side of it: 1 to the right of the way it is drawn (on the page), −1 to the left. */
+function offset(pts: P[], x: number, y: number): { d: number; side: number; along: number } {
+  let best = { d: Infinity, side: 1, along: 0 };
+  let run = 0;
+  for (let i = 1; i < pts.length; i++) {
+    const [ax, ay] = pts[i - 1];
+    const [bx, by] = pts[i];
+    const vx = bx - ax;
+    const vy = by - ay;
+    const len2 = vx * vx + vy * vy;
+    const k = Math.max(0, Math.min(1, ((x - ax) * vx + (y - ay) * vy) / len2));
+    const d = Math.hypot(x - ax - k * vx, y - ay - k * vy);
+    if (d < best.d) best = { d, side: vx * (y - ay) - vy * (x - ax) > 0 ? 1 : -1, along: run + k * Math.sqrt(len2) };
+    run += Math.sqrt(len2);
+  }
+  return best;
+}
+
+/** The colour of an echo, in words. */
+function colourName(d: number): string {
+  return d < 20 ? 'blue' : d < 35 ? 'green' : d < 45 ? 'yellow' : d < 55 ? 'red' : 'magenta';
+}
+
+export const radarMapDiagram: FigureFactory = () => {
+  const d = still(400, 290);
+  // The same storm as the map at the start of the lesson.
+  const L: P = [150, 92];
+  const warm = curve([L[0] + 4, L[1] + 2], [235, 100], [312, 176]);
+  const cold = curve([L[0] - 2, L[1] + 6], [150, 170], [84, 236]);
+  const echo = (x: number, y: number) => {
+    const w = offset(warm, x, y);
+    const c = offset(cold, x, y);
+    const n = fbm(x / 20, y / 20);
+    const fromL = Math.hypot(x - L[0], y - L[1]);
+    // The cold front: a narrow line of cells just behind it.
+    if (c.along > 12 && (c.side > 0 ? c.d < 10 : c.d < 3)) {
+      const cell = fbm(x / 8 + 40, y / 8);
+      return 28 + 80 * Math.max(0, cell - 0.42);
+    }
+    // Ahead of the warm front, and wrapped round the north of the low: the wide shield of steady rain.
+    const ahead = w.side < 0 && w.d < 60 + n * 50 && y < 205;
+    const head = fromL < 46 + n * 30 && y < L[1] + (n - 0.4) * 30;
+    if (ahead || head) {
+      const v = ahead ? 36 - w.d * 0.2 : 30 - fromL * 0.2;
+      return v + (n - 0.5) * 12;
+    }
+    // Behind the cold front: scattered showers over the warm ground.
+    if (c.side > 0 && c.d > 16 && y > L[1] + 20) {
+      const s = fbm(x / 12 + 90, y / 12 + 30, 2);
+      return s > 0.68 ? 16 + (s - 0.68) * 110 : -Infinity;
+    }
+    // The warm sector: mostly dry, a little drizzle.
+    const s = fbm(x / 14 + 10, y / 14 + 70, 2);
+    return w.side > 0 && c.side < 0 && s > 0.7 ? 10 + (s - 0.7) * 60 : -Infinity;
+  };
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: 400, height: 258, fill: MAP }),
+    radarImage(0, 0, 400, 258, 3, echo),
+    frontOnMap(warm, 'warm', 1),
+    frontOnMap(cold, 'cold', -1),
+    label(L[0] - 18, L[1] + 4, 'L', { bold: true, fill: COL.red, halo: MAP, attrs: { 'font-size': 18 } }),
+    note(300, 34, 'a wide shield of steady rain', { anchor: 'middle', halo: MAP }),
+    note(300, 46, 'ahead of the warm front', { anchor: 'middle', halo: MAP }),
+    note(150, 236, 'a narrow line of', { halo: MAP }),
+    note(150, 248, 'showers and storms', { halo: MAP }),
+    note(8, 196, 'scattered showers', { halo: MAP }),
+    note(8, 208, 'behind', { halo: MAP }),
+    note(250, 214, 'warm sector:', { anchor: 'middle', fill: COL.warmInk, halo: MAP }),
+    note(250, 226, 'mostly dry', { anchor: 'middle', fill: COL.warmInk, halo: MAP }),
+    note(392, 22, 'N ↑', { anchor: 'end' }),
+    svg('rect', { x: 0, y: 258, width: 400, height: 32, fill: COL.paper }),
+    radarKey(12, 266, 376),
+  );
+  return { node: d.node };
+};
+
+// ---- How steep a front is, on radar -----------------------------------------
+
+export const frontRadarFigure = figure(['cells'], (_ctx, t) => {
+  const W = 400;
+  const H = 200;
+  const f = frame(W, H, 4);
+  const MAPH = 150;
+  const nose = 330;
+  const field = svg('g');
+  f.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: MAPH, fill: MAP }),
+    field,
+    frontOnMap(Array.from({ length: 26 }, (_, k): P => [nose, 2 + k * 6]), 'cold', -1),
+    arrow(nose + 18, 24, nose + 54, 24, COL.blue, 2),
+    note(W - 4, 14, 'moving east', { anchor: 'end', fill: COL.blue }),
+    line(W - 58, MAPH - 10, W - 8, MAPH - 10, COL.ink, 2),
+    note(W - 33, MAPH - 15, '50 km', { anchor: 'middle', halo: MAP }),
+    svg('rect', { x: 0, y: MAPH, width: W, height: H - MAPH, fill: COL.paper }),
+    radarKey(12, MAPH + 22, 376),
+  );
+  const sample = Array.from({ length: 400 }, (_, i) => fbm(((i * 37) % 400) / 14, ((i * 91) % 150) / 14));
+  let slope = 100;
+  const paint = () => {
+    const lift = frontLift(slope);
+    const belt = nose - 3 * slope;
+    // The same rain, gathered into cells as the lifting gets brisker: towers
+    // drop it in a few downpours with dry air between, layers spread it evenly.
+    const p = Math.max(0, Math.min(1, (lift.cmPerS - 6) / 16)) * 10;
+    const mean = sample.reduce((s, n) => s + n ** p, 0) / sample.length;
+    let peak = -Infinity;
+    redraw(field, radarImage(0, 0, nose + 2, MAPH, 3, (x, y) => {
+      const n = fbm(x / 14, y / 14);
+      if (x < belt + (n - 0.5) * 40) return -Infinity;
+      const v = rainDbz((lift.mmPerHour * n ** p) / mean) + (fbm(x / 10, y / 10) - 0.5) * 4;
+      if (v > peak) peak = v;
+      return v;
+    }));
+    const width = Math.round(nose - belt);
+    const wide = belt < 0 ? `${width} km wide, wider than the picture` : `${width} km wide`;
+    const typical = rainDbz(lift.mmPerHour);
+    f.readout.textContent = p < 2
+      ? `1 in ${slope.toFixed(0)}: a band ${wide}, mostly ${colourName(typical)}, about ${Math.round(typical)} dBZ: steady rain, ${lift.mmPerHour.toFixed(1)} mm an hour. A warm front looks like this.`
+      : p < 6.5
+        ? `1 in ${slope.toFixed(0)}: a band ${wide}, lumpy, with patches up to ${Math.round(peak)} dBZ (${colourName(peak)}) in a weaker field.`
+        : `1 in ${slope.toFixed(0)}: a line only ${wide}, broken into cells of up to ${Math.round(peak)} dBZ (${colourName(peak)}) with little between them: showers and storms. A cold front looks like this.`;
+    if (t.goal === 'cells' && p >= 6.5) t.done();
+  };
   f.controls.append(slider('Steepness', 0, 1, 0.01, 0.33, (v) => `1 in ${Math.round(200 * Math.pow(25 / 200, v))}`, (v) => {
     slope = 200 * Math.pow(25 / 200, v);
     paint();

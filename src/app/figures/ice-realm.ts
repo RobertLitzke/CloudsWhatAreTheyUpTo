@@ -1,17 +1,21 @@
 // Figures about the ice realm: an ice crystal growing among supercooled
 // droplets, falling crystals smeared into mares' tails, the prism that makes
 // the 22° halo, the halo building up crystal by crystal, a warm front sliding
-// in overhead, and stills of what makes a droplet freeze, why ice wins the
-// vapour, snow becoming rain, and where a 22° bend shows up in the sky.
+// in overhead, what a radar sees of drops and of melting snow, and stills of
+// what makes a droplet freeze, why ice wins the vapour, snow becoming rain,
+// and where a 22° bend shows up in the sky.
 
-import { svg } from '../dom';
+import { el, svg } from '../dom';
 import { genus } from '../../core/clouds';
 import { drawCloud } from '../scene/drawn';
 import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
-import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, redraw, small, still } from './draw';
-import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
+import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, radarDish, radarImage, radarKey, redraw, small, still, type P } from './draw';
+import { COL, animate, figure, frame, height, radarColor, slider, tint, type FigureFactory } from './kit';
+import { fbm } from '../clouds/noise';
+import { radarWords, rainDbz, sameWaterEcho, stratiformDbz } from '../../core/radar';
+import { makeRng } from '../../core/rng';
 import { fullOverIce, fullOverWater } from '../../core/air';
 import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
@@ -158,6 +162,176 @@ export const snowToRainDiagram: FigureFactory = () => {
   );
   return { node: d.node };
 };
+
+// ---- What a radar sees ------------------------------------------------------
+
+/** A count of drops, said the way a person would. */
+function many(n: number): string {
+  if (n >= 1e6) return `${Math.round(n / 1e6).toLocaleString()} million`;
+  if (n >= 1e4) return `${Math.round(n / 1e3).toLocaleString()} thousand`;
+  if (n >= 20) return `About ${Math.round(n / 10) * 10}`;
+  return `About ${Math.round(n)}`;
+}
+
+/** A diameter in mm, to two figures. */
+const mmText = (mm: number) => `${mm < 0.1 ? mm.toFixed(2) : mm < 1 ? mm.toFixed(1) : mm.toFixed(1).replace(/\.0$/, '')} mm`;
+
+export const radarEchoFigure = figure(['rain'], (ctx, t) => {
+  const W = 400;
+  const H = 240;
+  const f = frame(W, H, 5);
+  const ground = 196;
+  const C: P = [196, 92];
+  const R = 54;
+  const dish: P = [40, 180];
+  const grams = 0.5;
+  let mm = 0.02;
+  let ice = false;
+  let phase = 0;
+  // Drop positions inside the cubic metre, dealt once so the picture holds still as they change.
+  const rng = makeRng(11);
+  const spots: P[] = [];
+  while (spots.length < 260) {
+    const x = (rng() * 2 - 1) * (R - 4);
+    const y = (rng() * 2 - 1) * (R - 4);
+    if (x * x + y * y < (R - 6) ** 2) spots.push([C[0] + x, C[1] + y]);
+  }
+  const a = Math.atan2(C[1] - dish[1], C[0] - dish[0]);
+  const dist = Math.hypot(C[0] - dish[0], C[1] - dish[1]);
+  const spread = Math.asin(R / dist);
+  const arc = (r: number) => {
+    const pts: P[] = [];
+    for (let k = -1; k <= 1; k += 0.2) pts.push([dish[0] + r * Math.cos(a + k * spread * 0.8), dish[1] + r * Math.sin(a + k * spread * 0.8)]);
+    return pts;
+  };
+  const drops = svg('g');
+  const pulse = svg('g');
+  const screen = svg('g');
+  const key = svg('g');
+  const beamEdge = (s: number): P => [dish[0] + dist * Math.cos(a + s * spread), dish[1] + dist * Math.sin(a + s * spread)];
+  f.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air }),
+    svg('polygon', { points: points([dish, beamEdge(1), beamEdge(-1)]), fill: tint(COL.env, 0.1) }),
+    svg('circle', { cx: C[0], cy: C[1], r: R, fill: '#ffffff', opacity: 0.7, stroke: COL.soft, 'stroke-dasharray': '4 3' }),
+    drops, pulse,
+    svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.paper }),
+    line(0, ground, W, ground, COL.ground, 3),
+    radarDish(30, ground, 30),
+    small(44, ground - 3, 'radar', { soft: true }),
+    small(C[0], C[1] + R + 12, 'a cubic metre of air: half a gram of water', { anchor: 'middle', soft: true }),
+    small(C[0], C[1] + R + 22, 'drops not to scale', { anchor: 'middle', soft: true }),
+    heading(345, 22, 'On the screen'),
+    screen, key,
+  );
+  const echo = () => sameWaterEcho(mm, grams, ice);
+  const paint = () => {
+    const e = echo();
+    const n = Math.max(6, Math.min(260, Math.round(6 * (5 / mm) ** 0.8)));
+    const r = Math.min(8.5, 0.9 + 1.5 * mm);
+    redraw(drops, ...spots.slice(0, n).map(([x, y]) => ice
+      ? hexagon(x, y, r + 0.4, { fill: COL.ice })
+      : svg('circle', { cx: x, cy: y, r, fill: COL.rain })));
+    const c = radarColor(e.dbz);
+    redraw(screen,
+      svg('rect', { x: 300, y: 32, width: 90, height: 90, fill: '#eef0e6', stroke: COL.grid }),
+      c ? svg('rect', { x: 330, y: 62, width: 30, height: 30, fill: c }) : small(345, 81, 'nothing', { anchor: 'middle', soft: true }),
+      heading(345, 142, `${e.dbz < 0 ? '−' : ''}${Math.abs(Math.round(e.dbz))} dBZ`),
+    );
+    redraw(key, radarKey(12, 214, 376, -30, e.dbz));
+    const kind = mm < 0.1 ? 'cloud droplets' : mm < 0.5 ? 'drizzle drops' : 'raindrops';
+    const lesson = ice
+      ? 'Frozen, the same water sends back only a fifth of the echo.'
+      : mm < 0.1
+        ? 'Cloud droplets are so small that even the thickest cloud barely shows on radar.'
+        : 'Each time the drops double in width, the echo grows eightfold, though the water is the same.';
+    f.readout.textContent = `${many(e.perM3)} ${ice ? `ice pellets ${mmText(mm)} across` : `${kind}, ${mmText(mm)} across`}: ${Math.round(e.dbz) < 0 ? '−' : ''}${Math.abs(Math.round(e.dbz))} dBZ, ${radarWords(e.dbz)}. ${lesson}`;
+    if (t.goal === 'rain' && e.dbz >= 20) t.done();
+  };
+  animate(f.node, ctx, (dt) => {
+    // A pulse goes out to the drops; its echo comes back, as strong as they make it.
+    phase = (phase + dt * 0.8) % 2;
+    const out = phase < 1;
+    const k = out ? phase : 2 - phase;
+    const s = Math.max(0, Math.min(1, (echo().dbz + 30) / 85));
+    redraw(pulse, polyline(arc(14 + k * (dist - 14)), out ? COL.env : COL.sunInk, out ? 2 : 0.8 + s * 4, { opacity: out ? 0.8 : 0.1 + 0.9 * s }));
+  });
+  const seg = el('div.seg', {}, ...[['Water', false], ['Ice', true]].map(([text, v]) => el('button', {
+    type: 'button',
+    className: v === ice ? 'on' : '',
+    onclick: (ev: MouseEvent) => {
+      ice = v as boolean;
+      seg.querySelectorAll('button').forEach((b) => b.classList.toggle('on', b === ev.currentTarget));
+      paint();
+    },
+  }, text as string)));
+  f.controls.append(
+    slider('Drop size', 0, 1, 0.005, Math.log(mm / 0.01) / Math.log(500), (v) => mmText(0.01 * 500 ** v), (v) => { mm = 0.01 * 500 ** v; paint(); }, 'rain').node,
+    el('label.fig-slider', {}, el('span', {}, 'Made of'), seg),
+  );
+  paint();
+  return f.node;
+});
+
+// ---- The bright band --------------------------------------------------------
+
+export const brightBandFigure = figure(['snow'], (ctx, t) => {
+  const W = 400;
+  const H = 256;
+  const f = frame(W, H, 4);
+  const ground = 200;
+  const kmPx = 24;
+  const yOf = (km: number) => ground - km * kmPx;
+  const RAIN = rainDbz(3);
+  const SLICE = 296;
+  let freezeKm = 2.2;
+  const field = svg('g');
+  const over = svg('g');
+  // The profile chart on the right: echo across, height up.
+  const px0 = 310;
+  const xOf = (d: number) => px0 + (Math.max(0, d) / 45) * 78;
+  f.svg.append(
+    svg('rect', { x: 0, y: 0, width: SLICE, height: ground, fill: COL.air }),
+    field, over,
+    svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.paper }),
+    line(0, ground, SLICE, ground, COL.ground, 3),
+    radarDish(16, ground, 40),
+    line(px0, yOf(0), px0, yOf(7.5), COL.soft, 1),
+    line(px0, yOf(0), xOf(45), yOf(0), COL.soft, 1),
+    ...[0, 20, 40].map((d) => small(xOf(d), ground + 11, String(d), { anchor: 'middle', soft: true })),
+    small(xOf(22), ground + 21, 'echo, dBZ', { anchor: 'middle', soft: true }),
+    radarKey(12, 236, 376),
+  );
+  const paint = () => {
+    const top = (x: number) => 6.2 + (fbm(x / 50, 3) - 0.5) * 2;
+    redraw(field, radarImage(0, 8, SLICE, ground - 8, 3, (x, y) => {
+      const km = (ground - y) / kmPx;
+      if (x < 40 + fbm(3, y / 30) * 24) return -Infinity;
+      return stratiformDbz(km, freezeKm, RAIN, top(x)) + (fbm(x / 16, y / 7) - 0.5) * 8;
+    }));
+    const profile: P[] = [];
+    for (let km = 0; km <= 6.2; km += 0.05) profile.push([xOf(stratiformDbz(km, freezeKm, RAIN, 6.2)), yOf(km)]);
+    const melting = freezeKm > 0.15;
+    const lab = (km: number, text: string, fill: string = COL.ink) => small(xOf(stratiformDbz(km, freezeKm, RAIN, 6.2)) - 4, yOf(km) + 3, text, { fill, anchor: 'end', halo: COL.paper });
+    redraw(over,
+      melting ? line(0, yOf(freezeKm), SLICE, yOf(freezeKm), COL.dew, 1.5, { 'stroke-dasharray': '6 4' }) : null,
+      melting ? small(SLICE - 4, yOf(freezeKm) - 5, '0 °C', { anchor: 'end', bold: true, fill: COL.dew, halo: COL.air }) : null,
+      ...[2, 4, 6].map((km) => small(4, yOf(km) + 3, height(km * 1000, ctx.save.units), { soft: true, halo: COL.air })),
+      polyline(profile, COL.ink, 1.8),
+      melting ? line(px0, yOf(freezeKm), xOf(45), yOf(freezeKm), COL.dew, 1, { 'stroke-dasharray': '3 3' }) : null,
+      lab(Math.max(freezeKm, 0) + 2.4, 'snow', COL.ice),
+      melting ? lab(freezeKm - 0.2, 'melting', COL.sunInk) : null,
+      melting && freezeKm > 0.9 ? lab(freezeKm / 2, 'rain', COL.rain) : null,
+    );
+    const peak = Math.round(RAIN + 9);
+    f.readout.textContent = melting
+      ? `The band lies just under the 0 °C line, where snowflakes melt: about ${peak} dBZ, against ${Math.round(RAIN)} in the rain below and less in the snow above. As much water falls all the way down; only its form changes.`
+      : 'Freezing right down to the ground: nothing melts, so there is no band, and snow reaches the ground. Its echo is weaker than the rain’s, though just as much water is falling.';
+    if (t.goal === 'snow' && !melting) t.done();
+  };
+  f.controls.append(slider('Freezing level', 0, 3, 0.1, freezeKm, (v) => (v <= 0.15 ? 'at the ground' : height(v * 1000, ctx.save.units)), (v) => { freezeKm = v; paint(); }, 'dew').node);
+  paint();
+  return f.node;
+});
 
 // ---- Mares' tails -----------------------------------------------------------
 

@@ -1,6 +1,6 @@
 // Figures for what seeding can and can't do: how much water a cloud holds,
 // the cloud as a conveyor, the temperatures where seeding can help, fog and
-// a fair test, and a seeding trial against luck.
+// a fair test, a seeding trial against luck, and seeded snow seen on radar.
 
 import { judge, runTrial, STORMS_PER_WINTER, TRUE_EFFECT } from '../../core/cold-cloud';
 import type { GenusId } from '../../core/clouds';
@@ -10,7 +10,8 @@ import { drawCloud } from '../scene/drawn';
 import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
-import { arrow, flake, heading, label, line, note, redraw, still } from './draw';
+import { arrow, flake, heading, label, line, note, radarImage, radarKey, redraw, still } from './draw';
+import { fbm } from '../clouds/noise';
 import { COL, deg, figure, frame, slider, type FigureFactory } from './kit';
 import { JUST_RIGHT, TOO_MUCH } from './seeding';
 
@@ -276,3 +277,39 @@ export const trialFigure = figure(['clear'], (_ctx, t) => {
   paint();
   return f.node;
 });
+
+// ---- Seeded snow on radar ---------------------------------------------------
+
+export const seedLinesDiagram: FigureFactory = () => {
+  const W = 400;
+  const H = 240;
+  const d = still(W, H);
+  const MAPH = 200;
+  const legX = 46;
+  // Each leg's line of crystals drifts downwind, and spreads, as it grows into snow: the first leg flown is furthest on.
+  const lines = [{ x: 318, w: 9 }, { x: 236, w: 7 }, { x: 154, w: 5 }];
+  const echo = (x: number, y: number) => {
+    const n = fbm(x / 26 + 20, y / 26, 3);
+    let v = n > 0.56 ? 6 + (n - 0.56) * 40 : -Infinity;
+    for (const l of lines) {
+      const cx = l.x + (fbm(3, y / 40 + l.x) - 0.5) * 24;
+      const k = Math.exp(-(((x - cx) / l.w) ** 2));
+      if (y > 18 && y < MAPH - 18 && k > 0.2) v = Math.max(v, 16 + 14 * k + (fbm(x / 5, y / 5) - 0.5) * 6);
+    }
+    return v;
+  };
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: MAPH, fill: '#eef0e6' }),
+    radarImage(0, 0, W, MAPH, 3, echo),
+    line(legX, 18, legX, MAPH - 18, COL.ink, 1.6, { 'stroke-dasharray': '5 4' }),
+    note(4, 12, 'the aeroplane’s', { halo: '#eef0e6' }),
+    note(4, 24, 'seeding line', { halo: '#eef0e6' }),
+    arrow(legX + 12, 104, legX + 58, 104, COL.ink, 2),
+    note(legX + 12, 96, 'wind', { halo: '#eef0e6' }),
+    ...lines.map((l, k) => heading(l.x, 14, ['first leg', 'second', 'third'][k], { halo: '#eef0e6' })),
+    note(W / 2 + 40, MAPH - 6, 'lines of snow, carried downwind', { anchor: 'middle', bold: true, halo: '#eef0e6' }),
+    svg('rect', { x: 0, y: MAPH, width: W, height: H - MAPH, fill: COL.paper }),
+    radarKey(12, MAPH + 18, 376),
+  );
+  return { node: d.node };
+};

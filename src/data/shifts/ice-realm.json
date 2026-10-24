@@ -73,12 +73,42 @@
         },
         {
           "kind": "text",
-          "text": "On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow. Weather radar shows this directly: just below the freezing level, rain clouds display a distinct bright band where large, wet, melting snowflakes reflect radar waves much more strongly than the smaller raindrops below."
+          "text": "On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow."
         },
         {
           "kind": "figure",
           "figure": "snowToRain",
           "caption": "Most summer rain starts as snow."
+        },
+        {
+          "kind": "text",
+          "text": "Forecasters can watch this happen with **weather radar**. A radar dish sends out short pulses of microwaves, about ten centimetres long, and listens for the faint echo that comes back when a pulse hits something. The time the echo takes to return gives the distance, and the way the dish is pointing gives the direction. Turning round and round, it maps every shower within a couple of hundred kilometres. Radar was built during the Second World War to find aircraft, and its operators soon found their screens cluttered with rain."
+        },
+        {
+          "kind": "figure",
+          "figure": "radarEcho",
+          "caption": "A radar pulse sent into a cubic metre of air holding half a gram of water, as cloud droplets or as rain.",
+          "task": "Make the drops big enough for the radar to see them as rain.",
+          "goal": "rain"
+        },
+        {
+          "kind": "text",
+          "text": "Each drop sends back an echo that grows with the sixth power of its width: a drop twice as wide echoes 64 times as strongly. Shared out into drops twice as wide, the same water makes only an eighth as many, so the echo still grows eightfold. That is why radar sees rain and not cloud: cloud droplets are about a hundred times narrower than raindrops, and even a thick cloud barely registers. The echo is measured in **dBZ**, a scale on which every 10 points means ten times stronger. Light rain shows at about 20, a downpour at 50, and hail above 60. Ice sends back only about a fifth of the echo the same water would."
+        },
+        {
+          "kind": "text",
+          "text": "Melting snow shows up on radar as a stripe. Above the freezing level the snowflakes are big, but they are ice, so they echo weakly. Just below it they start to melt: still as big as snowflakes, but coated in water, they echo like enormous raindrops. A few hundred metres lower they have melted through and collapsed into raindrops, smaller and falling about five times faster, so they are spread more thinly and the echo drops again. The result is the **bright band**, a level stripe of strong echo just under the 0 °C line, and a forecaster can read the height of the freezing level straight off it."
+        },
+        {
+          "kind": "figure",
+          "figure": "brightBand",
+          "caption": "A slice through steady rain from a layer cloud, as a radar scanning up and down sees it. On the right, the echo by height.",
+          "task": "Lower the freezing level until snow reaches the ground.",
+          "goal": "snow"
+        },
+        {
+          "kind": "text",
+          "text": "On a winter day the freezing level can come right down to the fields, and the band comes down with it. A bright band sinking lower and lower through a storm tells a forecaster the rain is about to turn to snow."
         },
         {
           "kind": "text",

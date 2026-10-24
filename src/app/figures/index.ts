@@ -2,15 +2,15 @@
 
 import type { FigureId } from '../../core/shifts';
 import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inversionDiagram, jarFigure, kettleDiagram, moleculesDiagram, nightFigure, radiatorsDiagram, specksDiagram } from './fog';
-import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, occlusionDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
-import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, tropopauseDiagram, waveFigure } from './giants';
+import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, frontRadarFigure, lowMapDiagram, occlusionDiagram, radarMapDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
+import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, stormRadarDiagram, tropopauseDiagram, waveFigure } from './giants';
 import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, stabilityDiagram, thermalsFigure } from './heaps';
-import { escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, haloSightDiagram, iceGrowthFigure, prismFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
+import { brightBandFigure, escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, haloSightDiagram, iceGrowthFigure, prismFigure, radarEchoFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
 import { collideDiagram, depthDiagram, dropsFigure, edgesDiagram, freezingFigure, layerKindsDiagram, millionDiagram, nameGridDiagram, spreadFigure, subsidenceDiagram } from './low-sky';
 import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughDiagram } from './middle-sky';
 import { forecastFigure, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
 import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure } from './seeding';
-import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
+import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedLinesDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
 import type { FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
@@ -94,4 +94,10 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   conveyor: conveyorDiagram,
   fogHole: fogHoleDiagram,
   fairTest: fairTestDiagram,
+  radarEcho: radarEchoFigure,
+  brightBand: brightBandFigure,
+  stormRadar: stormRadarDiagram,
+  radarMap: radarMapDiagram,
+  frontRadar: frontRadarFigure,
+  seedLines: seedLinesDiagram,
 };
