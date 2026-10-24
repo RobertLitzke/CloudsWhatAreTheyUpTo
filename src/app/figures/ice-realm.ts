@@ -491,49 +491,68 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   const f = frame(W, H);
   const C: V = [200, 130];
   const PX = 4.4; // px per degree
-  const dots = svg('g');
+  const SCALE = 2; // canvas pixels per figure unit, for a crisp picture
+  const canvas = document.createElement('canvas');
+  canvas.width = W * SCALE;
+  canvas.height = H * SCALE;
+  const g = canvas.getContext('2d')!;
+  const sky = svg('image', { x: 0, y: 0, width: W, height: H });
   const overlay = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#6d8fbf' }), dots, overlay,
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#6d8fbf' }), sky, overlay,
     svg('circle', { cx: C[0], cy: C[1], r: 9, fill: '#fffbe9' }),
   );
-  const points: { r: number; a: number; d: number }[] = [];
+  // Crystals are scattered evenly over the whole sky, each turned at random.
+  // A crystal sends sunlight to your eye only if the bend its angle gives
+  // matches how far it sits from the sun (within a degree, the sun's own
+  // width plus a little). The rest are lit too, but their light goes elsewhere.
+  const crystals: { x: number; y: number; lit: boolean; red: boolean }[] = [];
   const grow = (n: number) => {
-    while (points.length < n) {
-      const inc = Math.random() * 90;
-      const d = deviation(inc);
-      if (d == null || d > 28) continue; // Light bent further is spread thin over the sky.
-      points.push({ r: d * PX, a: Math.random() * Math.PI * 2, d });
+    while (crystals.length < n) {
+      const x = Math.random() * W;
+      const y = Math.random() * H;
+      const away = Math.hypot(x - C[0], y - C[1]) / PX;
+      const d = deviation(Math.random() * 90);
+      const lit = d != null && Math.abs(d - away) < 1;
+      crystals.push({ x, y, lit, red: lit && away < 22.4 });
     }
-    points.length = n;
+    crystals.length = n;
   };
   let hand = false;
   const paint = (n: number) => {
     grow(n);
-    redraw(dots, ...points.map((p) => svg('circle', {
-      cx: C[0] + Math.cos(p.a) * p.r,
-      cy: C[1] + Math.sin(p.a) * p.r,
-      r: 1.4,
+    g.clearRect(0, 0, canvas.width, canvas.height);
+    // Crystals whose light misses you: faint specks, which add up to a milky veil.
+    g.fillStyle = 'rgba(220, 232, 255, 0.3)';
+    for (const c of crystals) if (!c.lit) g.fillRect(c.x * SCALE - 1.5, c.y * SCALE - 1.5, 3, 3);
+    let lit = 0;
+    for (const c of crystals) {
+      if (!c.lit) continue;
+      lit++;
       // The red end of the spectrum bends least, so the ring is reddish inside.
-      fill: p.d < 22.4 ? '#ffd0b8' : '#ffffff',
-      opacity: 0.75,
-    })));
+      g.fillStyle = c.red ? '#ffd0b8' : '#ffffff';
+      g.beginPath();
+      g.arc(c.x * SCALE, c.y * SCALE, 1.5 * SCALE, 0, Math.PI * 2);
+      g.fill();
+    }
+    sky.setAttribute('href', canvas.toDataURL());
     redraw(overlay, hand ? svg('g', {},
       line(C[0], C[1], C[0] + 22 * PX, C[1], '#fff', 1, { 'stroke-dasharray': '3 3' }),
       small(C[0] + 11 * PX, C[1] - 6, 'hand span ≈ 22°', { anchor: 'middle', fill: '#fff' }),
     ) : null);
-    f.readout.textContent = n < 200
-      ? `${n} crystals: each sends a speck of light out at its own angle.`
-      : `${n.toLocaleString()} crystals: the light crowds at 22° from the sun into a ring, with a sharp, reddish inner edge and darker sky inside.`;
-    if (t.goal === 'ring' && n >= 1500) t.done();
+    f.readout.textContent = n < 3000
+      ? `${n.toLocaleString()} crystals all over the sky. Only ${lit} happen to be turned to send light to your eye.`
+      : `${n.toLocaleString()} crystals all over the sky; ${lit.toLocaleString()} send you light. None of them sit closer than 22° to the sun, and most sit right at 22°: a ring, with darker sky inside.`;
+    if (t.goal === 'ring' && n >= 10000) t.done();
   };
-  const count = slider('Crystals', 0, 3, 0.01, 1, (v) => Math.round(Math.pow(10, v + 0.6)).toLocaleString(), (v) => paint(Math.round(Math.pow(10, v + 0.6))), 'ice');
+  const toCount = (v: number) => Math.round(Math.pow(10, v)) * 10;
+  const count = slider('Crystals', 1, 3.5, 0.01, 1.5, (v) => toCount(v).toLocaleString(), (v) => paint(toCount(v)), 'ice');
   const handBtn = document.createElement('button');
   handBtn.type = 'button';
   handBtn.className = 'btn btn-small btn-ghost';
   handBtn.textContent = 'Measure with a hand';
-  handBtn.addEventListener('click', () => { hand = !hand; paint(Math.round(Math.pow(10, count.value() + 0.6))); });
+  handBtn.addEventListener('click', () => { hand = !hand; paint(toCount(count.value())); });
   f.controls.append(count.node, handBtn);
-  paint(Math.round(Math.pow(10, 1.6)));
+  paint(toCount(1.5));
   return f.node;
 });
 
