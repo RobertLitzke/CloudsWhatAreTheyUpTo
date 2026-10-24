@@ -495,7 +495,7 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   const canvas = document.createElement('canvas');
   canvas.width = W * SCALE;
   canvas.height = H * SCALE;
-  const g = canvas.getContext('2d')!;
+  const g = canvas.getContext('2d'); // null only where there is no canvas, as in tests
   const sky = svg('image', { x: 0, y: 0, width: W, height: H });
   const overlay = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: '#6d8fbf' }), sky, overlay,
@@ -520,21 +520,22 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   let hand = false;
   const paint = (n: number) => {
     grow(n);
-    g.clearRect(0, 0, canvas.width, canvas.height);
-    // Crystals whose light misses you: faint specks, which add up to a milky veil.
-    g.fillStyle = 'rgba(220, 232, 255, 0.3)';
-    for (const c of crystals) if (!c.lit) g.fillRect(c.x * SCALE - 1.5, c.y * SCALE - 1.5, 3, 3);
-    let lit = 0;
-    for (const c of crystals) {
-      if (!c.lit) continue;
-      lit++;
-      // The red end of the spectrum bends least, so the ring is reddish inside.
-      g.fillStyle = c.red ? '#ffd0b8' : '#ffffff';
-      g.beginPath();
-      g.arc(c.x * SCALE, c.y * SCALE, 1.5 * SCALE, 0, Math.PI * 2);
-      g.fill();
+    const lit = crystals.reduce((k, c) => k + (c.lit ? 1 : 0), 0);
+    if (g) {
+      g.clearRect(0, 0, canvas.width, canvas.height);
+      // Crystals whose light misses you: faint specks, which add up to a milky veil.
+      g.fillStyle = 'rgba(220, 232, 255, 0.3)';
+      for (const c of crystals) if (!c.lit) g.fillRect(c.x * SCALE - 1.5, c.y * SCALE - 1.5, 3, 3);
+      for (const c of crystals) {
+        if (!c.lit) continue;
+        // The red end of the spectrum bends least, so the ring is reddish inside.
+        g.fillStyle = c.red ? '#ffd0b8' : '#ffffff';
+        g.beginPath();
+        g.arc(c.x * SCALE, c.y * SCALE, 1.5 * SCALE, 0, Math.PI * 2);
+        g.fill();
+      }
+      sky.setAttribute('href', canvas.toDataURL());
     }
-    sky.setAttribute('href', canvas.toDataURL());
     redraw(overlay, hand ? svg('g', {},
       line(C[0], C[1], C[0] + 22 * PX, C[1], '#fff', 1, { 'stroke-dasharray': '3 3' }),
       small(C[0] + 11 * PX, C[1] - 6, 'hand span ≈ 22°', { anchor: 'middle', fill: '#fff' }),
