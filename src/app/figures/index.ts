@@ -5,7 +5,7 @@ import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inv
 import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, lowMapDiagram, occlusionDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
 import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, tropopauseDiagram, waveFigure } from './giants';
 import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, stabilityDiagram, thermalsFigure } from './heaps';
-import { escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, iceGrowthFigure, prismFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
+import { escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, haloSightDiagram, iceGrowthFigure, prismFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
 import { collideDiagram, depthDiagram, dropsFigure, edgesDiagram, freezingFigure, layerKindsDiagram, millionDiagram, nameGridDiagram, spreadFigure, subsidenceDiagram } from './low-sky';
 import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughDiagram } from './middle-sky';
 import { forecastFigure, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
@@ -63,6 +63,7 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   glide: glideDiagram,
   overturn: overturnDiagram,
   freezeSeeds: freezeSeedsDiagram,
+  haloSight: haloSightDiagram,
   escape: escapeDiagram,
   snowToRain: snowToRainDiagram,
   tropopause: tropopauseDiagram,

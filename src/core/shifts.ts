@@ -30,7 +30,7 @@ export const FIGURE_IDS = [
   'molecules', 'expand', 'stability', 'heap', 'dayNight', 'radiators', 'fogStratus',
   'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
   'specks', 'inversion', 'burnOff', 'latent', 'kettle', 'density',
-  'glide', 'overturn', 'freezeSeeds', 'escape', 'snowToRain', 'tropopause', 'charge',
+  'glide', 'overturn', 'freezeSeeds', 'haloSight', 'escape', 'snowToRain', 'tropopause', 'charge',
   'lowMap', 'barometer', 'frontPass', 'slope', 'crossedWinds', 'rainShadow', 'buysBallot', 'barograph', 'veer', 'twoFronts', 'occlusion',
   'coldBox', 'dryIce', 'lattice', 'seedLayer', 'cloudWater', 'seedWindow', 'trial',
   'iceSteal', 'iceShortage', 'agentRange', 'fallstreak', 'mountainSeed', 'conveyor', 'fogHole', 'fairTest',

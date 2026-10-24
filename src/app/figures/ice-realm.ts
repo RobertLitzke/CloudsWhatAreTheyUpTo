@@ -2,7 +2,7 @@
 // droplets, falling crystals smeared into mares' tails, the prism that makes
 // the 22° halo, the halo building up crystal by crystal, a warm front sliding
 // in overhead, and stills of what makes a droplet freeze, why ice wins the
-// vapour, and snow becoming rain.
+// vapour, snow becoming rain, and where a 22° bend shows up in the sky.
 
 import { svg } from '../dom';
 import { genus } from '../../core/clouds';
@@ -362,6 +362,67 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   paint(Math.round(Math.pow(10, 1.6)));
   return f.node;
 });
+
+// ---- Where a 22° bend shows up in the sky -----------------------------------
+
+export const haloSightDiagram: FigureFactory = () => {
+  const W = 400;
+  const H = 250;
+  const d = still(W, H);
+  const E: V = [250, 222]; // the watcher's eye
+  const SUN = 120; // direction of the sun from the eye, degrees above the right horizon
+  const at = (deg: number, r: number): V => [E[0] + r * Math.cos((deg * Math.PI) / 180), E[1] - r * Math.sin((deg * Math.PI) / 180)];
+  const toward = (p: V, deg: number, r: number): V => [p[0] + r * Math.cos((deg * Math.PI) / 180), p[1] - r * Math.sin((deg * Math.PI) / 180)];
+  // An arc around p from angle a to angle b (degrees, counter-clockwise on screen).
+  const arc = (p: V, r: number, a: number, b: number, stroke: string) => {
+    const [x0, y0] = toward(p, a, r);
+    const [x1, y1] = toward(p, b, r);
+    return svg('path', { d: `M${x0},${y0} A${r},${r} 0 0 0 ${x1},${y1}`, fill: 'none', stroke, 'stroke-width': 1.6 });
+  };
+  const sunAt = at(SUN, 225);
+  const R = 170; // how far up the veil is, in drawing units
+  const bright = at(SUN - 22, R); // 22° from the sun: a crystal can bend light here
+  const other = at(SUN + 22, R); // the same on the other side of the sun
+  const near = at(SUN - 9, R); // 9° from the sun: would need a 9° bend
+  // Every crystal is lit by the same parallel sunlight, travelling away from the sun.
+  const sunRay = (p: V) => line(...toward(p, SUN, 120), p[0], p[1], COL.sun, 2.4);
+  const xtal = (p: V) => hexagon(p[0], p[1], 7, { fill: '#eef5ff', stroke: COL.ice, 'stroke-width': 1.6 }, Math.PI / 6);
+  d.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.air }),
+    svg('rect', { x: 0, y: 226, width: W, height: H - 226, fill: COL.ground }),
+    // The line of sight to the sun, and the sun far off along it.
+    line(E[0], E[1], ...toward(E, SUN, 210), COL.soft, 1.2, { 'stroke-dasharray': '4 4' }),
+    svg('circle', { cx: sunAt[0], cy: sunAt[1], r: 14, fill: '#fff1c6', stroke: COL.sun, 'stroke-width': 2 }),
+    small(sunAt[0] - 20, sunAt[1] + 5, 'sun', { anchor: 'end' }),
+    sunRay(bright), sunRay(other), sunRay(near),
+    small(296, 34, 'sunlight: parallel rays,', { fill: COL.sunInk }),
+    small(296, 47, 'all from one direction', { fill: COL.sunInk }),
+    // Where the light would have gone unbent, and where it actually goes.
+    line(bright[0], bright[1], ...toward(bright, SUN + 180, 60), COL.soft, 1.2, { 'stroke-dasharray': '3 3' }),
+    line(bright[0], bright[1], E[0], E[1], COL.sun, 2.4),
+    line(other[0], other[1], E[0], E[1], COL.sun, 2.4),
+    arc(bright, 34, SUN + 180, SUN - 22 + 180, COL.parcel),
+    small(bright[0] + 22, bright[1] + 30, 'bent 22°', { fill: COL.parcel, bold: true }),
+    arc(E, 44, SUN - 22, SUN, COL.parcel),
+    small(...toward(E, SUN - 27, 48), '22°', { fill: COL.parcel, bold: true }),
+    arc(E, 52, SUN, SUN + 22, COL.parcel),
+    small(...toward(E, SUN + 11, 68), '22°', { anchor: 'middle', fill: COL.parcel, bold: true }),
+    // The crystal closer to the sun cannot send any light down to the eye.
+    line(near[0], near[1], E[0], E[1], COL.soft, 1, { 'stroke-dasharray': '2 4' }),
+    xtal(bright), xtal(other),
+    hexagon(near[0], near[1], 7, { fill: '#e4e1ea', stroke: COL.soft, 'stroke-width': 1.6 }, Math.PI / 6),
+    small(bright[0] + 12, bright[1] - 8, 'bright', { bold: true }),
+    small(other[0] - 12, other[1] - 12, 'bright', { anchor: 'end', bold: true }),
+    small(16, 176, 'The grey crystal is only 9°', { fill: COL.soft }),
+    small(16, 189, 'from the sun. No ice prism', { fill: COL.soft }),
+    small(16, 202, 'bends light that little, so', { fill: COL.soft }),
+    small(16, 215, 'it sends you nothing: dark.', { fill: COL.soft }),
+    svg('circle', { cx: E[0], cy: E[1], r: 4, fill: COL.ink }),
+    small(E[0] + 10, E[1] + 2, 'your eye'),
+    small(W / 2, 244, 'How far from the sun you look = how much the light was bent.', { anchor: 'middle', fill: '#fff' }),
+  );
+  return { node: d.node };
+};
 
 // ---- A warm front comes in --------------------------------------------------
 
