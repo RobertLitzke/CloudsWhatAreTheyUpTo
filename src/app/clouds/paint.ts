@@ -217,7 +217,7 @@ export function fieldOf(cloud: Cloud, p: Tones, sun: readonly number[] = SUN): F
  * clouds, lit the same way. Null when the canvas cannot be drawn on.
  */
 export function paintCanvas(clouds: Cloud[], view: View): HTMLCanvasElement | null {
-  const scale = view.scale ?? Math.min(2, Math.max(1, globalThis.devicePixelRatio || 1));
+  const scale = view.scale ?? (view.rough ? 0.5 : Math.min(2, Math.max(1, globalThis.devicePixelRatio || 1)));
   const p = view.tones;
   const W = view.width;
   const H = view.height;

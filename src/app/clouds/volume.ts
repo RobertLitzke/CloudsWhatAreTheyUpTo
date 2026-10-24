@@ -19,6 +19,8 @@ export interface View {
   tones: Tones;
   /** Pixels per unit; defaults to the screen's pixel ratio, at most 2. */
   scale?: number;
+  /** A quick, rougher pass (fewer samples), for redrawing while a slider moves. */
+  rough?: boolean;
 }
 
 // Puffs and cirrus segments go to the shader in a float texture, two texels
@@ -40,6 +42,8 @@ uniform vec4 uCloud[${MAX_CLOUDS}]; // kind, first, end, depth
 uniform vec4 uShape[${MAX_CLOUDS}]; // heap: base, height, detail, density; sheet: top, bottom, detail, density
 uniform vec4 uHole[${MAX_CLOUDS}];  // cells: a hole's centre and radii
 uniform int uClouds;
+uniform int uSteps;          // samples through each cloud, at most 40
+uniform int uLightSteps;     // samples towards the sun, at most 5
 uniform vec3 uSun;           // sun position, scene units (z: towards the viewer)
 uniform vec3 uShade, uMid, uLight;
 out vec4 frag;
@@ -71,34 +75,42 @@ float fbm(vec3 p, int oct) {
 float cellHash(float i, float j, float seed) {
   return fract(sin(i * 127.1 + j * 311.7 + seed * 74.7) * 43758.5453);
 }
+// Cirrus: how far inside the nearest strand a point is (0 outside), and where
+// it is along and across that strand. It doesn't change with depth, so the
+// march works it out once per pixel.
+vec3 strand(int c, vec2 xy) {
+  vec4 cl = uCloud[c];
+  float best = 0.0, along = 0.0, across = 0.0;
+  for (int i = int(cl.y); i < int(cl.z); i++) {
+    vec4 sa = item(i, 0), sb = item(i, 1);
+    vec2 a = sa.xy, b = sa.zw;
+    vec2 v = b - a;
+    float t = clamp(dot(xy - a, v) / dot(v, v), 0.0, 1.0);
+    float hw = mix(sb.x, sb.y, t);
+    float k = 1.0 - length(xy - a - v * t) / (hw * 1.8);
+    if (k > best) {
+      best = k;
+      along = sb.z + t * length(v);
+      vec2 n = normalize(vec2(-v.y, v.x));
+      across = dot(xy - a, n);
+    }
+  }
+  return vec3(best, along, across);
+}
+// A strand a few units deep, combed into fibres: noise long along it, short across it.
+float fibres(vec3 st, float z, int oct) {
+  if (st.x <= 0.0) return 0.0;
+  float fib = fbm(vec3(st.y / 22.0, st.z / 1.1, z / 3.0), oct);
+  float depthFade = 1.0 - smoothstep(1.5, 4.0, abs(z));
+  return clamp(st.x * 1.4, 0.0, 1.0) * smoothstep(0.38, 0.72, fib) * depthFade * 0.6;
+}
+
 const float ROUND = 1.2; // puffs a little fuller in depth than in outline
 float density(int c, vec3 p, int oct) {
   vec4 cl = uCloud[c];
   int kind = int(cl.x);
   vec4 sh = uShape[c];
-  if (kind == 2) {
-    // Cirrus: strands, a few units deep, combed into fibres along their length.
-    float best = 0.0, along = 0.0, across = 0.0;
-    for (int i = int(cl.y); i < int(cl.z); i++) {
-      vec4 sa = item(i, 0), sb = item(i, 1);
-      vec2 a = sa.xy, b = sa.zw;
-      vec2 v = b - a;
-      float t = clamp(dot(p.xy - a, v) / dot(v, v), 0.0, 1.0);
-      float hw = mix(sb.x, sb.y, t);
-      float k = 1.0 - length(p.xy - a - v * t) / (hw * 1.8);
-      if (k > best) {
-        best = k;
-        along = sb.z + t * length(v);
-        vec2 n = normalize(vec2(-v.y, v.x));
-        across = dot(p.xy - a, n);
-      }
-    }
-    if (best <= 0.0) return 0.0;
-    // Fibres combed along the strand: noise long along it, short across it.
-    float fib = fbm(vec3(along / 22.0, across / 1.1, p.z / 3.0), oct);
-    float depthFade = 1.0 - smoothstep(1.5, 4.0, abs(p.z));
-    return clamp(best * 1.4, 0.0, 1.0) * smoothstep(0.38, 0.72, fib) * depthFade * 0.6;
-  }
+  if (kind == 2) return fibres(strand(c, p.xy), p.z, oct);
   if (kind == 3) {
     // A sheet: an even slab whose top and base wander, thinning to its edges.
     vec4 b = uBox[c];
@@ -163,20 +175,26 @@ void main() {
     // Clouds are listed farthest first; march this one and lay it over what is behind.
     float depth = uCloud[c].w;
     int kind = int(uCloud[c].x);
+    vec3 st = kind == 2 ? strand(c, xy) : vec3(0.0);
+    if (kind == 2 && st.x <= 0.0) continue;
     float sigma = kind == 2 ? 0.35 : kind == 3 ? 1.0 / depth : kind == 4 ? 0.9 : 0.55;
-    const int STEPS = 40;
-    float dz = 2.0 * depth / float(STEPS);
+    float dz = 2.0 * depth / float(uSteps);
     float cl = 0.0, ct = 1.0;
     vec3 centre = vec3((b.x + b.z) * 0.5, (b.y + b.w) * 0.5, 0.0);
     vec3 toSun = normalize(uSun - centre);
     float lstep = kind == 1 ? max(1.0, uShape[c].y * 0.2) : kind == 4 ? max(0.4, uShape[c].y * 0.35) : kind == 3 ? max(1.0, (uShape[c].y - uShape[c].x) * 0.12) : max(1.0, uShape[c].y * 0.07);
-    for (int k = 0; k < STEPS; k++) {
+    for (int k = 0; k < 40; k++) {
+      if (k >= uSteps) break;
       vec3 p = vec3(xy, -depth + (float(k) + 0.5) * dz);
-      float d = density(c, p, 3);
+      float d = kind == 2 ? fibres(st, p.z, 3) : density(c, p, 3);
       if (d < 0.01) continue;
-      // Cloud between this point and the sun.
+      // Cloud between this point and the sun (cirrus is lit evenly: no need to look).
       float od = 0.0;
-      for (int j = 1; j <= 5; j++) od += density(c, p + toSun * lstep * float(j), 2);
+      if (kind != 2) for (int j = 1; j <= 5; j++) {
+        if (j > uLightSteps) break;
+        od += density(c, p + toSun * lstep * float(j), 2);
+      }
+      od *= 5.0 / float(uLightSteps);
       float tl = exp(-od * lstep * sigma * 1.8);
       float powder = 1.0 - exp(-d * 4.0);
       // Brighter higher up, darker towards a heap's base.
@@ -255,7 +273,7 @@ export function canMarch(): boolean {
  * so copy it (drawImage, toBlob) before drawing again.
  */
 export function marchClouds(clouds: Cloud[], view: View): HTMLCanvasElement | null {
-  const scale = view.scale ?? Math.min(2, Math.max(1, globalThis.devicePixelRatio || 1));
+  const scale = view.scale ?? (view.rough ? 0.75 : Math.min(2, Math.max(1, globalThis.devicePixelRatio || 1)));
   const cw = Math.round(view.width * scale);
   const ch = Math.round(view.height * scale);
   const g = setup(cw, ch);
@@ -266,7 +284,10 @@ export function marchClouds(clouds: Cloud[], view: View): HTMLCanvasElement | nu
   const shape = new Float32Array(MAX_CLOUDS * 4);
   const hole = new Float32Array(MAX_CLOUDS * 4);
   let n = 0;
-  const list = clouds.slice(0, MAX_CLOUDS);
+  // Each cirrus strand gets its own box when there is room, so a pixel only
+  // looks through the strands near it.
+  const split = clouds.flatMap((c) => (c.kind === 'cirrus' ? c.strands.map((s): Cloud => ({ kind: 'cirrus', strands: [s] })) : [c]));
+  const list = (split.length <= MAX_CLOUDS ? split : clouds).slice(0, MAX_CLOUDS);
   list.forEach((c, i) => {
     if (c.kind === 'cirrus') {
       const first = n;
@@ -335,6 +356,8 @@ export function marchClouds(clouds: Cloud[], view: View): HTMLCanvasElement | nu
   g.uniform4fv(u('uShape'), shape);
   g.uniform4fv(u('uHole'), hole);
   g.uniform1i(u('uClouds'), list.length);
+  g.uniform1i(u('uSteps'), view.rough ? 18 : 40);
+  g.uniform1i(u('uLightSteps'), view.rough ? 2 : 5);
   g.uniform3fv(u('uSun'), view.sun);
   const r = rampOf(view.tones);
   g.uniform3fv(u('uShade'), r.shade.map((v) => v / 255));
