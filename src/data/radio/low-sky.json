@@ -7,20 +7,20 @@
       "when": "Tuesday, June 16, 1931 · 7:30 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Did Ole get his hay in dry?",
+          "them": "Harrow, Walla Walla. Well? Did Hap get off the ground, and did Ole get his hay in dry?",
           "replies": [
             {
-              "say": "Dry as a sermon. He sent a pie.",
-              "back": "Rhubarb? Mrs. Haugen makes a rhubarb pie that could end a war. Save me a slice."
+              "say": "Both. Hap at ten sharp, and Ole sent a pie.",
+              "back": "Two forecasts, two hits. Frame them before your luck changes. Rhubarb? Mrs. Haugen makes a rhubarb pie that could end a war. Save me a slice."
             },
             {
-              "say": "He did. The goat ate my hat by way of thanks.",
+              "say": "Both. The goat ate my hat by way of thanks.",
               "back": "That’s how the goat says thank you. It’s how it says most things."
             }
           ]
         },
         {
-          "them": "Good. Now, fresh troubles. Edna Pruitt telephoned me, long distance, if you please. The Ladies’ Aid picnic is Sunday afternoon, and if a lumpy grey sheet rolls in she wants to know whether to haul out the tent. And Dutch Kessler at the elevator has three wagons of wheat sitting out under a grey sky that has been parked overhead for two days.",
+          "them": "Good. Now, fresh troubles. Edna Pruitt telephoned me, long distance, if you please. The Ladies’ Aid picnic is Sunday afternoon, and if a lumpy grey sheet rolls in she wants to know whether to haul out the tent. She has a week’s washing to hang out, too. And Dutch Kessler at the elevator has three wagons of wheat sitting out under a grey sky that has been parked overhead for two days.",
           "replies": [
             {
               "say": "Grey clouds mean rain, don’t they?",
@@ -33,11 +33,11 @@
           ]
         },
         {
-          "them": "This week you’ll sort clouds by height, learn to read their names, which are Latin but friendly, and find out why most clouds never rain. Then those two questions answer themselves.",
+          "them": "This week: why some days the air bubbles up and other days it lies flat, the lid that spreads heaps into a grey sheet, why most clouds never rain, and the one grey sky that always does. Then those questions answer themselves.",
           "replies": [
             {
-              "say": "Latin? Nobody said there’d be Latin.",
-              "back": "Four words of it. Even Hap learned them, and Hap thinks a barometer is a kind of rooster."
+              "say": "Can I just tell everybody to carry an umbrella?",
+              "back": "You can. Then nobody will ever ask you anything again, and you can take up farming."
             },
             {
               "say": "Sounds good."
@@ -47,38 +47,40 @@
       ]
     },
     {
-      "id": "low-sky-names",
+      "id": "heaps-nudge",
       "cue": {
-        "after": "names"
+        "after": "nudge"
       },
-      "when": "Tuesday, June 16, 1931 · 8:10 p.m.",
+      "when": "Tuesday, June 16, 1931 · 8:05 p.m.",
       "turns": [
         {
-          "them": "Harrow, quiz. You see a lumpy layer of cloud on the middle floor. Build its name.",
+          "them": "One more. On a hot afternoon the air around gets colder by 12 degrees a kilometre as you go up. A thermal off Ole’s stubble field cools at 10. Does it keep rising?",
           "replies": [
             {
-              "say": "Altocumulus.",
-              "back": "Alto- for the middle floor, cumulus for the lumps. You’re speaking Latin now. Don’t let it go to your head.",
+              "say": "Yes. It stays warmer than the air around it.",
+              "back": "Right. It cools slower than its neighbours, so it keeps its lead and keeps on going. That’s an unstable day.",
               "right": true
             },
             {
-              "say": "Cirrostratus.",
-              "back": "That’s a smooth, high veil. The middle floor is alto-, and lumps are cumulus: altocumulus."
+              "say": "No. It’s cooling, so it sinks.",
+              "back": "Everything that rises cools. What matters is whether it cools faster or slower than the air around it. Ten is slower than twelve, so it stays warmer and keeps going."
             },
             {
-              "say": "Stratocumulus.",
-              "back": "Close, but that’s the low lumpy sheet. The middle floor takes alto-: altocumulus."
+              "say": "Only if it makes a cloud.",
+              "back": "No cloud needed. Ten is slower than twelve, so it stays warmer than its neighbours and climbs all on its own."
             }
           ]
         },
         {
-          "them": "Aunt Fern calls every cloud “that one.” She isn’t wrong, but she isn’t helpful.",
+          "them": "Hap says on days like that his airplane rides like a buckboard on a washboard road. Every one of those bumps is a bubble.",
           "replies": [
             {
-              "say": "Poor Aunt Fern."
+              "say": "So he’s flying through thermals.",
+              "back": "And complaining about every one of them."
             },
             {
-              "say": "I’ll stick with Latin."
+              "say": "Poor Hap.",
+              "back": "Poor airplane."
             }
           ]
         }
@@ -89,7 +91,7 @@
       "cue": {
         "after": "drops"
       },
-      "when": "Tuesday, June 16, 1931 · 8:45 p.m.",
+      "when": "Tuesday, June 16, 1931 · 8:40 p.m.",
       "turns": [
         {
           "them": "So, a dark grey sheet overhead. Does dark mean rain?",
@@ -125,10 +127,10 @@
     {
       "id": "low-sky-check",
       "cue": "check",
-      "when": "Tuesday, June 16, 1931 · 9:15 p.m.",
+      "when": "Tuesday, June 16, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "That’s the club’s photographs done. Now give Edna and Dutch their answers, and give them straight. Edna can smell a hedge at forty paces.",
+          "them": "That’s the club’s photographs done. Now give Edna and Dutch their answers, and give them straight. Edna has two questions this week, the picnic and the washing, and she can smell a hedge at forty paces.",
           "replies": [
             {
               "say": "Ready."
@@ -144,6 +146,7 @@
   ],
   "locals": {
     "picnic": "Mrs. Edna Pruitt, who runs the Ladies’ Aid picnic, wants to know if she needs the tent:",
-    "wagons": "Dutch Kessler at the grain elevator, with three wagons of wheat sitting uncovered, asks:"
+    "wagons": "Dutch Kessler at the grain elevator, with three wagons of wheat sitting uncovered, asks:",
+    "washday": "Mrs. Edna Pruitt, with a week’s washing on the line, asks:"
   }
 }

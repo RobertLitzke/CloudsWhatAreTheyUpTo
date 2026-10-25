@@ -11,7 +11,7 @@
           "replies": [
             {
               "say": "How little?",
-              "back": "One lesson’s worth. Autumn is here, and the Pacific is lining up storms like boxcars on a siding."
+              "back": "Two lessons’ worth. Autumn is here, and the Pacific is lining up storms like boxcars on a siding."
             },
             {
               "say": "I knew it.",
@@ -20,11 +20,11 @@
           ]
         },
         {
-          "them": "Ole wants to drill his winter wheat just ahead of a good rain, and he wants you to say when. Hap is flying the mail to Spokane twice this week. And Edna Pruitt has a bazaar on the green on Saturday. Outdoors. With pies.",
+          "them": "Ole wants to drill his winter wheat just ahead of a good rain, and he wants you to say when. And Hap is flying the mail to Spokane twice this week, through whatever the Pacific sends.",
           "replies": [
             {
-              "say": "Pies again.",
-              "back": "The Ladies’ Aid runs on pie. So does this county."
+              "say": "Just the two of them this week?",
+              "back": "Two is plenty: Ole’s wheat and Hap’s neck, and both of them in your hands."
             },
             {
               "say": "That’s a lot of people counting on me.",
@@ -33,14 +33,14 @@
           ]
         },
         {
-          "them": "This week you put it all together: barometer, wind, and every cloud from the first cirrus to the last shower. By Saturday you should read a storm two days off.",
+          "them": "This week you put it together: barometer, wind, and every cloud from the first cirrus to the last shower. By Saturday you should read a storm two days off.",
           "replies": [
             {
               "say": "Ready."
             },
             {
-              "say": "Do I get a barometer?",
-              "back": "There’s a good one at the post office. Tap the glass gently. Mr. Ames does not like it tapped hard."
+              "say": "The workbook has a chapter on something called radar.",
+              "back": "Some fellow’s notion for the future, I expect. Read it anyway. In my day we used our eyes; in yours you’ll use whatever they invent."
             }
           ]
         }
@@ -87,58 +87,19 @@
       ]
     },
     {
-      "id": "front-shadow",
-      "cue": {
-        "after": "rainShadow"
-      },
-      "when": "Tuesday, September 29, 1931 · 8:45 p.m.",
-      "turns": [
-        {
-          "them": "That’s our lot, living on the dry side. Seattle gets the soaking and we get the leftovers. So how does the air come down to us off the mountains?",
-          "replies": [
-            {
-              "say": "Warmer and drier, warming at the dry rate.",
-              "back": "With no cloud left to slow it. That’s why your rain gauge is so lonely.",
-              "right": true
-            },
-            {
-              "say": "Colder, after the snow on the passes.",
-              "back": "It’s cold at the crest, but it warms all the way down, at the dry rate. It reaches us warmer and drier."
-            },
-            {
-              "say": "Just as moist as it started.",
-              "back": "It left its water on the western slopes. It comes down warmer and drier."
-            }
-          ]
-        },
-        {
-          "them": "Which gives Edna’s bazaar a fighting chance. A tent, mind. Not a promise.",
-          "replies": [
-            {
-              "say": "A tent, not a promise."
-            },
-            {
-              "say": "I’ll tell her the mountains are on her side.",
-              "back": "Tell her that and she’ll knit them a scarf."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "front-check",
       "cue": "check",
       "when": "Tuesday, September 29, 1931 · 9:20 p.m.",
       "turns": [
         {
-          "them": "That’s the photographs. Now Ole, Hap and Edna. Get these right and I’ll stop calling you tenderfoot.",
+          "them": "That’s the photographs. Now Ole and Hap. One more lesson after this one, for the winter, and then I’ll have nothing left to call you but Harrow.",
           "replies": [
             {
-              "say": "What will you call me then?",
-              "back": "Harrow. Same as always. But I’ll mean it differently."
+              "say": "Ready."
             },
             {
-              "say": "Ready."
+              "say": "What do you call me now?",
+              "back": "Tenderfoot. For one more lesson."
             }
           ]
         }
@@ -147,7 +108,6 @@
   ],
   "locals": {
     "wheat": "Ole Haugen, with a sack of seed wheat on his shoulder, asks:",
-    "mail": "Hap Delaney, the mail pilot, calls from the airfield:",
-    "bazaar": "Edna Pruitt, for the Ladies’ Aid bazaar, asks:"
+    "mail": "Hap Delaney, the mail pilot, calls from the airfield:"
   }
 }

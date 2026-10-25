@@ -1,0 +1,151 @@
+{
+  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "talks": [
+    {
+      "id": "local-open",
+      "cue": "start",
+      "when": "Tuesday, December 1, 1931 · 7:30 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. Snow on the Blue Mountains this morning, and frost on the inside of my window. Winter’s here. How’s the basin?",
+          "replies": [
+            {
+              "say": "Fog. Three days of it, and the fences have grown fur.",
+              "back": "That fur is rime, and it’s in tonight’s lesson. Don’t touch it; it’s busy."
+            },
+            {
+              "say": "Cold. Ole’s goat is wearing a blanket.",
+              "back": "And judging you from under it, no doubt."
+            }
+          ]
+        },
+        {
+          "them": "Edna Pruitt has moved the Christmas bazaar out onto the green, because the hall’s being painted, and the Seattle paper says a big rain is coming. And Hap says there’s a cloud like a stack of dinner plates parked over the Blue Mountains, and it won’t move, wind or no wind.",
+          "replies": [
+            {
+              "say": "A cloud that won’t move?",
+              "back": "Oh, it’s moving plenty. The wind is blowing straight through it. You’ll see."
+            },
+            {
+              "say": "Edna, outdoors, in December?",
+              "back": "Edna has never let the calendar tell her anything."
+            }
+          ]
+        },
+        {
+          "them": "This week: the tricks our own country plays. The mountains, the winter fog, and a few rare skies worth staying up for. After this one, you’re trained. I mean it this time.",
+          "replies": [
+            {
+              "say": "Ready."
+            },
+            {
+              "say": "You said that in August.",
+              "back": "And I was nearly right in August."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "front-shadow",
+      "cue": {
+        "after": "rainShadow"
+      },
+      "when": "Tuesday, December 1, 1931 · 8:05 p.m.",
+      "turns": [
+        {
+          "them": "That’s our lot, living on the dry side. Seattle gets the soaking and we get the leftovers. So how does the air come down to us off the mountains?",
+          "replies": [
+            {
+              "say": "Warmer and drier, warming at the dry rate.",
+              "back": "With no cloud left to slow it. That’s why your rain gauge is so lonely.",
+              "right": true
+            },
+            {
+              "say": "Colder, after the snow on the passes.",
+              "back": "It’s cold at the crest, but it warms all the way down, at the dry rate. It reaches us warmer and drier."
+            },
+            {
+              "say": "Just as moist as it started.",
+              "back": "It left its water on the western slopes. It comes down warmer and drier."
+            }
+          ]
+        },
+        {
+          "them": "Which gives Edna’s bazaar a fighting chance. A tent, mind. Not a promise.",
+          "replies": [
+            {
+              "say": "A tent, not a promise."
+            },
+            {
+              "say": "I’ll tell her the mountains are on her side.",
+              "back": "Tell her that and she’ll knit them a scarf."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "local-wave",
+      "cue": {
+        "after": "wave"
+      },
+      "when": "Tuesday, December 1, 1931 · 8:40 p.m.",
+      "turns": [
+        {
+          "them": "That’s Hap’s stack of plates. So why does it sit still over the mountains with the wind blowing forty miles an hour?",
+          "replies": [
+            {
+              "say": "The wind blows through it. Air turns to cloud in the crest of a wave and dries out behind.",
+              "back": "Right. The cloud stays put; the air doesn’t. Tell Hap to keep clear of the waves downwind. They’ll shake his fillings loose.",
+              "right": true
+            },
+            {
+              "say": "The wind can’t reach it up there.",
+              "back": "The wind is blowing right through it. Air rises into the crest of a standing wave, turns to cloud, and dries out again on the way down. The cloud stays; the air moves."
+            },
+            {
+              "say": "It’s frozen solid.",
+              "back": "Not that one. It’s a standing wave: air rises into the crest, condenses, and evaporates again behind. The cloud stays put while the wind blows through."
+            }
+          ]
+        },
+        {
+          "them": "A lens cloud is a rare one. Put it in your journal.",
+          "replies": [
+            {
+              "say": "Done."
+            },
+            {
+              "say": "Hap saw it first.",
+              "back": "Hap will remind you of that until Easter."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "local-check",
+      "cue": "check",
+      "when": "Tuesday, December 1, 1931 · 9:10 p.m.",
+      "turns": [
+        {
+          "them": "Photographs done. Now Edna’s bazaar, and then you and I are finished with the workbook. You’re a forecaster, Harrow. I’ll stop calling you tenderfoot.",
+          "replies": [
+            {
+              "say": "What will you call me then?",
+              "back": "Harrow. Same as always. But I’ll mean it differently."
+            },
+            {
+              "say": "Thank you, Walla Walla.",
+              "back": "Don’t thank me yet. Edna’s bazaar first."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "locals": {
+    "bazaar": "Edna Pruitt, for the Ladies’ Aid Christmas bazaar, asks:"
+  }
+}

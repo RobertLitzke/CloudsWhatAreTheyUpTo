@@ -20,27 +20,66 @@
           ]
         },
         {
-          "them": "Now listen. Hap Delaney came on the air from Pasco yesterday. He has the afternoon mail run, and he wants to know how to tell from the morning sky whether he’ll be flying into rain by afternoon. And Miss Abernathy’s Sunday school class has sent a note asking how high the clouds are. Twenty-two children are waiting on your answer.",
+          "them": "Now listen. Miss Abernathy’s Sunday school class has sent a note asking how high the clouds are. Twenty-two children are waiting on your answer.",
           "replies": [
             {
               "say": "How high? How would anybody know that?",
               "back": "With a balloon, an aeroplane, or your own hand. Two of those are expensive."
             },
             {
-              "say": "Hap could just look out the window.",
-              "back": "Hap looks out the window plenty. He just doesn’t know what he’s looking at."
+              "say": "Can’t they just ask Hap? He flies up there.",
+              "back": "Hap flies up there twice a week and couldn’t tell you which floor he was on. He’d tell you anyway."
             }
           ]
         },
         {
-          "them": "This week, the middle floor: the hardest to read and the most useful to know. And bring your hands. You’ll need both.",
+          "them": "This week you sort the whole sky by floors, learn to read the names, which are Latin but friendly, and pick up three tricks for telling how high a cloud is in half a minute. And bring your hands. You’ll need both.",
           "replies": [
+            {
+              "say": "Latin? Nobody said there’d be Latin.",
+              "back": "Four words of it. Even Hap learned them, and Hap thinks a barometer is a kind of rooster."
+            },
             {
               "say": "My hands?",
               "back": "Your hands. Don’t ask. Read."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "low-sky-names",
+      "cue": {
+        "after": "names"
+      },
+      "when": "Tuesday, July 7, 1931 · 8:05 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, quiz. You see a lumpy layer of cloud on the middle floor. Build its name.",
+          "replies": [
+            {
+              "say": "Altocumulus.",
+              "back": "Alto- for the middle floor, cumulus for the lumps. You’re speaking Latin now. Don’t let it go to your head.",
+              "right": true
             },
             {
-              "say": "Ready when you are."
+              "say": "Cirrostratus.",
+              "back": "That’s a smooth, high veil. The middle floor is alto-, and lumps are cumulus: altocumulus."
+            },
+            {
+              "say": "Stratocumulus.",
+              "back": "Close, but that’s the low lumpy sheet. The middle floor takes alto-: altocumulus."
+            }
+          ]
+        },
+        {
+          "them": "Aunt Fern calls every cloud “that one.” She isn’t wrong, but she isn’t helpful.",
+          "replies": [
+            {
+              "say": "Poor Aunt Fern."
+            },
+            {
+              "say": "I’ll stick with Latin."
             }
           ]
         }
@@ -51,7 +90,7 @@
       "cue": {
         "after": "hand"
       },
-      "when": "Tuesday, July 7, 1931 · 8:05 p.m.",
+      "when": "Tuesday, July 7, 1931 · 8:40 p.m.",
       "turns": [
         {
           "them": "Quick. A layer of lumps high in the sky, and each lump is wider than three fingers held at arm’s length. Which floor?",
@@ -86,58 +125,19 @@
       ]
     },
     {
-      "id": "middle-sky-glass",
-      "cue": {
-        "after": "sunThrough"
-      },
-      "when": "Tuesday, July 7, 1931 · 8:40 p.m.",
-      "turns": [
-        {
-          "them": "You’re at the frosted glass now, and the sun is a pale disc. Look at the ground. What’s missing?",
-          "replies": [
-            {
-              "say": "Shadows.",
-              "back": "Gone, because the light comes from the whole sky instead of one bright sun. That’s altostratus.",
-              "right": true
-            },
-            {
-              "say": "The birds.",
-              "back": "The birds are fine. Look down: no shadows. The light comes from the whole sky at once."
-            },
-            {
-              "say": "My hat.",
-              "back": "The goat. We’ve been over this. And the shadows are gone too: the light comes from the whole sky."
-            }
-          ]
-        },
-        {
-          "them": "When that frosted glass keeps thickening, nobody should plan a picnic. You know who to tell.",
-          "replies": [
-            {
-              "say": "Edna."
-            },
-            {
-              "say": "Hap.",
-              "back": "Him too."
-            }
-          ]
-        }
-      ]
-    },
-    {
       "id": "middle-sky-check",
       "cue": "check",
       "when": "Tuesday, July 7, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Every floor called on the club’s photographs. Now answer Hap and the Sunday school, in that order. Hap’s the one with an aeroplane.",
+          "them": "Every floor called on the club’s photographs. Now answer the Sunday school. Twenty-two children, and every one of them will check your sums.",
           "replies": [
             {
               "say": "Ready."
             },
             {
               "say": "Can I use my hands?",
-              "back": "That’s the whole point."
+              "back": "On the real sky, yes. On a photograph, no: a picture can be any size. That’s in the lesson too."
             }
           ]
         }
@@ -145,7 +145,6 @@
     }
   ],
   "locals": {
-    "mail": "Hap Delaney, who has the afternoon mail run to Pasco, asks:",
     "how-high": "Miss Abernathy’s Sunday school class has sent a note. It says:"
   }
 }

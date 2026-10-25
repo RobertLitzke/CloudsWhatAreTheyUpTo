@@ -44,6 +44,19 @@
               "back": "Good. There’s a new workbook on the train. Same as before: read it, and bring me the questions."
             }
           ]
+        },
+        {
+          "them": "And the Grange is already talking. A man from California wants two thousand dollars to make it rain on Adams County. And Mabel says the doctor from Spokane couldn’t land last week for the freezing fog.",
+          "replies": [
+            {
+              "say": "Can he make it rain?",
+              "back": "That’s this week’s lesson. My guess is he can make the Grange two thousand dollars lighter."
+            },
+            {
+              "say": "Two thousand dollars!",
+              "back": "For that money he’d better bring his own clouds."
+            }
+          ]
         }
       ]
     },
@@ -88,39 +101,39 @@
       ]
     },
     {
-      "id": "seeding-layer",
+      "id": "limits-trial",
       "cue": {
-        "after": "seedLayer"
+        "after": "trial"
       },
-      "when": "Saturday, November 23, 1946 · 8:10 p.m.",
+      "when": "Saturday, November 23, 1946 · 8:15 p.m.",
       "turns": [
         {
-          "them": "Hap asked me straight out: more dry ice is better, isn’t it?",
+          "them": "The California man says he seeded five storms last winter and got forty percent more snow. What do you tell the Grange?",
           "replies": [
             {
-              "say": "No. Too much and the crystals stay too small to fall.",
-              "back": "Overseeded: all that ice and not a flake on the ground. Tell him a pound a mile, give or take.",
+              "say": "Five storms he picked himself prove nothing.",
+              "back": "Luck, and a good eye for storms that were going to snow anyway. Ask him for a coin toss and twenty winters.",
               "right": true
             },
             {
-              "say": "Yes, the more the better.",
-              "back": "Overseed it and each crystal gets a crumb of water and never grows big enough to fall. About a pound a mile does it."
+              "say": "Forty percent! Hire him.",
+              "back": "Five storms he picked himself? That’s a good eye for weather, not proof. A coin toss and many winters, or nothing."
             },
             {
-              "say": "It doesn’t matter how much.",
-              "back": "It matters a great deal. Too little gives flurries, too much gives a veil of ice. About a pound a mile."
+              "say": "Seeding never works.",
+              "back": "It does, sometimes, a little. That’s the trouble: a little is hard to see past luck."
             }
           ]
         },
         {
-          "them": "He’ll want to try it on the next grey deck that settles over the basin. Rime on the fences is your sign that it’s supercooled.",
+          "them": "A fellow who is honest about small numbers is worth ten who promise big ones. Remember that if anybody ever pays you to seed.",
           "replies": [
             {
-              "say": "I’ll watch the fences."
+              "say": "I’ll remember."
             },
             {
-              "say": "And if it’s above freezing?",
-              "back": "Then he can save the dry ice for the ice cream social."
+              "say": "Is anybody going to pay me?",
+              "back": "Hap has already painted HARROW CLOUD SERVICE on the side of the duster. Spelled it wrong, but the thought is there."
             }
           ]
         }
@@ -129,17 +142,18 @@
     {
       "id": "seeding-check",
       "cue": "check",
-      "when": "Saturday, November 23, 1946 · 8:40 p.m.",
+      "when": "Saturday, November 23, 1946 · 8:50 p.m.",
       "turns": [
         {
-          "them": "Photographs first, the same as ever. Then Hap and Dutch have questions. Hap’s are louder.",
+          "them": "Last check in the book. Photographs, then Hap and Dutch, the Grange and Mabel. After this I’ve got nothing left to teach you.",
           "replies": [
             {
-              "say": "Ready."
+              "say": "That isn’t true.",
+              "back": "No, it isn’t. I’ve got plenty. But you won’t need it. Seventy-three, Harrow."
             },
             {
-              "say": "Dutch has questions?",
-              "back": "Dutch Kessler always has questions. He just asks them slowly."
+              "say": "Thank you, Walla Walla.",
+              "back": "Don’t. You’ll make an old ham choke up on the air, and then Mabel will hear about it. Seventy-three, Harrow."
             }
           ]
         }
@@ -148,6 +162,8 @@
   ],
   "locals": {
     "hap": "Hap Delaney, in the cockpit of his crop duster, calls:",
-    "dutch": "Dutch Kessler, on the roof of the elevator, asks:"
+    "dutch": "Dutch Kessler, on the roof of the elevator, asks:",
+    "grange": "The Grange, meeting in the back of Kessler’s store, asks:",
+    "doctor": "Mabel, from the switchboard, asks:"
   }
 }

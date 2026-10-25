@@ -267,11 +267,11 @@ export const seedView: View = (root) => {
 
   const talk = getSave().talk;
   page.append(
-    el('p.eyebrow', {}, talk ? 'Harrow, Adams County · 1946' : 'After the lessons'),
-    el('h1', {}, 'Cloud seeding'),
+    el('p.eyebrow', {}, talk ? 'Harrow, Adams County' : 'The forecast desk'),
+    el('h1', {}, 'Make the sky'),
     el('p.muted', {}, talk
-      ? 'Word is out that a fellow at General Electric made it snow with dry ice, and Harrow has a list of skies it wants. Hap’s war-surplus crop duster will fly the runs. Some orders leave the air to you: find a day that would make the sky. The rest give you the day as it is, and only the seeding to plan.'
-      : 'Make the skies on the list. Some orders leave the air to you: find a day that would make the sky. The rest give you the day as it is, and only the seeding to plan.'),
+      ? 'Harrow has a list of skies it wants. Most orders leave the air to you: find a day that would make the sky. The ones marked Seed come in 1946, when a fellow at General Electric has made it snow with dry ice and Hap’s war-surplus crop duster can fly the runs: they give you the day as it is, and only the seeding to plan.'
+      : 'Make the skies on the list. Most orders leave the air to you: find a day that would make the sky. The ones marked Seed, for after the cloud-seeding lesson, give you the day as it is, and only the seeding to plan.'),
     board,
     card,
   );

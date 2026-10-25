@@ -22,11 +22,20 @@ describe('migrate', () => {
     expect(s.shifts.bad).toBeUndefined();
   });
 
-  it('carries the old first lesson over to the two it was split into', () => {
+  it('carries the old first lesson over to the one it ended up in', () => {
     const s = migrate({ shifts: { textures: { done: true, best: 5, of: 6, finishedAt: '2026-10-19' } } });
     expect(s.shifts.textures).toBeUndefined();
+    expect(s.shifts.heaps).toBeUndefined();
     expect(s.shifts.fog).toEqual({ done: true, best: 5, of: 6, finishedAt: '2026-10-19' });
-    expect(s.shifts.heaps).toEqual(s.shifts.fog);
+  });
+
+  it('folds lessons that were merged into the one that took them in', () => {
+    const rec = { done: true, best: 4, of: 6, finishedAt: '2026-10-22' };
+    const s = migrate({ shifts: { 'seeding-limits': rec, heaps: rec, fog: { done: true, best: 6, of: 6 } } });
+    expect(s.shifts.seeding).toEqual(rec);
+    expect(s.shifts.fog).toEqual({ done: true, best: 6, of: 6 });
+    expect(s.shifts['seeding-limits']).toBeUndefined();
+    expect(s.shifts.heaps).toBeUndefined();
   });
 
   it('keeps the radio settings and what was heard', () => {

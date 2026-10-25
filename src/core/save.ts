@@ -83,6 +83,14 @@ export function migrate(raw: unknown): SaveData {
     delete out.shifts.textures;
     if (old.done) out.journal = [...new Set([...out.journal, 'fog', 'rising-air'])];
   }
+  // Then the lessons were rebuilt around questions asked of the sky: heaps went
+  // into the first lesson, and the two on seeding became one.
+  for (const [from, to] of [['heaps', 'fog'], ['seeding-limits', 'seeding']] as const) {
+    const rec = out.shifts[from];
+    if (!rec) continue;
+    out.shifts[to] ??= { ...rec };
+    delete out.shifts[from];
+  }
   return out;
 }
 

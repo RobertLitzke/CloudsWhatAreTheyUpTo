@@ -1,5 +1,5 @@
-// The tutorial series: nine lessons of a workbook, seven of training and two on
-// cloud seeding. Each lesson is a short
+// The tutorial series: eight lessons of a workbook, seven of training and one on
+// cloud seeding. Each lesson starts from a question asked of the sky, and is a short
 // illustrated article in the manner of an interactive explainer: paragraphs
 // and live figures to play with. A lesson comes in parts; the next part opens
 // once the figures in this one have had their small task done. The last part
@@ -15,14 +15,13 @@
 
 import type { GenusId } from './clouds';
 import fog from '../data/shifts/fog.json';
-import heaps from '../data/shifts/heaps.json';
 import lowSky from '../data/shifts/low-sky.json';
 import middleSky from '../data/shifts/middle-sky.json';
 import iceRealm from '../data/shifts/ice-realm.json';
 import giants from '../data/shifts/giants.json';
 import front from '../data/shifts/front.json';
+import localSky from '../data/shifts/local-sky.json';
 import seeding from '../data/shifts/seeding.json';
-import seedingLimits from '../data/shifts/seeding-limits.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -131,16 +130,15 @@ function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; b
 
 export const SHIFTS: readonly Shift[] = [
   // -------------------------------------------------------------------------
-  fromJson(fog, ['stratus']),
-  fromJson(heaps, ['cumulus']),
-  fromJson(lowSky, ['stratocumulus']),
-  fromJson(middleSky, ['altocumulus', 'altostratus']),
-  fromJson(iceRealm, ['cirrus', 'cirrostratus', 'cirrocumulus', 'nimbostratus']),
+  fromJson(fog, ['stratus', 'cumulus']),
+  fromJson(lowSky, ['stratocumulus', 'nimbostratus']),
+  fromJson(middleSky, ['altocumulus', 'cirrocumulus', 'cirrus']),
+  fromJson(iceRealm, ['cirrostratus', 'altostratus'], { sky: ['cirrus', 'cirrostratus', 'altostratus'] }),
   fromJson(giants, ['cumulonimbus']),
   // These meet no new clouds: they put the ones already met to work.
   fromJson(front, [], { sky: ['cirrostratus', 'altostratus', 'cumulonimbus'] }),
+  fromJson(localSky, [], { sky: ['altocumulus', 'stratocumulus', 'stratus'] }),
   fromJson(seeding, [], { sky: ['altocumulus', 'stratus'], book: 'seeding' }),
-  fromJson(seedingLimits, [], { sky: ['cumulus', 'altocumulus'], book: 'seeding' }),
 ];
 
 export function shiftById(id: string): Shift | undefined {
@@ -150,12 +148,11 @@ export function shiftById(id: string): Shift | undefined {
 /** Journal entries and what they say. Shifts unlock them by id. Rare ones are the clouds to stay up for. */
 export const JOURNAL: Record<string, { title: string; text: string; rare?: boolean }> = {
   ...fog.journal,
-  ...heaps.journal,
   ...lowSky.journal,
   ...middleSky.journal,
   ...iceRealm.journal,
   ...giants.journal,
   ...front.journal,
+  ...localSky.journal,
   ...seeding.journal,
-  ...seedingLimits.journal,
 };

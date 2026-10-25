@@ -17,14 +17,13 @@
 import type { FigureId } from './shifts';
 import intro from '../data/radio/intro.json';
 import fog from '../data/radio/fog.json';
-import heaps from '../data/radio/heaps.json';
 import lowSky from '../data/radio/low-sky.json';
 import middleSky from '../data/radio/middle-sky.json';
 import iceRealm from '../data/radio/ice-realm.json';
 import giants from '../data/radio/giants.json';
 import front from '../data/radio/front.json';
+import localSky from '../data/radio/local-sky.json';
 import seeding from '../data/radio/seeding.json';
-import seedingLimits from '../data/radio/seeding-limits.json';
 
 export const STATIONS = {
   them: { call: 'W7DQ', place: 'Walla Walla' },
@@ -71,14 +70,13 @@ export const INTRO: Talk = intro as Talk;
 
 const BY_SHIFT: Record<string, Radio> = {
   fog: fog as Radio,
-  heaps: heaps as Radio,
   'low-sky': lowSky as Radio,
   'middle-sky': middleSky as Radio,
   'ice-realm': iceRealm as Radio,
   giants: giants as Radio,
   front: front as Radio,
+  'local-sky': localSky as Radio,
   seeding: seeding as Radio,
-  'seeding-limits': seedingLimits as Radio,
 };
 
 export function radioFor(shiftId: string): Radio {
