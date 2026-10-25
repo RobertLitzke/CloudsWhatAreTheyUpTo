@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
   "talks": [
     {
       "id": "low-sky-open",
@@ -7,120 +7,19 @@
       "when": "Tuesday, June 16, 1931 · 7:30 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Well? Did Hap get off the ground, and did Ole get his hay in dry?",
-          "replies": [
-            {
-              "say": "Both. Hap at ten sharp, and Ole sent a pie.",
-              "back": "Two forecasts, two hits. Frame them before your luck changes. Rhubarb? Mrs. Haugen makes a rhubarb pie that could end a war. Save me a slice."
-            },
-            {
-              "say": "Both. The goat ate my hat by way of thanks.",
-              "back": "That’s how the goat says thank you. It’s how it says most things."
-            }
-          ]
-        },
-        {
-          "them": "Good. Now, fresh troubles. Edna Pruitt telephoned me, long distance, if you please. The Ladies’ Aid picnic is Sunday afternoon, and if a lumpy grey sheet rolls in she wants to know whether to haul out the tent. She has a week’s washing to hang out, too. And Dutch Kessler at the elevator has three wagons of wheat sitting out under a grey sky that has been parked overhead for two days.",
+          "them": "Harrow, Walla Walla. This week’s question comes up every time the sky goes grey: will it actually rain, or is it just sulking? Most grey skies never drop a thing, and one kind nearly always does.",
           "replies": [
             {
               "say": "Grey clouds mean rain, don’t they?",
-              "back": "Not always. Most grey clouds never drop a thing. That’s tonight’s lesson, as it happens."
+              "back": "Not as often as you’d think. That’s the lesson."
             },
             {
-              "say": "Why does she telephone you and not me?",
-              "back": "She’s known me twenty years and you two weeks. Win the picnic and you win the town."
+              "say": "I’ll read up."
             }
           ]
         },
         {
-          "them": "This week: why some days the air bubbles up and other days it lies flat, the lid that spreads heaps into a grey sheet, why most clouds never rain, and the one grey sky that always does. Then those questions answer themselves.",
-          "replies": [
-            {
-              "say": "Can I just tell everybody to carry an umbrella?",
-              "back": "You can. Then nobody will ever ask you anything again, and you can take up farming."
-            },
-            {
-              "say": "Sounds good."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "heaps-nudge",
-      "cue": {
-        "after": "nudge"
-      },
-      "when": "Tuesday, June 16, 1931 · 8:05 p.m.",
-      "turns": [
-        {
-          "them": "One more. On a hot afternoon the air around gets colder by 12 degrees a kilometre as you go up. A thermal off Ole’s stubble field cools at 10. Does it keep rising?",
-          "replies": [
-            {
-              "say": "Yes. It stays warmer than the air around it.",
-              "back": "Right. It cools slower than its neighbours, so it keeps its lead and keeps on going. That’s an unstable day.",
-              "right": true
-            },
-            {
-              "say": "No. It’s cooling, so it sinks.",
-              "back": "Everything that rises cools. What matters is whether it cools faster or slower than the air around it. Ten is slower than twelve, so it stays warmer and keeps going."
-            },
-            {
-              "say": "Only if it makes a cloud.",
-              "back": "No cloud needed. Ten is slower than twelve, so it stays warmer than its neighbours and climbs all on its own."
-            }
-          ]
-        },
-        {
-          "them": "Hap says on days like that his airplane rides like a buckboard on a washboard road. Every one of those bumps is a bubble.",
-          "replies": [
-            {
-              "say": "So he’s flying through thermals.",
-              "back": "And complaining about every one of them."
-            },
-            {
-              "say": "Poor Hap.",
-              "back": "Poor airplane."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "low-sky-rain",
-      "cue": {
-        "after": "drops"
-      },
-      "when": "Tuesday, June 16, 1931 · 8:40 p.m.",
-      "turns": [
-        {
-          "them": "So, a dark grey sheet overhead. Does dark mean rain?",
-          "replies": [
-            {
-              "say": "Not by itself. Depth matters more.",
-              "back": "Exactly. A thin sheet can look dark and give nothing but drizzle. It takes a deep cloud to grow drops heavy enough to fall.",
-              "right": true
-            },
-            {
-              "say": "Yes, dark clouds rain.",
-              "back": "That’s the knee talking. A thin sheet can look dark and never give more than drizzle. Depth makes rain, not darkness."
-            },
-            {
-              "say": "Only on Sundays.",
-              "back": "Only during picnics, Edna would say. No: depth makes rain, not darkness."
-            }
-          ]
-        },
-        {
-          "them": "Remember: a raindrop holds about a million cloud droplets’ worth of water. Most droplets never find enough friends.",
-          "replies": [
-            {
-              "say": "A million. That’s a lot of bumping."
-            },
-            {
-              "say": "Poor little droplets."
-            }
-          ]
+          "them": "Why some days the air bubbles up and some days it lies flat, the lid that spreads heaps into a grey sheet, and the one grey sky that soaks you. Questions at the end, as usual."
         }
       ]
     },
@@ -130,23 +29,63 @@
       "when": "Tuesday, June 16, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "That’s the club’s photographs done. Now give Edna and Dutch their answers, and give them straight. Edna has two questions this week, the picnic and the washing, and she can smell a hedge at forty paces.",
+          "them": "Harrow, Walla Walla. Questions. On a hot afternoon the air around gets colder by 12 degrees a kilometre as you go up. A thermal off a stubble field cools at 10. Does it keep rising?",
           "replies": [
             {
-              "say": "Ready."
+              "say": "Yes. It stays warmer than the air around it.",
+              "back": "Right. It cools slower than its neighbours, so it keeps its lead. That’s an unstable day.",
+              "right": true
             },
             {
-              "say": "Can I give Edna her answer in writing?",
-              "back": "Coward. Yes."
+              "say": "No. It’s cooling, so it sinks.",
+              "back": "Everything that rises cools. What matters is whether it cools faster or slower than the air around it. Ten is slower than twelve, so it keeps going."
+            },
+            {
+              "say": "Only if it makes a cloud.",
+              "back": "No cloud needed. Ten is slower than twelve, so it stays warmer than its neighbours and climbs all on its own."
             }
           ]
+        },
+        {
+          "them": "A dark grey sheet overhead. Does dark mean rain?",
+          "replies": [
+            {
+              "say": "Not by itself. Depth matters more.",
+              "back": "Exactly. A thin sheet can look dark and give nothing but drizzle. It takes a deep cloud to grow drops heavy enough to fall.",
+              "right": true
+            },
+            {
+              "say": "Yes, dark clouds rain.",
+              "back": "A thin sheet can look dark and never give more than drizzle. Depth makes rain, not darkness."
+            },
+            {
+              "say": "Only in the afternoon.",
+              "back": "The clock has nothing to do with it. Depth makes rain, not darkness."
+            }
+          ]
+        },
+        {
+          "them": "A lumpy grey sheet with slits of blue has sat overhead all day under high pressure. What is it, and what will it do?",
+          "replies": [
+            {
+              "say": "Stratocumulus. Mostly dry.",
+              "back": "Right. Heaps spread under a lid. Grey, but shallow.",
+              "right": true
+            },
+            {
+              "say": "Nimbostratus. A soaking.",
+              "back": "Nimbostratus is featureless and hides the sun entirely. Lumps with blue between are stratocumulus, and mostly dry."
+            },
+            {
+              "say": "Cumulonimbus. Thunder.",
+              "back": "Under high pressure, with a lid on? No. That’s stratocumulus, spread flat and mostly dry."
+            }
+          ]
+        },
+        {
+          "them": "Good. Next lesson we climb higher and sort the whole sky."
         }
       ]
     }
-  ],
-  "locals": {
-    "picnic": "Mrs. Edna Pruitt, who runs the Ladies’ Aid picnic, wants to know if she needs the tent:",
-    "wagons": "Dutch Kessler at the grain elevator, with three wagons of wheat sitting uncovered, asks:",
-    "washday": "Mrs. Edna Pruitt, with a week’s washing on the line, asks:"
-  }
+  ]
 }

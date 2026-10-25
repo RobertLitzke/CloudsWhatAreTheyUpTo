@@ -5,17 +5,14 @@
 // lesson opens in full. The last part is the check, and its score goes into
 // the log at the end.
 //
-// With the radio on, talks with Walla Walla (core/talk.ts) come up over the
-// page as it is read: one as the lesson opens, one or two after figures, and
-// one in the check, once the photos are called and before the
-// townsfolk's forecast questions, which wait for it to close. A talk about a
-// figure waits for the reader to call Walla Walla from the finished figure, so
-// it never comes up over a figure they are still looking at. They play only
-// the first time through.
+// With the radio on, Walla Walla (core/talk.ts) comes on twice: a short
+// opening as the lesson starts, and a quiz once the check is done, before the
+// log can be written up. Nothing comes up in between. They play only the
+// first time through.
 
 import { genus } from '../../core/clouds';
 import { finishShift } from '../../core/save';
-import { SHIFTS, shiftById, type Block, type FigureId, type Part, type Shift } from '../../core/shifts';
+import { SHIFTS, shiftById, type Block, type Part, type Shift } from '../../core/shifts';
 import { el } from '../dom';
 import { FIGURES } from '../figures';
 import { prose, type FigureContext } from '../figures/kit';
@@ -23,8 +20,8 @@ import type { View } from '../router';
 import { addToSky, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { makeScene, W } from '../scene/landscape';
 import { getSave, updateSave } from '../store';
-import { cueKey, radioFor, STATIONS, type Cue } from '../../core/talk';
-import { clearRadio, playTalk, radioIcon } from '../radio';
+import { radioFor, type Cue } from '../../core/talk';
+import { clearRadio, playTalk } from '../radio';
 
 /** The sky over the fields, with the clouds this lesson is about. */
 function hero(shift: Shift): HTMLElement {
@@ -37,7 +34,7 @@ function hero(shift: Shift): HTMLElement {
   return el('div.article-hero', {}, scene.root);
 }
 
-function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], onDone: (figure: FigureId, node: HTMLElement) => void): HTMLElement {
+function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[]): HTMLElement {
   switch (block.kind) {
     case 'text':
       return prose(block.text);
@@ -54,12 +51,7 @@ function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], o
       const fig = el('figure.fig', { 'data-figure': block.figure }, status, handle.node, box ? null : el('div.fig-text', {}, caption));
       if (handle.done) {
         tasks.push(handle.done);
-        void handle.done.then(() => {
-          fig.classList.add('done');
-          onDone(block.figure, fig);
-        });
-      } else {
-        onDone(block.figure, fig);
+        void handle.done.then(() => fig.classList.add('done'));
       }
       return fig;
     }
@@ -79,33 +71,10 @@ export const shiftView: View = (root, nav) => {
   const score = { right: 0, of: 0 };
   const radio = radioFor(shift.id);
   const talking = save.talk && !replay;
-  /** The talks waiting on this cue that have not been heard. */
-  const waiting = (c: Cue) => (talking ? radio.talks.filter((t) => t.cue !== 'check' && cueKey(t.cue) === cueKey(c) && !getSave().heard[t.id]) : []);
-  /**
-   * A finished figure with a talk about it gets a button to call Walla Walla,
-   * rather than the slip coming up over it unasked. The call brings the figure
-   * to the top of the screen, so it and its readout stay in sight above the slip.
-   */
-  const offerCall = (figure: FigureId, fig: HTMLElement) => {
-    const talks = waiting({ after: figure });
-    if (!talks.length) return;
-    const btn = el('button.btn.btn-small.fig-call', { type: 'button' }, radioIcon(), `Call ${STATIONS.them.place}`) as HTMLButtonElement;
-    const row = el('div.fig-call-row', {}, btn);
-    fig.append(row);
-    btn.addEventListener('click', async () => {
-      btn.disabled = true;
-      fig.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      for (const t of talks) if (alive && !getSave().heard[t.id]) await playTalk(t);
-      if (!alive) return;
-      if (talks.every((t) => getSave().heard[t.id])) row.replaceChildren(el('p.fig-called', {}, `Talked it over with ${STATIONS.them.place}.`));
-      else btn.disabled = false;
-    });
-  };
-  /** The check's talk, if the radio is on and it has not been heard. */
-  const checkTalk = () => (talking ? radio.talks.find((t) => t.cue === 'check' && !getSave().heard[t.id]) : undefined);
+  /** The talk on this cue, if the radio is on and it has not been heard. */
+  const waiting = (c: Cue) => (talking ? radio.talks.find((t) => t.cue === c && !getSave().heard[t.id]) : undefined);
   const ctx: FigureContext = {
     save,
-    local: (id) => (save.talk ? radio.locals[id] : undefined),
     closed: closed.signal,
     score: (right, of) => {
       score.right += right;
@@ -141,26 +110,13 @@ export const shiftView: View = (root, nav) => {
 
   const renderPart = (part: Part, i: number): Promise<void> => {
     const tasks: Promise<void>[] = [];
-    const render = (b: Block) => renderBlock(b, ctx, tasks, offerCall);
     const section = el('section.part', {}, el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title));
     article.append(section);
-    // In the check, the forecasts wait for the photos to be done and the
-    // check talk to close, so two quizzes never run at once.
-    const talk = i === shift.parts.length - 1 ? checkTalk() : undefined;
-    const split = part.blocks.findIndex((b) => b.kind === 'figure' && b.figure === 'forecast');
-    if (!talk || split < 0) {
-      section.append(...part.blocks.map(render));
-      return Promise.all(tasks).then(() => undefined);
-    }
-    section.append(...part.blocks.slice(0, split).map(render));
-    return Promise.all(tasks)
-      .then(() => (alive ? playTalk(talk) : false))
-      .then(() => {
-        if (!alive) return;
-        const before = tasks.length;
-        section.append(...part.blocks.slice(split).map(render));
-        return Promise.all(tasks.slice(before)).then(() => undefined);
-      });
+    section.append(...part.blocks.map((b) => renderBlock(b, ctx, tasks)));
+    const done = Promise.all(tasks).then(() => undefined);
+    // The quiz on the radio comes once the check is done, and the log waits for it.
+    const quiz = i === shift.parts.length - 1 ? waiting('check') : undefined;
+    return quiz ? done.then(() => (alive ? playTalk(quiz) : false)).then(() => undefined) : done;
   };
 
   /** A button at the end of a part, enabled once its tasks are done. */
@@ -209,7 +165,8 @@ export const shiftView: View = (root, nav) => {
       reached(total - 1);
       await gate(last, true);
     } else {
-      for (const t of waiting('start')) void playTalk(t);
+      const opening = waiting('start');
+      if (opening) void playTalk(opening);
       for (const [i, part] of shift.parts.entries()) {
         reached(i);
         const ready = renderPart(part, i);

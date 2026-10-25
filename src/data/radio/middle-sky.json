@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
   "talks": [
     {
       "id": "middle-sky-open",
@@ -7,59 +7,34 @@
       "when": "Tuesday, July 7, 1931 · 7:30 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. You sound cheerful. Did Edna get her picnic?",
+          "them": "Harrow, Walla Walla. Tonight’s question sounds easy and isn’t: how high is that cloud? No balloon, no aeroplane. Just your eyes, four words of Latin, and, believe it or not, your hands.",
           "replies": [
             {
-              "say": "Dry, no tent. She shook my hand.",
-              "back": "Edna Pruitt shook your hand? I’ve known her twenty years and only ever got a nod. You’re made."
-            },
-            {
-              "say": "We put the tent up, and it didn’t rain.",
-              "back": "That’s what the lesson said: a grey sheet without depth stays dry. Still, Edna will call the tent prudence, which in her book is the highest praise."
-            }
-          ]
-        },
-        {
-          "them": "Now listen. Miss Abernathy’s Sunday school class has sent a note asking how high the clouds are. Twenty-two children are waiting on your answer.",
-          "replies": [
-            {
-              "say": "How high? How would anybody know that?",
-              "back": "With a balloon, an aeroplane, or your own hand. Two of those are expensive."
-            },
-            {
-              "say": "Can’t they just ask Hap? He flies up there.",
-              "back": "Hap flies up there twice a week and couldn’t tell you which floor he was on. He’d tell you anyway."
-            }
-          ]
-        },
-        {
-          "them": "This week you sort the whole sky by floors, learn to read the names, which are Latin but friendly, and pick up three tricks for telling how high a cloud is in half a minute. And bring your hands. You’ll need both.",
-          "replies": [
-            {
-              "say": "Latin? Nobody said there’d be Latin.",
-              "back": "Four words of it. Even Hap learned them, and Hap thinks a barometer is a kind of rooster."
+              "say": "Latin?",
+              "back": "Four words of it, and friendly ones."
             },
             {
               "say": "My hands?",
-              "back": "Your hands. Don’t ask. Read."
+              "back": "Your hands. Read on."
             }
           ]
+        },
+        {
+          "them": "The three floors of the sky, how the names are built, and three quick tricks. Questions at the end."
         }
       ]
     },
     {
-      "id": "low-sky-names",
-      "cue": {
-        "after": "names"
-      },
-      "when": "Tuesday, July 7, 1931 · 8:05 p.m.",
+      "id": "middle-sky-check",
+      "cue": "check",
+      "when": "Tuesday, July 7, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, quiz. You see a lumpy layer of cloud on the middle floor. Build its name.",
+          "them": "Harrow, Walla Walla. Quiz. A lumpy layer of cloud on the middle floor. Build its name.",
           "replies": [
             {
               "say": "Altocumulus.",
-              "back": "Alto- for the middle floor, cumulus for the lumps. You’re speaking Latin now. Don’t let it go to your head.",
+              "back": "Alto- for the middle floor, cumulus for the lumps. You’re speaking Latin now.",
               "right": true
             },
             {
@@ -73,27 +48,7 @@
           ]
         },
         {
-          "them": "Aunt Fern calls every cloud “that one.” She isn’t wrong, but she isn’t helpful.",
-          "replies": [
-            {
-              "say": "Poor Aunt Fern."
-            },
-            {
-              "say": "I’ll stick with Latin."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "middle-sky-hand",
-      "cue": {
-        "after": "hand"
-      },
-      "when": "Tuesday, July 7, 1931 · 8:40 p.m.",
-      "turns": [
-        {
-          "them": "Quick. A layer of lumps high in the sky, and each lump is wider than three fingers held at arm’s length. Which floor?",
+          "them": "A layer of lumps high in the sky, and each lump is wider than three fingers held at arm’s length. Which floor?",
           "replies": [
             {
               "say": "Low floor: stratocumulus.",
@@ -111,40 +66,27 @@
           ]
         },
         {
-          "them": "Hap tried this once with his whole arm out of the cockpit. Lost a glove over Ritzville.",
+          "them": "Soft, feathery wisps up high, with no shading at all. What are they made of?",
           "replies": [
             {
-              "say": "Did he ever find it?",
-              "back": "A farmer did. Mailed it back, postage due."
+              "say": "Ice crystals. That’s cirrus.",
+              "back": "Right. Ice evaporates slowly, so the edges go soft and fibrous.",
+              "right": true
             },
             {
-              "say": "That’s one way to learn."
+              "say": "Big droplets.",
+              "back": "Droplets make crisp edges. Soft, feathery ones are ice: cirrus."
+            },
+            {
+              "say": "Smoke from the stubble fires.",
+              "back": "Smoke drifts low and brown. Feathery white wisps up high are ice: cirrus."
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "middle-sky-check",
-      "cue": "check",
-      "when": "Tuesday, July 7, 1931 · 9:10 p.m.",
-      "turns": [
+        },
         {
-          "them": "Every floor called on the club’s photographs. Now answer the Sunday school. Twenty-two children, and every one of them will check your sums.",
-          "replies": [
-            {
-              "say": "Ready."
-            },
-            {
-              "say": "Can I use my hands?",
-              "back": "On the real sky, yes. On a photograph, no: a picture can be any size. That’s in the lesson too."
-            }
-          ]
+          "them": "Every floor called. Next lesson, the high clouds that tell tomorrow’s weather."
         }
       ]
     }
-  ],
-  "locals": {
-    "how-high": "Miss Abernathy’s Sunday school class has sent a note. It says:"
-  }
+  ]
 }

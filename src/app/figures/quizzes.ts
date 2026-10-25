@@ -338,12 +338,8 @@ export const forecastFigure = quiz((ctx, t, options) => {
       return el('figure', {}, scene.root, el('figcaption', {}, s.when));
     }));
     const readings = q.instruments ? el('ul.readings', {}, ...q.instruments.map((r) => el('li', {}, r))) : null;
-    const asker = q.id ? ctx.local?.(q.id) : undefined;
-    // A question from town comes on one typed slip, with who asked it, the
-    // answers and the reply; otherwise it is all plain.
-    const card = asker ? el('div.asker', {}, el('p', {}, asker), el('p', {}, q.question)) : null;
     const buttons = q.options.map((o, k) => {
-      const b = el(card ? 'button.slip-reply' : 'button.btn.btn-ghost.wide', { type: 'button' }, o) as HTMLButtonElement;
+      const b = el('button.btn.btn-ghost.wide', { type: 'button' }, o) as HTMLButtonElement;
       b.addEventListener('click', () => {
         const good = k === q.answer;
         if (good) right++;
@@ -352,15 +348,14 @@ export const forecastFigure = quiz((ctx, t, options) => {
           if (j === q.answer) x.classList.add('right');
         });
         if (!good) b.classList.add('wrong');
-        (card ?? body).append(el('div.verdict', { className: `verdict ${good ? 'good' : 'bad'}` }, el('p', {}, q.why)));
+        body.append(el('div.verdict', { className: `verdict ${good ? 'good' : 'bad'}` }, el('p', {}, q.why)));
         body.append(
           el('div.actions', {}, el('span.count', {}, `${i + 1} / ${items.length}`), el('button.btn', { type: 'button', onclick: () => { i++; next(); } }, i === items.length - 1 ? 'Finish' : 'Next')),
         );
       });
       return b;
     });
-    if (card) card.append(el('div.slip-replies', {}, buttons));
-    body.replaceChildren(q.profile ? profileDrawing(q.profile) : strip, readings ?? '', ...(card ? [card] : [el('p.task', {}, q.question), el('div.answer-list', {}, buttons)]));
+    body.replaceChildren(q.profile ? profileDrawing(q.profile) : strip, readings ?? '', el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
   };
   next();
   return node;

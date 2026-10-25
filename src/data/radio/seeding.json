@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
   "talks": [
     {
       "id": "seeding-open",
@@ -7,68 +7,40 @@
       "when": "Saturday, November 23, 1946 · 7:00 p.m.",
       "turns": [
         {
-          "them": "W7HAR, W7HAR, this is W7DQ, Walla Walla. Fifteen years, and the same old crackle. Are you still up there, Harrow?",
+          "them": "W7HAR, this is W7DQ, Walla Walla. Fifteen years, and the same old crackle. Are you still up there, Harrow?",
           "replies": [
             {
               "say": "Still here. Older.",
-              "back": "Older is the only direction anybody goes. I’ve gone a fair way down it myself."
+              "back": "Older is the only direction anybody goes."
             },
             {
               "say": "W7DQ! I thought you’d retired.",
-              "back": "They took our sets off the air for the war. I retired from the radio, not from the weather. Now we’re back on, and so am I."
+              "back": "They took our sets off the air for the war. Now we’re back on, and so am I."
             }
           ]
         },
         {
-          "them": "Have you seen the papers? A fellow at General Electric back East, Schaefer, flew over a mountain in Massachusetts ten days ago, dropped dry ice on a cloud, and made it snow. On purpose.",
+          "them": "Have you seen the papers? A fellow at General Electric, Schaefer, dropped dry ice on a cloud over Massachusetts ten days ago and made it snow. On purpose. There’s a new workbook on the train: how it works, and how much of it to believe.",
           "replies": [
             {
               "say": "Can we do that here?",
-              "back": "That’s why I’m calling. Half the county has read it, and Mabel has read it to the other half."
+              "back": "That’s the lesson. Read it, and I’ll have questions at the end."
             },
             {
               "say": "Sounds like the rainmakers at the county fair.",
               "back": "That’s what I said. Then I read the report. This one is real physics. Mostly."
             }
           ]
-        },
-        {
-          "them": "And your Hap Delaney came home from the war with a surplus crop duster and a head full of ideas. He has already priced dry ice from the ice house in Spokane.",
-          "replies": [
-            {
-              "say": "Hap with a duster. Heaven help the sky.",
-              "back": "Heaven may have to. You’ll have to help it first."
-            },
-            {
-              "say": "Then we’d better learn how it works.",
-              "back": "Good. There’s a new workbook on the train. Same as before: read it, and bring me the questions."
-            }
-          ]
-        },
-        {
-          "them": "And the Grange is already talking. A man from California wants two thousand dollars to make it rain on Adams County. And Mabel says the doctor from Spokane couldn’t land last week for the freezing fog.",
-          "replies": [
-            {
-              "say": "Can he make it rain?",
-              "back": "That’s this week’s lesson. My guess is he can make the Grange two thousand dollars lighter."
-            },
-            {
-              "say": "Two thousand dollars!",
-              "back": "For that money he’d better bring his own clouds."
-            }
-          ]
         }
       ]
     },
     {
-      "id": "seeding-box",
-      "cue": {
-        "after": "coldBox"
-      },
-      "when": "Saturday, November 23, 1946 · 7:35 p.m.",
+      "id": "seeding-check",
+      "cue": "check",
+      "when": "Saturday, November 23, 1946 · 8:50 p.m.",
       "turns": [
         {
-          "them": "So you’ve made it snow in a box. At −3 °C, which one works?",
+          "them": "Harrow, Walla Walla. Last questions in the book. A cloud at −3 °C. Which will make it snow?",
           "replies": [
             {
               "say": "Dry ice.",
@@ -86,84 +58,45 @@
           ]
         },
         {
-          "them": "Schaefer’s box was an ordinary home freezer lined with black velvet. Don’t tell Edna. She’ll want to know what became of the velvet.",
+          "them": "Somebody seeds a layer with far too many crystals. What happens?",
           "replies": [
             {
-              "say": "She’ll want it back.",
-              "back": "Fifteen years, and she still has the receipt for that tablecloth."
-            },
-            {
-              "say": "Is it really that simple?",
-              "back": "The box is simple. The flying is not."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "limits-trial",
-      "cue": {
-        "after": "trial"
-      },
-      "when": "Saturday, November 23, 1946 · 8:15 p.m.",
-      "turns": [
-        {
-          "them": "The California man says he seeded five storms last winter and got forty percent more snow. What do you tell the Grange?",
-          "replies": [
-            {
-              "say": "Five storms he picked himself prove nothing.",
-              "back": "Luck, and a good eye for storms that were going to snow anyway. Ask him for a coin toss and twenty winters.",
+              "say": "They stay too small to fall.",
+              "back": "Right. Overseeding: the water is shared out too thin.",
               "right": true
             },
             {
-              "say": "Forty percent! Hire him.",
-              "back": "Five storms he picked himself? That’s a good eye for weather, not proof. A coin toss and many winters, or nothing."
+              "say": "Twice the snow.",
+              "back": "More crystals share the same water, so each stays small and none of them fall. That’s overseeding."
             },
             {
-              "say": "Seeding never works.",
+              "say": "Hail.",
+              "back": "Hail needs a thunderstorm’s updraught. Too many crystals just stay too small to fall."
+            }
+          ]
+        },
+        {
+          "them": "A man says he seeded five storms last winter and got forty percent more snow. What does that prove?",
+          "replies": [
+            {
+              "say": "Nothing. He picked the storms himself.",
+              "back": "Right. Storms picked by chance, a control area, and many winters, or nothing.",
+              "right": true
+            },
+            {
+              "say": "Forty percent! It works.",
+              "back": "Five storms he picked himself is a good eye for weather, not proof. A fair trial picks by chance, over many winters."
+            },
+            {
+              "say": "That seeding never works.",
               "back": "It does, sometimes, a little. That’s the trouble: a little is hard to see past luck."
             }
           ]
         },
         {
-          "them": "A fellow who is honest about small numbers is worth ten who promise big ones. Remember that if anybody ever pays you to seed.",
-          "replies": [
-            {
-              "say": "I’ll remember."
-            },
-            {
-              "say": "Is anybody going to pay me?",
-              "back": "Hap has already painted HARROW CLOUD SERVICE on the side of the duster. Spelled it wrong, but the thought is there."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "seeding-check",
-      "cue": "check",
-      "when": "Saturday, November 23, 1946 · 8:50 p.m.",
-      "turns": [
-        {
-          "them": "Last check in the book. Photographs, then Hap and Dutch, the Grange and Mabel. After this I’ve got nothing left to teach you.",
-          "replies": [
-            {
-              "say": "That isn’t true.",
-              "back": "No, it isn’t. I’ve got plenty. But you won’t need it. Seventy-three, Harrow."
-            },
-            {
-              "say": "Thank you, Walla Walla.",
-              "back": "Don’t. You’ll make an old ham choke up on the air, and then Mabel will hear about it. Seventy-three, Harrow."
-            }
-          ]
+          "them": "A fellow who is honest about small numbers is worth ten who promise big ones. That’s the last of it, Harrow. Seventy-three."
         }
       ]
     }
-  ],
-  "locals": {
-    "hap": "Hap Delaney, in the cockpit of his crop duster, calls:",
-    "dutch": "Dutch Kessler, on the roof of the elevator, asks:",
-    "grange": "The Grange, meeting in the back of Kessler’s store, asks:",
-    "doctor": "Mabel, from the switchboard, asks:"
-  }
+  ]
 }

@@ -59,7 +59,7 @@ export const settingsView: View = (root) => {
           (on) => updateSave((s) => ({ ...s, talk: on === 1 })),
         ),
       ),
-      el('p.muted', {}, 'With the radio on, the lessons come with the story: talks with an old hand at Walla Walla, and questions from the folks in town. Off, the lessons are a plain workbook ending in a check.'),
+      el('p.muted', {}, 'With the radio on, an old hand at Walla Walla opens each lesson and quizzes you at the end, typed out on a slip. Off, the lessons are a plain workbook ending in a check.'),
       el(
         'button.btn.btn-ghost',
         {

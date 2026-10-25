@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
   "talks": [
     {
       "id": "ice-realm-open",
@@ -7,58 +7,33 @@
       "when": "Tuesday, July 28, 1931 · 7:30 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. I hear the Sunday school has your answer pinned to the wall. Miss Abernathy says you’re nearly as reliable as the almanac.",
+          "them": "Harrow, Walla Walla. Harvest is near, and cut wheat can’t sit wet, so this week’s question is a practical one: how much warning can you get of rain? Often a day, if you look up high.",
           "replies": [
             {
-              "say": "Nearly?",
-              "back": "The almanac has been wrong for longer. That earns a certain respect."
-            },
-            {
-              "say": "I’ll take it.",
-              "back": "Take it and run."
-            }
-          ]
-        },
-        {
-          "them": "Harvest is coming. Ole Haugen has the binder out in the wheat, and cut wheat can’t sit wet. He wants to know how much warning he’ll get before rain. And Hap Delaney came on the air from Pasco: he has the afternoon mail run, and he wants to know how to tell from the morning sky whether he’ll be flying into rain by afternoon.",
-          "replies": [
-            {
-              "say": "How much warning can anybody get?",
-              "back": "A day, sometimes more, if you look up high. The ice clouds out in front tell you what’s coming long before it gets here."
-            },
-            {
-              "say": "Hap could just look out the window.",
-              "back": "Hap looks out the window plenty. He just doesn’t know what he’s looking at."
-            }
-          ]
-        },
-        {
-          "them": "This week: the high floor, all ice, and the grey sheets that come down after it. And a ring around the sun that’s older than Aunt Fern’s knee.",
-          "replies": [
-            {
-              "say": "Nothing is older than Aunt Fern’s knee.",
-              "back": "Don’t tell her I said so."
+              "say": "A whole day?",
+              "back": "Sometimes more. The ice clouds out in front tell you what’s coming long before it gets here."
             },
             {
               "say": "Ready."
             }
           ]
+        },
+        {
+          "them": "The high floor, all ice, the grey sheets that come down after it, and a ring around the sun. Questions at the end."
         }
       ]
     },
     {
-      "id": "ice-realm-halo",
-      "cue": {
-        "after": "halo"
-      },
-      "when": "Tuesday, July 28, 1931 · 8:05 p.m.",
+      "id": "ice-realm-check",
+      "cue": "check",
+      "when": "Tuesday, July 28, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "You’ve got your ring. Hold your hand out at arm’s length: about how far is it from the sun to the ring?",
+          "them": "Harrow, Walla Walla. Questions. There’s a ring round the sun. Hold your hand out at arm’s length: about how far is it from the sun to the ring?",
           "replies": [
             {
               "say": "About a spread hand.",
-              "back": "Twenty-two degrees, a spread hand at arm’s length. Every halo, every time. Ice crystals don’t bend the rules, only the light.",
+              "back": "Twenty-two degrees, a spread hand at arm’s length. Every halo, every time.",
               "right": true
             },
             {
@@ -72,27 +47,7 @@
           ]
         },
         {
-          "them": "Aunt Fern says a ring around the moon means rain soon. For once she has science on her side. Don’t tell her that either.",
-          "replies": [
-            {
-              "say": "My lips are sealed."
-            },
-            {
-              "say": "Even a knee is right sometimes."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ice-realm-front",
-      "cue": {
-        "after": "front"
-      },
-      "when": "Tuesday, July 28, 1931 · 8:40 p.m.",
-      "turns": [
-        {
-          "them": "Now, Ole’s question. A warm front is on its way. In what order do its clouds arrive?",
+          "them": "A warm front is on its way. In what order do its clouds arrive?",
           "replies": [
             {
               "say": "High clouds first, then middle, then low.",
@@ -105,46 +60,32 @@
             },
             {
               "say": "All at once.",
-              "back": "Then nobody would get any warning and Ole would lose his wheat. High first, then middle, then low."
+              "back": "Then nobody would get any warning. High first, then middle, then low."
             }
           ]
         },
         {
-          "them": "Now you can give Ole a timetable instead of a shrug.",
+          "them": "The sun is a dim disc, as if behind frosted glass, and shadows have gone. Which cloud?",
           "replies": [
             {
-              "say": "A timetable. Like the train.",
-              "back": "Except this one runs on time."
+              "say": "Altostratus.",
+              "back": "Right. Rain in a few hours, likely.",
+              "right": true
             },
             {
-              "say": "Better than a shrug."
+              "say": "Cirrostratus.",
+              "back": "Cirrostratus leaves the sun sharp, with shadows and maybe a halo. Frosted glass is altostratus."
+            },
+            {
+              "say": "Nimbostratus.",
+              "back": "Nimbostratus hides the sun entirely. A dim disc is altostratus."
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "ice-realm-check",
-      "cue": "check",
-      "when": "Tuesday, July 28, 1931 · 9:10 p.m.",
-      "turns": [
+        },
         {
-          "them": "The club’s photographs are done. Now Ole and Hap. Harvest and the mail: the two things this county can’t do without.",
-          "replies": [
-            {
-              "say": "Ready."
-            },
-            {
-              "say": "Which matters more?",
-              "back": "Ask Ole and he’ll say wheat. Ask Hap and he’ll say the mail. Ask Mabel and she’ll say the gossip in the mail."
-            }
-          ]
+          "them": "Now you can give a farmer a timetable instead of a shrug. Next lesson, thunderstorms."
         }
       ]
     }
-  ],
-  "locals": {
-    "binder": "Ole Haugen, with the binder out in the wheat, asks:",
-    "mail": "Hap Delaney, who has the afternoon mail run to Pasco, asks:"
-  }
+  ]
 }

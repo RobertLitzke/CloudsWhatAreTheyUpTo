@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
   "talks": [
     {
       "id": "fog-open",
@@ -7,71 +7,29 @@
       "when": "Tuesday, June 2, 1931 · 7:30 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla, right on the sked. How was your first week? Anybody knock on the door yet?",
+          "them": "Harrow, Walla Walla, right on the sked. First lesson tonight, and it starts with the two questions every June brings: will the morning grey burn off, and do the white puffs that come up by mid-morning mean rain?",
           "replies": [
             {
-              "say": "Two people and a goat.",
-              "back": "The goat is Ole Haugen’s. It goes wherever Ole goes, and it judges you. Don’t take it personally."
+              "say": "Do they?",
+              "back": "Work through the lesson and tell me. Once you know what a cloud is made of, both questions answer themselves."
             },
             {
-              "say": "Ole Haugen came by. And Hap Delaney from the airfield.",
-              "back": "The two finest worriers in Adams County. Ole frets about his hay. Hap frets about nothing, which is worse."
+              "say": "Ready when you are."
             }
           ]
         },
         {
-          "them": "Let me guess. Ole has hay cut and lying in the field, and he wants to know if those little puffy clouds every morning mean rain. And Hap wants to know when the morning fog will let him off the ground.",
-          "replies": [
-            {
-              "say": "How did you know?",
-              "back": "Because it’s June, and they ask me the same thing every June. I’m passing them on to you, with my compliments."
-            },
-            {
-              "say": "Lucky guess?",
-              "back": "Thirty years of guesses. They stop being luck after the first twenty."
-            }
-          ]
-        },
-        {
-          "them": "And what did you tell them?",
-          "replies": [
-            {
-              "say": "“Probably not” to Ole and “later” to Hap.",
-              "back": "A politician’s answer. Accurate and useless."
-            },
-            {
-              "say": "That I’d get back to them.",
-              "back": "Wise. A tenderfoot who admits not knowing is worth two who guess."
-            },
-            {
-              "say": "I consulted Aunt Fern’s knee.",
-              "back": "Don’t you dare. That knee belongs to the family."
-            }
-          ]
-        },
-        {
-          "them": "Here’s tonight’s homework. Before you can answer either of them, you have to know what a cloud actually is, and it isn’t what you think. We’ll start with Hap’s fog, because fog is the simplest cloud there is, and finish with Ole’s puffy clouds, which are the next simplest. Read the lesson, play with the jar, and call me back when you know why the valley fills with fog.",
-          "replies": [
-            {
-              "say": "So what is a cloud?",
-              "back": "Read the lesson. I’m not doing your homework for you. Well, maybe a little, later."
-            },
-            {
-              "say": "On it."
-            }
-          ]
+          "them": "It goes in order: what a cloud is, how a still night makes fog, and how rising air builds a heap. I’ll come back on at the end with a few questions."
         }
       ]
     },
     {
-      "id": "fog-night",
-      "cue": {
-        "after": "night"
-      },
-      "when": "Tuesday, June 2, 1931 · 8:05 p.m.",
+      "id": "fog-check",
+      "cue": "check",
+      "when": "Tuesday, June 2, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Now, about Hap’s fog. What kind of night makes fog by dawn?",
+          "them": "Harrow, Walla Walla again. Three questions over the air, like a Bureau examination, only friendlier. First: what kind of night makes fog by dawn?",
           "replies": [
             {
               "say": "Clear, still and damp.",
@@ -89,32 +47,11 @@
           ]
         },
         {
-          "them": "Hap will try to fly through it anyway. Last spring he landed in the Kessler place’s turnip field and called it a “precautionary arrival.”",
-          "replies": [
-            {
-              "say": "Is Hap all right?",
-              "back": "Hap is always all right. The turnips were not."
-            },
-            {
-              "say": "I’ll keep that in mind."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "heaps-base",
-      "cue": {
-        "after": "parcel"
-      },
-      "when": "Tuesday, June 2, 1931 · 8:40 p.m.",
-      "turns": [
-        {
-          "them": "Harrow, you there? Now Ole’s clouds. His thermometer reads 26 degrees this morning, and the dew point is 14. Where will his puffy clouds put their flat bottoms?",
+          "them": "Second. The thermometer reads 26 degrees this morning and the dew point is 14. Where will the puffy clouds put their flat bottoms?",
           "replies": [
             {
               "say": "About 1,500 metres up.",
-              "back": "Twelve degrees of gap at 125 metres a degree. Right on the nose. Ole will be impressed. The goat, maybe.",
+              "back": "Twelve degrees of gap at 125 metres a degree. Right on the nose.",
               "right": true
             },
             {
@@ -123,45 +60,32 @@
             },
             {
               "say": "On the ground, as fog.",
-              "back": "Only if there were no gap at all. Twelve degrees of gap at 125 metres a degree puts the base around 1,500 metres."
+              "back": "Only if there were no gap at all. Twelve degrees at 125 metres a degree puts the base around 1,500 metres."
             }
           ]
         },
         {
-          "them": "That flat bottom is the same height all across the sky, because every bubble starts out from the same air. Next time you look up, check. It’s like a shelf.",
+          "them": "Last one. Small heaps that stay small all afternoon. What do they say?",
           "replies": [
             {
-              "say": "I’ll check tomorrow."
+              "say": "Fair weather. They fade by sunset.",
+              "back": "Right. Hay can stay out under those.",
+              "right": true
             },
             {
-              "say": "A shelf of clouds. Huh."
+              "say": "Rain by evening.",
+              "back": "Not while they stay small. A heap has to grow tall to rain. Small ones are fair weather and fade at sunset."
+            },
+            {
+              "say": "A storm tomorrow.",
+              "back": "They say nothing about tomorrow. Small heaps that stay small are fair weather, and fade at sunset."
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "fog-check",
-      "cue": "check",
-      "when": "Tuesday, June 2, 1931 · 9:10 p.m.",
-      "turns": [
+        },
         {
-          "them": "Heaps and blankets, all called. Those are the two textures of the whole sky, and everything else is built from them. Now earn your keep: Hap is waiting on his fog, and Ole on his hay.",
-          "replies": [
-            {
-              "say": "Ready."
-            },
-            {
-              "say": "Can I telephone a friend?",
-              "back": "Every telephone in Harrow goes through Mabel at the switchboard, and Mabel can’t keep a secret. Do it yourself."
-            }
-          ]
+          "them": "Fog and heaps, blankets and bubbles: the two textures of the whole sky. Next lesson, grey skies."
         }
       ]
     }
-  ],
-  "locals": {
-    "dawn-fog": "Hap Delaney, who flies the mail out of Harrow Field at first light, asks:",
-    "hay": "Ole Haugen, with forty acres of hay cut and lying in the field, asks:"
-  }
+  ]
 }

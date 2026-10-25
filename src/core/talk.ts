@@ -1,9 +1,10 @@
-// The radio. The lessons themselves are a plain workbook; the story lives only
-// here, in ham radio talks with the old hand at Walla Walla, a few counties
-// over. It is the summer of 1931, and you are the new weather man in Harrow,
-// a wheat town with an airfield in eastern Washington. Locals bring you their
-// weather questions; Walla Walla helps you learn to answer them. Training
-// done, the story skips ahead to 1946, when cloud seeding arrives.
+// The radio. The lessons themselves are a plain workbook; the setting lives
+// only here, in ham radio talks with the old hand at Walla Walla, a few
+// counties over. It is 1931, and you are the new weather forecaster in Harrow,
+// a wheat town in eastern Washington. Each lesson gets two talks: a short
+// opening as it starts, and a quiz once its check is done; nothing comes on in
+// between. Training done, the story skips ahead to 1946, when cloud seeding
+// arrives.
 //
 // A talk is a few turns. In each turn Walla Walla says something and you pick
 // one of up to three replies; a reply can draw a line back, and then the talk
@@ -14,7 +15,6 @@
 //
 // The words live in data/radio, one file per lesson plus the opening talk.
 
-import type { FigureId } from './shifts';
 import intro from '../data/radio/intro.json';
 import fog from '../data/radio/fog.json';
 import lowSky from '../data/radio/low-sky.json';
@@ -46,8 +46,8 @@ export interface Turn {
   replies?: Reply[];
 }
 
-/** When a talk comes on: as the lesson opens, after a figure's task is done, or in the final check, once the photos are called and before the forecasts. */
-export type Cue = 'start' | 'check' | { after: FigureId };
+/** When a talk comes on: as the lesson opens, or once its check is done. */
+export type Cue = 'start' | 'check';
 
 export interface Talk {
   id: string;
@@ -59,8 +59,6 @@ export interface Talk {
 
 export interface Radio {
   talks: Talk[];
-  /** Who in town asked each forecast question in the final check, by the question's id. */
-  locals: Record<string, string>;
 }
 
 /** What the player says when a turn offers no choice. */
@@ -80,15 +78,11 @@ const BY_SHIFT: Record<string, Radio> = {
 };
 
 export function radioFor(shiftId: string): Radio {
-  return BY_SHIFT[shiftId] ?? { talks: [], locals: {} };
+  return BY_SHIFT[shiftId] ?? { talks: [] };
 }
 
 export function allTalks(): Talk[] {
   return [INTRO, ...Object.values(BY_SHIFT).flatMap((r) => r.talks)];
-}
-
-export function cueKey(cue: Cue): string {
-  return typeof cue === 'string' ? cue : `after:${cue.after}`;
 }
 
 /** Lines said, in order, given the reply picked at each turn. */

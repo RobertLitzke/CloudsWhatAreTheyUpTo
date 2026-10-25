@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. This is the opening talk, heard once on the home page; a reply with \"off\": true switches the radio off.",
   "id": "intro",
   "cue": "start",
   "when": "Saturday, May 30, 1931 · 8:15 p.m.",
@@ -13,7 +13,7 @@
         },
         {
           "say": "Hello? Is this thing on?",
-          "back": "It’s on, and so is half of Adams County. A party line has nothing on a ham set. Give your call sign, tenderfoot."
+          "back": "It’s on, and so is half of Adams County. Give your call sign, tenderfoot."
         },
         {
           "say": "W7HAR here. Who’s asking?",
@@ -22,45 +22,28 @@
       ]
     },
     {
-      "them": "Here’s the situation, as the Bureau explained it to me in a letter with too many carbon copies. Harrow has a wheat co-op, an airfield with one mail plane, and as of this week, you. Folks will knock on your door wanting to know what the sky is up to. Your job is to tell them, and to be right more often than Aunt Fern’s knee.",
+      "them": "Here’s the arrangement, as the Bureau explained it to me in a letter with too many carbon copies. You’re the new forecaster at Harrow, and a workbook comes up on the train, a lesson at a time. I’ll get on the air as you start each one, and quiz you when you finish it.",
       "replies": [
         {
-          "say": "Who’s Aunt Fern?",
-          "back": "My aunt. Her left knee has forecast rain every day since 1904. It’s been right about a third of the time, which is better than some fellows with diplomas."
-        },
-        {
-          "say": "What happens if I’m wrong?",
-          "back": "Then a farmer loses a field of hay and you eat supper alone for a month. Small towns have long memories."
-        },
-        {
-          "say": "Sounds simple enough.",
-          "back": "So does milking a cow, until you meet the cow."
-        }
-      ]
-    },
-    {
-      "them": "So here’s the arrangement. Every Tuesday evening we keep a sked, that’s a schedule, on this frequency. You study the lesson I send up on the train, you bring me the questions from town you can’t answer yet, and I’ll talk you through them. By harvest you’ll know every cloud in the sky.",
-      "replies": [
-        {
-          "say": "Lessons by train? Like school?",
+          "say": "Like school?",
           "back": "Like school, only the bell is a thunderstorm."
         },
         {
-          "say": "Every Tuesday. I’ll be here.",
-          "back": "Good. Bring coffee. Mine has been on the stove since Coolidge."
+          "say": "I’ll be here.",
+          "back": "Good. Bring coffee."
         }
       ]
     },
     {
-      "them": "One more thing. I talk a fair amount. If you’d rather study in peace, say so, and I’ll keep my opinions to myself. Mostly.",
+      "them": "One more thing. If you’d rather study in peace, say so, and I’ll keep off the air.",
       "replies": [
         {
           "say": "Keep the radio on. I’ll want the help.",
-          "back": "Splendid. Tuesday, then. Seventy-three: that’s ham for best regards."
+          "back": "Splendid. Seventy-three: that’s ham for best regards."
         },
         {
           "say": "I’d rather read in peace.",
-          "back": "Suit yourself. Books are good company and they don’t snore. If you change your mind, the dial is in Settings.",
+          "back": "Suit yourself. If you change your mind, the dial is in Settings.",
           "off": true
         }
       ]

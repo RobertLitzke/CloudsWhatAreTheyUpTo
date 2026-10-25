@@ -53,7 +53,7 @@ export interface Part {
 
 /** A forecasting question: a sky over some hours, and what it is up to. */
 export interface Forecast {
-  /** Set on a question someone in town asks over the radio (core/talk.ts locals); these come last. */
+  /** Questions with an id come last in the check, after the shuffled ones. */
   id?: string;
   /** The sky over the hours, oldest first; one drawing per entry. */
   sky: { genus: GenusId; when: string }[];

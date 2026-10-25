@@ -11,7 +11,7 @@ import { SHIFTS, type Block, type FigureId } from '../../src/core/shifts';
 
 const save = emptySave();
 if (location.search.includes('imperial')) save.units = 'imperial';
-const ctx: FigureContext = { save, closed: new AbortController().signal, score: () => {}, local: () => undefined };
+const ctx: FigureContext = { save, closed: new AbortController().signal, score: () => {} };
 
 const uses = new Map<FigureId, Extract<Block, { kind: 'figure' }>>();
 for (const s of SHIFTS) for (const p of s.parts) for (const b of p.blocks) if (b.kind === 'figure' && !uses.has(b.figure)) uses.set(b.figure, b);

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\". A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn. \"cue\" is when the talk comes on: \"start\" as the lesson opens, {\"after\": \"<figure>\"} once that figure's task is done, or \"check\" as the final check opens. \"locals\" names who in town asked a forecast question, by the forecast's \"id\" in the lesson file.",
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
   "talks": [
     {
       "id": "front-open",
@@ -7,58 +7,33 @@
       "when": "Tuesday, September 29, 1931 · 7:30 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. The harvest is in and you still have a job. In August I said you were trained. I may have exaggerated a little.",
+          "them": "Harrow, Walla Walla. Autumn, and the Pacific is lining up storms like boxcars on a siding. This week you put it all together and follow one storm from start to finish: barometer, wind, and every cloud from the first cirrus to the last shower.",
           "replies": [
             {
-              "say": "How little?",
-              "back": "Two lessons’ worth. Autumn is here, and the Pacific is lining up storms like boxcars on a siding."
+              "say": "The workbook has a chapter on radar.",
+              "back": "Some fellow’s notion for the future, I expect. Read it anyway."
             },
-            {
-              "say": "I knew it.",
-              "back": "Suspicious, as ever. Good. Autumn is here, and the Pacific is lining up storms like boxcars on a siding."
-            }
-          ]
-        },
-        {
-          "them": "Ole wants to drill his winter wheat just ahead of a good rain, and he wants you to say when. And Hap is flying the mail to Spokane twice this week, through whatever the Pacific sends.",
-          "replies": [
-            {
-              "say": "Just the two of them this week?",
-              "back": "Two is plenty: Ole’s wheat and Hap’s neck, and both of them in your hands."
-            },
-            {
-              "say": "That’s a lot of people counting on me.",
-              "back": "That’s what a forecaster is. You get used to it, or you take up farming."
-            }
-          ]
-        },
-        {
-          "them": "This week you put it together: barometer, wind, and every cloud from the first cirrus to the last shower. By Saturday you should read a storm two days off.",
-          "replies": [
             {
               "say": "Ready."
-            },
-            {
-              "say": "The workbook has a chapter on something called radar.",
-              "back": "Some fellow’s notion for the future, I expect. Read it anyway. In my day we used our eyes; in yours you’ll use whatever they invent."
             }
           ]
+        },
+        {
+          "them": "By the end you should read a storm two days off. Questions at the end."
         }
       ]
     },
     {
-      "id": "front-pass",
-      "cue": {
-        "after": "frontPass"
-      },
-      "when": "Tuesday, September 29, 1931 · 8:10 p.m.",
+      "id": "front-check",
+      "cue": "check",
+      "when": "Tuesday, September 29, 1931 · 9:20 p.m.",
       "turns": [
         {
-          "them": "You’ve watched a whole one go by. When does the barometer stop falling and start to climb?",
+          "them": "Harrow, Walla Walla. Questions. A storm goes by. When does the barometer stop falling and start to climb?",
           "replies": [
             {
               "say": "Behind the cold front.",
-              "back": "The squall goes through, the wind swings northwest, and up she goes. Tap the glass and you’ll see it jump.",
+              "back": "The squall goes through, the wind swings northwest, and up she goes.",
               "right": true
             },
             {
@@ -72,42 +47,45 @@
           ]
         },
         {
-          "them": "Hap wants to know the worst hour to be up in it.",
+          "them": "Stand with your back to the wind. Where is the low?",
+          "replies": [
+            {
+              "say": "On my left.",
+              "back": "Right. Buys Ballot’s rule, from the Dutchman who wrote it down in 1857.",
+              "right": true
+            },
+            {
+              "say": "On my right.",
+              "back": "Other side. With your back to the wind, low pressure is on your left."
+            },
+            {
+              "say": "Straight ahead.",
+              "back": "The wind circles a low rather than blowing into it. Back to the wind, the low is on your left."
+            }
+          ]
+        },
+        {
+          "them": "Which hour is the worst to be flying through?",
           "replies": [
             {
               "say": "Under the cold front’s squall line.",
-              "back": "Gusts, towers, maybe hail. Tell him to sit that hour out in the hangar with a coffee."
+              "back": "Gusts, towers, maybe hail. Sit that hour out in the hangar.",
+              "right": true
             },
             {
-              "say": "In the steady rain.",
-              "back": "Low and wet, but smooth. It’s the cold front’s line of towers that bites. Tell him to sit that hour out."
+              "say": "In the warm front’s steady rain.",
+              "back": "Low and wet, but smooth. It’s the cold front’s line of towers that bites."
+            },
+            {
+              "say": "In the warm sector.",
+              "back": "Mild and muggy there. It’s the cold front’s line of towers that bites."
             }
           ]
-        }
-      ]
-    },
-    {
-      "id": "front-check",
-      "cue": "check",
-      "when": "Tuesday, September 29, 1931 · 9:20 p.m.",
-      "turns": [
+        },
         {
-          "them": "That’s the photographs. Now Ole and Hap. One more lesson after this one, for the winter, and then I’ll have nothing left to call you but Harrow.",
-          "replies": [
-            {
-              "say": "Ready."
-            },
-            {
-              "say": "What do you call me now?",
-              "back": "Tenderfoot. For one more lesson."
-            }
-          ]
+          "them": "That’s a whole storm read. One more lesson, for the winter."
         }
       ]
     }
-  ],
-  "locals": {
-    "wheat": "Ole Haugen, with a sack of seed wheat on his shoulder, asks:",
-    "mail": "Hap Delaney, the mail pilot, calls from the airfield:"
-  }
+  ]
 }

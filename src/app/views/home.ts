@@ -70,8 +70,8 @@ export const homeView: View = (root, nav) => {
           save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
           ...(save.talk
             ? [
-                el('p', {}, 'You are the new weather forecaster in Harrow: a wheat town with a grain elevator, an airfield and one mail plane, out in the dry hills of eastern Washington.'),
-                el('p', {}, 'Farmers, pilots and the Ladies’ Aid will bring you their questions. An old hand at Walla Walla, a few counties over, will talk you through the answers on the radio, one lesson a week.'),
+                el('p', {}, 'It is 1931, and you are the new weather forecaster in Harrow, a wheat town in the dry hills of eastern Washington.'),
+                el('p', {}, 'An old hand at Walla Walla, a few counties over, will come on the radio as you start each lesson, and quiz you at the end.'),
               ]
             : [el('p', {}, `${training.length} short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come. Then ${seeding.length === 1 ? 'one' : seeding.length} on cloud seeding.`)]),
         ),
@@ -89,7 +89,7 @@ export const homeView: View = (root, nav) => {
         ),
         el('h2', {}, 'Cloud seeding'),
         el('p', {}, save.talk
-          ? 'Fifteen years on, word reaches Walla Walla that a fellow at General Electric has made it snow with dry ice. Harrow wants rain.'
+          ? 'Fifteen years on, a fellow at General Electric makes it snow with dry ice.'
           : 'Once training is done: how a supercooled cloud can be made to snow, and what seeding can and can’t do.'),
         boardOf(seeding),
       ),
