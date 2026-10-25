@@ -14,7 +14,7 @@ import sharp from 'sharp';
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(here, '..');
 const iconsDir = path.join(root, 'public', 'icons');
-const CROP = { left: 360, top: 1040, width: 900, height: 900 };
+const CROP = { left: 304, top: 991, width: 900, height: 900 };
 const art = await sharp(path.join(root, 'art', 'poster.jpg')).extract(CROP).toBuffer();
 
 async function render(size, out, inset = 1) {

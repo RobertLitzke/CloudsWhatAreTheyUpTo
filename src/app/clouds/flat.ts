@@ -84,38 +84,74 @@ export interface HeapOptions {
   seed?: number;
 }
 
-/** A heap of lobes in flat vector: cumulus, a tower, a row of stratocumulus. */
+/**
+ * A heap of lobes in flat vector: cumulus, a tower, a row of stratocumulus.
+ * Drawn as one body, not a pile of separate balls: the shade is the outline
+ * of the whole heap, and only the lit tones are drawn lobe by lobe, so the
+ * lobes part along soft creases in the mid tone and the deep shadow stays on
+ * the far side and the base.
+ */
 export function celHeap(puffs: Puff[], t: Tones, o: HeapOptions = {}): SVGElement {
-  const light = o.light ?? UPPER_RIGHT;
+  const [lx, ly] = o.light ?? UPPER_RIGHT;
   const id = `cel${++count}`;
   const ls = (o.bumps === false ? puffs.map((main) => ({ main, bumps: [] })) : lobes(puffs, o.seed ?? count, o.base))
-    // Lowest first, so each lobe's shadow falls on the one below it.
+    // Lowest first, so each lobe's crease falls on the one below it.
     .sort((a, b) => b.main.y + b.main.r * b.main.flat - (a.main.y + a.main.r * a.main.flat));
-  const g = svg('g', {}, ...ls.map((L) => lobe(L, light, t)));
-  if (o.base === undefined) return g;
-  let x0 = Infinity, x1 = -Infinity, top = Infinity;
-  for (const q of puffs) {
-    x0 = Math.min(x0, q.x - q.r * 1.6);
-    x1 = Math.max(x1, q.x + q.r * 1.6);
-    top = Math.min(top, q.y - q.r * 1.6);
+  const all = ls.flatMap((L) => [L.main, ...L.bumps]);
+  let x0 = Infinity, x1 = -Infinity, top = Infinity, bottom = -Infinity;
+  for (const q of all) {
+    x0 = Math.min(x0, q.x - q.r);
+    x1 = Math.max(x1, q.x + q.r);
+    top = Math.min(top, q.y - q.r * q.flat);
+    bottom = Math.max(bottom, q.y + q.r * q.flat);
   }
-  const base = o.base;
+  const base = o.base ?? bottom;
   const h = base - top;
-  // The base in shadow: a wavy hard edge a little way up.
-  const y0 = base - (o.shadow ?? h * 0.2);
-  const pts: string[] = [];
-  for (let i = 0; i <= 24; i++) {
-    const x = x0 + ((x1 - x0) * i) / 24;
-    pts.push(`${x.toFixed(1)},${(y0 + Math.sin(i * 1.7 + x0) * h * 0.035).toFixed(1)}`);
+  // The outline: every lobe, cut along the base. The cut is not a ruler line
+  // but a row of shallow scallops, the undersides of the lowest lobes, and
+  // its ends curve up into the sides, so the heap does not look sliced off.
+  const round = Math.min(h * 0.25, (x1 - x0) * 0.15);
+  const n = Math.max(3, Math.round((x1 - x0) / (h * 0.45)));
+  const sw = (x1 - x0) / n;
+  const dip = Math.min(h * 0.05, sw * 0.18);
+  const f = (v: number) => v.toFixed(1);
+  let d = `M${f(x0 - 1)},${f(top - 1)} H${f(x1 + 1)} V${f(base - round - dip)} Q${f(x1 + 1)},${f(base - dip)} ${f(x1 + 1 - round)},${f(base - dip)}`;
+  for (let i = n - 1; i >= 0; i--) {
+    const xa = Math.max(x0 + round, x0 + sw * i);
+    if (xa >= x1 - round) continue;
+    d += ` Q${f((xa + Math.min(x1 - round, xa + sw)) / 2)},${f(base + dip)} ${f(xa)},${f(base - dip * (i === 0 ? 1 : 0.2))}`;
   }
-  const union = ls.flatMap((L) => [L.main, ...L.bumps]).map((q) => disc(q, 0, 0, 1, '#000'));
-  return svg('g', { 'clip-path': `url(#${id}b)` },
-    svg('clipPath', { id: `${id}b` }, svg('rect', { x: x0, y: top, width: x1 - x0, height: base - top })),
-    svg('clipPath', { id: `${id}u` }, ...union),
-    g,
-    svg('g', { 'clip-path': `url(#${id}u)` },
-      svg('polygon', { points: `${pts.join(' ')} ${x1},${base + 1} ${x0},${base + 1}`, fill: t.cloudShade, opacity: 0.55 })),
-  );
+  d += ` Q${f(x0 - 1)},${f(base - dip)} ${f(x0 - 1)},${f(base - round - dip)} Z`;
+  const outline = svg('clipPath', o.base === undefined ? { id: `${id}o` } : { id: `${id}o`, 'clip-path': `url(#${id}b)` },
+    ...all.map((q) => disc(q, 0, 0, 1, '#000')));
+  const box = svg('clipPath', { id: `${id}b` }, svg('path', { d }));
+  const lit = svg('g', {}, ...ls.map((L) => {
+    const qs = [L.main, ...L.bumps];
+    return svg('g', {},
+      ...qs.map((q) => disc(q, lx * q.r * 0.2, ly * q.r * 0.2, 1, t.cloudMid)),
+      // The low lobes, in the heap's own shadow, catch no direct light.
+      ...qs.filter((q) => q.y < base - h * 0.38).map((q) => disc(q, lx * q.r * 0.48, ly * q.r * 0.48, 0.78, t.cloudLight)));
+  }));
+  const parts: SVGElement[] = [svg('rect', { x: x0 - 1, y: top - 1, width: x1 - x0 + 2, height: base - top + 2, fill: t.cloudShade }), lit];
+  if (o.base !== undefined) {
+    // The base in shadow: a gently rolling edge a little way up, with a band
+    // of mid tone above it where the light fades into it.
+    const y0 = base - (o.shadow ?? h * 0.2) * 0.7;
+    const edge = (dy: number, amp: number) => {
+      const pts: string[] = [];
+      for (let i = 0; i <= 24; i++) {
+        const x = x0 + ((x1 - x0) * i) / 24;
+        pts.push(`${x.toFixed(1)},${(y0 + dy + Math.sin(i * 0.9 + x0 * 0.1) * amp).toFixed(1)}`);
+      }
+      return pts.join(' ');
+    };
+    const band = h * 0.05;
+    parts.push(
+      svg('polygon', { points: `${edge(-band, h * 0.02)} ${x1},${base + 1} ${x0},${base + 1}`, fill: t.cloudMid }),
+      svg('polygon', { points: `${edge(0, h * 0.025)} ${x1},${base + 1} ${x0},${base + 1}`, fill: t.cloudShade }),
+    );
+  }
+  return svg('g', {}, box, outline, svg('g', { 'clip-path': `url(#${id}o)` }, ...parts));
 }
 
 /**
