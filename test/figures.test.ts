@@ -55,3 +55,20 @@ describe('figures', () => {
     });
   }
 });
+
+describe('guess-first figures', () => {
+  // These figures turn on one threshold, so the reader says where it will be
+  // before the controls that reach it unlock.
+  const GUESS_FIRST = ['jar', 'parcel', 'halo', 'front', 'storm', 'billow'] as const;
+  it('lock their sliders until the guess is marked', () => {
+    const ctx: FigureContext = { save: emptySave(), closed: AbortSignal.abort(), score: () => {}, local: () => undefined };
+    for (const id of GUESS_FIRST) {
+      const use = uses.find((u) => u.block.figure === id)!.block;
+      const { node } = FIGURES[id](ctx, use.goal, use.options);
+      const sliders = [...node.querySelectorAll<HTMLInputElement>('input[type=range]')];
+      expect(sliders.length, id).toBeGreaterThan(0);
+      expect(sliders.every((s) => s.disabled), `${id} sliders locked`).toBe(true);
+      expect(node.querySelector('.fig-guess'), id).not.toBeNull();
+    }
+  });
+});

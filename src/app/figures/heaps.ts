@@ -6,7 +6,7 @@
 import { cloudBase, parcelAt } from '../../core/air';
 import { el, svg } from '../dom';
 import { arrow, heading, heapAt, label, line, polyline, puff, redraw, small, still } from './draw';
-import { COL, animate, figure, frame, height, slider, temp, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, lock, lockIn, placeable, slider, temp, tint, type FigureFactory } from './kit';
 
 // ---- Rising air expands and cools -------------------------------------------
 
@@ -72,13 +72,17 @@ export const expandDiagram: FigureFactory = () => {
 
 // ---- A parcel lifted --------------------------------------------------------
 
+/** How far off a guess at a height may be and still count as right, in metres. */
+const NEAR_M = 150;
+
 export const parcelFigure = figure(['base'], (ctx, t) => {
   const W = 400;
   const H = 260;
-  const f = frame(W, H, 3);
+  const f = frame(W, H, 4);
   const ground = 236;
   const top = 3000;
   const yOf = (m: number) => ground - (m / top) * 200;
+  const mOf = (y: number) => Math.round(Math.min(top, Math.max(0, ((ground - y) / 200) * top)) / 50) * 50;
   // Temperature chart on the right: 0 to 30 °C.
   const x0 = 236;
   const x1 = 388;
@@ -86,6 +90,10 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
   let tempC = 24;
   let dewC = 12;
   let lift = 0;
+  // First the reader marks where they expect the cloud base; only then does
+  // the air lift. `guessM` is null once they are just playing with the dew point.
+  let guessM: number | null = 500;
+  let marked = false;
 
   const sky = svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air });
   const grid = svg('g');
@@ -98,7 +106,8 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
     grid.append(small(xOf(c), ground + 14, `${c} °C`, { anchor: 'middle', fill: '#fff' }));
   }
   const live = svg('g');
-  f.svg.append(sky, svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }), grid, live);
+  const mark = svg('g');
+  f.svg.append(sky, svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }), grid, live, mark);
 
   const paint = () => {
     const p = parcelAt(lift, tempC, dewC);
@@ -129,20 +138,74 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
       svg('circle', { cx: xOf(p.dewC), cy: yOf(lift), r: 3.5, fill: COL.dew }),
       bubble,
     );
-    f.readout.replaceChildren(
+    // The guess: a violet line across the drawing with a grip at its left end.
+    if (guessM == null) redraw(mark);
+    else {
+      const y = yOf(guessM);
+      redraw(mark,
+        line(8, y, x1, y, COL.env, 2, { 'stroke-dasharray': marked ? '2 3' : '' }),
+        svg('circle', { cx: 14, cy: y, r: marked ? 4 : 7, fill: COL.env }),
+        small(26, y + 13, `your guess · ${height(guessM, ctx.save.units)}`, { fill: COL.env, halo: COL.air }),
+        marked ? null : svg('rect', { x: 0, y: y - 16, width: x1, height: 32, fill: 'transparent' }),
+      );
+    }
+    const at = [
       `At ${height(lift, ctx.save.units)} the air is `,
       el('b', { style: { color: COL.parcel } }, temp(p.tempC)),
       ' and its dew point is ',
       el('b', { style: { color: COL.dew } }, temp(p.dewC)),
-      p.cloud ? '. They have met: the air is cloud.' : `. ${(p.tempC - p.dewC).toFixed(1)}° to go.`,
-    );
-    if (p.cloud && t.goal === 'base') t.done();
+    ];
+    if (guessM != null && !marked) {
+      f.readout.replaceChildren(
+        'At the ground the air is ', el('b', { style: { color: COL.parcel } }, `${tempC} °C`),
+        ' and its dew point ', el('b', { style: { color: COL.dew } }, `${dewC} °C`),
+        '. Drag the violet line to where you think it turns to cloud, then mark it.',
+      );
+    } else if (guessM != null && p.cloud) {
+      const off = guessM - base;
+      f.readout.replaceChildren(...at, '. The air is cloud. ',
+        el('b', {}, Math.abs(off) <= NEAR_M ? 'Your guess was right.' : `Your guess was ${height(Math.abs(off), ctx.save.units)} too ${off > 0 ? 'high' : 'low'}.`),
+        Math.abs(off) <= NEAR_M ? '' : ` The gap was ${tempC - dewC} °C, and it closes by about 8 °C a kilometre.`,
+      );
+    } else {
+      f.readout.replaceChildren(...at, p.cloud ? '. They have met: the air is cloud.' : `. ${(p.tempC - p.dewC).toFixed(1)}° to go.`);
+    }
+    if (p.cloud && marked && t.goal === 'base') t.done();
   };
+  const place = placeable(f.svg, mark, (_x, y) => { guessM = mOf(y); paint(); }, (step) => { guessM = Math.min(top, Math.max(0, (guessM ?? 0) + step * 50)); paint(); });
   const lifter = slider('Lift the air', 0, top, 25, 0, (v) => height(v, ctx.save.units), (v) => { lift = v; paint(); }, 'parcel');
-  const dew = slider('Dew point at the ground', 4, 22, 1, dewC, (v) => `${v} °C`, (v) => { dewC = v; paint(); }, 'dew');
-  f.controls.append(lifter.node);
-  if (t.goal !== 'base') f.controls.append(dew.node);
-  else void t.promise.then(() => f.controls.append(dew.node));
+  const dew = slider('Dew point at the ground', 4, 22, 1, dewC, (v) => `${v} °C`, (v) => { dewC = v; guessM = null; paint(); }, 'dew');
+  const markIt = lockIn('Mark the cloud base', () => {
+    marked = true;
+    markIt.hidden = true;
+    place.enable(false);
+    lock([lifter, dew], false);
+    paint();
+  });
+  // Another morning: new readings, and a new guess to make.
+  const another = lockIn('Another morning', () => {
+    tempC = 14 + Math.floor(Math.random() * 17);
+    // A gap of 3 to 20 °C, with the dew point inside its slider's 4 to 22 °C.
+    const least = Math.max(3, tempC - 22);
+    const gap = least + Math.floor(Math.random() * (Math.min(20, tempC - 4) - least + 1));
+    dew.input.value = String(tempC - gap);
+    dewC = tempC - gap;
+    dew.node.querySelector('output')!.textContent = `${dewC} °C`;
+    guessM = 500;
+    marked = false;
+    markIt.hidden = false;
+    lifter.set(0);
+    lock([lifter, dew], true);
+    place.enable(true);
+    paint();
+  });
+  another.classList.add('btn-ghost');
+  f.controls.append(el('div.fig-guess', {}, markIt), lifter.node);
+  lock([lifter, dew], true);
+  place.enable(true);
+  const free = () => f.controls.append(dew.node, el('div.fig-guess', {}, another));
+  if (t.goal !== 'base') free();
+  else void t.promise.then(free);
   paint();
   return f.node;
 });

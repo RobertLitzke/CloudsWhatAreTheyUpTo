@@ -12,7 +12,7 @@ import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
 import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, radarDish, radarImage, radarKey, redraw, small, still, type P } from './draw';
-import { COL, animate, figure, frame, height, radarColor, slider, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, lock, lockIn, placeable, radarColor, slider, tint, type FigureFactory } from './kit';
 import { fbm } from '../clouds/noise';
 import { radarWords, rainDbz, sameWaterEcho, stratiformDbz } from '../../core/radar';
 import { makeRng } from '../../core/rng';
@@ -488,7 +488,7 @@ export const prismFigure = figure(['min'], (_ctx, t) => {
 export const haloFigure = figure(['ring'], (_ctx, t) => {
   const W = 400;
   const H = 260;
-  const f = frame(W, H);
+  const f = frame(W, H, 4);
   const C: V = [200, 130];
   const PX = 4.4; // px per degree
   const SCALE = 2; // canvas pixels per figure unit, for a crisp picture
@@ -518,8 +518,20 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
     crystals.length = n;
   };
   let hand = false;
+  // First the reader puts a ring where they expect the light to gather.
+  let guessDeg = 8;
+  let marked = t.goal !== 'ring';
+  const mark = svg('g');
+  f.svg.append(mark);
   const paint = (n: number) => {
     grow(n);
+    const r = guessDeg * PX;
+    redraw(mark, marked && t.goal !== 'ring' ? null : svg('g', {},
+      svg('circle', { cx: C[0], cy: C[1], r, fill: 'none', stroke: COL.sun, 'stroke-width': 2, 'stroke-dasharray': marked ? '3 4' : '' }),
+      svg('circle', { cx: C[0] + r, cy: C[1], r: marked ? 3 : 7, fill: COL.sun }),
+      small(C[0], C[1] - r - 6, `your guess · ${guessDeg}°`, { anchor: 'middle', fill: '#fff' }),
+      ...(marked ? [] : [svg('circle', { cx: C[0], cy: C[1], r, fill: 'none', stroke: 'transparent', 'stroke-width': 28 })]),
+    ));
     const lit = crystals.reduce((k, c) => k + (c.lit ? 1 : 0), 0);
     if (g) {
       g.clearRect(0, 0, canvas.width, canvas.height);
@@ -540,10 +552,14 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
       line(C[0], C[1], C[0] + 22 * PX, C[1], '#fff', 1, { 'stroke-dasharray': '3 3' }),
       small(C[0] + 11 * PX, C[1] - 6, 'hand span ≈ 22°', { anchor: 'middle', fill: '#fff' }),
     ) : null);
-    f.readout.textContent = n < 3000
-      ? `${n.toLocaleString()} crystals all over the sky. Only ${lit} happen to be turned to send light to your eye.`
-      : `${n.toLocaleString()} crystals all over the sky; ${lit.toLocaleString()} send you light. None of them sit closer than 22° to the sun, and most sit right at 22°: a ring, with darker sky inside.`;
-    if (t.goal === 'ring' && n >= 10000) t.done();
+    const off = guessDeg - 22;
+    f.readout.textContent = !marked
+      ? 'Every crystal bends the light that passes through it by 22° or more. Where in the sky will the bright ones gather? Drag the gold ring there, then mark it.'
+      : n < 3000
+        ? `${n.toLocaleString()} crystals all over the sky. Only ${lit} happen to be turned to send light to your eye.`
+        : `${n.toLocaleString()} crystals; ${lit.toLocaleString()} send you light. None sit closer than 22° to the sun, and most sit right at 22°: a ring, with darker sky inside.` +
+          (t.goal !== 'ring' ? '' : Math.abs(off) <= 2 ? ' Your ring was right.' : ` Your ring was ${Math.abs(off)}° too ${off > 0 ? 'wide' : 'small'}.`);
+    if (t.goal === 'ring' && marked && n >= 10000) t.done();
   };
   const toCount = (v: number) => Math.round(Math.pow(10, v)) * 10;
   const count = slider('Crystals', 1, 3.5, 0.01, 1.5, (v) => toCount(v).toLocaleString(), (v) => paint(toCount(v)), 'ice');
@@ -552,7 +568,22 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   handBtn.className = 'btn btn-small btn-ghost';
   handBtn.textContent = 'Measure with a hand';
   handBtn.addEventListener('click', () => { hand = !hand; paint(toCount(count.value())); });
-  f.controls.append(count.node, handBtn);
+  const place = placeable(f.svg, mark,
+    (x, y) => { guessDeg = Math.round(Math.min(28, Math.max(2, Math.hypot(x - C[0], y - C[1]) / PX))); paint(toCount(count.value())); },
+    (step) => { guessDeg = Math.min(28, Math.max(2, guessDeg + step)); paint(toCount(count.value())); });
+  const markIt = lockIn('Mark the ring', () => {
+    marked = true;
+    markIt.hidden = true;
+    place.enable(false);
+    lock([count], false);
+    paint(toCount(count.value()));
+  });
+  f.controls.append(el('div.fig-guess', {}, markIt), count.node, handBtn);
+  if (!marked) {
+    markIt.hidden = false;
+    lock([count], true);
+    place.enable(true);
+  } else markIt.hidden = true;
   paint(toCount(1.5));
   return f.node;
 });
@@ -620,10 +651,16 @@ export const haloSightDiagram: FigureFactory = () => {
 
 // ---- A warm front comes in --------------------------------------------------
 
+type Genus = 'cirrus' | 'cirrostratus' | 'altostratus' | 'nimbostratus';
+/** The order a warm front's clouds pass overhead, highest first. */
+const ARRIVAL: readonly Genus[] = ['cirrus', 'cirrostratus', 'altostratus', 'nimbostratus'];
+/** The same four as the reader is offered them. */
+const SHUFFLED: readonly Genus[] = ['altostratus', 'cirrus', 'nimbostratus', 'cirrostratus'];
+
 export const frontFigure = figure(['arrive'], (ctx, t) => {
   const W = 400;
   const H = 260;
-  const f = frame(W, H);
+  const f = frame(W, H, 5);
   const ground = 226;
   const obsX = 40;
   const KM_PX = 0.34; // 1,000 km across the figure
@@ -654,7 +691,8 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
       const thick = name === 'nimbostratus' ? 3500 : name === 'altostratus' ? 1800 : 700;
       parts.push(svg('polygon', { points: `${xa},${yOf(h0)} ${xb},${yOf(h1)} ${xb},${yOf(h1 + thick * 0.3)} ${xa},${yOf(h0 + thick)}`, fill, opacity: 0.9 }));
       if (name === 'nimbostratus') for (let x = xb; x < xa; x += 9) parts.push(line(x, yOf(h0 + 200) + 2, x - 4, ground, COL.rain, 1.2, { opacity: 0.6 }));
-      parts.push(small((xa + xb) / 2, yOf((h0 + h1) / 2) - 14, name, { soft: true, anchor: 'middle' }));
+      // The names would give the guess away.
+      if (!asking) parts.push(small((xa + xb) / 2, yOf((h0 + h1) / 2) - 14, name, { soft: true, anchor: 'middle' }));
     }
     parts.push(
       svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
@@ -675,16 +713,55 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
     view.push(small(cx, cy + 60, 'overhead', { anchor: 'middle' }));
     redraw(inset, ...view);
     const h = frontHeightM(hours);
-    f.readout.textContent = sky === 'clear'
+    if (asking) {
+      f.readout.textContent = order.length < ARRIVAL.length
+        ? 'The front is two days off. Which cloud will you see overhead first, and which next? Tap the four in the order you expect them.'
+        : `Your order: ${order.map((g) => genus(g).name.toLowerCase()).join(', ')}. Mark it, or tap a cloud to change it.`;
+      return;
+    }
+    if (order.length && hours <= 3) {
+      const right = order.filter((g, i) => g === ARRIVAL[i]).length;
+      f.readout.textContent = `${hours} hours before the front: nimbostratus and steady rain. ` + (right === ARRIVAL.length
+        ? 'Your order was right: the highest cloud came first.'
+        : `You had ${right} of 4 in the right place. They came highest first: ${ARRIVAL.map((g) => genus(g).name.toLowerCase()).join(', ')}.`);
+    } else f.readout.textContent = sky === 'clear'
       ? `${hours} hours out. The front is ${Math.round(hours * FRONT_KMH)} km away and its cloud is still beyond the horizon.`
       : `${hours} hours before the front. Overhead, its surface is ${height(h, ctx.save.units)} up: ${genus(sky).name.toLowerCase()}.` +
         (sky === 'cirrostratus' ? ' Watch for the halo: rain is likely within a day.' : sky === 'nimbostratus' ? ' Steady rain.' : '');
-    if (t.goal === 'arrive' && hours <= 3) t.done();
+    if (t.goal === 'arrive' && !asking && hours <= 3) t.done();
   };
-  f.controls.append(slider('Hours before it arrives', 0, 48, 1, 48, (v) => `${v} h`, paint, 'warm').node);
+  // First the reader puts the front's clouds in the order they expect them overhead.
+  const order: Genus[] = [];
+  let asking = t.goal === 'arrive';
+  const time = slider('Hours before it arrives', 0, 48, 1, 48, (v) => `${v} h`, paint, 'warm');
+  const chips = SHUFFLED.map((g) => el('button.chip', { type: 'button', onclick: () => {
+    const at = order.indexOf(g);
+    if (at >= 0) order.splice(at);
+    else order.push(g);
+    showOrder();
+  } }, genus(g).name) as HTMLButtonElement);
+  const markIt = lockIn('Mark the order', () => {
+    asking = false;
+    guess.replaceChildren(el('p.fig-order', {}, order.map((g, i) => `${i + 1} ${genus(g).name}`).join(' · ')));
+    lock([time], false);
+    paint(time.value());
+  });
+  const showOrder = () => {
+    chips.forEach((c, i) => {
+      const k = order.indexOf(SHUFFLED[i]);
+      c.classList.toggle('on', k >= 0);
+      c.textContent = k >= 0 ? `${k + 1} · ${genus(SHUFFLED[i]).name}` : genus(SHUFFLED[i]).name;
+    });
+    markIt.disabled = order.length < ARRIVAL.length;
+    paint(time.value());
+  };
+  const guess = el('div.fig-guess', {}, el('div.chips', {}, chips), markIt);
+  if (asking) f.controls.append(guess);
+  f.controls.append(time.node);
   // The slider runs forward in time from left to right.
-  const s = f.controls.querySelector('input')!;
-  s.style.direction = 'rtl';
+  time.input.style.direction = 'rtl';
+  lock([time], asking);
+  markIt.disabled = true;
   paint(48);
   return f.node;
 });

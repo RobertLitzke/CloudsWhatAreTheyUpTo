@@ -4,9 +4,9 @@
 // inversion, fog burning off, a kettle and why warm air is lighter.
 
 import { dewPointOf, roomFor } from '../../core/air';
-import { svg } from '../dom';
+import { el, svg } from '../dom';
 import { arrow, heading, line, polyline, redraw, small, still, wavy } from './draw';
-import { COL, animate, figure, frame, slider, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, lock, lockIn, placeable, slider, type FigureFactory } from './kit';
 import { fogHour, nightTemp, type Night } from '../../core/sky';
 
 // ---- A kettle: vapour is invisible ------------------------------------------
@@ -107,25 +107,52 @@ export const jarFigure = figure(['fog'], (ctx, t) => {
   const jarG = svg('g');
   const live = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), axes, live, jarG);
+  // First the reader marks the temperature where they expect the jar to fog;
+  // the dew point stays hidden until it has. `guessC` is null once they are
+  // just playing with the water.
+  let guessC: number | null = 22;
+  let marked = false;
+  let seen = false;
+  const mark = svg('g');
+  f.svg.append(mark);
   const state = () => {
     const room = roomFor(tempC);
     return { room, vapour: Math.min(water, room), droplets: Math.max(0, water - room), dew: dewPointOf(water) };
   };
   const paintChart = () => {
     const s = state();
+    if (s.droplets > 0) seen = true;
     redraw(live,
       line(x0, yOf(water), x1, yOf(water), COL.dew, 2.5),
       small(x0 + 4, yOf(water) - 5, `water in the jar · ${water} g`, { fill: COL.dew }),
-      line(xOf(s.dew), yOf(water), xOf(s.dew), y0, COL.dew, 1, { 'stroke-dasharray': '3 3' }),
-      small(xOf(s.dew), y0 - 4, 'dew point', { anchor: 'middle', fill: COL.dew }),
-      svg('circle', { cx: xOf(s.dew), cy: yOf(water), r: 3.5, fill: COL.dew }),
+      seen ? line(xOf(s.dew), yOf(water), xOf(s.dew), y0, COL.dew, 1, { 'stroke-dasharray': '3 3' }) : null,
+      seen ? small(xOf(s.dew), y0 - 4, 'dew point', { anchor: 'middle', fill: COL.dew }) : null,
+      seen ? svg('circle', { cx: xOf(s.dew), cy: yOf(water), r: 3.5, fill: COL.dew }) : null,
       line(xOf(tempC), y0, xOf(tempC), y1, COL.ink, 1.5),
       svg('circle', { cx: xOf(tempC), cy: yOf(s.room), r: 4, fill: COL.env }),
     );
-    f.readout.textContent = s.droplets > 0
-      ? `At ${tempC} °C there is room for only ${s.room.toFixed(1)} g of vapour per cubic metre, but the jar has ${water} g. The extra ${s.droplets.toFixed(1)} g is droplets: a tiny cloud. It began at ${s.dew.toFixed(1)} °C, the dew point.`
-      : `At ${tempC} °C there is room for ${s.room.toFixed(1)} g of vapour in each cubic metre. The jar has ${water} g, so it all stays vapour and the air is clear. Cool it below ${s.dew.toFixed(1)} °C and there won’t be room.`;
-    if (t.goal === 'fog' && s.droplets > 0.3) t.done();
+    if (guessC == null) redraw(mark);
+    else {
+      const x = xOf(guessC);
+      redraw(mark,
+        line(x, y1 - 6, x, y0, COL.redInk, 2, { 'stroke-dasharray': marked ? '2 3' : '' }),
+        svg('circle', { cx: x, cy: y1 - 6, r: marked ? 4 : 7, fill: COL.redInk }),
+        small(x + (guessC > 22 ? -10 : 10), y1 + 4, `your guess · ${guessC} °C`, { fill: COL.redInk, anchor: guessC > 22 ? 'end' : undefined, halo: COL.paper }),
+        marked ? null : svg('rect', { x: x - 16, y: y1 - 16, width: 32, height: y0 - y1 + 16, fill: 'transparent' }),
+      );
+    }
+    if (guessC != null && !marked) {
+      f.readout.textContent = `The jar is at ${tempC} °C with ${water} g of water in each cubic metre, all of it vapour. At what temperature will it start to fog? Drag the red line there on the chart, then mark it.`;
+    } else if (guessC != null && s.droplets > 0) {
+      const off = guessC - s.dew;
+      f.readout.textContent = `The jar fogged at ${s.dew.toFixed(1)} °C, its dew point, where the water line meets the curve. ` +
+        (Math.abs(off) <= 1 ? 'Your guess was right.' : `Your guess was ${Math.abs(off).toFixed(0)}° too ${off > 0 ? 'warm' : 'cold'}.`);
+    } else {
+      f.readout.textContent = s.droplets > 0
+        ? `At ${tempC} °C there is room for only ${s.room.toFixed(1)} g of vapour per cubic metre, but the jar has ${water} g. The extra ${s.droplets.toFixed(1)} g is droplets: a tiny cloud. It began at ${s.dew.toFixed(1)} °C, the dew point.`
+        : `At ${tempC} °C there is room for ${s.room.toFixed(1)} g of vapour in each cubic metre. The jar has ${water} g, so it all stays vapour and the air is clear.` + (seen ? ` Cool it below ${s.dew.toFixed(1)} °C and there won’t be room.` : '');
+    }
+    if (t.goal === 'fog' && marked && s.droplets > 0.3) t.done();
   };
   animate(f.node, ctx, (dt) => {
     const s = state();
@@ -147,10 +174,28 @@ export const jarFigure = figure(['fog'], (ctx, t) => {
       small(jx + jw / 2, jy + jh + 16, s.droplets > 0 ? 'vapour and droplets' : 'vapour only: clear', { soft: true, anchor: 'middle' }),
     );
   });
-  f.controls.append(
-    slider('Temperature', 0, 30, 1, tempC, (v) => `${v} °C`, (v) => { tempC = v; paintChart(); }, 'parcel').node,
-    slider('Water in the jar', 4, 20, 1, water, (v) => `${v} g per cubic metre`, (v) => { water = v; paintChart(); }, 'dew').node,
-  );
+  const cool = slider('Temperature', 0, 30, 1, tempC, (v) => `${v} °C`, (v) => { tempC = v; paintChart(); }, 'parcel');
+  const wet = slider('Water in the jar', 4, 20, 1, water, (v) => `${v} g per cubic metre`, (v) => { water = v; guessC = null; paintChart(); }, 'dew');
+  const place = placeable(f.svg, mark, (x) => { guessC = Math.round(Math.min(30, Math.max(0, ((x - x0) / (x1 - x0)) * 30))); paintChart(); }, (step) => { guessC = Math.min(30, Math.max(0, (guessC ?? 0) + step)); paintChart(); });
+  const markIt = lockIn('Mark where it fogs', () => {
+    marked = true;
+    markIt.hidden = true;
+    place.enable(false);
+    lock([cool], false);
+    paintChart();
+  });
+  f.controls.append(el('div.fig-guess', {}, markIt), cool.node, wet.node);
+  lock([cool, wet], true);
+  place.enable(true);
+  // Once the jar has fogged, the water can change too.
+  if (t.goal !== 'fog') {
+    marked = true;
+    seen = true;
+    markIt.hidden = true;
+    guessC = null;
+    place.enable(false);
+    lock([cool, wet], false);
+  } else void t.promise.then(() => lock([wet], false));
   paintChart();
   return f.node;
 });

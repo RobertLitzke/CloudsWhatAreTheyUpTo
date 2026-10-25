@@ -183,6 +183,92 @@ export function slider(label: string, min: number, max: number, step: number, va
   };
 }
 
+// ---------------------------------------------------------------------------
+// Guess first. A figure that turns on one threshold asks the reader to say
+// where it will be before the controls that reach it unlock, then checks the
+// guess when the drawing gets there.
+
+/** Lock or unlock sliders while a guess is being made. */
+export function lock(sliders: readonly Slider[], locked: boolean): void {
+  for (const s of sliders) s.input.disabled = locked;
+}
+
+export interface Choices {
+  node: HTMLElement;
+  /** The option picked, or -1. */
+  picked: () => number;
+  /** Stop or allow picking. */
+  freeze: (frozen: boolean) => void;
+}
+
+/** A row of options for a guess, one of which can be picked. */
+export function choices(options: readonly string[], onPick: (i: number) => void): Choices {
+  let at = -1;
+  const chips = options.map((text, i) => el('button.chip', { type: 'button', onclick: () => pick(i) }, text) as HTMLButtonElement);
+  const pick = (i: number) => {
+    at = i;
+    chips.forEach((c, k) => c.classList.toggle('on', k === i));
+    onPick(i);
+  };
+  return {
+    node: el('div.chips.fig-choices', {}, chips),
+    picked: () => at,
+    freeze: (frozen) => chips.forEach((c) => (c.disabled = frozen)),
+  };
+}
+
+/** The button that locks a guess in. */
+export function lockIn(text: string, onClick: () => void): HTMLButtonElement {
+  return el('button.btn.btn-small', { type: 'button', onclick: onClick }, text) as HTMLButtonElement;
+}
+
+/**
+ * Lets the reader put a guess on the drawing. A tap anywhere on it, or a drag
+ * that starts on `handle`, sends the point (in drawing units) to `to`; with the
+ * drawing focused, the arrow keys call `nudge` with -1 or 1. Only the handle
+ * holds the page still for a drag, so the figure still scrolls on a phone.
+ */
+export function placeable(s: SVGSVGElement, handle: SVGElement, to: (x: number, y: number) => void, nudge: (step: number) => void): { enable: (on: boolean) => void } {
+  let on = false;
+  let dragging = false;
+  const vb = s.viewBox.baseVal;
+  const at = (e: PointerEvent) => {
+    const r = s.getBoundingClientRect();
+    if (!r.width) return;
+    to(((e.clientX - r.left) / r.width) * vb.width, ((e.clientY - r.top) / r.height) * vb.height);
+  };
+  handle.style.touchAction = 'none';
+  handle.style.cursor = 'grab';
+  s.addEventListener('pointerdown', (e) => {
+    if (!on) return;
+    if (handle.contains(e.target as Node)) {
+      dragging = true;
+      s.setPointerCapture?.(e.pointerId);
+      e.preventDefault();
+    }
+  });
+  s.addEventListener('pointermove', (e) => { if (on && dragging) at(e); });
+  const stop = () => (dragging = false);
+  s.addEventListener('pointerup', (e) => { if (on && !dragging) at(e); stop(); });
+  s.addEventListener('pointercancel', stop);
+  s.addEventListener('keydown', (e) => {
+    if (!on) return;
+    const step = { ArrowUp: 1, ArrowRight: 1, ArrowDown: -1, ArrowLeft: -1 }[e.key];
+    if (step) {
+      nudge(step);
+      e.preventDefault();
+    }
+  });
+  return {
+    enable: (v) => {
+      on = v;
+      s.classList.toggle('placing', v);
+      if (v) s.setAttribute('tabindex', '0');
+      else s.removeAttribute('tabindex');
+    },
+  };
+}
+
 /** A promise with its resolver, settled once. */
 function promised(): { promise: Promise<void>; resolve: () => void } {
   let resolve!: () => void;

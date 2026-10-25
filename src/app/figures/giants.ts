@@ -4,13 +4,13 @@
 // stills of the tropopause and a storm's charges.
 
 import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
-import { svg } from '../dom';
+import { el, svg } from '../dom';
 import { realClouds } from '../clouds/real';
 import { celAnvil, celCumulus, celHeap } from '../clouds/flat';
 import { FIGURE } from '../clouds/tones';
 import { arrow, heading, heapAt, line, points, polyline, radarImage, radarKey, redraw, small, still } from './draw';
 import { fbm } from '../clouds/noise';
-import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
+import { COL, animate, choices, figure, frame, height, lock, lockIn, slider, type FigureFactory } from './kit';
 import { strikeKm } from '../../core/sky';
 
 // ---- How tall the clouds grow -----------------------------------------------
@@ -136,6 +136,10 @@ export const tropopauseDiagram: FigureFactory = () => {
 
 // ---- A thunderstorm's life --------------------------------------------------
 
+const STORM_ENDS = ['It rains out all its water', 'Its own cold downdraft cuts off the warm air', 'The wind blows its top off'] as const;
+/** The one of STORM_ENDS that is right. */
+const STORM_END = 1;
+
 export const stormFigure = figure(['end'], (_ctx, t) => {
   const W = 400;
   const H = 270;
@@ -190,10 +194,26 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
       );
     }
     redraw(g, ...parts);
-    f.readout.textContent = `${min} minutes. ${stage}`;
-    if (t.goal === 'end' && min >= 50) t.done();
+    if (asking) f.readout.textContent = 'A storm like this one lives about an hour. What do you think kills it? Pick one, then run the storm.';
+    else if (pick.picked() >= 0 && min >= 50) f.readout.textContent = `${min} minutes. ${stage} ` + (pick.picked() === STORM_END ? 'You guessed right.' : 'Not what you guessed: the storm still had water and warm air nearby.');
+    else f.readout.textContent = `${min} minutes. ${stage}`;
+    if (t.goal === 'end' && !asking && min >= 50) t.done();
   };
-  f.controls.append(slider('Time', 0, 60, 1, 0, (v) => `${v} min`, paint, 'ink').node);
+  // First the reader guesses what ends the storm.
+  let asking = t.goal === 'end';
+  const time = slider('Time', 0, 60, 1, 0, (v) => `${v} min`, paint, 'ink');
+  const pick = choices(STORM_ENDS, () => (markIt.disabled = false));
+  const markIt = lockIn('Run the storm', () => {
+    asking = false;
+    pick.freeze(true);
+    markIt.hidden = true;
+    lock([time], false);
+    paint(time.value());
+  });
+  markIt.disabled = true;
+  if (asking) f.controls.append(el('div.fig-guess', {}, pick.node, markIt));
+  f.controls.append(time.node);
+  lock([time], asking);
   paint(0);
   return f.node;
 });
@@ -440,16 +460,30 @@ export const mammaFigure = figure(['pouches'], (_ctx, t) => {
 
 // ---- Kelvin-Helmholtz billows -----------------------------------------------
 
+// Billows curl over when the shear across the boundary beats the stiffness of
+// warmer air lying on colder: when the Richardson number, g·(Δθ/θ)·depth ÷
+// (Δwind)², falls below a quarter. Here the layer is 300 m deep at about 280 K.
+const BILLOW_DEPTH = 300;
+/** The wind difference, m/s, at which billows start to curl over a lid `lidC` warmer. */
+const curlWind = (lidC: number) => Math.sqrt((9.8 * (lidC / 280) * BILLOW_DEPTH) / 0.25);
+const STRONG_LID = 3;
+const LID_GUESSES = ['More difference in wind', 'Less difference in wind', 'The same'] as const;
+
 export const billowFigure = figure(['curl'], (ctx, t) => {
   const W = 400;
   const H = 200;
-  const f = frame(W, H);
-  let shear = 0.2;
+  const f = frame(W, H, 4);
+  let wind = 3;
+  let lid = 1;
   let phase = 0;
+  // How far past the curling point: under 1 the layer holds, over 1 it breaks.
+  const k = () => wind / curlWind(lid);
+  const upper = svg('rect', { x: 0, y: 0, width: W, height: 100 });
   const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: 100, fill: '#88b6dc' }), svg('rect', { x: 0, y: 100, width: W, height: 100, fill: '#a9c9e4' }), g);
+  f.svg.append(upper, svg('rect', { x: 0, y: 100, width: W, height: 100, fill: '#a9c9e4' }), g);
   animate(f.node, ctx, (dt) => {
-    phase += dt * (0.4 + shear);
+    const shear = Math.min(1, 0.55 * k());
+    phase += dt * (0.4 + wind / 20);
     const parts: SVGElement[] = [];
     const amp = shear * 22;
     const curl = Math.max(0, shear - 0.5) * 2; // Beyond a point the waves overturn.
@@ -463,20 +497,40 @@ export const billowFigure = figure(['curl'], (ctx, t) => {
     }
     parts.push(svg('rect', { x: 0, y: 110, width: W, height: 22, fill: '#fff', stroke: 'none' }));
     parts.push(
-      svg('g', { opacity: 0.7 }, line(10, 30, 10 + 40 + shear * 60, 30, '#fff', 2), small(16, 22, 'fast air above', { fill: '#fff' })),
-      svg('g', { opacity: 0.7 }, line(10, 170, 40, 170, '#fff', 2), small(16, 162, 'slow air below', { fill: '#fff' })),
+      svg('g', { opacity: 0.7 }, line(10, 30, 10 + 40 + wind * 4, 30, '#fff', 2), small(16, 22, `fast air above, ${lid} °C warmer`, { fill: '#fff' })),
+      svg('g', { opacity: 0.7 }, line(10, 170, 40, 170, '#fff', 2), small(16, 162, 'slow, colder air below', { fill: '#fff' })),
     );
     redraw(g, ...parts);
   });
   const paint = () => {
-    f.readout.textContent = shear < 0.3
-      ? 'Two layers sliding past each other slowly: the top of the cloud layer stays smooth.'
-      : shear < 0.6
-        ? 'The faster upper air drags waves into the top of the layer.'
+    // The warmer the top layer, the warmer its blue.
+    const mix = (a: number, b: number) => Math.round(a + (b - a) * (lid / 5) * 0.55);
+    upper.setAttribute('fill', `rgb(${mix(0x88, 0xe8)}, ${mix(0xb6, 0xb0)}, ${mix(0xdc, 0xa0)})`);
+    const state = k() < 0.55
+      ? 'The top of the cloud layer stays smooth: the warm air above holds it flat.'
+      : k() < 1
+        ? 'The faster upper air drags waves into the top of the layer, but the warm lid holds them down.'
         : 'Kelvin-Helmholtz billows (fluctus): the waves curl over like breakers. They last only minutes, and they mark turbulence pilots avoid.';
-    if (t.goal === 'curl' && shear >= 0.6) t.done();
+    if (asking) f.readout.textContent = 'Warmer air lying on colder holds the boundary flat. If the warm layer on top is warmer still, will it take more or less difference in wind to make the waves curl over?';
+    else if (t.goal === 'curl' && k() >= 1 && lid >= STRONG_LID) f.readout.textContent = `${state} With a ${lid} °C lid it took ${Math.ceil(curlWind(lid))} m/s; a 1 °C lid curls at ${Math.ceil(curlWind(1))}. ` + (pick.picked() === 0 ? 'You guessed right.' : 'Not what you guessed.');
+    else f.readout.textContent = state;
+    if (t.goal === 'curl' && !asking && k() >= 1 && lid >= STRONG_LID) t.done();
   };
-  f.controls.append(slider('Difference in wind', 0, 1, 0.01, shear, (v) => (v < 0.3 ? 'small' : v < 0.6 ? 'large' : 'very large'), (v) => { shear = v; paint(); }, 'ice').node);
+  let asking = t.goal === 'curl';
+  const shear = slider('Difference in wind', 0, 25, 1, wind, (v) => `${v} m/s`, (v) => { wind = v; paint(); }, 'ice');
+  const stiff = slider('Warmer on top by', 0.5, 5, 0.5, lid, (v) => `${v} °C`, (v) => { lid = v; paint(); }, 'parcel');
+  const pick = choices(LID_GUESSES, () => (markIt.disabled = false));
+  const markIt = lockIn('Mark it', () => {
+    asking = false;
+    pick.freeze(true);
+    markIt.hidden = true;
+    lock([shear, stiff], false);
+    paint();
+  });
+  markIt.disabled = true;
+  if (asking) f.controls.append(el('div.fig-guess', {}, pick.node, markIt));
+  f.controls.append(shear.node, stiff.node);
+  lock([shear, stiff], asking);
   paint();
   return f.node;
 });
