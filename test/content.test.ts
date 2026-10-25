@@ -57,6 +57,33 @@ describe('shifts', () => {
     }
   });
 
+  it('show every pair of look-alikes in photos, in the lesson that meets the second of the two', () => {
+    const photos = library as Photo[];
+    const met: string[] = [];
+    const shown = new Set<string>();
+    for (const s of SHIFTS) {
+      met.push(...s.clouds);
+      for (const b of blocks(s)) {
+        if (b.kind !== 'figure' || b.figure !== 'lookAlike') continue;
+        const sides = b.options!.photos as { photo: string; cue: string }[];
+        expect(sides.length, s.id).toBe(2);
+        const pair = sides.map((side) => {
+          const p = photos.find((x) => x.id === side.photo);
+          expect(p, side.photo).toBeDefined();
+          expect(p!.feature, side.photo).toBeUndefined();
+          expect(met, `${s.id}: ${p!.genus} not met yet`).toContain(p!.genus);
+          expect(side.cue.trim()).not.toBe('');
+          return p!.genus;
+        });
+        expect(String(b.options!.tell).trim()).not.toBe('');
+        shown.add(pair.sort().join('|'));
+      }
+      // A lesson that meets new clouds shows them in photos before its check.
+      if (s.clouds.length) expect(blocks(s).some((b) => b.kind === 'figure' && b.figure === 'lookAlike'), s.id).toBe(true);
+    }
+    for (const g of SHIFTS.flatMap((s) => s.clouds)) for (const c of genus(g).confused) expect(shown, `${g} and ${c}`).toContain([g, c].sort().join('|'));
+  });
+
   it('keep the shape the shift files promise', () => {
     const colours = ['ink', 'soft', 'parcel', 'env', 'dew', 'ice', 'sun', 'rain', 'warm', 'cold'];
     for (const s of SHIFTS) {

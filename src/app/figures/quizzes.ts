@@ -1,6 +1,7 @@
 // Figures that work on whole clouds rather than the air inside them: filing
-// drawn clouds onto their floors, building names from their roots, and the
-// tests that end a lesson (the check on photos, and forecasting from a sky).
+// drawn clouds onto their floors, building names from their roots, look-alikes
+// side by side in photos, and the tests that end a lesson (the check on
+// photos, and forecasting from a sky).
 
 import type { Forecast, Profile } from '../../core/shifts';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
@@ -13,7 +14,7 @@ import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from '../ui';
 import { line, note } from './draw';
-import { COL, height, quiz, textBox, type FigureContext } from './kit';
+import { COL, height, quiz, textBox, type FigureContext, type FigureFactory } from './kit';
 
 function bands(ctx: FigureContext, onPick?: (f: Floor) => void): SVGElement {
   const g = svg('g', { class: 'bands' });
@@ -171,6 +172,29 @@ export const namesFigure = quiz((_ctx, t, options) => {
   show();
   return el('div.fig-body', {}, el('div.fig-scene', {}, scene.root), body);
 });
+
+// ---- Look-alikes in photos --------------------------------------------------
+
+/**
+ * Two real photos side by side: a cloud and the one it is most often taken
+ * for (core/clouds.ts `confused`), each named with a few words on what to look
+ * for, and the one test that tells them apart in the text box. It comes just
+ * before a lesson's check, to carry the clean drawings over to messy photos.
+ * options.photos is two { photo, cue }, by photo id; options.tell the test.
+ */
+export const lookAlikeDiagram: FigureFactory = (_ctx, _goal, options) => {
+  const sides = (options?.photos as { photo: string; cue: string }[]) ?? [];
+  const pane = (side: { photo: string; cue: string }) => {
+    const p = PHOTOS.find((x) => x.id === side.photo);
+    if (!p) throw new Error(`No photo ${side.photo}`);
+    const g = genus(p.genus);
+    const fig = photoFigure(p, `${g.name}: ${side.cue}`);
+    fig.querySelector('figcaption')!.prepend(el('p.look-name', {}, el('b', {}, g.name), el('span', {}, side.cue)));
+    return fig;
+  };
+  const tell = el('p.fig-readout', {}, (options?.tell as string) ?? '');
+  return { node: el('div.fig-body', {}, el('div.look-alike', {}, sides.map(pane)), textBox(tell, 5)) };
+};
 
 // ---- The radio check --------------------------------------------------------
 

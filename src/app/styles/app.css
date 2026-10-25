@@ -696,3 +696,12 @@ body.radio-up main { padding-bottom: 50vh; }
 .fig-call svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
 .fig-call .screen { fill: currentColor; stroke: none; }
 .fig-called { margin: 0; font: 13px/1.4 'Special Elite', 'Courier New', monospace; color: var(--ink-soft); }
+
+/* Look-alikes: two photos side by side, each named, above the one test that
+   tells them apart. */
+.look-alike { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.look-alike .photo img { aspect-ratio: 4 / 3; border-radius: 4px; }
+.fig .look-alike .photo figcaption { padding: 6px 2px 0; }
+.look-name { margin: 0 0 2px; font-size: 0.84rem; line-height: 1.3; }
+.look-name b { display: block; }
+.look-name span { color: var(--ink-soft); }

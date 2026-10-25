@@ -8,7 +8,7 @@ import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, s
 import { brightBandFigure, escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, haloSightDiagram, iceGrowthFigure, prismFigure, radarEchoFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
 import { collideDiagram, depthDiagram, dropsFigure, edgesDiagram, freezingFigure, layerKindsDiagram, millionDiagram, nameGridDiagram, spreadFigure, subsidenceDiagram } from './low-sky';
 import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughDiagram } from './middle-sky';
-import { forecastFigure, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
+import { forecastFigure, lookAlikeDiagram, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
 import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure } from './seeding';
 import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedLinesDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
 import type { FigureFactory } from './kit';
@@ -39,6 +39,7 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   sort: sortFigure,
   names: namesFigure,
   radioCheck: radioCheckFigure,
+  lookAlike: lookAlikeDiagram,
   forecast: forecastFigure,
   molecules: moleculesDiagram,
   expand: expandDiagram,
