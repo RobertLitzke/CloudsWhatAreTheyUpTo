@@ -61,7 +61,7 @@ describe('guess-first figures', () => {
   // before the controls that reach it unlock.
   const GUESS_FIRST = ['jar', 'parcel', 'halo', 'front', 'storm', 'billow'] as const;
   it('lock their sliders until the guess is marked', () => {
-    const ctx: FigureContext = { save: emptySave(), closed: AbortSignal.abort(), score: () => {}, local: () => undefined };
+    const ctx: FigureContext = { save: emptySave(), closed: AbortSignal.abort(), score: () => {} };
     for (const id of GUESS_FIRST) {
       const use = uses.find((u) => u.block.figure === id)!.block;
       const { node } = FIGURES[id](ctx, use.goal, use.options);
