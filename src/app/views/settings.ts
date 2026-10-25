@@ -1,5 +1,6 @@
 // Units, name, the radio, and moving progress between devices.
 
+import { asset, fromDisk } from '../asset';
 import { el } from '../dom';
 import type { View } from '../router';
 import { exportSave, getSave, importSave, setSave, updateSave } from '../store';
@@ -79,6 +80,15 @@ export const settingsView: View = (root) => {
         el('button.btn.btn-ghost', { type: 'button', onclick: () => file.click() }, 'Load from file'),
         file,
       ),
+      el('h2', {}, 'The app as one file'),
+      el(
+        'p.muted',
+        {},
+        fromDisk
+          ? 'This is the downloaded copy. It works with no connection; the photos come from the website, so they show only when you are online. Its progress is kept apart from the website’s, so use Save to file to carry progress across.'
+          : 'Everything but the photos in a single page, to keep on a phone or pass to someone. It works with no connection, and shows the photos whenever you are online. Its progress is kept apart from this one’s.',
+      ),
+      el('a.btn.btn-ghost', { href: asset('clouds.html'), download: 'clouds.html' }, fromDisk ? 'Download the latest copy' : 'Download clouds.html'),
       el('h2', {}, 'About'),
       el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photos, and under what licence.'),
       el(

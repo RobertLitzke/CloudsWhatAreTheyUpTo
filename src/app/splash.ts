@@ -2,12 +2,13 @@
 // is ready at once, because a poster that flashes past reads as a glitch, and
 // a tap takes it away early.
 
+import { asset } from './asset';
 import { el } from './dom';
 
 const MIN_MS = 1600;
 
 export function showSplash(): void {
-  const img = el('img', { src: 'poster.webp', alt: 'Clouds: What are they up to?', decoding: 'async' }) as HTMLImageElement;
+  const img = el('img', { src: asset('poster.webp'), alt: 'Clouds: What are they up to?', decoding: 'async' }) as HTMLImageElement;
   const node = el('div.splash', { role: 'img', 'aria-label': 'Clouds: What are they up to?' }, img);
   document.body.append(node);
   const started = performance.now();

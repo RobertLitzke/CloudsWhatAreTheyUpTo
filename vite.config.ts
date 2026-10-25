@@ -1,4 +1,6 @@
-import { defineConfig } from 'vite';
+import { copyFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import pkg from './package.json';
@@ -7,6 +9,18 @@ import pkg from './package.json';
 // PatchMatch and Fretron. Photos cannot be: there are too many and they are
 // large, so they sit in dist/photos/ and the service worker keeps each one
 // once it has been seen, which is what makes a finished lesson work offline.
+// The same page again as dist/clouds.html, the one-file copy that Settings
+// offers to download. A second name, so the browser saves it as a file rather
+// than opening the app, and so it is not the page the service worker serves.
+const oneFileCopy = (): Plugin => ({
+  name: 'one-file-copy',
+  apply: 'build',
+  closeBundle() {
+    const out = resolve(__dirname, 'dist');
+    copyFileSync(resolve(out, 'index.html'), resolve(out, 'clouds.html'));
+  },
+});
+
 export default defineConfig({
   // Relative, so index.html works from file:// and from a GitHub Pages sub-path.
   base: './',
@@ -20,6 +34,7 @@ export default defineConfig({
   },
   plugins: [
     viteSingleFile(),
+    oneFileCopy(),
     VitePWA({
       registerType: 'prompt',
       injectRegister: null, // registered by hand in main.ts

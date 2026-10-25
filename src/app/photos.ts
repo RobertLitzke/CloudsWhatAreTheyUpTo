@@ -2,6 +2,7 @@
 
 import library from '../data/photos.json';
 import { LICENSES, type Photo } from '../core/photos';
+import { asset } from './asset';
 import { el } from './dom';
 
 export const PHOTOS: readonly Photo[] = library as Photo[];
@@ -24,7 +25,7 @@ export function photoFigure(p: Photo, alt: string, mirrored = false): HTMLElemen
   return el(
     'figure.photo',
     {},
-    el('img', { src: p.file, alt, width: p.width, height: p.height, decoding: 'async', className: mirrored ? 'mirrored' : undefined }),
+    el('img', { src: asset(p.file), alt, width: p.width, height: p.height, decoding: 'async', className: mirrored ? 'mirrored' : undefined }),
     el('figcaption', {}, credit(p)),
   );
 }
