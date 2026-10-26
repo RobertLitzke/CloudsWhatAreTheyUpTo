@@ -39,7 +39,7 @@ the others by hand.
 | `radio` | Talk, Turn and Reply types, `transcript()` |
 | `slip` | `createSlip({ stations, snubs, signOff, onHeard, onOff })` returns `{ play, clear }`, the typewriter slip |
 | `settings` | `settingsView({ store, empty, appName, saveFile, units?, radio?, offline?, oneFile?, about? })`; `offline` shows how many photos are saved on the device, `oneFile.offline` offers the copy with photos inside |
-| `update` | `watchForUpdates({ title, text, icon? })`, the "new version" banner |
+| `update` | `watchForUpdates({ title, text, icon?, beforeReload? })`, gets a new deploy into the installed app, with a "new version" banner |
 | `splash` | `showSplash({ src, alt })`, a poster as the loading screen |
 | `asset` | `assetFrom(siteUrl)`, `fromDisk` (lets the one-file copy fetch photos from the live site), `selfContained` (the offline copy, photos inlined) |
 | `offline` | `savedCount(folder)`, `retireWhenSaved(folder, total, oldCaches)` |
@@ -275,6 +275,18 @@ if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.st
   watchForUpdates({ title: 'New version', text: 'A fresh version of Levers is ready.' });
 }
 ```
+
+How updates reach an installed app: a waiting service worker only takes over
+once no page uses the old one, and an installed app (on Android especially)
+is resumed or reloaded in the same window rather than closed, so left alone
+it stays on the old version, and the banner's offer comes back each time.
+`watchForUpdates` looks for a new sw.js at launch, on return to the
+foreground, on coming back online and every half hour, and applies one
+itself: straight away at launch if the player has not touched anything yet,
+from the banner's Reload, or else the next time the app goes to the
+background, so it opens on the new version. Applying is a reload that keeps
+the URL hash; save anything else, such as the step a lesson is on, in
+`beforeReload` or as it changes.
 
 `lessonView` also takes these options:
 
