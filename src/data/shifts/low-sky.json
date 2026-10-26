@@ -3,7 +3,7 @@
   "id": "low-sky",
   "n": 2,
   "title": "Will this grey sky actually rain?",
-  "teaches": "It’s dark and overcast: do you need an umbrella? Stable and unstable air, the lid that spreads heaps into dry stratocumulus, why depth and not darkness makes rain, and the soaking nimbostratus",
+  "teaches": "It’s dark and overcast: do you need an umbrella? Stable and unstable air, the lid that flattens heaps into dry stratocumulus, why cloud depth matters more than darkness for making rain, and the soaking nimbostratus.",
   "parts": [
     {
       "title": "Bubbles or a blanket",
@@ -12,35 +12,35 @@
           "kind": "key",
           "title": "The big ideas of this lesson",
           "points": [
-            "Nudge a bubble of air upward. In **stable** air it sinks back, like a weight on a spring; in **unstable** air it keeps rising, like a cork let go underwater.",
-            "An **inversion**, warmer air lying on cooler air, is a lid. Heaps rising under it spread into a lumpy grey sheet, **stratocumulus**, which looks gloomy but stays dry.",
-            "Darkness is a poor guide to rain. A raindrop holds about a million cloud droplets’ worth of water, and only a **deep** cloud gives drops time to grow that big.",
-            "A cloud holds only about 0.2 mm of water at any moment. Hours of soaking rain need a deep layer that is lifted, and refilled, for hours: **nimbostratus**, which hides the sun completely."
+            "Nudge a parcel of air upward. In **stable** air it sinks back down, like a weight on a spring; in **unstable** air it keeps rising, like a cork released underwater.",
+            "An **inversion**—warmer air sitting on top of cooler air—acts as a lid. Cumulus heaps rising against it spread into a lumpy grey sheet called **stratocumulus**, which looks gloomy but stays mostly dry.",
+            "Darkness is a poor guide to rain. A raindrop holds about a million cloud droplets’ worth of water, and only a **deep** cloud gives drops enough time to grow that large.",
+            "A cloud layer holds only about 0.2 mm of rainfall at any moment. Hours of steady rain require a deep cloud that is continuously lifted and refilled: **nimbostratus**, which blots out the sun completely."
           ]
         },
         {
           "kind": "text",
-          "text": "A grey sky is the commonest worry in forecasting. Some grey skies hang overhead all day and never drop a thing; others mean a soaking by lunch. Telling them apart takes two ideas: how the air behaves when it is nudged, and how deep the cloud is."
+          "text": "An overcast sky is the most common puzzle in everyday forecasting. Some grey skies hang overhead all day without dropping a thing; others bring a soaking by lunch. Telling them apart comes down to two questions: what happens when air is nudged upward, and how deep the cloud is."
         },
         {
           "kind": "text",
-          "text": "Why does air sometimes rise in isolated bubbles and other times stay in a flat layer? Suppose you give a parcel of air a small push upward. On some days, that parcel will keep rising on its own. On other days, it will sink right back down to where it started. Which way the atmosphere behaves on a given day determines almost everything about the clouds that form."
+          "text": "Why does air rise in individual bubbles on some days and stay in flat layers on others? Imagine giving a parcel of air near the ground a small upward push. Depending on the day, that parcel will either sink right back to where it started or keep rising on its own. That single difference governs what kind of clouds can form."
         },
         {
           "kind": "text",
-          "text": "Air rises on its own when it is warmer than the air around it: a warm parcel is less dense than its neighbours, so the heavier air slides underneath and buoys it upward, like a hot-air balloon. A cold parcel is denser, and sinks."
+          "text": "A parcel rises on its own whenever it is warmer than the air surrounding it. Warm air is less dense than cooler air at the same pressure, so the heavier surrounding air pushes underneath and buoys the warm parcel upward, just like a hot-air balloon. Conversely, a parcel colder than its surroundings is denser and sinks."
         },
         {
           "kind": "text",
-          "text": "While a rising dry parcel always cools at about 10 °C per kilometre, the [[air around it|env]] also changes temperature with height, and that surrounding profile varies from day to day. Averaged over the whole earth and year, the atmosphere gets colder by about 6.5 °C per kilometre of altitude.[^env-rate] On a hot afternoon when strong sunshine bakes the ground, the lowest kilometre or two can get colder with height by more than 10 °C per kilometre. On a clear morning after the ground has cooled all night, the temperature may drop much more slowly with height, or even get warmer as you go up: the **inversion** from Lesson 1."
+          "text": "As you saw in Lesson 1, a rising parcel of clear air cools at a fixed rate of about 10 °C per kilometre.[^adiabatic] Meanwhile, the [[surrounding air|env]] also changes temperature with altitude, and that background temperature profile shifts from day to day and hour to hour.[^env-rate] Averaged across the globe, the atmosphere cools by about 6.5 °C per kilometre of height. On a sunny afternoon when hot ground bakes the lowest kilometre or two of air, the temperature near the surface can drop with height faster than 10 °C per kilometre. On a clear morning after the ground has chilled all night, the air may cool much more slowly with height—or even warm with height in an **inversion**."
         },
         {
           "kind": "text",
-          "text": "To see what happens to a nudged parcel, compare the two cooling rates. Push a parcel up a kilometre, and it cools at 10 °C per kilometre on the way. If the surrounding air gets colder with height *faster* than that, say at 12 °C per kilometre, the parcel arrives at its new altitude warmer and less dense than its new neighbours. Because it is warmer and lighter, it keeps rising on its own, and the higher it climbs, the greater its temperature lead becomes. Meteorologists call this **unstable** air."
+          "text": "To see whether a nudged parcel will rise or sink, compare its 10 °C-per-kilometre cooling rate with the temperature profile of the surrounding sky. Push a parcel up one kilometre, and it cools by 10 °C. If the surrounding air gets colder with height *faster* than that—say, by 12 °C per kilometre—the parcel arrives at its new altitude 2 °C warmer and less dense than the air around it. Because it is lighter than its new neighbours, buoyancy takes over and it keeps rising on its own, gaining a bigger temperature lead the higher it climbs. Meteorologists call this **unstable** air."
         },
         {
           "kind": "text",
-          "text": "If instead the surrounding air gets colder with height *more slowly* than 10 °C per kilometre, say at 5 °C per kilometre, the nudged parcel arrives colder and denser than its new neighbours. Being heavier than the air around it, it sinks back down to where it started. That air is **stable**. Notice that stable and unstable describe the temperature profile of the surrounding sky on that day, which governs what happens to any parcel that gets nudged."
+          "text": "If instead the surrounding air cools with height *more slowly* than 10 °C per kilometre—say, by 5 °C per kilometre—the lifted parcel arrives 5 °C colder and denser than its new neighbours. Heavier than the air around it, it sinks right back to where it started. That atmosphere is **stable**. Stability isn't a property of the parcel itself; it describes the temperature profile of the surrounding sky on a given day."
         },
         {
           "kind": "figure",
@@ -49,19 +49,11 @@
         },
         {
           "kind": "text",
-          "text": "Here is a picture to hold on to: a weight on a spring versus a cork held underwater."
+          "text": "Think of **stable** air as a weight on a spring, and **unstable** air as a cork held at the bottom of a pool. In stable air, nudging a bubble upward makes it colder and heavier than its surroundings, so gravity pulls it back to its starting level like a spring snapping back. In unstable air, nudging a bubble upward leaves it warmer and lighter than the air around it; like a released cork, it accelerates upward, stacking moisture into tall, billowing clouds."
         },
         {
           "kind": "text",
-          "text": "**Stable** air acts like a spring. Nudge a bubble of air upward, and it cools faster than the sky around it. Because cold air is dense and heavy, gravity pulls the chilled bubble right back down to where it started, just like a stretched spring snapping back to rest."
-        },
-        {
-          "kind": "text",
-          "text": "**Unstable** air is like a cork barely held at the bottom of a pool. Nudge a bubble upward, and it finds itself among air colder than itself, so buoyancy takes over. The slightest upward push releases it, and it shoots toward the surface faster and faster, stacking moisture into tall, billowing clouds rather than flat layers."
-        },
-        {
-          "kind": "text",
-          "text": "In the figure, the Air slider sets the sky around the bubble, and the picture beside it switches between the spring and the cork. The two temperatures beside the bubble tell you which one you have."
+          "text": "In the interactive figure below, the Air slider sets how fast the surrounding sky cools with height, while the diagram beside it switches between the spring and the cork. Compare the parcel's orange temperature with the violet surrounding temperature to see which way it will move."
         },
         {
           "kind": "figure",
@@ -72,11 +64,11 @@
         },
         {
           "kind": "text",
-          "text": "Those two behaviours give the sky its two basic textures. In unstable air, warm bubbles shoot up on their own wherever heated ground gives them a start, and each bubble builds its own cloud, forming **heaps**. In stable air, nothing climbs by itself. Air turns to cloud only if something does the cooling for it, to a whole layer at once: wind pushing the layer steadily up a mountain slope, or cold ground chilling the air resting on it. When a wide layer is cooled gently all together, it forms a flat **sheet**."
+          "text": "These two states produce the sky’s two basic cloud shapes. In unstable air, warm thermals break away on their own wherever sun-warmed ground gives them a boost, building individual **heaps**. In stable air, nothing rises on its own; clouds form only when an entire layer of air is cooled in place or forced upward together—such as wind gliding up a mountain range or warm air sliding over a cold front. Cooling a wide, stable layer all at once produces a flat **sheet**."
         },
         {
           "kind": "text",
-          "text": "Nearly every cloud in the low sky is a heap, a sheet, or a mix of the two. You have met the pure sheet, stratus, and the pure heap, cumulus. The commonest mix of all is heaps that run into a stable layer and flatten out against it: the lumpy grey sheet that covers more of the earth than any other cloud."
+          "text": "Nearly every low cloud is a heap, a sheet, or a hybrid of the two. Lesson 1 covered the pure sheet (stratus) and the pure heap (cumulus). Even more common than either is a hybrid where rising heaps hit a stable ceiling and spread out flat—forming the lumpy grey overcast that covers more of Earth than any other cloud."
         }
       ]
     },
@@ -85,15 +77,15 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Real skies often blend heaps and sheets together, and the most common cloud type on Earth is just such a hybrid: **stratocumulus**. At any given moment, stratocumulus decks cover roughly a fifth of the world’s oceans. Seen from below, stratocumulus looks like a broad layer of rounded lumps, rolls, or patches, darker grey in the thicker centres and brighter toward the edges, usually with small gaps of blue sky showing between the elements."
+          "text": "That hybrid is **stratocumulus**, the most common cloud type on the planet, covering roughly a fifth of the world’s oceans at any moment. Seen from the ground, stratocumulus forms a low deck of rounded lumps, rolls, or pebbles—darker grey in their thicker centres and brighter around their thinner edges, usually with narrow chinks of sky showing between the pads."
         },
         {
           "kind": "text",
-          "text": "Stratocumulus forms underneath an **inversion**, a layer where the air gets warmer with height instead of colder. You saw an inversion in the first lesson when cold night air pooled on the valley floor; higher up in the sky, an inversion acts like a lid. Because atmospheric stability depends on the temperature profile of each specific layer, the air below the inversion can be well-mixed and unstable even while the inversion layer above it is strongly stable."
+          "text": "Stratocumulus forms beneath an **inversion** aloft, where the air warms with height instead of cooling. In Lesson 1, a surface inversion formed at night when cold air pooled on the valley floor; a kilometre or two up in the sky, an elevated inversion acts as a ceiling. Because stability can change from one altitude layer to the next, the air near the ground can be turbulent and unstable while the inversion layer sitting above it is strongly stable."
         },
         {
           "kind": "text",
-          "text": "Beneath the lid, surface heating or wind turbulence stirs the air, sending buoyant bubbles upward that cool to their dew point and form cumulus heaps. As soon as a rising bubble pushes into the warm inversion layer, however, it finds itself colder and denser than the surrounding air and can climb no further. As more rising air continues to arrive from below, the cloud tops flatten and spread sideways against the underside of the lid. When the air is humid, the cloud base forms lower down and a deeper portion of each rising bubble condenses, supplying more cloud water to spread out laterally until neighbouring heaps press together into a continuous, lumpy sheet."
+          "text": "Below that ceiling, ground heating or wind eddies stir the air, sending warm bubbles upward to condense into cumulus heaps. As soon as a rising cloud top pokes into the warmer inversion layer, however, it becomes colder and denser than the air around it and stops climbing. As more rising air arrives from below, the cloud tops flatten and spread sideways against the underside of the inversion. When the layer is humid enough, neighbouring heaps merge into a continuous, cobbled sheet."
         },
         {
           "kind": "figure",
@@ -104,11 +96,11 @@
         },
         {
           "kind": "text",
-          "text": "Stratus and stratocumulus are both low layers with fairly flat bases, so how do you tell them apart? By what made them, which shows in their texture. **Stratus** forms when a whole layer of stable air is cooled evenly: by a clear night, by moist air drifting over cold ground, or by fog lifting off a valley floor. Nothing stirs it, so it has no pattern at all, just one even, featureless grey sheet, often low enough to hide the hilltops."
+          "text": "Because stratus and stratocumulus are both low grey layers with flat bases, how do you tell them apart? Look at the underside for signs of stirring. **Stratus** forms in calm, stable air that cools evenly as a single slab, leaving a uniform, featureless grey ceiling with no distinct lumps or outlines."
         },
         {
           "kind": "text",
-          "text": "**Stratocumulus** is built by stirring. Each rising bubble becomes a cell, thicker where the air rises in its middle and thinner where it sinks around its edges. From below, the layer breaks into lumps or rolls with darker centres, brighter rims, and often slits of blue between them. The bases of both are roughly flat; the difference is the pattern of light and shade across the underside."
+          "text": "**Stratocumulus** is shaped by convective stirring.[^rayleigh-benard] Each lump is an individual overturning cell—thickest and darkest in the middle where air rises, and thinner and brighter around the edges where air sinks back down. Even when the cells press tightly together, that pattern of light and shadow across the base gives stratocumulus away."
         },
         {
           "kind": "figure",
@@ -117,15 +109,15 @@
         },
         {
           "kind": "text",
-          "text": "The two often turn into each other. When the morning sun starts stirring a dawn stratus deck from below, it often breaks into the cells of stratocumulus before it burns away."
+          "text": "One often evolves into the other. As morning sunlight warms the ground beneath a flat dawn stratus deck, gentle thermals begin stirring the layer from below, breaking the uniform grey into stratocumulus lumps before the cloud finally evaporates."
         },
         {
           "kind": "text",
-          "text": "What creates an inversion lid a kilometre or two above the ground? Most often, it comes from air sinking slowly over a wide area. When air converges high in the atmosphere and gently subsides, the total weight of the air column increases, raising the barometric pressure at the ground in what forecasters call a **high-pressure system** (or simply a high). As that upper air sinks into higher pressure, it is compressed and warms at the dry rate of 10 °C per kilometre."
+          "text": "What puts a warm inversion lid a kilometre or two up in the first place? Usually, slow, large-scale sinking in a **high-pressure system** (or simply a *high*). When air converges high in the atmosphere, it piles up and adds weight to the air column below—which is why a barometer at the surface reads \"high pressure\"—while slowly pressing the air beneath it downward. As that upper air sinks into higher pressure below, compression warms it at 10 °C per kilometre."
         },
         {
           "kind": "text",
-          "text": "Meanwhile, the lowest kilometre or so of the atmosphere is constantly churned by wind and thermals rising off the ground. Any sinking air that reaches the top of this turbulent boundary layer[^boundary-layer] gets mixed in and carried back down and up by the eddies, so the large-scale sinking stops right at the top of the stirred layer. The compressed, warmed air from aloft therefore rests directly on top of cooler air mixed up from the surface, forming a sharp temperature inversion."
+          "text": "Meanwhile, the lowest kilometre of the sky—the **boundary layer**[^boundary-layer]—is constantly churned by surface wind and thermals. Large-scale sinking from aloft cannot penetrate this turbulent zone, so the subsiding, compression-warmed air comes to rest directly on top of the cooler air mixed up from the surface. That sharp boundary between sinking upper air and stirred surface air creates a durable inversion lid."
         },
         {
           "kind": "figure",
@@ -134,7 +126,7 @@
         },
         {
           "kind": "text",
-          "text": "Because the inversion lid is maintained by sinking air under high pressure and prevents clouds from growing tall, a sky covered in stratocumulus, however grey and overcast it looks, almost always brings dry, settled weather."
+          "text": "Because that lid is held in place by sinking air under high pressure and caps cloud growth at a few hundred metres thick, a stratocumulus sky—no matter how grey and gloomy—almost always means dry, settled weather."
         }
       ]
     },
@@ -143,11 +135,11 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "In the first lesson, you saw that typical cloud droplets are only about a hundredth of a millimetre across and settle at less than a centimetre per second, slow enough for the gentlest updraught to keep them suspended. Even if an individual cloud droplet drifts out the bottom of a cloud base, it enters drier air and evaporates within a few centimetres, long before reaching the ground."
+          "text": "Recall from Lesson 1 that typical cloud droplets measure only about a hundredth of a millimetre across and fall at less than a centimetre per second—slow enough for the weakest updraught to hold aloft. Even if a lone cloud droplet drifts out the bottom of a cloud, it evaporates within centimetres of entering the unsaturated air below."
         },
         {
           "kind": "text",
-          "text": "A raindrop is vastly larger. A typical raindrop measures one to two millimetres across, or about a hundred times the diameter of a cloud droplet. Because the volume of a sphere grows with the cube of its diameter (100 × 100 × 100), a raindrop a hundred times wider contains a **million** times as much water. To produce a single raindrop that can survive the fall to the ground, roughly a million microscopic cloud droplets have to merge together."
+          "text": "A raindrop is on another scale entirely. At one to two millimetres wide, a typical raindrop is about a hundred times the diameter of a cloud droplet. Because the volume of a sphere scales with the cube of its diameter (100 × 100 × 100), a drop a hundred times wider holds a **million** times as much water. Making a single raindrop heavy enough to survive the fall to the ground takes roughly a million cloud droplets merging together."
         },
         {
           "kind": "figure",
@@ -163,11 +155,11 @@
         },
         {
           "kind": "text",
-          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another.[^coalescence] A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, air resistance grows faster still and bends the curve over, as the fall-speed chart in the figure above shows)."
+          "text": "In clouds warmer than freezing from base to top, droplets grow by bumping into one another and merging.[^coalescence] A few droplets start out slightly larger than average—often because they condensed on a giant sea-salt speck—and larger droplets fall faster. For small droplets up to about a tenth of a millimetre wide, fall speed increases with the square of the diameter (above that size, growing air drag flattens the curve, as shown in the figure above)."
         },
         {
           "kind": "text",
-          "text": "A droplet that is five times wider than its neighbours therefore falls about twenty-five times faster, at several centimetres per second rather than a fraction of a centimetre per second. As it falls, it overtakes the smaller, slower droplets in its path and collides with them. Each merger makes the collector drop heavier and faster, allowing it to sweep through a wider column of cloud every second and accelerating its growth."
+          "text": "Because of that relationship, a droplet five times wider than its neighbours falls roughly twenty-five times faster—at several centimetres per second instead of a fraction of one. As it drops through the cloud, it overtakes slower, smaller droplets in its path and sweeps them up. Every merger makes the collector drop heavier and faster, widening the path it sweeps each second and accelerating its growth."
         },
         {
           "kind": "figure",
@@ -176,7 +168,7 @@
         },
         {
           "kind": "text",
-          "text": "Even so, this collision process takes tens of minutes, during which the growing drop is continuously falling. In a shallow cloud, the drop falls out the base long before it reaches raindrop size and evaporates on the way down. Only a deep cloud, or one with strong updraughts that hold the growing drops aloft, provides enough time for raindrops to mature. (In colder clouds that extend above the freezing level, ice crystals provide a second, faster pathway to rain, which Lesson 7 takes up.)"
+          "text": "Even with that snowballing growth, building a full-sized raindrop by collision takes 15 to 30 minutes of continuous falling and sweeping. In a shallow cloud like stratus or stratocumulus, a growing drop falls right out the bottom long before it reaches raindrop size—producing either light drizzle or evaporating completely on the way down. Making real rain requires a deep cloud (or strong updraughts that hold growing drops aloft long enough to mature). In clouds tall enough to reach above the freezing level, ice crystals provide an even faster shortcut to rain, covered in Lesson 7."
         },
         {
           "kind": "figure",
@@ -185,11 +177,11 @@
         },
         {
           "kind": "text",
-          "text": "That is why a cloud’s depth matters more than how dark it looks. Darkness is a poor guide on its own. A deeper cloud does let less light through, but so does a shallow one packed with a great many tiny droplets, and a crowd of tiny droplets is actually worse at making rain: the same water shared among more droplets leaves each one smaller and slower, so they rarely collide. (Smoke and field dust, which give water many more specks to condense on, make exactly such clouds.)[^ship-tracks]"
+          "text": "That is why cloud depth matters far more than how dark the base looks. Darkness on its own is deceptive. A deep cloud blocks plenty of sunlight, but so does a shallow cloud packed with an unusually high concentration of tiny droplets. Paradoxically, packing more droplets into the same cloud makes it *less* likely to rain: the available water is split among too many tiny, slow-falling droplets of nearly identical size, so they rarely overtake and collide with one another (which is exactly what happens when smoke or pollution floods a cloud with condensation specks).[^ship-tracks]"
         },
         {
           "kind": "text",
-          "text": "Lighting fools the eye too. A cloud’s base always sits in its own shadow, and under a sheet that covers the whole sky there is nothing bright to compare it with. A thin grey layer can look gloomy all day and give no more than drizzle; rain needs a cloud with the depth, and the updraughts, to give its drops time to grow."
+          "text": "Contrast tricks the eye, too. A cloud base always sits in its own shadow, and beneath a solid overcast there is no sunlit white cloud side nearby for comparison. A stratocumulus layer only 300 metres thick can look threateningly dark at midday yet stay bone dry; genuine rain requires kilometres of vertical depth."
         }
       ]
     },
@@ -198,7 +190,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "So how does a sky manage hours of steady rain? Start with how much water a cloud holds. Measured from aeroplanes, a layer of cloud carries about 0.2 grams of liquid water in each cubic metre: a fifth of a gram, spread through a space the size of a wardrobe. Picture a column of that cloud one kilometre deep standing on one square metre of ground: a thousand cubic metres, holding 200 grams of water. If every drop fell, it would cover the square metre 0.2 millimetres deep: about the thickness of two sheets of paper."
+          "text": "If a cloud has to be deep to make rain, how does it sustain a steady downpour for hours? Consider how little liquid water a cloud actually contains at any instant. Aircraft measurements show that a typical layer cloud holds only about 0.2 grams of liquid water per cubic metre—roughly four drops of water spread through a space the size of a wardrobe. If you wrung out every drop of water from a cloud column one kilometre thick, it would coat the ground just 0.2 millimetres deep, about the thickness of two sheets of paper."
         },
         {
           "kind": "figure",
@@ -207,7 +199,7 @@
         },
         {
           "kind": "text",
-          "text": "A cloud, then, is not a full bucket that empties once. A long rain is more like a conveyor belt: the weather keeps lifting new moist air, cooling it, condensing it and raining it out, hour after hour, about a millimetre an hour on the rain gauge, while the cloud itself never holds more than its 0.2 mm."
+          "text": "A rain cloud is not a storage tank waiting to be emptied; it is a factory running on a conveyor belt. To drop 10 millimetres of rain over an afternoon, a storm must continuously lift fresh, moist air from below, cool it to condense new cloud water, and rain it out—replacing the cloud’s entire water supply dozens of times over."
         },
         {
           "kind": "figure",
@@ -216,28 +208,28 @@
         },
         {
           "kind": "text",
-          "text": "The cloud that runs that belt is **nimbostratus**: a dark, featureless grey layer several kilometres thick that produces hours of continuous rain or snow. It needs two things at once. It is a sheet, lifted gently and steadily over hundreds of kilometres, usually ahead of a front (Lesson 4 follows one coming), so the belt keeps running for hours. And it is deep, reaching from the low sky far up above the freezing level, where (as Lesson 7 shows) ice turns cloud water into snow that melts into rain on the way down."
+          "text": "The cloud produced by that steady conveyor belt is **nimbostratus**: a dark, featureless grey deck several kilometres thick that brings hours of continuous rain or snow. Nimbostratus combines both ingredients needed for prolonged rain: widespread, steady lifting (usually where a broad slab of warm, moist air glides up over a front, as Lesson 4 explores) and great vertical depth, stretching from low levels far above the freezing level."
         },
         {
           "kind": "text",
-          "text": "In the naming system, *nimbo-* indicates a rain-bearing cloud rather than a specific altitude floor. The International Cloud Atlas puts nimbostratus on the middle floor, which the next lesson introduces, because its main body develops there, though it regularly thickens downward into the low floor. As rain falls out of the base into the air below, some of the drops evaporate, both cooling the sub-cloud air and adding water vapour to it. Before long, pockets of air beneath the main deck reach their dew point and condense into ragged, fast-moving shreds of low cloud known as **scud** (or pannus), making the dark base appear to sag toward the ridges."
+          "text": "In Latin cloud names, *nimbo-* means rain-bearing. Because the core of a nimbostratus deck forms in the middle levels of the sky before thickening downward into the low sky, the International Cloud Atlas classifies it as a middle cloud (covered in Lesson 3). As steady rain falls from its base, partial evaporation chills and moistens the air underneath. Turbulent wind easily stirs that damp sub-cloud air to its dew point, spawning ragged, fast-moving shreds of low cloud called **scud** (*pannus*) that drift beneath the main deck and make the sky look as if it is sagging onto the hills."
         },
         {
           "kind": "text",
-          "text": "From the ground, the quickest test is the sun. Under nimbostratus you cannot tell where the sun is at all; any thinner sheet lets you make it out, at least as a pale glow. The base is different too. Stratocumulus has a clear underside of lumps and rolls, lighter and darker patches; nimbostratus has a uniform, diffuse grey base that looks blurred and indistinct behind curtains of falling rain."
+          "text": "From the ground, two visual cues separate nimbostratus from drier grey layers. First, check for the sun: nimbostratus is so deep that it blots out the sun completely, whereas thinner stratus or stratocumulus usually lets you spot the sun's position as a pale disc or bright patch. Second, look at the base: stratocumulus shows distinct lumps and rolls, while nimbostratus presents a blurred, amorphous grey ceiling veiled by falling rain."
         },
         {
           "kind": "text",
-          "text": "One more grey-sky sight is worth knowing. On a dry, warm day you may see grey streaks hanging from a high cloud base and fading out halfway to the ground. That is **virga**: rain or snow evaporating in the dry air below before it can land. It means the cloud is raining, but the ground will stay dry."
+          "text": "One final grey-sky feature is worth spotting. On dry days, you may see dark,wispy curtains of rain or snow trailing beneath a cloud base that vanish into thin air halfway down. That is **virga**—precipitation that evaporates completely in dry sub-cloud air before reaching the ground.[^virga-cooling]"
         },
         {
           "kind": "key",
           "title": "Will this grey sky rain?",
           "points": [
-            "Lumpy, with slits of blue, under a steady high: stratocumulus. Dry, or a spot of drizzle.",
-            "Flat, low and even, after a still night: stratus. Drizzle at most, and it usually burns off.",
-            "Deep and featureless, the sun gone without a trace, the base blurred into falling rain: nimbostratus. Hours of rain.",
-            "Streaks hanging from a high base that never reach the ground: virga. Dry below."
+            "Lumpy or cobbled underside with chinks of sky, under steady high pressure: **stratocumulus**. Dry, or a brief spit of drizzle.",
+            "Low, flat, uniform grey hugging the hills after a calm night: **stratus**. Drizzle at worst, usually clearing by midday.",
+            "Dark, deep, and featureless, sun completely blotted out, base blurred by falling rain: **nimbostratus**. Hours of steady rain.",
+            "Grey streaks trailing from a cloud base that fade before reaching the ground: **virga**. Rain aloft, dry on the ground."
           ]
         }
       ]
@@ -247,7 +239,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "The drawings in this lesson are clean; real skies are not. Here are this lesson’s clouds in photographs, side by side with the clouds they are most often taken for, and the one thing that tells each pair apart. Keep these in mind for the check."
+          "text": "Compare these real-sky photographs side by side, focusing on the visual cues that separate look-alike grey clouds."
         },
         {
           "kind": "figure",
@@ -257,14 +249,14 @@
             "photos": [
               {
                 "photo": "stratocumulus-05",
-                "cue": "lumps and rolls, darker patches"
+                "cue": "rounded lumps and rolls, light and dark patches"
               },
               {
                 "photo": "stratus-07",
-                "cue": "flat and even grey"
+                "cue": "uniform, featureless grey"
               }
             ],
-            "tell": "Both are low grey sheets. Look for texture: lumps, rolls, or bright seams between darker patches make it stratocumulus. Grey that is even from edge to edge, like lifted fog, is stratus."
+            "tell": "Both form low grey ceilings. Look for underside texture: rounded lumps, rolls, or bright seams between darker patches mark stratocumulus. Smooth, uniform grey from edge to edge—like lifted fog—is stratus."
           }
         },
         {
@@ -275,14 +267,14 @@
             "photos": [
               {
                 "photo": "cumulus-08",
-                "cue": "heaps standing apart"
+                "cue": "detached heaps with blue sky around them"
               },
               {
                 "photo": "stratocumulus-15",
-                "cue": "lumps joined into a sheet"
+                "cue": "flattened lumps pressed into a sheet"
               }
             ],
-            "tell": "Look at the sky between them. Cumulus heaps stand apart with blue all round, and bulge upward. Stratocumulus lumps are spread flat and joined into one layer, with only gaps of sky."
+            "tell": "Check the spacing and tops. Cumulus clouds are detached heaps surrounded by blue sky with domed tops. Stratocumulus consists of flattened lumps pressed together into a ceiling, with only narrow chinks of sky between them."
           }
         },
         {
@@ -293,14 +285,14 @@
             "photos": [
               {
                 "photo": "nimbostratus-03",
-                "cue": "dark, deep and shapeless"
+                "cue": "dark, deep, base blurred by rain"
               },
               {
                 "photo": "stratus-16",
-                "cue": "paler lid on the hilltops"
+                "cue": "pale, shallow lid shrouding hilltops"
               }
             ],
-            "tell": "Both are featureless grey. Nimbostratus is darker, being kilometres deep, and steady rain or snow falls from it. Stratus is a thin, paler lid low enough to hide hilltops, with drizzle at most."
+            "tell": "Both lack distinct lumps. Nimbostratus is dark and kilometres deep, blotting out the sun and blurring into steady rain. Stratus is a paler, shallow layer hugging the hills, producing mist or fine drizzle at most."
           }
         }
       ]
@@ -355,14 +347,14 @@
                     "when": "16:00"
                   }
                 ],
-                "question": "Morning cumulus heaps spread into a lumpy grey sheet by afternoon. Will it rain this afternoon?",
+                "question": "Detached morning cumulus heaps flatten and spread into a continuous, lumpy grey sheet by early afternoon. What is the forecast for the rest of the day?",
                 "options": [
-                  "Yes: a grey sheet that thick will bring steady rain by evening",
-                  "No: it will stay dry, with at most a spot of drizzle",
-                  "Thunderstorms: heaps that spread out are building into towers"
+                  "Steady rain by evening as the grey sheet thickens",
+                  "Dry and settled, with at most a brief spot of drizzle",
+                  "Afternoon thunderstorms: spreading tops mean the clouds are building into storm towers"
                 ],
                 "answer": 1,
-                "why": "Cumulus heaps that flatten and spread beneath an inversion form stratocumulus. The inversion lid keeps the cloud layer shallow, so it stays dry or produces light drizzle at most."
+                "why": "Cumulus heaps that flatten and spread beneath an inversion lid become stratocumulus. Because the inversion caps vertical growth, the cloud layer stays too shallow to produce real rain."
               },
               {
                 "sky": [
@@ -375,14 +367,14 @@
                     "when": "14:00"
                   }
                 ],
-                "question": "Two grey layers: one thin but packed with tiny droplets, one twice as deep with fewer, bigger ones. The thin one looks darker. Which is likelier to rain?",
+                "question": "Compare two overcast layers: Cloud A is 400 m thick and packed with tiny, polluted droplets, making its base look very dark. Cloud B is 2,000 m thick with fewer, larger droplets and looks slightly brighter. Which is more likely to rain?",
                 "options": [
-                  "The deep one: its drops have the depth and the size to grow into rain",
-                  "The dark one: a darker cloud holds more water ready to fall as rain",
-                  "Neither: a grey layer can only drizzle, however deep it grows"
+                  "Cloud B: its greater depth and larger droplets allow drops to grow to raindrop size",
+                  "Cloud A: a darker cloud base means more liquid water ready to fall as rain",
+                  "Neither: flat layer clouds can only produce drizzle, regardless of depth"
                 ],
                 "answer": 0,
-                "why": "Darkness fools the eye: a shallow cloud packed with tiny droplets can look gloomier than a deep one. Rain needs drops to grow a million times bigger, and that takes depth and bigger droplets to start with."
+                "why": "A shallow cloud packed with tiny droplets scatters light effectively and looks dark, but its droplets are too small and uniform to collide and grow. Growing raindrops a million times larger than cloud droplets requires vertical depth."
               },
               {
                 "id": "wagons",
@@ -396,14 +388,14 @@
                     "when": "15:00"
                   }
                 ],
-                "question": "A lumpy grey sheet with small gaps of blue has sat over the valley all day under high pressure. Will it bring a soaking rain?",
+                "question": "A cobbled stratocumulus deck with small chinks of blue has lingered over the valley all day under a high-pressure system. Should you expect a soaking rain?",
                 "options": [
-                  "Yes: a sheet that sits this long builds up water for hours of rain",
-                  "Only if it lowers to the ground and turns into valley fog tonight",
-                  "No: the lid keeps the layer too shallow to make real rain"
+                  "Yes: a cloud sheet that persists all day is steadily accumulating water for a downpour",
+                  "Only after sunset, when the layer cools and dumps its water",
+                  "No: sinking air in the high maintains an inversion lid that keeps the cloud too shallow to rain"
                 ],
                 "answer": 2,
-                "why": "Sinking air in a high-pressure system maintains a strong inversion lid that keeps stratocumulus shallow, and growing full-sized raindrops requires a deep cloud."
+                "why": "Sinking air in a high-pressure system warms by compression and maintains a strong inversion lid, capping the stratocumulus deck at a few hundred metres thick—far too shallow for soaking rain."
               },
               {
                 "id": "washday",
@@ -421,14 +413,14 @@
                     "when": "15:00"
                   }
                 ],
-                "question": "A grey sheet has thickened all morning until the sun is completely hidden and the base looks dark and blurred. What should you expect?",
+                "question": "An overcast sky has thickened all morning until the sun is completely hidden and the dark, featureless base blurs into grey curtains. What lies ahead?",
                 "options": [
-                  "A brief passing shower, then sun again within the hour",
-                  "Steady rain for several hours, from a deep, lifted layer",
-                  "Nothing: the layer will thin out and burn off by midday"
+                  "A quick 15-minute shower followed by sunny breaks",
+                  "Hours of continuous rain from a deep, steadily lifted nimbostratus deck",
+                  "Dry weather: the layer will break into fair-weather cumulus by afternoon"
                 ],
                 "answer": 1,
-                "why": "A deep, featureless grey deck that completely hides the sun and blurs into falling rain is nimbostratus. It is kept going by steady lifting, so it brings hours of rain, not a passing shower."
+                "why": "A deep, featureless grey deck that completely hides the sun and blurs into falling rain is nimbostratus. Fed by steady, widespread lifting ahead of a weather system, it brings hours of continuous rain."
               },
               {
                 "sky": [
@@ -441,14 +433,14 @@
                     "when": "16:00"
                   }
                 ],
-                "question": "On a hot, dry afternoon, grey streaks hang from a high cloud base and fade away halfway down. Will the fields get wet?",
+                "question": "On a warm, dry afternoon, wispy grey streaks trail beneath a high cloud base but vanish halfway to the ground. Will the fields get wet?",
                 "options": [
-                  "Yes: the streaks are rain, and the rain is on its way down to you",
-                  "Yes, but later: the streaks are building up for a downpour tonight",
-                  "No: that is virga, rain evaporating in the dry air before it lands"
+                  "Yes: those streaks are rain shafts that will reach the ground within minutes",
+                  "Yes, by evening: the streaks show the atmosphere is saturating from the ground up",
+                  "No: that is virga—rain evaporating completely in the dry air below the cloud"
                 ],
                 "answer": 2,
-                "why": "Streaks that fade out below a high base are virga: the cloud is raining, but the dry air underneath evaporates every drop before it reaches the ground."
+                "why": "Precipitation streaks that fade out in mid-air are virga: rain or snow is falling out of the cloud base, but the dry air below evaporates the drops before they reach the ground."
               }
             ]
           }
@@ -457,55 +449,70 @@
     }
   ],
   "learned": [
-    "Air is unstable when the surrounding air gets colder with height faster than a rising bubble cools (10 °C per kilometre in clear air); a nudged bubble keeps rising and builds heaps. In stable air the bubble sinks back, and cloud forms only as flat sheets, when a whole layer is lifted or chilled.",
-    "An inversion acts as a lid. Heaps rising under it spread into stratocumulus: a lumpy sheet with darker centres and slits of blue, often under the sinking air of a high, which looks grey but stays mostly dry.",
-    "A raindrop holds about a million cloud droplets’ worth of water; growing that big takes time and depth, so shallow clouds rarely rain however dark they look.",
-    "A cloud holds only about 0.2 mm of water at any moment; hours of rain need deep cloud that is lifted and refilled for hours, like a conveyor belt.",
-    "Nimbostratus is that cloud: deep, featureless, the sun hidden completely, its base blurred into falling rain. Streaks that never reach the ground are virga."
+    "Air is unstable when the surrounding sky cools with height faster than a rising parcel cools (10 °C per kilometre in clear air); a nudged parcel keeps rising to build cumulus heaps. In stable air, a lifted parcel ends up colder than its surroundings and sinks back down, so clouds form only as flat sheets when a whole layer is cooled or lifted.",
+    "An elevated temperature inversion acts as a lid. Cumulus heaps rising against it flatten and spread into stratocumulus—a cobbled grey sheet with darker centres and narrow gaps, often capped by sinking air in a high-pressure system, bringing overcast but dry weather.",
+    "A raindrop holds about a million cloud droplets’ worth of water. Growing drops to that size by collision takes time and vertical depth, so shallow clouds rarely rain no matter how dark their bases look.",
+    "A cloud column 1 km thick holds only about 0.2 mm of rainfall at any instant; hours of steady rain require a deep cloud that is continuously lifted and replenished like a conveyor belt.",
+    "Nimbostratus is the classic soaking rain cloud: kilometres deep, featureless, blotting out the sun completely, with a base blurred by falling rain and low shreds of scud. Rain streaks that evaporate before reaching the ground are virga."
   ],
-  "next": "Next lesson: sorting the sky in thirty seconds, by floor, with your eyes and your hand.",
+  "next": "Next lesson: reading the whole sky in thirty seconds—sorting clouds by altitude floor using your eyes and your hand.",
   "journal": {
     "stability": {
       "title": "Stable and unstable air",
-      "text": "A rising dry parcel cools at 10 °C per kilometre. If the surrounding air gets colder with height faster than that, a lifted parcel ends up warmer than its neighbours and keeps rising on its own; this is unstable air, which builds heaps. If the surrounding air cools more slowly with height, or warms with height in an inversion, a lifted parcel ends up colder than its neighbours and sinks back down; this is stable air, which turns to cloud only when a whole layer is cooled together into flat sheets."
+      "text": "A rising dry parcel cools at 10 °C per kilometre. If the surrounding air cools with height faster than that, a lifted parcel becomes warmer and less dense than its neighbours and keeps rising on its own—unstable air, which builds heaps. If the surrounding air cools more slowly with height (or warms in an inversion), a lifted parcel becomes colder and denser than its neighbours and sinks back down—stable air, which forms flat cloud sheets only when an entire layer is lifted or chilled."
     },
     "stratocumulus": {
       "title": "Stratocumulus",
-      "text": "A low layer of rounded lumps and rolls with darker grey centres and small gaps, formed when rising cumulus heaps flatten and spread beneath a stable temperature inversion. It is often capped by sinking air in a high-pressure system, bringing overcast but dry, settled weather. It is the most common cloud type on Earth."
+      "text": "A low layer of rounded lumps, rolls, or pads with darker grey centres and bright seams or small gaps, formed when rising heaps flatten beneath a stable inversion lid. Often maintained by sinking air in a high-pressure system, it brings overcast but dry, settled weather and is the most common cloud type on Earth."
     },
     "rain": {
       "title": "Why most clouds don’t rain",
-      "text": "Typical cloud droplets are about 0.01 mm across and settle at less than a centimetre per second. A raindrop is about a hundred times wider (1 to 2 mm), so its volume is roughly a million times larger. Larger droplets fall faster and sweep up smaller ones in their path, but only a deep cloud provides enough fall distance and time for droplets to grow into raindrops."
+      "text": "Cloud droplets measure about 0.01 mm wide and fall at less than 1 cm/s. A raindrop is roughly 100 times wider (1–2 mm) and holds a million times the volume. Larger drops fall faster and sweep up smaller ones in their path, but only a deep cloud provides enough fall distance and time for drops to grow into rain."
     },
     "cloud-water": {
       "title": "How much water a cloud holds",
-      "text": "About 0.2 grams of liquid water in each cubic metre of a layer cloud: a kilometre of it, wrung out completely, would wet the ground 0.2 mm deep. A storm drops 10 to 15 mm in a day only because it keeps lifting new moist air and making new cloud for hours, like a conveyor belt, so a long rain needs a deep cloud that is lifted for a long time."
+      "text": "A typical layer cloud holds only about 0.2 grams of liquid water per cubic metre—meaning a 1 km-thick cloud column wrung dry would wet the ground just 0.2 mm deep. Multi-hour storms drop 10–20 mm of rain only by continuously lifting fresh moist air through the cloud like a conveyor belt."
     },
     "nimbostratus": {
       "title": "Nimbostratus",
-      "text": "A dark, featureless grey cloud deck several kilometres deep that completely blots out the sun and produces hours of continuous rain or snow. It is lifted steadily over a wide area, usually ahead of a front, and reaches high above the freezing level, where ice turns its water into snow that melts into rain. Evaporating rain below its base often forms ragged shreds of low scud."
+      "text": "A dark, featureless grey cloud deck several kilometres deep that completely hides the sun and brings hours of continuous rain or snow. Produced by steady, widespread lifting (usually ahead of a front), it extends high above the freezing level. Evaporating rain beneath its base often forms ragged shreds of low scud."
     }
   },
   "footnotes": {
+    "adiabatic": {
+      "kind": "technical",
+      "title": "Dry adiabatic lapse rate",
+      "text": "Physics calls cooling by expansion without exchanging heat with the surroundings **adiabatic cooling**. For clear (unsaturated) air, this rate is fixed by gravity and the heat capacity of air at **9.8 °C per kilometre** (5.4 °F per 1,000 feet), known as the **dry adiabatic lapse rate**. Once water vapour starts condensing inside a rising cloud parcel, the condensing vapour releases latent heat and slows the parcel's cooling rate to roughly 5–6 °C per kilometre (Lesson 5)."
+    },
     "env-rate": {
       "kind": "technical",
       "title": "Environmental lapse rate",
-      "text": "How fast the air around you cools with height is the **environmental lapse rate**, to set it apart from a parcel’s own rate. The 6.5 °C per kilometre average is built into the *standard atmosphere*, the made-up average sky that aeroplane altimeters are calibrated against. Weighing the two rates against each other is how forecasters judge stability."
+      "text": "How fast the surrounding atmosphere cools with height at a given time and place is the **environmental lapse rate**, in contrast to a rising parcel’s own cooling rate. The global average of 6.5 °C per kilometre defines the *International Standard Atmosphere* used to calibrate aircraft altimeters. Comparing the environmental lapse rate measured by a weather balloon against the parcel lapse rate is how forecasters diagnose atmospheric stability."
+    },
+    "rayleigh-benard": {
+      "kind": "digression",
+      "title": "Miso soup in the sky",
+      "text": "The cellular pattern of stratocumulus is the same physics you see in a bowl of hot miso soup or a pan of simmering oil—known as **Rayleigh–Bénard convection**. When a fluid layer is heated from below or cooled from the top (as when stratocumulus tops radiate infrared heat to space), it organises itself into a honeycomb of overturning cells: rising in the thick centres and sinking around the thin borders."
     },
     "boundary-layer": {
       "kind": "technical",
       "title": "Boundary layer",
-      "text": "The **boundary layer** is the bottom of the atmosphere, the part that feels the ground: stirred by thermals and by wind dragging over the land by day, and calm, often cold, at night. On a sunny afternoon it can be one or two kilometres deep; on a clear night it may shrink to a hundred metres. Above it, the *free atmosphere* hardly knows what the ground is doing."
+      "text": "The **planetary boundary layer** is the lowest part of the atmosphere that directly feels the drag and heating of the ground. On a sunny, breezy afternoon, thermals and wind eddies churn it into a well-mixed layer one to two kilometres deep; on a clear, calm night, it shrinks to a shallow surface layer a hundred metres thick. Above it sits the *free atmosphere*, insulated from daily surface swings."
     },
     "coalescence": {
       "kind": "technical",
       "title": "Collision–coalescence",
-      "text": "Droplets merging as they bump is **coalescence**, and rain made this way comes by **collision–coalescence**, or *warm rain*, since no ice takes part. It is how most rain falls from shallow tropical clouds. Not every bump sticks: small droplets often bounce apart, or swerve around a bigger one in the air it pushes ahead of it."
+      "text": "Rain formation by droplets bumping and merging is called **collision–coalescence** (or the *warm-rain process*, since no ice is involved). It is the main way rain forms in shallow tropical clouds. Not every collision succeeds: tiny droplets often get swept around a falling collector drop by the cushion of air streaming past it, or bounce off without merging."
     },
     "ship-tracks": {
       "kind": "digression",
       "title": "Ship tracks",
-      "text": "Satellite pictures of ocean stratocumulus sometimes show thin, bright lines hundreds of kilometres long, drawn across the grey. They are ship tracks: a ship’s exhaust adds specks to clean sea air, the same water is shared among more, smaller droplets, and that strip of cloud reflects more sunlight and drizzles less. When ships switched to cleaner fuel in 2020, most of the tracks faded."
+      "text": "Satellite images of marine stratocumulus often reveal bright white curves hundreds of kilometres long crisscrossing the grey deck. These are **ship tracks**: exhaust plumes from cargo ships inject millions of aerosol specks into clean ocean air, splitting the cloud water among far more, smaller droplets. The polluted stripe reflects more sunlight (looking brighter from space) and suppresses drizzle. When global shipping rules slashed fuel sulphur in 2020, visible ship tracks dropped sharply."
+    },
+    "virga-cooling": {
+      "kind": "digression",
+      "title": "Dry microbursts from virga",
+      "text": "Because evaporating water absorbs heat from the surrounding air, virga strongly chills the dry air column beneath the cloud. That pocket of newly chilled, dense air can plunge toward the ground and fan out on impact as a sudden, violent wind gust called a **dry microburst**—a major hazard for aircraft taking off or landing under innocent-looking high-based clouds in dry regions."
     }
   }
 }
