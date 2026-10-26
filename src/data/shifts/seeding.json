@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "seeding",
   "n": 8,
   "title": "The rainmakers, 1946",
@@ -71,7 +71,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Dry ice is frozen carbon dioxide, at −78 °C. It is not a template at all; it works by cold alone. A falling pellet chills a thin trail of air behind it below −40 °C, and there, as Lesson 7 showed, droplets freeze by themselves, with no speck needed. Vapour in the trail turns straight into tiny crystals too, by deposition."
+          "text": "Dry ice is frozen carbon dioxide, at −78 °C. It is not a template at all; it works by cold alone. A falling pellet chills a thin trail of air behind it below −40 °C, and there, as Lesson 7 showed, droplets freeze by themselves, with no speck needed. Vapour in the trail turns straight into tiny crystals too, by deposition.[^deposition]"
         },
         {
           "kind": "figure",
@@ -92,7 +92,7 @@
         },
         {
           "kind": "text",
-          "text": "Bernard Vonnegut, a chemist in the same laboratory, took a different approach. If the rare natural specks work because their atoms are arranged like ice, why not find a substance whose crystals are arranged like ice and make a great deal of it?"
+          "text": "Bernard Vonnegut, a chemist in the same laboratory[^vonnegut], took a different approach. If the rare natural specks work because their atoms are arranged like ice, why not find a substance whose crystals are arranged like ice and make a great deal of it?"
         },
         {
           "kind": "text",
@@ -217,7 +217,7 @@
         },
         {
           "kind": "text",
-          "text": "The only fair test is the one doctors use for a new medicine. Decide which storms to seed by chance, with a coin toss, before anyone knows how each will turn out. Then compare many seeded storms with many that were not. Luck evens out only when there are a great many storms on each side. A second check is to compare the seeded area with a **control** area nearby that was not seeded but gets the same storms: weather that hits both cancels out, and what is left is more likely to be the seeding."
+          "text": "The only fair test is the one doctors use for a new medicine. Decide which storms to seed by chance, with a coin toss, before anyone knows how each will turn out.[^trial] Then compare many seeded storms with many that were not. Luck evens out only when there are a great many storms on each side. A second check is to compare the seeded area with a **control** area nearby that was not seeded but gets the same storms: weather that hits both cancels out, and what is left is more likely to be the seeding."
         },
         {
           "kind": "figure",
@@ -232,7 +232,7 @@
         },
         {
           "kind": "text",
-          "text": "Rainmakers made exactly that mistake, or took advantage of it, long before dry ice. Charles Hatfield, the most famous, was hired by San Diego in 1915 to fill a reservoir; he set up his towers of secret chemicals, and the rains came, and flooded the valley. He and others like him worked when rain looked likely, and took the credit when it came."
+          "text": "Rainmakers made exactly that mistake, or took advantage of it, long before dry ice. Charles Hatfield, the most famous, was hired by San Diego in 1915 to fill a reservoir; he set up his towers of secret chemicals, and the rains came, and flooded the valley.[^hatfield] He and others like him worked when rain looked likely, and took the credit when it came."
         },
         {
           "kind": "text",
@@ -493,6 +493,28 @@
     "fair-trial": {
       "title": "A fair trial",
       "text": "Storms vary so much by themselves that one winter, or a seeder’s own pick of storms, proves nothing. Pick the storms to seed by chance, compare many seeded storms with many left alone, over many winters, and compare the seeded area with an unseeded control area nearby. A real effect of ten or fifteen percent takes hundreds of storms to see."
+    }
+  },
+  "footnotes": {
+    "deposition": {
+      "kind": "technical",
+      "title": "Deposition and sublimation",
+      "text": "**Deposition** is vapour turning straight into ice without passing through liquid, as frost grows on a cold window. The reverse, ice turning straight into vapour, is **sublimation**: it is how snow slowly vanishes on a cold, dry, sunny day without ever melting, and how a lump of dry ice shrinks away to nothing."
+    },
+    "vonnegut": {
+      "kind": "digression",
+      "title": "Ice-nine",
+      "text": "Bernard’s younger brother Kurt worked in General Electric’s publicity office at the time and heard the laboratory’s stories. In his novel *Cat’s Cradle* (1963) he imagined *ice-nine*, a form of ice that is such a perfect template that one crystal freezes every drop of water it touches, and with it the world’s oceans. Silver iodide is the gentle, real version."
+    },
+    "trial": {
+      "kind": "technical",
+      "title": "Randomized trial",
+      "text": "Choosing by chance makes it a **randomized trial**, and leaving storms or an area unseeded gives it a **control**. A result called *statistically significant* is one that luck alone would rarely produce, by convention less than one time in twenty. It does not mean the effect is large; only that it is probably real."
+    },
+    "hatfield": {
+      "kind": "digression",
+      "title": "Who pays for a flood?",
+      "text": "Hatfield had been promised $10,000 to fill the Morena reservoir. It filled, but the January 1916 floods also burst a dam downstream, swept away bridges and killed some twenty people. The city council refused to pay, calling the rain an act of God; if Hatfield claimed it, he could answer for the damage too. He sued, and never got the money."
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "ice-realm",
   "n": 4,
   "title": "Tomorrow’s weather written high up",
@@ -29,7 +29,7 @@
         },
         {
           "kind": "text",
-          "text": "Up on the high floor, ice crystals form distinct clouds of their own. **Cirrus** consists of shafts of falling ice crystals. When crystals nucleate in a moist pocket near the top of the troposphere, they quickly grow to a tenth of a millimetre or more across (at least ten times the width of a typical liquid droplet) and fall at roughly half a metre to a metre per second. As the crystals descend into lower layers, they encounter air moving at different speeds. Because surface friction slows the wind near the ground while air high aloft flows unimpeded, wind speed usually changes with altitude, a variation known as **wind shear**. As falling crystals drop into slower-moving air below, they lag behind the faster-moving source pocket above, drawing the falling streak out into a long, curved trail."
+          "text": "Up on the high floor, ice crystals form distinct clouds of their own. **Cirrus** consists of shafts of falling ice crystals. When crystals nucleate[^nucleate] in a moist pocket near the top of the troposphere, they quickly grow to a tenth of a millimetre or more across (at least ten times the width of a typical liquid droplet) and fall at roughly half a metre to a metre per second. As the crystals descend into lower layers, they encounter air moving at different speeds. Because surface friction slows the wind near the ground while air high aloft flows unimpeded, wind speed usually changes with altitude, a variation known as **wind shear**. As falling crystals drop into slower-moving air below, they lag behind the faster-moving source pocket above, drawing the falling streak out into a long, curved trail."
         },
         {
           "kind": "figure",
@@ -68,7 +68,7 @@
         },
         {
           "kind": "text",
-          "text": "That bright ring is the **22° halo**. The sky just inside the ring looks noticeably darker than the sky outside it because no ray passing through a 60° ice prism can be bent by less than the minimum angle, leaving a sharp inner boundary. That inner edge is tinted faintly red: ice slows red light slightly less than blue light, so red light has a minimum deflection of about 21.5° while blue light bends by at least 22.4°. Red light therefore forms the innermost rim of the circle, while the other colours overlap further out and blend back into white. On the sky, a 22° radius is quite large: if you stretch your arm out straight and spread your fingers wide, the distance from the sun to the halo spans roughly from the tip of your thumb to the tip of your little finger."
+          "text": "That bright ring is the **22° halo**. The sky just inside the ring looks noticeably darker than the sky outside it because no ray passing through a 60° ice prism can be bent by less than the minimum angle, leaving a sharp inner boundary. That inner edge is tinted faintly red: ice slows red light slightly less than blue light, so red light has a minimum deflection of about 21.5° while blue light bends by at least 22.4°. Red light therefore forms the innermost rim of the circle, while the other colours overlap further out and blend back into white. On the sky, a 22° radius is quite large: if you stretch your arm out straight and spread your fingers wide, the distance from the sun to the halo spans roughly from the tip of your thumb to the tip of your little finger.[^sundogs]"
         },
         {
           "kind": "text",
@@ -119,7 +119,7 @@
         },
         {
           "kind": "text",
-          "text": "Across the mid-latitudes, huge air masses hundreds of kilometres wide move across the continent, some carrying warm, moist air from lower latitudes and others bringing cool, denser air from closer to the poles. When an advancing mass of warm air overtakes a retreating wedge of cold air, the boundary between them is called a **warm front**. Because the warm air is less dense than the cold air ahead of it, it cannot easily shove the heavy cold air out of the way; instead, it glides up and over the cold wedge along a very gentle slope, rising only about one kilometre vertically for every hundred kilometres horizontally."
+          "text": "Across the mid-latitudes, huge air masses[^air-mass] hundreds of kilometres wide move across the continent, some carrying warm, moist air from lower latitudes and others bringing cool, denser air from closer to the poles. When an advancing mass of warm air overtakes a retreating wedge of cold air, the boundary between them is called a **warm front**. Because the warm air is less dense than the cold air ahead of it, it cannot easily shove the heavy cold air out of the way; instead, it glides up and over the cold wedge along a very gentle slope, rising only about one kilometre vertically for every hundred kilometres horizontally."
         },
         {
           "kind": "figure",
@@ -151,7 +151,7 @@
         },
         {
           "kind": "text",
-          "text": "The old rhyme “red sky in the morning, shepherd’s warning” has the same root. Our weather comes from the west. At sunrise the sun is low in the east and lights the underside of any high cloud from below; if a sheet of cirrus or cirrostratus is spreading in from the west while the eastern horizon is still clear, it glows red and orange. A red morning sky painted on high cloud is a front’s cloud arriving."
+          "text": "The old rhyme “red sky in the morning, shepherd’s warning” has the same root. Our weather comes from the west. At sunrise the sun is low in the east and lights the underside of any high cloud from below; if a sheet of cirrus or cirrostratus is spreading in from the west while the eastern horizon is still clear, it glows red and orange. A red morning sky painted on high cloud is a front’s cloud arriving.[^red-sky]"
         },
         {
           "kind": "key",
@@ -417,6 +417,28 @@
     "warm-front": {
       "title": "A warm front coming",
       "text": "At a warm front, advancing warm air glides up over a retreating wedge of denser cold air along a gentle slope of roughly 1 in 100, forming layered clouds that extend up to a thousand kilometres ahead of the surface boundary. An observer sees the highest clouds first: cirrus hooks, then a cirrostratus veil with a 22° halo, then lowering altostratus that dims the sun, and finally deep nimbostratus bringing steady rain 12 to 24 hours after the halo."
+    }
+  },
+  "footnotes": {
+    "nucleate": {
+      "kind": "technical",
+      "title": "Nucleation",
+      "text": "To **nucleate** is to start a new droplet or crystal. Up near the top of the weather, most ice crystals start as tiny droplets of haze that freeze once the air is colder than about −38 °C; a few start on rare specks of dust at milder temperatures. Lesson 7 shows why those specks matter so much."
+    },
+    "sundogs": {
+      "kind": "digression",
+      "title": "Sun dogs",
+      "text": "When the crystals are flat plates instead of columns, they drift down like falling leaves, faces level, and only those level with the sun can send you its light. The ring shrinks to two bright, coloured patches on either side of the sun, at the halo’s distance: **sun dogs**. They show best when the sun is low."
+    },
+    "air-mass": {
+      "kind": "technical",
+      "title": "Air mass",
+      "text": "An **air mass** is a body of air, often a thousand kilometres or more across, with much the same temperature and moisture all through. It takes its character from where it sat for a while: over the Arctic it turns cold and dry, over warm ocean warm and moist. Forecasters label air masses by where they came from, such as *maritime polar* for the cool, damp Pacific air that reaches the Northwest."
+    },
+    "red-sky": {
+      "kind": "digression",
+      "title": "An old rhyme",
+      "text": "The rhyme is at least two thousand years old. In the Gospel of Matthew, Jesus reminds his listeners that they say “fair weather, for the sky is red” in the evening, and “foul weather today, for the sky is red and lowering” in the morning. It works wherever the weather travels from west to east, as it does across most of the middle latitudes."
     }
   }
 }

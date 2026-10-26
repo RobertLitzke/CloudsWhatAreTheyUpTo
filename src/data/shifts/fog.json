@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "fog",
   "n": 1,
   "title": "Morning fog and afternoon puffs",
@@ -38,7 +38,7 @@
         },
         {
           "kind": "text",
-          "text": "Why does vapour condense at all? Water molecules attract one another slightly when they collide. When warm, they move so fast that they bounce apart again; when cold, they move slower and cling together more easily. Meanwhile, the more water molecules are packed into a given space, the more often they collide. At any temperature, there is a strict ceiling on how much vapour can exist before molecules stick together faster than they break apart. Above that ceiling, the excess condenses into liquid. Warm air has a high ceiling: at 30 °C, a cubic metre can hold about 30 grams of water vapour (roughly two tablespoons). At 0 °C, that ceiling drops below 5 grams."
+          "text": "Why does vapour condense at all? Water molecules attract one another slightly when they collide. When warm, they move so fast that they bounce apart again; when cold, they move slower and cling together more easily. Meanwhile, the more water molecules are packed into a given space, the more often they collide. At any temperature, there is a strict ceiling on how much vapour can exist before molecules stick together faster than they break apart. Above that ceiling, the excess condenses into liquid.[^saturation] Warm air has a high ceiling: at 30 °C, a cubic metre can hold about 30 grams of water vapour (roughly two tablespoons). At 0 °C, that ceiling drops below 5 grams."
         },
         {
           "kind": "text",
@@ -61,7 +61,7 @@
         },
         {
           "kind": "text",
-          "text": "In open air, condensing vapour needs a solid surface to get started. A cluster of pure water molecules is so tiny and tightly curved that it evaporates almost instantly before it can grow. Microscopic specks of dust, smoke, or sea salt provide ready-made surfaces where water molecules can gather, and every breath of outdoor air holds millions of these specks. The droplets that grow on them are about a hundredth of a millimetre wide—roughly the thickness of spider silk. Air resistance keeps their fall speed under a centimetre per second, so even the faintest upward breeze holds them aloft."
+          "text": "In open air, condensing vapour needs a solid surface to get started. A cluster of pure water molecules is so tiny and tightly curved that it evaporates almost instantly before it can grow. Microscopic specks of dust, smoke, or sea salt provide ready-made surfaces where water molecules can gather, and every breath of outdoor air holds millions of these specks.[^nuclei] The droplets that grow on them are about a hundredth of a millimetre wide—roughly the thickness of spider silk. Air resistance keeps their fall speed under a centimetre per second, so even the faintest upward breeze holds them aloft."
         },
         {
           "kind": "figure",
@@ -187,7 +187,7 @@
         },
         {
           "kind": "text",
-          "text": "As long as no cloud droplets have formed yet, a rising parcel cools at a steady physical rate of about 10 °C for every kilometre it climbs (9.8 °C to be exact, or 5.4 °F per 1,000 feet). Because this rate depends only on Earth’s gravity and how air stores heat, it is the same everywhere, every day."
+          "text": "As long as no cloud droplets have formed yet, a rising parcel cools at a steady physical rate of about 10 °C for every kilometre it climbs (9.8 °C to be exact, or 5.4 °F per 1,000 feet)[^dry-rate]. Because this rate depends only on Earth’s gravity and how air stores heat, it is the same everywhere, every day.[^why-9-8]"
         },
         {
           "kind": "text",
@@ -465,6 +465,28 @@
     "cumulus": {
       "title": "Cumulus",
       "text": "Separate, flat-bottomed cloud heaps with bright, rounded tops built by warm thermals rising from sun-heated ground. Small heaps that stay small indicate fair weather and fade at sunset, whereas heaps that tower upward by midday can grow into afternoon showers."
+    }
+  },
+  "footnotes": {
+    "saturation": {
+      "kind": "technical",
+      "title": "Saturation and relative humidity",
+      "text": "Air holding as much vapour as it can at its temperature is **saturated**, and the ceiling itself is often given as a pressure, the *saturation vapour pressure*. The **relative humidity** on a weather report is how close the air is to that ceiling: 50% means half full, and 100% means saturated, with the air at its dew point."
+    },
+    "nuclei": {
+      "kind": "technical",
+      "title": "Condensation nuclei",
+      "text": "Meteorologists call these specks **condensation nuclei**. Specks that dissolve in water, like salt, work best: they soak up a film of water even before the air is quite saturated, which is why distant hills look hazy on a humid day. Clean ocean air holds roughly a hundred in each cubic centimetre; smoky or dusty air over land can hold thousands."
+    },
+    "dry-rate": {
+      "kind": "technical",
+      "title": "Dry adiabatic lapse rate",
+      "text": "The textbook name for this 10 °C per kilometre is the **dry adiabatic lapse rate**. A *lapse rate* is how fast temperature falls with height. *Adiabatic*, from the Greek for “not passing through”, means no heat goes in or out of the parcel: it cools only by expanding. *Dry* means no cloud has formed yet; inside a cloud the rate is slower, as Lesson 5 shows."
+    },
+    "why-9-8": {
+      "kind": "digression",
+      "title": "Why 9.8?",
+      "text": "The number falls out of two others. Lifting a kilogram of air one metre against gravity takes 9.8 joules, and a rising parcel pays for its climb out of its own heat, since nothing else supplies it. Warming or cooling a kilogram of air by one degree takes about 1,005 joules. So each metre of climb costs 9.8 ÷ 1,005 of a degree, 0.0098 °C: 9.8 °C a kilometre."
     }
   }
 }

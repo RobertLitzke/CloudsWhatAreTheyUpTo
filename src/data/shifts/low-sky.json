@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "low-sky",
   "n": 2,
   "title": "Will this grey sky actually rain?",
@@ -32,7 +32,7 @@
         },
         {
           "kind": "text",
-          "text": "While a rising dry parcel always cools at about 10 °C per kilometre, the [[air around it|env]] also changes temperature with height, and that surrounding profile varies from day to day. Averaged over the whole earth and year, the atmosphere gets colder by about 6.5 °C per kilometre of altitude. On a hot afternoon when strong sunshine bakes the ground, the lowest kilometre or two can get colder with height by more than 10 °C per kilometre. On a clear morning after the ground has cooled all night, the temperature may drop much more slowly with height, or even get warmer as you go up: the **inversion** from Lesson 1."
+          "text": "While a rising dry parcel always cools at about 10 °C per kilometre, the [[air around it|env]] also changes temperature with height, and that surrounding profile varies from day to day. Averaged over the whole earth and year, the atmosphere gets colder by about 6.5 °C per kilometre of altitude.[^env-rate] On a hot afternoon when strong sunshine bakes the ground, the lowest kilometre or two can get colder with height by more than 10 °C per kilometre. On a clear morning after the ground has cooled all night, the temperature may drop much more slowly with height, or even get warmer as you go up: the **inversion** from Lesson 1."
         },
         {
           "kind": "text",
@@ -125,7 +125,7 @@
         },
         {
           "kind": "text",
-          "text": "Meanwhile, the lowest kilometre or so of the atmosphere is constantly churned by wind and thermals rising off the ground. Any sinking air that reaches the top of this turbulent boundary layer gets mixed in and carried back down and up by the eddies, so the large-scale sinking stops right at the top of the stirred layer. The compressed, warmed air from aloft therefore rests directly on top of cooler air mixed up from the surface, forming a sharp temperature inversion."
+          "text": "Meanwhile, the lowest kilometre or so of the atmosphere is constantly churned by wind and thermals rising off the ground. Any sinking air that reaches the top of this turbulent boundary layer[^boundary-layer] gets mixed in and carried back down and up by the eddies, so the large-scale sinking stops right at the top of the stirred layer. The compressed, warmed air from aloft therefore rests directly on top of cooler air mixed up from the surface, forming a sharp temperature inversion."
         },
         {
           "kind": "figure",
@@ -163,7 +163,7 @@
         },
         {
           "kind": "text",
-          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another. A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, air resistance grows faster still and bends the curve over, as the fall-speed chart in the figure above shows)."
+          "text": "In clouds that are warmer than freezing from bottom to top, droplets grow by colliding and merging with one another.[^coalescence] A few droplets start out slightly larger than average, often because they condensed onto a larger particle such as a grain of sea salt. Larger droplets fall faster through the air. For droplets up to about a tenth of a millimetre across, fall speed increases with the square of the diameter (above that size, air resistance grows faster still and bends the curve over, as the fall-speed chart in the figure above shows)."
         },
         {
           "kind": "text",
@@ -185,7 +185,7 @@
         },
         {
           "kind": "text",
-          "text": "That is why a cloud’s depth matters more than how dark it looks. Darkness is a poor guide on its own. A deeper cloud does let less light through, but so does a shallow one packed with a great many tiny droplets, and a crowd of tiny droplets is actually worse at making rain: the same water shared among more droplets leaves each one smaller and slower, so they rarely collide. (Smoke and field dust, which give water many more specks to condense on, make exactly such clouds.)"
+          "text": "That is why a cloud’s depth matters more than how dark it looks. Darkness is a poor guide on its own. A deeper cloud does let less light through, but so does a shallow one packed with a great many tiny droplets, and a crowd of tiny droplets is actually worse at making rain: the same water shared among more droplets leaves each one smaller and slower, so they rarely collide. (Smoke and field dust, which give water many more specks to condense on, make exactly such clouds.)[^ship-tracks]"
         },
         {
           "kind": "text",
@@ -484,6 +484,28 @@
     "nimbostratus": {
       "title": "Nimbostratus",
       "text": "A dark, featureless grey cloud deck several kilometres deep that completely blots out the sun and produces hours of continuous rain or snow. It is lifted steadily over a wide area, usually ahead of a front, and reaches high above the freezing level, where ice turns its water into snow that melts into rain. Evaporating rain below its base often forms ragged shreds of low scud."
+    }
+  },
+  "footnotes": {
+    "env-rate": {
+      "kind": "technical",
+      "title": "Environmental lapse rate",
+      "text": "How fast the air around you cools with height is the **environmental lapse rate**, to set it apart from a parcel’s own rate. The 6.5 °C per kilometre average is built into the *standard atmosphere*, the made-up average sky that aeroplane altimeters are calibrated against. Weighing the two rates against each other is how forecasters judge stability."
+    },
+    "boundary-layer": {
+      "kind": "technical",
+      "title": "Boundary layer",
+      "text": "The **boundary layer** is the bottom of the atmosphere, the part that feels the ground: stirred by thermals and by wind dragging over the land by day, and calm, often cold, at night. On a sunny afternoon it can be one or two kilometres deep; on a clear night it may shrink to a hundred metres. Above it, the *free atmosphere* hardly knows what the ground is doing."
+    },
+    "coalescence": {
+      "kind": "technical",
+      "title": "Collision–coalescence",
+      "text": "Droplets merging as they bump is **coalescence**, and rain made this way comes by **collision–coalescence**, or *warm rain*, since no ice takes part. It is how most rain falls from shallow tropical clouds. Not every bump sticks: small droplets often bounce apart, or swerve around a bigger one in the air it pushes ahead of it."
+    },
+    "ship-tracks": {
+      "kind": "digression",
+      "title": "Ship tracks",
+      "text": "Satellite pictures of ocean stratocumulus sometimes show thin, bright lines hundreds of kilometres long, drawn across the grey. They are ship tracks: a ship’s exhaust adds specks to clean sea air, the same water is shared among more, smaller droplets, and that strip of cloud reflects more sunlight and drizzles less. When ships switched to cleaner fuel in 2020, most of the tracks faded."
     }
   }
 }

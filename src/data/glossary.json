@@ -1,0 +1,556 @@
+{
+  "_howTo": "The glossary in the journal. Each term has a \"term\" (as listed), a \"text\" (a sentence or three, with **bold** and *italic* markup), the \"lesson\" that introduces it (by lesson id: fog, low-sky, middle-sky, ice-realm, giants, front, local-sky, seeding) and, if you like, \"also\": other names the search box should find it by. Add, edit or remove terms freely; the list sorts itself A to Z. The ten clouds are added from their journal cards, and every technical footnote in the lessons is added from the lesson files, so neither needs an entry here.",
+  "terms": {
+    "water-vapour": {
+      "term": "Water vapour",
+      "text": "Water as an invisible gas: single molecules mixed among the air’s nitrogen and oxygen. The white plume from a kettle, and every cloud, is not vapour but droplets.",
+      "lesson": "fog",
+      "also": [
+        "vapor"
+      ]
+    },
+    "condensation": {
+      "term": "Condensation",
+      "text": "Vapour turning into liquid water. In the air it happens when air is cooled to its dew point, and it gives off heat as it does (see *latent heat*).",
+      "lesson": "fog"
+    },
+    "dew-point": {
+      "term": "Dew point",
+      "text": "The temperature air must be cooled to, with no water added or taken away, for its vapour to start condensing. It measures how much vapour the air holds: below 10 °C (50 °F) feels crisp, above 20 °C (68 °F) muggy.",
+      "lesson": "fog",
+      "also": [
+        "dewpoint"
+      ]
+    },
+    "cloud": {
+      "term": "Cloud",
+      "text": "A visible mist of tiny water droplets, about a hundredth of a millimetre wide, or of ice crystals, floating in the air. It forms where air is cooled to its dew point.",
+      "lesson": "fog",
+      "also": [
+        "droplet"
+      ]
+    },
+    "infrared": {
+      "term": "Infrared",
+      "text": "Light too red for the eye to see, which carries heat. The ground, clouds and air all give it off; under a clear night sky the ground’s escapes to space, and the ground cools.",
+      "lesson": "fog",
+      "also": [
+        "radiation"
+      ]
+    },
+    "fog": {
+      "term": "Fog",
+      "text": "A cloud resting on the ground. Overnight fog forms when a clear, calm night chills the lowest air to its dew point; morning sun clears it from the bottom up.",
+      "lesson": "fog"
+    },
+    "inversion": {
+      "term": "Inversion",
+      "text": "A layer where the air gets warmer with height instead of colder. It is a lid: rising air can’t push up through it. Clear nights make one at the ground; sinking air under a high makes one aloft.",
+      "lesson": "fog",
+      "also": [
+        "lid"
+      ]
+    },
+    "drizzle": {
+      "term": "Drizzle",
+      "text": "Fine drops a few tenths of a millimetre wide, falling from low stratus. They grow by bumping and merging in a deep, damp, stable layer.",
+      "lesson": "fog"
+    },
+    "burn-off": {
+      "term": "Burning off",
+      "text": "Fog or stratus clearing in the morning: the sun warms the ground through the cloud, the ground warms the lowest air above its dew point, and the cloud evaporates from the bottom up.",
+      "lesson": "fog",
+      "also": [
+        "burn off"
+      ]
+    },
+    "parcel": {
+      "term": "Parcel",
+      "text": "An imaginary chunk of air followed as it rises or sinks, as if wrapped in a skin. Real thermals behave much like one, since they mix with the air around them mostly at their edges.",
+      "lesson": "fog"
+    },
+    "cloud-base": {
+      "term": "Cloud base",
+      "text": "The flat bottom of a heap cloud: the height where rising air reaches its dew point. It sits about 125 metres up for every 1 °C between the ground’s temperature and dew point (220 feet per 1 °F).",
+      "lesson": "fog",
+      "also": [
+        "condensation level"
+      ]
+    },
+    "thermal": {
+      "term": "Thermal",
+      "text": "A bubble of air warmed over sun-heated ground that breaks away and rises. Once it reaches its dew point, its top becomes a cumulus cloud.",
+      "lesson": "fog"
+    },
+    "blue-thermal": {
+      "term": "Blue thermal",
+      "text": "A thermal on a dry day that stops rising before it reaches its dew point: bumpy air for gliders and light aircraft, but no cloud.",
+      "lesson": "fog"
+    },
+    "stable": {
+      "term": "Stable air",
+      "text": "Air that sends a nudged parcel back where it came from, like a weight on a spring, because it cools with height more slowly than the parcel does. Stable air makes flat sheets.",
+      "lesson": "low-sky",
+      "also": [
+        "stability"
+      ]
+    },
+    "unstable": {
+      "term": "Unstable air",
+      "text": "Air in which a nudged parcel keeps going, like a cork let go underwater, because the air cools with height faster than the parcel does. Unstable air makes heaps and towers.",
+      "lesson": "low-sky",
+      "also": [
+        "instability"
+      ]
+    },
+    "high": {
+      "term": "High",
+      "text": "A high-pressure system: a wide area where air sinks slowly and the barometer reads high. The sinking air warms and dries as it is squeezed, so highs bring settled weather, and often an inversion that flattens heaps into stratocumulus.",
+      "lesson": "low-sky",
+      "also": [
+        "high pressure",
+        "anticyclone"
+      ]
+    },
+    "subsidence": {
+      "term": "Subsidence",
+      "text": "Air sinking slowly over a wide area, usually in a high. It warms as it sinks, at 10 °C per kilometre, and makes the inversion that caps the stirred air beneath.",
+      "lesson": "low-sky",
+      "also": [
+        "sinking air"
+      ]
+    },
+    "raindrop": {
+      "term": "Raindrop",
+      "text": "A drop big enough to reach the ground before it evaporates, one to two millimetres wide: about a hundred times wider than a cloud droplet, with a million times the water.",
+      "lesson": "low-sky"
+    },
+    "scud": {
+      "term": "Scud",
+      "text": "Ragged shreds of low cloud racing under a rain cloud’s base, made where falling rain moistens the air below to its dew point. Also called *pannus*.",
+      "lesson": "low-sky",
+      "also": [
+        "pannus"
+      ]
+    },
+    "virga": {
+      "term": "Virga",
+      "text": "Streaks of rain or snow hanging from a cloud and evaporating before they reach the ground.",
+      "lesson": "low-sky"
+    },
+    "floors": {
+      "term": "Floors",
+      "text": "The three height bands clouds are sorted into: **low**, from the ground to about 2 km (6,500 ft); **middle**, about 2 to 7 km (6,500 to 23,000 ft); **high**, from about 5 km (16,500 ft) to the top of the weather. Temperature, not height alone, sets them apart.",
+      "lesson": "middle-sky",
+      "also": [
+        "low",
+        "middle",
+        "high",
+        "levels",
+        "étage"
+      ]
+    },
+    "troposphere": {
+      "term": "Troposphere",
+      "text": "The lowest layer of the atmosphere, where almost all weather happens, about 10 to 12 kilometres deep in our latitudes. The air in it generally gets colder with height.",
+      "lesson": "middle-sky"
+    },
+    "freezing-level": {
+      "term": "Freezing level",
+      "text": "The height where the air is at 0 °C: about 3 km up on a summer day here, and sometimes down at the ground in winter.",
+      "lesson": "middle-sky",
+      "also": [
+        "0 °C level"
+      ]
+    },
+    "name-roots": {
+      "term": "Cloud names",
+      "text": "A code from Latin roots: *cumulus* a heap, *stratus* a layer, *cirrus* a curl of hair, *nimbus* rain-bearing. *Cirro-* puts a cloud on the high floor and *alto-* on the middle; low clouds take no prefix.",
+      "lesson": "middle-sky",
+      "also": [
+        "cumulus",
+        "stratus",
+        "cirrus",
+        "nimbus",
+        "alto",
+        "cirro",
+        "roots"
+      ]
+    },
+    "cloud-atlas": {
+      "term": "International Cloud Atlas",
+      "text": "The World Meteorological Organization’s standard guide to clouds, with the official names and photographs of every kind. The first edition came out in 1896.",
+      "lesson": "middle-sky",
+      "also": [
+        "WMO"
+      ]
+    },
+    "hand-trick": {
+      "term": "Hand trick",
+      "text": "Sizing cloud lumps against your hand at arm’s length, high in the sky: wider than three fingers is stratocumulus, a little-finger nail to three fingers altocumulus, smaller than a nail cirrocumulus.",
+      "lesson": "middle-sky",
+      "also": [
+        "fingers",
+        "arm's length"
+      ]
+    },
+    "mackerel-sky": {
+      "term": "Mackerel sky",
+      "text": "Cirrocumulus in rows of tiny ripples, like the scales on a mackerel’s back.",
+      "lesson": "middle-sky"
+    },
+    "wind-shear": {
+      "term": "Wind shear",
+      "text": "A change in wind speed or direction with height. It draws falling ice into the hooks of cirrus, and when strong across a cloud top it can curl it into breaking waves.",
+      "lesson": "ice-realm",
+      "also": [
+        "shear"
+      ]
+    },
+    "mares-tails": {
+      "term": "Mares’ tails",
+      "text": "Hooked cirrus: a tuft where ice crystals form, trailing a long tail of crystals falling through slower wind below.",
+      "lesson": "ice-realm",
+      "also": [
+        "mare's tails"
+      ]
+    },
+    "contrail": {
+      "term": "Contrail",
+      "text": "A line of cloud behind a high aeroplane, made when the water vapour in its exhaust freezes. Short ones mean dry air aloft; long, spreading ones mean moist air, as ahead of a storm.",
+      "lesson": "ice-realm"
+    },
+    "halo": {
+      "term": "22° halo",
+      "text": "A ring of light 22° around the sun or moon, about a spread hand at arm’s length, made by six-sided ice crystals bending light. A full ring means a thin veil of cirrostratus.",
+      "lesson": "ice-realm",
+      "also": [
+        "halo",
+        "ring around the moon"
+      ]
+    },
+    "front": {
+      "term": "Front",
+      "text": "The line on the ground where a warm air mass and a cold one meet. The warm air rides up over the cold, which stays low because it is denser.",
+      "lesson": "ice-realm"
+    },
+    "warm-front": {
+      "term": "Warm front",
+      "text": "A front where warm air advances over retreating cold air, gliding up a gentle ramp about 1 in 100. Its clouds arrive from the top down: cirrus, cirrostratus, altostratus, then nimbostratus and steady rain.",
+      "lesson": "ice-realm"
+    },
+    "latent-heat": {
+      "term": "Latent heat",
+      "text": "Heat taken in when water evaporates and given back when vapour condenses, or water freezes. It warms cloudy air from within, so a cloudy parcel cools only about 5 °C per kilometre as it rises, not 10.",
+      "lesson": "giants"
+    },
+    "cumulus-sizes": {
+      "term": "Humilis, mediocris, congestus",
+      "text": "The three sizes of cumulus: *humilis*, flat and wider than tall (fair weather); *mediocris*, about as tall as wide; *congestus*, towering cauliflower heaps, the stage that can grow into a thunderstorm.",
+      "lesson": "giants",
+      "also": [
+        "humilis",
+        "mediocris",
+        "congestus"
+      ]
+    },
+    "castellanus": {
+      "term": "Castellanus",
+      "text": "Little turrets sprouting from a line of cloud, usually altocumulus. On a warm morning they warn that the middle sky is unstable, and storms may follow in the afternoon.",
+      "lesson": "giants",
+      "also": [
+        "turrets"
+      ]
+    },
+    "sounding": {
+      "term": "Sounding",
+      "text": "A chart of temperature and dew point by height, from a weather balloon. Temperature runs along the bottom and height up the side; laid beside a rising parcel’s line, it shows how high clouds can grow.",
+      "lesson": "giants",
+      "also": [
+        "weather balloon"
+      ]
+    },
+    "tropopause": {
+      "term": "Tropopause",
+      "text": "The top of the troposphere, 10 to 12 kilometres up here, where the air stops cooling with height: a lid that even storm towers can’t punch far through.",
+      "lesson": "giants"
+    },
+    "stratosphere": {
+      "term": "Stratosphere",
+      "text": "The layer above the tropopause, warmed from above by ozone soaking up the sun’s ultraviolet light, so it gets warmer with height. The weather stays below it.",
+      "lesson": "giants"
+    },
+    "ozone": {
+      "term": "Ozone",
+      "text": "Oxygen with three atoms (O₃) instead of two. A layer of it in the stratosphere absorbs the sun’s ultraviolet light, shielding the ground and heating the air up there.",
+      "lesson": "giants"
+    },
+    "updraught": {
+      "term": "Updraught",
+      "text": "Air rising inside a cloud. Strong ones hold growing drops and hailstones aloft.",
+      "lesson": "giants",
+      "also": [
+        "updraft"
+      ]
+    },
+    "downdraught": {
+      "term": "Downdraught",
+      "text": "Air plunging out of a storm, dragged down by falling rain and hail and chilled by evaporation.",
+      "lesson": "giants",
+      "also": [
+        "downdraft"
+      ]
+    },
+    "anvil": {
+      "term": "Anvil",
+      "text": "The flat, spreading ice top of a thunderstorm, flattened against the tropopause and blown downwind.",
+      "lesson": "giants"
+    },
+    "hail": {
+      "term": "Hail",
+      "text": "Lumps of ice built in layers inside a thunderstorm, as updraughts carry ice pellets up and down through supercooled droplets that freeze onto them.",
+      "lesson": "giants",
+      "also": [
+        "hailstone",
+        "graupel"
+      ]
+    },
+    "gust-front": {
+      "term": "Gust front",
+      "text": "The leading edge of cold air pouring out of a thunderstorm’s downdraught: a sudden cool, gusty wind, often 5 to 15 minutes before the downpour and the lightning.",
+      "lesson": "giants"
+    },
+    "lightning": {
+      "term": "Lightning",
+      "text": "A giant spark between charged parts of a storm, or between a storm and the ground. It heats the air to about 30,000 °C, and the air’s sudden expansion is the thunder.",
+      "lesson": "giants",
+      "also": [
+        "thunder"
+      ]
+    },
+    "thirty-thirty": {
+      "term": "30-30 rule",
+      "text": "Count from flash to bang: 3 seconds per kilometre, 5 per mile. Under 30 seconds, the storm is within 10 km: get indoors, and stay in until 30 minutes after the last thunder.",
+      "lesson": "giants",
+      "also": [
+        "flash to bang",
+        "thunder"
+      ]
+    },
+    "mammatus": {
+      "term": "Mammatus",
+      "text": "Smooth, rounded pouches hanging under a thunderstorm’s anvil, made by cloudy air sinking because evaporation keeps it colder than the air around it. Harmless in themselves.",
+      "lesson": "giants",
+      "also": [
+        "mamma"
+      ]
+    },
+    "low": {
+      "term": "Low",
+      "text": "A low-pressure system: a whirl of air a thousand kilometres or more across, with the lowest pressure at its centre, a warm front and a cold front. Air spirals in and rises, making its cloud and rain. Also called a mid-latitude storm or a depression.",
+      "lesson": "front",
+      "also": [
+        "low pressure",
+        "depression",
+        "cyclone",
+        "storm"
+      ]
+    },
+    "warm-sector": {
+      "term": "Warm sector",
+      "text": "The wedge of warm, moist air between a low’s warm front and its cold front: mild and muggy, often under a broken grey deck.",
+      "lesson": "front"
+    },
+    "cold-front": {
+      "term": "Cold front",
+      "text": "A front where cold air drives under warm air like a snowplough, on a steep nose. It brings a narrow line of towers, a gusty squall and short, hard showers, then clearing and colder air.",
+      "lesson": "front"
+    },
+    "occluded-front": {
+      "term": "Occluded front",
+      "text": "A front made when a low’s cold front catches up with its warm front and lifts the warm sector off the ground. Drawn in purple, it brings layers of cloud with showers hidden in them.",
+      "lesson": "front",
+      "also": [
+        "occlusion"
+      ]
+    },
+    "squall": {
+      "term": "Squall",
+      "text": "A sudden, strong blast of wind, often with heavy rain, as a line of storms or a cold front goes by.",
+      "lesson": "front",
+      "also": [
+        "squall line"
+      ]
+    },
+    "barometer": {
+      "term": "Barometer",
+      "text": "An instrument that weighs the air overhead. A steady fall says a low is coming; a sharp rise says its cold front has passed.",
+      "lesson": "front",
+      "also": [
+        "pressure"
+      ]
+    },
+    "barograph": {
+      "term": "Barograph",
+      "text": "A barometer that draws: a pen on a slowly turning drum traces the pressure through the week, so you can see which way it is heading.",
+      "lesson": "front"
+    },
+    "hectopascal": {
+      "term": "Hectopascal",
+      "text": "The unit forecasters give air pressure in, the same as a millibar. Average pressure at sea level is about 1013 hectopascals, or 29.92 inches of mercury.",
+      "lesson": "front",
+      "also": [
+        "millibar",
+        "hPa",
+        "mb",
+        "inches of mercury"
+      ]
+    },
+    "veer-back": {
+      "term": "Veer and back",
+      "text": "A wind that shifts clockwise (east, south, west) *veers*; one that shifts anticlockwise *backs*. Backing with a falling barometer means worse weather; veering with a rising one, better.",
+      "lesson": "front",
+      "also": [
+        "veering",
+        "backing"
+      ]
+    },
+    "buys-ballot": {
+      "term": "Buys Ballot’s rule",
+      "text": "In the northern half of the world, stand with your back to the wind, and low pressure is on your left.",
+      "lesson": "front"
+    },
+    "crossed-winds": {
+      "term": "Crossed-winds rule",
+      "text": "Back to the ground wind, watch the high cloud: moving across from your left, the weather will get worse; from your right, better; along the same line, little change.",
+      "lesson": "front"
+    },
+    "weather-radar": {
+      "term": "Weather radar",
+      "text": "Sends out microwave pulses and times their echoes off rain, snow and hail, mapping them for a couple of hundred kilometres around. It sees raindrops, not cloud.",
+      "lesson": "front",
+      "also": [
+        "radar"
+      ]
+    },
+    "dbz": {
+      "term": "dBZ",
+      "text": "The scale radar echoes are measured on, where every 10 points means ten times stronger: light rain about 20, a downpour 50, hail above 60.",
+      "lesson": "front",
+      "also": [
+        "reflectivity"
+      ]
+    },
+    "bright-band": {
+      "term": "Bright band",
+      "text": "A level stripe of strong radar echo just below the freezing level, where falling snowflakes start to melt and echo like giant raindrops.",
+      "lesson": "front"
+    },
+    "rain-shadow": {
+      "term": "Rain shadow",
+      "text": "The dry side of a mountain range. Air rains out going up the windward slopes and comes down the far side warmer and drier, as it does into the Columbia Basin east of the Cascades.",
+      "lesson": "local-sky"
+    },
+    "mountain-wave": {
+      "term": "Mountain wave",
+      "text": "Waves in the air downwind of a ridge, made when strong wind crosses it into stable air. They stay put over the land while the wind blows through them, and their moist crests make lens clouds.",
+      "lesson": "local-sky",
+      "also": [
+        "standing wave",
+        "lee wave"
+      ]
+    },
+    "lenticularis": {
+      "term": "Lenticularis",
+      "text": "A smooth, lens-shaped cloud parked on the crest of a mountain wave, usually altocumulus. Air streams through it, condensing at the front and evaporating at the back.",
+      "lesson": "local-sky",
+      "also": [
+        "lens cloud",
+        "lenticular"
+      ]
+    },
+    "fluctus": {
+      "term": "Fluctus",
+      "text": "Breaking-wave curls along a cloud top, made by fast air sliding over slower air below; they last a minute or two. Also called Kelvin–Helmholtz waves.",
+      "lesson": "local-sky",
+      "also": [
+        "Kelvin-Helmholtz",
+        "billows"
+      ]
+    },
+    "supercooled": {
+      "term": "Supercooled",
+      "text": "Liquid water below 0 °C. Cloud droplets stay liquid down to about −38 °C unless something gives them a template to freeze on.",
+      "lesson": "local-sky"
+    },
+    "ice-nuclei": {
+      "term": "Ice nuclei",
+      "text": "The rare specks whose shape lets water freeze on them, perhaps one airborne particle in a million, such as certain mineral dusts. Without one, a cloud droplet stays liquid well below freezing.",
+      "lesson": "local-sky",
+      "also": [
+        "ice-nucleating particles",
+        "ice-forming nucleus"
+      ]
+    },
+    "rime": {
+      "term": "Rime",
+      "text": "White, feathery ice that grows on the windward side of fences, wires and twigs when supercooled fog droplets freeze on contact.",
+      "lesson": "local-sky",
+      "also": [
+        "hoarfrost"
+      ]
+    },
+    "freezing-rain": {
+      "term": "Freezing rain",
+      "text": "Rain that falls through a layer of below-freezing air, stays liquid, and freezes the moment it touches a road, wire or branch, glazing everything in ice.",
+      "lesson": "local-sky",
+      "also": [
+        "glaze"
+      ]
+    },
+    "fallstreak-hole": {
+      "term": "Fallstreak hole",
+      "text": "A round hole in a layer of supercooled altocumulus with a wisp of falling ice in the middle, often punched by an aeroplane. It shows the layer was supercooled.",
+      "lesson": "local-sky",
+      "also": [
+        "hole-punch cloud"
+      ]
+    },
+    "cloud-seeding": {
+      "term": "Cloud seeding",
+      "text": "Giving a supercooled cloud the ice it lacks, with dry ice or silver iodide, so it lets go of some of its water as snow. It can’t make clouds, or water.",
+      "lesson": "seeding",
+      "also": [
+        "seeding"
+      ]
+    },
+    "dry-ice": {
+      "term": "Dry ice",
+      "text": "Frozen carbon dioxide, at −78 °C. Dropped into a supercooled cloud, it makes ice by sheer cold, in any cloud colder than 0 °C.",
+      "lesson": "seeding"
+    },
+    "silver-iodide": {
+      "term": "Silver iodide",
+      "text": "A chemical whose crystals are shaped almost exactly like ice, so supercooled droplets freeze on its specks. It works in clouds colder than about −5 °C, and can be sent up as smoke from the ground.",
+      "lesson": "seeding"
+    },
+    "overseeding": {
+      "term": "Overseeding",
+      "text": "Seeding with too many ice crystals: the cloud’s water is shared out so thinly that every crystal stays too small to fall, and the cloud just turns to ice.",
+      "lesson": "seeding"
+    },
+    "seeding-window": {
+      "term": "Seeding window",
+      "text": "The temperatures where seeding can help, about −5 to −25 °C. Above 0 °C there is nothing to freeze; between 0 and −5 °C only dry ice works; colder than about −25 °C a cloud makes enough ice of its own.",
+      "lesson": "seeding"
+    },
+    "control-area": {
+      "term": "Control area",
+      "text": "An area left unseeded that gets the same storms as the seeded one, so weather that hits both cancels out.",
+      "lesson": "seeding",
+      "also": [
+        "control"
+      ]
+    }
+  }
+}

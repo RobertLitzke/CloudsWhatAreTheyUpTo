@@ -12,8 +12,11 @@
 //
 // The lesson format and the view that reads it are lesson-kit's lesson.ts.
 // Text takes a little markup (see app/figures/kit.ts prose): **bold**,
-// *italic*, and [[words|colour]] to tie a word to the same colour in a figure.
+// *italic*, [[words|colour]] to tie a word to the same colour in a figure,
+// and [^id] for a footnote from the file's `footnotes` table, which opens in a
+// popup (lesson-kit's footnote.ts).
 
+import type { Footnotes } from 'lesson-kit/footnote';
 import type { Block as KitBlock, Lesson, Part as KitPart } from 'lesson-kit/lesson';
 import type { GenusId } from './clouds';
 import fog from '../data/shifts/fog.json';
@@ -94,6 +97,7 @@ interface ShiftFile {
   learned: string[];
   next: string;
   journal: Record<string, { title: string; text: string; rare?: boolean }>;
+  footnotes?: Record<string, { kind: string; title: string; text: string; glossary?: boolean | string }>;
 }
 function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; book?: Shift['book'] } = {}): Shift {
   return {
@@ -108,6 +112,7 @@ function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; b
     learned: file.learned,
     next: file.next,
     journal: Object.keys(file.journal),
+    footnotes: (file.footnotes ?? {}) as Footnotes,
   };
 }
 

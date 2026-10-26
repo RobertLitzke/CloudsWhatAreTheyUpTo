@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "middle-sky",
   "n": 3,
   "title": "Sorting the sky in 30 seconds",
@@ -86,7 +86,7 @@
         },
         {
           "kind": "text",
-          "text": "In 1802, an amateur meteorologist in London named Luke Howard classified clouds using Latin roots, and nearly every cloud name used today combines four of his original words with a fifth added later in the century. **Cumulus** means a heap and **stratus** means a layer, the two basic textures from Lesson 1. **Cirrus** means a curl of hair, describing the wispy ice clouds of the high floor. **Nimbus** means a rain-bearing cloud. The fifth root, **alto**, was added later in the 1800s. Although *alto* literally means high in Latin, *cirrus* was already established for the highest floor, so *alto-* was assigned to the middle floor just below it."
+          "text": "In 1802, an amateur meteorologist in London named Luke Howard[^howard] classified clouds using Latin roots, and nearly every cloud name used today combines four of his original words with a fifth added later in the century. **Cumulus** means a heap and **stratus** means a layer, the two basic textures from Lesson 1. **Cirrus** means a curl of hair, describing the wispy ice clouds of the high floor. **Nimbus** means a rain-bearing cloud. The fifth root, **alto**, was added later in the 1800s. Although *alto* literally means high in Latin, *cirrus* was already established for the highest floor, so *alto-* was assigned to the middle floor just below it."
         },
         {
           "kind": "text",
@@ -124,7 +124,7 @@
         },
         {
           "kind": "text",
-          "text": "Combining floors and textures gives six of the ten main cloud types (or genera). The remaining four modify the pattern slightly. **Cirrus** on its own refers to detached high-altitude curls and wisps. **Stratocumulus** describes low heaps that have merged into a lumpy layer. **Nimbostratus** is a deep, rain-bearing layer, and **cumulonimbus** is a towering, rain-bearing heap. That makes ten main cloud types in total, all catalogued and photographed in the World Meteorological Organization’s **International Cloud Atlas**, the standard field guide used by weather services around the world."
+          "text": "Combining floors and textures gives six of the ten main cloud types (or genera)[^genera]. The remaining four modify the pattern slightly. **Cirrus** on its own refers to detached high-altitude curls and wisps. **Stratocumulus** describes low heaps that have merged into a lumpy layer. **Nimbostratus** is a deep, rain-bearing layer, and **cumulonimbus** is a towering, rain-bearing heap. That makes ten main cloud types in total, all catalogued and photographed in the World Meteorological Organization’s **International Cloud Atlas**, the standard field guide used by weather services around the world."
         }
       ]
     },
@@ -179,7 +179,7 @@
         },
         {
           "kind": "text",
-          "text": "You always carry a reliable ruler for measuring angles: your own hand held at arm’s length. With your arm stretched out straight, a closed fist covers about 10° of sky, three fingers side by side cover about 5°, a thumb covers about 2°, and the nail of your little finger covers about 1°. Because people with larger hands also have proportionally longer arms that hold the hand further from the eye, the geometry cancels out and these angles hold true for almost everyone."
+          "text": "You always carry a reliable ruler for measuring angles: your own hand held at arm’s length. With your arm stretched out straight, a closed fist covers about 10° of sky, three fingers side by side cover about 5°, a thumb covers about 2°, and the nail of your little finger covers about 1°. Because people with larger hands also have proportionally longer arms that hold the hand further from the eye, the geometry cancels out and these angles hold true for almost everyone.[^moon]"
         },
         {
           "kind": "figure",
@@ -430,6 +430,23 @@
     "cirrocumulus": {
       "title": "Cirrocumulus",
       "text": "A thin high-altitude layer of tiny white grains or ripples without grey shading (a mackerel sky), where each element is smaller than a little-finger nail held at arm’s length. Cirrocumulus patches are brief and transitional, sometimes appearing ahead of an approaching weather system."
+    }
+  },
+  "footnotes": {
+    "howard": {
+      "kind": "digression",
+      "title": "Luke Howard",
+      "text": "Howard was a Quaker who made medicines for a living and watched the sky for pleasure. He read his *Essay on the Modifications of Clouds* to a small London science club in December 1802, and it caught on fast. The German poet Goethe admired it so much that he wrote poems in Howard’s honour."
+    },
+    "genera": {
+      "kind": "technical",
+      "title": "Genus, species and variety",
+      "text": "The Atlas sorts clouds the way biologists sort living things. The ten main types are **genera** (one *genus*). Each can be narrowed by **species**, for its shape, like *castellanus* (turreted) or *lenticularis* (lens-shaped), and by **variety**, for its arrangement, like *undulatus* (in waves). So a full name reads like a plant’s: altocumulus lenticularis."
+    },
+    "moon": {
+      "kind": "digression",
+      "title": "The Moon illusion",
+      "text": "The full Moon is half a degree across, about half your little-finger nail at arm’s length. It looks huge rising over the hills and small high overhead, yet hold up your nail and it covers the same amount of sky both times. Nobody is quite sure why the brain swells it near the horizon; it is an illusion, not anything the air does."
     }
   }
 }

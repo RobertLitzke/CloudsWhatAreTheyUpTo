@@ -53,6 +53,7 @@ function boot(): void {
     .add('/quiz', quizView)
     .add('/seed', seedView)
     .add('/journal', journalView)
+    .add('/journal/:tab', journalView)
     .add('/credits', creditsView)
     .add('/settings', settingsView)
     .start('/home');

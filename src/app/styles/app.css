@@ -139,19 +139,47 @@
 .notes { display: grid; gap: 10px; }
 .note { background: var(--panel); color: var(--ink); border-radius: var(--radius); padding: 14px 16px; }
 .note p { margin: 0; }
-.genus-cards { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.genus-card { background: var(--bg-2); border-radius: var(--radius); overflow: hidden; padding-bottom: 12px; }
-.genus-card > :not(.genus-art, .photo) { margin-left: 14px; margin-right: 14px; }
-.genus-art { background: linear-gradient(#3f9fb5, #c9e7d6); padding: 8px; }
-.genus-art svg { display: block; width: 100%; height: 110px; }
-.genus-card .photo img { height: 150px; }
-.genus-card .photo figcaption { padding: 4px 14px; background: transparent; }
-.genus-card h3 { margin-top: 10px; display: flex; justify-content: space-between; }
-.abbr { color: var(--muted); font-weight: 400; }
-.genus-card .floor { color: var(--sun); font: 500 0.75rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; }
-.genus-card dl { margin: 0; font-size: 0.9rem; }
-.genus-card dt { font: 600 0.72rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
-.genus-card dd { margin: 2px 0 0; }
+.abbr { color: var(--muted); font-weight: 400; margin-left: 10px; font-size: 0.8em; }
+.journal-tabs { display: flex; width: auto; margin: 0 0 14px; overflow-x: auto; scrollbar-width: none; }
+.journal-tabs a { flex: 1; text-align: center; color: var(--muted); padding: 9px 12px; border-radius: 999px; font: 600 0.85rem var(--display); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.journal-tabs a.on { background: var(--sun); color: var(--ink); }
+.journal-lede { font-size: 0.92rem; margin: 0 0 6px; }
+.journal-lede .gl-dot { display: inline-block; vertical-align: middle; }
+.cloud-floor h2 { font-size: 1rem; margin: 18px 0 8px; }
+.cloud-tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.cloud-tile {
+  appearance: none;
+  border: 0;
+  padding: 0 0 10px;
+  background: var(--bg-2);
+  color: var(--text);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  display: grid;
+}
+.cloud-tile img, .cloud-tile .tile-art { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: #000; }
+.tile-art { background: linear-gradient(#3f9fb5, #c9e7d6) !important; }
+.tile-art svg { width: 100%; height: 100%; }
+.tile-name { font: 600 1rem/1.2 var(--display); letter-spacing: 0.04em; padding: 8px 10px 0; }
+.tile-sub { font-size: 0.78rem; color: var(--muted); padding: 0 10px; }
+.cloud-tile:hover .tile-name, .cloud-tile:focus-visible .tile-name { color: var(--sun); }
+.sheet .photo figcaption { background: transparent; padding: 4px 16px; }
+.sheet-art { background: linear-gradient(#3f9fb5, #c9e7d6); padding: 16px; }
+.sheet-art svg { display: block; width: 100%; height: 160px; }
+.sheet-text { padding: 4px 18px 0; }
+.sheet-text h2 { margin: 2px 0 8px; color: var(--text); font-size: 1.5rem; }
+.sheet-floor { margin: 8px 0 0; color: var(--sun); font: 600 0.75rem/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; }
+.cloud-facts { margin: 0; font-size: 0.95rem; }
+.cloud-facts dt { font: 600 0.72rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
+.cloud-facts dd { margin: 3px 0 0; }
+.sheet-lesson { display: inline-block; margin-top: 16px; font-weight: 600; text-decoration: none; }
+.note-group h2 { display: flex; align-items: center; gap: 10px; font-size: 1rem; margin: 22px 0 10px; }
+.note-n { font: 600 0.85rem/1 var(--display); width: 24px; height: 24px; flex: none; display: inline-grid; place-items: center; border-radius: 50%; background: var(--sun-deep); color: var(--ink); }
+.note h3 { margin-bottom: 4px; }
+.notes-waiting { margin-top: 18px; font-size: 0.9rem; }
 .credit-list { padding-left: 18px; }
 .note.rare { background: linear-gradient(135deg, var(--panel), #f3d3e3); }
 .note h3 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "local-sky",
   "n": 7,
   "title": "Local tricks: mountains, winter ice, and rare skies",
@@ -33,7 +33,7 @@
         },
         {
           "kind": "text",
-          "text": "Coming down the far side, the air is squeezed and warms. But now it has no cloud left to evaporate, and evaporation is what would have slowed the warming, so it warms at the full dry rate all the way down. The basin floor is about 500 metres up, so compare like with like: the air reaches it warmer, and much drier, than coast air simply lifted to 500 metres would be."
+          "text": "Coming down the far side, the air is squeezed and warms. But now it has no cloud left to evaporate, and evaporation is what would have slowed the warming, so it warms at the full dry rate all the way down.[^foehn] The basin floor is about 500 metres up, so compare like with like: the air reaches it warmer, and much drier, than coast air simply lifted to 500 metres would be."
         },
         {
           "kind": "figure",
@@ -91,7 +91,7 @@
         },
         {
           "kind": "text",
-          "text": "These breaking billows are **Kelvin-Helmholtz waves**, officially catalogued as *fluctus* in the International Cloud Atlas. Because the curling waves rapidly mix the two air layers together and erase the shear that created them, a train of *fluctus* billows usually lasts only a minute or two before dissipating. Spotting them takes good timing, and to aircraft pilots they are a clear visual warning of severe wind shear and turbulence."
+          "text": "These breaking billows are **Kelvin-Helmholtz waves**, officially catalogued as *fluctus* in the International Cloud Atlas.[^kelvin] Because the curling waves rapidly mix the two air layers together and erase the shear that created them, a train of *fluctus* billows usually lasts only a minute or two before dissipating. Spotting them takes good timing, and to aircraft pilots they are a clear visual warning of severe wind shear and turbulence."
         }
       ]
     },
@@ -147,7 +147,7 @@
         },
         {
           "kind": "text",
-          "text": "Now picture a single ice crystal floating among thousands of supercooled water droplets. At first, the surrounding air is kept right at the liquid saturation limit by the droplets, so molecules land on the droplets just as fast as they leave. For the ice crystal, however, that same vapour concentration is well above its saturation limit: water molecules land and lock onto the crystal much faster than they escape. As the crystal pulls water vapour out of the surrounding air, the vapour becomes slightly less crowded, dropping below the saturation limit of the liquid droplets. The droplets begin to evaporate, replenishing the water vapour in the air, which then deposits onto the growing ice crystal. Without ever touching the droplets, the ice crystal grows rapidly at their expense as water molecules evaporate from the liquid and freeze onto the ice."
+          "text": "Now picture a single ice crystal floating among thousands of supercooled water droplets. At first, the surrounding air is kept right at the liquid saturation limit by the droplets, so molecules land on the droplets just as fast as they leave. For the ice crystal, however, that same vapour concentration is well above its saturation limit: water molecules land and lock onto the crystal much faster than they escape. As the crystal pulls water vapour out of the surrounding air, the vapour becomes slightly less crowded, dropping below the saturation limit of the liquid droplets. The droplets begin to evaporate, replenishing the water vapour in the air, which then deposits onto the growing ice crystal. Without ever touching the droplets, the ice crystal grows rapidly at their expense as water molecules evaporate from the liquid and freeze onto the ice.[^bergeron]"
         },
         {
           "kind": "figure",
@@ -162,7 +162,7 @@
         },
         {
           "kind": "text",
-          "text": "On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow."
+          "text": "On its way down, it collides with supercooled droplets that freeze onto it on contact, or hooks together with other crystals to form snowflakes. When those snowflakes fall below the freezing level into warmer air, they melt into raindrops. Even in the middle of summer, most of the rain that falls around you starts out high in the cloud as snow.[^bentley]"
         },
         {
           "kind": "figure",
@@ -388,6 +388,28 @@
       "title": "Fallstreak holes",
       "text": "A round hole in a layer of supercooled altocumulus, with a wisp of falling ice in the middle. An aeroplane climbing through the layer chills the air over its wings and propeller tips below −40 °C, freezing a patch of the cloud, which then snows itself out. Seeing one means the layer was supercooled.",
       "rare": true
+    }
+  },
+  "footnotes": {
+    "foehn": {
+      "kind": "technical",
+      "title": "Foehn and chinook",
+      "text": "A warm, dry wind coming down the lee of a mountain range has names around the world: **foehn** in the Alps, **chinook** east of the Rockies and the Cascades, *zonda* in Argentina. A strong chinook can thaw a field of snow in a single winter afternoon, which is why its name is often translated “snow-eater”."
+    },
+    "kelvin": {
+      "kind": "digression",
+      "title": "Kelvin and Helmholtz",
+      "text": "The waves are named for the German physicist Hermann von Helmholtz and the Scottish one William Thomson, Lord Kelvin, who worked out around 1870 why a fast layer sliding over a slow one cannot stay flat. The same instability raises waves where wind blows over water, and curls the edges of the great bands on Jupiter and Saturn."
+    },
+    "bergeron": {
+      "kind": "technical",
+      "title": "Bergeron process",
+      "text": "This is the **Bergeron process**, or in full the *Wegener–Bergeron–Findeisen process*, after the three who pieced it together: Alfred Wegener saw the vapour difference over ice in 1911, Tor Bergeron argued in 1933 that it makes most of the world’s rain, and Walter Findeisen backed him with measurements later that decade."
+    },
+    "bentley": {
+      "kind": "digression",
+      "title": "Snowflake Bentley",
+      "text": "Wilson Bentley, a farmer in Jericho, Vermont, spent nearly fifty winters photographing single snowflakes through a microscope fixed to a bellows camera, more than five thousand of them, and never found two alike. In December 1931 he walked home through a blizzard and died of pneumonia two weeks later."
     }
   }
 }

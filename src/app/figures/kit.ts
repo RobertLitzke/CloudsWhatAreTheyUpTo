@@ -7,6 +7,7 @@
 // sunlight gold.
 
 import { slider as kitSlider, type Slider } from 'lesson-kit/figure';
+import type { FootnoteSet } from 'lesson-kit/footnote';
 import { prose as kitProse } from 'lesson-kit/lesson';
 
 export {
@@ -80,4 +81,4 @@ export function slider(label: string, min: number, max: number, step: number, va
 }
 
 /** A paragraph of lesson text: **bold**, *italic*, and [[words|key]] in the colour COL[key]. */
-export const prose = (text: string): HTMLElement => kitProse(text, COL);
+export const prose = (text: string, notes?: FootnoteSet): HTMLElement => kitProse(text, COL, notes);

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "giants",
   "n": 5,
   "title": "Afternoon ambush: reading storm towers",
@@ -25,7 +25,7 @@
         },
         {
           "kind": "text",
-          "text": "Why doesn’t a rising bubble stop once it reaches the cloud base? When water evaporates, it absorbs heat energy, which is why sweat cools your skin as it dries. When water vapour condenses back into liquid droplets inside a cloud, it releases that stored heat back into the surrounding air. Meteorologists call it **latent heat**, from the Latin for hidden. That heat warms the cloudy parcel from within, so above the cloud base the rising air cools by only about 5 °C per kilometre instead of 10 °C."
+          "text": "Why doesn’t a rising bubble stop once it reaches the cloud base? When water evaporates, it absorbs heat energy, which is why sweat cools your skin as it dries. When water vapour condenses back into liquid droplets inside a cloud, it releases that stored heat back into the surrounding air. Meteorologists call it **latent heat**, from the Latin for hidden. That heat warms the cloudy parcel from within, so above the cloud base the rising air cools by only about 5 °C per kilometre instead of 10 °C.[^moist-rate]"
         },
         {
           "kind": "text",
@@ -64,11 +64,11 @@
         },
         {
           "kind": "text",
-          "text": "Forecasters and glider pilots track this vertical growth on a temperature-height chart called a **sounding**. Twice a day, weather stations release balloons carrying a radio transmitter, thermometer, and humidity sensor that measure the temperature and dew point every few seconds as the balloon ascends."
+          "text": "Forecasters and glider pilots track this vertical growth on a temperature-height chart called a **sounding**. Twice a day, weather stations release balloons carrying a radio transmitter, thermometer, and humidity sensor that measure the temperature and dew point every few seconds as the balloon ascends.[^radiosonde]"
         },
         {
           "kind": "text",
-          "text": "In the figure below, the solid violet line shows the balloon’s report of the surrounding air temperature at each altitude. (The dashed violet line shows the cooler dawn profile before sunlight warmed the ground.) The teal line shows the dew point, and the orange line traces a rising parcel, cooling at 10 °C per kilometre below the cloud base and about 5 °C per kilometre above it. Read the chart this way: **temperature runs along the bottom**, warmer to the right, and **height runs up the side**. Air that gets colder quickly as you climb leans steeply to the left, so the further the violet line tilts left, the faster the air around cools with height and the more unstable the day. At any altitude where the orange parcel line lies to the right of the violet environment line, the parcel is warmer than the surrounding air and keeps accelerating upward. Where the two lines cross, the parcel loses its buoyancy and stops."
+          "text": "In the figure below, the solid violet line shows the balloon’s report of the surrounding air temperature at each altitude. (The dashed violet line shows the cooler dawn profile before sunlight warmed the ground.) The teal line shows the dew point, and the orange line traces a rising parcel, cooling at 10 °C per kilometre below the cloud base and about 5 °C per kilometre above it. Read the chart this way: **temperature runs along the bottom**, warmer to the right, and **height runs up the side**. Air that gets colder quickly as you climb leans steeply to the left, so the further the violet line tilts left, the faster the air around cools with height and the more unstable the day. At any altitude where the orange parcel line lies to the right of the violet environment line, the parcel is warmer than the surrounding air and keeps accelerating upward. Where the two lines cross, the parcel loses its buoyancy and stops.[^cape]"
         },
         {
           "kind": "figure",
@@ -169,7 +169,7 @@
         },
         {
           "kind": "text",
-          "text": "A lightning stroke heats the narrow channel of air to roughly 30,000 °C in a few millionths of a second—about five times hotter than the surface of the sun. Superheated that rapidly, the air has no time to expand gently; it explodes outward at supersonic speed, creating a shock wave that decays into the booming sound wave we hear as **thunder**."
+          "text": "A lightning stroke heats the narrow channel of air to roughly 30,000 °C in a few millionths of a second—about five times hotter than the surface of the sun. Superheated that rapidly, the air has no time to expand gently; it explodes outward at supersonic speed, creating a shock wave that decays into the booming sound wave we hear as **thunder**.[^rumble]"
         },
         {
           "kind": "text",
@@ -468,6 +468,29 @@
       "title": "Mammatus",
       "rare": true,
       "text": "Smooth, rounded pouches hanging beneath a thunderstorm anvil, formed where pockets of ice- and droplet-laden air sink into drier air below. Evaporating particles chill the sinking parcels so they remain denser than their surroundings, driving upside-down convection. While they indicate a strong storm nearby, the pouches themselves are harmless."
+    }
+  },
+  "footnotes": {
+    "moist-rate": {
+      "kind": "technical",
+      "title": "Moist adiabatic lapse rate",
+      "text": "The cloudy rate is the **moist** (or *saturated*) **adiabatic lapse rate**. Unlike the dry rate, it changes: about 4 °C per kilometre in warm, wet summer air near the ground, 6 or 7 higher up, and nearly the dry rate in very cold air, which has so little vapour left that condensing it adds little heat. The 5 °C in these lessons is a middling value."
+    },
+    "radiosonde": {
+      "kind": "digression",
+      "title": "Balloons that report home",
+      "text": "The balloon’s instrument pack is a **radiosonde**. The first ones flew in the Soviet Union and in Europe around 1930; before that, soundings came from kites, and from aeroplanes that climbed each morning with a recording thermometer strapped to a wing strut. Today about 800 stations launch them twice a day, all at the same moment worldwide, and most of the packs are never found again.",
+      "glossary": "Radiosonde"
+    },
+    "cape": {
+      "kind": "technical",
+      "title": "CAPE",
+      "text": "On a sounding, the area between the parcel’s line and the air’s line, wherever the parcel is warmer, measures how much energy each kilogram of rising air can gain. Forecasters call it **CAPE**, convective available potential energy, in joules per kilogram. A few hundred makes weak showers at most; a thousand or two is a good thunderstorm day; three or four thousand is the stuff of Great Plains hailstorms."
+    },
+    "rumble": {
+      "kind": "digression",
+      "title": "Why thunder rumbles",
+      "text": "A flash lasts a split second, so why does thunder roll on? The channel is kilometres long and wanders, so some parts of it are much farther from you than others, and their sound arrives later. Echoes off hills and clouds stretch it out further. A sharp crack means part of the bolt was close; a long, low rumble means it was mostly far away."
     }
   }
 }

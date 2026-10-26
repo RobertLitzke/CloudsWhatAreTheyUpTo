@@ -24,14 +24,16 @@ the others by hand.
 | --- | --- |
 | `dom` | `el('div.card', props, ...children)` and `svg(tag, attrs, ...children)` |
 | `router` | `new Router(outlet, hooks).add('/x/:id', view).start('/home')`, hash routes, views return a teardown |
-| `ui` | `page()`, `toast()`, `segmented()`, `freshSeed()` |
+| `ui` | `page()`, `toast()`, `segmented()`, `sheet()` (a card over the page), `freshSeed()` |
 | `rng` | `makeRng(seed)` (mulberry32), `shuffle(items, rng)` |
 | `store` | `createStore({ key, empty, migrate })`, localStorage with repair, export and import |
 | `progress` | The shared save shape (`Progress`): lessons done, best scores, journal, units, radio, quiz. Also `migrateProgress`, `finishLesson`, `moveLesson` |
 | `units` | `height(m, units)`, `feet`, `deg`, `temp` |
 | `figure` | What a figure is: `figure(goals, build)`, `quiz(build)`, `frame`, `slider`, `animate`, guess-first helpers (`lock`, `choices`, `lockIn`, `placeable`) |
 | `draw` | SVG pieces: `still`, `label`/`small`/`note`/`heading`, `line`, `polyline`, `arrow`, `wavy`, `curve`, `hexagon`, `redraw` |
-| `lesson` | The lesson JSON types, `prose(text, palette)`, `lessonView(options)` (the lesson player and log card), `lessonProblems()` for content tests |
+| `lesson` | The lesson JSON types, `prose(text, palette, notes?)`, `lessonView(options)` (the lesson player and log card), `lessonTexts()`, `lessonProblems()` for content tests |
+| `footnote` | Footnotes that open in a popup: `footnoteSet`, `footnoteMarker`, `openFootnote`, `closeFootnote`, `footnoteLegend`, `footnoteProblems` |
+| `glossary` | `glossaryFromLessons`, `glossaryFromFile`, `mergeGlossary`, `glossaryView({ entries, prose, lesson? })` (search, letter index, A to Z), `glossaryProblems` |
 | `quiz` | Leitner scheduling: `review`, `deal`, `tally`, `GAPS_DAYS`, the `Card` shape, `conceptCard` for hand-written cards |
 | `quiz-view` | `quizView({ deck, store, blurb, media? })`, the quiz page |
 | `radio` | Talk, Turn and Reply types, `transcript()` |
@@ -46,7 +48,8 @@ the others by hand.
 
 Not in the kit (Clouds keeps these): the cloud palette, cloud rendering
 (`src/app/clouds`, `scene/`), photos and their pipeline, the home screen,
-journal, credits, the seeding game, and all of the content.
+the journal page itself (it uses the kit's glossary and sheet), credits, the
+seeding game, and all of the content.
 
 ---
 
@@ -188,9 +191,52 @@ their sliders with `lock(sliders, true)`, offer a `choices([...])` row and a
 }
 ```
 
-Text markup: `**bold**`, `*italic*`, and `[[words|key]]`, which colours the
-words with `COL[key]`. A part opens once every task in the part before it is
-done. The last part is the check, and its score goes into the log.
+Text markup: `**bold**`, `*italic*`, `[[words|key]]`, which colours the
+words with `COL[key]`, and `[^id]`, a footnote. A part opens once every task
+in the part before it is done. The last part is the check, and its score goes
+into the log.
+
+### Footnotes
+
+A footnote opens in a small popup beside the text, which the reader closes
+with its ×, Escape or a tap elsewhere, instead of sitting at the foot of the
+page. Put the marker straight after the word or sentence it belongs to, with
+no space, and the note in the lesson's `footnotes` table under the same id:
+
+```json
+{ "kind": "text", "text": "A longer handle turns the nut more easily.[^torque]" }
+
+"footnotes": {
+  "torque": { "kind": "technical", "title": "Torque", "text": "Engineers call turning force **torque**: force × distance." },
+  "archimedes": { "kind": "digression", "title": "Give me a lever", "text": "…" }
+}
+```
+
+There are two kinds, coloured apart: `technical` (a term or detail the main
+text does without; `--fn-technical`, teal by default) and `digression` (a
+side trip off the main line; `--fn-digression`, rose). Markers show as small
+raised numbers counted through the lesson, and the lesson's intro gets a
+one-line legend. Technical notes also go into the glossary; add
+`"glossary": false` to keep one out, `"glossary": true` to put a digression
+in, or a string to list it under another term. `lessonProblems` reports a
+marker with no note and a note with no marker. Use them sparingly: a note
+for what would trip up a casual reader, or what is interesting but off the
+line, not for every term. Clouds keeps it to about four per lesson.
+
+### Glossary (optional)
+
+```ts
+import { glossaryFromFile, glossaryFromLessons, glossaryView, mergeGlossary } from 'lesson-kit/glossary';
+import terms from './glossary.json';      // { "fulcrum": { "term": "Fulcrum", "text": "…", "lesson": "levers", "also": ["pivot"] } }
+const entries = mergeGlossary(glossaryFromFile(terms), glossaryFromLessons(LESSONS));
+page.append(glossaryView({ entries, prose, lesson: (id) => ({ href: `#/lesson/${id}`, label: 'Lesson 1' }) }));
+```
+
+The view is a search box (it searches terms, `also` names and definitions),
+a row of letters to jump by, and the terms A to Z, each with a tag linking to
+its lesson. An entry with `open` becomes a button, for an app with more to
+show; Clouds opens a cloud's photo card with `sheet()`. A term listed twice
+keeps its first entry, so pass the lists in order of preference.
 
 ### The app
 

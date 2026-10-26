@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { compose, genus, type Body, type Prefix } from '../src/core/clouds';
 import { problems, type Photo } from '../src/core/photos';
 import { FIGURE_IDS, JOURNAL, SHIFTS, type Block, type Forecast, type Shift } from '../src/core/shifts';
+import { GLOSSARY } from '../src/core/glossary';
+import { footnoteProblems } from 'lesson-kit/footnote';
+import { glossaryProblems } from 'lesson-kit/glossary';
+import { lessonTexts } from 'lesson-kit/lesson';
 
 const blocks = (s: Shift): Block[] => s.parts.flatMap((p) => p.blocks);
 import library from '../src/data/photos.json';
@@ -10,6 +14,20 @@ describe('shifts', () => {
   it('have unique ids and numbers in order', () => {
     expect(new Set(SHIFTS.map((s) => s.id)).size).toBe(SHIFTS.length);
     SHIFTS.forEach((s, i) => expect(s.n).toBe(i + 1));
+  });
+
+  it('mark every footnote they have, and only those', () => {
+    expect(SHIFTS.flatMap((s) => footnoteProblems(s.id, s.footnotes, lessonTexts(s)))).toEqual([]);
+  });
+
+  it('keep footnotes few: no more than one for every three paragraphs', () => {
+    for (const s of SHIFTS) expect(Object.keys(s.footnotes ?? {}).length, s.id).toBeLessThanOrEqual(lessonTexts(s).length / 3);
+  });
+
+  it('have a glossary with every term defined, once, linked to a real lesson', () => {
+    expect(glossaryProblems(GLOSSARY, SHIFTS)).toEqual([]);
+    expect(GLOSSARY.length).toBeGreaterThan(80);
+    for (const g of ['Cirrus', 'Dew point', 'Dry adiabatic lapse rate', 'Condensation nuclei']) expect(GLOSSARY.map((e) => e.term)).toContain(g);
   });
 
   it('only unlock journal entries that exist', () => {

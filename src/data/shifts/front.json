@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, and [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point). The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "front",
   "n": 6,
   "title": "Wind shifts, cold fronts, and radar",
@@ -33,11 +33,11 @@
         },
         {
           "kind": "text",
-          "text": "Air drawn in toward the low does not flow straight to its centre. Because the Earth turns beneath it, air moving across the northern half of the world is steered a little to the right, so the inflowing air spirals in, circling the low anticlockwise as it goes. That turning wind drags warm air north on the low’s eastern side and cold air south on its western side."
+          "text": "Air drawn in toward the low does not flow straight to its centre. Because the Earth turns beneath it, air moving across the northern half of the world is steered a little to the right[^coriolis], so the inflowing air spirals in, circling the low anticlockwise as it goes. That turning wind drags warm air north on the low’s eastern side and cold air south on its western side."
         },
         {
           "kind": "text",
-          "text": "Where the warm air advances on cold air, its leading edge is the **warm front**. Where cold air advances on warm air, its edge is the **cold front**. The wedge of warm air between them is the **warm sector**."
+          "text": "Where the warm air advances on cold air, its leading edge is the **warm front**. Where cold air advances on warm air, its edge is the **cold front**. The wedge of warm air between them is the **warm sector**.[^front-name]"
         },
         {
           "kind": "figure",
@@ -67,7 +67,7 @@
         },
         {
           "kind": "text",
-          "text": "What holds it up is the air pressing down on the open dish. When the column of air overhead weighs more, it pushes the mercury a little higher; when it weighs less, the mercury sinks. That instrument is a **barometer**."
+          "text": "What holds it up is the air pressing down on the open dish. When the column of air overhead weighs more, it pushes the mercury a little higher; when it weighs less, the mercury sinks. That instrument is a **barometer**.[^puy-de-dome]"
         },
         {
           "kind": "figure",
@@ -590,6 +590,23 @@
     "crossed-winds": {
       "title": "Reading the wind",
       "text": "Stand with your back to the wind and low pressure is on your left (Buys Ballot’s rule, for the northern half of the world). A wind that backs while the barometer falls means worse weather; one that veers while it rises, better. With your back to the surface wind, high cloud coming from your left says a low is approaching; from your right, that it is moving away."
+    }
+  },
+  "footnotes": {
+    "coriolis": {
+      "kind": "technical",
+      "title": "Coriolis effect",
+      "text": "This steering is the **Coriolis effect**, after Gaspard-Gustave de Coriolis, who worked out its mathematics in 1835. Nothing is pushing the air: it is how a straight path looks from a turning Earth. It is strongest near the poles, nothing at the equator, and far too weak to decide which way a sink drains."
+    },
+    "front-name": {
+      "kind": "digression",
+      "title": "Why “front”?",
+      "text": "The word comes from a group of weather scientists in Bergen, Norway, led by Vilhelm Bjerknes and his son Jacob, just after the First World War. They pictured the boundary between cold and warm air as a battle line, where two armies of air met and pushed each other back and forth, and borrowed the soldiers’ word for it."
+    },
+    "puy-de-dome": {
+      "kind": "digression",
+      "title": "A barometer up a mountain",
+      "text": "If the air really holds the mercury up, there should be less air to do it on a mountain. In 1648 Blaise Pascal had his brother-in-law, Florin Périer, carry a mercury tube up the Puy de Dôme, an old volcano in central France, while a second tube stayed in the town below. At the top, about a kilometre higher, the mercury stood some 8 centimetres lower."
     }
   }
 }
