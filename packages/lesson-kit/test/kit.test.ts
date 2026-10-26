@@ -12,6 +12,7 @@ import { glossaryFromLessons, glossaryView, mergeGlossary } from '../src/glossar
 import { lessonProblems, lessonView, prose, type Lesson } from '../src/lesson';
 import { emptyProgress, finishLesson, migrateProgress } from '../src/progress';
 import { deal, review, tally } from '../src/quiz';
+import { lessonSignature, migrateResume } from '../src/resume';
 import { makeRng } from '../src/rng';
 import { createStore } from '../src/store';
 
@@ -134,5 +135,133 @@ describe('lesson-kit', () => {
     search.value = 'pivot point';
     search.dispatchEvent(new Event('input'));
     expect([...view.querySelectorAll('.gl-entry')].filter((n) => !(n as HTMLElement).hidden)).toHaveLength(1);
+  });
+
+  describe('picking a lesson up where it was left', () => {
+    globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
+    const tick = () => new Promise((r) => setTimeout(r));
+    const push = figure(['far'], (_ctx, t) => {
+      const f = frame(200, 100, 2);
+      f.controls.append(slider('Push', 0, 10, 1, 0, String, (v) => v >= 8 && t.done()).node);
+      return f.node;
+    });
+    // A two-question check that keeps its answers.
+    const check = quiz((ctx, t) => {
+      const answers: boolean[] = Array.isArray(t.kept) ? [...t.kept] : [];
+      const node = el('div');
+      const show = () => {
+        if (answers.length === 2) {
+          node.replaceChildren(el('p.result', {}, `${answers.filter(Boolean).length} right`));
+          ctx.score(answers.filter(Boolean).length, 2);
+          t.done();
+          return;
+        }
+        const answer = (right: boolean) => {
+          answers.push(right);
+          t.keep([...answers]);
+          show();
+        };
+        node.replaceChildren(el('button.right', { onclick: () => answer(true) }, 'Right'), el('button.wrong', { onclick: () => answer(false) }, 'Wrong'));
+      };
+      show();
+      return node;
+    });
+    const figures = { push, check };
+    const lesson = (goal = 'far'): Lesson => ({
+      id: 'push', n: 1, title: 'Pushing', teaches: 'What a push does', learned: [], next: '', journal: [],
+      parts: [
+        { title: 'Push', blocks: [{ kind: 'text', text: 'Push it.' }, { kind: 'figure', figure: 'push', caption: 'A block', task: 'Push it far', goal }] },
+        { title: 'Check', blocks: [{ kind: 'figure', figure: 'check', caption: 'Two questions', task: 'Answer' }] },
+      ],
+    });
+    const open = (lessons: Lesson[], store: ReturnType<typeof createStore<ReturnType<typeof emptyProgress>>>) => {
+      const root = el('div');
+      document.body.replaceChildren(root);
+      const close = lessonView({ lessons, figures, store, prose: (t) => prose(t, { ink: '#000' }) })(root, { params: { id: 'push' }, navigate: () => {}, replace: () => {} });
+      return { root, close: close as () => void };
+    };
+    const newStore = () => {
+      localStorage.clear();
+      return createStore({ key: 'resume-test', empty: emptyProgress, migrate: migrateProgress });
+    };
+
+    it('keeps the parts passed, the tasks done, the sliders and the answers', async () => {
+      const store = newStore();
+      let v = open([lesson()], store);
+      const input = v.root.querySelector('input[type=range]') as HTMLInputElement;
+      input.value = '9';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      await tick();
+      (v.root.querySelector('.gate button') as HTMLButtonElement).click();
+      await tick();
+      (v.root.querySelector('button.right') as HTMLButtonElement).click();
+      v.close();
+      // Read back from storage, as after a reload.
+      const saved = createStore({ key: 'resume-test', empty: emptyProgress, migrate: migrateProgress }).get().resume.push;
+      expect(saved).toMatchObject({ v: 1, part: 1, done: ['0.1'], sliders: { '0.1': [9] }, kept: { '1.0': [true] } });
+
+      v = open([lesson()], store);
+      await tick();
+      expect(v.root.querySelectorAll('.part')).toHaveLength(2);
+      expect(v.root.querySelector('[data-figure=push]')!.classList.contains('done')).toBe(true);
+      expect((v.root.querySelector('input[type=range]') as HTMLInputElement).value).toBe('9');
+      // No gate is left between the parts, only the one under the check.
+      expect(v.root.querySelectorAll('.gate')).toHaveLength(1);
+      (v.root.querySelector('button.wrong') as HTMLButtonElement).click();
+      await tick();
+      expect(v.root.querySelector('.result')?.textContent).toBe('1 right');
+      v.close();
+
+      // The check done and the log not yet signed: it opens at the log, with the score.
+      v = open([lesson()], store);
+      await tick();
+      await tick();
+      expect(v.root.querySelector('.gate button')).not.toBeNull();
+      (v.root.querySelector('.gate button') as HTMLButtonElement).click();
+      await tick();
+      expect(v.root.querySelector('.logbook .score')?.textContent).toBe('Check: 1 of 2 right');
+      v.close();
+      v = open([lesson()], store);
+      await tick();
+      await tick();
+      expect(v.root.querySelector('.logbook .score')?.textContent).toBe('Check: 1 of 2 right');
+      (v.root.querySelector('.log .gate button') as HTMLButtonElement).click();
+      v.close();
+      expect(store.get().lessons.push).toMatchObject({ done: true, best: 1, of: 2 });
+      expect(store.get().resume.push).toBeUndefined();
+    });
+
+    it('starts over when the figures change, but not for a change of words', async () => {
+      const store = newStore();
+      let v = open([lesson()], store);
+      const input = v.root.querySelector('input[type=range]') as HTMLInputElement;
+      input.value = '9';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      await tick();
+      v.close();
+      const reworded = lesson();
+      reworded.parts[0].blocks[0] = { kind: 'text', text: 'Push it hard.' };
+      expect(lessonSignature(reworded)).toBe(lessonSignature(lesson()));
+      v = open([reworded], store);
+      await tick();
+      expect(v.root.querySelector('[data-figure=push]')!.classList.contains('done')).toBe(true);
+      v.close();
+      const moved = lesson();
+      moved.parts[0].blocks.reverse();
+      expect(lessonSignature(moved)).not.toBe(lessonSignature(lesson()));
+      v = open([moved], store);
+      await tick();
+      expect(v.root.querySelector('.fig.done')).toBeNull();
+      expect(store.get().resume.push).toBeUndefined();
+      v.close();
+    });
+
+    it('reads old saves and drops resumes it cannot read', () => {
+      const old = JSON.parse(JSON.stringify(emptyProgress()));
+      delete old.resume;
+      expect(migrateProgress(old)).toEqual(emptyProgress());
+      expect(migrateResume({ a: { v: 2, sig: 'x' }, b: 'junk', c: { v: 1, sig: 's', part: '2', done: ['0.1', 'x', 3], scores: { '1.0': [1, 2], bad: [1, 1] }, sliders: { '0.1': [1, 'n'] }, kept: { '0.1': { g: 1 } } } }))
+        .toEqual({ c: { v: 1, sig: 's', part: 2, done: ['0.1'], scores: { '1.0': [1, 2] }, sliders: { '0.1': [1] }, kept: { '0.1': { g: 1 } } } });
+    });
   });
 });

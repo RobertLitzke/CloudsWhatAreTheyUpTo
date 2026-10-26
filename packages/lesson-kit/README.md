@@ -27,7 +27,8 @@ the others by hand.
 | `ui` | `page()`, `toast()`, `segmented()`, `sheet()` (a card over the page), `freshSeed()` |
 | `rng` | `makeRng(seed)` (mulberry32), `shuffle(items, rng)` |
 | `store` | `createStore({ key, empty, migrate })`, localStorage with repair, export and import |
-| `progress` | The shared save shape (`Progress`): lessons done, best scores, journal, units, radio, quiz. Also `migrateProgress`, `finishLesson`, `moveLesson` |
+| `progress` | The shared save shape (`Progress`): lessons done, best scores, journal, units, radio, quiz, lessons left part way. Also `migrateProgress`, `finishLesson`, `moveLesson` |
+| `resume` | Lessons left part way: `LessonResume`, `lessonSignature`, `resumeFor`, `migrateResume`. `lessonView` uses it by itself |
 | `units` | `height(m, units)`, `feet`, `deg`, `temp` |
 | `figure` | What a figure is: `figure(goals, build)`, `quiz(build)`, `frame`, `slider`, `animate`, guess-first helpers (`lock`, `choices`, `lockIn`, `placeable`) |
 | `draw` | SVG pieces: `still`, `label`/`small`/`note`/`heading`, `line`, `polyline`, `arrow`, `wavy`, `curve`, `hexagon`, `redraw` |
@@ -174,6 +175,48 @@ is on screen and stops when the lesson closes. Guess-first figures lock
 their sliders with `lock(sliders, true)`, offer a `choices([...])` row and a
 `lockIn('Lock it in', …)` button, then unlock the sliders. See Clouds'
 `heaps.ts` parcel figure for a full example.
+
+### Leaving a lesson part way
+
+A reader who leaves a lesson part way (another page, a reload, the app
+closed or updated) comes back to where they were. `lessonView` does this by
+itself and keeps it in the save under `resume`, by lesson id:
+
+- the parts already passed open without their Continue buttons, and the
+  page scrolls back to the block that was at the top of the screen;
+- figures whose tasks were done count as done, and every figure's sliders
+  are put back where they were (only sliders the figure leaves unlocked, so
+  a guess-first figure still waiting for its guess stays locked);
+- each check's score is kept, so the log adds up the same;
+- the opening radio talk is not played again past the first part, and a
+  footnote popup is never reopened.
+
+It is saved at once when a task is done or a part is passed, a moment after
+a slider or the scroll stops, and when the page is hidden or closed.
+Finishing the lesson (signing the log) forgets it. A lesson already finished
+opens in full as before and keeps no place.
+
+A figure with a state worth coming back to (a guess made, quiz answers
+given, a random deal) keeps it with `t.keep(state)` (any JSON) and puts
+itself back from `t.kept` when built. `t.restored` says its task was done on
+an earlier visit, for a figure that unlocks more once done:
+
+```ts
+const markIt = lockIn('Mark it', () => { t.keep(pick.picked()); /* …unlock… */ });
+if (typeof t.kept === 'number') { pick.pick(t.kept); markIt.click(); }
+```
+
+For a quiz, keep the random seed and the answers, and on build replay the
+answers and go on from the next question; a finished one reports its score
+again. Clouds' `quizzes.ts` (radio check, forecast, sort, names) and its six
+guess-first figures show how.
+
+A resume belongs to one version of a lesson. `lessonSignature` hashes the
+kind of every block and each figure's name, goal, task and options, but not
+the words, so editing text keeps readers' places, while adding, moving or
+re-optioning a figure drops them (they start that lesson over). The record
+has its own `v: 1`; one that can't be read is dropped and the rest of the
+save loads as before.
 
 ### A lesson, as JSON
 
@@ -352,7 +395,8 @@ expect(lessonProblems(LESSONS, FIGURES)).toEqual([]);   // unknown figures, unkn
 ```
 
 Clouds' `test/figures.test.ts` builds every figure in both unit systems and
-checks that none of them throws. `figures.html` with `tools/gallery`
+checks that none of them throws, and that the guess-first figures and checks
+come back as they were from what they kept. `figures.html` with `tools/gallery`
 renders every figure on one page, and `?frozen` makes the page the same on
 every load, so before and after screenshots can be pixel-diffed.
 

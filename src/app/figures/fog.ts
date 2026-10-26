@@ -179,6 +179,7 @@ export const jarFigure = figure(['fog'], (ctx, t) => {
   const place = placeable(f.svg, mark, (x) => { guessC = Math.round(Math.min(30, Math.max(0, ((x - x0) / (x1 - x0)) * 30))); paintChart(); }, (step) => { guessC = Math.min(30, Math.max(0, (guessC ?? 0) + step)); paintChart(); });
   const markIt = lockIn('Mark where it fogs', () => {
     marked = true;
+    t.keep(guessC);
     markIt.hidden = true;
     place.enable(false);
     lock([cool], false);
@@ -195,7 +196,15 @@ export const jarFigure = figure(['fog'], (ctx, t) => {
     guessC = null;
     place.enable(false);
     lock([cool, wet], false);
-  } else void t.promise.then(() => lock([wet], false));
+  } else {
+    // Coming back to it: the guess as it was marked, and the water free if it fogged.
+    if (typeof t.kept === 'number') {
+      guessC = t.kept;
+      markIt.click();
+    }
+    if (t.restored) lock([wet], false);
+    else void t.promise.then(() => lock([wet], false));
+  }
   paintChart();
   return f.node;
 });

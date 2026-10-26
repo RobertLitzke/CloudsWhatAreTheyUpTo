@@ -74,6 +74,8 @@ export const sortFigure = quiz((ctx, t, options) => {
     cards.set(id, b);
     tray.append(b);
   }
+  // A reader coming back finds the clouds they had filed still in the sky.
+  const filed: GenusId[] = [];
   const choose = (floor: Floor) => {
     if (!picked) {
       feedback.textContent = 'Pick a cloud first.';
@@ -86,6 +88,8 @@ export const sortFigure = quiz((ctx, t, options) => {
       addToSky(scene.sky, placeCloud(picked, p, xs[i % xs.length], spot.y, spot.scale * 0.8, i + 3));
       cards.get(picked)!.remove();
       left.delete(picked);
+      filed.push(picked);
+      t.keep([...filed]);
       feedback.textContent = `Right: ${g.name} lives ${floor === 'tower' ? 'on the low floor and climbs through all three' : `on the ${floor} floor`}.`;
       picked = null;
       if (left.size === 0) t.done();
@@ -98,6 +102,14 @@ export const sortFigure = quiz((ctx, t, options) => {
     }
   };
   scene.sky.append(bands(ctx, choose));
+  if (Array.isArray(t.kept)) {
+    for (const id of t.kept as GenusId[]) {
+      if (!left.has(id)) continue;
+      picked = id;
+      choose(genus(id).floor);
+    }
+    feedback.textContent = left.size ? 'Tap a cloud, then the floor it lives on.' : 'All filed.';
+  }
   const node = el('div.fig-body', {},
     el('div.fig-scene', {}, scene.root),
     textBox(feedback, 2),
@@ -115,7 +127,14 @@ export const namesFigure = quiz((_ctx, t, options) => {
   const p = scene.palette;
   const body = el('div');
   const xs = [110, 250, 190, 320];
+  const place = (k: number) => {
+    const id = compose(targets[k].prefix, targets[k].body);
+    const spot = SKY_SPOTS[id];
+    addToSky(scene.sky, placeCloud(id, p, xs[k % xs.length], spot.y, spot.scale * 0.8, 6 + k));
+  };
+  // Names already called in, from an earlier visit.
   let i = 0;
+  if (typeof t.kept === 'number') for (; i < Math.min(t.kept, targets.length); i++) place(i);
   const show = () => {
     if (i >= targets.length) {
       body.replaceChildren(el('p.fig-readout', {}, 'All called in correctly.'));
@@ -149,9 +168,9 @@ export const namesFigure = quiz((_ctx, t, options) => {
       if (!prefix || !shape) return;
       const said = genus(compose(prefix, shape));
       if (prefix === target.prefix && shape === target.body) {
-        const spot = SKY_SPOTS[said.id];
-        addToSky(scene.sky, placeCloud(said.id, p, xs[i % xs.length], spot.y, spot.scale * 0.8, 6 + i));
+        place(i);
         i++;
+        t.keep(i);
         show();
       } else {
         const where = said.floor === 'tower' ? 'every floor' : `the ${said.floor} floor`;
@@ -220,7 +239,11 @@ export const radioCheckFigure = quiz((ctx, t, options) => {
   const known = (options?.known as GenusId[]) ?? pool;
   const count = (options?.count as number) ?? 8;
   const size = Math.min(4, Math.max(2, known.length));
-  const rng = makeRng(freshSeed());
+  // The deal and the answers given so far, so a reader coming back gets the same photos and goes on from where they were.
+  const kept = t.kept as { seed?: unknown; picks?: unknown } | undefined;
+  const seed = typeof kept?.seed === 'number' ? kept.seed : freshSeed();
+  const picks: string[] = Array.isArray(kept?.picks) ? kept.picks.filter((x): x is string => typeof x === 'string') : [];
+  const rng = makeRng(seed);
   const pic = el('div.fig-scene');
   const body = el('div');
   const node = el('div.fig-body.radio-check', {}, pic, body);
@@ -229,8 +252,14 @@ export const radioCheckFigure = quiz((ctx, t, options) => {
     : mode === 'spot'
     ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: [target!, 'other'] }))
     : dealNameCalls(pool, known, PHOTOS, count, size, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: c.options as string[] }));
+  const answerOf = (call: (typeof calls)[number]) => {
+    const g = genus(call.genus);
+    return mode === 'floor' ? g.floor : mode === 'spot' && g.id !== target ? 'other' : g.id;
+  };
   let right = 0;
   let i = 0;
+  for (; i < Math.min(picks.length, calls.length); i++) if (picks[i] === answerOf(calls[i])) right++;
+  picks.length = i;
   const next = () => {
     if (i >= calls.length) {
       body.replaceChildren(el('p.fig-readout', {}, `${ctx.save.talk ? 'Radio check' : 'Check'} done: ${right} of ${calls.length} right.`));
@@ -240,7 +269,7 @@ export const radioCheckFigure = quiz((ctx, t, options) => {
     }
     const call = calls[i];
     const g = genus(call.genus);
-    const answer = mode === 'floor' ? g.floor : mode === 'spot' && g.id !== target ? 'other' : g.id;
+    const answer = answerOf(call);
     pic.replaceChildren(picture(call.genus, call.photo, i, call.mirrored));
     const labelOf = (o: string) => (mode === 'floor' ? FLOOR_BUTTONS.find((b) => b.id === o)!.label : o === 'other' ? 'Something else' : genus(o as GenusId).name);
     const buttons = call.options.map((o) => {
@@ -248,6 +277,8 @@ export const radioCheckFigure = quiz((ctx, t, options) => {
       b.addEventListener('click', () => {
         const good = o === answer;
         if (good) right++;
+        picks.push(o);
+        t.keep({ seed, picks: [...picks] });
         buttons.forEach((x, k) => {
           x.disabled = true;
           if (call.options[k] === answer) x.classList.add('right');
@@ -318,11 +349,17 @@ function profileDrawing(p: Profile): SVGSVGElement {
 export const forecastFigure = quiz((ctx, t, options) => {
   // Questions from town come last, in order, after the rest shuffled.
   const all = (options?.items as Forecast[]) ?? [];
-  const items = [...shuffle(all.filter((q) => !q.id), makeRng(freshSeed())), ...all.filter((q) => q.id)];
+  // The order and the answers given so far, kept for a reader who comes back.
+  const kept = t.kept as { seed?: unknown; picks?: unknown } | undefined;
+  const seed = typeof kept?.seed === 'number' ? kept.seed : freshSeed();
+  const picks: number[] = Array.isArray(kept?.picks) ? kept.picks.filter((x): x is number => typeof x === 'number') : [];
+  const items = [...shuffle(all.filter((q) => !q.id), makeRng(seed)), ...all.filter((q) => q.id)];
   const body = el('div');
   const node = el('div.fig-body', {}, body);
   let right = 0;
   let i = 0;
+  for (; i < Math.min(picks.length, items.length); i++) if (picks[i] === items[i].answer) right++;
+  picks.length = i;
   const next = () => {
     if (i >= items.length) {
       body.replaceChildren(el('p.fig-readout', {}, `Forecasts done: ${right} of ${items.length} right.`));
@@ -343,6 +380,8 @@ export const forecastFigure = quiz((ctx, t, options) => {
       b.addEventListener('click', () => {
         const good = k === q.answer;
         if (good) right++;
+        picks.push(k);
+        t.keep({ seed, picks: [...picks] });
         buttons.forEach((x, j) => {
           x.disabled = true;
           if (j === q.answer) x.classList.add('right');

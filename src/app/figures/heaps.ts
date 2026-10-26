@@ -175,8 +175,14 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
   const place = placeable(f.svg, mark, (_x, y) => { guessM = mOf(y); paint(); }, (step) => { guessM = Math.min(top, Math.max(0, (guessM ?? 0) + step * 50)); paint(); });
   const lifter = slider('Lift the air', 0, top, 25, 0, (v) => height(v, ctx.save.units), (v) => { lift = v; paint(); }, 'parcel');
   const dew = slider('Dew point at the ground', 4, 22, 1, dewC, (v) => `${v} °C`, (v) => { dewC = v; guessM = null; paint(); }, 'dew');
+  const setDew = (v: number) => {
+    dew.input.value = String(v);
+    dewC = v;
+    dew.node.querySelector('output')!.textContent = `${dewC} °C`;
+  };
   const markIt = lockIn('Mark the cloud base', () => {
     marked = true;
+    t.keep({ tempC, dewC, guessM, marked });
     markIt.hidden = true;
     place.enable(false);
     lock([lifter, dew], false);
@@ -188,13 +194,14 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
     // A gap of 3 to 20 °C, with the dew point inside its slider's 4 to 22 °C.
     const least = Math.max(3, tempC - 22);
     const gap = least + Math.floor(Math.random() * (Math.min(20, tempC - 4) - least + 1));
-    dew.input.value = String(tempC - gap);
-    dewC = tempC - gap;
-    dew.node.querySelector('output')!.textContent = `${dewC} °C`;
+    lifter.set(0);
+    setDew(tempC - gap);
+    // Tell the lesson the sliders moved, so a reader coming back gets this morning.
+    dew.input.dispatchEvent(new Event('input', { bubbles: true }));
     guessM = 500;
     marked = false;
+    t.keep({ tempC, dewC, marked });
     markIt.hidden = false;
-    lifter.set(0);
     lock([lifter, dew], true);
     place.enable(true);
     paint();
@@ -204,7 +211,17 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
   lock([lifter, dew], true);
   place.enable(true);
   const free = () => f.controls.append(dew.node, el('div.fig-guess', {}, another));
-  if (t.goal !== 'base') free();
+  // Coming back to it: the morning it was on, and the guess if it was marked.
+  const kept = t.kept as { tempC?: unknown; dewC?: unknown; guessM?: unknown; marked?: unknown } | undefined;
+  if (typeof kept?.tempC === 'number' && typeof kept.dewC === 'number') {
+    tempC = kept.tempC;
+    setDew(kept.dewC);
+    if (kept.marked === true && typeof kept.guessM === 'number') {
+      guessM = kept.guessM;
+      markIt.click();
+    }
+  }
+  if (t.goal !== 'base' || t.restored) free();
   else void t.promise.then(free);
   paint();
   return f.node;

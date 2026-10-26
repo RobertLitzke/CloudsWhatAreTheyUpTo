@@ -16,6 +16,17 @@ export interface FigureContext {
   closed: AbortSignal;
   /** A figure that is a test reports its result here. */
   score: (right: number, of: number) => void;
+  /** This block's memory across visits, when the lesson keeps one (resume.ts); see Task. */
+  memo?: Memo;
+}
+
+/** What a lesson remembers of one figure between visits. */
+export interface Memo {
+  /** Its task was done on an earlier visit. */
+  restored: boolean;
+  /** What it last passed to keep, if anything. */
+  kept?: unknown;
+  keep: (state: unknown) => void;
 }
 
 export interface FigureHandle {
@@ -43,13 +54,33 @@ export interface Task {
   /** Mark the task done. Safe to call again. */
   done: () => void;
   readonly promise: Promise<void>;
+  /**
+   * What this figure passed to `keep` on an earlier visit, when the reader
+   * left the lesson part way and has come back. A figure that has a state
+   * worth coming back to (a guess made, quiz answers given) keeps it, and on
+   * build puts itself back in that state. Sliders are put back by the lesson.
+   */
+  readonly kept?: unknown;
+  /** Remember `state` (any JSON) for the next visit. */
+  keep: (state: unknown) => void;
+  /** The task was done on an earlier visit; the lesson counts it done already. */
+  readonly restored: boolean;
 }
+
+const task = (ctx: FigureContext, goal: string | undefined, p: { promise: Promise<void>; resolve: () => void }): Task => ({
+  goal,
+  done: p.resolve,
+  promise: p.promise,
+  kept: ctx.memo?.kept,
+  keep: ctx.memo?.keep ?? (() => {}),
+  restored: ctx.memo?.restored ?? false,
+});
 
 /** A live figure, which knows the goals in `goals`. */
 export function figure(goals: readonly string[], build: (ctx: FigureContext, t: Task, options?: Options) => HTMLElement): FigureFactory {
   const make = (ctx: FigureContext, goal?: string, options?: Options): FigureHandle => {
     const p = promised();
-    const node = build(ctx, { goal, done: p.resolve, promise: p.promise }, options);
+    const node = build(ctx, task(ctx, goal, p), options);
     return { node, done: goal ? p.promise : undefined };
   };
   return Object.assign(make, { goals });
@@ -59,7 +90,7 @@ export function figure(goals: readonly string[], build: (ctx: FigureContext, t: 
 export function quiz(build: (ctx: FigureContext, t: Task, options?: Options) => HTMLElement): FigureFactory {
   const make = (ctx: FigureContext, _goal?: string, options?: Options): FigureHandle => {
     const p = promised();
-    const node = build(ctx, { done: p.resolve, promise: p.promise }, options);
+    const node = build(ctx, task(ctx, undefined, p), options);
     return { node, done: p.promise };
   };
   return Object.assign(make, { quiz: true as const });
@@ -139,6 +170,8 @@ export interface Choices {
   picked: () => number;
   /** Stop or allow picking. */
   freeze: (frozen: boolean) => void;
+  /** Pick option `i`, as a tap would. */
+  pick: (i: number) => void;
 }
 
 /** A row of options for a guess, one of which can be picked. */
@@ -154,6 +187,7 @@ export function choices(options: readonly string[], onPick: (i: number) => void)
     node: el('div.chips.fig-choices', {}, chips),
     picked: () => at,
     freeze: (frozen) => chips.forEach((c) => (c.disabled = frozen)),
+    pick,
   };
 }
 

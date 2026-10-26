@@ -479,6 +479,7 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
     (step) => { guessDeg = Math.min(28, Math.max(2, guessDeg + step)); paint(toCount(count.value())); });
   const markIt = lockIn('Mark the ring', () => {
     marked = true;
+    t.keep(guessDeg);
     markIt.hidden = true;
     place.enable(false);
     lock([count], false);
@@ -490,7 +491,11 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
     lock([count], true);
     place.enable(true);
   } else markIt.hidden = true;
-  paint(toCount(1.5));
+  if (!marked && typeof t.kept === 'number') {
+    guessDeg = t.kept;
+    markIt.click();
+  }
+  paint(toCount(count.value()));
   return f.node;
 });
 
@@ -648,6 +653,7 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
   } }, genus(g).name) as HTMLButtonElement);
   const markIt = lockIn('Mark the order', () => {
     asking = false;
+    t.keep([...order]);
     guess.replaceChildren(el('p.fig-order', {}, order.map((g, i) => `${i + 1} ${genus(g).name}`).join(' · ')));
     lock([time], false);
     paint(time.value());
@@ -668,6 +674,14 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
   time.input.style.direction = 'rtl';
   lock([time], asking);
   markIt.disabled = true;
-  paint(48);
+  // Coming back to it: the order as it was marked.
+  if (asking && Array.isArray(t.kept)) {
+    for (const g of t.kept) if (SHUFFLED.includes(g) && !order.includes(g)) order.push(g);
+    if (order.length === ARRIVAL.length) {
+      markIt.disabled = false;
+      markIt.click();
+    } else order.length = 0;
+  }
+  paint(time.value());
   return f.node;
 });

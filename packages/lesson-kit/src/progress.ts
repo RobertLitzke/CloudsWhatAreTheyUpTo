@@ -3,6 +3,8 @@
 // extends it with its own fields (see Clouds' core/save.ts) and repairs them
 // after migrateProgress has done these.
 
+import { migrateResume, type LessonResume } from './resume';
+
 export interface LessonRecord {
   done: boolean;
   /** Best check score, as right answers out of `of`. */
@@ -30,10 +32,12 @@ export interface Progress {
   heard: Record<string, number[]>;
   /** Quiz cards seen, by card id: their spaced-repetition box and when each is next due (quiz.ts). */
   quiz: Record<string, { box: number; due: number }>;
+  /** Lessons left part way, by id, to pick up again where the reader was (resume.ts). */
+  resume: Record<string, LessonResume>;
 }
 
 export function emptyProgress(units: Units = 'metric'): Progress {
-  return { v: 1, name: '', lessons: {}, journal: [], units, talk: true, introSeen: false, heard: {}, quiz: {} };
+  return { v: 1, name: '', lessons: {}, journal: [], units, talk: true, introSeen: false, heard: {}, quiz: {}, resume: {} };
 }
 
 export const isObj = (x: unknown): x is Record<string, unknown> => typeof x === 'object' && x !== null && !Array.isArray(x);
@@ -47,7 +51,7 @@ export const stringSet = (x: unknown): string[] => (Array.isArray(x) ? [...new S
  * Clouds stored them under first.
  */
 export function migrateProgress(raw: unknown, empty: Progress = emptyProgress()): Progress {
-  const out: Progress = { ...empty, lessons: {}, journal: [], heard: {}, quiz: {} };
+  const out: Progress = { ...empty, lessons: {}, journal: [], heard: {}, quiz: {}, resume: {} };
   if (!isObj(raw)) return out;
   if (typeof raw.name === 'string') out.name = raw.name.slice(0, 40);
   if (raw.units === 'metric' || raw.units === 'imperial') out.units = raw.units;
@@ -67,6 +71,7 @@ export function migrateProgress(raw: unknown, empty: Progress = emptyProgress())
     }
   }
   out.journal = stringSet(raw.journal);
+  out.resume = migrateResume(raw.resume);
   const lessons = isObj(raw.lessons) ? raw.lessons : raw.shifts;
   if (isObj(lessons)) {
     for (const [id, rec] of Object.entries(lessons)) {
@@ -92,12 +97,14 @@ export function moveLesson(p: Progress, from: string, to: string): void {
   delete p.lessons[from];
 }
 
-/** Record a finished lesson, keeping the best score and the first finish date. */
+/** Record a finished lesson, keeping the best score and the first finish date, and drop where it was left part way. */
 export function finishLesson<S extends Progress>(save: S, id: string, right: number, of: number, journal: readonly string[], now: Date): S {
   const prev = save.lessons[id];
   const better = !prev || prev.of === 0 || right / Math.max(1, of) > prev.best / Math.max(1, prev.of);
+  const { [id]: _left, ...resume } = save.resume ?? {};
   return {
     ...save,
+    resume,
     lessons: {
       ...save.lessons,
       [id]: {

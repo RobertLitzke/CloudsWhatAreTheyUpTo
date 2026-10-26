@@ -205,6 +205,7 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
   const pick = choices(STORM_ENDS, () => (markIt.disabled = false));
   const markIt = lockIn('Run the storm', () => {
     asking = false;
+    t.keep(pick.picked());
     pick.freeze(true);
     markIt.hidden = true;
     lock([time], false);
@@ -214,7 +215,12 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
   if (asking) f.controls.append(el('div.fig-guess', {}, pick.node, markIt));
   f.controls.append(time.node);
   lock([time], asking);
-  paint(0);
+  // Coming back to it: the guess as it was made.
+  if (asking && typeof t.kept === 'number' && STORM_ENDS[t.kept]) {
+    pick.pick(t.kept);
+    markIt.click();
+  }
+  paint(time.value());
   return f.node;
 });
 
@@ -522,6 +528,7 @@ export const billowFigure = figure(['curl'], (ctx, t) => {
   const pick = choices(LID_GUESSES, () => (markIt.disabled = false));
   const markIt = lockIn('Mark it', () => {
     asking = false;
+    t.keep(pick.picked());
     pick.freeze(true);
     markIt.hidden = true;
     lock([shear, stiff], false);
@@ -531,6 +538,10 @@ export const billowFigure = figure(['curl'], (ctx, t) => {
   if (asking) f.controls.append(el('div.fig-guess', {}, pick.node, markIt));
   f.controls.append(shear.node, stiff.node);
   lock([shear, stiff], asking);
+  if (asking && typeof t.kept === 'number' && LID_GUESSES[t.kept]) {
+    pick.pick(t.kept);
+    markIt.click();
+  }
   paint();
   return f.node;
 });

@@ -220,7 +220,7 @@ main { display: block; }
 .lede { font-size: 1.12rem; color: var(--ink-soft); margin: 0 0 10px; }
 .meet { list-style: none; padding: 0; margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 6px; }
 .meet li { background: var(--ink); color: var(--paper); border-radius: 999px; padding: 3px 12px; font: 600 0.78rem/1.6 var(--display); letter-spacing: 0.08em; text-transform: uppercase; }
-.part { scroll-margin-top: 64px; }
+.part, .part > [data-at] { scroll-margin-top: 64px; }
 .part > h2 { color: var(--ink); display: flex; align-items: baseline; gap: 10px; margin: 30px 0 8px; font-size: 1.4rem; }
 .part-n { font: 600 0.9rem/1 var(--display); color: var(--paper); background: var(--rose); border-radius: 50%; width: 26px; height: 26px; display: inline-grid; place-items: center; flex: none; transform: translateY(-2px); }
 .part > p { margin: 0 0 14px; }

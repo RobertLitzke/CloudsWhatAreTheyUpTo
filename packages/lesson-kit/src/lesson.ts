@@ -14,12 +14,20 @@
 // With a radio (radio.ts, slip.ts) and the reader's radio setting on, a talk
 // comes on as the lesson opens and another once the check is done, before the
 // log can be written up. They play only the first time through.
+//
+// A reader who leaves part way (another page, a reload, the app closed) comes
+// back to where they were: the parts they had opened, the figures they had
+// done and how they had set them, their check answers, and the place on the
+// page (resume.ts). The opening talk is not played again past the first part.
+// Finishing the lesson forgets all that. A lesson already finished opens in
+// full, as before, and keeps no place.
 
 import { el, type Child } from './dom';
 import type { FigureContext, FigureFactory } from './figure';
 import { closeFootnote, footnoteLegend, footnoteMarker, footnoteProblems, footnoteSet, type FootnoteSet, type Footnotes } from './footnote';
 import { finishLesson, type Progress } from './progress';
 import type { Cue, Talk } from './radio';
+import { blockKey, emptyResume, lessonSignature, resumeFor, type LessonResume } from './resume';
 import type { View } from './router';
 import type { Store } from './store';
 
@@ -107,7 +115,18 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
   const home = o.home ?? '/home';
   const noun = o.noun ?? 'Lesson';
 
-  function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], notes: FootnoteSet): HTMLElement {
+  /** How a block's figure is remembered between visits; nothing is, in a finished lesson. */
+  interface Keeping {
+    key: string;
+    /** Its task was done before (or its part passed): count it done now. */
+    done: boolean;
+    sliders?: number[];
+    /** Note the task done, and the sliders moved. */
+    onDone: () => void;
+    onSliders: (values: number[]) => void;
+  }
+
+  function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], notes: FootnoteSet, keeping?: Keeping): HTMLElement {
     switch (block.kind) {
       case 'text':
         return o.prose(block.text, notes);
@@ -122,9 +141,12 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
         const box = handle.node.querySelector('.fig-text');
         if (box) box.prepend(caption);
         const fig = el('figure.fig', { 'data-figure': block.figure }, status, handle.node, box ? null : el('div.fig-text', {}, caption));
+        if (keeping) keepSliders(handle.node, keeping);
         if (handle.done) {
-          tasks.push(handle.done);
-          void handle.done.then(() => fig.classList.add('done'));
+          const done = keeping?.done ? Promise.resolve() : handle.done;
+          if (keeping && !keeping.done) void handle.done.then(keeping.onDone);
+          tasks.push(done);
+          void done.then(() => fig.classList.add('done'));
         }
         return fig;
       }
@@ -141,21 +163,73 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
     const closed = new AbortController();
     const save = o.store.get();
     const replay = save.lessons[lesson.id]?.done === true;
-    const score = { right: 0, of: 0 };
+    // Where the reader is, kept in the save as they go so a visit can be picked up again.
+    const stored = save.resume?.[lesson.id];
+    const resumed = replay ? undefined : resumeFor(save.resume ?? {}, lesson.id, lesson);
+    const here: LessonResume = resumed ? structuredClone(resumed) : emptyResume(lessonSignature(lesson));
+    let finished = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const flush = () => {
+      clearTimeout(timer);
+      timer = undefined;
+      if (replay || finished) return;
+      o.store.update((s) => ({ ...s, resume: { ...s.resume, [lesson.id]: structuredClone(here) } }));
+    };
+    /** Save soon: sliders and scrolling change many times a second. */
+    const keepSoon = () => {
+      if (replay || finished) return;
+      clearTimeout(timer);
+      timer = setTimeout(flush, 300);
+    };
+    // Made for another version of this lesson: forget it.
+    if (stored && !resumed && !replay) {
+      o.store.update((s) => {
+        const { [lesson.id]: _old, ...rest } = s.resume ?? {};
+        return { ...s, resume: rest };
+      });
+    }
+    const passed = (part: number, key: string) => part < here.part || here.done.includes(key);
+    const scoreTotal = () => Object.values(here.scores).reduce((t, [r, n]) => ({ right: t.right + r, of: t.of + n }), { right: 0, of: 0 });
     const footnotes = lesson.footnotes ?? {};
     const notes = footnoteSet(footnotes, lessonTexts(lesson), (t) => o.prose(t));
     const talks = o.radio?.talks(lesson.id) ?? [];
     const talking = Boolean(o.radio) && save.talk && !replay;
     /** The talk on this cue, if the radio is on and it has not been heard. */
     const waiting = (c: Cue) => (talking ? talks.find((t) => t.cue === c && !o.store.get().heard[t.id]) : undefined);
-    const ctx: FigureContext = {
-      save,
-      closed: closed.signal,
-      score: (right, of) => {
-        score.right += right;
-        score.of += of;
-      },
+    const ctx: FigureContext = { save, closed: closed.signal, score: () => {} };
+    /** A block's own context: its score, and its memory between visits. */
+    const blockCtx = (part: number, key: string): FigureContext => {
+      let mine: [number, number] | undefined;
+      return {
+        ...ctx,
+        score: (right, of) => {
+          mine = mine ? [mine[0] + right, mine[1] + of] : [right, of];
+          here.scores[key] = mine;
+          keepSoon();
+        },
+        memo: replay ? undefined : {
+          restored: passed(part, key),
+          kept: here.kept[key],
+          keep: (state) => {
+            here.kept[key] = state;
+            keepSoon();
+          },
+        },
+      };
     };
+    const keeping = (part: number, key: string): Keeping | undefined => (replay ? undefined : {
+      key,
+      done: passed(part, key),
+      sliders: here.sliders[key],
+      onDone: () => {
+        if (!here.done.includes(key)) here.done.push(key);
+        flush();
+      },
+      onSliders: (values) => {
+        here.sliders[key] = values;
+        keepSoon();
+      },
+    });
 
     const progress = el('div.article-progress', {}, el('i'));
     const bar = progress.firstElementChild as HTMLElement;
@@ -188,7 +262,12 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
       const tasks: Promise<void>[] = [];
       const section = el('section.part', {}, el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title));
       article.append(section);
-      section.append(...part.blocks.map((b) => renderBlock(b, ctx, tasks, notes)));
+      section.append(...part.blocks.map((b, j) => {
+        const key = blockKey(i, j);
+        const node = renderBlock(b, blockCtx(i, key), tasks, notes, keeping(i, key));
+        node.dataset.at = key;
+        return node;
+      }));
       const done = Promise.all(tasks).then(() => undefined);
       // The quiz on the radio comes once the check is done, and the log waits for it.
       const quiz = i === lesson.parts.length - 1 ? waiting('check') : undefined;
@@ -213,6 +292,7 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
 
     /** The log: what was learned, the check's score, and a line to sign. */
     const renderLog = () => {
+      const score = scoreTotal();
       const name = el('input.sign', { type: 'text', maxLength: 40, placeholder: 'Your name', value: save.name, 'aria-label': 'Your name' }) as HTMLInputElement;
       const sign = el('button.btn.btn-big', { type: 'button' }, 'Sign the log') as HTMLButtonElement;
       const section = el('section.part.log', {},
@@ -229,9 +309,18 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
       article.append(section);
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       sign.addEventListener('click', () => {
+        finished = true;
+        clearTimeout(timer);
         o.store.update((s) => ({ ...finishLesson(s, lesson.id, score.right, score.of, lesson.journal, new Date()), name: name.value.trim() || s.name }));
         nav.navigate(home);
       });
+    };
+
+    /** Scroll to the block the reader was at, or else to `fallback`. */
+    const backToPlace = (fallback: HTMLElement | null) => {
+      const at = here.at && article.querySelector<HTMLElement>(`[data-at="${here.at}"]`);
+      const target = at || fallback;
+      if (target) requestAnimationFrame(() => target.scrollIntoView({ block: 'start' }));
     };
 
     void (async () => {
@@ -243,26 +332,75 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
         await gate(last, true);
       } else {
         const opening = waiting('start');
-        if (opening) void o.radio!.play(opening);
+        // Coming back past the first part, the reader has heard it start already.
+        if (opening && here.part === 0) void o.radio!.play(opening);
         for (const [i, part] of lesson.parts.entries()) {
           reached(i);
+          const last = i === lesson.parts.length - 1;
           const ready = renderPart(part, i);
-          if (i > 0) article.lastElementChild!.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          await gate(ready, i === lesson.parts.length - 1);
+          if (i < here.part) {
+            // Passed on an earlier visit. The check's talk still comes before the log.
+            if (last) await ready;
+            continue;
+          }
+          if (resumed && i === resumed.part) backToPlace(article.lastElementChild as HTMLElement);
+          else if (i > 0) article.lastElementChild!.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          await gate(ready, last);
+          here.part = i + 1;
+          flush();
         }
       }
       if (!alive) return;
       reached(total);
       renderLog();
+      if (resumed && resumed.part === lesson.parts.length) backToPlace(null);
     })();
 
+    // Note the block at the top of the screen as the reader scrolls, and save
+    // before the page goes away; a reload does not close the view.
+    const onScroll = () => {
+      if (replay || finished) return;
+      const top = [...article.querySelectorAll<HTMLElement>('[data-at]')].find((b) => b.getBoundingClientRect().bottom > 80);
+      // Still at the top of the first part is no place worth keeping.
+      if (top && top.dataset.at !== here.at && (here.at || top.dataset.at !== '0.0')) {
+        here.at = top.dataset.at;
+        keepSoon();
+      }
+    };
+    const onHide = () => {
+      if (document.visibilityState === 'hidden' && timer !== undefined) flush();
+    };
+    const onPageHide = () => timer !== undefined && flush();
+    window.addEventListener('scroll', onScroll, { passive: true, signal: closed.signal });
+    document.addEventListener('visibilitychange', onHide, { signal: closed.signal });
+    window.addEventListener('pagehide', onPageHide, { signal: closed.signal });
+
     return () => {
+      if (timer !== undefined) flush();
       alive = false;
       closed.abort();
       closeFootnote();
       o.radio?.clear();
     };
   };
+}
+
+/**
+ * Put a figure's range inputs back where they were left, as if dragged there,
+ * and report them when they move. Only inputs the figure leaves unlocked are
+ * put back, so a guess-first figure that still wants its guess stays locked.
+ */
+function keepSliders(node: HTMLElement, keeping: { sliders?: number[]; onSliders: (values: number[]) => void }): void {
+  const ranges = () => [...node.querySelectorAll<HTMLInputElement>('input[type=range]')];
+  keeping.sliders?.forEach((v, i) => {
+    const input = ranges()[i];
+    if (!input || input.disabled || Number(input.value) === v) return;
+    input.value = String(v);
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+  });
+  node.addEventListener('input', (e) => {
+    if ((e.target as HTMLInputElement).type === 'range') keeping.onSliders(ranges().map((r) => Number(r.value)));
+  });
 }
 
 /**

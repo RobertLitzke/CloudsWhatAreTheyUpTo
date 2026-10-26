@@ -72,3 +72,49 @@ describe('guess-first figures', () => {
     }
   });
 });
+
+describe('figures coming back after the reader left', () => {
+  // Each figure keeps what it would lose on a reload (Task.keep in lesson-kit);
+  // built again with what it kept, it is as it was.
+  const GUESS_FIRST = ['jar', 'parcel', 'halo', 'front', 'storm', 'billow'] as const;
+  const memoCtx = (kept: unknown, onKeep: (v: unknown) => void = () => {}, score: FigureContext['score'] = () => {}): FigureContext =>
+    ({ save: emptySave(), closed: AbortSignal.abort(), score, memo: { restored: false, kept, keep: onKeep } });
+  const markGuess = (node: HTMLElement) => {
+    // Make a guess where there is something to pick, then lock it in.
+    const chips = [...node.querySelectorAll<HTMLButtonElement>('.fig-guess .chip')];
+    chips.forEach((c) => c.click());
+    [...node.querySelectorAll<HTMLButtonElement>('.fig-guess button.btn')].find((b) => !b.hidden && !b.disabled)?.click();
+  };
+
+  it('guess-first figures come back with their guess marked and their sliders free', () => {
+    for (const id of GUESS_FIRST) {
+      const use = uses.find((u) => u.block.figure === id)!.block;
+      let kept: unknown;
+      const first = FIGURES[id](memoCtx(undefined, (v) => (kept = v)), use.goal, use.options).node;
+      markGuess(first);
+      expect(kept, `${id} keeps its guess`).not.toBeUndefined();
+      const again = FIGURES[id](memoCtx(JSON.parse(JSON.stringify(kept))), use.goal, use.options).node;
+      const sliders = [...again.querySelectorAll<HTMLInputElement>('input[type=range]')];
+      expect(sliders.some((s) => !s.disabled), `${id} sliders free`).toBe(true);
+    }
+  });
+
+  it('checks come back with their answers, and finish with the same score', async () => {
+    for (const id of ['radioCheck', 'forecast'] as const) {
+      const use = uses.find((u) => u.block.figure === id)!.block;
+      let kept: unknown;
+      let score: [number, number] | undefined;
+      const first = FIGURES[id](memoCtx(undefined, (v) => (kept = v), (r, n) => (score = [r, n])), use.goal, use.options).node;
+      // Answer every question with the first option.
+      for (let i = 0; i < 40 && !score; i++) {
+        (first.querySelector<HTMLButtonElement>('.floor-buttons button:not([disabled]), .answer-list button:not([disabled])'))?.click();
+        (first.querySelector<HTMLButtonElement>('.actions .btn'))?.click();
+      }
+      expect(score, id).toBeDefined();
+      let again: [number, number] | undefined;
+      const handle = FIGURES[id](memoCtx(JSON.parse(JSON.stringify(kept)), () => {}, (r, n) => (again = [r, n])), use.goal, use.options);
+      expect(again, `${id} same score`).toEqual(score);
+      await handle.done;
+    }
+  });
+});
