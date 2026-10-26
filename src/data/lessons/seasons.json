@@ -1,0 +1,73 @@
+{
+  "id": "seasons",
+  "n": 7,
+  "title": "Building soil through the year",
+  "teaches": "Four habits that build soil, what to do with a bed in each season, and how cover crops and mulch do the work for you",
+  "parts": [
+    {
+      "title": "Four habits",
+      "blocks": [
+        { "kind": "text", "text": "The harvest is in, the bed is a tangle of tired stalks, and it is autumn. What now? Tidy it, dig it over and leave it neat and bare for winter? That was the advice for generations. Everything in the last six lessons says otherwise." },
+        { "kind": "text", "text": "Boil those lessons down and four habits fall out.[^principles] **Keep the soil covered**, so rain and sun don't smash its crumbs (lessons 2 and 5). **Keep living roots in it** as many months of the year as you can, to feed the web (lesson 3). **Feed it** with organic matter every year, because last year's is mostly eaten (lesson 4). And **disturb it as little as you can**: no digging that isn't needed, and no feet on the beds (lesson 5). None is hard. Together they make soil better every year, instead of a little worse." },
+        { "kind": "key", "title": "Hold on to", "points": [
+          "Covered, rooted, fed, and left alone: four habits that build soil.",
+          "Most of them are about what you leave in place, not what you add."
+        ] }
+      ]
+    },
+    {
+      "title": "A year in the bed",
+      "blocks": [
+        { "kind": "text", "text": "Here is one bed through a year, starting the way many do: a summer crop, then dug, then bare until spring. Change what covers it in each season, and how it is dug, and watch what happens to its [[organic matter|organic]] over five years.[^model]" },
+        { "kind": "figure", "figure": "year", "caption": "One bed through the seasons, and its organic matter over five years", "task": "Raise the bed's organic matter by at least half a percent in five years", "goal": "build" },
+        { "kind": "text", "text": "Five years sounds slow, and it is: half a percent of organic matter is a big change, and soil builds at the pace of its life. But you feel it much sooner than you could measure it. A bed covered over its first winter is easier to plant into the next spring; a bed left undug for two years has worm casts on its surface and drains after rain.[^broadbalk]" },
+        { "kind": "text", "text": "In practice, through the year:" },
+        { "kind": "key", "title": "Season by season", "points": [
+          "**Late summer and autumn.** As each crop finishes, cut it off at the ground and leave the roots to rot in place. Sow a cover crop straight away, or cover the bed with leaves, straw or 5 cm of compost.",
+          "**Winter.** Leave it covered, and stay off it, especially when wet.",
+          "**Spring.** Cut the cover crop a few weeks before planting and leave it on top as mulch, or cover it with a sheet for a few weeks to kill it. Plant through the mulch.",
+          "**Summer.** Keep beds planted, closely, and mulch between plants to keep the water in. When one crop comes out, put in another."
+        ] }
+      ]
+    },
+    {
+      "title": "Cover crops",
+      "blocks": [
+        { "kind": "text", "text": "A **cover crop** is grown not to eat but for the soil: to cover it, root it and feed it between food crops. Grasses such as winter rye make a dense mat of roots and lots of organic matter. Mustards and radishes grow fast and drive deep roots that open compacted ground. And the pea family, clovers, vetch and field beans, do something none of the others can: they make their own nitrogen fertilizer from the air, with help from bacteria living in their roots.[^rhizobia]" },
+        { "kind": "text", "text": "Choose by season. In autumn, sow something hardy that will stand the winter: rye, field beans or vetch, or a mix of a grass and a pea. In summer gaps, something quick: buckwheat or phacelia, which also feed bees. The reference page has a table. And if you'd rather not grow one, a thick mulch of leaves or compost covers and feeds the bed nearly as well; it just doesn't root it." },
+        { "kind": "key", "title": "Try it in the garden", "points": [
+          "Pick one bed and plan its year: what covers it in each season, and whether you need to dig it at all.",
+          "This autumn, cover at least one bare bed, with a cover crop or 5 cm of leaves or compost. Next spring, compare it with a bed left bare."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "kind": "figure", "figure": "check", "caption": "Seven questions on building soil", "task": "Answer them", "options": { "items": [
+          { "question": "The harvest is in. What does the soil want most over winter?", "options": ["To be covered, by a cover crop or mulch", "To be dug over and left bare", "To be watered weekly"], "answer": 0, "why": "Covered soil keeps its crumbs and its life through winter rain. Bare, dug soil loses both." },
+          { "picture": "cover-crop", "question": "What is a cover crop for?", "options": ["To cover, root and feed the soil between food crops", "To sell at the market", "To shade out the crop beside it"], "answer": 0, "why": "Cover crops are grown for the soil: they protect it, feed its life through their roots, and add organic matter." },
+          { "question": "Which cover crops add nitrogen from the air?", "options": ["Clovers, vetch, peas and beans", "Rye and oats", "Mustards and radishes"], "answer": 0, "why": "The pea family hosts bacteria in root nodules that turn nitrogen gas from the air into a form plants can use." },
+          { "question": "What do you do with a cover crop in spring?", "options": ["Cut it a few weeks before planting and leave it on top as mulch", "Dig it in deeply and plant the same day", "Pull it out and burn it"], "answer": 0, "why": "Cut and left on top, it feeds the soil as a mulch. Plant a few weeks later, once it has started to break down." },
+          { "picture": "mulch", "question": "What does a mulch of straw or leaves do for a bed in summer?", "options": ["Keeps the water in, shields the surface and feeds soil life", "Robs the soil of nitrogen wherever it touches", "Nothing: it is only for looks"], "answer": 0, "why": "Mulch slows evaporation, takes the blow of rain, keeps soil cooler and is slowly eaten into organic matter. Only the thin layer touching the soil is being eaten, so it borrows little nitrogen." },
+          { "question": "A bed gets compost every year but is dug twice a year. What holds it back?", "options": ["Digging speeds up the loss of the organic matter you add", "Compost doesn't work in dug soil", "Nothing: it is perfect"], "answer": 0, "why": "Digging breaks crumbs and lets air in, so soil life burns through organic matter faster. Less digging keeps more of what you add." },
+          { "question": "Why must organic matter be added every year to hold steady?", "options": ["Soil life eats most of it within a couple of years", "It turns into clay", "It is washed out by the first rain"], "answer": 0, "why": "Most added organic matter is eaten and breathed out as carbon dioxide within a year or two. Feeding the life is the point." }
+        ] } }
+      ]
+    }
+  ],
+  "learned": [
+    "Four habits build soil: keep it covered, keep living roots in it, feed it, and disturb it as little as possible.",
+    "After each harvest, cover the bed: a cover crop, leaves, straw or compost.",
+    "Cover crops in the pea family add nitrogen; grasses add bulk; radishes and mustards open the ground.",
+    "Soil builds slowly, over years, but a covered, undug bed feels better within a season."
+  ],
+  "next": "Next: reading your soil, or putting every test together to work out what is wrong with a bed, and what to do first.",
+  "journal": [],
+  "footnotes": {
+    "principles": { "kind": "technical", "title": "Soil health principles", "text": "The US Natural Resources Conservation Service teaches these as the principles of soil health: minimise disturbance, keep the soil covered, keep living roots in it, and grow a variety of plants. Farmers and gardeners came to the same rules from different directions: no-till farming in the American prairies, and no-dig gardening in Britain." },
+    "model": { "kind": "technical", "title": "The figure's model", "text": "Each cover adds a little organic matter a year, and the bed's life burns a share of what is there each year, a larger share when it is dug and when it lies bare. The numbers are chosen to give changes of the size gardeners see, a few tenths of a percent a year. It shows the direction and pace of change, not a forecast for your bed." },
+    "broadbalk": { "kind": "digression", "title": "The longest experiment", "text": "At Rothamsted, north of London, the Broadbalk field has grown wheat every year since 1843, with some strips getting manure every year and some nothing. The manured strips now hold more than twice the organic matter of the unfed ones. Nearly all of that rise came in the first fifty years: soil gains fastest when it has furthest to go, then settles at a new level." },
+    "rhizobia": { "kind": "technical", "title": "Nitrogen fixation", "text": "Bacteria called **rhizobia** live in small nodules on the roots of the pea family, and turn nitrogen gas from the air into ammonium, which they trade with the plant for sugar. A good stand of clover or vetch can fix more than 100 kg of nitrogen a hectare in a season, about 10 g a square metre. Split a nodule: pink inside means it is working." }
+  }
+}

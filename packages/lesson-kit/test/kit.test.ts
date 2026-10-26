@@ -7,6 +7,8 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { el } from '../src/dom';
 import { figure, frame, quiz, slider } from '../src/figure';
+import { closeFootnote, footnoteProblems, footnoteSet } from '../src/footnote';
+import { glossaryFromLessons, glossaryView, mergeGlossary } from '../src/glossary';
 import { lessonProblems, lessonView, prose, type Lesson } from '../src/lesson';
 import { emptyProgress, finishLesson, migrateProgress } from '../src/progress';
 import { deal, review, tally } from '../src/quiz';
@@ -76,5 +78,52 @@ describe('lesson-kit', () => {
     (root.querySelector('.gate button') as HTMLButtonElement).click();
     await new Promise((r) => setTimeout(r));
     expect(root.querySelector('.logbook .score')?.textContent).toBe('Check: 1 of 1 right');
+  });
+
+  it('numbers footnotes in reading order and opens one at a time', () => {
+    const notes = {
+      b: { kind: 'digression' as const, title: 'Side', text: 'A *side* trip.' },
+      a: { kind: 'technical' as const, title: 'Term', text: 'A term.' },
+    };
+    const texts = ['First[^a] and then[^b].', 'Again[^a].'];
+    const set = footnoteSet(notes, texts, (t) => prose(t, { ink: '#000' }));
+    expect([set.number('a'), set.number('b')]).toEqual([1, 2]);
+    const p = prose(texts[0], { ink: '#000' }, set);
+    document.body.append(p);
+    const marks = [...p.querySelectorAll('button.fn')] as HTMLButtonElement[];
+    expect(marks.map((m) => m.textContent)).toEqual(['1', '2']);
+    expect(marks[0].classList.contains('fn-technical')).toBe(true);
+    expect(p.textContent).not.toContain('[^');
+    marks[1].click();
+    expect(document.querySelectorAll('.fn-pop')).toHaveLength(1);
+    expect(document.querySelector('.fn-pop .fn-body i')?.textContent).toBe('side');
+    marks[0].click();
+    expect(document.querySelectorAll('.fn-pop')).toHaveLength(1);
+    expect(document.querySelector('.fn-pop .fn-title')?.textContent).toBe('Term');
+    closeFootnote();
+    expect(document.querySelector('.fn-pop')).toBeNull();
+    expect(prose('No notes[^a].', { ink: '#000' }).textContent).toBe('No notes.');
+    expect(footnoteProblems('x', notes, ['Only[^a] and[^c].'])).toEqual(['x: no footnote "c"', 'x: footnote "b" is never marked']);
+  });
+
+  it('builds a glossary from technical footnotes and a list, A to Z, and searches it', () => {
+    const lesson: Lesson = {
+      id: 'l', n: 1, title: 'L', teaches: 't', learned: [], next: '', journal: [], parts: [],
+      footnotes: {
+        t: { kind: 'technical', title: 'Torque', text: 'Turning force.' },
+        d: { kind: 'digression', title: 'Archimedes', text: 'Give me a place to stand.' },
+        h: { kind: 'technical', title: 'Hidden', text: 'Not listed.', glossary: false },
+      },
+    };
+    const from = glossaryFromLessons([lesson]);
+    expect(from.map((e) => e.term)).toEqual(['Torque']);
+    const all = mergeGlossary([{ id: 'f', term: 'The fulcrum', text: 'The pivot.', also: ['pivot point'] }, { id: 'x', term: 'torque', text: 'Duplicate.' }], from);
+    expect(all.map((e) => e.term)).toEqual(['The fulcrum', 'torque']);
+    const view = glossaryView({ entries: all, prose: (t) => document.createTextNode(t) });
+    expect([...view.querySelectorAll('.gl-letter')].map((h) => h.textContent)).toEqual(['F', 'T']);
+    const search = view.querySelector('input') as HTMLInputElement;
+    search.value = 'pivot point';
+    search.dispatchEvent(new Event('input'));
+    expect([...view.querySelectorAll('.gl-entry')].filter((n) => !(n as HTMLElement).hidden)).toHaveLength(1);
   });
 });

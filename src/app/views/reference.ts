@@ -2,8 +2,10 @@
 // whose lesson is not written yet shows only its title and what it will hold.
 
 import { el } from 'lesson-kit/dom';
+import { glossaryFromFile, glossaryFromLessons, glossaryView, mergeGlossary, type GlossaryFile } from 'lesson-kit/glossary';
 import type { View } from 'lesson-kit/router';
-import { lesson } from '../../core/lessons';
+import { lesson, LESSONS } from '../../core/lessons';
+import glossary from '../../data/glossary.json';
 import { REFERENCE, type RefBlock, type RefSection } from '../../core/reference';
 import { FIGURES } from '../figures';
 import { prose } from '../figures/kit';
@@ -32,6 +34,15 @@ function block(b: RefBlock, closed: AbortSignal): HTMLElement {
     }
     case 'picture':
       return picture(b.subject, Math.random, b.caption);
+    case 'glossary':
+      return glossaryView({
+        entries: mergeGlossary(glossaryFromFile(glossary as GlossaryFile), glossaryFromLessons(LESSONS)),
+        prose: (t) => prose(t),
+        lesson: (id) => {
+          const l = lesson(id);
+          return l ? { href: `#/lesson/${l.id}`, label: `Lesson ${l.n}` } : undefined;
+        },
+      });
   }
 }
 
@@ -46,8 +57,8 @@ export const referenceView: View = (root) => {
       { className: `ref-section${soon ? ' soon' : ''}`, id: `ref-${s.id}` },
       el('h2', {}, s.title),
       el('p.summary', {}, s.summary + '.'),
-      soon ? el('p', {}, from ? `Comes with lesson ${from.n}, ${from.title.toLowerCase()}.` : 'Coming.') : s.blocks.map((b) => block(b, closed.signal)),
-      !soon && from ? el('p.from-lesson', {}, 'From ', el('a', { href: `#/lesson/${from.id}` }, `lesson ${from.n}, ${from.title.toLowerCase()}`), '.') : null,
+      soon ? el('p', {}, from ? `Comes with lesson ${from.n}, “${from.title}”.` : 'Coming.') : s.blocks.map((b) => block(b, closed.signal)),
+      !soon && from ? el('p.from-lesson', {}, 'From ', el('a', { href: `#/lesson/${from.id}` }, `lesson ${from.n}, “${from.title}”`), '.') : null,
     );
     nodes.set(s.id, node);
     return node;
@@ -58,7 +69,7 @@ export const referenceView: View = (root) => {
   )));
   root.append(el('div.page.reference', {},
     el('h1', {}, 'Reference'),
-    el('p.muted', {}, 'What the lessons teach, to look up in the garden. Sections fill in as the lessons are written.'),
+    el('p.muted', {}, 'What the lessons teach, to look up in the garden.'),
     contents,
     REFERENCE.map(section),
   ));

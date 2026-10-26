@@ -3,20 +3,10 @@
     {
       "id": "glossary",
       "title": "Glossary",
-      "summary": "The words the lessons use, in a line each",
+      "summary": "Every word the lessons use, A to Z, with the notes from the lessons",
       "lesson": "made-of",
       "blocks": [
-        { "kind": "terms", "items": [
-          { "term": "Clay", "means": "Mineral grains smaller than 0.002 mm: flat plates that are sticky when wet and hold water and nutrients." },
-          { "term": "Jar test", "means": "Shaking soil in a jar of water and measuring the layers as they settle, to find its texture." },
-          { "term": "Loam", "means": "A soil with a balanced mix of sand, silt and clay, roughly 40, 40 and 20 parts in a hundred." },
-          { "term": "Minerals", "means": "The rock part of soil: sand, silt and clay." },
-          { "term": "Organic matter", "means": "Anything in soil that was alive: roots, leaves, dead creatures, and the humus they rot down to." },
-          { "term": "Pores", "means": "The spaces between soil grains, shared between water and air. About half of a good soil." },
-          { "term": "Sand", "means": "Mineral grains from 2 mm down to 0.05 mm: gritty, quick to drain, holding little." },
-          { "term": "Silt", "means": "Mineral grains from 0.05 mm down to 0.002 mm: smooth and floury." },
-          { "term": "Texture", "means": "A soil's mix of sand, silt and clay, named from the texture triangle." }
-        ] }
+        { "kind": "glossary" }
       ]
     },
     {
@@ -48,11 +38,94 @@
       ]
     },
     {
+      "id": "water",
+      "title": "Water by texture",
+      "summary": "How much water each soil holds for plants and how fast it drains",
+      "lesson": "water",
+      "blocks": [
+        { "kind": "table", "columns": ["Texture", "Water a plant can use, per 30 cm", "Summer days it lasts", "Drains when soaked"], "rows": [
+          ["Sand", "15 mm", "3", "120 mm/h"],
+          ["Loamy sand", "20 mm", "4", "95 mm/h"],
+          ["Sandy loam", "30 mm", "6", "55 mm/h"],
+          ["Loam", "44 mm", "9", "17 mm/h"],
+          ["Silt loam", "59 mm", "12", "19 mm/h"],
+          ["Clay loam", "45 mm", "9", "8 mm/h"],
+          ["Silty clay loam", "50 mm", "10", "7 mm/h"],
+          ["Clay", "36 mm", "7", "1 mm/h"]
+        ] },
+        { "kind": "text", "text": "Estimates for soils with 3% organic matter and average structure, from the Saxton and Rawls equations; summer days at 5 mm a day. Good crumb drains much faster than these, and compaction much slower." },
+        { "kind": "figure", "figure": "pores", "caption": "Try your own mix: what 30 cm of bed holds once it has drained" }
+      ]
+    },
+    {
+      "id": "food-web",
+      "title": "Who lives in soil",
+      "summary": "Bacteria, fungi, worms and the rest, and what each does",
+      "lesson": "food-web",
+      "blocks": [
+        { "kind": "table", "columns": ["Who", "How many", "Eats", "Does for the garden"], "rows": [
+          ["Bacteria", "100 million to 1 billion a teaspoon", "Root sugars, dead matter", "Release nutrients, make the gums that glue crumbs"],
+          ["Fungi", "1 to 40 m of thread a teaspoon", "Dead woody matter; root sugars, in partnership", "Rot tough matter, bind crumbs, bring roots water and phosphorus"],
+          ["Protozoa", "5,000 to 50,000 a teaspoon", "Bacteria", "Release nitrogen by the roots"],
+          ["Nematodes", "10 to 20 a teaspoon", "Bacteria, fungi, each other; a few eat roots", "Release nitrogen; a few are pests"],
+          ["Mites, springtails, beetles", "Thousands a square metre", "Dead leaves, fungi, each other", "Shred litter, spread microbes"],
+          ["Earthworms", "100 to 500 a square metre in good soil", "Dead leaves and soil", "Mix soil, leave rich casts, open burrows"]
+        ] },
+        { "kind": "picture", "subject": "earthworm", "caption": "Ten or more worms in a spadeful is a well-fed soil" }
+      ]
+    },
+    {
+      "id": "carbon-nitrogen",
+      "title": "Greens and browns",
+      "summary": "Carbon-to-nitrogen ratios of common compost materials",
+      "lesson": "organic-matter",
+      "blocks": [
+        { "kind": "table", "columns": ["Material", "Kind", "Carbon : nitrogen"], "rows": [
+          ["Grass clippings", "Green", "About 15"],
+          ["Kitchen scraps", "Green", "About 15"],
+          ["Coffee grounds", "Green", "About 20"],
+          ["Horse manure, with bedding", "Green", "25 to 30"],
+          ["Autumn leaves", "Brown", "40 to 80"],
+          ["Straw", "Brown", "About 80"],
+          ["Wood chips, sawdust", "Brown", "300 to 500"],
+          ["Cardboard, newspaper", "Brown", "About 400"]
+        ] },
+        { "kind": "text", "text": "Aim for about 25 to 30 overall: by volume, roughly two to three buckets of browns for each of greens. Typical values; real materials vary." },
+        { "kind": "figure", "figure": "heap", "caption": "Build a heap a bucket at a time" }
+      ]
+    },
+    {
+      "id": "structure",
+      "title": "Structure and compaction",
+      "summary": "What builds crumbs, and what breaks them",
+      "lesson": "structure",
+      "blocks": [
+        { "kind": "table", "columns": ["Builds crumb", "Breaks crumb"], "rows": [
+          ["Living roots, as many months as possible", "Bare soil"],
+          ["Compost and mulch", "Digging and rototilling"],
+          ["Worms and fungi, left undisturbed", "Walking on beds, worst when wet"],
+          ["Cover crops", "Hard rain on bare ground"]
+        ] },
+        { "kind": "figure", "figure": "crumb", "caption": "The same loam under different care" }
+      ]
+    },
+    {
       "id": "home-tests",
       "title": "Tests to do at home",
-      "summary": "The jar test now; the squeeze, percolation and worm count tests to come",
+      "summary": "The feel, jar, can, squeeze, worm, slake, screwdriver and pH tests",
       "lesson": "made-of",
       "blocks": [
+        { "kind": "table", "columns": ["Test", "How", "What it tells you", "Lesson"], "rows": [
+          ["Feel", "Squeeze a wet lump into a ribbon, then rub a wet pinch", "Texture, roughly", "1"],
+          ["Jar", "Shake soil in water with a little soap; mark the layers at 1 minute, 6 hours and when clear", "Texture, measured", "1"],
+          ["Can", "Push an open-ended can 5 cm in, pour 2.5 cm of water, time it", "How fast water soaks in", "2"],
+          ["Squeeze", "Squeeze a handful from a trowel's depth", "Whether to water, or keep off", "2"],
+          ["Worm count", "Dig a 20 cm spadeful, break it up, count", "How well fed the soil's life is", "3"],
+          ["Slake", "Set a dry walnut-sized clod on a mesh just under water; watch 5 minutes", "How strong the crumbs are", "5"],
+          ["Screwdriver", "Push a long screwdriver into moist soil", "Where it is compacted", "5"],
+          ["Spade", "Look at the side of a spadeful", "Crumbs or plates, and where roots go", "5"],
+          ["pH", "A kit or strips, or vinegar and baking soda for a rough check", "Acid, neutral or alkaline", "6"]
+        ] },
         { "kind": "picture", "subject": "jar-test", "caption": "A jar test after a day" },
         { "kind": "steps", "items": [
           "Fill a straight-sided jar a third full of soil from the bed, with stones and roots picked out.",
@@ -65,14 +138,128 @@
         ] }
       ]
     },
-    { "id": "structure", "title": "Structure and compaction", "summary": "Crumbs, pores and what packs them down", "lesson": "structure", "blocks": [] },
-    { "id": "water", "title": "Water by texture", "summary": "How much water each soil holds and how fast it drains", "lesson": "water", "blocks": [] },
-    { "id": "food-web", "title": "Who lives in soil", "summary": "Bacteria, fungi, worms and the rest, and what each does", "lesson": "food-web", "blocks": [] },
-    { "id": "carbon-nitrogen", "title": "Greens and browns", "summary": "Carbon-to-nitrogen ratios of common compost materials", "lesson": "organic-matter", "blocks": [] },
-    { "id": "amendments", "title": "Amendments and their N-P-K", "summary": "What is in common fertilizers and soil amendments", "lesson": "nutrients", "blocks": [] },
-    { "id": "deficiencies", "title": "Reading leaves", "summary": "Signs of a missing nutrient, and where they show first", "lesson": "nutrients", "blocks": [] },
-    { "id": "ph", "title": "pH and nutrients", "summary": "Which nutrients a plant can reach at each pH, and how to raise or lower it", "lesson": "ph", "blocks": [] },
-    { "id": "cover-crops", "title": "Cover crops", "summary": "What to sow when, and what each one does for the soil", "lesson": "seasons", "blocks": [] },
-    { "id": "soil-test", "title": "Reading a soil test", "summary": "What each line on a lab report means", "lesson": "diagnosis", "blocks": [] }
+    {
+      "id": "amendments",
+      "title": "Amendments and their N-P-K",
+      "summary": "What is in common fertilizers and soil amendments",
+      "lesson": "nutrients",
+      "blocks": [
+        { "kind": "table", "columns": ["Amendment", "N-P-K, typical", "Mainly for", "Note"], "rows": [
+          ["Garden compost", "About 1-0.5-1", "Organic matter, slow feed", "Varies widely; add yearly"],
+          ["Well-rotted manure", "About 0.5-0.5-0.5", "Organic matter, slow feed", "Fresh manure can burn plants"],
+          ["Blood meal", "12-0-0", "Nitrogen, quick", "Easy to overdo"],
+          ["Feather meal", "12-0-0", "Nitrogen, slow", ""],
+          ["Bone meal", "3-15-0", "Phosphorus", "Little use above pH 7"],
+          ["Fish emulsion", "5-1-1", "Nitrogen, liquid feed", ""],
+          ["Kelp meal", "1-0.5-2", "Potassium, trace nutrients", ""],
+          ["Wood ash", "0-1-3", "Potassium", "Raises pH like lime: not for alkaline soil"],
+          ["Garden lime", "0-0-0", "Raising pH, calcium", "Only on a test's advice"],
+          ["Dolomitic lime", "0-0-0", "Raising pH, calcium and magnesium", "Only on a test's advice"],
+          ["Elemental sulfur", "0-0-0", "Lowering pH", "Slow; months"],
+          ["Gypsum", "0-0-0", "Calcium and sulfur", "Does not change pH"],
+          ["Epsom salt", "0-0-0", "Magnesium and sulfur", "Only where magnesium is short"]
+        ] },
+        { "kind": "text", "text": "The numbers are percentages of nitrogen, phosphate and potash by weight. Products vary; read the bag." }
+      ]
+    },
+    {
+      "id": "deficiencies",
+      "title": "Reading leaves",
+      "summary": "Signs of a missing nutrient, and where they show first",
+      "lesson": "nutrients",
+      "blocks": [
+        { "kind": "table", "columns": ["Short of", "Shows first on", "Looks like", "Usual cause"], "rows": [
+          ["Nitrogen", "Old leaves", "Pale yellow all over; whole plant pale", "Too little nitrogen, or waterlogged roots"],
+          ["Phosphorus", "Old leaves", "Dull dark green, purple tints; small plant", "Cold soil, very acid or alkaline soil"],
+          ["Potassium", "Old leaves", "Yellow then brown, scorched edges", "Sandy soils where it washes out"],
+          ["Magnesium", "Old leaves", "Yellow between green veins", "Too little, or too much potassium"],
+          ["Iron", "New leaves", "Yellow between green veins", "pH too high"],
+          ["Calcium", "New growth, fruit", "Stunted tips; blossom end rot", "Uneven watering"],
+          ["Sulfur", "New leaves", "Pale all over", "Sandy soil low in organic matter"]
+        ] },
+        { "kind": "figure", "figure": "leaf", "caption": "Where a shortage shows on a plant" }
+      ]
+    },
+    {
+      "id": "ph",
+      "title": "pH and nutrients",
+      "summary": "Which nutrients a plant can reach at each pH, and how to raise or lower it",
+      "lesson": "nutrients",
+      "blocks": [
+        { "kind": "figure", "figure": "ph", "caption": "How available each nutrient is at each pH" },
+        { "kind": "table", "columns": ["pH", "Suits", "To change it"], "rows": [
+          ["4.5 to 5.5", "Blueberries, cranberries, rhododendrons", "Lime to raise it for most crops"],
+          ["5.5 to 6.0", "Potatoes (less scab), strawberries", "A little lime, if the test says so"],
+          ["6.0 to 7.0", "Most vegetables and flowers", "Keep it there with compost"],
+          ["7.0 to 7.5", "Cabbage family (less clubroot), asparagus", "Don't lime"],
+          ["Over 7.5", "Few crops; iron and phosphorus run short", "Sulfur, slowly; compost"]
+        ] }
+      ]
+    },
+    {
+      "id": "cover-crops",
+      "title": "Cover crops",
+      "summary": "What to sow when, and what each one does for the soil",
+      "lesson": "seasons",
+      "blocks": [
+        { "kind": "picture", "subject": "cover-crop", "caption": "Crimson clover and rye, sown in autumn" },
+        { "kind": "table", "columns": ["Cover crop", "Sow", "Does", "Note"], "rows": [
+          ["Winter rye", "Autumn", "Dense roots, lots of organic matter, very hardy", "Cut before it seeds; hard to dig in"],
+          ["Field beans", "Autumn", "Fixes nitrogen, deep roots", "Hardy"],
+          ["Hairy vetch", "Late summer to autumn", "Fixes a lot of nitrogen", "Good mixed with rye"],
+          ["Crimson clover", "Late summer", "Fixes nitrogen, feeds bees", "May not survive the hardest winters"],
+          ["Oats", "Late summer", "Quick cover, killed by frost", "Leaves a ready mulch in spring"],
+          ["Daikon radish", "Late summer", "Deep taproots break compaction", "Killed by hard frost"],
+          ["Mustard", "Spring to late summer", "Very fast cover", "Avoid before the cabbage family"],
+          ["Buckwheat", "Summer", "Fast cover in a gap, feeds bees", "Killed by the first frost"],
+          ["Phacelia", "Spring to late summer", "Fine roots, feeds bees", "Unrelated to any vegetable"]
+        ] }
+      ]
+    },
+    {
+      "id": "seasons",
+      "title": "Through the year",
+      "summary": "What to do with a bed in each season",
+      "lesson": "seasons",
+      "blocks": [
+        { "kind": "table", "columns": ["Season", "Do"], "rows": [
+          ["Late summer and autumn", "Cut finished crops at the ground and leave the roots. Sow a cover crop, or cover with leaves, straw or 5 cm of compost."],
+          ["Winter", "Keep it covered. Stay off it."],
+          ["Spring", "Cut cover crops a few weeks before planting; leave them as mulch. Plant through."],
+          ["Summer", "Keep beds planted closely, mulch between plants, replant gaps."]
+        ] },
+        { "kind": "figure", "figure": "year", "caption": "Try a plan: one bed through the seasons, over five years" }
+      ]
+    },
+    {
+      "id": "symptoms",
+      "title": "Symptom finder",
+      "summary": "From what you see in a bed to its likely cause",
+      "lesson": "diagnosis",
+      "blocks": [
+        { "kind": "figure", "figure": "detective", "caption": "Pick what you see; each question uses one of the home tests" }
+      ]
+    },
+    {
+      "id": "soil-test",
+      "title": "Reading a soil test",
+      "summary": "What each line on a lab report means",
+      "lesson": "diagnosis",
+      "blocks": [
+        { "kind": "table", "columns": ["Line", "What it means", "Garden target"], "rows": [
+          ["pH", "Acidity, measured in water", "6.0 to 7.0 for most vegetables"],
+          ["Buffer pH, or lime requirement", "How much lime it would take to raise the pH", "Follow the lab's figure"],
+          ["Organic matter", "Percent by weight", "4 to 8% in a well-kept bed"],
+          ["Phosphorus (P)", "Available phosphorus, by the lab's extract", "Medium to high on the lab's scale; more is not better"],
+          ["Potassium (K)", "Available potassium", "Medium to high on the lab's scale"],
+          ["Calcium, magnesium", "Held on the parking spots", "Usually fine if the pH is right"],
+          ["CEC", "Cation exchange capacity: the number of parking spots", "Higher holds more; raise it with organic matter"],
+          ["Base saturation", "The share of spots held by calcium, magnesium and potassium rather than acid", "Mostly a guide to pH"],
+          ["Soluble salts", "Salt in the soil water", "Low; high harms roots"],
+          ["Lead", "Contamination, often from old paint or traffic", "Under about 100 parts per million to grow food without worry"]
+        ] },
+        { "kind": "text", "text": "Labs use different methods for phosphorus and potassium, so compare numbers only within one lab, against its own ranges. For lead, follow your local health or extension service's guidance." }
+      ]
+    }
   ]
 }

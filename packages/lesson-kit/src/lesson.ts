@@ -7,8 +7,9 @@
 //
 // A lesson's words live in a JSON file (the Lesson shape below, less what the
 // app adds), so they can be edited outside the code. Text takes a little
-// markup (see prose): **bold**, *italic*, and [[words|colour]] to tie a word
-// to the same colour in a figure.
+// markup (see prose): **bold**, *italic*, [[words|colour]] to tie a word
+// to the same colour in a figure, and [^id] for a footnote from the lesson's
+// `footnotes` table, which opens in a popup (footnote.ts).
 //
 // With a radio (radio.ts, slip.ts) and the reader's radio setting on, a talk
 // comes on as the lesson opens and another once the check is done, before the
@@ -16,6 +17,7 @@
 
 import { el, type Child } from './dom';
 import type { FigureContext, FigureFactory } from './figure';
+import { closeFootnote, footnoteLegend, footnoteMarker, footnoteProblems, footnoteSet, type FootnoteSet, type Footnotes } from './footnote';
 import { finishLesson, type Progress } from './progress';
 import type { Cue, Talk } from './radio';
 import type { View } from './router';
@@ -48,21 +50,34 @@ export interface Lesson<F extends string = string> {
   next: string;
   /** Journal entries this lesson unlocks. */
   journal: string[];
+  /** Notes its text marks with [^id], shown in a popup (footnote.ts). */
+  footnotes?: Footnotes;
+}
+
+/** Every piece of a lesson's text that takes markup, in reading order. */
+export function lessonTexts(lesson: Lesson): string[] {
+  return lesson.parts.flatMap((p) => p.blocks.flatMap((b) => (b.kind === 'text' ? [b.text] : b.kind === 'key' ? b.points : [])));
 }
 
 /**
- * A paragraph of lesson text. **bold**, *italic*, and [[words|key]] in the
- * colour `palette[key]` (the ink colour, `palette.ink`, for a key it lacks).
+ * A paragraph of lesson text. **bold**, *italic*, [[words|key]] in the
+ * colour `palette[key]` (the ink colour, `palette.ink`, for a key it lacks),
+ * and [^id], the marker for footnote `id` in `notes` (dropped without them).
  */
-export function prose(text: string, palette: Readonly<Record<string, string>>): HTMLElement {
+export function prose(text: string, palette: Readonly<Record<string, string>>, notes?: FootnoteSet): HTMLElement {
   const p = el('p');
-  const re = /\*\*(.+?)\*\*|\*(.+?)\*|\[\[(.+?)\|(\w+)\]\]/g;
+  const re = /\*\*(.+?)\*\*|\*(.+?)\*|\[\[(.+?)\|(\w+)\]\]|\[\^([\w-]+)\]/g;
   let at = 0;
   for (const m of text.matchAll(re)) {
     if (m.index! > at) p.append(text.slice(at, m.index));
     if (m[1]) p.append(el('b', {}, m[1]));
     else if (m[2]) p.append(el('i', {}, m[2]));
-    else p.append(el('b.tint', { style: `color: ${palette[m[4]] ?? palette.ink}` }, m[3]));
+    else if (m[3]) p.append(el('b.tint', { style: `color: ${palette[m[4]] ?? palette.ink}` }, m[3]));
+    else {
+      const mark = notes && footnoteMarker(m[5], notes);
+      // A word joiner keeps the number on the line of the word it follows.
+      if (mark) p.append('\u2060', mark);
+    }
     at = m.index! + m[0].length;
   }
   if (at < text.length) p.append(text.slice(at));
@@ -73,8 +88,8 @@ export interface LessonViewOptions<L extends Lesson, S extends Progress> {
   lessons: readonly L[];
   figures: Readonly<Record<string, FigureFactory>>;
   store: Store<S>;
-  /** Turns a paragraph's markup into a node; usually prose with the app's palette. */
-  prose: (text: string) => HTMLElement;
+  /** Turns a paragraph's markup into a node; usually prose with the app's palette, passing `notes` on. */
+  prose: (text: string, notes?: FootnoteSet) => HTMLElement;
   /** The picture over the paper, at the top of the lesson. */
   hero?: (lesson: L) => Child;
   /** More under the lede, such as the names a lesson introduces. */
@@ -92,12 +107,12 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
   const home = o.home ?? '/home';
   const noun = o.noun ?? 'Lesson';
 
-  function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[]): HTMLElement {
+  function renderBlock(block: Block, ctx: FigureContext, tasks: Promise<void>[], notes: FootnoteSet): HTMLElement {
     switch (block.kind) {
       case 'text':
-        return o.prose(block.text);
+        return o.prose(block.text, notes);
       case 'key':
-        return el('section.key-ideas', {}, el('p.key-title', {}, block.title), el('ul', {}, ...block.points.map((p) => el('li', {}, o.prose(p)))));
+        return el('section.key-ideas', {}, el('p.key-title', {}, block.title), el('ul', {}, ...block.points.map((p) => el('li', {}, o.prose(p, notes)))));
       case 'figure': {
         const handle = o.figures[block.figure](ctx, block.goal, block.options);
         const status = block.task ? el('p.fig-task', {}, el('span.tick', { 'aria-hidden': 'true' }), block.task) : null;
@@ -127,6 +142,8 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
     const save = o.store.get();
     const replay = save.lessons[lesson.id]?.done === true;
     const score = { right: 0, of: 0 };
+    const footnotes = lesson.footnotes ?? {};
+    const notes = footnoteSet(footnotes, lessonTexts(lesson), (t) => o.prose(t));
     const talks = o.radio?.talks(lesson.id) ?? [];
     const talking = Boolean(o.radio) && save.talk && !replay;
     /** The talk on this cue, if the radio is on and it has not been heard. */
@@ -158,8 +175,9 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
           el('div.article-intro', {},
             el('p.eyebrow', {}, `${noun} ${lesson.n} of ${o.lessons.length}`),
             el('h1.poster-type', {}, lesson.title),
-            el('p.lede', {}, lesson.teaches + '.'),
+            el('p.lede', {}, /[.!?]$/.test(lesson.teaches) ? lesson.teaches : lesson.teaches + '.'),
             o.intro?.(lesson),
+            footnoteLegend(Object.values(footnotes).map((n) => n.kind)),
           ),
           article,
         ),
@@ -170,7 +188,7 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
       const tasks: Promise<void>[] = [];
       const section = el('section.part', {}, el('h2', {}, el('span.part-n', {}, String(i + 1)), part.title));
       article.append(section);
-      section.append(...part.blocks.map((b) => renderBlock(b, ctx, tasks)));
+      section.append(...part.blocks.map((b) => renderBlock(b, ctx, tasks, notes)));
       const done = Promise.all(tasks).then(() => undefined);
       // The quiz on the radio comes once the check is done, and the log waits for it.
       const quiz = i === lesson.parts.length - 1 ? waiting('check') : undefined;
@@ -241,6 +259,7 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
     return () => {
       alive = false;
       closed.abort();
+      closeFootnote();
       o.radio?.clear();
     };
   };
@@ -249,11 +268,13 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
 /**
  * What is wrong with a set of lessons and the figures they use, for an app's
  * content test: a figure that does not exist, a goal its figure would never
- * meet, or a task on a live figure with no goal (the lesson would stall).
+ * meet, a task on a live figure with no goal (the lesson would stall), or a
+ * footnote marker with no note, or a note with no marker.
  */
 export function lessonProblems(lessons: readonly Lesson[], figures: Readonly<Record<string, FigureFactory>>): string[] {
   const out: string[] = [];
   for (const l of lessons) {
+    out.push(...footnoteProblems(l.id, l.footnotes, lessonTexts(l)));
     for (const p of l.parts) {
       for (const b of p.blocks) {
         if (b.kind !== 'figure') continue;

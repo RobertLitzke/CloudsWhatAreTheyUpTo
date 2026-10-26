@@ -61,3 +61,32 @@ export function segmented<T extends string | number>(
   paint();
   return el('div.seg', { role: 'group' }, buttons);
 }
+
+/**
+ * A card over the page with a dimmed backdrop: for more about something in a
+ * list, such as a cloud's photo and notes. It closes with its × button,
+ * Escape, a tap on the backdrop, or a change of page. Returns a close function.
+ */
+export function sheet(label: string, ...children: Child[]): () => void {
+  document.querySelector('.sheet-back')?.remove();
+  const off = new AbortController();
+  const back = el('div.sheet-back');
+  const closeBtn = el('button.sheet-close', { type: 'button', 'aria-label': 'Close' }, '×');
+  const card = el('div.sheet', { role: 'dialog', 'aria-modal': 'true', 'aria-label': label, tabindex: '-1' }, closeBtn, ...children);
+  back.append(card);
+  const before = document.activeElement as HTMLElement | null;
+  const close = () => {
+    off.abort();
+    back.remove();
+    document.body.classList.remove('sheet-up');
+    before?.focus?.({ preventScroll: true });
+  };
+  closeBtn.addEventListener('click', close);
+  back.addEventListener('click', (e) => e.target === back && close());
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && close(), { signal: off.signal });
+  window.addEventListener('hashchange', close, { signal: off.signal });
+  document.body.append(back);
+  document.body.classList.add('sheet-up');
+  card.focus({ preventScroll: true });
+  return close;
+}

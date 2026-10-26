@@ -182,3 +182,21 @@ h2 { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 
 .credit-list { padding-left: 18px; }
 /* Answers can be whole sentences: plain type, not the button lettering. */
 .check .answer-list .btn { font: inherit; font-weight: 700; text-transform: none; letter-spacing: normal; line-height: 1.35; padding-top: 12px; padding-bottom: 12px; border-radius: 16px; }
+
+/* ---- Figure extras ----------------------------------------------------- */
+.fig-hint { font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 8px; }
+.fig-hint a { color: var(--rose); }
+.chip-label { align-self: center; font-size: 0.85rem; font-weight: 800; color: var(--ink-soft); min-width: 4.5em; }
+.detective .key-title { font-weight: 800; margin: 4px 0 4px; }
+.detective .steps { margin: 0 0 8px; }
+
+/* The glossary sits on the reference page's paper, not the dark page kit.css colours it for. */
+.ref-section .gl-search { background: var(--panel); color: var(--ink); }
+.ref-section .gl-index a { color: var(--rose); }
+.ref-section .gl-index a:hover { background: var(--panel); color: var(--ink); }
+.ref-section .gl-letter { color: var(--rose); border-bottom-color: var(--panel-2); }
+.ref-section .gl-term, .ref-section .gl-open { color: var(--ink); }
+.ref-section .gl-entry dd { color: var(--ink); }
+.ref-section .gl-lesson { color: var(--ink-soft); box-shadow: inset 0 0 0 1px var(--panel-2); }
+.ref-section .gl-none { color: var(--ink-soft); }
+.ref-section .glossary { max-height: 70vh; overflow-y: auto; overscroll-behavior: contain; }

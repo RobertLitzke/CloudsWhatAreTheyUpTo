@@ -6,6 +6,7 @@
 // olive, clay terracotta, water blue, air pale sky, and organic matter the
 // near-black of humus.
 
+import type { FootnoteSet } from 'lesson-kit/footnote';
 import { slider as kitSlider, type Slider } from 'lesson-kit/figure';
 import { prose as kitProse } from 'lesson-kit/lesson';
 
@@ -55,5 +56,5 @@ export function slider(label: string, min: number, max: number, step: number, va
   return kitSlider(label, min, max, step, value, show, onInput, COL[color]);
 }
 
-/** A paragraph of lesson text: **bold**, *italic*, and [[words|key]] in the colour COL[key]. */
-export const prose = (text: string): HTMLElement => kitProse(text, COL);
+/** A paragraph of lesson text: **bold**, *italic*, [[words|key]] in the colour COL[key], and [^id] footnotes from `notes`. */
+export const prose = (text: string, notes?: FootnoteSet): HTMLElement => kitProse(text, COL, notes);

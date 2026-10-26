@@ -334,3 +334,209 @@ export const triangleFigure = figure(['loam', 'clay', 'sand'], (_ctx, t) => {
   paint();
   return f.node;
 });
+
+// ---- Surface ------------------------------------------------------------------
+
+/** Grain width for slider position v (0 to 100): 1 cm down to 0.001 mm, on a log scale. */
+const widthAt = (v: number) => 10 * Math.pow(1e-4, v / 100);
+
+/** A width in millimetres, said simply. */
+function sayWidth(mm: number): string {
+  if (mm >= 1) return `${+mm.toPrecision(2)} mm`;
+  if (mm >= 0.01) return `${+mm.toPrecision(2)} mm`;
+  return `${+(mm * 1000).toPrecision(2)} µm`;
+}
+
+/** A surface in square centimetres, and something of about that size. */
+function saySurface(cm2: number): string {
+  const things: [number, string][] = [
+    [10, 'a postage stamp'], [60, 'a playing card'], [600, 'a page of a book'], [6000, 'a doormat'],
+    [60000, 'a big rug'], [600000, 'a living room floor'],
+  ];
+  let best = things[0];
+  for (const t of things) if (Math.abs(Math.log(cm2 / t[0])) < Math.abs(Math.log(cm2 / best[0]))) best = t;
+  const area = cm2 >= 10000 ? `${+(cm2 / 10000).toPrecision(2)} m²` : `${Math.round(cm2).toLocaleString('en')} cm²`;
+  return `${area}, about ${best[1]}`;
+}
+
+/**
+ * A sugar-cube's worth (1 cm³) of grains, cut smaller and smaller: the same
+ * volume of rock, but the total surface of the grains grows as the grains
+ * shrink, 6 cm² for one cube, 60 for millimetre sand, and square metres for clay.
+ */
+export const surfaceFigure = figure(['clay'], (_ctx, t) => {
+  const W = 400;
+  const H = 220;
+  const f = frame(W, H, 3);
+  const cube = svg('g');
+  const bar = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), cube, bar);
+  let v = 0;
+  const paint = () => {
+    const mm = widthAt(v);
+    const n = 10 / mm; // grains along each edge of the centimetre cube
+    const surface = 6 / (mm / 10); // cm² for 1 cm³
+    const size = mm > 2 ? 'mineral' : mm >= 0.05 ? 'sand' : mm >= 0.002 ? 'silt' : 'clay';
+    const what = mm >= 9.9 ? 'One cube of rock, 1 cm on a side' : mm > 2 ? `Pebbles ${sayWidth(mm)} across, gravel` : `Grains ${sayWidth(mm)} across, the size of ${size}`;
+    // The front face of the cube, cut into as many squares as there are grains along an edge, up to what can be drawn.
+    const x0 = 30;
+    const y0 = 30;
+    const side = 150;
+    const shown = Math.min(64, Math.max(1, Math.round(n)));
+    const lines: SVGElement[] = [svg('rect', { x: x0, y: y0, width: side, height: side, fill: tint(COL[size], 0.35), stroke: COL.ink, 'stroke-width': 1.5 })];
+    if (shown > 1) {
+      let d = '';
+      for (let i = 1; i < shown; i++) {
+        const p = f1(x0 + (side * i) / shown);
+        const q = f1(y0 + (side * i) / shown);
+        d += `M${p},${y0}V${y0 + side}M${x0},${q}H${x0 + side}`;
+      }
+      lines.push(svg('path', { d, stroke: COL[size], 'stroke-width': shown > 32 ? 0.4 : 0.8, fill: 'none' }));
+    }
+    lines.push(
+      small(x0 + side / 2, y0 + side + 16, '1 cm', { anchor: 'middle', soft: true }),
+      small(x0 + side / 2, y0 - 8, n > 64 ? `${Math.round(n).toLocaleString('en')} grains along each edge (too many to draw)` : `${Math.round(n)} grain${Math.round(n) === 1 ? '' : 's'} along each edge`, { anchor: 'middle', soft: true }),
+    );
+    redraw(cube, ...lines);
+    // The surface on a log scale from 6 cm² to 60,000 cm².
+    const bx = 220;
+    const bw = 30;
+    const by = 30;
+    const bh = 160;
+    const frac = Math.log10(surface / 6) / 4;
+    const marks: SVGElement[] = [
+      svg('rect', { x: bx, y: by, width: bw, height: bh, fill: tint(COL.water, 0.12), stroke: COL.grid }),
+      svg('rect', { x: bx, y: f1(by + bh * (1 - frac)), width: bw, height: f1(bh * frac), fill: COL.water }),
+    ];
+    for (const [s, name] of [[6, 'one cube'], [60, 'sand'], [3000, 'silt'], [60000, 'clay']] as const) {
+      const y = by + bh * (1 - Math.log10(s / 6) / 4);
+      marks.push(svg('line', { x1: bx + bw, y1: f1(y), x2: bx + bw + 6, y2: f1(y), stroke: COL.soft }), small(bx + bw + 10, y + 3, name, { soft: true }));
+    }
+    marks.push(label(bx + bw / 2, by + bh + 16, 'surface', { anchor: 'middle', bold: true, fill: COL.water }));
+    redraw(bar, ...marks);
+    f.readout.textContent = `${what}. ${mm >= 9.9 ? 'It has' : 'The same 1 cm³ of rock now has'} ${saySurface(surface)} of surface for water to cling to.`;
+    if (size === 'clay' && t.goal === 'clay') t.done();
+  };
+  f.controls.append(slider('Grain size', 0, 100, 1, 0, (x) => sayWidth(widthAt(x)), (x) => { v = x; paint(); }, 'clay').node);
+  paint();
+  return f.node;
+});
+
+// ---- Texture by feel ----------------------------------------------------------
+
+/** The texture by feel key (after Thien, 1979): a few questions about a wet ball of soil. */
+interface FeelStep {
+  ask: string;
+  answers: { say: string; next: string | Texture }[];
+}
+
+const FEEL: Record<string, FeelStep> = {
+  ball: { ask: 'Wet a walnut-sized lump and squeeze it. Does it stay in a ball?', answers: [
+    { say: 'No, it falls apart', next: 'sand' },
+    { say: 'Yes', next: 'ribbon' },
+  ] },
+  ribbon: { ask: 'Push it out between thumb and finger into a flat ribbon. Does a ribbon form?', answers: [
+    { say: 'No', next: 'loamy sand' },
+    { say: 'Yes', next: 'length' },
+  ] },
+  length: { ask: 'How long does the ribbon get before it breaks?', answers: [
+    { say: 'Under 2.5 cm (1 in)', next: 'weak' },
+    { say: '2.5 to 5 cm', next: 'medium' },
+    { say: 'Over 5 cm (2 in)', next: 'strong' },
+  ] },
+  weak: { ask: 'Rub a wet pinch in your palm. How does it feel?', answers: [
+    { say: 'Very gritty', next: 'sandy loam' },
+    { say: 'Very smooth', next: 'silt loam' },
+    { say: 'Neither', next: 'loam' },
+  ] },
+  medium: { ask: 'Rub a wet pinch in your palm. How does it feel?', answers: [
+    { say: 'Very gritty', next: 'sandy clay loam' },
+    { say: 'Very smooth', next: 'silty clay loam' },
+    { say: 'Neither', next: 'clay loam' },
+  ] },
+  strong: { ask: 'Rub a wet pinch in your palm. How does it feel?', answers: [
+    { say: 'Very gritty', next: 'sandy clay' },
+    { say: 'Very smooth', next: 'silty clay' },
+    { say: 'Neither', next: 'clay' },
+  ] },
+};
+
+const isTexture = (s: string): s is Texture => (TEXTURES as readonly string[]).includes(s);
+
+/** The texture triangle drawn small, with one class picked out. */
+function miniTriangle(g: SVGElement, pick: Texture | null): void {
+  const L = 170;
+  const x0 = 210;
+  const yb = 190;
+  const hgt = (L * Math.sqrt(3)) / 2;
+  const at = (sand: number, clay: number): string => {
+    const silt = 100 - sand - clay;
+    return `${f1(x0 + (silt * L + clay * (L / 2)) / 100)},${f1(yb - (clay * hgt) / 100)}`;
+  };
+  redraw(g, ...TEXTURES.map((c) => svg('polygon', {
+    points: REGIONS[c].map(([s, cl]) => at(s, cl)).join(' '),
+    fill: c === pick ? COL.ink : FILL[c],
+    stroke: '#fff',
+    'stroke-width': 0.8,
+  })), small(x0, yb + 14, 'sand', { fill: COL.sand, bold: true }), small(x0 + L, yb + 14, 'silt', { anchor: 'end', fill: COL.silt, bold: true }), small(x0 + L / 2, yb - hgt - 6, 'clay', { anchor: 'middle', fill: COL.clay, bold: true }));
+}
+
+export const feelFigure = figure(['name'], (_ctx, t) => {
+  const W = 400;
+  const H = 210;
+  const f = frame(W, H, 3);
+  const tri = svg('g');
+  const hand = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), hand, tri);
+  const row = el('div.chips');
+  const again = el('button.btn.btn-small.btn-ghost', { type: 'button' }, 'Start again') as HTMLButtonElement;
+  f.controls.append(row, again);
+
+  /** The lump on a ruler: a ball, crumbs if it fell apart, or a ribbon pushed out to `ribbon` (0 to 3: none, short, medium, long). */
+  const drawHand = (ribbon: number, ball: boolean) => {
+    const x0 = 24;
+    const y = 120;
+    const cm = 26;
+    const parts: SVGElement[] = [svg('rect', { x: x0, y: y + 14, width: cm * 6.5, height: 18, rx: 2, fill: '#efe2c0', stroke: COL.soft })];
+    for (let i = 0; i <= 6; i++) {
+      parts.push(svg('line', { x1: x0 + 6 + i * cm, y1: y + 14, x2: x0 + 6 + i * cm, y2: y + 22, stroke: COL.soft }));
+      parts.push(small(x0 + 6 + i * cm, y + 30, String(i), { anchor: 'middle', soft: true }));
+    }
+    parts.push(small(x0 + cm * 6.5, y + 44, 'cm', { anchor: 'end', soft: true }));
+    if (!ball && ribbon === 0) {
+      for (let i = 0; i < 12; i++) parts.push(svg('circle', { cx: x0 + 14 + (i % 6) * 9, cy: y + 4 - Math.floor(i / 6) * 7, r: 3.5, fill: COL.sand }));
+    } else if (ribbon === 0) {
+      parts.push(svg('circle', { cx: x0 + 26, cy: y - 8, r: 20, fill: COL.soil }));
+    } else {
+      const len = [0, 1.8, 3.8, 6][ribbon] * cm;
+      parts.push(svg('circle', { cx: x0 + 14, cy: y - 6, r: 14, fill: COL.soil }));
+      parts.push(svg('path', { d: `M${x0 + 20},${y - 2} h${f1(len)} l-2,8 h${f1(-len + 2)} z`, fill: COL.soil }));
+      parts.push(small(x0 + 26 + len / 2, y - 16, ['', 'weak ribbon', 'medium ribbon', 'strong ribbon'][ribbon], { anchor: 'middle', soft: true }));
+    }
+    redraw(hand, ...parts);
+  };
+
+  const go = (at: string) => {
+    if (isTexture(at)) {
+      miniTriangle(tri, at);
+      f.readout.textContent = `It is a ${at}. ${IN_THE_BED[feelOf(at)]} A jar test will tell you the mix more exactly.`;
+      row.replaceChildren();
+      if (t.goal === 'name') t.done();
+      return;
+    }
+    const step = FEEL[at];
+    f.readout.textContent = step.ask;
+    drawHand(at === 'ball' ? 0 : at === 'ribbon' ? 0 : at === 'length' ? 1 : at === 'weak' ? 1 : at === 'medium' ? 2 : 3, at !== 'ball');
+    row.replaceChildren(...step.answers.map((a) => el('button.chip', { type: 'button', onclick: () => {
+      if (a.next === 'sand') drawHand(0, false);
+      go(a.next);
+    } }, a.say)));
+  };
+  again.addEventListener('click', () => {
+    miniTriangle(tri, null);
+    go('ball');
+  });
+  miniTriangle(tri, null);
+  go('ball');
+  return f.node;
+});

@@ -20,15 +20,21 @@ story or radio mentor for now (the kit's radio is off).
   the soil cut away under it, roots, a worm and fungal threads; dark hedge
   green, seed-packet cream, leaf-green buttons, terracotta accents; Fraunces
   for headings.
-- **Lesson 1, What soil is made of**: a handful by volume, the three grain
-  sizes, a live jar test (pick a soil, slide time from 1 s to 3 days), the
-  texture triangle (sliders for sand and clay, with the twelve USDA classes),
-  and a seven-question check.
-- Lessons 2 to 9 are planned in `src/core/lessons.ts` and show as "Coming" on
-  the home page.
-- The **reference page**: a glossary, what is in a handful, the texture
-  triangle, and the jar test steps, with sections for the later lessons shown
-  as coming.
+- **Eight lessons**, each built around live figures:
+  1. What soil is made of: a handful by volume, a cube cut down to clay size,
+     the three grain sizes, texture by feel, the jar test, the texture triangle.
+  2. Where water and air live: pores, a rainstorm on a bed, drying to wilting.
+  3. The living soil: a teaspoon's census and a tap-through food web.
+  4. Organic matter and compost: mixing a heap by C:N, how fast things rot.
+  5. Crumb: building or breaking structure, and the slake test.
+  6. Feeding plants: parking spots (CEC), the pH chart, leaf symptoms.
+  7. Building soil through the year: a seasons wheel of covers and digging.
+  8. Reading your soil: a symptom-to-cause detective that links back.
+- **Footnotes** (`[^id]` in lesson text, from lesson-kit): technical terms and
+  digressions open in a sheet; technical ones also feed the glossary.
+- The **reference page**: a glossary, and a section per lesson (texture,
+  water by texture, the food web, C:N, structure, home tests, amendments,
+  deficiencies, pH, cover crops, the year, symptoms, reading a soil test).
 - A **quiz** of flash cards with spaced repetition (`src/data/quiz.json`).
 - **Photos with drawn fallbacks**: wherever the app shows a subject (a soil
   type, a jar test, later creatures and practices) it uses a photo from the
@@ -74,20 +80,33 @@ adjusting).
 ## Adding a lesson
 
 1. Write `src/data/lessons/<id>.json` (the format is in
-   `packages/lesson-kit/README.md`) and swap its `planned(...)` line in
-   `src/core/lessons.ts` for the import.
+   `packages/lesson-kit/README.md`) and import it in `src/core/lessons.ts`.
 2. Put its figures in `src/app/figures/<id>.ts`, add their ids to
    `FIGURE_IDS`, and name them in `src/app/figures/index.ts`.
 3. Fill its sections in `src/data/reference.json` and add cards to
    `src/data/quiz.json`.
 4. `npm test` catches unknown figures, goals no figure meets, and bad answers.
 
+## Rewriting lesson prose
+
+`tools/rewrite/rewrite.mjs` sends each lesson's prose to a model on OpenRouter
+(default `google/gemini-3.8-flash`) with a style brief against AI tropes, then
+checks each piece kept its markup, numbers and length. It reports to
+`tools/rewrite/out/` and only changes the JSON with `--write`.
+
+```bash
+OPENROUTER_API_KEY=... node tools/rewrite/rewrite.mjs            # dry run, all lessons
+OPENROUTER_API_KEY=... node tools/rewrite/rewrite.mjs water --write
+```
+
 ## Layout
 
 ```
 src/core/     pure TypeScript, no DOM
   soil.ts       grain sizes, the USDA texture classes, settling in a jar
-  lessons.ts    the nine lessons (written and planned), figure ids
+  water.ts, life.ts, compost.ts, structure.ts, nutrients.ts, seasons.ts,
+  diagnosis.ts  the models behind each lesson's figures
+  lessons.ts    the eight lessons, figure ids
   reference.ts  the reference page's shape
   photos.ts     subjects, the photo entry shape and accepted licences
   save.ts       the save, on top of lesson-kit's progress.ts
@@ -96,7 +115,7 @@ src/app/      store.ts, asset.ts, picture.ts (photo or drawing)
   scene/        garden.ts, jar.ts, subjects.ts (drawn stand-ins for photos)
   figures/      kit.ts (palette), one file per lesson, check.ts, index.ts
   views/        home, lesson, reference, quiz, settings, credits
-tools/        photos/, gallery/, icons.mjs
+tools/        photos/, gallery/, rewrite/, icons.mjs
 packages/lesson-kit/   the lesson engine, figures, quiz, shell and build
 ```
 

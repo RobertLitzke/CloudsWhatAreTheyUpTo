@@ -19,7 +19,9 @@ export type RefBlock =
   /** A lesson figure, live, with no task. */
   | { kind: 'figure'; figure: FigureId; caption: string }
   /** A photo of a subject, or its drawing when there is none. */
-  | { kind: 'picture'; subject: SubjectId; caption: string };
+  | { kind: 'picture'; subject: SubjectId; caption: string }
+  /** The glossary: data/glossary.json and the lessons' technical notes, A to Z, with a search box. */
+  | { kind: 'glossary' };
 
 export interface RefSection {
   id: string;

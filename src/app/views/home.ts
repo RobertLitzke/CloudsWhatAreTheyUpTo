@@ -55,7 +55,7 @@ export const homeView: View = (root) => {
           'div.ref-card',
           {},
           el('h2', {}, 'Reference'),
-          el('p', {}, 'Everything the lessons cover, set out to look up in the garden: the texture triangle, tests to do at home, a glossary, and tables to come on compost, nutrients, pH and cover crops.'),
+          el('p', {}, 'Everything the lessons cover, set out to look up in the garden: the texture triangle, tests to do at home, a glossary, compost ratios, nutrients and pH, cover crops and a symptom finder.'),
           el('a.btn', { href: '#/reference' }, 'Open the reference'),
         ),
       ),

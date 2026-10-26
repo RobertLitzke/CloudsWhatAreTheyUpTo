@@ -40,6 +40,14 @@ export const SUBJECTS = {
   'silt-soil': 'Silty soil',
   'soil-profile': 'A soil profile',
   'jar-test': 'A jar test',
+  'puddle': 'Water standing on a bed',
+  'earthworm': 'An earthworm',
+  'fungal-threads': 'Fungal threads on old mulch',
+  'compost-heap': 'A compost heap',
+  'crusted-soil': 'Soil crusted after rain',
+  'yellow-leaves': 'Yellowing leaves',
+  'cover-crop': 'A cover crop',
+  'mulch': 'A mulched bed',
 } as const;
 
 export type SubjectId = keyof typeof SUBJECTS;

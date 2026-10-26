@@ -11,6 +11,14 @@ export const CATEGORIES: Record<string, string[]> = {
   'silt-soil': ['Silt', 'Loess'],
   'soil-profile': ['Soil profiles', 'Soil horizons', 'Soil profiles in the United States'],
   'jar-test': ['Soil texture', 'Soil texture tests'],
+  'puddle': ['Puddles', 'Waterlogging', 'Flooded fields'],
+  'earthworm': ['Lumbricus terrestris', 'Earthworms', 'Aporrectodea'],
+  'fungal-threads': ['Mycelium', 'Hyphae'],
+  'compost-heap': ['Compost heaps', 'Compost bins', 'Composting'],
+  'crusted-soil': ['Soil crusts', 'Soil sealing', 'Soil erosion'],
+  'yellow-leaves': ['Nitrogen deficiency in plants', 'Chlorosis', 'Nutrient deficiencies in plants'],
+  'cover-crop': ['Cover crops', 'Green manure', 'Crimson clover', 'Phacelia tanacetifolia'],
+  'mulch': ['Mulch', 'Straw mulch', 'Mulching'],
 };
 
 /** Candidates narrower than this are skipped: they would look soft on a phone. */

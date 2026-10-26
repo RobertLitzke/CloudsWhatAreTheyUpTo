@@ -1,0 +1,81 @@
+{
+  "id": "nutrients",
+  "n": 6,
+  "title": "Feeding plants: nutrients and pH",
+  "teaches": "What nutrients plants take from soil, how clay and humus hold them against the rain, why pH decides which a root can reach, and how to read a yellow leaf",
+  "parts": [
+    {
+      "title": "What a plant takes",
+      "blocks": [
+        { "kind": "text", "text": "Your tomato leaves are turning yellow. The shelf at the garden centre offers a dozen answers in bright bags. Before choosing one, it helps to know what a plant actually takes from the soil, and what stands between the soil and the root." },
+        { "kind": "text", "text": "Almost all of a plant is built from air and water: carbon from the air, and hydrogen and oxygen from water. From the soil it needs only a little, but that little it can't do without.[^van-helmont] Three it needs in quantity: **nitrogen**, for proteins and the green of its leaves; **phosphorus**, for roots, flowers and seeds and for moving energy about; and **potassium**, for keeping water in its cells and its pores working. These are the N, P and K on every fertilizer bag.[^npk] Calcium, magnesium and sulfur it needs in smaller amounts, and iron, manganese, zinc, copper, boron and molybdenum in traces." },
+        { "kind": "text", "text": "Roots don't eat soil. They take up nutrients dissolved in the water around them, as charged particles, **ions**.[^ions] And that is the problem: water moves. Rain soaking down through a bed carries dissolved nutrients with it, below the roots and away. Something has to hold them." },
+        { "kind": "key", "title": "Hold on to", "points": [
+          "Plants build themselves mostly from air and water; from soil they take a small but essential set of nutrients.",
+          "Nitrogen, phosphorus and potassium are needed most. Roots take them up dissolved in water."
+        ] }
+      ]
+    },
+    {
+      "title": "Parking spots",
+      "blocks": [
+        { "kind": "text", "text": "Remember the huge surface of [[clay|clay]] from lesson 1? It is not neutral. Clay plates, and [[humus|organic]] even more so, carry negative electric charges across their surfaces. Positive ions, calcium, magnesium, potassium and ammonium, cling to them like cars in parking spots. Rain can't wash them away, but a root can swap them off, trading hydrogen ions for them. Soil scientists measure how many spots a soil has as its **cation exchange capacity**.[^cec]" },
+        { "kind": "figure", "figure": "parking", "caption": "Clay and humus, with nutrients parked on their charges, under rain", "task": "Give the soil a cation exchange capacity of at least 15", "goal": "hold" },
+        { "kind": "text", "text": "Negative ions have nowhere to park. **Nitrate**, the form most nitrogen ends up in, washes out with the water, which is why nitrogen fed to a sandy bed in autumn is mostly gone by spring.[^nitrate] Phosphorus is the opposite problem: it clings so hard to soil minerals that roots struggle to get it at all, and it barely moves. And a sandy soil low in organic matter has few spots of any kind: it holds little, so feed it little and often, and build up its humus, which adds spots faster than anything." }
+      ]
+    },
+    {
+      "title": "pH, the gatekeeper",
+      "blocks": [
+        { "kind": "text", "text": "A soil can hold plenty of a nutrient and still starve a plant of it. Whether a root can take a nutrient up depends on its chemical form, and the form depends on how acid or alkaline the soil is: its **pH**.[^ph] At a low pH iron and manganese dissolve freely, while phosphorus binds to aluminium and calcium runs short. At a high pH iron, manganese and zinc turn into forms roots can't take up, and phosphorus binds to calcium instead." },
+        { "kind": "figure", "figure": "ph", "caption": "How available each nutrient is at each pH: the wider the band, the easier to reach", "task": "Find a pH where every band is wide", "goal": "sweet" },
+        { "kind": "text", "text": "Most vegetables do best between about 6 and 7, where nothing is locked away, and that is the range to aim for. Lime raises a pH and sulfur lowers it, both slowly, over months, and by an amount a soil test should set.[^buffer] There is no point adding a nutrient the pH has locked away; the cheaper fix is usually to move the pH, and organic matter softens the extremes either way. A few plants like it acid on purpose: blueberries want about 5." }
+      ]
+    },
+    {
+      "title": "Reading a leaf",
+      "blocks": [
+        { "kind": "text", "text": "A plant short of a nutrient often says which, and where on the plant it shows is the first clue. Some nutrients, nitrogen, phosphorus, potassium and magnesium, the plant can move: short of them, it strips its oldest leaves to feed the new growth, so the old leaves show it first. Others, iron, calcium and sulfur, it can't move once they are in place, so the youngest leaves show the shortage." },
+        { "kind": "figure", "figure": "leaf", "caption": "Where a shortage shows on a plant", "task": "Look at three shortages", "goal": "look" },
+        { "kind": "text", "text": "Leaf signs are clues, not proof. Cold, drowned or compacted roots can't take up nutrients that are right there, and give the same yellow leaves; so can disease. Lesson 8 works through how to tell them apart. Before buying anything, test the pH and look at the roots." },
+        { "kind": "key", "title": "Try it in the garden", "points": [
+          "**Test the pH** of each bed with a kit or strips from a garden centre: mix soil with distilled water as the kit says. Note the numbers.",
+          "No kit? A rough check: add vinegar to a spoonful of dry soil. A fizz means it is alkaline, with free lime. Then mix another spoonful with distilled water to a mud and add baking soda: a fizz means it is acid. Neither: probably near neutral.",
+          "Look at any yellowing plant. Old leaves or new? Veins green or yellow?"
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "kind": "figure", "figure": "check", "caption": "Eight questions on nutrients and pH", "task": "Answer them", "options": { "items": [
+          { "question": "What are the N, P and K on a fertilizer bag?", "options": ["Nitrogen, phosphorus and potassium", "Nitrate, peat and kelp", "Nickel, phosphate and krypton"], "answer": 0, "why": "The three nutrients plants need in the largest amounts from soil. The numbers say how much of each the bag holds." },
+          { "question": "Why do clay and humus hold nutrients against the rain?", "options": ["Their negative charges hold positive nutrient ions", "They are heavier than water", "They soak the nutrients up inside"], "answer": 0, "why": "Clay and humus surfaces carry negative charges, and positive ions such as calcium, magnesium, potassium and ammonium cling to them." },
+          { "question": "Nitrogen fed to a sandy bed in autumn is mostly gone by spring. Why?", "options": ["Nitrate has no parking spot and washes out with the rain", "The cold destroys it", "Plants ate it all in winter"], "answer": 0, "why": "Nitrate is a negative ion, so it isn't held by clay or humus, and sandy soils let water through fast." },
+          { "question": "Roughly what pH suits most vegetables?", "options": ["6 to 7", "3 to 4", "8 to 9"], "answer": 0, "why": "Between about 6 and 7 every nutrient is reasonably available and aluminium stays out of solution." },
+          { "question": "A soil test says pH 8. Which nutrients are likely to be hard for roots to reach?", "options": ["Iron, manganese, zinc and phosphorus", "Nitrogen and potassium", "Calcium and magnesium"], "answer": 0, "why": "At high pH, iron, manganese and zinc turn into forms roots can't take up, and phosphorus binds to calcium." },
+          { "picture": "yellow-leaves", "question": "The oldest leaves of a plant turn pale yellow all over. What is the first suspect?", "options": ["Nitrogen", "Iron", "Calcium"], "answer": 0, "why": "Nitrogen moves within the plant, so a shortage strips the old leaves first, and the whole leaf yellows." },
+          { "question": "The youngest leaves yellow between green veins, in a soil of pH 7.8. What is likely?", "options": ["Iron locked away by the high pH", "Too much water", "Too little potassium"], "answer": 0, "why": "Iron can't move to new leaves, so they show it first, and above pH 7.5 iron is hard to reach even when there is plenty." },
+          { "question": "How do you raise the pH of an acid bed?", "options": ["Add garden lime, by the amount a test suggests", "Add sulfur", "Add more nitrogen fertilizer"], "answer": 0, "why": "Lime neutralises acidity, slowly. Sulfur does the opposite, and most nitrogen fertilizers make soil more acid over time." }
+        ] } }
+      ]
+    }
+  ],
+  "learned": [
+    "From soil a plant takes nitrogen, phosphorus and potassium in quantity, and others in smaller amounts, dissolved in water.",
+    "Clay and humus hold positive nutrients on their charges, the cation exchange capacity; nitrate has no spot and washes out.",
+    "pH decides which nutrients a root can reach; most vegetables want 6 to 7, set with lime or sulfur.",
+    "Old leaves show shortages of nutrients the plant can move; new leaves show those it can't."
+  ],
+  "next": "Next: building soil through the year, or what to do with a bed in each season.",
+  "journal": [],
+  "footnotes": {
+    "van-helmont": { "kind": "digression", "title": "The willow in a pot", "text": "Around 1640 Jan Baptist van Helmont planted a 2 kg willow in 90 kg of dried soil and gave it only rainwater for five years. The tree grew to 77 kg; the soil had lost about 60 grams. He concluded the tree was made of water. He was half right: most of it is carbon from the air, which nobody knew could be taken in until long after. But the soil's 60 grams were real, and essential." },
+    "npk": { "kind": "technical", "title": "Reading a fertilizer bag", "text": "Three numbers such as 10-10-10 are the percentages by weight of nitrogen, phosphate and potash. By an old convention, the second and third are given as oxides: the bag's phosphorus is about 44% of its phosphate number, and its potassium about 83% of its potash." },
+    "ions": { "kind": "technical", "title": "Ions", "text": "An **ion** is an atom or small molecule carrying an electric charge. Positive ones are **cations**: calcium (Ca²⁺), magnesium (Mg²⁺), potassium (K⁺), ammonium (NH₄⁺). Negative ones are **anions**: nitrate (NO₃⁻), sulfate (SO₄²⁻), phosphate." },
+    "cec": { "kind": "technical", "title": "Cation exchange capacity", "text": "**Cation exchange capacity**, or **CEC**, is the total negative charge per kilogram of soil, in centimoles of charge. A sand may be under 5, a loam 10 to 20, a clay or a rich organic soil 30 or more. The figure uses rules of thumb: about 0.5 per percent of a mixed garden clay, and 2 per percent of organic matter." },
+    "nitrate": { "kind": "digression", "title": "Where washed-out nitrate goes", "text": "Into groundwater, streams and in the end the sea. Nitrate in drinking water is regulated, and nitrogen running off farmland feeds the algal blooms that leave dead zones in places such as the Gulf of Mexico. In a garden, the fix is the same as on a farm: feed when plants are growing, and keep roots in the soil over winter to catch what is left." },
+    "ph": { "kind": "technical", "title": "pH", "text": "**pH** measures how acid a solution is, on a scale where 7 is neutral, lower is acid and higher is alkaline. Each step is a factor of ten: a soil at pH 5 has ten times the hydrogen ions of one at pH 6. Garden soils run from about 4.5 to 8.5." },
+    "buffer": { "kind": "technical", "title": "Buffering", "text": "Soils resist a change of pH, because the hydrogen ions parked on clay and humus come off to replace any that lime neutralises. A clay or a rich organic soil is strongly **buffered** and needs much more lime to shift than a sand. That is why a lab test gives a lime requirement, not just a pH." }
+  }
+}
