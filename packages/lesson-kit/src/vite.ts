@@ -53,7 +53,13 @@ export interface LessonAppOptions {
   port: number;
   /** The one-file copy's name, such as "clouds.html". */
   oneFile: string;
-  manifest: { name: string; short_name: string; description: string; theme_color: string; background_color?: string };
+  /**
+   * The manifest. `id` is what the browser knows an installed app by; it
+   * defaults to start_url. Changing it makes the browser treat the app as a
+   * new one, which is how to get past an install the browser remembers but
+   * the phone no longer has.
+   */
+  manifest: { name: string; short_name: string; description: string; theme_color: string; background_color?: string; id?: string };
   /** Files besides index.html and the icons to precache, such as a poster. */
   precache?: string[];
   /** A folder of large files (photos) kept by the service worker once seen. */
