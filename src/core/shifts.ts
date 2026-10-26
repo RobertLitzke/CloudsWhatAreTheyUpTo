@@ -30,7 +30,7 @@ import seeding from '../data/shifts/seeding.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
-  'streaks', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'radioCheck', 'forecast',
+  'streaks', 'prism', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'radioCheck', 'forecast',
   'molecules', 'expand', 'stability', 'heap', 'dayNight', 'radiators', 'fogStratus',
   'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
   'specks', 'inversion', 'burnOff', 'latent', 'kettle', 'density',

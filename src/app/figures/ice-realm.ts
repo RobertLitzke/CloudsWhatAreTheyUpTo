@@ -1,9 +1,9 @@
 // Figures about the ice realm: an ice crystal growing among supercooled
-// droplets, falling crystals smeared into mares' tails, the 22° halo building
-// up crystal by crystal, a warm front sliding in overhead, what a radar sees
-// of drops and of melting snow, and stills of what makes a droplet freeze, why
-// ice wins the vapour, snow becoming rain, and where a 22° bend shows up in
-// the sky.
+// droplets, falling crystals smeared into mares' tails, the prism that makes
+// the 22° halo, the halo building up crystal by crystal, a warm front sliding
+// in overhead, what a radar sees of drops and of melting snow, and stills of
+// what makes a droplet freeze, why ice wins the vapour, snow becoming rain,
+// and where a 22° bend shows up in the sky.
 
 import { el, svg } from 'lesson-kit/dom';
 import { genus } from '../../core/clouds';
@@ -12,12 +12,12 @@ import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
 import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, radarDish, radarImage, radarKey, redraw, small, still, type P } from './draw';
-import { COL, animate, figure, frame, height, lock, lockIn, placeable, radarColor, slider, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, lock, lockIn, radarColor, slider, tint, type FigureFactory } from './kit';
 import { fbm } from '../clouds/noise';
 import { radarWords, rainDbz, sameWaterEcho, stratiformDbz } from '../../core/radar';
 import { makeRng } from 'lesson-kit/rng';
 import { fullOverIce, fullOverWater } from '../../core/air';
-import { deviation, type V } from '../../core/optics';
+import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
 
 // ---- What makes a droplet freeze --------------------------------------------
@@ -389,6 +389,100 @@ export const streaksFigure = figure(['hooks'], (_ctx, t) => {
   return f.node;
 });
 
+// ---- One prism --------------------------------------------------------------
+
+const add = (a: V, b: V): V => [a[0] + b[0], a[1] + b[1]];
+const mul = (a: V, k: number): V => [a[0] * k, a[1] * k];
+const dot = (a: V, b: V) => a[0] * b[0] + a[1] * b[1];
+const unit = (deg: number): V => [Math.cos((deg * Math.PI) / 180), Math.sin((deg * Math.PI) / 180)];
+
+export const prismFigure = figure(['min'], (_ctx, t) => {
+  const W = 400;
+  const H = 240;
+  const f = frame(W, H);
+  const g = svg('g');
+  const plot = svg('g');
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g, plot);
+  const C: V = [110, 130];
+  const R = 64;
+  // A hexagon with two faces 60° apart: light goes in the lower-left face and
+  // out the lower-right one, skipping the bottom face between them.
+  const verts: V[] = Array.from({ length: 6 }, (_, k) => add(C, mul(unit(60 * k), R)));
+  const faceIn: [V, V] = [verts[2], verts[3]]; // outward normal at 150°
+  const faceOut: [V, V] = [verts[0], verts[1]]; // normal at 30°
+  const nIn = unit(150); // outward normal of the entry face
+  const nOut = unit(30);
+  const minD = minimumDeviation();
+  // Deviation plot on the right.
+  const px0 = 236;
+  const px1 = 390;
+  const py0 = 200;
+  const xOf = (i: number) => px0 + (i / 90) * (px1 - px0);
+  const yOf = (d: number) => py0 - ((d - 10) / 50) * 160;
+  const curve: V[] = [];
+  for (let i = 0; i <= 90; i += 0.5) {
+    const d = deviation(i);
+    if (d != null) curve.push([xOf(i), yOf(d)]);
+  }
+  const paint = (inc: number) => {
+    // The incoming ray, at `inc` degrees from the entry face's inward normal.
+    const inward = mul(nIn, -1);
+    const a = (Math.atan2(inward[1], inward[0]) * 180) / Math.PI + inc;
+    const d0 = unit(a);
+    const mid = mul(add(faceIn[0], faceIn[1]), 0.5);
+    const entry = mid;
+    const start = add(entry, mul(d0, -90));
+    const d1 = refract(d0, nIn, 1, ICE_N);
+    let exit: V | null = null;
+    let d2: V | null = null;
+    if (d1) {
+      // Where the inside ray meets the exit face's line.
+      const p = faceOut[0];
+      const tHit = dot(add(p, mul(entry, -1)), nOut) / dot(d1, nOut);
+      exit = add(entry, mul(d1, tHit));
+      d2 = refract(d1, mul(nOut, -1), ICE_N, 1);
+    }
+    const dev = deviation(inc);
+    const parts: SVGElement[] = [
+      svg('polygon', { points: verts.map((v) => v.join(',')).join(' '), fill: '#dfe9f7', stroke: COL.ice, 'stroke-width': 2 }),
+      line(faceIn[0][0], faceIn[0][1], faceIn[1][0], faceIn[1][1], COL.ice, 4),
+      line(faceOut[0][0], faceOut[0][1], faceOut[1][0], faceOut[1][1], COL.ice, 4),
+      line(start[0], start[1], entry[0], entry[1], COL.sun, 3),
+    ];
+    if (exit && d2) {
+      const end = add(exit, mul(d2, 90));
+      const ghost = add(exit, mul(d0, 70));
+      parts.push(
+        line(entry[0], entry[1], exit[0], exit[1], COL.sun, 3),
+        line(exit[0], exit[1], end[0], end[1], COL.sun, 3),
+        line(exit[0], exit[1], ghost[0], ghost[1], COL.soft, 1.2, { 'stroke-dasharray': '4 4' }),
+        label(20, 40, dev != null ? `bent ${dev.toFixed(1)}°` : '', { bold: true }),
+      );
+    } else {
+      parts.push(small(20, 226, 'The light is trapped inside and comes out another face.', { soft: true }));
+    }
+    redraw(g, ...parts);
+    redraw(plot,
+      line(px0, py0, px1, py0, COL.grid, 1),
+      line(px0, yOf(minD), px1, yOf(minD), COL.parcel, 1.2, { 'stroke-dasharray': '5 4' }),
+      small(px1, yOf(minD) + 12, '22°: the least it can bend', { anchor: 'end', fill: COL.parcel }),
+      polyline(curve, COL.ice, 2.5),
+      dev != null ? svg('circle', { cx: xOf(inc), cy: yOf(dev), r: 4.5, fill: COL.sun, stroke: COL.ink }) : null,
+      small(px0, py0 + 14, 'angle the light comes in at →', { soft: true }),
+      small(px0, 34, 'how much it is bent', { soft: true }),
+    );
+    f.readout.textContent = dev == null
+      ? 'At this angle the light cannot get out of the far face.'
+      : Math.abs(dev - minD) < 0.6
+        ? `Bent ${dev.toFixed(1)}°: the minimum. Nearby angles all bend almost exactly this much, so light piles up here.`
+        : `Bent ${dev.toFixed(1)}°. Turn the crystal and find the angle where the bend is smallest.`;
+    if (t.goal === 'min' && dev != null && Math.abs(dev - minD) < 0.6) t.done();
+  };
+  f.controls.append(slider('Turn the crystal', 14, 89, 0.5, 70, (v) => `${v.toFixed(0)}°`, paint, 'ice').node);
+  paint(70);
+  return f.node;
+});
+
 // ---- The halo, crystal by crystal -------------------------------------------
 
 export const haloFigure = figure(['ring'], (_ctx, t) => {
@@ -424,20 +518,8 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
     crystals.length = n;
   };
   let hand = false;
-  // First the reader puts a ring where they expect the light to gather.
-  let guessDeg = 8;
-  let marked = t.goal !== 'ring';
-  const mark = svg('g');
-  f.svg.append(mark);
   const paint = (n: number) => {
     grow(n);
-    const r = guessDeg * PX;
-    redraw(mark, marked && t.goal !== 'ring' ? null : svg('g', {},
-      svg('circle', { cx: C[0], cy: C[1], r, fill: 'none', stroke: COL.sun, 'stroke-width': 2, 'stroke-dasharray': marked ? '3 4' : '' }),
-      svg('circle', { cx: C[0] + r, cy: C[1], r: marked ? 3 : 7, fill: COL.sun }),
-      small(C[0], C[1] - r - 6, `your guess · ${guessDeg}°`, { anchor: 'middle', fill: '#fff' }),
-      ...(marked ? [] : [svg('circle', { cx: C[0], cy: C[1], r, fill: 'none', stroke: 'transparent', 'stroke-width': 28 })]),
-    ));
     const lit = crystals.reduce((k, c) => k + (c.lit ? 1 : 0), 0);
     if (g) {
       g.clearRect(0, 0, canvas.width, canvas.height);
@@ -454,18 +536,13 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
       }
       sky.setAttribute('href', canvas.toDataURL());
     }
-    redraw(overlay, hand ? svg('g', {},
-      line(C[0], C[1], C[0] + 22 * PX, C[1], '#fff', 1, { 'stroke-dasharray': '3 3' }),
-      small(C[0] + 11 * PX, C[1] - 6, 'hand span ≈ 22°', { anchor: 'middle', fill: '#fff' }),
-    ) : null);
-    const off = guessDeg - 22;
-    f.readout.textContent = !marked
-      ? 'Every crystal bends the light that passes through it by 22° or more. Where in the sky will the bright ones gather? Drag the gold ring there, then mark it.'
+    redraw(overlay, hand ? spreadHand(C, 22 * PX) : null);
+    f.readout.textContent = hand
+      ? 'Arm straight out, fingers spread wide: thumb tip on the sun, little-finger tip on the ring. That span is about 22°.'
       : n < 3000
         ? `${n.toLocaleString()} crystals all over the sky. Only ${lit} happen to be turned to send light to your eye.`
-        : `${n.toLocaleString()} crystals; ${lit.toLocaleString()} send you light. None sit closer than 22° to the sun, and most sit right at 22°: a ring, with darker sky inside.` +
-          (t.goal !== 'ring' ? '' : Math.abs(off) <= 2 ? ' Your ring was right.' : ` Your ring was ${Math.abs(off)}° too ${off > 0 ? 'wide' : 'small'}.`);
-    if (t.goal === 'ring' && marked && n >= 10000) t.done();
+        : `${n.toLocaleString()} crystals; ${lit.toLocaleString()} send you light. None sit closer than 22° to the sun, and most sit right at 22°: a ring, with darker sky inside.`;
+    if (t.goal === 'ring' && n >= 10000) t.done();
   };
   const toCount = (v: number) => Math.round(Math.pow(10, v)) * 10;
   const count = slider('Crystals', 1, 3.5, 0.01, 1.5, (v) => toCount(v).toLocaleString(), (v) => paint(toCount(v)), 'ice');
@@ -473,31 +550,65 @@ export const haloFigure = figure(['ring'], (_ctx, t) => {
   handBtn.type = 'button';
   handBtn.className = 'btn btn-small btn-ghost';
   handBtn.textContent = 'Measure with a hand';
-  handBtn.addEventListener('click', () => { hand = !hand; paint(toCount(count.value())); });
-  const place = placeable(f.svg, mark,
-    (x, y) => { guessDeg = Math.round(Math.min(28, Math.max(2, Math.hypot(x - C[0], y - C[1]) / PX))); paint(toCount(count.value())); },
-    (step) => { guessDeg = Math.min(28, Math.max(2, guessDeg + step)); paint(toCount(count.value())); });
-  const markIt = lockIn('Mark the ring', () => {
-    marked = true;
-    t.keep(guessDeg);
-    markIt.hidden = true;
-    place.enable(false);
-    lock([count], false);
+  handBtn.addEventListener('click', () => {
+    hand = !hand;
+    handBtn.textContent = hand ? 'Put the hand away' : 'Measure with a hand';
     paint(toCount(count.value()));
   });
-  f.controls.append(el('div.fig-guess', {}, markIt), count.node, handBtn);
-  if (!marked) {
-    markIt.hidden = false;
-    lock([count], true);
-    place.enable(true);
-  } else markIt.hidden = true;
-  if (!marked && typeof t.kept === 'number') {
-    guessDeg = t.kept;
-    markIt.click();
-  }
+  f.controls.append(count.node, handBtn);
   paint(toCount(count.value()));
   return f.node;
 });
+
+// A right hand held up at arm's length, back towards you, fingers spread as
+// wide as they go: thumb tip at `sun`, little-finger tip `span` to its right.
+function spreadHand(sun: V, span: number): SVGElement {
+  const k = span / 100; // the hand is drawn on a 100-wide grid, thumb tip at 0,0
+  const at = ([x, y]: V): V => [sun[0] + x * k, sun[1] + y * k];
+  const skin = '#e8bfa2';
+  const crease = '#c18d70';
+  // Each digit: where it leaves the palm, its tip, its width.
+  const digits: [V, V, number][] = [
+    [[40, 64], [0, 0], 17], // thumb
+    [[44, 36], [30, -48], 15], // index
+    [[57, 32], [57, -60], 16], // middle
+    [[69, 35], [81, -48], 15], // ring
+    [[77, 46], [100, 0], 13], // little finger
+  ];
+  const stroke = (from: V, to: V, w: number, color: string) => {
+    const [x1, y1] = at(from);
+    const [x2, y2] = at(to);
+    return svg('line', { x1, y1, x2, y2, stroke: color, 'stroke-width': w * k, 'stroke-linecap': 'round' });
+  };
+  const palm = (pad: number, color: string) => {
+    const [cx, cy] = at([59, 60]);
+    return svg('ellipse', { cx, cy, rx: (25 + pad) * k, ry: (30 + pad) * k, fill: color });
+  };
+  const wrist = (w: number, color: string) => stroke([59, 80], [61, 130], w, color);
+  const [tx, ty] = at([0, 0]);
+  const [lx, ly] = at([100, 0]);
+  return svg('g', {},
+    // Outline first, then skin over it, so only the outer edge shows.
+    ...digits.map(([from, to, w]) => stroke(from, to, w + 2.4, crease)),
+    palm(1.2, crease), wrist(44, crease),
+    ...digits.map(([from, to, w]) => stroke(from, to, w, skin)),
+    palm(0, skin), wrist(41.6, skin),
+    // Knuckles, and a nail at each fingertip.
+    ...digits.slice(1).map(([from, to]) => {
+      const [x, y] = at([from[0] + (to[0] - from[0]) * 0.55, from[1] + (to[1] - from[1]) * 0.55]);
+      return svg('circle', { cx: x, cy: y, r: 1.4 * k, fill: crease });
+    }),
+    ...digits.map(([from, to, w]) => {
+      const [x, y] = at([to[0] + (from[0] - to[0]) * 0.1, to[1] + (from[1] - to[1]) * 0.1]);
+      const a = (Math.atan2(to[1] - from[1], to[0] - from[0]) * 180) / Math.PI + 90;
+      return svg('ellipse', { cx: x, cy: y, rx: w * 0.32 * k, ry: w * 0.42 * k, fill: '#f6ddcd', stroke: crease, 'stroke-width': 0.8, transform: `rotate(${a} ${x} ${y})` });
+    }),
+    // The span, thumb tip to little-finger tip.
+    line(tx, ty, lx, ly, '#fff', 1.6, { 'stroke-dasharray': '4 3' }),
+    svg('circle', { cx: lx, cy: ly, r: 3, fill: '#fff' }),
+    small((tx + lx) / 2, ty - 5, '22°', { anchor: 'middle', bold: true, fill: '#fff' }),
+  );
+}
 
 // ---- Where a 22° bend shows up in the sky -----------------------------------
 

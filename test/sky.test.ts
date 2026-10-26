@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { angularSize, fogHour, frontSky, layerBySize, nightTemp, strikeKm } from '../src/core/sky';
-import { deviation, haloHistogram, minimumDeviation } from '../src/core/optics';
+import { deviation, haloHistogram, ICE_N, minimumDeviation, refract, type V } from '../src/core/optics';
 
 describe('halo optics', () => {
   it('bends light no less than about 22 degrees through a 60 degree prism', () => {
@@ -22,6 +22,24 @@ describe('halo optics', () => {
     expect(peak).toBeGreaterThanOrEqual(21);
     expect(peak).toBeLessThanOrEqual(23);
     expect(bins.slice(0, 21).every((b) => b === 0)).toBe(true);
+  });
+
+  // A ray heading down at `deg` from the vertical, onto a level surface whose normal points up.
+  const down = (deg: number): V => [Math.sin((deg * Math.PI) / 180), -Math.cos((deg * Math.PI) / 180)];
+
+  it('refracts by Snell’s law', () => {
+    for (const i of [0, 20, 45, 70]) {
+      const t = refract(down(i), [0, 1], 1, ICE_N)!;
+      expect(Math.hypot(...t)).toBeCloseTo(1, 9);
+      expect(t[0]).toBeCloseTo(Math.sin((i * Math.PI) / 180) / ICE_N, 9);
+      expect(t[1]).toBeLessThan(0);
+    }
+  });
+
+  it('reflects a ray that meets the inside of a face too steeply', () => {
+    // Leaving ice for air, nothing gets out beyond about 50° from the normal.
+    expect(refract(down(45), [0, 1], ICE_N, 1)).not.toBeNull();
+    expect(refract(down(55), [0, 1], ICE_N, 1)).toBeNull();
   });
 });
 

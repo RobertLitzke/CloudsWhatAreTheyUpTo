@@ -61,9 +61,16 @@
         },
         {
           "kind": "figure",
+          "figure": "prism",
+          "caption": "Sunlight through one hexagonal ice crystal.",
+          "task": "Turn the crystal until the light is bent the least.",
+          "goal": "min"
+        },
+        {
+          "kind": "figure",
           "figure": "halo",
           "caption": "Crystals all over the sky, each turned at random. The bright ones are sending light to your eye.",
-          "task": "Put a ring where you think the light will gather, then add crystals to check.",
+          "task": "Add crystals until a ring shows.",
           "goal": "ring"
         },
         {

@@ -43,7 +43,8 @@ and uses real photos for testing.
   3. **The middle sky and the hand trick**: names as a code, judging height
      with your hand at arm's length, self-shadows, altocumulus and
      altostratus.
-  4. **The ice realm and early warnings**: cirrus hooks, the 22° halo, and a warm front arriving over 48 hours.
+  4. **The ice realm and early warnings**: cirrus hooks, refraction through
+     an ice prism, the 22° halo, and a warm front arriving over 48 hours.
   5. **Vertical giants and rare boss clouds**: a sounding that grows
      congestus and cumulonimbus, a storm's life, counting the thunder, and
      the rare lens, mammatus and Kelvin-Helmholtz clouds.
@@ -107,7 +108,7 @@ src/core/     pure TypeScript, no DOM; unit-tested
   clouds.ts     the ten genera, the floors, the name roots
   air.ts        a rising parcel, the day's sounding, how tall a heap grows
   sky.ts        angular size, the warm front, night cooling, thunder
-  optics.ts     how ice crystals bend light into the halo
+  optics.ts     light through an ice prism, the halo
   drops.ts      how fast drops fall and how far they get before evaporating
   shifts.ts     the five lessons (parts of text and figures), journal
   talk.ts       the radio talks and the townsfolk's questions
