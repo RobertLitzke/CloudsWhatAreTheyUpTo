@@ -1,9 +1,10 @@
 // The settings page every lesson app has: the name on the log, units, the
-// radio, moving progress between devices, the app as one file, and erasing
-// progress. An app says what its own words are and adds any sections it needs.
+// radio, moving progress between devices, what is saved for offline, the app
+// as one file, and erasing progress. An app says what its own words are and adds any sections it needs.
 
-import { fromDisk } from './asset';
+import { fromDisk, selfContained } from './asset';
 import { el, type Child } from './dom';
+import { savedCount } from './offline';
 import type { Progress, Units } from './progress';
 import type { View } from './router';
 import type { Store } from './store';
@@ -20,8 +21,16 @@ export interface SettingsOptions<S extends Progress> {
   units?: { label: string; imperial: string; metric: string };
   /** A radio switch, with a line on what the talks are. */
   radio?: { blurb: string };
-  /** The one-file copy of the app (see vite.ts oneFileCopy): its URL and file name. */
-  oneFile?: { href: string; name: string };
+  /**
+   * The one-file copy of the app (see vite.ts oneFileCopy): its URL and file
+   * name, and the bigger copy with every photo inside (vite.ts offlineCopy).
+   */
+  oneFile?: { href: string; name: string; offline?: { href: string; name: string } };
+  /**
+   * The folder of large files the service worker saves (such as "photos/"),
+   * how many there are, and what to call them, for the Offline section.
+   */
+  offline?: { folder: string; total: number; noun: string };
   /** More, under About, before the erase button. */
   about?: Child;
   home?: string;
@@ -108,19 +117,8 @@ export function settingsView<S extends Progress>(o: SettingsOptions<S>): View {
           el('button.btn.btn-ghost', { type: 'button', onclick: () => file.click() }, 'Load from file'),
           file,
         ),
-        o.oneFile
-          ? [
-              el('h2', {}, 'The app as one file'),
-              el(
-                'p.muted',
-                {},
-                fromDisk
-                  ? 'This is the downloaded copy. It works with no connection; the photos come from the website, so they show only when you are online. Its progress is kept apart from the website’s, so use Save to file to carry progress across.'
-                  : 'Everything but the photos in a single page, to keep on a phone or pass to someone. It works with no connection, and shows the photos whenever you are online. Its progress is kept apart from this one’s.',
-              ),
-              el('a.btn.btn-ghost', { href: o.oneFile.href, download: o.oneFile.name }, fromDisk ? 'Download the latest copy' : `Download ${o.oneFile.name}`),
-            ]
-          : null,
+        o.offline && !fromDisk ? offlineSection(o.offline) : null,
+        o.oneFile ? oneFileSection(o.oneFile) : null,
         o.about ? [el('h2', {}, 'About'), o.about] : null,
         el(
           'button.btn.btn-danger',
@@ -137,4 +135,53 @@ export function settingsView<S extends Progress>(o: SettingsOptions<S>): View {
       ),
     );
   };
+}
+
+/** How many of the photos are saved on this device, counting up while the service worker downloads them. */
+function offlineSection({ folder, total, noun }: NonNullable<SettingsOptions<Progress>['offline']>): Child {
+  if (!('serviceWorker' in navigator) || typeof caches === 'undefined') {
+    return [el('h2', {}, 'Offline'), el('p.muted', {}, `This browser cannot keep the ${noun} for use with no connection.`)];
+  }
+  const line = el('p.muted', {}, `Checking which ${noun} are saved…`);
+  const bar = el('progress.offline-bar', { max: total, value: 0 }) as HTMLProgressElement;
+  const look = async () => {
+    const n = Math.min(await savedCount(folder), total);
+    bar.value = n;
+    line.textContent =
+      n >= total
+        ? `All ${total} ${noun} are saved on this device. The app works with no connection.`
+        : `${n} of ${total} ${noun} saved on this device so far. ${navigator.onLine ? 'The rest are downloading; keep the app open.' : 'The rest download next time you are online.'}`;
+    if (n < total && line.isConnected) setTimeout(look, 1500);
+  };
+  // Look once the section is on the page, so the first isConnected is true.
+  setTimeout(look, 0);
+  return [el('h2', {}, 'Offline'), bar, line];
+}
+
+function oneFileSection(f: NonNullable<SettingsOptions<Progress>['oneFile']>): Child {
+  const text = selfContained
+    ? 'This is the downloaded copy with every photo inside. It needs no connection at all. Its progress is kept apart from the website’s, so use Save to file to carry progress across.'
+    : fromDisk
+      ? `This is the downloaded copy. It works with no connection; the photos come from the website, so they show only when you are online.${f.offline ? ` ${f.offline.name} has the photos inside.` : ''} Its progress is kept apart from the website’s, so use Save to file to carry progress across.`
+      : f.offline
+        ? `The app in a single page, to keep on a phone or pass to someone. ${f.name} is small and shows the photos only when you are online; ${f.offline.name} is bigger and has every photo inside, so it needs no connection at all. Either keeps its progress apart from this one’s.`
+        : 'Everything but the photos in a single page, to keep on a phone or pass to someone. It works with no connection, and shows the photos whenever you are online. Its progress is kept apart from this one’s.';
+  const big = f.offline ? (el('a.btn.btn-ghost', { href: f.offline.href, download: f.offline.name }, `Download ${f.offline.name}`) as HTMLAnchorElement) : null;
+  if (big && f.offline) void sizeOf(f.offline.href).then((mb) => mb && (big.textContent = `Download ${f.offline!.name} (${mb})`));
+  return [
+    el('h2', {}, 'The app as one file'),
+    el('p.muted', {}, text),
+    el('div.row', {}, el('a.btn.btn-ghost', { href: f.href, download: f.name }, fromDisk && !selfContained ? 'Download the latest copy' : `Download ${f.name}`), big),
+  ];
+}
+
+/** A file's size as "12.6 MB", or null when it cannot be asked for. */
+async function sizeOf(href: string): Promise<string | null> {
+  try {
+    const res = await fetch(href, { method: 'HEAD' });
+    const bytes = Number(res.headers.get('content-length'));
+    return res.ok && bytes > 0 ? `${(bytes / 1024 / 1024).toFixed(1)} MB` : null;
+  } catch {
+    return null;
+  }
 }

@@ -7,7 +7,6 @@ import { makeRng } from 'lesson-kit/rng';
 const photo = (id: string, genus: GenusId): Photo => ({
   id,
   genus,
-  file: `photos/${id}.webp`,
   width: 1280,
   height: 853,
   author: 'A. Watcher',

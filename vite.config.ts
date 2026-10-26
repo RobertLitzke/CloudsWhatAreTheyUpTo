@@ -4,9 +4,11 @@ import pkg from './package.json';
 
 // The build is lesson-kit's (packages/lesson-kit/src/vite.ts): everything
 // inlined into dist/index.html, the same page again as dist/clouds.html for
-// Settings' download link, and a service worker. Photos cannot be inlined:
-// there are too many and they are large, so they sit in dist/photos/ and the
-// service worker keeps each one once it has been seen.
+// Settings' download link, and a service worker. Photos are too many and too
+// large to inline into the page itself, so they sit in dist/photos/ and the
+// service worker downloads every one when it installs, so the installed app
+// works offline. dist/clouds-offline.html is the one-file copy with every
+// photo inlined (about 13 MB), for when no install is possible.
 export default defineConfig(
   lessonApp({
     root: __dirname,
@@ -14,8 +16,8 @@ export default defineConfig(
     // Ports follow the local-dev port scheme: one block of ten per web project.
     port: 5420,
     oneFile: 'clouds.html',
-    precache: ['poster.webp'],
-    cacheFolder: { path: '/photos/', name: 'photos', maxEntries: 600 },
+    offlineFile: 'clouds-offline.html',
+    precache: ['poster.webp', 'photos/*.webp'],
     manifest: {
       name: 'Clouds: What are they up to?',
       short_name: 'Clouds',

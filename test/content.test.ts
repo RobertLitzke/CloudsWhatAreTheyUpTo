@@ -1,6 +1,8 @@
+import { readdirSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { compose, genus, type Body, type Prefix } from '../src/core/clouds';
-import { problems, type Photo } from '../src/core/photos';
+import { photoFile, problems, type Photo } from '../src/core/photos';
 import { FIGURE_IDS, JOURNAL, SHIFTS, type Block, type Forecast, type Shift } from '../src/core/shifts';
 import { GLOSSARY } from '../src/core/glossary';
 import { footnoteProblems } from 'lesson-kit/footnote';
@@ -149,5 +151,17 @@ describe('photo library', () => {
     const photos = library as Photo[];
     for (const p of photos) expect(problems(p), p.id).toEqual([]);
     expect(new Set(photos.map((p) => p.id)).size).toBe(photos.length);
+  });
+
+  it('has one file per id, named by it, and no file without an entry', () => {
+    const files = readdirSync(resolve(__dirname, '../public/photos')).filter((f) => !f.startsWith('.')).sort();
+    expect(files).toEqual((library as Photo[]).map((p) => photoFile(p).replace('photos/', '')).sort());
+  });
+
+  it('names every photo a lesson asks for by an id it has', () => {
+    const ids = new Set((library as Photo[]).map((p) => p.id));
+    const named = JSON.stringify(SHIFTS).match(/"photo":"[^"]*"/g) ?? [];
+    expect(named.length).toBeGreaterThan(0);
+    for (const m of named) expect(ids.has(m.slice(9, -1)), m).toBe(true);
   });
 });

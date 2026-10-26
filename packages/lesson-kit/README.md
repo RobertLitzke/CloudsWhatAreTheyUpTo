@@ -38,10 +38,11 @@ the others by hand.
 | `quiz-view` | `quizView({ deck, store, blurb, media? })`, the quiz page |
 | `radio` | Talk, Turn and Reply types, `transcript()` |
 | `slip` | `createSlip({ stations, snubs, signOff, onHeard, onOff })` returns `{ play, clear }`, the typewriter slip |
-| `settings` | `settingsView({ store, empty, appName, saveFile, units?, radio?, oneFile?, about? })` |
+| `settings` | `settingsView({ store, empty, appName, saveFile, units?, radio?, offline?, oneFile?, about? })`; `offline` shows how many photos are saved on the device, `oneFile.offline` offers the copy with photos inside |
 | `update` | `watchForUpdates({ title, text, icon? })`, the "new version" banner |
 | `splash` | `showSplash({ src, alt })`, a poster as the loading screen |
-| `asset` | `assetFrom(siteUrl)`, `fromDisk` (lets the one-file copy fetch photos from the live site) |
+| `asset` | `assetFrom(siteUrl)`, `fromDisk` (lets the one-file copy fetch photos from the live site), `selfContained` (the offline copy, photos inlined) |
+| `offline` | `savedCount(folder)`, `retireWhenSaved(folder, total, oldCaches)` |
 | `overflow` | Dev only: flags anything wider than the screen |
 | `vite` | `lessonApp({...})`, the whole Vite config (single-file build, one-file copy, PWA) |
 | `styles/kit.css` | All the styles above, themed through CSS custom properties |
@@ -86,7 +87,8 @@ export default defineConfig(lessonApp({
   version: pkg.version,
   port: 5430,                       // one block of ten ports per project
   oneFile: 'levers.html',
-  precache: ['poster.webp'],        // optional
+  precache: ['poster.webp', 'photos/*.webp'], // optional: downloaded when the service worker installs
+  offlineFile: 'levers-offline.html', // optional: one-file copy with every precache file inlined
   manifest: { name: 'Levers', short_name: 'Levers', description: '…', theme_color: '#1b172f' },
 }));
 ```

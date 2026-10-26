@@ -29,7 +29,10 @@ export const FEATURES = ['lenticularis', 'mammatus', 'fluctus'] as const;
 export type FeatureId = (typeof FEATURES)[number];
 
 export interface Photo {
-  /** Stable id, also the file name without extension. */
+  /**
+   * Stable id, such as cumulus-01. It is the photo's only name: the file is
+   * photos/<id>.webp (see photoFile), and lessons and the quiz name photos by it.
+   */
   id: string;
   genus: GenusId;
   /**
@@ -44,8 +47,6 @@ export interface Photo {
    * half the time, so the same few photos make more different-looking cards.
    */
   noMirror?: true;
-  /** Path relative to the page, e.g. photos/cumulus-01.webp. */
-  file: string;
   width: number;
   height: number;
   author: string;
@@ -67,13 +68,17 @@ export function problems(p: Partial<Photo>): string[] {
   if (!p.genus || !isGenusId(p.genus)) out.push(`unknown genus ${p.genus}`);
   if (p.noMirror !== undefined && p.noMirror !== true) out.push('noMirror must be true or left out');
   if (p.feature !== undefined && !FEATURES.includes(p.feature)) out.push(`unknown rare cloud ${p.feature}`);
-  if (!p.file || !p.file.startsWith('photos/')) out.push('file must live under photos/');
   if (!p.author?.trim()) out.push('no author');
   if (!p.license || !isLicenseId(p.license)) out.push(`licence ${p.license} is not allowed`);
   if (!p.sourceUrl?.startsWith('https://')) out.push('no https source link');
   if (!p.source?.trim()) out.push('no source name');
   if (!(p.width! > 0 && p.height! > 0)) out.push('no size');
   return out;
+}
+
+/** The photo's file, relative to the page: photos/<id>.webp. */
+export function photoFile(p: Pick<Photo, 'id'>): string {
+  return `photos/${p.id}.webp`;
 }
 
 /** The everyday photos of a genus: the rare clouds are left out. */

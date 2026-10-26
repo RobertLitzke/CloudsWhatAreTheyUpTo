@@ -63,7 +63,6 @@ for (const [key, list] of Object.entries(picks)) {
       genus,
       ...(feature ? { feature } : {}),
       ...(noMirror.has(info.title) ? { noMirror: true } : {}),
-      file: `photos/${file}`,
       width: out.info.width,
       height: out.info.height,
       author: info.author,

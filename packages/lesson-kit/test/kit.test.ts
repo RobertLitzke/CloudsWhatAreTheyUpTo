@@ -26,6 +26,15 @@ describe('lesson-kit', () => {
     }
   });
 
+  it('reads precache globs the way workbox does', async () => {
+    const { globRegExp } = await import('../src/vite');
+    expect(globRegExp('photos/*.webp').test('photos/cumulus-01.webp')).toBe(true);
+    expect(globRegExp('photos/*.webp').test('photos/.gitkeep')).toBe(false);
+    expect(globRegExp('photos/*.webp').test('photos/x/cumulus-01.webp')).toBe(false);
+    expect(globRegExp('icons/*.{png,svg}').test('icons/icon.svg')).toBe(true);
+    expect(globRegExp('poster.webp').test('posterXwebp')).toBe(false);
+  });
+
   it('migrates junk to an empty save and keeps the best score', () => {
     expect(migrateProgress('x')).toEqual(emptyProgress());
     const once = finishLesson(emptyProgress(), 'a', 3, 4, ['j'], new Date('2026-01-02'));

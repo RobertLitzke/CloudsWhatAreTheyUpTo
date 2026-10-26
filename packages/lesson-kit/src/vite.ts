@@ -1,12 +1,14 @@
 // The build every lesson app shares. The app is inlined into dist/index.html
 // (JS, CSS and fonts), so the page works from file:// and from a GitHub Pages
-// sub-path; photos and other large files sit next to it and the service
-// worker keeps each one once it has been seen, which is what makes a finished
-// lesson work offline. The same page is also written under a second name, the
-// one-file copy that the settings page offers to download.
+// sub-path; photos and other large files sit next to it, and the service
+// worker downloads all of them when it installs, so the installed app works
+// offline from then on. The same page is also written under a second name, the
+// one-file copy that the settings page offers to download, and optionally a
+// third time with every large file inlined, a bigger copy that needs no
+// connection at all.
 
-import { copyFileSync, existsSync, readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { copyFileSync, existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { extname, join, resolve } from 'node:path';
 import type { Plugin, UserConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteSingleFile } from 'vite-plugin-singlefile';
@@ -23,6 +25,59 @@ export function oneFileCopy(root: string, name: string): Plugin {
     closeBundle() {
       const out = resolve(root, 'dist');
       copyFileSync(resolve(out, 'index.html'), resolve(out, name));
+    },
+  };
+}
+
+/** Media types for the files an offline copy may inline. */
+const TYPES: Record<string, string> = {
+  '.webp': 'image/webp',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.svg': 'image/svg+xml',
+  '.json': 'application/json',
+};
+
+/** A glob as workbox reads it (`*` within a folder, `{a,b}`) as a RegExp. */
+export function globRegExp(glob: string): RegExp {
+  const body = glob
+    .replace(/[.+^$()|[\]\\]/g, '\\$&')
+    .replace(/\*/g, '[^/]*')
+    .replace(/\{([^}]*)\}/g, (_, alts: string) => `(${alts.split(',').join('|')})`);
+  return new RegExp(`^${body}$`);
+}
+
+/** Every file under `dir`, as a path relative to it with forward slashes. */
+function filesUnder(dir: string, prefix = ''): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((d) =>
+    d.isDirectory() ? filesUnder(join(dir, d.name), `${prefix}${d.name}/`) : [`${prefix}${d.name}`],
+  );
+}
+
+/**
+ * Writes dist/index.html again as dist/`name`, with every file matching
+ * `globs` inlined as a data URI in window.__LESSON_FILES__, keyed by its path.
+ * lesson-kit's asset() looks there first, so this copy needs no connection.
+ * The classic script runs before the app's module script, which waits for the
+ * page to finish parsing.
+ */
+export function offlineCopy(root: string, name: string, globs: string[]): Plugin {
+  return {
+    name: 'offline-copy',
+    apply: 'build',
+    closeBundle() {
+      const out = resolve(root, 'dist');
+      const tests = globs.map(globRegExp);
+      const files: Record<string, string> = {};
+      for (const f of filesUnder(out).sort()) {
+        const type = TYPES[extname(f).toLowerCase()];
+        if (!type || !tests.some((t) => t.test(f))) continue;
+        files[f] = `data:${type};base64,${readFileSync(join(out, f)).toString('base64')}`;
+      }
+      const script = `<script>window.__LESSON_FILES__=${JSON.stringify(files)}</script>`;
+      const html = readFileSync(resolve(out, 'index.html'), 'utf8');
+      writeFileSync(resolve(out, name), html.replace('</body>', () => `${script}\n</body>`));
     },
   };
 }
@@ -54,16 +109,23 @@ export interface LessonAppOptions {
   /** The one-file copy's name, such as "clouds.html". */
   oneFile: string;
   /**
+   * The name of a bigger one-file copy with every `precache` file inlined, such
+   * as "clouds-offline.html", for a page that works with no connection at all.
+   */
+  offlineFile?: string;
+  /**
    * The manifest. `id` is what the browser knows an installed app by; it
    * defaults to start_url. Changing it makes the browser treat the app as a
    * new one, which is how to get past an install the browser remembers but
    * the phone no longer has.
    */
   manifest: { name: string; short_name: string; description: string; theme_color: string; background_color?: string; id?: string };
-  /** Files besides index.html and the icons to precache, such as a poster. */
+  /**
+   * Files besides index.html and the icons that the service worker downloads
+   * when it installs, as globs under dist/: a poster, 'photos/*.webp'. A file
+   * whose contents have not changed is not downloaded again by a new version.
+   */
   precache?: string[];
-  /** A folder of large files (photos) kept by the service worker once seen. */
-  cacheFolder?: { path: string; name: string; maxEntries: number };
 }
 
 /** The whole Vite config for a lesson app. */
@@ -79,6 +141,7 @@ export function lessonApp(o: LessonAppOptions): UserConfig {
       viteSingleFile(),
       inlineFavicon(o.root),
       oneFileCopy(o.root, o.oneFile),
+      o.offlineFile ? offlineCopy(o.root, o.offlineFile, o.precache ?? []) : null,
       VitePWA({
         registerType: 'prompt',
         injectRegister: null, // registered by hand, with lesson-kit's update.ts
@@ -90,17 +153,10 @@ export function lessonApp(o: LessonAppOptions): UserConfig {
           inlineWorkboxRuntime: true,
           navigateFallback: 'index.html',
           cleanupOutdatedCaches: true,
+          // Photos are well under this; the inlined page is the largest file.
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
           // Nothing here has a hashed name, so every file gets a revision.
           dontCacheBustURLsMatching: /^(?!)/,
-          runtimeCaching: o.cacheFolder
-            ? [
-                {
-                  urlPattern: ({ url }) => url.pathname.includes(o.cacheFolder!.path),
-                  handler: 'CacheFirst',
-                  options: { cacheName: o.cacheFolder.name, expiration: { maxEntries: o.cacheFolder.maxEntries } },
-                },
-              ]
-            : [],
         },
         manifest: {
           ...o.manifest,

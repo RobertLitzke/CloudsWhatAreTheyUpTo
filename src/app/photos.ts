@@ -1,7 +1,7 @@
 // The photo library as the app sees it, and the credit line every photo wears.
 
 import library from '../data/photos.json';
-import { LICENSES, type Photo } from '../core/photos';
+import { LICENSES, photoFile, type Photo } from '../core/photos';
 import { asset } from './asset';
 import { el } from 'lesson-kit/dom';
 
@@ -25,7 +25,7 @@ export function photoFigure(p: Photo, alt: string, mirrored = false): HTMLElemen
   return el(
     'figure.photo',
     {},
-    el('img', { src: asset(p.file), alt, width: p.width, height: p.height, decoding: 'async', className: mirrored ? 'mirrored' : undefined }),
+    el('img', { src: asset(photoFile(p)), alt, width: p.width, height: p.height, decoding: 'async', className: mirrored ? 'mirrored' : undefined }),
     el('figcaption', {}, credit(p)),
   );
 }

@@ -3,7 +3,9 @@ import { el } from 'lesson-kit/dom';
 import { Router } from 'lesson-kit/router';
 import { showSplash } from 'lesson-kit/splash';
 import { watchForUpdates } from 'lesson-kit/update';
+import { retireWhenSaved } from 'lesson-kit/offline';
 import { asset } from './app/asset';
+import { PHOTOS } from './app/photos';
 import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
 import { journalView } from './app/views/journal';
@@ -64,6 +66,8 @@ function boot(): void {
   // The page also runs straight from disk, where there is no service worker.
   if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {
     watchForUpdates({ title: 'New forecast in', text: 'A fresh version of Clouds is ready.', icon: CLOUD });
+    // Before 2026-10-26 each photo was kept in a cache of its own once seen.
+    void retireWhenSaved('photos/', PHOTOS.length, ['photos']);
   }
 }
 

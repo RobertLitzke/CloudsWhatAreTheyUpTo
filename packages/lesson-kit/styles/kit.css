@@ -412,6 +412,10 @@ body.radio-up main { padding-bottom: 50vh; }
 .field input { font: 1rem var(--font); padding: 10px 12px; border-radius: 10px; border: 0; background: var(--panel); color: var(--ink); max-width: 320px; }
 .row { display: flex; gap: 8px; flex-wrap: wrap; }
 .settings .btn-ghost { color: var(--text); box-shadow: inset 0 0 0 2px var(--text); }
+.offline-bar { appearance: none; display: block; width: min(320px, 100%); height: 8px; border: 0; border-radius: 999px; background: var(--bg-2); overflow: hidden; margin: 4px 0 8px; }
+.offline-bar::-webkit-progress-bar { background: var(--bg-2); }
+.offline-bar::-webkit-progress-value { background: var(--sun); border-radius: 999px; }
+.offline-bar::-moz-progress-bar { background: var(--sun); border-radius: 999px; }
 .seg { display: inline-flex; background: var(--bg-2); border-radius: 999px; padding: 3px; width: fit-content; }
 .seg button { appearance: none; border: 0; background: transparent; color: var(--muted); padding: 8px 16px; border-radius: 999px; font: 600 0.85rem var(--display); letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; }
 .seg button.on { background: var(--sun); color: var(--ink); }

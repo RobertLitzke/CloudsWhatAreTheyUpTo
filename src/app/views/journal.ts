@@ -6,7 +6,7 @@
 import { GENERA, floorInfo, genus, type Genus, type GenusId } from '../../core/clouds';
 import { GLOSSARY, lessonOf } from '../../core/glossary';
 import { JOURNAL, SHIFTS, shiftById } from '../../core/shifts';
-import { FEATURES, photosOf, photosOfFeature, type FeatureId, type Photo } from '../../core/photos';
+import { FEATURES, photoFile, photosOf, photosOfFeature, type FeatureId, type Photo } from '../../core/photos';
 import { el, svg, type Child } from 'lesson-kit/dom';
 import { glossaryView } from 'lesson-kit/glossary';
 import type { View } from 'lesson-kit/router';
@@ -64,7 +64,7 @@ export const journalView: View = (root, nav) => {
 function cloudsTab(save: Save): HTMLElement {
   const tile = (name: string, sub: string, photo: Photo | undefined, art: () => Child, open: () => void) =>
     el('button.cloud-tile', { type: 'button', onclick: open },
-      photo ? el('img', { src: asset(photo.file), alt: '', loading: 'lazy', decoding: 'async' }) : el('div.tile-art', {}, art()),
+      photo ? el('img', { src: asset(photoFile(photo)), alt: '', loading: 'lazy', decoding: 'async' }) : el('div.tile-art', {}, art()),
       el('span.tile-name', {}, name),
       el('span.tile-sub', {}, sub));
 
