@@ -6,7 +6,7 @@ import { heapFigure, rotFigure } from './compost';
 import { detectiveFigure } from './diagnosis';
 import type { FigureFactory } from './kit';
 import { teaspoonDiagram, webFigure } from './life';
-import { feelFigure, handfulDiagram, jarFigure, sizesDiagram, surfaceFigure, triangleFigure } from './made-of';
+import { feelFigure, handfulDiagram, jarDiagram, sizesDiagram, surfaceDiagram, triangleFigure } from './made-of';
 import { leafFigure, parkingFigure, phFigure } from './nutrients';
 import { yearFigure } from './seasons';
 import { crumbFigure, slakeFigure } from './structure';
@@ -14,10 +14,10 @@ import { dryingFigure, poresFigure, rainFigure } from './water';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
   handful: handfulDiagram,
-  surface: surfaceFigure,
+  surface: surfaceDiagram,
   sizes: sizesDiagram,
   feel: feelFigure,
-  jar: jarFigure,
+  jar: jarDiagram,
   triangle: triangleFigure,
   pores: poresFigure,
   rain: rainFigure,

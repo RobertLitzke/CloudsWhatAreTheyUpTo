@@ -21,21 +21,16 @@ describe('figures', () => {
     });
   }
 
-  it('the triangle and jar meet their goals', async () => {
+  it('the triangle reads a jar and meets its goal', async () => {
     const ctx = { save: emptySave(), closed: new AbortController().signal, score: () => {} };
     const tri = FIGURES.triangle(ctx, 'loam');
-    const [sand, clay] = tri.node.querySelectorAll('input');
-    clay.value = '20';
-    clay.dispatchEvent(new Event('input'));
-    sand.value = '40';
-    sand.dispatchEvent(new Event('input'));
+    const [sand, silt, clay] = tri.node.querySelectorAll('input');
+    for (const [input, mm] of [[sand, 16], [silt, 16], [clay, 8]] as const) {
+      input.value = String(mm);
+      input.dispatchEvent(new Event('input'));
+    }
     await expect(tri.done).resolves.toBeUndefined();
-    const jar = FIGURES.jar(ctx, 'read');
-    const time = jar.node.querySelector('input')!;
-    time.value = '100';
-    time.dispatchEvent(new Event('input'));
-    await expect(jar.done).resolves.toBeUndefined();
-    expect(jar.node.textContent).toContain('a loam');
+    expect(tri.node.textContent).toContain('Sand 40%, silt 40%, clay 20%: a loam');
   });
 });
 

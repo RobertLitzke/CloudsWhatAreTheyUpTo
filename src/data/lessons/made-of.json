@@ -24,7 +24,7 @@
         { "kind": "text", "text": "The mineral part comes in three sizes, sorted by how wide each grain is.[^size-limits] [[Sand|sand]] is anything from 2 mm down to 0.05 mm, big enough to see and to feel as grit. [[Silt|silt]] is smaller, down to 0.002 mm, too fine to see one by one: dry, it feels like flour. [[Clay|clay]] is smaller still, and its grains are flat plates,[^clay-plates] sticky when wet and hard as brick when dry. Anything bigger than 2 mm is gravel and stones, and doesn't count." },
         { "kind": "figure", "figure": "sizes", "caption": "The three sizes, blown up so that a clay plate is the size of a pea" },
         { "kind": "text", "text": "Size matters because of surface. Take a sugar cube of rock and cut it in half, and in half again. The rock is no bigger, but every cut opens new faces. Keep cutting down to grains of [[clay|clay]] and the same cube has the surface of a rug." },
-        { "kind": "figure", "figure": "surface", "caption": "One cubic centimetre of rock, cut into smaller and smaller grains", "task": "Cut the grains down to the size of clay", "goal": "clay" },
+        { "kind": "figure", "figure": "surface", "caption": "The surface of one cubic centimetre of rock, cut into smaller and smaller grains, with each square drawn to scale" },
         { "kind": "text", "text": "Water clings to surfaces, and so do many plant nutrients. That one fact explains most of what gardeners say about soils. A [[clay|clay]] soil holds water and food because it has an enormous amount of surface to hold them on; a [[sand|sand]] soil lets both run straight through because it has so little. Clay plates are also so thin that real clays have far more surface than the cubes here: a teaspoon of some clays has the area of half a football pitch.[^surface-area]" },
         { "kind": "key", "title": "Hold on to", "points": [
           "[[Sand|sand]], [[silt|silt]] and [[clay|clay]] are three sizes of the same broken rock.",
@@ -38,16 +38,16 @@
         { "kind": "text", "text": "You can tell a lot about a soil with nothing but your hand and a little water. Sand feels gritty, silt silky, clay sticky, and the longer a ribbon of wet soil you can squeeze out between thumb and finger before it breaks, the more clay it holds. Soil surveyors do this in the field, and with practice they come within a few percent of a lab." },
         { "kind": "figure", "figure": "feel", "caption": "Texture by feel: a few questions about a wet ball of soil", "task": "Name a soil by feel", "goal": "name" },
         { "kind": "text", "text": "For a measurement, use a jar. The three sizes settle out of water at very different speeds: a sand grain sinks like a stone, while a clay plate can hang in the water for days.[^stokes]" },
-        { "kind": "figure", "figure": "jar", "caption": "The jar test: shake soil up in water and let it settle", "task": "Let the jar settle until you can read all three layers", "goal": "read" },
-        { "kind": "text", "text": "To try it, fill a straight-sided jar a third full of soil from the bed, with stones and roots picked out. Top it up with water to near the brim, add a teaspoon of dish soap to help the grains come apart, and shake it hard for a few minutes. Mark the side of the jar at the top of the [[sand|sand]] after a minute, at the top of the [[silt|silt]] after six hours, and at the top of the [[clay|clay]] when the water clears, a day or two later. Bits of [[organic matter|organic]] float, so skim them off. Each layer's height over the whole is its share of the mix." }
+        { "kind": "figure", "figure": "jar", "caption": "One jar of loam, shaken and set down: each size settles in its own time, and a pencil mark goes on the glass at the top of each" },
+        { "kind": "text", "text": "To try it, fill a straight-sided jar a third full of soil from the bed, with stones and roots picked out. Top it up with water to near the brim, add a teaspoon of dish soap to help the grains come apart, and shake it hard for a few minutes. Mark the side of the jar at the top of the [[sand|sand]] after a minute, at the top of the [[silt|silt]] after six hours, and at the top of the [[clay|clay]] when the water clears, a day or two later. Bits of [[organic matter|organic]] float, so skim them off. Each layer's height over the whole is its share of the mix, and the next part turns those heights into a name." }
       ]
     },
     {
       "title": "Naming a soil",
       "blocks": [
-        { "kind": "text", "text": "The mix of the three sizes is the soil's **texture**, and soil scientists name it from a triangle. Each corner is all of one size; a point inside is a mix. Twelve regions of the triangle each have a name, from sand to clay, and in the middle is **loam**: a mix in which none of the three takes over, roughly two parts [[sand|sand]], two of [[silt|silt]] and one of [[clay|clay]]." },
-        { "kind": "figure", "figure": "triangle", "caption": "The soil texture triangle", "task": "Make a loam", "goal": "loam" },
-        { "kind": "text", "text": "Look at how the regions are shaped. It takes 85 parts in a hundred of [[sand|sand]] for a soil to be called sand, but only 40 of [[clay|clay]] for it to be one of the clays, whatever the rest is. A little clay goes a long way, because its tiny plates fill the gaps between bigger grains and lend the whole soil their stickiness." },
+        { "kind": "text", "text": "The mix of the three sizes is the soil's **texture**, and soil scientists name it from a triangle. Each corner is all of one size; a point inside is a mix. Twelve regions of the triangle each have a name, from sand to clay, and in the middle is **loam**: a mix in which none of the three takes over, roughly two parts [[sand|sand]], two of [[silt|silt]] and one of [[clay|clay]]. Set the three layers of a jar below and see where its soil lands." },
+        { "kind": "figure", "figure": "triangle", "caption": "The soil texture triangle, read from the layers in a jar", "task": "Find the layers that make a loam", "goal": "loam" },
+        { "kind": "text", "text": "Look at how the regions are shaped, and try a few millimetres more clay in the jar. It takes 85 parts in a hundred of [[sand|sand]] for a soil to be called sand, but only 40 of [[clay|clay]] for it to be one of the clays, whatever the rest is. A little clay goes a long way, because its tiny plates fill the gaps between bigger grains and lend the whole soil their stickiness." },
         { "kind": "key", "title": "What texture means in the bed", "points": [
           "**Sandy** soils drain fast and warm early in spring, but dry out quickly and let nutrients wash away.",
           "**Loamy** soils hold water and nutrients and still let air in: what most vegetables want.",
@@ -56,7 +56,7 @@
         { "kind": "text", "text": "Texture is the one thing about a soil you can't change in a season. Turning a clay bed into a loam by digging in sand would take tonnes of it, and too little sand makes clay more like concrete, not less.[^sand-in-clay] What you *can* change is what lives among the grains and how they are stuck together: the next four lessons are about exactly that, and their answer works on sandy and clay soils alike." },
         { "kind": "key", "title": "Try it in the garden", "points": [
           "Do the feel test on a pinch from each bed. Write down what you find.",
-          "Then set up a jar test from your main bed and read it over the next two days, to see whether your hand got it right."
+          "Then set up a jar test from your main bed and read it over the next two days. Put its three layers into the triangle above, to see whether your hand got it right."
         ] }
       ]
     },

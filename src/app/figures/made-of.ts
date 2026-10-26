@@ -1,12 +1,13 @@
 // Lesson 1, what soil is made of: a handful by volume, the three grain sizes
-// side by side, the jar test, and the texture triangle.
+// side by side, the surface a rock gains as it is cut, texture by feel, the
+// jar test, and the texture triangle read from a jar.
 
 import { el, svg } from 'lesson-kit/dom';
 import { label, note, redraw, small, still } from 'lesson-kit/draw';
 import { makeRng } from 'lesson-kit/rng';
-import { feelOf, HANDFUL, IN_THE_BED, mixOf, sayTime, SETTLED_BY, settled, textureOf, TEXTURES, type Mix, type Texture } from '../../core/soil';
+import { feelOf, HANDFUL, IN_THE_BED, mixOf, PARTICLES, SETTLED_BY, textureOf, TEXTURES, type Mix, type Particle, type Texture } from '../../core/soil';
 import { drawJar, layerTops, type JarBox } from '../scene/jar';
-import { COL, figure, frame, slider, tint, type Slider } from './kit';
+import { COL, figure, frame, slider, tint } from './kit';
 
 const f1 = (n: number) => n.toFixed(1);
 
@@ -117,81 +118,35 @@ export function sizesDiagram(): { node: HTMLElement } {
 
 // ---- The jar test -------------------------------------------------------------
 
-const SAMPLES: { name: string; mix: Mix }[] = [
-  { name: 'Garden loam', mix: mixOf(40, 20) },
-  { name: 'Sandy bed', mix: mixOf(75, 8) },
-  { name: 'Heavy clay', mix: mixOf(20, 50) },
+/** The same jar of loam at the three times a gardener marks it: sand down, silt down, clay down. */
+const JAR_TIMES: { t: number; when: string; down: string }[] = [
+  { t: SETTLED_BY.sand, when: 'after 1 minute', down: 'sand is down' },
+  { t: SETTLED_BY.silt, when: 'after 6 hours', down: 'silt is down' },
+  { t: SETTLED_BY.clay, when: 'after 2 days', down: 'clay is down' },
 ];
 
-/** Seconds after shaking for slider position v (0 to 100): one second up to three days, on a log scale. */
-const timeAt = (v: number) => Math.exp((v / 100) * Math.log(3 * 86400));
-
-export const jarFigure = figure(['read'], (_ctx, t) => {
+/** Three jars of one loam, at one minute, six hours and two days, each with a pencil mark at the top of what has settled. */
+export function jarDiagram(): { node: HTMLElement } {
   const W = 400;
-  const H = 250;
-  const f = frame(W, H, 3);
-  const box: JarBox = { x: 40, y: 22, w: 120, h: 210 };
-  let sample = SAMPLES[0];
-  let v = 0;
-  const jar = svg('g');
-  const marks = svg('g');
-  const side = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), jar, marks, side);
-
-  const paint = () => {
-    const time = timeAt(v);
-    const mix = sample.mix;
-    redraw(jar, drawJar(box, mix, time));
-    // A pencil mark on the glass at the top of each layer once it is down.
-    const tops = layerTops(box, mix, time);
-    const m: SVGElement[] = [];
-    for (const p of ['sand', 'silt', 'clay'] as const) {
-      if (time < SETTLED_BY[p]) continue;
+  const H = 230;
+  const s = still(W, H);
+  const mix = mixOf(40, 20);
+  s.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }));
+  JAR_TIMES.forEach(({ t, when, down }, i) => {
+    const box: JarBox = { x: 22 + i * 130, y: 14, w: 86, h: 170 };
+    s.svg.append(drawJar(box, mix, t));
+    const tops = layerTops(box, mix, t);
+    for (const p of PARTICLES) {
+      if (t < SETTLED_BY[p]) continue;
       const y = tops[p];
-      m.push(svg('line', { x1: box.x + box.w - 2, y1: y, x2: box.x + box.w + 12, y2: y, stroke: COL[p], 'stroke-width': 2 }));
-      m.push(small(box.x + box.w + 15, y + 3, p, { fill: COL[p], bold: true }));
+      s.svg.append(svg('line', { x1: box.x + box.w - 2, y1: f1(y), x2: box.x + box.w + 9, y2: f1(y), stroke: COL[p], 'stroke-width': 2 }));
     }
-    redraw(marks, ...m);
-    // On the right, how much of each size is down.
-    const rows: SVGElement[] = [heading(260, 34, `${sayTime(time)} after shaking`)];
-    (['sand', 'silt', 'clay'] as const).forEach((p, i) => {
-      const y = 70 + i * 50;
-      const share = settled(p, time);
-      rows.push(
-        label(214, y, p, { bold: true, fill: COL[p] }),
-        svg('rect', { x: 214, y: y + 8, width: 160, height: 12, rx: 6, fill: tint(COL[p], 0.18) }),
-        svg('rect', { x: 214, y: y + 8, width: f1(160 * share), height: 12, rx: 6, fill: COL[p] }),
-        small(374, y, share > 0.98 ? 'settled' : share > 0.02 ? `${Math.round(share * 100)}% down` : 'in the water', { anchor: 'end', soft: true }),
-      );
-    });
-    redraw(side, ...rows);
-    const sandDone = time >= SETTLED_BY.sand;
-    const siltDone = time >= SETTLED_BY.silt;
-    const clayDone = time >= SETTLED_BY.clay;
-    const texture = textureOf(mix);
-    f.readout.textContent = clayDone
-      ? `The water is clear. Sand ${mix.sand}%, silt ${mix.silt}%, clay ${mix.clay}%: a ${texture}.`
-      : siltDone
-        ? 'Sand and silt are down. The water is still cloudy with clay, which can take a day or two.'
-        : sandDone
-          ? 'The sand is down already. Silt is still settling, over the next few hours.'
-          : 'Everything is still swirling. The big sand grains sink first, within a minute.';
-    if (clayDone && t.goal === 'read') t.done();
-  };
-
-  const time = slider('Time', 0, 100, 1, 0, (x) => sayTime(timeAt(x)), (x) => { v = x; paint(); }, 'water');
-  const chips = SAMPLES.map((smp, i) => el('button.chip', { type: 'button', className: i === 0 ? 'chip on' : 'chip', onclick: () => {
-    sample = smp;
-    chips.forEach((c, k) => c.classList.toggle('on', k === i));
-    time.set(0);
-  } }, smp.name));
-  f.controls.append(el('div.chips', {}, chips), time.node);
-  paint();
-  return f.node;
-});
-
-function heading(x: number, y: number, text: string): SVGElement {
-  return label(x, y, text, { bold: true });
+    s.svg.append(
+      label(box.x + box.w / 2, box.y + box.h + 18, when, { anchor: 'middle', bold: true }),
+      small(box.x + box.w / 2, box.y + box.h + 31, down, { anchor: 'middle', fill: COL[PARTICLES[i]], bold: true }),
+    );
+  });
+  return { node: s.node };
 }
 
 // ---- The texture triangle -----------------------------------------------------
@@ -247,20 +202,25 @@ const NAME_AT: Record<Texture, [number, number, string?]> = {
   'clay': [22, 60],
 };
 
-/** Move a slider to `v` without firing it, as when the other one pushes it. */
-function quietly(s: Slider, v: number): void {
-  s.input.value = String(v);
-  s.node.querySelector('output')!.textContent = `${v}%`;
+/** A mix from the heights of the three layers in a settled jar, in whole percent. */
+export function mixFromLayers(sand: number, silt: number, clay: number): Mix | null {
+  const total = sand + silt + clay;
+  if (total <= 0) return null;
+  return mixOf(Math.round((100 * sand) / total), Math.round((100 * clay) / total));
 }
 
+/**
+ * The texture triangle read from a jar: set the three layers as a ruler on
+ * the jar would find them, and the mix lands on the triangle with its name.
+ */
 export const triangleFigure = figure(['loam', 'clay', 'sand'], (_ctx, t) => {
   const W = 400;
   const H = 300;
   const f = frame(W, H, 3);
   // Sand 100% at the bottom left, silt at the bottom right, clay at the top.
-  const L = 300;
-  const x0 = 50;
-  const yb = 268;
+  const L = 270;
+  const x0 = 116;
+  const yb = 262;
   const hgt = (L * Math.sqrt(3)) / 2;
   const at = (sand: number, clay: number): [number, number] => {
     const silt = 100 - sand - clay;
@@ -295,132 +255,105 @@ export const triangleFigure = figure(['loam', 'clay', 'sand'], (_ctx, t) => {
   }
   ticks.append(
     note(x0 + L / 2, yb + 26, '← more sand', { anchor: 'middle', fill: COL.sand, bold: true }),
-    note(x0 + L * 0.2, yb - hgt * 0.62, 'more clay ↑', { anchor: 'end', fill: COL.clay, bold: true }),
-    note(x0 + L * 0.8 + 6, yb - hgt * 0.62, 'more silt ↘', { fill: COL.silt, bold: true }),
+    note(x0 + L / 2 - 12, yb - hgt - 4, 'more clay ↑', { anchor: 'end', fill: COL.clay, bold: true }),
+    note(x0 + L * 0.8 + 8, yb - hgt * 0.62, 'more silt ↘', { fill: COL.silt, bold: true }),
   );
+  const jar = svg('g');
   const dot = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), regions, outline, names, ticks, dot);
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), regions, outline, names, ticks, jar, dot);
 
-  let sand = 70;
-  let clay = 15;
+  // The jar, drawn at 1.6 drawing units to the millimetre, with a ruler up its side.
+  const box = { x: 14, y: 66, w: 62, h: 214 };
+  const MM = 1.6;
+  const layers = { sand: 28, silt: 6, clay: 6 };
   const paint = () => {
-    const mix = mixOf(sand, clay);
+    const floor = box.y + box.h - 4;
+    const shapes: SVGElement[] = [svg('rect', { x: box.x + 3, y: box.y + 12, width: box.w - 6, height: floor - box.y - 12, fill: COL.waterPale })];
+    let top = floor;
+    for (const p of PARTICLES) {
+      const h = layers[p] * MM;
+      top -= h;
+      shapes.push(svg('rect', { x: box.x + 3, y: f1(top), width: box.w - 6, height: f1(h), fill: COL[p] }));
+      if (h > 0) shapes.push(svg('line', { x1: box.x + box.w - 2, y1: f1(top), x2: box.x + box.w + 8, y2: f1(top), stroke: COL[p], 'stroke-width': 2 }));
+    }
+    for (let mm = 0; mm <= 120; mm += 10) {
+      const y = floor - mm * MM;
+      shapes.push(svg('line', { x1: box.x - 4, y1: f1(y), x2: box.x + (mm % 50 ? 2 : 6), y2: f1(y), stroke: COL.soft, 'stroke-width': 0.8 }));
+    }
+    shapes.push(
+      svg('rect', { x: box.x + 5, y: box.y - 2, width: box.w - 10, height: 9, rx: 2, fill: '#8a8f7a' }),
+      svg('path', { d: `M${box.x + 1},${box.y + 8} V${box.y + box.h - 7} Q${box.x + 1},${box.y + box.h} ${box.x + 8},${box.y + box.h} H${box.x + box.w - 8} Q${box.x + box.w - 1},${box.y + box.h} ${box.x + box.w - 1},${box.y + box.h - 7} V${box.y + 8}`, fill: 'none', stroke: COL.ink, 'stroke-width': 2, 'stroke-linejoin': 'round' }),
+      small(box.x + box.w / 2, box.y - 10, 'your jar', { anchor: 'middle', bold: true }),
+    );
+    redraw(jar, ...shapes);
+    const mix = mixFromLayers(layers.sand, layers.silt, layers.clay);
+    if (!mix) {
+      redraw(dot);
+      f.readout.textContent = 'Set the height of each layer in the jar.';
+      return;
+    }
     const texture = textureOf(mix);
     const [x, y] = at(mix.sand, mix.clay);
     redraw(dot,
       svg('circle', { cx: f1(x), cy: f1(y), r: 7, fill: COL.ink, opacity: 0.15 }),
       svg('circle', { cx: f1(x), cy: f1(y), r: 4.5, fill: COL.ink, stroke: '#fff', 'stroke-width': 1.5 }),
     );
-    f.readout.textContent = `Sand ${mix.sand}, silt ${mix.silt}, clay ${mix.clay}: ${texture}. ${IN_THE_BED[feelOf(texture)]}`;
-    if (t.goal === 'loam' && texture === 'loam') t.done();
-    if (t.goal === 'clay' && texture === 'clay') t.done();
-    if (t.goal === 'sand' && texture === 'sand') t.done();
+    f.readout.textContent = `Sand ${mix.sand}%, silt ${mix.silt}%, clay ${mix.clay}%: a ${texture}. ${IN_THE_BED[feelOf(texture)]}`;
+    if (t.goal === texture) t.done();
   };
-  const sandSlider = slider('Sand', 0, 100, 1, sand, (v) => `${v}%`, (v) => {
-    sand = v;
-    if (sand + clay > 100) clay = 100 - sand;
-    quietly(claySlider, clay);
-    paint();
-  }, 'sand');
-  const claySlider = slider('Clay', 0, 100, 1, clay, (v) => `${v}%`, (v) => {
-    clay = v;
-    if (sand + clay > 100) {
-      sand = 100 - clay;
-      quietly(sandSlider, sand);
-    }
-    paint();
-  }, 'clay');
-  f.controls.append(sandSlider.node, claySlider.node);
+  const layer = (p: Particle) => slider(`${p[0].toUpperCase()}${p.slice(1)} layer`, 0, 40, 1, layers[p], (v) => `${v} mm`, (v) => { layers[p] = v; paint(); }, p);
+  f.controls.append(...PARTICLES.map((p) => layer(p).node));
   paint();
   return f.node;
 });
 
 // ---- Surface ------------------------------------------------------------------
 
-/** Grain width for slider position v (0 to 100): 1 cm down to 0.001 mm, on a log scale. */
-const widthAt = (v: number) => 10 * Math.pow(1e-4, v / 100);
+/** One cubic centimetre of rock cut into grains of each width (mm), and its total surface (6 cm² over the width in cm). */
+const CUTS: { mm: number; name: string; colour: string; like: string }[] = [
+  { mm: 10, name: 'one cube, 1 cm', colour: COL.mineral, like: 'a postage stamp' },
+  { mm: 1, name: 'coarse sand, 1 mm', colour: COL.sand, like: 'a playing card' },
+  { mm: 0.01, name: 'silt, 0.01 mm', colour: COL.silt, like: 'a doormat' },
+  { mm: 0.001, name: 'clay, 0.001 mm', colour: COL.clay, like: 'a big rug' },
+];
 
-/** A width in millimetres, said simply. */
-function sayWidth(mm: number): string {
-  if (mm >= 1) return `${+mm.toPrecision(2)} mm`;
-  if (mm >= 0.01) return `${+mm.toPrecision(2)} mm`;
-  return `${+(mm * 1000).toPrecision(2)} µm`;
-}
-
-/** A surface in square centimetres, and something of about that size. */
-function saySurface(cm2: number): string {
-  const things: [number, string][] = [
-    [10, 'a postage stamp'], [60, 'a playing card'], [600, 'a page of a book'], [6000, 'a doormat'],
-    [60000, 'a big rug'], [600000, 'a living room floor'],
-  ];
-  let best = things[0];
-  for (const t of things) if (Math.abs(Math.log(cm2 / t[0])) < Math.abs(Math.log(cm2 / best[0]))) best = t;
-  const area = cm2 >= 10000 ? `${+(cm2 / 10000).toPrecision(2)} m²` : `${Math.round(cm2).toLocaleString('en')} cm²`;
-  return `${area}, about ${best[1]}`;
+/** A surface in square centimetres, said simply. */
+function sayArea(cm2: number): string {
+  return cm2 >= 1000 ? `${+(cm2 / 10000).toPrecision(2)} m²` : `${Math.round(cm2)} cm²`;
 }
 
 /**
- * A sugar-cube's worth (1 cm³) of grains, cut smaller and smaller: the same
- * volume of rock, but the total surface of the grains grows as the grains
- * shrink, 6 cm² for one cube, 60 for millimetre sand, and square metres for clay.
+ * The surface of a sugar cube's worth (1 cm³) of rock, cut into grains of
+ * sand, silt and clay, drawn as squares to scale: each tenfold cut makes ten
+ * times the surface, so clay's square dwarfs the rest.
  */
-export const surfaceFigure = figure(['clay'], (_ctx, t) => {
+export function surfaceDiagram(): { node: HTMLElement } {
   const W = 400;
   const H = 220;
-  const f = frame(W, H, 3);
-  const cube = svg('g');
-  const bar = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), cube, bar);
-  let v = 0;
-  const paint = () => {
-    const mm = widthAt(v);
-    const n = 10 / mm; // grains along each edge of the centimetre cube
-    const surface = 6 / (mm / 10); // cm² for 1 cm³
-    const size = mm > 2 ? 'mineral' : mm >= 0.05 ? 'sand' : mm >= 0.002 ? 'silt' : 'clay';
-    const what = mm >= 9.9 ? 'One cube of rock, 1 cm on a side' : mm > 2 ? `Pebbles ${sayWidth(mm)} across, gravel` : `Grains ${sayWidth(mm)} across, the size of ${size}`;
-    // The front face of the cube, cut into as many squares as there are grains along an edge, up to what can be drawn.
-    const x0 = 30;
-    const y0 = 30;
-    const side = 150;
-    const shown = Math.min(64, Math.max(1, Math.round(n)));
-    const lines: SVGElement[] = [svg('rect', { x: x0, y: y0, width: side, height: side, fill: tint(COL[size], 0.35), stroke: COL.ink, 'stroke-width': 1.5 })];
-    if (shown > 1) {
-      let d = '';
-      for (let i = 1; i < shown; i++) {
-        const p = f1(x0 + (side * i) / shown);
-        const q = f1(y0 + (side * i) / shown);
-        d += `M${p},${y0}V${y0 + side}M${x0},${q}H${x0 + side}`;
-      }
-      lines.push(svg('path', { d, stroke: COL[size], 'stroke-width': shown > 32 ? 0.4 : 0.8, fill: 'none' }));
-    }
-    lines.push(
-      small(x0 + side / 2, y0 + side + 16, '1 cm', { anchor: 'middle', soft: true }),
-      small(x0 + side / 2, y0 - 8, n > 64 ? `${Math.round(n).toLocaleString('en')} grains along each edge (too many to draw)` : `${Math.round(n)} grain${Math.round(n) === 1 ? '' : 's'} along each edge`, { anchor: 'middle', soft: true }),
+  const s = still(W, H);
+  s.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }));
+  // Squares share their bottom left corner; clay's is 196 units on a side.
+  const x0 = 12;
+  const yb = 208;
+  const k = 196 / Math.sqrt(6 / 0.0001);
+  for (const c of [...CUTS].reverse()) {
+    const side = Math.max(2, k * Math.sqrt(6 / (c.mm / 10)));
+    s.svg.append(svg('rect', { x: x0, y: f1(yb - side), width: f1(side), height: f1(side), fill: tint(c.colour, 0.3), stroke: c.colour, 'stroke-width': 1.2 }));
+  }
+  // A row of words for each, with a leader to its square's top right corner.
+  CUTS.forEach((c, i) => {
+    const cm2 = 6 / (c.mm / 10);
+    const side = Math.max(2, k * Math.sqrt(cm2));
+    const y = 160 - i * 44;
+    const tx = 236;
+    s.svg.append(
+      svg('path', { d: `M${f1(x0 + side)},${f1(yb - side)} L${tx - 8},${y - 4}`, stroke: c.colour, 'stroke-width': 0.8, fill: 'none' }),
+      label(tx, y - 4, c.name, { bold: true, fill: c.colour }),
+      small(tx, y + 10, `${sayArea(cm2)}, about ${c.like}`, { soft: true }),
     );
-    redraw(cube, ...lines);
-    // The surface on a log scale from 6 cm² to 60,000 cm².
-    const bx = 220;
-    const bw = 30;
-    const by = 30;
-    const bh = 160;
-    const frac = Math.log10(surface / 6) / 4;
-    const marks: SVGElement[] = [
-      svg('rect', { x: bx, y: by, width: bw, height: bh, fill: tint(COL.water, 0.12), stroke: COL.grid }),
-      svg('rect', { x: bx, y: f1(by + bh * (1 - frac)), width: bw, height: f1(bh * frac), fill: COL.water }),
-    ];
-    for (const [s, name] of [[6, 'one cube'], [60, 'sand'], [3000, 'silt'], [60000, 'clay']] as const) {
-      const y = by + bh * (1 - Math.log10(s / 6) / 4);
-      marks.push(svg('line', { x1: bx + bw, y1: f1(y), x2: bx + bw + 6, y2: f1(y), stroke: COL.soft }), small(bx + bw + 10, y + 3, name, { soft: true }));
-    }
-    marks.push(label(bx + bw / 2, by + bh + 16, 'surface', { anchor: 'middle', bold: true, fill: COL.water }));
-    redraw(bar, ...marks);
-    f.readout.textContent = `${what}. ${mm >= 9.9 ? 'It has' : 'The same 1 cm³ of rock now has'} ${saySurface(surface)} of surface for water to cling to.`;
-    if (size === 'clay' && t.goal === 'clay') t.done();
-  };
-  f.controls.append(slider('Grain size', 0, 100, 1, 0, (x) => sayWidth(widthAt(x)), (x) => { v = x; paint(); }, 'clay').node);
-  paint();
-  return f.node;
-});
+  });
+  return { node: s.node };
+}
 
 // ---- Texture by feel ----------------------------------------------------------
 
