@@ -28,6 +28,7 @@ export class Router {
   private routes: Route[] = [];
   private teardown: (() => void) | void = undefined;
   private here = '';
+  private fallback = '/';
 
   constructor(
     private outlet: HTMLElement,
@@ -40,6 +41,7 @@ export class Router {
   }
 
   start(fallback: string): void {
+    this.fallback = fallback;
     const onChange = () => this.resolve(location.hash.replace(/^#/, '') || fallback);
     window.addEventListener('hashchange', onChange);
     if (!location.hash) location.hash = fallback;
@@ -88,7 +90,7 @@ export class Router {
     const matched = this.match(path);
     if (!matched) {
       this.outlet.replaceChildren(
-        el('div.page', {}, el('p.muted', {}, 'Nothing here.'), el('a.btn', { href: '#/home' }, 'Home')),
+        el('div.page', {}, el('p.muted', {}, 'Nothing here.'), el('a.btn', { href: '#' + this.fallback }, 'Home')),
       );
       return;
     }

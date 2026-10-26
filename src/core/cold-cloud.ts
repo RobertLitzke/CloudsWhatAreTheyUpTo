@@ -5,7 +5,7 @@
 // Numbers are per litre of cloud. A litre of ordinary cloud holds about a
 // hundred thousand droplets and a fifth of a milligram of water.
 
-import { makeRng, type Rng } from './rng';
+import { makeRng, type Rng } from 'lesson-kit/rng';
 
 export type Agent = 'none' | 'dust' | 'iodide' | 'dryIce';
 

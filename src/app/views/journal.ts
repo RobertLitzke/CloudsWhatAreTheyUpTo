@@ -4,9 +4,9 @@
 import { GENERA, floorInfo } from '../../core/clouds';
 import { JOURNAL } from '../../core/shifts';
 import { FEATURES, photosOf, photosOfFeature, type FeatureId } from '../../core/photos';
-import { el, svg } from '../dom';
+import { el, svg } from 'lesson-kit/dom';
 import { photoFigure, PHOTOS } from '../photos';
-import type { View } from '../router';
+import type { View } from 'lesson-kit/router';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
 import { getSave } from '../store';

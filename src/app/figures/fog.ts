@@ -4,7 +4,7 @@
 // inversion, fog burning off, a kettle and why warm air is lighter.
 
 import { dewPointOf, roomFor } from '../../core/air';
-import { el, svg } from '../dom';
+import { el, svg } from 'lesson-kit/dom';
 import { arrow, heading, line, polyline, redraw, small, still, wavy } from './draw';
 import { COL, animate, figure, frame, lock, lockIn, placeable, slider, type FigureFactory } from './kit';
 import { fogHour, nightTemp, type Night } from '../../core/sky';

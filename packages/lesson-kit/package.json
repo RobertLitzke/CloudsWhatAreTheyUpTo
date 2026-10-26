@@ -1,0 +1,16 @@
+{
+  "name": "lesson-kit",
+  "version": "0.1.0",
+  "description": "The topic-agnostic parts of an interactive lesson app: lesson engine and JSON lesson format, live figures, spaced-repetition quiz, radio slip, log card, and the PWA shell and build.",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./styles/*": "./styles/*",
+    "./*": "./src/*.ts"
+  },
+  "peerDependencies": {
+    "vite": "^6.0.0",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}

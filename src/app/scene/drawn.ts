@@ -8,9 +8,9 @@
 // from the upper right, so each lobe throws a crescent of shadow on the one
 // below it, as on the poster.
 
-import { svg } from '../dom';
+import { svg } from 'lesson-kit/dom';
 import type { GenusId } from '../../core/clouds';
-import { makeRng, type Rng } from '../../core/rng';
+import { makeRng, type Rng } from 'lesson-kit/rng';
 import { celCells, celCumulus, celHeap } from '../clouds/flat';
 import { heap as heapPuffs, type Puff } from '../clouds/shapes';
 import { W, type Palette } from './landscape';

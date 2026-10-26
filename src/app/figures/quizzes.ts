@@ -7,12 +7,12 @@ import type { Forecast, Profile } from '../../core/shifts';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
 import { dealFloorCalls } from '../../core/photo-call';
 import { dealNameCalls } from '../../core/radio-check';
-import { makeRng, shuffle } from '../../core/rng';
-import { el, svg } from '../dom';
+import { makeRng, shuffle } from 'lesson-kit/rng';
+import { el, svg } from 'lesson-kit/dom';
 import { photoFigure, PHOTOS } from '../photos';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
-import { freshSeed } from '../ui';
+import { freshSeed } from 'lesson-kit/ui';
 import { line, note } from './draw';
 import { COL, height, quiz, textBox, type FigureContext, type FigureFactory } from './kit';
 

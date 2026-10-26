@@ -4,7 +4,7 @@
 // stills of the tropopause and a storm's charges.
 
 import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
-import { el, svg } from '../dom';
+import { el, svg } from 'lesson-kit/dom';
 import { realClouds } from '../clouds/real';
 import { celAnvil, celCumulus, celHeap } from '../clouds/flat';
 import { FIGURE } from '../clouds/tones';

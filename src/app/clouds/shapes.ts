@@ -7,7 +7,7 @@
 // each a line with a width, ending in a falling hook; a sheet is an even slab
 // (stratus, fog, altostratus, a cirrostratus veil).
 
-import { makeRng } from '../../core/rng';
+import { makeRng } from 'lesson-kit/rng';
 
 export interface Puff {
   x: number;

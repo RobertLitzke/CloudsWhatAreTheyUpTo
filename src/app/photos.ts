@@ -3,7 +3,7 @@
 import library from '../data/photos.json';
 import { LICENSES, type Photo } from '../core/photos';
 import { asset } from './asset';
-import { el } from './dom';
+import { el } from 'lesson-kit/dom';
 
 export const PHOTOS: readonly Photo[] = library as Photo[];
 

@@ -176,10 +176,7 @@ export function floorInfo(id: Floor): FloorInfo {
 }
 
 /** Metres to feet, rounded to a sensible step for a sign or a log. */
-export function feet(m: number): number {
-  const ft = m * 3.28084;
-  return ft < 1000 ? Math.round(ft / 10) * 10 : Math.round(ft / 500) * 500;
-}
+export { feet } from 'lesson-kit/units';
 
 // ---------------------------------------------------------------------------
 // The words the names are built from.

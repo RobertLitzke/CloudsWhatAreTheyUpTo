@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { emptySave, finishShift, migrate } from '../src/core/save';
+import { emptySave, finishLesson, migrate } from '../src/core/save';
 
 describe('migrate', () => {
   it('turns junk into an empty save', () => {
@@ -18,24 +18,31 @@ describe('migrate', () => {
     expect(s.name).toBe('Rob');
     expect(s.units).toBe('metric');
     expect(s.journal).toEqual(['floors']);
-    expect(s.shifts.floors).toEqual({ done: true, best: 8, of: 8, finishedAt: '2026-10-19' });
-    expect(s.shifts.bad).toBeUndefined();
+    expect(s.lessons.floors).toEqual({ done: true, best: 8, of: 8, finishedAt: '2026-10-19' });
+    expect(s.lessons.bad).toBeUndefined();
   });
 
   it('carries the old first lesson over to the one it ended up in', () => {
     const s = migrate({ shifts: { textures: { done: true, best: 5, of: 6, finishedAt: '2026-10-19' } } });
-    expect(s.shifts.textures).toBeUndefined();
-    expect(s.shifts.heaps).toBeUndefined();
-    expect(s.shifts.fog).toEqual({ done: true, best: 5, of: 6, finishedAt: '2026-10-19' });
+    expect(s.lessons.textures).toBeUndefined();
+    expect(s.lessons.heaps).toBeUndefined();
+    expect(s.lessons.fog).toEqual({ done: true, best: 5, of: 6, finishedAt: '2026-10-19' });
   });
 
   it('folds lessons that were merged into the one that took them in', () => {
     const rec = { done: true, best: 4, of: 6, finishedAt: '2026-10-22' };
     const s = migrate({ shifts: { 'seeding-limits': rec, heaps: rec, fog: { done: true, best: 6, of: 6 } } });
-    expect(s.shifts.seeding).toEqual(rec);
-    expect(s.shifts.fog).toEqual({ done: true, best: 6, of: 6 });
-    expect(s.shifts['seeding-limits']).toBeUndefined();
-    expect(s.shifts.heaps).toBeUndefined();
+    expect(s.lessons.seeding).toEqual(rec);
+    expect(s.lessons.fog).toEqual({ done: true, best: 6, of: 6 });
+    expect(s.lessons['seeding-limits']).toBeUndefined();
+    expect(s.lessons.heaps).toBeUndefined();
+  });
+
+  it('reads lesson records saved under either name', () => {
+    const rec = { done: true, best: 3, of: 6 };
+    expect(migrate({ lessons: { fog: rec } }).lessons.fog).toEqual(rec);
+    expect(migrate({ shifts: { fog: rec } }).lessons.fog).toEqual(rec);
+    expect(migrate({ orders: ['a', 'a', 2] }).orders).toEqual(['a']);
   });
 
   it('keeps the radio settings and what was heard', () => {
@@ -47,21 +54,21 @@ describe('migrate', () => {
   });
 });
 
-describe('finishShift', () => {
+describe('finishLesson', () => {
   const now = new Date('2026-10-19T12:00:00Z');
 
   it('records a first finish with its date and journal entries', () => {
-    const s = finishShift(emptySave(), 'floors', 6, 8, ['floors', 'roots'], now);
-    expect(s.shifts.floors).toEqual({ done: true, best: 6, of: 8, finishedAt: '2026-10-19' });
+    const s = finishLesson(emptySave(), 'floors', 6, 8, ['floors', 'roots'], now);
+    expect(s.lessons.floors).toEqual({ done: true, best: 6, of: 8, finishedAt: '2026-10-19' });
     expect(s.journal).toEqual(['floors', 'roots']);
   });
 
   it('keeps the better score and the first date', () => {
-    const first = finishShift(emptySave(), 'floors', 7, 8, [], now);
-    const worse = finishShift(first, 'floors', 3, 8, [], new Date('2026-10-20T12:00:00Z'));
-    expect(worse.shifts.floors.best).toBe(7);
-    expect(worse.shifts.floors.finishedAt).toBe('2026-10-19');
-    const better = finishShift(worse, 'floors', 8, 8, [], now);
-    expect(better.shifts.floors.best).toBe(8);
+    const first = finishLesson(emptySave(), 'floors', 7, 8, [], now);
+    const worse = finishLesson(first, 'floors', 3, 8, [], new Date('2026-10-20T12:00:00Z'));
+    expect(worse.lessons.floors.best).toBe(7);
+    expect(worse.lessons.floors.finishedAt).toBe('2026-10-19');
+    const better = finishLesson(worse, 'floors', 8, 8, [], now);
+    expect(better.lessons.floors.best).toBe(8);
   });
 });

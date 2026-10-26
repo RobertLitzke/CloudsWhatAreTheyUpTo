@@ -10,9 +10,11 @@
 //
 // Each lesson's words are in a JSON file in data/shifts, one per lesson.
 //
+// The lesson format and the view that reads it are lesson-kit's lesson.ts.
 // Text takes a little markup (see app/figures/kit.ts prose): **bold**,
 // *italic*, and [[words|colour]] to tie a word to the same colour in a figure.
 
+import type { Block as KitBlock, Lesson, Part as KitPart } from 'lesson-kit/lesson';
 import type { GenusId } from './clouds';
 import fog from '../data/shifts/fog.json';
 import lowSky from '../data/shifts/low-sky.json';
@@ -38,18 +40,8 @@ export const FIGURE_IDS = [
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
-export type Block =
-  /** A paragraph of the article. */
-  | { kind: 'text'; text: string }
-  /** The few ideas to hold on to, as a short list set apart from the article. */
-  | { kind: 'key'; title: string; points: string[] }
-  /** A live figure. `task` says what to do with it; `goal` tells the figure when it is done. */
-  | { kind: 'figure'; figure: FigureId; caption: string; task?: string; goal?: string; options?: Record<string, unknown> };
-
-export interface Part {
-  title: string;
-  blocks: Block[];
-}
+export type Block = KitBlock<FigureId>;
+export type Part = KitPart<FigureId>;
 
 /** A forecasting question: a sky over some hours, and what it is up to. */
 export interface Forecast {
@@ -77,24 +69,14 @@ export interface Profile {
   ground?: string;
 }
 
-export interface Shift {
-  id: string;
-  n: number;
-  title: string;
+/** A lesson (lesson-kit's Lesson shape, which its JSON file holds), with what only Clouds adds. */
+export interface Shift extends Lesson<FigureId> {
   /** The clouds this shift introduces. */
   clouds: GenusId[];
   /** The clouds drawn over the fields at the top of the lesson: the ones it introduces, or the ones it is about. */
   sky: GenusId[];
   /** Training, or the lessons on cloud seeding that come after it. */
   book: 'training' | 'seeding';
-  /** One line for the shift board. */
-  teaches: string;
-  parts: Part[];
-  /** What was learned, written into the log. */
-  learned: string[];
-  next: string;
-  /** Journal entries this shift unlocks. */
-  journal: string[];
 }
 
 /**

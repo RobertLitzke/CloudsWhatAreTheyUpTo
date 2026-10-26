@@ -4,7 +4,7 @@
 // app shows them under the photo and on the Credits page.
 
 import { isGenusId, type GenusId } from './clouds';
-import type { Rng } from './rng';
+import type { Rng } from 'lesson-kit/rng';
 
 /**
  * Licences a photo may carry. Public domain and the attribution licences

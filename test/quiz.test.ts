@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { buildDeck, deal, GAPS_DAYS, review, tally } from '../src/core/quiz';
-import { makeRng } from '../src/core/rng';
+import { makeRng } from 'lesson-kit/rng';
 import { migrate } from '../src/core/save';
 import library from '../src/data/photos.json';
 import type { Photo } from '../src/core/photos';

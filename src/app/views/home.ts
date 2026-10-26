@@ -2,8 +2,8 @@
 // radio on, the page tells the story and the opening talk plays the first time.
 
 import { SHIFTS } from '../../core/shifts';
-import { el } from '../dom';
-import type { View } from '../router';
+import { el } from 'lesson-kit/dom';
+import type { View } from 'lesson-kit/router';
 import { placeCloud } from '../scene/drawn';
 import { makeScene } from '../scene/landscape';
 import { getSave, updateSave } from '../store';
@@ -24,16 +24,16 @@ export const homeView: View = (root, nav) => {
     placeCloud('cumulus', p, 330, 184, 1.3, 9),
   );
 
-  const nextUp = SHIFTS.find((s) => !save.shifts[s.id]?.done);
+  const nextUp = SHIFTS.find((s) => !save.lessons[s.id]?.done);
   const training = SHIFTS.filter((s) => s.book === 'training');
   const seeding = SHIFTS.filter((s) => s.book === 'seeding');
-  const trained = training.every((s) => save.shifts[s.id]?.done);
+  const trained = training.every((s) => save.lessons[s.id]?.done);
 
   const boardOf = (lessons: readonly (typeof SHIFTS)[number][]) => el(
     'ol.shift-board',
     {},
     lessons.map((s) => {
-      const rec = save.shifts[s.id];
+      const rec = save.lessons[s.id];
       const open = rec?.done || s === nextUp;
       return el(
         'li.shift-card',
@@ -75,7 +75,7 @@ export const homeView: View = (root, nav) => {
               ]
             : [el('p', {}, `${training.length} short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come. Then ${seeding.length === 1 ? 'one' : seeding.length} on cloud seeding.`)]),
         ),
-        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.shifts[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
+        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
         el('h2', {}, 'Lessons'),
         boardOf(training),
         // Open from the start: the natural skies can be made as soon as their

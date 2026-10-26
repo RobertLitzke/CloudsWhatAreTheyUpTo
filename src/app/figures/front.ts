@@ -7,7 +7,7 @@
 import { DRY_RATE } from '../../core/air';
 import { compass, crossRange, frontLift, stormSky, stormWeather, BASIN_M, COAST_C, coldSurfaceM, warmSurfaceM, WARM_SECTOR_H } from '../../core/storm';
 import { genus, type GenusId } from '../../core/clouds';
-import { svg } from '../dom';
+import { svg } from 'lesson-kit/dom';
 import { drawCloud } from '../scene/drawn';
 import { PALETTES } from '../scene/landscape';
 import { arrow, curve, heading, label, line, note, points, polyline, radarImage, radarKey, redraw, still, type P } from './draw';

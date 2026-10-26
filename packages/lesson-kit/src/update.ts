@@ -13,12 +13,21 @@ import { el } from './dom';
 /** Don't look again sooner than this after the last look. */
 const MIN_GAP_MS = 60 * 1000;
 
-export function watchForUpdates(): void {
+export interface UpdateBannerText {
+  /** The banner's heading, such as "New forecast in". */
+  title: string;
+  /** One line under it, such as "A fresh version of Clouds is ready." */
+  text: string;
+  /** An SVG drawn in the banner's icon tile, as markup, so it shows offline. */
+  icon?: string;
+}
+
+export function watchForUpdates(banner: UpdateBannerText): void {
   let lastCheck = Date.now();
 
   const updateSW = registerSW({
     onNeedRefresh() {
-      showBanner(() => void updateSW(true));
+      showBanner(banner, () => void updateSW(true));
     },
     onRegisteredSW(swUrl, registration) {
       if (!registration) return;
@@ -43,17 +52,17 @@ export function watchForUpdates(): void {
   });
 }
 
-/** A little peach cloud with an up arrow: drawn inline so it shows offline. */
-const CLOUD =
-  '<svg viewBox="0 0 44 44"><path d="M13 31a7 7 0 0 1-.6-14 9.5 9.5 0 0 1 18.3 1.6A6.3 6.3 0 0 1 31 31Z" fill="#f6b98e" stroke="#2a2547" stroke-width="2" stroke-linejoin="round"/>' +
-  '<path d="M22 28v-9m-4 4 4-4 4 4" fill="none" stroke="#2a2547" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+/** An up arrow in a ring, for when the app gives no icon of its own. */
+const ARROW =
+  '<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="12" fill="#fff" stroke="currentColor" stroke-width="2"/>' +
+  '<path d="M22 28v-12m-5 5 5-5 5 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 /**
  * A banner rather than confirm(): a native dialog would land in the middle of a
  * run. It does not use the .toast class, so a passing toast cannot knock it away,
  * and it stays until the player reloads or dismisses it.
  */
-function showBanner(reload: () => void): void {
+function showBanner({ title, text, icon = ARROW }: UpdateBannerText, reload: () => void): void {
   if (document.querySelector('.update-banner')) return;
   const close = () => {
     node.classList.add('out');
@@ -62,12 +71,12 @@ function showBanner(reload: () => void): void {
   const node = el(
     'div.update-banner',
     { role: 'status' },
-    el('span.update-icon', { innerHTML: CLOUD, 'aria-hidden': 'true' }),
+    el('span.update-icon', { innerHTML: icon, 'aria-hidden': 'true' }),
     el(
       'div.update-text',
       {},
-      el('strong', {}, 'New forecast in'),
-      el('span', {}, 'A fresh version of Clouds is ready.'),
+      el('strong', {}, title),
+      el('span', {}, text),
     ),
     el(
       'div.update-actions',

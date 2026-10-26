@@ -1,3 +1,5 @@
+// Clouds' quiz deck. The scheduling is lesson-kit's quiz.ts.
+//
 // The quiz: plain flash cards, outside the lessons and the story, scheduled
 // by spaced repetition. A card answered right comes back after longer and
 // longer gaps; a card answered wrong starts over and comes back in the same
@@ -10,18 +12,14 @@
 
 import { GENERA, floorInfo, genus, type Floor, type GenusId } from './clouds';
 import type { FeatureId, Photo } from './photos';
-import { shuffle, type Rng } from './rng';
+import { conceptCard, type Card as KitCard, type Concept } from 'lesson-kit/quiz';
+import { shuffle, type Rng } from 'lesson-kit/rng';
 import concepts from '../data/quiz.json';
 
 export type CardKind = 'photo' | 'made' | 'means' | 'floor' | 'idea';
 
-export interface Card {
-  id: string;
+export interface Card extends KitCard {
   kind: CardKind;
-  question: string;
-  /** The right answer is options[0]; the view shuffles them. */
-  options: string[];
-  why: string;
   photo?: Photo;
 }
 
@@ -53,14 +51,6 @@ const FLOOR_ANSWERS: Record<Floor, string> = {
   high: 'High',
   tower: 'All three',
 };
-
-export interface Concept {
-  id: string;
-  question: string;
-  options: string[];
-  answer: number;
-  why: string;
-}
 
 /** The whole deck. Wrong answers are drawn with `rng`, so the deck is the same for the same seed. */
 export function buildDeck(photos: readonly Photo[], rng: Rng): Card[] {
@@ -121,71 +111,9 @@ export function buildDeck(photos: readonly Photo[], rng: Rng): Card[] {
     });
   }
   for (const c of concepts.cards as Concept[]) {
-    cards.push({
-      id: `idea:${c.id}`,
-      kind: 'idea',
-      question: c.question,
-      options: [c.options[c.answer], ...c.options.filter((_, i) => i !== c.answer)],
-      why: c.why,
-    });
+    cards.push({ ...conceptCard(c), kind: 'idea' });
   }
   return cards;
 }
 
-// ---- Scheduling ------------------------------------------------------------------
-
-/** Where a card stands: its box (0 = being learned) and when it is next due, in ms. */
-export interface CardState {
-  box: number;
-  due: number;
-}
-
-const DAY = 24 * 60 * 60 * 1000;
-/** The gap after a right answer, by the box the card moves into. */
-export const GAPS_DAYS = [0, 1, 3, 7, 16, 35, 80];
-
-/** The card's next state after an answer. */
-export function review(prev: CardState | undefined, right: boolean, now: number): CardState {
-  if (!right) return { box: 0, due: now };
-  const box = Math.min((prev?.box ?? 0) + 1, GAPS_DAYS.length - 1);
-  return { box, due: now + GAPS_DAYS[box] * DAY };
-}
-
-/**
- * A sitting: the cards due now, most overdue first, then up to `fresh` new
- * ones, `size` in all. New cards are dealt in a shuffled order so the kinds
- * are mixed, but with the photos and the plain facts ahead of the ideas.
- */
-export function deal(deck: readonly Card[], states: Readonly<Record<string, CardState>>, now: number, size: number, fresh: number, rng: Rng): Card[] {
-  const due = deck.filter((c) => states[c.id] && states[c.id].due <= now).sort((a, b) => states[a.id].due - states[b.id].due);
-  const unseen = shuffle(deck.filter((c) => !states[c.id]), rng);
-  const out = due.slice(0, size);
-  for (const c of unseen) {
-    if (out.length >= size || fresh <= 0) break;
-    out.push(c);
-    fresh--;
-  }
-  return shuffle(out, rng);
-}
-
-export interface Tally {
-  due: number;
-  fresh: number;
-  learning: number;
-  known: number;
-}
-
-/** Counts for the quiz page: due now, never seen, still being learned (box 1-2), and known (box 3 and up). */
-export function tally(deck: readonly Card[], states: Readonly<Record<string, CardState>>, now: number): Tally {
-  const t: Tally = { due: 0, fresh: 0, learning: 0, known: 0 };
-  for (const c of deck) {
-    const s = states[c.id];
-    if (!s) t.fresh++;
-    else {
-      if (s.due <= now) t.due++;
-      if (s.box >= 3) t.known++;
-      else t.learning++;
-    }
-  }
-  return t;
-}
+export { deal, GAPS_DAYS, review, tally, type CardState, type Tally } from 'lesson-kit/quiz';
