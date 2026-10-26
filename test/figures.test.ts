@@ -32,6 +32,19 @@ describe('figures', () => {
     await expect(tri.done).resolves.toBeUndefined();
     expect(tri.node.textContent).toContain('Sand 40%, silt 40%, clay 20%: a loam');
   });
+
+  it('the pores and web figures meet their goals', async () => {
+    const ctx = { save: emptySave(), closed: new AbortController().signal, score: () => {} };
+    const pores = FIGURES.pores(ctx, 'more');
+    const om = pores.node.querySelector('input')!;
+    om.value = '5';
+    om.dispatchEvent(new Event('input'));
+    await expect(pores.done).resolves.toBeUndefined();
+    const web = FIGURES.web(ctx, 'out');
+    web.node.querySelector('.web-node')!.dispatchEvent(new Event('click'));
+    web.node.querySelector('button')!.dispatchEvent(new Event('click'));
+    await expect(web.done).resolves.toBeUndefined();
+  });
 });
 
 describe('drawings', () => {

@@ -2,10 +2,10 @@
 // nutrients against the rain, the pH band chart, and where a shortage shows
 // on a plant.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small } from 'lesson-kit/draw';
+import { svg } from 'lesson-kit/dom';
+import { label, redraw, small, still } from 'lesson-kit/draw';
 import { makeRng } from 'lesson-kit/rng';
-import { availability, cec, leastAt, NAMES, NUTRIENTS, scarceAt, SIGNS, ALUMINIUM_PH, type Shortage } from '../../core/nutrients';
+import { availability, cec, NAMES, NUTRIENTS, SIGNS, ALUMINIUM_PH, type Shortage } from '../../core/nutrients';
 import { COL, figure, frame, slider, tint } from './kit';
 
 const f1 = (n: number) => n.toFixed(1);
@@ -65,20 +65,26 @@ export const parkingFigure = figure(['hold'], (_ctx, t) => {
 
 // ---- pH -----------------------------------------------------------------------
 
-export const phFigure = figure(['sweet'], (_ctx, t) => {
+/** Each nutrient a band whose thickness is how easily roots reach it, from pH 4 to 9, with the range most vegetables like picked out. */
+export function phDiagram(): { node: HTMLElement } {
   const W = 400;
-  const H = 290;
-  const f = frame(W, H, 3);
-  const bands = svg('g');
-  const marker = svg('g');
+  const H = 300;
+  const s = still(W, H);
   const x0 = 88;
   const x1 = 385;
   const X = (ph: number) => x0 + ((ph - 4) / 5) * (x1 - x0);
   const rowH = 20;
-  const y0 = 16;
+  const y0 = 30;
+  const yb = y0 + NUTRIENTS.length * rowH + 4;
   const colourOf = (i: number) => (i < 3 ? COL.leaf : i < 6 ? COL.sand : COL.clay);
-  // Each nutrient a band whose thickness is its availability.
-  const all: SVGElement[] = [];
+  s.svg.append(
+    svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }),
+    // Where most vegetables do best, and where aluminium poisons roots.
+    svg('rect', { x: X(6), y: y0 - 6, width: X(7) - X(6), height: yb - y0 + 6, fill: tint(COL.good, 0.14) }),
+    small((X(6) + X(7)) / 2, y0 - 12, 'most vegetables', { anchor: 'middle', fill: COL.good, bold: true }),
+    svg('rect', { x: X(4), y: y0 - 6, width: X(ALUMINIUM_PH) - X(4), height: yb - y0 + 6, fill: tint(COL.clay, 0.08) }),
+    small((X(4) + X(ALUMINIUM_PH)) / 2, y0 - 12, 'aluminium harms roots', { anchor: 'middle', fill: COL.clay }),
+  );
   NUTRIENTS.forEach((n, i) => {
     const yc = y0 + i * rowH + rowH / 2;
     const top: string[] = [];
@@ -88,31 +94,12 @@ export const phFigure = figure(['sweet'], (_ctx, t) => {
       top.push(`${f1(X(ph))},${f1(yc - a)}`);
       bot.unshift(`${f1(X(ph))},${f1(yc + a)}`);
     }
-    all.push(svg('polygon', { points: [...top, ...bot].join(' '), fill: tint(colourOf(i), 0.75) }), label(x0 - 8, yc + 4, NAMES[n], { anchor: 'end' }));
+    s.svg.append(svg('polygon', { points: [...top, ...bot].join(' '), fill: tint(colourOf(i), 0.75) }), label(x0 - 8, yc + 4, NAMES[n], { anchor: 'end' }));
   });
-  const yb = y0 + NUTRIENTS.length * rowH + 4;
-  for (let ph = 4; ph <= 9; ph++) all.push(small(X(ph), yb + 12, String(ph), { anchor: 'middle', soft: true }));
-  all.push(small(X(4), yb + 24, 'acid', { soft: true }), small(X(9), yb + 24, 'alkaline', { anchor: 'end', soft: true }));
-  all.push(svg('rect', { x: X(4), y: y0, width: X(ALUMINIUM_PH) - X(4), height: NUTRIENTS.length * rowH, fill: tint(COL.clay, 0.08) }));
-  redraw(bands, ...all);
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), bands, marker);
-  let ph = 5;
-  const paint = () => {
-    redraw(marker, svg('line', { x1: f1(X(ph)), y1: y0 - 4, x2: f1(X(ph)), y2: yb, stroke: COL.ink, 'stroke-width': 2 }), small(X(ph), yb + 24, `pH ${ph.toFixed(1)}`, { anchor: 'middle', bold: true }));
-    const scarce = scarceAt(ph).map((n) => NAMES[n]);
-    const least = leastAt(ph);
-    const al = ph < ALUMINIUM_PH ? ' Aluminium dissolves and harms roots, too.' : '';
-    f.readout.textContent = scarce.length
-      ? `At pH ${ph.toFixed(1)}, hard to reach: ${scarce.join(', ')}.${al}`
-      : least.a >= 0.65
-        ? `At pH ${ph.toFixed(1)}, every band is wide: nothing is locked away. This is where most vegetables are happiest.`
-        : `At pH ${ph.toFixed(1)}, all are within reach, though ${NAMES[least.n]} is getting scarce.`;
-    if (t.goal === 'sweet' && least.a >= 0.65) t.done();
-  };
-  f.controls.append(slider('pH', 4, 9, 0.1, ph, (v) => v.toFixed(1), (v) => { ph = v; paint(); }, 'clay').node);
-  paint();
-  return f.node;
-});
+  for (let ph = 4; ph <= 9; ph++) s.svg.append(small(X(ph), yb + 12, String(ph), { anchor: 'middle', soft: true }));
+  s.svg.append(small(X(4), yb + 24, 'acid', { soft: true }), small((X(4) + X(9)) / 2, yb + 24, 'pH', { anchor: 'middle', soft: true }), small(X(9), yb + 24, 'alkaline', { anchor: 'end', soft: true }));
+  return { node: s.node };
+}
 
 // ---- Where it shows -------------------------------------------------------------
 
@@ -133,41 +120,30 @@ function leaf(x: number, y: number, dir: number, size: number, body: string, vei
 const SHORTAGES: Shortage[] = ['N', 'P', 'K', 'Mg', 'Fe', 'Ca'];
 const HEALTHY = { leaf: COL.leaf, vein: '#4f7a33' };
 
-export const leafFigure = figure(['look'], (_ctx, t) => {
+/** Six plants side by side, each short of one nutrient: the older two pairs of leaves are at the bottom. */
+export function leafDiagram(): { node: HTMLElement } {
   const W = 400;
-  const H = 230;
-  const f = frame(W, H, 3);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  let at: Shortage | null = null;
-  const seen = new Set<Shortage>();
-  const paint = () => {
-    const sign = at ? SIGNS[at] : null;
-    const shapes: SVGElement[] = [svg('path', { d: 'M200,214 C198,150 202,90 200,24', stroke: COL.leaf, 'stroke-width': 4, fill: 'none' })];
-    // Four pairs of leaves, oldest at the bottom.
+  const H = 300;
+  const s = still(W, H);
+  s.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }));
+  SHORTAGES.forEach((n, k) => {
+    const sign = SIGNS[n];
+    const cx = 68 + (k % 3) * 132;
+    const base = 120 + Math.floor(k / 3) * 146;
+    s.svg.append(svg('path', { d: `M${cx},${base} L${cx},${base - 104}`, stroke: COL.leaf, 'stroke-width': 3 }));
     for (let i = 0; i < 4; i++) {
-      const y = 196 - i * 46;
-      const old = i < 2;
-      const sick = sign && ((sign.where === 'old' && old) || (sign.where === 'new' && !old));
-      const body = sick ? sign!.leaf : HEALTHY.leaf;
-      const vein = sick ? sign!.vein : HEALTHY.vein;
-      const edge = sick ? sign!.edge : undefined;
-      const size = 1.3 - i * 0.18;
-      shapes.push(leaf(198, y, -1, size, body, vein, edge), leaf(202, y - 10, 1, size, body, vein, edge));
+      const y = base - 12 - i * 26;
+      const sick = (sign.where === 'old') === (i < 2);
+      const body = sick ? sign.leaf : HEALTHY.leaf;
+      const vein = sick ? sign.vein : HEALTHY.vein;
+      const edge = sick ? sign.edge : undefined;
+      const size = 0.95 - i * 0.12;
+      s.svg.append(leaf(cx - 2, y, -1, size, body, vein, edge), leaf(cx + 2, y - 6, 1, size, body, vein, edge));
     }
-    shapes.push(small(300, 196, 'oldest leaves', { soft: true }), small(300, 66, 'newest leaves', { soft: true }));
-    if (at) shapes.push(label(20, 30, NAMES[at], { bold: true }), small(20, 44, sign!.where === 'old' ? 'shows first on old leaves' : 'shows first on new leaves', { soft: true }));
-    redraw(g, ...shapes);
-    f.readout.textContent = sign ? `${sign.looks} ${sign.cause}` : 'A healthy plant. Pick a nutrient to see how a plant short of it looks.';
-    if (t.goal === 'look' && seen.size >= 3) t.done();
-  };
-  const chips = SHORTAGES.map((s) => el('button.chip', { type: 'button', onclick: () => {
-    at = s;
-    seen.add(s);
-    chips.forEach((c, i) => c.classList.toggle('on', SHORTAGES[i] === s));
-    paint();
-  } }, NAMES[s]));
-  f.controls.append(el('div.chips', {}, chips));
-  paint();
-  return f.node;
-});
+    s.svg.append(
+      label(cx, base + 15, NAMES[n], { anchor: 'middle', bold: true }),
+      small(cx, base + 27, sign.where === 'old' ? 'old leaves first' : 'new leaves first', { anchor: 'middle', soft: true }),
+    );
+  });
+  return { node: s.node };
+}

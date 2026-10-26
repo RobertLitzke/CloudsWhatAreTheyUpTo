@@ -2,8 +2,8 @@
 // has drained, rain soaking in or pooling, and a bed drying out in summer.
 
 import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small } from 'lesson-kit/draw';
-import { mixOf, textureOf, type Mix } from '../../core/soil';
+import { label, redraw, small, still } from 'lesson-kit/draw';
+import { mixOf, type Mix } from '../../core/soil';
 import { available, availableMm, daysOfWater, hydraulics, storm } from '../../core/water';
 import { COL, figure, frame, slider, tint } from './kit';
 
@@ -42,77 +42,62 @@ export function plant(x: number, y: number, droop: number, scale = 1): SVGElemen
 // ---- What the pores hold ---------------------------------------------------------
 
 /**
- * A 30 cm column of root zone as one bar: solid grains, water held too tightly
- * for roots, water a plant can use, and the big pores that drain and fill with
- * air. Sliders for sand, clay and organic matter.
+ * A 30 cm column of root zone in each of the three soils, as one bar each:
+ * solid grains, water held too tightly for roots, water a plant can use, and
+ * the big pores that drain and fill with air. Texture can't be changed, so
+ * the one control is what a gardener can change: organic matter.
  */
-export const poresFigure = figure(['balance'], (_ctx, t) => {
+export const poresFigure = figure(['more'], (_ctx, t) => {
   const W = 400;
-  const H = 230;
+  const H = 262;
   const f = frame(W, H, 3);
   const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  let sand = 85;
-  let clay = 5;
-  let om = 2;
+  const PARTS = [
+    { name: 'solid grains', fill: COL.mineral, text: COL.mineral },
+    { name: 'water held too tight', fill: tint(COL.water, 0.45), text: COL.water },
+    { name: 'water a plant can use', fill: COL.water, text: COL.water },
+    { name: 'drains, then holds air', fill: COL.airPale, text: '#3f7f97' },
+  ];
+  // The key, two by two along the top.
+  const key = svg('g', {}, ...PARTS.flatMap((p, i) => {
+    const x = 20 + (i % 2) * 190;
+    const y = 16 + Math.floor(i / 2) * 16;
+    return [svg('rect', { x, y: y - 9, width: 11, height: 11, rx: 2, fill: p.fill, stroke: COL.grid }), small(x + 16, y, p.name, { fill: p.text, bold: i === 2 })];
+  }));
+  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), key, g);
+  let om = 1;
   const paint = () => {
-    const mix = mixOf(sand, clay);
-    const h = hydraulics(mix, om);
-    const bx = 40;
-    const by = 20;
-    const bw = 70;
-    const bh = 190;
-    const parts = [
-      { name: 'solid grains', share: 1 - h.saturated, fill: COL.mineral, text: COL.mineral },
-      { name: 'water held too tight for roots', share: h.wilt, fill: tint(COL.water, 0.45), text: COL.water },
-      { name: 'water a plant can use', share: available(h), fill: COL.water, text: COL.water },
-      { name: 'drains away, then holds air', share: h.saturated - h.field, fill: COL.airPale, text: '#3f7f97' },
-    ];
     const shapes: SVGElement[] = [];
-    let y = by + bh;
-    // Labels sit beside their layer, nudged apart when layers are thin, with a tick to the layer.
-    let lastLabel = Infinity;
-    for (const p of parts) {
-      const ph = bh * p.share;
-      y -= ph;
-      shapes.push(svg('rect', { x: bx, y: f1(y), width: bw, height: f1(ph), fill: p.fill }));
-      const mid = y + ph / 2;
-      const ly = Math.min(mid, lastLabel - 16);
-      lastLabel = ly;
-      shapes.push(svg('path', { d: `M${bx + bw + 2},${f1(mid)} L${bx + bw + 10},${f1(ly)}`, stroke: COL.soft, fill: 'none' }));
-      shapes.push(label(bx + bw + 14, ly + 4, `${Math.round(p.share * 100)}% ${p.name}`, { fill: p.text, bold: p.name.startsWith('water a') }));
-    }
-    shapes.push(svg('rect', { x: bx, y: by, width: bw, height: bh, fill: 'none', stroke: COL.ink, 'stroke-width': 1.5 }));
-    shapes.push(small(bx + bw / 2, by + bh + 14, '30 cm of bed', { anchor: 'middle', soft: true }));
+    const by = 48;
+    const bh = 150;
+    const bw = 64;
+    const results = SOILS.map((soil, i) => {
+      const h = hydraulics(soil.mix, om);
+      const shares = [1 - h.saturated, h.wilt, available(h), h.saturated - h.field];
+      const bx = 36 + i * 128;
+      let y = by + bh;
+      shares.forEach((share, k) => {
+        const ph = bh * share;
+        y -= ph;
+        shapes.push(svg('rect', { x: bx, y: f1(y), width: bw, height: f1(ph), fill: PARTS[k].fill }));
+      });
+      shapes.push(svg('rect', { x: bx, y: by, width: bw, height: bh, fill: 'none', stroke: COL.ink, 'stroke-width': 1.5 }));
+      const mm = availableMm(h, 300);
+      shapes.push(
+        label(bx + bw / 2, by + bh + 16, soil.name, { anchor: 'middle', bold: true }),
+        small(bx + bw / 2, by + bh + 30, `${Math.round(mm)} mm to drink`, { anchor: 'middle', fill: COL.water, bold: true }),
+        small(bx + bw / 2, by + bh + 43, `drains ${h.ksat < 10 ? h.ksat.toFixed(1) : Math.round(h.ksat)} mm/h`, { anchor: 'middle', soft: true }),
+      );
+      return { mm, ksat: h.ksat };
+    });
     redraw(g, ...shapes);
-    const mm = availableMm(h, 300);
-    const days = daysOfWater(h, 300, 5);
-    f.readout.textContent = `A ${textureOf(mix)}. Holds ${Math.round(mm)} mm a plant can use, about ${Math.round(days)} hot summer days; when soaked, water drains through at ${Math.round(h.ksat)} mm an hour.`;
-    if (t.goal === 'balance' && mm >= 40 && h.ksat >= 10) t.done();
+    const [sandy, , clay] = results;
+    f.readout.textContent = om <= 1
+      ? `Three soils, 30 cm deep, with very little organic matter. The sandy bed holds only ${Math.round(sandy.mm)} mm a plant can use, about ${Math.round(sandy.mm / 5)} hot summer days; the clay one drains at under a millimetre an hour.`
+      : `With ${om}% organic matter, the sandy bed holds ${Math.round(sandy.mm)} mm a plant can use, and the clay one drains at ${clay.ksat.toFixed(1)} mm an hour: organic matter helps each soil where it is weakest.`;
+    if (t.goal === 'more' && om >= 5) t.done();
   };
-  const sandS = slider('Sand', 0, 100, 1, sand, (v) => `${v}%`, (v) => {
-    sand = v;
-    if (sand + clay > 100) {
-      clay = 100 - sand;
-      claySet(clay);
-    }
-    paint();
-  }, 'sand');
-  const clayS = slider('Clay', 0, 60, 1, clay, (v) => `${v}%`, (v) => {
-    clay = v;
-    if (sand + clay > 100) {
-      sand = 100 - clay;
-      sandS.input.value = String(sand);
-      sandS.node.querySelector('output')!.textContent = `${sand}%`;
-    }
-    paint();
-  }, 'clay');
-  const claySet = (v: number) => {
-    clayS.input.value = String(v);
-    clayS.node.querySelector('output')!.textContent = `${v}%`;
-  };
-  const omS = slider('Organic matter', 1, 8, 0.5, om, (v) => `${v}%`, (v) => { om = v; paint(); }, 'organic');
-  f.controls.append(sandS.node, clayS.node, omS.node);
+  f.controls.append(slider('Organic matter', 1, 8, 0.5, om, (v) => `${v}%`, (v) => { om = v; paint(); }, 'organic').node);
   paint();
   return f.node;
 });
@@ -168,39 +153,44 @@ export const rainFigure = figure(['puddle'], (_ctx, t) => {
 
 // ---- Drying out ---------------------------------------------------------------
 
-/** Days after a good soaking, on a warm summer week: how much water is left for a crop, and when it wilts. */
-export const dryingFigure = figure(['wilt'], (_ctx, t) => {
+/**
+ * Three beds soaked once and then drunk at 5 mm a day on a warm summer week:
+ * the water a crop can still use in each, falling to nothing on the day it wilts.
+ */
+export function dryingDiagram(): { node: HTMLElement } {
   const W = 400;
-  const H = 200;
-  const f = frame(W, H, 3);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  let day = 0;
-  const paint = () => {
-    const shapes: SVGElement[] = [];
-    const wilted: string[] = [];
-    SOILS.forEach((s, i) => {
-      const h = hydraulics(s.mix, 3);
-      const last = daysOfWater(h, 300, 5);
-      const left = Math.max(0, 1 - day / last);
-      const x = 70 + i * 130;
-      const base = 150;
-      // The tank of usable water, emptying.
-      shapes.push(svg('rect', { x: x - 20, y: base - 70, width: 40, height: 70, fill: tint(COL.water, 0.1), stroke: COL.grid }));
-      shapes.push(svg('rect', { x: x - 20, y: f1(base - 70 * left * Math.min(1, last / 10)), width: 40, height: f1(70 * left * Math.min(1, last / 10)), fill: COL.water }));
-      shapes.push(plant(x + 36, base, left > 0.15 ? 0 : 1 - left / 0.15, 0.8));
-      shapes.push(svg('line', { x1: x - 30, y1: base, x2: x + 60, y2: base, stroke: COL.soil, 'stroke-width': 3 }));
-      shapes.push(label(x + 10, base + 22, s.name, { anchor: 'middle', bold: true }));
-      shapes.push(small(x + 10, base + 36, `lasts ${Math.round(last)} days`, { anchor: 'middle', soft: true }));
-      if (left === 0) wilted.push(s.name.toLowerCase());
-    });
-    redraw(g, ...shapes);
-    f.readout.textContent = wilted.length === 0
-      ? `Day ${day}. Every bed still has water a plant can reach.`
-      : `Day ${day}. The ${wilted.join(' and the ')} bed${wilted.length > 1 ? 's have' : ' has'} run out: its plants wilt, though there is still water in the soil, held too tightly to pull out.`;
-    if (t.goal === 'wilt' && wilted.length) t.done();
-  };
-  f.controls.append(slider('Days without rain', 0, 14, 1, 0, (v) => `${v}`, (v) => { day = v; paint(); }, 'water').node);
-  paint();
-  return f.node;
-});
+  const H = 220;
+  const s = still(W, H);
+  const x0 = 44;
+  const x1 = 380;
+  const y0 = 20;
+  const y1 = 180;
+  const X = (d: number) => x0 + (d / 14) * (x1 - x0);
+  const Y = (mm: number) => y1 - (mm / 50) * (y1 - y0);
+  s.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }));
+  for (const mm of [0, 10, 20, 30, 40, 50]) {
+    s.svg.append(svg('line', { x1: x0, y1: Y(mm), x2: x1, y2: Y(mm), stroke: COL.grid }), small(x0 - 5, Y(mm) + 3, String(mm), { anchor: 'end', soft: true }));
+  }
+  for (let d = 0; d <= 14; d += 2) s.svg.append(small(X(d), y1 + 14, String(d), { anchor: 'middle', soft: true }));
+  s.svg.append(
+    small(x1, y1 + 28, 'days without rain', { anchor: 'end', soft: true }),
+    small(x0 - 36, y1 + 28, 'runs dry on', { soft: true }),
+    small(x0 - 36, y0 - 6, 'mm a plant can still use', { soft: true }),
+  );
+  const ink: Record<string, string> = { Sandy: COL.sand, Loam: COL.leaf, Clay: COL.clay };
+  // Each line named where it starts, and the day it runs dry under its dot.
+  for (const soil of SOILS) {
+    const h = hydraulics(soil.mix, 3);
+    const mm = availableMm(h, 300);
+    const last = daysOfWater(h, 300, 5);
+    const c = ink[soil.name];
+    s.svg.append(
+      svg('path', { d: `M${X(0)},${f1(Y(mm))} L${f1(X(last))},${Y(0)}`, stroke: c, 'stroke-width': 2.5, fill: 'none' }),
+      svg('circle', { cx: f1(X(last)), cy: Y(0), r: 4, fill: c }),
+      // Clay's name goes under its line, clear of the loam's just above.
+      label(X(0) + 6, soil.name === 'Clay' ? Y(mm) + 18 : Y(mm) - 6, soil.name, { fill: c, bold: true }),
+      small(X(last), y1 + 28, `day ${Math.round(last)}`, { anchor: 'middle', fill: c, bold: true }),
+    );
+  }
+  return { node: s.node };
+}

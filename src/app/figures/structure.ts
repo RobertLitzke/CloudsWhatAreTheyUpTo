@@ -1,9 +1,10 @@
 // Lesson 5, crumb: a magnified bed whose grains gather into crumbs as roots,
 // fungi and organic matter build them, or pack flat as digging and footsteps
-// break them; and the slake test, two dry clods dropped in water.
+// break them; and the slake test, two dry clods dropped in water, drawn at
+// the moment they go in and five minutes later.
 
 import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small } from 'lesson-kit/draw';
+import { label, redraw, small, still } from 'lesson-kit/draw';
 import { makeRng } from 'lesson-kit/rng';
 import { mixOf } from '../../core/soil';
 import { bedHydraulics, DISTURBANCE, slaked, stability, type Bed, type Disturbance } from '../../core/structure';
@@ -129,12 +130,13 @@ const SLAKE_BEDS: { name: string; bed: Bed }[] = [
 ];
 
 /** A dry clod sitting on a mesh in a glass of water: an intact lump, crumbling to a heap of mud below as it slakes. */
-function clod(x: number, base: number, whole: number, rng: () => number): SVGElement[] {
+function clod(x: number, base: number, whole: number, rng: () => number, scale = 1): SVGElement[] {
   const out: SVGElement[] = [];
-  const r = 26 * Math.sqrt(Math.max(0.02, whole));
+  const r = 26 * scale * Math.sqrt(Math.max(0.02, whole));
   // The heap of fallen grains on the bottom grows as the clod shrinks.
   const heap = 1 - whole;
-  out.push(svg('path', { d: `M${f1(x - 40 * heap - 6)},${base + 60} q${f1(40 * heap + 6)},${f1(-22 * heap - 2)} ${f1(80 * heap + 12)},0 z`, fill: '#7a5a3a' }));
+  const hw = 40 * scale * heap;
+  out.push(svg('path', { d: `M${f1(x - hw - 6)},${base + 60} q${f1(hw + 6)},${f1(-22 * scale * heap - 2)} ${f1(2 * hw + 12)},0 z`, fill: '#7a5a3a' }));
   if (whole > 0.03) {
     let d = '';
     for (let i = 0; i < 9; i++) {
@@ -145,41 +147,30 @@ function clod(x: number, base: number, whole: number, rng: () => number): SVGEle
     out.push(svg('path', { d: d + 'Z', fill: COL.soil }));
   }
   // Cloudy water when grains are falling.
-  if (heap > 0.02 && whole > 0.02) out.push(svg('ellipse', { cx: x, cy: base + 22, rx: 22, ry: 16, fill: tint('#7a5a3a', 0.12 * Math.min(1, heap * 3)) }));
+  if (scale === 1 && heap > 0.02 && whole > 0.02) out.push(svg('ellipse', { cx: x, cy: base + 22, rx: 22 * scale, ry: 16 * scale, fill: tint('#7a5a3a', 0.12 * Math.min(1, heap * 3)) }));
   return out;
 }
 
-export const slakeFigure = figure(['watch'], (_ctx, t) => {
+/** Each bed's clod in its glass, just dropped in and five minutes later. */
+export function slakeDiagram(): { node: HTMLElement } {
   const W = 400;
-  const H = 220;
-  const f = frame(W, H, 3);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  let secs = 0;
-  const paint = () => {
-    const rng = makeRng(2);
-    const shapes: SVGElement[] = [];
-    const left: number[] = [];
-    SLAKE_BEDS.forEach((b, i) => {
-      const x = 100 + i * 200;
-      const base = 100;
-      const whole = slaked(stability(b.bed), secs);
-      left.push(whole);
-      shapes.push(svg('rect', { x: x - 55, y: 30, width: 110, height: 140, rx: 6, fill: tint(COL.water, 0.18), stroke: COL.soft }));
-      shapes.push(svg('line', { x1: x - 45, y1: base + 2, x2: x + 45, y2: base + 2, stroke: COL.soft, 'stroke-width': 2, 'stroke-dasharray': '2 3' }));
-      shapes.push(...clod(x, base, whole, rng));
-      shapes.push(small(x, 186, b.name.split(',')[0], { anchor: 'middle', bold: true }), small(x, 199, b.name.split(',').slice(1).join(',').trim(), { anchor: 'middle', soft: true }));
-    });
-    shapes.push(label(200, 18, secs < 60 ? `${secs} s in the water` : `${Math.round(secs / 60)} min in the water`, { anchor: 'middle', bold: true }));
-    redraw(g, ...shapes);
-    f.readout.textContent = secs === 0
-      ? 'Two dry clods from the same loam, from two different beds, set on a mesh in water.'
-      : left[0] < 0.1 && left[1] > 0.5
-        ? 'The clod from the dug bed has slumped into mud; the other still holds. Same grains: the difference is the glue that life made.'
-        : 'Water rushes into the dry pores and pushes on the crumbs from inside. Weak crumbs burst.';
-    if (t.goal === 'watch' && secs >= 300) t.done();
-  };
-  f.controls.append(slider('Time', 0, 600, 10, 0, (v) => (v < 60 ? `${v} s` : `${Math.round(v / 60)} min`), (v) => { secs = v; paint(); }, 'water').node);
-  paint();
-  return f.node;
-});
+  const H = 224;
+  const s = still(W, H);
+  s.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }));
+  const rng = makeRng(2);
+  SLAKE_BEDS.forEach((b, i) => {
+    const mid = 100 + i * 200;
+    for (const [k, secs] of [[0, 0], [1, 300]] as const) {
+      const x = mid - 46 + k * 92;
+      const base = 96;
+      s.svg.append(
+        svg('rect', { x: x - 42, y: 40, width: 84, height: 128, rx: 6, fill: tint(COL.water, 0.18), stroke: COL.soft }),
+        svg('line', { x1: x - 34, y1: base + 2, x2: x + 34, y2: base + 2, stroke: COL.soft, 'stroke-width': 2, 'stroke-dasharray': '2 3' }),
+        ...clod(x, base, slaked(stability(b.bed), secs), rng, 0.8),
+        small(x, 32, secs ? 'after 5 min' : 'dropped in', { anchor: 'middle', soft: true }),
+      );
+    }
+    s.svg.append(small(mid, 186, b.name.split(',')[0], { anchor: 'middle', bold: true }), small(mid, 199, b.name.split(',').slice(1).join(',').trim(), { anchor: 'middle', soft: true }));
+  });
+  return { node: s.node };
+}

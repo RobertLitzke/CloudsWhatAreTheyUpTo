@@ -28,7 +28,7 @@
       "title": "pH, the gatekeeper",
       "blocks": [
         { "kind": "text", "text": "A soil can hold plenty of a nutrient and still starve a plant of it. Whether a root can take a nutrient up depends on its chemical form, and that form depends on how acid or alkaline the soil is: its **pH**.[^ph] At a low pH iron and manganese dissolve freely, while phosphorus binds to aluminium and calcium runs short. At a high pH iron, manganese and zinc turn into forms roots can't take up, and phosphorus binds to calcium instead." },
-        { "kind": "figure", "figure": "ph", "caption": "How available each nutrient is at each pH: the wider the band, the easier to reach", "task": "Find a pH where every band is wide", "goal": "sweet" },
+        { "kind": "figure", "figure": "ph", "caption": "How available each nutrient is at each pH: the wider the band, the easier to reach" },
         { "kind": "text", "text": "Most vegetables do best between about 6 and 7, where nothing is locked away, and that is the range to aim for. Lime raises a pH and sulfur lowers it, both slowly, over months, and by an amount a soil test should set.[^buffer] There is no point adding a nutrient the pH has locked away; the cheaper fix is usually to move the pH, and organic matter softens the extremes either way. A few plants like it acid on purpose: blueberries want about 5." }
       ]
     },
@@ -36,7 +36,15 @@
       "title": "Reading a leaf",
       "blocks": [
         { "kind": "text", "text": "A plant short of a nutrient often shows which one, and where on the plant it appears is the first clue. Some nutrients, nitrogen, phosphorus, potassium and magnesium, the plant can move. Running short of them, it strips its oldest leaves to feed new growth, so the old leaves show the lack first. Others, iron, calcium and sulfur, it can't move once settled, so the youngest leaves show the shortage." },
-        { "kind": "figure", "figure": "leaf", "caption": "Where a shortage shows on a plant", "task": "Look at three shortages", "goal": "look" },
+        { "kind": "figure", "figure": "leaf", "caption": "Where a shortage shows on a plant: old leaves for the nutrients a plant can move, new leaves for the ones it can't" },
+        { "kind": "key", "title": "What each shortage looks like", "points": [
+          "**Nitrogen:** the oldest leaves turn pale yellow all over, and the whole plant looks pale and thin.",
+          "**Phosphorus:** old leaves go dull dark green, often with purple tints, and the plant stays small.",
+          "**Potassium:** old leaves yellow and then brown at the edges, as if scorched.",
+          "**Magnesium:** old leaves yellow between the veins, while the veins stay green.",
+          "**Iron:** the youngest leaves yellow between the veins; usually a pH too high, not too little iron.",
+          "**Calcium:** new growth is stunted and twisted, and tomatoes rot black at the blossom end; usually uneven watering."
+        ] },
         { "kind": "text", "text": "Leaf signs are clues, not proof. Cold, drowned or compacted roots can't take up nutrients that are right there, and give the same yellow leaves; so can disease. Lesson 8 works through how to tell them apart. Before buying anything, test the pH and look at the roots." },
         { "kind": "key", "title": "Try it in the garden", "points": [
           "**Test the pH** of each bed with a kit or strips from a garden centre: mix soil with distilled water as the kit says. Note the numbers.",

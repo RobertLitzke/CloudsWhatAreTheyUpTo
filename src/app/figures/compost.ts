@@ -1,11 +1,11 @@
 // Lesson 4, organic matter and compost: a heap built a bucket at a time with
-// its carbon-to-nitrogen ratio, and a bucket of dead plants rotting away into
-// humus over the years.
+// its carbon-to-nitrogen ratio, and buckets of grass, leaves and wood chips
+// rotting away into humus over the years.
 
 import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small } from 'lesson-kit/draw';
+import { label, redraw, small, still } from 'lesson-kit/draw';
 import { heapRatio, MATERIAL_IDS, MATERIALS, remains, verdict, VERDICTS, type Material } from '../../core/compost';
-import { COL, figure, frame, slider, tint } from './kit';
+import { COL, figure, frame, tint } from './kit';
 
 const f1 = (n: number) => n.toFixed(1);
 
@@ -85,53 +85,49 @@ export const heapFigure = figure(['hot'], (_ctx, t) => {
 // ---- Rotting away -------------------------------------------------------------
 
 const ROT: Material[] = ['grass', 'leaves', 'chips'];
+const ROT_TIMES: [number, string][] = [[0, 'fresh'], [12, 'after 1 year'], [60, 'after 5 years']];
 
-export const rotFigure = figure(['year'], (_ctx, t) => {
+/**
+ * A bucket each of grass, leaves and wood chips, fresh, after a year and after
+ * five: a bar per moment, split by what is left of each part, against a dashed
+ * outline of what went in.
+ */
+export function rotDiagram(): { node: HTMLElement } {
   const W = 400;
-  const H = 200;
-  const f = frame(W, H, 3);
-  const g = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  let mat: Material = 'leaves';
-  let months = 0;
-  const paint = () => {
-    const r = remains(mat, months);
-    const x0 = 30;
-    const w = 340;
-    const y = 50;
-    const h = 46;
-    const parts = [
-      { name: 'sugars and proteins', share: r.fast, fill: HUE.grass },
-      { name: 'cellulose', share: r.middle, fill: HUE.straw },
-      { name: 'lignin, the woody part', share: r.slow, fill: HUE.leaves },
-      { name: 'humus', share: r.humus, fill: COL.organic },
-    ];
-    const shapes: SVGElement[] = [svg('rect', { x: x0, y, width: w, height: h, fill: 'none', stroke: COL.soft, 'stroke-dasharray': '4 3' })];
-    let x = x0;
-    for (const p of parts) {
-      shapes.push(svg('rect', { x: f1(x), y, width: f1(w * p.share), height: h, fill: p.fill }));
-      x += w * p.share;
-    }
-    shapes.push(small(x0 + w, y - 8, 'dashed: what went in', { anchor: 'end', soft: true }));
-    parts.forEach((p, i) => {
-      const lx = x0 + (i % 2) * 180;
-      const ly = 128 + Math.floor(i / 2) * 22;
-      shapes.push(svg('rect', { x: lx, y: ly - 9, width: 12, height: 12, rx: 2, fill: p.fill }), small(lx + 18, ly + 1, `${p.name} ${Math.round(p.share * 100)}%`));
+  const H = 214;
+  const s = still(W, H);
+  s.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }));
+  const PARTS = [
+    { name: 'sugars and proteins', key: 'fast', fill: HUE.grass },
+    { name: 'cellulose', key: 'middle', fill: HUE.straw },
+    { name: 'lignin, the woody part', key: 'slow', fill: HUE.leaves },
+    { name: 'humus', key: 'humus', fill: COL.organic },
+  ] as const;
+  const x0 = 92;
+  const cw = 100;
+  const bw = 88;
+  ROT_TIMES.forEach(([, when], j) => s.svg.append(label(x0 + j * cw + bw / 2, 18, when, { anchor: 'middle', bold: true })));
+  ROT.forEach((m, i) => {
+    const y = 32 + i * 40;
+    s.svg.append(label(x0 - 8, y + 18, MATERIALS[m].name, { anchor: 'end', bold: true }));
+    ROT_TIMES.forEach(([months], j) => {
+      const r = remains(m, months);
+      const bx = x0 + j * cw;
+      let x = bx;
+      for (const p of PARTS) {
+        const w = bw * r[p.key];
+        s.svg.append(svg('rect', { x: f1(x), y, width: f1(w), height: 26, fill: p.fill }));
+        x += w;
+      }
+      s.svg.append(svg('rect', { x: bx, y, width: bw, height: 26, fill: 'none', stroke: COL.soft, 'stroke-dasharray': '4 3' }));
+      if (months) s.svg.append(small(bx + bw - 2, y + 36, `${Math.round((1 - r.gone) * 100)}% left`, { anchor: 'end', soft: true }));
     });
-    shapes.push(small(x0, 184, `gone: ${Math.round(r.gone * 100)}%, breathed out as carbon dioxide or built into the bodies of soil life`, { soft: true }));
-    shapes.push(label(x0, 32, `${MATERIALS[mat].name}, ${months === 0 ? 'fresh' : months < 24 ? `after ${months} month${months === 1 ? '' : 's'}` : `after ${+(months / 12).toFixed(1)} years`}`, { bold: true }));
-    redraw(g, ...shapes);
-    f.readout.textContent = months === 0
-      ? 'A bucket of fresh material, by what it is made of. Slide time on.'
-      : `${Math.round((1 - r.gone) * 100)}% is left. The soft parts went first; what lasts is the woody part and the humus, ${Math.round(r.humus * 100)}% of what went in.`;
-    if (t.goal === 'year' && months >= 12) t.done();
-  };
-  const chips = ROT.map((m) => el('button.chip', { type: 'button', className: m === mat ? 'chip on' : 'chip', onclick: () => {
-    mat = m;
-    chips.forEach((c, i) => c.classList.toggle('on', ROT[i] === m));
-    paint();
-  } }, MATERIALS[m].name));
-  f.controls.append(el('div.chips', {}, chips), slider('Time', 0, 60, 1, 0, (v) => (v < 24 ? `${v} mo` : `${+(v / 12).toFixed(1)} yr`), (v) => { months = v; paint(); }, 'organic').node);
-  paint();
-  return f.node;
-});
+  });
+  PARTS.forEach((p, i) => {
+    const lx = 20 + (i % 2) * 190;
+    const ly = 168 + Math.floor(i / 2) * 18;
+    s.svg.append(svg('rect', { x: lx, y: ly - 9, width: 12, height: 12, rx: 2, fill: p.fill }), small(lx + 18, ly + 1, p.name));
+  });
+  s.svg.append(small(20, 208, 'dashed: what went in. The rest was breathed out as carbon dioxide or became soil life.', { soft: true }));
+  return { node: s.node };
+}

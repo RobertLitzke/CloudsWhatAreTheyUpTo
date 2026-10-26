@@ -2,15 +2,15 @@
 
 import type { FigureId } from '../../core/lessons';
 import { checkFigure } from './check';
-import { heapFigure, rotFigure } from './compost';
+import { heapFigure, rotDiagram } from './compost';
 import { detectiveFigure } from './diagnosis';
 import type { FigureFactory } from './kit';
 import { teaspoonDiagram, webFigure } from './life';
 import { feelFigure, handfulDiagram, jarDiagram, sizesDiagram, surfaceDiagram, triangleFigure } from './made-of';
-import { leafFigure, parkingFigure, phFigure } from './nutrients';
+import { leafDiagram, parkingFigure, phDiagram } from './nutrients';
 import { yearFigure } from './seasons';
-import { crumbFigure, slakeFigure } from './structure';
-import { dryingFigure, poresFigure, rainFigure } from './water';
+import { crumbFigure, slakeDiagram } from './structure';
+import { dryingDiagram, poresFigure, rainFigure } from './water';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
   handful: handfulDiagram,
@@ -21,16 +21,16 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   triangle: triangleFigure,
   pores: poresFigure,
   rain: rainFigure,
-  drying: dryingFigure,
+  drying: dryingDiagram,
   teaspoon: teaspoonDiagram,
   web: webFigure,
   heap: heapFigure,
-  rot: rotFigure,
+  rot: rotDiagram,
   crumb: crumbFigure,
-  slake: slakeFigure,
+  slake: slakeDiagram,
   parking: parkingFigure,
-  ph: phFigure,
-  leaf: leafFigure,
+  ph: phDiagram,
+  leaf: leafDiagram,
   year: yearFigure,
   detective: detectiveFigure,
   check: checkFigure,

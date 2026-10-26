@@ -64,7 +64,7 @@ const SHORT: Record<Dweller, string> = {
   nematodes: 'nematodes', arthropods: 'mites & co', worms: 'earthworms', birds: 'birds, moles',
 };
 
-export const webFigure = figure(['explore'], (_ctx, t) => {
+export const webFigure = figure(['explore', 'out'], (_ctx, t) => {
   const W = 400;
   const H = 260;
   const f = frame(W, H, 4);
@@ -120,6 +120,7 @@ export const webFigure = figure(['explore'], (_ctx, t) => {
     out = out === picked ? null : picked;
     remove.textContent = out === picked ? 'Put it back' : 'Take it out';
     paint();
+    if (t.goal === 'out' && out) t.done();
   });
   f.controls.append(remove);
   paint();
