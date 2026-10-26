@@ -465,7 +465,7 @@ export const dropsFigure = figure(['rain'], (ctx, t) => {
       ? `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second through the air, but the air is rising faster, so it is carried up and stays in the cloud, where it can go on growing.`
       : lands
         ? `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second, faster than the updraft, and is big enough to cross a kilometre of ${air} air: it reaches the ground${mm < 0.5 ? ' as drizzle' : ' as rain'}.`
-        : `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second and drops out of the base, but in ${air} air it evaporates after ${lastsM < 0.1 ? 'a few centimetres' : lastsM < 1 ? 'less than a metre' : `about ${height(lastsM, ctx.save.units)}`}${mm >= 0.2 ? ': a grey streak of virga that never reaches the ground' : ''}.`;
+        : `A ${size} ${kindOf(mm)} falls ${speed(fall)} a second and drops out of the base, but in ${air} air it evaporates after ${lastsM < 0.1 ? 'a few centimetres' : lastsM < 1 ? 'less than a metre' : `about ${height(lastsM, ctx.save.units)}`}${mm >= 0.2 ? ': a grey streak hanging under the cloud that never reaches the ground' : ''}.`;
     if (t.goal === 'rain' && lands) t.done();
   };
 
