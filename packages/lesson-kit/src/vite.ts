@@ -5,7 +5,7 @@
 // lesson work offline. The same page is also written under a second name, the
 // one-file copy that the settings page offers to download.
 
-import { copyFileSync } from 'node:fs';
+import { copyFileSync, existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { Plugin, UserConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -23,6 +23,23 @@ export function oneFileCopy(root: string, name: string): Plugin {
     closeBundle() {
       const out = resolve(root, 'dist');
       copyFileSync(resolve(out, 'index.html'), resolve(out, name));
+    },
+  };
+}
+
+/**
+ * Inlines public/icons/icon.svg, the favicon, as a data URI in the built page,
+ * so the one-file copy keeps its tab icon when opened from file://.
+ */
+export function inlineFavicon(root: string): Plugin {
+  const file = resolve(root, 'public', 'icons', 'icon.svg');
+  return {
+    name: 'inline-favicon',
+    apply: 'build',
+    transformIndexHtml(html) {
+      if (!existsSync(file)) return html;
+      const uri = `data:image/svg+xml,${encodeURIComponent(readFileSync(file, 'utf8'))}`;
+      return html.replace(/href="\.\/icons\/icon\.svg"/, `href="${uri}"`);
     },
   };
 }
@@ -54,6 +71,7 @@ export function lessonApp(o: LessonAppOptions): UserConfig {
     build: { target: 'es2022' },
     plugins: [
       viteSingleFile(),
+      inlineFavicon(o.root),
       oneFileCopy(o.root, o.oneFile),
       VitePWA({
         registerType: 'prompt',
@@ -62,7 +80,7 @@ export function lessonApp(o: LessonAppOptions): UserConfig {
         // a second time without a revision and workbox refuses the conflict.
         includeManifestIcons: false,
         workbox: {
-          globPatterns: ['index.html', ...(o.precache ?? []), 'icons/*.png'],
+          globPatterns: ['index.html', ...(o.precache ?? []), 'icons/*.{png,svg}'],
           inlineWorkboxRuntime: true,
           navigateFallback: 'index.html',
           cleanupOutdatedCaches: true,

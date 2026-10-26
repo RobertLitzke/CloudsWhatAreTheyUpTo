@@ -92,7 +92,9 @@ export default defineConfig(lessonApp({
 ```
 
 `public/icons/icon-192.png`, `icon-512.png` and `icon-512-maskable.png` must
-exist. Clouds makes them with `tools/icons.mjs`.
+exist. If `public/icons/icon.svg` exists and index.html links it as the
+favicon (`href="./icons/icon.svg"`), the build inlines it, so the one-file
+copy has a tab icon too. Clouds makes all of them with `tools/icons.mjs`.
 
 ### The save
 
