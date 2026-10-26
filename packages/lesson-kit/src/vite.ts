@@ -62,7 +62,7 @@ export function lessonApp(o: LessonAppOptions): UserConfig {
         // a second time without a revision and workbox refuses the conflict.
         includeManifestIcons: false,
         workbox: {
-          globPatterns: ['index.html', ...(o.precache ?? []), 'icons/*.png'],
+          globPatterns: ['index.html', ...(o.precache ?? []), 'icons/*.{png,svg}'],
           inlineWorkboxRuntime: true,
           navigateFallback: 'index.html',
           cleanupOutdatedCaches: true,
@@ -83,6 +83,7 @@ export function lessonApp(o: LessonAppOptions): UserConfig {
           background_color: o.manifest.background_color ?? o.manifest.theme_color,
           display: 'standalone',
           orientation: 'portrait',
+          id: '.',
           start_url: '.',
           scope: '.',
           icons: [
