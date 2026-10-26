@@ -51,16 +51,28 @@ export const freezingFigure: FigureFactory = (ctx) => {
     mark.append(t);
     g.append(mark);
   }
-  // Droplets and crystals as little marks.
-  for (let i = 0; i < 14; i++) {
-    const x = 90 + (i % 7) * 26;
-    const m1 = 300 + (i * 397) % (zero - 400);
-    g.append(svg('circle', { cx: x, cy: yOf(m1), r: 2.4, fill: COL.dew }));
-    const m2 = zero + 300 + (i * 811) % (forty - zero - 600);
-    g.append(i % 2 ? svg('circle', { cx: x + 8, cy: yOf(m2), r: 2.4, fill: COL.dew }) : hexagon(x + 8, yOf(m2), 3, { fill: COL.ice }));
-    const m3 = forty + 300 + (i * 523) % (top - forty - 600);
-    g.append(hexagon(x + 4, yOf(m3), 3.2, { fill: COL.ice }));
-  }
+  // Droplets and crystals as little marks, scattered evenly through each band
+  // between the height scale and the labels. Droplets are small and packed
+  // close; crystals are bigger and fewer. In the middle band the share of ice
+  // grows with height, from mostly droplets at 0 °C to mostly ice near −40 °C.
+  let seed = 11;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+  const scatter = (lo: number, hi: number, step: number, mark: (x: number, y: number, f: number) => SVGElement) => {
+    const y0 = yOf(lo) - 7;
+    const y1 = yOf(hi) + 7;
+    for (let y = y0; y >= y1; y -= step) {
+      for (let x = 110; x <= 240; x += step) {
+        const jx = x + (rnd() - 0.5) * step * 0.7;
+        const jy = Math.min(y0, Math.max(y1, y + (rnd() - 0.5) * step * 0.7));
+        g.append(mark(jx, jy, (y0 - jy) / (y0 - y1)));
+      }
+    }
+  };
+  const drop = (x: number, y: number) => svg('circle', { cx: x, cy: y, r: 2.2, fill: COL.dew });
+  const ice = (x: number, y: number) => hexagon(x, y, 3.4, { fill: COL.ice });
+  scatter(0, zero, 11, drop);
+  scatter(zero, forty, 15, (x, y, f) => (rnd() < 0.15 + 0.7 * f ? ice(x, y) : drop(x, y)));
+  scatter(forty, top, 22, ice);
   d.svg.append(
     svg('rect', { x: 0, y: bottom, width: W, height: H - bottom, fill: COL.ground }), g,
     small(6, H - 5, 'valley floor · 15 °C', { bold: true, fill: COL.paper }),
