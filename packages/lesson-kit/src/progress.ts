@@ -12,6 +12,8 @@ export interface LessonRecord {
   of: number;
   /** ISO date of the first time it was finished. */
   finishedAt?: string;
+  /** Set aside without being done: it counts as passed for what comes next, and can still be started. */
+  skipped?: boolean;
 }
 
 export type Units = 'metric' | 'imperial';
@@ -83,10 +85,21 @@ export function migrateProgress(raw: unknown, empty: Progress = emptyProgress())
         best,
         of,
         ...(typeof rec.finishedAt === 'string' ? { finishedAt: rec.finishedAt } : {}),
+        ...(rec.skipped === true && rec.done !== true ? { skipped: true } : {}),
       };
     }
   }
   return out;
+}
+
+/** The lesson is done or was skipped, so the next one is open. */
+export const passed = (p: Progress, id: string): boolean => p.lessons[id]?.done === true || p.lessons[id]?.skipped === true;
+
+/** Skip a lesson that is not done: the next one opens, and anything left part way is forgotten. */
+export function skipLesson<S extends Progress>(save: S, id: string): S {
+  if (save.lessons[id]?.done) return save;
+  const { [id]: _left, ...resume } = save.resume ?? {};
+  return { ...save, resume, lessons: { ...save.lessons, [id]: { done: false, best: 0, of: 0, skipped: true } } };
 }
 
 /** Move a lesson's record to a new id (a lesson renamed or merged), unless the new id has one already. */

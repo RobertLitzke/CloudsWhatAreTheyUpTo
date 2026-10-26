@@ -3,6 +3,8 @@
 
 import { SHIFTS } from '../../core/shifts';
 import { el } from 'lesson-kit/dom';
+import { passed, skipLesson } from 'lesson-kit/progress';
+import { resumeFor } from 'lesson-kit/resume';
 import type { View } from 'lesson-kit/router';
 import { placeCloud } from '../scene/drawn';
 import { makeScene } from '../scene/landscape';
@@ -24,23 +26,30 @@ export const homeView: View = (root, nav) => {
     placeCloud('cumulus', p, 330, 184, 1.3, 9),
   );
 
-  const nextUp = SHIFTS.find((s) => !save.lessons[s.id]?.done);
+  const nextUp = SHIFTS.find((s) => !passed(save, s.id));
   const training = SHIFTS.filter((s) => s.book === 'training');
   const seeding = SHIFTS.filter((s) => s.book === 'seeding');
-  const trained = training.every((s) => save.lessons[s.id]?.done);
+  const trained = training.every((s) => passed(save, s.id));
+  /** Started, left part way, and still there to pick up. */
+  const started = (s: (typeof SHIFTS)[number]) => !save.lessons[s.id]?.done && resumeFor(save.resume, s.id, s) !== undefined;
 
   const boardOf = (lessons: readonly (typeof SHIFTS)[number][]) => el(
     'ol.shift-board',
     {},
     lessons.map((s) => {
       const rec = save.lessons[s.id];
-      const open = rec?.done || s === nextUp;
+      const open = passed(save, s.id) || s === nextUp;
+      const skipped = rec?.skipped === true;
+      const go = rec?.done ? 'Again' : started(s) ? 'Continue' : 'Start';
       return el(
         'li.shift-card',
-        { className: `shift-card ${rec?.done ? 'done' : open ? 'open' : 'locked'}` },
+        { className: `shift-card ${rec?.done ? 'done' : skipped ? 'skipped' : open ? 'open' : 'locked'}` },
         el('span.shift-n', {}, String(s.n)),
-        el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), rec?.done ? el('p.score', {}, `${save.talk ? 'Radio check' : 'Check'}: ${rec.best} of ${rec.of}`) : null),
-        open ? el('a.btn', { href: `#/shift/${s.id}` }, rec?.done ? 'Again' : 'Start') : null,
+        el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), rec?.done ? el('p.score', {}, `${save.talk ? 'Radio check' : 'Check'}: ${rec.best} of ${rec.of}`) : skipped ? el('p.score', {}, 'Skipped') : null),
+        open ? el('div.shift-actions', {},
+          el('a.btn', { href: `#/shift/${s.id}` }, go),
+          s === nextUp ? el('button.btn.btn-ghost.btn-small', { type: 'button', onclick: () => { updateSave((v) => skipLesson(v, s.id)); nav.replace('/home'); } }, 'Skip') : null,
+        ) : null,
       );
     }),
   );
@@ -75,7 +84,7 @@ export const homeView: View = (root, nav) => {
               ]
             : [el('p', {}, `${training.length} short lessons: what a cloud is made of, how to name every kind, and what each one says about the weather to come. Then ${seeding.length === 1 ? 'one' : seeding.length} on cloud seeding.`)]),
         ),
-        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
+        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, started(nextUp) ? `Continue lesson ${nextUp.n}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
         el('h2', {}, 'Lessons'),
         boardOf(training),
         // Open from the start: the natural skies can be made as soon as their

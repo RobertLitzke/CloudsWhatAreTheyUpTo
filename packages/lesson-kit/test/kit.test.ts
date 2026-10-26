@@ -10,7 +10,7 @@ import { figure, frame, quiz, slider } from '../src/figure';
 import { closeFootnote, footnoteProblems, footnoteSet } from '../src/footnote';
 import { glossaryFromLessons, glossaryView, mergeGlossary } from '../src/glossary';
 import { lessonProblems, lessonView, prose, type Lesson } from '../src/lesson';
-import { emptyProgress, finishLesson, migrateProgress } from '../src/progress';
+import { emptyProgress, finishLesson, migrateProgress, passed, skipLesson } from '../src/progress';
 import { deal, review, tally } from '../src/quiz';
 import { lessonSignature, migrateResume } from '../src/resume';
 import { makeRng } from '../src/rng';
@@ -254,6 +254,18 @@ describe('lesson-kit', () => {
       expect(v.root.querySelector('.fig.done')).toBeNull();
       expect(store.get().resume.push).toBeUndefined();
       v.close();
+    });
+
+    it('skips a lesson: it passes, keeps no place, and finishing it later replaces the skip', () => {
+      const left = { ...emptyProgress(), resume: { a: { v: 1 as const, sig: 's', part: 1, done: [], scores: {}, sliders: {}, kept: {} } } };
+      const skipped = skipLesson(left, 'a');
+      expect(passed(skipped, 'a')).toBe(true);
+      expect(passed(skipped, 'b')).toBe(false);
+      expect(skipped.resume.a).toBeUndefined();
+      expect(migrateProgress(JSON.parse(JSON.stringify(skipped))).lessons.a).toEqual({ done: false, best: 0, of: 0, skipped: true });
+      const done = finishLesson(skipped, 'a', 2, 2, [], new Date('2026-01-02'));
+      expect(done.lessons.a.skipped).toBeUndefined();
+      expect(skipLesson(done, 'a')).toBe(done);
     });
 
     it('reads old saves and drops resumes it cannot read', () => {

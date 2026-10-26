@@ -211,6 +211,13 @@ answers and go on from the next question; a finished one reports its score
 again. Clouds' `quizzes.ts` (radio check, forecast, sort, names) and its six
 guess-first figures show how.
 
+On the lesson board, show "Continue" instead of "Start" when
+`resumeFor(save.resume, id, lesson)` finds something. A lesson can be
+skipped with `skipLesson(save, id)`: it records `skipped: true` (not done, no
+score), `passed(save, id)` is then true so the next lesson opens, and the
+skipped one can still be started. Finishing it later replaces the skip.
+Clouds' home view shows both (a Skip button on the lesson that is next).
+
 A resume belongs to one version of a lesson. `lessonSignature` hashes the
 kind of every block and each figure's name, goal, task and options, but not
 the words, so editing text keeps readers' places, while adding, moving or
