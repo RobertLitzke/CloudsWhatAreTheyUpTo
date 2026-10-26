@@ -5,7 +5,7 @@ import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inv
 import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, frontRadarFigure, lowMapDiagram, occlusionDiagram, radarMapDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
 import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, stormRadarDiagram, tropopauseDiagram, waveFigure } from './giants';
 import { expandDiagram, heapDiagram, latentDiagram, nudgeFigure, parcelFigure, stabilityDiagram, thermalsFigure } from './heaps';
-import { brightBandFigure, escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, haloSightDiagram, iceGrowthFigure, prismFigure, radarEchoFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
+import { brightBandFigure, escapeDiagram, freezeSeedsDiagram, frontFigure, haloFigure, haloSightDiagram, iceGrowthFigure, radarEchoFigure, snowToRainDiagram, streaksFigure } from './ice-realm';
 import { collideDiagram, depthDiagram, dropsFigure, edgesDiagram, freezingFigure, layerKindsDiagram, millionDiagram, nameGridDiagram, spreadFigure, subsidenceDiagram } from './low-sky';
 import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughDiagram } from './middle-sky';
 import { forecastFigure, lookAlikeDiagram, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
@@ -28,7 +28,6 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   hand: handFigure,
   shadow: shadowFigure,
   streaks: streaksFigure,
-  prism: prismFigure,
   halo: haloFigure,
   front: frontFigure,
   storm: stormFigure,

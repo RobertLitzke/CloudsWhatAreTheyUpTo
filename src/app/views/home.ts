@@ -84,7 +84,7 @@ export const homeView: View = (root, nav) => {
           'div.seeding',
           { className: 'seeding open' },
           el('h2', {}, 'The forecast desk: make the sky'),
-          el('p', {}, 'Set the moisture, the heat and the wind, and make the sky you’re asked for. The orders marked Seed are for after the cloud-seeding lesson.'),
+          el('p', {}, 'Set the heat, the moisture and what lifts the air, and make the skies on the list. The orders marked Seed are for after the cloud-seeding lesson.'),
           el('a.btn', { href: '#/seed' }, 'Take the orders'),
         ),
         el('h2', {}, 'Cloud seeding'),

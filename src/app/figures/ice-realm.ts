@@ -1,9 +1,9 @@
 // Figures about the ice realm: an ice crystal growing among supercooled
-// droplets, falling crystals smeared into mares' tails, the prism that makes
-// the 22° halo, the halo building up crystal by crystal, a warm front sliding
-// in overhead, what a radar sees of drops and of melting snow, and stills of
-// what makes a droplet freeze, why ice wins the vapour, snow becoming rain,
-// and where a 22° bend shows up in the sky.
+// droplets, falling crystals smeared into mares' tails, the 22° halo building
+// up crystal by crystal, a warm front sliding in overhead, what a radar sees
+// of drops and of melting snow, and stills of what makes a droplet freeze, why
+// ice wins the vapour, snow becoming rain, and where a 22° bend shows up in
+// the sky.
 
 import { el, svg } from 'lesson-kit/dom';
 import { genus } from '../../core/clouds';
@@ -17,7 +17,7 @@ import { fbm } from '../clouds/noise';
 import { radarWords, rainDbz, sameWaterEcho, stratiformDbz } from '../../core/radar';
 import { makeRng } from 'lesson-kit/rng';
 import { fullOverIce, fullOverWater } from '../../core/air';
-import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
+import { deviation, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
 
 // ---- What makes a droplet freeze --------------------------------------------
@@ -386,100 +386,6 @@ export const streaksFigure = figure(['hooks'], (_ctx, t) => {
     slider('Crystal size', 0, 1, 0.01, fall, (v) => (v < 0.35 ? 'tiny, falls slowly' : v < 0.7 ? 'medium' : 'large, falls fast'), (v) => { fall = v; paintStreaks(); }, 'ice').node,
   );
   paint();
-  return f.node;
-});
-
-// ---- One prism --------------------------------------------------------------
-
-const add = (a: V, b: V): V => [a[0] + b[0], a[1] + b[1]];
-const mul = (a: V, k: number): V => [a[0] * k, a[1] * k];
-const dot = (a: V, b: V) => a[0] * b[0] + a[1] * b[1];
-const unit = (deg: number): V => [Math.cos((deg * Math.PI) / 180), Math.sin((deg * Math.PI) / 180)];
-
-export const prismFigure = figure(['min'], (_ctx, t) => {
-  const W = 400;
-  const H = 240;
-  const f = frame(W, H);
-  const g = svg('g');
-  const plot = svg('g');
-  f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g, plot);
-  const C: V = [110, 130];
-  const R = 64;
-  // A hexagon with two faces 60° apart: light goes in the lower-left face and
-  // out the lower-right one, skipping the bottom face between them.
-  const verts: V[] = Array.from({ length: 6 }, (_, k) => add(C, mul(unit(60 * k), R)));
-  const faceIn: [V, V] = [verts[2], verts[3]]; // outward normal at 150°
-  const faceOut: [V, V] = [verts[0], verts[1]]; // normal at 30°
-  const nIn = unit(150); // outward normal of the entry face
-  const nOut = unit(30);
-  const minD = minimumDeviation();
-  // Deviation plot on the right.
-  const px0 = 236;
-  const px1 = 390;
-  const py0 = 200;
-  const xOf = (i: number) => px0 + (i / 90) * (px1 - px0);
-  const yOf = (d: number) => py0 - ((d - 10) / 50) * 160;
-  const curve: V[] = [];
-  for (let i = 0; i <= 90; i += 0.5) {
-    const d = deviation(i);
-    if (d != null) curve.push([xOf(i), yOf(d)]);
-  }
-  const paint = (inc: number) => {
-    // The incoming ray, at `inc` degrees from the entry face's inward normal.
-    const inward = mul(nIn, -1);
-    const a = (Math.atan2(inward[1], inward[0]) * 180) / Math.PI + inc;
-    const d0 = unit(a);
-    const mid = mul(add(faceIn[0], faceIn[1]), 0.5);
-    const entry = mid;
-    const start = add(entry, mul(d0, -90));
-    const d1 = refract(d0, nIn, 1, ICE_N);
-    let exit: V | null = null;
-    let d2: V | null = null;
-    if (d1) {
-      // Where the inside ray meets the exit face's line.
-      const p = faceOut[0];
-      const tHit = dot(add(p, mul(entry, -1)), nOut) / dot(d1, nOut);
-      exit = add(entry, mul(d1, tHit));
-      d2 = refract(d1, mul(nOut, -1), ICE_N, 1);
-    }
-    const dev = deviation(inc);
-    const parts: SVGElement[] = [
-      svg('polygon', { points: verts.map((v) => v.join(',')).join(' '), fill: '#dfe9f7', stroke: COL.ice, 'stroke-width': 2 }),
-      line(faceIn[0][0], faceIn[0][1], faceIn[1][0], faceIn[1][1], COL.ice, 4),
-      line(faceOut[0][0], faceOut[0][1], faceOut[1][0], faceOut[1][1], COL.ice, 4),
-      line(start[0], start[1], entry[0], entry[1], COL.sun, 3),
-    ];
-    if (exit && d2) {
-      const end = add(exit, mul(d2, 90));
-      const ghost = add(exit, mul(d0, 70));
-      parts.push(
-        line(entry[0], entry[1], exit[0], exit[1], COL.sun, 3),
-        line(exit[0], exit[1], end[0], end[1], COL.sun, 3),
-        line(exit[0], exit[1], ghost[0], ghost[1], COL.soft, 1.2, { 'stroke-dasharray': '4 4' }),
-        label(end[0] + 4, end[1] + 4, dev != null ? `bent ${dev.toFixed(1)}°` : '', { bold: true }),
-      );
-    } else {
-      parts.push(small(20, 226, 'The light is trapped inside and comes out another face.', { soft: true }));
-    }
-    redraw(g, ...parts);
-    redraw(plot,
-      line(px0, py0, px1, py0, COL.grid, 1),
-      line(px0, yOf(minD), px1, yOf(minD), COL.parcel, 1.2, { 'stroke-dasharray': '5 4' }),
-      small(px1, yOf(minD) + 12, '22°: the least it can bend', { anchor: 'end', fill: COL.parcel }),
-      polyline(curve, COL.ice, 2.5),
-      dev != null ? svg('circle', { cx: xOf(inc), cy: yOf(dev), r: 4.5, fill: COL.sun, stroke: COL.ink }) : null,
-      small(px0, py0 + 14, 'angle the light comes in at →', { soft: true }),
-      small(px0, 34, 'how much it is bent', { soft: true }),
-    );
-    f.readout.textContent = dev == null
-      ? 'At this angle the light cannot get out of the far face.'
-      : Math.abs(dev - minD) < 0.6
-        ? `Bent ${dev.toFixed(1)}°: the minimum. Nearby angles all bend almost exactly this much, so light piles up here.`
-        : `Bent ${dev.toFixed(1)}°. Turn the crystal and find the angle where the bend is smallest.`;
-    if (t.goal === 'min' && dev != null && Math.abs(dev - minD) < 0.6) t.done();
-  };
-  f.controls.append(slider('Turn the crystal', 14, 89, 0.5, 70, (v) => `${v.toFixed(0)}°`, paint, 'ice').node);
-  paint(70);
   return f.node;
 });
 

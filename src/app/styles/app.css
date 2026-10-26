@@ -71,10 +71,6 @@
 }
 .seeding h2 { margin-top: 0; }
 .seeding p { color: var(--muted); }
-/* Who in town asked a forecast question, on a typed slip above it. */
-.asker { font: 16px/1.5 'Special Elite', 'Courier New', monospace; background: #f4ead2; color: #2b2620; padding: 10px 14px; margin: 12px 14px 4px; border-left: 3px solid #b0894f; }
-.asker p { margin: 0; }
-.asker p + p { margin-top: 8px; }
 .radio-log { display: grid; gap: 8px; }
 .sky-strip { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; }
 .sky-strip figure { margin: 0; }
@@ -214,7 +210,6 @@
 .seed-lab { color: var(--ink); }
 .seed-lab.done .fig-task .tick { background: var(--good); box-shadow: none; }
 .seed-lab.done .fig-task .tick::after { content: '✓'; color: #fff; font-size: 12px; display: grid; place-items: center; height: 100%; }
-.seed-ask .asker { margin: 10px 14px; }
 .seed-plain { margin: 10px 14px; }
 .seed-hint { margin: 0 14px 10px; font-size: 0.85rem; color: var(--ink-soft); }
 .seed-hint summary { cursor: pointer; font-weight: 600; }

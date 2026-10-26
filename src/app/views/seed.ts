@@ -1,4 +1,4 @@
-// The cloud seeding game. Pick an order from town, set up the air (or take
+// The cloud seeding game. Pick an order from the list, set up the air (or take
 // the day's air as given), and watch which cloud forms over Harrow and what
 // falls from it; then fly a seeding run through it and see what changes. The
 // sky is core/seeding.ts; this file draws it and holds the controls.
@@ -249,12 +249,11 @@ export const seedView: View = (root) => {
     setup = { ...DEFAULT_SETUP, ...(o?.fixed ?? {}) };
     flown = false;
     cancelAnimationFrame(flying);
-    const talk = getSave().talk;
     task.replaceChildren(el('span.tick'), o ? o.title : 'Free sky: make anything');
     ask.replaceChildren(
       ...(o
         ? [
-            talk ? el('div.asker', {}, el('p', {}, el('b', {}, `${o.asker}: `), o.ask)) : el('p.seed-plain', {}, o.plain),
+            el('p.seed-plain', {}, o.ask),
             el('details.seed-hint', {}, el('summary', {}, 'A hint'), el('p', {}, o.hint)),
           ]
         : [el('p.seed-plain', {}, 'Every slider is yours. Set up the air, cool it, and seed whatever forms.')]),
@@ -269,9 +268,7 @@ export const seedView: View = (root) => {
   page.append(
     el('p.eyebrow', {}, talk ? 'Harrow, Adams County' : 'The forecast desk'),
     el('h1', {}, 'Make the sky'),
-    el('p.muted', {}, talk
-      ? 'Harrow has a list of skies it wants. Most orders leave the air to you: find a day that would make the sky. The ones marked Seed come in 1946, when a fellow at General Electric has made it snow with dry ice and Hap’s war-surplus crop duster can fly the runs: they give you the day as it is, and only the seeding to plan.'
-      : 'Make the skies on the list. Most orders leave the air to you: find a day that would make the sky. The ones marked Seed, for after the cloud-seeding lesson, give you the day as it is, and only the seeding to plan.'),
+    el('p.muted', {}, 'Make the skies on the list. Most orders leave the air to you: find a day that would make the sky. The ones marked Seed, for after the cloud-seeding lesson, give you the day as it is, and only the seeding to plan.'),
     board,
     card,
   );
