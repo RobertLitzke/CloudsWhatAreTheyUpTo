@@ -3,7 +3,7 @@
   "id": "seeding",
   "n": 8,
   "title": "The rainmakers, 1946",
-  "teaches": "How dry ice and silver iodide make a supercooled cloud snow, how much is enough, which clouds seeding can and can’t work on, and how to tell a real effect from a lucky winter",
+  "teaches": "How dry ice and silver iodide trigger snowfall in a supercooled cloud, how dosing controls crystal growth, which clouds seeding can and cannot help, and how randomized trials separate a real effect from a lucky winter.",
   "parts": [
     {
       "title": "A cloud waiting for ice",
@@ -12,29 +12,29 @@
           "kind": "key",
           "title": "The big ideas of this lesson",
           "points": [
-            "Most clouds between 0 °C and −20 °C are **supercooled**: liquid water below freezing, waiting for something to start ice. Once there is ice, it grows at the droplets’ expense and falls as snow. What such a cloud lacks is not water but ice.",
-            "**Dry ice** (−78 °C) makes ice by sheer cold, in any cloud colder than 0 °C. **Silver iodide** makes ice by looking like it, in clouds colder than about −5 °C.",
-            "Seeding a layer with the right amount of ice snows a hole in it. Too little gives a few flurries; too much gives crystals too small to fall: **overseeding**.",
-            "Seeding cannot make a cloud, or water. It works in a window, about −5 to −25 °C. It clears supercooled fog every time, and adds a little snow to winter clouds over mountains.",
-            "Storms vary so much by themselves that only a fair trial, with the storms to seed picked by chance, over many winters, can show whether seeding did anything."
+            "Most clouds between 0 °C and −20 °C are **supercooled**: liquid droplets colder than freezing, waiting for a template speck to initiate ice. Once ice crystals appear, they grow rapidly at the droplets’ expense and fall as snow. What holds back precipitation in such a cloud is a shortage of ice, not water.",
+            "**Dry ice** (−78 °C) triggers freezing by sheer cold in any cloud below 0 °C. **Silver iodide** acts as a crystal template whose atomic lattice mimics ice, working in clouds colder than about −5 °C.",
+            "Seeding a cloud layer with the right concentration of crystals snows a clear hole in it. Too few crystals produce only scattered flurries; too many split the water among millions of crystals too tiny to fall (**overseeding**).",
+            "Seeding cannot create clouds or moisture from clear air. It operates inside a specific temperature window (roughly −5 °C to −25 °C), reliably clearing supercooled airport fog and adding modest snowfall (about 5–15%) to suitable winter mountain clouds.",
+            "Natural storm totals vary so wildly that only a **randomized trial**—comparing randomly seeded storms against unseeded control storms across many winters—can prove whether seeding actually added snow."
           ]
         },
         {
           "kind": "text",
-          "text": "Lesson 7 left a puzzle unfinished. Most clouds between 0 °C and −20 °C are made of liquid droplets, below freezing but not frozen: **supercooled**. A droplet freezes only when something gives its molecules a template to line up on. Every litre of air carries millions of specks of dust, salt and smoke, but hardly any of them are shaped right to be that template."
+          "text": "Lesson 7 introduced a striking quirk of cloud physics: most clouds between 0 °C and −20 °C consist of liquid droplets colder than freezing (**supercooled** water). A microscopic droplet freezes above −38 °C only if it touches an **ice nucleus**—a solid speck whose atomic lattice templates the six-sided geometry of ice. Although every litre of outdoor air holds millions of condensation specks (salt, dust, sulphate), almost none of them have the right crystal geometry to start ice."
         },
         {
           "kind": "text",
-          "text": "Count them in a litre of cloud at −10 °C. There are about a hundred thousand droplets, and perhaps one ice-starting speck in every 250 litres. Colder, the specks that work grow more common, about tenfold for every 4 °C, but even at −15 °C there is only one in a dozen litres. A cloud like that can sit for hours, full of water that would fall as snow if only it had some ice."
+          "text": "Consider a litre of cloud air at −10 °C. It typically holds around 100,000 supercooled liquid droplets, yet natural ice nuclei active at −10 °C average only about one speck per 250 litres. As the cloud grows colder, more mineral dust specks become active—roughly tenfold for every 4 °C drop in temperature—but even at −15 °C there is still only about one active ice nucleus per dozen litres of cloud. A cloud deck in that temperature range can linger for hours, brimming with liquid water that cannot fall simply because it lacks ice crystals."
         },
         {
           "kind": "figure",
           "figure": "iceShortage",
-          "caption": "How rare ice-starting specks are, against the droplets in a litre of cloud."
+          "caption": "The scarcity of natural ice nuclei compared to supercooled liquid droplets in a litre of cloud."
         },
         {
           "kind": "text",
-          "text": "Because once there is ice, Lesson 7’s machinery takes over: vapour leaves the droplets and freezes straight onto the crystals, which grow heavy enough to fall in a quarter of an hour, as snow that may melt into rain lower down. So in a supercooled cloud, the rain is held back not by a shortage of water but by a shortage of ice. That is the whole idea behind cloud seeding: give the cloud the ice it is missing."
+          "text": "Once a few ice crystals do appear, Lesson 7’s vapour-scavenging engine (the Bergeron process) takes over: water vapour deposits rapidly onto the ice while surrounding supercooled droplets evaporate to feed them, growing heavy snowflakes within 15 to 20 minutes. In a supercooled cloud between −5 °C and −20 °C, precipitation is bottlenecked not by a shortage of water, but by a shortage of ice. That bottleneck is the entire premise of **cloud seeding**: supply the missing ice crystals."
         }
       ]
     },
@@ -43,26 +43,26 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "In 1946, at the General Electric laboratory in Schenectady, New York, Vincent Schaefer was working with the chemist Irving Langmuir on how ice forms on aeroplanes: supercooled droplets that hit a wing freeze onto it, just like rime on a fence. To study them, Schaefer made clouds of his own."
+          "text": "In 1946, at the General Electric Research Laboratory in Schenectady, New York, self-taught researcher Vincent Schaefer was working alongside Nobel laureate Irving Langmuir to study aircraft icing—how supercooled cloud droplets freeze on contact with aeroplane wings. To study supercooled clouds indoors, Schaefer built a simple cloud chamber."
         },
         {
           "kind": "text",
-          "text": "He used an ordinary chest freezer, lined it with black velvet, and breathed into it. His breath made a small cloud of droplets that stayed supercooled at −10 to −20 °C. A lamp shining across the box lit up any ice crystal as a tiny glint against the black. Schaefer dropped in talc, salt, sulphur, soil and dozens of other dusts, hoping to find one that would start ice. Hardly anything did."
+          "text": "He lined an ordinary commercial chest freezer with black velvet, chilled it to −15 °C, and breathed into it. The moisture in his breath condensed into a miniature cloud of supercooled droplets. A narrow beam from a microscope lamp shone across the dark interior so that any ice crystals would flash like tiny diamonds against the black velvet. For months, Schaefer dusted the cloud with talc, salt, sulphur, volcanic ash, and ground minerals, searching for a powder that would trigger freezing. Almost nothing worked at mild sub-freezing temperatures."
         },
         {
           "kind": "text",
-          "text": "One hot day in July 1946, the freezer was struggling to stay cold, and Schaefer dropped in a lump of dry ice to cool it down. At once the light beam filled with millions of glittering crystals, and the whole cloud turned to ice and settled to the floor of the box as snow."
+          "text": "On a hot afternoon in July 1946, the freezer unit was struggling to stay cold enough, so Schaefer placed a chunk of **dry ice** inside to chill the chamber. The instant his breath met the air above the dry ice, the light beam exploded with millions of glittering ice crystals, which grew at the expense of the fog and settled to the floor of the freezer as miniature snow."
         },
         {
           "kind": "figure",
           "figure": "coldBox",
-          "caption": "A freezer full of breath-cloud, lit from the side, as in Schaefer’s laboratory. Pick the temperature, then drop something in.",
+          "caption": "Schaefer’s cold-box experiment: a chest freezer filled with supercooled cloud and side-lit by a lamp. Set the temperature, then test different seeding agents.",
           "task": "Make it snow in the box.",
           "goal": "snow"
         },
         {
           "kind": "text",
-          "text": "Try each thing at a few temperatures. Above 0 °C, nothing works, not even dry ice: there is no supercooled water, and any crystals it makes melt as soon as they leave its trail. Below 0 °C, a pinch of dust (far more specks than clean air holds) starts a few crystals only when the box is very cold, too few to take the cloud’s water. Silver iodide smoke does nothing until about −5 °C and then fills the box. Dry ice works at every temperature below freezing."
+          "text": "Test each substance across several temperatures in the interactive freezer. Above 0 °C, nothing works—not even dry ice—because the droplets are warm water and any ice crystals melt immediately. Below 0 °C, natural soil dust nucleates a handful of crystals only when the box is colder than about −12 °C. **Silver iodide** smoke does nothing between 0 °C and −4 °C, then suddenly fills the box with crystals once cooled past −5 °C. **Dry ice** triggers a blizzard at every temperature below 0 °C."
         }
       ]
     },
@@ -71,45 +71,45 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Dry ice is frozen carbon dioxide, at −78 °C. It is not a template at all; it works by cold alone. A falling pellet chills a thin trail of air behind it below −40 °C, and there, as Lesson 7 showed, droplets freeze by themselves, with no speck needed. Vapour in the trail turns straight into tiny crystals too, by deposition.[^deposition]"
+          "text": "Dry ice is solid carbon dioxide at **−78.5 °C**. Unlike a mineral speck, it does not act as a crystal template; it works by brute thermal shock. As a pellet of dry ice falls through a supercooled cloud, it chills a thin wake of air directly behind it well below **−40 °C**—cold enough for supercooled droplets in that wake to freeze spontaneously without needing any speck at all (and for water vapour to condense and freeze directly into ice[^deposition])."
         },
         {
           "kind": "figure",
           "figure": "dryIce",
-          "caption": "Why a pellet of dry ice makes so much ice."
+          "caption": "How a falling pellet of dry ice (−78.5 °C) freezes a trail of billions of microscopic ice crystals in its wake."
         },
         {
           "kind": "text",
-          "text": "Each gram of dry ice leaves hundreds of billions of crystals behind it. They drift out of the trail into the surrounding cloud, which can be at any temperature below freezing, and grow there at the droplets’ expense."
+          "text": "A single gram of falling dry ice leaves hundreds of billions of microscopic ice embryos trailing in its wake. As turbulent air mixes those newly formed crystals outward into the surrounding supercooled cloud, they scavenge vapour from the liquid droplets and grow into snow—working in any cloud layer colder than 0 °C."
         },
         {
           "kind": "text",
-          "text": "Dry ice has a drawback: it has to be carried up in an aeroplane and dropped into the cloud, or onto its top, and a pellet is used up in a fall of a kilometre or two. It works only where it is put, and only in cloud colder than 0 °C."
+          "text": "Dry ice has a practical limitation, however: it must be carried aloft by an aircraft and dropped directly into the top of the cloud, and its pellets sublimate completely after falling a kilometre or two."
         },
         {
           "kind": "text",
-          "text": "On 13 November 1946, Schaefer flew over Mount Greylock in western Massachusetts with a few pounds of crushed dry ice and dropped it along a line across the top of a supercooled cloud layer. Within five minutes the cloud below his path had turned to snow, which streamed out of its base in long trails. The air beneath was dry, and the snow evaporated before it reached the ground. But for the first time, someone had made a cloud snow on purpose."
+          "text": "On 13 November 1946, Schaefer took off from Schenectady in a light aeroplane, flew east toward Mount Greylock in Massachusetts, and scattered three pounds of crushed dry ice along a five-kilometer line through a supercooled stratocumulus deck at −20 °C. Within five minutes, the cloud along his flight track transformed into long curtains of falling snow that carved a trough right through the cloud deck. Although the snow evaporated as virga in the dry air below before reaching the ground, Schaefer had demonstrated for the first time that human intervention could trigger precipitation in a natural cloud."
         },
         {
           "kind": "text",
-          "text": "Bernard Vonnegut, a chemist in the same laboratory[^vonnegut], took a different approach. If the rare natural specks work because their atoms are arranged like ice, why not find a substance whose crystals are arranged like ice and make a great deal of it?"
+          "text": "Meanwhile, atmospheric physicist Bernard Vonnegut—working down the hall at General Electric[^vonnegut]—pursued the template problem. If natural dust specks rarely trigger freezing because their atomic spacing poorly matches ice, could a chemist find a synthetic crystal whose atomic lattice matches hexagonal ice almost perfectly?"
         },
         {
           "kind": "text",
-          "text": "He searched tables of crystal shapes and found **silver iodide**. Its crystals are six-sided, like ice, and its atoms sit just 1.5 percent further apart than the molecules in ice: 0.459 against 0.452 nanometres, where a nanometre is a millionth of a millimetre. A supercooled droplet that touches a speck of silver iodide finds a template almost as good as ice itself. In November 1946, its smoke filled the cold box with crystals."
+          "text": "Combing through X-ray crystallography tables, Vonnegut spotted **silver iodide (AgI)**. Like ice, silver iodide forms a six-sided hexagonal crystal, and the spacing between its atoms (0.459 nanometres) sits within **1.5 percent** of the spacing between water molecules in ice (0.452 nanometres). When a supercooled droplet touches a microscopic speck of silver iodide, the water molecules lock onto that hexagonal scaffold almost as easily as onto ice itself. Tested in the cold box in November 1946, a tiny spark of silver iodide smoke filled the chamber with glittering snow."
         },
         {
           "kind": "text",
-          "text": "Silver iodide has two great advantages over dry ice. A little goes a very long way: a single gram, burned into smoke, makes about a million billion specks, ten thousand times as many crystals as a gram of dry ice. And it does not have to be dropped from above: smoke from burners on the ground can be carried up into clouds over the mountains by the wind."
+          "text": "Silver iodide offers two major operational advantages over dry ice. First, a tiny mass generates an astronomical number of nuclei: burning a single gram of silver iodide in an acetone flame produces roughly 10¹⁵ (a quadrillion) microscopic smoke particles—thousands of times more crystals per gram than dry ice. Second, because silver iodide particles do not evaporate in warm air, they can be released from flares on aircraft or from ground-based generators placed upwind of a mountain range, letting natural upslope winds carry the smoke plumes up into the supercooled cloud deck."
         },
         {
           "kind": "figure",
           "figure": "mountainSeed",
-          "caption": "Getting the ice into the cloud: smoke from a burner on the ground, carried up the slopes by the wind, or pellets from an aeroplane."
+          "caption": "Two ways to deliver ice nuclei into an orographic cloud: ground-based silver iodide generators carried upslope by mountain winds, or aircraft dropping flares/dry ice from above."
         },
         {
           "kind": "text",
-          "text": "Its drawback is that the match with ice is close but not perfect. A droplet on a perfect template would freeze just below 0 °C; on silver iodide it needs to be chilled five degrees or so more before its molecules will line up on the slightly wrong spacing. So silver iodide needs the cloud to be colder than about −5 °C, works better and better as it gets colder, and is at its best below −10 °C. In a cloud at −3 °C, dry ice works and silver iodide does not."
+          "text": "Silver iodide’s one limitation comes from that 1.5 percent lattice mismatch. Whereas a seed crystal of real ice freezes supercooled water immediately below 0 °C, the slight atomic mismatch of silver iodide requires the water to be supercooled to at least **−4 °C or −5 °C** before water molecules lock onto the template (and it becomes much more efficient below −8 °C to −10 °C). In a mildly supercooled layer sitting at −2 °C, dry ice works instantly while silver iodide does nothing."
         }
       ]
     },
@@ -118,26 +118,26 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "What happens when a whole layer of supercooled cloud is seeded? The crystals share out the layer’s water between them, and how much each one gets decides everything. Seeders measured dose by the pound: a rule of thumb from the first flights was about a pound of dry ice for every mile flown, which makes about fifty crystals in every litre of the layer below."
+          "text": "What happens when an entire layer of supercooled cloud is seeded? Because the cloud holds a fixed supply of liquid water, the outcome depends entirely on how many ice crystals have to share that water. Early flight trials found that scattering roughly one pound of crushed dry ice per mile of flight produced an ideal concentration of about 10 to 100 ice crystals per litre of cloud."
         },
         {
           "kind": "text",
-          "text": "With very few crystals, each one has plenty of water to itself and grows big, but there are too few of them to empty the layer: a few flurries fall, and the cloud carries on. With between about five and three thousand crystals in each litre, the water is taken quickly, the crystals grow big enough to fall, and the layer snows itself out, leaving a hole."
+          "text": "If a cloud is **underseeded** (fewer than one crystal per litre), each crystal has plenty of water vapour to itself and grows into a heavy snowflake that falls out, but there are too few crystals to consume the cloud deck; a few flurries fall and the cloud layer remains intact. At the **optimal dose** (roughly 10 to 1,000 crystals per litre), the crystals rapidly consume all the supercooled droplets, grow heavy enough to fall out as snow within 20 to 30 minutes, and punch a clear **fallstreak hole** right through the cloud deck."
         },
         {
           "kind": "text",
-          "text": "With far too many crystals, more than about three thousand in each litre, the water is shared out so thinly that every crystal stays tiny, too small to fall. The cloud turns from droplets to ice and simply hangs there as a silky veil. That is **overseeding**, and a pilot who thinks more is always better will get it."
+          "text": "If a cloud is injected with far too many nuclei (several thousand crystals per litre), the available liquid water gets divided among so many competing crystals that no single crystal can grow heavy enough to fall. The supercooled liquid layer simply converts into a persistent, wispy cloud of tiny ice crystals that hangs aloft without snowing—a mistake known as **overseeding**."
         },
         {
           "kind": "figure",
           "figure": "seedLayer",
-          "caption": "A supercooled layer, seeded from an aeroplane flying above it. The scales below show how many crystals each litre gets, and how big each grows. The temperature slider shows the one thing dry ice can’t do: seed a layer warmer than 0 °C.",
+          "caption": "Seeding a supercooled cloud deck from above. The gauges below show crystal concentration per litre and resulting snowflake size.",
           "task": "Seed the layer just enough to snow a hole in it.",
           "goal": "hole"
         },
         {
           "kind": "text",
-          "text": "In the figure, the snow falls clear to the ground. In real air it often doesn’t: if the air under the cloud is dry, the snow evaporates on its way down, as Schaefer’s did over Mount Greylock. For seeding to put anything on the ground, the cloud must be deep enough to grow big flakes, and the air under it moist enough to let them through."
+          "text": "Even when seeding successfully snows out a cloud layer aloft, getting that precipitation all the way to the ground requires two things: the cloud must be thick enough to hold a meaningful supply of liquid water, and the air beneath the cloud base must be humid enough that the falling snow doesn't evaporate into virga on the way down."
         }
       ]
     },
@@ -146,61 +146,61 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Seeding at its best is impressive: a cloud that turns to snow minutes after a pass with dry ice. Its limits matter just as much to anyone deciding whether to pay for it."
+          "text": "Watching a pass with dry ice carve a five-kilometre hole through a cloud deck in thirty minutes made headlines in 1946 and sparked bold claims that humanity would soon end droughts and steer hurricanes. Understanding the physical limits of cloud seeding is just as important as understanding how it works."
         },
         {
           "kind": "text",
-          "text": "The first limit is the simplest. Seeding does not make clouds, and it does not make water. It only gives ice to a cloud that already holds supercooled water. No cloud, nothing to seed."
+          "text": "First, **seeding cannot create clouds or moisture**. It can only trigger freezing inside an existing cloud that already contains supercooled liquid water. In a clear sky, seeding agents have nothing to work on."
         },
         {
           "kind": "text",
-          "text": "In a drought, the sky is usually clear for a reason. A high sits over the region and its air sinks, warming and drying as it is squeezed, as in Lesson 2. To make a cloud, air has to be lifted and cooled to its dew point, as in Lesson 1, and no amount of dry ice can lift the air over a whole county."
+          "text": "During a summer drought, skies stay stubbornly clear because a stationary high-pressure system is pressing air downward, warming and drying it by compression (Lesson 2). Forming a rain cloud requires lifting humid air to its dew point (Lesson 1), and no amount of silver iodide smoke can lift an air mass."
         },
         {
           "kind": "text",
-          "text": "And a cloud holds very little water at any moment, about 0.2 mm’s worth, as Lesson 2 showed; a storm rains for hours only because it keeps lifting new moist air. So seeding can only help a cloud let go of more of the water passing through it while it is there."
+          "text": "Second, as Lesson 2 showed, a cloud layer holds very little water at any single instant—typically around 0.2 millimetres of rainfall equivalent per kilometre of depth. Substantial precipitation only happens when a storm system continuously lifts fresh moist air through the cloud like a conveyor belt. Seeding can only nudge that conveyor belt to convert a slightly higher fraction of its passing supercooled liquid into snow before the air flows past."
         },
         {
           "kind": "text",
-          "text": "The third limit is temperature. Seeding needs supercooled water, so it does nothing for a cloud warmer than 0 °C. Between 0 and −5 °C, only dry ice works, because silver iodide, a near but imperfect match for ice, needs the droplets chilled a few degrees more. Between about −5 and −25 °C, dry ice and silver iodide both work, and this is where seeding has the most to offer."
+          "text": "Third, seeding only helps inside a specific **temperature window**. In clouds warmer than **0 °C**, neither dry ice nor silver iodide works because no supercooled water exists.[^hygroscopic] Between **0 °C and −5 °C**, only dry ice (or venting liquid propane) works because silver iodide requires at least 5 °C of supercooling. The productive **seeding window** sits between roughly **−5 °C and −25 °C**, where supercooled water is abundant and natural ice nuclei are still scarce."
         },
         {
           "kind": "text",
-          "text": "Colder than that, nature catches up. Natural ice-starting specks grow about tenfold more common for every 4 °C colder (the first figure of this lesson drew them), so somewhere around −25 °C there are enough of them to freeze the cloud without help; the change is gradual, not a sharp line. Below −38 °C droplets freeze by themselves, and the cloud is all ice, like cirrus. Adding ice to a cloud that already has plenty does nothing useful."
+          "text": "Colder than about **−25 °C**, nature no longer needs help: natural mineral dust specks become active in such large numbers that the cloud already produces plenty of its own ice crystals. And below **−38 °C**, every remaining liquid droplet freezes spontaneously. Adding artificial nuclei to a cloud colder than −25 °C simply risks overseeding it."
         },
         {
           "kind": "figure",
           "figure": "seedWindow",
-          "caption": "Which clouds seeding can help, by temperature. On the left, how high each temperature is: in summer, 0 °C is about 3 km up; in winter it can be at the ground."
+          "caption": "The temperature window for glaciogenic cloud seeding. In summer, the 0 °C level sits ~3–4 km high; in winter, it can sit near the valley floor."
         },
         {
           "kind": "text",
-          "text": "How cold a cloud is depends on the season as much as on its height. Summer cumulus over the basin is usually warmer than 0 °C all the way through, so there is nothing to seed. By the time a summer heap grows far above the freezing level, it is a thunderstorm already full of its own ice. Seeding it can make it grow a little faster (freezing releases heat, like condensation in Lesson 5) or do nothing at all; experiments have never settled which."
+          "text": "That temperature window explains why summer cumulus clouds over dry basins are poor targets: small fair-weather puffs sit entirely below the freezing level (warmer than 0 °C), while towering afternoon thunderstorms quickly punch into the −25 °C to −40 °C zone and generate tons of natural ice on their own."
         },
         {
           "kind": "text",
-          "text": "The best candidates are the cold clouds of winter, when even low cloud is below freezing: the supercooled fog and stratus that pools in the basin under an inversion, and the clouds that winter storms pile up over the mountains."
+          "text": "Instead, glaciogenic seeding works reliably in two cold-season settings: **supercooled winter fog** in valleys, and **winter orographic clouds** forced up mountain barriers."
         },
         {
           "kind": "text",
-          "text": "**Supercooled fog** is seeding’s one sure success. Dry ice dropped from an aeroplane fills a fog bank with crystals; so does propane gas sprayed from a nozzle on the ground, which expands as it leaves the nozzle and, like rising air in Lesson 1, chills itself and the air around it below −40 °C. The crystals grow, fall as a light snow, and open a clear hole over a runway for an hour or so. It works every time, but only in supercooled fog; fog warmer than 0 °C does not respond at all."
+          "text": "**Clearing supercooled airport fog** is cloud seeding’s most unambiguous operational success. When sub-freezing fog (−2 °C to −15 °C) shuts down a winter runway, spraying expanding liquid propane from ground nozzles (which chills the air at the nozzle below −40 °C) or dropping crushed dry ice from a light plane floods the fog bank with ice crystals. Within 30 to 45 minutes, the crystals scavenge the fog droplets, settle out as a light dusting of snow, and open a clear visibility corridor over the runway. (In fog warmer than 0 °C, however, the technique does nothing at all.)"
         },
         {
           "kind": "figure",
           "figure": "fogHole",
-          "caption": "Clearing supercooled fog over a runway."
+          "caption": "Seeding supercooled freezing fog upwind of an airport runway precipitates the fog droplets as fine snow, opening a clear landing slot."
         },
         {
           "kind": "text",
-          "text": "**Winter clouds over mountains** are the other good case. Moist air forced up the western slopes makes supercooled cloud, and much of it crosses the crest before its water has turned to snow, then evaporates down the far side, as in the rain shadow of Lesson 7. That is where the mountain seeding of the figure above comes in."
+          "text": "**Winter mountain (orographic) snowpack** is the other proven application. When moist winter winds blow up a mountain barrier like the Cascades, Sierra Nevada, or Rockies, the air cools and condenses into a supercooled cloud bank along the windward slope. Because the air crosses the ridge crest in less than an hour, natural ice crystals often don't have enough time to form and snow out before the air plunges down the leeward side and evaporates in the rain shadow (Lesson 7)."
         },
         {
           "kind": "text",
-          "text": "Silver iodide from burners on the ground, or from aircraft, can turn some of that passing water into snow on the slopes. Careful experiments have measured gains from a few percent up to perhaps fifteen percent, in the right storms: cloud deep enough to grow big flakes, and air under it moist enough that the snow reaches the ground instead of evaporating on the way down. For dry country downstream, that matters: mountain snow is the river water of summer."
+          "text": "Releasing silver iodide upwind of the ridge starts ice-crystal growth earlier on the windward climb, allowing more snowflakes to grow heavy enough to fall onto the high peaks before the air spills over the crest. Multi-year studies indicate that under the right conditions (−5 °C to −20 °C cloud tops with supercooled liquid present), winter orographic seeding can boost snowfall from individual seeded storms by **5 to 15 percent**—storing extra snowpack at high elevation that melts into summer river runoff."
         },
         {
           "kind": "text",
-          "text": "**Hailstorms and hurricanes** have been seeded too, in the hope of making many small hailstones instead of a few large ones, or of weakening a hurricane’s winds. Neither has ever been clearly shown to work. Storms that big have so much energy and so much natural ice that a seeder’s contribution is lost in them."
+          "text": "Attempts to seed **severe hailstorms** (to create more, smaller hailstones by competing for supercooled water) or **hurricanes** (to weaken eyewall winds) have never demonstrated a clear, reproducible success in randomized trials. Violent storms process such immense volumes of water and natural ice that artificial seeding disappears into the natural variability of the storm.[^stormfury]"
         }
       ]
     },
@@ -209,57 +209,57 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "The hardest question in cloud seeding is whether it did anything. A seeder seeds a cloud, and it snows. Would it have snowed anyway?"
+          "text": "That brings us to the hardest problem in weather modification: if you seed a cloud and it snows 10 millimetres, how do you know it wouldn't have snowed 10 millimetres on its own?"
         },
         {
           "kind": "text",
-          "text": "Storms vary enormously by themselves. One winter storm over the mountains may drop three times the snow of the next for reasons that have nothing to do with seeding. An effect of ten or fifteen percent is a whisper next to that noise."
+          "text": "Natural storm-to-storm variability is huge. One winter storm crossing a mountain range may drop 40 millimetres of water equivalent while the next drops 4 millimetres. A true seeding boost of 10 percent is completely invisible inside a single storm—or even a single wet or dry winter."
         },
         {
           "kind": "text",
-          "text": "The only fair test is the one doctors use for a new medicine. Decide which storms to seed by chance, with a coin toss, before anyone knows how each will turn out.[^trial] Then compare many seeded storms with many that were not. Luck evens out only when there are a great many storms on each side. A second check is to compare the seeded area with a **control** area nearby that was not seeded but gets the same storms: weather that hits both cancels out, and what is left is more likely to be the seeding."
+          "text": "The only rigorous way to measure a 10 percent signal buried in 300 percent natural noise is the same method medicine uses to test a new drug: a **randomized controlled trial**.[^trial] Whenever a suitable winter storm approaches with supercooled liquid in the −5 °C to −20 °C window, a sealed randomizer (essentially a coin toss) decides whether to turn the silver iodide generators on or leave them off, while snow gauges in the target mountain basin—and in an upwind **control basin** that is never seeded—measure the snowfall blinded to the decision. Only after comparing dozens of seeded storms against dozens of unseeded storms across five to ten winters does natural luck average out enough to reveal the true seeding effect."
         },
         {
           "kind": "figure",
           "figure": "trial",
-          "caption": "A seeding trial over the mountains, where seeding truly adds 15 percent. Each dot is one storm’s snow, measured as water; the scale stretches the small storms out, so equal steps along it mean equal multiples. Below: how many times the snow the seeded storms got, with the range luck alone allows.",
+          "caption": "A simulated multi-winter seeding trial where seeding genuinely adds +15% snow. Each dot is one storm's precipitation (on a logarithmic scale); the bottom bar tracks the estimated seeding ratio and its uncertainty band.",
           "task": "Run winters until the difference stands out from luck.",
           "goal": "clear"
         },
         {
           "kind": "text",
-          "text": "Notice two things in the figure. Press “New winters” at one or two winters: seeding can look as if it doubled the snow, or as if it made things worse. That is luck, not seeding. And when the seeder picks the storms, the numbers look wonderful and mean almost nothing, because a good forecaster picks the storms that were going to snow anyway: the dashed line shows what those same storms would have brought unseeded."
+          "text": "Run the interactive trial for just one or two winters and click **New winters** a few times: random luck alone can make a +15% seeding program look as if it doubled the snowpack—or as if it *reduced* the snowpack by 20%. Now toggle on **Seeder picks the storms**: when an operator chooses which storms look promising to seed instead of flipping a coin, they naturally pick the juiciest storms that were going to dump heavy snow anyway, producing a bogus 40% to 60% 'gain' that is pure **selection bias**."
         },
         {
           "kind": "text",
-          "text": "Rainmakers made exactly that mistake, or took advantage of it, long before dry ice. Charles Hatfield, the most famous, was hired by San Diego in 1915 to fill a reservoir; he set up his towers of secret chemicals, and the rains came, and flooded the valley.[^hatfield] He and others like him worked when rain looked likely, and took the credit when it came."
+          "text": "Commercial rainmakers exploited that exact selection bias for generations before 1946. The most famous, Charles Hatfield, was hired by the city of San Diego during a drought in December 1915 to evaporate a 'secret chemical mixture' from towers near the Morena Reservoir.[^hatfield] Watching the barometer and high cloud signs, rainmakers waited until a Pacific storm system was already approaching, sent up their fumes, and claimed credit when the sky opened up."
         },
         {
           "kind": "text",
-          "text": "Radar at last let seeders watch their snow being made. In 2017, in the mountains of Idaho, a research team flew an aeroplane back and forth across the wind, releasing silver iodide along straight lines upwind of their radars, on days when the cloud was supercooled and making little snow by itself. Lines of snow appeared on the radar screens, each one drifting downwind and spreading as it went, in the same pattern as the aeroplane’s path. It was the first time anyone had followed seeded snow from the seeding to the ground. On many other days, though, the lines could not be picked out from the natural snow at all, so a fair test over many storms is still the only way to say what seeding adds over a whole winter."
+          "text": "For seventy years after Schaefer's 1946 flight, scientists could measure statistical gains over many winters or watch holes open in thin clouds, but they could not directly trace seeded snowflakes inside a deep mountain storm from the generator plume to the ground. In 2017, the **SNOWIE** field campaign in the Payette Mountains of Idaho combined airborne cloud radar, polarization Doppler radar, and snow gauges while an aircraft flew back-and-forth tracks releasing silver iodide into supercooled mountain clouds. For the first time, high-resolution radar captured distinct zig-zag lines of newly formed ice crystals blooming exclusively along the aircraft’s seeding tracks, growing into snow plumes that drifted downwind and registered in surface gauges.[^snowie] Even with that direct physical proof, on many storm days natural snowfall was heavy enough to swamp the seeded lines—confirming that seeding is a modest nudge in specific clouds, never a weather switch."
         },
         {
           "kind": "figure",
           "figure": "seedLines",
-          "caption": "Seeded snow on radar, seen from above, as in the Idaho experiment: three passes of the aeroplane, three lines of snow drifting downwind."
+          "caption": "Plan-view radar reflectivity from the 2017 SNOWIE experiment in Idaho: an aircraft flying crosswind legs releases silver iodide, producing distinct plumes of snow that drift downwind across the mountains."
         },
         {
           "kind": "text",
-          "text": "So when someone asks a seeder to make it rain, the honest answer has a few parts. Nobody can make clouds. Sometimes you can help a supercooled cloud let go of water it would otherwise have carried away. In the right clouds, expect a small gain; in the wrong ones, nothing. And be ready to show how you know."
+          "text": "When someone asks whether cloud seeding can 'make it rain,' you now have the physics to give an honest answer: no one can manufacture clouds out of dry, sinking air, but when nature supplies a supercooled cloud that is short of ice between −5 °C and −25 °C, adding nuclei can help wring a little extra snow or rain out of the passing air."
         },
         {
           "kind": "text",
-          "text": "Every lesson in this workbook comes into that answer: what a cloud is made of, how air is lifted to make one, which floor it lives on and how cold it is there, how ice makes rain, and what kind of storm it belongs to."
+          "text": "Answering that single question draws on every lesson in this guide: how rising air cools to its dew point (Lesson 1), why stability and cloud depth govern precipitation (Lesson 2), how temperature defines the three cloud floors (Lesson 3), how frontal systems lift wide cloud decks (Lessons 4 and 6), how latent heat drives updraughts (Lesson 5), and how supercooled droplets feed growing ice crystals over mountain ranges (Lesson 7)."
         },
         {
           "kind": "key",
           "title": "Before you seed, ask",
           "points": [
-            "Is there a cloud? Seeding cannot make one.",
-            "Is it supercooled, between about −5 and −25 °C? From 0 to −5 °C only dry ice works; above 0 °C nothing does; colder than −25 °C, it has its own ice.",
-            "Is it deep enough, and the air below it moist enough, for snow to reach the ground?",
-            "How much will you use? Too much overseeds: crystals too small to fall.",
-            "How will you know it worked? Seed by chance, compare with storms left alone, and count many winters."
+            "**Is there a cloud?** Seeding cannot lift air or create cloud droplets in clear, sinking air.",
+            "**Is it supercooled inside the −5 °C to −25 °C window?** Above 0 °C, nothing works; from 0 °C to −5 °C, only dry ice/propane works; colder than −25 °C, abundant natural ice nuclei already freeze the cloud.",
+            "**Will the snow survive to the ground?** The cloud layer must be deep enough to grow heavy flakes, and the sub-cloud air humid enough that they don't evaporate as virga.",
+            "**Is the dose right?** Tens of crystals per litre snow out the layer; thousands per litre **overseed** it into tiny crystals that stay suspended.",
+            "**How is it evaluated?** Only a multi-winter **randomized trial** with unseeded control storms can separate a 5–15% gain from natural storm variability and selection bias."
           ]
         }
       ]
@@ -269,7 +269,7 @@
       "blocks": [
         {
           "kind": "text",
-          "text": "Seeding needs supercooled cloud, so start with what kind of cloud it is and which floor it lives on. Remember that in winter even a low cloud can be supercooled. First call the floor of each cloud in the photos. Then answer what seeding can and can’t do for each sky."
+          "text": "Because seeding requires supercooled liquid clouds, start by placing each photographed cloud on its floor—remembering that in winter, even low-floor clouds can sit below 0 °C. Then evaluate each seeding scenario below."
         },
         {
           "kind": "figure",
@@ -307,14 +307,14 @@
                     "when": "4 p.m."
                   }
                 ],
-                "question": "On a hot July afternoon, small cumulus have bases at 1.5 km and tops at 2.5 km. The freezing level is 4 km up. Will dropping dry ice into them make rain?",
+                "question": "On a hot July afternoon, fair-weather cumulus heaps have bases at 1.5 km and tops at 2.5 km. The 0 °C freezing level sits at 4 km altitude. Will dropping dry ice pellets into these clouds produce rain?",
                 "options": [
-                  "Yes: dry ice is cold enough to make rain from any cloud at all",
-                  "No: they are warmer than 0 °C all through, with nothing to freeze",
-                  "Yes, but only silver iodide, because the cloud is too warm for dry ice"
+                  "Yes: at −78 °C, dry ice is cold enough to freeze any cloud regardless of ambient temperature",
+                  "No: the clouds sit entirely below the freezing level (warmer than 0 °C), so any ice crystals melt immediately",
+                  "Yes, provided the pilot uses silver iodide flares instead of dry ice"
                 ],
                 "answer": 1,
-                "why": "Seeding gives ice to supercooled water. These clouds never reach the freezing level, so their droplets are ordinary warm water; dry ice chills a trail for a moment, and the cloud carries on.",
+                "why": "Glaciogenic seeding requires supercooled liquid water (colder than 0 °C) so new ice crystals can grow via the Bergeron process. In a cloud warmer than 0 °C, ice crystals created in the wake of a dry ice pellet melt within seconds.",
                 "profile": {
                   "freezeKm": 4,
                   "clouds": [
@@ -338,14 +338,14 @@
                     "when": "10 a.m."
                   }
                 ],
-                "question": "A pilot dumped his whole load into a supercooled layer: a hundred pounds a mile. The layer turned white and silky, but not a flake fell. Why?",
+                "question": "Eager for maximum snow, a pilot dumps 100 pounds of crushed dry ice per mile into a thin, supercooled stratocumulus deck at −10 °C. The cloud turns bright, silky white, but not a single snowflake falls. What went wrong?",
                 "options": [
-                  "The dry ice melted away before it ever reached the cloud",
-                  "The cloud was too warm for dry ice to start any ice",
-                  "Overseeding: the crystals shared the water and stayed too small"
+                  "The dry ice sublimated above the cloud before reaching the droplets",
+                  "At −10 °C, the cloud was too warm for dry ice to nucleate ice crystals",
+                  "Overseeding: the cloud's water was split among so many billions of crystals that none grew heavy enough to fall"
                 ],
                 "answer": 2,
-                "why": "The crystals share out the cloud’s water. With thousands in every litre, each gets only a speck and never grows heavy enough to fall. About a pound a mile is enough to snow a hole."
+                "why": "Injecting thousands of crystals per litre splits the available liquid water among too many competing crystals (**overseeding**), turning the droplet deck into a persistent ice veil of tiny crystals that cannot fall. About 1 pound per mile is the right dose."
               },
               {
                 "id": "hap",
@@ -359,14 +359,14 @@
                     "when": "11 a.m."
                   }
                 ],
-                "question": "A grey deck has sat over the county for three days at about −8 °C, and there’s rime on every fence post. I’ve got two hundred pounds of dry ice in the duster. Will it do anything?",
+                "question": "A supercooled stratus deck has lingered over the basin for three days at −8 °C, coating every fence wire in white rime. A local crop-duster pilot has 200 pounds of crushed dry ice on board. Can he clear a hole in the overcast?",
                 "options": [
-                  "Yes: the rime says it’s supercooled. Spread it thin, a pound a mile",
-                  "No: dry ice only works on summer clouds, high above the freezing level",
-                  "No: at −8 °C the cloud is too cold to turn into snow at all"
+                  "Yes: the rime proves the cloud is supercooled liquid—seed it lightly at about a pound per mile",
+                  "No: dry ice only works in towering summer cumulus clouds",
+                  "No: at −8 °C, the cloud is already frozen solid into ice crystals"
                 ],
                 "answer": 0,
-                "why": "Rime is supercooled droplets freezing on contact, so the deck is liquid below freezing: just what seeding works on. Spread it thin: about a pound a mile, not the whole load."
+                "why": "Feathery rime on fences confirms that the stratus deck consists of supercooled liquid droplets at −8 °C—ideal for dry ice (or silver iodide) seeding, provided the pilot doses it lightly (~1 lb/mile) to avoid overseeding."
               },
               {
                 "id": "dutch",
@@ -380,14 +380,14 @@
                     "when": "1:30 p.m."
                   }
                 ],
-                "question": "I watched the snow come streaming out of the cloud where the duster went over, but none of it reached my roof. Did the seeding fail?",
+                "question": "After an aircraft seeds a middle-level altostratus deck at −12 °C, you watch long grey curtains of snow trail out of the cloud base along the flight path, but the ground stays completely dry. Did the seeding fail to freeze the cloud?",
                 "options": [
-                  "Yes: if no snow reached the ground, the seeding did nothing",
-                  "No: the cloud snowed, but the dry air below took it back",
-                  "The snow all blew east on the wind and landed in Idaho"
+                  "Yes: if no snow reached the ground, no ice crystals formed in the cloud",
+                  "No: the seeding successfully turned the supercooled cloud into snow, but dry air below evaporated the flakes into virga",
+                  "The snowflakes were blown hundreds of kilometres away before falling out of the cloud"
                 ],
                 "answer": 1,
-                "why": "Trails of snow that hang from a cloud and vanish on the way down are virga. The seeding worked on the cloud; the dry air beneath took the snow back, just as it did over Mount Greylock in 1946."
+                "why": "Hanging curtains of snow that fade before reaching the ground are virga. Just as in Schaefer’s first flight over Mount Greylock in 1946, the seeding worked inside the cloud, but the sub-cloud air was too dry to let the snow reach the surface."
               },
               {
                 "id": "grange",
@@ -401,14 +401,14 @@
                     "when": "3 p.m."
                   }
                 ],
-                "question": "No rain in six weeks, a few flat little heaps at noon that never grow, and the barometer high and steady. A man from California wants two thousand dollars to make it rain. Should the Grange hire him?",
+                "question": "Six weeks into a summer drought under a stationary high-pressure ridge, the sky holds only a few flat cumulus humilis puffs at noon. A commercial rainmaker offers to bring the county a soaking rain for $2,000 using ground-based silver iodide burners. Should the Grange hire him?",
                 "options": [
-                  "Yes: seeding works on any cloud, however small it is",
-                  "Yes, but only if he seeds the heaps at night, when they’re cold",
-                  "No: there is no supercooled cloud here for him to seed"
+                  "Yes: silver iodide smoke draws moisture out of dry air to build rain clouds",
+                  "Yes, as long as he runs the burners at night when the ground is cooler",
+                  "No: sinking air in the high prevents deep, supercooled clouds from forming, leaving nothing to seed"
                 ],
                 "answer": 2,
-                "why": "Under a high, sinking air keeps the heaps small, flat and warm. Seeding cannot lift air or make cloud; it can only give ice to supercooled water, and there is none here."
+                "why": "Seeding cannot lift air or create clouds under a dry high-pressure inversion, nor can it work on shallow, warm cumulus puffs that never reach the −5 °C threshold required by silver iodide."
               },
               {
                 "id": "doctor",
@@ -422,14 +422,14 @@
                     "when": "10 a.m."
                   }
                 ],
-                "question": "The doctor from Spokane can’t land for the fog. It’s −7 °C and there’s rime on everything. Can anything be done?",
+                "question": "A medical flight needs to land at the town airfield, which is socked in by dense freezing fog at −7 °C with rime on the wind-sock frame. Can cloud seeding open the runway?",
                 "options": [
-                  "No: fog can never be cleared, only waited out",
-                  "Wait for a thunderstorm to come and blow it away",
-                  "Yes: seed the fog over the runway with dry ice"
+                  "No: valley fog cannot be modified once it forms",
+                  "Only if a cold front arrives to mix the inversion away",
+                  "Yes: seeding the upwind fog with dry ice or expanding propane will precipitate the droplets as fine snow and clear a slot"
                 ],
                 "answer": 2,
-                "why": "Rime means the fog is supercooled. Dry ice fills it with crystals that grow and fall as a light snow, clearing a hole over the runway long enough to land."
+                "why": "Clearing supercooled fog (colder than 0 °C, confirmed by rime) is cloud seeding’s most reliable operational success: dry ice or expanding propane nucleates ice crystals that scavenge the fog droplets and snow out within 30 to 45 minutes."
               },
               {
                 "sky": [
@@ -442,14 +442,14 @@
                     "when": "Tuesday"
                   }
                 ],
-                "question": "A seeder picked five storms to seed last winter, and they snowed 40 percent more than the average storm. Does that prove seeding works?",
+                "question": "A commercial seeder hand-picked five promising winter storms to seed last season and reported that those five storms dropped 40 percent more snow than the winter's average storm. Does this prove his seeding added 40 percent?",
                 "options": [
-                  "No: he picked them himself, and five storms are far too few",
-                  "Yes: 40 percent is far too big a difference to be luck",
-                  "Yes, as long as all five of the storms were in winter"
+                  "No: hand-picking promising storms introduces selection bias, and five storms are far too few to overcome natural variability",
+                  "Yes: a 40 percent difference is too large to happen by chance or storm selection",
+                  "Yes, provided he used silver iodide generators rather than dry ice"
                 ],
                 "answer": 0,
-                "why": "A seeder with a good eye picks the storms that were going to snow anyway, and five storms vary far more than seeding could. Only storms picked by chance, over many winters, can show a real effect."
+                "why": "When an operator chooses which storms to seed, they pick strong, moisture-rich storms that would have produced heavy snow anyway (selection bias). Proving a real 5–15% seeding effect requires a randomized trial across many winters."
               }
             ]
           }
@@ -458,63 +458,78 @@
     }
   ],
   "learned": [
-    "A supercooled cloud can stay liquid for hours below 0 °C, because ice-starting specks are rare; once ice appears, it grows at the droplets’ expense and falls as snow, so what holds back the snow is a shortage of ice, not of water.",
-    "Dry ice (−78 °C) chills its trail below −40 °C and works in any cloud colder than 0 °C; silver iodide’s crystals match ice to within 1.5 percent and start ice below about −5 °C, and its smoke can be sent up from the ground.",
-    "A seeded layer with tens to hundreds of crystals per litre snows out, leaving a hole; too few give flurries, and too many (overseeding) stay too small to fall.",
-    "Seeding cannot make clouds or water. It works in a window, roughly −5 to −25 °C; it reliably clears supercooled fog and adds perhaps up to fifteen percent to winter mountain snow, and has never been clearly shown to tame hailstorms or hurricanes.",
-    "Only a fair trial, with storms to seed picked by chance and compared over many winters and with an unseeded control area, can show whether seeding did anything."
+    "Because active ice nuclei are scarce between 0 °C and −20 °C, clouds in this zone remain supercooled liquid for hours; once ice crystals are introduced, they rapidly scavenge vapour from the droplets (the Bergeron process) and fall as snow.",
+    "Dry ice (−78.5 °C) freezes a wake of droplets by extreme cold (< −40 °C) in any cloud below 0 °C; silver iodide has a hexagonal crystal lattice within 1.5% of ice, acting as a template speck in clouds colder than ~−5 °C and allowing dispersion from ground burners.",
+    "Dosing controls the outcome: ~10–1,000 crystals per litre snows out a supercooled layer and opens a hole, whereas injecting thousands per litre splits the water into crystals too tiny to fall (overseeding).",
+    "Seeding cannot create clouds or moisture. It works inside a −5 °C to −25 °C window, reliably clearing supercooled airport fog and adding roughly 5–15% snow to suitable winter mountain clouds, with no proven effect on droughts, hailstorms, or hurricanes.",
+    "Because natural storm totals vary wildly, only a multi-winter randomized trial—comparing randomly seeded storms against unseeded control storms—can separate a genuine seeding effect from luck and selection bias."
   ],
-  "next": "That is the whole workbook. The sky is yours to read.",
+  "next": "That completes the field guide. Step outside—the sky is yours to read.",
   "journal": {
     "supercooled": {
       "title": "Clouds waiting for ice",
-      "text": "Most clouds between 0 °C and −20 °C are supercooled liquid, because ice-starting specks are so rare: about one in every few hundred litres at −10 °C, against a hundred thousand droplets in each litre. Once ice appears, it grows at the droplets’ expense and falls as snow, so a supercooled cloud is short of ice, not of water. That shortage is what cloud seeding fills."
+      "text": "Most clouds between 0 °C and −20 °C consist of supercooled liquid droplets because natural ice nuclei active at those temperatures are scarce—roughly 1 per 250 litres at −10 °C compared to 100,000 droplets per litre. Once ice crystals appear, they grow rapidly at the droplets' expense via the Bergeron process and fall as snow. Cloud seeding works by supplying those missing ice crystals."
     },
     "dry-ice": {
       "title": "Dry ice",
-      "text": "Frozen carbon dioxide at −78 °C. A falling pellet chills its trail below −40 °C, where droplets and vapour freeze without any speck, leaving hundreds of billions of crystals per gram. It works in any cloud colder than 0 °C but must be dropped from an aeroplane. Vincent Schaefer found it in his cold box at General Electric in July 1946 and first seeded a cloud with it over Mount Greylock, Massachusetts, on 13 November 1946."
+      "text": "Solid carbon dioxide at −78.5 °C. Dropped from an aircraft into a supercooled cloud, a falling pellet chills a narrow wake below −40 °C, spontaneously freezing hundreds of billions of tiny ice crystals per gram without needing template specks. It works in any cloud colder than 0 °C. Discovered by Vincent Schaefer in July 1946 and first tested over Mount Greylock, Massachusetts, on 13 November 1946."
     },
     "silver-iodide": {
       "title": "Silver iodide",
-      "text": "A six-sided crystal whose atoms sit only 1.5 percent further apart than the molecules of ice, so supercooled droplets freeze on it as if it were ice. It starts working below about −5 °C, and best below −10 °C. One gram burned into smoke makes about a million billion specks, which burners on the ground can send up into mountain clouds. Bernard Vonnegut found it in November 1946."
+      "text": "A hexagonal crystal (AgI) whose atomic spacing (0.459 nm) matches the lattice of ice (0.452 nm) to within 1.5%, acting as a synthetic template for freezing. Active below about −5 °C (and most effective below −10 °C), a single gram burned into smoke yields ~10^15 ice-nucleating specks that can be carried into mountain clouds by updraughts from ground generators. Discovered by Bernard Vonnegut in November 1946."
     },
     "overseeding": {
       "title": "Seeding a layer",
-      "text": "Seeded crystals share out a cloud’s water. A few per litre grow big but leave the layer as it was; tens to hundreds per litre snow it out, leaving a hole; thousands per litre each get so little water that they stay too small to fall, and the layer turns into a lingering veil of ice. An early rule of thumb was a pound of dry ice per mile flown."
+      "text": "Seeded ice crystals share a cloud's finite supply of liquid water. Too few crystals (< 1/litre) produce only light flurries; an optimal dose (~10–1,000/litre, or ~1 lb of dry ice per mile flown) rapidly converts the droplets into snowflakes that fall out and punch a hole; too many crystals (thousands/litre) divide the water so thinly that no crystal grows heavy enough to fall, leaving a persistent ice veil (overseeding)."
     },
     "seeding-window": {
       "title": "The seeding window",
-      "text": "Seeding needs supercooled water and a shortage of natural ice. Above 0 °C there is nothing to freeze; from 0 to −5 °C only dry ice works; from about −5 to −25 °C dry ice and silver iodide both work; colder, natural specks make enough ice already, and below −38 °C clouds are all ice."
+      "text": "Glaciogenic seeding requires supercooled liquid water and a deficit of natural ice. Above 0 °C, ice melts immediately; from 0 °C to −5 °C, only thermal-shock agents (dry ice or expanding propane) work; from −5 °C to −25 °C, both dry ice and silver iodide work effectively; colder than −25 °C, abundant natural dust nuclei already freeze the cloud, and below −38 °C droplets freeze spontaneously."
     },
     "seeding-works": {
       "title": "Where seeding works",
-      "text": "It clears supercooled fog every time, opening a hole over a runway for an hour or so. Over mountains in winter, silver iodide can turn some of the supercooled cloud that would have crossed the crest into snow on the slopes: careful experiments find a few percent to perhaps fifteen percent more, in the right storms. For hail and hurricanes, no clear effect has ever been shown."
+      "text": "Seeding reliably clears supercooled winter fog (< 0 °C) over airport runways within 30–45 minutes. In winter orographic clouds over mountain barriers, silver iodide seeding can boost snowfall by roughly 5–15% in suitable storms (−5 °C to −20 °C with supercooled liquid present and humid sub-cloud air). Randomized trials have found no clear evidence that seeding tames hailstorms or weakens hurricanes."
     },
     "fair-trial": {
       "title": "A fair trial",
-      "text": "Storms vary so much by themselves that one winter, or a seeder’s own pick of storms, proves nothing. Pick the storms to seed by chance, compare many seeded storms with many left alone, over many winters, and compare the seeded area with an unseeded control area nearby. A real effect of ten or fifteen percent takes hundreds of storms to see."
+      "text": "Because natural precipitation varies by hundreds of percent from storm to storm, operational claims based on hand-picked storms suffer from severe selection bias. Measuring a 5–15% seeding effect requires a randomized controlled trial across many winters, using a coin toss to decide which eligible storms are seeded and comparing target gauges against an unseeded upwind control basin."
     }
   },
   "footnotes": {
     "deposition": {
       "kind": "technical",
       "title": "Deposition and sublimation",
-      "text": "**Deposition** is vapour turning straight into ice without passing through liquid, as frost grows on a cold window. The reverse, ice turning straight into vapour, is **sublimation**: it is how snow slowly vanishes on a cold, dry, sunny day without ever melting, and how a lump of dry ice shrinks away to nothing."
+      "text": "When water vapour turns directly into solid ice without passing through a liquid phase—as when frost feathers grow on a cold windowpane or snowflakes grow in a cloud—physicists call the phase change **deposition**. The reverse process, solid ice turning directly into vapour without melting, is **sublimation**: it is how snowbanks slowly shrink on a cold, dry, sunny winter day, and how dry ice pellets vanish into carbon dioxide gas at −78.5 °C."
     },
     "vonnegut": {
       "kind": "digression",
-      "title": "Ice-nine",
-      "text": "Bernard’s younger brother Kurt worked in General Electric’s publicity office at the time and heard the laboratory’s stories. In his novel *Cat’s Cradle* (1963) he imagined *ice-nine*, a form of ice that is such a perfect template that one crystal freezes every drop of water it touches, and with it the world’s oceans. Silver iodide is the gentle, real version."
+      "title": "Kurt Vonnegut and 'Ice-nine'",
+      "text": "Bernard Vonnegut’s younger brother, the novelist Kurt Vonnegut, worked in General Electric’s public relations department in Schenectady right when Schaefer, Langmuir, and Bernard were seeding clouds. In his satirical novel *Cat’s Cradle* (1963), Kurt inverted his brother’s discovery into *ice-nine*—a fictional polymorph of water that freezes at room temperature (45.8 °C) and acts as a seed crystal that locks all the world’s oceans solid on contact."
+    },
+    "hygroscopic": {
+      "kind": "technical",
+      "title": "Warm-cloud (hygroscopic) seeding",
+      "text": "While classic cloud seeding targets supercooled clouds with ice nuclei (*glaciogenic seeding*), a separate technique called **hygroscopic seeding** targets warm clouds (> 0 °C) by burning salt flares near cloud base. The large salt particles (1–5 micrometres wide) condense oversized 'collector drops' intended to kick-start the collision–coalescence process (Lesson 2), though proving its net effect on rainfall remains statistically challenging."
+    },
+    "stormfury": {
+      "kind": "digression",
+      "title": "Project Stormfury",
+      "text": "Between 1962 and 1983, the US government’s **Project Stormfury** flew hurricane-hunter aircraft into Atlantic hurricanes to dump silver iodide into the outer rainbands, hoping that latent heat released by freezing would build a wider eyewall and weaken the storm's peak winds. Subsequent aircraft measurements revealed why the hypothesis failed: hurricane eyewalls already contain very little supercooled liquid water and huge quantities of natural ice, and the observed wind changes were completely natural **eyewall replacement cycles**."
     },
     "trial": {
       "kind": "technical",
-      "title": "Randomized trial",
-      "text": "Choosing by chance makes it a **randomized trial**, and leaving storms or an area unseeded gives it a **control**. A result called *statistically significant* is one that luck alone would rarely produce, by convention less than one time in twenty. It does not mean the effect is large; only that it is probably real."
+      "title": "Randomized controlled trials",
+      "text": "In a **randomized controlled trial**, eligible storm periods are assigned by chance (randomization) to either treatment (seeded) or **control** (unseeded), preventing forecasters from cherry-picking vigorous storms (*selection bias*). A result is judged **statistically significant** when the observed difference between seeded and unseeded storms is large enough that random luck alone would produce it less than 5% of the time (p < 0.05)."
     },
     "hatfield": {
       "kind": "digression",
-      "title": "Who pays for a flood?",
-      "text": "Hatfield had been promised $10,000 to fill the Morena reservoir. It filled, but the January 1916 floods also burst a dam downstream, swept away bridges and killed some twenty people. The city council refused to pay, calling the rain an act of God; if Hatfield claimed it, he could answer for the damage too. He sued, and never got the money."
+      "title": "Charles Hatfield and the $10,000 flood",
+      "text": "In December 1915, the parched city of San Diego verbally promised self-styled 'Moisture Accelerator' Charles Hatfield $10,000 if he could fill the Morena Reservoir. Hatfield erected towers and evaporated a secret chemical blend just as two historic back-to-back Pacific cyclones slammed into Southern California in January 1916. The deluge overflowed the reservoir, burst the Lower Otay Dam, destroyed bridges, and killed around 20 people. Facing $3.5 million in flood lawsuits, the city offered a deal: it would pay Hatfield his $10,000 if he accepted legal liability for the flood damage. Hatfield declined and left empty-handed."
+    },
+    "snowie": {
+      "kind": "digression",
+      "title": "The SNOWIE radar breakthrough (2017)",
+      "text": "Sponsored by the US National Science Foundation, the 2017 **SNOWIE** project (*Seeded and Natural Orographic Wintertime Clouds: the Idaho Experiment*) used airborne W-band cloud radar and ground X-band Doppler radars to watch silver iodide plumes inside supercooled mountain clouds over Idaho’s Payette Basin. By flying crosswind zig-zag tracks, researchers imaged distinct lines of ice crystals nucleating, growing into snow, and falling into gauges along the exact wind-drifted aircraft path."
     }
   }
 }
