@@ -1,0 +1,78 @@
+{
+  "sections": [
+    {
+      "id": "glossary",
+      "title": "Glossary",
+      "summary": "The words the lessons use, in a line each",
+      "lesson": "made-of",
+      "blocks": [
+        { "kind": "terms", "items": [
+          { "term": "Clay", "means": "Mineral grains smaller than 0.002 mm: flat plates that are sticky when wet and hold water and nutrients." },
+          { "term": "Jar test", "means": "Shaking soil in a jar of water and measuring the layers as they settle, to find its texture." },
+          { "term": "Loam", "means": "A soil with a balanced mix of sand, silt and clay, roughly 40, 40 and 20 parts in a hundred." },
+          { "term": "Minerals", "means": "The rock part of soil: sand, silt and clay." },
+          { "term": "Organic matter", "means": "Anything in soil that was alive: roots, leaves, dead creatures, and the humus they rot down to." },
+          { "term": "Pores", "means": "The spaces between soil grains, shared between water and air. About half of a good soil." },
+          { "term": "Sand", "means": "Mineral grains from 2 mm down to 0.05 mm: gritty, quick to drain, holding little." },
+          { "term": "Silt", "means": "Mineral grains from 0.05 mm down to 0.002 mm: smooth and floury." },
+          { "term": "Texture", "means": "A soil's mix of sand, silt and clay, named from the texture triangle." }
+        ] }
+      ]
+    },
+    {
+      "id": "makeup",
+      "title": "What is in a handful",
+      "summary": "Minerals, organic matter, water and air, by volume",
+      "lesson": "made-of",
+      "blocks": [
+        { "kind": "figure", "figure": "handful", "caption": "A handful of loam, by volume, a day after a good soaking" },
+        { "kind": "table", "columns": ["Size", "Across", "Feels", "In the bed"], "rows": [
+          ["Sand", "2 to 0.05 mm", "Gritty", "Drains fast, warms early, holds little water or food"],
+          ["Silt", "0.05 to 0.002 mm", "Silky, like flour", "Holds water well, crusts over when bare"],
+          ["Clay", "Under 0.002 mm", "Sticky wet, hard dry", "Holds water and food, drains slowly, packs hard"]
+        ] }
+      ]
+    },
+    {
+      "id": "texture",
+      "title": "The texture triangle",
+      "summary": "Name a soil from its sand, silt and clay",
+      "lesson": "made-of",
+      "blocks": [
+        { "kind": "figure", "figure": "triangle", "caption": "The soil texture triangle. Set the sand and clay; silt is the rest." },
+        { "kind": "table", "columns": ["Group", "Textures", "What to expect"], "rows": [
+          ["Sandy", "Sand, loamy sand, sandy loam", "Water little and often, mulch, and add organic matter to hold food"],
+          ["Loamy", "Loam, silt loam, silt", "Easy to work; keep it covered and fed"],
+          ["Clayey", "The clay loams and the clays", "Stay off it when wet, never dig it wet, and add organic matter on top"]
+        ] }
+      ]
+    },
+    {
+      "id": "home-tests",
+      "title": "Tests to do at home",
+      "summary": "The jar test now; the squeeze, percolation and worm count tests to come",
+      "lesson": "made-of",
+      "blocks": [
+        { "kind": "picture", "subject": "jar-test", "caption": "A jar test after a day" },
+        { "kind": "steps", "items": [
+          "Fill a straight-sided jar a third full of soil from the bed, with stones and roots picked out.",
+          "Top it up with water to near the brim and add a teaspoon of dish soap.",
+          "Shake hard for a few minutes, then set it down where it won't be moved.",
+          "After 1 minute, mark the top of the sand.",
+          "After 6 hours, mark the top of the silt.",
+          "When the water clears, a day or two later, mark the top of the clay.",
+          "Each layer's height divided by the total height is its share. Find the point on the texture triangle."
+        ] }
+      ]
+    },
+    { "id": "structure", "title": "Structure and compaction", "summary": "Crumbs, pores and what packs them down", "lesson": "structure", "blocks": [] },
+    { "id": "water", "title": "Water by texture", "summary": "How much water each soil holds and how fast it drains", "lesson": "water", "blocks": [] },
+    { "id": "food-web", "title": "Who lives in soil", "summary": "Bacteria, fungi, worms and the rest, and what each does", "lesson": "food-web", "blocks": [] },
+    { "id": "carbon-nitrogen", "title": "Greens and browns", "summary": "Carbon-to-nitrogen ratios of common compost materials", "lesson": "organic-matter", "blocks": [] },
+    { "id": "amendments", "title": "Amendments and their N-P-K", "summary": "What is in common fertilizers and soil amendments", "lesson": "nutrients", "blocks": [] },
+    { "id": "deficiencies", "title": "Reading leaves", "summary": "Signs of a missing nutrient, and where they show first", "lesson": "nutrients", "blocks": [] },
+    { "id": "ph", "title": "pH and nutrients", "summary": "Which nutrients a plant can reach at each pH, and how to raise or lower it", "lesson": "ph", "blocks": [] },
+    { "id": "cover-crops", "title": "Cover crops", "summary": "What to sow when, and what each one does for the soil", "lesson": "seasons", "blocks": [] },
+    { "id": "soil-test", "title": "Reading a soil test", "summary": "What each line on a lab report means", "lesson": "diagnosis", "blocks": [] }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": "made-of",
+  "n": 1,
+  "title": "What soil is made of",
+  "teaches": "What is in a handful of soil, the three sizes of mineral grain, and how their mix decides what a bed is like to garden",
+  "parts": [
+    {
+      "title": "A handful of soil",
+      "blocks": [
+        { "kind": "text", "text": "Pick up a handful of good garden soil. Less than half of it is rock. About **half** of its volume is solid: tiny broken pieces of rock, the [[minerals|mineral]], with a little [[organic matter|organic]] mixed through, the remains of plants and animals at every stage of rotting. The other half is not there at all. It is the gaps between the grains, the **pores**, and they are shared between [[water|water]] and [[air|air]]." },
+        { "kind": "figure", "figure": "handful", "caption": "A handful of loam, by volume, a day after a good soaking" },
+        { "kind": "text", "text": "Roots need both halves of that empty space. They drink from the films of water on the grains and breathe from the air between them. A root sitting in pores full of water for days drowns; one in pores full of air dries out. Most of what this course is about, from digging to compost, comes back to keeping that space open and about half full." },
+        { "kind": "text", "text": "The organic part is small, often only 2 to 6 parts in a hundred, but it does far more than its share. It feeds the life in the soil, glues grains into crumbs, and holds water and nutrients like a sponge. Lesson 5 is about it. This lesson is about the other solid part: the minerals." },
+        { "kind": "key", "title": "Hold on to", "points": [
+          "Good soil is about half solid and half pore space.",
+          "The pores hold the [[water|water]] and the [[air|air]] that roots need: roughly half and half once a soaking has drained."
+        ] }
+      ]
+    },
+    {
+      "title": "Sand, silt and clay",
+      "blocks": [
+        { "kind": "text", "text": "The mineral part comes in three sizes, sorted by how wide each grain is. [[Sand|sand]] is anything from 2 mm down to 0.05 mm, big enough to see and to feel as grit. [[Silt|silt]] is smaller, down to 0.002 mm, too fine to see one by one: dry, it feels like flour. [[Clay|clay]] is smaller still, and its grains are flat plates, sticky when wet and hard as brick when dry. Anything bigger than 2 mm is gravel and stones, and doesn't count." },
+        { "kind": "figure", "figure": "sizes", "caption": "The three sizes, blown up so that a clay plate is the size of a pea" },
+        { "kind": "text", "text": "Size matters because of **surface**. Break a grain into smaller pieces and the pieces have more surface between them than the grain had. A teaspoon of some clays has as much surface as a football field, and water clings to surfaces, and so do many plant nutrients. That is why [[clay|clay]] holds water and food, and [[sand|sand]] lets both run straight through." },
+        { "kind": "text", "text": "You can measure your own soil's mix with nothing but a jar. The sizes settle out of water at very different speeds: a sand grain sinks like a stone, while a clay plate can hang in the water for days." },
+        { "kind": "figure", "figure": "jar", "caption": "The jar test: shake soil up in water and let it settle", "task": "Let the jar settle until you can read all three layers", "goal": "read" },
+        { "kind": "text", "text": "To try it, fill a straight-sided jar a third full of soil from the bed, with stones and roots picked out. Top it up with water to near the brim, add a teaspoon of dish soap to help the grains come apart, and shake it hard for a few minutes. Mark the side of the jar at the top of the [[sand|sand]] after a minute, at the top of the [[silt|silt]] after six hours, and at the top of the [[clay|clay]] when the water clears, a day or two later. Bits of [[organic matter|organic]] float, so skim them off. Each layer's height over the whole is its share of the mix." }
+      ]
+    },
+    {
+      "title": "Naming a soil",
+      "blocks": [
+        { "kind": "text", "text": "The mix of the three sizes is the soil's **texture**, and soil scientists name it from a triangle. Each corner is all of one size; a point inside is a mix. Twelve regions of the triangle each have a name, from sand to clay, and in the middle is **loam**: a mix in which none of the three takes over, roughly two parts [[sand|sand]], two of [[silt|silt]] and one of [[clay|clay]]." },
+        { "kind": "figure", "figure": "triangle", "caption": "The soil texture triangle", "task": "Make a loam", "goal": "loam" },
+        { "kind": "text", "text": "Look at how the regions are shaped. It takes 85 parts in a hundred of [[sand|sand]] for a soil to be called sand, but only 40 of [[clay|clay]] for it to be one of the clays, whatever the rest is. A little clay goes a long way, because its tiny plates fill the gaps between bigger grains and give the whole soil their stickiness." },
+        { "kind": "key", "title": "What texture means in the bed", "points": [
+          "**Sandy** soils drain fast and warm early in spring, but dry out quickly and let nutrients wash away.",
+          "**Loamy** soils hold water and nutrients and still let air in: what most vegetables want.",
+          "**Clayey** soils hold water and nutrients well, but drain slowly, pack hard and are slow to warm."
+        ] },
+        { "kind": "text", "text": "Texture is the one thing about a soil you can't change in a season. Turning a clay bed into a loam by digging in sand would take tonnes of it, and too little sand makes clay more like concrete, not less. What you *can* change is how the grains are put together and what lives among them: the soil's structure, which is the next lesson, and its organic matter, which improves sandy and clay soils alike." }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "kind": "figure", "figure": "check", "caption": "Seven questions on what soil is made of", "task": "Answer them", "options": { "items": [
+          { "picture": "clay-soil", "question": "This bed dried out and cracked into plates like these. What is it rich in?", "options": ["Clay", "Sand", "Organic matter"], "answer": 0, "why": "Clay plates shrink as they dry and swell when wet, so a clay soil cracks in a drought. Sand doesn't shrink at all." },
+          { "question": "In a jar test, which layer settles first?", "options": ["Sand", "Silt", "Clay", "They settle together"], "answer": 0, "why": "The biggest grains sink fastest: sand is down in about a minute, silt over a few hours, and clay can take a day or two." },
+          { "question": "Rubbed between wet fingers, a pinch of soil feels gritty. What is it mostly?", "options": ["Sand", "Silt", "Clay"], "answer": 0, "why": "Sand grains are big enough to feel one by one. Silt feels smooth and silky, clay sticky." },
+          { "question": "Roughly how much of a good garden soil, by volume, is pore space?", "options": ["About half", "Almost none", "About a tenth", "Nine tenths"], "answer": 0, "why": "About half of a healthy soil is pores, shared between water and air. Pack it down and that share shrinks." },
+          { "question": "A jar test gives 70% sand, 20% silt and 10% clay. What will the bed be like?", "options": ["Quick to drain, and in need of watering more often", "Slow to drain, and sticky after rain", "Just like a loam"], "answer": 0, "why": "That is a sandy loam. It drains and warms quickly, but holds less water and fewer nutrients than a loam." },
+          { "picture": "loam", "question": "Why do most vegetables do best in a loam?", "options": ["It holds water and nutrients but still drains and lets air in", "It is the richest in clay", "It has no pore space to dry out"], "answer": 0, "why": "In a loam no one size takes over: the sand keeps it open, the clay holds water and nutrients, and the silt sits between." },
+          { "question": "Your clay bed drains slowly. What happens if you dig in a few bags of sand?", "options": ["Very little, or it packs harder", "It becomes a loam", "It drains like a sandy soil"], "answer": 0, "why": "A few bags barely move the mix, and sand in clay can set hard. Organic matter, worked in or laid on top, is what opens up a clay soil." }
+        ] } }
+      ]
+    }
+  ],
+  "learned": [
+    "Soil is about half solid (minerals and a little organic matter) and half pores, shared by water and air.",
+    "Sand, silt and clay are the three sizes of mineral grain; the smaller the grain, the more water and nutrients it holds.",
+    "A jar test measures the mix, and the texture triangle names it.",
+    "Texture can't be changed in a season, but structure and organic matter can."
+  ],
+  "next": "Next: crumbs and pores, or how grains build into structure, and why one footprint on wet soil can last all summer.",
+  "journal": []
+}
