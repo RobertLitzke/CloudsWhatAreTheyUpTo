@@ -311,15 +311,14 @@
                 "sky": [
                   {
                     "genus": "cumulus",
-                    "when": "10:00"
+                    "when": "10:00",
+                    "count": 3
                   },
                   {
                     "genus": "cumulus",
-                    "when": "12:00"
-                  },
-                  {
-                    "genus": "cumulonimbus",
-                    "when": "15:00"
+                    "when": "12:00",
+                    "count": 2,
+                    "size": "congestus"
                   }
                 ],
                 "question": "On a hot, muggy day, morning cumulus puffs have already swollen into tall, cauliflower congestus towers by noon. What should you expect by mid-afternoon?",
@@ -334,12 +333,14 @@
               {
                 "sky": [
                   {
-                    "genus": "cumulus",
-                    "when": "11:00"
+                    "when": "07:00",
+                    "time": "dawn"
                   },
                   {
                     "genus": "cumulus",
-                    "when": "14:00"
+                    "when": "11:00",
+                    "count": 2,
+                    "size": "small"
                   }
                 ],
                 "question": "The morning weather-balloon sounding shows a sharp temperature inversion sitting two kilometres above the ground. How will afternoon cumulus clouds behave today?",
@@ -355,11 +356,9 @@
                 "sky": [
                   {
                     "genus": "cumulonimbus",
-                    "when": "16:00"
-                  },
-                  {
-                    "genus": "cumulonimbus",
-                    "when": "16:10"
+                    "when": "16:00",
+                    "x": 0.3,
+                    "lightning": true
                   }
                 ],
                 "question": "You see a bright flash of lightning and count 12 seconds before hearing the first boom of thunder. Roughly how far away did the lightning strike?",
@@ -380,7 +379,10 @@
                   },
                   {
                     "genus": "cumulonimbus",
-                    "when": "17:30"
+                    "when": "17:30",
+                    "x": 0.9,
+                    "far": true,
+                    "rain": false
                   }
                 ],
                 "question": "A heavy thunderstorm shower has ended, patches of blue sky are appearing, and the last rumble of thunder was 10 minutes ago. Is it safe to head back out onto the open field?",
@@ -396,15 +398,9 @@
                 "sky": [
                   {
                     "genus": "altocumulus",
-                    "when": "07:00"
-                  },
-                  {
-                    "genus": "cumulus",
-                    "when": "11:00"
-                  },
-                  {
-                    "genus": "cumulonimbus",
-                    "when": "15:00"
+                    "when": "07:00",
+                    "time": "dawn",
+                    "shape": "castellanus"
                   }
                 ],
                 "question": "At 7 a.m., you spot a line of middle-floor altocumulus sprouting narrow, castle-like turrets (*castellanus*). What does that tell you about the day ahead?",
@@ -420,11 +416,15 @@
                 "sky": [
                   {
                     "genus": "cumulonimbus",
-                    "when": "15:00"
+                    "when": "15:00",
+                    "x": -0.9,
+                    "far": true
                   },
                   {
                     "genus": "cumulonimbus",
-                    "when": "15:10"
+                    "when": "15:10",
+                    "x": -0.5,
+                    "dust": true
                   }
                 ],
                 "question": "On a stifling, calm afternoon, a dark cumulonimbus tower looms to the west. Suddenly the air turns noticeably cool and a gusty wind kicks up dust across the road, though no rain is falling yet. What just reached you?",

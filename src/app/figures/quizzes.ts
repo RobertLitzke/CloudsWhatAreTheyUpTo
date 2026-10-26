@@ -11,6 +11,7 @@ import { makeRng, shuffle } from 'lesson-kit/rng';
 import { el, svg } from 'lesson-kit/dom';
 import { photoFigure, PHOTOS } from '../photos';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
+import { forecastSky } from '../scene/forecast-sky';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
 import { freshSeed } from 'lesson-kit/ui';
 import { line, note } from './draw';
@@ -304,36 +305,57 @@ export const radioCheckFigure = quiz((ctx, t, options) => {
 // ---- Forecasting from the sky -----------------------------------------------
 
 
-/** A slice up through the air: height, the freezing level, temperatures, and the cloud. */
+/**
+ * A slice up through the air: height, the freezing level and temperatures if
+ * the profile has them, and the clouds, one over another or, when there are
+ * several, side by side to compare.
+ */
 function profileDrawing(p: Profile): SVGSVGElement {
   const W = 400;
   const H = 170;
-  const top = p.topKm ?? Math.max(6, Math.ceil(Math.max(p.freezeKm, ...p.clouds.map((c) => c.topKm)) + 1));
+  const freeze = p.freezeKm;
+  const top = p.topKm ?? Math.max(6, Math.ceil(Math.max(freeze ?? 0, ...p.clouds.map((c) => c.topKm)) + 1));
   const ground = 150;
   const yOf = (km: number) => ground - (km / top) * (ground - 12);
-  const tempAt = (km: number) => (p.freezeKm - km) * 6.5;
+  const tempAt = (km: number) => ((freeze ?? 0) - km) * 6.5;
   const deg = (c: number) => `${c < -0.5 ? '−' : ''}${Math.abs(Math.round(c))} °C`;
   const s = svg('svg', { viewBox: `0 0 ${W} ${H}`, class: 'fig-svg', role: 'img' }) as SVGSVGElement;
   const parts: SVGElement[] = [
     svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.air }),
-    svg('rect', { x: 0, y: 0, width: W, height: yOf(p.freezeKm), fill: COL.subzero, opacity: 0.6 }),
     svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: COL.ground }),
   ];
-  for (let km = top > 8 ? 2 : 1; km <= top; km += top > 8 ? 2 : 1) {
+  const step = top > 8 ? 2 : 1;
+  for (let km = step; km <= top + 1e-9; km += step) {
     parts.push(line(34, yOf(km), 40, yOf(km), COL.ink, 1), note(30, yOf(km) + 3.5, `${km} km`, { soft: true, anchor: 'end' }));
   }
-  parts.push(
-    line(40, yOf(p.freezeKm), W, yOf(p.freezeKm), COL.ice, 1.5, { 'stroke-dasharray': '5 4' }),
-    note(W - 6, yOf(p.freezeKm) - 5, `0 °C at ${p.freezeKm} km: colder above`, { bold: true, anchor: 'end', fill: COL.ice }),
-  );
+  if (freeze !== undefined) {
+    parts.splice(1, 0, svg('rect', { x: 0, y: 0, width: W, height: yOf(freeze), fill: COL.subzero, opacity: 0.6 }));
+    parts.push(
+      line(40, yOf(freeze), W, yOf(freeze), COL.ice, 1.5, { 'stroke-dasharray': '5 4' }),
+      note(W - 6, yOf(freeze) - 5, `0 °C at ${freeze} km: colder above`, { bold: true, anchor: 'end', fill: COL.ice }),
+    );
+  }
+  const apart = p.clouds.length > 1;
+  const width = apart ? (W - 80) / p.clouds.length - 30 : 150;
   p.clouds.forEach((c, i) => {
-    const x0 = 120 + i * 40;
+    const x0 = apart ? 80 + i * (width + 30) : 120 + i * 40;
     const y0 = yOf(c.topKm);
     const y1 = yOf(c.baseKm);
+    const fill = c.dark ? '#7b7f96' : '#ffffff';
+    const ink = c.dark ? '#ffffff' : COL.ink;
+    const thick = `${Math.round((c.topKm - c.baseKm) * 1000).toLocaleString('en-US')} m thick`;
     parts.push(
-      svg('rect', { x: x0, y: y0, width: 150, height: Math.max(4, y1 - y0), rx: 8, fill: '#ffffff', stroke: COL.cloudShade }),
-      note(x0 + 75, (y0 + y1) / 2 + 4, c.name, { bold: true, anchor: 'middle' }),
-      ...(y1 - y0 < 24
+      svg('rect', { x: x0, y: y0, width, height: Math.max(4, y1 - y0), rx: 8, fill, stroke: COL.cloudShade }),
+      // Names inside a cloud thick enough to hold them, above a thin one.
+      ...(apart && y1 - y0 < 30
+        ? [note(x0 + width / 2, y0 - 18, c.name, { bold: true, anchor: 'middle' }), note(x0 + width / 2, y0 - 6, thick, { anchor: 'middle' })]
+        : [
+          note(x0 + width / 2, (y0 + y1) / 2 + (apart ? -2 : 4), c.name, { bold: true, anchor: 'middle', fill: ink }),
+          ...(apart ? [note(x0 + width / 2, (y0 + y1) / 2 + 11, thick, { anchor: 'middle', fill: ink })] : []),
+        ]),
+      ...(freeze === undefined
+        ? []
+        : y1 - y0 < 24
         ? [note(x0 - 6, (y0 + y1) / 2 + 4, `${deg(tempAt(c.baseKm))} to ${deg(tempAt(c.topKm))}`, { bold: true, anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : COL.warmInk })]
         : [
           note(x0 - 6, y0 + 9, `top ${deg(tempAt(c.topKm))}`, { anchor: 'end', fill: tempAt(c.topKm) < 0 ? COL.ice : COL.warmInk }),
@@ -341,9 +363,15 @@ function profileDrawing(p: Profile): SVGSVGElement {
         ]),
     );
   });
-  parts.push(note(W / 2, ground + 14, p.ground ?? `ground: ${deg(tempAt(0))}`, { anchor: 'middle', fill: '#fff' }));
+  parts.push(note(W / 2, ground + 14, p.ground ?? (freeze === undefined ? 'ground' : `ground: ${deg(tempAt(0))}`), { anchor: 'middle', fill: '#fff' }));
   s.append(...parts);
   return s;
+}
+
+/** What a forecast question shows above it: the slice through the air, or the sky over the hours. */
+export function forecastPicture(q: Forecast): Element {
+  if (q.profile) return profileDrawing(q.profile);
+  return el('div.sky-strip', {}, q.sky.map((s, k) => el('figure', {}, forecastSky(s, k), el('figcaption', {}, s.when))));
 }
 
 export const forecastFigure = quiz((ctx, t, options) => {
@@ -368,12 +396,6 @@ export const forecastFigure = quiz((ctx, t, options) => {
       return;
     }
     const q = items[i];
-    const strip = el('div.sky-strip', {}, q.sky.map((s, k) => {
-      const scene = makeScene({ time: 'day', seed: 40 + k, town: false, sun: [0.2, 0.3] });
-      const spot = SKY_SPOTS[s.genus];
-      addToSky(scene.sky, placeCloud(s.genus, scene.palette, SW / 2, spot.y, spot.scale, k + 2));
-      return el('figure', {}, scene.root, el('figcaption', {}, s.when));
-    }));
     const readings = q.instruments ? el('ul.readings', {}, ...q.instruments.map((r) => el('li', {}, r))) : null;
     const buttons = q.options.map((o, k) => {
       const b = el('button.btn.btn-ghost.wide', { type: 'button' }, o) as HTMLButtonElement;
@@ -394,7 +416,7 @@ export const forecastFigure = quiz((ctx, t, options) => {
       });
       return b;
     });
-    body.replaceChildren(q.profile ? profileDrawing(q.profile) : strip, readings ?? '', el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
+    body.replaceChildren(forecastPicture(q), readings ?? '', el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
   };
   next();
   return node;

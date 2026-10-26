@@ -331,11 +331,14 @@
                 "sky": [
                   {
                     "genus": "stratocumulus",
-                    "when": "9 a.m."
+                    "when": "9 a.m.",
+                    "cover": true
                   },
                   {
-                    "genus": "cirrostratus",
-                    "when": "10 a.m."
+                    "genus": "stratocumulus",
+                    "when": "10 a.m.",
+                    "shape": "iced",
+                    "sun": "dim"
                   }
                 ],
                 "question": "Eager for maximum snow, a pilot dumps 100 pounds of crushed dry ice per mile into a thin, supercooled stratocumulus deck at −10 °C. The cloud turns bright, silky white, but not a single snowflake falls. What went wrong?",
@@ -377,7 +380,8 @@
                   },
                   {
                     "genus": "altostratus",
-                    "when": "1:30 p.m."
+                    "when": "1:30 p.m.",
+                    "virga": true
                   }
                 ],
                 "question": "After an aircraft seeds a middle-level altostratus deck at −12 °C, you watch long grey curtains of snow trail out of the cloud base along the flight path, but the ground stays completely dry. Did the seeding fail to freeze the cloud?",
@@ -394,11 +398,15 @@
                 "sky": [
                   {
                     "genus": "cumulus",
-                    "when": "noon"
+                    "when": "noon",
+                    "count": 3,
+                    "size": "small"
                   },
                   {
                     "genus": "cumulus",
-                    "when": "3 p.m."
+                    "when": "3 p.m.",
+                    "count": 3,
+                    "size": "small"
                   }
                 ],
                 "question": "Six weeks into a summer drought under a stationary high-pressure ridge, the sky holds only a few flat cumulus humilis puffs at noon. A commercial rainmaker offers to bring the county a soaking rain for $2,000 using ground-based silver iodide burners. Should the Grange hire him?",
@@ -414,12 +422,12 @@
                 "id": "doctor",
                 "sky": [
                   {
-                    "genus": "stratus",
-                    "when": "8 a.m."
+                    "when": "8 a.m.",
+                    "fog": "dense"
                   },
                   {
-                    "genus": "stratus",
-                    "when": "10 a.m."
+                    "when": "10 a.m.",
+                    "fog": "dense"
                   }
                 ],
                 "question": "A medical flight needs to land at the town airfield, which is socked in by dense freezing fog at −7 °C with rime on the wind-sock frame. Can cloud seeding open the runway?",

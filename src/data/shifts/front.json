@@ -442,11 +442,16 @@
                 "sky": [
                   {
                     "genus": "cumulonimbus",
-                    "when": "6 p.m."
+                    "when": "6 p.m.",
+                    "time": "dusk"
                   },
                   {
-                    "genus": "cumulus",
-                    "when": "next day, noon"
+                    "genus": "cumulonimbus",
+                    "when": "9 p.m.",
+                    "time": "night",
+                    "x": 0.9,
+                    "far": true,
+                    "lightning": true
                   }
                 ],
                 "question": "A narrow squall line swept through at 6 p.m. with a sharp gust front and a 30-minute downpour. Since then, the wind has swung to the northwest and the barometer has jumped 4 hPa in three hours. What should you expect tomorrow?",
@@ -466,11 +471,13 @@
                 "sky": [
                   {
                     "genus": "cirrus",
-                    "when": "9 a.m."
+                    "when": "9 a.m.",
+                    "x": -0.6
                   },
                   {
                     "genus": "cirrus",
-                    "when": "1 p.m."
+                    "when": "1 p.m.",
+                    "x": 0.5
                   }
                 ],
                 "question": "Standing with your back to a southerly surface wind, you watch high cirrus filaments streaming across the sky from your left to your right. What does the crossed-winds rule tell you?",
@@ -490,11 +497,13 @@
                 "sky": [
                   {
                     "genus": "nimbostratus",
-                    "when": "10 a.m."
+                    "when": "10 a.m.",
+                    "thick": 0.5
                   },
                   {
-                    "genus": "cumulonimbus",
-                    "when": "2 p.m."
+                    "genus": "nimbostratus",
+                    "when": "noon",
+                    "thick": 0.5
                   }
                 ],
                 "question": "Your radar app shows a wide green shield overhead that has brought steady rain all morning, and 250 km to the west, a narrow, jagged line of red and magenta echoes racing eastward. What is that western line?",
@@ -515,7 +524,9 @@
                   },
                   {
                     "genus": "cirrostratus",
-                    "when": "Monday 9 p.m."
+                    "when": "Monday 9 p.m.",
+                    "time": "night",
+                    "sun": "halo"
                   }
                 ],
                 "question": "You spot mares’ tails at 4 p.m., a 22° halo around the moon at 9 p.m., and a barometer that has been falling steadily since noon. You want gentle rain to water in newly drilled winter wheat. Should you drill the seed tomorrow morning?",
@@ -535,15 +546,12 @@
                 "sky": [
                   {
                     "genus": "nimbostratus",
-                    "when": "Tuesday 10 a.m."
+                    "when": "Tuesday 10 a.m.",
+                    "thick": 0.5
                   },
                   {
                     "genus": "stratocumulus",
                     "when": "3 p.m."
-                  },
-                  {
-                    "genus": "cumulonimbus",
-                    "when": "8 p.m."
                   }
                 ],
                 "question": "Steady morning rain ended at noon. Now at 3 p.m. the air is mild and muggy, the wind is blowing from the southwest, and the barometer has stopped falling and held flat. You are scheduled to fly a light mail plane west at 7 p.m. Any hazard ahead?",

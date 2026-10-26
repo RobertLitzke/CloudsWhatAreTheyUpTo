@@ -274,11 +274,13 @@
                   },
                   {
                     "genus": "cirrostratus",
-                    "when": "14:00"
+                    "when": "14:00",
+                    "sun": "halo"
                   },
                   {
                     "genus": "altostratus",
-                    "when": "20:00"
+                    "when": "20:00",
+                    "time": "dusk"
                   }
                 ],
                 "question": "Morning mares’ tails thickened into a milky veil with a 22° halo by midday; by evening, the halo has vanished and the setting sun is just a dim, watery smudge. When should you expect rain?",
@@ -303,7 +305,8 @@
                   },
                   {
                     "genus": "altostratus",
-                    "when": "2 p.m."
+                    "when": "2 p.m.",
+                    "thick": 0.4
                   }
                 ],
                 "question": "Patches of morning altocumulus have merged into a solid grey overcast. By early afternoon, the sun looks like a pale disc behind frosted glass and trees cast no shadows. What is happening?",
@@ -319,15 +322,20 @@
                 "sky": [
                   {
                     "genus": "cirrus",
-                    "when": "09:00"
+                    "when": "09:00",
+                    "x": -0.4,
+                    "contrails": "short"
                   },
                   {
                     "genus": "cirrus",
-                    "when": "13:00"
+                    "when": "13:00",
+                    "x": 0.1
                   },
                   {
                     "genus": "cirrus",
-                    "when": "17:00"
+                    "when": "17:00",
+                    "x": 0.5,
+                    "contrails": "short"
                   }
                 ],
                 "question": "A few wispy streaks of cirrus have drifted across a deep blue sky all afternoon without multiplying or thickening, and airliner contrails evaporate right behind the planes. What is the outlook?",
@@ -343,11 +351,13 @@
                 "sky": [
                   {
                     "genus": "cirrostratus",
-                    "when": "11:00"
+                    "when": "11:00",
+                    "sun": "halo"
                   },
                   {
                     "genus": "cirrostratus",
-                    "when": "12:00"
+                    "when": "12:00",
+                    "sun": "halo"
                   }
                 ],
                 "question": "A milky veil of cirrostratus rings the sun with a bright halo. How wide is the radius of that ring from the sun to the circle?",
@@ -363,11 +373,14 @@
                 "sky": [
                   {
                     "genus": "cirrus",
-                    "when": "7 a.m."
+                    "when": "7 a.m.",
+                    "time": "dawn",
+                    "contrails": "wide"
                   },
                   {
                     "genus": "cirrostratus",
-                    "when": "10 a.m."
+                    "when": "10 a.m.",
+                    "sun": "halo"
                   }
                 ],
                 "question": "At dawn, high clouds in the west glow bright red while airliner contrails fan out into wide ribbons. By 10 a.m., the sky is milky white and the sun wears a wide halo. What is your forecast?",

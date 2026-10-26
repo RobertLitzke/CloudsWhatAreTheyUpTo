@@ -247,7 +247,9 @@
                 "sky": [
                   {
                     "genus": "cirrostratus",
-                    "when": "Friday night"
+                    "when": "Friday night",
+                    "time": "night",
+                    "sun": "halo"
                   },
                   {
                     "genus": "altostratus",
@@ -271,11 +273,13 @@
                 "sky": [
                   {
                     "genus": "altocumulus",
-                    "when": "14:00"
+                    "when": "14:00",
+                    "shape": "lenticular"
                   },
                   {
                     "genus": "altocumulus",
-                    "when": "15:00"
+                    "when": "15:00",
+                    "shape": "lenticular"
                   }
                 ],
                 "question": "A smooth, almond-shaped white cloud hovers completely stationary above a mountain ridge all afternoon even though winds at ridge level are blowing at 70 km/h. What are you looking at?",
@@ -290,12 +294,12 @@
               {
                 "sky": [
                   {
-                    "genus": "stratus",
-                    "when": "8 a.m."
+                    "when": "8 a.m.",
+                    "fog": "dense"
                   },
                   {
-                    "genus": "stratus",
-                    "when": "noon"
+                    "when": "noon",
+                    "fog": "dense"
                   }
                 ],
                 "question": "Dense fog has lingered in the valley for three days at −6 °C, coating the windward side of every fence wire and tree branch in a thick, feathery white crust. What is the fog composed of?",
@@ -311,11 +315,14 @@
                 "sky": [
                   {
                     "genus": "nimbostratus",
-                    "when": "6 a.m."
+                    "when": "6 a.m.",
+                    "thick": 0.5,
+                    "time": "dawn"
                   },
                   {
                     "genus": "nimbostratus",
-                    "when": "9 a.m."
+                    "when": "9 a.m.",
+                    "thick": 0.5
                   }
                 ],
                 "question": "Sub-freezing air (−4 °C) has been trapped in the valley under a strong inversion all week. Now a mild Pacific warm front is gliding overhead, and radar shows steady rain falling from the cloud deck aloft. What is the primary hazard?",
@@ -331,11 +338,13 @@
                 "sky": [
                   {
                     "genus": "altocumulus",
-                    "when": "10 a.m."
+                    "when": "10 a.m.",
+                    "cover": true
                   },
                   {
                     "genus": "altocumulus",
-                    "when": "10:40 a.m."
+                    "when": "10:40 a.m.",
+                    "shape": "hole"
                   }
                 ],
                 "question": "Thirty minutes after a commuter turboprop climbs through a thin, cobbled sheet of altocumulus, a wide circular hole opens in the cloud deck with wispy trails of virga hanging from its centre. What happened?",

@@ -7,7 +7,8 @@ import { el } from 'lesson-kit/dom';
 import { FIGURES } from '../../src/app/figures';
 import type { FigureContext } from '../../src/app/figures/kit';
 import { emptySave } from '../../src/core/save';
-import { SHIFTS, type Block, type FigureId } from '../../src/core/shifts';
+import { SHIFTS, type Block, type FigureId, type Forecast } from '../../src/core/shifts';
+import { forecastPicture } from '../../src/app/figures/quizzes';
 
 const save = emptySave();
 if (location.search.includes('imperial')) save.units = 'imperial';
@@ -28,3 +29,17 @@ for (const id of Object.keys(FIGURES) as FigureId[]) {
   article.append(el('figure.fig', { 'data-figure': id }, handle.node, box ? null : el('div.fig-text', {}, caption)));
 }
 document.getElementById('app')!.append(el('main.view', {}, article));
+
+// ?skies: every forecast question in every lesson, with the sky it shows, the
+// question and the right answer, for checking that the drawings say what the
+// question says.
+if (location.search.includes('skies')) {
+  const list = el('article.article');
+  for (const s of SHIFTS) for (const p of s.parts) for (const b of p.blocks) {
+    if (b.kind !== 'figure' || b.figure !== 'forecast') continue;
+    const items = (b.options?.items as Forecast[]) ?? [];
+    items.forEach((q, k) => list.append(el('figure.fig', { 'data-sky': `${s.id}-${k}` },
+      el('div.fig-body', {}, forecastPicture(q), el('p.task', {}, `${s.id} ${k}: ${q.question}`), el('p.fig-readout', {}, `✓ ${q.options[q.answer]}`)))));
+  }
+  document.getElementById('app')!.replaceChildren(el('main.view', {}, list));
+}

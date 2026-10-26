@@ -10,7 +10,7 @@
 import { svg } from 'lesson-kit/dom';
 import { makeRng, type Rng } from 'lesson-kit/rng';
 
-export type TimeOfDay = 'dawn' | 'day' | 'dusk';
+export type TimeOfDay = 'dawn' | 'day' | 'dusk' | 'night';
 
 export interface Palette {
   /** Sky, top to horizon. */
@@ -57,6 +57,17 @@ export const PALETTES: Record<TimeOfDay, Palette> = {
     cloudMid: '#d185b1',
     cloudShade: '#6e418e',
     ink: '#17142a',
+  },
+  // Moonlight: indigo going navy at the top, and the moon in the sun's place.
+  night: {
+    sky: ['#0c1330', '#151f45', '#1f2c58', '#2b3a69', '#3b4a78'],
+    sun: '#f1eedb',
+    hills: ['#2e3460', '#272c52', '#1f2444', '#181b36'],
+    near: '#0d0f20',
+    cloudLight: '#c8cee2',
+    cloudMid: '#8790b0',
+    cloudShade: '#4a5277',
+    ink: '#070a18',
   },
 };
 
@@ -128,8 +139,8 @@ export interface SceneOptions {
   town?: boolean;
   /** Which part to keep when the scene is cropped to a box of another shape. */
   align?: 'xMinYMax' | 'xMidYMax';
-  /** Sun position as fractions of the width and height. */
-  sun?: [number, number];
+  /** Sun position as fractions of the width and height; null for no sun, as behind an overcast. */
+  sun?: [number, number] | null;
 }
 
 export interface Scene {
@@ -155,7 +166,7 @@ export function makeScene(opts: SceneOptions): Scene {
     svg('rect', { x: 0, y: (i / p.sky.length) * HORIZON, width: W, height: HORIZON / p.sky.length + 1, fill: c, opacity: 0.55 }),
   );
   const [sx, sy] = opts.sun ?? [0.68, 0.62];
-  const sun = svg(
+  const sun = opts.sun === null ? svg('g') : svg(
     'g',
     {},
     svg('circle', { cx: sx * W, cy: sy * H, r: 38, fill: p.sun, opacity: 0.18 }),

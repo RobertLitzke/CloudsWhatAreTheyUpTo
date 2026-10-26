@@ -50,8 +50,11 @@ export type Part = KitPart<FigureId>;
 export interface Forecast {
   /** Questions with an id come last in the check, after the shuffled ones. */
   id?: string;
-  /** The sky over the hours, oldest first; one drawing per entry. */
-  sky: { genus: GenusId; when: string }[];
+  /**
+   * The sky over the hours, oldest first; one drawing per entry. Only what the
+   * question says has been seen: never a later sky that gives the answer away.
+   */
+  sky: SkyPanel[];
   /** What the barometer and the wind vane say, shown as readings under the sky. */
   instruments?: string[];
   /** A slice up through the air instead of the sky drawings: the freezing level and the cloud, by height. */
@@ -62,10 +65,50 @@ export interface Forecast {
   why: string;
 }
 
+/**
+ * One drawing in a forecast's sky strip: the cloud, and whatever the question
+ * says about it that the bare genus drawing would not show.
+ */
+export interface SkyPanel {
+  /** Left out for a clear sky. */
+  genus?: GenusId;
+  when: string;
+  /** Light: day unless given; night has a moon for a sun. */
+  time?: 'dawn' | 'day' | 'dusk' | 'night';
+  /** The sun (or moon) as seen through the cloud. Sheets have their own: sharp through cirrostratus, a dim disc through altostratus, gone behind the rest. */
+  sun?: 'clear' | 'halo' | 'dim' | 'hidden';
+  /** How thick and dark a sheet or deck is, 0 to 1: a thicker sheet is darker, lower, and rains harder. */
+  thick?: number;
+  /** Heaps: how many, and how big. */
+  count?: number;
+  size?: 'small' | 'congestus';
+  /** Across the sky, −1 (west, on the left) to 1 (east); `far` draws it smaller, away on the horizon. */
+  x?: number;
+  far?: boolean;
+  /** A storm's rain (on unless false), lightning, and dust blown up ahead of it. */
+  rain?: boolean;
+  lightning?: boolean;
+  dust?: boolean;
+  /** Ground fog over the fields, hiding the ridges; thin lets the ridge tops show. */
+  fog?: 'dense' | 'thin';
+  /** A stratus ceiling so low it hides the hilltops, with the fields clear below. */
+  low?: boolean;
+  /** Streaks that hang from the base and vanish before the ground. */
+  virga?: boolean;
+  /** A deck that covers the whole sky (decks of cells and heaps; sheets always do). */
+  cover?: boolean;
+  /** A cloud's shape beyond its genus. */
+  shape?: 'castellanus' | 'lenticular' | 'hole' | 'iced';
+  contrails?: 'short' | 'wide';
+  /** Draw the town, grain elevator and all. */
+  town?: boolean;
+}
+
 export interface Profile {
-  /** Height of the 0 °C level, km; temperatures fall 6.5 °C a km above it. */
-  freezeKm: number;
-  clouds: { baseKm: number; topKm: number; name: string }[];
+  /** Height of the 0 °C level, km; temperatures fall 6.5 °C a km above it. Left out, no freezing level or temperatures are drawn. */
+  freezeKm?: number;
+  /** Two or more clouds stand side by side; `dark` shades one's base. */
+  clouds: { baseKm: number; topKm: number; name: string; dark?: boolean }[];
   /** How high to draw, km. */
   topKm?: number;
   /** A note on the ground, such as "dry air below". */

@@ -336,15 +336,13 @@
                 "sky": [
                   {
                     "genus": "cumulus",
-                    "when": "10:00"
+                    "when": "10:00",
+                    "count": 3
                   },
                   {
                     "genus": "stratocumulus",
-                    "when": "13:00"
-                  },
-                  {
-                    "genus": "stratocumulus",
-                    "when": "16:00"
+                    "when": "13:00",
+                    "cover": true
                   }
                 ],
                 "question": "Detached morning cumulus heaps flatten and spread into a continuous, lumpy grey sheet by early afternoon. What is the forecast for the rest of the day?",
@@ -367,6 +365,22 @@
                     "when": "14:00"
                   }
                 ],
+                "profile": {
+                  "topKm": 3,
+                  "clouds": [
+                    {
+                      "baseKm": 0.6,
+                      "topKm": 1.0,
+                      "name": "Cloud A",
+                      "dark": true
+                    },
+                    {
+                      "baseKm": 0.6,
+                      "topKm": 2.6,
+                      "name": "Cloud B"
+                    }
+                  ]
+                },
                 "question": "Compare two overcast layers: Cloud A is 400 m thick and packed with tiny, polluted droplets, making its base look very dark. Cloud B is 2,000 m thick with fewer, larger droplets and looks slightly brighter. Which is more likely to rain?",
                 "options": [
                   "Cloud B: its greater depth and larger droplets allow drops to grow to raindrop size",
@@ -381,11 +395,13 @@
                 "sky": [
                   {
                     "genus": "stratocumulus",
-                    "when": "09:00"
+                    "when": "09:00",
+                    "cover": true
                   },
                   {
                     "genus": "stratocumulus",
-                    "when": "15:00"
+                    "when": "15:00",
+                    "cover": true
                   }
                 ],
                 "question": "A cobbled stratocumulus deck with small chinks of blue has lingered over the valley all day under a high-pressure system. Should you expect a soaking rain?",
@@ -406,11 +422,14 @@
                   },
                   {
                     "genus": "nimbostratus",
-                    "when": "12:00"
+                    "when": "12:00",
+                    "thick": 0.3,
+                    "rain": false
                   },
                   {
                     "genus": "nimbostratus",
-                    "when": "15:00"
+                    "when": "15:00",
+                    "thick": 1
                   }
                 ],
                 "question": "An overcast sky has thickened all morning until the sun is completely hidden and the dark, featureless base blurs into grey curtains. What lies ahead?",
@@ -426,11 +445,13 @@
                 "sky": [
                   {
                     "genus": "stratocumulus",
-                    "when": "15:00"
+                    "when": "15:00",
+                    "virga": true
                   },
                   {
                     "genus": "stratocumulus",
-                    "when": "16:00"
+                    "when": "16:00",
+                    "virga": true
                   }
                 ],
                 "question": "On a warm, dry afternoon, wispy grey streaks trail beneath a high cloud base but vanish halfway to the ground. Will the fields get wet?",

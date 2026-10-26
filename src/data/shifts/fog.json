@@ -328,11 +328,13 @@
                 "sky": [
                   {
                     "genus": "stratus",
-                    "when": "6 p.m."
+                    "when": "6 p.m.",
+                    "time": "dusk"
                   },
                   {
                     "genus": "stratus",
-                    "when": "10 p.m."
+                    "when": "10 p.m.",
+                    "time": "night"
                   }
                 ],
                 "question": "A grey cloud layer has covered the valley all evening, accompanied by a brisk breeze. Should you expect fog in the valley by dawn?",
@@ -347,12 +349,14 @@
               {
                 "sky": [
                   {
-                    "genus": "stratus",
-                    "when": "7 a.m."
+                    "when": "7 a.m.",
+                    "fog": "dense",
+                    "time": "dawn"
                   },
                   {
                     "genus": "stratus",
-                    "when": "9 a.m."
+                    "when": "9 a.m.",
+                    "low": true
                   }
                 ],
                 "question": "At 7 a.m. thick fog fills the valley. By 9 a.m. visibility at ground level is clear across the fields, but a low, flat grey ceiling still hides the hilltops. What happened?",
@@ -368,12 +372,13 @@
                 "id": "dawn-fog",
                 "sky": [
                   {
-                    "genus": "stratus",
-                    "when": "6 a.m."
+                    "when": "6 a.m.",
+                    "fog": "dense",
+                    "time": "dawn"
                   },
                   {
-                    "genus": "stratus",
-                    "when": "8 a.m."
+                    "when": "8 a.m.",
+                    "fog": "dense"
                   }
                 ],
                 "question": "After a clear, calm, damp night, dense fog blankets the valley floor and hides the ridges at dawn. When can a pilot expect the airfield to clear for take-off?",
@@ -388,12 +393,7 @@
               {
                 "sky": [
                   {
-                    "genus": "cumulus",
                     "when": "10 a.m."
-                  },
-                  {
-                    "genus": "cumulus",
-                    "when": "1 p.m."
                   }
                 ],
                 "question": "On a humid summer morning, the ground temperature is 24 °C (75 °F) and the dew point is 20 °C (68 °F). Where will afternoon cumulus bases form?",
@@ -410,15 +410,21 @@
                 "sky": [
                   {
                     "genus": "cumulus",
-                    "when": "9 a.m."
+                    "when": "10 a.m.",
+                    "count": 2,
+                    "size": "small"
                   },
                   {
                     "genus": "cumulus",
-                    "when": "Noon"
+                    "when": "Noon",
+                    "count": 3,
+                    "size": "small"
                   },
                   {
                     "genus": "cumulus",
-                    "when": "4 p.m."
+                    "when": "4 p.m.",
+                    "count": 3,
+                    "size": "small"
                   }
                 ],
                 "question": "Flat-bottomed cumulus puffs appeared around 10 a.m. and have stayed shallow and flat all afternoon across a blue sky. Is it safe to leave cut hay out to dry?",
