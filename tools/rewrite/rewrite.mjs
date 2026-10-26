@@ -32,7 +32,7 @@ Rewrite each numbered piece so it reads as if a thoughtful, experienced gardener
 Keep exactly:
 - Every fact, number, unit, name and date. Do not add facts or examples.
 - The markup, character for character: **bold**, *italic*, [[words|key]] (you may change neither the words inside nor the key), and footnote markers like [^stokes], which stay straight after the same word.
-- British spelling, as in the source.
+- The spelling and contractions of the source (it writes "fertilizer", "sulfur", "aluminium", "can't").
 - The length: the same or shorter. Never more than a fifth longer.
 - The meaning and the order of ideas. Paragraphs that are already good can come back unchanged.
 
