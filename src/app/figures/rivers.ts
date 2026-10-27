@@ -6,11 +6,11 @@
 // mountain river's basin; and the band of showers where the wind meets itself
 // behind the Olympics.
 
-import { svg } from 'lesson-kit/dom';
+import { el, svg } from 'lesson-kit/dom';
 import type { Units } from 'lesson-kit/progress';
 import { BASIN_TOP_M, FLOOD_MM, MONTHS, SEATTLE_MM, SNOWPACK_FROM_M, basinDay, jetLatitude, pacificHigh, windwardRain } from '../../core/rivers';
 import { arrow, curve, flake, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
-import { COL, figure, frame, height, slider, tint, type FigureFactory } from './kit';
+import { COL, choices, figure, frame, height, lock, lockIn, slider, tint, type FigureFactory } from './kit';
 import { MAP, SEA, head, pacificX, pacificY, westCoast } from './wind';
 
 const LAND = '#a39150';
@@ -129,6 +129,9 @@ export const atmosphericRiverDiagram: FigureFactory = () => {
 
 // ---- Rain wrung out on the windward slope ------------------------------------
 
+const WINDWARD_GUESSES = ['About the same: the air holds no more water', 'About twice as much', 'Less: the wind blows it over the top'] as const;
+const WINDWARD_RIGHT = 1;
+
 export const windwardFigure = figure(['flood'], (ctx, t) => {
   const W = 400;
   const H = 230;
@@ -140,8 +143,8 @@ export const windwardFigure = figure(['flood'], (ctx, t) => {
   const groundAt = (x: number) => (x < shore ? ground : x < peakX ? ground - ((x - shore) / (peakX - shore)) ** 1.3 * (ground - peakY) : peakY + ((x - peakX) / 80) * (ground - peakY) * 0.7);
   const terrain: P[] = [];
   for (let x = shore; x <= W; x += 5) terrain.push([x, groundAt(x)]);
-  let wind = 20;
-  let vapour = 12;
+  let wind = 30;
+  let vapour = 20;
   const g = svg('g');
   f.svg.append(
     svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.sky }),
@@ -187,13 +190,32 @@ export const windwardFigure = figure(['flood'], (ctx, t) => {
       small(W - 6, 16, `rain on the slope: ${rain(mm, ctx.save.units)} a day`, { anchor: 'end', bold: true, fill: mm >= 150 ? COL.redInk : COL.coldInk, halo: COL.sky }),
     );
     const kind = mm < 30 ? 'an ordinary showery day' : mm < 90 ? 'a wet day, a steady soaking' : mm < 150 ? 'heavy rain: the streams are rising fast' : 'a deluge: the rivers off these slopes will flood within a day';
-    f.readout.textContent = `The wind lifts the damp sea air up the slope; it cools, and the vapour it carries is wrung out as rain. ${rain(mm, ctx.save.units)} a day: ${kind}. Double the wind, or the vapour, and the rain doubles.`;
-    if (t.goal === 'flood' && mm >= 150) t.done();
+    if (asking) f.readout.textContent = `A wind of 30 km/h drives damp air up the slope, and ${rain(mm, ctx.save.units)} of rain falls on it a day. Now the wind doubles to 60 km/h, with the same damp air. What happens to the rain on the slope?`;
+    else f.readout.textContent = `The wind lifts the damp sea air up the slope; it cools, and its vapour is wrung out as rain: ${rain(mm, ctx.save.units)} a day, ${kind}.${pick.picked() < 0 || wind !== 60 || vapour !== 20 ? '' : pick.picked() === WINDWARD_RIGHT ? ` Twice the wind lifts twice the air up the slope each hour, so twice the rain, as you guessed: ${rain(windwardRain(30, 20), ctx.save.units)} became ${rain(mm, ctx.save.units)}.` : ` Not what you guessed: twice the wind lifts twice the air up the slope each hour, so ${rain(windwardRain(30, 20), ctx.save.units)} became ${rain(mm, ctx.save.units)}.`}`;
+    if (t.goal === 'flood' && !asking && mm >= 150) t.done();
   };
-  f.controls.append(
-    slider('Wind towards the mountains', 0, 100, 5, wind, (v) => `${v} km/h`, (v) => { wind = v; paint(); }, 'ink').node,
-    slider('Water vapour in the air', 5, 40, 1, vapour, (v) => `${v} mm`, (v) => { vapour = v; paint(); }, 'dew').node,
-  );
+  let asking = t.goal === 'flood';
+  const windS = slider('Wind towards the mountains', 0, 100, 5, wind, (v) => `${v} km/h`, (v) => { wind = v; paint(); }, 'ink');
+  const vapourS = slider('Water vapour in the air', 5, 40, 1, vapour, (v) => `${v} mm`, (v) => { vapour = v; paint(); }, 'dew');
+  const pick = choices(WINDWARD_GUESSES, () => (markIt.disabled = false));
+  const markIt = lockIn('Double the wind', () => {
+    asking = false;
+    t.keep(pick.picked());
+    pick.freeze(true);
+    markIt.hidden = true;
+    lock([windS, vapourS], false);
+    wind = 60;
+    windS.set(60);
+    paint();
+  });
+  markIt.disabled = true;
+  if (asking) f.controls.append(el('div.fig-guess', {}, pick.node, markIt));
+  f.controls.append(windS.node, vapourS.node);
+  lock([windS, vapourS], asking);
+  if (asking && typeof t.kept === 'number' && WINDWARD_GUESSES[t.kept]) {
+    pick.pick(t.kept);
+    markIt.click();
+  }
   paint();
   return f.node;
 });
@@ -260,6 +282,9 @@ export const acrossWashingtonDiagram: FigureFactory = (ctx) => {
 
 // ---- The snow level on a mountain river ------------------------------------
 
+const SNOW_GUESSES = ['Much the same: the water is the same', 'Rises a little', 'Floods'] as const;
+const SNOW_RIGHT = 2;
+
 export const snowLevelFigure = figure(['flood'], (ctx, t) => {
   const W = 400;
   const H = 250;
@@ -275,7 +300,7 @@ export const snowLevelFigure = figure(['flood'], (ctx, t) => {
   const gTop = 40;
   const gBottom = 210;
   const gy = (mm: number) => gBottom - (mm / 140) * (gBottom - gTop);
-  let level = 900;
+  let level = 800;
   const g = svg('g');
   f.svg.append(
     svg('rect', { x: 0, y: 0, width: 330, height: H, fill: COL.sky }),
@@ -310,10 +335,35 @@ export const snowLevelFigure = figure(['flood'], (ctx, t) => {
     );
     const pct = Math.round(rainShare * 100);
     const meltNote = meltMm >= 1 ? `, and melts the old snow it falls on (grey), adding ${Math.round(meltMm)} mm more` : '';
-    f.readout.textContent = `The same 100 mm of water falls on the whole basin. Below the snow level it falls as rain, on ${pct}% of the basin, and runs straight off${meltNote}. Above, it falls as snow and stays put. The river carries off ${runoffMm} mm a day: ${runoffMm >= FLOOD_MM ? 'it floods.' : 'high, but in its banks.'}`;
+    if (asking) {
+      f.readout.textContent = `A cold storm: 100 mm of water falls on the basin, as snow above ${height(800, ctx.save.units)} and rain below. The river carries off ${runoffMm} mm a day, well within its banks. A warm storm brings the same 100 mm, with the snow level at ${height(2000, ctx.save.units)}. What will the river do?`;
+      return;
+    }
+    const verdict = pick.picked() < 0 || level !== 2000 ? '' : pick.picked() === SNOW_RIGHT ? ' As you guessed.' : ' Not what you guessed.';
+    f.readout.textContent = `${verdict ? `${verdict.trim()} ` : ''}The same 100 mm of water falls on the whole basin. Below the snow level it falls as rain, on ${pct}% of the basin, and runs straight off${meltNote}. Above, it falls as snow and stays put. The river carries off ${runoffMm} mm a day: ${runoffMm >= FLOOD_MM ? 'it floods.' : 'high, but in its banks.'}`;
     if (t.goal === 'flood' && runoffMm >= FLOOD_MM) t.done();
   };
-  f.controls.append(slider('Snow level', 300, 3000, 100, level, (v) => height(v, ctx.save.units), (v) => { level = v; paint(); }, 'ice').node);
+  let asking = t.goal === 'flood';
+  const levelS = slider('Snow level', 300, 3000, 100, level, (v) => height(v, ctx.save.units), (v) => { level = v; paint(); }, 'ice');
+  const pick = choices(SNOW_GUESSES, () => (markIt.disabled = false));
+  const markIt = lockIn('Bring the warm storm', () => {
+    asking = false;
+    t.keep(pick.picked());
+    pick.freeze(true);
+    markIt.hidden = true;
+    lock([levelS], false);
+    level = 2000;
+    levelS.set(2000);
+    paint();
+  });
+  markIt.disabled = true;
+  if (asking) f.controls.append(el('div.fig-guess', {}, pick.node, markIt));
+  f.controls.append(levelS.node);
+  lock([levelS], asking);
+  if (asking && typeof t.kept === 'number' && SNOW_GUESSES[t.kept]) {
+    pick.pick(t.kept);
+    markIt.click();
+  }
   paint();
   return f.node;
 });
