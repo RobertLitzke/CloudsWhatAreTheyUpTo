@@ -1,0 +1,315 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "east-wind",
+ "n": 16,
+ "title": "Where do walls of dust and hot east winds come from?",
+ "teaches": "How can a storm that drops no rain raise a wall of dust a kilometre high, and why does the wind off the mountains come down hot and bone dry? Rain that never lands, the cold blast it makes, air warming as it sinks, the east winds through the Gorge, and California’s Santa Ana.",
+ "parts": [
+  {
+   "title": "A wall of dust",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "Rain falling through dry air evaporates, and evaporating chills the air. The chilled air is heavy: it plunges to the ground and spreads out as a cold blast, the **gust front**.",
+      "Over bare, dry fields, the gust front lifts the soil into a moving **wall of dust**, a kilometre or more high.",
+      "A storm whose rain evaporates before it lands brings lightning with no rain to put out the fires it starts: **dry lightning**.",
+      "Air that sinks is squeezed by the heavier air below and warms, about 10 °C for every kilometre, without any heat being added. It keeps its vapour, so its humidity plunges.",
+      "East of the Cascades the air is often heavier than west of them, and pours west through the one sea-level gap, the Columbia River Gorge: bitterly cold in winter, hot and dry in late summer. California’s Santa Ana is the same kind of wind."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "Lesson 5’s thunderstorm ended with its downdraft: rain falling through the cloud dragged air down with it, and the cold air spread out along the ground as the gust front, a sudden chill and a squall of wind just before the rain. In the dry interior of the West, the same downdraft can do something more dramatic."
+    },
+    {
+     "kind": "text",
+     "text": "When rain falls through air that is not saturated, some of it evaporates on the way down, and evaporating takes heat from the air around it, as a wet cloth chills your skin. The chilled air is heavier than the air around it, so it sinks faster, and the more rain evaporates, the colder and heavier it gets. It reaches the ground as a plunging blast of cold air, which spreads out in every direction like water poured on a table."
+    },
+    {
+     "kind": "text",
+     "text": "How much evaporates depends on how far the rain falls through dry air, and that depends on the cloud base. Lesson 1 showed that the drier the air at the ground, the higher a rising bubble must go before it turns to cloud. On a damp day in the Midwest, a storm’s base may be a kilometre up. On a hot afternoon in the dry interior of the West, it can be three or four."
+    },
+    {
+     "kind": "figure",
+     "figure": "dustWall",
+     "caption": "A thunderstorm from the side, its downdraft, and the cold air spreading out along the ground ahead of it.",
+     "task": "Guess what a higher cloud base does to the gust, then raise a wall of dust a kilometre high.",
+     "goal": "dust"
+    },
+    {
+     "kind": "text",
+     "text": "Where the gust front runs over bare, dry soil, it picks it up. Its leading edge, cold air shoving under warm, rolls the dust upward into a moving wall that can be a kilometre or more high and tens of kilometres long, turning afternoon to night in minutes as it passes. In the Sudan these walls are called **haboobs**, from the Arabic for wind, and the name has spread to Arizona, where they roll across Phoenix most summers."
+    },
+    {
+     "kind": "text",
+     "text": "In eastern Washington, dust storms come mostly in spring and autumn, when fields lie bare after ploughing or harvest. Some come off the gust fronts of storms; more come on the strong winds behind cold fronts. Either way, they can drop the view on a highway from kilometres to metres in moments, and the worst crashes in the region’s dust storms have involved dozens of cars.[^dust]"
+    }
+   ]
+  },
+  {
+   "title": "Dry lightning",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Raise the cloud base far enough and almost none of the rain lands at all. From below you see grey streaks hanging from the cloud and fading before they reach the ground: **virga**, rain evaporating as it falls. The storm still makes lightning, since lightning comes from the ice and graupel churning inside the cloud (Lesson 5), not from the rain."
+    },
+    {
+     "kind": "text",
+     "text": "That is **dry lightning**: strikes on dry grass and forest with no rain to put out the fires they start, and a gusty downdraft to fan them. It is how most wildfires in the remote interior West begin. In August 2020, a few days of dry thunderstorms over northern California started hundreds of fires at once, among them the largest in the state’s records."
+    },
+    {
+     "kind": "text",
+     "text": "**Today:** lightning detectors record every strike within seconds, and after a night of dry lightning, spotter planes and fire watchers search the places it struck for the smoke of new fires, which can smoulder for days before they take off."
+    }
+   ]
+  },
+  {
+   "title": "Down the slope",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Lesson 1 showed that rising air cools: as it rises, the air around it presses on it less, so it spreads out, and spreading out cools it, by about 10 °C for every kilometre while it stays clear. The same thing runs backwards. Air that sinks is squeezed by the heavier air around it, and squeezing warms it, by the same 10 °C a kilometre. No heat is added. The warmth was there all along, packed into a smaller space."
+    },
+    {
+     "kind": "figure",
+     "figure": "downslope",
+     "caption": "Air from a high plateau carried by the wind down a long slope to the lowlands.",
+     "task": "Guess how warm it is at the bottom, then bring it down the slope.",
+     "goal": "sink"
+    },
+    {
+     "kind": "text",
+     "text": "Its vapour stays the same as it sinks, while the air grows warmer and could hold more and more. So its humidity, how full it is compared with how much it could hold, falls fast: air that started at a dry 30% on the plateau reaches the lowlands at 15% or less. Grass, brush and fallen needles give up their own water to it, and within a day or two of such a wind they are tinder."
+    },
+    {
+     "kind": "text",
+     "text": "Lesson 7 followed air over the Cascades and down their eastern side, warming as it came down into the rain shadow. The winds in this lesson come the other way: from the high, dry interior, down to the coast."
+    }
+   ]
+  },
+  {
+   "title": "East winds through the Gorge",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "The Cascades run north to south the length of Washington and Oregon, and the only place the air can cross them at sea level is the Columbia River Gorge, cut through the range by the river. Whenever the air east of the mountains is heavier than the air west of them, it pushes through the Gorge like water through a gap in a dam, and comes out the western end as a strong east wind."
+    },
+    {
+     "kind": "text",
+     "text": "Each hectopascal (hPa, the unit barometers read in) of pressure difference across the mountains drives more air through the gap. A few hPa makes a stiff breeze; eight or ten makes a gale, with gusts over a hundred kilometres an hour at the western mouth."
+    },
+    {
+     "kind": "figure",
+     "figure": "gorgeGap",
+     "caption": "The Cascades from above, with the Columbia River Gorge cutting through them. Set how much higher the pressure is east of the mountains.",
+     "task": "Push a wind of 60 km/h through the Gorge.",
+     "goal": "gap"
+    },
+    {
+     "kind": "text",
+     "text": "In winter, the heavy air is the cold pool of the last lesson, filling the basin east of the mountains. It pours west through the Gorge as a bitter wind that can blow for days, and when a Pacific storm rides over it, the lowlands at the Gorge’s mouth get freezing rain."
+    },
+    {
+     "kind": "text",
+     "text": "In late summer and early autumn, it is hot, dry air from the interior that pours west, sinking and drying further as it comes off the high ground. That wind turns a spark into a running fire. In September 2017 an east wind drove a fire down the Gorge itself, and in September 2020, a dry east wind over the Cascades fanned fires across western Oregon that burned more than in any year before.[^labor]"
+    }
+   ]
+  },
+  {
+   "title": "California’s version",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Southern California has the same wind under another name. In autumn and winter, a high settles over the Great Basin, the high desert of Nevada and Utah, and its air pours south-west through the mountain passes towards the coast. It sinks more than a kilometre on the way, and arrives hot and astonishingly dry: the **Santa Ana**."
+    },
+    {
+     "kind": "figure",
+     "figure": "santaAna",
+     "caption": "A Santa Ana: air from the high desert of the Great Basin, down through the passes to the coast."
+    },
+    {
+     "kind": "text",
+     "text": "A Santa Ana can bring the year’s highest temperatures to Los Angeles in October or November, with humidity in single figures and gusts over a hundred kilometres an hour through the canyons. In northern California, the same kind of wind is called the **Diablo**. Many of California’s most destructive fires have run before one of the two, among them the 2018 fire that destroyed the town of Paradise, driven by a dry wind off the Sierra Nevada."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Name the clouds in these photographs, then use the downdraft, the dust and the sinking air to read the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "check",
+     "caption": "Real photos to name, then a sky and what the air is doing. What is it up to?",
+     "options": {
+      "photos": {
+       "mode": "name",
+       "pool": [
+        "cumulonimbus",
+        "altocumulus",
+        "cumulus",
+        "altostratus",
+        "cirrus"
+       ],
+       "known": [
+        "cirrus",
+        "cirrocumulus",
+        "cirrostratus",
+        "altocumulus",
+        "altostratus",
+        "nimbostratus",
+        "stratocumulus",
+        "stratus",
+        "cumulus",
+        "cumulonimbus"
+       ],
+       "count": 4
+      },
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "4 p.m.",
+          "virga": true,
+          "rain": false,
+          "lightning": true
+         }
+        ],
+        "instruments": [
+         "Temperature: 34 °C",
+         "Dew point: 2 °C",
+         "Cloud base: about 3.5 km"
+        ],
+        "question": "A hot, dry afternoon. A storm overhead trails grey streaks that vanish halfway down, and lightning strikes the hills. What should people watch for?",
+        "options": [
+         "Fires started by the lightning, fanned by a gusty downdraft",
+         "A soaking that ends the fire season",
+         "Hail the size of golf balls"
+        ],
+        "answer": 0,
+        "why": "The rain evaporates before it lands: dry lightning. The evaporation chills the downdraft, which hits the ground as gusty wind."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "5 p.m.",
+          "x": -0.5,
+          "far": true,
+          "dust": true
+         }
+        ],
+        "instruments": [
+         "Fields: bare after harvest, dry",
+         "Storm base: high"
+        ],
+        "question": "A storm stands off to the west over bare, dry fields, with a brown band low across the horizon beneath it. What is coming?",
+        "options": [
+         "A wall of dust on the storm’s gust front",
+         "Fog",
+         "A rainbow"
+        ],
+        "answer": 0,
+        "why": "The cold blast spreading out from the storm’s downdraft lifts the dry topsoil into a moving wall."
+       },
+       {
+        "sky": [
+         {
+          "when": "2 p.m."
+         }
+        ],
+        "instruments": [
+         "Wind: east, 60 km/h, through the Gorge",
+         "Temperature: 33 °C",
+         "Humidity: 12%"
+        ],
+        "question": "Late August, and a strong, hot east wind is blowing out of the Gorge. Why is the humidity so low?",
+        "options": [
+         "The air has sunk from the high interior and warmed by squeezing, keeping the same vapour",
+         "The sun has dried the air out",
+         "The wind has blown the vapour away to the east"
+        ],
+        "answer": 0,
+        "why": "Sinking air warms about 10 °C a kilometre but keeps its vapour. Warmer air could hold far more, so its humidity drops."
+       },
+       {
+        "sky": [
+         {
+          "genus": "stratus",
+          "when": "8 a.m.",
+          "low": true
+         }
+        ],
+        "instruments": [
+         "East of the Cascades: −8 °C, high pressure",
+         "West of the Cascades: +3 °C, a storm arriving"
+        ],
+        "question": "January. A cold high sits east of the mountains and a mild storm arrives from the Pacific. What should the lowlands at the Gorge’s mouth expect?",
+        "options": [
+         "A cold east wind, then freezing rain as the storm rides over it",
+         "A warm, dry east wind and fires",
+         "Steady, mild rain"
+        ],
+        "answer": 0,
+        "why": "The cold air pours west through the Gorge and lies in a shallow layer, and the storm’s rain falls through it and freezes on contact."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "Rain evaporating through dry air chills it, and the cold, heavy air plunges down and spreads out as the gust front. The higher the cloud base, the more rain evaporates and the harder the blast.",
+  "Over bare, dry soil the gust front lifts a wall of dust a kilometre or more high: a haboob.",
+  "Storms whose rain evaporates before it lands bring dry lightning, which starts most wildfires in the interior West.",
+  "Sinking air warms about 10 °C a kilometre by being squeezed, and keeps its vapour, so its humidity falls fast.",
+  "Heavy air east of the Cascades pours west through the Columbia River Gorge: a cold east wind in winter, bringing freezing rain at its mouth; a hot, dry one in late summer, fanning fires. California’s Santa Ana and Diablo winds are the same kind of wind."
+ ],
+ "next": "That is the end of fog, dust and wind.",
+ "journal": {
+  "gust-front": {
+   "title": "Gust front",
+   "text": "The leading edge of the cold air spreading out from a storm’s downdraft: a sudden chill and squall before the rain, or instead of it."
+  },
+  "haboob": {
+   "title": "Haboob",
+   "text": "A wall of dust lifted by a storm’s gust front off bare, dry ground, a kilometre or more high. From the Arabic for wind."
+  },
+  "dry-lightning": {
+   "title": "Dry lightning",
+   "text": "Lightning from a high-based storm whose rain evaporates before it lands: no rain to put out the fires it starts."
+  },
+  "sinking-warms": {
+   "title": "Sinking air warms",
+   "text": "Air squeezed as it sinks warms about 10 °C a kilometre, with no heat added, and its humidity falls fast."
+  },
+  "east-wind": {
+   "title": "Gorge east wind",
+   "text": "Air pouring west through the Columbia River Gorge when the pressure is higher east of the Cascades: bitter in winter, hot and dry in late summer."
+  },
+  "santa-ana": {
+   "title": "Santa Ana",
+   "text": "A hot, very dry wind pouring from the high desert of the Great Basin down to the Southern California coast in autumn and winter. In northern California, the Diablo."
+  }
+ },
+ "footnotes": {
+  "dust": {
+   "kind": "technical",
+   "title": "Why ploughed fields blow",
+   "glossary": "Wind erosion",
+   "text": "Soil held by roots, stubble or moisture needs a far stronger wind to lift than bare, dry, freshly worked soil, whose loose grains are knocked loose and bounce along, knocking others into the air. Leaving stubble standing over winter is one of the main ways farmers in dry country keep their topsoil."
+  },
+  "labor": {
+   "kind": "digression",
+   "title": "Labor Day 2020",
+   "text": "Over the Labor Day weekend of 2020, an east wind gusting over 100 km/h came down the western slopes of the Cascades onto fires that had been burning quietly for weeks. In two days they ran tens of kilometres down the river valleys toward the Willamette Valley, burning whole towns, and smoke darkened Portland and Seattle for over a week."
+  }
+ }
+}

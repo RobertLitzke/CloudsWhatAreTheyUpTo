@@ -36,6 +36,8 @@ import rivers from '../data/shifts/rivers.json';
 import violent from '../data/shifts/violent.json';
 import tornado from '../data/shifts/tornado.json';
 import hurricane from '../data/shifts/hurricane.json';
+import winterFog from '../data/shifts/winter-fog.json';
+import eastWind from '../data/shifts/east-wind.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -55,6 +57,8 @@ export const FIGURE_IDS = [
   'fuelSounding', 'capDay', 'stormSorter', 'hailstone', 'stormRecipe',
   'shearRoll', 'skater', 'supercell', 'hookEcho', 'efScale',
   'tradeWinds', 'heatEngine', 'shipThrough', 'hurricaneBelt', 'surge',
+  'coldPool', 'fogMaker', 'rime', 'iceLayers',
+  'dustWall', 'downslope', 'gorgeGap', 'santaAna',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -224,6 +228,9 @@ export const SHIFTS: readonly Shift[] = [
   fromJson(violent, [], { sky: ['cumulonimbus', 'cumulus'], branch: 'storms', needs: ['giants'] }),
   fromJson(tornado, [], { sky: ['cumulonimbus'], branch: 'storms', needs: ['violent'], betterAfter: ['wind'] }),
   fromJson(hurricane, [], { sky: ['cumulonimbus', 'cirrostratus'], branch: 'storms', betterAfter: ['wind', 'violent'] }),
+  // Fog, dust and wind, forking off after Lesson 2: the weather of dry inland basins.
+  fromJson(winterFog, [], { sky: ['stratus', 'nimbostratus'], branch: 'ground', needs: ['low-sky'], betterAfter: ['local-sky'] }),
+  fromJson(eastWind, [], { sky: ['cumulonimbus', 'altocumulus'], branch: 'ground', betterAfter: ['giants', 'winter-fog'] }),
 ];
 
 /** A lesson in the tree that is not written yet. */
@@ -243,6 +250,7 @@ export interface ComingLesson {
 export const BRANCHES: readonly TreeBranch[] = [
   { id: 'coast', title: 'The Pacific coast', promise: 'Why the coast almost never thunders, and where a week of winter rain comes from', from: 'front', color: 'var(--coast)', prefix: 'P' },
   { id: 'storms', title: 'Violent storms', promise: 'Hail, tornadoes and hurricanes: what turns a shower into a monster', from: 'giants', color: 'var(--storms)', prefix: 'V' },
+  { id: 'ground', title: 'Fog, dust and wind', promise: 'Weeks of winter grey, walls of dust, and the hot, dry winds off the mountains', from: 'low-sky', color: 'var(--ground)', prefix: 'F' },
   { id: 'seeding', title: 'Cloud seeding', promise: '', from: 'local-sky', leaf: true, color: 'var(--rose)', prefix: 'S' },
 ];
 
@@ -278,4 +286,6 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...violent.journal,
   ...tornado.journal,
   ...hurricane.journal,
+  ...winterFog.journal,
+  ...eastWind.journal,
 };

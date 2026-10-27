@@ -59,7 +59,7 @@ describe('figures', () => {
 describe('guess-first figures', () => {
   // These figures turn on one threshold, so the reader says where it will be
   // before the controls that reach it unlock.
-  const GUESS_FIRST = ['jar', 'parcel', 'front', 'storm', 'billow', 'windBalance', 'coastSounding', 'windward', 'snowLevel'] as const;
+  const GUESS_FIRST = ['jar', 'parcel', 'front', 'storm', 'billow', 'windBalance', 'coastSounding', 'windward', 'snowLevel', 'fuelSounding', 'capDay', 'stormSorter', 'skater', 'surge', 'coldPool', 'iceLayers', 'dustWall', 'downslope'] as const;
   it('lock their sliders until the guess is marked', () => {
     const ctx: FigureContext = { save: emptySave(), closed: AbortSignal.abort(), score: () => {} };
     for (const id of GUESS_FIRST) {
@@ -76,7 +76,7 @@ describe('guess-first figures', () => {
 describe('figures coming back after the reader left', () => {
   // Each figure keeps what it would lose on a reload (Task.keep in lesson-kit);
   // built again with what it kept, it is as it was.
-  const GUESS_FIRST = ['jar', 'parcel', 'front', 'storm', 'billow', 'windBalance', 'coastSounding', 'windward', 'snowLevel'] as const;
+  const GUESS_FIRST = ['jar', 'parcel', 'front', 'storm', 'billow', 'windBalance', 'coastSounding', 'windward', 'snowLevel', 'fuelSounding', 'capDay', 'stormSorter', 'skater', 'surge', 'coldPool', 'iceLayers', 'dustWall', 'downslope'] as const;
   const memoCtx = (kept: unknown, onKeep: (v: unknown) => void = () => {}, score: FigureContext['score'] = () => {}): FigureContext =>
     ({ save: emptySave(), closed: AbortSignal.abort(), score, memo: { restored: false, kept, keep: onKeep } });
   const markGuess = (node: HTMLElement) => {

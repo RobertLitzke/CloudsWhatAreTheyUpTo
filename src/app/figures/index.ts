@@ -17,6 +17,8 @@ import { acrossWashingtonDiagram, atmosphericRiverDiagram, convergenceZoneDiagra
 import { capDayFigure, fuelSoundingFigure, hailstoneFigure, stormRecipeDiagram, stormSorterFigure } from './violent';
 import { efScaleDiagram, hookEchoDiagram, shearRollFigure, skaterFigure, supercellDiagram } from './tornado';
 import { heatEngineFigure, hurricaneBeltDiagram, shipThroughFigure, surgeFigure, tradeWindsDiagram } from './hurricane';
+import { coldPoolFigure, fogMakerFigure, iceLayersFigure, rimeDiagram } from './winter-fog';
+import { downslopeFigure, dustWallFigure, gorgeGapFigure, santaAnaDiagram } from './east-wind';
 import type { FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
@@ -138,4 +140,12 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   shipThrough: shipThroughFigure,
   hurricaneBelt: hurricaneBeltDiagram,
   surge: surgeFigure,
+  coldPool: coldPoolFigure,
+  fogMaker: fogMakerFigure,
+  rime: rimeDiagram,
+  iceLayers: iceLayersFigure,
+  dustWall: dustWallFigure,
+  downslope: downslopeFigure,
+  gorgeGap: gorgeGapFigure,
+  santaAna: santaAnaDiagram,
 };

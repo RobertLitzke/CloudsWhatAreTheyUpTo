@@ -33,6 +33,8 @@ import rivers from '../data/radio/rivers.json';
 import violent from '../data/radio/violent.json';
 import tornado from '../data/radio/tornado.json';
 import hurricane from '../data/radio/hurricane.json';
+import winterFog from '../data/radio/winter-fog.json';
+import eastWind from '../data/radio/east-wind.json';
 
 export const STATIONS: Stations = {
   them: { call: 'W7DQ', place: 'Walla Walla' },
@@ -58,6 +60,8 @@ const BY_SHIFT: Record<string, Radio> = {
   violent: violent as Radio,
   tornado: tornado as Radio,
   hurricane: hurricane as Radio,
+  'winter-fog': winterFog as Radio,
+  'east-wind': eastWind as Radio,
 };
 
 export function radioFor(shiftId: string): Radio {
