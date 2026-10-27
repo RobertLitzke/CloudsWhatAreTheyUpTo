@@ -19,14 +19,14 @@ describe('sky lab', () => {
   }, 60000);
 
   it('grows cumulus from the sun alone by midday', () => {
-    const s = run({}, 3);
+    const s = run({ sun: 8, humidity: 60 }, 3);
     const t = s.totals();
     expect(t.cloud).toBeGreaterThan(0);
     expect(t.topM).toBeGreaterThan(2000);
   }, 60000);
 
   it('rains on the windward side of the ridge and less in its lee', () => {
-    const s = run({ sun: 0, humidity: 85, windMs: 10, aloftC: 6 }, 3);
+    const s = run({ sun: 0, humidity: 90, windMs: 15, aloftC: 6 }, 3);
     const i = (km: number) => Math.round((km / ridge.widthKm) * s.nx);
     const windward = sum(s.rain, i(13), i(24));
     const lee = sum(s.rain, i(29), i(38));

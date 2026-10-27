@@ -87,10 +87,20 @@ export const SCENARIOS: readonly Scenario[] = [
 const GROUND_K = 298.15;
 const ALOFT_M = 5000;
 const TROPOPAUSE_M = 10000;
-/** Sensible heat the sun puts into each kind of ground at noon, at full sun, W/m². */
-const HEAT: Record<Ground, number> = { field: 380, rock: 420, forest: 280, lake: 30 };
-/** Evaporation from each kind of ground at noon, as latent heat W/m², at moisture 3. */
-const WET: Record<Ground, number> = { field: 90, rock: 20, forest: 140, lake: 260 };
+/** How far full noon sun warms each kind of ground above the air, K. */
+const WARM: Record<Ground, number> = { field: 26, rock: 30, forest: 14, lake: 0 };
+/** How wet each kind of ground is, as a share of open water; fields and forest gain with the damp. */
+const WETNESS: Record<Ground, number> = { field: 0.05, rock: 0.02, forest: 0.3, lake: 1 };
+/** The lake stays this much cooler than the air's background, K. */
+const LAKE_COOL = 4;
+/** How far a clear night chills land below the air, K. */
+const NIGHT_CHILL = 7;
+/** How long land takes to follow the sun, s. */
+const GROUND_LAG_S = 1800;
+/** Ice cloud thins by snowing out over about this long, s. */
+const ICE_FALL_S = 2400;
+/** A shear spanning the whole slice fades over about this long, s. */
+const MEAN_SHEAR_S = 1800;
 
 export function qsat(tK: number, pPa: number): number {
   const es = 611.2 * Math.exp((17.67 * (tK - 273.15)) / (tK - 29.65));
@@ -144,6 +154,8 @@ export class SkySim {
   readonly floor: Int32Array;
   readonly heightM: Float64Array;
   readonly kind: Ground[];
+  /** Ground temperature under each column, K. */
+  readonly groundK: Float64Array;
   /** Rain that has reached the ground in each column, mm. */
   readonly rain: Float64Array;
   /** Each column's lasting share of the sun, so thermals start in different places. */
@@ -185,6 +197,7 @@ export class SkySim {
     this.heightM = new Float64Array(this.nx);
     this.kind = [];
     this.rain = new Float64Array(this.nx);
+    this.groundK = new Float64Array(this.nx);
     this.patch = new Float64Array(this.nx);
     this.rng = makeRng(opts.seed ?? 7);
 
@@ -204,6 +217,7 @@ export class SkySim {
     this.th0.set(this.th0Goal);
     this.derive();
     for (let j = 0; j < this.nz; j++) this.qv0[j] = this.rhGoal[j] * qsat(this.th0[j] * this.pi0[j], this.p0[j]);
+    for (let i = 0; i < this.nx; i++) this.groundK[i] = this.th0[this.floor[i]] * this.pi0[this.floor[i]];
     for (let j = 0; j < this.nz; j++) {
       for (let i = 0; i < this.nx; i++) {
         const k = i + j * this.nx;
@@ -319,7 +333,8 @@ export class SkySim {
     this.fall();
     this.buoyancy();
     this.edges();
-    this.solvePsi(6);
+    // Fewer passes leave the flow lagging the buoyancy, and on a still, stable night that lag grows into a storm.
+    this.solvePsi(12);
     this.winds();
     this.t += this.dt;
   }
@@ -340,8 +355,9 @@ export class SkySim {
   /**
    * Add a change of mean wind to the whole streamfunction. ψ is zero half a
    * cell below the lowest centre, as it is in the solve; the top carries the
-   * mean wind, and the sides are left open (each copies its neighbour), so
-   * air piled up against the ridge isn't forced back to the mean at the edge.
+   * mean wind, and the sides are left open (both take their neighbours'
+   * average), so air piled up against the ridge isn't forced back to the mean
+   * at the edge.
    */
   private addWind(dU: number): void {
     const { nx, nz, floor } = this;
@@ -392,9 +408,12 @@ export class SkySim {
           for (let j = 0; j < f; j++) psi[i + j * nx] = 0;
         }
       }
+      // Both sides take the average of their neighbours, so as much air leaves as comes in at every height
+      // and the whole slice can't sink (and warm) at once.
       for (let j = 0; j < nz; j++) {
-        psi[j * nx] = psi[1 + j * nx];
-        psi[nx - 1 + j * nx] = psi[nx - 2 + j * nx];
+        const side = 0.5 * (psi[1 + j * nx] + psi[nx - 2 + j * nx]);
+        psi[j * nx] = side;
+        psi[nx - 1 + j * nx] = side;
       }
     }
   }
@@ -521,31 +540,56 @@ export class SkySim {
     }
   }
 
+  /**
+   * The ground and the air touching it. Each column's ground has its own
+   * temperature: the sun warms land above the air (bare rock and dry fields
+   * most, forest less, as its leaves turn sunlight into evaporation), cloud
+   * overhead shades it, and on a clear night land chills below the air. The
+   * lake hardly changes, so it is cooler than the air by day. Heat flows from
+   * the warmer of ground and air to the other, quickly when the ground is
+   * warmer (the warmed air churns) and slowly when it is cooler (chilled air
+   * lies still); water evaporates toward what the ground's own temperature
+   * would hold, as much as the ground is wet.
+   */
   private surface(): void {
     const { nx, dz, dt, controls } = this;
     const sun = this.sunNow();
-    const h = this.hour();
-    const night = sun === 0 || h < 7 || h > 18;
+    const level = controls.sun / 10;
+    const damp = (controls.humidity - 20) / 70;
+    // Night creeps in as the sun gets low.
+    const dark = Math.min(1, Math.max(0, (0.15 - sun) / 0.15));
     for (let i = 1; i < nx - 1; i++) {
       const j = this.floor[i];
       const k = i + j * nx;
       const kind = this.kind[i];
-      // Cloud overhead shades the ground.
       let shade = 0;
       for (let jj = j; jj < this.nz; jj++) shade += this.qc[i + jj * nx];
-      const lit = Math.exp(-shade * 900);
-      let heat = (controls.sun / 10) * HEAT[kind] * sun * lit * this.patch[i];
-      if (night) heat -= kind === 'lake' ? 5 : 35;
-      const rho = this.rho0[j];
-      this.th[k] += ((heat / (rho * CP * dz)) * dt) / this.pi0[j];
+      const clear = Math.exp(-shade * 900);
+      const pi = this.pi0[j];
+      const air0 = this.th0[j] * pi;
+      if (kind === 'lake') this.groundK[i] = air0 - LAKE_COOL + 2 * sun * level;
+      else {
+        const goal = air0 + WARM[kind] * sun * level * clear * this.patch[i] - NIGHT_CHILL * dark * clear;
+        this.groundK[i] += (goal - this.groundK[i]) * (dt / GROUND_LAG_S);
+      }
+      const tg = this.groundK[i];
+      const ta = (this.th0[j] + this.th[k]) * pi;
+      const diff = tg - ta;
+      const u = Math.abs(this.u[k]);
+      const ex = (0.01 + 0.002 * u) * (diff > 0 ? 1.6 : 1.2);
+      const dT = ((ex * diff) / dz) * dt;
+      this.th[k] += dT / pi;
       // Turbulent flicker over warm ground, which is what sets thermals off.
-      if (heat > 0) this.th[k] += (this.rng() - 0.5) * 0.06 * (heat / 300);
-      const wet = (0.25 + (1.5 * (controls.humidity - 20)) / 70) * WET[kind] * (0.25 + 0.75 * sun) + Math.min(this.rain[i], 5) * 8 * sun;
-      const t = (this.th0[j] + this.th[k]) * this.pi0[j];
-      const room = qsat(t, this.p0[j]) - this.qv[k];
-      if (room > 0) this.qv[k] += Math.min(room, ((wet / LV / (rho * dz)) * dt));
-      // Mix the bottom two cells so heat doesn't pile up in one sliver.
+      if (diff > 0) this.th[k] += (this.rng() - 0.5) * 0.004 * diff;
+      // A clear night also cools the air near the ground directly, by radiating its heat away.
+      this.th[k] -= (dark * clear * (1.5 / 3600) * dt) / pi;
+      const wet = Math.min(1, WETNESS[kind] + (kind === 'lake' || kind === 'rock' ? 0 : 0.3 * damp) + Math.min(this.rain[i], 5) * 0.06);
+      const dq = ((wet * ex * (qsat(tg, this.p0[j]) - this.qv[k])) / dz) * dt;
+      // Dew: vapour can settle on the ground too, more slowly.
+      this.qv[k] = Math.max(0, this.qv[k] + (dq > 0 ? dq : 0.3 * dq));
+      // Mix the bottom two cells so the sun's heat doesn't pile up in one sliver. Chilled air lies still.
       const k2 = k + nx;
+      if (this.th0[j] + this.th[k] <= this.th0[j + 1] + this.th[k2]) continue;
       const mth = 0.5 * (this.th[k] + this.th[k2]);
       const mqv = 0.5 * (this.qv[k] + this.qv[k2]);
       this.th[k] += 0.1 * (mth - this.th[k]);
@@ -553,6 +597,11 @@ export class SkySim {
       this.qv[k] += 0.1 * (mqv - this.qv[k]);
       this.qv[k2] += 0.1 * (mqv - this.qv[k2]);
     }
+  }
+
+  /** Ground temperature in °C under a column. */
+  groundC(i: number): number {
+    return this.groundK[i] - 273.15;
   }
 
   private microphysics(): void {
@@ -578,9 +627,10 @@ export class SkySim {
           t = (th0 + th[k]) * pi;
           qs = qsat(t, p);
         }
-        // Kessler: cloud water over 0.5 g/kg slowly turns to rain; rain sweeps up cloud.
+        // Kessler: cloud water over 1 g/kg (an inland cloud's many small droplets) slowly turns to rain; rain sweeps up cloud.
         if (qc[k] > 0) {
-          const auto = 1e-3 * Math.max(0, qc[k] - 5e-4);
+          // High up, below −20 °C, the cloud is ice, and ice crystals drift down out of it whatever its size.
+          const auto = 1e-3 * Math.max(0, qc[k] - 1e-3) + (t < 253 ? qc[k] / ICE_FALL_S : 0);
           const coll = qr[k] > 0 ? 2.2 * qc[k] * Math.pow(qr[k], 0.875) : 0;
           const m = Math.min(qc[k], (auto + coll) * dt);
           qc[k] -= m;
@@ -636,7 +686,9 @@ export class SkySim {
         }
         const e = j >= floor[i + 1] ? b[k + 1] : b[k];
         const wv = j >= floor[i - 1] ? b[k - 1] : b[k];
-        eta[k] = (eta[k] - ((e - wv) / (2 * dx)) * dt) * damp;
+        // The ground drags on the air just above it, which settles stray swirls there.
+        const drag = j - floor[i] < 2 ? 1 - dt / 900 : 1;
+        eta[k] = (eta[k] - ((e - wv) / (2 * dx)) * dt) * damp * drag;
         if (j >= spongeFrom) th[k] *= damp;
       }
     }
@@ -652,9 +704,28 @@ export class SkySim {
         eta[k] = eta[k] + 0.02 * (s[k] - eta[k]);
       }
     }
+    // The wind across the whole slice is the air mass's to set: a shear that spans it all fades.
+    for (let j = 0; j < nz; j++) {
+      let sum = 0;
+      let n = 0;
+      for (let i = 1; i < nx - 1; i++) {
+        if (j < floor[i]) continue;
+        sum += eta[i + j * nx];
+        n++;
+      }
+      if (!n) continue;
+      const d = (sum / n) * (dt / MEAN_SHEAR_S);
+      for (let i = 1; i < nx - 1; i++) if (j >= floor[i]) eta[i + j * nx] -= d;
+    }
   }
 
-  /** The air at the edges eases back to the background, so the wind brings fresh air in. */
+  /**
+   * At the edges the air's warmth is left to itself, as if the slice were one
+   * piece of a wide landscape doing much the same thing: a clear night chills
+   * the whole basin, rather than cold air draining out of the sides. Its
+   * vapour eases back to the air mass's, so the wind keeps bringing in fresh,
+   * damp air. Cloud, rain and swirl fade there.
+   */
   private edges(): void {
     const { nx, nz } = this;
     const width = 5;
@@ -663,7 +734,6 @@ export class SkySim {
         const r = 0.08 * (1 - n / width);
         for (const i of [n, nx - 1 - n]) {
           const k = i + j * nx;
-          this.th[k] -= r * this.th[k];
           this.qv[k] += r * (this.qv0[j] - this.qv[k]);
           this.qc[k] -= r * this.qc[k];
           this.qr[k] -= r * this.qr[k];

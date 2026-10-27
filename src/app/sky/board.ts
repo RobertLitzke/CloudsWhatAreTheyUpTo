@@ -54,6 +54,7 @@ const TEMP_RAMP: Stop[] = [
   [10, hex('#ffd39a'), 0.5],
   [20, hex('#f59a5a'), 0.55],
   [30, hex('#d9503a'), 0.6],
+  [45, hex('#9c2346'), 0.65],
 ];
 /** Relative humidity, 0 to 1: dry sand to saturated teal. */
 const RH_RAMP: Stop[] = [
@@ -70,7 +71,7 @@ const LIFT_RAMP: Stop[] = [
   [4, hex('#ff6a2a'), 0.75],
 ];
 const LEGEND: Record<Exclude<Overlay, 'none'>, [Stop[], string, string]> = {
-  temp: [TEMP_RAMP, '−50 °C', '+30 °C'],
+  temp: [TEMP_RAMP, '−50 °C', '+45 °C'],
   humidity: [RH_RAMP, 'dry', 'saturated'],
   lift: [LIFT_RAMP, 'sinking', 'rising'],
 };
@@ -526,7 +527,7 @@ export class Board {
           b0 = c4[2] * a0;
         }
         const r = s.sample(this.qr, cx, cz) * 1000;
-        if (r > 0.03) {
+        if (r > 0.08) {
           const stripe = (px + py * slant + tick * 60) % 4;
           const on = (stripe < 0 ? stripe + 4 : stripe) < 2.2;
           const a = (r > 0.5 ? 0.95 : r > 0.15 ? 0.8 : 0.6) * (on ? 1 : 0.3);
@@ -609,6 +610,22 @@ export class Board {
       ctx.moveTo(x, y + 1.2);
       ctx.lineTo(x2, y2 + 1.2);
       ctx.stroke();
+    }
+    // In the temperature view the ground's own warmth shows as a band just under its skin.
+    if (this.overlay === 'temp') {
+      const c4 = [0, 0, 0, 0];
+      for (let n = 0; n < pts.length - 1; n++) {
+        const [x, y] = pts[n];
+        const [x2, y2] = pts[n + 1];
+        ramp(TEMP_RAMP, sim.groundC(Math.min(sim.nx - 1, Math.floor((x / w) * sim.nx))), c4);
+        ctx.fillStyle = css(c4 as unknown as RGB, 0.9);
+        ctx.beginPath();
+        ctx.moveTo(x, y + 2.5);
+        ctx.lineTo(x2 + 0.5, y2 + 2.5);
+        ctx.lineTo(x2 + 0.5, y2 + 9);
+        ctx.lineTo(x, y + 9);
+        ctx.fill();
+      }
     }
     // Trees along the forest, rows of wheat stubble on the fields, a glint on the lake.
     for (let n = 0; n < pts.length; n += 3) {
