@@ -70,15 +70,24 @@ export function stormFuel(a: StormAir): Fuel {
 
 // ---- The cap through a day ----------------------------------------------------
 
-/** The ground's temperature through a spring day on the Plains, °C, hour 6 to 20. */
-export const dayGroundC = (hour: number) => 20 + 13 * Math.max(0, Math.sin(((hour - 6) / 12) * Math.PI * 0.92));
-export const DAY_DEW_C = 19;
+/** The ground's temperature through a spring day on the Plains, °C: 16 at 5 a.m., 34 at 3 p.m. */
+export const dayGroundC = (hour: number) => 16 + 18 * Math.max(0, Math.sin(((hour - 5) / 20) * Math.PI));
+/** The day's dew point, °C: damp air in from the Gulf of Mexico. */
+export const DAY_DEW_C = 18;
+/**
+ * How hot the ground must get before its bubbles break through a cap `capC`
+ * warmer than the air under it, °C. With no cap, bubbles start rising once the
+ * ground reaches 27 °C; each degree of cap puts that off by two and a half,
+ * since a bubble from hotter ground has a higher, colder cloud base.
+ */
+export const breakC = (capC: number) => 27 + 2.5 * capC;
 
-/** The hour (6 to 20) a bubble first gets through the cap, with the fuel waiting for it then; null if it never does. */
-export function capBreak(capC: number): { hour: number; fuel: Fuel } | null {
-  for (let hour = 6; hour <= 20; hour += 0.25) {
-    const fuel = stormFuel({ groundC: dayGroundC(hour), dewC: DAY_DEW_C, capC });
-    if (fuel.cin < 15 && fuel.cape > 100) return { hour, fuel };
+/** The hour (5 to 20) bubbles first break through, and the fuel waiting for them then; null if they never do. */
+export function capBreak(capC: number): { hour: number; groundC: number; fuel: Fuel } | null {
+  for (let hour = 5; hour <= 20; hour += 0.25) {
+    const groundC = dayGroundC(hour);
+    if (groundC >= breakC(capC)) return { hour, groundC, fuel: stormFuel({ groundC, dewC: DAY_DEW_C, capC: 0 }) };
+    if (hour > 15) break;
   }
   return null;
 }

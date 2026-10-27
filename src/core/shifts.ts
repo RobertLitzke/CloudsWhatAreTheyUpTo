@@ -33,6 +33,7 @@ import seeding from '../data/shifts/seeding.json';
 import wind from '../data/shifts/wind.json';
 import coast from '../data/shifts/coast.json';
 import rivers from '../data/shifts/rivers.json';
+import violent from '../data/shifts/violent.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -49,6 +50,7 @@ export const FIGURE_IDS = [
   'pressureMap', 'turntable', 'spinLatitude', 'windBalance', 'lowHigh', 'jetStream',
   'upwelling', 'pacificHigh', 'marineLayer', 'coastSounding', 'thunderDays',
   'stormTrack', 'atmosphericRiver', 'windward', 'acrossWashington', 'snowLevel', 'convergenceZone',
+  'fuelSounding', 'capDay', 'stormSorter', 'hailstone', 'stormRecipe',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -214,6 +216,8 @@ export const SHIFTS: readonly Shift[] = [
   fromJson(wind, [], { sky: ['cirrus', 'altostratus'], branch: 'coast' }),
   fromJson(coast, [], { sky: ['stratus', 'stratocumulus'], branch: 'coast', betterAfter: ['wind'] }),
   fromJson(rivers, [], { sky: ['nimbostratus', 'cumulus'], branch: 'coast', betterAfter: ['coast', 'local-sky'] }),
+  // Violent storms, forking off after Lesson 5's thunderstorms.
+  fromJson(violent, [], { sky: ['cumulonimbus', 'cumulus'], branch: 'storms', needs: ['giants'] }),
 ];
 
 /** A lesson in the tree that is not written yet. */
@@ -238,9 +242,8 @@ export const BRANCHES: readonly TreeBranch[] = [
 
 /** Lessons shown in the tree before they are written: the next branch to come. */
 export const COMING: readonly ComingLesson[] = [
-  { id: 'violent', n: 12, title: 'What makes a storm violent?', teaches: 'Why most thunderstorms rain and rumble and die in an hour, and a few drop hail the size of oranges and last all evening.', branch: 'storms', coming: true },
-  { id: 'tornado', n: 13, title: 'How does a tornado form?', teaches: 'A storm that spins, and how its spin is stretched down to the ground.', branch: 'storms', coming: true },
-  { id: 'hurricane', n: 14, title: 'How does a hurricane work?', teaches: 'A storm that feeds on a warm sea, and why it has an eye.', branch: 'storms', coming: true },
+  { id: 'tornado', n: 13, title: 'How does a tornado form?', teaches: 'A storm that spins, and how its spin is stretched down to the ground.', branch: 'storms', needs: ['violent'], betterAfter: ['wind'], coming: true },
+  { id: 'hurricane', n: 14, title: 'How does a hurricane work?', teaches: 'A storm that feeds on a warm sea, and why it has an eye.', branch: 'storms', betterAfter: ['wind', 'violent'], coming: true },
 ];
 
 /** Every lesson the home page's tree shows, written or coming, in the order the tree lists them. */
@@ -268,4 +271,5 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...wind.journal,
   ...coast.journal,
   ...rivers.journal,
+  ...violent.journal,
 };

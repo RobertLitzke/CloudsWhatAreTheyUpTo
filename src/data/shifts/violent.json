@@ -1,0 +1,335 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "violent",
+ "n": 12,
+ "title": "What makes a storm violent?",
+ "teaches": "Why do most thunderstorms rumble for an hour and fade, while a few drop hail the size of baseballs and last all evening? The fuel a rising bubble can gain, the cap that saves it up, the wind that changes with height, and how hail grows.",
+ "parts": [
+  {
+   "title": "Fuel",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "A storm’s **fuel** is how much warmer than the air around it a rising bubble stays, and for how far: the area between the bubble’s line and the air’s line on Lesson 5’s chart. Damp air near the ground and cold air high up make a lot of it.",
+      "A **cap**, a warm layer a kilometre or two up, holds bubbles down. A weak cap lets storms start early and small; a middling one saves the fuel up for a few violent storms late in the day; a strong one stops them altogether.",
+      "**Wind shear**, the wind changing with height, decides what kind of storm the fuel makes. Little shear: a storm that chokes on its own rain within the hour. A lot: a leaning, turning **supercell** that can last for hours.",
+      "Hail grows in a strong updraft, coat by coat, until it is too heavy to hold up. Twice the updraft holds a stone four times as wide."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "Lesson 5 followed one afternoon’s storm from a cumulus at noon to an anvil by teatime, a shower and a few flashes, and clear sky again by evening. That is what most thunderstorms are like, and most of the world’s thunderstorms do no harm. But on a few days each spring over the Great Plains of America, the same sun and the same air build storms that drop hail the size of baseballs, blow down barns, and spin up tornadoes. What is different about those days?"
+    },
+    {
+     "kind": "text",
+     "text": "The first difference is the fuel. In Lesson 5, a bubble of warm air rose for as long as it stayed warmer than the air around it, and the warmth it kept came from the vapour condensing inside it. On the chart of temperature against height, that showed as the orange bubble line lying to the right of the violet line of the air. The further to the right and the higher up it stays, the harder the bubble is pushed upwards, and for longer."
+    },
+    {
+     "kind": "text",
+     "text": "So the fuel is the **area** between the two lines, from where the bubble turns warmer than the air to where it stops. Meteorologists measure it in joules per kilogram: the energy the rise gives each kilogram of air.[^cape] A fair-weather cumulus day has a few hundred. An ordinary summer thunderstorm, a thousand or so. The worst days on the Plains have three or four thousand."
+    },
+    {
+     "kind": "figure",
+     "figure": "fuelSounding",
+     "caption": "Lesson 5’s chart for a bubble rising off hot ground. The orange area between the lines is its fuel.",
+     "task": "Guess what damper air does to the fuel, then find an afternoon with a great deal of it.",
+     "goal": "fuel"
+    },
+    {
+     "kind": "text",
+     "text": "Damp air matters more than hot air. The vapour is where the warmth comes from: a bubble with a high dew point turns to cloud lower down, and from there every kilogram of water it condenses keeps it warmer than the air around it. Cold air high up helps too, since a bubble is pushed up by how much warmer it is than its surroundings, not by how warm it is."
+    },
+    {
+     "kind": "text",
+     "text": "Fuel sets how fast the updraft can blow. If all of it went into speed, 3,000 joules per kilogram would make an updraft of nearly 80 metres a second. Drag, and the weight of all the water and ice the updraft carries, take about half of that, but 40 metres a second, 140 kilometres an hour straight up, is still enough to hold up hail the size of golf balls and to throw the cloud’s top through the tropopause in a dome above the anvil."
+    }
+   ]
+  },
+  {
+   "title": "The cap",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "The Plains have that much fuel because of their place on the map. In spring, damp air flows north from the Gulf of Mexico close to the ground. Above it, the wind from the west brings hot, dry air off the high deserts of Mexico and the Southwest. And above that runs the jet stream, with cold air behind it."
+    },
+    {
+     "kind": "figure",
+     "figure": "stormRecipe",
+     "caption": "The three layers of air over the Plains on a spring storm day."
+    },
+    {
+     "kind": "text",
+     "text": "The hot, dry layer in the middle does something unexpected. It is a **cap**: a layer warmer than a bubble from the ground can be when it reaches it, like Lesson 2’s lid. All morning, bubbles rise off the fields, hit the cap and stop. The sky stays hazy and blue. Meanwhile, the sun keeps heating the ground, and more damp air keeps arriving from the south, and the fuel waiting above the cap keeps growing."
+    },
+    {
+     "kind": "text",
+     "text": "When the ground is finally hot enough for a bubble to break through, it breaks through in a few places at once, and everything saved up all day goes into those few storms. That is why the worst storms on the Plains often begin late in the afternoon from a clear sky, and why forecasters watch a cap as closely as the fuel. Too weak, and the day fritters its fuel away in ordinary showers by noon. Too strong, and nothing happens at all."
+    },
+    {
+     "kind": "figure",
+     "figure": "capDay",
+     "caption": "The ground warming through a spring day on the Plains, and how hot it has to get for bubbles to break through the cap.",
+     "task": "Guess which cap makes the worst storm, then find it.",
+     "goal": "cap"
+    },
+    {
+     "kind": "text",
+     "text": "Forecasters call a sounding like that, damp air under a cap under cold air, a **loaded gun**. It was on such a sounding that two forecasters at an air base in Oklahoma made the first tornado forecast, in 1948.[^loaded]"
+    }
+   ]
+  },
+  {
+   "title": "Wind that changes with height",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Fuel decides how strong a storm’s updraft can be. Something else decides how long it lasts. In Lesson 5’s storm, the rain began to fall through the middle of the cloud, dragging cold air down with it. The downdraft spread out on the ground as the gust front, and soon there was cold air under the whole storm, and no more warm air to feed it. The storm choked on its own rain, and was gone within the hour."
+    },
+    {
+     "kind": "text",
+     "text": "That happens when the wind blows at much the same speed and from the same direction all the way up. When it does not, things change. Suppose the wind 6 kilometres up blows 80 kilometres an hour faster than the wind at the ground, from a different direction. The top of the storm is carried off downwind while its foot stays put, so the updraft leans over. Its rain falls out of the leaning top, away from the updraft, and the downdraft lands to one side of the warm air feeding it instead of on top of it."
+    },
+    {
+     "kind": "text",
+     "text": "This change of the wind with height is **wind shear**. It is what turns a short storm into a long one."
+    },
+    {
+     "kind": "figure",
+     "figure": "stormSorter",
+     "caption": "A storm from the side, with the wind at the ground, 3 km and 6 km up on the right.",
+     "task": "Guess what a strong change of wind with height does to the storm, then make a supercell.",
+     "goal": "supercell"
+    },
+    {
+     "kind": "text",
+     "text": "With moderate shear, the storms come in clusters. Each one’s gust front lifts new bubbles on the side where fresh warm air flows in, so new towers keep growing on one flank as old ones die on the other. A cluster can go on for hours, though each tower lasts less than one. With strong shear and a lot of fuel comes the **supercell**: a single huge storm whose updraft leans away from its rain, and which can last four hours or more, travelling a few hundred kilometres."
+    },
+    {
+     "kind": "text",
+     "text": "Strong shear also makes the updraft turn. When the wind near the ground blows from the south-east and the wind higher up from the west, the air between is rolled over and over like a pencil between two hands. The updraft lifts that roll and stands it on end, and the whole updraft begins to rotate, a few kilometres across. That rotating updraft is what sets a supercell apart, and where most strong tornadoes come from (next lesson)."
+    }
+   ]
+  },
+  {
+   "title": "Hail",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Up in a storm’s updraft, above the freezing level, the cloud is full of supercooled water (Lesson 7): droplets far below 0 °C that are still liquid, waiting for something to freeze onto. A speck of ice or a frozen drop carried up through them is coated with ice at once. A small one falls out as soft hail, graupel. A bigger one, in a strong updraft, is carried up, falls back, is caught by the updraft again and carried up once more, gathering a new coat each time."
+    },
+    {
+     "kind": "text",
+     "text": "It stays up only as long as the updraft blows faster than the stone falls. A bigger stone falls faster, so each updraft can hold up stones only so large. Once the stone is bigger than that, it falls, whatever is happening around it."
+    },
+    {
+     "kind": "figure",
+     "figure": "hailstone",
+     "caption": "A hailstone growing in a storm’s updraft, and the stone cut in half.",
+     "task": "Make an updraft that can grow a golf ball.",
+     "goal": "golf"
+    },
+    {
+     "kind": "text",
+     "text": "A stone twice as wide falls only about one and a half times as fast, so a little more updraft holds up a lot more ice: twice the updraft holds a stone four times as wide. Ordinary storms with updrafts of 10 to 15 metres a second make pea-sized hail. Supercells, with updrafts of 40 metres a second and more, make stones the size of golf balls and baseballs, which fall at over 100 kilometres an hour.[^vivian] Cut one in half and you see its trips through the cloud as rings, clear where it froze slowly and milky where it froze fast and trapped bubbles."
+    },
+    {
+     "kind": "text",
+     "text": "Eastern Washington gets hail most summers, mostly pea to marble sized, from storms with less fuel and less shear than on the Plains. A few times a decade a storm there brings golf balls, and the wheat is flattened in a stripe a mile wide."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Name the clouds in these photographs, then use fuel, cap and shear to read the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "check",
+     "caption": "Real photos to name, then a sky and what the fuel, the cap and the wind are doing. What is it up to?",
+     "options": {
+      "photos": {
+       "mode": "name",
+       "pool": [
+        "cumulonimbus",
+        "cumulus",
+        "altocumulus",
+        "stratocumulus",
+        "nimbostratus"
+       ],
+       "known": [
+        "cirrus",
+        "cirrocumulus",
+        "cirrostratus",
+        "altocumulus",
+        "altostratus",
+        "nimbostratus",
+        "stratocumulus",
+        "stratus",
+        "cumulus",
+        "cumulonimbus"
+       ],
+       "count": 4
+      },
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "10 a.m.",
+          "size": "small"
+         },
+         {
+          "genus": "cumulonimbus",
+          "when": "noon",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Fuel: 1,500 J/kg",
+         "No cap",
+         "Wind: much the same at all heights"
+        ],
+        "question": "Plenty of fuel, no cap, and the wind barely changes with height. What will the day bring?",
+        "options": [
+         "Scattered storms from late morning, each raining itself out within the hour",
+         "One long-lived rotating storm in the evening",
+         "No storms at all"
+        ],
+        "answer": 0,
+        "why": "With no cap, bubbles rise as soon as the ground warms, and with no shear each storm’s rain falls back through its updraft and chokes it."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "noon",
+          "size": "small",
+          "count": 2
+         },
+         {
+          "genus": "cumulonimbus",
+          "when": "5 p.m.",
+          "lightning": true
+         }
+        ],
+        "instruments": [
+         "Fuel: 3,500 J/kg by evening",
+         "A middling cap",
+         "Wind 6 km up: 90 km/h faster than at the ground"
+        ],
+        "question": "A hazy morning with a cap, a great deal of fuel by afternoon, and a strong change of wind with height. What should people watch for?",
+        "options": [
+         "Nothing: the cap will hold all day",
+         "A few supercells late in the afternoon, with large hail and possibly tornadoes",
+         "Drizzle from a grey deck"
+        ],
+        "answer": 1,
+        "why": "The cap saves the fuel up until late in the day, and the strong shear makes the storms that do break through lean, turn and last."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "4 p.m.",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Hail: golf balls reported"
+        ],
+        "question": "Golf-ball hail is falling. What does that tell you about the storm?",
+        "options": [
+         "Its updraft is very strong, around 30 metres a second or more",
+         "It is very cold at the ground",
+         "It has been raining for a long time"
+        ],
+        "answer": 0,
+        "why": "A stone stays up only while the updraft is faster than it falls. Golf balls need an updraft of about 30 metres a second to hold them."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "11 a.m.",
+          "size": "small"
+         },
+         {
+          "genus": "cumulus",
+          "when": "5 p.m.",
+          "size": "small"
+         }
+        ],
+        "instruments": [
+         "Fuel: 3,000 J/kg",
+         "A strong cap",
+         "Wind: strong shear"
+        ],
+        "question": "Plenty of fuel and plenty of shear, but the cap is so strong that the ground never gets hot enough to break it. What happens?",
+        "options": [
+         "Violent storms all afternoon",
+         "A hot, hazy day with no storms",
+         "Fog"
+        ],
+        "answer": 1,
+        "why": "A cap the ground cannot heat through holds every bubble down. All the fuel in the world is no use if nothing can reach it."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "A storm’s fuel is the area between the rising bubble’s line and the air’s line on the temperature-height chart, in joules per kilogram: a few hundred for fair-weather cumulus, a thousand for an ordinary storm, three or four thousand on the worst Plains days. Damp air near the ground and cold air aloft make the most.",
+  "Fuel sets the updraft: about half the speed the energy would give, 40 m/s and more in the strongest storms.",
+  "A cap, a warm dry layer over damp air, holds bubbles down while the fuel builds. Too weak and the fuel is spent early in ordinary storms; middling and it is saved for a few violent ones late in the day; too strong and there are no storms.",
+  "Wind shear, the wind changing with height, decides how long a storm lasts. Little shear: one storm, choked by its own rain within the hour. Moderate: clusters and lines. Strong, with plenty of fuel: a supercell with a leaning, rotating updraft, lasting hours.",
+  "Hail grows coat by coat in the updraft until it is too heavy to hold up. Twice the updraft holds a stone four times as wide; golf balls need about 30 m/s."
+ ],
+ "next": "Next: how a spinning storm makes a tornado.",
+ "journal": {
+  "storm-fuel": {
+   "title": "Storm fuel (CAPE)",
+   "text": "The energy a rising bubble gains while it is warmer than the air around it: the area between the two lines on the temperature-height chart. Damp air near the ground and cold air aloft make the most."
+  },
+  "cap": {
+   "title": "The cap",
+   "text": "A warm, dry layer a kilometre or two up that holds bubbles down. A middling cap saves the fuel up through the day for a few violent storms late in the afternoon."
+  },
+  "wind-shear": {
+   "title": "Wind shear",
+   "text": "The change of the wind with height. It leans a storm’s updraft away from its rain, so it lasts for hours instead of choking within one, and can set it turning."
+  },
+  "supercell": {
+   "title": "Supercell",
+   "text": "A long-lived thunderstorm with a rotating updraft, grown in a great deal of fuel and strong wind shear. It brings the largest hail and the strongest tornadoes."
+  },
+  "hail": {
+   "title": "Hail",
+   "text": "Ice that grows coat by coat as the updraft carries it up through supercooled water again and again, until it is too heavy to hold. Golf-ball hail needs an updraft of about 30 metres a second."
+  }
+ },
+ "footnotes": {
+  "cape": {
+   "kind": "technical",
+   "title": "CAPE",
+   "glossary": "CAPE (storm fuel)",
+   "text": "Convective available potential energy: the area between the bubble’s line and the air’s line, from where the bubble turns warmer than the air (the level of free convection) to where it stops (the equilibrium level), measured in joules per kilogram. The energy a bubble must be given to get up to the level of free convection, through a cap, is the convective inhibition, CIN."
+  },
+  "loaded": {
+   "kind": "digression",
+   "title": "The first tornado forecast",
+   "text": "On 20 March 1948 a tornado wrecked aircraft at Tinker Air Force Base in Oklahoma, unforecast. Five days later two Air Force officers there, Ernest Fawbush and Robert Miller, saw the same pattern of damp air, cap and strong winds aloft returning and warned the base. That evening a second tornado hit it. Tornado forecasting had been officially discouraged in the United States for fear of panic; within a few years it was routine."
+  },
+  "vivian": {
+   "kind": "digression",
+   "title": "The record stone",
+   "text": "The largest hailstone measured in the United States fell at Vivian, South Dakota, on 23 July 2010: 20 cm across and nearly a kilogram. The farmer who found it kept it in his freezer until it could be weighed. To hold a stone like that, the updraft must have blown at around 50 metres a second."
+  }
+ }
+}
