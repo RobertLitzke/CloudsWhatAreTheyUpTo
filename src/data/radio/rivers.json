@@ -1,0 +1,88 @@
+{
+  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "talks": [
+    {
+      "id": "rivers-open",
+      "cue": "start",
+      "when": "Tuesday, October 20, 1931 · 7:30 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. First rain of the season reached the coast Saturday. Aberdeen says a low a day lined up out to sea now, through April. This week, why all winter and none all summer, and why some of it floods.",
+          "replies": [
+            {
+              "say": "Something to do with the high?",
+              "back": "Half of it. The high, and the wind upstairs."
+            },
+            {
+              "say": "Ready."
+            }
+          ]
+        },
+        {
+          "them": "Questions at the end."
+        }
+      ]
+    },
+    {
+      "id": "rivers-check",
+      "cue": "check",
+      "when": "Tuesday, October 20, 1931 · 9:10 p.m.",
+      "turns": [
+        {
+          "them": "Harrow, Walla Walla. Questions. Why does the coast stay dry in July?",
+          "replies": [
+            {
+              "say": "The high sits off the coast and the lows go by up north.",
+              "back": "Right. They come back south with the fall.",
+              "right": true
+            },
+            {
+              "say": "Too hot for rain.",
+              "back": "No. The lows just aren’t coming that way. The high’s off the coast and the storm track’s up by Alaska."
+            },
+            {
+              "say": "No water in the air.",
+              "back": "Plenty of water. Nothing to lift it. The lows pass far to the north."
+            }
+          ]
+        },
+        {
+          "them": "Same storm, same water, two Februarys. One the snow line’s at two thousand feet, the other at seven thousand. Which floods the rivers?",
+          "replies": [
+            {
+              "say": "Seven thousand.",
+              "back": "Right. Rain clear up the mountains, and running off the same day.",
+              "right": true
+            },
+            {
+              "say": "Two thousand.",
+              "back": "Other way. With a low snow line most of it sits up there as snow until June."
+            },
+            {
+              "say": "Both the same.",
+              "back": "Same water, but the high snow line sends it all down the river at once."
+            }
+          ]
+        },
+        {
+          "them": "Last one. Wind northwest behind the front. Downpour at Everett, sun in Seattle. Why?",
+          "replies": [
+            {
+              "say": "The wind splits round the Olympics and meets itself.",
+              "back": "That’s it. Seventy-three.",
+              "right": true
+            },
+            {
+              "say": "Rain shadow.",
+              "back": "Not quite. The two streams round the Olympics meet over the Sound and the air goes up."
+            },
+            {
+              "say": "Front stalled.",
+              "back": "Front’s long gone. It’s the wind closing up again behind the Olympics."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

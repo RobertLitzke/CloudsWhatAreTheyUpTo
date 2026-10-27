@@ -10,11 +10,11 @@ import { arrow, heading, label, line, note, points, polyline, redraw, small, sti
 import { COL, choices, figure, frame, lock, lockIn, slider, tint, type FigureFactory } from './kit';
 
 /** The land on a weather map. */
-const MAP = '#eef0e6';
-const SEA = '#dbe9f2';
+export const MAP = '#eef0e6';
+export const SEA = '#dbe9f2';
 
 /** An arrowhead at the end of a path, pointing along its last step. */
-function head(path: P[], color: string, size = 7): SVGElement {
+export function head(path: P[], color: string, size = 7): SVGElement {
   const [x1, y1] = path[path.length - 1];
   const [x0, y0] = path[Math.max(0, path.length - 4)];
   const a = Math.atan2(y1 - y0, x1 - x0);

@@ -13,6 +13,7 @@ import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, ice
 import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedLinesDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
 import { jetStreamDiagram, lowHighDiagram, pressureMapDiagram, spinLatitudeDiagram, turntableFigure, windBalanceFigure } from './wind';
 import { coastSoundingFigure, marineLayerFigure, pacificHighDiagram, thunderDaysDiagram, upwellingFigure } from './coast';
+import { acrossWashingtonDiagram, atmosphericRiverDiagram, convergenceZoneDiagram, snowLevelFigure, stormTrackFigure, windwardFigure } from './rivers';
 import type { FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
@@ -114,4 +115,10 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   marineLayer: marineLayerFigure,
   coastSounding: coastSoundingFigure,
   thunderDays: thunderDaysDiagram,
+  stormTrack: stormTrackFigure,
+  atmosphericRiver: atmosphericRiverDiagram,
+  windward: windwardFigure,
+  acrossWashington: acrossWashingtonDiagram,
+  snowLevel: snowLevelFigure,
+  convergenceZone: convergenceZoneDiagram,
 };

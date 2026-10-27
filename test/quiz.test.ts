@@ -4,6 +4,7 @@ import { makeRng } from 'lesson-kit/rng';
 import { migrate } from '../src/core/save';
 import library from '../src/data/photos.json';
 import type { Photo } from '../src/core/photos';
+import { SHIFTS } from '../src/core/shifts';
 
 const deck = buildDeck(library as Photo[], makeRng(1));
 const DAY = 86400000;
@@ -17,6 +18,11 @@ describe('quiz deck', () => {
       expect(c.options.length, c.id).toBeGreaterThanOrEqual(2);
       expect(new Set(c.options).size, c.id).toBe(c.options.length);
     }
+  });
+
+  it('holds back cards only for lessons that exist', () => {
+    const ids = new Set(SHIFTS.map((s) => s.id));
+    for (const c of deck) if (c.after) expect(ids.has(c.after), c.id).toBe(true);
   });
 
   it('has a card for every photo', () => {

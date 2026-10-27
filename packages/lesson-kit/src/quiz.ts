@@ -11,6 +11,8 @@ export interface Card {
   /** The right answer is options[0]; the view shuffles them. */
   options: string[];
   why: string;
+  /** A lesson to pass (or skip) before the card is dealt, for lessons off the main path. */
+  after?: string;
 }
 
 /** A hand-written card as a JSON file holds it, with the right answer at `answer`. */
@@ -20,11 +22,12 @@ export interface Concept {
   options: string[];
   answer: number;
   why: string;
+  after?: string;
 }
 
 /** A hand-written card as a deck card, under `prefix:id`. */
 export function conceptCard(c: Concept, prefix = 'idea'): Card {
-  return { id: `${prefix}:${c.id}`, question: c.question, options: [c.options[c.answer], ...c.options.filter((_, i) => i !== c.answer)], why: c.why };
+  return { id: `${prefix}:${c.id}`, question: c.question, options: [c.options[c.answer], ...c.options.filter((_, i) => i !== c.answer)], why: c.why, ...(c.after ? { after: c.after } : {}) };
 }
 
 // ---- Scheduling ------------------------------------------------------------------

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Questions for the quiz, on the ideas behind the lessons. Edit freely. \"answer\" is the index of the right option. Cards about each cloud's look, causes and weather, and the photo cards, are made from core/clouds.ts and the photo library, not from this file.",
+  "_howTo": "Questions for the quiz, on the ideas behind the lessons. Edit freely. \"answer\" is the index of the right option. Cards about each cloud's look, causes and weather, and the photo cards, are made from core/clouds.ts and the photo library, not from this file. A card with \"after\" (a lesson id) is dealt only once that lesson is passed or skipped; use it for lessons off the main path.",
   "cards": [
     {
       "id": "vapour",
@@ -528,6 +528,162 @@
       ],
       "answer": 0,
       "why": "A cold front’s steep nose crams its rain into a narrow line of towers. Red is a downpour and magenta hail; a warm front shows as a wide, smooth shield of green."
+    },
+    {
+      "id": "pressure-push",
+      "after": "wind",
+      "question": "Which way does the push on the air point, on a weather map?",
+      "options": [
+        "From high pressure towards low, across the isobars",
+        "Along the isobars, round the high",
+        "From low pressure towards high"
+      ],
+      "answer": 0,
+      "why": "Air is pushed from where the pressure is higher towards where it is lower, hardest where the isobars are close together."
+    },
+    {
+      "id": "earth-turn",
+      "after": "wind",
+      "question": "Why does air moving across the Northern Hemisphere curve to its right?",
+      "options": [
+        "The ground turns underneath it as the Earth spins",
+        "The Sun warms its left side",
+        "Mountains steer it"
+      ],
+      "answer": 0,
+      "why": "Nothing pushes it sideways: the ground beneath turns while the air travels, so seen from the ground its path bends to the right."
+    },
+    {
+      "id": "round-low",
+      "after": "wind",
+      "question": "Why does the wind blow round a low instead of straight into it?",
+      "options": [
+        "The push towards the low is balanced by the turning Earth’s pull to the right",
+        "Friction stops it",
+        "The low is spinning like a top and drags it round"
+      ],
+      "answer": 0,
+      "why": "Air heading for the low is bent to its right until the turn balances the push, and it ends up circling: anticlockwise round a low in the north. Friction near the ground lets some leak inwards."
+    },
+    {
+      "id": "jet-stream",
+      "after": "wind",
+      "question": "What steers the lows across the Pacific towards the coast?",
+      "options": [
+        "The jet stream, the river of fast wind about 10 km up",
+        "The sea breeze",
+        "The Pacific High"
+      ],
+      "answer": 0,
+      "why": "The jet stream runs along the edge of the cold air and carries the lows east along it: far north in summer, aimed at Oregon and Washington in winter."
+    },
+    {
+      "id": "upwelling",
+      "after": "coast",
+      "question": "A north wind blows down the Oregon coast for days in summer. What happens to the sea at the beach?",
+      "options": [
+        "It gets colder, as cold water rises from below",
+        "It warms up",
+        "Nothing much"
+      ],
+      "answer": 0,
+      "why": "The turning Earth sends the surface water off to the west, to the right of the wind, and cold water rises from below to take its place."
+    },
+    {
+      "id": "coast-lid",
+      "after": "coast",
+      "question": "Why is there a strong lid over the coast in summer?",
+      "options": [
+        "Air sinking in the Pacific High warms as it is squeezed, so the air a kilometre up is far warmer than at the beach",
+        "The sea is warm and heats the air above",
+        "Smoke from the cities"
+      ],
+      "answer": 0,
+      "why": "Sinking air warms at the dry rate as it comes down, and it meets cool sea-chilled air underneath: a strong lid a few hundred metres up."
+    },
+    {
+      "id": "marine-layer",
+      "after": "coast",
+      "question": "The Sacramento Valley is forecast to hit 40 °C. What will San Francisco’s morning be like?",
+      "options": [
+        "Cold and grey, as the hot valley pulls the marine layer in",
+        "Hot and clear",
+        "Thundery"
+      ],
+      "answer": 0,
+      "why": "The hotter the valleys, the harder they pull the cool sea air in under the lid."
+    },
+    {
+      "id": "coast-thunder",
+      "after": "coast",
+      "question": "When does the Pacific coast get most of its few thunderstorms?",
+      "options": [
+        "Autumn and winter, behind cold fronts, when cold air crosses a warmer sea",
+        "High summer, on the hottest afternoons",
+        "Spring, when the snow melts"
+      ],
+      "answer": 0,
+      "why": "A thunderstorm needs a warm bottom under a cold top. In summer the cold sea and the lid prevent it; in winter cold air from the north crosses a sea that is warm by comparison."
+    },
+    {
+      "id": "storm-track",
+      "after": "rivers",
+      "question": "Why does Seattle get almost all its rain between October and April?",
+      "options": [
+        "The jet stream swings south in autumn and aims a low at the coast every day or two",
+        "The sea is warmer in winter",
+        "The mountains are higher in winter"
+      ],
+      "answer": 0,
+      "why": "In summer the Pacific High sits off the coast and the jet stream runs past Alaska. In autumn the High shrinks south and the jet stream, with its lows, comes back."
+    },
+    {
+      "id": "atmospheric-river",
+      "after": "rivers",
+      "question": "What is an atmospheric river?",
+      "options": [
+        "A long, narrow band of warm, damp air carrying vapour from the tropics towards the coast",
+        "A river that floods every winter",
+        "A jet of wind that blows the rain away"
+      ],
+      "answer": 0,
+      "why": "Typically 2,000 km long and 400 km wide, drawn up ahead of a cold front. The strongest carry more water as vapour than the Mississippi."
+    },
+    {
+      "id": "windward-rain",
+      "after": "rivers",
+      "question": "Double the wind blowing damp air up a mountain slope. What happens to the rain?",
+      "options": [
+        "About twice as much falls",
+        "It stays the same",
+        "It falls on the far side instead"
+      ],
+      "answer": 0,
+      "why": "Twice the wind lifts twice the air up the slope each hour, and each parcel wrings out the same water: twice the rain."
+    },
+    {
+      "id": "snow-level-flood",
+      "after": "rivers",
+      "question": "Two storms drop the same water on the Cascades. Which floods the rivers?",
+      "options": [
+        "The warm one, with the snow level above most of the mountains",
+        "The cold one, with snow down to the valleys",
+        "Neither: the water is the same"
+      ],
+      "answer": 0,
+      "why": "Snow waits on the mountains until spring; rain runs straight off, and warm rain on fresh snow melts some of it too."
+    },
+    {
+      "id": "convergence",
+      "after": "rivers",
+      "question": "Behind a cold front, with a north-west wind, why can Everett have a downpour while Seattle is sunny?",
+      "options": [
+        "The wind splits round the Olympics and meets itself over Puget Sound, and the air is forced up",
+        "Everett is in a rain shadow",
+        "The cold front has stopped over Everett"
+      ],
+      "answer": 0,
+      "why": "The two streams round the Olympic Mountains collide over the Sound, raising a narrow band of heavy showers: the convergence zone."
     }
   ]
 }

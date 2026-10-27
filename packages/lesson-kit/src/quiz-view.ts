@@ -3,7 +3,7 @@
 // again before the sitting ends.
 
 import { el } from './dom';
-import type { Progress } from './progress';
+import { passed, type Progress } from './progress';
 import { deal, GAPS_DAYS, review, tally, type Card } from './quiz';
 import { makeRng, shuffle } from './rng';
 import type { View } from './router';
@@ -37,7 +37,8 @@ export interface QuizViewOptions<C extends Card, S extends Progress> {
 
 /** The quiz page: a tally of the deck, then sittings of cards. */
 export function quizView<C extends Card, S extends Progress>(o: QuizViewOptions<C, S>): View {
-  const DECK = o.deck;
+  // Cards for a lesson not yet reached stay out of the deck until it is passed.
+  const deckFor = (save: S) => o.deck.filter((c) => !c.after || passed(save, c.after));
   const SITTING = o.sitting ?? 15;
   const FRESH = o.fresh ?? 8;
   const getSave = o.store.get;
@@ -49,7 +50,8 @@ export function quizView<C extends Card, S extends Progress>(o: QuizViewOptions<
     const front = () => {
       const save = getSave();
       const now = Date.now();
-      const t = tally(DECK, save.quiz, now);
+      const deck = deckFor(save);
+      const t = tally(deck, save.quiz, now);
       const ready = Math.min(SITTING, t.due + Math.min(FRESH, t.fresh));
       const next = Object.values(save.quiz).reduce((m, s) => Math.min(m, s.due), Infinity);
       page.replaceChildren(
@@ -62,7 +64,7 @@ export function quizView<C extends Card, S extends Progress>(o: QuizViewOptions<
           stat(t.known, 'known'),
         ),
         ready
-          ? el('button.btn.btn-big', { type: 'button', onclick: () => sitting(deal(DECK, save.quiz, now, SITTING, FRESH, makeRng(freshSeed()))) }, `Start: ${ready} cards`)
+          ? el('button.btn.btn-big', { type: 'button', onclick: () => sitting(deal(deck, save.quiz, now, SITTING, FRESH, makeRng(freshSeed()))) }, `Start: ${ready} cards`)
           : el('p', {}, `All caught up. The next card is due ${when(next - now)}.`),
       );
     };

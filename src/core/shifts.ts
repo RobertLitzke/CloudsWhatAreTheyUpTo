@@ -32,6 +32,7 @@ import localSky from '../data/shifts/local-sky.json';
 import seeding from '../data/shifts/seeding.json';
 import wind from '../data/shifts/wind.json';
 import coast from '../data/shifts/coast.json';
+import rivers from '../data/shifts/rivers.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -47,6 +48,7 @@ export const FIGURE_IDS = [
   'lookAlike',
   'pressureMap', 'turntable', 'spinLatitude', 'windBalance', 'lowHigh', 'jetStream',
   'upwelling', 'pacificHigh', 'marineLayer', 'coastSounding', 'thunderDays',
+  'stormTrack', 'atmosphericRiver', 'windward', 'acrossWashington', 'snowLevel', 'convergenceZone',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -192,6 +194,7 @@ export const SHIFTS: readonly Shift[] = [
   // bridge into weather on the scale of the planet, which later branches lean on too.
   fromJson(wind, [], { sky: ['cirrus', 'altostratus'], branch: 'coast' }),
   fromJson(coast, [], { sky: ['stratus', 'stratocumulus'], branch: 'coast', betterAfter: ['wind'] }),
+  fromJson(rivers, [], { sky: ['nimbostratus', 'cumulus'], branch: 'coast', betterAfter: ['coast', 'local-sky'] }),
 ];
 
 /** A lesson in the tree that is not written yet. */
@@ -209,12 +212,15 @@ export interface ComingLesson {
 /** The branches of the tree, each forking off the trunk lesson it grows from. */
 export const BRANCHES: readonly TreeBranch[] = [
   { id: 'coast', title: 'The Pacific coast', promise: 'Why the coast almost never thunders, and where a week of winter rain comes from', from: 'front', color: 'var(--coast)' },
+  { id: 'storms', title: 'Violent storms', promise: 'Hail, tornadoes and hurricanes: what turns a shower into a monster', from: 'giants', color: 'var(--storms)' },
   { id: 'seeding', title: 'Cloud seeding', promise: '', from: 'local-sky', leaf: true, color: 'var(--rose)' },
 ];
 
-/** Lessons shown in the tree before they are written: only the next branch to come. */
+/** Lessons shown in the tree before they are written: the next branch to come. */
 export const COMING: readonly ComingLesson[] = [
-  { id: 'rivers', n: 11, title: 'Where does a week of winter rain come from?', teaches: 'Rivers of vapour across the ocean, rain wrung out on the mountains, the snow level and the floods.', branch: 'coast', betterAfter: ['coast', 'local-sky'], coming: true },
+  { id: 'violent', n: 12, title: 'What makes a storm violent?', teaches: 'Why most thunderstorms rain and rumble and die in an hour, and a few drop hail the size of oranges and last all evening.', branch: 'storms', coming: true },
+  { id: 'tornado', n: 13, title: 'How does a tornado form?', teaches: 'A storm that spins, and how its spin is stretched down to the ground.', branch: 'storms', coming: true },
+  { id: 'hurricane', n: 14, title: 'How does a hurricane work?', teaches: 'A storm that feeds on a warm sea, and why it has an eye.', branch: 'storms', coming: true },
 ];
 
 /** Every lesson the home page's tree shows, written or coming, in the order the tree lists them. */
@@ -236,4 +242,5 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...seeding.journal,
   ...wind.journal,
   ...coast.journal,
+  ...rivers.journal,
 };

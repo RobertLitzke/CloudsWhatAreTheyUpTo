@@ -1,0 +1,318 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal’s glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "rivers",
+ "n": 11,
+ "title": "Where does a week of winter rain come from?",
+ "teaches": "Why does the Pacific Northwest get nearly all its rain between October and April, and how can one storm flood every river from Oregon to British Columbia? The storm track swinging south for winter, rivers of vapour from the tropics, rain wrung out on the mountains, the snow level, and the band of showers behind the Olympics.",
+ "parts": [
+  {
+   "title": "A wet half of the year",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "In summer the Pacific High sits off the coast and the jet stream runs far to the north. In autumn the High shrinks and slides south, the jet stream swings down to aim at the coast, and lows arrive every day or two until spring.",
+      "The wettest storms are fed by an **atmospheric river**: a long, narrow band of warm, damp air drawn up from the tropics ahead of a cold front.",
+      "Where the wind drives that air against mountains, the rain falls hardest: twice the wind, or twice the vapour, wrings out twice the rain. In its shadow, a few dozen kilometres on, it can be nearly dry.",
+      "The **snow level** decides whether a storm’s water runs off at once as rain or waits on the mountains as snow. A warm storm on top of fresh snow is the recipe for the region’s worst floods.",
+      "Behind a cold front, wind from the north-west splits round the Olympic Mountains and meets itself again over Puget Sound, raising a band of heavy showers: the **convergence zone**."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "Seattle has a reputation for rain, but it gets less in a year than New York or Houston: about 950 mm, against New York’s 1,200.[^seattle] What it has is a season. From October to April, rain falls on most days, in long grey spells that can last a week or more. In July and August it hardly rains at all. The coast of Oregon and northern California has the same rhythm, only more so."
+    },
+    {
+     "kind": "text",
+     "text": "Lessons 9 and 10 put the two pieces in place. The jet stream, the river of fast wind ten kilometres up, steers the lows of Lesson 6 east around the world. The Pacific High, the great dome of sinking air from the last lesson, sits over the eastern Pacific. Neither stays put through the year: both follow the sun."
+    },
+    {
+     "kind": "figure",
+     "figure": "stormTrack",
+     "caption": "The jet stream and the Pacific High through the year, and Seattle’s rain each month.",
+     "task": "Find a month when Seattle is dry, and one when it is at its wettest.",
+     "goal": "seasons"
+    },
+    {
+     "kind": "text",
+     "text": "In summer, the sun stands high over the northern half of the world and the cold air retreats towards the pole. The jet stream, which runs along the edge of the cold air, goes with it, carrying its lows past Alaska. The Pacific High grows and moves north, a dome of sinking air that turns away anything trying to reach the coast. In autumn it all swings back. As the Arctic cools, the jet stream strengthens and dips south, the High shrinks and slides towards Hawaii, and the door is open: from October, a new low reaches the coast every day or two, each with its warm front and its cold front (Lesson 6)."
+    }
+   ]
+  },
+  {
+   "title": "A river in the sky",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Most of those lows bring a day of ordinary rain. A few each winter bring far more, and they have something in common. Ahead of the low’s cold front, a long, narrow band of warm, damp air stretches back across the ocean, sometimes all the way to the tropics near Hawaii. Along it, the wind carries water vapour towards the coast as steadily as a river carries water to the sea."
+    },
+    {
+     "kind": "figure",
+     "figure": "atmosphericRiver",
+     "caption": "An atmospheric river reaching the coast ahead of a low, from above."
+    },
+    {
+     "kind": "text",
+     "text": "An **atmospheric river** is typically 2,000 kilometres long or more, but only 400 or so wide, and most of its vapour travels in the lowest two or three kilometres. A strong one carries more water, as invisible vapour, than flows down the Mississippi.[^ar] The ones that reach back to Hawaii have long had a nickname on the coast: the **Pineapple Express**. They are warm for winter, and their rain can fall for days, since the band can stall with its end pointing at the same stretch of coast."
+    },
+    {
+     "kind": "text",
+     "text": "**Today:** weather satellites see atmospheric rivers clearly, as a ribbon of vapour across the Pacific on a picture of the sky’s moisture, and forecasters rank them from 1 to 5 by how much vapour they carry and for how long. Ranked 1 or 2, they are mostly welcome: they fill the reservoirs and lay down the snowpack that waters the summer. Ranked 4 or 5, they flood."
+    }
+   ]
+  },
+  {
+   "title": "Wrung out on the mountains",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Vapour on its own does not fall. It has to be lifted and cooled to its dew point first, as in every lesson since the first, and over the open sea an atmospheric river’s air is not lifted much. Then it reaches the coast, and the coast is a wall: the Olympic Mountains, the Coast Range of Oregon, the Cascades behind them. The wind drives the damp air straight up the slopes."
+    },
+    {
+     "kind": "text",
+     "text": "How much rain falls depends on how much air is pushed up the slope, and how much water each parcel of it carries. Double the wind and twice as much air is lifted each hour; double the vapour and each parcel wrings out twice as much. A gentle sea breeze with dry air gives a drizzle. A gale of tropical air gives a deluge."
+    },
+    {
+     "kind": "figure",
+     "figure": "windward",
+     "caption": "Damp air from the ocean driven up a coast range.",
+     "task": "Make a storm that drops enough rain on the slope to flood its rivers.",
+     "goal": "flood"
+    },
+    {
+     "kind": "text",
+     "text": "Lesson 7 followed that air over the top: it comes down the far side warmer and drier, in the rain shadow. Across Washington the pattern repeats twice, once for each range, and the differences are enormous. The rainforest in the Hoh valley, on the Olympics’ windward side, gets about 3,600 mm a year, much of it from atmospheric rivers. Sequim, less than 100 kilometres away in the Olympics’ shadow, gets about 400, and sells itself to retirees as the dry corner of the wet side. The Cascades wring out the rest, and the Columbia Basin beyond gets about 200."
+    },
+    {
+     "kind": "figure",
+     "figure": "acrossWashington",
+     "caption": "A year’s rain and snow across Washington, from the ocean to the Columbia Basin, roughly along a winter storm’s wind."
+    }
+   ]
+  },
+  {
+   "title": "Rain or snow",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "In winter, the mountains are cold enough for the falling water to arrive as snow. The **snow level** is the height above which it falls as snow and stays; it lies a few hundred metres below the freezing level, because flakes take that long to melt as they fall through air just above freezing (Lesson 7). In an ordinary winter storm off the Gulf of Alaska, the snow level is around 600 to 1,000 metres. In an atmospheric river from the tropics, it can be 2,500 metres, above every pass and nearly every peak in the Cascades."
+    },
+    {
+     "kind": "text",
+     "text": "That height decides what a storm does to the rivers. Snow is water put away for later: it stays where it falls and comes down the rivers in May and June, when it is wanted. Rain runs off within hours. A warm storm turns the whole of a river’s basin into a roof draining into the gutter, and if it falls on snow laid down in the week before, the warm rain melts some of that too, and the river gets both."
+    },
+    {
+     "kind": "figure",
+     "figure": "snowLevel",
+     "caption": "A mountain river’s basin in a winter storm: 100 mm of water falls on it in a day.",
+     "task": "Raise the snow level until the river floods.",
+     "goal": "flood"
+    },
+    {
+     "kind": "text",
+     "text": "This is how the Northwest’s worst floods have happened. In February 1996, a week of heavy snow and freezing rain was followed by a warm atmospheric river: the snow level shot up past 2,000 metres, rain fell on deep snow for days, and the Willamette rose almost to the top of the sea wall in downtown Portland, while volunteers stacked sandbags along it. A cold storm with the same water would have been remembered as a good week for skiing."
+    }
+   ]
+  },
+  {
+   "title": "Behind the cold front",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Once the cold front has passed, the wind swings round to the north-west and the air turns cold and showery: Lesson 6’s heaped clouds behind the front, fed from below by the warmer sea (last lesson). Over most of the coast the showers come and go. Over Puget Sound something else happens."
+    },
+    {
+     "kind": "text",
+     "text": "The Olympic Mountains stand in the north-west wind’s path like a rock in a stream, and the air flows round them. One stream turns east along the Strait of Juan de Fuca, then south down the Sound; the other passes down the coast and turns north again up the Sound from the south. Somewhere between Everett and Seattle the two streams meet head on. With nowhere else to go, the air goes up, and the lift raises a band of heavy showers, sometimes thunder, often snow in winter, while places a few kilometres away see sun."
+    },
+    {
+     "kind": "figure",
+     "figure": "convergenceZone",
+     "caption": "Puget Sound behind a cold front, with the wind from the north-west, from above."
+    },
+    {
+     "kind": "text",
+     "text": "This is the **Puget Sound convergence zone**.[^pscz] It lies where the two streams meet, and moves north or south as the wind shifts, so the forecast for one suburb can be a downpour and for the next a dry afternoon. The same thing happens wherever a wind splits around a mountain and closes up again behind it, but rarely as reliably, or over so many people."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Name the clouds in these photographs, then use the storm track, the mountains and the snow level to read the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "radioCheck",
+     "caption": "Real photos. Name each cloud.",
+     "options": {
+      "mode": "name",
+      "pool": [
+       "nimbostratus",
+       "stratus",
+       "stratocumulus",
+       "cumulus",
+       "cumulonimbus"
+      ],
+      "known": [
+       "cirrus",
+       "cirrocumulus",
+       "cirrostratus",
+       "altocumulus",
+       "altostratus",
+       "nimbostratus",
+       "stratocumulus",
+       "stratus",
+       "cumulus",
+       "cumulonimbus"
+      ],
+      "count": 5
+     }
+    },
+    {
+     "kind": "figure",
+     "figure": "forecast",
+     "caption": "A sky, and what the wind and the mountains are doing. What is it up to?",
+     "options": {
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "nimbostratus",
+          "when": "9 a.m.",
+          "thick": 0.9
+         },
+         {
+          "genus": "nimbostratus",
+          "when": "4 p.m.",
+          "thick": 0.9
+         }
+        ],
+        "instruments": [
+         "Snow level: 2,400 m",
+         "Last week: heavy snow in the mountains"
+        ],
+        "question": "A warm, wet south-west wind has blown for two days, and the snow level has risen to 2,400 m after a week of heavy mountain snow. What will the rivers off the Cascades do?",
+        "options": [
+         "Stay low, since the mountains will soak it up as snow",
+         "Rise to flood: rain falls on nearly the whole basin, and melts the snow it falls on",
+         "Freeze over"
+        ],
+        "answer": 1,
+        "why": "With the snow level above most of the basin, the storm’s water runs straight off as rain instead of waiting as snow, and the warm rain melts some of last week’s snow too. That is the recipe for the region’s worst floods."
+       },
+       {
+        "sky": [
+         {
+          "genus": "nimbostratus",
+          "when": "noon",
+          "thick": 0.9
+         }
+        ],
+        "instruments": [
+         "Wind: south-west, 60 km/h"
+        ],
+        "question": "An atmospheric river is pouring rain onto the Olympic Mountains from the south-west. Where on the peninsula will it be driest?",
+        "options": [
+         "On the windward slopes facing the ocean",
+         "On top of the mountains",
+         "In the lee, north-east of the mountains, around Sequim"
+        ],
+        "answer": 2,
+        "why": "The air rains out on the climb up the windward side, then comes down the lee side warmer and drier: a rain shadow. Sequim gets about a ninth of the Hoh rainforest’s rain."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "1 p.m.",
+          "size": "congestus"
+         },
+         {
+          "genus": "cumulonimbus",
+          "when": "3 p.m.",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Wind: north-west, behind a cold front"
+        ],
+        "question": "A cold front passed this morning and the wind is now from the north-west. Seattle is dry, but Everett, 40 km north, is under a downpour. Why?",
+        "options": [
+         "The wind splits round the Olympics and meets itself over the Sound, lifting a band of showers",
+         "Everett is in the Cascades’ rain shadow",
+         "The cold front has stalled over Everett"
+        ],
+        "answer": 0,
+        "why": "Behind a cold front, the north-west wind flows round both sides of the Olympics and the two streams collide over Puget Sound. The air is forced up where they meet: the convergence zone."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "2 p.m.",
+          "size": "small"
+         }
+        ],
+        "question": "Why does Seattle get almost no rain in July, when it gets 150 mm in November?",
+        "options": [
+         "In July, the jet stream and its lows pass far to the north and the Pacific High guards the coast",
+         "The sea is too warm in July for clouds to form",
+         "There is no water vapour in the air in summer"
+        ],
+        "answer": 0,
+        "why": "Both follow the sun. In summer the High grows and moves north and the jet stream carries the lows past Alaska; in autumn the High shrinks south and the jet stream swings down to aim them at the coast."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "The Pacific Northwest’s rain comes in a season, October to April. In summer the Pacific High sits off the coast and the jet stream carries the lows far to the north; in autumn the High shrinks south and the jet stream swings down to aim a new low at the coast every day or two.",
+  "An atmospheric river is a long, narrow band of warm, damp air, typically 2,000 km long and 400 km wide, drawn from the tropics ahead of a cold front. The strongest carry more water as vapour than the Mississippi; those from near Hawaii are the Pineapple Express.",
+  "Driven up a mountain slope, the air is wrung out: the rain rises with the wind and with the vapour. The Hoh rainforest gets about 3,600 mm a year; Sequim, in the Olympics’ shadow, about 400; the Columbia Basin, past the Cascades, about 200.",
+  "The snow level decides whether a storm’s water runs off at once as rain or waits as snow. A warm storm, high snow level, on fresh snow floods the rivers.",
+  "Behind a cold front, north-west wind splits round the Olympics and meets itself over Puget Sound: the convergence zone, a band of heavy showers between sunny places."
+ ],
+ "next": "Next: what turns an ordinary shower into a violent storm.",
+ "journal": {
+  "storm-track": {
+   "title": "The storm track",
+   "text": "The path the jet stream steers lows along. It swings north in summer, past Alaska, and south in winter, aimed at the Pacific Northwest, which gives the coast its wet and dry seasons."
+  },
+  "atmospheric-river": {
+   "title": "Atmospheric river",
+   "text": "A long, narrow band of warm, damp air drawn from the tropics ahead of a cold front, carrying as much water as a great river, as vapour. Where it meets mountains, it brings the coast’s heaviest rain. From near Hawaii: the Pineapple Express."
+  },
+  "snow-level": {
+   "title": "The snow level",
+   "text": "The height above which a storm’s water falls as snow and stays; a few hundred metres below the freezing level. High in a warm storm, low in a cold one. When it is high, the rain runs straight off the mountains, and the rivers rise."
+  },
+  "convergence-zone": {
+   "title": "Convergence zone",
+   "text": "Behind a cold front, the north-west wind splits round the Olympic Mountains and the two streams meet again over Puget Sound. The air is forced up where they meet, raising a narrow band of heavy showers."
+  }
+ },
+ "footnotes": {
+  "seattle": {
+   "kind": "digression",
+   "title": "A city of drizzle",
+   "text": "Seattle makes up in days what it lacks in amount: rain falls on about 150 days a year, mostly lightly, from long grey decks of nimbostratus and stratus. New York gets more rain on fewer, wetter days. Over the year Seattle sees more cloud than almost any other big American city."
+  },
+  "ar": {
+   "kind": "technical",
+   "title": "Atmospheric river",
+   "text": "The name was given in 1994 by Yong Zhu and Reginald Newell at MIT, who found that a handful of these narrow bands carried most of the vapour moving towards the poles at any one time. The ranking from 1 to 5 was introduced in 2019 at the Scripps Institution of Oceanography."
+  },
+  "pscz": {
+   "kind": "technical",
+   "title": "Puget Sound convergence zone",
+   "text": "First described in detail by meteorologists at the University of Washington in the 1970s and 1980s. It forms on a few dozen days a year, mostly in spring and autumn, usually over Snohomish County, between Seattle and Everett. In winter it can drop heavy snow on a narrow strip while the rest of the region stays bare."
+  }
+ }
+}
