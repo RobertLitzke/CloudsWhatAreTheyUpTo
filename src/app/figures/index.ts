@@ -8,6 +8,7 @@ import type { FigureFactory } from './kit';
 import { teaspoonDiagram, webFigure } from './life';
 import { feelFigure, handfulDiagram, jarDiagram, sizesDiagram, surfaceDiagram, triangleFigure } from './made-of';
 import { leafDiagram, parkingFigure, phDiagram } from './nutrients';
+import { photoDiagram } from './photo';
 import { yearFigure } from './seasons';
 import { crumbFigure, slakeDiagram } from './structure';
 import { dryingDiagram, poresFigure, rainFigure } from './water';
@@ -33,5 +34,6 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   leaf: leafDiagram,
   year: yearFigure,
   detective: detectiveFigure,
+  photo: photoDiagram,
   check: checkFigure,
 };

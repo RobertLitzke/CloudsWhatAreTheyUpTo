@@ -8,7 +8,7 @@
       "title": "What a plant takes",
       "blocks": [
         { "kind": "text", "text": "Your tomato leaves are turning yellow. The shelf at the garden centre offers a dozen answers in bright bags. Before choosing one, it helps to know what a plant actually takes from the soil, and what stands between the soil and the root." },
-        { "kind": "text", "text": "Almost all of a plant is built from air and water: carbon from the air, and hydrogen and oxygen from water. From the soil it needs only a little, but that little it can't do without.[^van-helmont] Three it needs in quantity: **nitrogen**, for proteins and the green of its leaves; **phosphorus**, for roots, flowers and seeds and for moving energy about; and **potassium**, for keeping water in its cells and its pores working. These are the N, P and K on every fertilizer bag.[^npk] Calcium, magnesium and sulfur it needs in smaller amounts, and iron, manganese, zinc, copper, boron and molybdenum in traces." },
+        { "kind": "text", "text": "Almost all of a plant is built from air and water: carbon from the air, and hydrogen and oxygen from water. From the soil it needs only a little, but that little it can't do without.[^van-helmont] Three it needs in quantity: **nitrogen**, for proteins and the green of its leaves; **phosphorus**, for roots, flowers and seeds and for moving energy about; and **potassium**, for keeping water in its cells and its pores working. These are the N, P and K on every fertilizer bag.[^npk] It needs a handful of others in smaller amounts, and some, such as iron and zinc, only in traces.[^others]" },
         { "kind": "text", "text": "Roots don't eat soil. They take up nutrients dissolved in the water around them, as charged particles, **ions**.[^ions] And that is the problem: water moves. Rain soaking down through a bed carries dissolved nutrients with it, below the roots and away. Something has to hold them." },
         { "kind": "key", "title": "Hold on to", "points": [
           "Plants build themselves mostly from air and water; from the soil they take a small but essential set of nutrients.",
@@ -45,7 +45,19 @@
           "**Iron:** the youngest leaves yellow between the veins; usually a pH too high, not too little iron.",
           "**Calcium:** new growth is stunted and twisted, and tomatoes rot black at the blossom end; usually uneven watering."
         ] },
-        { "kind": "text", "text": "Leaf signs are clues, not proof. Cold, drowned or compacted roots can't take up nutrients that are right there, and give the same yellow leaves; so can disease. Lesson 8 works through how to tell them apart. Before buying anything, test the pH and look at the roots." },
+        { "kind": "text", "text": "Leaf signs are clues, not proof. Cold, drowned or compacted roots can't take up nutrients that are right there, and give the same yellow leaves; so can disease. Lesson 8 works through how to tell them apart. Before buying anything, test the pH and look at the roots." }
+      ]
+    },
+    {
+      "title": "Feeding, in practice",
+      "blocks": [
+        { "kind": "text", "text": "Put this lesson together and much of what is on the garden-centre shelf turns out to be optional. A bed that gets compost every year, at a pH between 6 and 7, has most of what most crops need. Feed on top of that only where a crop or a test asks for it." },
+        { "kind": "key", "title": "What to feed, and when", "points": [
+          "**Nitrogen is the one most often short,** because it washes out. Leafy crops want it early; hungry ones, such as tomatoes, squash, sweetcorn and cabbages, may want a feed again once they start to fruit or grow fast.",
+          "**Feed while plants are growing,** in spring and summer. Fed in autumn, nitrogen has nothing to take it up and washes away.",
+          "**More is not better.** Too much nitrogen makes soft, leafy plants that flower late and draw aphids. Phosphorus is already high in many old gardens: add it, and potassium, only when a test says so.",
+          "**Use the bag's rate, or less.** Slow organic feeds are harder to overdo than quick soluble ones, and a liquid feed is for a crop in a hurry, not for the soil."
+        ] },
         { "kind": "key", "title": "Try it in the garden", "points": [
           "**Test the pH** of each bed with a kit or strips from a garden centre: mix soil with distilled water as the kit says. Note the numbers.",
           "If you have no kit, try a rough check. Add vinegar to a spoonful of dry soil: a fizz means it is alkaline, with free lime. Then mix another spoonful with distilled water to a mud and add baking soda: a fizz means it is acid. If neither fizzes, the soil is probably near neutral.",
@@ -56,7 +68,7 @@
     {
       "title": "Check",
       "blocks": [
-        { "kind": "figure", "figure": "check", "caption": "Eight questions on nutrients and pH", "task": "Answer them", "options": { "items": [
+        { "kind": "figure", "figure": "check", "caption": "Nine questions on nutrients and pH", "task": "Answer them", "options": { "items": [
           { "question": "What are the N, P and K on a fertilizer bag?", "options": ["Nitrogen, phosphorus and potassium", "Nitrate, peat and kelp", "Nickel, phosphate and krypton"], "answer": 0, "why": "The three nutrients plants need in the largest amounts from soil. The numbers say how much of each the bag holds." },
           { "question": "Why do clay and humus hold nutrients against the rain?", "options": ["Their negative charges hold positive nutrient ions", "They are heavier than water", "They soak the nutrients up inside"], "answer": 0, "why": "Clay and humus surfaces carry negative charges, and positive ions such as calcium, magnesium, potassium and ammonium cling to them." },
           { "question": "Nitrogen fed to a sandy bed in autumn is mostly gone by spring. Why?", "options": ["Nitrate has no parking spot and washes out with the rain", "The cold destroys it", "Plants ate it all in winter"], "answer": 0, "why": "Nitrate is a negative ion, so it isn't held by clay or humus, and sandy soils let water through fast." },
@@ -64,6 +76,7 @@
           { "question": "A soil test says pH 8. Which nutrients are likely to be hard for roots to reach?", "options": ["Iron, manganese, zinc and phosphorus", "Nitrogen and potassium", "Calcium and magnesium"], "answer": 0, "why": "At high pH, iron, manganese and zinc turn into forms roots can't take up, and phosphorus binds to calcium." },
           { "picture": "yellow-leaves", "question": "The oldest leaves of a plant turn pale yellow all over. What is the first suspect?", "options": ["Nitrogen", "Iron", "Calcium"], "answer": 0, "why": "Nitrogen moves within the plant, so a shortage strips the old leaves first, and the whole leaf yellows." },
           { "question": "The youngest leaves yellow between green veins, in a soil of pH 7.8. What is likely?", "options": ["Iron locked away by the high pH", "Too much water", "Too little potassium"], "answer": 0, "why": "Iron can't move to new leaves, so they show it first, and above pH 7.5 iron is hard to reach even when there is plenty." },
+          { "question": "Your tomatoes are tall, dark green and leafy, with few flowers. What is likely?", "options": ["Too much nitrogen", "Too little nitrogen", "A pH that is too low"], "answer": 0, "why": "Plenty of nitrogen pushes leaves at the cost of flowers and fruit. Ease off the feed; a tomato wants it most once fruit is setting." },
           { "question": "How do you raise the pH of an acid bed?", "options": ["Add garden lime, by the amount a test suggests", "Add sulfur", "Add more nitrogen fertilizer"], "answer": 0, "why": "Lime neutralises acidity, slowly. Sulfur does the opposite, and most nitrogen fertilizers make soil more acid over time." }
         ] } }
       ]
@@ -73,13 +86,15 @@
     "From soil a plant takes nitrogen, phosphorus and potassium in quantity, and others in smaller amounts, dissolved in water.",
     "Clay and humus hold positive nutrients on their charges, the cation exchange capacity; nitrate has no spot and washes out.",
     "pH decides which nutrients a root can reach; most vegetables want 6 to 7, set with lime or sulfur.",
-    "Old leaves show shortages of nutrients the plant can move; new leaves show those it can't."
+    "Old leaves show shortages of nutrients the plant can move; new leaves show those it can't.",
+    "Compost every year covers most needs; feed nitrogen in the growing season, and phosphorus and potassium only when a test says so."
   ],
   "next": "Next: building soil through the year, or what to do with a bed in each season.",
   "journal": [],
   "footnotes": {
     "van-helmont": { "kind": "digression", "title": "The willow in a pot", "text": "Around 1640 Jan Baptist van Helmont planted a 2 kg willow in 90 kg of dried soil and gave it only rainwater for five years. The tree grew to 77 kg; the soil had lost about 60 grams. He concluded the tree was made of water. He was half right: most of it is carbon from the air, which nobody knew could be taken in until long after. But the soil's 60 grams were real, and essential." },
     "npk": { "kind": "technical", "title": "Reading a fertilizer bag", "text": "Three numbers such as 10-10-10 are the percentages by weight of nitrogen, phosphate and potash. By an old convention, the second and third are given as oxides: the bag's phosphorus is about 44% of its phosphate number, and its potassium about 83% of its potash." },
+    "others": { "kind": "technical", "title": "The full list", "text": "Besides nitrogen, phosphorus and potassium, plants need calcium, magnesium and sulfur in moderate amounts, the **secondary nutrients**, and iron, manganese, zinc, copper, boron, molybdenum, chlorine and nickel in traces, the **micronutrients**. A bed that gets compost every year rarely runs short of the traces. When a plant does, it is more often because the pH has locked them away (below) than because they are missing." },
     "ions": { "kind": "technical", "title": "Ions", "text": "An **ion** is an atom or small molecule carrying an electric charge. Positive ones are **cations**: calcium (Ca²⁺), magnesium (Mg²⁺), potassium (K⁺), ammonium (NH₄⁺). Negative ones are **anions**: nitrate (NO₃⁻), sulfate (SO₄²⁻), phosphate." },
     "cec": { "kind": "technical", "title": "Cation exchange capacity", "text": "**Cation exchange capacity**, or **CEC**, is the total negative charge per kilogram of soil, in centimoles of charge. A sand may be under 5, a loam 10 to 20, a clay or a rich organic soil 30 or more. The figure uses rules of thumb: about 0.5 per percent of a mixed garden clay, and 2 per percent of organic matter." },
     "nitrate": { "kind": "digression", "title": "Where washed-out nitrate goes", "text": "Nitrate washes into groundwater, streams and in the end the sea. Nitrate in drinking water is regulated, and nitrogen running off farmland feeds the algal blooms that leave dead zones in places such as the Gulf of Mexico. In a garden, the fix is the same as on a farm: feed when plants are growing, and keep roots in the soil over winter to catch what is left." },

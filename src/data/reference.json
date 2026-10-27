@@ -77,7 +77,7 @@
     {
       "id": "carbon-nitrogen",
       "title": "Greens and browns",
-      "summary": "Carbon-to-nitrogen ratios of common compost materials",
+      "summary": "Carbon-to-nitrogen ratios of compost materials, and how much compost, manure and mulch to use",
       "lesson": "organic-matter",
       "blocks": [
         { "kind": "table", "columns": ["Material", "Kind", "Carbon : nitrogen"], "rows": [
@@ -91,7 +91,15 @@
           ["Cardboard, newspaper", "Brown", "About 400"]
         ] },
         { "kind": "text", "text": "Aim for about 25 to 30 overall: by volume, roughly two to three buckets of browns for each of greens. Typical values; real materials vary." },
-        { "kind": "figure", "figure": "heap", "caption": "Build a heap a bucket at a time" }
+        { "kind": "figure", "figure": "heap", "caption": "Build a heap a bucket at a time" },
+        { "kind": "table", "columns": ["Material", "How much", "When", "Notes"], "rows": [
+          ["Garden compost", "2 to 5 cm on top", "Autumn or spring", "No need to dig it in"],
+          ["Rotted manure", "2 to 5 cm on top", "Autumn", "Six months old or more; ask whether the hay was sprayed"],
+          ["Leaf mould", "5 cm or more", "Autumn", "Low in nutrients, good for structure and water"],
+          ["Straw", "5 to 10 cm", "Summer, between plants", "Holds water in; check it is free of weed seed"],
+          ["Grass clippings", "2 cm at a time", "Summer", "Thick layers turn slimy and smell"],
+          ["Wood chips", "5 to 8 cm", "Any time", "On paths and round shrubs; on top only, never dug in"]
+        ] }
       ]
     },
     {

@@ -8,6 +8,7 @@
       "title": "Like crumbled cake",
       "blocks": [
         { "kind": "text", "text": "Lift a forkful from an old, well-kept bed and it falls apart into rounded crumbs, from rice-sized to pea-sized, dark and soft, like crumbled chocolate cake. Lift one from a new bed in heavy ground and it comes up as a slab that breaks into sharp-edged clods, or else as loose dust. The grains in all three may be the same. What differs is how they are stuck together: the soil's **structure**." },
+        { "kind": "figure", "figure": "photo", "caption": "Good crumb: dark, rounded and soft, falling apart in the hand", "options": { "subject": "loam" } },
         { "kind": "text", "text": "This is where the last four lessons meet. A crumb is [[clay|clay]] and [[silt|silt]] and [[sand|sand]] (lesson 1), held together by [[organic matter|organic]] (lesson 4) and the gums and threads of soil life (lesson 3). Between the crumbs are pores that drain and hold air; inside them are pores that hold water (lesson 2). It is built in layers.[^hierarchy] The smallest crumbs are clay plates and humus bound by electric charges and sticky microbial gums. Fine roots and fungal threads then wrap those into bigger crumbs, like string around a parcel, and coat them with more glue.[^glomalin]" },
         { "kind": "text", "text": "Crumbs do something no texture can. Between them are big pores, even in a clay soil whose grains leave only tiny gaps. So a crumbly clay drains and breathes almost like a loam, while still holding the water and nutrients that clay holds. That is the real reason gardeners can turn a sticky clay into good ground without changing its texture at all." },
         { "kind": "key", "title": "Hold on to", "points": [
@@ -23,7 +24,8 @@
         { "kind": "text", "text": "Structure is built by roots, fungi and the microbes that eat organic matter. It lasts only as long as they keep building, because crumbs are always being eaten and broken down too. Here is a loam bed. Give it roots, organic matter and peace, or take them away." },
         { "kind": "figure", "figure": "crumb", "caption": "The same loam, magnified, under different care", "task": "Build strong crumb, and keep it", "goal": "crumb" },
         { "kind": "text", "text": "Digging is the surprise for most people. A freshly dug bed *looks* loose and airy, and for a few weeks it is. But digging slices fungal threads and breaks crumbs. It lets in a rush of air, so microbes burn through the organic matter that holds the crumbs together. After a few rains, a dug bed slumps tighter than before, and digging it again is the only way to loosen it: a habit that feeds itself." },
-        { "kind": "text", "text": "Footsteps are worse, especially on wet soil, where water lets the grains slide past each other and pack.[^wet-soil] One footprint on a wet clay bed can press a hard layer that lasts all summer. The cheapest improvement in most gardens is a path: beds narrow enough to reach the middle from the side, and nobody walking on them, ever." }
+        { "kind": "text", "text": "Footsteps are worse, especially on wet soil, where water lets the grains slide past each other and pack.[^wet-soil] One footprint on a wet clay bed can press a hard layer that lasts all summer. Before you work a bed, squeeze a handful: if it smears or stays in a sticky lump, it is too wet, and a few dry days will save you a summer. The cheapest improvement in most gardens is a path: beds narrow enough to reach the middle from the side, and nobody walking on them, ever." },
+        { "kind": "text", "text": "If a bed is already packed hard, loosen it once and then protect it. Push a garden fork in to its full depth and rock it back to crack the soil, without turning it over, every 15 cm or so across the bed. Then keep off it and mulch it, and let roots and worms hold the cracks open. Deep-rooted cover crops such as radishes (lesson 7) carry on the work." }
       ]
     },
     {
@@ -41,13 +43,14 @@
     {
       "title": "Check",
       "blocks": [
-        { "kind": "figure", "figure": "check", "caption": "Seven questions on crumb and structure", "task": "Answer them", "options": { "items": [
+        { "kind": "figure", "figure": "check", "caption": "Eight questions on crumb and structure", "task": "Answer them", "options": { "items": [
           { "picture": "loam", "question": "What holds the grains of a good crumb together?", "options": ["Microbial gums, humus, fine roots and fungal threads", "Only the weight of the soil above", "Sand grains locking together"], "answer": 0, "why": "Small crumbs are glued by gums and humus bound to clay; roots and fungal threads bind them into bigger ones." },
           { "question": "How can a clay soil drain well without changing its texture?", "options": ["Strong crumbs leave big pores between them", "Clay always drains well", "By digging in a little sand"], "answer": 0, "why": "Clay grains alone leave only tiny pores, but crumbs of clay have big pores between them that drain and hold air." },
           { "question": "A bed is dug every spring and looks wonderfully loose. Why does it slump tight after a few rains?", "options": ["Digging broke crumbs and sped up the loss of the organic matter holding them", "The rain added clay", "It was not dug deeply enough"], "answer": 0, "why": "Digging slices fungal threads and lets air in, and microbes burn the organic matter that glues crumbs. The fluffiness doesn't last." },
           { "question": "When does a footstep do most damage to a bed?", "options": ["When the soil is wet", "When it is dry", "When it is frozen"], "answer": 0, "why": "Water lets the grains slide past each other, so wet soil packs much more under the same weight." },
           { "question": "In a slake test, a dry clod melts into mud within seconds. What does that say?", "options": ["Its crumbs are weak: little life and organic matter holding them", "It is a very healthy soil", "It is pure sand"], "answer": 0, "why": "Strong crumbs, glued by roots, fungi and gums, hold together in water. Weak ones burst as water pushes in." },
           { "question": "A screwdriver slides in easily and then stops dead 15 cm down. What is there?", "options": ["A compacted layer", "The water table", "Good crumbly soil"], "answer": 0, "why": "A sudden stop means a dense layer, often pressed by footsteps, machines or digging to the same depth every year." },
+          { "question": "A screwdriver test finds a hard layer 15 cm down. What is a good first fix?", "options": ["Rock a fork through it once without turning the soil, then keep off and mulch", "Dig the bed over every spring from now on", "Roll the bed flat"], "answer": 0, "why": "One gentle loosening cracks the layer without burying the topsoil or tearing up all its crumbs. Mulch, roots and worms then keep it open, as long as nobody treads on it." },
           { "question": "What is the cheapest way to protect the structure of a bed?", "options": ["Never walk on it: use paths", "Dig it twice a year", "Leave it bare so it dries"], "answer": 0, "why": "Keeping feet off the beds stops compaction at its source. Beds narrow enough to reach the middle make it easy." }
         ] } }
       ]
@@ -56,7 +59,7 @@
   "learned": [
     "Structure is how grains are stuck into crumbs; crumbs leave big pores that drain and breathe.",
     "Roots, fungal threads, microbial gums and humus build crumbs, in layers from small to large.",
-    "Digging breaks crumbs and burns the organic matter that glues them; footsteps on wet soil pack it hard.",
+    "Digging breaks crumbs and burns the organic matter that glues them; footsteps on wet soil pack it hard. Loosen a packed bed once with a fork, then keep off it.",
     "The slake, screwdriver and spade tests show how strong a soil's crumbs are and where it is compacted."
   ],
   "next": "Next: feeding plants. We look at the nutrients they need, what holds them in the soil, and why pH decides which ones they can reach.",

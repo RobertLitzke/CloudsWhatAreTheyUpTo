@@ -40,6 +40,13 @@ describe('lessons', () => {
     }
   });
 
+  it('show photos of subjects that exist', () => {
+    for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) {
+      if (b.kind !== 'figure' || b.figure !== 'photo') continue;
+      expect(isSubjectId(String(b.options?.subject)), String(b.options?.subject)).toBe(true);
+    }
+  });
+
   it('have every figure in the list built', () => {
     expect(Object.keys(FIGURES).sort()).toEqual([...FIGURE_IDS].sort());
   });

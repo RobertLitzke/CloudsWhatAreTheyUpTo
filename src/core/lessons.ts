@@ -32,7 +32,7 @@ export const FIGURE_IDS = [
   'parking', 'ph', 'leaf',
   'year',
   'detective',
-  'check',
+  'photo', 'check',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
