@@ -306,31 +306,36 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Name each cloud.",
+          "figure": "check",
+          "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
           "options": {
-            "mode": "name",
-            "pool": [
-              "stratocumulus",
-              "stratus",
-              "cumulus",
-              "nimbostratus"
-            ],
-            "known": [
-              "stratocumulus",
-              "stratus",
-              "cumulus",
-              "nimbostratus"
-            ],
-            "count": 6
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "The sky over a few hours. What is it up to?",
-          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "nimbostratus"
+              ],
+              "known": [
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "nimbostratus"
+              ],
+              "count": 4
+            },
             "items": [
+              {
+                "question": "On a hot afternoon the air around gets colder by 12 °C a kilometre as you go up. A thermal off a stubble field cools at 10 °C a kilometre. Does it keep rising?",
+                "options": [
+                  "No: anything that cools as it rises is bound to sink back down",
+                  "Yes: it cools more slowly, so it stays warmer than the air around it",
+                  "Only once it reaches its dew point and starts to build a cloud"
+                ],
+                "answer": 1,
+                "why": "Everything that rises cools. What matters is whether it cools faster or slower than the air around it. Ten is slower than twelve, so the thermal stays warmer than its neighbours and keeps climbing, cloud or no cloud: an unstable day."
+              },
               {
                 "id": "picnic",
                 "sky": [

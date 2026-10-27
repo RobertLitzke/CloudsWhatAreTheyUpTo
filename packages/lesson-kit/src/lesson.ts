@@ -12,8 +12,9 @@
 // `footnotes` table, which opens in a popup (footnote.ts).
 //
 // With a radio (radio.ts, slip.ts) and the reader's radio setting on, a talk
-// comes on as the lesson opens and another once the check is done, before the
-// log can be written up. They play only the first time through.
+// comes on as the lesson opens, only the first time through. The check's talk
+// is not played on the slip: it is handed to the check's figures, which type
+// it above and below their questions (check.ts), so the check is one thing.
 //
 // A reader who leaves part way (another page, a reload, the app closed) comes
 // back to where they were: the parts they had opened, the figures they had
@@ -104,8 +105,8 @@ export interface LessonViewOptions<L extends Lesson, S extends Progress> {
   hero?: (lesson: L) => Child;
   /** More under the lede, such as the names a lesson introduces. */
   intro?: (lesson: L) => Child;
-  /** The lesson's radio talks, and the slip to play them on. */
-  radio?: { talks: (lessonId: string) => readonly Talk[]; play: (talk: Talk) => Promise<boolean>; clear: () => void };
+  /** The lesson's radio talks, the slip to play them on, and the station they come from. */
+  radio?: { talks: (lessonId: string) => readonly Talk[]; play: (talk: Talk) => Promise<boolean>; clear: () => void; them?: { call: string; place: string } };
   /** Where the back arrow and signing the log go. Default /home. */
   home?: string;
   /** What a lesson is called in the headings. Default "Lesson". */
@@ -200,10 +201,13 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
     const waiting = (c: Cue) => (talking ? talks.find((t) => t.cue === c && !o.store.get().heard[t.id]) : undefined);
     const ctx: FigureContext = { save, closed: closed.signal, score: () => {} };
     /** A block's own context: its score, and its memory between visits. */
+    // The check's talk frames the check itself, whenever the radio is on.
+    const checkTalk = o.radio && save.talk ? talks.find((t) => t.cue === 'check') : undefined;
     const blockCtx = (part: number, key: string): FigureContext => {
       let mine: [number, number] | undefined;
       return {
         ...ctx,
+        radio: checkTalk && part === lesson.parts.length - 1 ? { talk: checkTalk, them: o.radio!.them } : undefined,
         score: (right, of) => {
           mine = mine ? [mine[0] + right, mine[1] + of] : [right, of];
           here.scores[key] = mine;
@@ -270,10 +274,7 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
         node.dataset.at = key;
         return node;
       }));
-      const done = Promise.all(tasks).then(() => undefined);
-      // The quiz on the radio comes once the check is done, and the log waits for it.
-      const quiz = i === lesson.parts.length - 1 ? waiting('check') : undefined;
-      return quiz ? done.then(() => (alive ? o.radio!.play(quiz) : false)).then(() => undefined) : done;
+      return Promise.all(tasks).then(() => undefined);
     };
 
     /** A button at the end of a part, enabled once its tasks are done. */
@@ -341,7 +342,7 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
           const last = i === lesson.parts.length - 1;
           const ready = renderPart(part, i);
           if (i < here.part) {
-            // Passed on an earlier visit. The check's talk still comes before the log.
+            // Passed on an earlier visit.
             if (last) await ready;
             continue;
           }

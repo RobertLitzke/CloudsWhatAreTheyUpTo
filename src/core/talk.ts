@@ -2,8 +2,9 @@
 // only here, in ham radio talks with the old hand at Walla Walla, a few
 // counties over. It is 1931, and you are the new weather forecaster in Harrow,
 // a wheat town in eastern Washington. Each lesson gets two talks: a short
-// opening as it starts, and a quiz once its check is done; nothing comes on in
-// between. Training done, the story skips ahead to 1946, when cloud seeding
+// opening as it starts, and the lines typed around its check, which put the
+// check's questions to you as an examination over the air; nothing comes on
+// in between. Training done, the story skips ahead to 1946, when cloud seeding
 // arrives.
 //
 // A talk is a few turns. In each turn Walla Walla says something and you pick

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "seeding-open",
@@ -40,58 +40,7 @@
       "when": "Saturday, November 23, 1946 · 8:50 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Last questions in the book. A cloud at −3 °C. Which will make it snow?",
-          "replies": [
-            {
-              "say": "Dry ice.",
-              "back": "By sheer cold. Silver iodide doesn’t wake up until about −5.",
-              "right": true
-            },
-            {
-              "say": "Silver iodide.",
-              "back": "Not yet at −3. It wants about −5 or colder. Dry ice works at any temperature below freezing."
-            },
-            {
-              "say": "Neither.",
-              "back": "Dry ice does. It makes its own ice by sheer cold."
-            }
-          ]
-        },
-        {
-          "them": "Somebody seeds a layer with far too many crystals. What happens?",
-          "replies": [
-            {
-              "say": "They stay too small to fall.",
-              "back": "Right. Overseeding: the water is shared out too thin.",
-              "right": true
-            },
-            {
-              "say": "Twice the snow.",
-              "back": "More crystals share the same water, so each stays small and none of them fall. That’s overseeding."
-            },
-            {
-              "say": "Hail.",
-              "back": "Hail needs a thunderstorm’s updraught. Too many crystals just stay too small to fall."
-            }
-          ]
-        },
-        {
-          "them": "A man says he seeded five storms last winter and got forty percent more snow. What does that prove?",
-          "replies": [
-            {
-              "say": "Nothing. He picked the storms himself.",
-              "back": "Right. Storms picked by chance, a control area, and many winters, or nothing.",
-              "right": true
-            },
-            {
-              "say": "Forty percent! It works.",
-              "back": "Five storms he picked himself is a good eye for weather, not proof. A fair trial picks by chance, over many winters."
-            },
-            {
-              "say": "That seeding never works.",
-              "back": "It does, sometimes, a little. That’s the trouble: a little is hard to see past luck."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Last questions in the book."
         },
         {
           "them": "A fellow who is honest about small numbers is worth ten who promise big ones. That’s the last of it, Harrow. Seventy-three."

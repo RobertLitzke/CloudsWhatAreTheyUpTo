@@ -147,10 +147,20 @@
     },
     {
      "kind": "figure",
-     "figure": "forecast",
+     "figure": "check",
      "caption": "A sky, and what the map and the wind say. What is going on?",
      "options": {
       "items": [
+       {
+        "question": "Air is moving north across Washington. Which way does the turning Earth bend it?",
+        "options": [
+         "To its left, towards the west",
+         "To its right, towards the east",
+         "Not at all, since it moves due north"
+        ],
+        "answer": 1,
+        "why": "North of the equator the turning Earth bends moving air to its right, whichever way it is going, north included. South of the equator it bends it to the left."
+       },
        {
         "sky": [
          {

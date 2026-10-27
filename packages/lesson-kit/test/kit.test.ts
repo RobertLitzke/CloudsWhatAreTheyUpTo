@@ -5,6 +5,7 @@
 import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { check } from '../src/check';
 import { el } from '../src/dom';
 import { figure, frame, quiz, slider } from '../src/figure';
 import { closeFootnote, footnoteProblems, footnoteSet } from '../src/footnote';
@@ -135,6 +136,62 @@ describe('lesson-kit', () => {
     search.value = 'pivot point';
     search.dispatchEvent(new Event('input'));
     expect([...view.querySelectorAll('.gl-entry')].filter((n) => !(n as HTMLElement).hidden)).toHaveLength(1);
+  });
+
+  describe('the check', () => {
+    const steps = () => [
+      { ask: 'Two and two?', choices: ['Four', 'Five'], answer: 0, why: 'Count them.', row: true },
+      { ask: 'Water freezes at?', choices: ['10 °C', '0 °C'], answer: 1, why: 'Zero.' },
+    ];
+    const talk = { id: 't-check', cue: 'check' as const, when: 'Tuesday', turns: [{ them: 'Questions over the air.' }, { them: 'Signing off.' }] };
+    const answerAll = (node: HTMLElement) => {
+      for (let i = 0; i < 5; i++) {
+        node.querySelector<HTMLButtonElement>('.floor-buttons button, .answer-list button')?.click();
+        node.querySelector<HTMLButtonElement>('.actions .btn')?.click();
+      }
+    };
+
+    it('asks every step in one run, under one count and one score', async () => {
+      let score: [number, number] | undefined;
+      const handle = check(steps)({ save: emptyProgress(), closed: new AbortController().signal, score: (r, n) => (score = [r, n]) });
+      expect(handle.node.querySelector('.check-count')?.textContent).toBe('Question 1 of 2');
+      expect(handle.node.querySelector('.check-wire')).toBeNull();
+      handle.node.querySelector<HTMLButtonElement>('.floor-buttons button')!.click();
+      expect(handle.node.querySelector('.verdict')?.textContent).toBe('Right. Count them.');
+      answerAll(handle.node);
+      await handle.done;
+      expect(score).toEqual([1, 2]);
+    });
+
+    it('is framed by the check’s radio talk when there is one', () => {
+      const handle = check(steps)({ save: emptyProgress(), closed: new AbortController().signal, score: () => {}, radio: { talk, them: { call: 'G2XX', place: 'Workshop' } } });
+      const wire = handle.node.querySelector('.check-wire')!;
+      expect(wire.textContent).toContain('G2XX · Workshop');
+      expect(wire.textContent).toContain('Questions over the air.');
+      handle.node.querySelector<HTMLButtonElement>('.floor-buttons button')!.click();
+      expect(handle.node.querySelector('.verdict')?.textContent).toBe('Copy that. Count them.');
+      answerAll(handle.node);
+      expect(handle.node.querySelector('.check-wire-end')?.textContent).toBe('Signing off.');
+    });
+
+    it('hands the check talk to the check instead of playing it', async () => {
+      const played: string[] = [];
+      const lesson: Lesson = {
+        id: 'sums', n: 1, title: 'Sums', teaches: 'Adding', learned: [], next: '', journal: [],
+        parts: [{ title: 'Check', blocks: [{ kind: 'figure', figure: 'check', caption: 'Sums', task: 'Answer' }] }],
+      };
+      const store = createStore({ key: 'check-test', empty: emptyProgress, migrate: migrateProgress });
+      const root = el('div');
+      const close = lessonView({
+        lessons: [lesson], figures: { check: check(steps) }, store, prose: (t) => prose(t, { ink: '#000' }),
+        radio: { talks: () => [talk], play: async (t) => (played.push(t.id), true), clear: () => {}, them: { call: 'G2XX', place: 'Workshop' } },
+      })(root, { params: { id: 'sums' }, navigate: () => {}, replace: () => {} }) as () => void;
+      expect(root.querySelector('.check-wire')?.textContent).toContain('Questions over the air.');
+      answerAll(root);
+      await new Promise((r) => setTimeout(r));
+      expect(played).toEqual([]);
+      close();
+    });
   });
 
   describe('picking a lesson up where it was left', () => {

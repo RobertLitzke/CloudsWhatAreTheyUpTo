@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "middle-sky-open",
@@ -30,58 +30,7 @@
       "when": "Tuesday, July 7, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Quiz. A lumpy layer of cloud on the middle floor. Build its name.",
-          "replies": [
-            {
-              "say": "Altocumulus.",
-              "back": "Alto- for the middle floor, cumulus for the lumps. You’re speaking Latin now.",
-              "right": true
-            },
-            {
-              "say": "Cirrostratus.",
-              "back": "That’s a smooth, high veil. The middle floor is alto-, and lumps are cumulus: altocumulus."
-            },
-            {
-              "say": "Stratocumulus.",
-              "back": "Close, but that’s the low lumpy sheet. The middle floor takes alto-: altocumulus."
-            }
-          ]
-        },
-        {
-          "them": "A layer of lumps high in the sky, and each lump is wider than three fingers held at arm’s length. Which floor?",
-          "replies": [
-            {
-              "say": "Low floor: stratocumulus.",
-              "back": "Right. Big lumps are close lumps. Wider than three fingers, it’s low.",
-              "right": true
-            },
-            {
-              "say": "Middle floor: altocumulus.",
-              "back": "Altocumulus lumps sit between a little fingernail and three fingers. Wider than three fingers is the low floor: stratocumulus."
-            },
-            {
-              "say": "High floor: cirrocumulus.",
-              "back": "Cirrocumulus grains are smaller than your little fingernail. Wider than three fingers is low: stratocumulus."
-            }
-          ]
-        },
-        {
-          "them": "Soft, feathery wisps up high, with no shading at all. What are they made of?",
-          "replies": [
-            {
-              "say": "Ice crystals. That’s cirrus.",
-              "back": "Right. Ice evaporates slowly, so the edges go soft and fibrous.",
-              "right": true
-            },
-            {
-              "say": "Big droplets.",
-              "back": "Droplets make crisp edges. Soft, feathery ones are ice: cirrus."
-            },
-            {
-              "say": "Smoke from the stubble fires.",
-              "back": "Smoke drifts low and brown. Feathery white wisps up high are ice: cirrus."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Quiz. Put every cloud on its floor."
         },
         {
           "them": "Every floor called. Next lesson, the high clouds that tell tomorrow’s weather."

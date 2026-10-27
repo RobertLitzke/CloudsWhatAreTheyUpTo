@@ -4,8 +4,9 @@
 // then the talk goes on to the next turn whichever was picked, so the
 // branches always rejoin. A reply marked `right` is the answer to a question:
 // a wrong one is ribbed and explained, never scored. Each lesson can have a
-// talk as it opens and one once its check is done (lesson.ts); slip.ts types
-// them out on screen.
+// talk as it opens, which slip.ts types out on screen (lesson.ts), and one for
+// its check, which is not played but frames the check's questions: its first
+// line opens them and its last closes them (check.ts).
 
 export interface Reply {
   say: string;
@@ -23,7 +24,7 @@ export interface Turn {
   replies?: Reply[];
 }
 
-/** When a talk comes on: as the lesson opens, or once its check is done. */
+/** When a talk comes on: as the lesson opens, or around its check. */
 export type Cue = 'start' | 'check';
 
 export interface Talk {

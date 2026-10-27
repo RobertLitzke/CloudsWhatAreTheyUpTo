@@ -209,38 +209,33 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Name each cloud.",
+          "figure": "check",
+          "caption": "Real photos to name, then a sky and what the land and the season are doing to it.",
           "options": {
-            "mode": "name",
-            "pool": [
-              "altocumulus",
-              "stratocumulus",
-              "stratus",
-              "nimbostratus",
-              "altostratus",
-              "cirrostratus"
-            ],
-            "known": [
-              "cirrus",
-              "cirrocumulus",
-              "cirrostratus",
-              "altocumulus",
-              "altostratus",
-              "nimbostratus",
-              "stratocumulus",
-              "stratus",
-              "cumulus",
-              "cumulonimbus"
-            ],
-            "count": 6
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "A sky, and what the land and the season are doing to it.",
-          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "altocumulus",
+                "stratocumulus",
+                "stratus",
+                "nimbostratus",
+                "altostratus",
+                "cirrostratus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrocumulus",
+                "cirrostratus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "cumulonimbus"
+              ],
+              "count": 4
+            },
             "items": [
               {
                 "id": "bazaar",

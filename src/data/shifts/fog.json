@@ -303,26 +303,21 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Name each cloud.",
+          "figure": "check",
+          "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
           "options": {
-            "mode": "name",
-            "pool": [
-              "cumulus",
-              "stratus"
-            ],
-            "known": [
-              "cumulus",
-              "stratus"
-            ],
-            "count": 6
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "The sky over a few hours. What is it up to?",
-          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "cumulus",
+                "stratus"
+              ],
+              "known": [
+                "cumulus",
+                "stratus"
+              ],
+              "count": 4
+            },
             "items": [
               {
                 "sky": [

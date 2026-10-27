@@ -1,19 +1,19 @@
 // Figures that work on whole clouds rather than the air inside them: filing
 // drawn clouds onto their floors, building names from their roots, look-alikes
-// side by side in photos, and the tests that end a lesson (the check on
-// photos, and forecasting from a sky).
+// side by side in photos, and the check that ends a lesson (real photos to
+// name, then skies to forecast from, as one run of questions).
 
-import type { Forecast, Profile } from '../../core/shifts';
+import type { Forecast, PhotoCalls, Profile } from '../../core/shifts';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
 import { dealFloorCalls } from '../../core/photo-call';
 import { dealNameCalls } from '../../core/radio-check';
-import { makeRng, shuffle } from 'lesson-kit/rng';
+import { shuffle, type Rng } from 'lesson-kit/rng';
+import { check, type CheckStep } from 'lesson-kit/check';
 import { el, svg } from 'lesson-kit/dom';
 import { photoFigure, PHOTOS } from '../photos';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { forecastSky } from '../scene/forecast-sky';
 import { FLOOR_BANDS, makeScene, W as SW, type Palette } from '../scene/landscape';
-import { freshSeed } from 'lesson-kit/ui';
 import { line, note } from './draw';
 import { COL, height, quiz, textBox, type FigureContext, type FigureFactory } from './kit';
 
@@ -216,7 +216,7 @@ export const lookAlikeDiagram: FigureFactory = (_ctx, _goal, options) => {
   return { node: el('div.fig-body', {}, el('div.look-alike', {}, sides.map(pane)), textBox(tell, 5)) };
 };
 
-// ---- The radio check --------------------------------------------------------
+// ---- The check -------------------------------------------------------------
 
 function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number, mirrored: boolean): HTMLElement {
   if (photo) return photoFigure(photo, 'A cloud to identify', mirrored);
@@ -226,81 +226,32 @@ function picture(id: GenusId, photo: (typeof PHOTOS)[number] | null, i: number, 
   return el('figure.photo.sketch', {}, scene.root, el('figcaption', {}, el('p.credit', {}, 'A sketch: no photo of this cloud has been fetched yet.')));
 }
 
-/**
- * options.mode is 'floor' (call in the floor), 'name' (call in the genus) or
- * 'spot' (say whether it is options.target or not, for a lesson that has met
- * only one cloud; options.decoys are the others shown, as many as the target);
- * options.pool is the genera dealt; options.known the genera the player has
- * met (look-alike answers are drawn from these); options.count how many.
- */
-export const radioCheckFigure = quiz((ctx, t, options) => {
-  const mode = (options?.mode as string) ?? 'name';
-  const target = options?.target as GenusId | undefined;
-  const pool = mode === 'spot' ? (options?.decoys as GenusId[]).flatMap((d) => [target!, d]) : (options?.pool as GenusId[]);
-  const known = (options?.known as GenusId[]) ?? pool;
-  const count = (options?.count as number) ?? 8;
+function photoSteps(o: PhotoCalls, rng: Rng): CheckStep[] {
+  const { mode, target } = o;
+  const pool = mode === 'spot' ? o.decoys!.flatMap((d) => [target!, d]) : o.pool!;
+  const known = o.known ?? pool;
+  const count = o.count ?? 5;
   const size = Math.min(4, Math.max(2, known.length));
-  // The deal and the answers given so far, so a reader coming back gets the same photos and goes on from where they were.
-  const kept = t.kept as { seed?: unknown; picks?: unknown } | undefined;
-  const seed = typeof kept?.seed === 'number' ? kept.seed : freshSeed();
-  const picks: string[] = Array.isArray(kept?.picks) ? kept.picks.filter((x): x is string => typeof x === 'string') : [];
-  const rng = makeRng(seed);
-  const pic = el('div.fig-scene');
-  const body = el('div');
-  const node = el('div.fig-body.radio-check', {}, pic, body);
   const calls = mode === 'floor'
-    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: FLOOR_BUTTONS.map((b) => b.id as string) }))
+    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ ...c, options: FLOOR_BUTTONS.map((b) => b.id as string) }))
     : mode === 'spot'
-    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: [target!, 'other'] }))
-    : dealNameCalls(pool, known, PHOTOS, count, size, rng).map((c) => ({ genus: c.genus, photo: c.photo, mirrored: c.mirrored, options: c.options as string[] }));
-  const answerOf = (call: (typeof calls)[number]) => {
+    ? dealFloorCalls(pool, PHOTOS, count, rng).map((c) => ({ ...c, options: [target!, 'other'] }))
+    : dealNameCalls(pool, known, PHOTOS, count, size, rng).map((c) => ({ ...c, options: c.options as string[] }));
+  const labelOf = (o: string) => (mode === 'floor' ? FLOOR_BUTTONS.find((b) => b.id === o)!.label : o === 'other' ? 'Something else' : genus(o as GenusId).name);
+  return calls.map((call, i) => {
     const g = genus(call.genus);
-    return mode === 'floor' ? g.floor : mode === 'spot' && g.id !== target ? 'other' : g.id;
-  };
-  let right = 0;
-  let i = 0;
-  for (; i < Math.min(picks.length, calls.length); i++) if (picks[i] === answerOf(calls[i])) right++;
-  picks.length = i;
-  const next = () => {
-    if (i >= calls.length) {
-      body.replaceChildren(el('p.fig-readout', {}, `${ctx.save.talk ? 'Radio check' : 'Check'} done: ${right} of ${calls.length} right.`));
-      ctx.score(right, calls.length);
-      t.done();
-      return;
-    }
-    const call = calls[i];
-    const g = genus(call.genus);
-    const answer = answerOf(call);
-    pic.replaceChildren(picture(call.genus, call.photo, i, call.mirrored));
-    const labelOf = (o: string) => (mode === 'floor' ? FLOOR_BUTTONS.find((b) => b.id === o)!.label : o === 'other' ? 'Something else' : genus(o as GenusId).name);
-    const buttons = call.options.map((o) => {
-      const b = el('button.btn.btn-ghost', { type: 'button' }, labelOf(o)) as HTMLButtonElement;
-      b.addEventListener('click', () => {
-        const good = o === answer;
-        if (good) right++;
-        picks.push(o);
-        t.keep({ seed, picks: [...picks] });
-        buttons.forEach((x, k) => {
-          x.disabled = true;
-          if (call.options[k] === answer) x.classList.add('right');
-        });
-        if (!good) b.classList.add('wrong');
-        const where = g.floor === 'tower' ? 'all three floors' : `the ${g.floor} floor`;
-        body.append(
-          el('div.verdict', { className: `verdict ${good ? 'good' : 'bad'}` }, el('p', {}, `${good ? 'Copy that.' : 'Negative.'} That’s ${g.name}, on ${where}. ${g.look}`)),
-          el('div.actions', {}, el('span.count', {}, `${i + 1} / ${calls.length}`), el('button.btn', { type: 'button', onclick: () => { i++; next(); } }, i === calls.length - 1 ? 'Finish' : 'Next')),
-        );
-      });
-      return b;
-    });
-    body.replaceChildren(
-      el('p.task', {}, `Photo ${i + 1} of ${calls.length}: ${mode === 'floor' ? 'which floor?' : mode === 'spot' ? `${genus(target!).name.toLowerCase()} or not?` : 'what is it?'}`),
-      el('div.floor-buttons', {}, buttons),
-    );
-  };
-  next();
-  return node;
-});
+    const answer = mode === 'floor' ? g.floor : mode === 'spot' && g.id !== target ? 'other' : g.id;
+    const where = g.floor === 'tower' ? 'all three floors' : `the ${g.floor} floor`;
+    return {
+      picture: () => el('div.fig-scene', {}, picture(call.genus, call.photo, i, call.mirrored)),
+      ask: mode === 'floor' ? 'A real photo. Which floor is this cloud on?' : mode === 'spot' ? `A real photo. ${genus(target!).name}, or not?` : 'A real photo. What is this cloud?',
+      choices: call.options.map(labelOf),
+      answer: call.options.indexOf(answer),
+      why: `That’s ${g.name}, on ${where}. ${g.look}`,
+      row: true,
+    };
+  });
+}
 
 // ---- Forecasting from the sky -----------------------------------------------
 
@@ -371,53 +322,27 @@ function profileDrawing(p: Profile): SVGSVGElement {
 /** What a forecast question shows above it: the slice through the air, or the sky over the hours. */
 export function forecastPicture(q: Forecast): Element {
   if (q.profile) return profileDrawing(q.profile);
-  return el('div.sky-strip', {}, q.sky.map((s, k) => el('figure', {}, forecastSky(s, k), el('figcaption', {}, s.when))));
+  return el('div.sky-strip', {}, (q.sky ?? []).map((s, k) => el('figure', {}, forecastSky(s, k), el('figcaption', {}, s.when))));
 }
 
-export const forecastFigure = quiz((ctx, t, options) => {
-  // Questions from town come last, in order, after the rest shuffled.
-  const all = (options?.items as Forecast[]) ?? [];
-  // The order and the answers given so far, kept for a reader who comes back.
-  const kept = t.kept as { seed?: unknown; picks?: unknown } | undefined;
-  const seed = typeof kept?.seed === 'number' ? kept.seed : freshSeed();
-  const picks: number[] = Array.isArray(kept?.picks) ? kept.picks.filter((x): x is number => typeof x === 'number') : [];
-  const items = [...shuffle(all.filter((q) => !q.id), makeRng(seed)), ...all.filter((q) => q.id)];
-  const body = el('div');
-  const node = el('div.fig-body', {}, body);
-  let right = 0;
-  let i = 0;
-  for (; i < Math.min(picks.length, items.length); i++) if (picks[i] === items[i].answer) right++;
-  picks.length = i;
-  const next = () => {
-    if (i >= items.length) {
-      body.replaceChildren(el('p.fig-readout', {}, `Forecasts done: ${right} of ${items.length} right.`));
-      ctx.score(right, items.length);
-      t.done();
-      return;
-    }
-    const q = items[i];
-    const readings = q.instruments ? el('ul.readings', {}, ...q.instruments.map((r) => el('li', {}, r))) : null;
-    const buttons = q.options.map((o, k) => {
-      const b = el('button.btn.btn-ghost.wide', { type: 'button' }, o) as HTMLButtonElement;
-      b.addEventListener('click', () => {
-        const good = k === q.answer;
-        if (good) right++;
-        picks.push(k);
-        t.keep({ seed, picks: [...picks] });
-        buttons.forEach((x, j) => {
-          x.disabled = true;
-          if (j === q.answer) x.classList.add('right');
-        });
-        if (!good) b.classList.add('wrong');
-        body.append(el('div.verdict', { className: `verdict ${good ? 'good' : 'bad'}` }, el('p', {}, q.why)));
-        body.append(
-          el('div.actions', {}, el('span.count', {}, `${i + 1} / ${items.length}`), el('button.btn', { type: 'button', onclick: () => { i++; next(); } }, i === items.length - 1 ? 'Finish' : 'Next')),
-        );
-      });
-      return b;
-    });
-    body.replaceChildren(forecastPicture(q), readings ?? '', el('p.task', {}, q.question), el('div.answer-list', {}, buttons));
-  };
-  next();
-  return node;
+/**
+ * The check that ends a lesson (lesson-kit's check.ts): options.photos, the
+ * real photos to name or place first (PhotoCalls), then options.items, the
+ * forecasts, shuffled, with those that have an id last in their order.
+ */
+export const checkFigure = check((_ctx, options, rng) => {
+  const items = (options?.items as Forecast[]) ?? [];
+  const photos = options?.photos as PhotoCalls | undefined;
+  const forecasts = [...shuffle(items.filter((q) => !q.id), rng), ...items.filter((q) => q.id)];
+  return [
+    ...(photos ? photoSteps(photos, rng) : []),
+    ...forecasts.map((q): CheckStep => ({
+      picture: q.sky || q.profile ? () => forecastPicture(q) : undefined,
+      extra: q.instruments ? () => el('ul.readings', {}, ...q.instruments!.map((r) => el('li', {}, r))) : undefined,
+      ask: q.question,
+      choices: q.options,
+      answer: q.answer,
+      why: q.why,
+    })),
+  ];
 });

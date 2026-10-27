@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "wind-open",
@@ -29,58 +29,10 @@
       "when": "Tuesday, October 6, 1931 · 8:50 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. Air moving north across Washington. Which way does the turning Earth bend it?",
-          "replies": [
-            {
-              "say": "To its right, towards the east.",
-              "back": "Right. North of the equator, always to the right.",
-              "right": true
-            },
-            {
-              "say": "To its left, towards the west.",
-              "back": "That’s south of the equator. Up here it’s to the right."
-            },
-            {
-              "say": "Not at all, it’s going north.",
-              "back": "Any direction gets bent, north included. To the right, here."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions. Read me the wind."
         },
         {
-          "them": "The isobars on tomorrow’s map are packed tight over the Basin. What do you tell the wheat men?",
-          "replies": [
-            {
-              "say": "Expect a hard wind.",
-              "back": "Right. Tight lines, steep push, strong wind. Tie down the tarps.",
-              "right": true
-            },
-            {
-              "say": "Expect a calm day.",
-              "back": "Other way round. Crowded lines mean a strong wind."
-            },
-            {
-              "say": "Expect rain.",
-              "back": "Maybe, maybe not. What the crowding tells you for sure is wind."
-            }
-          ]
-        },
-        {
-          "them": "Last one. Why does the wind at the ground slant into a low, when the wind aloft runs along the lines?",
-          "replies": [
-            {
-              "say": "Friction slows it, so the turn weakens.",
-              "back": "That’s it. And the air that leaks in has to go up, which is your cloud. Seventy-three.",
-              "right": true
-            },
-            {
-              "say": "The ground air is heavier.",
-              "back": "Not the reason. Friction slows it, the turn weakens, and the push wins a little."
-            },
-            {
-              "say": "The sun pulls it in.",
-              "back": "No. Friction slows it, and a slower wind is turned less."
-            }
-          ]
+          "them": "Now you know why it goes round. The coast next."
         }
       ]
     }

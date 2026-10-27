@@ -1,5 +1,5 @@
-// The radio check at the end of a shift: photos are shown one at a time and the
-// watcher calls in what each one is. Dealing is seeded, so a check can be
+// The photos that open the check at the end of a lesson: shown one at a time,
+// and the reader calls in what each one is. Dealing is seeded, so a check can be
 // dealt again exactly.
 
 import { genus, type Floor, type GenusId } from './clouds';

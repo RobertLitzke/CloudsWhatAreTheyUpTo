@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "fog-open",
@@ -29,58 +29,7 @@
       "when": "Tuesday, June 2, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla again. Three questions over the air, like a Bureau examination, only friendlier. First: what kind of night makes fog by dawn?",
-          "replies": [
-            {
-              "say": "Clear, still and damp.",
-              "back": "That’s it. A clear sky lets the ground lose its heat, no wind leaves the chilled air lying on the ground, and damp air has its dew point close by.",
-              "right": true
-            },
-            {
-              "say": "Cloudy and windy.",
-              "back": "Backwards. Cloud keeps the ground warm like a blanket, and wind stirs the cold air away. Clear, still and damp is the recipe."
-            },
-            {
-              "say": "Any night after rain.",
-              "back": "Damp helps, but a cloudy or breezy night after rain stays clear at the ground. You need clear and still as well."
-            }
-          ]
-        },
-        {
-          "them": "Second. The thermometer reads 26 degrees this morning and the dew point is 14. Where will the puffy clouds put their flat bottoms?",
-          "replies": [
-            {
-              "say": "About 1,500 metres up.",
-              "back": "Twelve degrees of gap at 125 metres a degree. Right on the nose.",
-              "right": true
-            },
-            {
-              "say": "About 125 metres up.",
-              "back": "That’s one degree’s worth, and you’ve got twelve. Twelve times 125 is 1,500 metres."
-            },
-            {
-              "say": "On the ground, as fog.",
-              "back": "Only if there were no gap at all. Twelve degrees at 125 metres a degree puts the base around 1,500 metres."
-            }
-          ]
-        },
-        {
-          "them": "Last one. Small heaps that stay small all afternoon. What do they say?",
-          "replies": [
-            {
-              "say": "Fair weather. They fade by sunset.",
-              "back": "Right. Hay can stay out under those.",
-              "right": true
-            },
-            {
-              "say": "Rain by evening.",
-              "back": "Not while they stay small. A heap has to grow tall to rain. Small ones are fair weather and fade at sunset."
-            },
-            {
-              "say": "A storm tomorrow.",
-              "back": "They say nothing about tomorrow. Small heaps that stay small are fair weather, and fade at sunset."
-            }
-          ]
+          "them": "Harrow, Walla Walla again. A few questions over the air, like a Bureau examination, only friendlier. Some photographs first, then some skies."
         },
         {
           "them": "Fog and heaps, blankets and bubbles: the two textures of the whole sky. Next lesson, grey skies."

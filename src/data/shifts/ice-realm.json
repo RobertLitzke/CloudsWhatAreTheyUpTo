@@ -240,38 +240,43 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Name each cloud.",
+          "figure": "check",
+          "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
           "options": {
-            "mode": "name",
-            "pool": [
-              "cirrus",
-              "cirrostratus",
-              "cirrocumulus",
-              "altostratus",
-              "nimbostratus",
-              "stratocumulus"
-            ],
-            "known": [
-              "cirrus",
-              "cirrostratus",
-              "cirrocumulus",
-              "altocumulus",
-              "altostratus",
-              "nimbostratus",
-              "stratocumulus",
-              "stratus",
-              "cumulus"
-            ],
-            "count": 6
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "The sky over a few hours. What is it up to?",
-          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "cirrus",
+                "cirrostratus",
+                "cirrocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrostratus",
+                "cirrocumulus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus"
+              ],
+              "count": 4
+            },
             "items": [
+              {
+                "question": "A warm front is on its way. In what order do its clouds arrive?",
+                "options": [
+                  "Low clouds first, then the higher layers build on top of them",
+                  "High clouds first, then middle, then low, as the front draws near",
+                  "All three floors at once, as the front arrives in a single wall"
+                ],
+                "answer": 1,
+                "why": "The warm air slides up over the cold along a long, gentle slope, so its highest clouds arrive first, far out ahead. The sky then lowers floor by floor, like a lid closing, and each step means the front is that much closer."
+              },
               {
                 "id": "binder",
                 "sky": [

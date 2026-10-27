@@ -273,39 +273,44 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Name each cloud.",
+          "figure": "check",
+          "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
           "options": {
-            "mode": "name",
-            "pool": [
-              "cumulonimbus",
-              "cumulus",
-              "nimbostratus",
-              "altocumulus",
-              "stratocumulus",
-              "cirrostratus"
-            ],
-            "known": [
-              "cirrus",
-              "cirrocumulus",
-              "cirrostratus",
-              "altocumulus",
-              "altostratus",
-              "nimbostratus",
-              "stratocumulus",
-              "stratus",
-              "cumulus",
-              "cumulonimbus"
-            ],
-            "count": 6
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "The sky over a few hours. What is it up to?",
-          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "cumulonimbus",
+                "cumulus",
+                "nimbostratus",
+                "altocumulus",
+                "stratocumulus",
+                "cirrostratus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrocumulus",
+                "cirrostratus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "cumulonimbus"
+              ],
+              "count": 4
+            },
             "items": [
+              {
+                "question": "When in a thunderstorm’s life does it throw its lightning and downpours?",
+                "options": [
+                  "The growing stage, while the updraught is at its very strongest",
+                  "The dissipating stage, as the storm finally rains itself out",
+                  "The mature stage, once a downdraught runs beside the updraught"
+                ],
+                "answer": 2,
+                "why": "Growing, the storm is all updraught. The trouble starts when rain and hail drag a downdraught down beside it: that mature stage is when you want everybody under a roof. Dissipating, it is raining itself out."
+              },
               {
                 "id": "fair",
                 "sky": [

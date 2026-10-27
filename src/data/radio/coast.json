@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "coast-open",
@@ -29,58 +29,10 @@
       "when": "Tuesday, October 13, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. North wind down the Oregon coast all week in July. What does the sea at the beach do?",
-          "replies": [
-            {
-              "say": "Gets colder.",
-              "back": "Right. The top water drifts off to sea and the cold comes up from below.",
-              "right": true
-            },
-            {
-              "say": "Gets warmer.",
-              "back": "Other way. The surface water goes offshore and cold water comes up to take its place."
-            },
-            {
-              "say": "Nothing.",
-              "back": "It gets colder. The wind sends the top water out to sea, and the deep water rises."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions, from the beach this time."
         },
         {
-          "them": "Why don’t the heaps grow over the summer beach?",
-          "replies": [
-            {
-              "say": "They hit the warm lid and stop.",
-              "back": "That’s it. Sinking air from the high keeps the top warm and the sea keeps the bottom cold.",
-              "right": true
-            },
-            {
-              "say": "Not enough water in the air.",
-              "back": "Plenty of water down there; it’s foggy. What’s missing is a warm bottom under a cool top."
-            },
-            {
-              "say": "The wind blows them away.",
-              "back": "No. They stop at the lid a few hundred feet up."
-            }
-          ]
-        },
-        {
-          "them": "Last one. When does the coast get what thunder it does?",
-          "replies": [
-            {
-              "say": "Autumn and winter, behind the cold fronts.",
-              "back": "Right. Cold air over a warmer sea. Hail pellets and a clap or two. Seventy-three.",
-              "right": true
-            },
-            {
-              "say": "High summer.",
-              "back": "That’s when it’s least likely. Autumn and winter, behind the cold fronts."
-            },
-            {
-              "say": "Never.",
-              "back": "Almost never. What there is comes in autumn and winter, behind the cold fronts."
-            }
-          ]
+          "them": "Grey summers and quiet skies. Next, the winter rain."
         }
       ]
     }

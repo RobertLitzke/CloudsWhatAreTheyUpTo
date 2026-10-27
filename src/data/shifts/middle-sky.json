@@ -309,27 +309,38 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Which floor is each cloud on?",
+          "figure": "check",
+          "caption": "Real photos to place on their floors, then the sky right now. Which floor, and what is it?",
           "options": {
-            "mode": "floor",
-            "pool": [
-              "stratocumulus",
-              "altocumulus",
-              "cirrocumulus",
-              "stratus",
-              "cumulus",
-              "cirrus"
-            ],
-            "count": 8
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "The sky right now. Which floor, and what is it?",
-          "options": {
+            "photos": {
+              "mode": "floor",
+              "pool": [
+                "stratocumulus",
+                "altocumulus",
+                "cirrocumulus",
+                "stratus",
+                "cumulus",
+                "cirrus"
+              ],
+              "count": 5
+            },
             "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "Now"
+                  }
+                ],
+                "question": "A lumpy layer of cloud sits on the middle floor. Build its name.",
+                "options": [
+                  "Cirrostratus: cirro- for the height, stratus for the layer",
+                  "Stratocumulus: stratus for the layer, cumulus for the lumps",
+                  "Altocumulus: alto- for the middle floor, cumulus for the lumps"
+                ],
+                "answer": 2,
+                "why": "Alto- names the middle floor and cumulus the lumps. Cirrostratus is a smooth veil up high, and stratocumulus is the lumpy sheet on the low floor."
+              },
               {
                 "id": "how-high",
                 "sky": [

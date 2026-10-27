@@ -146,37 +146,32 @@
     },
     {
      "kind": "figure",
-     "figure": "radioCheck",
-     "caption": "Real photos. Name each cloud.",
+     "figure": "check",
+     "caption": "Real photos to name, then a sky and what the wind and the mountains are doing. What is it up to?",
      "options": {
-      "mode": "name",
-      "pool": [
-       "nimbostratus",
-       "stratus",
-       "stratocumulus",
-       "cumulus",
-       "cumulonimbus"
-      ],
-      "known": [
-       "cirrus",
-       "cirrocumulus",
-       "cirrostratus",
-       "altocumulus",
-       "altostratus",
-       "nimbostratus",
-       "stratocumulus",
-       "stratus",
-       "cumulus",
-       "cumulonimbus"
-      ],
-      "count": 5
-     }
-    },
-    {
-     "kind": "figure",
-     "figure": "forecast",
-     "caption": "A sky, and what the wind and the mountains are doing. What is it up to?",
-     "options": {
+      "photos": {
+       "mode": "name",
+       "pool": [
+        "nimbostratus",
+        "stratus",
+        "stratocumulus",
+        "cumulus",
+        "cumulonimbus"
+       ],
+       "known": [
+        "cirrus",
+        "cirrocumulus",
+        "cirrostratus",
+        "altocumulus",
+        "altostratus",
+        "nimbostratus",
+        "stratocumulus",
+        "stratus",
+        "cumulus",
+        "cumulonimbus"
+       ],
+       "count": 4
+      },
       "items": [
        {
         "sky": [

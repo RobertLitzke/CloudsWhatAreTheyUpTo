@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { compose, genus, type Body, type Prefix } from '../src/core/clouds';
 import { photoFile, problems, type Photo } from '../src/core/photos';
-import { BRANCHES, FIGURE_IDS, JOURNAL, SHIFTS, TREE_LESSONS, type Block, type Forecast, type Shift } from '../src/core/shifts';
+import { BRANCHES, FIGURE_IDS, JOURNAL, SHIFTS, TREE_LESSONS, type Block, type Forecast, type PhotoCalls, type Shift } from '../src/core/shifts';
 import { GLOSSARY } from '../src/core/glossary';
 import { footnoteProblems } from 'lesson-kit/footnote';
 import { glossaryProblems } from 'lesson-kit/glossary';
@@ -43,13 +43,12 @@ describe('shifts', () => {
     for (const s of SHIFTS) for (const j of s.journal) expect(JOURNAL[j], j).toBeDefined();
   });
 
-  it('use only known figures, and end with a radio check', () => {
+  it('use only known figures, and end with one check', () => {
     for (const s of SHIFTS) {
       expect(s.parts.length, s.id).toBeGreaterThan(1);
       for (const b of blocks(s)) if (b.kind === 'figure') expect(FIGURE_IDS, b.figure).toContain(b.figure);
       const check = s.parts.at(-1)!.blocks.filter((b) => b.kind === 'figure').map((b) => (b as { figure: string }).figure);
-      expect(check.length, s.id).toBeGreaterThan(0);
-      expect(check.every((f) => f === 'radioCheck' || f === 'forecast'), s.id).toBe(true);
+      expect(check, s.id).toEqual(['check']);
     }
   });
 
@@ -74,11 +73,12 @@ describe('shifts', () => {
   it('ask forecasts with an answer among the options', () => {
     for (const s of SHIFTS) {
       for (const b of blocks(s)) {
-        if (b.kind !== 'figure' || b.figure !== 'forecast') continue;
+        if (b.kind !== 'figure' || b.figure !== 'check') continue;
         for (const q of b.options!.items as Forecast[]) {
           expect(q.answer).toBeGreaterThanOrEqual(0);
           expect(q.answer).toBeLessThan(q.options.length);
-          expect(q.sky.length).toBeGreaterThan(0);
+          if (q.sky) expect(q.sky.length).toBeGreaterThan(0);
+          expect(q.why.trim(), q.question).not.toBe('');
         }
       }
     }
@@ -137,13 +137,15 @@ describe('shifts', () => {
     for (const s of SHIFTS) {
       for (const g of s.clouds) met.add(g);
       for (const b of blocks(s)) {
-        if (b.kind !== 'figure' || b.figure !== 'radioCheck' || b.options?.mode !== 'name') continue;
-        for (const g of b.options.pool as string[]) expect([...met], `${s.id} ${g}`).toContain(g);
+        const photos = b.kind === 'figure' && b.figure === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
+        if (photos?.mode !== 'name') continue;
+        for (const g of photos.pool!) expect([...met], `${s.id} ${g}`).toContain(g);
       }
       for (const b of blocks(s)) {
-        if (b.kind !== 'figure' || b.figure !== 'radioCheck' || b.options?.mode !== 'spot') continue;
-        expect([...met], `${s.id} spot`).toContain(b.options.target);
-        expect((b.options.decoys as string[]).length, s.id).toBeGreaterThan(0);
+        const photos = b.kind === 'figure' && b.figure === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
+        if (photos?.mode !== 'spot') continue;
+        expect([...met], `${s.id} spot`).toContain(photos.target);
+        expect(photos.decoys!.length, s.id).toBeGreaterThan(0);
       }
     }
   });

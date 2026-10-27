@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "ice-realm-open",
@@ -29,58 +29,7 @@
       "when": "Tuesday, July 28, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. There’s a ring round the sun. Hold your hand out at arm’s length: about how far is it from the sun to the ring?",
-          "replies": [
-            {
-              "say": "About a spread hand.",
-              "back": "Twenty-two degrees, a spread hand at arm’s length. Every halo, every time.",
-              "right": true
-            },
-            {
-              "say": "About a thumb.",
-              "back": "Much bigger than that. Twenty-two degrees is a whole spread hand at arm’s length."
-            },
-            {
-              "say": "It depends on the day.",
-              "back": "That’s the beauty of it: it never does. The crystals bend the light by the same 22 degrees every time."
-            }
-          ]
-        },
-        {
-          "them": "A warm front is on its way. In what order do its clouds arrive?",
-          "replies": [
-            {
-              "say": "High clouds first, then middle, then low.",
-              "back": "Top down, like a lid closing. Each step means the front is that much closer.",
-              "right": true
-            },
-            {
-              "say": "Low clouds first.",
-              "back": "Backwards. The warm air slides up over the cold along a long, gentle slope, so the highest clouds arrive first, far out ahead."
-            },
-            {
-              "say": "All at once.",
-              "back": "Then nobody would get any warning. High first, then middle, then low."
-            }
-          ]
-        },
-        {
-          "them": "The sun is a dim disc, as if behind frosted glass, and shadows have gone. Which cloud?",
-          "replies": [
-            {
-              "say": "Altostratus.",
-              "back": "Right. Rain in a few hours, likely.",
-              "right": true
-            },
-            {
-              "say": "Cirrostratus.",
-              "back": "Cirrostratus leaves the sun sharp, with shadows and maybe a halo. Frosted glass is altostratus."
-            },
-            {
-              "say": "Nimbostratus.",
-              "back": "Nimbostratus hides the sun entirely. A dim disc is altostratus."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions. Read me the high sky."
         },
         {
           "them": "Now you can give a farmer a timetable instead of a shrug. Next lesson, thunderstorms."

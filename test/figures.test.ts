@@ -100,8 +100,15 @@ describe('figures coming back after the reader left', () => {
   });
 
   it('checks come back with their answers, and finish with the same score', async () => {
-    for (const id of ['radioCheck', 'forecast'] as const) {
-      const use = uses.find((u) => u.block.figure === id)!.block;
+    // A check with photos (floor and name) and one of forecasts alone.
+    const checks = uses.filter((u) => u.block.figure === 'check');
+    const picked = [
+      checks.find((u) => (u.block.options?.photos as { mode?: string } | undefined)?.mode === 'floor')!,
+      checks.find((u) => (u.block.options?.photos as { mode?: string } | undefined)?.mode === 'name')!,
+      checks.find((u) => !u.block.options?.photos)!,
+    ];
+    for (const [k, { block: use }] of picked.entries()) {
+      const id = 'check' as const;
       let kept: unknown;
       let score: [number, number] | undefined;
       const first = FIGURES[id](memoCtx(undefined, (v) => (kept = v), (r, n) => (score = [r, n])), use.goal, use.options).node;
@@ -110,10 +117,10 @@ describe('figures coming back after the reader left', () => {
         (first.querySelector<HTMLButtonElement>('.floor-buttons button:not([disabled]), .answer-list button:not([disabled])'))?.click();
         (first.querySelector<HTMLButtonElement>('.actions .btn'))?.click();
       }
-      expect(score, id).toBeDefined();
+      expect(score, `check ${k}`).toBeDefined();
       let again: [number, number] | undefined;
       const handle = FIGURES[id](memoCtx(JSON.parse(JSON.stringify(kept)), () => {}, (r, n) => (again = [r, n])), use.goal, use.options);
-      expect(again, `${id} same score`).toEqual(score);
+      expect(again, `check ${k} same score`).toEqual(score);
       await handle.done;
     }
   });

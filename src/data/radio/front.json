@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "front-open",
@@ -29,58 +29,7 @@
       "when": "Tuesday, September 29, 1931 · 9:20 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. A storm goes by. When does the barometer stop falling and start to climb?",
-          "replies": [
-            {
-              "say": "Behind the cold front.",
-              "back": "The squall goes through, the wind swings northwest, and up she goes.",
-              "right": true
-            },
-            {
-              "say": "When the rain starts.",
-              "back": "No, it’s still falling then. It bottoms out at the cold front and climbs behind it."
-            },
-            {
-              "say": "At the warm front.",
-              "back": "It steadies there, but it doesn’t climb until the cold front has gone by."
-            }
-          ]
-        },
-        {
-          "them": "Stand with your back to the wind. Where is the low?",
-          "replies": [
-            {
-              "say": "On my left.",
-              "back": "Right. Buys Ballot’s rule, from the Dutchman who wrote it down in 1857.",
-              "right": true
-            },
-            {
-              "say": "On my right.",
-              "back": "Other side. With your back to the wind, low pressure is on your left."
-            },
-            {
-              "say": "Straight ahead.",
-              "back": "The wind circles a low rather than blowing into it. Back to the wind, the low is on your left."
-            }
-          ]
-        },
-        {
-          "them": "Which hour is the worst to be flying through?",
-          "replies": [
-            {
-              "say": "Under the cold front’s squall line.",
-              "back": "Gusts, towers, maybe hail. Sit that hour out in the hangar.",
-              "right": true
-            },
-            {
-              "say": "In the warm front’s steady rain.",
-              "back": "Low and wet, but smooth. It’s the cold front’s line of towers that bites."
-            },
-            {
-              "say": "In the warm sector.",
-              "back": "Mild and muggy there. It’s the cold front’s line of towers that bites."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions. Sky, barometer and wind together this time."
         },
         {
           "them": "That’s a whole storm read. One more lesson, for the winter."

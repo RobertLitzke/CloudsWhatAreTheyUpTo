@@ -350,6 +350,25 @@ body.radio-up main { padding-bottom: 50vh; }
 .fig-body .task { margin-top: 12px; }
 .fig-body .actions { margin-bottom: 10px; }
 
+/* The lesson's check (check.ts): one run of questions. Over the radio, the
+   other station's lines are typed on a strip of slip paper around them. */
+.check-wire {
+  background: #f4ead2;
+  color: #2b2620;
+  font: 14px/1.5 'Special Elite', 'Courier New', monospace;
+  padding: 10px 12px;
+  border-radius: 3px;
+  margin-top: 12px;
+}
+.check-wire p { margin: 0; }
+.check-wire .check-wire-head { font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px dashed rgba(43, 38, 32, 0.4); padding-bottom: 4px; margin-bottom: 6px; }
+.check-wire-head span { display: block; text-transform: none; letter-spacing: 0; opacity: 0.7; }
+.check-wire-end { margin: 10px 0 12px; }
+.check-count { font: 500 0.8rem/1 var(--display); letter-spacing: 0.1em; color: var(--ink-soft); margin: 12px 0 10px; }
+.check-count:empty { display: none; }
+.fig-body > .check-picture { margin-left: 0; margin-right: 0; }
+.check-picture:empty { display: none; }
+
 .gate { margin: 26px 0 0; text-align: center; }
 .gate-hint { margin: 0; font-size: 0.85rem; color: var(--ink-soft); }
 .log { margin-top: 30px; }

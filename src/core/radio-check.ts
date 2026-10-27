@@ -1,5 +1,5 @@
-// The radio check that ends a shift: a photo (or a drawing) is called in by
-// name. Wrong answers are the clouds it is really mistaken for, as in Syrinx:
+// Naming the photos in the check that ends a lesson: a photo (or a drawing)
+// is called in by name. Wrong answers are the clouds it is really mistaken for, as in Syrinx:
 // a cirrostratus against cumulus and stratus would be a free mark.
 
 import { GENERA, genus, type GenusId } from './clouds';

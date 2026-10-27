@@ -32,6 +32,7 @@ the others by hand.
 | `tree` | The home page's lesson tree: `treeView`, `treeStates`, `nextLesson`, `treeProblems`, `TreeLesson`, `TreeBranch` |
 | `units` | `height(m, units)`, `feet`, `deg`, `temp` |
 | `figure` | What a figure is: `figure(goals, build)`, `quiz(build)`, `frame`, `slider`, `animate`, guess-first helpers (`lock`, `choices`, `lockIn`, `placeable`) |
+| `check` | `check((ctx, options, rng) => steps)`, the figure that ends a lesson: one run of questions (each a picture, a question, choices, an answer and a why) under one count and one score, framed by the radio when it is on |
 | `draw` | SVG pieces: `still`, `label`/`small`/`note`/`heading`, `line`, `polyline`, `arrow`, `wavy`, `curve`, `hexagon`, `redraw` |
 | `lesson` | The lesson JSON types, `prose(text, palette, notes?)`, `lessonView(options)` (the lesson player and log card), `lessonTexts()`, `lessonProblems()` for content tests |
 | `footnote` | Footnotes that open in a popup: `footnoteSet`, `footnoteMarker`, `openFootnote`, `closeFootnote`, `footnoteLegend`, `footnoteProblems` |
@@ -169,7 +170,18 @@ export const leverFigure = figure(['balance'], (_ctx, t) => {
 A **still** is a plain function that returns `{ node }`, built with
 `still(w, h)` from `draw`. A **quiz** figure is `quiz((ctx, t) => …)`. It
 reports the reader's score with `ctx.score(right, of)` and calls `t.done()`
-once it has been answered. The lesson's check is a quiz figure.
+once it has been answered. The lesson's check is a quiz figure, and usually
+one made with `check`: give it a function that turns the block's options
+(and a seeded `rng`, for shuffles and deals) into steps, and it asks them one
+at a time, explains each answer, keeps the answers for a reader who leaves,
+and reports one score. Put every kind of question (photos, diagrams, plain
+questions) into that one check, so the lesson ends in one thing, not several:
+
+```ts
+export const checkFigure = check((ctx, options, rng) => shuffle(options!.items as Q[], rng).map((q) => ({
+  picture: () => drawing(q), ask: q.question, choices: q.options, answer: q.answer, why: q.why,
+})));
+```
 
 Use `animate(node, ctx, dt => …)` for motion. It runs only while the figure
 is on screen and stops when the lesson closes. Guess-first figures lock
@@ -209,7 +221,7 @@ if (typeof t.kept === 'number') { pick.pick(t.kept); markIt.click(); }
 
 For a quiz, keep the random seed and the answers, and on build replay the
 answers and go on from the next question; a finished one reports its score
-again. Clouds' `quizzes.ts` (radio check, forecast, sort, names) and its six
+again. Clouds' `quizzes.ts` (the check, sort, names) and its six
 guess-first figures show how.
 
 On the lesson board, show "Continue" instead of "Start" when
@@ -421,8 +433,13 @@ lessonView({ …, radio: { talks: (id) => TALKS[id] ?? [], play: slip.play, clea
 ```
 
 A talk has `{ id, cue: 'start' | 'check', when, turns: [{ them, replies?: [{ say, back?, right?, off? }] }] }`.
-It plays once, when the lesson opens (`start`) or after the check
-(`check`), and only if the reader has the radio on. Pass `radio: { blurb }`
+The `start` talk plays once, on the slip, when the lesson opens, and only if
+the reader has the radio on. The `check` talk is not played: with the radio
+on, `lessonView` hands it to the check's figures as `ctx.radio`, and a `check`
+figure types its first line above the questions and its last line under the
+score, so the questions come over the air without a second quiz. Give it two
+turns with no replies. Pass `them: stations.them` in `radio` to head it with
+the call sign. Pass `radio: { blurb }`
 to `settingsView` to show the on/off switch.
 
 ### Tests

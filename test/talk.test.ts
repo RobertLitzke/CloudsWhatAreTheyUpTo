@@ -20,13 +20,14 @@ describe('radio talks', () => {
     }
   });
 
-  it('give every lesson an opening and a closing quiz, and nothing in between', () => {
+  it('give every lesson an opening, and lines around its check, and nothing in between', () => {
     for (const s of SHIFTS) {
       const talks = radioFor(s.id).talks;
       expect(talks.map((t) => t.cue), s.id).toEqual(['start', 'check']);
-      // The closing talk is a quiz: at least three questions, each with a right answer.
-      const questions = talks[1].turns.filter((t) => t.replies?.some((r) => r.right));
-      expect(questions.length, s.id).toBeGreaterThanOrEqual(3);
+      // The check's talk is not played: it opens and closes the check's own
+      // questions, so it asks none of its own.
+      expect(talks[1].turns.length, s.id).toBe(2);
+      expect(talks[1].turns.every((t) => !t.replies), s.id).toBe(true);
     }
   });
 

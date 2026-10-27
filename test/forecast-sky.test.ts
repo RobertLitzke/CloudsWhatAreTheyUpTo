@@ -8,7 +8,7 @@ import { forecastSky } from '../src/app/scene/forecast-sky';
 import { SHIFTS, type Forecast } from '../src/core/shifts';
 
 const items: Forecast[] = SHIFTS.flatMap((s) => s.parts.flatMap((p) => p.blocks.flatMap((b) =>
-  b.kind === 'figure' && b.figure === 'forecast' ? (b.options!.items as Forecast[]) : [])));
+  b.kind === 'figure' && b.figure === 'check' ? (b.options!.items as Forecast[]) : []))).filter((q) => q.sky || q.profile);
 
 describe('forecast skies', () => {
   it('draw every question', () => {

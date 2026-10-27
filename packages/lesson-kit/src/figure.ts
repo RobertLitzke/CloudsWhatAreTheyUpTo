@@ -8,6 +8,7 @@
 
 import { el, svg, type Child } from './dom';
 import type { Progress } from './progress';
+import type { Talk } from './radio';
 
 export interface FigureContext {
   /** The reader's progress and settings (units, the radio); an app may pass its own larger save. */
@@ -18,6 +19,11 @@ export interface FigureContext {
   score: (right: number, of: number) => void;
   /** This block's memory across visits, when the lesson keeps one (resume.ts); see Task. */
   memo?: Memo;
+  /**
+   * In the lesson's check, with the radio on: the check's talk, which frames
+   * the questions (check.ts), and the station it comes from.
+   */
+  radio?: { talk: Talk; them?: { call: string; place: string } };
 }
 
 /** What a lesson remembers of one figure between visits. */

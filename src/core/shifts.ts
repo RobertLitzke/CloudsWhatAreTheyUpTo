@@ -36,7 +36,7 @@ import rivers from '../data/shifts/rivers.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
-  'streaks', 'prism', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'radioCheck', 'forecast',
+  'streaks', 'prism', 'halo', 'front', 'storm', 'flash', 'wave', 'billow', 'mamma', 'sort', 'names', 'check',
   'molecules', 'expand', 'stability', 'heap', 'dayNight', 'radiators', 'fogStratus',
   'edges', 'nameGrid', 'layerKinds', 'subsidence', 'million', 'collide', 'depth',
   'specks', 'inversion', 'burnOff', 'latent', 'kettle', 'density',
@@ -55,6 +55,22 @@ export type FigureId = (typeof FIGURE_IDS)[number];
 export type Block = KitBlock<FigureId>;
 export type Part = KitPart<FigureId>;
 
+/**
+ * The photos a check opens with. mode is 'floor' (call in the floor), 'name'
+ * (call in the genus) or 'spot' (say whether it is target or not, for a
+ * lesson that has met only one cloud; decoys are the others shown, as many as
+ * the target); pool is the genera dealt; known the genera the reader has met
+ * (look-alike answers are drawn from these); count how many.
+ */
+export interface PhotoCalls {
+  mode: 'floor' | 'name' | 'spot';
+  pool?: GenusId[];
+  known?: GenusId[];
+  target?: GenusId;
+  decoys?: GenusId[];
+  count?: number;
+}
+
 /** A forecasting question: a sky over some hours, and what it is up to. */
 export interface Forecast {
   /** Questions with an id come last in the check, after the shuffled ones. */
@@ -62,8 +78,9 @@ export interface Forecast {
   /**
    * The sky over the hours, oldest first; one drawing per entry. Only what the
    * question says has been seen: never a later sky that gives the answer away.
+   * Left out (with no profile) for a question asked in words alone.
    */
-  sky: SkyPanel[];
+  sky?: SkyPanel[];
   /** What the barometer and the wind vane say, shown as readings under the sky. */
   instruments?: string[];
   /** A slice up through the air instead of the sky drawings: the freezing level and the cloud, by height. */

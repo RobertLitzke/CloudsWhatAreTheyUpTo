@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "local-open",
@@ -29,58 +29,7 @@
       "when": "Tuesday, December 1, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. Seattle gets the soaking and we get the leftovers. How does the air come down to us off the Cascades?",
-          "replies": [
-            {
-              "say": "Warmer and drier, warming at the dry rate.",
-              "back": "With no cloud left to slow it. That’s why the rain gauge is so lonely.",
-              "right": true
-            },
-            {
-              "say": "Colder, after the snow on the passes.",
-              "back": "It’s cold at the crest, but it warms all the way down, at the dry rate. It reaches us warmer and drier."
-            },
-            {
-              "say": "Just as moist as it started.",
-              "back": "It left its water on the western slopes. It comes down warmer and drier."
-            }
-          ]
-        },
-        {
-          "them": "A smooth lens cloud sits over the Blue Mountains with the wind blowing forty miles an hour. Why doesn’t it move?",
-          "replies": [
-            {
-              "say": "The wind blows through it. Air turns to cloud in a wave crest and dries out behind.",
-              "back": "Right. The cloud stays put; the air doesn’t.",
-              "right": true
-            },
-            {
-              "say": "The wind can’t reach it up there.",
-              "back": "The wind blows right through it. Air rises into the crest of a standing wave, turns to cloud, and dries out on the way down."
-            },
-            {
-              "say": "It’s frozen solid.",
-              "back": "It’s a standing wave: air rises into the crest, condenses, and evaporates again behind. The cloud stays while the wind blows through."
-            }
-          ]
-        },
-        {
-          "them": "Fog at five below zero, and rime growing on the fences. Are the fog droplets ice?",
-          "replies": [
-            {
-              "say": "No. They’re liquid, supercooled.",
-              "back": "Right. They freeze the moment they touch a fence post.",
-              "right": true
-            },
-            {
-              "say": "Yes. Water freezes at zero.",
-              "back": "Not cloud droplets. With no ice-forming speck they stay liquid far below zero, and freeze when they hit something."
-            },
-            {
-              "say": "Only at night.",
-              "back": "Day or night, they stay liquid, supercooled, and freeze on whatever they touch."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions, the last of the training."
         },
         {
           "them": "That’s the workbook done. You’re a forecaster, Harrow. I’ll stop calling you tenderfoot."

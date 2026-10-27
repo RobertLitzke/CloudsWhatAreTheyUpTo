@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "giants-open",
@@ -29,58 +29,7 @@
       "when": "Tuesday, August 18, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. When does a thunderstorm throw its lightning and downpours?",
-          "replies": [
-            {
-              "say": "The mature stage, once the downdraught starts.",
-              "back": "Updraught and downdraught side by side. That’s when you want everybody under a roof.",
-              "right": true
-            },
-            {
-              "say": "The growing stage.",
-              "back": "Not yet. Growing, it’s all updraught. The trouble starts when rain and hail drag a downdraught down with them: the mature stage."
-            },
-            {
-              "say": "The dissipating stage.",
-              "back": "By then it’s raining itself out. The worst is the mature stage."
-            }
-          ]
-        },
-        {
-          "them": "Flash! Then thunder, nine seconds later. How far off?",
-          "replies": [
-            {
-              "say": "About three kilometres.",
-              "back": "Nine divided by three. And that’s under thirty seconds, so everyone indoors.",
-              "right": true
-            },
-            {
-              "say": "About nine kilometres.",
-              "back": "Divide by three: about three kilometres. Under thirty seconds, so everyone indoors."
-            },
-            {
-              "say": "Too far to worry about.",
-              "back": "Three kilometres is close enough to be struck. Under thirty seconds, get indoors."
-            }
-          ]
-        },
-        {
-          "them": "A hot afternoon, and a sudden cool, gusty wind comes out from under a dark tower. What’s coming?",
-          "replies": [
-            {
-              "say": "The downpour, in 5 to 15 minutes.",
-              "back": "Right. That’s the gust front, running out ahead of the storm.",
-              "right": true
-            },
-            {
-              "say": "Clearing skies.",
-              "back": "Not yet. A cool gust under a tower is the gust front, minutes ahead of the downpour."
-            },
-            {
-              "say": "Nothing. It’s only a breeze.",
-              "back": "It’s the storm’s own cold air spilling out ahead of it. The downpour is 5 to 15 minutes behind."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions, and mind the thunder."
         },
         {
           "them": "And thirty minutes after the last thunder before anybody goes back out. Two lessons left, for autumn and winter."

@@ -273,29 +273,34 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Which floor is each cloud on?",
+          "figure": "check",
+          "caption": "Real photos to place on their floors, then a sky to seed, or not. What would seeding do?",
           "options": {
-            "mode": "floor",
-            "pool": [
-              "stratus",
-              "altocumulus",
-              "altostratus",
-              "cumulus",
-              "cirrus",
-              "cumulonimbus",
-              "stratocumulus",
-              "nimbostratus"
-            ],
-            "count": 8
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "A sky to seed, or not? What would seeding do?",
-          "options": {
+            "photos": {
+              "mode": "floor",
+              "pool": [
+                "stratus",
+                "altocumulus",
+                "altostratus",
+                "cumulus",
+                "cirrus",
+                "cumulonimbus",
+                "stratocumulus",
+                "nimbostratus"
+              ],
+              "count": 5
+            },
             "items": [
+              {
+                "question": "A supercooled cloud sits at −3 °C. Which will make it snow?",
+                "options": [
+                  "Silver iodide, which gives the droplets a crystal to copy",
+                  "Neither: at −3 °C the droplets are too warm to freeze",
+                  "Dry ice, which makes its own ice crystals by sheer cold"
+                ],
+                "answer": 2,
+                "why": "Dry ice works at any temperature below freezing: it chills the air so much that crystals form by themselves. Silver iodide does not wake up until about −5 °C or colder."
+              },
               {
                 "sky": [
                   {

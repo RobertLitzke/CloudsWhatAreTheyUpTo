@@ -377,43 +377,48 @@
         },
         {
           "kind": "figure",
-          "figure": "radioCheck",
-          "caption": "Real photos. Name each cloud.",
+          "figure": "check",
+          "caption": "Real photos to name, then a sky with the barometer and the wind. What is coming?",
           "options": {
-            "mode": "name",
-            "pool": [
-              "cirrus",
-              "cirrocumulus",
-              "cirrostratus",
-              "altocumulus",
-              "altostratus",
-              "nimbostratus",
-              "stratocumulus",
-              "stratus",
-              "cumulus",
-              "cumulonimbus"
-            ],
-            "known": [
-              "cirrus",
-              "cirrocumulus",
-              "cirrostratus",
-              "altocumulus",
-              "altostratus",
-              "nimbostratus",
-              "stratocumulus",
-              "stratus",
-              "cumulus",
-              "cumulonimbus"
-            ],
-            "count": 8
-          }
-        },
-        {
-          "kind": "figure",
-          "figure": "forecast",
-          "caption": "A sky, with the barometer and the wind. What is coming?",
-          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "cirrus",
+                "cirrocumulus",
+                "cirrostratus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "cumulonimbus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrocumulus",
+                "cirrostratus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "cumulonimbus"
+              ],
+              "count": 5
+            },
             "items": [
+              {
+                "question": "Stand with your back to the wind. Where is the low?",
+                "options": [
+                  "On your right",
+                  "On your left",
+                  "Straight ahead, downwind"
+                ],
+                "answer": 1,
+                "why": "Buys Ballot’s rule, written down by a Dutchman in 1857: the wind circles a low rather than blowing into it, so north of the equator, with your back to the wind, the low is on your left."
+              },
               {
                 "sky": [
                   {

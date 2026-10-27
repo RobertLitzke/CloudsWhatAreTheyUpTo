@@ -1,5 +1,5 @@
 {
-  "_howTo": "Radio talks with Walla Walla, typed out on the slip. Each lesson has two: \"start\" comes on as the lesson opens, and \"check\" is a short quiz once the lesson's check is done. Each talk has turns; in each turn Walla Walla says \"them\" and the player picks one of up to three \"replies\" (none means a plain \"Roger. Over.\"). A reply can have a \"back\" line, and \"right\": true marks the right answer to a question (it is never scored). Every reply leads on to the next turn.",
+  "_howTo": "Radio talks with Walla Walla. Each lesson has two: \"start\" is typed out on the slip as the lesson opens, and \"check\" frames the lesson's check: its first line is typed above the check's questions and its last line under the score. In the start talk, each turn has Walla Walla saying \"them\" and the player picking one of up to three \"replies\" (none means a plain \"Roger. Over.\"); a reply can have a \"back\" line, and every reply leads on to the next turn.",
   "talks": [
     {
       "id": "low-sky-open",
@@ -29,58 +29,7 @@
       "when": "Tuesday, June 16, 1931 · 9:10 p.m.",
       "turns": [
         {
-          "them": "Harrow, Walla Walla. Questions. On a hot afternoon the air around gets colder by 12 degrees a kilometre as you go up. A thermal off a stubble field cools at 10. Does it keep rising?",
-          "replies": [
-            {
-              "say": "Yes. It stays warmer than the air around it.",
-              "back": "Right. It cools slower than its neighbours, so it keeps its lead. That’s an unstable day.",
-              "right": true
-            },
-            {
-              "say": "No. It’s cooling, so it sinks.",
-              "back": "Everything that rises cools. What matters is whether it cools faster or slower than the air around it. Ten is slower than twelve, so it keeps going."
-            },
-            {
-              "say": "Only if it makes a cloud.",
-              "back": "No cloud needed. Ten is slower than twelve, so it stays warmer than its neighbours and climbs all on its own."
-            }
-          ]
-        },
-        {
-          "them": "A dark grey sheet overhead. Does dark mean rain?",
-          "replies": [
-            {
-              "say": "Not by itself. Depth matters more.",
-              "back": "Exactly. A thin sheet can look dark and give nothing but drizzle. It takes a deep cloud to grow drops heavy enough to fall.",
-              "right": true
-            },
-            {
-              "say": "Yes, dark clouds rain.",
-              "back": "A thin sheet can look dark and never give more than drizzle. Depth makes rain, not darkness."
-            },
-            {
-              "say": "Only in the afternoon.",
-              "back": "The clock has nothing to do with it. Depth makes rain, not darkness."
-            }
-          ]
-        },
-        {
-          "them": "A lumpy grey sheet with slits of blue has sat overhead all day under high pressure. What is it, and what will it do?",
-          "replies": [
-            {
-              "say": "Stratocumulus. Mostly dry.",
-              "back": "Right. Heaps spread under a lid. Grey, but shallow.",
-              "right": true
-            },
-            {
-              "say": "Nimbostratus. A soaking.",
-              "back": "Nimbostratus is featureless and hides the sun entirely. Lumps with blue between are stratocumulus, and mostly dry."
-            },
-            {
-              "say": "Cumulonimbus. Thunder.",
-              "back": "Under high pressure, with a lid on? No. That’s stratocumulus, spread flat and mostly dry."
-            }
-          ]
+          "them": "Harrow, Walla Walla. Questions. Photographs first, then some grey skies to call."
         },
         {
           "them": "Good. Next lesson we climb higher and sort the whole sky."
