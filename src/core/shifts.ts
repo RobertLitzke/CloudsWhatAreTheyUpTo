@@ -35,6 +35,7 @@ import coast from '../data/shifts/coast.json';
 import rivers from '../data/shifts/rivers.json';
 import violent from '../data/shifts/violent.json';
 import tornado from '../data/shifts/tornado.json';
+import hurricane from '../data/shifts/hurricane.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -53,6 +54,7 @@ export const FIGURE_IDS = [
   'stormTrack', 'atmosphericRiver', 'windward', 'acrossWashington', 'snowLevel', 'convergenceZone',
   'fuelSounding', 'capDay', 'stormSorter', 'hailstone', 'stormRecipe',
   'shearRoll', 'skater', 'supercell', 'hookEcho', 'efScale',
+  'tradeWinds', 'heatEngine', 'shipThrough', 'hurricaneBelt', 'surge',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -221,6 +223,7 @@ export const SHIFTS: readonly Shift[] = [
   // Violent storms, forking off after Lesson 5's thunderstorms.
   fromJson(violent, [], { sky: ['cumulonimbus', 'cumulus'], branch: 'storms', needs: ['giants'] }),
   fromJson(tornado, [], { sky: ['cumulonimbus'], branch: 'storms', needs: ['violent'], betterAfter: ['wind'] }),
+  fromJson(hurricane, [], { sky: ['cumulonimbus', 'cirrostratus'], branch: 'storms', betterAfter: ['wind', 'violent'] }),
 ];
 
 /** A lesson in the tree that is not written yet. */
@@ -245,7 +248,6 @@ export const BRANCHES: readonly TreeBranch[] = [
 
 /** Lessons shown in the tree before they are written: the next branch to come. */
 export const COMING: readonly ComingLesson[] = [
-  { id: 'hurricane', n: 14, title: 'How does a hurricane work?', teaches: 'A storm that feeds on a warm sea, and why it has an eye.', branch: 'storms', betterAfter: ['wind', 'violent'], coming: true },
 ];
 
 /** Every lesson the home page's tree shows, written or coming, in the order the tree lists them. */
@@ -275,4 +277,5 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...rivers.journal,
   ...violent.journal,
   ...tornado.journal,
+  ...hurricane.journal,
 };

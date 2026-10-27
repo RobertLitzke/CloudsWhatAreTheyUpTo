@@ -804,6 +804,66 @@
       ],
       "answer": 0,
       "why": "A tornado reaches down from a storm. A dust devil rises from a bubble of hot air off bare ground, often with no cloud at all."
+    },
+    {
+      "id": "trades",
+      "after": "hurricane",
+      "question": "What are the trade winds?",
+      "options": [
+        "Air that sank around 30° flowing back towards the equator, turned by the Earth",
+        "Winds blowing out of hurricanes",
+        "The jet stream over the tropics"
+      ],
+      "answer": 0,
+      "why": "Air rises at the equator, sinks around 30° north and south, and flows back near the surface: from the north-east north of the equator."
+    },
+    {
+      "id": "warm-sea",
+      "after": "hurricane",
+      "question": "Why does a hurricane need a sea warmer than about 26 °C?",
+      "options": [
+        "The air spiralling in must pick up enough heat and vapour to keep the core warm",
+        "Cold water makes the wind blow the wrong way",
+        "Warm water is lighter and floats the storm"
+      ],
+      "answer": 0,
+      "why": "The vapour picked up from the sea condenses in the eyewall and warms the core, deepening the low. Over cooler water the engine stalls."
+    },
+    {
+      "id": "hurricane-shear",
+      "after": "hurricane",
+      "question": "What does strong wind shear do to a hurricane?",
+      "options": [
+        "Tears it apart, blowing its heat away from the centre",
+        "Makes it spin faster, like a supercell",
+        "Nothing"
+      ],
+      "answer": 0,
+      "why": "A supercell needs shear; a hurricane is killed by it. The top is blown off the bottom and the heat no longer warms the core."
+    },
+    {
+      "id": "eye-calm",
+      "after": "hurricane",
+      "question": "In the eye of a hurricane, what should a ship expect next?",
+      "options": [
+        "The far eyewall, with the wind as strong from the opposite direction",
+        "Clearing skies for good",
+        "A slow rise in the wind from the same direction"
+      ],
+      "answer": 0,
+      "why": "The eye is calm because the air spinning round it cannot get in. Half the storm is still to come."
+    },
+    {
+      "id": "surge-shelf",
+      "after": "hurricane",
+      "question": "Where is a hurricane’s storm surge highest?",
+      "options": [
+        "Over a wide, shallow sea floor",
+        "Over deep water close to the coast",
+        "Far out at sea"
+      ],
+      "answer": 0,
+      "why": "Over deep water the piled-up sea can flow back underneath; over a shallow shelf it can only rise."
     }
   ]
 }

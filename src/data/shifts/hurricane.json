@@ -1,0 +1,302 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "hurricane",
+ "n": 14,
+ "title": "Why does a hurricane need a warm sea?",
+ "teaches": "How does a cluster of tropical showers become a storm 500 kilometres across with a calm, clear eye? The trade winds and the rainy belt at the equator, a heat engine fuelled by warm sea, the eye and the wind that comes back from the other side, what kills a hurricane, and the sea it piles onto the shore.",
+ "parts": [
+  {
+   "title": "Where the trade winds meet",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "Near the equator, the sun heats the sea so much that the air rises in storms every day. The air sinks again around 30° north and south and flows back towards the equator near the surface: the **trade winds**.",
+      "A hurricane is a heat engine. Air spiralling in over a sea warmer than about 26 °C picks up heat and vapour, rises in a ring of towering storms round the centre, and the heat released by its rain deepens the low and drives the wind harder.",
+      "In the middle is the **eye**, calm and often clear, where air sinks. A ship crossing the storm meets the worst wind in the eyewall, a calm, then the same wind again from the opposite direction.",
+      "Hurricanes need the Earth’s turn to start spinning, so none form right at the equator. Cold water, dry air, land and wind shear kill them.",
+      "Most of the deaths come from the sea: the **storm surge**, the ocean piled up against the coast by the wind, highest where the sea floor is wide and shallow."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "Hurricanes are the biggest storms on Earth: 500 kilometres across, with winds over 250 kilometres an hour round a calm, clear hole in the middle, lasting a week or more. They are also the only storms in these lessons that need a particular place to be born. To see why, start at the equator."
+    },
+    {
+     "kind": "text",
+     "text": "The sun stands highest over the tropics, and heats the sea there all year to 27 or 28 °C and more. Above it, warm, damp bubbles rise into heaped clouds and thunderstorms day after day (Lesson 5), along a belt that circles the world near the equator. The air they carry up flows away towards the poles high up, cools, and sinks again around 30° north and south, under the great highs of the coast lesson: the Pacific High is one of them. From there it flows back towards the equator near the surface, turned to its right by the turning Earth (the lesson on wind) into steady winds from the north-east: the **trade winds**, which sailing ships rode west across the Atlantic for three hundred years."
+    },
+    {
+     "kind": "figure",
+     "figure": "tradeWinds",
+     "caption": "A slice of the air from 30° north to 30° south: rising at the equator, sinking at 30°, and flowing back in as the trade winds."
+    },
+    {
+     "kind": "text",
+     "text": "Hurricanes are born in the trade winds, a little away from the equator, from clusters of tropical thunderstorms. Most clusters rain themselves out within a day. One in ten or twenty, in late summer, when the sea is warmest, begins to turn."
+    }
+   ]
+  },
+  {
+   "title": "A heat engine",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "What makes a hurricane different from a storm over land is where its fuel comes from. A thunderstorm on the Plains uses the fuel stored in the air that morning (the lesson on violent storms), and when that is spent, it dies. A hurricane makes its own, all the time, from the sea under it."
+    },
+    {
+     "kind": "text",
+     "text": "Here is how. As soon as a cluster of storms has a low under it, the air near the sea starts to flow in towards the low, turned by the Earth into an anticlockwise spiral (as in the lesson on wind). As it spirals in over hundreds of kilometres of warm sea, it picks up heat and, above all, vapour from the sea surface, faster the harder it blows. In the middle it rises in a ring of towering storms, and the vapour it carries condenses and gives up its heat, which warms the core of the storm all the way up. Warm air is light, so the pressure at the sea under the warm core falls further. A deeper low pulls the air in faster, which picks up more vapour, which warms the core more. The storm feeds itself."
+    },
+    {
+     "kind": "text",
+     "text": "The engine is enormous. The heat a mature hurricane releases in its rain in a single day is a couple of hundred times what all the world’s power stations produce. But it only runs over warm water. Below about 26 °C, through the top 50 metres of the sea, the air spiralling in cannot pick up enough vapour to keep the core warm, and the engine stalls."
+    },
+    {
+     "kind": "figure",
+     "figure": "heatEngine",
+     "caption": "A hurricane from above, over a sea you can warm or cool, with a wind at the top of the storm that you can turn up.",
+     "task": "Make a Category 3 hurricane, then see what the wind at the top does to it.",
+     "goal": "cat3"
+    },
+    {
+     "kind": "text",
+     "text": "Warmth is not enough on its own. The wind must also be much the same at the top of the storm as at the bottom. With wind shear (the lesson on violent storms), the top of the storm is blown sideways off its bottom, and the heat released by the rain is carried away downwind instead of warming the core. A supercell needs shear; a hurricane is killed by it. That is one reason hurricanes come in late summer and autumn, when the sea is warmest and the jet stream, with its strong winds aloft, is far to the north."
+    },
+    {
+     "kind": "text",
+     "text": "**Today:** hurricanes are rated by their wind, on the Saffir-Simpson scale: Category 1 from 119 km/h, Category 3, a major hurricane, from 178, Category 5 from 252. Satellites watch every one from birth, and aircraft fly into them to drop instruments through the eyewall. In 1931, ships at sea radioed in what they met, and many met it unwarned."
+    }
+   ]
+  },
+  {
+   "title": "The eye",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "At the centre of a strong hurricane is its most astonishing feature: a hole, 20 to 60 kilometres across, where the wind falls light and the sky is often clear. The air spiralling in cannot reach the very centre, for the same reason as the wind round any low (the lesson on wind): the faster it spins, the harder the Earth’s turn and its own spin fling it outwards, until it can come no closer and goes up instead, in the ring of storms called the **eyewall**. A little of the air flowing out at the top sinks into the middle, warming and drying as it is squeezed, and clears the eye of cloud."
+    },
+    {
+     "kind": "text",
+     "text": "A ship that sails through a hurricane meets it in a particular order. The barometer falls, slowly and then faster and faster; the wind rises and the sea builds. In the eyewall, the wind is at its worst, the rain blinding. Then, in minutes, the wind drops to a breeze and the sun may come out over a sea still heaving in every direction. Every sailor knows the danger: half the storm is still to come, and when the far eyewall arrives, the wind is back at full strength, from the opposite direction."
+    },
+    {
+     "kind": "figure",
+     "figure": "shipThrough",
+     "caption": "A ship’s course straight through a hurricane, and the wind and barometer it meets.",
+     "task": "Sail the ship through the eye and out the other side.",
+     "goal": "eye"
+    },
+    {
+     "kind": "text",
+     "text": "The pressure in the eye of a strong hurricane is often 70 or 80 hPa below the 1,010 or so outside it, as much as a barometer usually moves in a year. The lowest ever measured at sea level, 870 hPa, was in the eye of Typhoon Tip, over the western Pacific, in 1979.[^names]"
+    }
+   ]
+  },
+  {
+   "title": "Where they form, and what kills them",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Hurricanes form between about 5° and 30° from the equator, never right on it. The Earth’s turn is what starts the air spinning round a low (the lesson on wind), and at the equator the ground does not turn under you at all. A cluster of storms there just stays a cluster."
+    },
+    {
+     "kind": "figure",
+     "figure": "hurricaneBelt",
+     "caption": "Where hurricanes form, and the paths they usually follow."
+    },
+    {
+     "kind": "text",
+     "text": "Once formed, they are carried west by the trade winds, then usually curve away from the equator round the edge of the highs, and are picked up by the westerlies and swept north-east. Along the way, four things kill them: cold water, which shuts off the fuel; dry air, which sucks the vapour out; land, which cuts off the sea altogether and drags on the wind; and shear, when they reach the westerlies. Some, carried north into the westerlies, change into ordinary winter lows with fronts (Lesson 6), sometimes as fierce as before."
+    },
+    {
+     "kind": "text",
+     "text": "None reach Washington as hurricanes. The sea off the Pacific Northwest is 10 to 15 °C, far too cold to feed one (the lesson on the coast), and the hurricanes of the eastern Pacific, born off Mexico, are mostly carried west, out to sea, and die over cooler water. But the worst windstorm in the Northwest’s records, the Columbus Day storm of October 1962, began as a typhoon near Wake Island. It crossed the Pacific, died as a tropical storm, and was reborn in the westerlies as a winter low, and struck Oregon and Washington with gusts over 200 kilometres an hour.[^freda]"
+    }
+   ]
+  },
+  {
+   "title": "The sea comes ashore",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Most of the people killed by hurricanes are killed by water, not wind. As the storm approaches a coast, its wind drags on the sea and pushes it ahead, and the low pressure in its centre lets the sea rise a little more, by about a centimetre for each hectopascal. When it reaches the shore, the water piled up by days of wind has nowhere to go: the **storm surge**, the sea rising several metres in an hour or two, with the storm’s waves breaking on top of it."
+    },
+    {
+     "kind": "figure",
+     "figure": "surge",
+     "caption": "The sea piled up at the shore by a hurricane’s wind, over a steep or a shallow sea floor.",
+     "task": "Guess where the surge is higher, then find a surge of 5 metres.",
+     "goal": "surge"
+    },
+    {
+     "kind": "text",
+     "text": "How high it rises depends on the sea floor as much as the storm. Where the bottom drops away steeply, deep water near the coast lets the piled-up water flow back out underneath. Where it shelves gently for a hundred kilometres, as along the Gulf of Mexico, the water has nowhere to go but up. The deadliest disaster in American history was a surge: in September 1900, a hurricane drove the Gulf over the island city of Galveston, Texas, and at least six thousand people drowned."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Name the clouds in these photographs, then use the warm sea, the eye and the surge to read the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "check",
+     "caption": "Real photos to name, then a sky and what the sea and the barometer are doing. What is it up to?",
+     "options": {
+      "photos": {
+       "mode": "name",
+       "pool": [
+        "cumulonimbus",
+        "cumulus",
+        "cirrostratus",
+        "cirrus",
+        "nimbostratus"
+       ],
+       "known": [
+        "cirrus",
+        "cirrocumulus",
+        "cirrostratus",
+        "altocumulus",
+        "altostratus",
+        "nimbostratus",
+        "stratocumulus",
+        "stratus",
+        "cumulus",
+        "cumulonimbus"
+       ],
+       "count": 4
+      },
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "cirrostratus",
+          "when": "9 a.m.",
+          "sun": "halo"
+         },
+         {
+          "genus": "cumulonimbus",
+          "when": "6 p.m.",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Sea: 29 °C",
+         "Wind at the top: light"
+        ],
+        "question": "A cluster of storms is turning over a sea at 29 °C, with light winds all the way up. What is likely to happen?",
+        "options": [
+         "It strengthens: the warm sea fuels it, and nothing blows its top away",
+         "It dies: the sea is too warm",
+         "It turns into a tornado"
+        ],
+        "answer": 0,
+        "why": "Warm water feeds the engine, and with little shear the heat stays over the core. Those are the conditions in which hurricanes grow."
+       },
+       {
+        "sky": [
+         {
+          "when": "noon"
+         }
+        ],
+        "instruments": [
+         "Barometer: 940 hPa, lowest yet",
+         "Wind: light, after hours of a gale from the north"
+        ],
+        "question": "At sea, after hours of a full gale from the north, the wind suddenly drops and the sun comes out. The barometer is at its lowest. What should the captain expect?",
+        "options": [
+         "The other side of the eyewall, with the wind back as hard from the south",
+         "The storm is over",
+         "The barometer will keep falling slowly for days"
+        ],
+        "answer": 0,
+        "why": "This is the eye. Half the storm is still to come, and the wind in the far eyewall blows from the opposite direction."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "4 p.m.",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Sea: 14 °C"
+        ],
+        "question": "A hurricane off Mexico heads north, over water at 14 °C. What happens to it?",
+        "options": [
+         "It weakens and dies: the cold sea shuts off its fuel",
+         "It strengthens on the cold water",
+         "Nothing changes"
+        ],
+        "answer": 0,
+        "why": "Below about 26 °C, the air spiralling in cannot pick up enough vapour to keep the engine running."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "8 p.m.",
+          "rain": true
+         }
+        ],
+        "question": "The same Category 4 hurricane could come ashore on a coast where the sea floor shelves gently for 100 km, or one where it drops away steeply. Where will the surge be worse?",
+        "options": [
+         "The gently shelving coast: the water has nowhere to go but up",
+         "The steep coast",
+         "The same in both"
+        ],
+        "answer": 0,
+        "why": "Over deep water the piled-up water can flow back underneath. Over a wide shallow shelf it can only rise."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "Near the equator the air rises in daily storms, flows poleward aloft, sinks around 30° under the subtropical highs, and flows back near the surface as the trade winds.",
+  "A hurricane is a heat engine. Air spiralling in over a sea warmer than about 26 °C picks up heat and vapour, rises in the eyewall, and the heat from its rain warms the core and deepens the low, which pulls the air in faster.",
+  "Wind shear tears hurricanes apart; cold water, dry air and land starve them. They form between about 5° and 30° from the equator, never on it, since they need the Earth’s turn to start spinning.",
+  "The eye is calm and often clear, where air sinks. A ship crossing it meets the worst wind in the eyewall, a calm, then the same wind from the opposite direction.",
+  "The storm surge, the sea piled up against the coast, kills more people than the wind; it is highest over a wide, shallow shelf. None reach Washington as hurricanes, but the 1962 Columbus Day storm began as a typhoon."
+ ],
+ "next": "That is the end of the violent storms.",
+ "journal": {
+  "trade-winds": {
+   "title": "Trade winds",
+   "text": "The steady winds from the north-east north of the equator, and the south-east south of it: air that sank around 30° flowing back towards the rising air at the equator, turned by the Earth."
+  },
+  "hurricane": {
+   "title": "Hurricane",
+   "text": "A tropical storm with winds over 119 km/h, fed by a sea warmer than about 26 °C: air spirals in, picks up heat and vapour, and rises in a ring of storms round a calm eye. Called a typhoon in the western Pacific and a cyclone in the Indian Ocean."
+  },
+  "eye": {
+   "title": "The eye",
+   "text": "The calm, often clear centre of a hurricane, 20 to 60 km across, where air sinks. Round it, the eyewall has the strongest winds; past it, the wind returns from the opposite direction."
+  },
+  "storm-surge": {
+   "title": "Storm surge",
+   "text": "The sea piled up against the coast by a hurricane’s wind, rising several metres in an hour or two. It is highest over a wide, shallow sea floor."
+  }
+ },
+ "footnotes": {
+  "names": {
+   "kind": "technical",
+   "title": "Hurricane, typhoon, cyclone",
+   "glossary": "Hurricane, typhoon, cyclone",
+   "text": "One kind of storm with three names. Over the Atlantic and the eastern Pacific it is a hurricane, after Huracán, a Taíno storm god; over the western Pacific a typhoon; over the Indian Ocean and the South Pacific a tropical cyclone. They turn anticlockwise north of the equator and clockwise south of it."
+  },
+  "freda": {
+   "kind": "digression",
+   "title": "The Columbus Day storm",
+   "text": "On 12 October 1962 the remains of Typhoon Freda, re-formed as a winter low, ran up the coast from northern California to British Columbia. Gusts reached 230 km/h at Cape Blanco in Oregon, 46 people died, and some 11 billion board feet of timber were blown down, more than Oregon and Washington cut in a year."
+  }
+ }
+}
