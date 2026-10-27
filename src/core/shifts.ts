@@ -1,5 +1,7 @@
-// The tutorial series: eight lessons of a workbook, seven of training and one on
-// cloud seeding. Each lesson starts from a question asked of the sky, and is a short
+// The tutorial series: lessons of a workbook, laid out as a tree. The trunk is
+// training, from fog to local tricks; branches fork off it (the Pacific coast,
+// and more to come), and the 1946 lesson on cloud seeding hangs off the end of
+// the trunk as a leaf. Each lesson starts from a question asked of the sky, and is a short
 // illustrated article in the manner of an interactive explainer: paragraphs
 // and live figures to play with. A lesson comes in parts; the next part opens
 // once the figures in this one have had their small task done. The last part
@@ -18,6 +20,7 @@
 
 import type { Footnotes } from 'lesson-kit/footnote';
 import type { Block as KitBlock, Lesson, Part as KitPart } from 'lesson-kit/lesson';
+import type { TreeBranch } from 'lesson-kit/tree';
 import type { GenusId } from './clouds';
 import fog from '../data/shifts/fog.json';
 import lowSky from '../data/shifts/low-sky.json';
@@ -123,6 +126,10 @@ export interface Shift extends Lesson<FigureId> {
   sky: GenusId[];
   /** Training, or the lessons on cloud seeding that come after it. */
   book: 'training' | 'seeding';
+  /** Where it sits in the tree on the home page (lesson-kit's tree.ts): its branch, and what it leans on. */
+  branch?: string;
+  needs?: string[];
+  betterAfter?: string[];
 }
 
 /**
@@ -142,7 +149,8 @@ interface ShiftFile {
   journal: Record<string, { title: string; text: string; rare?: boolean }>;
   footnotes?: Record<string, { kind: string; title: string; text: string; glossary?: boolean | string }>;
 }
-function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; book?: Shift['book'] } = {}): Shift {
+type Place = Pick<Shift, 'branch' | 'needs' | 'betterAfter'>;
+function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; book?: Shift['book'] } & Place = {}): Shift {
   return {
     id: file.id,
     n: file.n,
@@ -156,21 +164,54 @@ function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; b
     next: file.next,
     journal: Object.keys(file.journal),
     footnotes: (file.footnotes ?? {}) as Footnotes,
+    ...(more.branch ? { branch: more.branch } : {}),
+    ...(more.needs ? { needs: more.needs } : {}),
+    ...(more.betterAfter ? { betterAfter: more.betterAfter } : {}),
   };
 }
 
 export const SHIFTS: readonly Shift[] = [
   // -------------------------------------------------------------------------
+  // The trunk. Lessons 3 and 4 can be taken in either order.
   fromJson(fog, ['stratus', 'cumulus']),
-  fromJson(lowSky, ['stratocumulus', 'nimbostratus']),
-  fromJson(middleSky, ['altocumulus', 'cirrocumulus', 'cirrus']),
-  fromJson(iceRealm, ['cirrostratus', 'altostratus'], { sky: ['cirrus', 'cirrostratus', 'altostratus'] }),
-  fromJson(giants, ['cumulonimbus']),
+  fromJson(lowSky, ['stratocumulus', 'nimbostratus'], { needs: ['fog'] }),
+  fromJson(middleSky, ['altocumulus', 'cirrocumulus', 'cirrus'], { needs: ['low-sky'] }),
+  fromJson(iceRealm, ['cirrostratus', 'altostratus'], { sky: ['cirrus', 'cirrostratus', 'altostratus'], needs: ['low-sky'], betterAfter: ['middle-sky'] }),
+  fromJson(giants, ['cumulonimbus'], { needs: ['middle-sky', 'ice-realm'] }),
   // These meet no new clouds: they put the ones already met to work.
-  fromJson(front, [], { sky: ['cirrostratus', 'altostratus', 'cumulonimbus'] }),
-  fromJson(localSky, [], { sky: ['altocumulus', 'stratocumulus', 'stratus'] }),
-  fromJson(seeding, [], { sky: ['altocumulus', 'stratus'], book: 'seeding' }),
+  fromJson(front, [], { sky: ['cirrostratus', 'altostratus', 'cumulonimbus'], needs: ['giants'] }),
+  fromJson(localSky, [], { sky: ['altocumulus', 'stratocumulus', 'stratus'], needs: ['front'] }),
+  // A leaf off the end of the trunk: fifteen years on.
+  fromJson(seeding, [], { sky: ['altocumulus', 'stratus'], book: 'seeding', branch: 'seeding', needs: ['local-sky'] }),
 ];
+
+/** A lesson in the tree that is not written yet. */
+export interface ComingLesson {
+  id: string;
+  n: number;
+  title: string;
+  teaches: string;
+  branch: string;
+  needs?: string[];
+  betterAfter?: string[];
+  coming: true;
+}
+
+/** The branches of the tree, each forking off the trunk lesson it grows from. */
+export const BRANCHES: readonly TreeBranch[] = [
+  { id: 'coast', title: 'The Pacific coast', promise: 'Why the coast almost never thunders, and where a week of winter rain comes from', from: 'front', color: 'var(--coast)' },
+  { id: 'seeding', title: 'Cloud seeding', promise: '', from: 'local-sky', leaf: true, color: 'var(--rose)' },
+];
+
+/** Lessons shown in the tree before they are written: only the next branch to come. */
+export const COMING: readonly ComingLesson[] = [
+  { id: 'wind', n: 9, title: 'Why does wind blow in a circle around a storm?', teaches: 'Air sliding from high pressure to low, the spinning Earth turning under it, and the river of wind overhead that steers storms.', branch: 'coast', coming: true },
+  { id: 'coast', n: 10, title: 'Why does the Pacific coast almost never thunder?', teaches: 'A cold sea, a lid pressed down from above, the summer grey, and the rare days it does thunder.', branch: 'coast', betterAfter: ['wind'], coming: true },
+  { id: 'rivers', n: 11, title: 'Where does a week of winter rain come from?', teaches: 'Rivers of vapour across the ocean, rain wrung out on the mountains, the snow level and the floods.', branch: 'coast', betterAfter: ['coast', 'local-sky'], coming: true },
+];
+
+/** Every lesson the home page's tree shows, written or coming, in the order the tree lists them. */
+export const TREE_LESSONS: readonly (Shift | ComingLesson)[] = [...SHIFTS, ...COMING];
 
 export function shiftById(id: string): Shift | undefined {
   return SHIFTS.find((s) => s.id === id);

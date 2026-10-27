@@ -3,11 +3,12 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { compose, genus, type Body, type Prefix } from '../src/core/clouds';
 import { photoFile, problems, type Photo } from '../src/core/photos';
-import { FIGURE_IDS, JOURNAL, SHIFTS, type Block, type Forecast, type Shift } from '../src/core/shifts';
+import { BRANCHES, FIGURE_IDS, JOURNAL, SHIFTS, TREE_LESSONS, type Block, type Forecast, type Shift } from '../src/core/shifts';
 import { GLOSSARY } from '../src/core/glossary';
 import { footnoteProblems } from 'lesson-kit/footnote';
 import { glossaryProblems } from 'lesson-kit/glossary';
 import { lessonTexts } from 'lesson-kit/lesson';
+import { treeProblems } from 'lesson-kit/tree';
 
 const blocks = (s: Shift): Block[] => s.parts.flatMap((p) => p.blocks);
 import library from '../src/data/photos.json';
@@ -16,6 +17,12 @@ describe('shifts', () => {
   it('have unique ids and numbers in order', () => {
     expect(new Set(SHIFTS.map((s) => s.id)).size).toBe(SHIFTS.length);
     SHIFTS.forEach((s, i) => expect(s.n).toBe(i + 1));
+  });
+
+  it('fit the tree on the home page: every branch forks off the trunk, and every lock names a lesson', () => {
+    expect(treeProblems(TREE_LESSONS, BRANCHES)).toEqual([]);
+    expect(new Set(TREE_LESSONS.map((s) => s.id)).size).toBe(TREE_LESSONS.length);
+    TREE_LESSONS.forEach((s, i) => expect(s.n).toBe(i + 1));
   });
 
   it('mark every footnote they have, and only those', () => {

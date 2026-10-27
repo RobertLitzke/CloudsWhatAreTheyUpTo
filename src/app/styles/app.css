@@ -37,33 +37,20 @@
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
-.shift-board { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .shift-card {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: center;
   background: var(--bg-2);
   border-radius: var(--radius);
   padding: 12px 14px;
 }
+.shift-card.next { box-shadow: inset 0 0 0 2px var(--sun); }
 .shift-card h3 { margin: 0 0 2px; }
 .shift-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
 .shift-card .score { color: var(--sun); margin-top: 4px; }
-.shift-n {
-  font: 600 1.4rem/1 var(--display);
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--sun-deep);
-  color: var(--ink);
-}
-.shift-card.locked { opacity: 0.6; }
-.shift-card.locked .shift-n { background: transparent; color: var(--muted); box-shadow: inset 0 0 0 2px var(--muted); }
-.shift-card.done .shift-n { background: var(--teal); color: #fff; }
-.shift-card.skipped .shift-n { background: transparent; color: var(--muted); box-shadow: inset 0 0 0 2px var(--teal); }
+.tree-rail .shift-card { background: rgba(255, 255, 255, 0.05); }
 .shift-actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; }
 .seeding {
   margin-top: 24px;

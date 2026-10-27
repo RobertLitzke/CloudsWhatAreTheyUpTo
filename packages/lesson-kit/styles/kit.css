@@ -656,3 +656,63 @@ body.sheet-up { overflow: hidden; }
 .gl-entry dd { margin: 2px 0 0; color: var(--text); opacity: 0.86; font-size: 0.94rem; line-height: 1.5; }
 .gl-entry dd p { margin: 0; }
 .gl-entry.ahead dd { opacity: 0.6; }
+
+/* The lesson tree (tree.ts): a trunk line down the left with a dot per lesson,
+   and each branch's pill forking off it. States show by the dot's shape as
+   well as its colour. An app sets --branch per branch and styles the cards. */
+.tree { --tree-line: rgba(182, 166, 204, 0.35); --tree-dot: 30px; --tree-gap: 8px; --tree-mid: calc(12px + var(--tree-dot) / 2); list-style: none; margin: 0; padding: 0; display: grid; gap: var(--tree-gap); }
+/* The trunk is drawn in pieces, so it ends at the last trunk lesson: down into
+   each dot from above, on from the dot while anything follows, and past a
+   fork while a trunk lesson follows it. */
+.tree > li { position: relative; }
+.tree > .tree-node::before, .tree > .tree-node:not(:last-child)::after, .tree > .tree-fork:has(~ .tree-node)::after {
+  content: ""; position: absolute; left: calc(var(--tree-dot) / 2 - 1px); width: 2px; background: var(--tree-line);
+}
+.tree > .tree-node::before { top: 0; height: var(--tree-mid); }
+.tree > .tree-node:first-child::before { display: none; }
+.tree > .tree-node:not(:last-child)::after { top: var(--tree-mid); bottom: calc(-1 * var(--tree-gap)); }
+.tree > .tree-fork:has(~ .tree-node)::after { left: calc(-10px - var(--tree-dot) / 2 - 1px); top: 0; bottom: calc(-1 * var(--tree-gap)); }
+.tree-node { display: flex; gap: 10px; align-items: flex-start; }
+.tree-card { flex: 1; min-width: 0; }
+.tree-dot {
+  flex: none; position: relative; z-index: 1; margin-top: 12px;
+  width: var(--tree-dot); height: var(--tree-dot); border-radius: 50%;
+  display: grid; place-items: center; font: 600 0.95rem/1 var(--display);
+  background: var(--bg); color: var(--text); box-shadow: inset 0 0 0 2px var(--text);
+}
+.is-done > .tree-dot { background: var(--teal); color: #fff; box-shadow: none; }
+.is-next > .tree-dot { background: var(--sun); color: var(--ink); box-shadow: 0 0 0 4px rgba(246, 185, 142, 0.25); }
+.is-soft > .tree-dot { color: var(--muted); box-shadow: none; border: 2px dashed var(--muted); }
+.is-locked > .tree-dot, .is-coming > .tree-dot { color: var(--muted); box-shadow: inset 0 0 0 2px var(--tree-line); }
+.is-coming > .tree-dot { box-shadow: none; border: 2px dotted var(--tree-line); }
+.is-skipped > .tree-dot { color: var(--muted); box-shadow: inset 0 0 0 2px var(--teal); overflow: hidden; }
+.is-skipped > .tree-dot::after { content: ""; position: absolute; width: 140%; height: 2px; background: var(--teal); transform: rotate(-45deg); }
+.is-locked > .tree-card, .is-coming > .tree-card { opacity: 0.6; }
+@media (prefers-reduced-motion: no-preference) { .is-next > .tree-dot { animation: tree-pulse 2.4s ease-in-out infinite; } }
+@keyframes tree-pulse { 50% { box-shadow: 0 0 0 8px rgba(246, 185, 142, 0.1); } }
+
+.tree-fork { --branch: var(--muted); position: relative; margin-left: calc(var(--tree-dot) + 10px); }
+.tree-fork::before {
+  content: ""; position: absolute; top: calc(-1 * var(--tree-gap)); height: 32px;
+  left: calc(-10px - var(--tree-dot) / 2 - 1px); width: calc(10px + var(--tree-dot) / 2);
+  border-left: 2px solid var(--tree-line); border-bottom: 2px solid var(--branch); border-bottom-left-radius: 12px;
+}
+.tree-pill {
+  appearance: none; width: 100%; min-height: 48px; cursor: pointer; text-align: left; font: inherit; color: var(--text);
+  background: transparent; border: 2px solid var(--branch); border-radius: var(--radius, 14px); padding: 10px 12px;
+  display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: center;
+}
+.tree-pill:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+.tree-pill-title { font: 500 1.1rem/1.2 var(--display); color: var(--branch); letter-spacing: 0.02em; }
+.tree-pill-count { grid-row: span 2; font: 500 0.95rem/1 var(--display); color: var(--muted); }
+.tree-pill-count::after { content: " ▸"; }
+.tree-pill[aria-expanded="true"] .tree-pill-count::after { content: " ▾"; }
+.tree-pill-promise { color: var(--muted); font-size: 0.9rem; }
+.tree-chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.tree-chip { font-size: 0.75rem; border-radius: 99px; padding: 1px 8px; border: 1px solid var(--tree-line); color: var(--muted); }
+.tree-chip.met { border-color: var(--teal); }
+.tree-chip.met::before { content: "✓ "; }
+.tree-rail { list-style: none; margin: 8px 0 0 8px; padding: 0 0 0 12px; border-left: 2px solid var(--branch); display: grid; gap: 8px; }
+.tree-rail[hidden] { display: none; }
+.tree-leaf .tree-rail { margin-top: 0; }
+.tree-leaf-title { margin: 6px 0 4px 22px; font: 500 0.85rem/1 var(--display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--branch); }

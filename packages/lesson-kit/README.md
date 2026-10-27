@@ -29,6 +29,7 @@ the others by hand.
 | `store` | `createStore({ key, empty, migrate })`, localStorage with repair, export and import |
 | `progress` | The shared save shape (`Progress`): lessons done, best scores, journal, units, radio, quiz, lessons left part way. Also `migrateProgress`, `finishLesson`, `moveLesson` |
 | `resume` | Lessons left part way: `LessonResume`, `lessonSignature`, `resumeFor`, `migrateResume`. `lessonView` uses it by itself |
+| `tree` | The home page's lesson tree: `treeView`, `treeStates`, `nextLesson`, `treeProblems`, `TreeLesson`, `TreeBranch` |
 | `units` | `height(m, units)`, `feet`, `deg`, `temp` |
 | `figure` | What a figure is: `figure(goals, build)`, `quiz(build)`, `frame`, `slider`, `animate`, guess-first helpers (`lock`, `choices`, `lockIn`, `placeable`) |
 | `draw` | SVG pieces: `still`, `label`/`small`/`note`/`heading`, `line`, `polyline`, `arrow`, `wavy`, `curve`, `hexagon`, `redraw` |
@@ -349,6 +350,30 @@ the URL hash; save anything else, such as the step a lesson is on, in
 
 If you put extra fields on your lessons, such as Clouds' `clouds` and `sky`,
 type them as `interface MyLesson extends Lesson<FigureId> { … }`.
+
+### The lesson tree
+
+`treeView` draws the lessons as a trunk running down the page, with each
+branch forking off the trunk lesson it grows from as a pill that opens into
+its own rail. Give each lesson a `branch` (left out on the trunk), hard
+`needs` (shut until each is passed or skipped) and soft `betterAfter` (opens,
+but says what to do first), and mark unwritten ones `coming`. Exactly one
+lesson is Next: the first open trunk lesson, or once the trunk is done, the
+first open branch lesson. The app draws each lesson's card from the
+`TreeNode` it is handed (`state`, and the `missing` and `wanting` lessons).
+
+```ts
+const branches: TreeBranch[] = [
+  { id: 'pedals', title: 'Guitar pedals', promise: 'Inside a Fuzz Face', from: 'amps', color: 'var(--sun)' },
+  { id: 'epilogue', title: 'Afterwards', promise: '', from: 'faults', leaf: true },
+];
+root.append(treeView({ lessons, branches, save, card: ({ lesson, state }) => myCard(lesson, state), remember: 'myapp.tree' }));
+```
+
+A pill shows how many of its lessons are done and, as chips, what its lessons
+lean on besides the lesson it forks from. The pill holding Next starts open;
+`remember` keeps the others as they were left on this device. Test the shape
+with `treeProblems(lessons, branches)`. Its styles are in kit.css.
 
 ### Theme
 
