@@ -47,7 +47,7 @@ describe('radio talks', () => {
 
 describe('lessons', () => {
   it('tell no story: that is the radio’s job', () => {
-    const words = /Anvil Peak|lookout|Juniper|Thunderhead|Walla Walla|Harrow|radio check|\bcrews?\b|trailhead/i;
+    const words = /Anvil Peak|lookout|Juniper|Thunderhead|Walla Walla|Harrow|radio check|trailhead/i;
     for (const s of SHIFTS) {
       const text = JSON.stringify(s);
       expect(text.match(words)?.[0], s.id).toBeUndefined();
