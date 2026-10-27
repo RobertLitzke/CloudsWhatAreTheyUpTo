@@ -11,6 +11,8 @@ import { glideDiagram, handFigure, overturnDiagram, shadowFigure, sunThroughDiag
 import { forecastFigure, lookAlikeDiagram, namesFigure, radioCheckFigure, sortFigure } from './quizzes';
 import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure } from './seeding';
 import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedLinesDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
+import { jetStreamDiagram, lowHighDiagram, pressureMapDiagram, spinLatitudeDiagram, turntableFigure, windBalanceFigure } from './wind';
+import { coastSoundingFigure, marineLayerFigure, pacificHighDiagram, thunderDaysDiagram, upwellingFigure } from './coast';
 import type { FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
@@ -101,4 +103,15 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   radarMap: radarMapDiagram,
   frontRadar: frontRadarFigure,
   seedLines: seedLinesDiagram,
+  pressureMap: pressureMapDiagram,
+  turntable: turntableFigure,
+  spinLatitude: spinLatitudeDiagram,
+  windBalance: windBalanceFigure,
+  lowHigh: lowHighDiagram,
+  jetStream: jetStreamDiagram,
+  upwelling: upwellingFigure,
+  pacificHigh: pacificHighDiagram,
+  marineLayer: marineLayerFigure,
+  coastSounding: coastSoundingFigure,
+  thunderDays: thunderDaysDiagram,
 };

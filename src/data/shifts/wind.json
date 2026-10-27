@@ -1,0 +1,297 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "wind",
+ "n": 9,
+ "title": "Why does wind blow in a circle around a storm?",
+ "teaches": "Why doesn’t the air rush straight into a low and fill it? Air sliding from high pressure to low, the spinning Earth turning under it, the balance that sends the wind along the isobars, and the fast river of wind overhead that steers storms.",
+ "parts": [
+  {
+   "title": "Air slides downhill",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "Air is pushed from high pressure towards low, straight across the **isobars**, and hardest where they crowd together.",
+      "The Earth turns under moving air, so over long distances the air drifts to the **right** of its path in the northern half of the world, and to the left in the southern half. The turn is strongest at the poles and vanishes at the equator.",
+      "The push and the turn balance when the wind blows **along** the isobars, with the low on its left. That is why a storm’s winds circle it instead of filling it.",
+      "Near the ground, **friction** slows the wind and the push wins a little: the wind leaks in across the isobars, the air piles up in the low and rises, and rises into cloud. Around a high, air sinks and spreads out: clear skies.",
+      "High up, the wind is fastest where cold polar air meets warm tropical air: the **jet stream**. It steers storms east, and moves south in winter and north in summer."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "Lesson 6 gave a sailor’s rule: stand with your back to the wind, and the low is on your left. It works almost everywhere north of the equator, but it is a strange rule. If a low is a hollow in the air, why doesn’t the wind blow straight into it and fill it up, the way water runs into a hole in the sand? This lesson answers that, and it needs only two ideas: air slides from high pressure to low, and the ground underneath it turns."
+    },
+    {
+     "kind": "text",
+     "text": "Pressure, from Lesson 6, is the weight of the air overhead. Where more air is piled above a place, the pressure there is higher. Air at the bottom of a deep pile pushes outward, towards places where the pile is shallower, much as water in a tank sloshes from the deep end towards the shallow one. The difference in pressure between two places is a push on the air between them."
+    },
+    {
+     "kind": "text",
+     "text": "A weather map draws pressure as **isobars**: lines joining places where the barometer reads the same, usually every 4 hPa. They work like the contour lines on a hiking map. A low is a hollow, a high is a hill, and the push on the air runs straight downhill, across the lines. Where the lines crowd together, the slope is steep and the push is strong; where they spread out, it is gentle.[^gradient]"
+    },
+    {
+     "kind": "figure",
+     "figure": "pressureMap",
+     "caption": "Isobars round a low (L) and a high (H). The orange arrows show the push on the air: across the lines, from high to low."
+    },
+    {
+     "kind": "text",
+     "text": "If the push were all there was, the air would run straight downhill into the low, faster and faster. A low a thousand kilometres across would fill up and be gone within a day. Real lows last for days, and on any weather map the wind arrows run nearly *along* the isobars, not across them. Something turns the wind."
+    }
+   ]
+  },
+  {
+   "title": "The ground turns underneath",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Picture two children on a spinning playground roundabout, facing each other across it. One rolls a ball straight at the other. To someone watching from a bench, the ball rolls in a perfectly straight line. But while it rolls, the roundabout turns, and by the time the ball reaches the far side, the friend has moved on. To the children riding along, the ball curved away, though nothing pushed it sideways."
+    },
+    {
+     "kind": "figure",
+     "figure": "turntable",
+     "caption": "A ball rolled straight across a spinning turntable, seen from the ceiling and from on board. The violet stripe is painted on the disc.",
+     "task": "Give the turntable some spin, then ride along and watch the ball swerve.",
+     "goal": "curve"
+    },
+    {
+     "kind": "text",
+     "text": "The Earth is a turntable too. Seen from above the North Pole, it turns anticlockwise once a day, and everything standing on it turns with it. Air that moves freely over long distances is like the ball: it keeps going in a straight line, while the ground underneath turns. To us, riding the ground, the air seems to drift to the **right** of where it was heading, in the northern half of the world. South of the equator, where the Earth seen from below the South Pole turns the other way, it drifts to the left. This is the **Coriolis effect** from Lesson 6."
+    },
+    {
+     "kind": "text",
+     "text": "How much the ground turns under you depends on where you stand. At the North Pole, the ground spins a full circle about your feet every day, like the middle of the turntable. At the equator, the ground is carried round the Earth’s axis but does not turn about your feet at all, so the drift vanishes. In between, it turns part of a circle a day: about three quarters of one in eastern Washington, at 47° north."
+    },
+    {
+     "kind": "figure",
+     "figure": "spinLatitude",
+     "caption": "How much the ground turns about your feet in a day, by latitude."
+    },
+    {
+     "kind": "text",
+     "text": "The drift is tiny. The Earth turns once a day, so over the few seconds that water takes to leave a sink, it turns a fraction of a degree: the sink’s shape and the way it was filled decide which way the water swirls, not the Earth.[^sinks] The turn only adds up for things that travel hundreds of kilometres over hours: winds, ocean currents, and the paths of storms. For those, it rules everything."
+    }
+   ]
+  },
+  {
+   "title": "Round the low, not into it",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Now put the two ideas together. Air near a low starts to slide downhill, towards the low. As soon as it moves, the turning Earth bends it to its right. The faster it goes, the harder the turn bends it. It keeps bending until it runs along the isobars, with the low on its left. There the push towards the low and the turn away from it are equal and opposite, and the wind blows on along the lines without filling the low in."
+    },
+    {
+     "kind": "text",
+     "text": "This balance is the **geostrophic wind**[^geostrophic], and it is why the wind in the northern half of the world goes anticlockwise round a low. It is also the reason for Lesson 6’s rule: if the wind runs along the isobars with the low on its left, then with your back to the wind, the low is on your left."
+    },
+    {
+     "kind": "figure",
+     "figure": "windBalance",
+     "caption": "Air starting from rest on a map of isobars, low to the north. The orange line is its path over a few hours.",
+     "task": "Guess first. Then turn the Earth’s spin all the way up, and add friction with the ground.",
+     "goal": "balance"
+    },
+    {
+     "kind": "text",
+     "text": "Near the ground, there is a third player: **friction**. Trees, hills, buildings and waves drag on the wind and slow it down. A slower wind is turned less, so the push towards the low wins a little, and the wind slants across the isobars into the low: by 10° to 20° over the sea, and by 25° to 40° over rough land. A kilometre or so up, above the drag of the ground, the wind runs almost exactly along the lines. That is why low clouds and high clouds often move in different directions."
+    },
+    {
+     "kind": "text",
+     "text": "The slant matters more than it looks. All round a low, the surface wind leaks inwards, so air piles up in the middle. It cannot go down, so it goes up, and rising air cools and forms cloud (Lesson 1). That is why lows bring cloud and rain. Around a high it is the other way: the wind spirals out clockwise, and air sinks from above to replace it, warming as it is squeezed and drying out its clouds, like Lesson 2’s lid. Highs bring clear skies."
+    },
+    {
+     "kind": "figure",
+     "figure": "lowHigh",
+     "caption": "A low and a high seen from above (top) and from the side (bottom), in the northern half of the world."
+    },
+    {
+     "kind": "text",
+     "text": "The balance also tells you how hard it will blow. Since the push depends on how crowded the isobars are, and the wind speeds up until the turn matches the push, crowded isobars mean strong wind. A forecaster with a fresh weather map can read the wind off it before going outside.[^map]"
+    }
+   ]
+  },
+  {
+   "title": "The river of wind overhead",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "High above the ground, with no friction to slow it, the wind blows harder than at the surface, and it gets stronger with height for a reason of its own. Cold air is denser than warm air, so the pressure falls off faster with height over the cold polar regions than over the warm tropics. Ten kilometres up, the pressure over the Arctic is much lower than the pressure at the same height over Hawaii. The push from high to low is therefore towards the pole, and it grows with height."
+    },
+    {
+     "kind": "text",
+     "text": "The turning Earth bends that poleward push into a wind blowing from west to east: the **westerlies**, which carry weather across the Pacific and over Washington from the west. They are strongest where cold and warm air meet most sharply, in a narrow ribbon about 9 to 12 kilometres up called the **jet stream**, where the wind often blows at 150 to 300 kilometres an hour, faster in winter.[^discovery]"
+    },
+    {
+     "kind": "text",
+     "text": "Lows ride along under the jet stream like leaves on a river, steered from west to east along its waves. And the jet moves with the seasons. In winter, when the polar air is coldest and the contrast with the tropics is sharpest, the jet is strong and lies far to the south, aimed at Oregon and Washington, and storm after storm comes ashore. In summer, the contrast weakens, the jet slackens and retreats north towards Alaska, and the storms pass north of us."
+    },
+    {
+     "kind": "figure",
+     "figure": "jetStream",
+     "caption": "The jet stream across the North Pacific in winter and in summer, and the lows it carries east."
+    },
+    {
+     "kind": "text",
+     "text": "That is half of the reason why the Pacific Northwest has wet winters and dry summers. The other half is a great high that settles off the coast in summer, which is where the next lesson begins."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Use the push, the turn and friction to read the wind in the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "forecast",
+     "caption": "A sky, and what the map and the wind say. What is going on?",
+     "options": {
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "stratocumulus",
+          "when": "noon",
+          "cover": true
+         }
+        ],
+        "instruments": [
+         "Map: isobars twice as close as yesterday"
+        ],
+        "question": "The noon weather map shows the isobars over your town packed twice as close together as they were yesterday. What should you expect from the wind?",
+        "options": [
+         "Stronger winds: crowded isobars mean a steep push, and the wind speeds up until the turn matches it",
+         "Calmer winds: crowded isobars mean the air is boxed in",
+         "The wind will blow straight across the isobars into the low"
+        ],
+        "answer": 0,
+        "why": "The push depends on how crowded the isobars are, and the wind speeds up until the Earth’s turn balances it. Twice the crowding means roughly twice the wind."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "10 a.m.",
+          "count": 3
+         }
+        ],
+        "question": "A ship’s officer who has sailed near the equator tells you that the winds there rarely circle round lows the way they do off Washington. Why not?",
+        "options": [
+         "The air there is too warm to move",
+         "There is no difference in pressure anywhere near the equator",
+         "The ground at the equator does not turn under the moving air, so nothing bends the wind along the isobars"
+        ],
+        "answer": 2,
+        "why": "The drift from the turning Earth is strongest at the poles and vanishes at the equator. Without it, there is no balance to send the wind along the isobars."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cirrus",
+          "when": "9 a.m.",
+          "x": -0.4
+         },
+         {
+          "genus": "cirrus",
+          "when": "11 a.m.",
+          "x": 0.4
+         }
+        ],
+        "instruments": [
+         "Surface wind: from the south"
+        ],
+        "question": "The surface wind blows from the south, slanting across the isobars towards the low, but the cirrus overhead streams from the southwest, along them. Why the difference?",
+        "options": [
+         "The cirrus is pushed by the sunlight",
+         "Friction with the ground slows the surface wind, so the Earth’s turn weakens and the push towards the low wins a little",
+         "The upper air feels no push from pressure"
+        ],
+        "answer": 1,
+        "why": "High up there is no friction, so the push and the turn balance and the wind runs along the isobars. Near the ground, friction slows the wind, the turn weakens, and the wind leaks across the lines into the low."
+       },
+       {
+        "id": "high",
+        "sky": [
+         {
+          "when": "9 a.m."
+         },
+         {
+          "when": "3 p.m."
+         }
+        ],
+        "instruments": [
+         "Barometer: high and steady for a week"
+        ],
+        "question": "A big high has sat over the Basin for a week of clear, still days. What is the air above it doing?",
+        "options": [
+         "Rising slowly and cooling",
+         "Sinking and spreading out, warming as it is squeezed, which keeps clouds away",
+         "Spiralling anticlockwise into the middle of the high"
+        ],
+        "answer": 1,
+        "why": "Around a high, the surface wind spirals out clockwise, and air sinks from above to replace it. Sinking air is squeezed and warms, so its clouds dry up."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "Air is pushed from high pressure towards low, straight across the isobars, hardest where they crowd together.",
+  "The Earth turns under moving air, so over hundreds of kilometres the air drifts to the right of its path north of the equator (to the left south of it). The turn is strongest at the poles and vanishes at the equator.",
+  "Aloft, the push and the turn balance when the wind runs along the isobars with the low on its left (the geostrophic wind): lows spin anticlockwise in the northern half of the world, and Buys Ballot’s rule follows.",
+  "Near the ground, friction slows the wind and it leaks across the isobars into a low (10° to 20° over sea, 25° to 40° over land); the air piles up and rises into cloud. Around a high, air sinks, warms and clears.",
+  "The westerlies grow with height and peak in the jet stream, 9 to 12 km up. It steers lows east, lies far south in winter (aimed at Oregon and Washington) and retreats north in summer."
+ ],
+ "next": "Next: why the Pacific coast almost never thunders.",
+ "journal": {
+  "pressure-push": {
+   "title": "Air slides downhill",
+   "text": "Air is pushed from high pressure to low, straight across the isobars. Crowded isobars mean a steep push and a strong wind."
+  },
+  "earth-turn": {
+   "title": "The ground turns underneath",
+   "text": "Air moving freely over long distances drifts to the right of its path north of the equator, because the ground turns under it: a full circle a day at the pole, none at the equator. Too small to matter in a sink."
+  },
+  "geostrophic": {
+   "title": "Round the low",
+   "text": "Aloft, the push towards the low and the Earth’s turn balance when the wind runs along the isobars, low on its left. Near the ground, friction lets the wind leak in, and the air in a low rises into cloud; over a high it sinks and clears."
+  },
+  "jet": {
+   "title": "The jet stream",
+   "text": "A ribbon of fast westerly wind 9 to 12 km up, where polar and tropical air meet. It steers lows east, sits far south in winter and retreats north in summer."
+  }
+ },
+ "footnotes": {
+  "gradient": {
+   "kind": "technical",
+   "title": "Pressure gradient",
+   "text": "How fast the pressure changes with distance, and the push it puts on the air, the **pressure-gradient force**. Isobars 4 hPa apart and 100 km apart make a typical gradient; half the spacing, twice the push."
+  },
+  "sinks": {
+   "kind": "digression",
+   "title": "Sinks and toilets",
+   "text": "The story that water drains clockwise in one hemisphere and anticlockwise in the other is a myth. The Earth’s turn is real but so slight over a few seconds that it only shows in a carefully built experiment: in 1962 Ascher Shapiro at MIT let a wide, still tank settle for a day before pulling the plug, and the water then drained anticlockwise every time."
+  },
+  "geostrophic": {
+   "kind": "technical",
+   "title": "Geostrophic wind",
+   "text": "The wind that blows when the pressure push and the Earth’s turn exactly balance: along the isobars, low on its left (north of the equator), faster where they crowd. It describes the wind a kilometre or more up, above the drag of the ground, quite well."
+  },
+  "map": {
+   "kind": "digression",
+   "title": "The daily map in 1931",
+   "text": "The Weather Bureau’s daily map was drawn by hand twice a day from barometer, wind and sky reports sent in by telegraph from some two hundred stations at the same moment, 8 a.m. and 8 p.m. Eastern Time. Isobars were sketched through the readings, and the wind arrows almost always ran along them."
+  },
+  "discovery": {
+   "kind": "digression",
+   "title": "Finding the jet stream",
+   "text": "In the 1920s Wasaburo Oishi tracked hundreds of balloons over Tateno, Japan, and found winds of more than 200 km/h high above Mount Fuji, but he published in Esperanto and few read it. The German meteorologist Heinrich Seilkopf named the *Strahlströmung*, jet stream, in 1939, and in 1944 American bombers over Japan met headwinds so strong they barely moved over the ground."
+  }
+ }
+}

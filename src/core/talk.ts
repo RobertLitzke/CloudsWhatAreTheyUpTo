@@ -26,6 +26,8 @@ import giants from '../data/radio/giants.json';
 import front from '../data/radio/front.json';
 import localSky from '../data/radio/local-sky.json';
 import seeding from '../data/radio/seeding.json';
+import wind from '../data/radio/wind.json';
+import coast from '../data/radio/coast.json';
 
 export const STATIONS: Stations = {
   them: { call: 'W7DQ', place: 'Walla Walla' },
@@ -45,6 +47,8 @@ const BY_SHIFT: Record<string, Radio> = {
   front: front as Radio,
   'local-sky': localSky as Radio,
   seeding: seeding as Radio,
+  wind: wind as Radio,
+  coast: coast as Radio,
 };
 
 export function radioFor(shiftId: string): Radio {

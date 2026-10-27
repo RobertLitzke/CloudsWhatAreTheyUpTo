@@ -1,0 +1,333 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "coast",
+ "n": 10,
+ "title": "Why does the Pacific coast almost never thunder?",
+ "teaches": "Why can Florida hear thunder ninety days a year and the coast from Seattle to San Francisco only a handful? A cold sea in summer, a lid of warm sinking air pressed down from above, the summer grey pulled inland by hot valleys, and the rare days it does thunder.",
+ "parts": [
+  {
+   "title": "A cold sea in summer",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "The sea off the West Coast is cold, even in August: a current from the Gulf of Alaska, and summer winds from the north that drag cold water up from below (**upwelling**).",
+      "Over it sits the **Pacific High**, a vast area of sinking air. Sinking air warms as it is squeezed, so the air a kilometre up is far warmer than the sea-chilled air under it: a strong lid.",
+      "Under the lid lies the **marine layer**: cool damp air topped by stratus. Hot inland valleys pull it in at night and burn it back in the afternoon.",
+      "A thunderstorm needs bubbles warmer than the air around them all the way up. Off a cold sea, under a lid, they stop at a few hundred metres. Thunder needs a warm sea, or cold air aloft.",
+      "The coast’s few thunderstorms come mostly in autumn and winter, when the lid is gone and cold air from the north sweeps over a sea that is warm by comparison."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "Lesson 5 showed how an afternoon of sun on dry fields can build a thunderstorm by teatime. On the Gulf Coast of Florida, that happens most summer afternoons: thunder is heard on around ninety days a year. In Kansas, about fifty-five. On the Pacific coast, from Seattle to San Francisco, it is heard on a handful of days a year, and some years not at all. The air there is not short of water: the coast is famously damp and grey. Something else is missing."
+    },
+    {
+     "kind": "figure",
+     "figure": "thunderDays",
+     "caption": "How many days a year thunder is heard, roughly, from Florida to the Pacific coast."
+    },
+    {
+     "kind": "text",
+     "text": "The first clue is in the water. Walk into the sea on the Oregon coast in August and it is about 12 °C, cold enough to make your ankles ache. Off Florida or the Carolinas in August, it is 28 to 30 °C, as warm as bathwater. The West Coast is washed by the **California Current**, which carries cold water down from the Gulf of Alaska, and in summer something makes it colder still."
+    },
+    {
+     "kind": "text",
+     "text": "All summer, the wind along the coast blows mostly from the north. You might expect a north wind to push the surface water south, but the turning Earth from the last lesson bends anything that drifts freely, water included, to its right. Pushed by a north wind, the top layer of the sea drifts off to the west, away from the shore.[^ekman] Something must take its place, and it comes from below: cold water, 8 to 10 °C, rising from fifty to a hundred metres down. This is **upwelling**, and it can make the sea along the coast colder in July than it was in April."
+    },
+    {
+     "kind": "figure",
+     "figure": "upwelling",
+     "caption": "A slice through the sea and the coast, looking north. The wind blows along the coast, out of the page.",
+     "task": "Blow a north wind along the coast until the sea at the shore is cold enough to fog the air.",
+     "goal": "fog"
+    },
+    {
+     "kind": "text",
+     "text": "Summer air coming in off the ocean is damp, with a dew point of 12 or 13 °C. Lying on water colder than that, it is chilled to saturation from below, and its bottom turns to fog. The coast has its grey before any cloud has risen at all.[^twain]"
+    }
+   ]
+  },
+  {
+   "title": "A lid pressed down from above",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "The second clue is overhead. In summer, a vast high settles over the eastern Pacific, centred far out to sea, about level with San Francisco: the **Pacific High**. Like every high in the last lesson, its winds spiral out clockwise and air sinks from above to replace them. On its eastern side, the clockwise flow runs from north to south, down the coast: that is the north wind that drives the upwelling."
+    },
+    {
+     "kind": "text",
+     "text": "The sinking air is the more important part. It comes down from several kilometres up, and as it sinks into higher pressure it is squeezed and warms at the dry rate, about 10 °C for every kilometre it falls, drying as it goes. Where it meets the cool, damp air chilled by the sea, it cannot go further. So the air a kilometre up off the coast in summer is often 10 to 15 °C warmer than the air at the beach: Lesson 2’s lid, only far stronger, pressed down to between 300 and 800 metres."
+    },
+    {
+     "kind": "figure",
+     "figure": "pacificHigh",
+     "caption": "The Pacific High in summer, from above (left), and a slice down through the air off the coast (right)."
+    },
+    {
+     "kind": "text",
+     "text": "The Pacific High is no accident of the coast. All the way round the world, the air that rises in the tropics’ thunderstorms flows poleward high up and sinks again around 30° north and south, in a belt of highs.[^belt] The world’s great deserts lie under that sinking air: the Sahara, Arabia, the Mojave. California sits on the eastern edge of the Pacific’s high, which is why its summers are so dry."
+    }
+   ]
+  },
+  {
+   "title": "The summer grey",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Trapped under the lid lies the **marine layer**: a few hundred metres of cool, damp air, its top cooled to its dew point and turned into a flat deck of stratus or stratocumulus (Lesson 2) pressed against the lid’s underside. Along the coast of California in early summer it is so regular it has a name, the June gloom."
+    },
+    {
+     "kind": "text",
+     "text": "What moves it is the land. Inland valleys, the Sacramento Valley or Oregon’s Willamette, bake under the summer sun to 35 or 40 °C. The hot air over them rises and the pressure there falls, so the cool, dense sea air is pulled inland after it, through every gap in the coast hills: the **sea breeze**. All night it creeps inland under the lid. In the morning, the sun works on the grey from the inland edge, warming the ground under its thinnest parts and burning it back towards the sea, just as it burns off fog (Lesson 1). By mid-afternoon the valley is hot and clear while the beach is still grey."
+    },
+    {
+     "kind": "figure",
+     "figure": "marineLayer",
+     "caption": "The marine layer from the beach to an inland valley, through a gap in the coast hills, over a summer day.",
+     "task": "Make the valley hot, then find the afternoon hour when the beach is grey and the valley is clear.",
+     "goal": "burn"
+    },
+    {
+     "kind": "text",
+     "text": "The hotter the valleys, the harder they pull, and the deeper and further the grey pushes in. On the hottest days in Sacramento, San Francisco is often at its coldest and greyest. Where the marine layer’s base touches the water, it is sea fog, and the foghorns sound."
+    }
+   ]
+  },
+  {
+   "title": "Heat the land, still no storm",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Now the thunder, or the lack of it. Lesson 5’s storms start as bubbles of warm air rising off the ground, turning to cloud at their dew point, and climbing on for as long as they stay warmer than the air around them. A thunderstorm needs a bubble that stays warmer all the way up past the freezing level, where ice and graupel form and the charges separate (Lesson 5)."
+    },
+    {
+     "kind": "text",
+     "text": "Over a cold sea, a bubble starts no warmer than the sea it came off: 13 or 14 °C. Within a few hundred metres it reaches the lid, where the air around it is suddenly 10 degrees warmer, and it stops dead. All the vapour in the world will not lift it further. The figure below is Lesson 5’s chart for one bubble off the sea: the violet line is the air around it, the orange line the bubble."
+    },
+    {
+     "kind": "figure",
+     "figure": "coastSounding",
+     "caption": "A bubble of air rising off the sea (orange) through the air around it (violet), and the cloud it makes.",
+     "task": "Guess first. Then find a sea and an air aloft that build a thunderstorm.",
+     "goal": "storm"
+    },
+    {
+     "kind": "text",
+     "text": "There are two ways through. One is a warm sea: off Florida, a bubble starts at 29 °C, carrying three times the vapour, and the summer air aloft over the Gulf is only a little warmer than over the Pacific, so the bubble sails past it and keeps the warmth of all that condensing water all the way to the tropopause. The other is cold air aloft, and that, as the next part shows, is how the Pacific coast gets its rare thunder."
+    },
+    {
+     "kind": "text",
+     "text": "Inland, the ground does heat to 35 or 40 °C, and bubbles off it rise high. But the air they rise into is warm and very dry under the High, so they turn to cloud only at three or four kilometres up, if at all. The inland West gets its summer storms when moisture surges north from Mexico[^monsoon] or a pool of cold air drifts in from the ocean, and then they are often high-based storms whose rain evaporates on the way down, sending dry lightning into the forests."
+    }
+   ]
+  },
+  {
+   "title": "The few days it does thunder",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "In autumn, the Pacific High weakens and slides south, the lid goes with it, and the jet stream swings south to aim storms at the coast (last lesson). Behind each cold front comes cold air straight from the Gulf of Alaska: −5 °C or colder a kilometre and a half up. It passes over a sea that is still 10 or 11 °C, which in winter is the warmest thing around."
+    },
+    {
+     "kind": "text",
+     "text": "Now the bubble off the sea is warmed from below and the air above it is cold, which is the recipe for a deep heap. The coast gets lines of heaped showers out of the west, with sudden bursts of rain, pellets of soft hail called **graupel**, rainbows between the showers, the odd waterspout offshore, and now and then a clap of thunder. That is where most of the coast’s few thunder days come from: autumn and winter, the reverse of Kansas."
+    },
+    {
+     "kind": "text",
+     "text": "So the coast is not short of water. It is short of a warm bottom under a cold top. In summer the sea keeps the bottom cold and the sinking air keeps the top warm, and the grey stays grey."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Name the clouds in these photographs, then use the cold sea, the lid and the hot valleys to read the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "radioCheck",
+     "caption": "Real photos. Name each cloud.",
+     "options": {
+      "mode": "name",
+      "pool": [
+       "stratus",
+       "stratocumulus",
+       "cumulus",
+       "cumulonimbus",
+       "nimbostratus"
+      ],
+      "known": [
+       "cirrus",
+       "cirrocumulus",
+       "cirrostratus",
+       "altocumulus",
+       "altostratus",
+       "nimbostratus",
+       "stratocumulus",
+       "stratus",
+       "cumulus",
+       "cumulonimbus"
+      ],
+      "count": 5
+     }
+    },
+    {
+     "kind": "figure",
+     "figure": "forecast",
+     "caption": "A sky, and what the sea and the valleys are doing. What is it up to?",
+     "options": {
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "stratus",
+          "when": "7 a.m.",
+          "time": "dawn",
+          "low": true
+         },
+         {
+          "genus": "stratus",
+          "when": "10 a.m.",
+          "low": true
+         }
+        ],
+        "instruments": [
+         "Valley forecast: 40 °C"
+        ],
+        "question": "The Sacramento Valley is forecast to reach 40 °C today. What will the morning be like on the beach at San Francisco?",
+        "options": [
+         "Clear and hot, since the whole state is in a heat wave",
+         "Grey and cool, with the marine layer deep and pushed far inland by the hot valley’s pull",
+         "Thundery, because the heat will build storms along the coast"
+        ],
+        "answer": 1,
+        "why": "The hotter the inland valleys, the harder they pull the cool sea air in under the lid. A heat wave inland often means a cold, grey morning on the coast."
+       },
+       {
+        "sky": [
+         {
+          "genus": "stratocumulus",
+          "when": "noon",
+          "cover": true
+         }
+        ],
+        "instruments": [
+         "Wind: north, 35 km/h, for three days"
+        ],
+        "question": "A strong north wind has blown along the Oregon coast for three days in July. What has it done to the sea and the sky at the beach?",
+        "options": [
+         "Warmed the sea by blowing warm air from the land over it",
+         "Cleared the sky and calmed the sea",
+         "Cooled the sea, by dragging cold water up from below, and brought fog and low grey cloud"
+        ],
+        "answer": 2,
+        "why": "The turning Earth sends the surface water off to the west, to the right of the wind, and cold water upwells from below to replace it. Damp air over colder water is chilled into fog."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "1 p.m.",
+          "size": "congestus"
+         },
+         {
+          "genus": "cumulonimbus",
+          "when": "3 p.m.",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Sea: 10 °C",
+         "Air 1.5 km up: −8 °C"
+        ],
+        "question": "A cold March afternoon on the Washington coast: the sea is 10 °C and the air a kilometre and a half up is −8 °C. Could it thunder?",
+        "options": [
+         "Yes: the sea warms the bottom and the air aloft is cold, so showers can grow deep enough to reach the ice and thunder",
+         "No: the coast never thunders",
+         "No: it is far too cold for any heaped cloud"
+        ],
+        "answer": 0,
+        "why": "A warm bottom under a cold top is the recipe for deep heaps. This is how the coast gets most of its few thunder days: in autumn and winter, behind cold fronts."
+       },
+       {
+        "id": "lid",
+        "sky": [
+         {
+          "genus": "stratocumulus",
+          "when": "11 a.m.",
+          "cover": true
+         },
+         {
+          "genus": "stratocumulus",
+          "when": "3 p.m.",
+          "x": -0.5
+         }
+        ],
+        "question": "On a July afternoon, the fields inland are building cumulus, but over the beach there is only a flat grey deck. Why don’t heaps grow over the beach?",
+        "options": [
+         "The sea breeze blows the heaps inland as fast as they form",
+         "Bubbles off the cold sea are no warmer than the sea, and they stop at the lid of warm sinking air a few hundred metres up",
+         "There is no water vapour over the sea"
+        ],
+        "answer": 1,
+        "why": "Bubbles rise only while they are warmer than the air around them. Off a cold sea, they reach the lid within a few hundred metres and stop there, spreading out as a flat deck."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "The sea off the West Coast is cold in summer (about 12 °C off Oregon in August): the California Current, and upwelling, as north winds along the coast send the surface water offshore, to the right of the wind, and cold water rises from below.",
+  "The Pacific High’s sinking air warms as it is squeezed, so in summer the air a kilometre up is 10 to 15 °C warmer than at the beach: a strong lid at 300 to 800 m. The highs around 30° north and south are where the world’s deserts are.",
+  "Under the lid lies the marine layer, topped by stratus. Hot inland valleys pull it in overnight and burn it back from inland by afternoon; the hotter the valley, the deeper the grey.",
+  "Thunderstorms need bubbles warmer than the air around them past the freezing level. Off a cold sea under a lid they stop at a few hundred metres. A warm sea (the Gulf) or cold air aloft gets them through.",
+  "The coast’s few thunder days come mostly in autumn and winter, when cold air from the Gulf of Alaska crosses a comparatively warm sea: heaped showers, graupel, waterspouts."
+ ],
+ "next": "Next: where a week of winter rain comes from, and what the mountains do with it.",
+ "journal": {
+  "upwelling": {
+   "title": "Upwelling",
+   "text": "Summer north winds along the West Coast send the sea’s surface water off to the west, to the right of the wind, and cold water rises from below to replace it. The sea at the beach can be colder in July than in April."
+  },
+  "pacific-high": {
+   "title": "The Pacific High",
+   "text": "A vast high over the eastern Pacific in summer. Its sinking air warms as it is squeezed, pressing a strong lid down onto the sea-chilled air a few hundred metres up; its clockwise winds blow down the coast from the north."
+  },
+  "marine-layer": {
+   "title": "The marine layer",
+   "text": "Cool, damp air trapped under the lid along the coast, topped by stratus. Hot inland valleys pull it in at night; the sun burns it back from inland by afternoon. The hotter the valley, the deeper the grey."
+  },
+  "coast-thunder": {
+   "title": "Thunder on the coast",
+   "text": "Rare, because bubbles off the cold summer sea stop at the lid. What thunder there is comes in autumn and winter, when cold air from the north crosses a sea that is warm by comparison."
+  }
+ },
+ "footnotes": {
+  "ekman": {
+   "kind": "technical",
+   "title": "Ekman transport",
+   "text": "Wind dragging on the sea sets the top layer drifting, and the turning Earth bends the drift: averaged over the top few tens of metres, the water moves at right angles to the wind, to the right of it north of the equator. Worked out in 1902 by the Swedish oceanographer Vagn Walfrid Ekman, after Fridtjof Nansen noticed that Arctic ice drifted to the right of the wind."
+  },
+  "twain": {
+   "kind": "digression",
+   "title": "The coldest winter",
+   "text": "“The coldest winter I ever spent was a summer in San Francisco” is usually credited to Mark Twain, but no one has found it in anything he wrote or said. Whoever said it first had the weather right: San Francisco’s warmest month is September, after the upwelling and the fog ease off."
+  },
+  "belt": {
+   "kind": "technical",
+   "title": "Subtropical highs",
+   "text": "The belt of highs around 30° north and south, where air that rose in the tropics sinks again: the Pacific and Azores highs in the north, and their southern partners. They shift north in summer and south in winter, and the world’s great hot deserts lie beneath them."
+  },
+  "monsoon": {
+   "kind": "technical",
+   "title": "North American monsoon",
+   "text": "From about July to September, winds shift to carry moist air north from the Gulf of California and the Gulf of Mexico over Arizona, New Mexico and the deserts, bringing the year’s most reliable thunderstorms there. Surges of it sometimes reach as far north as Oregon and Washington."
+  }
+ }
+}

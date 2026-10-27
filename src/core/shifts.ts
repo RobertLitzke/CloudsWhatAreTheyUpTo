@@ -30,6 +30,8 @@ import giants from '../data/shifts/giants.json';
 import front from '../data/shifts/front.json';
 import localSky from '../data/shifts/local-sky.json';
 import seeding from '../data/shifts/seeding.json';
+import wind from '../data/shifts/wind.json';
+import coast from '../data/shifts/coast.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -43,6 +45,8 @@ export const FIGURE_IDS = [
   'iceSteal', 'iceShortage', 'agentRange', 'fallstreak', 'mountainSeed', 'conveyor', 'fogHole', 'fairTest',
   'radarEcho', 'brightBand', 'stormRadar', 'radarMap', 'frontRadar', 'seedLines',
   'lookAlike',
+  'pressureMap', 'turntable', 'spinLatitude', 'windBalance', 'lowHigh', 'jetStream',
+  'upwelling', 'pacificHigh', 'marineLayer', 'coastSounding', 'thunderDays',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -183,6 +187,11 @@ export const SHIFTS: readonly Shift[] = [
   fromJson(localSky, [], { sky: ['altocumulus', 'stratocumulus', 'stratus'], needs: ['front'] }),
   // A leaf off the end of the trunk: fifteen years on.
   fromJson(seeding, [], { sky: ['altocumulus', 'stratus'], book: 'seeding', branch: 'seeding', needs: ['local-sky'] }),
+  // -------------------------------------------------------------------------
+  // The Pacific coast, forking off after Lesson 6. Its first lesson is the
+  // bridge into weather on the scale of the planet, which later branches lean on too.
+  fromJson(wind, [], { sky: ['cirrus', 'altostratus'], branch: 'coast' }),
+  fromJson(coast, [], { sky: ['stratus', 'stratocumulus'], branch: 'coast', betterAfter: ['wind'] }),
 ];
 
 /** A lesson in the tree that is not written yet. */
@@ -205,8 +214,6 @@ export const BRANCHES: readonly TreeBranch[] = [
 
 /** Lessons shown in the tree before they are written: only the next branch to come. */
 export const COMING: readonly ComingLesson[] = [
-  { id: 'wind', n: 9, title: 'Why does wind blow in a circle around a storm?', teaches: 'Air sliding from high pressure to low, the spinning Earth turning under it, and the river of wind overhead that steers storms.', branch: 'coast', coming: true },
-  { id: 'coast', n: 10, title: 'Why does the Pacific coast almost never thunder?', teaches: 'A cold sea, a lid pressed down from above, the summer grey, and the rare days it does thunder.', branch: 'coast', betterAfter: ['wind'], coming: true },
   { id: 'rivers', n: 11, title: 'Where does a week of winter rain come from?', teaches: 'Rivers of vapour across the ocean, rain wrung out on the mountains, the snow level and the floods.', branch: 'coast', betterAfter: ['coast', 'local-sky'], coming: true },
 ];
 
@@ -227,4 +234,6 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...front.journal,
   ...localSky.journal,
   ...seeding.journal,
+  ...wind.journal,
+  ...coast.journal,
 };
