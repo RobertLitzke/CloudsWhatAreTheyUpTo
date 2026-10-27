@@ -13,9 +13,11 @@ import { quizView } from './app/views/quiz';
 import { seedView } from './app/views/seed';
 import { settingsView } from './app/views/settings';
 import { shiftView } from './app/views/shift';
+import { skyView } from './app/views/sky';
 
 const NAV: readonly [string, string][] = [
   ['/home', 'Home'],
+  ['/sky', 'Sky lab'],
   ['/quiz', 'Quiz'],
   ['/journal', 'Journal'],
   ['/settings', 'Settings'],
@@ -29,12 +31,21 @@ const CLOUD =
 function boot(): void {
   showSplash({ src: asset('poster.webp'), alt: 'Clouds: What are they up to?' });
   const app = document.getElementById('app')!;
+  // The pages sit in a menu under the current page's name, so more can join without crowding the bar.
   const links = NAV.map(([path, label]) => el('a', { href: `#${path}` }, label));
+  const current = el('span');
+  const menu = el('details.navmenu', {}, el('summary', {}, current), el('nav', {}, links)) as HTMLDetailsElement;
+  menu.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('a')) menu.open = false;
+  });
+  document.addEventListener('pointerdown', (e) => {
+    if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
+  });
   const header = el(
     'header.topbar',
     {},
     el('a.wordmark', { href: '#/home' }, 'Clouds', el('span', {}, 'What are they up to?')),
-    el('nav', {}, links),
+    menu,
   );
   const outlet = el('main');
   app.replaceChildren(header, outlet);
@@ -42,6 +53,8 @@ function boot(): void {
   const markHere = () => {
     const here = location.hash.replace(/^#/, '');
     links.forEach((a, i) => a.classList.toggle('here', here.startsWith(NAV[i][0])));
+    current.textContent = NAV.find(([path]) => here.startsWith(path))?.[1] ?? 'Menu';
+    menu.open = false;
   };
   window.addEventListener('hashchange', markHere);
 
@@ -54,6 +67,7 @@ function boot(): void {
     .add('/shift/:id', shiftView)
     .add('/quiz', quizView)
     .add('/seed', seedView)
+    .add('/sky', skyView)
     .add('/journal', journalView)
     .add('/journal/:tab', journalView)
     .add('/credits', creditsView)

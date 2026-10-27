@@ -230,3 +230,57 @@
 .look-name { margin: 0 0 2px; font-size: 0.84rem; line-height: 1.3; }
 .look-name b { display: block; }
 .look-name span { color: var(--ink-soft); }
+
+/* The page menu: the current page's name, opening a short list. */
+.navmenu { position: relative; }
+.navmenu summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px;
+  font: 600 0.8rem/1 var(--display); letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text); background: var(--bg-2); padding: 8px 12px; border-radius: 999px;
+}
+.navmenu summary::-webkit-details-marker { display: none; }
+.navmenu summary::after { content: ''; width: 6px; height: 6px; border: solid var(--sun); border-width: 0 2px 2px 0; transform: translateY(-2px) rotate(45deg); }
+.navmenu[open] summary::after { transform: translateY(1px) rotate(-135deg); }
+.topbar .navmenu nav {
+  position: absolute; right: 0; top: calc(100% + 6px); min-width: 160px; z-index: 6;
+  display: flex; flex-direction: column; gap: 2px; padding: 6px;
+  background: var(--bg-2); border-radius: 12px; box-shadow: 0 10px 30px rgba(10, 6, 24, 0.5);
+}
+.topbar .navmenu nav a { padding: 10px 12px; font-size: 0.8rem; }
+.topbar .navmenu nav a.here { background: var(--bg); color: var(--sun); }
+
+/* The sky lab: a live slice of weather and a strip of small controls. */
+.page.sky { display: grid; gap: 10px; padding-top: 6px; }
+.sky-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sky-head h1 { margin: 0; font: 700 1rem/1.1 var(--display); letter-spacing: 0.06em; text-transform: uppercase; color: var(--title); }
+.sky-gap { flex: 1; }
+.sky-round {
+  appearance: none; border: 0; width: 32px; height: 32px; border-radius: 50%; padding: 0;
+  display: grid; place-items: center; background: var(--bg-2); color: var(--text); cursor: pointer;
+}
+.sky-round:focus-visible, .sky-chip:focus-visible, .sky-wind button:focus-visible { outline: 2px solid var(--sun); outline-offset: 2px; }
+.sky-speed { font: 700 0.72rem var(--display); letter-spacing: 0.04em; }
+.sky-icon { display: inline-grid; width: 16px; height: 16px; }
+.sky-icon svg { width: 100%; height: 100%; }
+.sky-frame { border-radius: 16px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 14px 40px rgba(8, 4, 20, 0.45); touch-action: manipulation; }
+.sky-board { display: block; width: 100%; cursor: crosshair; }
+.sky-chips { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+@media (max-width: 420px) { .sky-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.sky-chip {
+  appearance: none; border: 0; cursor: pointer; min-width: 0;
+  display: flex; align-items: center; gap: 6px; padding: 7px 10px; border-radius: 999px;
+  background: var(--bg-2); color: var(--sun); font: inherit;
+}
+.sky-label { font: 600 0.66rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.sky-word { margin-left: auto; font-size: 0.78rem; font-weight: 700; color: var(--text); white-space: nowrap; }
+.sky-pips { margin-left: auto; display: inline-flex; gap: 3px; }
+.sky-pips i { width: 7px; height: 7px; border-radius: 50%; background: rgba(246, 185, 142, 0.22); }
+.sky-pips i.on { background: var(--sun); }
+.sky-wind { cursor: default; padding: 3px; gap: 4px; }
+.sky-wind .sky-label { margin-left: 2px; }
+.sky-wind .sky-word { margin-left: auto; margin-right: auto; }
+.sky-wind button {
+  appearance: none; border: 0; width: 26px; height: 26px; border-radius: 50%; cursor: pointer;
+  background: var(--bg); color: var(--sun); font: 700 1rem/1 var(--display); padding: 0 0 2px;
+}
+.sky-hint { margin: 0; font-size: 0.76rem; color: var(--muted); text-align: center; }
