@@ -15,6 +15,7 @@ import { jetStreamDiagram, lowHighDiagram, pressureMapDiagram, spinLatitudeDiagr
 import { coastSoundingFigure, marineLayerFigure, pacificHighDiagram, thunderDaysDiagram, upwellingFigure } from './coast';
 import { acrossWashingtonDiagram, atmosphericRiverDiagram, convergenceZoneDiagram, snowLevelFigure, stormTrackFigure, windwardFigure } from './rivers';
 import { capDayFigure, fuelSoundingFigure, hailstoneFigure, stormRecipeDiagram, stormSorterFigure } from './violent';
+import { efScaleDiagram, hookEchoDiagram, shearRollFigure, skaterFigure, supercellDiagram } from './tornado';
 import type { FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
@@ -126,4 +127,9 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   stormSorter: stormSorterFigure,
   hailstone: hailstoneFigure,
   stormRecipe: stormRecipeDiagram,
+  shearRoll: shearRollFigure,
+  skater: skaterFigure,
+  supercell: supercellDiagram,
+  hookEcho: hookEchoDiagram,
+  efScale: efScaleDiagram,
 };

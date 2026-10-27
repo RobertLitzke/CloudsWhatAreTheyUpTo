@@ -34,6 +34,7 @@ import wind from '../data/shifts/wind.json';
 import coast from '../data/shifts/coast.json';
 import rivers from '../data/shifts/rivers.json';
 import violent from '../data/shifts/violent.json';
+import tornado from '../data/shifts/tornado.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -51,6 +52,7 @@ export const FIGURE_IDS = [
   'upwelling', 'pacificHigh', 'marineLayer', 'coastSounding', 'thunderDays',
   'stormTrack', 'atmosphericRiver', 'windward', 'acrossWashington', 'snowLevel', 'convergenceZone',
   'fuelSounding', 'capDay', 'stormSorter', 'hailstone', 'stormRecipe',
+  'shearRoll', 'skater', 'supercell', 'hookEcho', 'efScale',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -218,6 +220,7 @@ export const SHIFTS: readonly Shift[] = [
   fromJson(rivers, [], { sky: ['nimbostratus', 'cumulus'], branch: 'coast', betterAfter: ['coast', 'local-sky'] }),
   // Violent storms, forking off after Lesson 5's thunderstorms.
   fromJson(violent, [], { sky: ['cumulonimbus', 'cumulus'], branch: 'storms', needs: ['giants'] }),
+  fromJson(tornado, [], { sky: ['cumulonimbus'], branch: 'storms', needs: ['violent'], betterAfter: ['wind'] }),
 ];
 
 /** A lesson in the tree that is not written yet. */
@@ -242,7 +245,6 @@ export const BRANCHES: readonly TreeBranch[] = [
 
 /** Lessons shown in the tree before they are written: the next branch to come. */
 export const COMING: readonly ComingLesson[] = [
-  { id: 'tornado', n: 13, title: 'How does a tornado form?', teaches: 'A storm that spins, and how its spin is stretched down to the ground.', branch: 'storms', needs: ['violent'], betterAfter: ['wind'], coming: true },
   { id: 'hurricane', n: 14, title: 'How does a hurricane work?', teaches: 'A storm that feeds on a warm sea, and why it has an eye.', branch: 'storms', betterAfter: ['wind', 'violent'], coming: true },
 ];
 
@@ -272,4 +274,5 @@ export const JOURNAL: Record<string, { title: string; text: string; rare?: boole
   ...coast.journal,
   ...rivers.journal,
   ...violent.journal,
+  ...tornado.journal,
 };

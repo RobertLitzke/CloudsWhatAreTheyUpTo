@@ -1,0 +1,311 @@
+{
+ "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+ "id": "tornado",
+ "n": 13,
+ "title": "How does a tornado form?",
+ "teaches": "Where does a tornado’s spin come from, and why is it so fast? A roll of air laid on its side by the wind, stood on end by a storm’s updraft, and squeezed thin; the wall cloud and the hook on the radar; the scale tornadoes are rated on; and the whirls that are not tornadoes.",
+ "parts": [
+  {
+   "title": "A roll of air on its side",
+   "blocks": [
+    {
+     "kind": "key",
+     "title": "The big ideas of this lesson",
+     "points": [
+      "Wind that grows stronger with height rolls the air between over and over, like a pencil between two hands: spin lying on its side.",
+      "A storm’s updraft lifts that roll and stands it on end. When the wind also turns with height, the updraft swallows the roll end on and the whole updraft rotates: a **mesocyclone**, the heart of a supercell.",
+      "Stretched upward and squeezed thin, a spinning column spins faster, like a skater pulling in her arms. Squeezed from a few kilometres across to a hundred metres, a gentle turn becomes a tornado.",
+      "Look for a **wall cloud** under the rain-free base at the back of a supercell, and a **hook** on the radar. Tornadoes are rated from EF0 to EF5 by the damage they do.",
+      "Not every whirl is a tornado: a tornado is a column of spinning air reaching from a storm’s cloud to the ground."
+     ]
+    },
+    {
+     "kind": "text",
+     "text": "The last lesson ended with a storm that turns: a supercell, whose updraft rotates slowly, a few kilometres across. The fastest winds on Earth come out of such storms, in tornadoes no wider than a football field, spinning at up to 400 kilometres an hour. Two questions lead there. Where does a storm get spin in the first place? And how does a slow turn kilometres across become a fast one a hundred metres across?"
+    },
+    {
+     "kind": "text",
+     "text": "Start with the spin. On a storm day over the Plains, the wind near the ground might be a gentle 15 kilometres an hour from the south-east, and at three kilometres up, 60 from the south-west. Put a paddle wheel in that air, lying flat with its axle across the wind, and the faster wind on its top blade turns it over. The air between the two winds is being rolled, all along its length, like a pencil rolled between your hands: spin lying on its side, invisible, everywhere across the storm country."
+    },
+    {
+     "kind": "text",
+     "text": "Then a storm grows. Its updraft lifts the rolling air, and anything lifted from underneath tips up. How the roll stands up depends on how it lies to the warm air flowing into the storm."
+    },
+    {
+     "kind": "figure",
+     "figure": "shearRoll",
+     "caption": "Spin from the wind changing with height, and what a storm’s updraft does with it.",
+     "task": "Make the updraft itself rotate.",
+     "goal": "spin"
+    },
+    {
+     "kind": "text",
+     "text": "If the wind only grows stronger with height, the roll lies across the inflow, and the updraft lifts it in an arch, like lifting the middle of a garden hose. Its two legs spin opposite ways, one on each side of the updraft, and the storm often splits in two, one half turning each way. If the wind also turns as it climbs, from south-east at the ground to south-west aloft, the roll lies along the inflow instead. The updraft then swallows it end on, like sucking a spinning thread up a straw, and the whole updraft rotates. In the northern half of the world it nearly always turns anticlockwise."
+    },
+    {
+     "kind": "text",
+     "text": "That rotating updraft is a **mesocyclone**[^meso], a few kilometres across, turning about once every ten minutes. It is what makes a supercell a supercell, and why forecasters care so much about wind that turns with height as well as grows."
+    }
+   ]
+  },
+  {
+   "title": "Squeezing the spin",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "A mesocyclone turns slowly: its edge moves at perhaps 10 or 20 metres a second. A tornado’s edge can move at a hundred. The extra speed comes from squeezing."
+    },
+    {
+     "kind": "text",
+     "text": "A figure skater spinning with her arms out turns slowly. As she pulls her arms in, she spins faster, without anything pushing her round. Spinning things keep their spin: what they lose in width they make up in speed. Halve the width, and the edge goes twice as fast. Air does the same. Under a supercell, the updraft stretches a spinning column upward, and as it stretches, it thins, and as it thins it spins faster."
+    },
+    {
+     "kind": "figure",
+     "figure": "skater",
+     "caption": "A spinning column under a storm, squeezed thinner. Its edge speed, and the damage that speed would do.",
+     "task": "Guess what squeezing does to the spin, then squeeze it until it is a tornado.",
+     "goal": "tornado"
+    },
+    {
+     "kind": "text",
+     "text": "From two kilometres across to a hundred metres is twenty times thinner, and so twenty times faster. Friction with the ground takes some of it back, but even so the strongest tornadoes reach 300 to 400 kilometres an hour, and the air pressure in their centre drops so low that the damp air drawn into them is cooled to its dew point: that is the funnel you see, cloud made by the low pressure, often filled with dust and debris near the ground."
+    },
+    {
+     "kind": "text",
+     "text": "What finally squeezes the spin all the way to the ground is still being worked out. Only about one supercell in four makes a tornado. Measurements from radar trucks driven right up to storms show that the rear of the storm matters: the cold air of the rear downdraft, wrapping round the updraft, brings spin of its own down to the ground, where the updraft can catch it and stretch it. But two storms that look identical on every instrument can behave differently, one making a tornado and one not, and no one can yet say why."
+    }
+   ]
+  },
+  {
+   "title": "What to look for",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "A supercell has a shape you can learn to read. It moves along with the winds a few kilometres up, usually from the south-west towards the north-east on the Plains. Its rain and hail fall out of the forward part, carried ahead by the upper winds. The warm, damp air flows in at the back, under a dark flat base with no rain falling from it: the rain-free base. Under that, where the rotating updraft is strongest, a piece of the cloud base often hangs lower than the rest: the **wall cloud**, sometimes visibly turning. Tornadoes come from under it."
+    },
+    {
+     "kind": "figure",
+     "figure": "supercell",
+     "caption": "A supercell from the side, moving left to right, with its rain to the front and its wall cloud behind."
+    },
+    {
+     "kind": "text",
+     "text": "On a radar screen (Lesson 6), the same storm has a shape too. The rain blown round the back of the rotating updraft by the rear downdraft makes a curl at the storm’s south-west corner: the **hook echo**. Where the hook curls, the updraft is turning; a tornado, if there is one, is at the tip."
+    },
+    {
+     "kind": "figure",
+     "figure": "hookEcho",
+     "caption": "A supercell on the radar. The hook is rain wrapped round the rotating updraft."
+    },
+    {
+     "kind": "text",
+     "text": "**Today:** weather radars also measure how fast the rain is moving towards them or away. A mesocyclone shows as a spot where fast motion towards the radar sits right next to fast motion away from it, a few minutes before any tornado forms. Warnings now come about ten to fifteen minutes ahead, on average. In 1931, there was no radar at all, and the US Weather Bureau did not use the word tornado in its forecasts, for fear of panic."
+    }
+   ]
+  },
+  {
+   "title": "Rated by the damage",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "No wind gauge survives a strong tornado, so they are rated by what they destroy. Engineers look at the damage, which roof came off, which walls fell, which trees were snapped or stripped, and work out what wind could have done it. The scale runs from EF0, which takes shingles off roofs, to EF5, which sweeps houses off their foundations.[^fujita]"
+    },
+    {
+     "kind": "figure",
+     "figure": "efScale",
+     "caption": "The Enhanced Fujita scale: estimated gusts, and the damage that rates a tornado."
+    },
+    {
+     "kind": "text",
+     "text": "Most tornadoes are weak: about three in four are EF0 or EF1, on the ground for a few minutes and a few kilometres. One in a hundred is EF4 or EF5, and those do most of the killing. The United States gets about 1,200 a year, more than any other country, nearly all east of the Rockies and west of the Appalachians, where the Gulf’s damp air, the dry air off the deserts and the jet stream meet in spring (last lesson)."
+    },
+    {
+     "kind": "text",
+     "text": "The Pacific Northwest gets a few a year, mostly small and short-lived, from the cold heaped showers behind winter fronts (the Pacific coast lessons) or from summer storms east of the Cascades. The worst came in April 1972, when an F3 tornado crossed the Columbia River into Vancouver, Washington, and struck a school and a shopping centre.[^vancouver]"
+    }
+   ]
+  },
+  {
+   "title": "Not a tornado",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Plenty of things in the sky look like tornadoes and are not. A tornado is a column of spinning air that reaches from a storm’s cloud down to the ground. Some look-alikes:"
+    },
+    {
+     "kind": "text",
+     "text": "**Scud** is ragged low cloud torn off under a storm or a front, drifting along with the wind, sometimes hanging down in ominous shapes. It does not turn. A **shelf cloud** is the long, low, wedge-shaped bank along a storm’s gust front (Lesson 5), where the cold outflow lifts the warm air ahead of it. It looks frightening, and brings a blast of wind, but it lies along the ground, not upright. A **funnel cloud** is a rotating funnel that has not reached the ground. It may yet."
+    },
+    {
+     "kind": "text",
+     "text": "A **gustnado** is a brief whirl of dust or spray spun up along a gust front, not joined to the cloud above. A **dust devil** is a whirl of dust on a hot, sunny afternoon, made by a bubble of hot air rising from bare ground and drawing air in after it, often with no cloud anywhere. A **waterspout** that grows under a line of heaped clouds over warm water in fair weather is a gentler cousin of the tornado, spun up from the bottom rather than the top; one that comes from a supercell crossing water is a tornado over water."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "kind": "text",
+     "text": "Name the clouds in these photographs, then use the roll, the squeeze and the storm’s shape to read the scenarios below."
+    },
+    {
+     "kind": "figure",
+     "figure": "check",
+     "caption": "Real photos to name, then a sky and what the wind and the radar are doing. What is it up to?",
+     "options": {
+      "photos": {
+       "mode": "name",
+       "pool": [
+        "cumulonimbus",
+        "cumulus",
+        "altocumulus",
+        "stratocumulus",
+        "nimbostratus"
+       ],
+       "known": [
+        "cirrus",
+        "cirrocumulus",
+        "cirrostratus",
+        "altocumulus",
+        "altostratus",
+        "nimbostratus",
+        "stratocumulus",
+        "stratus",
+        "cumulus",
+        "cumulonimbus"
+       ],
+       "count": 4
+      },
+      "items": [
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "4 p.m.",
+          "rain": true
+         },
+         {
+          "genus": "cumulonimbus",
+          "when": "5 p.m.",
+          "lightning": true
+         }
+        ],
+        "instruments": [
+         "Wind at the ground: south-east, 15 km/h",
+         "Wind 3 km up: south-west, 60 km/h"
+        ],
+        "question": "A storm is growing in this wind: south-east at the ground, south-west and much faster three kilometres up. What can its updraft do?",
+        "options": [
+         "Swallow the spin end on and rotate: a supercell",
+         "Nothing: wind changing with height tears storms apart",
+         "Split into many small showers"
+        ],
+        "answer": 0,
+        "why": "Wind that grows and turns with height rolls the air so that it lies along the inflow; the updraft swallows the roll end on and the whole updraft turns."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "5 p.m.",
+          "rain": true
+         }
+        ],
+        "instruments": [
+         "Radar: a hook at the storm’s south-west corner"
+        ],
+        "question": "The radar shows a hook at the south-west corner of a storm. Where should people look for a tornado?",
+        "options": [
+         "At the tip of the hook, under the back of the storm",
+         "In the heaviest rain at the front",
+         "Under the anvil, far ahead of the storm"
+        ],
+        "answer": 0,
+        "why": "The hook is rain wrapped round the rotating updraft. A tornado, if there is one, is near its tip, under the rain-free base and wall cloud."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulus",
+          "when": "2 p.m.",
+          "size": "small",
+          "dust": true
+         }
+        ],
+        "question": "On a hot, cloudless July afternoon, a whirl of dust spins across a ploughed field. What is it?",
+        "options": [
+         "A dust devil, from hot air rising off the bare ground",
+         "A small tornado",
+         "A gustnado on a gust front"
+        ],
+        "answer": 0,
+        "why": "A tornado comes from a storm’s cloud. A dust devil needs only a hot, sunny day and bare ground: a bubble of hot air rising and drawing air in after it."
+       },
+       {
+        "sky": [
+         {
+          "genus": "cumulonimbus",
+          "when": "6 p.m.",
+          "rain": true
+         }
+        ],
+        "question": "A spinning column is squeezed from 1,000 metres across to 250 metres. How much faster does its edge spin?",
+        "options": [
+         "About four times",
+         "About twice",
+         "The same"
+        ],
+        "answer": 0,
+        "why": "Spinning things keep their spin: a column a quarter as wide spins four times as fast at its edge, like a skater pulling in her arms."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "learned": [
+  "Wind that grows stronger with height rolls the air between it over, like a pencil between two hands: spin lying on its side.",
+  "A storm’s updraft stands the roll on end. If the wind only strengthens with height, it arches up into a pair of opposite spins and the storm may split. If the wind also turns, the updraft swallows the roll end on and rotates: a mesocyclone, a few kilometres across.",
+  "Stretched and squeezed thin, a spinning column spins faster: half as wide, twice as fast. That is how a slow turn kilometres across becomes a tornado a hundred metres across. Only about one supercell in four makes one, and exactly why is still being studied.",
+  "A supercell’s rain falls ahead; the warm air flows in under a rain-free base at the back, where the wall cloud hangs and tornadoes form. On the radar, the hook at its south-west corner marks the rotating updraft.",
+  "Tornadoes are rated EF0 to EF5 by their damage. Most are weak; about 1,200 a year strike the United States. Scud, shelf clouds, gustnadoes, dust devils and fair-weather waterspouts are not tornadoes."
+ ],
+ "next": "Next: the storm that feeds on a warm sea.",
+ "journal": {
+  "mesocyclone": {
+   "title": "Mesocyclone",
+   "text": "The rotating updraft of a supercell, a few kilometres across, formed when the updraft swallows end on the spin rolled into the air by wind that grows and turns with height."
+  },
+  "tornado": {
+   "title": "Tornado",
+   "text": "A column of spinning air reaching from a storm’s cloud to the ground, made when spin is stretched and squeezed thin: half as wide, twice as fast. Rated EF0 to EF5 by the damage it does."
+  },
+  "wall-cloud": {
+   "title": "Wall cloud",
+   "text": "A lowered piece of a supercell’s rain-free base, under the rotating updraft at the back of the storm, sometimes visibly turning. Tornadoes form under it."
+  },
+  "hook-echo": {
+   "title": "Hook echo",
+   "text": "A curl of rain on the radar at a supercell’s south-west corner, wrapped round the rotating updraft. A tornado, if there is one, is near its tip."
+  }
+ },
+ "footnotes": {
+  "meso": {
+   "kind": "technical",
+   "title": "Mesocyclone",
+   "text": "From the Greek for middle: a cyclone, a rotating storm, of middle size, between a tornado (tens to hundreds of metres) and the lows of Lesson 6 (a thousand kilometres). Turning anticlockwise, it is cyclonic, the same way as a low; the Earth’s turn is far too slow to set it spinning directly, but the winds that feed supercells usually turn the way that gives this direction."
+  },
+  "fujita": {
+   "kind": "digression",
+   "title": "Mr. Tornado",
+   "text": "The scale was devised in 1971 by Tetsuya Theodore Fujita of the University of Chicago, who had learned to read damage surveying Nagasaki after the atomic bomb. He mapped tornado tracks from the air, found the small, intense whirls inside them, and discovered downbursts, the sudden blasts of air from storms that once brought down airliners. The Enhanced Fujita scale replaced his in 2007, with ratings tied to damage to 28 kinds of buildings and trees."
+  },
+  "vancouver": {
+   "kind": "digression",
+   "title": "Vancouver, 1972",
+   "text": "On 5 April 1972 a tornado crossed the Columbia from Oregon and ran nine miles through Vancouver, Washington, destroying a school, a bowling alley and a supermarket. Six people died and some three hundred were hurt: still the deadliest tornado in the Pacific Northwest’s records."
+  }
+ }
+}
