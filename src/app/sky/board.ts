@@ -4,7 +4,7 @@
 // Heights are stretched, as in every cross-section: the slice is 64 km wide
 // and 12 km tall, drawn about four times taller than true.
 
-import type { Ground, SkySim } from '../../core/sky-sim';
+import { qsat, type Ground, type SkySim } from '../../core/sky-sim';
 
 type RGB = [number, number, number];
 
@@ -40,7 +40,68 @@ function skyAt(h: number): [RGB, RGB, RGB] {
 /** Cloud tones, light to dark: sunlit top, lit side, mid, belly. */
 const TONES: RGB[] = [hex('#ffffff'), hex('#e4e2f0'), hex('#aaa6c6'), hex('#5f5a82')];
 const TONE_NIGHT: RGB[] = [hex('#8a86b0'), hex('#6c6896'), hex('#4c4874'), hex('#302c52')];
-const RAIN = hex('#d870b4');
+const RAIN = hex('#1d2a6e');
+
+export type Overlay = 'none' | 'temp' | 'humidity' | 'lift';
+
+type Stop = [number, RGB, number];
+/** Air temperature, °C: cold blues to warm peach and red. */
+const TEMP_RAMP: Stop[] = [
+  [-50, hex('#2b3f9e'), 0.6],
+  [-30, hex('#4f6fd6'), 0.55],
+  [-10, hex('#9ab8f2'), 0.5],
+  [0, hex('#eef2ff'), 0.45],
+  [10, hex('#ffd39a'), 0.5],
+  [20, hex('#f59a5a'), 0.55],
+  [30, hex('#d9503a'), 0.6],
+];
+/** Relative humidity, 0 to 1: dry sand to saturated teal. */
+const RH_RAMP: Stop[] = [
+  [0, hex('#c98b5a'), 0.5],
+  [0.5, hex('#a7a3b6'), 0.15],
+  [0.85, hex('#47c2cf'), 0.45],
+  [1, hex('#0f9fb8'), 0.75],
+];
+/** Vertical wind, m/s: sinking blue, rising orange. */
+const LIFT_RAMP: Stop[] = [
+  [-4, hex('#2f62d8'), 0.7],
+  [-0.3, hex('#7f9be6'), 0],
+  [0.3, hex('#ffb37a'), 0],
+  [4, hex('#ff6a2a'), 0.75],
+];
+const LEGEND: Record<Exclude<Overlay, 'none'>, [Stop[], string, string]> = {
+  temp: [TEMP_RAMP, '−50 °C', '+30 °C'],
+  humidity: [RH_RAMP, 'dry', 'saturated'],
+  lift: [LIFT_RAMP, 'sinking', 'rising'],
+};
+
+function ramp(stops: Stop[], v: number, out: number[]): void {
+  if (v <= stops[0][0]) {
+    const [, c, a] = stops[0];
+    out[0] = c[0]; out[1] = c[1]; out[2] = c[2]; out[3] = a;
+    return;
+  }
+  for (let n = 1; n < stops.length; n++) {
+    if (v <= stops[n][0]) {
+      const [v0, c0, a0] = stops[n - 1];
+      const [v1, c1, a1] = stops[n];
+      const t = (v - v0) / (v1 - v0);
+      out[0] = c0[0] + (c1[0] - c0[0]) * t;
+      out[1] = c0[1] + (c1[1] - c0[1]) * t;
+      out[2] = c0[2] + (c1[2] - c0[2]) * t;
+      out[3] = a0 + (a1 - a0) * t;
+      return;
+    }
+  }
+  const [, c, a] = stops[stops.length - 1];
+  out[0] = c[0]; out[1] = c[1]; out[2] = c[2]; out[3] = a;
+}
+
+/** Dim a colour toward a darker grey of itself: the sun behind haze. */
+function haze(c: RGB, k: number): RGB {
+  const g = (c[0] * 0.3 + c[1] * 0.55 + c[2] * 0.15) * 0.72;
+  return mix(c, [g, g, g * 1.05], k);
+}
 
 const SKIN: Record<Ground, RGB> = {
   field: hex('#e2b15e'),
@@ -76,6 +137,10 @@ export class Board {
   private motes: Mote[] = [];
   private ripples: { x: number; z: number; t: number }[] = [];
   private groundPx: Float32Array = new Float32Array(0);
+  /** What is laid over the air. */
+  overlay: Overlay = 'none';
+  private tempC: Float32Array;
+  private rh: Float32Array;
 
   constructor(private sim: SkySim) {
     this.canvas = document.createElement('canvas');
@@ -87,6 +152,8 @@ export class Board {
     this.qc = new Float32Array(sim.nx * sim.nz);
     this.qr = new Float32Array(sim.nx * sim.nz);
     this.tmp = new Float32Array(sim.nx * sim.nz);
+    this.tempC = new Float32Array(sim.nx * sim.nz);
+    this.rh = new Float32Array(sim.nx * sim.nz);
     for (let n = 0; n < 110; n++) this.motes.push(this.spawn());
   }
 
@@ -96,6 +163,8 @@ export class Board {
     this.qc = new Float32Array(sim.nx * sim.nz);
     this.qr = new Float32Array(sim.nx * sim.nz);
     this.tmp = new Float32Array(sim.nx * sim.nz);
+    this.tempC = new Float32Array(sim.nx * sim.nz);
+    this.rh = new Float32Array(sim.nx * sim.nz);
     this.motes = this.motes.map(() => this.spawn());
     this.resize(this.w, this.h);
   }
@@ -216,8 +285,11 @@ export class Board {
     if (!this.img || w === 0) return;
     const hour = sim.hour();
     const sc = sim.scenario;
-    const [top, mid, hor] = skyAt(hour);
+    // Weak sunshine is hazy: the whole scene greys and dims with it.
+    const hz = 0.75 * (1 - sim.controls.sun / 10);
+    const [top, mid, hor] = skyAt(hour).map((c) => haze(c, hz));
     ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    this.fields();
 
     const sky = ctx.createLinearGradient(0, 0, 0, h);
     sky.addColorStop(0, css(top));
@@ -232,11 +304,12 @@ export class Board {
     const sunUp = sun > 0;
     const arcX = sunUp ? w * (0.95 - 0.9 * dayT) : w * (0.95 - 0.9 * (((hour + 12) % 24) - 6) / 12);
     const arcY = h * (0.62 - 0.5 * (sunUp ? sun : Math.max(0, Math.sin((Math.PI * (((hour + 12) % 24) - 6)) / 12))));
-    ctx.fillStyle = sunUp ? css(hex('#ffd9a8'), 0.25) : 'rgba(220,214,255,0.12)';
+    const bright = sim.controls.sun / 10;
+    ctx.fillStyle = sunUp ? css(hex('#ffd9a8'), 0.08 + 0.3 * bright) : 'rgba(220,214,255,0.12)';
     ctx.beginPath();
-    ctx.arc(arcX, arcY, 22, 0, Math.PI * 2);
+    ctx.arc(arcX, arcY, sunUp ? 12 + 16 * bright : 22, 0, Math.PI * 2);
     ctx.fill();
-    ctx.fillStyle = sunUp ? '#ffe2b8' : '#e6e1ff';
+    ctx.fillStyle = sunUp ? css(mix(hex('#c9c2d2'), hex('#ffe2b8'), bright), 0.35 + 0.65 * bright) : '#e6e1ff';
     ctx.beginPath();
     ctx.arc(arcX, arcY, 9, 0, Math.PI * 2);
     ctx.fill();
@@ -265,25 +338,40 @@ export class Board {
       ctx.stroke();
     }
 
-    // Freezing line.
-    const fz = this.yOf(sim.freezingM() / 1000);
-    ctx.strokeStyle = 'rgba(190,220,255,0.35)';
-    ctx.lineWidth = 1;
-    ctx.setLineDash([3, 5]);
-    ctx.beginPath();
-    ctx.moveTo(0, fz);
-    ctx.lineTo(w, fz);
-    ctx.stroke();
-    ctx.setLineDash([]);
-    ctx.fillStyle = 'rgba(210,228,255,0.6)';
-    ctx.font = '600 9px "Nunito Sans", system-ui, sans-serif';
-    ctx.fillText('0 °C', 6, fz - 4);
-
-    this.clouds(hour, time);
+    this.clouds(hour, time, hz);
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(this.buf, 0, 0, w, h);
 
+    // Isotherms every 10 °C with the temperature overlay; the freezing line always.
+    ctx.font = '600 9px "Nunito Sans", system-ui, sans-serif';
+    const levels = this.overlay === 'temp' ? [20, 10, 0, -10, -20, -30, -40, -50] : [0];
+    for (const lv of levels) {
+      const segs = this.contour(this.tempC, lv);
+      const zero = lv === 0;
+      ctx.strokeStyle = zero ? 'rgba(200,225,255,0.6)' : 'rgba(255,255,255,0.45)';
+      ctx.lineWidth = zero ? 1.2 : 1;
+      ctx.setLineDash(zero ? [3, 4] : []);
+      ctx.beginPath();
+      let labelY = -1;
+      for (let n = 0; n < segs.length; n += 4) {
+        ctx.moveTo(segs[n], segs[n + 1]);
+        ctx.lineTo(segs[n + 2], segs[n + 3]);
+        if (segs[n] < 2 * (w / sim.nx)) labelY = segs[n + 1];
+      }
+      ctx.stroke();
+      if (labelY >= 0) {
+        ctx.fillStyle = 'rgba(235,242,255,0.8)';
+        ctx.fillText(`${lv > 0 ? '+' : lv < 0 ? '−' : ''}${Math.abs(lv)} °C`, 6, labelY - 4);
+      }
+    }
+    ctx.setLineDash([]);
+
     this.ground();
+    if (hz > 0) {
+      ctx.fillStyle = `rgba(28,22,48,${0.3 * hz})`;
+      ctx.fillRect(0, 0, w, h);
+    }
+    if (this.overlay !== 'none') this.legend();
 
     // The hour, and the rain so far.
     ctx.font = '700 13px Oswald, "Nunito Sans", system-ui, sans-serif';
@@ -316,7 +404,77 @@ export class Board {
   }
 
   /** Cloud and rain into the buffer. */
-  private clouds(hour: number, time: number): void {
+  /** Temperature and humidity of every cell, for the overlays and the freezing line. */
+  private fields(): void {
+    const s = this.sim;
+    for (let j = 0; j < s.nz; j++) {
+      for (let i = 0; i < s.nx; i++) {
+        const k = i + j * s.nx;
+        const t = s.tempC(i, j);
+        this.tempC[k] = t;
+        this.rh[k] = Math.min(1, s.qv[k] / qsat(t + 273.15, s.p0[j]));
+      }
+    }
+  }
+
+  /** Marching squares over cell centres: line segments, as x0 y0 x1 y1 in CSS px, where `f` crosses `level`. */
+  private contour(f: Float32Array, level: number): number[] {
+    const { nx, nz, dz } = this.sim;
+    const out: number[] = [];
+    const X = (i: number) => ((i + 0.5) / nx) * this.w;
+    const Y = (j: number) => this.yOf(((j + 0.5) * dz) / 1000);
+    for (let j = 0; j < nz - 1; j++) {
+      for (let i = 0; i < nx - 1; i++) {
+        const k = i + j * nx;
+        const a = f[k] - level; // bottom left
+        const b = f[k + 1] - level; // bottom right
+        const c = f[k + nx + 1] - level; // top right
+        const d = f[k + nx] - level; // top left
+        const pts: number[] = [];
+        const edge = (p: number, q: number, x0: number, y0: number, x1: number, y1: number) => {
+          if ((p < 0) !== (q < 0)) {
+            const t = p / (p - q);
+            pts.push(x0 + (x1 - x0) * t, y0 + (y1 - y0) * t);
+          }
+        };
+        edge(a, b, X(i), Y(j), X(i + 1), Y(j));
+        edge(b, c, X(i + 1), Y(j), X(i + 1), Y(j + 1));
+        edge(c, d, X(i + 1), Y(j + 1), X(i), Y(j + 1));
+        edge(d, a, X(i), Y(j + 1), X(i), Y(j));
+        if (pts.length >= 4) out.push(pts[0], pts[1], pts[2], pts[3]);
+        if (pts.length === 8) out.push(pts[4], pts[5], pts[6], pts[7]);
+      }
+    }
+    return out;
+  }
+
+  /** A small colour bar for the overlay, in the ground band. */
+  private legend(): void {
+    if (this.overlay === 'none') return;
+    const { ctx, w, h } = this;
+    const [stops, lo, hi] = LEGEND[this.overlay];
+    const bw = Math.min(130, w * 0.36);
+    const x = w - bw - 12;
+    const y = h - 9;
+    const g = ctx.createLinearGradient(x, 0, x + bw, 0);
+    const c: number[] = [0, 0, 0, 0];
+    const v0 = stops[0][0];
+    const v1 = stops[stops.length - 1][0];
+    for (let n = 0; n <= 8; n++) {
+      ramp(stops, v0 + ((v1 - v0) * n) / 8, c);
+      g.addColorStop(n / 8, css([c[0], c[1], c[2]], Math.max(0.35, Math.min(1, c[3] * 1.6))));
+    }
+    ctx.fillStyle = g;
+    ctx.fillRect(x, y, bw, 5);
+    ctx.font = '600 9px "Nunito Sans", system-ui, sans-serif';
+    ctx.fillStyle = 'rgba(240,232,255,0.85)';
+    ctx.fillText(lo, x, y - 3);
+    ctx.textAlign = 'right';
+    ctx.fillText(hi, x + bw, y - 3);
+    ctx.textAlign = 'left';
+  }
+
+  private clouds(hour: number, time: number, hz: number): void {
     const s = this.sim;
     const img = this.img!;
     const data = img.data;
@@ -330,13 +488,19 @@ export class Board {
     const toward = hour < 12 ? 1 : -1;
     this.shade(((toward * (1 - elev)) / Math.max(elev, 0.2)) * (s.dz / s.dx) * 1.2);
     const day = Math.min(1, sun * 3);
-    const tones = TONES.map((c, n) => mix(TONE_NIGHT[n], c, day));
+    const tones = TONES.map((c, n) => haze(mix(TONE_NIGHT[n], c, day), hz * 0.6));
     const [, , hor] = skyAt(hour);
     // Low sun warms the lit tops.
     const warm = sun > 0 && sun < 0.45 ? (0.45 - sun) / 0.45 : 0;
     tones[0] = mix(tones[0], mix(hor, hex('#ffd2b0'), 0.4), warm * 0.8);
     tones[1] = mix(tones[1], hor, warm * 0.35);
     const slant = -s.windMs() * 0.05;
+    const ov = this.overlay;
+    const stops = ov === 'temp' ? TEMP_RAMP : ov === 'humidity' ? RH_RAMP : LIFT_RAMP;
+    const field = ov === 'temp' ? this.tempC : ov === 'humidity' ? this.rh : s.w;
+    const c4 = [0, 0, 0, 0];
+    // With an overlay on, clouds go part see-through so the colours read under them.
+    const cloudA = ov === 'none' ? 1 : 0.6;
     const tick = time * 0.012;
     const sx = s.nx / bw;
     const plot = this.plot;
@@ -349,30 +513,47 @@ export class Board {
           continue;
         }
         const cx = px * sx - 0.5;
+        // Start from the overlay's colour, then lay rain and cloud over it.
+        let r0 = 0;
+        let g0 = 0;
+        let b0 = 0;
+        let a0 = 0;
+        if (ov !== 'none') {
+          ramp(stops, s.sample(field, cx, cz), c4);
+          a0 = c4[3];
+          r0 = c4[0] * a0;
+          g0 = c4[1] * a0;
+          b0 = c4[2] * a0;
+        }
+        const r = s.sample(this.qr, cx, cz) * 1000;
+        if (r > 0.03) {
+          const stripe = (px + py * slant + tick * 60) % 4;
+          const on = (stripe < 0 ? stripe + 4 : stripe) < 2.2;
+          const a = (r > 0.5 ? 0.95 : r > 0.15 ? 0.8 : 0.6) * (on ? 1 : 0.3);
+          r0 = RAIN[0] * a + r0 * (1 - a);
+          g0 = RAIN[1] * a + g0 * (1 - a);
+          b0 = RAIN[2] * a + b0 * (1 - a);
+          a0 = a + a0 * (1 - a);
+        }
         const q = s.sample(this.qc, cx, cz) * 1000;
         if (q > 0.015) {
           const depth = s.sample(this.od, cx, cz);
           const light = Math.exp(-depth * 0.75);
           const n = light > 0.72 ? 0 : light > 0.4 ? 1 : light > 0.14 ? 2 : 3;
           const c = tones[n];
-          data[o] = c[0];
-          data[o + 1] = c[1];
-          data[o + 2] = c[2];
-          data[o + 3] = q > 0.03 ? 255 : 170;
-          continue;
+          const a = (q > 0.03 ? 1 : 0.67) * cloudA;
+          r0 = c[0] * a + r0 * (1 - a);
+          g0 = c[1] * a + g0 * (1 - a);
+          b0 = c[2] * a + b0 * (1 - a);
+          a0 = a + a0 * (1 - a);
         }
-        const r = s.sample(this.qr, cx, cz) * 1000;
-        if (r > 0.03) {
-          const stripe = (px + py * slant + tick * 60) % 4;
-          const on = (stripe < 0 ? stripe + 4 : stripe) < 1.6;
-          const a = r > 0.5 ? 0.95 : r > 0.15 ? 0.75 : 0.5;
-          data[o] = RAIN[0];
-          data[o + 1] = RAIN[1];
-          data[o + 2] = RAIN[2];
-          data[o + 3] = on ? a * 255 : a * 60;
-          continue;
+        if (a0 > 0) {
+          // Colours above were mixed as if over black; undo that for the canvas's straight alpha.
+          data[o] = r0 / a0;
+          data[o + 1] = g0 / a0;
+          data[o + 2] = b0 / a0;
         }
-        data[o + 3] = 0;
+        data[o + 3] = a0 * 255;
       }
     }
     this.bctx.putImageData(img, 0, 0);

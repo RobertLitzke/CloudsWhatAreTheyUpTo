@@ -25,15 +25,30 @@ const LV = 2.5e6;
 export type Ground = 'field' | 'lake' | 'forest' | 'rock';
 
 export interface Controls {
-  /** How strongly the sun heats the ground, 0 to 3. */
+  /** How strong the sunshine is, 0 (thick haze) to 10 (a clear summer sun). */
   sun: number;
-  /** How damp the air and ground are, 0 to 3. */
-  moisture: number;
-  /** Wind from the west (+) or east (-), -2 to 2. */
-  wind: number;
-  /** 0 stable, 1 average, 2 unstable. */
-  stability: number;
+  /** Relative humidity of the air near the ground, %. The air above is drier the higher it is. */
+  humidity: number;
+  /** Wind from the west (+) or east (-), m/s. */
+  windMs: number;
+  /**
+   * Air temperature 5 km up, °C, with the ground air at 25 °C. The colder the
+   * air aloft, the faster temperature falls with height and the further a
+   * warm bubble rises before it is no warmer than the air around it.
+   */
+  aloftC: number;
 }
+
+/** Each control's range and step. */
+export const RANGES: Record<keyof Controls, { min: number; max: number; step: number }> = {
+  sun: { min: 0, max: 10, step: 1 },
+  humidity: { min: 20, max: 90, step: 5 },
+  windMs: { min: -20, max: 20, step: 2.5 },
+  aloftC: { min: -16, max: 6, step: 2 },
+};
+
+/** Changes to the air mass and wind ease in over about this long, s, as a new air mass would drift in. */
+const EASE_S = 1200;
 
 export interface Scenario {
   id: string;
@@ -62,24 +77,15 @@ export const SCENARIOS: readonly Scenario[] = [
       if (h > 250) return { h, kind: 'forest' };
       return { h, kind: 'field' };
     },
-    start: { sun: 2, moisture: 2, wind: 0, stability: 1 },
+    start: { sun: 7, humidity: 65, windMs: 0, aloftC: -6 },
     startHour: 9.5,
   },
 ];
 
-export const LEVELS = {
-  sun: 3,
-  moisture: 3,
-  wind: 2,
-  stability: 2,
-} as const;
 
-/** Wind speed in m/s for each wind notch. */
-const WIND = 5;
-/** Potential temperature gain per km for stable, average, unstable air. */
-const THETA_RATE = [6, 3.6, 2.2];
-/** Relative humidity at the ground for each moisture notch. */
-const GROUND_RH = [0.3, 0.5, 0.68, 0.82];
+/** Ground air, K, and the height `aloftC` is given at, m. */
+const GROUND_K = 298.15;
+const ALOFT_M = 5000;
 const TROPOPAUSE_M = 10000;
 /** Sensible heat the sun puts into each kind of ground at noon, at full sun, W/m². */
 const HEAT: Record<Ground, number> = { field: 380, rock: 420, forest: 280, lake: 30 };
@@ -119,6 +125,10 @@ export class SkySim {
   readonly pi0: Float64Array;
   readonly p0: Float64Array;
   readonly rho0: Float64Array;
+  private th0Goal: Float64Array;
+  private rhGoal: Float64Array;
+  /** The mean wind now, m/s, easing toward the control. */
+  private windNow: number;
 
   /** Fields by cell, index i + j * nx, j = 0 at the bottom. */
   th: Float32Array; // potential temperature minus the base state, K
@@ -168,6 +178,9 @@ export class SkySim {
     this.pi0 = new Float64Array(this.nz);
     this.p0 = new Float64Array(this.nz);
     this.rho0 = new Float64Array(this.nz);
+    this.th0Goal = new Float64Array(this.nz);
+    this.rhGoal = new Float64Array(this.nz);
+    this.windNow = this.controls.windMs;
     this.floor = new Int32Array(this.nx);
     this.heightM = new Float64Array(this.nx);
     this.kind = [];
@@ -187,7 +200,10 @@ export class SkySim {
       a = 0.7 * a + 0.3 * (this.rng() * 2 - 1);
       this.patch[i] = Math.max(0.3, 1 + 1.6 * a);
     }
-    this.setBase(true);
+    this.target();
+    this.th0.set(this.th0Goal);
+    this.derive();
+    for (let j = 0; j < this.nz; j++) this.qv0[j] = this.rhGoal[j] * qsat(this.th0[j] * this.pi0[j], this.p0[j]);
     for (let j = 0; j < this.nz; j++) {
       for (let i = 0; i < this.nx; i++) {
         const k = i + j * this.nx;
@@ -208,43 +224,58 @@ export class SkySim {
     return (this.scenario.startHour + this.t / 3600) % 24;
   }
 
-  /** The base state from the controls. On a change, keep what has happened and move the background under it. */
-  setBase(first = false): void {
-    const { stability, moisture } = this.controls;
-    const rate = THETA_RATE[stability] / 1000;
-    const old = Float64Array.from(this.qv0);
-    let pi = 1;
-    const thS = 298;
+  /** The background air the controls ask for, which the base state eases toward. */
+  private target(): void {
+    const { aloftC, humidity } = this.controls;
+    // Temperature falls steadily from the ground to 5 km; potential temperature gains what the dry rate takes back.
+    const lapse = (GROUND_K - 273.15 - aloftC) / ALOFT_M;
+    const rate = Math.max(0.0005, 0.0098 - lapse);
     for (let j = 0; j < this.nz; j++) {
       const z = this.zOf(j);
-      const th = z < TROPOPAUSE_M ? thS + rate * z : thS + rate * TROPOPAUSE_M + 0.016 * (z - TROPOPAUSE_M);
-      // Exner function, stepped up from the ground.
-      if (j === 0) pi = 1 - (G * z) / (CP * th);
-      else pi -= (G * this.dz) / (CP * th);
-      this.th0[j] = th;
-      this.pi0[j] = pi;
-      this.p0[j] = 1e5 * Math.pow(pi, CP / RD);
-      this.rho0[j] = this.p0[j] / (RD * th * pi);
-      const rh = Math.max(0.05, GROUND_RH[moisture] * (1 - (0.75 * Math.min(z, TROPOPAUSE_M)) / TROPOPAUSE_M));
-      this.qv0[j] = z > TROPOPAUSE_M ? 1e-5 : rh * qsat(th * pi, this.p0[j]);
-    }
-    if (!first) {
-      for (let j = 0; j < this.nz; j++) {
-        const d = this.qv0[j] - old[j];
-        for (let i = 0; i < this.nx; i++) {
-          const k = i + j * this.nx;
-          this.qv[k] = Math.max(0, this.qv[k] + d);
-        }
-      }
+      this.th0Goal[j] = z < TROPOPAUSE_M ? GROUND_K + rate * z : GROUND_K + rate * TROPOPAUSE_M + 0.016 * (z - TROPOPAUSE_M);
+      this.rhGoal[j] = z > TROPOPAUSE_M ? 0.02 : Math.max(0.05, (humidity / 100) * (1 - (0.75 * z) / TROPOPAUSE_M));
     }
   }
 
-  /** Set the controls. Sun and wind act at once; moisture and stability move the background air. */
+  /** Pressure, density and vapour of the base state from its potential temperature. */
+  private derive(): void {
+    let pi = 1;
+    for (let j = 0; j < this.nz; j++) {
+      const th = this.th0[j];
+      // Exner function, stepped up from the ground.
+      if (j === 0) pi = 1 - (G * this.zOf(0)) / (CP * th);
+      else pi -= (G * this.dz) / (CP * th);
+      this.pi0[j] = pi;
+      this.p0[j] = 1e5 * Math.pow(pi, CP / RD);
+      this.rho0[j] = this.p0[j] / (RD * th * pi);
+    }
+  }
+
+  /** Move the base state a step toward the controls, keeping what has happened on top of it. */
+  private ease(k: number): void {
+    for (let j = 0; j < this.nz; j++) this.th0[j] += k * (this.th0Goal[j] - this.th0[j]);
+    this.derive();
+    for (let j = 0; j < this.nz; j++) {
+      const goal = this.rhGoal[j] * qsat(this.th0[j] * this.pi0[j], this.p0[j]);
+      const d = k * (goal - this.qv0[j]);
+      this.qv0[j] += d;
+      if (d === 0) continue;
+      for (let i = 0; i < this.nx; i++) {
+        const c = i + j * this.nx;
+        this.qv[c] = Math.max(0, this.qv[c] + d);
+      }
+    }
+    const dU = k * (this.controls.windMs - this.windNow);
+    if (dU !== 0) {
+      this.windNow += dU;
+      this.addWind(dU);
+    }
+  }
+
+  /** Set the controls. The sun acts at once; the air mass and the wind change over the next twenty minutes or so. */
   set(next: Partial<Controls>): void {
-    const before = this.controls;
-    this.controls = { ...before, ...next };
-    if (this.controls.moisture !== before.moisture || this.controls.stability !== before.stability) this.setBase();
-    if (this.controls.wind !== before.wind) this.addWind((this.controls.wind - before.wind) * WIND);
+    this.controls = { ...this.controls, ...next };
+    this.target();
   }
 
   /** Warm a round bubble of air, as a fire or a sunny field would, centred at (xKm, zKm). */
@@ -273,6 +304,7 @@ export class SkySim {
   }
 
   step(): void {
+    this.ease(this.dt / EASE_S);
     this.departures();
     // Advect the whole potential temperature, so air that rises keeps its own.
     this.shiftTheta(1);
@@ -302,7 +334,7 @@ export class SkySim {
 
   /** Mean wind, m/s, positive toward the east. */
   windMs(): number {
-    return this.controls.wind * WIND;
+    return this.windNow;
   }
 
   /**
@@ -502,13 +534,13 @@ export class SkySim {
       let shade = 0;
       for (let jj = j; jj < this.nz; jj++) shade += this.qc[i + jj * nx];
       const lit = Math.exp(-shade * 900);
-      let heat = (controls.sun / 3) * HEAT[kind] * sun * lit * this.patch[i];
+      let heat = (controls.sun / 10) * HEAT[kind] * sun * lit * this.patch[i];
       if (night) heat -= kind === 'lake' ? 5 : 35;
       const rho = this.rho0[j];
       this.th[k] += ((heat / (rho * CP * dz)) * dt) / this.pi0[j];
       // Turbulent flicker over warm ground, which is what sets thermals off.
       if (heat > 0) this.th[k] += (this.rng() - 0.5) * 0.06 * (heat / 300);
-      const wet = (0.25 + controls.moisture / 4) * WET[kind] * (0.25 + 0.75 * sun) + Math.min(this.rain[i], 5) * 8 * sun;
+      const wet = (0.25 + (1.5 * (controls.humidity - 20)) / 70) * WET[kind] * (0.25 + 0.75 * sun) + Math.min(this.rain[i], 5) * 8 * sun;
       const t = (this.th0[j] + this.th[k]) * this.pi0[j];
       const room = qsat(t, this.p0[j]) - this.qv[k];
       if (room > 0) this.qv[k] += Math.min(room, ((wet / LV / (rho * dz)) * dt));
