@@ -25,8 +25,12 @@ function deck(x0: number, x1: number, yTop: number, yBottom: number, fill = '#f4
 
 // ---- Upwelling --------------------------------------------------------------
 
-/** The sea at the shore, °C, with a north wind of `kmh` blowing along the coast for a few days in summer. */
-export const shoreSea = (kmh: number) => 17 - 0.19 * kmh;
+/**
+ * The sea at the shore, °C, after a few days of summer wind blowing along the
+ * coast at `kmh`: from the north when positive (upwelling, colder), from the
+ * south when negative (the warm top water piled against the shore).
+ */
+export const shoreSea = (kmh: number) => (kmh >= 0 ? 15 - 0.15 * kmh : 15 - 0.05 * kmh);
 /** The summer air off the sea: its dew point, °C. */
 const SEA_AIR_DEW = 13;
 
@@ -41,7 +45,7 @@ export const upwellingFigure = figure(['fog'], (_ctx, t) => {
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.sky }), g);
   const paint = () => {
     const sst = shoreSea(wind);
-    const k = wind / 40;
+    const k = Math.max(0, wind) / 40;
     const parts: SVGElement[] = [
       svg('rect', { x: 0, y: surf, width: shore, height: H - surf, fill: SEA }),
     ];
@@ -61,13 +65,25 @@ export const upwellingFigure = figure(['fog'], (_ctx, t) => {
       svg('polygon', { points: points([[shore, H], [shore, surf], [shore + 20, surf - 6], [W, surf - 40], [W, H]]), fill: LAND }),
       line(0, surf, shore, surf, '#5a8fd8', 1.5),
     );
+    // A south wind, into the page: the surface water drifts towards the shore and piles up there.
+    if (wind < 0) {
+      parts.push(
+        svg('circle', { cx: 210, cy: 46, r: 12, fill: '#fff', stroke: COL.ink, 'stroke-width': 1.5 }),
+        line(203, 39, 217, 53, COL.ink, 2), line(217, 39, 203, 53, COL.ink, 2),
+        note(228, 44, `wind from the south, ${Math.round(-wind)} km/h,`, { bold: true }),
+        note(228, 56, 'along the coast, into the page', { soft: true }),
+        ...[60, 150, 240].map((x) => arrow(x, surf + 10, x + 18 - wind * 0.8, surf + 10, COL.blue, 2)),
+        arrow(shore - 18, surf + 22, shore - 18, surf + 70, COL.warmInk, 2),
+        small(shore - 26, surf + 84, 'warm top water pushed down', { anchor: 'end', fill: COL.warmInk }),
+      );
+    }
     // The wind: from the north, along the coast, out of the page.
     if (wind > 0) {
       parts.push(
         svg('circle', { cx: 210, cy: 46, r: 12, fill: '#fff', stroke: COL.ink, 'stroke-width': 1.5 }),
         svg('circle', { cx: 210, cy: 46, r: 3, fill: COL.ink }),
         note(228, 44, `wind from the north, ${Math.round(wind)} km/h,`, { bold: true }),
-        note(228, 56, 'blowing along the coast towards you', { soft: true }),
+        note(228, 56, 'along the coast, out of the page', { soft: true }),
       );
       // Surface water drifts to the right of the wind: away from the shore.
       const len = 18 + k * 60;
@@ -89,11 +105,13 @@ export const upwellingFigure = figure(['fog'], (_ctx, t) => {
       ? `The sea is now colder than the air’s dew point, so the air lying on it is chilled to saturation: fog and low grey cloud along the shore.`
       : wind > 0
         ? 'The air on the sea is cooled, but not yet to its dew point.'
-        : 'No wind: the sea stays as summer warmed it.';
-    f.readout.textContent = (wind > 0 ? `The surface water drifts away from the shore, to the right of the wind, and cold water rises from below to replace it. ` : '') + what;
+        : wind < 0
+          ? 'The warm top water stays at the shore, and the air over it stays clear.'
+          : 'No wind: the sea stays as the summer left it.';
+    f.readout.textContent = (wind > 0 ? `The surface water drifts away from the shore, to the right of the wind, and cold water rises from below to replace it. ` : wind < 0 ? 'Now the surface water drifts to the right of a south wind: east, towards the shore, where it piles up and sinks. ' : '') + what;
     if (t.goal === 'fog' && sst <= SEA_AIR_DEW - 1) t.done();
   };
-  f.controls.append(slider('North wind along the coast', 0, 40, 5, 0, (v) => `${v} km/h`, (v) => { wind = v; paint(); }, 'ink').node);
+  f.controls.append(slider('Wind along the coast', -20, 40, 5, 0, (v) => (v > 0 ? `${v} km/h from the north` : v < 0 ? `${-v} km/h from the south` : 'calm'), (v) => { wind = v; paint(); }, 'ink').node);
   paint();
   return f.node;
 });

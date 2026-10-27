@@ -100,15 +100,16 @@ export const turntableFigure = figure(['curve'], (ctx, t) => {
     // A painted stripe on the disc, where it started and where it got to.
     const stripe = (a: number, op: number, dash = '') => line(C[0], C[1], C[0] + Math.cos(a) * R, C[1] - Math.sin(a) * R, COL.env, 3, { opacity: op, 'stroke-dasharray': dash });
     const turned = riding ? 0 : turn * 2 * Math.PI;
+    const spin = turn > 0 ? spiral(C[0], C[1], R + 14, R + 14, Math.PI * 1.15, -0.12, -1) : spiral(C[0], C[1], R + 14, R + 14, Math.PI * 1.85, -0.12, 1);
     const end = path[path.length - 1];
     redraw(g,
       svg('circle', { cx: C[0], cy: C[1], r: R + 6, fill: '#ffffff', stroke: COL.cloudShade, 'stroke-width': 2 }),
       svg('circle', { cx: C[0], cy: C[1], r: 4, fill: COL.soft }),
       stripe(Math.PI / 2, 0.8),
-      !riding && turn > 0 ? stripe(Math.PI / 2 + turned, 0.35, '6 4') : null,
-      // The spin, anticlockwise like the Earth seen from above the North Pole.
-      turn > 0 ? polyline(spiral(C[0], C[1], R + 14, R + 14, Math.PI * 1.15, -0.12, -1), COL.env, 2) : null,
-      turn > 0 ? head(spiral(C[0], C[1], R + 14, R + 14, Math.PI * 1.15, -0.12, -1), COL.env, 7) : null,
+      !riding && turn !== 0 ? stripe(Math.PI / 2 + turned, 0.35, '6 4') : null,
+      // The spin: anticlockwise like the Earth seen from above the North Pole, clockwise as seen from above the South Pole.
+      turn !== 0 ? polyline(spin, COL.env, 2) : null,
+      turn !== 0 ? head(spin, COL.env, 7) : null,
       polyline(path, COL.parcel, 3),
       head(path, COL.parcel, 9),
       svg('circle', { cx: path[0][0], cy: path[0][1], r: 6, fill: COL.parcel }),
@@ -116,17 +117,18 @@ export const turntableFigure = figure(['curve'], (ctx, t) => {
       note(8, 16, riding ? 'Riding the turntable' : 'Seen from the ceiling', { bold: true }),
       note(8, 30, riding ? 'the stripe stays put; the room turns' : 'the stripe turns with the disc', { soft: true }),
     );
-    const deg = Math.round(turn * 360);
+    const deg = Math.round(Math.abs(turn) * 360);
+    const side = turn > 0 ? 'right' : 'left';
     if (turn === 0) f.readout.textContent = 'The turntable is still: from anywhere, the ball rolls straight across.';
     else if (!riding) f.readout.textContent = `From the ceiling the ball rolls dead straight. While it crosses, the disc turns ${deg}° under it.`;
-    else f.readout.textContent = `Riding the disc, the ball seems to swerve to the right of where it was rolled, by the ${deg}° the disc turned. Nothing pushed it sideways.`;
-    if (t.goal === 'curve' && riding && turn >= 0.1) t.done();
+    else f.readout.textContent = `Riding the disc, the ball seems to swerve to the ${side} of where it was rolled, by the ${deg}° the disc turned. Nothing pushed it sideways.${turn < 0 ? ' A clockwise spin is the Earth seen from above the South Pole.' : ''}`;
+    if (t.goal === 'curve' && riding && Math.abs(turn) >= 0.1) t.done();
   };
   const view = choices(['From the ceiling', 'Riding the turntable'], (i) => { riding = i; paint(); });
   view.pick(0);
   f.controls.append(
     el('div.fig-guess', {}, view.node),
-    slider('Spin while it crosses', 0, 0.25, 0.025, 0, (v) => `${Math.round(v * 360)}°`, (v) => { turn = v; paint(); }, 'env').node,
+    slider('Spin while it crosses', -0.25, 0.25, 0.025, 0, (v) => (v === 0 ? 'still' : `${Math.round(Math.abs(v) * 360)}° ${v > 0 ? 'anticlockwise (north)' : 'clockwise (south)'}`), (v) => { turn = v; paint(); }, 'env').node,
   );
   paint();
   return f.node;

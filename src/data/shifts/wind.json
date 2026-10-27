@@ -25,11 +25,11 @@
     },
     {
      "kind": "text",
-     "text": "Pressure, from Lesson 6, is the weight of the air overhead. Where more air is piled above a place, the pressure there is higher. Air at the bottom of a deep pile pushes outward, towards places where the pile is shallower, much as water in a tank sloshes from the deep end towards the shallow one. The difference in pressure between two places is a push on the air between them."
+     "text": "Pressure, from Lesson 6, is the weight of the air overhead. Where more air is piled above a place, the pressure there is higher. Air is a fluid, and a fluid squeezed by the weight above it pushes in every direction, sideways as much as down, as you feel in your ears at the bottom of a swimming pool. So air under a deep pile pushes outward, towards places where the pile is shallower, much as water in a tank sloshes from the deep end towards the shallow one. The difference in pressure between two places is a push on the air between them."
     },
     {
      "kind": "text",
-     "text": "A weather map draws pressure as **isobars**: lines joining places where the barometer reads the same, usually every 4 hPa. They work like the contour lines on a hiking map. A low is a hollow, a high is a hill, and the push on the air runs straight downhill, across the lines. Where the lines crowd together, the slope is steep and the push is strong; where they spread out, it is gentle.[^gradient]"
+     "text": "A weather map draws pressure as **isobars**: lines joining places where the barometer reads the same, usually every 4 hPa (hectopascals, the unit of Lesson 6’s barometer: about 1,013 at sea level on an ordinary day). They work like the contour lines on a hiking map. A low is a hollow, a high is a hill, and the push on the air runs straight downhill, across the lines. Where the lines crowd together, the slope is steep and the push is strong: lines twice as close make twice the push. Where they spread out, it is gentle.[^gradient]"
     },
     {
      "kind": "figure",
@@ -53,16 +53,16 @@
      "kind": "figure",
      "figure": "turntable",
      "caption": "A ball rolled straight across a spinning turntable, seen from the ceiling and from on board. The violet stripe is painted on the disc.",
-     "task": "Give the turntable some spin, then ride along and watch the ball swerve.",
+     "task": "Give the turntable some spin, then ride along and watch the ball swerve. Try spinning it the other way, as the Southern Hemisphere does.",
      "goal": "curve"
     },
     {
      "kind": "text",
-     "text": "The Earth is a turntable too. Seen from above the North Pole, it turns anticlockwise once a day, and everything standing on it turns with it. Air that moves freely over long distances is like the ball: it keeps going in a straight line, while the ground underneath turns. To us, riding the ground, the air seems to drift to the **right** of where it was heading, in the northern half of the world. South of the equator, where the Earth seen from below the South Pole turns the other way, it drifts to the left. This is the **Coriolis effect** from Lesson 6."
+     "text": "The Earth is a turntable too. Seen from above the North Pole, it turns anticlockwise once a day, and everything standing on it turns with it. Air that moves freely over long distances is like the ball: it keeps going in a straight line, while the ground underneath turns. To us, riding the ground, the air seems to drift to the **right** of where it was heading, in the northern half of the world. South of the equator, where the Earth seen from below the South Pole turns the other way, it drifts to the left. Lesson 6 gave this its name, the **Coriolis effect**: the turning ground makes anything moving freely over it seem to swerve, always sideways, at right angles to the way it is going."
     },
     {
      "kind": "text",
-     "text": "How much the ground turns under you depends on where you stand. At the North Pole, the ground spins a full circle about your feet every day, like the middle of the turntable. At the equator, the ground is carried round the Earth’s axis but does not turn about your feet at all, so the drift vanishes. In between, it turns part of a circle a day: about three quarters of one in eastern Washington, at 47° north."
+     "text": "How much the ground turns under you depends on where you stand. Imagine lying on your back on the ground, looking straight up, and ask how fast the world spins around you like a record under a needle. At the North Pole, it spins a full circle every day: you are at the middle of the turntable. At the equator, you are carried round the Earth’s axis at great speed, but you are on the rim of the wheel, rolling over end to end: the ground does not spin around you at all, so there is no drift. In between it spins part of a circle a day. At 47° north, in eastern Washington, it is about three quarters of a circle (the sine of the latitude, for those who like trigonometry)."
     },
     {
      "kind": "figure",
@@ -80,11 +80,7 @@
    "blocks": [
     {
      "kind": "text",
-     "text": "Now put the two ideas together. Air near a low starts to slide downhill, towards the low. As soon as it moves, the turning Earth bends it to its right. The faster it goes, the harder the turn bends it. It keeps bending until it runs along the isobars, with the low on its left. There the push towards the low and the turn away from it are equal and opposite, and the wind blows on along the lines without filling the low in."
-    },
-    {
-     "kind": "text",
-     "text": "This balance is the **geostrophic wind**[^geostrophic], and it is why the wind in the northern half of the world goes anticlockwise round a low. It is also the reason for Lesson 6’s rule: if the wind runs along the isobars with the low on its left, then with your back to the wind, the low is on your left."
+     "text": "Now put the two ideas together. Air near a low starts to slide downhill, towards the low. As soon as it moves, the turning Earth bends it to its right. The faster it goes, the harder the turn bends it. Where does it end up? Try it below before reading on."
     },
     {
      "kind": "figure",
@@ -95,7 +91,15 @@
     },
     {
      "kind": "text",
-     "text": "Near the ground, there is a third player: **friction**. Trees, hills, buildings and waves drag on the wind and slow it down. A slower wind is turned less, so the push towards the low wins a little, and the wind slants across the isobars into the low: by 10° to 20° over the sea, and by 25° to 40° over rough land. A kilometre or so up, above the drag of the ground, the wind runs almost exactly along the lines. That is why low clouds and high clouds often move in different directions."
+     "text": "It keeps bending until it runs along the isobars, with the low on its left. There the push towards the low and the turn away from it are equal and opposite, and the wind blows on along the lines without filling the low in."
+    },
+    {
+     "kind": "text",
+     "text": "This balance, wind running along the isobars because the push and the turn cancel, is called the **geostrophic wind**[^geostrophic]. It is why the wind in the northern half of the world goes anticlockwise round a low. It is also the reason for Lesson 6’s rule: if the wind runs along the isobars with the low on its left, then with your back to the wind, the low is on your left."
+    },
+    {
+     "kind": "text",
+     "text": "Near the ground, there is a third player: **friction**. Trees, hills, buildings and waves drag on the wind and slow it down. A slower wind is turned less, so the push towards the low wins a little, and the wind slants across the isobars into the low: by 10° to 20° over the sea, and by 25° to 40° over rough land. The drag fades with height, and by a kilometre or so up the wind runs almost exactly along the lines, while higher still it often blows from another direction altogether. That is why low clouds and high clouds often move in different directions."
     },
     {
      "kind": "text",
@@ -108,7 +112,7 @@
     },
     {
      "kind": "text",
-     "text": "The balance also tells you how hard it will blow. Since the push depends on how crowded the isobars are, and the wind speeds up until the turn matches the push, crowded isobars mean strong wind. A forecaster with a fresh weather map can read the wind off it before going outside.[^map]"
+     "text": "The balance also tells you how hard it will blow. Since the push depends on how crowded the isobars are, and the wind speeds up until the turn matches the push, crowded isobars mean strong wind: twice the push needs twice the turn to balance it, and that takes roughly twice the wind. A forecaster with a fresh weather map can read the wind off it before going outside.[^map]"
     }
    ]
   },
@@ -117,7 +121,7 @@
    "blocks": [
     {
      "kind": "text",
-     "text": "High above the ground, with no friction to slow it, the wind blows harder than at the surface, and it gets stronger with height for a reason of its own. Cold air is denser than warm air, so the pressure falls off faster with height over the cold polar regions than over the warm tropics. Ten kilometres up, the pressure over the Arctic is much lower than the pressure at the same height over Hawaii. The push from high to low is therefore towards the pole, and it grows with height."
+     "text": "High above the ground, with no friction to slow it, the wind blows harder than at the surface, and it gets stronger with height for a reason of its own. Pressure at any height is the weight of the air above that height. Cold air is denser than warm air, so the same amount of air packs into a shallower layer over the cold Arctic than over the warm tropics. Climb ten kilometres over the Arctic and you have climbed past more of its squashed-down air than you would have over Hawaii, so less air is left above you: the pressure up there is much lower over the Arctic than at the same height over Hawaii. The push from high to low is therefore towards the pole, and it grows with height."
     },
     {
      "kind": "text",
@@ -236,7 +240,7 @@
         "instruments": [
          "Barometer: high and steady for a week"
         ],
-        "question": "A big high has sat over the Basin for a week of clear, still days. What is the air above it doing?",
+        "question": "A big high has sat over eastern Washington for a week of clear, still days. What is the air above it doing?",
         "options": [
          "Rising slowly and cooling",
          "Sinking and spreading out, warming as it is squeezed, which keeps clouds away",
