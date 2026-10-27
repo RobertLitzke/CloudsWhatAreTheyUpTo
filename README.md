@@ -112,9 +112,7 @@ built on it; a wrong map blurs the bird and not the branch.
 
 ### The photographs shipped today
 
-Four of Rob's own bird photographs, used with his permission (licence `OWN`,
-all rights reserved; switch them to `CC-BY-4.0` in `src/data/photos.json` if
-he would rather share them):
+Four of Rob's own bird photographs, shared under CC BY-SA 4.0:
 
 | id | bird | used by |
 |---|---|---|
