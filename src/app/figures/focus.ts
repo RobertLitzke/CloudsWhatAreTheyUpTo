@@ -54,8 +54,8 @@ export const coneFigure = figure(['sharp-again'], (_ctx, t) => {
       note(LENS, AXIS + 60, `lens at ${apertureLabel(n)}`, { anchor: 'middle', fill: COL.aperture }),
       // The ground, and the two marks: where the lens is focused, and the point.
       line(20, AXIS + 78, W - 20, AXIS + 78, COL.grid, 1),
-      line(xFor(focus), AXIS - 40, xFor(focus), AXIS + 78, COL.sharp, 1.2, { 'stroke-dasharray': '4 4' }),
-      note(xFor(focus), AXIS + 92, 'focused here', { anchor: 'middle', fill: COL.sharp }),
+      line(xFor(focus), AXIS - 40, xFor(focus), AXIS + 78, COL.focus, 1.2, { 'stroke-dasharray': '4 4' }),
+      note(xFor(focus), AXIS + 92, 'focused here', { anchor: 'middle', fill: COL.focus }),
       // The cone of light from the point, through the lens, onto the sensor.
       svg('path', {
         d: `M${x} ${AXIS} L${LENS} ${AXIS - half} L${SENSOR} ${AXIS - disc / 2} L${SENSOR} ${AXIS + disc / 2} L${LENS} ${AXIS + half}Z`,
@@ -120,7 +120,7 @@ export const apertureFigure = figure(['blur-background', 'all-sharp'], (_ctx, t,
   f.controls.append(
     apertureSlider(n, (v) => { n = v; paint(); }).node,
     slider('Focus on', Math.log(Math.max(0.5, scene.near)), Math.log(scene.far ?? scene.subjectAt * 6), 0.01, Math.log(focusAt),
-      (l) => distance(Math.exp(l)), (l) => { focusAt = Math.exp(l); paint(); }, 'sharp').node,
+      (l) => distance(Math.exp(l)), (l) => { focusAt = Math.exp(l); paint(); }, 'focus').node,
   );
   void f.view.ready.then(paint);
   paint();

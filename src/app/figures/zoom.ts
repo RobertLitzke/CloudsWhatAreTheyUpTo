@@ -68,7 +68,7 @@ export const angleDiagram = figure(['narrow'], (_ctx, t) => {
       // Trees across the far side, so the wedge takes in more or fewer of them.
       ...Array.from({ length: 17 }, (_, i) => {
         const x = 16 + i * 23;
-        return svg('circle', { cx: x, cy: 26, r: 7, fill: Math.abs(Math.atan2(x - camX, camY - 26)) <= half ? COL.sharp : tint(COL.soft, 0.25) });
+        return svg('circle', { cx: x, cy: 26, r: 7, fill: Math.abs(Math.atan2(x - camX, camY - 26)) <= half ? COL.subject : tint(COL.soft, 0.25) });
       }),
       svg('path', { d: `M${camX} ${camY} L${camX - dx} ${camY - dy} L${camX + dx} ${camY - dy}Z`, fill: tint(COL.aperture, 0.16), stroke: COL.aperture, 'stroke-width': 1.3 }),
       svg('rect', { x: camX - 14, y: camY - 6, width: 28, height: 16, rx: 3, fill: COL.subject }),
@@ -154,7 +154,7 @@ export const closeUpFigure = figure(['thin-band'], (_ctx, t, options) => {
 
   f.controls.append(
     apertureSlider(n, (v) => { n = v; paint(); }).node,
-    slider('Focus on', Math.log(scene.near), Math.log(scene.subjectAt * 2.5), 0.005, Math.log(focusAt), (l) => distance(Math.exp(l)), (l) => { focusAt = Math.exp(l); paint(); }, 'sharp').node,
+    slider('Focus on', Math.log(scene.near), Math.log(scene.subjectAt * 2.5), 0.005, Math.log(focusAt), (l) => distance(Math.exp(l)), (l) => { focusAt = Math.exp(l); paint(); }, 'focus').node,
   );
   void f.view.ready.then(paint);
   paint();

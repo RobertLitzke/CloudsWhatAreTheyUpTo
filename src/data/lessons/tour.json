@@ -7,11 +7,11 @@
     {
       "title": "Four decisions",
       "blocks": [
-        { "kind": "text", "text": "Point a camera at a heron and press the button, and the camera makes four decisions in the time it takes you to breathe in. It decides how wide to open the hole in the lens, how long to leave the shutter open, how hard to amplify what the sensor caught, and where to focus. Everything else, from the colour of the light to how much of the scene is sharp, follows from those four." },
-        { "kind": "text", "text": "A scene mode such as Bird-watching is a set of preferences for those decisions: a fast [[shutter|time]], focus set to keep up with something that moves, and whatever [[ISO|sensor]] that costs. It is a good set of preferences. The trouble with it is not that it chooses badly but that it chooses the same way in a dim wood at dawn as on a bright shore at noon, and it never tells you which decision it had to compromise on." },
+        { "kind": "text", "text": "Point a camera at a heron and press the button, and the camera makes four decisions in the time it takes you to breathe in. It decides how wide to open the hole in the lens, how long to leave the shutter open, how hard to amplify what the sensor caught, and where to [[focus|focus]]. Everything else, from the colour of the light to how much of the scene is sharp, follows from those four." },
+        { "kind": "text", "text": "A scene mode such as Bird-watching is a set of preferences for those decisions: a fast [[shutter|time]], [[focus|focus]] set to keep up with something that moves, and whatever [[ISO|sensor]] that costs. It is a good set of preferences. The trouble with it is not that it chooses badly but that it chooses the same way in a dim wood at dawn as on a bright shore at noon, and it never tells you which decision it had to compromise on." },
         { "kind": "text", "text": "This first lesson is a tour of the four. Each one has a figure below it that works on a real photograph: move the control and the picture changes the way the camera would really have changed it. Nothing here is a simulation of a *style*; it is the optics and the arithmetic of a [[Nikon Coolpix P950|subject]], the camera this course is written for.[^why-p950]" },
         { "kind": "key", "title": "Hold on to", "points": [
-          "Every photograph is four decisions: [[aperture|aperture]], [[shutter|time]], [[ISO|sensor]] and focus.",
+          "Every photograph is four decisions: [[aperture|aperture]], [[shutter|time]], [[ISO|sensor]] and [[focus|focus]].",
           "A scene mode makes all four for you, and tells you nothing about what it gave up."
         ] }
       ]
@@ -19,7 +19,7 @@
     {
       "title": "The hole in the lens",
       "blocks": [
-        { "kind": "text", "text": "A lens gathers light from a scene and bends it back to a point. It can only do that properly for one distance at a time: things at exactly that distance land on the sensor as points, and everything nearer or farther lands as a small disc.[^circle] When the disc is smaller than the sensor can resolve, it passes for a point and we call it sharp. That is all [[depth of field|sharp]] is: the band of distances whose discs are too small to notice." },
+        { "kind": "text", "text": "A lens gathers light from a scene and bends it back to a point. It can only [[focus|focus]] properly on one distance at a time: things at exactly that distance land on the sensor as points, and everything nearer or farther lands as a small disc.[^circle] When the disc is smaller than the sensor can resolve, it passes for a point and we call it sharp. That is all [[depth of field|sharp]] is: the band of distances whose discs are too small to notice." },
         { "kind": "figure", "figure": "cone", "caption": "A point, the cone of light the lens throws from it, and the disc it lands as", "task": "Move the point off the focused distance, then narrow the aperture until it looks sharp again", "goal": "sharp-again" },
         { "kind": "text", "text": "Narrowing the [[aperture|aperture]] trims the edges off that cone, so the disc shrinks and the sharp band widens. Opening it up does the reverse, which is how a photographer throws a background away. On a camera with a small sensor the sharp band is very wide to begin with, so a soft background takes some work: you want the lens long, the subject close, and the background far behind it." },
         { "kind": "figure", "figure": "aperture", "caption": "A perched bird, with the aperture and the focused distance in your hands", "task": "Throw the background out of focus while the bird stays sharp", "goal": "blur-background" }

@@ -96,7 +96,7 @@ export const shakeDiagram = figure(['rule-of-thumb'], (_ctx, t) => {
       note(200, 164, `the same bird, ${shutterLabel(shutter)} s of it`, { anchor: 'middle', soft: true }),
       line(60, 178, 340, 178, COL.grid, 1),
       label(60, 192, `${Math.round(eqFocal)} mm`, { bold: true, fill: COL.subject }),
-      label(340, 192, `safe: ${shutterLabel(safe)} s`, { anchor: 'end', fill: drift * 760 > 1 ? COL.time : COL.sharp }),
+      label(340, 192, `safe: ${shutterLabel(safe)} s`, { anchor: 'end', fill: drift * 760 > 1 ? COL.time : COL.ink }),
     );
 
     f.readout.textContent = drift * 760 > 1

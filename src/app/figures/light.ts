@@ -50,7 +50,7 @@ export const stopsFigure = figure(['trade'], (_ctx, t) => {
       // The verdict bar: how far from a right exposure, in stops.
       line(70, 176, 360, 176, COL.grid, 3),
       line(215, 168, 215, 184, COL.soft, 1.5),
-      svg('circle', { cx: 215 + Math.max(-140, Math.min(140, stops * 35)), cy: 176, r: 7, fill: Math.abs(stops) < 0.34 ? COL.sharp : COL.light }),
+      svg('circle', { cx: 215 + Math.max(-140, Math.min(140, stops * 35)), cy: 176, r: 7, fill: Math.abs(stops) < 0.34 ? COL.ink : COL.light }),
       note(215, 198, Math.abs(stops) < 0.34 ? 'exposed right' : `${Math.abs(stops).toFixed(1)} stops ${stops > 0 ? 'bright' : 'dark'}`, { anchor: 'middle' }),
     );
     f.readout.textContent = Math.abs(stops) < 0.34

@@ -3,9 +3,10 @@
 // lesson-kit's figure.ts, re-exported here; this file adds the palette and the
 // pieces every camera figure needs.
 //
-// A colour means the same thing in every figure and in the text around it:
-// light is gold, the aperture's opening teal, time rose, the sensor and its
-// noise violet, what is sharp green, and what is out of focus grey-blue.
+// A colour means the same thing in every figure and in the text around it.
+// The four decisions each have one: the aperture teal, time rose, the sensor
+// and its noise violet, and focus green, which is also the colour of whatever
+// is sharp. Light is gold, and what is out of focus grey-blue.
 
 import type { FootnoteSet } from 'lesson-kit/footnote';
 import { slider as kitSlider, type Slider } from 'lesson-kit/figure';
@@ -34,8 +35,11 @@ export const COL = {
   /** The sensor, the ISO dial and the grain they leave. */
   sensor: '#6a4fa3',
   sensorPale: '#ded3f0',
-  /** In focus, and out of it. */
+  /** Focus: where the lens is focused, and everything sharp because of it. */
+  focus: '#3f7d4a',
+  /** The same green, by the name a figure uses for "this part is sharp". */
   sharp: '#3f7d4a',
+  /** Out of focus. */
   soften: '#8d9bb0',
   /** The colour of light, for the white-balance figures. */
   warm: '#e07a3c',
