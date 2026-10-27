@@ -360,18 +360,24 @@ its own rail. Give each lesson a `branch` (left out on the trunk), hard
 but says what to do first), and mark unwritten ones `coming`. Exactly one
 lesson is Next: the first open trunk lesson, or once the trunk is done, the
 first open branch lesson. The app draws each lesson's card from the
-`TreeNode` it is handed (`state`, and the `missing` and `wanting` lessons).
+`TreeNode` it is handed (`state`, and the `missing` and `wanting` lessons;
+`missing` leaves out the trunk lesson just before, which the trunk's order
+already says).
+
+Give a branch a `prefix` and its lessons are named like course codes, P1, P2,
+P3, instead of carrying on the trunk's numbers: `lessonCodes(lessons,
+branches)` returns each lesson's code, to set as its `code` (shown in its dot
+and, on a `Lesson`, in the lesson's header).
 
 ```ts
 const branches: TreeBranch[] = [
-  { id: 'pedals', title: 'Guitar pedals', promise: 'Inside a Fuzz Face', from: 'amps', color: 'var(--sun)' },
+  { id: 'pedals', title: 'Guitar pedals', promise: 'Inside a Fuzz Face', from: 'amps', color: 'var(--sun)', prefix: 'G' },
   { id: 'epilogue', title: 'Afterwards', promise: '', from: 'faults', leaf: true },
 ];
 root.append(treeView({ lessons, branches, save, card: ({ lesson, state }) => myCard(lesson, state), remember: 'myapp.tree' }));
 ```
 
-A pill shows how many of its lessons are done and, as chips, what its lessons
-lean on besides the lesson it forks from. The pill holding Next starts open;
+A pill shows how many of its lessons are done. The pill holding Next starts open;
 `remember` keeps the others as they were left on this device. Test the shape
 with `treeProblems(lessons, branches)`. Its styles are in kit.css.
 
@@ -393,6 +399,7 @@ import { conceptCard, type Concept } from 'lesson-kit/quiz';
 import { quizView } from 'lesson-kit/quiz-view';
 import ideas from './quiz.json';           // { "cards": Concept[] }
 const deck = (ideas.cards as Concept[]).map((c) => conceptCard(c));
+// A card with `after: 'lesson-id'` is dealt only once that lesson is passed or skipped.
 router.add('/quiz', quizView({ deck, store, blurb: 'Cards on the ideas behind the lessons.' }));
 ```
 

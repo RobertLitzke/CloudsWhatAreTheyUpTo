@@ -48,6 +48,8 @@ export interface Lesson<F extends string = string> {
   id: string;
   /** Its number in the series, from 1. */
   n: number;
+  /** Its name, when the lessons form a tree rather than a line ("5", "P2"); see tree.ts lessonCodes. */
+  code?: string;
   title: string;
   /** One line for the lesson board, and the lede under the title. */
   teaches: string;
@@ -241,13 +243,13 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
       el('div.lesson', {},
         el('header.lesson-head', {},
           el('a.back', { href: `#${home}`, 'aria-label': 'Back home' }, '‹'),
-          el('div', {}, el('p.eyebrow', {}, `${noun} ${lesson.n}`), el('h1', {}, lesson.title)),
+          el('div', {}, el('p.eyebrow', {}, `${noun} ${lesson.code ?? lesson.n}`), el('h1', {}, lesson.title)),
           progress,
         ),
         o.hero ? el('div.article-hero', {}, o.hero(lesson)) : null,
         el('div.paper', {},
           el('div.article-intro', {},
-            el('p.eyebrow', {}, `${noun} ${lesson.n} of ${o.lessons.length}`),
+            el('p.eyebrow', {}, lesson.code ? `${noun} ${lesson.code}` : `${noun} ${lesson.n} of ${o.lessons.length}`),
             el('h1.poster-type', {}, lesson.title),
             el('p.lede', {}, /[.!?]$/.test(lesson.teaches) ? lesson.teaches : lesson.teaches + '.'),
             o.intro?.(lesson),
@@ -297,7 +299,7 @@ export function lessonView<L extends Lesson, S extends Progress>(o: LessonViewOp
       const sign = el('button.btn.btn-big', { type: 'button' }, 'Sign the log') as HTMLButtonElement;
       const section = el('section.part.log', {},
         el('div.logbook', {},
-          el('p.eyebrow', {}, `${noun} ${lesson.n} log`),
+          el('p.eyebrow', {}, `${noun} ${lesson.code ?? lesson.n} log`),
           el('h2', {}, lesson.title),
           score.of ? el('p.score', {}, `${o.radio && save.talk ? 'Radio check' : 'Check'}: ${score.right} of ${score.of} right`) : null,
           el('ul', {}, lesson.learned.map((l) => el('li', {}, l))),

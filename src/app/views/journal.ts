@@ -5,7 +5,7 @@
 
 import { GENERA, floorInfo, genus, type Genus, type GenusId } from '../../core/clouds';
 import { GLOSSARY, lessonOf } from '../../core/glossary';
-import { JOURNAL, SHIFTS, shiftById } from '../../core/shifts';
+import { JOURNAL, SHIFTS, lessonName, shiftById } from '../../core/shifts';
 import { FEATURES, photoFile, photosOf, photosOfFeature, type FeatureId, type Photo } from '../../core/photos';
 import { el, svg, type Child } from 'lesson-kit/dom';
 import { glossaryView } from 'lesson-kit/glossary';
@@ -91,7 +91,7 @@ function cloudArt(id: GenusId): SVGElement {
 function lessonLink(id: string | undefined): HTMLElement | null {
   const s = id ? shiftById(id) : undefined;
   if (!s) return null;
-  return el('a.sheet-lesson', { href: `#/shift/${s.id}` }, `Lesson ${s.n}: ${s.title} ›`);
+  return el('a.sheet-lesson', { href: `#/shift/${s.id}` }, `${lessonName(s)}: ${s.title} ›`);
 }
 
 function openCloud(id: GenusId, save: Save): void {
@@ -148,7 +148,7 @@ function glossaryTab(save: Save): HTMLElement {
       prose,
       lesson: (id) => {
         const s = shiftById(id);
-        return s && { href: `#/shift/${s.id}`, label: `Lesson ${s.n}` };
+        return s && { href: `#/shift/${s.id}`, label: lessonName(s) };
       },
     }),
   );
@@ -167,7 +167,7 @@ function notesTab(save: Save): HTMLElement {
     open.length
       ? open.map(({ s, notes }) =>
           el('section.note-group', {},
-            el('h2', {}, el('span.note-n', {}, String(s.n)), s.title),
+            el('h2', {}, el('span.note-n', {}, s.code ?? String(s.n)), s.title),
             el('div.notes', {}, notes.filter((id) => save.journal.includes(id)).map((id) => {
               const n = JOURNAL[id];
               return el('article.note', { className: n.rare ? 'note rare' : 'note' }, el('h3', {}, n.title, n.rare ? el('span.tag', {}, 'Rare') : null), el('p', {}, n.text));

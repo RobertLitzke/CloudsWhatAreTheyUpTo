@@ -3,7 +3,7 @@
 // With the radio on, the page tells the story and the opening talk plays the
 // first time.
 
-import { BRANCHES, TREE_LESSONS } from '../../core/shifts';
+import { BRANCHES, TREE_LESSONS, lessonName } from '../../core/shifts';
 import { el } from 'lesson-kit/dom';
 import { passed, skipLesson } from 'lesson-kit/progress';
 import { resumeFor } from 'lesson-kit/resume';
@@ -34,7 +34,7 @@ export const homeView: View = (root, nav) => {
   const trained = passed(save, 'local-sky');
   /** Started, left part way, and still there to pick up. */
   const started = (s: Item) => !('coming' in s) && !save.lessons[s.id]?.done && resumeFor(save.resume, s.id, s) !== undefined;
-  const names = (ls: readonly Item[]) => ls.map((l) => `Lesson ${l.n}`).join(' and ');
+  const names = (ls: readonly Item[]) => ls.map(lessonName).join(' and ');
 
   const card = ({ lesson: s, state, missing, wanting }: TreeNode<Item>) => {
     const rec = save.lessons[s.id];
@@ -42,7 +42,7 @@ export const homeView: View = (root, nav) => {
     const status = state === 'done' && rec ? `${save.talk ? 'Radio check' : 'Check'}: ${rec.best} of ${rec.of}`
       : state === 'skipped' ? 'Skipped'
         : state === 'coming' ? 'Coming'
-          : state === 'locked' ? `After ${names(missing)}`
+          : state === 'locked' && missing.length ? `After ${names(missing)}`
             : state === 'soft' ? `Better after ${names(wanting)}`
               : null;
     const open = state !== 'locked' && state !== 'coming';
@@ -85,7 +85,7 @@ export const homeView: View = (root, nav) => {
               ]
             : [el('p', {}, 'Short lessons on what a cloud is made of, how to name every kind, and what each one says about the weather to come. Branches fork off the main line for weather further afield, and the last lesson is on cloud seeding.')]),
         ),
-        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, started(nextUp) ? `Continue lesson ${nextUp.n}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `Lesson ${nextUp.n}: ${nextUp.title}`) : null,
+        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, started(nextUp) ? `Continue ${lessonName(nextUp).toLowerCase()}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `${lessonName(nextUp)}: ${nextUp.title}`) : null,
         el('h2', {}, 'Lessons'),
         treeView({ lessons: TREE_LESSONS, branches: BRANCHES, save, card, remember: 'clouds.tree' }),
         // Open from the start: the natural skies can be made as soon as their

@@ -20,7 +20,7 @@
 
 import type { Footnotes } from 'lesson-kit/footnote';
 import type { Block as KitBlock, Lesson, Part as KitPart } from 'lesson-kit/lesson';
-import type { TreeBranch } from 'lesson-kit/tree';
+import { lessonCodes, type TreeBranch } from 'lesson-kit/tree';
 import type { GenusId } from './clouds';
 import fog from '../data/shifts/fog.json';
 import lowSky from '../data/shifts/low-sky.json';
@@ -136,6 +136,8 @@ export interface Shift extends Lesson<FigureId> {
   branch?: string;
   needs?: string[];
   betterAfter?: string[];
+  /** Its name in the tree and in the app: "5" on the trunk, "P2" on the Pacific coast branch. Set from BRANCHES below. */
+  code?: string;
 }
 
 /**
@@ -207,13 +209,14 @@ export interface ComingLesson {
   needs?: string[];
   betterAfter?: string[];
   coming: true;
+  code?: string;
 }
 
 /** The branches of the tree, each forking off the trunk lesson it grows from. */
 export const BRANCHES: readonly TreeBranch[] = [
-  { id: 'coast', title: 'The Pacific coast', promise: 'Why the coast almost never thunders, and where a week of winter rain comes from', from: 'front', color: 'var(--coast)' },
-  { id: 'storms', title: 'Violent storms', promise: 'Hail, tornadoes and hurricanes: what turns a shower into a monster', from: 'giants', color: 'var(--storms)' },
-  { id: 'seeding', title: 'Cloud seeding', promise: '', from: 'local-sky', leaf: true, color: 'var(--rose)' },
+  { id: 'coast', title: 'The Pacific coast', promise: 'Why the coast almost never thunders, and where a week of winter rain comes from', from: 'front', color: 'var(--coast)', prefix: 'P' },
+  { id: 'storms', title: 'Violent storms', promise: 'Hail, tornadoes and hurricanes: what turns a shower into a monster', from: 'giants', color: 'var(--storms)', prefix: 'V' },
+  { id: 'seeding', title: 'Cloud seeding', promise: '', from: 'local-sky', leaf: true, color: 'var(--rose)', prefix: 'S' },
 ];
 
 /** Lessons shown in the tree before they are written: the next branch to come. */
@@ -225,6 +228,11 @@ export const COMING: readonly ComingLesson[] = [
 
 /** Every lesson the home page's tree shows, written or coming, in the order the tree lists them. */
 export const TREE_LESSONS: readonly (Shift | ComingLesson)[] = [...SHIFTS, ...COMING];
+
+for (const [id, code] of lessonCodes(TREE_LESSONS, BRANCHES)) TREE_LESSONS.find((l) => l.id === id)!.code = code;
+
+/** How the app names a lesson: "Lesson 5", "Lesson P2". */
+export const lessonName = (l: { n: number; code?: string }) => `Lesson ${l.code ?? l.n}`;
 
 export function shiftById(id: string): Shift | undefined {
   return SHIFTS.find((s) => s.id === id);

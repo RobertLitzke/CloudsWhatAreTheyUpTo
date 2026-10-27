@@ -24,6 +24,8 @@ export interface TreeLesson {
   betterAfter?: readonly string[];
   /** Not written yet: shown, never opened. */
   coming?: boolean;
+  /** Its name in the tree, such as "P2", in place of `n`; see lessonCodes. */
+  code?: string;
 }
 
 export interface TreeBranch {
@@ -37,6 +39,29 @@ export interface TreeBranch {
   color?: string;
   /** One lesson hung off the trunk, with no pill. */
   leaf?: boolean;
+  /**
+   * Letters its lessons are named by, like a course code: prefix "P" makes them
+   * P1, P2, P3 in branch order, so a branch's lessons are not mistaken for the
+   * trunk's next ones. Left out, they keep their `n`.
+   */
+  prefix?: string;
+}
+
+/** Each lesson's name in the tree, by id: its `n` on the trunk, its branch's prefix and place on a branch that has one. */
+export function lessonCodes(lessons: readonly TreeLesson[], branches: readonly TreeBranch[]): Map<string, string> {
+  const out = new Map<string, string>();
+  const count = new Map<string, number>();
+  for (const l of lessons) {
+    const prefix = l.branch ? branches.find((b) => b.id === l.branch)?.prefix : undefined;
+    if (!prefix) {
+      out.set(l.id, String(l.n));
+      continue;
+    }
+    const i = (count.get(prefix) ?? 0) + 1;
+    count.set(prefix, i);
+    out.set(l.id, `${prefix}${i}`);
+  }
+  return out;
 }
 
 export type TreeState = 'done' | 'skipped' | 'next' | 'open' | 'soft' | 'locked' | 'coming';
@@ -44,7 +69,7 @@ export type TreeState = 'done' | 'skipped' | 'next' | 'open' | 'soft' | 'locked'
 export interface TreeNode<L extends TreeLesson> {
   lesson: L;
   state: TreeState;
-  /** Hard needs not yet passed. */
+  /** Hard needs not yet passed, leaving out the trunk lesson just before it (the trunk says that by its order). */
   missing: L[];
   /** Soft ones not yet passed. */
   wanting: L[];
@@ -55,6 +80,7 @@ export function treeStates<L extends TreeLesson>(lessons: readonly L[], save: Pr
   const byId = new Map(lessons.map((l) => [l.id, l]));
   const unmet = (ids: readonly string[] | undefined) => (ids ?? []).filter((id) => !passed(save, id)).map((id) => byId.get(id)).filter((l): l is L => l !== undefined);
   const out = new Map<string, TreeNode<L>>();
+  const trunk = lessons.filter((l) => !l.branch);
   for (const lesson of lessons) {
     const missing = unmet(lesson.needs);
     const wanting = unmet(lesson.betterAfter);
@@ -65,7 +91,8 @@ export function treeStates<L extends TreeLesson>(lessons: readonly L[], save: Pr
           : missing.length ? 'locked'
             : wanting.length ? 'soft'
               : 'open';
-    out.set(lesson.id, { lesson, state, missing, wanting });
+    const before = lesson.branch ? undefined : trunk[trunk.indexOf(lesson) - 1];
+    out.set(lesson.id, { lesson, state, missing: missing.filter((l) => l !== before), wanting });
   }
   const free = (l: L) => ['open', 'soft'].includes(out.get(l.id)!.state);
   const next = lessons.find((l) => !l.branch && free(l))
@@ -86,8 +113,6 @@ export interface TreeOptions<L extends TreeLesson> {
   save: Progress;
   /** The lesson's card, drawn beside its dot. */
   card: (node: TreeNode<L>) => Child;
-  /** How a lesson is named on a pill's chips, such as "Lesson 6". */
-  label?: (lesson: L) => string;
   /** A localStorage key to remember which pills were left open on this device. */
   remember?: string;
 }
@@ -120,12 +145,11 @@ function writeOpen(key: string | undefined, open: Set<string>): void {
  */
 export function treeView<L extends TreeLesson>(o: TreeOptions<L>): HTMLElement {
   const states = treeStates(o.lessons, o.save);
-  const label = o.label ?? ((l: L) => `Lesson ${l.n}`);
   const open = readOpen(o.remember);
   const nodeEl = (l: L) => {
     const node = states.get(l.id)!;
     return el('li.tree-node', { className: `tree-node is-${node.state}` },
-      el('span.tree-dot', { 'aria-hidden': 'true' }, MARK[node.state] ?? String(l.n)),
+      el('span.tree-dot', { 'aria-hidden': 'true' }, MARK[node.state] ?? l.code ?? String(l.n)),
       el('div.tree-card', {}, o.card(node)),
     );
   };
@@ -133,23 +157,6 @@ export function treeView<L extends TreeLesson>(o: TreeOptions<L>): HTMLElement {
 
   const pill = (b: TreeBranch) => {
     const lessons = inBranch(b);
-    const ids = new Set(lessons.map((l) => l.id));
-    // What the branch leans on besides the lesson it forks from, and which of its lessons lean on it.
-    const outside = new Map<string, L[]>();
-    for (const l of lessons) {
-      if (l.coming) continue;
-      for (const id of [...(l.needs ?? []), ...(l.betterAfter ?? [])]) {
-        if (ids.has(id) || id === b.from) continue;
-        outside.set(id, [...(outside.get(id) ?? []), l]);
-      }
-    }
-    const written = lessons.filter((l) => !l.coming);
-    const chips = [...outside].flatMap(([id, users]) => {
-      const req = o.lessons.find((l) => l.id === id);
-      if (!req) return [];
-      const some = users.length < written.length ? `, for ${users.map((u) => u.n).join(' and ')}` : '';
-      return [el('span.tree-chip', { className: `tree-chip${passed(o.save, id) ? ' met' : ''}` }, `${label(req)}${some}`)];
-    });
     const done = lessons.filter((l) => o.save.lessons[l.id]?.done).length;
     const holdsNext = lessons.some((l) => states.get(l.id)!.state === 'next');
     const rail = el('ol.tree-rail', {}, lessons.map(nodeEl));
@@ -168,7 +175,6 @@ export function treeView<L extends TreeLesson>(o: TreeOptions<L>): HTMLElement {
       el('span.tree-pill-title', {}, b.title),
       el('span.tree-pill-count', {}, `${done}/${lessons.length}`),
       el('span.tree-pill-promise', {}, b.promise),
-      chips.length ? el('span.tree-chips', {}, chips) : null,
     );
     return el('li.tree-fork', { style: b.color ? `--branch: ${b.color}` : '' }, button, rail);
   };

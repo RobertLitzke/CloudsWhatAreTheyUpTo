@@ -5,7 +5,7 @@
 import { describe, expect, it } from 'vitest';
 import { el } from '../src/dom';
 import { emptyProgress, finishLesson, skipLesson, type Progress } from '../src/progress';
-import { nextLesson, treeProblems, treeStates, treeView, type TreeBranch, type TreeLesson } from '../src/tree';
+import { lessonCodes, nextLesson, treeProblems, treeStates, treeView, type TreeBranch, type TreeLesson } from '../src/tree';
 
 const LESSONS: TreeLesson[] = [
   { id: 'a', n: 1 },
@@ -17,7 +17,7 @@ const LESSONS: TreeLesson[] = [
   { id: 'leaf', n: 7, branch: 'l', needs: ['c'] },
 ];
 const BRANCHES: TreeBranch[] = [
-  { id: 'x', title: 'Side trip', promise: 'Somewhere else', from: 'a' },
+  { id: 'x', title: 'Side trip', promise: 'Somewhere else', from: 'a', prefix: 'X' },
   { id: 'l', title: 'Afterword', promise: '', from: 'c', leaf: true },
 ];
 const done = (save: Progress, ...ids: string[]) => ids.reduce((s, id) => finishLesson(s, id, 1, 1, [], new Date(0)), save);
@@ -50,11 +50,17 @@ describe('lesson tree', () => {
     const pill = view.querySelector('.tree-pill')!;
     expect(pill.getAttribute('aria-expanded')).toBe('true');
     expect(pill.textContent).toContain('0/3');
-    // x2 leans on c besides the fork's own lesson, and only x2 does.
-    expect([...view.querySelectorAll('.tree-chip')].map((c) => c.textContent)).toEqual(['Lesson 2, for 4', 'Lesson 3, for 5']);
     (pill as HTMLButtonElement).click();
     expect(pill.getAttribute('aria-expanded')).toBe('false');
     expect((view.querySelector('.tree-fork .tree-rail') as HTMLElement).hidden).toBe(true);
+  });
+
+  it('names branch lessons by their prefix, and leaves the trunk lesson just before out of what a lesson waits for', () => {
+    const codes = lessonCodes(LESSONS, BRANCHES);
+    expect([...codes.values()]).toEqual(['1', '2', '3', 'X1', 'X2', 'X3', '7']);
+    const nodes = treeStates(LESSONS, emptyProgress());
+    expect(nodes.get('c')!.missing).toEqual([]);
+    expect(nodes.get('x2')!.missing.map((l) => l.id)).toEqual(['x1']);
   });
 
   it('keeps a pill shut when Next is elsewhere', () => {

@@ -708,10 +708,6 @@ body.sheet-up { overflow: hidden; }
 .tree-pill-count::after { content: " ▸"; }
 .tree-pill[aria-expanded="true"] .tree-pill-count::after { content: " ▾"; }
 .tree-pill-promise { color: var(--muted); font-size: 0.9rem; }
-.tree-chips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
-.tree-chip { font-size: 0.75rem; border-radius: 99px; padding: 1px 8px; border: 1px solid var(--tree-line); color: var(--muted); }
-.tree-chip.met { border-color: var(--teal); }
-.tree-chip.met::before { content: "✓ "; }
 .tree-rail { list-style: none; margin: 8px 0 0 8px; padding: 0 0 0 12px; border-left: 2px solid var(--branch); display: grid; gap: 8px; }
 .tree-rail[hidden] { display: none; }
 .tree-leaf .tree-rail { margin-top: 0; }
