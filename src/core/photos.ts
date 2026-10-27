@@ -24,6 +24,11 @@ export const LICENSES = {
   'CC-BY-SA-2.0': { name: 'CC BY-SA 2.0', url: 'https://creativecommons.org/licenses/by-sa/2.0/' },
   'CC-BY-SA-3.0': { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/' },
   'CC-BY-SA-4.0': { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/' },
+  /**
+   * The course author's own photographs: used here with their permission and
+   * not offered to anyone else under any licence. The link is the repository.
+   */
+  'OWN': { name: 'All rights reserved, used with permission', url: 'https://github.com/RobertLitzke/Photography' },
 } as const;
 
 export type LicenseId = keyof typeof LICENSES;
@@ -47,6 +52,7 @@ export const SUBJECTS = {
   'snow-scene': 'Snow',
   'backlit-leaves': 'Leaves against the sun',
   'overcast-forest': 'A forest under cloud',
+  'low-light': 'A bird after dark',
 } as const;
 
 export type SubjectId = keyof typeof SUBJECTS;

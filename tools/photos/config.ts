@@ -22,6 +22,7 @@ export const CATEGORIES: Record<string, string[]> = {
   'snow-scene': ['Snow', 'Winter landscapes', 'Snowy forests'],
   'backlit-leaves': ['Backlighting', 'Leaves against the light', 'Contre-jour'],
   'overcast-forest': ['Overcast', 'Forests in fog', 'Temperate rainforests'],
+  'low-light': ['Nycticorax nycticorax', 'Birds at night', 'Night photographs of animals'],
 };
 
 /** Candidates narrower than this are skipped: they would look soft on a phone. */

@@ -102,7 +102,7 @@ export const apertureFigure = figure(['blur-background', 'all-sharp'], (_ctx, t,
   const eqFocal = scene.eqFocal ?? 1000;
 
   const paint = () => {
-    const shot = shoot(scene, { eqFocal, aperture: n, focusAt, iso: 100 });
+    const shot = shoot(scene, { eqFocal, aperture: n, focusAt });
     const far = shot.depth.far;
     const background = scene.far ?? Infinity;
     // The background is "gone" when it is spread by more than a hundredth of the frame.

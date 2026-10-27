@@ -75,8 +75,8 @@ export const stopsFigure = figure(['trade'], (_ctx, t) => {
  * instead of being told about it.
  */
 export const isoFigure = figure(['grain', 'enough-light'], (_ctx, t, options) => {
-  const photo = shotPhoto('overcast-forest', options?.photo as string | undefined);
-  if (!photo?.scene) return noPhoto('a forest under cloud').node;
+  const photo = shotPhoto('low-light', options?.photo as string | undefined) ?? shotPhoto('overcast-forest');
+  if (!photo?.scene) return noPhoto('a bird after dark').node;
   const scene = photo.scene;
 
   const f = shotFrame(photo, 3);

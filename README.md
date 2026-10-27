@@ -112,12 +112,25 @@ built on it; a wrong map blurs the bird and not the branch.
 
 ### The photographs shipped today
 
+Four of Rob's own bird photographs, used with his permission (licence `OWN`,
+all rights reserved; switch them to `CC-BY-4.0` in `src/data/photos.json` if
+he would rather share them):
+
+| id | bird | used by |
+|---|---|---|
+| `perched-bird-01` | tanager on a branch | aperture figure (lesson 1) |
+| `perched-bird-02` | yellow-crowned bird in twigs | spare perched bird, for focus through clutter |
+| `distant-wildlife-01` | grey heron on a jetty | zoom figure (lesson 1) |
+| `low-light-01` | black-crowned night heron, Pixel phone, 1/26 s, ISO 1458 | ISO figure |
+
+Only the night heron still had camera EXIF; the other three had it stripped,
+so their scenes are estimates. Each scene's `near` was solved from the depth
+map's grey value at the bird, so that `subjectAt` lands on the bird.
+
 Six close-ups of daisies and the insects on them, CC BY 2.0, from the
-TensorFlow `flower_photos` archive (originally Flickr). They are **placeholders
-at 500 px**, which is below what the figures want: they are here so the
-aperture and close-up figures have something real to work on. The figures for
-birds, flight, landscape, water, snow and woodland have no photograph yet and
-say so on the page.
+TensorFlow `flower_photos` archive (originally Flickr), are **placeholders at
+500 px** for the close-up figure. Flight, landscape, water, snow and woodland
+have no photograph yet and say so on the page.
 
 ## Adding a lesson
 

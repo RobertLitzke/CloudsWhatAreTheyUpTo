@@ -165,10 +165,20 @@ function focusPass(
   const kx = depth.w / image.naturalWidth;
   const ky = depth.h / image.naturalHeight;
 
-  for (let i = SLICES - 1; i >= 0; i--) {
-    const lo = i / SLICES;
-    const hi = (i + 1) / SLICES;
-    const metres = distanceAt((lo + hi) / 2, scene.near, scene.far);
+  // The slices are shifted so that one is centred on the distance the lens is
+  // focused at; otherwise the subject is blurred as if it stood at the middle
+  // of its slice, which at full zoom is metres out of focus. The end slices
+  // run on to the ends of the map.
+  let focused = 0;
+  for (let v = 0; v <= 1; v += 1 / 256) {
+    if (render.blurAt(distanceAt(v, scene.near, scene.far)) < render.blurAt(distanceAt(focused, scene.near, scene.far))) focused = v;
+  }
+  const shift = focused - (Math.floor(focused * SLICES) + 0.5) / SLICES;
+
+  for (let i = 0; i < SLICES; i++) {
+    const lo = i === 0 ? -1 : i / SLICES + shift;
+    const hi = i === SLICES - 1 ? 2 : (i + 1) / SLICES + shift;
+    const metres = distanceAt((i + 0.5) / SLICES + shift, scene.near, scene.far);
     const blur = render.blurAt(metres) * w;
 
     // The mask: full where this slice is, fading over one slice either side so
