@@ -129,7 +129,7 @@ export const shipThroughFigure = figure(['eye'], (_ctx, t) => {
     polyline(windPts, COL.parcel, 2.5),
     small(x0, windY(windAt(-300)) - 6, 'wind', { fill: COL.warmInk, bold: true }),
     line(x0, 240, x1, 240, COL.ink, 1),
-    ...[-300, -150, 0, 150, 300].map((km) => small(xOf(km), 254, km === 0 ? 'centre' : `${Math.abs(km)} km`, { anchor: km === 300 ? 'end' : km === -300 ? 'start' : 'middle', soft: true })),
+    ...[-300, -150, 0, 150, 300].map((km) => small(xOf(km), 254, km === 0 ? 'centre' : `${Math.abs(km)} km`, km === -300 ? { soft: true } : { anchor: km === 300 ? 'end' : 'middle', soft: true })),
     g,
   );
   let at = -300;
