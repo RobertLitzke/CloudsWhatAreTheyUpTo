@@ -23,8 +23,9 @@ const OCCLUDED = '#8a3fa0';
 
 /**
  * A front as drawn on a weather map: a line with half-moons (warm) or
- * triangles (cold) on the side it is moving towards. `side` is 1 or -1, for
- * the left or right of the line's direction of drawing.
+ * triangles (cold) on the side it is moving towards, the cold air a warm front
+ * replaces or the warm air a cold front undercuts. `side` is -1 or 1, for the
+ * left or right of the line's direction of drawing (with north up).
  */
 function frontOnMap(pts: P[], kind: 'warm' | 'cold', side: 1 | -1, tint?: string): SVGElement {
   const color = tint ?? (kind === 'warm' ? COL.red : COL.blue);
@@ -99,7 +100,7 @@ export const lowMapDiagram: FigureFactory = () => {
     svg('path', { d: `M150,92 Q160,170 92,240 L74,232 Q136,170 138,96 Z`, fill: '#ffffff', opacity: 0.85, stroke: COL.cloudShade }),
     ring(40, 28), ring(78, 54), ring(120, 82), ring(165, 112),
     ...winds,
-    frontOnMap(warm, 'warm', 1),
+    frontOnMap(warm, 'warm', -1),
     frontOnMap(cold, 'cold', -1),
     label(L[0] - 18, L[1] + 4, 'L', { bold: true, fill: COL.red, attrs: { 'font-size': 18 } }),
     note(L[0] - 50, L[1] - 26, 'low pressure', { fill: COL.redInk }),
@@ -602,7 +603,7 @@ export const radarMapDiagram: FigureFactory = () => {
   d.svg.append(
     svg('rect', { x: 0, y: 0, width: 400, height: 258, fill: MAP }),
     radarImage(0, 0, 400, 258, 3, echo),
-    frontOnMap(warm, 'warm', 1),
+    frontOnMap(warm, 'warm', -1),
     frontOnMap(cold, 'cold', -1),
     label(L[0] - 18, L[1] + 4, 'L', { bold: true, fill: COL.red, halo: MAP, attrs: { 'font-size': 18 } }),
     note(300, 34, 'a wide shield of steady rain', { anchor: 'middle', halo: MAP }),
@@ -859,16 +860,16 @@ export const occlusionDiagram: FigureFactory = () => {
       const join: P = [L[0] + 6, L[1] + 4];
       parts.push(
         svg('polygon', { points: `${join.join(',')} ${warmEnd.join(',')} ${coldEnd.join(',')}`, fill: '#f8d9c6' }),
-        frontOnMap(curve(join, [cx + 10, 60], warmEnd, 14), 'warm', 1),
+        frontOnMap(curve(join, [cx + 10, 60], warmEnd, 14), 'warm', -1),
         frontOnMap(curve(join, [cx - 14, 96], coldEnd, 14), 'cold', -1),
       );
     } else {
       const meet: P = [cx + 16, 92];
       const occ = curve([L[0] + 6, L[1] + 4], [cx - 4, 64], meet, 12);
       parts.push(
-        frontOnMap(occ.filter((_, i) => i % 2 === 0), 'warm', 1, OCCLUDED),
-        frontOnMap(occ.filter((_, i) => i % 2 === 1), 'cold', 1, OCCLUDED),
-        frontOnMap(curve(meet, [cx + 26, 104], [cx + 44, 124], 10), 'warm', 1),
+        frontOnMap(occ.filter((_, i) => i % 2 === 0), 'warm', -1, OCCLUDED),
+        frontOnMap(occ.filter((_, i) => i % 2 === 1), 'cold', -1, OCCLUDED),
+        frontOnMap(curve(meet, [cx + 26, 104], [cx + 44, 124], 10), 'warm', -1),
         frontOnMap(curve(meet, [cx + 10, 112], [cx + 6, 134], 10), 'cold', -1),
         note(cx - 22, 90, 'occluded', { anchor: 'end', fill: OCCLUDED }),
         note(cx - 22, 101, 'front', { anchor: 'end', fill: OCCLUDED }),
