@@ -4,7 +4,7 @@
 // `options.subject` names the subject; `options.photo` may pin one photo of
 // it by id, when only that one shows what the text points at.
 
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import { isSubjectId } from '../../core/photos';
 import { PHOTOS, photoFigure, picture } from '../picture';
 import type { FigureContext, Options } from './kit';

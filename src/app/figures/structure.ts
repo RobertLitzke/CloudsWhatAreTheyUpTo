@@ -3,9 +3,9 @@
 // break them; and the slake test, two dry clods dropped in water, drawn at
 // the moment they go in and five minutes later.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small, still } from 'lesson-kit/draw';
-import { makeRng } from 'lesson-kit/rng';
+import { el, svg } from 'didactics/dom';
+import { label, redraw, small, still } from 'didactics/draw';
+import { makeRng } from 'didactics/rng';
 import { mixOf } from '../../core/soil';
 import { bedHydraulics, DISTURBANCE, slaked, stability, type Bed, type Disturbance } from '../../core/structure';
 import { COL, figure, frame, slider, tint } from './kit';

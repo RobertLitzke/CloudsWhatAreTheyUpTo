@@ -4,8 +4,8 @@
 // a worm, stones and the pale threads of fungi. Flat, lightly geometric shapes
 // in the site's palette; the same seed always draws the same garden.
 
-import { svg } from 'lesson-kit/dom';
-import { makeRng, type Rng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { makeRng, type Rng } from 'didactics/rng';
 
 export const W = 400;
 

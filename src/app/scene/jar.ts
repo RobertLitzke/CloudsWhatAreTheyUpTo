@@ -3,7 +3,7 @@
 // cloudy as what is still hanging in it. The jar figure and the drawn stand-in
 // for a jar-test photo both draw it.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import { settled, type Mix } from '../../core/soil';
 import { COL, tint } from '../figures/kit';
 

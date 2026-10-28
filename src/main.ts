@@ -1,7 +1,10 @@
 import './app/styles/app.css';
-import { el } from 'lesson-kit/dom';
-import { Router } from 'lesson-kit/router';
-import { watchForUpdates } from 'lesson-kit/update';
+import { el } from 'didactics/dom';
+import { Router } from 'didactics/router';
+import { pageMenu, type NavLink } from 'didactics/shell';
+import { retireWhenSaved } from 'didactics/offline';
+import { watchForUpdates } from 'didactics/update';
+import photos from './data/photos.json';
 import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
 import { lessonView } from './app/views/lesson';
@@ -9,11 +12,11 @@ import { quizView } from './app/views/quiz';
 import { referenceView } from './app/views/reference';
 import { settingsView } from './app/views/settings';
 
-const NAV: readonly [string, string][] = [
-  ['/home', 'Home'],
-  ['/reference', 'Reference'],
-  ['/quiz', 'Quiz'],
-  ['/settings', 'Settings'],
+const NAV: readonly NavLink[] = [
+  { path: '/home', label: 'Home' },
+  { path: '/reference', label: 'Reference' },
+  { path: '/quiz', label: 'Quiz' },
+  { path: '/settings', label: 'Settings' },
 ];
 
 /** A sprout with an up arrow, for the update banner: drawn inline so it shows offline. */
@@ -33,7 +36,9 @@ const MARK =
 
 function boot(): void {
   const app = document.getElementById('app')!;
-  const links = NAV.map(([path, label]) => el('a', { href: `#${path}` }, label));
+  // Didactics' page menu, in a bar of Dirt's own: appShell's wordmark is text
+  // only, and Dirt's carries the app icon.
+  const menu = pageMenu(NAV);
   const header = el(
     'header.topbar',
     {},
@@ -43,20 +48,17 @@ function boot(): void {
       el('span.mark', { innerHTML: MARK }),
       el('span.words', {}, 'Dirt', el('small', {}, 'A soil workbook')),
     ),
-    el('nav', {}, links),
+    menu.node,
   );
   const outlet = el('main');
   app.replaceChildren(header, outlet);
 
-  const markHere = () => {
-    const here = location.hash.replace(/^#/, '');
-    links.forEach((a, i) => a.classList.toggle('here', here.startsWith(NAV[i][0])));
-  };
-  window.addEventListener('hashchange', markHere);
-
   const router = new Router(outlet, {
     // A lesson fills the screen: the header would only be in the way.
-    before: (path) => document.body.classList.toggle('in-lesson', path.startsWith('/lesson/')),
+    before: (path) => {
+      document.body.classList.toggle('in-lesson', path.startsWith('/lesson/'));
+      menu.mark(path);
+    },
   });
   router
     .add('/home', homeView)
@@ -66,13 +68,15 @@ function boot(): void {
     .add('/credits', creditsView)
     .add('/settings', settingsView)
     .start('/home');
-  markHere();
 
-  if (import.meta.env.DEV) void import('lesson-kit/overflow').then((m) => m.watchOverflow());
+  if (import.meta.env.DEV) void import('didactics/overflow').then((m) => m.watchOverflow());
 
   // The page also runs straight from disk, where there is no service worker.
   if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {
     watchForUpdates({ title: 'Fresh growth', text: 'A new version of Dirt is ready.', icon: SPROUT });
+    // Earlier versions kept each photo once seen, in a cache of their own; the
+    // service worker now downloads them all, so drop that cache once it has.
+    void retireWhenSaved('photos/', photos.length, ['photos']);
   }
 }
 

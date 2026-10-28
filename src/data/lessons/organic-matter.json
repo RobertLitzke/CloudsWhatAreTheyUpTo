@@ -7,56 +7,193 @@
     {
       "title": "Food for the web",
       "blocks": [
-        { "kind": "text", "text": "Gardeners say “add compost” to almost every question, from heavy clay to sandy beds to sickly tomatoes. It sounds like folk wisdom. It is closer to physics and biology: the few parts in a hundred of [[organic matter|organic]] in a soil do more than all the rest put together." },
-        { "kind": "text", "text": "A bag of fertilizer feeds plants; organic matter feeds the soil. It is the food at the bottom of the web in lesson 3, for everything that can't live on root sugar. As soil life eats it, it lets go of the nitrogen, phosphorus and sulfur that were in the plants, slowly, over months and years. What survives the eating is dark, crumbly **humus**,[^humus] which holds water like a sponge, many times its own weight, and holds nutrients on its surface as clay does. Along the way, the microbes eating it make the gums that stick grains into crumbs, the subject of the next lesson." },
-        { "kind": "figure", "figure": "photo", "caption": "A soil dug open under woodland: the dark top layer is where its organic matter is", "options": { "subject": "soil-profile", "photo": "soil-profile-02", "alt": "A soil profile with a dark top layer under leaf litter" } },
-        { "kind": "text", "text": "A few percent of organic matter opens a clay soil and helps a sandy one hold water, which is why the advice is the same for both. You saw it in lesson 2's pores figure: every soil got better as the organic matter slider went up." },
-        { "kind": "key", "title": "Hold on to", "points": [
-          "Fertilizer feeds plants; [[organic matter|organic]] feeds the soil's life, which feeds plants.",
-          "It releases nutrients slowly, holds water and nutrients, and is the raw material for crumbs."
-        ] }
+        {
+          "type": "text",
+          "text": "Gardeners say “add compost” to almost every question, from heavy clay to sandy beds to sickly tomatoes. It sounds like folk wisdom. It is closer to physics and biology: the few parts in a hundred of [[organic matter|organic]] in a soil do more than all the rest put together."
+        },
+        {
+          "type": "text",
+          "text": "A bag of fertilizer feeds plants; organic matter feeds the soil. It is the food at the bottom of the web in lesson 3, for everything that can't live on root sugar. As soil life eats it, it lets go of the nitrogen, phosphorus and sulfur that were in the plants, slowly, over months and years. What survives the eating is dark, crumbly **humus**,[^humus] which holds water like a sponge, many times its own weight, and holds nutrients on its surface as clay does. Along the way, the microbes eating it make the gums that stick grains into crumbs, the subject of the next lesson."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A soil dug open under woodland: the dark top layer is where its organic matter is",
+          "options": {
+            "subject": "soil-profile",
+            "photo": "soil-profile-02",
+            "alt": "A soil profile with a dark top layer under leaf litter"
+          }
+        },
+        {
+          "type": "text",
+          "text": "A few percent of organic matter opens a clay soil and helps a sandy one hold water, which is why the advice is the same for both. You saw it in lesson 2's pores figure: every soil got better as the organic matter slider went up."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Fertilizer feeds plants; [[organic matter|organic]] feeds the soil's life, which feeds plants.",
+            "It releases nutrients slowly, holds water and nutrients, and is the raw material for crumbs."
+          ]
+        }
       ]
     },
     {
       "title": "Browns and greens",
       "blocks": [
-        { "kind": "text", "text": "Microbes need two things from what they eat: carbon, to burn for energy and build their bodies, and nitrogen, to make proteins. They want roughly twenty-five to thirty parts of carbon for every part of nitrogen.[^cn] Dry, woody things like autumn leaves, straw and cardboard are mostly carbon: gardeners call them **browns**. Soft, fresh things like grass clippings and kitchen scraps carry much more nitrogen: **greens**. A heap works when the mix comes out near the microbes' diet." },
-        { "kind": "figure", "figure": "heap", "caption": "A compost bin, built a bucket at a time", "task": "Build a heap with a ratio between 20 and 40, with at least three buckets", "goal": "hot" },
-        { "kind": "text", "text": "Too green, and the microbes have more nitrogen than they can use; the spare escapes as ammonia, and the heap smells and slumps into a wet mess. Too brown, and they run short of nitrogen and work slowly. Near the balance, kept moist as a wrung-out sponge and turned now and then for air, a heap a metre across heats up to 55 °C or more and turns to compost in a few months.[^heat]" },
-        { "kind": "text", "text": "The same arithmetic matters in the bed. Dig fresh wood chips or sawdust into the soil and the microbes that set on them pull nitrogen from the soil around to balance their diet, starving your plants for a few weeks.[^robbery] On top, as a mulch, the same chips do no harm: only the thin layer touching the soil is being eaten." }
+        {
+          "type": "text",
+          "text": "Microbes need two things from what they eat: carbon, to burn for energy and build their bodies, and nitrogen, to make proteins. They want roughly twenty-five to thirty parts of carbon for every part of nitrogen.[^cn] Dry, woody things like autumn leaves, straw and cardboard are mostly carbon: gardeners call them **browns**. Soft, fresh things like grass clippings and kitchen scraps carry much more nitrogen: **greens**. A heap works when the mix comes out near the microbes' diet."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "heap",
+          "caption": "A compost bin, built a bucket at a time",
+          "task": "Build a heap with a ratio between 20 and 40, with at least three buckets",
+          "goal": "hot"
+        },
+        {
+          "type": "text",
+          "text": "Too green, and the microbes have more nitrogen than they can use; the spare escapes as ammonia, and the heap smells and slumps into a wet mess. Too brown, and they run short of nitrogen and work slowly. Near the balance, kept moist as a wrung-out sponge and turned now and then for air, a heap a metre across heats up to 55 °C or more and turns to compost in a few months.[^heat]"
+        },
+        {
+          "type": "text",
+          "text": "The same arithmetic matters in the bed. Dig fresh wood chips or sawdust into the soil and the microbes that set on them pull nitrogen from the soil around to balance their diet, starving your plants for a few weeks.[^robbery] On top, as a mulch, the same chips do no harm: only the thin layer touching the soil is being eaten."
+        }
       ]
     },
     {
       "title": "From leaf to humus",
       "blocks": [
-        { "kind": "text", "text": "When a bucket of dead leaves goes into the soil, the soft parts, the sugars and proteins, are eaten within weeks. Cellulose, the stuff of plant cell walls, takes months. Lignin, the woody glue in stems and bark, takes years. Each meal is breathed out by the soil life as carbon dioxide, and what remains at the end is only a small fraction of what went in." },
-        { "kind": "figure", "figure": "rot", "caption": "A bucket each of grass, leaves and wood chips rotting in the soil, fresh, after a year and after five" },
-        { "kind": "text", "text": "Most of the organic matter you add is gone within a couple of years, eaten. That isn't a waste: the eating is the point, since it feeds the web and releases nutrients. But it means organic matter has to be added again every year to hold steady, and a bed that gets nothing slowly runs down.[^model] Lesson 7 is about doing that through the seasons without much work." },
-        { "kind": "key", "title": "Using compost and manure", "points": [
-          "**How much.** Spread 2 to 5 cm of compost on each bed once a year, in autumn or spring. Leave it on top: worms take it down, and there is no need to dig it in.",
-          "**When it is ready.** Dark and crumbly, smelling of earth, with little you can still recognise. Sieve out coarse bits and put them back in the next heap.",
-          "**Manure.** Use it well rotted, six months or more, never fresh: fresh manure can scorch young plants, brings weed seeds, and can carry germs onto crops eaten raw. Ask where bought manure came from.[^herbicide] Leave out cat and dog droppings altogether.",
-          "**Keep out of the heap.** Meat, fish and dairy, which draw rats; diseased plants and seeding weeds, unless the heap gets hot; and the roots of bindweed, couch grass and other spreading weeds."
-        ] },
-        { "kind": "key", "title": "Try it in the garden", "points": [
-          "Start a heap, or check the one you have. If it smells of ammonia, add browns. When it feels dry and dusty, add water; if soggy, add browns and turn it. Push a hand in: warmth means it is working.",
-          "Save autumn leaves in bags or a wire cage. They are the brown that most heaps run short of in summer."
-        ] }
+        {
+          "type": "text",
+          "text": "When a bucket of dead leaves goes into the soil, the soft parts, the sugars and proteins, are eaten within weeks. Cellulose, the stuff of plant cell walls, takes months. Lignin, the woody glue in stems and bark, takes years. Each meal is breathed out by the soil life as carbon dioxide, and what remains at the end is only a small fraction of what went in."
+        },
+        {
+          "type": "diagram",
+          "id": "rot",
+          "caption": "A bucket each of grass, leaves and wood chips rotting in the soil, fresh, after a year and after five"
+        },
+        {
+          "type": "text",
+          "text": "Most of the organic matter you add is gone within a couple of years, eaten. That isn't a waste: the eating is the point, since it feeds the web and releases nutrients. But it means organic matter has to be added again every year to hold steady, and a bed that gets nothing slowly runs down.[^model] Lesson 7 is about doing that through the seasons without much work."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Using compost and manure",
+          "points": [
+            "**How much.** Spread 2 to 5 cm of compost on each bed once a year, in autumn or spring. Leave it on top: worms take it down, and there is no need to dig it in.",
+            "**When it is ready.** Dark and crumbly, smelling of earth, with little you can still recognise. Sieve out coarse bits and put them back in the next heap.",
+            "**Manure.** Use it well rotted, six months or more, never fresh: fresh manure can scorch young plants, brings weed seeds, and can carry germs onto crops eaten raw. Ask where bought manure came from.[^herbicide] Leave out cat and dog droppings altogether.",
+            "**Keep out of the heap.** Meat, fish and dairy, which draw rats; diseased plants and seeding weeds, unless the heap gets hot; and the roots of bindweed, couch grass and other spreading weeds."
+          ]
+        },
+        {
+          "type": "key_ideas",
+          "title": "Try it in the garden",
+          "points": [
+            "Start a heap, or check the one you have. If it smells of ammonia, add browns. When it feels dry and dusty, add water; if soggy, add browns and turn it. Push a hand in: warmth means it is working.",
+            "Save autumn leaves in bags or a wire cage. They are the brown that most heaps run short of in summer."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        { "kind": "figure", "figure": "check", "caption": "Eight questions on organic matter and compost", "task": "Answer them", "options": { "items": [
-          { "question": "Why is compost good advice for a clay soil and a sandy soil alike?", "options": ["It opens clay and helps sand hold water", "It turns both into loam", "It only helps clay soils"], "answer": 0, "why": "Organic matter builds crumbs and big pores in clay, and adds water-holding small pores and surfaces to sand." },
-          { "picture": "compost-heap", "question": "A heap of fresh grass clippings smells of ammonia. What should you add?", "options": ["Browns, such as leaves or straw", "More grass", "Nothing: leave it"], "answer": 0, "why": "Grass is green, about 15 parts carbon to 1 of nitrogen. The spare nitrogen escapes as ammonia; browns bring carbon to balance it." },
-          { "question": "What carbon-to-nitrogen ratio do compost microbes want, roughly?", "options": ["25 to 30 to 1", "1 to 1", "300 to 1", "There is no best ratio"], "answer": 0, "why": "About 25 to 30 parts carbon to 1 of nitrogen. Much greener and nitrogen is lost; much browner and the heap is slow." },
-          { "question": "You dig fresh sawdust into a bed. What happens to the plants for the next few weeks?", "options": ["They go short of nitrogen", "They grow faster", "Nothing at all"], "answer": 0, "why": "Microbes eating the sawdust take nitrogen from the soil to balance their diet. On top as mulch, it does little harm." },
-          { "question": "Which part of a dead plant takes longest to rot?", "options": ["Lignin, the woody part", "Sugars", "Proteins"], "answer": 0, "why": "Sugars and proteins go in weeks, cellulose in months, and lignin over years." },
-          { "question": "A year after you dig in a barrow of leaves, most of it is gone. Where did it go?", "options": ["Breathed out as carbon dioxide by soil life, which ate it", "It washed out to the drains", "It turned into sand"], "answer": 0, "why": "Soil life eats organic matter and breathes most of its carbon out. Feeding the life is the point; it is why you add more every year." },
-          { "question": "How much compost does a bed want each year, and where?", "options": ["2 to 5 cm, spread on top", "A thin dusting, dug in deep", "30 cm, every spring"], "answer": 0, "why": "A few centimetres a year keeps organic matter rising. On top it feeds the web and worms carry it down, with no digging." },
-          { "question": "What is humus?", "options": ["The dark, stable organic matter left after plant remains have been eaten", "Fresh grass clippings", "A kind of clay mineral"], "answer": 0, "why": "Humus is what is left after decay: dark, slow to change, and good at holding water and nutrients." }
-        ] } }
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Eight questions on organic matter and compost",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "Why is compost good advice for a clay soil and a sandy soil alike?",
+                "options": [
+                  "It opens clay and helps sand hold water",
+                  "It turns both into loam",
+                  "It only helps clay soils"
+                ],
+                "answer": 0,
+                "why": "Organic matter builds crumbs and big pores in clay, and adds water-holding small pores and surfaces to sand."
+              },
+              {
+                "picture": "compost-heap",
+                "question": "A heap of fresh grass clippings smells of ammonia. What should you add?",
+                "options": [
+                  "Browns, such as leaves or straw",
+                  "More grass",
+                  "Nothing: leave it"
+                ],
+                "answer": 0,
+                "why": "Grass is green, about 15 parts carbon to 1 of nitrogen. The spare nitrogen escapes as ammonia; browns bring carbon to balance it."
+              },
+              {
+                "question": "What carbon-to-nitrogen ratio do compost microbes want, roughly?",
+                "options": [
+                  "25 to 30 to 1",
+                  "1 to 1",
+                  "300 to 1",
+                  "There is no best ratio"
+                ],
+                "answer": 0,
+                "why": "About 25 to 30 parts carbon to 1 of nitrogen. Much greener and nitrogen is lost; much browner and the heap is slow."
+              },
+              {
+                "question": "You dig fresh sawdust into a bed. What happens to the plants for the next few weeks?",
+                "options": [
+                  "They go short of nitrogen",
+                  "They grow faster",
+                  "Nothing at all"
+                ],
+                "answer": 0,
+                "why": "Microbes eating the sawdust take nitrogen from the soil to balance their diet. On top as mulch, it does little harm."
+              },
+              {
+                "question": "Which part of a dead plant takes longest to rot?",
+                "options": [
+                  "Lignin, the woody part",
+                  "Sugars",
+                  "Proteins"
+                ],
+                "answer": 0,
+                "why": "Sugars and proteins go in weeks, cellulose in months, and lignin over years."
+              },
+              {
+                "question": "A year after you dig in a barrow of leaves, most of it is gone. Where did it go?",
+                "options": [
+                  "Breathed out as carbon dioxide by soil life, which ate it",
+                  "It washed out to the drains",
+                  "It turned into sand"
+                ],
+                "answer": 0,
+                "why": "Soil life eats organic matter and breathes most of its carbon out. Feeding the life is the point; it is why you add more every year."
+              },
+              {
+                "question": "How much compost does a bed want each year, and where?",
+                "options": [
+                  "2 to 5 cm, spread on top",
+                  "A thin dusting, dug in deep",
+                  "30 cm, every spring"
+                ],
+                "answer": 0,
+                "why": "A few centimetres a year keeps organic matter rising. On top it feeds the web and worms carry it down, with no digging."
+              },
+              {
+                "question": "What is humus?",
+                "options": [
+                  "The dark, stable organic matter left after plant remains have been eaten",
+                  "Fresh grass clippings",
+                  "A kind of clay mineral"
+                ],
+                "answer": 0,
+                "why": "Humus is what is left after decay: dark, slow to change, and good at holding water and nutrients."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
@@ -69,11 +206,35 @@
   "next": "Next: crumb, or how the soil's life builds structure, and what one footprint does to it.",
   "journal": [],
   "footnotes": {
-    "humus": { "kind": "technical", "title": "Humus", "text": "**Humus** is the dark, stable part of soil organic matter, what is left once fresh plant remains have been eaten. It holds several times its weight in water and carries many negative charges, which hold nutrients (lesson 6). What humus actually is has been argued over lately. The old picture was of special, giant humic molecules. Many soil scientists now think most of it is the remains of microbes and small bits of plant, stuck to clay surfaces or tucked inside crumbs, where they are protected from being eaten." },
-    "cn": { "kind": "technical", "title": "Carbon-to-nitrogen ratio", "text": "The **C:N ratio** is the weight of carbon in a material over the weight of nitrogen. Grass clippings are around 15 to 1, autumn leaves 40 to 80, straw about 80, wood chips several hundred. Soil microbes themselves are around 8 to 1, but they burn about two thirds of the carbon they eat, so they need food at about 25 to 30 to 1 to come out even." },
-    "heat": { "kind": "digression", "title": "Why a heap gets hot", "text": "The heat is the microbes' breathing, the same chemistry as a fire, only slow. A big heap holds the heat in, and heat-loving bacteria take over as it climbs. Three days above 55 °C kills most weed seeds and disease organisms, which is why a hot heap is worth the effort. A small or cool heap still makes compost; it just takes a year or so and won't kill seeds." },
-    "robbery": { "kind": "technical", "title": "Nitrogen immobilisation", "text": "Soil scientists call microbes taking up nitrogen from the soil **immobilisation**. It is temporary: when the microbes die and are eaten in turn, the nitrogen comes back. The opposite, releasing it, is **mineralisation**." },
-    "herbicide": { "kind": "digression", "title": "Weedkiller in manure", "text": "A few weedkillers used on grass for hay, such as aminopyralid, pass through a horse or cow unchanged and last in manure for a year or more. Spread on a bed, even a trace curls and twists the leaves of tomatoes, beans, peas and potatoes. If you can, ask whether the hay was sprayed. To test a load, sow a few broad beans or peas in pots of it beside a pot of plain compost, and compare the leaves after three weeks." },
-    "model": { "kind": "technical", "title": "The figure's numbers", "text": "The figure splits plant matter into three parts that rot at different rates, with half-lives of about three weeks, five months and four years, and sends part of the slowest into humus. Real rates vary a great deal with warmth, moisture and the soil. It is a sketch of the shape of decay, not a prediction for your bed." }
+    "humus": {
+      "kind": "technical",
+      "title": "Humus",
+      "text": "**Humus** is the dark, stable part of soil organic matter, what is left once fresh plant remains have been eaten. It holds several times its weight in water and carries many negative charges, which hold nutrients (lesson 6). What humus actually is has been argued over lately. The old picture was of special, giant humic molecules. Many soil scientists now think most of it is the remains of microbes and small bits of plant, stuck to clay surfaces or tucked inside crumbs, where they are protected from being eaten."
+    },
+    "cn": {
+      "kind": "technical",
+      "title": "Carbon-to-nitrogen ratio",
+      "text": "The **C:N ratio** is the weight of carbon in a material over the weight of nitrogen. Grass clippings are around 15 to 1, autumn leaves 40 to 80, straw about 80, wood chips several hundred. Soil microbes themselves are around 8 to 1, but they burn about two thirds of the carbon they eat, so they need food at about 25 to 30 to 1 to come out even."
+    },
+    "heat": {
+      "kind": "digression",
+      "title": "Why a heap gets hot",
+      "text": "The heat is the microbes' breathing, the same chemistry as a fire, only slow. A big heap holds the heat in, and heat-loving bacteria take over as it climbs. Three days above 55 °C kills most weed seeds and disease organisms, which is why a hot heap is worth the effort. A small or cool heap still makes compost; it just takes a year or so and won't kill seeds."
+    },
+    "robbery": {
+      "kind": "technical",
+      "title": "Nitrogen immobilisation",
+      "text": "Soil scientists call microbes taking up nitrogen from the soil **immobilisation**. It is temporary: when the microbes die and are eaten in turn, the nitrogen comes back. The opposite, releasing it, is **mineralisation**."
+    },
+    "herbicide": {
+      "kind": "digression",
+      "title": "Weedkiller in manure",
+      "text": "A few weedkillers used on grass for hay, such as aminopyralid, pass through a horse or cow unchanged and last in manure for a year or more. Spread on a bed, even a trace curls and twists the leaves of tomatoes, beans, peas and potatoes. If you can, ask whether the hay was sprayed. To test a load, sow a few broad beans or peas in pots of it beside a pot of plain compost, and compare the leaves after three weeks."
+    },
+    "model": {
+      "kind": "technical",
+      "title": "The figure's numbers",
+      "text": "The figure splits plant matter into three parts that rot at different rates, with half-lives of about three weeks, five months and four years, and sends part of the slowest into humus. Real rates vary a great deal with warmth, moisture and the soil. It is a sketch of the shape of decay, not a prediction for your bed."
+    }
   }
 }

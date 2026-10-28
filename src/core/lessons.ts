@@ -8,12 +8,12 @@
 // planned and not yet written; it shows as coming soon and its route goes
 // home. Each lesson's words are a JSON file in data/lessons.
 //
-// The lesson format and the view that reads it are lesson-kit's lesson.ts.
+// The lesson format and the view that reads it are Didactics' lesson.ts.
 // Text takes a little markup (see app/figures/kit.ts prose): **bold**,
 // *italic*, [[words|colour]] to tie a word to the same colour in a figure, and
 // [^id] for a note from the lesson's `footnotes`, which opens in a popup.
 
-import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'lesson-kit/lesson';
+import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'didactics/lesson';
 import madeOf from '../data/lessons/made-of.json';
 import water from '../data/lessons/water.json';
 import foodWeb from '../data/lessons/food-web.json';

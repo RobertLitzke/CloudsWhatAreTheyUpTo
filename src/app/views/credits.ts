@@ -1,7 +1,7 @@
 // Who made what: every photo with its author, licence and source.
 
-import { el } from 'lesson-kit/dom';
-import type { View } from 'lesson-kit/router';
+import { el } from 'didactics/dom';
+import type { View } from 'didactics/router';
 import { LICENSES, SUBJECTS } from '../../core/photos';
 import { PHOTOS } from '../picture';
 

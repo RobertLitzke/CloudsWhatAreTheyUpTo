@@ -2,9 +2,9 @@
 // side by side, the surface a rock gains as it is cut, texture by feel, the
 // jar test, and the texture triangle read from a jar.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, note, redraw, small, still } from 'lesson-kit/draw';
-import { makeRng } from 'lesson-kit/rng';
+import { el, svg } from 'didactics/dom';
+import { label, note, redraw, small, still } from 'didactics/draw';
+import { makeRng } from 'didactics/rng';
 import { feelOf, HANDFUL, IN_THE_BED, mixOf, PARTICLES, SETTLED_BY, textureOf, TEXTURES, type Mix, type Particle, type Texture } from '../../core/soil';
 import { drawJar, layerTops, type JarBox } from '../scene/jar';
 import { COL, figure, frame, slider, tint } from './kit';

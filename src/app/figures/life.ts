@@ -1,8 +1,8 @@
 // Lesson 3, the living soil: how many live in a teaspoon, and the web of who
 // eats whom, with each member to tap and to take out.
 
-import { el, svg } from 'lesson-kit/dom';
-import { arrow, label, redraw, small, still } from 'lesson-kit/draw';
+import { el, svg } from 'didactics/dom';
+import { arrow, label, redraw, small, still } from 'didactics/draw';
 import { DWELLERS, EATS, INFO, PEOPLE, sayCount, starves, TEASPOON, type Dweller } from '../../core/life';
 import { COL, figure, frame, tint } from './kit';
 

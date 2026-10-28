@@ -1,9 +1,9 @@
 // The reference page: a contents list, then a section per topic. A section
 // whose lesson is not written yet shows only its title and what it will hold.
 
-import { el } from 'lesson-kit/dom';
-import { glossaryFromFile, glossaryFromLessons, glossaryView, mergeGlossary, type GlossaryFile } from 'lesson-kit/glossary';
-import type { View } from 'lesson-kit/router';
+import { el } from 'didactics/dom';
+import { glossaryFromFile, glossaryFromLessons, glossaryView, mergeGlossary, type GlossaryFile } from 'didactics/glossary';
+import type { View } from 'didactics/router';
 import { lesson, LESSONS } from '../../core/lessons';
 import glossary from '../../data/glossary.json';
 import { REFERENCE, type RefBlock, type RefSection } from '../../core/reference';

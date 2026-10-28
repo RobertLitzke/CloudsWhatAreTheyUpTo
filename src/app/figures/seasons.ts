@@ -2,8 +2,8 @@
 // with something covering the bed (or nothing), and what five years of that
 // does to its organic matter.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, polyline, redraw, small } from 'lesson-kit/draw';
+import { el, svg } from 'didactics/dom';
+import { label, polyline, redraw, small } from 'didactics/draw';
 import { COVER_IDS, COVERS, cover, project, SEASONS, type Cover, type Plan } from '../../core/seasons';
 import { DISTURBANCE, type Disturbance } from '../../core/structure';
 import { COL, figure, frame, tint } from './kit';

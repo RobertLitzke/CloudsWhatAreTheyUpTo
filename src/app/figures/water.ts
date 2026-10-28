@@ -1,8 +1,8 @@
 // Lesson 2, where water and air live: what the pores of a soil hold once it
 // has drained, rain soaking in or pooling, and a bed drying out in summer.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small, still } from 'lesson-kit/draw';
+import { el, svg } from 'didactics/dom';
+import { label, redraw, small, still } from 'didactics/draw';
 import { mixOf, type Mix } from '../../core/soil';
 import { available, availableMm, daysOfWater, hydraulics, storm } from '../../core/water';
 import { COL, figure, frame, slider, tint } from './kit';

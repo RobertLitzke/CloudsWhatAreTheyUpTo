@@ -2,8 +2,8 @@
 // library has no photo of it yet. Each is a close look, 400 by 260, in the same
 // flat style as the garden.
 
-import { svg } from 'lesson-kit/dom';
-import { makeRng, type Rng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { makeRng, type Rng } from 'didactics/rng';
 import type { SubjectId } from '../../core/photos';
 import { mixOf } from '../../core/soil';
 import { COL } from '../figures/kit';

@@ -1,8 +1,8 @@
-// A lesson (lesson-kit's lesson view), with Dirt's garden at the top. A lesson
+// A lesson (Didactics' lesson view), with Dirt's garden at the top. A lesson
 // that is planned but not written yet goes home.
 
-import { lessonView as kitLessonView } from 'lesson-kit/lesson';
-import type { View } from 'lesson-kit/router';
+import { lessonView as kitLessonView } from 'didactics/lesson';
+import type { View } from 'didactics/router';
 import { isWritten, lesson, LESSONS } from '../../core/lessons';
 import { FIGURES } from '../figures';
 import { prose } from '../figures/kit';

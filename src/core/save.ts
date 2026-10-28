@@ -1,10 +1,10 @@
 // The save file: what has been learned and how it went. Kept in localStorage by
-// app/store.ts. Every field is lesson-kit's progress.ts for now; Dirt's own
+// app/store.ts. Every field is Didactics' progress.ts for now; Dirt's own
 // fields, when it has some, go on top here, repaired in migrate.
 
-import { emptyProgress, migrateProgress, type Progress } from 'lesson-kit/progress';
+import { emptyProgress, migrateProgress, type Progress } from 'didactics/progress';
 
-export { finishLesson, type LessonRecord } from 'lesson-kit/progress';
+export { finishLesson, type LessonRecord } from 'didactics/progress';
 
 export type SaveData = Progress;
 

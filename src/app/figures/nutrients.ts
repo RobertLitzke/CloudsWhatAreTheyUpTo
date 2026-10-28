@@ -2,9 +2,9 @@
 // nutrients against the rain, the pH band chart, and where a shortage shows
 // on a plant.
 
-import { svg } from 'lesson-kit/dom';
-import { label, redraw, small, still } from 'lesson-kit/draw';
-import { makeRng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { label, redraw, small, still } from 'didactics/draw';
+import { makeRng } from 'didactics/rng';
 import { availability, cec, NAMES, NUTRIENTS, SIGNS, ALUMINIUM_PH, type Shortage } from '../../core/nutrients';
 import { COL, figure, frame, slider, tint } from './kit';
 

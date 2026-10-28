@@ -4,8 +4,8 @@
 // photo fetched later replaces its drawing everywhere at once.
 
 import library from '../data/photos.json';
-import { el } from 'lesson-kit/dom';
-import type { Rng } from 'lesson-kit/rng';
+import { el } from 'didactics/dom';
+import type { Rng } from 'didactics/rng';
 import { LICENSES, mirrorFor, photosOf, SUBJECTS, type Photo, type SubjectId } from '../core/photos';
 import { asset } from './asset';
 import { drawSubject } from './scene/subjects';

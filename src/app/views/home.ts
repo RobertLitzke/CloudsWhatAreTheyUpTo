@@ -2,8 +2,9 @@
 // written lessons open, the rest shown as coming), and the way to the
 // reference page.
 
-import { el } from 'lesson-kit/dom';
-import type { View } from 'lesson-kit/router';
+import { el } from 'didactics/dom';
+import { resumeFor } from 'didactics/resume';
+import type { View } from 'didactics/router';
 import { isWritten, LESSONS } from '../../core/lessons';
 import { makeGarden } from '../scene/garden';
 import { getSave } from '../store';
@@ -12,6 +13,8 @@ export const homeView: View = (root) => {
   const save = getSave();
   const written = LESSONS.filter(isWritten);
   const nextUp = written.find((l) => !save.lessons[l.id]?.done);
+  // A lesson left part way opens where the reader was (Didactics' resume.ts).
+  const leftPartWay = (l: (typeof LESSONS)[number]) => !save.lessons[l.id]?.done && resumeFor(save.resume, l.id, l) !== undefined;
 
   const board = el(
     'ol.lesson-board',
@@ -24,7 +27,7 @@ export const homeView: View = (root) => {
         { className: `lesson-card ${rec?.done ? 'done' : open ? 'open' : 'soon'}` },
         el('span.lesson-n', {}, String(l.n)),
         el('div', {}, el('h3', {}, l.title), el('p', {}, l.teaches), rec?.done ? el('p.score', {}, `Check: ${rec.best} of ${rec.of}`) : null),
-        open ? el('a.btn', { href: `#/lesson/${l.id}` }, rec?.done ? 'Again' : 'Start') : el('span.tag', {}, 'Coming'),
+        open ? el('a.btn', { href: `#/lesson/${l.id}` }, rec?.done ? 'Again' : leftPartWay(l) ? 'Continue' : 'Start') : el('span.tag', {}, 'Coming'),
       );
     }),
   );
@@ -48,7 +51,7 @@ export const homeView: View = (root) => {
           save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
           el('p', {}, `${LESSONS.length} short lessons on the ground your plants grow in: what it is made of, how it holds water and air, what lives in it, and how to feed it and build it up year on year. Each one has drawings to play with and a few questions at the end.`),
         ),
-        nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, save.lessons[nextUp.id] ? `Lesson ${nextUp.n}: ${nextUp.title}` : 'Start the first lesson') : null,
+        nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, leftPartWay(nextUp) ? `Continue lesson ${nextUp.n}: ${nextUp.title}` : save.lessons[nextUp.id] || nextUp.n > 1 ? `Lesson ${nextUp.n}: ${nextUp.title}` : 'Start the first lesson') : null,
         el('h2', {}, 'Lessons'),
         board,
         el(

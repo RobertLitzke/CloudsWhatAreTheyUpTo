@@ -7,55 +7,185 @@
     {
       "title": "A crowded teaspoon",
       "blocks": [
-        { "kind": "text", "text": "Lesson 1 called soil broken rock with a little organic matter mixed in. That is true of a pot of sterilised compost. A handful from a garden bed is something else: it is alive, more densely than almost anywhere on Earth." },
-        { "kind": "figure", "figure": "teaspoon", "caption": "How many of each live in a teaspoon of healthy soil" },
-        { "kind": "text", "text": "A single teaspoon of healthy garden soil holds somewhere between a hundred million and a billion [[bacteria|clay]], several thousand to tens of thousands of [[protozoa|water]], a dozen or so [[nematodes|silt]], and anywhere from one to tens of metres of fungal thread, too fine to see one strand at a time.[^census] Add mites, springtails, beetle larvae and, in a spadeful, a handful of earthworms. Most of these creatures have never been given a name.[^unnamed]" },
-        { "kind": "text", "text": "None of them is there by chance, and none of them is there for us. Each is making a living, mostly by eating something else. Follow what eats what and you find a web with plants at the bottom of it, and a surprising deal at its centre." },
-        { "kind": "key", "title": "Hold on to", "points": [
-          "Healthy soil is crowded: hundreds of millions of bacteria in a teaspoon, and metres of fungal thread.",
-          "Most soil life lives by eating other soil life, or dead plants, or what living roots give away."
-        ] }
+        {
+          "type": "text",
+          "text": "Lesson 1 called soil broken rock with a little organic matter mixed in. That is true of a pot of sterilised compost. A handful from a garden bed is something else: it is alive, more densely than almost anywhere on Earth."
+        },
+        {
+          "type": "diagram",
+          "id": "teaspoon",
+          "caption": "How many of each live in a teaspoon of healthy soil"
+        },
+        {
+          "type": "text",
+          "text": "A single teaspoon of healthy garden soil holds somewhere between a hundred million and a billion [[bacteria|clay]], several thousand to tens of thousands of [[protozoa|water]], a dozen or so [[nematodes|silt]], and anywhere from one to tens of metres of fungal thread, too fine to see one strand at a time.[^census] Add mites, springtails, beetle larvae and, in a spadeful, a handful of earthworms. Most of these creatures have never been given a name.[^unnamed]"
+        },
+        {
+          "type": "text",
+          "text": "None of them is there by chance, and none of them is there for us. Each is making a living, mostly by eating something else. Follow what eats what and you find a web with plants at the bottom of it, and a surprising deal at its centre."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Healthy soil is crowded: hundreds of millions of bacteria in a teaspoon, and metres of fungal thread.",
+            "Most soil life lives by eating other soil life, or dead plants, or what living roots give away."
+          ]
+        }
       ]
     },
     {
       "title": "Who eats whom",
       "blocks": [
-        { "kind": "text", "text": "Start at the roots. A plant makes sugar in its leaves from sunlight, and it doesn't keep it all. It pumps a share, as much as a fifth, out through its roots into the soil around them.[^rhizosphere] That sounds like waste. It is payment. The sugars feed bacteria and fungi, which crowd around the root in their billions." },
-        { "kind": "figure", "figure": "web", "caption": "The soil food web: arrows point from food to eater", "task": "Tap a member and take it out, to see what goes with it", "goal": "out" },
-        { "kind": "text", "text": "In return, the bacteria soak up nitrogen and other nutrients as they grow, locking them in their bodies. Then protozoa and nematodes eat the bacteria. A bacterium carries more nitrogen than its hunter needs, so the hunter lets the spare go, as ammonium, right there by the root, in a form a plant can take up.[^loop] The plant feeds bacteria, the hunters eat the bacteria, and the plant collects what the hunters drop." },
-        { "kind": "text", "text": "Fungi strike a deal of their own. Many of them grow into roots and run threads far out into the soil, much finer and longer than root hairs. They trade water and phosphorus they find out there for the plant's sugar.[^mycorrhiza] Most vegetables take part; the cabbage family and beets are among the few that don't. Garden soil almost always has these fungi already, so packets of them rarely help a bed. Living roots and less digging look after the ones you have." },
-        { "kind": "text", "text": "Then there are the big movers. Mites, springtails and woodlice shred dead leaves into crumbs that bacteria and fungi can get into. Earthworms drag whole leaves underground, eat soil along with them, and leave casts richer in nutrients than the soil around, and burrows that carry water and roots down.[^darwin]" },
-        { "kind": "key", "title": "Hold on to", "points": [
-          "Plants feed soil life on purpose, with sugars from their roots.",
-          "Hunters eating bacteria release nitrogen by the roots; fungi trade water and phosphorus for sugar.",
-          "Earthworms and shredders move dead plants into the soil, mix it, and open channels."
-        ] }
+        {
+          "type": "text",
+          "text": "Start at the roots. A plant makes sugar in its leaves from sunlight, and it doesn't keep it all. It pumps a share, as much as a fifth, out through its roots into the soil around them.[^rhizosphere] That sounds like waste. It is payment. The sugars feed bacteria and fungi, which crowd around the root in their billions."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "web",
+          "caption": "The soil food web: arrows point from food to eater",
+          "task": "Tap a member and take it out, to see what goes with it",
+          "goal": "out"
+        },
+        {
+          "type": "text",
+          "text": "In return, the bacteria soak up nitrogen and other nutrients as they grow, locking them in their bodies. Then protozoa and nematodes eat the bacteria. A bacterium carries more nitrogen than its hunter needs, so the hunter lets the spare go, as ammonium, right there by the root, in a form a plant can take up.[^loop] The plant feeds bacteria, the hunters eat the bacteria, and the plant collects what the hunters drop."
+        },
+        {
+          "type": "text",
+          "text": "Fungi strike a deal of their own. Many of them grow into roots and run threads far out into the soil, much finer and longer than root hairs. They trade water and phosphorus they find out there for the plant's sugar.[^mycorrhiza] Most vegetables take part; the cabbage family and beets are among the few that don't. Garden soil almost always has these fungi already, so packets of them rarely help a bed. Living roots and less digging look after the ones you have."
+        },
+        {
+          "type": "text",
+          "text": "Then there are the big movers. Mites, springtails and woodlice shred dead leaves into crumbs that bacteria and fungi can get into. Earthworms drag whole leaves underground, eat soil along with them, and leave casts richer in nutrients than the soil around, and burrows that carry water and roots down.[^darwin]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Plants feed soil life on purpose, with sugars from their roots.",
+            "Hunters eating bacteria release nitrogen by the roots; fungi trade water and phosphorus for sugar.",
+            "Earthworms and shredders move dead plants into the soil, mix it, and open channels."
+          ]
+        }
       ]
     },
     {
       "title": "Feeding the web",
       "blocks": [
-        { "kind": "text", "text": "Everything in the web eats, in the end, one of two things: what living roots give away, or dead plants. So there are two ways to feed it. Keep something growing in a bed for as many months of the year as you can, and give it dead plant matter, as compost and mulch, which is the next lesson." },
-        { "kind": "text", "text": "And there are a few ways to starve it or wreck it. Bare soil, with no roots and nothing on top, feeds almost nothing. Digging tears fungal threads and lets air rush in, so bacteria flare up and burn through organic matter. Waterlogged soil suffocates everything that breathes air. Treading on a bed crushes the pores the whole web lives in. Lesson 5 shows what the web builds when it is left alone: crumb." },
-        { "kind": "figure", "figure": "photo", "caption": "White fungal threads under old mulch: the web at work on its food, and a good sign, not a disease", "options": { "subject": "fungal-threads" } },
-        { "kind": "key", "title": "Try it in the garden", "points": [
-          "**The worm count.** In spring or autumn, when the soil is moist, dig out one spadeful, about 20 cm on a side and 20 cm deep. Break it up on a sack and count the earthworms. Ten or more is a well-fed soil; under five is a hungry one.",
-          "Lift a patch of mulch or an old board that has lain on the soil a while, and look underneath for white fungal threads, springtails and woodlice. Write down what you find."
-        ] }
+        {
+          "type": "text",
+          "text": "Everything in the web eats, in the end, one of two things: what living roots give away, or dead plants. So there are two ways to feed it. Keep something growing in a bed for as many months of the year as you can, and give it dead plant matter, as compost and mulch, which is the next lesson."
+        },
+        {
+          "type": "text",
+          "text": "And there are a few ways to starve it or wreck it. Bare soil, with no roots and nothing on top, feeds almost nothing. Digging tears fungal threads and lets air rush in, so bacteria flare up and burn through organic matter. Waterlogged soil suffocates everything that breathes air. Treading on a bed crushes the pores the whole web lives in. Lesson 5 shows what the web builds when it is left alone: crumb."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "White fungal threads under old mulch: the web at work on its food, and a good sign, not a disease",
+          "options": {
+            "subject": "fungal-threads"
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Try it in the garden",
+          "points": [
+            "**The worm count.** In spring or autumn, when the soil is moist, dig out one spadeful, about 20 cm on a side and 20 cm deep. Break it up on a sack and count the earthworms. Ten or more is a well-fed soil; under five is a hungry one.",
+            "Lift a patch of mulch or an old board that has lain on the soil a while, and look underneath for white fungal threads, springtails and woodlice. Write down what you find."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        { "kind": "figure", "figure": "check", "caption": "Seven questions on the living soil", "task": "Answer them", "options": { "items": [
-          { "question": "Roughly how many bacteria live in a teaspoon of healthy soil?", "options": ["Hundreds of millions", "About a hundred", "A few thousand", "None: soil is mineral"], "answer": 0, "why": "Between about a hundred million and a billion, depending on the soil. Fungi are measured differently, in metres of thread." },
-          { "question": "Why does a plant give sugar away through its roots?", "options": ["It feeds the microbes that bring it nutrients and water", "It is leaking by accident", "To kill pests in the soil"], "answer": 0, "why": "Root sugars feed bacteria and fungi. Protozoa that eat the bacteria release nitrogen, and fungi trade water and phosphorus for the sugar." },
-          { "question": "A protozoan eats a bacterium. What happens to the bacterium's spare nitrogen?", "options": ["It is released as ammonium, which plants can take up", "It is lost to the air", "It stays locked in the protozoan forever"], "answer": 0, "why": "The bacterium carries more nitrogen than the protozoan needs. The surplus is let out right by the root." },
-          { "picture": "fungal-threads", "question": "White threads like these under old mulch are what?", "options": ["Fungi, breaking down the mulch and feeding the soil", "A disease that will kill the plants", "Roots from a weed"], "answer": 0, "why": "Fine white threads on decaying mulch are fungi at work. They are a sign of a living soil, not a problem." },
-          { "picture": "earthworm", "question": "What do earthworms do for a bed?", "options": ["Pull dead leaves down, mix the soil and open burrows", "Eat living roots", "Make the soil more acid"], "answer": 0, "why": "Worms move dead plants into the soil, leave nutrient-rich casts, and their burrows let water and roots down." },
-          { "question": "Which harms the soil food web most?", "options": ["Digging a bed and leaving it bare all winter", "Mulching with leaves", "Growing a cover crop"], "answer": 0, "why": "Digging tears fungal threads, and a bare bed has no roots to feed anything. Mulch and cover crops do the opposite." },
-          { "question": "A spadeful of your bed has two worms in it. What does that suggest?", "options": ["The soil is short of food for its life", "The soil is perfectly healthy", "There is too much organic matter"], "answer": 0, "why": "Under five worms in a spadeful usually means little to eat: not much organic matter, bare soil, or a lot of digging." }
-        ] } }
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Seven questions on the living soil",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "Roughly how many bacteria live in a teaspoon of healthy soil?",
+                "options": [
+                  "Hundreds of millions",
+                  "About a hundred",
+                  "A few thousand",
+                  "None: soil is mineral"
+                ],
+                "answer": 0,
+                "why": "Between about a hundred million and a billion, depending on the soil. Fungi are measured differently, in metres of thread."
+              },
+              {
+                "question": "Why does a plant give sugar away through its roots?",
+                "options": [
+                  "It feeds the microbes that bring it nutrients and water",
+                  "It is leaking by accident",
+                  "To kill pests in the soil"
+                ],
+                "answer": 0,
+                "why": "Root sugars feed bacteria and fungi. Protozoa that eat the bacteria release nitrogen, and fungi trade water and phosphorus for the sugar."
+              },
+              {
+                "question": "A protozoan eats a bacterium. What happens to the bacterium's spare nitrogen?",
+                "options": [
+                  "It is released as ammonium, which plants can take up",
+                  "It is lost to the air",
+                  "It stays locked in the protozoan forever"
+                ],
+                "answer": 0,
+                "why": "The bacterium carries more nitrogen than the protozoan needs. The surplus is let out right by the root."
+              },
+              {
+                "picture": "fungal-threads",
+                "question": "White threads like these under old mulch are what?",
+                "options": [
+                  "Fungi, breaking down the mulch and feeding the soil",
+                  "A disease that will kill the plants",
+                  "Roots from a weed"
+                ],
+                "answer": 0,
+                "why": "Fine white threads on decaying mulch are fungi at work. They are a sign of a living soil, not a problem."
+              },
+              {
+                "picture": "earthworm",
+                "question": "What do earthworms do for a bed?",
+                "options": [
+                  "Pull dead leaves down, mix the soil and open burrows",
+                  "Eat living roots",
+                  "Make the soil more acid"
+                ],
+                "answer": 0,
+                "why": "Worms move dead plants into the soil, leave nutrient-rich casts, and their burrows let water and roots down."
+              },
+              {
+                "question": "Which harms the soil food web most?",
+                "options": [
+                  "Digging a bed and leaving it bare all winter",
+                  "Mulching with leaves",
+                  "Growing a cover crop"
+                ],
+                "answer": 0,
+                "why": "Digging tears fungal threads, and a bare bed has no roots to feed anything. Mulch and cover crops do the opposite."
+              },
+              {
+                "question": "A spadeful of your bed has two worms in it. What does that suggest?",
+                "options": [
+                  "The soil is short of food for its life",
+                  "The soil is perfectly healthy",
+                  "There is too much organic matter"
+                ],
+                "answer": 0,
+                "why": "Under five worms in a spadeful usually means little to eat: not much organic matter, bare soil, or a lot of digging."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
@@ -68,11 +198,35 @@
   "next": "Next: organic matter and compost, or what feeds the web, and what it leaves behind.",
   "journal": [],
   "footnotes": {
-    "census": { "kind": "technical", "title": "Where the numbers come from", "text": "These are the ranges in the US Natural Resources Conservation Service's *Soil Biology Primer* for farmland and garden soils. Forest soils have far more fungi, hundreds of metres of thread in a teaspoon, and more nematodes. Counting soil bacteria is hard: the newer methods, which count DNA, find more than the older ones, which grew them in a dish." },
-    "unnamed": { "kind": "digression", "title": "More than people on Earth?", "text": "You will often read that a teaspoon of soil holds more living things than there are people on Earth, about eight billion. By the usual counts that is a stretch for a garden: a billion bacteria is one for every eight people. Rich soils measured with DNA methods can reach ten billion cells in a gram, though, so in the best soils it may be true. Either way, a 2023 estimate put more than half of all the species on Earth in soil, most of them unnamed." },
-    "rhizosphere": { "kind": "technical", "title": "Rhizosphere and root exudates", "text": "The thin layer of soil around a root, a few millimetres thick, is the **rhizosphere**, and what roots leak into it, sugars, amino acids and organic acids, are **root exudates**. Microbes in the rhizosphere can be ten to a hundred times as dense as in the soil a few centimetres away." },
-    "loop": { "kind": "technical", "title": "The microbial loop", "text": "Bacteria have about one part nitrogen to five of carbon in their bodies; protozoa have one to ten or less. So a protozoan that eats bacteria takes in at least twice the nitrogen it can use and gives off the spare as ammonium. Soil scientists call this nutrient cycle the **microbial loop**, and in some soils it supplies much of the nitrogen plants take up." },
-    "mycorrhiza": { "kind": "technical", "title": "Mycorrhizae", "text": "A fungus that lives in partnership with a root is **mycorrhizal**, from the Greek for fungus and root. Most crop plants form them with a group of fungi called arbuscular mycorrhizae, which grow inside root cells. The cabbage family, beets and spinach are the main garden exceptions. Digging and long bare spells weaken the partnership; so do heavy doses of phosphorus fertilizer, since the plant then has no need to pay for it." },
-    "darwin": { "kind": "digression", "title": "Darwin's last book", "text": "Charles Darwin's last book, in 1881, was not about evolution but about earthworms. He spent decades on them: weighing casts, watching stones sink in his fields as worms worked under them, and testing whether worms could hear his son play the bassoon (they couldn't, but they felt a piano's vibrations). He worked out that worms bring up something like ten tonnes of soil an acre each year. In its first years it sold faster than *On the Origin of Species* had." }
+    "census": {
+      "kind": "technical",
+      "title": "Where the numbers come from",
+      "text": "These are the ranges in the US Natural Resources Conservation Service's *Soil Biology Primer* for farmland and garden soils. Forest soils have far more fungi, hundreds of metres of thread in a teaspoon, and more nematodes. Counting soil bacteria is hard: the newer methods, which count DNA, find more than the older ones, which grew them in a dish."
+    },
+    "unnamed": {
+      "kind": "digression",
+      "title": "More than people on Earth?",
+      "text": "You will often read that a teaspoon of soil holds more living things than there are people on Earth, about eight billion. By the usual counts that is a stretch for a garden: a billion bacteria is one for every eight people. Rich soils measured with DNA methods can reach ten billion cells in a gram, though, so in the best soils it may be true. Either way, a 2023 estimate put more than half of all the species on Earth in soil, most of them unnamed."
+    },
+    "rhizosphere": {
+      "kind": "technical",
+      "title": "Rhizosphere and root exudates",
+      "text": "The thin layer of soil around a root, a few millimetres thick, is the **rhizosphere**, and what roots leak into it, sugars, amino acids and organic acids, are **root exudates**. Microbes in the rhizosphere can be ten to a hundred times as dense as in the soil a few centimetres away."
+    },
+    "loop": {
+      "kind": "technical",
+      "title": "The microbial loop",
+      "text": "Bacteria have about one part nitrogen to five of carbon in their bodies; protozoa have one to ten or less. So a protozoan that eats bacteria takes in at least twice the nitrogen it can use and gives off the spare as ammonium. Soil scientists call this nutrient cycle the **microbial loop**, and in some soils it supplies much of the nitrogen plants take up."
+    },
+    "mycorrhiza": {
+      "kind": "technical",
+      "title": "Mycorrhizae",
+      "text": "A fungus that lives in partnership with a root is **mycorrhizal**, from the Greek for fungus and root. Most crop plants form them with a group of fungi called arbuscular mycorrhizae, which grow inside root cells. The cabbage family, beets and spinach are the main garden exceptions. Digging and long bare spells weaken the partnership; so do heavy doses of phosphorus fertilizer, since the plant then has no need to pay for it."
+    },
+    "darwin": {
+      "kind": "digression",
+      "title": "Darwin's last book",
+      "text": "Charles Darwin's last book, in 1881, was not about evolution but about earthworms. He spent decades on them: weighing casts, watching stones sink in his fields as worms worked under them, and testing whether worms could hear his son play the bassoon (they couldn't, but they felt a piano's vibrations). He worked out that worms bring up something like ten tonnes of soil an acre each year. In its first years it sold faster than *On the Origin of Species* had."
+    }
   }
 }

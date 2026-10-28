@@ -7,15 +7,22 @@ lesson is paragraphs and live figures to play with, a check at the end, and a
 log to sign. A reference page sets out what the lessons teach, to look up in
 the garden.
 
-Built on `packages/lesson-kit`, copied from
-[Clouds](https://github.com/RobertLitzke/CloudsWhatAreTheyUpTo). There is no
-story or radio mentor for now (the kit's radio is off).
+Built on [Didactics](https://github.com/RobertLitzke/Didactics), the lesson
+library taken out of
+[Clouds](https://github.com/RobertLitzke/CloudsWhatAreTheyUpTo), pinned to a
+commit in package.json. There is no story or radio mentor for now (the
+library's radio is off). To move to a newer Didactics, run
+`npm install github:RobertLitzke/Didactics#<sha>`, then `npm test` and
+`npm run build`.
 
 ## What is built
 
 - The shell: a vanilla TypeScript PWA on Vite, inlined into one `index.html`,
-  with a service worker, an update banner, and progress in `localStorage` with
-  save-to-file and load. Nav: Home, Reference, Quiz, Settings (and Credits).
+  with a service worker that downloads every photo when it installs, an
+  update banner, and progress in `localStorage` with save-to-file and load. A
+  lesson left part way opens where the reader was. Pages (Home, Reference,
+  Quiz, Settings) are in Didactics' dropdown menu; Credits is linked from
+  Settings.
 - The look: a drawn garden (`src/app/scene/garden.ts`), a vegetable bed with
   the soil cut away under it, roots, a worm and fungal threads; dark hedge
   green, seed-packet cream, leaf-green buttons, terracotta accents; Fraunces
@@ -30,7 +37,7 @@ story or radio mentor for now (the kit's radio is off).
   6. Feeding plants: parking spots (CEC), the pH chart, leaf symptoms.
   7. Building soil through the year: a seasons wheel of covers and digging.
   8. Reading your soil: a symptom-to-cause detective that links back.
-- **Footnotes** (`[^id]` in lesson text, from lesson-kit): technical terms and
+- **Footnotes** (`[^id]` in lesson text, from Didactics): technical terms and
   digressions open in a sheet; technical ones also feed the glossary.
 - The **reference page**: a glossary, and a section per lesson (texture,
   water by texture, the food web, C:N, structure, home tests, amendments,
@@ -79,8 +86,9 @@ adjusting).
 
 ## Adding a lesson
 
-1. Write `src/data/lessons/<id>.json` (the format is in
-   `packages/lesson-kit/README.md`) and import it in `src/core/lessons.ts`.
+1. Write `src/data/lessons/<id>.json` (the format, typed blocks such as
+   `text`, `key_ideas`, `interactive_diagram`, `diagram` and `quiz`, is in
+   Didactics' README) and import it in `src/core/lessons.ts`.
 2. Put its figures in `src/app/figures/<id>.ts`, add their ids to
    `FIGURE_IDS`, and name them in `src/app/figures/index.ts`.
 3. Fill its sections in `src/data/reference.json` and add cards to
@@ -109,14 +117,13 @@ src/core/     pure TypeScript, no DOM
   lessons.ts    the eight lessons, figure ids
   reference.ts  the reference page's shape
   photos.ts     subjects, the photo entry shape and accepted licences
-  save.ts       the save, on top of lesson-kit's progress.ts
+  save.ts       the save, on top of Didactics' progress.ts
 src/data/     lessons/*.json, reference.json, quiz.json, photos.json
 src/app/      store.ts, asset.ts, picture.ts (photo or drawing)
   scene/        garden.ts, jar.ts, subjects.ts (drawn stand-ins for photos)
   figures/      kit.ts (palette), one file per lesson, check.ts, index.ts
   views/        home, lesson, reference, quiz, settings, credits
 tools/        photos/, gallery/, rewrite/, icons.mjs
-packages/lesson-kit/   the lesson engine, figures, quiz, shell and build
 ```
 
 ## Deploy

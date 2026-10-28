@@ -7,7 +7,7 @@
 // app wants a picture of a subject it shows a photo if the library has one,
 // and a drawing of it if not (app/picture.ts).
 
-import type { Rng } from 'lesson-kit/rng';
+import type { Rng } from 'didactics/rng';
 
 /**
  * Licences a photo may carry. Public domain and the attribution licences

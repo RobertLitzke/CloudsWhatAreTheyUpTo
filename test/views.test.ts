@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import { describe, expect, it } from 'vitest';
-import type { ViewContext } from 'lesson-kit/router';
+import type { ViewContext } from 'didactics/router';
 import { homeView } from '../src/app/views/home';
 import { lessonView } from '../src/app/views/lesson';
 import { referenceView } from '../src/app/views/reference';

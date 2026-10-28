@@ -3,18 +3,19 @@
 // Only the dev server serves it; the build ships index.html alone.
 
 import '../../src/app/styles/app.css';
-import { el } from 'lesson-kit/dom';
+import { isDiagram, type DiagramBlock } from 'didactics/blocks';
+import { el } from 'didactics/dom';
 import { FIGURES } from '../../src/app/figures';
 import type { FigureContext } from '../../src/app/figures/kit';
 import { emptySave } from '../../src/core/save';
-import { LESSONS, type Block, type FigureId } from '../../src/core/lessons';
+import { LESSONS, type FigureId } from '../../src/core/lessons';
 
 const save = emptySave();
 if (location.search.includes('metric')) save.units = 'metric';
 const ctx: FigureContext = { save, closed: new AbortController().signal, score: () => {} };
 
-const uses = new Map<FigureId, Extract<Block, { kind: 'figure' }>>();
-for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) if (b.kind === 'figure' && !uses.has(b.figure)) uses.set(b.figure, b);
+const uses = new Map<FigureId, DiagramBlock<FigureId>>();
+for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) if (isDiagram(b) && !uses.has(b.id)) uses.set(b.id, b);
 
 const only = new URLSearchParams(location.search).get('only');
 const article = el('article.article');

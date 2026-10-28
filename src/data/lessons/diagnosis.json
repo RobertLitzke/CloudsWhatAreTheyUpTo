@@ -7,50 +7,151 @@
     {
       "title": "Detective, not shopper",
       "blocks": [
-        { "kind": "text", "text": "Something is wrong in a bed. The plants are yellow, or slow, or the bed is a puddle in March and concrete in July. The quickest thing to do is buy something. The quickest thing that *works* is to find out why first, because most symptoms have several causes, and the bag on the shelf answers only one of them." },
-        { "kind": "text", "text": "Over the last seven lessons you have collected a kit of tests, each of which looks at one part of the soil. Together they cover most of what can go wrong, and none of them costs more than a jar or a pH strip." },
-        { "kind": "key", "title": "Your kit", "points": [
-          "**Feel and jar tests** (lesson 1): the texture, which you can't change but have to work with.",
-          "**Can and squeeze tests** (lesson 2): how fast water soaks in, and how wet the bed is.",
-          "**Worm count** (lesson 3): how well fed the soil's life is.",
-          "**Heap check** (lesson 4): whether your compost is working.",
-          "**Slake, screwdriver and spade tests** (lesson 5): how strong the crumbs are, and where it is compacted.",
-          "**pH test and leaf reading** (lesson 6): whether nutrients are locked away, and which one a plant is short of."
-        ] },
-        { "kind": "text", "text": "One rule runs through the whole diagnosis: fix the cheap, broad things before the narrow, expensive ones.[^order] Water, air, structure and life come first, because a plant with drowned or crushed roots can't take up a nutrient however much of it you add. The answer to many problems, as by now you might guess, is less digging, more cover and more organic matter." }
+        {
+          "type": "text",
+          "text": "Something is wrong in a bed. The plants are yellow, or slow, or the bed is a puddle in March and concrete in July. The quickest thing to do is buy something. The quickest thing that *works* is to find out why first, because most symptoms have several causes, and the bag on the shelf answers only one of them."
+        },
+        {
+          "type": "text",
+          "text": "Over the last seven lessons you have collected a kit of tests, each of which looks at one part of the soil. Together they cover most of what can go wrong, and none of them costs more than a jar or a pH strip."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Your kit",
+          "points": [
+            "**Feel and jar tests** (lesson 1): the texture, which you can't change but have to work with.",
+            "**Can and squeeze tests** (lesson 2): how fast water soaks in, and how wet the bed is.",
+            "**Worm count** (lesson 3): how well fed the soil's life is.",
+            "**Heap check** (lesson 4): whether your compost is working.",
+            "**Slake, screwdriver and spade tests** (lesson 5): how strong the crumbs are, and where it is compacted.",
+            "**pH test and leaf reading** (lesson 6): whether nutrients are locked away, and which one a plant is short of."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "One rule runs through the whole diagnosis: fix the cheap, broad things before the narrow, expensive ones.[^order] Water, air, structure and life come first, because a plant with drowned or crushed roots can't take up a nutrient however much of it you add. The answer to many problems, as by now you might guess, is less digging, more cover and more organic matter."
+        }
       ]
     },
     {
       "title": "Working it through",
       "blocks": [
-        { "kind": "text", "text": "Start with what you see. Each question points to a test from your kit. Follow the answers to a likely cause, then decide what to do first. Try more than one path, as the same cause, such as compaction, often sits behind several symptoms." },
-        { "kind": "figure", "figure": "detective", "caption": "From a symptom to a cause, one test at a time", "task": "Follow one symptom to its cause", "goal": "solve" },
-        { "kind": "text", "text": "A real garden rarely has just one problem. A compacted clay bed drains poorly, leaving roots short of air and leaves yellow. Look beneath the symptom and you usually find two or three faults linked together. One remedy, such as staying off the soil and mulching it, often helps them all at once.[^linked]" }
+        {
+          "type": "text",
+          "text": "Start with what you see. Each question points to a test from your kit. Follow the answers to a likely cause, then decide what to do first. Try more than one path, as the same cause, such as compaction, often sits behind several symptoms."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "detective",
+          "caption": "From a symptom to a cause, one test at a time",
+          "task": "Follow one symptom to its cause",
+          "goal": "solve"
+        },
+        {
+          "type": "text",
+          "text": "A real garden rarely has just one problem. A compacted clay bed drains poorly, leaving roots short of air and leaves yellow. Look beneath the symptom and you usually find two or three faults linked together. One remedy, such as staying off the soil and mulching it, often helps them all at once.[^linked]"
+        }
       ]
     },
     {
       "title": "When to call the lab",
       "blocks": [
-        { "kind": "text", "text": "Your kit can't measure everything. It can't tell you whether a bed is short of phosphorus or potassium, or carrying lead from old paint. For that, send a sample to a soil lab, or to your local extension service or agricultural college, which often do it cheaply. Once every three to five years is plenty for a garden." },
-        { "kind": "text", "text": "To take a sample, push a trowel 15 cm down in eight or ten places across the bed, avoiding odd spots such as the old bonfire site. Take a slice from each, mix them in a clean bucket, and send a cupful of the mix. A standard test gives the pH, the main nutrients, often the organic matter and the cation exchange capacity, and advice on what to add.[^methods] The reference page explains each line." },
-        { "kind": "key", "title": "Try it in the garden: your soil's report card", "points": [
-          "For each bed, write down its texture from the jar test, the time the can test took, the worm count, how the crumbs behaved in the slake test, how deep the screwdriver pushed, and the pH.",
-          "Look for the weakest link. Pick the two actions that would help most, cheapest first, and do them this season.",
-          "Repeat the tests at the same time next year, and see what has changed."
-        ] }
+        {
+          "type": "text",
+          "text": "Your kit can't measure everything. It can't tell you whether a bed is short of phosphorus or potassium, or carrying lead from old paint. For that, send a sample to a soil lab, or to your local extension service or agricultural college, which often do it cheaply. Once every three to five years is plenty for a garden."
+        },
+        {
+          "type": "text",
+          "text": "To take a sample, push a trowel 15 cm down in eight or ten places across the bed, avoiding odd spots such as the old bonfire site. Take a slice from each, mix them in a clean bucket, and send a cupful of the mix. A standard test gives the pH, the main nutrients, often the organic matter and the cation exchange capacity, and advice on what to add.[^methods] The reference page explains each line."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Try it in the garden: your soil's report card",
+          "points": [
+            "For each bed, write down its texture from the jar test, the time the can test took, the worm count, how the crumbs behaved in the slake test, how deep the screwdriver pushed, and the pH.",
+            "Look for the weakest link. Pick the two actions that would help most, cheapest first, and do them this season.",
+            "Repeat the tests at the same time next year, and see what has changed."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        { "kind": "figure", "figure": "check", "caption": "Six cases to solve", "task": "Solve them", "options": { "items": [
-          { "picture": "puddle", "question": "A clay bed stays waterlogged for days, and a dry clod melts at once in the slake test. What is the first fix?", "options": ["Stop digging, stay off it and mulch it with compost", "Dig in sand", "Add nitrogen fertilizer"], "answer": 0, "why": "The clay has no crumb to open big pores. Leaving it undisturbed and feeding it organic matter lets life rebuild them." },
-          { "picture": "yellow-leaves", "question": "Old leaves are yellowing on tomatoes in a bed that drains well. The pH is 6.5 and the worm count is low. What is likely?", "options": ["Short of nitrogen, in a soil short of organic matter", "Iron locked away by the pH", "Too much water"], "answer": 0, "why": "Old leaves yellowing points to a nutrient the plant can move, nitrogen above all; few worms says the soil is short of food too. Compost helps both." },
-          { "picture": "sandy-soil", "question": "A sandy bed dries out two days after watering. What should come first?", "options": ["Mulch, and compost every year", "Water a little every evening", "Add lime"], "answer": 0, "why": "Sand holds little water. Mulch slows evaporation and organic matter adds water-holding pores; light daily watering only keeps roots shallow." },
-          { "picture": "crusted-soil", "question": "A silty bed crusts after every rain and seedlings struggle through. What helps most?", "options": ["Keep it covered: sow under a thin layer of compost and mulch", "Dig it more often to break the crust", "Water with a hard spray"], "answer": 0, "why": "Rain beating on bare silt seals it. A cover takes the blow, and less digging lets crumbs build." },
-          { "question": "Everything grows slowly. The pH is 5.0. What is the first step?", "options": ["Lime the bed, by the amount a soil test suggests", "Add more phosphorus fertilizer", "Dig it deeper"], "answer": 0, "why": "At pH 5 many nutrients are locked away and aluminium harms roots. Raising the pH unlocks what is already there." },
-          { "question": "Every home test looks good but plants are still poor. What next?", "options": ["Send a sample to a soil lab", "Add one of everything from the garden centre", "Give up on the bed"], "answer": 0, "why": "A lab test shows the nutrients your kit can't measure, and contaminants such as lead, so you add only what is missing." }
-        ] } }
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six cases to solve",
+          "task": "Solve them",
+          "options": {
+            "items": [
+              {
+                "picture": "puddle",
+                "question": "A clay bed stays waterlogged for days, and a dry clod melts at once in the slake test. What is the first fix?",
+                "options": [
+                  "Stop digging, stay off it and mulch it with compost",
+                  "Dig in sand",
+                  "Add nitrogen fertilizer"
+                ],
+                "answer": 0,
+                "why": "The clay has no crumb to open big pores. Leaving it undisturbed and feeding it organic matter lets life rebuild them."
+              },
+              {
+                "picture": "yellow-leaves",
+                "question": "Old leaves are yellowing on tomatoes in a bed that drains well. The pH is 6.5 and the worm count is low. What is likely?",
+                "options": [
+                  "Short of nitrogen, in a soil short of organic matter",
+                  "Iron locked away by the pH",
+                  "Too much water"
+                ],
+                "answer": 0,
+                "why": "Old leaves yellowing points to a nutrient the plant can move, nitrogen above all; few worms says the soil is short of food too. Compost helps both."
+              },
+              {
+                "picture": "sandy-soil",
+                "question": "A sandy bed dries out two days after watering. What should come first?",
+                "options": [
+                  "Mulch, and compost every year",
+                  "Water a little every evening",
+                  "Add lime"
+                ],
+                "answer": 0,
+                "why": "Sand holds little water. Mulch slows evaporation and organic matter adds water-holding pores; light daily watering only keeps roots shallow."
+              },
+              {
+                "picture": "crusted-soil",
+                "question": "A silty bed crusts after every rain and seedlings struggle through. What helps most?",
+                "options": [
+                  "Keep it covered: sow under a thin layer of compost and mulch",
+                  "Dig it more often to break the crust",
+                  "Water with a hard spray"
+                ],
+                "answer": 0,
+                "why": "Rain beating on bare silt seals it. A cover takes the blow, and less digging lets crumbs build."
+              },
+              {
+                "question": "Everything grows slowly. The pH is 5.0. What is the first step?",
+                "options": [
+                  "Lime the bed, by the amount a soil test suggests",
+                  "Add more phosphorus fertilizer",
+                  "Dig it deeper"
+                ],
+                "answer": 0,
+                "why": "At pH 5 many nutrients are locked away and aluminium harms roots. Raising the pH unlocks what is already there."
+              },
+              {
+                "question": "Every home test looks good but plants are still poor. What next?",
+                "options": [
+                  "Send a sample to a soil lab",
+                  "Add one of everything from the garden centre",
+                  "Give up on the bed"
+                ],
+                "answer": 0,
+                "why": "A lab test shows the nutrients your kit can't measure, and contaminants such as lead, so you add only what is missing."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
@@ -63,8 +164,20 @@
   "next": "That is the course. The reference page keeps every table and test to hand in the garden.",
   "journal": [],
   "footnotes": {
-    "order": { "kind": "digression", "title": "Liebig's barrel", "text": "Carl Sprengel in 1828, and Justus von Liebig after him, argued that a plant's growth is set by whatever it is shortest of, not by the total it has: the **law of the minimum**. It is often drawn as a barrel made of staves of different heights, which holds water only up to its shortest stave. Air, water and a root that can grow are staves too, and in gardens they are more often the short one than any nutrient." },
-    "linked": { "kind": "technical", "title": "Why problems come together", "text": "Soil properties feed on each other. Less organic matter means weaker crumbs; weaker crumbs mean poorer drainage and less air; less air means less life; less life means less organic matter made into humus. Soil scientists talk about soil **health** rather than a list of separate measurements for just this reason." },
-    "methods": { "kind": "technical", "title": "Why lab numbers differ", "text": "Labs measure available phosphorus and potassium by shaking soil in a chemical extract, and different labs use different extracts (Mehlich-3, Olsen, Bray and others) that give different numbers for the same soil. Compare results only within one lab's method, and read them against that lab's own ranges of low, medium and high." }
+    "order": {
+      "kind": "digression",
+      "title": "Liebig's barrel",
+      "text": "Carl Sprengel in 1828, and Justus von Liebig after him, argued that a plant's growth is set by whatever it is shortest of, not by the total it has: the **law of the minimum**. It is often drawn as a barrel made of staves of different heights, which holds water only up to its shortest stave. Air, water and a root that can grow are staves too, and in gardens they are more often the short one than any nutrient."
+    },
+    "linked": {
+      "kind": "technical",
+      "title": "Why problems come together",
+      "text": "Soil properties feed on each other. Less organic matter means weaker crumbs; weaker crumbs mean poorer drainage and less air; less air means less life; less life means less organic matter made into humus. Soil scientists talk about soil **health** rather than a list of separate measurements for just this reason."
+    },
+    "methods": {
+      "kind": "technical",
+      "title": "Why lab numbers differ",
+      "text": "Labs measure available phosphorus and potassium by shaking soil in a chemical extract, and different labs use different extracts (Mehlich-3, Olsen, Bray and others) that give different numbers for the same soil. Compare results only within one lab's method, and read them against that lab's own ranges of low, medium and high."
+    }
   }
 }

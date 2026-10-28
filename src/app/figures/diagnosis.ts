@@ -2,8 +2,8 @@
 // lean on a test from an earlier lesson, to a likely cause and what to do
 // first. The trail of questions is drawn above, one stop per answer.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small } from 'lesson-kit/draw';
+import { el, svg } from 'didactics/dom';
+import { label, redraw, small } from 'didactics/draw';
 import { START, STEPS, SYMPTOMS, type Ask, type Finding } from '../../core/diagnosis';
 import { lesson } from '../../core/lessons';
 import { COL, figure, frame } from './kit';

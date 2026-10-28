@@ -2,8 +2,8 @@
 // its carbon-to-nitrogen ratio, and buckets of grass, leaves and wood chips
 // rotting away into humus over the years.
 
-import { el, svg } from 'lesson-kit/dom';
-import { label, redraw, small, still } from 'lesson-kit/draw';
+import { el, svg } from 'didactics/dom';
+import { label, redraw, small, still } from 'didactics/draw';
 import { heapRatio, MATERIAL_IDS, MATERIALS, remains, verdict, VERDICTS, type Material } from '../../core/compost';
 import { COL, figure, frame, tint } from './kit';
 

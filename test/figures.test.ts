@@ -1,6 +1,7 @@
 // @vitest-environment happy-dom
 // Every figure builds, in both unit systems, and the pages that show them render.
 import { describe, expect, it } from 'vitest';
+import { isDiagram } from 'didactics/blocks';
 import { FIGURES } from '../src/app/figures';
 import { drawSubject } from '../src/app/scene/subjects';
 import { makeGarden } from '../src/app/scene/garden';
@@ -14,9 +15,9 @@ describe('figures', () => {
       const save = { ...emptySave(), units };
       const ctx = { save, closed: new AbortController().signal, score: () => {} };
       for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) {
-        if (b.kind !== 'figure') continue;
-        const handle = FIGURES[b.figure as FigureId](ctx, b.goal, b.options);
-        expect(handle.node, b.figure).toBeInstanceOf(HTMLElement);
+        if (!isDiagram(b)) continue;
+        const handle = FIGURES[b.id as FigureId](ctx, b.goal, b.options);
+        expect(handle.node, b.id).toBeInstanceOf(HTMLElement);
       }
     });
   }
