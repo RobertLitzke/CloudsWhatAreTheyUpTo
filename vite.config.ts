@@ -22,6 +22,7 @@ export default defineConfig(
       // Keep in sync with --bg in src/app/styles/tokens.css.
       theme_color: '#1f2b1c',
       id: '.',
+      icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
     },
   }),
 );

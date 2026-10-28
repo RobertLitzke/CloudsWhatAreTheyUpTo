@@ -1,7 +1,7 @@
 import './app/styles/app.css';
 import { el } from 'didactics/dom';
 import { Router } from 'didactics/router';
-import { pageMenu, type NavLink } from 'didactics/shell';
+import { appShell, type NavLink } from 'didactics/shell';
 import { retireWhenSaved } from 'didactics/offline';
 import { watchForUpdates } from 'didactics/update';
 import photos from './data/photos.json';
@@ -35,31 +35,16 @@ const MARK =
   '<path d="M50 43 C55 26 69 18 86 20 C86 38 70 47 50 43Z" fill="#86b43e"/></g></svg>';
 
 function boot(): void {
-  const app = document.getElementById('app')!;
-  // Didactics' page menu, in a bar of Dirt's own: appShell's wordmark is text
-  // only, and Dirt's carries the app icon.
-  const menu = pageMenu(NAV);
-  const header = el(
-    'header.topbar',
-    {},
-    el(
-      'a.wordmark',
-      { href: '#/home' },
-      el('span.mark', { innerHTML: MARK }),
-      el('span.words', {}, 'Dirt', el('small', {}, 'A soil workbook')),
-    ),
-    menu.node,
-  );
-  const outlet = el('main');
-  app.replaceChildren(header, outlet);
-
-  const router = new Router(outlet, {
+  const shell = appShell({
+    mount: document.getElementById('app')!,
+    title: 'Dirt',
+    subtitle: 'A soil workbook',
+    mark: el('span.mark', { innerHTML: MARK }),
+    nav: NAV,
     // A lesson fills the screen: the header would only be in the way.
-    before: (path) => {
-      document.body.classList.toggle('in-lesson', path.startsWith('/lesson/'));
-      menu.mark(path);
-    },
+    fullScreen: (path) => path.startsWith('/lesson/'),
   });
+  const router = new Router(shell.outlet, { before: shell.before });
   router
     .add('/home', homeView)
     .add('/lesson/:id', lessonView)

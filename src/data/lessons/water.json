@@ -7,22 +7,9 @@
     {
       "title": "After the rain",
       "blocks": [
-        {
-          "type": "text",
-          "text": "After a long soaking rain, one bed has standing puddles the next morning. A few days later the bed beside it, which drank the rain straight in, has dried to dust. Both had the same rain. What differs is the pores: the half of the soil from lesson 1 that isn't there."
-        },
-        {
-          "type": "diagram",
-          "id": "photo",
-          "caption": "The morning after a long rain: water still standing where the soil couldn't take it in",
-          "options": {
-            "subject": "puddle"
-          }
-        },
-        {
-          "type": "text",
-          "text": "Pores come in every size, and size decides what they do. In the big ones, the gaps between sand grains or crumbs, water is held loosely. Gravity pulls it down and out within a day or two, and [[air|air]] follows it in. In the small ones, between silt and clay, water clings to the grains so tightly that gravity can't move it.[^capillary] Those stay full long after a soaking."
-        },
+        { "type": "text", "text": "After a long soaking rain, one bed has standing puddles the next morning. A few days later the bed beside it, which drank the rain straight in, has dried to dust. Both had the same rain. What differs is the pores: the half of the soil from lesson 1 that isn't there." },
+        { "type": "diagram", "id": "photo", "caption": "The morning after a long rain: water still standing where the soil couldn't take it in", "options": { "subject": "puddle" } },
+        { "type": "text", "text": "Pores come in every size, and size decides what they do. In the big ones, the gaps between sand grains or crumbs, water is held loosely. Gravity pulls it down and out within a day or two, and [[air|air]] follows it in. In the small ones, between silt and clay, water clings to the grains so tightly that gravity can't move it.[^capillary] Those stay full long after a soaking." },
         {
           "type": "key_ideas",
           "title": "Hold on to",
@@ -35,21 +22,9 @@
     {
       "title": "Water a plant can use",
       "blocks": [
-        {
-          "type": "text",
-          "text": "Once a soaked bed has drained, which takes a day or two, it holds a particular amount of [[water|water]], called its **field capacity**.[^field-capacity] Then the plants start drinking. Roots can't pull out all of it, though. The last of the water, in the finest pores and on the clay surfaces, is held harder than any root can suck. A plant down to that point wilts even though the soil still feels slightly damp. That is the **wilting point**. The water between the two is what a plant can actually use."
-        },
-        {
-          "type": "interactive_diagram",
-          "id": "pores",
-          "caption": "What the pores of 30 cm of bed hold once a soaking has drained, in three soils",
-          "task": "Raise the organic matter to 5% and watch the sandy and clay beds",
-          "goal": "more"
-        },
-        {
-          "type": "text",
-          "text": "Compare the three. [[Sand|sand]] drains quickly and holds little. [[Clay|clay]] holds a great deal of water but locks much of it up, draining so slowly that the big pores stay full and roots run short of air. Loams sit in between, with plenty of small pores to store water and enough big ones to drain. You can't change which of the three you have, but you can change its [[organic matter|organic]], and it helps each soil where it is weakest: the sandy bed holds more, and the clay one drains several times faster. That is the first hint of why gardeners go on about it.[^model]"
-        },
+        { "type": "text", "text": "Once a soaked bed has drained, which takes a day or two, it holds a particular amount of [[water|water]], called its **field capacity**.[^field-capacity] Then the plants start drinking. Roots can't pull out all of it, though. The last of the water, in the finest pores and on the clay surfaces, is held harder than any root can suck. A plant down to that point wilts even though the soil still feels slightly damp. That is the **wilting point**. The water between the two is what a plant can actually use." },
+        { "type": "interactive_diagram", "id": "pores", "caption": "What the pores of 30 cm of bed hold once a soaking has drained, in three soils", "task": "Raise the organic matter to 5% and watch the sandy and clay beds", "goal": "more" },
+        { "type": "text", "text": "Compare the three. [[Sand|sand]] drains quickly and holds little. [[Clay|clay]] holds a great deal of water but locks much of it up, draining so slowly that the big pores stay full and roots run short of air. Loams sit in between, with plenty of small pores to store water and enough big ones to drain. You can't change which of the three you have, but you can change its [[organic matter|organic]], and it helps each soil where it is weakest: the sandy bed holds more, and the clay one drains several times faster. That is the first hint of why gardeners go on about it.[^model]" },
         {
           "type": "key_ideas",
           "title": "Hold on to",
@@ -62,43 +37,18 @@
     {
       "title": "Rain on a bed",
       "blocks": [
-        {
-          "type": "text",
-          "text": "When rain falls faster than soil can take it in, the rest has to go somewhere. It pools on top, and on any slope it runs off, carrying the finest, richest soil with it. How fast a soil takes in water depends on its big pores, the ones that conduct water downwards. A sandy soil can swallow a cloudburst; a heavy clay can be overwhelmed by a steady drizzle."
-        },
-        {
-          "type": "interactive_diagram",
-          "id": "rain",
-          "caption": "An hour of rain on a bed",
-          "task": "Find a rain that makes a puddle",
-          "goal": "puddle"
-        },
-        {
-          "type": "text",
-          "text": "A real bed is not quite like the figure. Its surface matters more than its depth. Rain beating on bare soil breaks its crumbs apart, and the loose grains wash into the pores and seal them, so even a decent soil sheds water after a few storms.[^raindrop] Covered soil, under mulch or plants, keeps its surface open. Worm burrows and old root channels act as drains straight down, which is one of the many jobs of soil life in lesson 3."
-        },
-        {
-          "type": "text",
-          "text": "The same goes for a hose. Pour water on faster than a bed takes it in and the rest runs off onto the path, so give a clay or crusted bed its water slowly: through a drip line or a soaker hose, or a can at a time with a pause between."
-        }
+        { "type": "text", "text": "When rain falls faster than soil can take it in, the rest has to go somewhere. It pools on top, and on any slope it runs off, carrying the finest, richest soil with it. How fast a soil takes in water depends on its big pores, the ones that conduct water downwards. A sandy soil can swallow a cloudburst; a heavy clay can be overwhelmed by a steady drizzle." },
+        { "type": "interactive_diagram", "id": "rain", "caption": "An hour of rain on a bed", "task": "Find a rain that makes a puddle", "goal": "puddle" },
+        { "type": "text", "text": "A real bed is not quite like the figure. Its surface matters more than its depth. Rain beating on bare soil breaks its crumbs apart, and the loose grains wash into the pores and seal them, so even a decent soil sheds water after a few storms.[^raindrop] Covered soil, under mulch or plants, keeps its surface open. Worm burrows and old root channels act as drains straight down, which is one of the many jobs of soil life in lesson 3." },
+        { "type": "text", "text": "The same goes for a hose. Pour water on faster than a bed takes it in and the rest runs off onto the path, so give a clay or crusted bed its water slowly: through a drip line or a soaker hose, or a can at a time with a pause between." }
       ]
     },
     {
       "title": "A dry week",
       "blocks": [
-        {
-          "type": "text",
-          "text": "On a warm summer day, a bed of vegetables drinks about 5 mm of water, the depth it would make if it stood on the surface: 5 litres, or half a big watering can, for every square metre. Most of it goes straight back out through the leaves into the air. Nothing in the bed but the soil holds a reserve, and different soils hold very different amounts."
-        },
-        {
-          "type": "diagram",
-          "id": "drying",
-          "caption": "Three beds, soaked once and then left in the sun: the water a crop can still reach, day by day"
-        },
-        {
-          "type": "text",
-          "text": "Two habits follow from this. First, water deeply and less often: about 20 to 25 litres a square metre at a time, two big cans, which wets a loam 15 to 20 cm down, a sand deeper and a clay less. Push a trowel in an hour later to see how far it got. A bed watered a little every evening keeps its roots in the top few centimetres, which dry out first; a bed soaked once or twice a week grows roots that follow the water down into a bigger reserve.[^roots-deep] Second, a sandy bed needs mulch and organic matter more than any other, to slow evaporation and add small pores to its big ones."
-        },
+        { "type": "text", "text": "On a warm summer day, a bed of vegetables drinks about 5 mm of water, the depth it would make if it stood on the surface: 5 litres, or half a big watering can, for every square metre. Most of it goes straight back out through the leaves into the air. Nothing in the bed but the soil holds a reserve, and different soils hold very different amounts." },
+        { "type": "diagram", "id": "drying", "caption": "Three beds, soaked once and then left in the sun: the water a crop can still reach, day by day" },
+        { "type": "text", "text": "Two habits follow from this. First, water deeply and less often: about 20 to 25 litres a square metre at a time, two big cans, which wets a loam 15 to 20 cm down, a sand deeper and a clay less. Push a trowel in an hour later to see how far it got. A bed watered a little every evening keeps its roots in the top few centimetres, which dry out first; a bed soaked once or twice a week grows roots that follow the water down into a bigger reserve.[^roots-deep] Second, a sandy bed needs mulch and organic matter more than any other, to slow evaporation and add small pores to its big ones." },
         {
           "type": "key_ideas",
           "title": "Try it in the garden",
@@ -119,88 +69,14 @@
           "task": "Answer them",
           "options": {
             "items": [
-              {
-                "question": "What fills the big pores of a soil a couple of days after a soaking?",
-                "options": [
-                  "Air",
-                  "Water",
-                  "Clay",
-                  "Nothing at all"
-                ],
-                "answer": 0,
-                "why": "Gravity drains the big pores within a day or two, and air moves in behind the water. Only the small pores stay full."
-              },
-              {
-                "question": "A plant is wilting, but the soil around it still feels slightly damp. How?",
-                "options": [
-                  "The water left is held too tightly for roots to pull out",
-                  "The plant is getting too much air",
-                  "Damp soil has no water in it"
-                ],
-                "answer": 0,
-                "why": "The last water clings to the finest pores and clay surfaces harder than a root can suck. The soil is at the wilting point."
-              },
-              {
-                "picture": "puddle",
-                "question": "Rain pools on this bed whenever it rains hard. Which is most likely?",
-                "options": [
-                  "Rain comes faster than the soil can take it in",
-                  "The soil is too sandy",
-                  "There is too much air in the soil"
-                ],
-                "answer": 0,
-                "why": "Water pools when rain falls faster than the big pores can carry it down: a clay soil, a sealed crust or a compacted layer."
-              },
-              {
-                "question": "Which soil holds the most water a plant can use?",
-                "options": [
-                  "A loam",
-                  "A sand",
-                  "A gravel"
-                ],
-                "answer": 0,
-                "why": "Loams have plenty of small pores to hold water and enough big ones to drain. Sand holds little; clay holds a lot but locks much of it away."
-              },
-              {
-                "question": "What does a hard rain do to bare soil?",
-                "options": [
-                  "Breaks its surface crumbs and seals the pores",
-                  "Loosens it like digging",
-                  "Nothing that matters"
-                ],
-                "answer": 0,
-                "why": "Raindrops hit hard enough to smash crumbs, and the loose grains wash into the pores and seal them. Mulch or plants take the blow."
-              },
-              {
-                "question": "Why water deeply once or twice a week rather than lightly every day?",
-                "options": [
-                  "Roots follow the water down into a bigger reserve",
-                  "Daily watering washes out all the clay",
-                  "Plants only drink once a week"
-                ],
-                "answer": 0,
-                "why": "Light daily watering keeps roots in the top few centimetres, the first part to dry. Deep watering grows deep roots."
-              },
-              {
-                "question": "Roughly how much water is one deep watering for a square metre of bed?",
-                "options": [
-                  "About 20 to 25 litres, two big cans",
-                  "About a cupful",
-                  "About 200 litres"
-                ],
-                "answer": 0,
-                "why": "20 to 25 litres a square metre is 20 to 25 mm of water. It wets a loam 15 to 20 cm down, deep enough to draw roots after it."
-              },
-              {
-                "question": "In the can test, 2.5 cm of water takes three hours to soak in. What does that suggest?",
-                "options": [
-                  "Few big pores: a clay soil, a crust or a compacted layer",
-                  "A very sandy soil",
-                  "A healthy, crumbly loam"
-                ],
-                "answer": 0,
-                "why": "Slow infiltration means water can't get down through big pores. Lessons 5 and 8 show how to tell the causes apart."
-              }
+              { "question": "What fills the big pores of a soil a couple of days after a soaking?", "options": ["Air", "Water", "Clay", "Nothing at all"], "answer": 0, "why": "Gravity drains the big pores within a day or two, and air moves in behind the water. Only the small pores stay full." },
+              { "question": "A plant is wilting, but the soil around it still feels slightly damp. How?", "options": ["The water left is held too tightly for roots to pull out", "The plant is getting too much air", "Damp soil has no water in it"], "answer": 0, "why": "The last water clings to the finest pores and clay surfaces harder than a root can suck. The soil is at the wilting point." },
+              { "picture": "puddle", "question": "Rain pools on this bed whenever it rains hard. Which is most likely?", "options": ["Rain comes faster than the soil can take it in", "The soil is too sandy", "There is too much air in the soil"], "answer": 0, "why": "Water pools when rain falls faster than the big pores can carry it down: a clay soil, a sealed crust or a compacted layer." },
+              { "question": "Which soil holds the most water a plant can use?", "options": ["A loam", "A sand", "A gravel"], "answer": 0, "why": "Loams have plenty of small pores to hold water and enough big ones to drain. Sand holds little; clay holds a lot but locks much of it away." },
+              { "question": "What does a hard rain do to bare soil?", "options": ["Breaks its surface crumbs and seals the pores", "Loosens it like digging", "Nothing that matters"], "answer": 0, "why": "Raindrops hit hard enough to smash crumbs, and the loose grains wash into the pores and seal them. Mulch or plants take the blow." },
+              { "question": "Why water deeply once or twice a week rather than lightly every day?", "options": ["Roots follow the water down into a bigger reserve", "Daily watering washes out all the clay", "Plants only drink once a week"], "answer": 0, "why": "Light daily watering keeps roots in the top few centimetres, the first part to dry. Deep watering grows deep roots." },
+              { "question": "Roughly how much water is one deep watering for a square metre of bed?", "options": ["About 20 to 25 litres, two big cans", "About a cupful", "About 200 litres"], "answer": 0, "why": "20 to 25 litres a square metre is 20 to 25 mm of water. It wets a loam 15 to 20 cm down, deep enough to draw roots after it." },
+              { "question": "In the can test, 2.5 cm of water takes three hours to soak in. What does that suggest?", "options": ["Few big pores: a clay soil, a crust or a compacted layer", "A very sandy soil", "A healthy, crumbly loam"], "answer": 0, "why": "Slow infiltration means water can't get down through big pores. Lessons 5 and 8 show how to tell the causes apart." }
             ]
           }
         }
@@ -216,30 +92,10 @@
   "next": "Next: the living soil, or what is actually down there, and what it is doing.",
   "journal": [],
   "footnotes": {
-    "capillary": {
-      "kind": "technical",
-      "title": "Capillarity",
-      "text": "Water sticks to mineral surfaces and to itself. In a narrow gap that sticking wins over gravity, the same way water climbs up a thin glass tube or into a paper towel. The narrower the pore, the harder it holds. Soil scientists measure this hold as a suction, the **matric potential**."
-    },
-    "field-capacity": {
-      "kind": "technical",
-      "title": "Field capacity and wilting point",
-      "text": "By convention, **field capacity** is the water a soil holds against a suction of 33 kilopascals (a third of an atmosphere), and the **wilting point** is what it holds against 1,500 kilopascals (fifteen atmospheres), the hardest pull most crop roots can manage. The difference is the **plant-available water**."
-    },
-    "model": {
-      "kind": "technical",
-      "title": "Where the figure's numbers come from",
-      "text": "The figure uses the equations of Keith Saxton and Walter Rawls (2006), fitted to thousands of US soil samples, which estimate field capacity, wilting point, pore space and drainage rate from sand, clay and organic matter. A real soil can differ from them by a fair amount, mostly because of its structure."
-    },
-    "raindrop": {
-      "kind": "digression",
-      "title": "The force of a raindrop",
-      "text": "A big raindrop falls at about 9 metres a second, roughly the speed of a fast sprinter. On bare soil each one is a small explosion that throws grains up to half a metre. Over a hard storm, that splash moves tonnes of soil per hectare, and it is the first step of most soil erosion."
-    },
-    "roots-deep": {
-      "kind": "digression",
-      "title": "How deep roots go",
-      "text": "Further than most people think. Carrots and tomatoes can root a metre down in loose soil, and winter wheat two. Most of a vegetable's roots stay in the top 30 cm, but the deep ones are what carry it through a dry spell."
-    }
+    "capillary": { "kind": "technical", "title": "Capillarity", "text": "Water sticks to mineral surfaces and to itself. In a narrow gap that sticking wins over gravity, the same way water climbs up a thin glass tube or into a paper towel. The narrower the pore, the harder it holds. Soil scientists measure this hold as a suction, the **matric potential**." },
+    "field-capacity": { "kind": "technical", "title": "Field capacity and wilting point", "text": "By convention, **field capacity** is the water a soil holds against a suction of 33 kilopascals (a third of an atmosphere), and the **wilting point** is what it holds against 1,500 kilopascals (fifteen atmospheres), the hardest pull most crop roots can manage. The difference is the **plant-available water**." },
+    "model": { "kind": "technical", "title": "Where the figure's numbers come from", "text": "The figure uses the equations of Keith Saxton and Walter Rawls (2006), fitted to thousands of US soil samples, which estimate field capacity, wilting point, pore space and drainage rate from sand, clay and organic matter. A real soil can differ from them by a fair amount, mostly because of its structure." },
+    "raindrop": { "kind": "digression", "title": "The force of a raindrop", "text": "A big raindrop falls at about 9 metres a second, roughly the speed of a fast sprinter. On bare soil each one is a small explosion that throws grains up to half a metre. Over a hard storm, that splash moves tonnes of soil per hectare, and it is the first step of most soil erosion." },
+    "roots-deep": { "kind": "digression", "title": "How deep roots go", "text": "Further than most people think. Carrots and tomatoes can root a metre down in loose soil, and winter wheat two. Most of a vegetable's roots stay in the top 30 cm, but the deep ones are what carry it through a dry spell." }
   }
 }
