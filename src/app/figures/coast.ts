@@ -4,7 +4,7 @@
 // rising off the sea into the lid (or, over warm water or under cold air,
 // through it), and how many days a year it thunders, coast to Gulf.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { CEILING_M, coastBubble, coastEnvTemp, hasLid } from '../../core/coast';
 import { parcelAt } from '../../core/air';
 import { arrow, heading, label, line, note, points, polyline, redraw, small, still, type P } from './draw';

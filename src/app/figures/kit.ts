@@ -1,20 +1,20 @@
 // What every figure is made of, for Clouds. The figure machinery itself (a
-// drawing, one text box, controls, a task the lesson waits on) is lesson-kit's
+// drawing, one text box, controls, a task the lesson waits on) is Didactics'
 // figure.ts, re-exported here; this file adds Clouds' palette. Figures are
 // drawn on the lesson's paper, in ink, with a handful of colours that always
 // mean the same thing in every figure and in the text around them: the rising
 // air is orange, the air around it violet, the dew point teal, ice blue, and
 // sunlight gold.
 
-import { slider as kitSlider, type Slider } from 'lesson-kit/figure';
-import type { FootnoteSet } from 'lesson-kit/footnote';
-import { prose as kitProse } from 'lesson-kit/lesson';
+import { slider as kitSlider, type Slider } from 'didactics/figure';
+import type { FootnoteSet } from 'didactics/footnote';
+import { prose as kitProse } from 'didactics/lesson';
 
 export {
   animate, choices, figure, frame, lock, lockIn, placeable, quiz, textBox,
   type Choices, type FigureContext, type FigureFactory, type FigureHandle, type Frame, type Options, type Slider, type Task,
-} from 'lesson-kit/figure';
-export { deg, height, temp } from 'lesson-kit/units';
+} from 'didactics/figure';
+export { deg, height, temp } from 'didactics/units';
 
 export const COL = {
   ink: '#2a2547',

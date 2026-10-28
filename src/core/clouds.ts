@@ -176,7 +176,7 @@ export function floorInfo(id: Floor): FloorInfo {
 }
 
 /** Metres to feet, rounded to a sensible step for a sign or a log. */
-export { feet } from 'lesson-kit/units';
+export { feet } from 'didactics/units';
 
 // ---------------------------------------------------------------------------
 // The words the names are built from.

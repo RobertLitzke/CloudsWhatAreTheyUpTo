@@ -7,8 +7,8 @@
 // lobe below. Small bumps along the rims give the cauliflower edge. Plain
 // shapes only: crisp at any size, and as cheap to animate as any drawing.
 
-import { svg } from 'lesson-kit/dom';
-import { makeRng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { makeRng } from 'didactics/rng';
 import type { Palette } from '../scene/landscape';
 import { SUN, heap as heapShape, type Cirrus, type Cloud, type Heap, type Layer, type Puff, type Sheet, cellPuffs } from './shapes';
 

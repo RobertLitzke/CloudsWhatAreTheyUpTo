@@ -4,8 +4,8 @@
 // iodide posing as ice, and a layer of cloud seeded from the air.
 
 import { coldBox, seedLayer, type Agent } from '../../core/cold-cloud';
-import { makeRng } from 'lesson-kit/rng';
-import { el, svg } from 'lesson-kit/dom';
+import { makeRng } from 'didactics/rng';
+import { el, svg } from 'didactics/dom';
 import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';
 import { arrow, flake, heading, label, line, note, points, redraw, still } from './draw';

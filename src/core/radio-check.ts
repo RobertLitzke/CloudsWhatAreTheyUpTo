@@ -4,7 +4,7 @@
 
 import { GENERA, genus, type GenusId } from './clouds';
 import type { Photo } from './photos';
-import { shuffle, type Rng } from 'lesson-kit/rng';
+import { shuffle, type Rng } from 'didactics/rng';
 import { dealFloorCalls } from './photo-call';
 
 export interface NameCall {

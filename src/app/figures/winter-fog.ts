@@ -3,7 +3,7 @@
 // make, rime on a fence, and what falls through a warm layer aloft onto a cold
 // one at the ground.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { fallThrough, fogKind, meltShare, poolDay, stirDepth, type Fall, type FogKind } from '../../core/winter-fog';
 import { arrow, crystal, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
 import { COL, choices, deg, figure, frame, height, lock, lockIn, slider, tint, type FigureFactory } from './kit';

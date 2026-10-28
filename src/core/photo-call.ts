@@ -4,7 +4,7 @@
 
 import { genus, type Floor, type GenusId } from './clouds';
 import { mirrorFor, photosOf, type Photo } from './photos';
-import { shuffle, type Rng } from 'lesson-kit/rng';
+import { shuffle, type Rng } from 'didactics/rng';
 
 export interface Call {
   genus: GenusId;

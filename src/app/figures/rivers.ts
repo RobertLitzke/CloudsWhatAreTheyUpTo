@@ -6,8 +6,8 @@
 // mountain river's basin; and the band of showers where the wind meets itself
 // behind the Olympics.
 
-import { el, svg } from 'lesson-kit/dom';
-import type { Units } from 'lesson-kit/progress';
+import { el, svg } from 'didactics/dom';
+import type { Units } from 'didactics/progress';
 import { BASIN_TOP_M, FLOOD_MM, MONTHS, SEATTLE_MM, SNOWPACK_FROM_M, basinDay, jetLatitude, pacificHigh, windwardRain } from '../../core/rivers';
 import { arrow, curve, flake, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
 import { COL, choices, figure, frame, height, lock, lockIn, slider, tint, type FigureFactory } from './kit';

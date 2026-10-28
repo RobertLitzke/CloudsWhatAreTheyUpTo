@@ -7,10 +7,10 @@ import { GENERA, floorInfo, genus, type Genus, type GenusId } from '../../core/c
 import { GLOSSARY, lessonOf } from '../../core/glossary';
 import { JOURNAL, SHIFTS, lessonName, shiftById } from '../../core/shifts';
 import { FEATURES, photoFile, photosOf, photosOfFeature, type FeatureId, type Photo } from '../../core/photos';
-import { el, svg, type Child } from 'lesson-kit/dom';
-import { glossaryView } from 'lesson-kit/glossary';
-import type { View } from 'lesson-kit/router';
-import { sheet } from 'lesson-kit/ui';
+import { el, svg, type Child } from 'didactics/dom';
+import { glossaryView } from 'didactics/glossary';
+import type { View } from 'didactics/router';
+import { sheet } from 'didactics/ui';
 import { asset } from '../asset';
 import { prose } from '../figures/kit';
 import { photoFigure, PHOTOS } from '../photos';

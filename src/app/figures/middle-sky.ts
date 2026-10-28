@@ -4,7 +4,7 @@
 
 import { angularSize, layerBySize } from '../../core/sky';
 import { genus } from '../../core/clouds';
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import { realClouds } from '../clouds/real';
 import { DAY, GREY, STORM } from '../clouds/tones';
 import { arrow, heading, line, small, still, wavy } from './draw';

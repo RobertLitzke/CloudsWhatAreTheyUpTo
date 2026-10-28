@@ -6,8 +6,8 @@
 // lower, fog lies on the fields. So a panel (core/shifts.ts SkyPanel) says
 // what the question says, and this draws it.
 
-import { svg } from 'lesson-kit/dom';
-import { makeRng, type Rng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { makeRng, type Rng } from 'didactics/rng';
 import type { GenusId } from '../../core/clouds';
 import type { SkyPanel } from '../../core/shifts';
 import { celCumulus, type Tones } from '../clouds/flat';

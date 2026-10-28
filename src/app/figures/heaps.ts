@@ -4,7 +4,7 @@
 // of a heap and why a cloudy bubble keeps rising.
 
 import { cloudBase, parcelAt } from '../../core/air';
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { arrow, heading, heapAt, label, line, polyline, puff, redraw, small, still } from './draw';
 import { COL, animate, figure, frame, height, lock, lockIn, placeable, slider, temp, tint, type FigureFactory } from './kit';
 

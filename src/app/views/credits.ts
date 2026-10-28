@@ -2,9 +2,9 @@
 
 import { genus } from '../../core/clouds';
 import { LICENSES } from '../../core/photos';
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import { PHOTOS } from '../photos';
-import type { View } from 'lesson-kit/router';
+import type { View } from 'didactics/router';
 
 export const creditsView: View = (root) => {
   root.append(

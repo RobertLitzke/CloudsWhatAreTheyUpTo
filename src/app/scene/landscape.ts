@@ -7,8 +7,8 @@
 // The scene is 400 wide and 260 tall. The sky is split into the three floors
 // for the lessons: a stylised, not to scale, building of the sky.
 
-import { svg } from 'lesson-kit/dom';
-import { makeRng, type Rng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { makeRng, type Rng } from 'didactics/rng';
 
 export type TimeOfDay = 'dawn' | 'day' | 'dusk' | 'night';
 

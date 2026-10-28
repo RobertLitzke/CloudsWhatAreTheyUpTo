@@ -5,7 +5,7 @@
 // friction that sets the wind, a low and a high side by side, and the river of
 // fast wind overhead that steers storms.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { arrow, heading, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
 import { COL, choices, figure, frame, lock, lockIn, slider, tint, type FigureFactory } from './kit';
 

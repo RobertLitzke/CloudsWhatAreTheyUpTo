@@ -1,11 +1,11 @@
 // The save file: what has been learned and how it went. Kept in localStorage by
 // app/store.ts. The fields every lesson app has, and their repair, are
-// lesson-kit's progress.ts; this adds what only Clouds keeps, and the moves
+// Didactics' progress.ts; this adds what only Clouds keeps, and the moves
 // from Clouds' own older lesson ids. All of it can be tested without a browser.
 
-import { emptyProgress, migrateProgress, moveLesson, stringSet, type Progress } from 'lesson-kit/progress';
+import { emptyProgress, migrateProgress, moveLesson, stringSet, type Progress } from 'didactics/progress';
 
-export { finishLesson, type LessonRecord } from 'lesson-kit/progress';
+export { finishLesson, type LessonRecord } from 'didactics/progress';
 
 export interface SaveData extends Progress {
   /** Seeding orders filled, by id (core/orders.ts). */

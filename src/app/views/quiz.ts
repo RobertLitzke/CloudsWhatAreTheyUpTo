@@ -1,10 +1,10 @@
 // The quiz: flash cards outside the lessons, on real photos and on what makes
-// each cloud (core/quiz.ts), shown by lesson-kit's quiz page.
+// each cloud (core/quiz.ts), shown by Didactics' quiz page.
 
-import { quizView as kitQuizView } from 'lesson-kit/quiz-view';
+import { quizView as kitQuizView } from 'didactics/quiz-view';
 import { mirrorFor } from '../../core/photos';
 import { buildDeck } from '../../core/quiz';
-import { makeRng } from 'lesson-kit/rng';
+import { makeRng } from 'didactics/rng';
 import { photoFigure, PHOTOS } from '../photos';
 import { store } from '../store';
 

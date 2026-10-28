@@ -4,7 +4,7 @@
 // filter frays the outline into cauliflower and fibres; the base is shaded and
 // cut flat. It stays vector, costs no pixels of our own, and ships nothing.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import type { Palette } from '../../src/app/scene/landscape';
 import { SUN, type Cirrus, type Cloud, type Heap, type Layer, type Puff } from '../../src/app/clouds/shapes';
 

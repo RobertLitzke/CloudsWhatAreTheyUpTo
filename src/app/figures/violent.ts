@@ -4,7 +4,7 @@
 // height that sorts storms into showers, clusters, lines and supercells, and
 // the hail an updraft can hold up.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { parcelAt } from '../../core/air';
 import { TOP_M, breakC, capBreak, dayGroundC, hailFall, hailHeld, hailName, stormEnvC, stormFuel, stormKind, type StormKind } from '../../core/violent';
 import { arrow, heapAt, line, note, points, polyline, redraw, small, still, type P } from './draw';

@@ -4,7 +4,7 @@
 // other side), the belts where they form and the paths they take, and the sea
 // piled up at the shore.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { EYE_KM, FEED_C, category, hurricaneWind, pressureAt, surgeM, windAt } from '../../core/hurricane';
 import { arrow, heapAt, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
 import { COL, choices, deg, figure, frame, lock, lockIn, slider, tint, type FigureFactory } from './kit';

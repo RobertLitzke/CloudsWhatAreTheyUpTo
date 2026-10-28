@@ -5,14 +5,14 @@
 
 import { ORDERS, type Order } from '../../core/orders';
 import { DEFAULT_SETUP, DOSE, STRENGTH, formCloud, headline, levelOf, seed, type Agent, type Cooling, type Setup, type Sky } from '../../core/seeding';
-import { makeRng } from 'lesson-kit/rng';
-import { el, svg } from 'lesson-kit/dom';
+import { makeRng } from 'didactics/rng';
+import { el, svg } from 'didactics/dom';
 import { slider, type Slider } from '../figures/kit';
-import type { View } from 'lesson-kit/router';
+import type { View } from 'didactics/router';
 import { placeCloud } from '../scene/drawn';
 import { FLOOR_BANDS, H, HORIZON, W, makeScene, type Palette, type Scene } from '../scene/landscape';
 import { getSave, updateSave } from '../store';
-import { segmented, toast } from 'lesson-kit/ui';
+import { segmented, toast } from 'didactics/ui';
 
 /** Heights to scene y, by floor, as the lesson scenes stack them: not to scale. */
 const STOPS: [number, number][] = [[0, HORIZON], [2000, FLOOR_BANDS.low.top], [6000, FLOOR_BANDS.high.bottom], [12000, FLOOR_BANDS.high.top]];

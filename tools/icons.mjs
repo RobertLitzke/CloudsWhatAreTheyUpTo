@@ -6,7 +6,7 @@
 // src/app/clouds/flat.ts draws them, in front of a peach sun on the poster's
 // indigo-to-magenta sky. Kept to big shapes so it still reads at 16 px.
 //
-// - icons/icon.svg: the favicon (inlined into the page by lesson-kit's build,
+// - icons/icon.svg: the favicon (inlined into the page by Didactics' build,
 //   so the one-file copy has it too).
 // - icon-192.png, icon-512.png: the manifest's icons, with rounded corners.
 // - icon-512-maskable.png: full bleed, the drawing shrunk into the centre 80%,

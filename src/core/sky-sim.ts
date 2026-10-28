@@ -14,7 +14,7 @@
 // (autoconversion, collection, evaporation). Ice is left out: anything above
 // the freezing line is still drawn as cloud, it just doesn't snow.
 
-import { makeRng } from 'lesson-kit/rng';
+import { makeRng } from 'didactics/rng';
 
 const G = 9.81;
 const CP = 1004;

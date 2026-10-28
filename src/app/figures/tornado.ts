@@ -4,7 +4,7 @@
 // from the side with its wall cloud; its hook on the radar; and the scale
 // tornadoes are rated on by the damage they do.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { arrow, label, line, note, points, polyline, radarImage, radarKey, redraw, small, still, type P } from './draw';
 import { COL, choices, figure, frame, lock, lockIn, slider, tint, type FigureFactory } from './kit';
 

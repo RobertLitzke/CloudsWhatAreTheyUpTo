@@ -1,9 +1,9 @@
-// A lesson (lesson-kit's lesson view), with Clouds' sky over the fields at the
+// A lesson (Didactics' lesson view), with Clouds' sky over the fields at the
 // top, the clouds it introduces under the lede, and Walla Walla on the radio:
 // a short opening as the lesson starts, and a few lines typed around the check.
 
-import { lessonView } from 'lesson-kit/lesson';
-import { el } from 'lesson-kit/dom';
+import { lessonView } from 'didactics/lesson';
+import { el } from 'didactics/dom';
 import { genus } from '../../core/clouds';
 import { SHIFTS, type Shift } from '../../core/shifts';
 import { radioFor, STATIONS } from '../../core/talk';

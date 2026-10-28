@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type { GenusId } from '../src/core/clouds';
 import { dealFloorCalls } from '../src/core/photo-call';
 import type { Photo } from '../src/core/photos';
-import { makeRng } from 'lesson-kit/rng';
+import { makeRng } from 'didactics/rng';
 
 const photo = (id: string, genus: GenusId): Photo => ({
   id,

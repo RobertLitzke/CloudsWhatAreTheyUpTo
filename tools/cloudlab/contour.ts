@@ -5,7 +5,7 @@
 // shadows fall where cloud blocks the sun, not where a rule puts them. The
 // tracing costs time once per figure; what ships to the page is plain paths.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import type { Palette } from '../../src/app/scene/landscape';
 import { fieldOf } from '../../src/app/clouds/paint';
 import { grade, rampOf, type RGB } from '../../src/app/clouds/ramp';

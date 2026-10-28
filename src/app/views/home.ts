@@ -4,11 +4,11 @@
 // first time.
 
 import { BRANCHES, TREE_LESSONS, lessonName } from '../../core/shifts';
-import { el } from 'lesson-kit/dom';
-import { passed, skipLesson } from 'lesson-kit/progress';
-import { resumeFor } from 'lesson-kit/resume';
-import type { View } from 'lesson-kit/router';
-import { nextLesson, treeView, type TreeNode } from 'lesson-kit/tree';
+import { el } from 'didactics/dom';
+import { passed, skipLesson } from 'didactics/progress';
+import { resumeFor } from 'didactics/resume';
+import type { View } from 'didactics/router';
+import { nextLesson, treeView, type TreeNode } from 'didactics/tree';
 import { placeCloud } from '../scene/drawn';
 import { makeScene } from '../scene/landscape';
 import { getSave, updateSave } from '../store';

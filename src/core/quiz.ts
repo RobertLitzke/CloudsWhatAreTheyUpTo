@@ -1,4 +1,4 @@
-// Clouds' quiz deck. The scheduling is lesson-kit's quiz.ts.
+// Clouds' quiz deck. The scheduling is Didactics' quiz.ts.
 //
 // The quiz: plain flash cards, outside the lessons and the story, scheduled
 // by spaced repetition. A card answered right comes back after longer and
@@ -12,8 +12,8 @@
 
 import { GENERA, floorInfo, genus, type Floor, type GenusId } from './clouds';
 import type { FeatureId, Photo } from './photos';
-import { conceptCard, type Card as KitCard, type Concept } from 'lesson-kit/quiz';
-import { shuffle, type Rng } from 'lesson-kit/rng';
+import { conceptCard, type Card as KitCard, type Concept } from 'didactics/quiz';
+import { shuffle, type Rng } from 'didactics/rng';
 import concepts from '../data/quiz.json';
 
 export type CardKind = 'photo' | 'made' | 'means' | 'floor' | 'idea';
@@ -116,4 +116,4 @@ export function buildDeck(photos: readonly Photo[], rng: Rng): Card[] {
   return cards;
 }
 
-export { deal, GAPS_DAYS, review, tally, type CardState, type Tally } from 'lesson-kit/quiz';
+export { deal, GAPS_DAYS, review, tally, type CardState, type Tally } from 'didactics/quiz';

@@ -1,12 +1,12 @@
-// The radio slip (lesson-kit's slip.ts), tuned to Walla Walla: what is heard
+// The radio slip (Didactics' slip.ts), tuned to Walla Walla: what is heard
 // goes into the save, and a reply that switches the radio off turns the
 // setting off.
 
-import { createSlip } from 'lesson-kit/slip';
+import { createSlip } from 'didactics/slip';
 import { SNUBS, STATIONS } from '../core/talk';
 import { updateSave } from './store';
 
-export { radioIcon } from 'lesson-kit/slip';
+export { radioIcon } from 'didactics/slip';
 
 export const { play: playTalk, clear: clearRadio } = createSlip({
   stations: STATIONS,

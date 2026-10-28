@@ -7,9 +7,9 @@ import type { Forecast, PhotoCalls, Profile } from '../../core/shifts';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
 import { dealFloorCalls } from '../../core/photo-call';
 import { dealNameCalls } from '../../core/radio-check';
-import { shuffle, type Rng } from 'lesson-kit/rng';
-import { check, type CheckStep } from 'lesson-kit/check';
-import { el, svg } from 'lesson-kit/dom';
+import { shuffle, type Rng } from 'didactics/rng';
+import { check, type CheckStep } from 'didactics/check';
+import { el, svg } from 'didactics/dom';
 import { photoFigure, PHOTOS } from '../photos';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { forecastSky } from '../scene/forecast-sky';
@@ -326,7 +326,7 @@ export function forecastPicture(q: Forecast): Element {
 }
 
 /**
- * The check that ends a lesson (lesson-kit's check.ts): options.photos, the
+ * The check that ends a lesson (Didactics' check.ts): options.photos, the
  * real photos to name or place first (PhotoCalls), then options.items, the
  * forecasts, shuffled, with those that have an id last in their order.
  */

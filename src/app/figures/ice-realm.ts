@@ -5,7 +5,7 @@
 // what makes a droplet freeze, why ice wins the vapour, snow becoming rain,
 // and where a 22° bend shows up in the sky.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { genus } from '../../core/clouds';
 import { drawCloud } from '../scene/drawn';
 import { realClouds } from '../clouds/real';
@@ -15,7 +15,7 @@ import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline,
 import { COL, animate, figure, frame, height, lock, lockIn, radarColor, slider, tint, type FigureFactory } from './kit';
 import { fbm } from '../clouds/noise';
 import { radarWords, rainDbz, sameWaterEcho, stratiformDbz } from '../../core/radar';
-import { makeRng } from 'lesson-kit/rng';
+import { makeRng } from 'didactics/rng';
 import { fullOverIce, fullOverWater } from '../../core/air';
 import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';

@@ -1,14 +1,14 @@
 // The pieces Clouds' figures are drawn with. Lines, arrows, text and plain
-// shapes are lesson-kit's draw.ts, re-exported here; this file adds the ones
+// shapes are Didactics' draw.ts, re-exported here; this file adds the ones
 // only clouds need: an ice crystal, a puff of cloud, and the radar's pieces.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import { celCumulus, celHeap } from '../clouds/flat';
 import { FIGURE } from '../clouds/tones';
-import { hexagon, line, small } from 'lesson-kit/draw';
+import { hexagon, line, small } from 'didactics/draw';
 import { COL, RADAR, radarColor } from './kit';
 
-export * from 'lesson-kit/draw';
+export * from 'didactics/draw';
 
 /** A snowflake: three strokes crossing at the centre. */
 export function flake(x: number, y: number, r: number, color: string = COL.ice, width = 1.4): SVGElement {

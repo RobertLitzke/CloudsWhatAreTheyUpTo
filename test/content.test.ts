@@ -5,10 +5,10 @@ import { compose, genus, type Body, type Prefix } from '../src/core/clouds';
 import { photoFile, problems, type Photo } from '../src/core/photos';
 import { BRANCHES, FIGURE_IDS, JOURNAL, SHIFTS, TREE_LESSONS, type Block, type Forecast, type PhotoCalls, type Shift } from '../src/core/shifts';
 import { GLOSSARY } from '../src/core/glossary';
-import { footnoteProblems } from 'lesson-kit/footnote';
-import { glossaryProblems } from 'lesson-kit/glossary';
-import { lessonTexts } from 'lesson-kit/lesson';
-import { treeProblems } from 'lesson-kit/tree';
+import { footnoteProblems } from 'didactics/footnote';
+import { glossaryProblems } from 'didactics/glossary';
+import { lessonTexts } from 'didactics/lesson';
+import { treeProblems } from 'didactics/tree';
 
 const blocks = (s: Shift): Block[] => s.parts.flatMap((p) => p.blocks);
 import library from '../src/data/photos.json';

@@ -4,8 +4,8 @@
 // and sinking over it to see why. The weather is core/sky-sim.ts; the drawing
 // is app/sky/board.ts; this file holds the controls and the clock.
 
-import { el } from 'lesson-kit/dom';
-import type { View } from 'lesson-kit/router';
+import { el } from 'didactics/dom';
+import type { View } from 'didactics/router';
 import { RANGES, SCENARIOS, SkySim, type Controls } from '../../core/sky-sim';
 import { Board, type Overlay } from '../sky/board';
 

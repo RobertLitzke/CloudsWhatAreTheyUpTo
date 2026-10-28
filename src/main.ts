@@ -1,9 +1,9 @@
 import './app/styles/app.css';
-import { el } from 'lesson-kit/dom';
-import { Router } from 'lesson-kit/router';
-import { showSplash } from 'lesson-kit/splash';
-import { watchForUpdates } from 'lesson-kit/update';
-import { retireWhenSaved } from 'lesson-kit/offline';
+import { el } from 'didactics/dom';
+import { Router } from 'didactics/router';
+import { showSplash } from 'didactics/splash';
+import { watchForUpdates } from 'didactics/update';
+import { retireWhenSaved } from 'didactics/offline';
 import { asset } from './app/asset';
 import { PHOTOS } from './app/photos';
 import { creditsView } from './app/views/credits';
@@ -75,7 +75,7 @@ function boot(): void {
     .start('/home');
   markHere();
 
-  if (import.meta.env.DEV) void import('lesson-kit/overflow').then((m) => m.watchOverflow());
+  if (import.meta.env.DEV) void import('didactics/overflow').then((m) => m.watchOverflow());
 
   // The page also runs straight from disk, where there is no service worker.
   if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {

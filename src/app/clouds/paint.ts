@@ -4,7 +4,7 @@
 // towards the flat base. No GPU and no library: plain JavaScript, a few hundred
 // milliseconds for a whole sky, drawn once and kept as an image.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import type { Palette } from '../scene/landscape';
 import { billow, fbm } from './noise';
 import { grade, rampOf, type RGB } from './ramp';

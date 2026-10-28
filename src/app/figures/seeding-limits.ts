@@ -4,8 +4,8 @@
 
 import { judge, runTrial, STORMS_PER_WINTER, TRUE_EFFECT } from '../../core/cold-cloud';
 import type { GenusId } from '../../core/clouds';
-import { makeRng } from 'lesson-kit/rng';
-import { el, svg } from 'lesson-kit/dom';
+import { makeRng } from 'didactics/rng';
+import { el, svg } from 'didactics/dom';
 import { drawCloud } from '../scene/drawn';
 import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';

@@ -6,7 +6,7 @@
 // While a slider is dragged, each redraw is a quick, rougher pass, and the
 // full drawing follows when it comes to rest.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import { paintCanvas } from './paint';
 import type { Cloud } from './shapes';
 import { marchClouds, type View } from './volume';

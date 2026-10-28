@@ -15,9 +15,9 @@
 // none of this is shown at all.
 //
 // The words live in data/radio, one file per lesson plus the opening talk. How
-// a talk works, and the slip it is typed on, is lesson-kit's radio.ts and slip.ts.
+// a talk works, and the slip it is typed on, is Didactics' radio.ts and slip.ts.
 
-import type { Radio, Stations, Talk } from 'lesson-kit/radio';
+import type { Radio, Stations, Talk } from 'didactics/radio';
 import intro from '../data/radio/intro.json';
 import fog from '../data/radio/fog.json';
 import lowSky from '../data/radio/low-sky.json';
@@ -41,7 +41,7 @@ export const STATIONS: Stations = {
   you: { call: 'W7HAR', place: 'Harrow' },
 };
 
-export { ACK, transcript, type Cue, type Radio, type Reply, type Talk, type Turn } from 'lesson-kit/radio';
+export { ACK, transcript, type Cue, type Radio, type Reply, type Talk, type Turn } from 'didactics/radio';
 
 export const INTRO: Talk = intro as Talk;
 

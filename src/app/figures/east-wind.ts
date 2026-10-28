@@ -3,7 +3,7 @@
 // it sinks down a slope, the wind through the one sea-level gap in the
 // Cascades, and the Santa Ana pouring down to the California coast.
 
-import { el, svg } from 'lesson-kit/dom';
+import { el, svg } from 'didactics/dom';
 import { downdraftChill, dustWall, gapWind, outflowKmh, rainLands, sinkTo, type Soil } from '../../core/east-wind';
 import { arrow, heapAt, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
 import { COL, choices, deg, figure, frame, height, lock, lockIn, slider, tint, type FigureFactory } from './kit';

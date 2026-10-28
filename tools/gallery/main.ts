@@ -3,7 +3,7 @@
 // Only the dev server serves it; the build ships index.html alone.
 
 import '../../src/app/styles/app.css';
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import { FIGURES } from '../../src/app/figures';
 import type { FigureContext } from '../../src/app/figures/kit';
 import { emptySave } from '../../src/core/save';

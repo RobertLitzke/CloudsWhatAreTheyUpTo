@@ -3,7 +3,7 @@
 // edges, the six names, stratus against stratocumulus, the lid sinking air
 // makes, a million droplets in a raindrop, collecting, and deep and shallow clouds.
 
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 import { arrow, heading, heapAt, hexagon, label, line, points, polyline, redraw, small, still } from './draw';
 import { COL, animate, figure, frame, height, slider, type FigureFactory } from './kit';
 import { type GenusId } from '../../core/clouds';

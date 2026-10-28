@@ -1,7 +1,7 @@
 // The journal's glossary: the ten clouds, the core terms in data/glossary.json,
-// and every technical footnote in the lessons (lesson-kit's glossary.ts).
+// and every technical footnote in the lessons (Didactics' glossary.ts).
 
-import { glossaryFromFile, glossaryFromLessons, mergeGlossary, type GlossaryEntry, type GlossaryFile } from 'lesson-kit/glossary';
+import { glossaryFromFile, glossaryFromLessons, mergeGlossary, type GlossaryEntry, type GlossaryFile } from 'didactics/glossary';
 import file from '../data/glossary.json';
 import { GENERA, type GenusId } from './clouds';
 import { SHIFTS } from './shifts';

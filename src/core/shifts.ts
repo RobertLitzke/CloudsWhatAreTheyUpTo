@@ -12,15 +12,15 @@
 //
 // Each lesson's words are in a JSON file in data/shifts, one per lesson.
 //
-// The lesson format and the view that reads it are lesson-kit's lesson.ts.
+// The lesson format and the view that reads it are Didactics' lesson.ts.
 // Text takes a little markup (see app/figures/kit.ts prose): **bold**,
 // *italic*, [[words|colour]] to tie a word to the same colour in a figure,
 // and [^id] for a footnote from the file's `footnotes` table, which opens in a
-// popup (lesson-kit's footnote.ts).
+// popup (Didactics' footnote.ts).
 
-import type { Footnotes } from 'lesson-kit/footnote';
-import type { Block as KitBlock, Lesson, Part as KitPart } from 'lesson-kit/lesson';
-import { lessonCodes, type TreeBranch } from 'lesson-kit/tree';
+import type { Footnotes } from 'didactics/footnote';
+import type { Block as KitBlock, Lesson, Part as KitPart } from 'didactics/lesson';
+import { lessonCodes, type TreeBranch } from 'didactics/tree';
 import type { GenusId } from './clouds';
 import fog from '../data/shifts/fog.json';
 import lowSky from '../data/shifts/low-sky.json';
@@ -151,7 +151,7 @@ export interface Profile {
   ground?: string;
 }
 
-/** A lesson (lesson-kit's Lesson shape, which its JSON file holds), with what only Clouds adds. */
+/** A lesson (Didactics' Lesson shape, which its JSON file holds), with what only Clouds adds. */
 export interface Shift extends Lesson<FigureId> {
   /** The clouds this shift introduces. */
   clouds: GenusId[];
@@ -159,7 +159,7 @@ export interface Shift extends Lesson<FigureId> {
   sky: GenusId[];
   /** Training, or the lessons on cloud seeding that come after it. */
   book: 'training' | 'seeding';
-  /** Where it sits in the tree on the home page (lesson-kit's tree.ts): its branch, and what it leans on. */
+  /** Where it sits in the tree on the home page (Didactics' tree.ts): its branch, and what it leans on. */
   branch?: string;
   needs?: string[];
   betterAfter?: string[];

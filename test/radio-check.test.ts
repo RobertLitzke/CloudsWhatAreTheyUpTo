@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { nameOptions, dealNameCalls } from '../src/core/radio-check';
-import { makeRng } from 'lesson-kit/rng';
+import { makeRng } from 'didactics/rng';
 
 describe('name options', () => {
   it('include the answer and its look-alikes first', () => {

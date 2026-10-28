@@ -114,22 +114,27 @@ src/core/     pure TypeScript, no DOM; unit-tested
   talk.ts       the radio talks and the townsfolk's questions
   photo-call.ts radio-check.ts  dealing the photo checks
   photos.ts     the photo entry shape and accepted licences
-  save.ts       Clouds' save fields on top of lesson-kit's progress.ts
-src/app/      store.ts, asset.ts, photos.ts, radio.ts (Walla Walla on lesson-kit's slip)
+  save.ts       Clouds' save fields on top of Didactics' progress.ts
+src/app/      store.ts, asset.ts, photos.ts, radio.ts (Walla Walla on Didactics' slip)
   scene/        landscape.ts (wheat country and the town), drawn.ts (drawn clouds)
   figures/      one file per lesson (fog.ts … seeding-limits.ts) with its live and
                 still figures in lesson order; quizzes.ts the photo and forecast
-                checks; kit.ts the palette over lesson-kit's figure.ts;
-                draw.ts cloud and radar pieces over lesson-kit's draw.ts;
+                checks; kit.ts the palette over Didactics' figure.ts;
+                draw.ts cloud and radar pieces over Didactics' draw.ts;
                 index.ts naming them all
-  views/        home, shift, quiz, settings (lesson-kit's views in Clouds'
+  views/        home, shift, quiz, settings (Didactics' views in Clouds'
                 words), journal, credits, seed
 tools/photos/ find.ts, fetch.ts, commons.ts, config.ts, picks.json
 test/
-packages/lesson-kit/   everything that is not about clouds: the lesson engine
-                and JSON lesson format, figures, quiz scheduling, the radio
-                slip, the log, the shell and the build. See its README.
 ```
+
+Everything that is not about clouds (the lesson engine and JSON lesson
+format, figures, quiz scheduling, the radio slip, the log, the shell and the
+build) is the Didactics library,
+[RobertLitzke/Didactics](https://github.com/RobertLitzke/Didactics), imported
+as `didactics/<module>`. It is a git dependency pinned to a commit in
+package.json; to take a newer one, run
+`npm install github:RobertLitzke/Didactics#<sha or tag>`.
 
 ## Deploy
 

@@ -74,7 +74,7 @@ describe('guess-first figures', () => {
 });
 
 describe('figures coming back after the reader left', () => {
-  // Each figure keeps what it would lose on a reload (Task.keep in lesson-kit);
+  // Each figure keeps what it would lose on a reload (Task.keep in Didactics);
   // built again with what it kept, it is as it was.
   const GUESS_FIRST = ['jar', 'parcel', 'front', 'storm', 'billow', 'windBalance', 'coastSounding', 'windward', 'snowLevel', 'fuelSounding', 'capDay', 'stormSorter', 'skater', 'surge', 'coldPool', 'iceLayers', 'dustWall', 'downslope'] as const;
   const memoCtx = (kept: unknown, onKeep: (v: unknown) => void = () => {}, score: FigureContext['score'] = () => {}): FigureContext =>

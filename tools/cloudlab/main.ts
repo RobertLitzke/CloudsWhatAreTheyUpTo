@@ -3,7 +3,7 @@
 // /cloudlab.html. Dev only, like figures.html. ?only=<renderer>&time=<day|dusk>.
 
 import '../../src/app/styles/app.css';
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import { placeCloud } from '../../src/app/scene/drawn';
 import { makeScene, type TimeOfDay } from '../../src/app/scene/landscape';
 import { paintClouds } from '../../src/app/clouds/paint';
@@ -12,7 +12,7 @@ import { softClouds } from './soft';
 import { flatClouds } from '../../src/app/clouds/flat';
 import { contourClouds } from './contour';
 import { marchClouds } from '../../src/app/clouds/volume';
-import { svg } from 'lesson-kit/dom';
+import { svg } from 'didactics/dom';
 
 type Renderer = (time: TimeOfDay) => { node: SVGElement; ms: number };
 

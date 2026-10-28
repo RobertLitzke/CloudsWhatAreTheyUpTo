@@ -1,9 +1,9 @@
-// Units, name, the radio, and moving progress between devices (lesson-kit's
+// Units, name, the radio, and moving progress between devices (Didactics'
 // settings page, in Clouds' words).
 
-import { settingsView as kitSettingsView } from 'lesson-kit/settings';
+import { settingsView as kitSettingsView } from 'didactics/settings';
 import { asset } from '../asset';
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import { store } from '../store';
 import { emptySave } from '../../core/save';
 import { PHOTOS } from '../photos';
