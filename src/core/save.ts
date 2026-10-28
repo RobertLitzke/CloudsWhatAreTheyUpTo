@@ -3,11 +3,12 @@
 // Didactics' progress.ts; this adds what only Clouds keeps, and the moves
 // from Clouds' own older lesson ids. All of it can be tested without a browser.
 
-import { emptyProgress, migrateProgress, moveLesson, stringSet, type Progress } from 'didactics/progress';
+import { emptyProgress, migrateProgress, moveLesson, stringSet, type RadioProgress } from 'didactics/progress';
 
 export { finishLesson, type LessonRecord } from 'didactics/progress';
 
-export interface SaveData extends Progress {
+/** Clouds has the radio, so its save keeps the radio's fields. */
+export interface SaveData extends RadioProgress {
   /** Seeding orders filled, by id (core/orders.ts). */
   orders: string[];
 }
