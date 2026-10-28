@@ -136,6 +136,20 @@ as `didactics/<module>`. It is a git dependency pinned to a commit in
 package.json; to take a newer one, run
 `npm install github:RobertLitzke/Didactics#<sha or tag>`.
 
+All of the course's words are JSON in `src/data` (lessons, radio talks, quiz
+cards, glossary). To revise them in one file:
+
+```sh
+npx didactics-course export src/data --skip src/data/photos.json --title Clouds --out course.json
+npx didactics-course import course.json
+```
+
+Settings in the app has the same: **Download the course**, and **Load edited
+text** to read an edited file in the real lessons on that device before it
+is committed (src/course.ts). A lesson block is `text`, `key_ideas`, or a
+callout by `id` for a drawing (`interactive_diagram`, `diagram`, `quiz`); an
+id with no code yet shows a box saying it goes there.
+
 ## Deploy
 
 Pushes to `main` build and deploy to GitHub Pages

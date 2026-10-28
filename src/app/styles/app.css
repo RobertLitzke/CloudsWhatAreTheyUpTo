@@ -231,24 +231,6 @@
 .look-name b { display: block; }
 .look-name span { color: var(--ink-soft); }
 
-/* The page menu: the current page's name, opening a short list. */
-.navmenu { position: relative; }
-.navmenu summary {
-  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 6px;
-  font: 600 0.8rem/1 var(--display); letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--text); background: var(--bg-2); padding: 8px 12px; border-radius: 999px;
-}
-.navmenu summary::-webkit-details-marker { display: none; }
-.navmenu summary::after { content: ''; width: 6px; height: 6px; border: solid var(--sun); border-width: 0 2px 2px 0; transform: translateY(-2px) rotate(45deg); }
-.navmenu[open] summary::after { transform: translateY(1px) rotate(-135deg); }
-.topbar .navmenu nav {
-  position: absolute; right: 0; top: calc(100% + 6px); min-width: 160px; z-index: 6;
-  display: flex; flex-direction: column; gap: 2px; padding: 6px;
-  background: var(--bg-2); border-radius: 12px; box-shadow: 0 10px 30px rgba(10, 6, 24, 0.5);
-}
-.topbar .navmenu nav a { padding: 10px 12px; font-size: 0.8rem; }
-.topbar .navmenu nav a.here { background: var(--bg); color: var(--sun); }
-
 /* The sky lab: a live slice of weather and a strip of small controls. */
 .page.sky { display: grid; gap: 10px; padding-top: 6px; }
 .sky-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }

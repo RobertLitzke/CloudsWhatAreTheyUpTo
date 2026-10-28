@@ -7,15 +7,16 @@ import { el } from 'didactics/dom';
 import { FIGURES } from '../../src/app/figures';
 import type { FigureContext } from '../../src/app/figures/kit';
 import { emptySave } from '../../src/core/save';
-import { SHIFTS, type Block, type FigureId, type Forecast } from '../../src/core/shifts';
+import { isDiagram, type DiagramBlock } from 'didactics/lesson';
+import { SHIFTS, type FigureId, type Forecast } from '../../src/core/shifts';
 import { forecastPicture } from '../../src/app/figures/quizzes';
 
 const save = emptySave();
 if (location.search.includes('imperial')) save.units = 'imperial';
 const ctx: FigureContext = { save, closed: new AbortController().signal, score: () => {} };
 
-const uses = new Map<FigureId, Extract<Block, { kind: 'figure' }>>();
-for (const s of SHIFTS) for (const p of s.parts) for (const b of p.blocks) if (b.kind === 'figure' && !uses.has(b.figure)) uses.set(b.figure, b);
+const uses = new Map<FigureId, DiagramBlock<FigureId>>();
+for (const s of SHIFTS) for (const p of s.parts) for (const b of p.blocks) if (isDiagram(b) && !uses.has(b.id)) uses.set(b.id, b);
 
 const only = new URLSearchParams(location.search).get('only');
 const article = el('article.article');
@@ -36,7 +37,7 @@ document.getElementById('app')!.append(el('main.view', {}, article));
 if (location.search.includes('skies')) {
   const list = el('article.article');
   for (const s of SHIFTS) for (const p of s.parts) for (const b of p.blocks) {
-    if (b.kind !== 'figure' || b.figure !== 'check') continue;
+    if (!isDiagram(b) || b.id !== 'check') continue;
     const items = (b.options?.items as Forecast[]) ?? [];
     items.forEach((q, k) => list.append(el('figure.fig', { 'data-sky': `${s.id}-${k}` },
       el('div.fig-body', {}, forecastPicture(q), el('p.task', {}, `${s.id} ${k}: ${q.question}`), el('p.fig-readout', {}, `✓ ${q.options[q.answer]}`)))));

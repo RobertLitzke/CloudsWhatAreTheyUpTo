@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "giants",
   "n": 5,
   "title": "Afternoon ambush: reading storm towers",
@@ -9,7 +9,7 @@
       "title": "How tall a heap grows",
       "blocks": [
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The big ideas of this lesson",
           "points": [
             "Inside a cloud, condensing water vapour releases **latent heat**, so rising cloudy air cools at only about 5 °C per kilometre (3 °F per 1,000 feet) instead of 10 °C. That extra warmth is why a cumulus heap, once formed, can surge upward.",
@@ -20,19 +20,19 @@
           ]
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In Lesson 1, afternoon cumulus puffs stayed small and harmless because stable air aloft stopped their climb. On some summer days, nothing stops them. By midday the puffs have swollen into cauliflower towers, and by mid-afternoon one of them is hurling lightning across the valley. This lesson shows how to spot that buildup early—and how to know when to head indoors."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Why does a rising thermal suddenly gain a second wind once it condenses into a cloud? When liquid water evaporates, it absorbs heat from its surroundings—which is why evaporating sweat cools your skin. When water vapour condenses back into liquid droplets inside a rising cloud, it releases that exact same stored heat back into the air. Meteorologists call this **latent heat** (from the Latin for 'hidden'). That released heat warms the cloudy parcel from within, slowing its cooling rate from 10 °C per kilometre down to roughly 5 °C per kilometre.[^moist-rate]"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Whether the cloudy parcel keeps climbing still depends on how its cooling rate compares with the surrounding sky. Above the lowest kilometre or two, the atmosphere typically cools by 6 to 7 °C per kilometre. A dry thermal cooling at 10 °C per kilometre quickly becomes colder than that surrounding air and stalls. A cloudy thermal cooling at 5 °C per kilometre, however, stays *warmer* than that exact same 6–7 °C/km environment—so its buoyancy grows with every metre it climbs, driving it upward into billowing cauliflower towers.[^conditional]"
         },
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The stability test, in full",
           "points": [
             "Compare two cooling rates: how fast the **surrounding sky** gets colder with height, and how fast a **rising parcel** cools.",
@@ -42,33 +42,33 @@
           ]
         },
         {
-          "kind": "figure",
-          "figure": "latent",
+          "type": "diagram",
+          "id": "latent",
           "caption": "Temperature by height: the air around, and a bubble before and after it turns to cloud."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Three controls govern how tall a cumulus heap can grow. First, **surface heating** sets the starting temperature of rising thermals. Second, low-level **moisture** sets the altitude of the cloud base, determining how early the rising parcel switches to the slower 5 °C/km cloudy cooling rate. Third, a warm [[inversion|env]] layer aloft can cap the climb completely. When a rising cloud top pokes into a strong inversion, even latent heat cannot keep the parcel warmer than the warm lid around it, and the cloud flattens out."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Observers divide cumulus into three species that track this vertical growth. **Cumulus humilis** is flattened—wider than it is tall—and marks fair weather. **Cumulus mediocris** grows roughly as tall as it is wide, with modest vertical bulges. **Cumulus congestus** (or *towering cumulus*) surges into tall, sharp-edged cauliflower chimneys much taller than they are wide. Seeing congestus towers already building by late morning or midday is a clear warning that full thunderstorms may erupt by afternoon."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Sometimes the middle floor gives an even earlier warning around breakfast. If you spot rows of middle-level altocumulus sprouting miniature, narrow turrets like battlements on a castle, you are looking at **altocumulus castellanus**. Those turrets show that latent heat is already driving narrow updraughts through an unstable middle sky (cooling faster than 5 °C/km). Once afternoon sunshine heats the ground below, surface thermals can link up with that middle-level instability and rocket straight into thunderstorms."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Forecasters and glider pilots diagnose this vertical profile using an upper-air chart called a **sounding**. Twice a day, weather stations worldwide release helium or hydrogen balloons carrying a compact instrument package that radios back temperature, humidity, and wind readings every few seconds as it climbs.[^radiosonde]"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In the sounding diagram below, **temperature runs along the bottom** (warmer to the right) and **altitude runs up the left side**. The solid violet curve shows the surrounding air temperature measured by the balloon (while the dashed violet curve shows the cooler dawn profile before surface heating). The teal curve tracks the dew point, and the orange curve follows a rising surface parcel—cooling at 10 °C/km up to the cloud base, then bending steeper to cool at ~5 °C/km inside the cloud. Wherever the violet environment curve tilts steeply to the left, the sky cools rapidly with height. At any altitude where the orange parcel curve sits to the *right* of the violet environment curve, the parcel is warmer than the surrounding sky and accelerates upward; where the two curves cross again at the top, the parcel loses its buoyancy and stops.[^cape]"
         },
         {
-          "kind": "figure",
-          "figure": "sounding",
+          "type": "interactive_diagram",
+          "id": "sounding",
           "caption": "A summer day over farm country, with a warm layer a couple of kilometres up.",
           "task": "Grow a cumulus congestus: a tower several kilometres tall.",
           "goal": "congestus"
@@ -79,66 +79,66 @@
       "title": "The thunderstorm",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "When no middle-level inversion caps a growing congestus tower, its updraught can surge all the way to the top of the troposphere—about 10 to 12 kilometres up in mid-latitudes. Throughout the troposphere, the air generally gets colder with altitude because it is warmed primarily from the ground up. Around 10 to 12 kilometres, however, that cooling abruptly stops."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Above that level sits the **stratosphere**, which is heated from above by the **ozone layer**. High in the stratosphere, intense solar ultraviolet light splits ordinary oxygen molecules (O₂) into single atoms that recombine with O₂ to form ozone (O₃). Ozone absorbs ultraviolet radiation and converts it into heat, causing the stratosphere to grow warmer with altitude."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "The boundary where temperature stops falling with height and starts rising is the **tropopause**. Because the stratosphere warms with height, the tropopause acts as a giant, permanent temperature inversion—a ceiling across the top of the weather that halts rising storm towers."
         },
         {
-          "kind": "figure",
-          "figure": "tropopause",
+          "type": "diagram",
+          "id": "tropopause",
           "caption": "Temperature by height, from the ground into the stratosphere."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "When a vigorous storm updraught slams into the stable tropopause, the rising air cannot climb much further and fans out horizontally beneath the ceiling like smoke hitting a flat roof.[^overshooting] At 10 to 12 kilometres up, temperatures sit below −50 °C, so the cloud top is completely frozen; upper-level winds draw those spreading ice crystals downwind into a vast, flat-topped **anvil** (*incus*) with silky, fibrous edges. Once the top of a towering heap freezes into fibrous ice and heavy rain begins falling from its base, the cloud has graduated from cumulus congestus to **cumulonimbus**—a thunderstorm."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In the interactive sounding below, an **instability** slider lets you adjust how rapidly the upper troposphere cools with height. Tilting the violet environment line further left widens the temperature gap between the rising cloudy parcel (orange) and the surrounding air, fueling faster updraughts that punch all the way to the tropopause."
         },
         {
-          "kind": "figure",
-          "figure": "sounding",
+          "type": "interactive_diagram",
+          "id": "sounding",
           "caption": "The same day, with the instability control added.",
           "task": "Remove the lid and make the air unstable enough to grow a cumulonimbus.",
           "goal": "cumulonimbus"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "An ordinary single-cell thunderstorm goes through a three-stage life cycle lasting about 45 to 60 minutes."
         },
         {
-          "kind": "figure",
-          "figure": "storm",
+          "type": "interactive_diagram",
+          "id": "storm",
           "caption": "One thunderstorm cell, from first heap to last shower.",
           "task": "Guess what ends the storm, then run it to the end of its life.",
           "goal": "end"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "During the **developing stage** (or cumulus stage), the tower is driven entirely by warm, buoyant updraughts carrying humid surface air skyward. No rain reaches the ground yet as condensing water and ice accumulate aloft."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "The **mature stage** begins when the load of rain and ice grows too heavy for the updraught to hold up and starts plunging toward the ground. Inside powerful updraughts, small ice pellets get tossed up and down through dense zones of supercooled liquid droplets that freeze onto them in layers like an onion, building **hailstones** until they grow heavy enough to fall out."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As heavy rain and hail plunge earthward, they drag surrounding air down with them. At the same time, dry mid-level air mixes into the edges of the rain shaft and evaporates part of the falling water, absorbing latent heat and chilling the air pocket. Colder and denser than its surroundings, this chilled air plunges to the ground as a strong **downdraught**. During its mature stage, the storm runs a warm updraught and a cold downdraught side by side—unleashing its heaviest downpours, hail, frequent lightning, and violent wind gusts."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Finally, in the **dissipating stage**, the cold downdraught spreads out across the ground in all directions, undercutting and choking off the warm, humid inflow that fed the updraught. Starved of fuel from below, the updraught collapses and the lower tower rains itself out, often leaving an orphaned ice anvil drifting high overhead."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That spreading pool of rain-cooled air gives you an unmistakable warning on the ground. On a hot, sticky afternoon, a sudden blast of cool, gusty wind blowing out from under a dark storm tower—often kicking up swirling dust—is the leading edge of the downdraught: the **gust front**. Because the cold outflow races ahead of the rain shaft, the gust front usually hits **5 to 15 minutes** before the downpour and overhead lightning arrive. When the air suddenly turns cool and blustery beneath a darkening sky, head indoors immediately."
         }
       ]
@@ -147,43 +147,43 @@
       "title": "Counting the thunder",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Inside the turbulent middle levels of a cumulonimbus (between about −10 °C and −25 °C), rising ice crystals, falling pellets of soft hail (*graupel*), and supercooled droplets constantly slam into one another. Just as rubbing a balloon against your hair transfers electrons from one surface to the other, collisions between tiny ice crystals and heavier graupel pellets transfer electric charge."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Each collision leaves the tiny, rising ice crystals with a slight positive charge and the heavier, falling graupel pellets with a negative charge. The storm’s updraught sweeps the lightweight, positively charged ice crystals high into the anvil, while gravity pulls the negatively charged graupel into the middle and lower belly of the cloud—turning the thunderstorm into a giant electrostatic battery."
         },
         {
-          "kind": "figure",
-          "figure": "charge",
+          "type": "diagram",
+          "id": "charge",
           "caption": "Where a thunderstorm keeps its charge."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Meanwhile, the strong negative charge in the lower cloud repels electrons in the ground directly beneath the storm, leaving the ground surface positively charged. Once the electrical voltage between these separated charge centres grows strong enough to overcome the insulating resistance of air, electrons surge through a narrow, ionized channel in a giant spark several kilometres long: **lightning**."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "A lightning stroke heats its narrow channel of air to roughly 30,000 °C in a few millionths of a second—five times hotter than the surface of the sun. Heated that violently, the air channel explodes outward faster than the speed of sound, launching a supersonic shock wave that quickly relaxes into the booming acoustic wave we hear as **thunder**.[^rumble]"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because light travels at 300,000 kilometres per second, you see the lightning flash the instant it happens. Sound travels through air much more slowly—at about **340 metres per second**—taking roughly **3 seconds to cover a kilometre** (or 5 seconds for a mile). Count the seconds from the flash to the first crack of thunder and divide by 3 to find your distance from the strike in kilometres. (The interactive figure speeds up the clock so you don’t have to wait in real time, while showing the real-world second count.)"
         },
         {
-          "kind": "figure",
-          "figure": "flash",
+          "type": "interactive_diagram",
+          "id": "flash",
           "caption": "A storm somewhere off over the hills.",
           "task": "Make the storm strike, and count.",
           "goal": "strike"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Don't assume you are safe just because blue sky sits directly overhead. Because the positively charged upper anvil spreads many kilometres downwind of the dark rain core, a powerful positive lightning bolt can arc out of the high anvil through clear air and strike the ground 10 to 15 kilometres away from the rain shaft—the notorious \"bolt from the blue.\""
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That reach is the basis for the **30–30 rule**: if you count **30 seconds or less** between a lightning flash and its thunder, the strike is within 10 kilometres (6 miles) and you are already inside striking range. Seek shelter inside a substantial building or hard-topped vehicle immediately, and stay inside until **30 minutes** after the last rumble of thunder."
         }
       ]
@@ -192,22 +192,22 @@
       "title": "Pouches under the anvil",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "After a strong thunderstorm matures, the underside of its spreading anvil sometimes breaks into smooth, rounded pouches hanging toward the ground. The anvil base is loaded with ice crystals and cloud droplets sitting just above much drier clear air. When a pocket of this cloudy anvil air sinks into the dry layer below, its ice crystals and droplets evaporate, absorbing latent heat and chilling the sinking pocket. Because evaporation keeps cooling it from within, the descending cloudy pocket warms at only about 5 °C per kilometre on the way down, whereas the clear air around it warms downward at 6 to 8 °C per kilometre. Remaining colder and denser than the surrounding sky, the pocket keeps sinking in smooth, bulbous lobes—convection running in reverse, powered by evaporation inside sinking air."
         },
         {
-          "kind": "figure",
-          "figure": "mamma",
+          "type": "interactive_diagram",
+          "id": "mamma",
           "caption": "The underside of an anvil, late in a storm.",
           "task": "Let the cold air sink until pouches form.",
           "goal": "pouches"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "These pendulous pouches are called **mammatus** (or *mamma*). Lit sideways by low late-afternoon sun, mammatus can look eerie and ominous, leading to a common myth that they signal an imminent tornado. In reality, mammatus lobes are simply sinking, evaporating air under an anvil, most often seen either ahead of a storm or after the worst of the storm has already passed."
         },
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "Reading storm towers",
           "points": [
             "**Morning castle turrets** (*altocumulus castellanus*): the middle floor is already unstable. Watch for afternoon storms.",
@@ -223,12 +223,12 @@
       "title": "Look-alikes, in real photos",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Compare these photographs side by side, focusing on the visual clue that separates cumulonimbus from its closest look-alikes."
         },
         {
-          "kind": "figure",
-          "figure": "lookAlike",
+          "type": "diagram",
+          "id": "lookAlike",
           "caption": "Cumulus or cumulonimbus?",
           "options": {
             "photos": [
@@ -245,8 +245,8 @@
           }
         },
         {
-          "kind": "figure",
-          "figure": "lookAlike",
+          "type": "diagram",
+          "id": "lookAlike",
           "caption": "Cumulonimbus or nimbostratus?",
           "options": {
             "photos": [
@@ -268,12 +268,12 @@
       "title": "Check",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "First identify the cloud genera in these photographs, then read the forecast from the evolving skies below."
         },
         {
-          "kind": "figure",
-          "figure": "check",
+          "type": "quiz",
+          "id": "check",
           "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
           "options": {
             "photos": {

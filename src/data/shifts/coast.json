@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "coast",
   "n": 10,
   "title": "Why does the Pacific coast almost never thunder?",
@@ -9,7 +9,7 @@
       "title": "A cold sea in summer",
       "blocks": [
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The big ideas of this lesson",
           "points": [
             "The ocean off the West Coast stays cold even in August, chilled by the **California Current** from the Gulf of Alaska and by summer north winds that drive cold water up from the depths (**upwelling**).",
@@ -20,31 +20,31 @@
           ]
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Lesson 5 showed how summer sunshine baking damp ground can build a towering thunderstorm by mid-afternoon. Along the Gulf Coast of Florida, that happens on roughly ninety days a year; in Kansas, on about fifty-five. Yet along the Pacific coast from Seattle to San Francisco, thunder is heard on only three to five days a year, and in some years not at all. The coastal air is certainly not short of moisture—summer beaches are famously damp and foggy—so something else must be preventing the clouds from growing tall."
         },
         {
-          "kind": "figure",
-          "figure": "thunderDays",
+          "type": "diagram",
+          "id": "thunderDays",
           "caption": "Approximate number of thunderstorm days per year across the United States, from Florida to the Pacific coast."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "The first reason lies in the ocean itself. Wade into the surf on the Oregon or northern California coast in August and the water is around 11 to 13 °C (52 to 55 °F)—cold enough to make your ankles ache. Off Florida or the Carolinas in August, the sea surface sits at 28 to 30 °C (82 to 86 °F), as warm as a heated swimming pool. The West Coast sits along the **California Current**, the slow eastern limb of the North Pacific gyre that carries cool subarctic water southward from the Gulf of Alaska. And in summer, the coastal wind makes the water right against the shore colder still."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "All summer long, the prevailing wind along the Pacific coast blows from the north or northwest. You might expect a north wind to push the surface water straight south along the beach. As Lesson 9 showed, however, the Earth’s rotation deflects any freely moving fluid to the right of its path in the Northern Hemisphere. When a north wind drags on the ocean surface, the top layer of water actually drifts to the right of the wind—westward, straight out to sea.[^ekman] As that surface layer is skimmed offshore, deep, frigid water (8 to 10 °C) rises from 50 to 100 metres down to replace it along the coast. This process is **coastal upwelling**, and it often makes the ocean at the beach colder in July than it was in April.[^upwelling-life]"
         },
         {
-          "kind": "figure",
-          "figure": "upwelling",
+          "type": "interactive_diagram",
+          "id": "upwelling",
           "caption": "Cross-section of the coast looking north. A north wind blows toward you (out of the page) and drives surface water offshore to the West; a south wind blows away from you.",
           "task": "Try a south wind, then blow a north wind along the coast until the sea at the shore is cold enough to fog the air.",
           "goal": "fog"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "When mild, humid air from the open Pacific (with a dew point around 12 or 13 °C) drifts across that belt of upwelled 10 °C water near the shore, the bottom of the air mass is chilled below its dew point and condenses into sea fog (Lesson 1). Along the West Coast in summer, the air near the surface is cooled from below rather than heated.[^twain]"
         }
       ]
@@ -53,20 +53,20 @@
       "title": "A lid pressed down from above",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "The second reason sits overhead. Every summer, a massive semi-permanent high-pressure system expands across the eastern North Pacific, centred roughly a thousand kilometres west of San Francisco: the **North Pacific High**. As in every Northern Hemisphere high (Lesson 9), surface winds spiral clockwise outward around it while air aloft slowly sinks to replace them. Along the eastern flank of the high—right against the North American coast—that clockwise circulation blows steadily from north to south, supplying the exact north wind that drives coastal upwelling."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Meanwhile, the air sinking out of the upper levels of the Pacific High compresses as it descends into higher pressure, warming at the dry rate of 10 °C per kilometre and drying out along the way (Lesson 2). That warm, sinking air mass comes to rest directly on top of the shallow layer of air chilled by the cold ocean below. As a result, the air one kilometre above the beach in July is often 10 to 15 °C *warmer* than the air at the sand—a remarkably strong temperature **inversion** sitting just 300 to 800 metres above the sea."
         },
         {
-          "kind": "figure",
-          "figure": "pacificHigh",
+          "type": "diagram",
+          "id": "pacificHigh",
           "caption": "The North Pacific High in summer seen from above (left), and a vertical slice through the coastal atmosphere showing warm, sinking air capping the cool marine layer (right)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "The Pacific High is part of a global circulation belt. Warm, humid air that rises in the deep thunderstorm belts near the equator flows poleward at high altitude and sinks back toward the surface around 30° north and south latitude, forming a ring of **subtropical highs** around the globe.[^belt] Beneath that descending, dry air lie the world’s great hot deserts—the Sahara, the Arabian Desert, the Atacama, and the Kalahari—and on the eastern edges of the ocean basins, it produces dry summers from California to the Mediterranean."
         }
       ]
@@ -75,22 +75,22 @@
       "title": "The summer grey",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Sandwiched between the cold ocean below and the warm inversion lid above sits the **marine layer**: a shallow slab of cool, moist ocean air only a few hundred metres thick. Gentle mixing by the wind cools the top of this trapped layer to its dew point, forming a persistent deck of **stratus** or **stratocumulus** pressed flat against the base of the inversion (Lesson 2). In coastal California, this late-spring and early-summer overcast is so reliable that locals call it the *June Gloom*."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "What pulls this coastal cloud deck onshore and offshore each day is the heating and cooling of the land. Just across the coastal hills, interior valleys like California’s Central Valley or Oregon’s Willamette Valley bake under clear skies to 35 or 40 °C (95 to 105 °F). As hot air rises over the interior, surface pressure falls there, creating a pressure gradient that sucks cool, dense marine air inland through every gap and river gorge in the Coast Ranges—a daily **sea breeze** on a regional scale.[^sf-gaps] After sunset, the inland pull relaxes, but the humid marine air that flowed inland cools overnight until stratus fills the coastal valleys by dawn. After sunrise, sunshine penetrates the thin inland edge of the cloud deck first, warming the ground below and evaporating the stratus back toward the coast by afternoon (Lesson 1). By mid-afternoon, the inland valleys are blazing hot and cloudless while the beach remains cool and grey."
         },
         {
-          "kind": "figure",
-          "figure": "marineLayer",
+          "type": "interactive_diagram",
+          "id": "marineLayer",
           "caption": "Daily advance and retreat of the marine layer from the coast into an inland valley through a gap in the coastal hills.",
           "task": "Make the valley hot, then find the afternoon hour when the beach is grey and the valley is clear.",
           "goal": "burn"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because the interior heat drives the pressure gradient, the hottest days inland pull the marine layer hardest. When Sacramento hits 40 °C, the sea breeze through the Golden Gate is at its briskest and San Francisco stays wrapped in cold, blowing fog. Where the base of the stratus deck lowers all the way to the waves, the foghorns sound along the headlands."
         }
       ]
@@ -99,30 +99,30 @@
       "title": "Heat the land, still no storm",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Now consider what it takes to build a thunderstorm. As Lesson 5 showed, a thunderstorm grows when a rising parcel of air stays warmer and less dense than the surrounding atmosphere all the way up through the middle troposphere—well past the 0 °C freezing level where ice crystals and soft hail (*graupel*) collide to separate electrical charge."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Over the summer Pacific off Oregon or California, a parcel of air near the water starts out at the temperature of the sea: around 13 or 14 °C. The sounding chart below plots that rising parcel (orange) against the surrounding coastal atmosphere (violet). Test how high the parcel can climb."
         },
         {
-          "kind": "figure",
-          "figure": "coastSounding",
+          "type": "interactive_diagram",
+          "id": "coastSounding",
           "caption": "Sounding chart for a parcel rising off the cool Pacific (orange) through the surrounding atmosphere (violet), and the resulting cloud.",
           "task": "Guess first. Then find a sea and an air aloft that build a thunderstorm.",
           "goal": "storm"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Within 400 to 600 metres of the surface, the rising parcel runs straight into the Pacific High’s inversion lid, where the surrounding air jumps 10 °C warmer. Suddenly much colder and denser than the air around it, the parcel stops dead in its tracks, flattening into shallow stratocumulus thousands of metres below the freezing level."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "To punch past a low-level cap and build a thunderstorm, the atmosphere needs either a **much warmer ocean** at the bottom or **much colder air** aloft. Off Florida in August, the ocean surface is 29 °C (84 °F), loading the boundary layer with nearly three times as much water vapour as the cool Pacific air. When a hot, steamy Gulf parcel rises, condensing vapour releases so much latent heat that the parcel stays warmer than the surrounding sky all the way to the tropopause at 12 kilometres. The second way to get a thunderstorm—putting bitter cold air aloft over milder water—is how the Pacific coast gets its rare winter lightning."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "What about the hot inland valleys of the West, where summer afternoons regularly top 35 °C? Even there, the sinking air of the Pacific High keeps the middle troposphere warm and bone-dry, so rising thermals often run out of moisture or hit a mid-level cap before reaching the freezing level. Interior western thunderstorms mainly break out when summer monsoon winds import mid-level moisture northward from Mexico and the Gulf of California,[^monsoon] or when an upper-level trough brings unseasonably cold air aloft. Because the air near the ground is still hot and dry, those interior storms often have high bases (3 to 4 km up); much of their rain evaporates on the way down as virga, unleashing **dry lightning** across parched summer forests."
         }
       ]
@@ -131,15 +131,15 @@
       "title": "The few days it does thunder",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "When autumn arrives, the North Pacific High weakens and retreats southward toward Hawaii, taking the coastal inversion lid with it, while the polar jet stream dips south to steer Pacific cyclones into Washington, Oregon, and California (Lesson 9). Behind each passing cold front, polar air pours straight down from the Gulf of Alaska, bringing temperatures of −5 °C to −10 °C just 1.5 kilometres above the waves. Yet the ocean water, which changes temperature very slowly through the seasons, still sits at 10 to 12 °C."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Now the summer temperature profile is flipped upside down: instead of cold water under warm air aloft, the coast has **comparatively mild water under frigid air aloft**. Heated and moistened from below by the 11 °C sea, rising air parcels stay warmer than the cold polar air overhead for kilometres, erupting into lines of **cumulus congestus** and small **cumulonimbus** towers. Between October and March, these post-frontal bands march ashore with sudden squalls, heavy downpours, bouncing pellets of soft hail (**graupel**), brief waterspouts offshore, and occasional sharp cracks of thunder.[^winter-lightning] Along the Pacific coast, thunderstorm season is winter—the exact opposite of the continental interior."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "So the West Coast is never short of moisture. In summer, it is short of instability: a cold ocean cools the air at the bottom while sinking air in the Pacific High warms the air at the top, locking the marine moisture into a shallow grey sheet."
         }
       ]
@@ -148,12 +148,12 @@
       "title": "Check",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "First identify the cloud genera in these photographs, then apply coastal upwelling, the inversion lid, and the sea breeze to the scenarios below."
         },
         {
-          "kind": "figure",
-          "figure": "check",
+          "type": "quiz",
+          "id": "check",
           "caption": "Real photos to name, then a sky and what the sea and the valleys are doing. What is it up to?",
           "options": {
             "photos": {

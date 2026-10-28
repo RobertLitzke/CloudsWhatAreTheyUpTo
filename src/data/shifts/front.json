@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "front",
   "n": 6,
   "title": "Wind shifts, cold fronts, and radar",
@@ -9,7 +9,7 @@
       "title": "One storm, many clouds",
       "blocks": [
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The big ideas of this lesson",
           "points": [
             "Mid-latitude storms are huge whirls of air a thousand kilometres or more across called **lows**. Each low carries a warm front, a warm sector, and a cold front, drifting eastward at roughly 30 km/h (20 mph).",
@@ -20,36 +20,36 @@
           ]
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Lesson 4 followed a warm front’s cloud deck from the first wisp of cirrus down to soaking nimbostratus. That front was only one edge of a much larger system. This lesson steps back to examine the entire storm, adding the instruments a forecaster reads alongside the sky: the barometer, the wind vane, the thermometer, and weather radar."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "By the end, you will be able to watch a single sky evolve over two days and place every cloud, wind shift, and pressure change into the larger story of a passing storm."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Across the middle latitudes, cold polar air from the north and warm subtropical air from the south meet along a wavering boundary. Every few days, a wave along that boundary deepens into a vast whirl of air a thousand kilometres or more across. Near its centre, atmospheric pressure is lower than anywhere around it, so forecasters call the whole system a **low** (or mid-latitude cyclone)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Air drawn toward the low does not flow straight into its centre. Because Earth rotates beneath the moving air, winds in the Northern Hemisphere are deflected to the right,[^coriolis] spiralling anticlockwise into the low. That turning circulation sweeps warm air northward on the low’s eastern side and drags cold air southward on its western side."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Where advancing warm air glides over retreating cold air, the leading edge is the **warm front**. Where denser cold air surges into warmer air, the leading edge is the **cold front**. The wedge of mild, humid air between the two fronts is the **warm sector**.[^front-name]"
         },
         {
-          "kind": "figure",
-          "figure": "lowMap",
+          "type": "diagram",
+          "id": "lowMap",
           "caption": "A mid-latitude storm seen from above, as on a weather map. The dashed line traces the path a town takes relative to the storm as the system drifts east."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "On a surface weather map, a warm front is drawn with red semicircles and a cold front with blue triangles, each pointing in the direction the front is advancing. Carried along by the westerly winds aloft, the entire storm drifts eastward at roughly 30 km/h (20 mph)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As the storm tracks east, a town along the dashed line encounters each sector in sequence: first the high ice clouds far ahead of the warm front (1), then the warm front itself, then the mild warm sector (2), and finally the cold front followed by crisp polar air behind it (3). We will start with the barometer—the single best instrument for tracking a low—and then follow the storm overhead, compare the two fronts, read the shifting wind, and look inside the clouds with radar."
         }
       ]
@@ -58,45 +58,45 @@
       "title": "The weight of the air",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Air has weight. A column of air one metre square, stretching from sea level to the top of the atmosphere, weighs about ten tonnes. We don't feel crushed only because air and fluids inside our bodies push outward just as hard as the atmosphere presses in."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In 1643, Evangelista Torricelli devised a way to weigh that atmospheric column. He filled a metre-long glass tube with mercury—a liquid metal nearly fourteen times denser than water—and inverted its open end into a dish of mercury. The mercury column dropped partway and settled at about 760 millimetres (29.92 inches) high, leaving a vacuum in the sealed space above it."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "What holds that heavy column of mercury up is the weight of the atmosphere pressing down on the open dish. When the air overhead weighs slightly more, it pushes the mercury higher; when the air overhead weighs less, the mercury drops. That instrument is a **barometer**.[^puy-de-dome]"
         },
         {
-          "kind": "figure",
-          "figure": "barometer",
+          "type": "diagram",
+          "id": "barometer",
           "caption": "How a mercury barometer works: the weight of the atmosphere on the dish balances the weight of the mercury column in the tube."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Forecasters measure atmospheric pressure in **hectopascals (hPa)**—identical to **millibars (mb)**—where average sea-level pressure is **1013 hPa** (or **29.92 inches of mercury** on traditional US dials). A deep winter low can drag pressure below 980 hPa, while a strong high can push it past 1035 hPa."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Why does surface pressure fall as a low approaches? Near the ground, winds spiral inward toward the low and rise, cooling to form the storm's cloud deck. Rising air by itself wouldn't lower the weight of the column, since the air is still overhead—but near the top of the troposphere, fast upper-level winds sweep air away horizontally faster than surface winds spiral in below. With more air leaving the top of the column than entering at the bottom, the total mass of air overhead drops, and the barometer falls."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "A high-pressure system works in reverse: air converges high aloft and sinks slowly toward the ground, warming and drying by compression to bring clear, settled skies (and forming the subsidence inversion lid that caps stratocumulus in Lesson 2)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "When reading a barometer, the **trend** matters far more than the single number on the dial. A steady fall of about 1 hPa every three hours over half a day or more signals an approaching low. A rapid drop exceeding 1 hPa per hour warns of a deep, vigorous storm with strong winds. A steady rise means the storm centre or cold front has passed."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "To make that trend visible at a glance, forecasters use a **barograph**: a mechanical pen driven by sealed, partially evacuated metal capsules (*aneroid* cells[^aneroid]) that flex as air pressure changes, tracing a continuous seven-day pressure curve on a rotating paper drum."
         },
         {
-          "kind": "figure",
-          "figure": "barograph",
+          "type": "diagram",
+          "id": "barograph",
           "caption": "A barograph. Rising pressure squeezes the sealed metal capsules thinner; falling pressure lets them spring back, moving the pen arm across a week-long chart."
         }
       ]
@@ -105,42 +105,42 @@
       "title": "A storm goes by",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Now watch a complete mid-latitude storm cross a town from west to east. The interactive cross-section below slices right through the warm front, the warm sector, and the cold front, while the barograph trace at the bottom tracks the surface pressure hour by hour."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In the diagram, cold air masses are shaded blue—both the retreating cold wedge beneath the warm front’s gentle ramp and the advancing cold wedge behind the cold front’s steep nose. Surface wind, temperature, and dew point appear just below the town. (Vertical heights are exaggerated about 100 times so the frontal slopes are easy to see.)"
         },
         {
-          "kind": "figure",
-          "figure": "frontPass",
+          "type": "interactive_diagram",
+          "id": "frontPass",
           "caption": "A storm system crossing a town from west to east, with the barograph trace below.",
           "task": "Let the whole storm go by, until the barometer is rising again.",
           "goal": "pass"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Ahead of the warm front**, the barometer begins a steady fall around the time the first high cirrus hooks appear, dropping further as cirrostratus and altostratus thicken overhead. Surface winds blow from the south or southeast and freshen as air spirals inward on the eastern side of the approaching low."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Once steady rain begins falling from the nimbostratus deck through the cooler air wedge below, partial evaporation chills and moistens that sub-cloud air until it reaches saturation—spawning ragged shreds of low **scud**, low stratus, or frontal fog beneath the main overcast."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**In the warm sector**, the surface warm front passes and the weather changes character. The steady rain tapers off, the wind veers clockwise to the south or southwest, and both temperature and dew point jump as mild, muggy subtropical air arrives. The barometer stops falling and levels off. Overhead, the sky often holds a broken deck of low stratocumulus or stratus with occasional sunny intervals."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**At the cold front**, the barometer hits its lowest trough and hooks sharply upward. A dark band of towering cumulus and cumulonimbus sweeps in from the west, led by a sudden **gust front** (Lesson 5) and a brief, heavy downpour or thunderstorm **squall** that rarely lasts more than an hour. As the front passes, the wind swings abruptly to the west or northwest and both temperature and dew point plunge."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Behind the cold front**, drier polar air clears the sky from the west, making distant ridges look razor-sharp. Because this cold air mass is flowing across ground still warm from the previous day, steep low-level lapse rates set off bright heaps of fair-weather cumulus (and occasional brief showers) by midday. Meanwhile, the barometer climbs steadily."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "When the post-frontal wind finally dies down on the first clear evening, the combination of calm air, clear skies, and rain-soaked ground creates prime conditions for overnight radiation fog in the valleys—or the first frost of autumn (Lesson 1)."
         }
       ]
@@ -149,48 +149,48 @@
       "title": "Gentle ramps and steep noses",
       "blocks": [
         {
-          "kind": "figure",
-          "figure": "twoFronts",
+          "type": "diagram",
+          "id": "twoFronts",
           "caption": "A warm front and a cold front drawn to the same vertical scale."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Why does a warm front build a broad, multi-layered cloud sheet while a cold front builds a narrow wall of convective towers? Both fronts lift warm, moist air—the difference lies in how steeply they lift it."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "At a warm front, lighter warm air is overtaking denser cold air. Unable to shove the heavy cold wedge aside, the warm air glides up a very gradual ramp, rising only about 1 kilometre vertically for every 100 to 150 kilometres horizontally. At a cold front, dense cold air is doing the pushing, bulldozing underneath the warm sector like a snowplough blade. Surface friction slows the bottom edge of the advancing cold air, curling its leading edge into a steep, blunt nose that slopes at roughly 1 in 50 to 1 in 30."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Upward air speed equals the front’s forward speed multiplied by its slope. Take a front advancing at 30 km/h (about 8 metres per second). Along a 1-in-100 warm-front ramp, the warm air glides upward at just 8 centimetres per second—a gentle, widespread lift that cools an entire slab of air slowly into smooth, stable cloud layers (cirrostratus, altostratus, nimbostratus)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Along a steep 1-in-30 cold-front nose, the warm-sector air is thrust upward more than three times faster. It reaches its condensation level in under half an hour, and because warm-sector air is typically moist and conditionally unstable, latent heat takes over and launches the lifted air into a narrow line of cumulus congestus and cumulonimbus towers."
         },
         {
-          "kind": "figure",
-          "figure": "slope",
+          "type": "interactive_diagram",
+          "id": "slope",
           "caption": "Warm air lifted up a frontal boundary. Increasing the frontal slope switches the cloud pattern from wide stratiform layers to narrow convective towers.",
           "task": "Steepen the front until the lifted air builds towers.",
           "goal": "towers"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Watch what happens to the rainfall distribution in the interactive figure as you steepen the front. Either front wrings out roughly the same total volume of water (say, 10 mm). A gentle warm-front ramp spreads that water across a belt hundreds of kilometres wide, giving any single farm hours of gentle, soaking rain that sinks into the soil. A steep cold-front nose concentrates that same water into a narrow band a few dozen kilometres wide, dumping it in a hard, 30-minute downpour that quickly runs off."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That contrast is why meteorologists distinguish **steady (stratiform) rain** ahead of a warm front from **showers and squalls** along a cold front."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because cold fronts plow forward faster than warm fronts retreat, a cold front in a maturing storm eventually catches up to the warm front ahead of it. As the cold air undercuts the warm front, it lifts the entire warm sector off the ground, forming an **occluded front** (drawn on maps as a purple line alternating semicircles and triangles). An occlusion combines broad nimbostratus rain shields with embedded convective showers—the typical state of mature Pacific storms by the time they reach the North American coast."
         },
         {
-          "kind": "figure",
-          "figure": "occlusion",
+          "type": "diagram",
+          "id": "occlusion",
           "caption": "How a cold front catches up to a warm front to form an occluded front, seen from above."
         }
       ]
@@ -199,42 +199,42 @@
       "title": "Reading the wind",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "In 1857, the Dutch meteorologist Christophorus Buys Ballot published a practical rule that mariners still use to steer clear of storm centres: in the Northern Hemisphere, **stand with your back to the wind, and low pressure lies to your left** (and slightly ahead of you).[^buys-ballot] (In the Southern Hemisphere, where cyclones spin clockwise, low pressure lies to your right.)"
         },
         {
-          "kind": "figure",
-          "figure": "buysBallot",
+          "type": "diagram",
+          "id": "buysBallot",
           "caption": "Buys Ballot’s law in the Northern Hemisphere: stand with your back to the surface wind, and the low-pressure centre is to your left."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because mid-latitude lows travel generally from west to east, watching how the surface wind shifts tells you whether the storm centre is passing north or south of you. When a low tracks north of your town (the most common path across the northern United States and Europe), the surface wind starts out from the southeast or south ahead of the warm front, then shifts clockwise as each sector passes: from southeast to southwest in the warm sector, and then sharply to the west or northwest behind the cold front."
         },
         {
-          "kind": "figure",
-          "figure": "veer",
+          "type": "diagram",
+          "id": "veer",
           "caption": "Surface wind shifts at a town as a low passes to the north: (A) ahead of the warm front, (B) in the warm sector, (C) at the cold front, and (D) behind the cold front."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Meteorologists call a clockwise wind shift (say, south to southwest to northwest) **veering**, and an anticlockwise shift (say, south to southeast to east) **backing**. As a general rule of thumb, a backing wind with a falling barometer warns of approaching foul weather, whereas a veering wind with a rising barometer signals clearing skies."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Looking up at the high clouds gives you a second wind reading for free. While surface winds spiral inward toward the low from the south or southeast, winds high in the troposphere flow much faster from the west or southwest, steered by the large-scale temperature contrast between polar and subtropical air."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Combining the surface wind with the upper-cloud motion gives the **crossed-winds rule** (for the Northern Hemisphere). Stand with your back to the surface wind and watch the high clouds (cirrus or altocumulus, not low scud). If the upper clouds drift across the sky **from your left to your right**, warm air advection and a low-pressure system are approaching—expect deteriorating weather. If the upper clouds drift **from your right to your left**, the low is moving away—expect improving weather. If the upper clouds move roughly parallel to the surface wind, expect current conditions to hold."
         },
         {
-          "kind": "figure",
-          "figure": "crossedWinds",
+          "type": "diagram",
+          "id": "crossedWinds",
           "caption": "The crossed-winds rule in the Northern Hemisphere: back to the surface wind, watch which way the upper clouds cross."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Always apply the crossed-winds rule using middle or high clouds rather than low cumulus or scud (which simply blow along with the surface wind), and pair it with your barometer trend and the cloud sequence."
         }
       ]
@@ -243,74 +243,74 @@
       "title": "Seeing inside the storm: weather radar",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Everything covered so far can be read with your eyes, a barometer, and a wind vane. Since the Second World War, forecasters have had an instrument that peers directly inside clouds to map falling rain and snow—and today anyone with a smartphone weather app carries it in their pocket."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Weather radar** works by transmitting short pulses of microwave energy (typically around 5 to 10 centimetres in wavelength) from a rotating dish and listening for the tiny fraction of energy scattered back when a pulse strikes precipitation. The echo's return time reveals the distance, the dish's angle gives the direction, and its strength shows how hard it is raining.[^doppler]"
         },
         {
-          "kind": "figure",
-          "figure": "radarEcho",
+          "type": "interactive_diagram",
+          "id": "radarEcho",
           "caption": "A radar pulse striking a cubic metre of air holding 0.5 g of water—either dispersed as tiny cloud droplets or concentrated into raindrops.",
           "task": "Make the drops big enough for the radar to see them as rain.",
           "goal": "rain"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "For particles smaller than the radar wavelength, echo strength scales with the **sixth power** of a drop's diameter: a single drop twice as wide reflects 2⁶ = 64 times as much microwave energy. Even accounting for the fact that splitting the same water volume into twice-as-wide drops leaves one-eighth as many drops, the total radar echo still jumps **eightfold** (64 ÷ 8 = 8). That is why weather radar sees rain rather than ordinary clouds: cloud droplets are roughly 100 times narrower than raindrops, so non-raining clouds are virtually invisible on a standard radar map. Radar reflectivity is measured on a logarithmic scale called **dBZ** (where every +10 dBZ means a tenfold stronger echo): light rain registers around 20 dBZ, a heavy downpour around 50 dBZ, and large hail above 60 dBZ."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Most steady rain from deep frontal clouds starts out as snow high above the freezing level and melts on the way down (Lesson 7 explores why). On a vertical radar cross-section, that melting zone shows up as a striking horizontal stripe called the **bright band**. Above the 0 °C line, dry snowflakes are large but made of ice, which reflects microwaves only about a fifth as strongly as liquid water. Just below the 0 °C line, the snowflakes begin to melt from the outside in: coated in a wet film of liquid water while still as large and slow-falling as snowflakes, they masquerade on radar as giant raindrops and produce a sudden spike in reflectivity. A few hundred metres lower, the melted flakes collapse into compact raindrops that fall five times faster, spacing themselves further apart and dropping the radar echo back down. Forecasters use the bright band to track the exact height of the freezing level in real time."
         },
         {
-          "kind": "figure",
-          "figure": "brightBand",
+          "type": "interactive_diagram",
+          "id": "brightBand",
           "caption": "A vertical radar slice through steady stratiform rain, showing the high-reflectivity 'bright band' where melting snow coats itself in liquid water just below 0 °C.",
           "task": "Lower the freezing level until snow reaches the ground.",
           "goal": "snow"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In winter storms, watching the bright band sink toward the valley floor gives forecasters advance notice that cold air is deepening and surface rain is about to flip to wet snow."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "On a regional radar map, warm fronts and cold fronts look completely different at a glance. Ahead of the warm front spreads a broad, smooth shield of blue and green (20–35 dBZ) hundreds of kilometres wide, marking steady stratiform rain. Along the cold front runs a narrow, broken ribbon of yellow, orange, and red cells (45–55+ dBZ)—a **squall line** of intense convective downpours with dry gaps between cells. Behind the cold front, speckled cellular showers pop up in the unstable cold air mass."
         },
         {
-          "kind": "figure",
-          "figure": "radarMap",
+          "type": "diagram",
+          "id": "radarMap",
           "caption": "The mid-latitude storm from the start of the lesson, as seen on a regional weather radar map."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As you saw in the frontal-slope diagram earlier, frontal steepness is what creates these two radar signatures: gentle warm-front lifting spreads moderate echoes across a wide belt, whereas steep cold-front lifting concentrates intense echoes into a narrow line of convective towers."
         },
         {
-          "kind": "figure",
-          "figure": "frontRadar",
+          "type": "interactive_diagram",
+          "id": "frontRadar",
           "caption": "Plan-view radar signature of a frontal boundary. Steepening the frontal slope concentrates broad stratiform rain into a narrow line of intense convective cells.",
           "task": "Steepen the front until its rain breaks up into cells.",
           "goal": "cells"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "So when your radar app shows a wide, smooth green shield advancing steadily from the west, expect several hours of gentle, soaking rain. When it shows a thin, jagged red line racing toward you, expect a sudden gust front, 30 minutes of torrential rain or hail, and a sharp drop in temperature right behind it."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Vertical radar scans also reveal the three stages of an individual thunderstorm cell (Lesson 5). The first radar echo appears aloft at 5 to 6 kilometres altitude where precipitation particles first grow to millimetre size—often 10 to 20 minutes before any rain reaches the ground. In the mature stage, a towering column of 50+ dBZ extends from the ground high into the cloud, often with a 60+ dBZ magenta hail core suspended in the updraught, while the high ice anvil barely registers. In the dissipating stage, the high-reflectivity core slumps to the ground and fades out."
         },
         {
-          "kind": "figure",
-          "figure": "stormRadar",
+          "type": "diagram",
+          "id": "stormRadar",
           "caption": "Vertical radar slices through a single-cell thunderstorm across its developing, mature, and dissipating stages. White outlines show the visible cloud; colours show radar reflectivity."
         },
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "Reading a radar map",
           "points": [
             "**Wide, smooth shield of blue and green** (20–35 dBZ) advancing from the west: a warm front’s steady rain. Expect hours of soaking rain.",
@@ -325,39 +325,39 @@
       "title": "One sky, two days",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Here is how a forecaster puts all six lessons together to read a two-day autumn storm crossing the Columbia Basin hour by hour."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Monday dawn.** Shallow radiation fog fills the valley bottoms after a clear, calm night (Lesson 1) and burns off from the bottom up by 9 a.m. By noon, scattered flat **cumulus humilis** puffs appear, capped beneath the subsidence inversion of an departing high-pressure system (Lessons 1 and 2). The barometer reads high and steady at 1024 hPa."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Monday afternoon.** Hooked **cirrus** mares' tails invade from the western horizon and airliner contrails linger and spread (Lesson 4). The barometer begins falling at 1 hPa every three hours. Standing with your back to a light southeast breeze, the high cirrus streams across from your left to your right (the crossed-winds rule): a low-pressure system is approaching."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Monday night.** A milky veil of **cirrostratus** covers the stars and draws a wide 22° halo around the moon (Lesson 4). Because the thickening cloud deck radiates infrared heat back toward the ground, temperatures stay mild overnight with no fog or frost (Lesson 1)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Tuesday morning.** The veil lowers and thickens into grey **altostratus**, blurring the morning sun into a dim, frosted-glass disc and erasing ground shadows (Lesson 4). By late morning, the sun vanishes completely behind dark **nimbostratus** and steady rain begins, with ragged shreds of **scud** drifting low over the ridges (Lesson 2). Weather radar shows a wide green rain shield overhead."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Tuesday afternoon.** The surface warm front passes. The steady rain stops, the wind veers clockwise from southeast to southwest, the air turns mild and muggy, and the barograph trace flattens out in the **warm sector**. Overhead sits a broken, cobbled ceiling of **stratocumulus** with brief shafts of sunlight."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Tuesday evening.** A dark wall of **cumulus congestus** and **cumulonimbus** towers looms in the west, matching a thin red squall line on radar: the **cold front**. Fifteen minutes before the rain hits, a sudden blast of cold, blustery air sweeps across the fields—the **gust front** (Lesson 5)—followed by a 30-minute downpour and a few close flashes of lightning (under 30 seconds from flash to bang). The wind swings sharply to the northwest, temperature and dew point plunge, and the barometer hooks steeply upward."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Wednesday.** A brisk, crystal-clear morning. By midday, cold air flowing over sun-warmed ground triggers crisp, flat-bottomed heaps of fair-weather **cumulus** over the hills (Lessons 1 and 2) while the barometer climbs past 1020 hPa. That evening, the wind dies down under a cloudless sky, and cold air drains into the damp hollows to bring the first hard frost of autumn (Lesson 1)."
         },
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "Reading a storm as it comes",
           "points": [
             "**Cirrus invading from the west + falling barometer + backing wind**: a warm front is approaching. Steady rain within 18–36 hours.",
@@ -372,12 +372,12 @@
       "title": "Check",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "First identify the cloud genera in these photographs, then combine the sky, barometer, wind, and radar in the scenarios below to make your forecast."
         },
         {
-          "kind": "figure",
-          "figure": "check",
+          "type": "quiz",
+          "id": "check",
           "caption": "Real photos to name, then a sky with the barometer and the wind. What is coming?",
           "options": {
             "photos": {

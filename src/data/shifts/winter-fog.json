@@ -1,329 +1,329 @@
 {
- "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
- "id": "winter-fog",
- "n": 15,
- "title": "Why does a valley stay grey for weeks in winter?",
- "teaches": "Why does one night’s fog burn off by noon, while a basin in January can stay grey for weeks with sunshine on the hills above? The cold pool, the other ways air turns to fog, rime on the fences, and the warm layer aloft that turns rain to ice.",
- "parts": [
-  {
-   "title": "The cold pool",
-   "blocks": [
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "id": "winter-fog",
+  "n": 15,
+  "title": "Why does a valley stay grey for weeks in winter?",
+  "teaches": "Why does one night’s fog burn off by noon, while a basin in January can stay grey for weeks with sunshine on the hills above? The cold pool, the other ways air turns to fog, rime on the fences, and the warm layer aloft that turns rain to ice.",
+  "parts": [
     {
-     "kind": "key",
-     "title": "The big ideas of this lesson",
-     "points": [
-      "On long, calm winter nights, cold air slides down the slopes and collects in valleys and basins: a **cold pool**, under a lid of milder air. Night after night it deepens.",
-      "Grey cloud forms along the top of the pool, and the weak winter sun cannot heat through it. The basin stays cold and grey for days or weeks, while the hills above it are in sunshine.",
-      "Air turns to fog whenever it is chilled to its dew point: cooled from below on a still night, blown over a colder surface, pushed up a slope, or fed vapour by water much warmer than itself.",
-      "Fog below freezing is still made of liquid droplets. They freeze where they touch, and grow feathers of **rime** into the wind.",
-      "Snow falling through a warm layer aloft, and then a cold layer at the ground, can land as ice in two very different forms."
-     ]
-    },
-    {
-     "kind": "text",
-     "text": "Lesson 1’s fog formed on a clear, still night, when the ground lost its heat to the sky and chilled the air touching it to its dew point. By mid-morning the sun had heated the ground again, the fog lifted into a low sheet of stratus, and by noon it was gone. That is how fog behaves for most of the year."
-    },
-    {
-     "kind": "text",
-     "text": "In midwinter, in a basin ringed by hills, it can behave very differently. Some years the Columbia Basin, California’s Central Valley and the valleys of Utah and Idaho go grey in December and stay grey for two or three weeks at a time: fog or low cloud every morning, every afternoon and every night, a little below freezing all day, while a short drive up into the hills brings you out into blue sky and sunshine, several degrees warmer.[^tule]"
-    },
-    {
-     "kind": "text",
-     "text": "Two things make the difference. The first is the cold air itself. Cold air is heavier than warm, and on a calm night the air chilled against the slopes slides downhill, like water, and collects in the lowest ground. A basin fills with it from the bottom up. Above it lies milder air, and the boundary between them is a lid like Lesson 2’s: air warmer above than below, so nothing rises through it. Under a winter high, a broad area of high pressure where air sinks slowly from above and the wind stays light, each calm night adds more cold air to the pool."
-    },
-    {
-     "kind": "text",
-     "text": "The second is the season. A winter day is short, the sun is low, and much of its light is reflected off the top of any cloud. In October, even a thick morning fog is burned off by noon. In January, once the pool is a few hundred metres deep and grey along its top, the sun cannot heat through it. The ground under the cloud does not warm, the pool does not stir, and the next night adds to it."
-    },
-    {
-     "kind": "figure",
-     "figure": "coldPool",
-     "caption": "A basin ringed by hills after a run of calm winter nights, with the temperature on the floor of the basin and up on the ridge.",
-     "task": "Guess what clears the grey, then build a week of it and find the wind that clears it.",
-     "goal": "scour"
-    },
-    {
-     "kind": "text",
-     "text": "A colder night only adds to the pool, and a sunny afternoon only shines on the top of the cloud. What clears it is wind. A storm arriving from the Pacific brings strong wind and a front, and the wind stirs the air from the ground up. When it stirs deeper than the pool, it brings the mild air from above the lid down to the floor and carries the cold air up into it. The mixed air is warmer than the pool was, its droplets evaporate, and the basin clears, often in an hour or two after weeks of grey."
-    },
-    {
-     "kind": "text",
-     "text": "**Today:** a layer warmer above than below is called an **inversion**, and forecasters call these episodes inversions too, and air-quality agencies watch them: smoke from chimneys and exhaust from traffic are trapped under the lid along with the cold, and in some basins the air grows unhealthy within days. In Salt Lake City, Fresno and Boise, people speak of “inversion season”."
-    }
-   ]
-  },
-  {
-   "title": "Other ways to make fog",
-   "blocks": [
-    {
-     "kind": "text",
-     "text": "Every fog is the same thing: air chilled to its dew point near the ground, so that its vapour condenses into droplets, as in Lesson 1. What differs is how it is chilled, or how it is given more vapour."
-    },
-    {
-     "kind": "text",
-     "text": "The most common way, on land, is the one in Lesson 1: a still, clear night, the ground cooling and chilling the air right against it. Without wind, only a thin skin of air is chilled, and the fog is shallow: you can sometimes stand in it and see stars overhead. With a light breeze, the chill is stirred up through a deeper layer and the fog thickens. With a strong wind, the chilled air is stirred so high that it lifts off the ground as low stratus instead."
-    },
-    {
-     "kind": "text",
-     "text": "A second way needs no clear night at all. Damp air carried by the wind over a surface colder than its dew point is chilled from below wherever it goes. That is **advection fog**: the sea fog of a cold coast in summer, and the fog over melting snow when mild, damp air arrives after a cold spell and is chilled by the snow beneath it. It can form at any time of day, and it moves in with the wind."
-    },
-    {
-     "kind": "figure",
-     "figure": "fogMaker",
-     "caption": "Damp air over the ground or over water. Set the temperature of each, and the wind.",
-     "task": "Make a fog by blowing damp air over a colder surface, then make steam fog.",
-     "goal": "steam"
-    },
-    {
-     "kind": "text",
-     "text": "A third way is the opposite of the second. When very cold air passes over water much warmer than itself, cold air can hold very little vapour, the warm water gives off far more than that, and the extra condenses at once into wisps that rise off the surface like steam off a bath. **Steam fog** smokes off rivers on bitter mornings, and off the open sea in the Arctic, where sailors call it sea smoke."
-    },
-    {
-     "kind": "text",
-     "text": "A fourth way is Lesson 1’s other cooling: lifting. Damp air pushed steadily up a long slope cools as it rises, and where it reaches its dew point it becomes fog on the hillside, called **upslope fog**: cloud on the ground, for anyone standing in it. On the Great Plains, damp air flowing west towards the Rockies rises over a kilometre across hundreds of kilometres, and fogs the high plains of Colorado for days."
-    }
-   ]
-  },
-  {
-   "title": "Freezing fog and rime",
-   "blocks": [
-    {
-     "kind": "text",
-     "text": "In a cold pool in January, the fog is usually below freezing. It is still made of liquid droplets: as Lesson 7 showed, water droplets that small can stay liquid far below 0 °C until they touch something to freeze on. That something is everything in the fog: fence wires, branches, grass, power lines and the windscreen of a car."
-    },
-    {
-     "kind": "text",
-     "text": "Each droplet that hits freezes at once where it lands, and the next one freezes on top of it. Droplets carried by the breeze hit the side of a wire that faces the wind, so the ice grows towards the wind, in feathers and spikes that can reach several centimetres after a few days. This is **rime**. On a morning when the fog thins, the trees of a basin can be white on one side, as if snowed on sideways."
-    },
-    {
-     "kind": "figure",
-     "figure": "rime",
-     "caption": "Rime and hoar frost: two kinds of white on a fence wire."
-    },
-    {
-     "kind": "text",
-     "text": "Rime is easily confused with **hoar frost**, which forms on clear, still nights: vapour turning straight to ice on a cold surface, without becoming water first, as six-sided crystals and needles on every side. Rime needs fog and grows into the wind; hoar frost needs clear sky and grows all round."
-    },
-    {
-     "kind": "text",
-     "text": "Freezing fog has a cost. Rime piled on power lines can bring them down, and the same supercooled droplets freeze onto the wings of aircraft flying through low cloud. Roads are glazed where the droplets settle on cold tarmac.[^rime]"
-    }
-   ]
-  },
-  {
-   "title": "Ice from a warm sky",
-   "blocks": [
-    {
-     "kind": "text",
-     "text": "A cold pool has one more trick, when a storm arrives without wind enough to clear it. The storm brings mild, damp air from the Pacific, and that air slides up over the top of the pool rather than pushing it out. Snow falls from the storm’s cloud as usual, as Lesson 7 showed most rain begins. On the way down it falls through the mild air on top of the pool, where it is above freezing, and then through the cold pool underneath."
-    },
-    {
-     "kind": "figure",
-     "figure": "iceLayers",
-     "caption": "Snow falling from a cloud 3 km up, through a layer above freezing and then a layer below freezing at the ground. The violet line is the temperature at each height.",
-     "task": "Guess what lands, then make ice pellets instead.",
-     "goal": "pellets"
-    },
-    {
-     "kind": "text",
-     "text": "What reaches the ground depends on both layers. If the warm layer is only just above freezing, the flakes soften but keep an icy core, and in the cold air underneath they freeze again into hard little pellets of clear ice, called **sleet**, or **ice pellets**. If the warm layer is warm enough to melt them completely, the drops need a deep layer of cold air to freeze again before they land. Over a shallow cold layer they reach the ground still liquid, supercooled, and freeze the moment they touch anything."
-    },
-    {
-     "kind": "text",
-     "text": "That is **freezing rain**, and it is among the most dangerous winter weather there is. It looks like rain. It coats every road, step and car in clear ice, and every branch and wire too: a centimetre of glaze can add more than half again to the weight of a thick power line, and several times the weight of a thin one. Ice storms can bring down trees and lines across whole regions for days."
-    },
-    {
-     "kind": "text",
-     "text": "The western end of the Columbia River Gorge is the classic place in the Pacific Northwest. Cold air from the basin east of the Cascades pours west through the Gorge, the one sea-level gap in the mountains, and lies in a shallow layer over the lowlands at its mouth. A storm from the Pacific rides up over it, and the city at the mouth gets freezing rain while the coast an hour west gets ordinary rain.[^gorge]"
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "kind": "text",
-     "text": "Name the clouds in these photographs, then use the cold pool, the ways to make fog and the layers aloft to read the scenarios below."
-    },
-    {
-     "kind": "figure",
-     "figure": "check",
-     "caption": "Real photos to name, then a sky and what the air is doing. What is it up to?",
-     "options": {
-      "photos": {
-       "mode": "name",
-       "pool": [
-        "stratus",
-        "stratocumulus",
-        "nimbostratus",
-        "altostratus",
-        "cumulus"
-       ],
-       "known": [
-        "cirrus",
-        "cirrocumulus",
-        "cirrostratus",
-        "altocumulus",
-        "altostratus",
-        "nimbostratus",
-        "stratocumulus",
-        "stratus",
-        "cumulus",
-        "cumulonimbus"
-       ],
-       "count": 4
-      },
-      "items": [
-       {
-        "sky": [
-         {
-          "genus": "stratus",
-          "when": "9 a.m.",
-          "fog": "dense"
-         },
-         {
-          "genus": "stratus",
-          "when": "3 p.m.",
-          "low": true
-         }
-        ],
-        "instruments": [
-         "Day 9 of calm under a high",
-         "Temperature: −2 °C at 3 p.m.",
-         "On the ridge: 7 °C and sunny"
-        ],
-        "question": "The basin has been grey for nine days, with sunshine on the hills. The forecast for tomorrow is sunny and calm again. What will the basin get?",
-        "options": [
-         "Grey again: the sun cannot heat through the pool",
-         "Sunshine by noon, as the fog burns off",
-         "Thunderstorms"
-        ],
-        "answer": 0,
-        "why": "A sunny, calm day over a deep cold pool shines only on the top of the cloud. Nothing stirs the pool, so it stays."
-       },
-       {
-        "sky": [
-         {
-          "genus": "stratus",
-          "when": "8 a.m.",
-          "low": true
-         },
-         {
-          "genus": "nimbostratus",
-          "when": "6 p.m.",
-          "thick": 0.8
-         }
-        ],
-        "instruments": [
-         "A Pacific storm with a strong front",
-         "Wind tonight: 50 km/h"
-        ],
-        "question": "After two grey weeks, a storm with a strong wind is forecast. What happens to the cold pool?",
-        "options": [
-         "It deepens",
-         "The wind mixes it away and the basin clears behind the front",
-         "Nothing: a cold pool lasts until spring"
-        ],
-        "answer": 1,
-        "why": "Wind stirring the air deeper than the pool mixes the cold air into the mild air above."
-       },
-       {
-        "sky": [
-         {
-          "genus": "nimbostratus",
-          "when": "7 a.m.",
-          "thick": 0.7
-         }
-        ],
-        "instruments": [
-         "Ground: −3 °C",
-         "Air 1.5 km up: +4 °C",
-       "Cold layer at the ground: about 300 m deep",
-         "Rain gauge: filling"
-        ],
-        "question": "It is raining, but the ground is at −3 °C and the air a kilometre and a half up is at +4 °C. What will the roads be like?",
-        "options": [
-         "Wet",
-         "Covered in glaze ice: freezing rain",
-         "Covered in snow"
-        ],
-        "answer": 1,
-        "why": "The snow melted in the warm layer, and the cold layer at the ground is too shallow to refreeze it. The drops freeze on contact."
-       },
-       {
-        "sky": [
-         {
-          "when": "7 a.m.",
-          "time": "dawn",
-          "fog": "thin"
-         }
-        ],
-        "instruments": [
-         "Air: −15 °C",
-         "River water: +3 °C",
-         "Wind: light"
-        ],
-        "question": "On a bitter, clear morning, wisps rise off the river like smoke, though the fields are clear. What is it?",
-        "options": [
-         "Steam fog: water much warmer than the air",
-         "Advection fog off the sea",
-         "Smoke from a fire upstream"
-        ],
-        "answer": 0,
-        "why": "The river is 18 °C warmer than the air. It evaporates into air too cold to hold the vapour, which condenses at once."
-       }
+      "title": "The cold pool",
+      "blocks": [
+        {
+          "type": "key_ideas",
+          "title": "The big ideas of this lesson",
+          "points": [
+            "On long, calm winter nights, cold air slides down the slopes and collects in valleys and basins: a **cold pool**, under a lid of milder air. Night after night it deepens.",
+            "Grey cloud forms along the top of the pool, and the weak winter sun cannot heat through it. The basin stays cold and grey for days or weeks, while the hills above it are in sunshine.",
+            "Air turns to fog whenever it is chilled to its dew point: cooled from below on a still night, blown over a colder surface, pushed up a slope, or fed vapour by water much warmer than itself.",
+            "Fog below freezing is still made of liquid droplets. They freeze where they touch, and grow feathers of **rime** into the wind.",
+            "Snow falling through a warm layer aloft, and then a cold layer at the ground, can land as ice in two very different forms."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Lesson 1’s fog formed on a clear, still night, when the ground lost its heat to the sky and chilled the air touching it to its dew point. By mid-morning the sun had heated the ground again, the fog lifted into a low sheet of stratus, and by noon it was gone. That is how fog behaves for most of the year."
+        },
+        {
+          "type": "text",
+          "text": "In midwinter, in a basin ringed by hills, it can behave very differently. Some years the Columbia Basin, California’s Central Valley and the valleys of Utah and Idaho go grey in December and stay grey for two or three weeks at a time: fog or low cloud every morning, every afternoon and every night, a little below freezing all day, while a short drive up into the hills brings you out into blue sky and sunshine, several degrees warmer.[^tule]"
+        },
+        {
+          "type": "text",
+          "text": "Two things make the difference. The first is the cold air itself. Cold air is heavier than warm, and on a calm night the air chilled against the slopes slides downhill, like water, and collects in the lowest ground. A basin fills with it from the bottom up. Above it lies milder air, and the boundary between them is a lid like Lesson 2’s: air warmer above than below, so nothing rises through it. Under a winter high, a broad area of high pressure where air sinks slowly from above and the wind stays light, each calm night adds more cold air to the pool."
+        },
+        {
+          "type": "text",
+          "text": "The second is the season. A winter day is short, the sun is low, and much of its light is reflected off the top of any cloud. In October, even a thick morning fog is burned off by noon. In January, once the pool is a few hundred metres deep and grey along its top, the sun cannot heat through it. The ground under the cloud does not warm, the pool does not stir, and the next night adds to it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "coldPool",
+          "caption": "A basin ringed by hills after a run of calm winter nights, with the temperature on the floor of the basin and up on the ridge.",
+          "task": "Guess what clears the grey, then build a week of it and find the wind that clears it.",
+          "goal": "scour"
+        },
+        {
+          "type": "text",
+          "text": "A colder night only adds to the pool, and a sunny afternoon only shines on the top of the cloud. What clears it is wind. A storm arriving from the Pacific brings strong wind and a front, and the wind stirs the air from the ground up. When it stirs deeper than the pool, it brings the mild air from above the lid down to the floor and carries the cold air up into it. The mixed air is warmer than the pool was, its droplets evaporate, and the basin clears, often in an hour or two after weeks of grey."
+        },
+        {
+          "type": "text",
+          "text": "**Today:** a layer warmer above than below is called an **inversion**, and forecasters call these episodes inversions too, and air-quality agencies watch them: smoke from chimneys and exhaust from traffic are trapped under the lid along with the cold, and in some basins the air grows unhealthy within days. In Salt Lake City, Fresno and Boise, people speak of “inversion season”."
+        }
       ]
-     }
+    },
+    {
+      "title": "Other ways to make fog",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every fog is the same thing: air chilled to its dew point near the ground, so that its vapour condenses into droplets, as in Lesson 1. What differs is how it is chilled, or how it is given more vapour."
+        },
+        {
+          "type": "text",
+          "text": "The most common way, on land, is the one in Lesson 1: a still, clear night, the ground cooling and chilling the air right against it. Without wind, only a thin skin of air is chilled, and the fog is shallow: you can sometimes stand in it and see stars overhead. With a light breeze, the chill is stirred up through a deeper layer and the fog thickens. With a strong wind, the chilled air is stirred so high that it lifts off the ground as low stratus instead."
+        },
+        {
+          "type": "text",
+          "text": "A second way needs no clear night at all. Damp air carried by the wind over a surface colder than its dew point is chilled from below wherever it goes. That is **advection fog**: the sea fog of a cold coast in summer, and the fog over melting snow when mild, damp air arrives after a cold spell and is chilled by the snow beneath it. It can form at any time of day, and it moves in with the wind."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fogMaker",
+          "caption": "Damp air over the ground or over water. Set the temperature of each, and the wind.",
+          "task": "Make a fog by blowing damp air over a colder surface, then make steam fog.",
+          "goal": "steam"
+        },
+        {
+          "type": "text",
+          "text": "A third way is the opposite of the second. When very cold air passes over water much warmer than itself, cold air can hold very little vapour, the warm water gives off far more than that, and the extra condenses at once into wisps that rise off the surface like steam off a bath. **Steam fog** smokes off rivers on bitter mornings, and off the open sea in the Arctic, where sailors call it sea smoke."
+        },
+        {
+          "type": "text",
+          "text": "A fourth way is Lesson 1’s other cooling: lifting. Damp air pushed steadily up a long slope cools as it rises, and where it reaches its dew point it becomes fog on the hillside, called **upslope fog**: cloud on the ground, for anyone standing in it. On the Great Plains, damp air flowing west towards the Rockies rises over a kilometre across hundreds of kilometres, and fogs the high plains of Colorado for days."
+        }
+      ]
+    },
+    {
+      "title": "Freezing fog and rime",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In a cold pool in January, the fog is usually below freezing. It is still made of liquid droplets: as Lesson 7 showed, water droplets that small can stay liquid far below 0 °C until they touch something to freeze on. That something is everything in the fog: fence wires, branches, grass, power lines and the windscreen of a car."
+        },
+        {
+          "type": "text",
+          "text": "Each droplet that hits freezes at once where it lands, and the next one freezes on top of it. Droplets carried by the breeze hit the side of a wire that faces the wind, so the ice grows towards the wind, in feathers and spikes that can reach several centimetres after a few days. This is **rime**. On a morning when the fog thins, the trees of a basin can be white on one side, as if snowed on sideways."
+        },
+        {
+          "type": "diagram",
+          "id": "rime",
+          "caption": "Rime and hoar frost: two kinds of white on a fence wire."
+        },
+        {
+          "type": "text",
+          "text": "Rime is easily confused with **hoar frost**, which forms on clear, still nights: vapour turning straight to ice on a cold surface, without becoming water first, as six-sided crystals and needles on every side. Rime needs fog and grows into the wind; hoar frost needs clear sky and grows all round."
+        },
+        {
+          "type": "text",
+          "text": "Freezing fog has a cost. Rime piled on power lines can bring them down, and the same supercooled droplets freeze onto the wings of aircraft flying through low cloud. Roads are glazed where the droplets settle on cold tarmac.[^rime]"
+        }
+      ]
+    },
+    {
+      "title": "Ice from a warm sky",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A cold pool has one more trick, when a storm arrives without wind enough to clear it. The storm brings mild, damp air from the Pacific, and that air slides up over the top of the pool rather than pushing it out. Snow falls from the storm’s cloud as usual, as Lesson 7 showed most rain begins. On the way down it falls through the mild air on top of the pool, where it is above freezing, and then through the cold pool underneath."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "iceLayers",
+          "caption": "Snow falling from a cloud 3 km up, through a layer above freezing and then a layer below freezing at the ground. The violet line is the temperature at each height.",
+          "task": "Guess what lands, then make ice pellets instead.",
+          "goal": "pellets"
+        },
+        {
+          "type": "text",
+          "text": "What reaches the ground depends on both layers. If the warm layer is only just above freezing, the flakes soften but keep an icy core, and in the cold air underneath they freeze again into hard little pellets of clear ice, called **sleet**, or **ice pellets**. If the warm layer is warm enough to melt them completely, the drops need a deep layer of cold air to freeze again before they land. Over a shallow cold layer they reach the ground still liquid, supercooled, and freeze the moment they touch anything."
+        },
+        {
+          "type": "text",
+          "text": "That is **freezing rain**, and it is among the most dangerous winter weather there is. It looks like rain. It coats every road, step and car in clear ice, and every branch and wire too: a centimetre of glaze can add more than half again to the weight of a thick power line, and several times the weight of a thin one. Ice storms can bring down trees and lines across whole regions for days."
+        },
+        {
+          "type": "text",
+          "text": "The western end of the Columbia River Gorge is the classic place in the Pacific Northwest. Cold air from the basin east of the Cascades pours west through the Gorge, the one sea-level gap in the mountains, and lies in a shallow layer over the lowlands at its mouth. A storm from the Pacific rides up over it, and the city at the mouth gets freezing rain while the coast an hour west gets ordinary rain.[^gorge]"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Name the clouds in these photographs, then use the cold pool, the ways to make fog and the layers aloft to read the scenarios below."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Real photos to name, then a sky and what the air is doing. What is it up to?",
+          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "stratus",
+                "stratocumulus",
+                "nimbostratus",
+                "altostratus",
+                "cumulus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrocumulus",
+                "cirrostratus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "cumulonimbus"
+              ],
+              "count": 4
+            },
+            "items": [
+              {
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "9 a.m.",
+                    "fog": "dense"
+                  },
+                  {
+                    "genus": "stratus",
+                    "when": "3 p.m.",
+                    "low": true
+                  }
+                ],
+                "instruments": [
+                  "Day 9 of calm under a high",
+                  "Temperature: −2 °C at 3 p.m.",
+                  "On the ridge: 7 °C and sunny"
+                ],
+                "question": "The basin has been grey for nine days, with sunshine on the hills. The forecast for tomorrow is sunny and calm again. What will the basin get?",
+                "options": [
+                  "Grey again: the sun cannot heat through the pool",
+                  "Sunshine by noon, as the fog burns off",
+                  "Thunderstorms"
+                ],
+                "answer": 0,
+                "why": "A sunny, calm day over a deep cold pool shines only on the top of the cloud. Nothing stirs the pool, so it stays."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "stratus",
+                    "when": "8 a.m.",
+                    "low": true
+                  },
+                  {
+                    "genus": "nimbostratus",
+                    "when": "6 p.m.",
+                    "thick": 0.8
+                  }
+                ],
+                "instruments": [
+                  "A Pacific storm with a strong front",
+                  "Wind tonight: 50 km/h"
+                ],
+                "question": "After two grey weeks, a storm with a strong wind is forecast. What happens to the cold pool?",
+                "options": [
+                  "It deepens",
+                  "The wind mixes it away and the basin clears behind the front",
+                  "Nothing: a cold pool lasts until spring"
+                ],
+                "answer": 1,
+                "why": "Wind stirring the air deeper than the pool mixes the cold air into the mild air above."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "nimbostratus",
+                    "when": "7 a.m.",
+                    "thick": 0.7
+                  }
+                ],
+                "instruments": [
+                  "Ground: −3 °C",
+                  "Air 1.5 km up: +4 °C",
+                  "Cold layer at the ground: about 300 m deep",
+                  "Rain gauge: filling"
+                ],
+                "question": "It is raining, but the ground is at −3 °C and the air a kilometre and a half up is at +4 °C. What will the roads be like?",
+                "options": [
+                  "Wet",
+                  "Covered in glaze ice: freezing rain",
+                  "Covered in snow"
+                ],
+                "answer": 1,
+                "why": "The snow melted in the warm layer, and the cold layer at the ground is too shallow to refreeze it. The drops freeze on contact."
+              },
+              {
+                "sky": [
+                  {
+                    "when": "7 a.m.",
+                    "time": "dawn",
+                    "fog": "thin"
+                  }
+                ],
+                "instruments": [
+                  "Air: −15 °C",
+                  "River water: +3 °C",
+                  "Wind: light"
+                ],
+                "question": "On a bitter, clear morning, wisps rise off the river like smoke, though the fields are clear. What is it?",
+                "options": [
+                  "Steam fog: water much warmer than the air",
+                  "Advection fog off the sea",
+                  "Smoke from a fire upstream"
+                ],
+                "answer": 0,
+                "why": "The river is 18 °C warmer than the air. It evaporates into air too cold to hold the vapour, which condenses at once."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "learned": [
+    "On long, calm winter nights, cold air drains into basins and collects under a lid of milder air: a cold pool, deepening night after night under a high.",
+    "In midwinter the weak sun cannot heat through the grey along the top of a deep pool, so it can last for weeks while the hills above are sunny. A colder night or a sunny day only feeds it; a strong wind that stirs deeper than the pool clears it.",
+    "Fog is air chilled to its dew point at the ground: by cooling on a still night, by damp air blown over a colder surface (advection fog), by cold air over warmer water (steam fog), or by air pushed up a slope (upslope fog). A strong wind lifts the chill into stratus instead.",
+    "Fog below freezing is still liquid. Its droplets freeze where they hit, growing rime into the wind; hoar frost grows from vapour on clear, still nights, all round.",
+    "Snow that melts in a warm layer aloft lands as freezing rain over a shallow cold layer, or refreezes into sleet over a deep one."
+  ],
+  "next": "Next: the walls of dust and the hot, dry east winds.",
+  "journal": {
+    "cold-pool": {
+      "title": "Cold pool",
+      "text": "Cold air collected in a valley or basin under a lid of milder air, deepening on calm winter nights. In midwinter it can keep a basin grey and cold for weeks, until a strong wind stirs it away."
+    },
+    "advection-fog": {
+      "title": "Advection fog",
+      "text": "Fog made by damp air blown over a surface colder than its dew point: sea fog on a cold coast, or fog over melting snow. It comes and goes with the wind, at any hour."
+    },
+    "steam-fog": {
+      "title": "Steam fog",
+      "text": "Wisps rising off water much warmer than the very cold air over it: the water evaporates faster than the air can hold, and the vapour condenses at once. Sea smoke, in the Arctic."
+    },
+    "rime": {
+      "title": "Rime",
+      "text": "Ice built up by supercooled fog droplets freezing where they hit, in feathers that grow into the wind."
+    },
+    "freezing-rain": {
+      "title": "Freezing rain",
+      "text": "Rain that falls through a shallow layer of freezing air at the ground and freezes on whatever it touches, glazing roads, branches and wires in clear ice."
+    }
+  },
+  "footnotes": {
+    "tule": {
+      "kind": "digression",
+      "title": "Tule fog",
+      "text": "In California’s Central Valley, the winter fog is called tule fog, after the tule rushes of the marshes that once covered the valley floor. It is blamed for many of the state’s worst road accidents: in fog that can shrink the view to a few metres, cars on its highways have piled up by the dozen."
+    },
+    "rime": {
+      "kind": "technical",
+      "title": "Rime and glaze",
+      "glossary": "Rime",
+      "text": "Rime is white and feathery because the droplets are tiny and freeze instantly, trapping air between them. Glaze, from freezing rain, is clear and smooth, because big drops spread before they freeze. Aircraft meet both: rime on the leading edges of the wings in cloud, and clear ice, the more dangerous, in freezing rain."
+    },
+    "gorge": {
+      "kind": "digression",
+      "title": "Silver thaw",
+      "text": "In Portland, Oregon, at the western mouth of the Gorge, an ice storm is called a silver thaw. In February 2021 freezing rain there brought down trees and lines across the city and left hundreds of thousands of homes without power, some for over a week."
+    }
   }
- ],
- "learned": [
-  "On long, calm winter nights, cold air drains into basins and collects under a lid of milder air: a cold pool, deepening night after night under a high.",
-  "In midwinter the weak sun cannot heat through the grey along the top of a deep pool, so it can last for weeks while the hills above are sunny. A colder night or a sunny day only feeds it; a strong wind that stirs deeper than the pool clears it.",
-  "Fog is air chilled to its dew point at the ground: by cooling on a still night, by damp air blown over a colder surface (advection fog), by cold air over warmer water (steam fog), or by air pushed up a slope (upslope fog). A strong wind lifts the chill into stratus instead.",
-  "Fog below freezing is still liquid. Its droplets freeze where they hit, growing rime into the wind; hoar frost grows from vapour on clear, still nights, all round.",
-  "Snow that melts in a warm layer aloft lands as freezing rain over a shallow cold layer, or refreezes into sleet over a deep one."
- ],
- "next": "Next: the walls of dust and the hot, dry east winds.",
- "journal": {
-  "cold-pool": {
-   "title": "Cold pool",
-   "text": "Cold air collected in a valley or basin under a lid of milder air, deepening on calm winter nights. In midwinter it can keep a basin grey and cold for weeks, until a strong wind stirs it away."
-  },
-  "advection-fog": {
-   "title": "Advection fog",
-   "text": "Fog made by damp air blown over a surface colder than its dew point: sea fog on a cold coast, or fog over melting snow. It comes and goes with the wind, at any hour."
-  },
-  "steam-fog": {
-   "title": "Steam fog",
-   "text": "Wisps rising off water much warmer than the very cold air over it: the water evaporates faster than the air can hold, and the vapour condenses at once. Sea smoke, in the Arctic."
-  },
-  "rime": {
-   "title": "Rime",
-   "text": "Ice built up by supercooled fog droplets freezing where they hit, in feathers that grow into the wind."
-  },
-  "freezing-rain": {
-   "title": "Freezing rain",
-   "text": "Rain that falls through a shallow layer of freezing air at the ground and freezes on whatever it touches, glazing roads, branches and wires in clear ice."
-  }
- },
- "footnotes": {
-  "tule": {
-   "kind": "digression",
-   "title": "Tule fog",
-   "text": "In California’s Central Valley, the winter fog is called tule fog, after the tule rushes of the marshes that once covered the valley floor. It is blamed for many of the state’s worst road accidents: in fog that can shrink the view to a few metres, cars on its highways have piled up by the dozen."
-  },
-  "rime": {
-   "kind": "technical",
-   "title": "Rime and glaze",
-   "glossary": "Rime",
-   "text": "Rime is white and feathery because the droplets are tiny and freeze instantly, trapping air between them. Glaze, from freezing rain, is clear and smooth, because big drops spread before they freeze. Aircraft meet both: rime on the leading edges of the wings in cloud, and clear ice, the more dangerous, in freezing rain."
-  },
-  "gorge": {
-   "kind": "digression",
-   "title": "Silver thaw",
-   "text": "In Portland, Oregon, at the western mouth of the Gorge, an ice storm is called a silver thaw. In February 2021 freezing rain there brought down trees and lines across the city and left hundreds of thousands of homes without power, some for over a week."
-  }
- }
 }

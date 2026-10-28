@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal’s glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal’s glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "rivers",
   "n": 11,
   "title": "Where does a week of winter rain come from?",
@@ -9,7 +9,7 @@
       "title": "A wet half of the year",
       "blocks": [
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The big ideas of this lesson",
           "points": [
             "In summer, the **Pacific High** guards the coast while the **jet stream** steers storms far north toward Alaska. In autumn, the High shrinks southward and the jet stream dips down to aim a steady train of lows at the Pacific Northwest until spring.",
@@ -20,22 +20,22 @@
           ]
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Seattle is famous for rain, yet its annual total is actually lower than New York City’s—about 950 millimetres a year compared to New York’s 1,200 millimetres.[^seattle] What sets the Pacific Northwest apart is how sharply its rain is concentrated into one half of the year. From October through April, grey skies and steady rain visit almost every week; in July and August, the region barely sees a drop. The same seasonal switch governs the entire coast from British Columbia down to California."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Lessons 9 and 10 introduced the two large-scale players behind this annual rhythm: the **jet stream**—the fast river of upper-level wind that steers low-pressure systems eastward across the Pacific—and the **North Pacific High**, the sprawling dome of sinking, dry air off the coast. Neither stays fixed in place; both migrate north and south with the sun. That seasonal migration is why Seattle averages about 160 millimetres of rain in November, its wettest month, and only 15 millimetres in July, its driest."
         },
         {
-          "kind": "figure",
-          "figure": "stormTrack",
+          "type": "interactive_diagram",
+          "id": "stormTrack",
           "caption": "Seasonal migration of the Pacific jet stream and the North Pacific High across the year, alongside Seattle’s average monthly rainfall.",
           "task": "Find a month when Seattle is dry, and one when it is at its wettest.",
           "goal": "seasons"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In summer, when the northern hemisphere tilts toward the sun and the Arctic warms, the temperature contrast between the pole and the tropics weakens. The jet stream slackens and retreats northward, steering Pacific storms into British Columbia and the Gulf of Alaska, while the North Pacific High expands northward to block the coast with sinking, stable air. In autumn, the pattern reverses. As the Arctic plunges back into darkness and cools, the polar jet stream strengthens and shifts southward, the Pacific High shrinks toward Hawaii, and the storm door swings open. From October onward, the jet stream guides a new low-pressure system—complete with its warm front and cold front (Lesson 6)—into the Pacific Northwest every couple of days."
         }
       ]
@@ -44,20 +44,20 @@
       "title": "A river in the sky",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Most winter lows bring a routine day of moderate rain and mountain snow. A few times each winter, however, a storm taps into a much richer supply of moisture. Just ahead of the storm’s cold front, the strong southwesterly winds in the warm sector (Lesson 6) draw a long, narrow plume of warm, humid air all the way up from the subtropics or tropics, channeling water vapour toward the coast like a firehose."
         },
         {
-          "kind": "figure",
-          "figure": "atmosphericRiver",
+          "type": "diagram",
+          "id": "atmosphericRiver",
           "caption": "Plan view of an atmospheric river channeling subtropical water vapour northeastward ahead of a cold front."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Meteorologists call this concentrated moisture plume an **atmospheric river**.[^ar] Typically 2,000 kilometres or more in length but only 300 to 500 kilometres wide, an atmospheric river packs most of its water vapour into the lowest two or three kilometres of the sky, propelled by a fast low-level wind core just ahead of the cold front. A strong atmospheric river transports more water per second—as invisible vapour—than the Mississippi River discharges past New Orleans, and the largest rival the Amazon. When a plume stretches straight back to the waters around Hawaii, West Coast forecasters call it a **Pineapple Express**.[^pineapple] Because the plume is mild and can stall over the same stretch of coastline for two or three days, it can turn an ordinary winter storm into a regional deluge."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**In modern forecasting:** microwave satellite sensors image atmospheric rivers directly by measuring the total water vapour in the air column, revealing bright ribbons of moisture snaking across the Pacific. Since 2019, forecasters have rated atmospheric rivers on a **1-to-5 scale** based on their peak vapour transport and how long they stall over the coast. Category 1 and 2 events are mostly beneficial, refilling reservoirs and building mountain snowpack; Category 3 storms bring a mix of beneficial water and minor flooding; Category 4 and 5 events bring dangerous, widespread floods."
         }
       ]
@@ -66,27 +66,27 @@
       "title": "Wrung out on the mountains",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Even inside a strong atmospheric river, water vapour does not turn into rain until the air is lifted and cooled past its dew point. Over the open ocean, lifting along the front is relatively gradual. Then the plume hits the mountainous wall of the West Coast—the Olympic Mountains, the Oregon Coast Range, and the Cascades—which forces the warm, vapour-laden wind abruptly upward."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "How hard it rains on a windward mountain slope comes down to two numbers: how fast the wind pushes air up the slope, and how much water vapour each cubic metre of air carries. Double the wind speed, and twice as much air is forced up the mountain every hour; double the vapour content, and each rising parcel condenses twice as much water. Forecasters gauge column moisture by how deep the water would stand if all the vapour overhead were condensed into a puddle (**precipitable water**): ordinary winter air off the North Pacific holds about 10 millimetres, whereas a strong atmospheric river carries 30 to 45 millimetres. A light breeze carrying 10 millimetres of vapour brings gentle rain; a 70 km/h gale carrying 40 millimetres of tropical vapour unleashes a mountain torrent."
         },
         {
-          "kind": "figure",
-          "figure": "windward",
+          "type": "interactive_diagram",
+          "id": "windward",
           "caption": "Moist ocean air driven up a coastal mountain barrier. Adjust the wind speed and vapour content to see how orographic rainfall responds.",
           "task": "Guess what doubling the wind does to the rain, then make a storm wet enough to flood the rivers off the slope.",
           "goal": "flood"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As Lesson 7 showed, once that air crosses the ridge crest and descends the leeward slope, it warms by compression at the dry rate (10 °C/km) and dries out, creating a sharp **rain shadow**. Across Washington state, westerly storm winds cross two successive mountain barriers, producing one of the steepest rainfall gradients in North America. On the windward western flank of the Olympic Mountains, the Hoh Rain Forest catches about 3,600 millimetres (140 inches) of rain a year. Less than 80 kilometres to the northeast—tucked in the lee of the Olympics—the town of Sequim receives just 400 millimetres (16 inches) a year.[^sequim] The air then climbs the western slopes of the Cascades, dumping another 2,500 millimetres on the mountain passes before descending into the Columbia Basin, where annual precipitation drops below 200 millimetres."
         },
         {
-          "kind": "figure",
-          "figure": "acrossWashington",
+          "type": "diagram",
+          "id": "acrossWashington",
           "caption": "Annual precipitation profile across Washington state from the Pacific coast to the Columbia Basin, following the path of prevailing winter storm winds."
         }
       ]
@@ -95,22 +95,22 @@
       "title": "Rain or snow",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "In winter, the altitude of the **snow level**—the elevation above which precipitation falls and accumulates as snow—is the single most critical number in a mountain forecast. As Lesson 7 showed, falling snowflakes need a few hundred metres of above-freezing air to melt completely, so the snow level typically sits 200 to 300 metres below the 0 °C freezing level. In a cold winter storm arriving from the Gulf of Alaska, the snow level sits around 600 to 1,000 metres, blanketing the mountain passes in deep snow. In a warm atmospheric river drawn up from the subtropics, however, the snow level can surge to 2,200 or 2,500 metres—higher than the passes and above nearly every ridge in the Olympics and Cascades."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That shift in the snow level completely changes how a river basin responds to a storm. Snow is natural water storage: it stays locked on the high slopes all winter and melts gradually in May and June when farms, fish, and reservoirs need it. Rain, by contrast, runs straight off the slopes into the creeks within hours. When a warm atmospheric river pushes the snow level above the mountain ridges, the entire watershed acts like a giant tin roof draining into the valley rivers all at once. Worse still, if a warm atmospheric river arrives right after a cold storm has laid down a deep blanket of fresh, low-elevation snow, strong winds and warm rain accelerate snowmelt—sending the storm’s rainfall and the melted snowpack surging down the rivers together."
         },
         {
-          "kind": "figure",
-          "figure": "snowLevel",
+          "type": "interactive_diagram",
+          "id": "snowLevel",
           "caption": "A mountain watershed receiving 100 mm of precipitation in 24 hours, with existing snowpack above 600 m. Raise the snow level to see how rain-on-snow runoff floods the valley river.",
           "task": "Guess what a warm storm does to the river, then see where the snow level has to be for it to flood.",
           "goal": "flood"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "This **rain-on-snow** combination is responsible for the most destructive floods in West Coast history.[^floods] In early February 1996, after a week of bitter cold had buried the Pacific Northwest in low-elevation snow and ice, a powerful Pineapple Express sent freezing levels soaring above 2,200 metres and dumped 250 to 500 millimetres of warm rain across the Cascades and Coast Range. The combined rain and snowmelt overwhelmed rivers across Oregon and Washington, driving the Willamette River in downtown Portland to the very top of its seawall as thousands of volunteers frantically stacked sandbags to keep the city centre from flooding. Had that exact same moisture arrived in a cold air mass, it would have been remembered simply as a legendary ski week."
         }
       ]
@@ -119,20 +119,20 @@
       "title": "Behind the cold front",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Once the cold front of a winter storm sweeps inland, the steady frontal rain ends, the wind veers to the northwest, and cold, unstable air pours in from the Gulf of Alaska (Lessons 6 and 10). Across the open coast, scattered convective showers pass through interspersed with sunny breaks. Over the Puget Sound lowland, however, the local terrain sets up a lingering surprise."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Rising over 2,400 metres straight out of the sea, the Olympic Mountains stand squarely in the path of the post-frontal northwest wind like a boulder in a fast stream. Unable to climb easily over the barrier, the low-level airflow splits around it. One branch funnels eastward through the Strait of Juan de Fuca and hooks southward into Puget Sound against the wall of the Cascades. The other branch sweeps southward along the Pacific beaches, rounds the southern flank of the Olympics through the Chehalis Gap, and curves northeastward up Puget Sound. Somewhere over the central Sound—typically between north Seattle and Everett—those two opposing air currents slam head-on into each other."
         },
         {
-          "kind": "figure",
-          "figure": "convergenceZone",
+          "type": "diagram",
+          "id": "convergenceZone",
           "caption": "Post-frontal northwest winds splitting around the Olympic Mountains and colliding over Puget Sound to form the convergence zone."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Where the two airstreams collide at the surface, the air has nowhere to go but up. That forced ascent triggers a stationary, east–west band of towering cumulus and cumulonimbus clouds only 15 to 30 kilometres wide: the **Puget Sound convergence zone**.[^pscz] Directly beneath the band, residents get hours of torrential downpours, graupel, occasional thunder, or—when the air is cold enough—localized blizzards dumping 15 centimetres of snow, while towns just 20 kilometres to the north or south sit under bright blue skies. As the offshore wind direction shifts by a few degrees, the convergence band sloshes north or south across the metro area before finally dissipating as the post-frontal winds ease."
         }
       ]
@@ -141,12 +141,12 @@
       "title": "Check",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "First identify the cloud genera in these photographs, then use the seasonal storm track, mountain barriers, snow level, and convergence zone to evaluate the scenarios below."
         },
         {
-          "kind": "figure",
-          "figure": "check",
+          "type": "quiz",
+          "id": "check",
           "caption": "Real photos to name, then a sky and what the wind and the mountains are doing. What is it up to?",
           "options": {
             "photos": {

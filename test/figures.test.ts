@@ -6,11 +6,12 @@ import { beforeAll, describe, expect, it } from 'vitest';
 import { FIGURES } from '../src/app/figures';
 import type { FigureContext } from '../src/app/figures/kit';
 import { emptySave } from '../src/core/save';
-import { FIGURE_IDS, SHIFTS, type Block } from '../src/core/shifts';
+import { diagramType, isDiagram, lessonProblems, type DiagramBlock } from 'didactics/lesson';
+import { FIGURE_IDS, SHIFTS, type FigureId } from '../src/core/shifts';
 
-type FigureBlock = Extract<Block, { kind: 'figure' }>;
+type FigureBlock = DiagramBlock<FigureId>;
 const uses: { shift: string; block: FigureBlock }[] = SHIFTS.flatMap((s) =>
-  s.parts.flatMap((p) => p.blocks.filter((b): b is FigureBlock => b.kind === 'figure').map((block) => ({ shift: s.id, block }))),
+  s.parts.flatMap((p) => p.blocks.filter((b): b is FigureBlock => isDiagram(b)).map((block) => ({ shift: s.id, block }))),
 );
 
 beforeAll(() => {
@@ -24,10 +25,15 @@ beforeAll(() => {
 });
 
 describe('lesson tasks', () => {
+  it('name each callout by its type and a figure that exists', () => {
+    expect(lessonProblems(SHIFTS, FIGURES)).toEqual([]);
+    for (const { shift, block } of uses) expect(block.type, `${shift}: ${block.id}`).toBe(diagramType(FIGURES[block.id]));
+  });
+
   it('ask each figure only for a goal it knows', () => {
     for (const { shift, block } of uses) {
       if (!block.goal) continue;
-      expect(FIGURES[block.figure].goals, `${shift}: ${block.figure} goal "${block.goal}"`).toContain(block.goal);
+      expect(FIGURES[block.id].goals, `${shift}: ${block.id} goal "${block.goal}"`).toContain(block.goal);
     }
   });
 
@@ -35,7 +41,7 @@ describe('lesson tasks', () => {
     // A task on a figure that is not a quiz never finishes without a goal, and the lesson would stall.
     for (const { shift, block } of uses) {
       if (!block.task || block.goal) continue;
-      expect(FIGURES[block.figure].quiz, `${shift}: ${block.figure} has a task but no goal`).toBe(true);
+      expect(FIGURES[block.id].quiz, `${shift}: ${block.id} has a task but no goal`).toBe(true);
     }
   });
 });
@@ -46,7 +52,7 @@ describe('figures', () => {
       const save = { ...emptySave(), units };
       const ctx: FigureContext = { save, closed: AbortSignal.abort(), score: () => {} };
       for (const id of FIGURE_IDS) {
-        const use = uses.find((u) => u.block.figure === id)?.block;
+        const use = uses.find((u) => u.block.id === id)?.block;
         const handle = FIGURES[id](ctx, use?.goal, use?.options);
         expect(handle.node, id).toBeInstanceOf(HTMLElement);
         expect(handle.node.querySelector('svg, img, button'), id).not.toBeNull();
@@ -63,7 +69,7 @@ describe('guess-first figures', () => {
   it('lock their sliders until the guess is marked', () => {
     const ctx: FigureContext = { save: emptySave(), closed: AbortSignal.abort(), score: () => {} };
     for (const id of GUESS_FIRST) {
-      const use = uses.find((u) => u.block.figure === id)!.block;
+      const use = uses.find((u) => u.block.id === id)!.block;
       const { node } = FIGURES[id](ctx, use.goal, use.options);
       const sliders = [...node.querySelectorAll<HTMLInputElement>('input[type=range]')];
       expect(sliders.length, id).toBeGreaterThan(0);
@@ -88,7 +94,7 @@ describe('figures coming back after the reader left', () => {
 
   it('guess-first figures come back with their guess marked and their sliders free', () => {
     for (const id of GUESS_FIRST) {
-      const use = uses.find((u) => u.block.figure === id)!.block;
+      const use = uses.find((u) => u.block.id === id)!.block;
       let kept: unknown;
       const first = FIGURES[id](memoCtx(undefined, (v) => (kept = v)), use.goal, use.options).node;
       markGuess(first);
@@ -101,7 +107,7 @@ describe('figures coming back after the reader left', () => {
 
   it('checks come back with their answers, and finish with the same score', async () => {
     // A check with photos (floor and name) and one of forecasts alone.
-    const checks = uses.filter((u) => u.block.figure === 'check');
+    const checks = uses.filter((u) => u.block.id === 'check');
     const picked = [
       checks.find((u) => (u.block.options?.photos as { mode?: string } | undefined)?.mode === 'floor')!,
       checks.find((u) => (u.block.options?.photos as { mode?: string } | undefined)?.mode === 'name')!,

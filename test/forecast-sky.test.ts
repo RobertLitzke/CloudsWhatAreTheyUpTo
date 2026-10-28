@@ -5,10 +5,11 @@
 import { describe, expect, it } from 'vitest';
 import { forecastPicture } from '../src/app/figures/quizzes';
 import { forecastSky } from '../src/app/scene/forecast-sky';
+import { isDiagram } from 'didactics/lesson';
 import { SHIFTS, type Forecast } from '../src/core/shifts';
 
 const items: Forecast[] = SHIFTS.flatMap((s) => s.parts.flatMap((p) => p.blocks.flatMap((b) =>
-  b.kind === 'figure' && b.figure === 'check' ? (b.options!.items as Forecast[]) : []))).filter((q) => q.sky || q.profile);
+  isDiagram(b) && b.id === 'check' ? (b.options!.items as Forecast[]) : []))).filter((q) => q.sky || q.profile);
 
 describe('forecast skies', () => {
   it('draw every question', () => {

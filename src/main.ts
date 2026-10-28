@@ -1,6 +1,8 @@
+// First, so edited course text (Settings) is in place before anything reads it.
+import './course';
 import './app/styles/app.css';
-import { el } from 'didactics/dom';
 import { Router } from 'didactics/router';
+import { appShell } from 'didactics/shell';
 import { showSplash } from 'didactics/splash';
 import { watchForUpdates } from 'didactics/update';
 import { retireWhenSaved } from 'didactics/offline';
@@ -15,12 +17,12 @@ import { settingsView } from './app/views/settings';
 import { shiftView } from './app/views/shift';
 import { skyView } from './app/views/sky';
 
-const NAV: readonly [string, string][] = [
-  ['/home', 'Home'],
-  ['/sky', 'Sky lab'],
-  ['/quiz', 'Quiz'],
-  ['/journal', 'Journal'],
-  ['/settings', 'Settings'],
+const NAV = [
+  { path: '/home', label: 'Home' },
+  { path: '/sky', label: 'Sky lab' },
+  { path: '/quiz', label: 'Quiz' },
+  { path: '/journal', label: 'Journal' },
+  { path: '/settings', label: 'Settings' },
 ];
 
 /** A little peach cloud with an up arrow, for the update banner: drawn inline so it shows offline. */
@@ -30,38 +32,16 @@ const CLOUD =
 
 function boot(): void {
   showSplash({ src: asset('poster.webp'), alt: 'Clouds: What are they up to?' });
-  const app = document.getElementById('app')!;
   // The pages sit in a menu under the current page's name, so more can join without crowding the bar.
-  const links = NAV.map(([path, label]) => el('a', { href: `#${path}` }, label));
-  const current = el('span');
-  const menu = el('details.navmenu', {}, el('summary', {}, current), el('nav', {}, links)) as HTMLDetailsElement;
-  menu.addEventListener('click', (e) => {
-    if ((e.target as HTMLElement).closest('a')) menu.open = false;
-  });
-  document.addEventListener('pointerdown', (e) => {
-    if (menu.open && !menu.contains(e.target as Node)) menu.open = false;
-  });
-  const header = el(
-    'header.topbar',
-    {},
-    el('a.wordmark', { href: '#/home' }, 'Clouds', el('span', {}, 'What are they up to?')),
-    menu,
-  );
-  const outlet = el('main');
-  app.replaceChildren(header, outlet);
-
-  const markHere = () => {
-    const here = location.hash.replace(/^#/, '');
-    links.forEach((a, i) => a.classList.toggle('here', here.startsWith(NAV[i][0])));
-    current.textContent = NAV.find(([path]) => here.startsWith(path))?.[1] ?? 'Menu';
-    menu.open = false;
-  };
-  window.addEventListener('hashchange', markHere);
-
-  const router = new Router(outlet, {
+  const shell = appShell({
+    mount: document.getElementById('app')!,
+    title: 'Clouds',
+    subtitle: 'What are they up to?',
+    nav: NAV,
     // A lesson fills the screen: the header would only be in the way.
-    before: (path) => document.body.classList.toggle('in-lesson', path.startsWith('/shift/')),
+    fullScreen: (path) => path.startsWith('/shift/'),
   });
+  const router = new Router(shell.outlet, { before: shell.before });
   router
     .add('/home', homeView)
     .add('/shift/:id', shiftView)
@@ -73,7 +53,6 @@ function boot(): void {
     .add('/credits', creditsView)
     .add('/settings', settingsView)
     .start('/home');
-  markHere();
 
   if (import.meta.env.DEV) void import('didactics/overflow').then((m) => m.watchOverflow());
 

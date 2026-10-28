@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "middle-sky",
   "n": 3,
   "title": "Sorting the sky in 30 seconds",
@@ -9,7 +9,7 @@
       "title": "Three floors",
       "blocks": [
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The big ideas of this lesson",
           "points": [
             "The sky is divided into three floors: **low** (ground to about 2 km / 6,500 ft), **middle** (2 to 7 km / 6,500 to 23,000 ft), and **high** (5 km / 16,500 ft to the top of the weather). Temperature—and therefore whether a cloud is liquid droplets or ice—is what really sets them apart.",
@@ -20,46 +20,46 @@
           ]
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Lessons 1 and 2 covered how heaps and sheets form and why only some of them rain. This lesson sorts clouds by height—like the floors of a building—and gives you three quick visual checks to place any cloud on its floor in half a minute using nothing but your eyes and an outstretched hand."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Nearly all weather plays out in the lowest 10 to 12 kilometres of the atmosphere, which meteorologists divide into three altitude floors.[^troposphere] In mid-latitudes, the **low** floor runs from the ground up to about 2,000 metres (6,500 feet). The **middle** floor runs from 2,000 to about 7,000 metres (23,000 feet). The **high** floor runs from about 5,000 metres (16,500 feet) to the top of the weather at 10 to 12 kilometres. Notice that the middle and high floors overlap: what really gives a cloud its character is the air temperature where it forms, which shifts with the seasons and the day's weather. A cloud at 6 kilometres could belong to either the middle or the high floor depending on whether the air there is mild or bitterly cold."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "While a rising dry bubble always cools at 10 °C per kilometre, the surrounding sky has its own temperature profile shaped by surface heating, wind mixing, and large-scale sinking. On an average day, the atmosphere cools by about 6.5 °C for every kilometre you climb (3.6 °F per 1,000 feet)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "On a mild day when the valley floor sits at 15 °C, the air hits freezing (0 °C) a little above two kilometres and plunges to −40 °C by nine kilometres. Above the freezing level, cloud water can freeze into ice, so height and temperature dictate what a cloud is made of—which in turn governs how it looks from the ground. (As you can see in the figure, cloud droplets often stay liquid well below 0 °C;[^supercooled] Lesson 7 explores why.)"
         },
         {
-          "kind": "figure",
-          "figure": "freezing",
+          "type": "diagram",
+          "id": "freezing",
           "caption": "A mild summer day, from the valley floor to the top of the weather."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Low-floor clouds consist of liquid water droplets packed tightly together, often hundreds of them in every cubic centimetre. Where the outer edge of a liquid cloud mixes with drier surrounding air, those tiny droplets evaporate in seconds, giving low clouds crisp, well-defined outlines."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "High-floor clouds are built of ice crystals, which are much larger than droplets, far fewer in number, and spaced much further apart. Because bitterly cold air holds very little water vapour to begin with, and ice evaporates (or *sublimates*) much more slowly than liquid water, ice crystals falling or blowing out of a high cloud linger for minutes instead of vanishing in seconds. Drawn out by upper-level winds, those crystals trail across the sky in long, silky streamers. Just checking whether a cloud’s edges are *sharp* or *feathery* is often enough to tell whether you are looking at low liquid water or high ice."
         },
         {
-          "kind": "figure",
-          "figure": "edges",
+          "type": "diagram",
+          "id": "edges",
           "caption": "The edge of a cloud, magnified."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "The purest cloud of the high floor is **cirrus**: detached white wisps, mares' tails, and hooked filaments made entirely of falling ice crystals. With the softest, most fibrous edges in the sky, cirrus is unmistakable. What its hooks and thickening streaks foretell about tomorrow's weather is the subject of Lesson 4."
         },
         {
-          "kind": "figure",
-          "figure": "sort",
+          "type": "quiz",
+          "id": "sort",
           "caption": "Some of today’s sky.",
           "task": "File each cloud onto its floor.",
           "options": {
@@ -72,7 +72,7 @@
           }
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "One cloud refuses to stay on a single floor. A mature thunderstorm—or **cumulonimbus**—starts with its base on the low floor and towers all the way to the ceiling of the weather, spanning all three floors at once. Lesson 5 gives it a stage of its own."
         }
       ]
@@ -81,20 +81,20 @@
       "title": "The names are a code",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Cloud names can sound like Latin tongue-twisters at first, but they are built from a simple five-word code—and you already know most of the pieces."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In 1802, a London pharmacist and amateur meteorologist named Luke Howard[^howard] proposed a Latin naming system for clouds. Nearly every cloud name today combines four of Howard's original roots with a fifth added later in the nineteenth century. **Cumulus** means a heap and **stratus** means a flat layer—the sky's two basic textures. **Cirrus** means a lock or curl of hair, describing the wispy ice clouds of the high floor. **Nimbus** means a rain-bearing cloud. The fifth root, **alto**, was added later to mark the middle floor (even though *altus* means 'high' in Latin, *cirrus* had already claimed the top floor)."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "To name a cloud, pair its floor prefix with its shape. The prefix *cirro-* places a cloud on the high floor, *alto-* places it on the middle floor, and low-floor clouds take no height prefix at all. A flat sheet on the middle floor is **altostratus**; a layer of small heaps on the high floor is **cirrocumulus**."
         },
         {
-          "kind": "figure",
-          "figure": "names",
+          "type": "quiz",
+          "id": "names",
           "caption": "The sky, one name at a time.",
           "task": "Build each name from its height and texture.",
           "options": {
@@ -118,12 +118,12 @@
           }
         },
         {
-          "kind": "figure",
-          "figure": "nameGrid",
+          "type": "diagram",
+          "id": "nameGrid",
           "caption": "Three floors and two textures make six names."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Pairing the three floors with the two textures gives six of the ten main cloud types (or *genera*[^genera]). The remaining four are variations you have mostly met: **cirrus** on its own for detached high ice wisps; **stratocumulus** for low heaps flattened into a cobbled layer; **nimbostratus** for a deep, rain-bearing layer; and **cumulonimbus** for a towering, rain-bearing heap. All ten are catalogued in the World Meteorological Organization’s *International Cloud Atlas*, the standard reference used by observers worldwide."
         }
       ]
@@ -132,32 +132,32 @@
       "title": "Lumps on every floor",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "The middle floor spans roughly two to seven kilometres up, where temperatures sit near or below freezing and clouds usually contain supercooled liquid droplets, ice crystals, or a mix of both. On an ordinary fair day, thermals rising from sun-warmed ground never reach this floor; stable air above a kilometre or two caps those thermals on the low floor as fair-weather cumulus."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Instead, middle-floor clouds usually form when a broad slab of moist air glides gently upward over hundreds of kilometres—most often ahead of an approaching weather system, as Lesson 4 follows. Lifting a wide, stable layer all together produces a smooth cloud sheet."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Even so, a smooth sheet on the middle floor often breaks into lumps. Just as the ground cools at night by radiating infrared heat to space, a cloud layer radiates infrared heat from its top straight out toward space while its base absorbs infrared heat rising from the warmer ground below. Even during the day, white cloud droplets reflect away most incoming sunlight, so infrared heat loss at the top usually wins out. Over time, the top of the cloud sheet grows significantly colder than its base."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Inside a cloud, a rising or sinking parcel cools or warms at only about 5 to 6 °C per kilometre because condensing and evaporating water releases and absorbs heat.[^moist-rate] Once infrared cooling makes the top of the cloud sheet more than about 6 °C per kilometre colder than its base, the cloud layer becomes unstable within itself. Heavy, chilled air at the cloud top sinks while warmer air from the base rises to replace it, setting up neat overturning loops right inside the cloud sheet."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because overturning cells naturally settle into loops roughly as wide as the cloud layer is thick (typically a few hundred metres), the smooth sheet breaks into a regular pattern of rounded puffs or rolls. Where air rises in the centre of a cell, the cloud thickens into a lump; where air sinks around the borders, droplets evaporate and carve out clear lanes of sky. (This same cloud-top cooling also helps keep low stratocumulus decks churning in cellular lumps.)"
         },
         {
-          "kind": "figure",
-          "figure": "overturn",
+          "type": "diagram",
+          "id": "overturn",
           "caption": "A cloud layer cooled from the top, turning over in cells."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As a result, every floor has its own cellular, lumpy layer. On the low floor, it is **stratocumulus**. On the middle floor, it is **altocumulus**: rounded pads or rolls separated by lanes of clear sky, often compared to a flock of sheep. On the high floor, it is **cirrocumulus**: tiny white grains or ripples arranged in fine rows like fish scales—the classic *mackerel sky*. Cirrocumulus is the rarest of the three because its tiny supercooled droplets quickly freeze into ice crystals, turning the ripples into fibrous cirrus."
         }
       ]
@@ -166,30 +166,30 @@
       "title": "Your hand is a ruler",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because stratocumulus, altocumulus, and cirrocumulus are all built by the same cellular overturning, they can look remarkably alike from the ground—and there are no landmarks in empty sky to judge their height against. How do you tell which floor a lumpy layer sits on?"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Judge the floor by the apparent size of the individual puffs. Low and middle cloud decks are typically a few hundred metres thick, so their overturning lumps are also a few hundred metres wide. High-floor cloud layers are much thinner—often under a hundred metres thick—so cirrocumulus grains are both physically smaller and much further away. Just like cars down a long road, the higher and further away the cloud lumps sit, the smaller the **angle** they span across your field of view."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Viewed high overhead, a 300-metre lump sitting at 1.5 km on the low floor spans about 10° of sky; the same 300-metre lump at 4.5 km on the middle floor spans about 3° to 4°; and a 100-metre grain at 9 km on the high floor spans less than 1°."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "You always have an angular ruler with you: your own hand held at arm’s length. Stretch your arm straight out: a closed fist covers about 10° of sky, three fingers side by side cover about 5°, your thumb covers about 2°, and your little-finger nail covers about 1°. Because people with larger hands also have longer arms that hold the hand further from the eye, the proportions cancel out and these angles work for almost everyone.[^moon]"
         },
         {
-          "kind": "figure",
-          "figure": "hand",
+          "type": "interactive_diagram",
+          "id": "hand",
           "caption": "A layer of lumpy cloud, seen from the ground with your arm stretched out.",
           "task": "Move the layer through the three floors and see each verdict.",
           "goal": "all"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That gives a fast field check with your arm fully extended: lumps **wider than three fingers** are **stratocumulus**; puffs between **a little-finger nail and three fingers** (roughly thumb-width) are **altocumulus**; and grains **smaller than your little-finger nail** are **cirrocumulus**. Always measure clouds high in the sky, at least halfway up from the horizon. Near the horizon, clouds are tens of kilometres further away and viewed edge-on, making even low stratocumulus lumps look deceptively small."
         }
       ]
@@ -198,18 +198,18 @@
       "title": "Shadows give it away",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Underside shading gives you a second check. When sunlight hits the top of a cloud, droplets scatter the light in all directions, bouncing much of it back toward space. A very thin cloud lets most of the remaining light pass right through, so its underside looks bright white from edge to edge. A cloud lump several hundred metres thick, however, scatters away so much sunlight that much less reaches its base, leaving a grey, shaded belly in the thick centre framed by bright white rims where light catches the thinner edges."
         },
         {
-          "kind": "figure",
-          "figure": "shadow",
+          "type": "interactive_diagram",
+          "id": "shadow",
           "caption": "One lump of cloud with the sun above it.",
           "task": "Thicken the cloud until it shades itself.",
           "goal": "shade"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Altocumulus puffs are nearly always thick enough to show **shaded grey bellies**, like grey-bottomed sheep. Cirrocumulus layers are so thin and high that their ice-and-droplet grains look **pure, unshaded white**. Checking for grey bellies immediately separates altocumulus from cirrocumulus, while the hand test separates altocumulus from lower, broader stratocumulus."
         }
       ]
@@ -218,15 +218,15 @@
       "title": "The sky, or a photo of it",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Keep one rule in mind before the photo check: your hand measures **angles in the real sky**, not on a screen. A camera lens can zoom in on tiny cirrocumulus ripples until they fill the frame, or use a wide-angle lens that shrinks huge stratocumulus rolls to fingernail size. Holding your thumb up to a photograph won't work."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "To place a photographed cloud on its floor, use scale clues inside the frame itself. **Edges**: crisp outlines mean liquid droplets (low or middle); silky, feathery trails mean ice (high). **Bellies**: grey shading means stratocumulus or altocumulus; unshaded white grains mean cirrocumulus. **The sun**: if the solar disc is visible, it spans 0.5° of sky (half a little-finger nail in real life), giving you a built-in ruler right inside the photo. **Landmarks**: trees, roofs, hills, or towers anchor the perspective and show when a low cloud deck is skimming the ridges."
         },
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "Sorting the sky in thirty seconds",
           "points": [
             "**Edges first**: crisp outlines mean droplets (low or middle floor); soft, fibrous trails mean ice (high floor).",
@@ -241,12 +241,12 @@
       "title": "Look-alikes, in real photos",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Compare these photographs side by side, focusing on the visual clue that separates each pair of look-alikes."
         },
         {
-          "kind": "figure",
-          "figure": "lookAlike",
+          "type": "diagram",
+          "id": "lookAlike",
           "caption": "Altocumulus or cirrocumulus?",
           "options": {
             "photos": [
@@ -263,8 +263,8 @@
           }
         },
         {
-          "kind": "figure",
-          "figure": "lookAlike",
+          "type": "diagram",
+          "id": "lookAlike",
           "caption": "Altocumulus or stratocumulus?",
           "options": {
             "photos": [
@@ -281,8 +281,8 @@
           }
         },
         {
-          "kind": "figure",
-          "figure": "lookAlike",
+          "type": "diagram",
+          "id": "lookAlike",
           "caption": "Cirrocumulus or cirrus?",
           "options": {
             "photos": [
@@ -304,12 +304,12 @@
       "title": "Check",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "For each photograph below, place the cloud on its floor: low, middle, or high (for cumulus heaps, use the floor where the base sits). Remember that your hand won't measure a photograph—use edge sharpness, belly shading, and landscape scale."
         },
         {
-          "kind": "figure",
-          "figure": "check",
+          "type": "quiz",
+          "id": "check",
           "caption": "Real photos to place on their floors, then the sky right now. Which floor, and what is it?",
           "options": {
             "photos": {

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\" freely. Keep \"kind\", \"figure\", \"goal\" and \"options\" as they are (they wire up the live figures). You can add, remove or reorder text blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
   "id": "fog",
   "n": 1,
   "title": "Morning fog and afternoon puffs",
@@ -9,7 +9,7 @@
       "title": "What a cloud is made of",
       "blocks": [
         {
-          "kind": "key",
+          "type": "key_ideas",
           "title": "The big ideas of this lesson",
           "points": [
             "A cloud is made of liquid water droplets or ice crystals, not invisible water vapour.",
@@ -20,56 +20,56 @@
           ]
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Summer mornings often bring two very different skies. At dawn, a grey sheet hides the hills or fills the valley; by noon, it has vanished, replaced by flat-bottomed white puffs drifting over the fields. Will the morning grey clear out in time? Are the afternoon puffs harmless? Answering both starts with what a cloud actually is."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Watch a boiling kettle. The white plume above the spout is not water vapour. True water vapour is an invisible gas of individual water molecules mixed among the air’s nitrogen and oxygen. Look closely right at the spout and you will see a clear gap where the escaping steam is still invisible gas. The white plume starts a finger’s width out, where that vapour cools against the room air and condenses into microscopic liquid droplets. Gas molecules are too small to block light, whereas liquid droplets scatter light in every direction. Billions of droplets scattering light together look white."
         },
         {
-          "kind": "figure",
-          "figure": "kettle",
+          "type": "diagram",
+          "id": "kettle",
           "caption": "A boiling kettle, close up."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "A cloud works the same way on a vast scale: it is a mist of tiny liquid droplets (or, high up, ice crystals) hanging in the air, not water vapour. Asking why a cloud sits in one spot and not another is really asking why invisible vapour condensed into liquid right there."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Why does vapour condense at all? Water molecules attract one another slightly when they collide. When warm, they move so fast that they bounce apart again; when cold, they move slower and cling together more easily. Meanwhile, the more water molecules are packed into a given space, the more often they collide. At any temperature, there is a strict ceiling on how much vapour can exist before molecules stick together faster than they break apart. Above that ceiling, the excess condenses into liquid.[^saturation] Warm air has a high ceiling: at 30 °C, a cubic metre can hold about 30 grams of water vapour (roughly two tablespoons). At 0 °C, that ceiling drops below 5 grams."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Now cool a sample of air without adding or removing any water. At first, nothing visible happens because the vapour is still below its ceiling. Keep cooling, and the ceiling drops until it matches the amount of vapour present. That threshold temperature is the **dew point**. Cool the air past its dew point and the surplus vapour condenses into droplets. The term comes from morning dew, which forms when cold grass blades chill the thin film of air touching them below its dew point."
         },
         {
-          "kind": "figure",
-          "figure": "jar",
+          "type": "interactive_diagram",
+          "id": "jar",
           "caption": "A sealed jar of air containing water vapour. The violet curve shows the maximum vapour capacity at each temperature.",
           "task": "Mark where you think the jar will fog, then cool it to check.",
           "goal": "fog"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Slide the water control in the jar figure to see how the dew point responds. First, the dew point depends strictly on how much water vapour is in each cubic metre of air, not on the air’s current temperature. Warming or cooling the jar moves the air’s temperature left or right, but its dew point stays put until droplets start to form. Adding vapour raises the dew point because more crowded molecules need less cooling to start condensing. That makes the dew point a direct measure of humidity that you can feel on your skin: below 10 °C (50 °F) the air feels crisp and dry; around 16–18 °C (60–65 °F) it turns sticky; above 20 °C (68 °F) it feels muggy because sweat cannot evaporate quickly."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Second, making a cloud doesn't require adding water to the air. You just have to cool the air to its dew point."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "In open air, condensing vapour needs a solid surface to get started. A cluster of pure water molecules is so tiny and tightly curved that it evaporates almost instantly before it can grow. Microscopic specks of dust, smoke, or sea salt provide ready-made surfaces where water molecules can gather, and every breath of outdoor air holds millions of these specks.[^nuclei] The droplets that grow on them are about a hundredth of a millimetre wide—roughly the thickness of spider silk. Air resistance keeps their fall speed under a centimetre per second, so even the faintest upward breeze holds them aloft."
         },
         {
-          "kind": "figure",
-          "figure": "specks",
+          "type": "diagram",
+          "id": "specks",
           "caption": "Dust and salt specks, and the size of a cloud droplet."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Cloud formation, then, comes down to how the atmosphere cools air to its dew point. It has two main methods: chill the air in place against cold ground, or lift it high enough to cool by expansion. The first method makes morning **fog**; the second builds afternoon puffs."
         }
       ]
@@ -78,38 +78,38 @@
       "title": "A clear, still night",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Fog forms when a wide layer of air cools in place without rising. A clear, calm night sets this up."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "All day and night, the ground sheds heat as invisible infrared light. Under a clear sky, most of that heat escapes straight to space because nitrogen and oxygen barely absorb it. Soil and grass radiate heat much more strongly than clear air does, so after sunset the ground cools far faster than the air above it. By dawn on a calm, clear night, grass blades can be several degrees colder than the air at head height—which is why frost can coat a car roof when an eye-level thermometer still reads above freezing."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That cold ground chills the air resting on it, the way a cold windowpane chills your hand, and gentle air currents spread the chill upward through the lowest few dozen metres. Overhead clouds stop this cooling: their water droplets absorb the ground's outgoing heat and radiate it back down like a blanket. That is why overcast nights stay mild while clear nights turn cold."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As air chills, it contracts and grows denser than the warmer air nearby. On sloped terrain, this heavy, cold air drains downhill like water, pooling in hollows and valley bottoms. You can feel the temperature drop as you walk down into a valley on a still evening, and that cold drainage is why fog forms in low spots first."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Chilling the air from underneath leaves the coldest, heaviest air hugging the ground with warmer, lighter air sitting on top. Because air temperature normally drops with height, this upside-down layer is called an **inversion**. An inversion acts like a lid on rising air: the heaviest air is already at the bottom, so nothing bubbles up through it. On still mornings, you can spot an inversion where rising chimney smoke suddenly flattens out into a horizontal sheet."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Because this trapped valley air stays at ground level, its pressure doesn't change and its vapour content stays constant. Its dew point remains fixed while its temperature steadily drops to meet it, just like in the sealed jar."
         },
         {
-          "kind": "figure",
-          "figure": "night",
+          "type": "interactive_diagram",
+          "id": "night",
           "caption": "Overnight cooling in a valley.",
           "task": "Find a night that ends in fog by dawn.",
           "goal": "fog"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Once that surface layer cools to its dew point, droplets condense and **fog** forms—a cloud resting on the ground. In the figure, notice that cooling slows toward dawn because colder ground radiates slightly less energy. Try adjusting the wind slider, too. A faint breeze helps thicken the fog by mixing the ground chill through the lowest few tens of metres. A brisk wind, however, ruins it by mixing down much warmer, drier air from above the inversion, keeping the surface layer above its dew point."
         }
       ]
@@ -118,37 +118,37 @@
       "title": "Will it burn off?",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Fog and **stratus** are identical in structure; the only difference is whether the cloud base touches the ground. When morning warmth or a light breeze evaporates the bottom of a fog bank, the remaining suspended layer becomes stratus—a flat, featureless grey sheet that often shrouds hilltops. Stratus can also form at any hour when warm, moist wind blows over cold land or sea and chills from below. Either way, cooling a stable layer of air produces an unbroken cloud sheet."
         },
         {
-          "kind": "figure",
-          "figure": "fogStratus",
+          "type": "diagram",
+          "id": "fogStratus",
           "caption": "Fog lifting into stratus, seen from the valley floor."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Viewed from underneath, stratus looks dull grey. It is made of the same water droplets as a bright white cumulus cloud, but because a stratus layer covers the whole sky, you only see its shaded underside. Cumulus bases look grey for the same reason; cumulus clouds only look bright white where direct sunlight hits their sides and rounded tops. Seen from an aeroplane above, a stratus layer is dazzlingly white."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Thick stratus can bring drizzle. As tiny cloud droplets drift about, they occasionally bump together and merge into larger drops. Given an hour or two inside a deep stratus layer, drops can grow to a few tenths of a millimetre wide. At that size, they fall at one to two metres per second—too fast for the gentle air currents in a stable layer to hold up—so they drift down to the ground as fine drizzle."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Morning fog and low stratus rarely bring worse than drizzle, and they usually burn off before noon. \"Burning off\" actually happens from the bottom up: sunlight filters through the cloud layer and warms the ground, the ground warms the lowest air back above its dew point, and the cloud droplets evaporate back into invisible vapour."
         },
         {
-          "kind": "figure",
-          "figure": "burnOff",
+          "type": "diagram",
+          "id": "burnOff",
           "caption": "How morning sun clears a fog bank from the bottom up."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "That gives morning grey a reliable schedule. After a clear, calm, damp night, expect valley fog or low stratus at dawn, lifting into a grey ceiling after sunrise and breaking up by mid- to late morning. Stratus carried in by a persistent wind off cold water, or trapped beneath higher cloud layers that block the sun, can linger all day."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "On a classic summer day, though, once the morning fog vanishes, a new breed of cloud pops up by late morning: bright white heaps floating a kilometre or more overhead, well away from any cold surface. That air is cooling because it is rising."
         }
       ]
@@ -157,59 +157,59 @@
       "title": "Why rising air cools",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "To track what happens to rising air, meteorologists follow an imaginary chunk of air called a **parcel**."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "A real parcel has no wrapper, so its outer edges constantly mix with the surrounding sky. Even so, warm air genuinely rises in distinct, coherent plumes and bubbles a few hundred metres across. Hawks and glider pilots seek out these rising bubbles and circle inside their cores to gain altitude. Because a broad bubble mixes mostly around its perimeter, its interior carries its ground-level moisture and heat well aloft, making the self-contained parcel a remarkably accurate model."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "At sea level, air is squeezed by the weight of the entire atmosphere overhead—about ten tonnes of mass pressing on every square metre. Climb one kilometre, and you leave roughly 10 percent of the atmosphere's mass below you, so the surrounding air pressure drops by about 10 percent."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "When an air parcel rises into that lower-pressure zone, its internal pressure pushes outward until the parcel expands to match the surrounding pressure."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Expanding air cools. You can feel the reverse when pumping up a bicycle tyre: squeezing air into a smaller space heats the pump barrel. Conversely, open a chilled bottle of fizzy drink and watch the neck: as the trapped gas escapes into lower pressure, it expands, cools past its dew point, and forms a brief wisp of cloud."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Temperature is simply a measure of how fast molecules are jostling about. As a rising parcel expands, its molecules spend energy pushing back the surrounding air, so they bounce away moving a little slower. Nothing cold has touched the parcel; its temperature drops simply because its own molecules did the work of expanding."
         },
         {
-          "kind": "figure",
-          "figure": "expand",
+          "type": "diagram",
+          "id": "expand",
           "caption": "An expanding parcel of rising air. The same molecules spread over a larger volume."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "As long as no cloud droplets have formed yet, a rising parcel cools at a steady physical rate of about 10 °C for every kilometre it climbs (9.8 °C to be exact, or 5.4 °F per 1,000 feet)[^dry-rate]. Because this rate depends only on Earth’s gravity and how air stores heat, it is the same everywhere, every day.[^why-9-8]"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Meanwhile, the rising parcel’s dew point also falls, though much more slowly—at about 2 °C per kilometre. The parcel hasn't lost any water, but because it has expanded into a larger volume, the water vapour is spread thinner, leaving fewer grams of vapour in each cubic metre. Less crowded vapour has a slightly lower dew point."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "So inside a [[rising parcel|parcel]], two temperatures converge: the air temperature drops by about 10 °C per kilometre, while the [[dew point|dew]] drops by about 2 °C per kilometre. The gap between them closes by about 8 °C for every kilometre the parcel climbs."
         },
         {
-          "kind": "figure",
-          "figure": "parcel",
+          "type": "interactive_diagram",
+          "id": "parcel",
           "caption": "A parcel starting at the ground at 24 °C with a 12 °C dew point.",
           "task": "Mark where you think the cloud base will be, then lift the air to check.",
           "goal": "base"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "At the height where temperature and dew point meet, vapour begins to condense and the **cloud base** forms. Because the gap between temperature and dew point closes by 8 °C per kilometre, every 1 °C of gap at the ground takes 1,000 ÷ 8 = 125 metres of lift to close (about 220 feet per 1 °F of gap, or 1,000 feet per 4.4 °F). In the figure, a ground temperature of 24 °C and a dew point of 12 °C give a 12 °C gap, placing the cloud base at 12 × 125 = 1,500 metres."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "You can watch this rule play out all summer. On humid days, the temperature and dew point at the ground start close together, so rising air reaches condensation quickly and cumulus bases sit low. On dry days, the gap is wide and cloud bases sit high. Drag the dew point slider in the figure to see the cloud base rise and fall."
         }
       ]
@@ -218,47 +218,47 @@
       "title": "Afternoon puffs: cumulus",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Sunlight passes through clear air with very little absorption, heating the ground instead, which then warms the air touching it. Dark soil, rock, pavements, and dry fields heat up rapidly, whereas lakes, rivers, and green forests stay cooler because much of the sun's energy goes into evaporating water rather than raising temperatures."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Over a sun-warmed field or rocky slope, a pocket of air heats up until it is lighter than the cooler air around it, then breaks free and rises like a hot-air balloon. Glider pilots and meteorologists call this rising bubble a **thermal**. As the thermal climbs, it expands and cools at 10 °C per kilometre until it reaches its dew point. From that height upward, condensing water vapour makes the top of the thermal visible as a bright, flat-bottomed heap: a **cumulus** cloud."
         },
         {
-          "kind": "figure",
-          "figure": "thermals",
+          "type": "interactive_diagram",
+          "id": "thermals",
           "caption": "Sunny late morning over varied terrain. Thermals break away from the warmest surfaces.",
           "task": "Bring the sun up until two clouds have formed.",
           "goal": "clouds"
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Notice in the figure that every cumulus cloud shares the same flat base height. You might expect bubbles rising off the hottest rocks to condense at different heights from those over fields, but by late morning, rising thermals have stirred the lowest kilometre of the sky so thoroughly that the air across the valley has nearly uniform temperature and moisture. Each thermal breaks away once it is just a degree or two warmer than the surrounding air, so every thermal hits its dew point at almost the exact same height—lining up the flat cloud bases at one level."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Adjusting the **moisture** slider raises or lowers that condensation level. Humid air produces low bases; dry air produces high bases. Remember, though, that a thermal only rises while it remains warmer (and thus less dense) than the surrounding air at the same height. On very dry days, rising thermals cool until they match the surrounding air temperature and stop climbing before ever reaching their high dew point. These \"blue thermals\" produce no clouds at all, leaving a clear blue sky that still gives glider pilots and light aircraft a bumpy ride."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "The blue spaces between cumulus clouds mark where air is gently sinking to replace the air rising in thermals. As that sinking air drops into higher pressure below, compression warms it by 10 °C per kilometre, pushing its temperature further above its dew point and keeping the sky between the heaps clear."
         },
         {
-          "kind": "figure",
-          "figure": "heap",
+          "type": "diagram",
+          "id": "heap",
           "caption": "Airflow in and around a fair-weather cumulus cloud."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Small, shallow heaps scattered across a blue sky are called fair-weather cumulus. Driven by sunshine warming the ground, they sprout late in the morning, drift through the afternoon, and dissolve around sunset once the ground cools and thermals shut down."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "How tall a cumulus grows depends on the air sitting above the cloud base, which the next lessons explore. If a warm, stable layer sits a little way above the base, it stops the rising thermals and spreads them into a patchy grey sheet (Lesson 2). If the upper air stays much colder than the rising clouds, the heaps can tower into thunderstorms (Lesson 5). For now, the farmer’s rule holds: cumulus heaps that stay wider than they are tall mean dry, fair weather."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "Morning stratus and afternoon cumulus show the two basic ways the sky makes clouds: cooling a stable layer in place creates flat sheets, while lifting buoyant bubbles builds individual heaps. Every other cloud type in this guide is a variation or combination of these two processes at different altitudes."
         }
       ]
@@ -267,12 +267,12 @@
       "title": "Look-alikes, in real photos",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Diagrams are tidy, whereas real skies can be messy. Compare these two photographs of stratus and cumulus side by side, noting the visual cue that separates them."
         },
         {
-          "kind": "figure",
-          "figure": "lookAlike",
+          "type": "diagram",
+          "id": "lookAlike",
           "caption": "Stratus or cumulus?",
           "options": {
             "photos": [
@@ -294,16 +294,16 @@
       "title": "Check",
       "blocks": [
         {
-          "kind": "text",
+          "type": "text",
           "text": "Identify each sky below as either cumulus heaps or a stratus layer."
         },
         {
-          "kind": "text",
+          "type": "text",
           "text": "**Cumulus**: detached heaps with flat bases, bright rounded tops, and blue sky between them. **Stratus**: a uniform, featureless grey sheet covering the sky, often hiding hilltops."
         },
         {
-          "kind": "figure",
-          "figure": "check",
+          "type": "quiz",
+          "id": "check",
           "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
           "options": {
             "photos": {

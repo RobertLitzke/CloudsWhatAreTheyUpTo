@@ -7,7 +7,7 @@ import { BRANCHES, FIGURE_IDS, JOURNAL, SHIFTS, TREE_LESSONS, type Block, type F
 import { GLOSSARY } from '../src/core/glossary';
 import { footnoteProblems } from 'didactics/footnote';
 import { glossaryProblems } from 'didactics/glossary';
-import { lessonTexts } from 'didactics/lesson';
+import { BLOCK_TYPES, isDiagram, lessonTexts } from 'didactics/lesson';
 import { treeProblems } from 'didactics/tree';
 
 const blocks = (s: Shift): Block[] => s.parts.flatMap((p) => p.blocks);
@@ -46,8 +46,8 @@ describe('shifts', () => {
   it('use only known figures, and end with one check', () => {
     for (const s of SHIFTS) {
       expect(s.parts.length, s.id).toBeGreaterThan(1);
-      for (const b of blocks(s)) if (b.kind === 'figure') expect(FIGURE_IDS, b.figure).toContain(b.figure);
-      const check = s.parts.at(-1)!.blocks.filter((b) => b.kind === 'figure').map((b) => (b as { figure: string }).figure);
+      for (const b of blocks(s)) if (isDiagram(b)) expect(FIGURE_IDS, b.id).toContain(b.id);
+      const check = s.parts.at(-1)!.blocks.filter((b) => isDiagram(b)).map((b) => b.id);
       expect(check, s.id).toEqual(['check']);
     }
   });
@@ -61,7 +61,7 @@ describe('shifts', () => {
   it('give name puzzles whose clue floor matches the answer', () => {
     for (const s of SHIFTS) {
       for (const b of blocks(s)) {
-        if (b.kind !== 'figure' || b.figure !== 'names') continue;
+        if (!isDiagram(b) || b.id !== 'names') continue;
         for (const t of b.options!.targets as { clue: string; prefix: Prefix; body: Body }[]) {
           const floor = genus(compose(t.prefix, t.body)).floor;
           expect(t.clue.toLowerCase()).toContain(`${floor} floor`);
@@ -73,7 +73,7 @@ describe('shifts', () => {
   it('ask forecasts with an answer among the options', () => {
     for (const s of SHIFTS) {
       for (const b of blocks(s)) {
-        if (b.kind !== 'figure' || b.figure !== 'check') continue;
+        if (!isDiagram(b) || b.id !== 'check') continue;
         for (const q of b.options!.items as Forecast[]) {
           expect(q.answer).toBeGreaterThanOrEqual(0);
           expect(q.answer).toBeLessThan(q.options.length);
@@ -91,7 +91,7 @@ describe('shifts', () => {
     for (const s of SHIFTS) {
       met.push(...s.clouds);
       for (const b of blocks(s)) {
-        if (b.kind !== 'figure' || b.figure !== 'lookAlike') continue;
+        if (!isDiagram(b) || b.id !== 'lookAlike') continue;
         const sides = b.options!.photos as { photo: string; cue: string }[];
         expect(sides.length, s.id).toBe(2);
         const pair = sides.map((side) => {
@@ -106,7 +106,7 @@ describe('shifts', () => {
         shown.add(pair.sort().join('|'));
       }
       // A lesson that meets new clouds shows them in photos before its check.
-      if (s.clouds.length) expect(blocks(s).some((b) => b.kind === 'figure' && b.figure === 'lookAlike'), s.id).toBe(true);
+      if (s.clouds.length) expect(blocks(s).some((b) => isDiagram(b) && b.id === 'lookAlike'), s.id).toBe(true);
     }
     for (const g of SHIFTS.flatMap((s) => s.clouds)) for (const c of genus(g).confused) expect(shown, `${g} and ${c}`).toContain([g, c].sort().join('|'));
   });
@@ -117,15 +117,15 @@ describe('shifts', () => {
       for (const p of s.parts) {
         expect(p.title, s.id).toBeTruthy();
         for (const b of p.blocks) {
-          expect(['text', 'figure', 'key'], `${s.id} ${p.title}`).toContain(b.kind);
-          if (b.kind === 'key') {
+          expect(BLOCK_TYPES, `${s.id} ${p.title}`).toContain(b.type);
+          if (b.type === 'key_ideas') {
             expect(b.title.trim(), `${s.id} ${p.title}`).not.toBe('');
             expect(b.points.length, `${s.id} ${p.title}`).toBeGreaterThan(0);
             for (const point of b.points) expect(point.trim()).not.toBe('');
-          } else if (b.kind !== 'figure') {
+          } else if (!isDiagram(b)) {
             expect(b.text.trim(), `${s.id} ${p.title}`).not.toBe('');
             for (const m of b.text.matchAll(/\[\[.+?\|(\w+)\]\]/g)) expect(colours, b.text).toContain(m[1]);
-          } else expect(b.caption, `${s.id} ${b.figure}`).toBeTruthy();
+          } else expect(b.caption, `${s.id} ${b.id}`).toBeTruthy();
         }
       }
       expect(s.learned.length, s.id).toBeGreaterThan(0);
@@ -137,12 +137,12 @@ describe('shifts', () => {
     for (const s of SHIFTS) {
       for (const g of s.clouds) met.add(g);
       for (const b of blocks(s)) {
-        const photos = b.kind === 'figure' && b.figure === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
+        const photos = isDiagram(b) && b.id === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
         if (photos?.mode !== 'name') continue;
         for (const g of photos.pool!) expect([...met], `${s.id} ${g}`).toContain(g);
       }
       for (const b of blocks(s)) {
-        const photos = b.kind === 'figure' && b.figure === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
+        const photos = isDiagram(b) && b.id === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
         if (photos?.mode !== 'spot') continue;
         expect([...met], `${s.id} spot`).toContain(photos.target);
         expect(photos.decoys!.length, s.id).toBeGreaterThan(0);
@@ -151,7 +151,7 @@ describe('shifts', () => {
   });
 
   it('only use goals on figures that take them', () => {
-    for (const s of SHIFTS) for (const b of blocks(s)) if (b.kind === 'figure' && b.goal) expect(b.task, `${s.id} ${b.figure}`).toBeTruthy();
+    for (const s of SHIFTS) for (const b of blocks(s)) if (isDiagram(b) && b.goal) expect(b.task, `${s.id} ${b.id}`).toBeTruthy();
   });
 });
 
