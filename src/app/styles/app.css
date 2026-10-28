@@ -23,8 +23,8 @@ h2 { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 
   font-weight: 800;
 }
 .btn { letter-spacing: 0.06em; }
-.btn:hover { background: #cde486; }
-.btn-ghost:hover { background: rgba(43, 36, 24, 0.08); }
+.btn:hover:not(.right):not(.wrong):not(:disabled) { background: #cde486; }
+.btn-ghost:hover:not(.right):not(.wrong):not(:disabled) { background: rgba(43, 36, 24, 0.08); }
 .wordmark { font-family: var(--display); text-transform: none; letter-spacing: 0.01em; font-size: 1.5rem; font-weight: 700; }
 .wordmark { flex-direction: row; align-items: center; gap: 10px; flex-shrink: 0; }
 .wordmark .mark { display: block; width: 34px; height: 34px; flex-shrink: 0; }
