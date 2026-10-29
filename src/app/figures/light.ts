@@ -3,11 +3,11 @@
 // that costs grain, and grain is easiest to understand as counting: too few
 // photons, and the count comes out rough.
 
-import { svg } from 'lesson-kit/dom';
-import { label, line, note, redraw } from 'lesson-kit/draw';
+import { svg } from 'didactics/dom';
+import { label, line, note, redraw } from 'didactics/draw';
 import { P950, apertureLabel, exposureValue, isoFor, pixelNoise, shutterLabel } from '../../core/camera';
 import { shoot } from '../../core/shot';
-import { shotPhoto } from '../picture';
+import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
 import { COL, apertureSlider, figure, frame, isoSlider, shutterSlider, slider, tint } from './kit';
 import { noPhoto, shotFrame } from './shot';
 
@@ -74,8 +74,8 @@ export const stopsFigure = figure(['trade'], (_ctx, t) => {
  * buys a faster shutter and pays in grain; the reader can see the trade
  * instead of being told about it.
  */
-export const isoFigure = figure(['grain', 'enough-light'], (_ctx, t, options) => {
-  const photo = shotPhoto('low-light', options?.photo as string | undefined) ?? shotPhoto('overcast-forest');
+export const isoFigure = figure<PhotoOptions>(['grain', 'enough-light'], (_ctx, t, options) => {
+  const photo = shotPhoto('low-light', options?.photo) ?? shotPhoto('overcast-forest');
   if (!photo?.scene) return noPhoto('a bird after dark').node;
   const scene = photo.scene;
 
@@ -104,10 +104,9 @@ export const isoFigure = figure(['grain', 'enough-light'], (_ctx, t, options) =>
     isoSlider(iso, (v) => { iso = v; paint(); }).node,
     slider('The light', 5, 15, 0.5, ev, (v) => (v >= 14 ? 'bright sun' : v >= 12 ? 'overcast' : v >= 9 ? 'under trees' : v >= 7 ? 'dusk' : 'almost dark'), (v) => { ev = v; paint(); }, 'light').node,
   );
-  void f.view.ready.then(paint);
-  paint();
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('low-light') });
 
 /**
  * Why grain is counting: a patch of sensor shown as the photons that land on

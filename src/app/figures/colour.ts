@@ -2,11 +2,11 @@
 // the camera guesses which one it was, and that the guess is a dial you can
 // take off automatic when the guess goes wrong (snow, shade, dawn).
 
-import { svg } from 'lesson-kit/dom';
-import { label, line, note, redraw } from 'lesson-kit/draw';
+import { svg } from 'didactics/dom';
+import { label, line, note, redraw } from 'didactics/draw';
 import { lightColor } from '../../core/camera';
 import { shoot } from '../../core/shot';
-import { shotPhoto } from '../picture';
+import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
 import { COL, figure, frame, slider } from './kit';
 import { noPhoto, shotFrame } from './shot';
 
@@ -64,7 +64,7 @@ export const kelvinDiagram = figure(['read-scale'], (_ctx, t) => {
     if (t.goal === 'read-scale' && k <= 2800) t.done();
   };
 
-  f.controls.append(slider('The light', Math.log(1800), Math.log(9000), 0.01, Math.log(k), (l) => `${Math.round(Math.exp(l))} K`, (l) => { k = Math.exp(l); paint(); }, 'warm').node);
+  f.controls.append(slider('The light', { min: 1800, max: 9000, scale: 'log', step: 10, value: k, show: (v) => `${v} K`, onInput: (v) => { k = v; paint(); }, color: 'warm' }).node);
   paint();
   return f.node;
 });
@@ -75,8 +75,8 @@ export const kelvinDiagram = figure(['read-scale'], (_ctx, t) => {
  * really was and the snow goes white; set it elsewhere and the whole picture
  * tips warm or cold.
  */
-export const whiteBalanceFigure = figure(['white-snow', 'warm-it'], (_ctx, t, options) => {
-  const photo = shotPhoto('snow-scene', options?.photo as string | undefined);
+export const whiteBalanceFigure = figure<PhotoOptions>(['white-snow', 'warm-it'], (_ctx, t, options) => {
+  const photo = shotPhoto('snow-scene', options?.photo);
   if (!photo?.scene) return noPhoto('snow').node;
   const scene = photo.scene;
   const light = scene.kelvin ?? 7500;
@@ -98,8 +98,7 @@ export const whiteBalanceFigure = figure(['white-snow', 'warm-it'], (_ctx, t, op
     if (t.goal === 'warm-it' && setting > light * 1.25) t.done();
   };
 
-  f.controls.append(slider('White balance', Math.log(2500), Math.log(10000), 0.01, Math.log(setting), (l) => `${Math.round(Math.exp(l))} K`, (l) => { setting = Math.exp(l); paint(); }, 'cool').node);
-  void f.view.ready.then(paint);
-  paint();
+  f.controls.append(slider('White balance', { min: 2500, max: 10000, scale: 'log', step: 10, value: setting, show: (v) => `${v} K`, onInput: (v) => { setting = v; paint(); }, color: 'cool' }).node);
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('snow-scene') });

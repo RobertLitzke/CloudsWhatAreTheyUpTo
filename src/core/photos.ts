@@ -8,30 +8,12 @@
 // picture are, so most photos also ship a depth map (a small grey picture,
 // white for near and black for far) and a note of the scene they stand for.
 
-import type { Rng } from 'lesson-kit/rng';
+import { photoProblems, type Photo as Credited } from 'didactics/photos';
+import type { Rng } from 'didactics/rng';
 
-/**
- * Licences a photo may carry. Public domain and the attribution licences
- * only: no NonCommercial, and no NoDerivatives, because every photo is
- * resized, cropped and re-rendered by the figures.
- */
-export const LICENSES = {
-  'PD': { name: 'Public domain', url: 'https://creativecommons.org/publicdomain/mark/1.0/' },
-  'CC0': { name: 'CC0', url: 'https://creativecommons.org/publicdomain/zero/1.0/' },
-  'CC-BY-2.0': { name: 'CC BY 2.0', url: 'https://creativecommons.org/licenses/by/2.0/' },
-  'CC-BY-3.0': { name: 'CC BY 3.0', url: 'https://creativecommons.org/licenses/by/3.0/' },
-  'CC-BY-4.0': { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' },
-  'CC-BY-SA-2.0': { name: 'CC BY-SA 2.0', url: 'https://creativecommons.org/licenses/by-sa/2.0/' },
-  'CC-BY-SA-3.0': { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/' },
-  'CC-BY-SA-4.0': { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/' },
-  /**
-   * The course author's own photographs: used here with their permission and
-   * not offered to anyone else under any licence. The link is the repository.
-   */
-  'OWN': { name: 'All rights reserved, used with permission', url: 'https://github.com/RobertLitzke/Photography' },
-} as const;
-
-export type LicenseId = keyof typeof LICENSES;
+// The licences a photo may carry, and the credit fields every photo needs,
+// are Didactics' (didactics/photos); this file adds what a photo is of.
+export { isLicenseId, LICENSES, type LicenseId } from 'didactics/photos';
 
 /**
  * Everything the app may want a picture of, with the name it goes by. A
@@ -87,9 +69,7 @@ export interface Scene {
   eqFocal?: number;
 }
 
-export interface Photo {
-  /** Stable id, also the file name without extension. */
-  id: string;
+export interface Photo extends Credited {
   subject: SubjectId;
   /**
    * Set when the photo must not be shown mirrored: it has writing in it, or a
@@ -105,35 +85,18 @@ export interface Photo {
    * tools/photos/depth.ts. Figures that blur by distance need one.
    */
   depthFile?: string;
-  width: number;
-  height: number;
   /** What the photo stands for, for the figures that fake camera settings. */
   scene?: Scene;
-  author: string;
-  license: LicenseId;
-  /** The page the photo came from, for the credit link. */
-  sourceUrl: string;
-  /** Where it came from, by name: Wikimedia Commons, USFWS, NASA. */
-  source: string;
 }
 
-export function isLicenseId(value: string): value is LicenseId {
-  return Object.hasOwn(LICENSES, value);
-}
 
-/** What is wrong with an entry, or an empty list if nothing is. */
+/** What is wrong with an entry, or an empty list if nothing is: Didactics' credit checks, then this course's own. */
 export function problems(p: Partial<Photo>): string[] {
-  const out: string[] = [];
-  if (!p.id || !/^[a-z0-9-]+$/.test(p.id)) out.push('id must be lower-case letters, digits and dashes');
+  const out = photoProblems(p);
   if (!p.subject || !isSubjectId(p.subject)) out.push(`unknown subject ${p.subject}`);
   if (p.noMirror !== undefined && p.noMirror !== true) out.push('noMirror must be true or left out');
   if (!p.file || !p.file.startsWith('photos/')) out.push('file must live under photos/');
   if (p.depthFile !== undefined && p.depthFile !== `photos/${p.id}-depth.webp`) out.push('depthFile must be photos/<id>-depth.webp');
-  if (!p.author?.trim()) out.push('no author');
-  if (!p.license || !isLicenseId(p.license)) out.push(`licence ${p.license} is not allowed`);
-  if (!p.sourceUrl?.startsWith('https://')) out.push('no https source link');
-  if (!p.source?.trim()) out.push('no source name');
-  if (!(p.width! > 0 && p.height! > 0)) out.push('no size');
   out.push(...sceneProblems(p.scene));
   return out;
 }

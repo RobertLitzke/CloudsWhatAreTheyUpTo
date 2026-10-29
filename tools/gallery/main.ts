@@ -1,30 +1,22 @@
 // Every figure on one page, with its caption from the lessons, for checking
-// drawings without playing through: `npm run dev`, then open /figures.html.
-// Only the dev server serves it; the build ships index.html alone.
+// drawings without playing through: `npm run dev`, then open /figures.html
+// (Didactics' gallery page). ?only=<id> shows one figure, ?imperial puts
+// distances in feet, and ?frozen makes the page the same on every load; the
+// page gets data-ready once every photo has been drawn. Only the dev server
+// serves it; the build ships index.html alone.
 
+import 'didactics/frozen';
 import '../../src/app/styles/app.css';
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
+import { galleryPage } from 'didactics/gallery';
 import { FIGURES } from '../../src/app/figures';
-import type { FigureContext } from '../../src/app/figures/kit';
+import { LESSONS } from '../../src/core/lessons';
 import { emptySave } from '../../src/core/save';
-import { LESSONS, type Block, type FigureId } from '../../src/core/lessons';
 
 const save = emptySave();
-if (location.search.includes('metric')) save.units = 'metric';
-const ctx: FigureContext = { save, closed: new AbortController().signal, score: () => {} };
+if (new URLSearchParams(location.search).has('imperial')) save.units = 'imperial';
 
-const uses = new Map<FigureId, Extract<Block, { kind: 'figure' }>>();
-for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) if (b.kind === 'figure' && !uses.has(b.figure)) uses.set(b.figure, b);
-
-const only = new URLSearchParams(location.search).get('only');
-const article = el('article.article');
-for (const id of Object.keys(FIGURES) as FigureId[]) {
-  if (only && only !== id) continue;
-  const b = uses.get(id);
-  const handle = FIGURES[id](ctx, b?.goal, b?.options);
-  const caption = el('p.fig-lead', {}, `${id}: ${b?.caption ?? '(not in any lesson)'}`);
-  const box = handle.node.querySelector('.fig-text');
-  if (box) box.prepend(caption);
-  article.append(el('figure.fig', { 'data-figure': id }, handle.node, box ? null : el('div.fig-text', {}, caption)));
-}
-document.getElementById('app')!.append(el('main.view', {}, el('div.paper', {}, article)));
+const gallery = galleryPage({ figures: FIGURES, lessons: LESSONS, save });
+// On the lesson's paper, as the figures appear in a lesson.
+gallery.node.replaceChildren(el('div.paper', {}, ...gallery.node.children));
+document.getElementById('app')!.append(gallery.node);

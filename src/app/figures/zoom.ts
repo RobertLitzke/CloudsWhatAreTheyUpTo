@@ -3,11 +3,11 @@
 // zoom (a dimmer lens, a thinner slice of sharpness, and every wobble
 // magnified).
 
-import { svg } from 'lesson-kit/dom';
-import { label, line, note, redraw } from 'lesson-kit/draw';
+import { svg } from 'didactics/dom';
+import { label, line, note, redraw } from 'didactics/draw';
 import { P950, angleOfView, apertureLabel, fromEquivalent, widestAperture } from '../../core/camera';
 import { shoot } from '../../core/shot';
-import { shotPhoto } from '../picture';
+import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
 import { COL, apertureSlider, distance, figure, frame, slider, tint, zoomSlider } from './kit';
 import { noPhoto, shotFrame } from './shot';
 
@@ -16,8 +16,9 @@ import { noPhoto, shotFrame } from './shot';
  * the camera gives up on the way written under it. The task is to fill the
  * frame with the subject and notice what it cost.
  */
-export const zoomFigure = figure(['fill-frame'], (_ctx, t, options) => {
-  const photo = shotPhoto('distant-wildlife', options?.photo as string | undefined);
+export const zoomFigure = figure<PhotoOptions>(['fill-frame'], (ctx, t, options) => {
+  const units = ctx.save.units;
+  const photo = shotPhoto('distant-wildlife', options?.photo);
   if (!photo?.scene) return noPhoto('an animal across a field').node;
   const scene = photo.scene;
 
@@ -28,17 +29,16 @@ export const zoomFigure = figure(['fill-frame'], (_ctx, t, options) => {
   const paint = () => {
     const shot = shoot(scene, { eqFocal });
     const fills = shot.subjectHeight(subjectTall);
-    const say = `${Math.round(shot.angle)}° of the world across the frame. Something ${subjectTall} m tall at ${distance(scene.subjectAt)} fills ${Math.round(fills * 100)}% of the height. ` +
+    const say = `${Math.round(shot.angle)}° of the world across the frame. Something ${distance(subjectTall, units)} tall at ${distance(scene.subjectAt, units)} fills ${Math.round(fills * 100)}% of the height. ` +
       `The lens opens no wider than ${apertureLabel(shot.widest)} here.`;
     f.paint(shot, say);
     if (t.goal === 'fill-frame' && fills > 0.5) t.done();
   };
 
   f.controls.append(zoomSlider(eqFocal, (v) => { eqFocal = v; paint(); }).node);
-  void f.view.ready.then(paint);
-  paint();
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('distant-wildlife') });
 
 /**
  * What the lens takes in, drawn from above: the wedge of the world that lands
@@ -133,8 +133,9 @@ export const longEndDiagram = figure(['price'], (_ctx, t) => {
  * aperture one, on a flower at half a metre, where the reader meets the other
  * end of depth of field.
  */
-export const closeUpFigure = figure(['thin-band'], (_ctx, t, options) => {
-  const photo = shotPhoto('flower-close', options?.photo as string | undefined);
+export const closeUpFigure = figure<PhotoOptions>(['thin-band'], (ctx, t, options) => {
+  const units = ctx.save.units;
+  const photo = shotPhoto('flower-close', options?.photo);
   if (!photo?.scene) return noPhoto('a flower, close up').node;
   const scene = photo.scene;
 
@@ -148,15 +149,14 @@ export const closeUpFigure = figure(['thin-band'], (_ctx, t, options) => {
     const shot = shoot(scene, { eqFocal: scene.eqFocal ?? 100, aperture: n, focusAt, macro: true });
     const band = shot.depth.far - shot.depth.near;
     const clamped = shot.aperture > n + 0.05 ? ` The lens opens no wider than ${apertureLabel(shot.aperture)} at this zoom.` : '';
-    f.paint(shot, `Sharp from ${distance(shot.depth.near)} to ${distance(shot.depth.far)}: a band ${band < 0.1 ? `${Math.round(band * 1000)} mm` : distance(band)} thick. Up close, that band is thinner than the flower.${clamped}`);
+    f.paint(shot, `Sharp from ${distance(shot.depth.near, units)} to ${distance(shot.depth.far, units)}: a band ${band < 0.1 ? `${Math.round(band * 1000)} mm` : distance(band, units)} thick. Up close, that band is thinner than the flower.${clamped}`);
     if (t.goal === 'thin-band' && band < 0.08) t.done();
   };
 
   f.controls.append(
     apertureSlider(n, (v) => { n = v; paint(); }).node,
-    slider('Focus on', Math.log(scene.near), Math.log(scene.subjectAt * 2.5), 0.005, Math.log(focusAt), (l) => distance(Math.exp(l)), (l) => { focusAt = Math.exp(l); paint(); }, 'focus').node,
+    slider('Focus on', { min: scene.near, max: scene.subjectAt * 2.5, scale: 'log', value: focusAt, show: (v) => distance(v, units), onInput: (v) => { focusAt = v; paint(); }, color: 'focus' }).node,
   );
-  void f.view.ready.then(paint);
-  paint();
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('flower-close') });

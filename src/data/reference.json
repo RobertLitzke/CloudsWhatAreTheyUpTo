@@ -6,7 +6,7 @@
       "summary": "Every word the lessons use, A to Z, with the notes from the lessons",
       "lesson": "tour",
       "blocks": [
-        { "kind": "glossary" }
+        { "type": "glossary" }
       ]
     },
     {
@@ -15,13 +15,13 @@
       "summary": "What each dial decides, and what it charges for it",
       "lesson": "tour",
       "blocks": [
-        { "kind": "table", "columns": ["Dial", "Decides", "Costs", "Reach for it when"], "rows": [
+        { "type": "table", "columns": ["Dial", "Decides", "Costs", "Reach for it when"], "rows": [
           ["Aperture", "How much light, and how deep the sharp band is", "Depth of field; past f/4 on this camera, overall sharpness", "You want a background gone, or everything sharp"],
           ["Shutter", "How much light, and how movement is recorded", "Blur, from the subject or from your hands", "Anything is moving, including you"],
           ["ISO", "How hard the count is amplified", "Grain, and some fine detail", "There is no more light to be had from the other two"],
           ["Focus", "What distance is sharp", "Nothing, when it lands where you meant", "Always: it is the one the camera gets wrong most often"]
         ] },
-        { "kind": "figure", "figure": "stops", "caption": "Three dials, one scene, and how far the exposure is from right" }
+        { "type": "interactive_diagram", "id": "stops", "caption": "Three dials, one scene, and how far the exposure is from right" }
       ]
     },
     {
@@ -30,7 +30,7 @@
       "summary": "The numbers the figures are built on",
       "lesson": "tour",
       "blocks": [
-        { "kind": "table", "columns": ["", "Value", "What it means in the field"], "rows": [
+        { "type": "table", "columns": ["", "Value", "What it means in the field"], "rows": [
           ["Sensor", "6.17 × 4.55 mm, 16 megapixels", "A crop factor of 5.6: deep depth of field, and grain sooner than a big camera"],
           ["Lens", "4.3–357 mm, quoted as 24–2000 mm", "83×: a landscape and a distant bird with the same camera"],
           ["Widest aperture", "f/2.8 wide, f/6.5 at 2000 mm", "Two and a half stops darker at the long end"],
@@ -39,7 +39,7 @@
           ["Stabiliser", "Rated 5.5 stops", "Count on 3 or 4 hand-held, and nothing at all against a moving bird"],
           ["Closest focus", "About 0.5 m wide, 5 m at full zoom", "The long end cannot focus on anything near"]
         ] },
-        { "kind": "figure", "figure": "longEnd", "caption": "The widest the lens will open, at every zoom" }
+        { "type": "interactive_diagram", "id": "longEnd", "caption": "The widest the lens will open, at every zoom" }
       ]
     },
     {
@@ -48,14 +48,14 @@
       "summary": "The three scales, side by side, so a trade can be counted",
       "lesson": "tour",
       "blocks": [
-        { "kind": "table", "columns": ["Stops from here", "Aperture", "Shutter", "ISO"], "rows": [
+        { "type": "table", "columns": ["Stops from here", "Aperture", "Shutter", "ISO"], "rows": [
           ["+2 (four times the light)", "f/2.8", "1/60", "400"],
           ["+1", "f/4", "1/125", "200"],
           ["0", "f/5.6", "1/250", "100"],
           ["−1", "f/8", "1/500", "—"],
           ["−2 (a quarter)", "f/11", "1/1000", "—"]
         ] },
-        { "kind": "text", "text": "Aperture numbers go up by about 1.4 a stop because the hole's *area* has to halve. The shutter and the ISO simply double." }
+        { "type": "text", "text": "Aperture numbers go up by about 1.4 a stop because the hole's *area* has to halve. The shutter and the ISO simply double." }
       ]
     },
     {
@@ -64,7 +64,7 @@
       "summary": "A first guess for the usual nature subjects, to adjust rather than invent",
       "lesson": "tour",
       "blocks": [
-        { "kind": "table", "columns": ["Subject", "Mode", "Shutter", "Aperture", "ISO"], "rows": [
+        { "type": "table", "columns": ["Subject", "Mode", "Shutter", "Aperture", "ISO"], "rows": [
           ["Perched bird, good light", "A", "watch it stays over 1/500", "wide open", "auto, capped at 800"],
           ["Bird in flight", "S", "1/2000", "whatever it gives", "auto, capped at 1600"],
           ["Animal across a field", "S", "1/1000", "wide open", "auto"],
@@ -72,7 +72,7 @@
           ["Flower or insect close up", "A", "over 1/250 if there is any breeze", "f/5.6 to f/8", "100 to 400"],
           ["Waterfall", "M, on a tripod", "1/4 to 2 s", "f/8", "100"]
         ] },
-        { "kind": "text", "text": "These are starting points, not answers. Take one frame, look at it, and move the dial that is costing you the most." }
+        { "type": "text", "text": "These are starting points, not answers. Take one frame, look at it, and move the dial that is costing you the most." }
       ]
     },
     { "id": "metering", "title": "Measuring the light", "summary": "The meter, the histogram, and exposure compensation", "lesson": "light", "blocks": [] },

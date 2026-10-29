@@ -1,8 +1,8 @@
 // The quiz: flash cards on the ideas in the written lessons (data/quiz.json),
-// shown by lesson-kit's quiz page with spaced repetition.
+// shown by Didactics' quiz page with spaced repetition.
 
-import { conceptCard, type Concept } from 'lesson-kit/quiz';
-import { quizView as kitQuizView } from 'lesson-kit/quiz-view';
+import { conceptCard, type Concept } from 'didactics/quiz';
+import { quizView as kitQuizView } from 'didactics/quiz-view';
 import ideas from '../../data/quiz.json';
 import { store } from '../store';
 

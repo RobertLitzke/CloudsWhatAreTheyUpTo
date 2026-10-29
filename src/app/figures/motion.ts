@@ -2,12 +2,12 @@
 // open, and which of the two blurs you are looking at. A bird's wings and your
 // own hands are two different problems with the same dial.
 
-import { svg } from 'lesson-kit/dom';
-import { label, line, note, redraw } from 'lesson-kit/draw';
+import { svg } from 'didactics/dom';
+import { label, line, note, redraw } from 'didactics/draw';
 import { shutterLabel } from '../../core/camera';
 import { shoot } from '../../core/shot';
-import { shotPhoto } from '../picture';
-import { COL, distance, figure, frame, shutterSlider, slider, tint } from './kit';
+import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
+import { COL, distance, figure, frame, shutterSlider, tint, zoomSlider } from './kit';
 import { noPhoto, shotFrame } from './shot';
 
 /**
@@ -16,8 +16,8 @@ import { noPhoto, shotFrame } from './shot';
  * whole frame smears with your hands. The stabiliser helps with one of them
  * and not at all with the other, which is the thing to come away with.
  */
-export const shutterFigure = figure(['freeze', 'see-shake'], (_ctx, t, options) => {
-  const photo = shotPhoto('bird-in-flight', options?.photo as string | undefined);
+export const shutterFigure = figure<PhotoOptions>(['freeze', 'see-shake'], (_ctx, t, options) => {
+  const photo = shotPhoto('bird-in-flight', options?.photo);
   if (!photo?.scene) return noPhoto('a bird in flight').node;
   const scene = photo.scene;
 
@@ -55,10 +55,9 @@ export const shutterFigure = figure(['freeze', 'see-shake'], (_ctx, t, options) 
   paintVr();
 
   f.controls.append(shutterSlider(shutter, (v) => { shutter = v; paint(); }).node, vrButton);
-  void f.view.ready.then(paint);
-  paint();
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('bird-in-flight') });
 
 /**
  * Why zoom makes shake worse, drawn: the same small wobble of the camera
@@ -106,7 +105,7 @@ export const shakeDiagram = figure(['rule-of-thumb'], (_ctx, t) => {
   };
 
   f.controls.append(
-    slider('Zoom', Math.log2(24), Math.log2(2000), 0.02, Math.log2(eqFocal), (l) => `${Math.round(2 ** l)} mm`, (l) => { eqFocal = 2 ** l; paint(); }, 'subject').node,
+    zoomSlider(eqFocal, (v) => { eqFocal = v; paint(); }).node,
     shutterSlider(shutter, (v) => { shutter = v; paint(); }).node,
   );
   paint();
@@ -117,8 +116,9 @@ export const shakeDiagram = figure(['rule-of-thumb'], (_ctx, t) => {
  * The other way round: a shutter left open on purpose, on running water. Here
  * the smear is the picture, and the problem becomes letting in too much light.
  */
-export const silkWaterFigure = figure(['silk'], (_ctx, t, options) => {
-  const photo = shotPhoto('running-water', options?.photo as string | undefined);
+export const silkWaterFigure = figure<PhotoOptions>(['silk'], (ctx, t, options) => {
+  const units = ctx.save.units;
+  const photo = shotPhoto('running-water', options?.photo);
   if (!photo?.scene) return noPhoto('a waterfall or a stream').node;
   const scene = { ...photo.scene, speed: photo.scene.speed ?? 2 };
 
@@ -129,7 +129,7 @@ export const silkWaterFigure = figure(['silk'], (_ctx, t, options) => {
     const shot = shoot(scene, { eqFocal: scene.eqFocal ?? 50, shutter, iso: 100, tripod: true });
     const over = Math.log2(shot.render.exposure);
     const say = shot.render.smear < 0.002
-      ? `Every drop is stopped where it was. ${distance(scene.subjectAt)} away, at ${shutterLabel(shutter)} s, the water moves less than a pixel.`
+      ? `Every drop is stopped where it was. ${distance(scene.subjectAt, units)} away, at ${shutterLabel(shutter)} s, the water moves less than a pixel.`
       : over > 0.4
         ? `The water is silk, but the picture is ${over.toFixed(1)} stops over: at ISO 100 and f/8 there is nowhere left to go. This is what a grey filter is for.`
         : 'The water draws itself into threads, and the rocks stay put, because only the water moved.';
@@ -138,7 +138,6 @@ export const silkWaterFigure = figure(['silk'], (_ctx, t, options) => {
   };
 
   f.controls.append(shutterSlider(shutter, (v) => { shutter = v; paint(); }).node);
-  void f.view.ready.then(paint);
-  paint();
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('running-water') });

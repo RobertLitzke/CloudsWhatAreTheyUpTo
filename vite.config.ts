@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite';
-import { lessonApp } from 'lesson-kit/vite';
+import { lessonApp } from 'didactics/vite';
 import pkg from './package.json';
 
-// The build is lesson-kit's (packages/lesson-kit/src/vite.ts): everything
+// The build is Didactics' (didactics/vite): everything
 // inlined into dist/index.html, the same page again as dist/out-of-auto.html for
 // Settings' download link, and a service worker. Photos sit in dist/photos/
 // and the service worker keeps each one once it has been seen.

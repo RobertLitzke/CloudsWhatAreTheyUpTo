@@ -3,8 +3,8 @@
 // of a viewfinder. It is flat and geometric on purpose, so it never competes
 // with the photographs the lessons are about.
 
-import { svg } from 'lesson-kit/dom';
-import { makeRng } from 'lesson-kit/rng';
+import { svg } from 'didactics/dom';
+import { makeRng } from 'didactics/rng';
 
 export const W = 400;
 

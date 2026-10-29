@@ -2,16 +2,16 @@
 // picture of its subject when it names one (a photo, or the drawing that
 // stands in for it). The questions are the block's `items` in the lesson JSON.
 
-import { el } from 'lesson-kit/dom';
-import { makeRng, shuffle } from 'lesson-kit/rng';
-import { freshSeed } from 'lesson-kit/ui';
+import { el } from 'didactics/dom';
+import { makeRng, shuffle } from 'didactics/rng';
+import { freshSeed } from 'didactics/ui';
 import type { Question } from '../../core/lessons';
 import { isSubjectId } from '../../core/photos';
 import { picture } from '../picture';
-import { quiz } from './kit';
+import { quiz, type Options } from './kit';
 
-export const checkFigure = quiz((ctx, t, options) => {
-  const items = (options?.items as Question[]) ?? [];
+export const checkFigure = quiz<{ items?: Question[] }>((ctx, t, options) => {
+  const items = options?.items ?? [];
   const rng = makeRng(freshSeed());
   const body = el('div');
   const node = el('div.fig-body.check', {}, body);
@@ -52,4 +52,15 @@ export const checkFigure = quiz((ctx, t, options) => {
   };
   next();
   return node;
-});
+}, { options: checkOptions });
+
+/** What is wrong with a check's questions: none at all, an answer that is not one of the options, a short why, or a picture of nothing. */
+function checkOptions(o: Options | undefined): string[] {
+  const items = (o?.items ?? []) as Question[];
+  if (!items.length) return ['a check needs questions in "items"'];
+  return items.flatMap((q) => [
+    ...(Number.isInteger(q.answer) && q.answer >= 0 && q.answer < q.options.length ? [] : [`"${q.question}": answer ${q.answer} is not one of its ${q.options.length} options`]),
+    ...(q.why?.length > 10 ? [] : [`"${q.question}": needs a why`]),
+    ...(q.picture === undefined || isSubjectId(q.picture) ? [] : [`"${q.question}": no subject "${q.picture}"`]),
+  ]);
+}

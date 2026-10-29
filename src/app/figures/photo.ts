@@ -4,12 +4,12 @@
 // `options.subject` names the subject; `options.photo` may pin one photo of
 // it by id, when only that one shows what the text points at.
 
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import { isSubjectId } from '../../core/photos';
-import { PHOTOS, photoFigure, picture } from '../picture';
+import { PHOTOS, photoFigure, picture, stillOptions } from '../picture';
 import type { FigureContext, Options } from './kit';
 
-export function photoDiagram(_ctx: FigureContext, _goal?: string, options?: Options): { node: HTMLElement } {
+export const photoDiagram = Object.assign(function photoDiagram(_ctx: FigureContext, _goal?: string, options?: Options): { node: HTMLElement } {
   const subject = String(options?.subject ?? '');
   const pinned = PHOTOS.find((p) => p.id === options?.photo);
   const node = pinned
@@ -18,4 +18,4 @@ export function photoDiagram(_ctx: FigureContext, _goal?: string, options?: Opti
       ? picture(subject)
       : el('p', {}, `No picture of ${subject}`);
   return { node: el('div.fig-body.fig-photo', {}, node) };
-}
+}, { options: stillOptions });

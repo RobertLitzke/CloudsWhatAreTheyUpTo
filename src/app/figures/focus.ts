@@ -3,11 +3,11 @@
 // band. One ray diagram, which shows why, and one photograph, which shows what
 // it looks like.
 
-import { svg } from 'lesson-kit/dom';
-import { label, line, note, redraw } from 'lesson-kit/draw';
+import { svg } from 'didactics/dom';
+import { label, line, note, redraw } from 'didactics/draw';
 import { P950, apertureLabel, blurCircle, fromEquivalent, sharpEnough } from '../../core/camera';
 import { shoot } from '../../core/shot';
-import { shotPhoto } from '../picture';
+import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
 import { COL, apertureSlider, distance, figure, frame, slider, tint } from './kit';
 import { noPhoto, shotFrame } from './shot';
 
@@ -17,7 +17,8 @@ import { noPhoto, shotFrame } from './shot';
  * focused distance opens the disc; narrowing the aperture closes it again.
  * This is the whole of depth of field in one picture.
  */
-export const coneFigure = figure(['sharp-again'], (_ctx, t) => {
+export const coneFigure = figure(['sharp-again'], (ctx, t) => {
+  const units = ctx.save.units;
   const W = 400;
   const H = 230;
   const f = frame(W, H, 3);
@@ -64,22 +65,22 @@ export const coneFigure = figure(['sharp-again'], (_ctx, t) => {
         'stroke-width': 1.1,
       }),
       svg('circle', { cx: x, cy: AXIS, r: 4, fill: COL.subject }),
-      note(x, AXIS - 14, distance(at), { anchor: 'middle', fill: COL.subject }),
+      note(x, AXIS - 14, distance(at, units), { anchor: 'middle', fill: COL.subject }),
       // The disc it lands as, drawn large beside the sensor.
       // The disc, shown again on its own under the sensor, where it can be seen.
       svg('circle', { cx: SENSOR + 34, cy: AXIS + 48, r: Math.max(1.2, disc / 2), fill: sharp ? COL.sharp : COL.soften }),
       label(SENSOR + 34, AXIS + 78, sharp ? 'a point' : 'a disc', { anchor: 'middle', size: 'small', soft: true }),
     );
 
-    f.svg.setAttribute('aria-label', `A point ${distance(at)} away lands on the sensor as ${sharp ? 'a point' : 'a disc'}.`);
+    f.svg.setAttribute('aria-label', `A point ${distance(at, units)} away lands on the sensor as ${sharp ? 'a point' : 'a disc'}.`);
     f.readout.textContent = sharp
-      ? `A point ${distance(at)} away lands small enough to pass for a point: it looks sharp.`
-      : `A point ${distance(at)} away lands as a disc. Everything in the picture at that distance is spread by that much, and looks soft.`;
+      ? `A point ${distance(at, units)} away lands small enough to pass for a point: it looks sharp.`
+      : `A point ${distance(at, units)} away lands as a disc. Everything in the picture at that distance is spread by that much, and looks soft.`;
     if (sharp && Math.abs(at - focus) > 0.5 && t.goal === 'sharp-again') t.done();
   };
 
   f.controls.append(
-    slider('Point at', Math.log(1.5), Math.log(40), 0.01, Math.log(at), (l) => distance(Math.exp(l)), (l) => { at = Math.exp(l); paint(); }, 'subject').node,
+    slider('Point at', { min: 1.5, max: 40, scale: 'log', value: at, show: (v) => distance(v, units), onInput: (v) => { at = v; paint(); }, color: 'subject' }).node,
     apertureSlider(n, (v) => { n = v; paint(); }).node,
   );
   paint();
@@ -91,8 +92,9 @@ export const coneFigure = figure(['sharp-again'], (_ctx, t) => {
  * the background come apart, and moves the focus and watches what is sharp
  * move with it. The task is to throw the background out of focus.
  */
-export const apertureFigure = figure(['blur-background', 'all-sharp'], (_ctx, t, options) => {
-  const photo = shotPhoto('perched-bird', options?.photo as string | undefined);
+export const apertureFigure = figure<PhotoOptions>(['blur-background', 'all-sharp'], (ctx, t, options) => {
+  const units = ctx.save.units;
+  const photo = shotPhoto('perched-bird', options?.photo);
   if (!photo?.scene) return noPhoto('a bird perched in a tree').node;
   const scene = photo.scene;
 
@@ -109,8 +111,8 @@ export const apertureFigure = figure(['blur-background', 'all-sharp'], (_ctx, t,
     const softness = shot.render.blurAt(background);
     const clamped = shot.aperture > n + 0.05 ? ` The lens opens no wider than ${apertureLabel(shot.aperture)} at this zoom.` : '';
     const say = focusAt < shot.depth.near || focusAt > shot.depth.far
-      ? `Nothing is sharp: the lens is focused at ${distance(focusAt)} and the bird is not there.${clamped}`
-      : `Sharp from ${distance(shot.depth.near)} to ${distance(far)}. ` +
+      ? `Nothing is sharp: the lens is focused at ${distance(focusAt, units)} and the bird is not there.${clamped}`
+      : `Sharp from ${distance(shot.depth.near, units)} to ${distance(far, units)}. ` +
         (softness > 0.004 ? 'The background is well out of focus.' : 'The background is still readable.') + clamped;
     f.paint(shot, say);
     if (t.goal === 'blur-background' && softness > 0.004 && Math.abs(focusAt - scene.subjectAt) < scene.subjectAt * 0.25) t.done();
@@ -119,10 +121,9 @@ export const apertureFigure = figure(['blur-background', 'all-sharp'], (_ctx, t,
 
   f.controls.append(
     apertureSlider(n, (v) => { n = v; paint(); }).node,
-    slider('Focus on', Math.log(Math.max(0.5, scene.near)), Math.log(scene.far ?? scene.subjectAt * 6), 0.01, Math.log(focusAt),
-      (l) => distance(Math.exp(l)), (l) => { focusAt = Math.exp(l); paint(); }, 'focus').node,
+    slider('Focus on', { min: Math.max(0.5, scene.near), max: scene.far ?? scene.subjectAt * 6, scale: 'log', value: focusAt,
+      show: (v) => distance(v, units), onInput: (v) => { focusAt = v; paint(); }, color: 'focus' }).node,
   );
-  void f.view.ready.then(paint);
-  paint();
+  f.start(t, paint);
   return f.node;
-});
+}, { options: photoOptions('perched-bird') });

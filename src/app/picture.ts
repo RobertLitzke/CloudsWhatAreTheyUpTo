@@ -4,25 +4,16 @@
 // fetched later appears everywhere at once.
 
 import library from '../data/photos.json';
-import { el } from 'lesson-kit/dom';
-import type { Rng } from 'lesson-kit/rng';
-import { LICENSES, mirrorFor, photosOf, renderable, SUBJECTS, type Photo, type SubjectId } from '../core/photos';
+import { el } from 'didactics/dom';
+import type { Rng } from 'didactics/rng';
+import { credit } from 'didactics/photos';
+import type { Options } from 'didactics/figure';
+import { isSubjectId, mirrorFor, photosOf, renderable, SUBJECTS, type Photo, type SubjectId } from '../core/photos';
 import { asset } from './asset';
 
 export const PHOTOS: readonly Photo[] = library as Photo[];
 
-export function credit(p: Photo): HTMLElement {
-  const lic = LICENSES[p.license];
-  return el(
-    'p.credit',
-    {},
-    'Photo: ',
-    el('a', { href: p.sourceUrl, target: '_blank', rel: 'noopener' }, p.author),
-    ' · ',
-    el('a', { href: lic.url, target: '_blank', rel: 'noopener' }, lic.name),
-    ` · ${p.source}`,
-  );
-}
+export { credit };
 
 /** A photo with its credit. `mirrored` flips the picture, never the credit. */
 export function photoFigure(p: Photo, alt: string, mirrored = false): HTMLElement {
@@ -56,3 +47,24 @@ export function shotPhoto(subject: SubjectId, id?: string): Photo | undefined {
 export function missing(what: string): HTMLElement {
   return el('div.photo-missing', {}, el('p', {}, `A photo of ${what.toLowerCase()} goes here.`), el('p.credit', {}, 'None fetched yet: see the Photos section of the README.'));
 }
+
+/**
+ * The options check for a figure that re-exposes a photo of `subject`: a
+ * pinned `photo` must be one with a depth map and a scene, of that subject.
+ */
+export const photoOptions = (subject: SubjectId) => (o: Options | undefined): string[] => {
+  if (o?.photo === undefined) return [];
+  const p = PHOTOS.find((x) => x.id === o.photo);
+  if (!p) return [`no photo "${String(o.photo)}"`];
+  if (p.subject !== subject) return [`photo "${p.id}" is ${p.subject}, not ${subject}`];
+  return p.depthFile && p.scene ? [] : [`photo "${p.id}" has no depth map or scene to re-expose`];
+};
+
+/** The options check for a still photo: a known `subject`, or a `photo` that exists. */
+export const stillOptions = (o: Options | undefined): string[] => {
+  if (o?.photo !== undefined) return PHOTOS.some((p) => p.id === o.photo) ? [] : [`no photo "${String(o.photo)}"`];
+  return isSubjectId(String(o?.subject)) ? [] : [`unknown subject "${String(o?.subject)}"`];
+};
+
+/** The options a photo figure takes: `photo` pins one photo by id. */
+export type PhotoOptions = { photo?: string };

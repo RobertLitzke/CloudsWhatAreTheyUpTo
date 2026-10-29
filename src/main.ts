@@ -1,8 +1,9 @@
 import './app/styles/app.css';
 import { BLADES } from './app/mark';
-import { el } from 'lesson-kit/dom';
-import { Router } from 'lesson-kit/router';
-import { watchForUpdates } from 'lesson-kit/update';
+import { el } from 'didactics/dom';
+import { Router } from 'didactics/router';
+import { appShell } from 'didactics/shell';
+import { watchForUpdates } from 'didactics/update';
 import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
 import { lessonView } from './app/views/lesson';
@@ -10,11 +11,11 @@ import { quizView } from './app/views/quiz';
 import { referenceView } from './app/views/reference';
 import { settingsView } from './app/views/settings';
 
-const NAV: readonly [string, string][] = [
-  ['/home', 'Home'],
-  ['/reference', 'Reference'],
-  ['/quiz', 'Quiz'],
-  ['/settings', 'Settings'],
+const NAV = [
+  { path: '/home', label: 'Home' },
+  { path: '/reference', label: 'Reference' },
+  { path: '/quiz', label: 'Quiz' },
+  { path: '/settings', label: 'Settings' },
 ];
 
 /** A shutter button with an up arrow, for the update banner: inline, so it shows offline. */
@@ -30,33 +31,17 @@ const MARK =
   '</g></svg>';
 
 function boot(): void {
-  const app = document.getElementById('app')!;
-  const links = NAV.map(([path, label]) => el('a', { href: `#${path}` }, label));
-  const header = el(
-    'header.topbar',
-    {},
-    el(
-      'a.wordmark',
-      { href: '#/home' },
-      el('span.mark', { innerHTML: MARK }),
-      el('span.words', {}, 'Out of Auto', el('small', {}, 'A field workbook')),
-    ),
-    el('nav', {}, links),
-  );
-  const outlet = el('main');
-  app.replaceChildren(header, outlet);
-
-  const markHere = () => {
-    const here = location.hash.replace(/^#/, '');
-    links.forEach((a, i) => a.classList.toggle('here', here.startsWith(NAV[i][0])));
-  };
-  window.addEventListener('hashchange', markHere);
-
-  const router = new Router(outlet, {
-    // A lesson fills the screen: the header would only be in the way.
-    before: (path) => document.body.classList.toggle('in-lesson', path.startsWith('/lesson/')),
+  const shell = appShell({
+    mount: document.getElementById('app')!,
+    title: 'Out of Auto',
+    subtitle: 'A field workbook',
+    mark: el('span.mark', { innerHTML: MARK }),
+    nav: NAV,
+    // A lesson fills the screen: the bar would only be in the way.
+    fullScreen: (path) => path.startsWith('/lesson/'),
   });
-  router
+
+  new Router(shell.outlet, { before: shell.before })
     .add('/home', homeView)
     .add('/lesson/:id', lessonView)
     .add('/reference', referenceView)
@@ -64,9 +49,8 @@ function boot(): void {
     .add('/credits', creditsView)
     .add('/settings', settingsView)
     .start('/home');
-  markHere();
 
-  if (import.meta.env.DEV) void import('lesson-kit/overflow').then((m) => m.watchOverflow());
+  if (import.meta.env.DEV) void import('didactics/overflow').then((m) => m.watchOverflow());
 
   // The page also runs straight from disk, where there is no service worker.
   if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {

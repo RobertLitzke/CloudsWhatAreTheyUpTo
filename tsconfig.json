@@ -20,6 +20,6 @@
     "useDefineForClassFields": true,
     "noEmit": true
   },
-  "include": ["src", "tools", "test", "packages/*/src", "packages/*/test", "vite.config.ts", "vitest.config.ts"],
+  "include": ["src", "tools", "test", "vite.config.ts", "vitest.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -5,7 +5,7 @@
 // Redrawing is throttled to one frame: a slider dragged across its range asks
 // for a hundred redraws a second and gets as many as the phone can give.
 
-import { el } from 'lesson-kit/dom';
+import { el } from 'didactics/dom';
 import type { Photo } from '../../core/photos';
 import type { Render } from '../../core/shot';
 import { asset } from '../asset';

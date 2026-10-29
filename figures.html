@@ -4,27 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Out of Auto figures</title>
-    <script>
-      // ?frozen: the same picture every load, for comparing screenshots. Math.random is
-      // seeded, and animation frames run a fixed number of steps on a fake clock.
-      if (location.search.includes('frozen')) {
-        let s = 12345;
-        Math.random = () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296);
-        let now = 0;
-        let frames = 0;
-        performance.now = () => now;
-        window.requestAnimationFrame = (cb) => {
-          if (frames++ > 4000) return 0;
-          queueMicrotask(() => { now += 16; cb(now); });
-          return frames;
-        };
-        window.IntersectionObserver = class {
-          constructor(cb) { this.cb = cb; }
-          observe(t) { queueMicrotask(() => this.cb([{ isIntersecting: true, target: t }])); }
-          disconnect() {}
-        };
-      }
-    </script>
   </head>
   <body>
     <div id="app"></div>

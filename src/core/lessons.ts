@@ -11,12 +11,12 @@
 // A lesson with no parts is planned and not yet written: it shows on the home
 // page as coming, and its route goes home. Each written lesson's words are a
 // JSON file in data/lessons. The lesson format and the view that reads it are
-// lesson-kit's lesson.ts. Text takes a little markup (see app/figures/kit.ts
+// Didactics' lesson.ts. Text takes a little markup (see app/figures/kit.ts
 // prose): **bold**, *italic*, [[words|colour]] to tie a word to the colour it
 // wears in the figures, and [^id] for a note from the lesson's `footnotes`,
 // which opens in a popup.
 
-import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'lesson-kit/lesson';
+import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'didactics/lesson';
 import tour from '../data/lessons/tour.json';
 
 export const FIGURE_IDS = [

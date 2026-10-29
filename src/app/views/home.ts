@@ -2,8 +2,8 @@
 // written lessons open, the rest shown as coming), and the way to the
 // reference page.
 
-import { el } from 'lesson-kit/dom';
-import type { View } from 'lesson-kit/router';
+import { el } from 'didactics/dom';
+import type { View } from 'didactics/router';
 import { isWritten, LESSONS } from '../../core/lessons';
 import { makeScene } from '../scene/field';
 import { getSave } from '../store';
