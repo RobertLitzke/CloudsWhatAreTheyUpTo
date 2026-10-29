@@ -6,7 +6,7 @@
       "summary": "Every word the lessons use, A to Z, with the notes from the lessons",
       "lesson": "made-of",
       "blocks": [
-        { "kind": "glossary" }
+        { "type": "glossary" }
       ]
     },
     {
@@ -15,8 +15,8 @@
       "summary": "Minerals, organic matter, water and air, by volume",
       "lesson": "made-of",
       "blocks": [
-        { "kind": "figure", "figure": "handful", "caption": "A handful of loam, by volume, a day after a good soaking" },
-        { "kind": "table", "columns": ["Size", "Across", "Feels", "In the bed"], "rows": [
+        { "type": "diagram", "id": "handful", "caption": "A handful of loam, by volume, a day after a good soaking" },
+        { "type": "table", "columns": ["Size", "Across", "Feels", "In the bed"], "rows": [
           ["Sand", "2 to 0.05 mm", "Gritty", "Drains fast, warms early, holds little water or food"],
           ["Silt", "0.05 to 0.002 mm", "Silky, like flour", "Holds water well, crusts over when bare"],
           ["Clay", "Under 0.002 mm", "Sticky wet, hard dry", "Holds water and food, drains slowly, packs hard"]
@@ -29,8 +29,8 @@
       "summary": "Name a soil from its sand, silt and clay",
       "lesson": "made-of",
       "blocks": [
-        { "kind": "figure", "figure": "triangle", "caption": "The soil texture triangle. Set the sand and clay; silt is the rest." },
-        { "kind": "table", "columns": ["Group", "Textures", "What to expect"], "rows": [
+        { "type": "interactive_diagram", "id": "triangle", "caption": "The soil texture triangle. Set the sand and clay; silt is the rest." },
+        { "type": "table", "columns": ["Group", "Textures", "What to expect"], "rows": [
           ["Sandy", "Sand, loamy sand, sandy loam", "Water little and often, mulch, and add organic matter to hold food"],
           ["Loamy", "Loam, silt loam, silt", "Easy to work; keep it covered and fed"],
           ["Clayey", "The clay loams and the clays", "Stay off it when wet, never dig it wet, and add organic matter on top"]
@@ -43,7 +43,7 @@
       "summary": "How much water each soil holds for plants and how fast it drains",
       "lesson": "water",
       "blocks": [
-        { "kind": "table", "columns": ["Texture", "Water a plant can use, per 30 cm", "Summer days it lasts", "Drains when soaked"], "rows": [
+        { "type": "table", "columns": ["Texture", "Water a plant can use, per 30 cm", "Summer days it lasts", "Drains when soaked"], "rows": [
           ["Sand", "15 mm", "3", "120 mm/h"],
           ["Loamy sand", "20 mm", "4", "95 mm/h"],
           ["Sandy loam", "30 mm", "6", "55 mm/h"],
@@ -53,8 +53,8 @@
           ["Silty clay loam", "50 mm", "10", "7 mm/h"],
           ["Clay", "36 mm", "7", "1 mm/h"]
         ] },
-        { "kind": "text", "text": "Estimates for soils with 3% organic matter and average structure, from the Saxton and Rawls equations; summer days at 5 mm a day. Good crumb drains much faster than these, and compaction much slower." },
-        { "kind": "figure", "figure": "pores", "caption": "Try your own mix: what 30 cm of bed holds once it has drained" }
+        { "type": "text", "text": "Estimates for soils with 3% organic matter and average structure, from the Saxton and Rawls equations; summer days at 5 mm a day. Good crumb drains much faster than these, and compaction much slower." },
+        { "type": "interactive_diagram", "id": "pores", "caption": "Try your own mix: what 30 cm of bed holds once it has drained" }
       ]
     },
     {
@@ -63,7 +63,7 @@
       "summary": "Bacteria, fungi, worms and the rest, and what each does",
       "lesson": "food-web",
       "blocks": [
-        { "kind": "table", "columns": ["Who", "How many", "Eats", "Does for the garden"], "rows": [
+        { "type": "table", "columns": ["Who", "How many", "Eats", "Does for the garden"], "rows": [
           ["Bacteria", "100 million to 1 billion a teaspoon", "Root sugars, dead matter", "Release nutrients, make the gums that glue crumbs"],
           ["Fungi", "1 to 40 m of thread a teaspoon", "Dead woody matter; root sugars, in partnership", "Rot tough matter, bind crumbs, bring roots water and phosphorus"],
           ["Protozoa", "5,000 to 50,000 a teaspoon", "Bacteria", "Release nitrogen by the roots"],
@@ -71,7 +71,7 @@
           ["Mites, springtails, beetles", "Thousands a square metre", "Dead leaves, fungi, each other", "Shred litter, spread microbes"],
           ["Earthworms", "100 to 500 a square metre in good soil", "Dead leaves and soil", "Mix soil, leave rich casts, open burrows"]
         ] },
-        { "kind": "picture", "subject": "earthworm", "caption": "Ten or more worms in a spadeful is a well-fed soil" }
+        { "type": "picture", "subject": "earthworm", "caption": "Ten or more worms in a spadeful is a well-fed soil" }
       ]
     },
     {
@@ -80,7 +80,7 @@
       "summary": "Carbon-to-nitrogen ratios of compost materials, and how much compost, manure and mulch to use",
       "lesson": "organic-matter",
       "blocks": [
-        { "kind": "table", "columns": ["Material", "Kind", "Carbon : nitrogen"], "rows": [
+        { "type": "table", "columns": ["Material", "Kind", "Carbon : nitrogen"], "rows": [
           ["Grass clippings", "Green", "About 15"],
           ["Kitchen scraps", "Green", "About 15"],
           ["Coffee grounds", "Green", "About 20"],
@@ -90,9 +90,9 @@
           ["Wood chips, sawdust", "Brown", "300 to 500"],
           ["Cardboard, newspaper", "Brown", "About 400"]
         ] },
-        { "kind": "text", "text": "Aim for about 25 to 30 overall: by volume, roughly two to three buckets of browns for each of greens. Typical values; real materials vary." },
-        { "kind": "figure", "figure": "heap", "caption": "Build a heap a bucket at a time" },
-        { "kind": "table", "columns": ["Material", "How much", "When", "Notes"], "rows": [
+        { "type": "text", "text": "Aim for about 25 to 30 overall: by volume, roughly two to three buckets of browns for each of greens. Typical values; real materials vary." },
+        { "type": "interactive_diagram", "id": "heap", "caption": "Build a heap a bucket at a time" },
+        { "type": "table", "columns": ["Material", "How much", "When", "Notes"], "rows": [
           ["Garden compost", "2 to 5 cm on top", "Autumn or spring", "No need to dig it in"],
           ["Rotted manure", "2 to 5 cm on top", "Autumn", "Six months old or more; ask whether the hay was sprayed"],
           ["Leaf mould", "5 cm or more", "Autumn", "Low in nutrients, good for structure and water"],
@@ -108,13 +108,13 @@
       "summary": "What builds crumbs, and what breaks them",
       "lesson": "structure",
       "blocks": [
-        { "kind": "table", "columns": ["Builds crumb", "Breaks crumb"], "rows": [
+        { "type": "table", "columns": ["Builds crumb", "Breaks crumb"], "rows": [
           ["Living roots, as many months as possible", "Bare soil"],
           ["Compost and mulch", "Digging and rototilling"],
           ["Worms and fungi, left undisturbed", "Walking on beds, worst when wet"],
           ["Cover crops", "Hard rain on bare ground"]
         ] },
-        { "kind": "figure", "figure": "crumb", "caption": "The same loam under different care" }
+        { "type": "interactive_diagram", "id": "crumb", "caption": "The same loam under different care" }
       ]
     },
     {
@@ -123,7 +123,7 @@
       "summary": "The feel, jar, can, squeeze, worm, slake, screwdriver and pH tests",
       "lesson": "made-of",
       "blocks": [
-        { "kind": "table", "columns": ["Test", "How", "What it tells you", "Lesson"], "rows": [
+        { "type": "table", "columns": ["Test", "How", "What it tells you", "Lesson"], "rows": [
           ["Feel", "Squeeze a wet lump into a ribbon, then rub a wet pinch", "Texture, roughly", "1"],
           ["Jar", "Shake soil in water with a little soap; mark the layers at 1 minute, 6 hours and when clear", "Texture, measured", "1"],
           ["Can", "Push an open-ended can 5 cm in, pour 2.5 cm of water, time it", "How fast water soaks in", "2"],
@@ -134,8 +134,8 @@
           ["Spade", "Look at the side of a spadeful", "Crumbs or plates, and where roots go", "5"],
           ["pH", "A kit or strips, or vinegar and baking soda for a rough check", "Acid, neutral or alkaline", "6"]
         ] },
-        { "kind": "picture", "subject": "jar-test", "caption": "A jar test after a day" },
-        { "kind": "steps", "items": [
+        { "type": "picture", "subject": "jar-test", "caption": "A jar test after a day" },
+        { "type": "steps", "items": [
           "Fill a straight-sided jar a third full of soil from the bed, with stones and roots picked out.",
           "Top it up with water to near the brim and add a teaspoon of dish soap.",
           "Shake hard for a few minutes, then set it down where it won't be moved.",
@@ -152,7 +152,7 @@
       "summary": "What is in common fertilizers and soil amendments",
       "lesson": "nutrients",
       "blocks": [
-        { "kind": "table", "columns": ["Amendment", "N-P-K, typical", "Mainly for", "Note"], "rows": [
+        { "type": "table", "columns": ["Amendment", "N-P-K, typical", "Mainly for", "Note"], "rows": [
           ["Garden compost", "About 1-0.5-1", "Organic matter, slow feed", "Varies widely; add yearly"],
           ["Well-rotted manure", "About 0.5-0.5-0.5", "Organic matter, slow feed", "Fresh manure can burn plants"],
           ["Blood meal", "12-0-0", "Nitrogen, quick", "Easy to overdo"],
@@ -167,7 +167,7 @@
           ["Gypsum", "0-0-0", "Calcium and sulfur", "Does not change pH"],
           ["Epsom salt", "0-0-0", "Magnesium and sulfur", "Only where magnesium is short"]
         ] },
-        { "kind": "text", "text": "The numbers are percentages of nitrogen, phosphate and potash by weight. Products vary; read the bag." }
+        { "type": "text", "text": "The numbers are percentages of nitrogen, phosphate and potash by weight. Products vary; read the bag." }
       ]
     },
     {
@@ -176,7 +176,7 @@
       "summary": "Signs of a missing nutrient, and where they show first",
       "lesson": "nutrients",
       "blocks": [
-        { "kind": "table", "columns": ["Short of", "Shows first on", "Looks like", "Usual cause"], "rows": [
+        { "type": "table", "columns": ["Short of", "Shows first on", "Looks like", "Usual cause"], "rows": [
           ["Nitrogen", "Old leaves", "Pale yellow all over; whole plant pale", "Too little nitrogen, or waterlogged roots"],
           ["Phosphorus", "Old leaves", "Dull dark green, purple tints; small plant", "Cold soil, very acid or alkaline soil"],
           ["Potassium", "Old leaves", "Yellow then brown, scorched edges", "Sandy soils where it washes out"],
@@ -185,7 +185,7 @@
           ["Calcium", "New growth, fruit", "Stunted tips; blossom end rot", "Uneven watering"],
           ["Sulfur", "New leaves", "Pale all over", "Sandy soil low in organic matter"]
         ] },
-        { "kind": "figure", "figure": "leaf", "caption": "Where a shortage shows on a plant" }
+        { "type": "diagram", "id": "leaf", "caption": "Where a shortage shows on a plant" }
       ]
     },
     {
@@ -194,8 +194,8 @@
       "summary": "Which nutrients a plant can reach at each pH, and how to raise or lower it",
       "lesson": "nutrients",
       "blocks": [
-        { "kind": "figure", "figure": "ph", "caption": "How available each nutrient is at each pH" },
-        { "kind": "table", "columns": ["pH", "Suits", "To change it"], "rows": [
+        { "type": "diagram", "id": "ph", "caption": "How available each nutrient is at each pH" },
+        { "type": "table", "columns": ["pH", "Suits", "To change it"], "rows": [
           ["4.5 to 5.5", "Blueberries, cranberries, rhododendrons", "Lime to raise it for most crops"],
           ["5.5 to 6.0", "Potatoes (less scab), strawberries", "A little lime, if the test says so"],
           ["6.0 to 7.0", "Most vegetables and flowers", "Keep it there with compost"],
@@ -210,8 +210,8 @@
       "summary": "What to sow when, and what each one does for the soil",
       "lesson": "seasons",
       "blocks": [
-        { "kind": "picture", "subject": "cover-crop", "caption": "Crimson clover and rye, sown in autumn" },
-        { "kind": "table", "columns": ["Cover crop", "Sow", "Does", "Note"], "rows": [
+        { "type": "picture", "subject": "cover-crop", "caption": "Crimson clover and rye, sown in autumn" },
+        { "type": "table", "columns": ["Cover crop", "Sow", "Does", "Note"], "rows": [
           ["Winter rye", "Autumn", "Dense roots, lots of organic matter, very hardy", "Cut before it seeds; hard to dig in"],
           ["Field beans", "Autumn", "Fixes nitrogen, deep roots", "Hardy"],
           ["Hairy vetch", "Late summer to autumn", "Fixes a lot of nitrogen", "Good mixed with rye"],
@@ -230,13 +230,13 @@
       "summary": "What to do with a bed in each season",
       "lesson": "seasons",
       "blocks": [
-        { "kind": "table", "columns": ["Season", "Do"], "rows": [
+        { "type": "table", "columns": ["Season", "Do"], "rows": [
           ["Late summer and autumn", "Cut finished crops at the ground and leave the roots. Sow a cover crop, or cover with leaves, straw or 5 cm of compost."],
           ["Winter", "Keep it covered. Stay off it."],
           ["Spring", "Cut cover crops a few weeks before planting; leave them as mulch. Plant through."],
           ["Summer", "Keep beds planted closely, mulch between plants, replant gaps."]
         ] },
-        { "kind": "figure", "figure": "year", "caption": "Try a plan: one bed through the seasons, over five years" }
+        { "type": "interactive_diagram", "id": "year", "caption": "Try a plan: one bed through the seasons, over five years" }
       ]
     },
     {
@@ -245,7 +245,7 @@
       "summary": "From what you see in a bed to its likely cause",
       "lesson": "diagnosis",
       "blocks": [
-        { "kind": "figure", "figure": "detective", "caption": "Pick what you see; each question uses one of the home tests" }
+        { "type": "interactive_diagram", "id": "detective", "caption": "Pick what you see; each question uses one of the home tests" }
       ]
     },
     {
@@ -254,7 +254,7 @@
       "summary": "What each line on a lab report means",
       "lesson": "diagnosis",
       "blocks": [
-        { "kind": "table", "columns": ["Line", "What it means", "Garden target"], "rows": [
+        { "type": "table", "columns": ["Line", "What it means", "Garden target"], "rows": [
           ["pH", "Acidity, measured in water", "6.0 to 7.0 for most vegetables"],
           ["Buffer pH, or lime requirement", "How much lime it would take to raise the pH", "Follow the lab's figure"],
           ["Organic matter", "Percent by weight", "4 to 8% in a well-kept bed"],
@@ -266,7 +266,7 @@
           ["Soluble salts", "Salt in the soil water", "Low; high harms roots"],
           ["Lead", "Contamination, often from old paint or traffic", "Under about 100 parts per million to grow food without worry"]
         ] },
-        { "kind": "text", "text": "Labs use different methods for phosphorus and potassium, so compare numbers only within one lab, against its own ranges. For lead, follow your local health or extension service's guidance." }
+        { "type": "text", "text": "Labs use different methods for phosphorus and potassium, so compare numbers only within one lab, against its own ranges. For lead, follow your local health or extension service's guidance." }
       ]
     }
   ]

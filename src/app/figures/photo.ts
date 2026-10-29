@@ -9,13 +9,31 @@ import { isSubjectId } from '../../core/photos';
 import { PHOTOS, photoFigure, picture } from '../picture';
 import type { FigureContext, Options } from './kit';
 
-export function photoDiagram(_ctx: FigureContext, _goal?: string, options?: Options): { node: HTMLElement } {
-  const subject = String(options?.subject ?? '');
+interface PhotoOptions extends Options {
+  subject?: string;
+  photo?: string;
+  alt?: string;
+}
+
+function draw(_ctx: FigureContext, _goal?: string, opts?: Options): { node: HTMLElement } {
+  const options = opts as PhotoOptions | undefined;
+  const subject = options?.subject ?? '';
   const pinned = PHOTOS.find((p) => p.id === options?.photo);
   const node = pinned
-    ? photoFigure(pinned, String(options?.alt ?? ''))
+    ? photoFigure(pinned, options?.alt ?? '')
     : isSubjectId(subject)
       ? picture(subject)
       : el('p', {}, `No picture of ${subject}`);
   return { node: el('div.fig-body.fig-photo', {}, node) };
 }
+
+/** What is wrong with a photo block's options, for the content test (lessonProblems). */
+function problems(opts: Options | undefined): string[] {
+  const o = (opts ?? {}) as PhotoOptions;
+  const out: string[] = [];
+  if (!o.subject || !isSubjectId(o.subject)) out.push(`no subject "${o.subject}"`);
+  if (o.photo !== undefined && !PHOTOS.some((p) => p.id === o.photo && p.subject === o.subject)) out.push(`no photo "${o.photo}" of ${o.subject}`);
+  return out;
+}
+
+export const photoDiagram = Object.assign(draw, { options: problems });

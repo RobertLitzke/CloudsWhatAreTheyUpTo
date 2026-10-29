@@ -5,6 +5,7 @@ import { lessonProblems } from 'didactics/lesson';
 import { FIGURES } from '../src/app/figures';
 import { FIGURE_IDS, isWritten, LESSONS, type Question } from '../src/core/lessons';
 import { isSubjectId } from '../src/core/photos';
+import { referenceProblems } from 'didactics/reference';
 import { REFERENCE } from '../src/core/reference';
 import { DECK } from '../src/app/views/quiz';
 import quiz from '../src/data/quiz.json';
@@ -27,29 +28,15 @@ describe('lessons', () => {
     }
   });
 
-  it('ask questions with a real answer and pictures that exist', () => {
-    for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) {
-      if (!isDiagram(b) || b.id !== 'check') continue;
-      const items = (b.options?.items ?? []) as Question[];
-      expect(items.length).toBeGreaterThan(0);
-      for (const q of items) {
-        expect(q.answer, q.question).toBeGreaterThanOrEqual(0);
-        expect(q.answer, q.question).toBeLessThan(q.options.length);
-        expect(q.why.length, q.question).toBeGreaterThan(10);
-        if (q.picture) expect(isSubjectId(q.picture), q.picture).toBe(true);
-      }
-    }
-  });
-
-  it('show photos of subjects that exist', () => {
-    for (const l of LESSONS) for (const p of l.parts) for (const b of p.blocks) {
-      if (!isDiagram(b) || b.id !== 'photo') continue;
-      expect(isSubjectId(String(b.options?.subject)), String(b.options?.subject)).toBe(true);
-    }
-  });
-
   it('have every figure in the list built', () => {
     expect(Object.keys(FIGURES).sort()).toEqual([...FIGURE_IDS].sort());
+  });
+
+  it('catch a check or photo block that is wrong', () => {
+    const q: Question = { question: 'Which?', options: ['a', 'b'], answer: 2, why: 'Because it is so.', picture: 'mud' };
+    expect(FIGURES.check.options?.({ items: [q] })).toHaveLength(2);
+    expect(FIGURES.check.options?.({ items: [] })).toEqual(['has no questions']);
+    expect(FIGURES.photo.options?.({ subject: 'mud' })).toHaveLength(1);
   });
 });
 
@@ -57,14 +44,13 @@ describe('the reference page', () => {
   it('names real lessons, figures and subjects', () => {
     const ids = new Set(LESSONS.map((l) => l.id));
     for (const s of REFERENCE) {
-      expect(ids.has(s.lesson), s.id).toBe(true);
+      expect(ids.has(s.lesson ?? ''), s.id).toBe(true);
       for (const b of s.blocks) {
-        if (b.kind === 'figure') expect(FIGURE_IDS.includes(b.figure), b.figure).toBe(true);
-        if (b.kind === 'picture') expect(isSubjectId(b.subject), b.subject).toBe(true);
-        if (b.kind === 'table') for (const r of b.rows) expect(r.length, `${s.id} row ${r[0]}`).toBe(b.columns.length);
+        if (b.type === 'picture') expect(isSubjectId(b.subject), b.subject).toBe(true);
+        if (b.type === 'table') for (const r of b.rows) expect(r.length, `${s.id} row ${r[0]}`).toBe(b.columns.length);
       }
     }
-    expect(new Set(REFERENCE.map((s) => s.id)).size).toBe(REFERENCE.length);
+    expect(referenceProblems(REFERENCE, { figures: FIGURES, lessons: LESSONS, blocks: ['picture'], glossary: true })).toEqual([]);
   });
 
   it('has something for every written lesson', () => {

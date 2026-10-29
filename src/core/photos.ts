@@ -7,25 +7,10 @@
 // app wants a picture of a subject it shows a photo if the library has one,
 // and a drawing of it if not (app/picture.ts).
 
+import { photoProblems, type Photo as CreditedPhoto } from 'didactics/photos';
 import type { Rng } from 'didactics/rng';
 
-/**
- * Licences a photo may carry. Public domain and the attribution licences
- * only: no NonCommercial, and no NoDerivatives, because every photo is
- * resized and cropped.
- */
-export const LICENSES = {
-  'PD': { name: 'Public domain', url: 'https://creativecommons.org/publicdomain/mark/1.0/' },
-  'CC0': { name: 'CC0', url: 'https://creativecommons.org/publicdomain/zero/1.0/' },
-  'CC-BY-2.0': { name: 'CC BY 2.0', url: 'https://creativecommons.org/licenses/by/2.0/' },
-  'CC-BY-3.0': { name: 'CC BY 3.0', url: 'https://creativecommons.org/licenses/by/3.0/' },
-  'CC-BY-4.0': { name: 'CC BY 4.0', url: 'https://creativecommons.org/licenses/by/4.0/' },
-  'CC-BY-SA-2.0': { name: 'CC BY-SA 2.0', url: 'https://creativecommons.org/licenses/by-sa/2.0/' },
-  'CC-BY-SA-3.0': { name: 'CC BY-SA 3.0', url: 'https://creativecommons.org/licenses/by-sa/3.0/' },
-  'CC-BY-SA-4.0': { name: 'CC BY-SA 4.0', url: 'https://creativecommons.org/licenses/by-sa/4.0/' },
-} as const;
-
-export type LicenseId = keyof typeof LICENSES;
+export { isLicenseId, LICENSES, type LicenseId } from 'didactics/photos';
 
 /**
  * Everything the app may want a picture of, with the name it goes by. Each
@@ -56,9 +41,8 @@ export function isSubjectId(value: string): value is SubjectId {
   return Object.hasOwn(SUBJECTS, value);
 }
 
-export interface Photo {
-  /** Stable id, also the file name without extension. */
-  id: string;
+/** A photo in the library: the credit fields every Didactics photo has, and what it is of. */
+export interface Photo extends CreditedPhoto {
   subject: SubjectId;
   /**
    * Set when the photo must not be shown mirrored: it has writing in it, or a
@@ -68,33 +52,15 @@ export interface Photo {
   noMirror?: true;
   /** Path relative to the page, e.g. photos/loam-01.webp. */
   file: string;
-  width: number;
-  height: number;
-  author: string;
-  license: LicenseId;
-  /** The page the photo came from, for the credit link. */
-  sourceUrl: string;
-  /** Where it came from, by name: Wikimedia Commons, USDA NRCS. */
-  source: string;
-}
-
-export function isLicenseId(value: string): value is LicenseId {
-  return Object.hasOwn(LICENSES, value);
 }
 
 /** What is wrong with an entry, or an empty list if nothing is. */
 export function problems(p: Partial<Photo>): string[] {
   const out: string[] = [];
-  if (!p.id || !/^[a-z0-9-]+$/.test(p.id)) out.push('id must be lower-case letters, digits and dashes');
   if (!p.subject || !isSubjectId(p.subject)) out.push(`unknown subject ${p.subject}`);
   if (p.noMirror !== undefined && p.noMirror !== true) out.push('noMirror must be true or left out');
   if (!p.file || !p.file.startsWith('photos/')) out.push('file must live under photos/');
-  if (!p.author?.trim()) out.push('no author');
-  if (!p.license || !isLicenseId(p.license)) out.push(`licence ${p.license} is not allowed`);
-  if (!p.sourceUrl?.startsWith('https://')) out.push('no https source link');
-  if (!p.source?.trim()) out.push('no source name');
-  if (!(p.width! > 0 && p.height! > 0)) out.push('no size');
-  return out;
+  return [...out, ...photoProblems(p)];
 }
 
 export function photosOf(library: readonly Photo[], id: SubjectId): Photo[] {
