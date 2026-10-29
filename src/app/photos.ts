@@ -1,24 +1,12 @@
 // The photo library as the app sees it, and the credit line every photo wears.
 
 import library from '../data/photos.json';
-import { LICENSES, photoFile, type Photo } from '../core/photos';
+import { photoFile, type Photo } from '../core/photos';
 import { asset } from './asset';
 import { el } from 'didactics/dom';
+import { credit } from 'didactics/photos';
 
 export const PHOTOS: readonly Photo[] = library as Photo[];
-
-export function credit(p: Photo): HTMLElement {
-  const lic = LICENSES[p.license];
-  return el(
-    'p.credit',
-    {},
-    'Photo: ',
-    el('a', { href: p.sourceUrl, target: '_blank', rel: 'noopener' }, p.author),
-    ' · ',
-    el('a', { href: lic.url, target: '_blank', rel: 'noopener' }, lic.name),
-    ` · ${p.source}`,
-  );
-}
 
 /** A photo with its credit. `mirrored` flips the picture, never the credit. */
 export function photoFigure(p: Photo, alt: string, mirrored = false): HTMLElement {
