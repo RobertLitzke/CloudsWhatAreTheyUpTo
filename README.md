@@ -32,6 +32,11 @@ Vitest) rather than `node --experimental-strip-types`.
 - The shell: a vanilla TypeScript PWA on Vite, inlined into one `index.html`,
   with a service worker, an update banner, and progress in `localStorage` with
   save-to-file and load. Nav: Home, Reference, Quiz, Settings (and Credits).
+- **The course's text, to download** (`src/course.ts`, Didactics' course
+  edits): Settings has a menu of All and each written lesson, and one
+  Download button, for a JSON file to revise; Load edited text reads an
+  edited one in the real lessons on this device. `npx didactics-course
+  import <file>` writes an edited file back into `src/data`.
 - **The camera, as numbers** (`src/core/camera.ts`): the P950's sensor, lens,
   apertures, shutter and ISO ranges, and the optics on top of them, depth of
   field, diffraction, exposure, photon noise, shake and motion. Unit-tested,

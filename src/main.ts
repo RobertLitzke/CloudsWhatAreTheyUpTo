@@ -1,3 +1,5 @@
+// First: the edited words go in before any module reads them.
+import './course';
 import './app/styles/app.css';
 import { BLADES } from './app/mark';
 import { el } from 'didactics/dom';
