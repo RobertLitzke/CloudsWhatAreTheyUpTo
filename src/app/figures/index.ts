@@ -2,13 +2,15 @@
 
 import type { FigureId } from '../../core/lessons';
 import { checkFigure } from './check';
-import { heapFigure, rotDiagram } from './compost';
+import { settleFigure } from './beds';
+import { heapFigure, heatFigure, methodsDiagram, rotDiagram } from './compost';
 import { detectiveFigure } from './diagnosis';
 import type { FigureFactory } from './kit';
 import { teaspoonDiagram, webFigure } from './life';
 import { feelFigure, handfulDiagram, jarDiagram, sizesDiagram, surfaceDiagram, triangleFigure } from './made-of';
 import { leafDiagram, parkingFigure, phDiagram } from './nutrients';
 import { photoDiagram } from './photo';
+import { potFigure } from './pots';
 import { yearFigure } from './seasons';
 import { crumbFigure, slakeDiagram } from './structure';
 import { dryingDiagram, poresFigure, rainFigure } from './water';
@@ -27,6 +29,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   web: webFigure,
   heap: heapFigure,
   rot: rotDiagram,
+  heat: heatFigure,
+  methods: methodsDiagram,
   crumb: crumbFigure,
   slake: slakeDiagram,
   parking: parkingFigure,
@@ -34,6 +38,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   leaf: leafDiagram,
   year: yearFigure,
   detective: detectiveFigure,
+  settle: settleFigure,
+  pot: potFigure,
   photo: photoDiagram,
   check: checkFigure,
 };

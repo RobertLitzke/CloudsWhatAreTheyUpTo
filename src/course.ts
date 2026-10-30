@@ -2,7 +2,7 @@
 // from Settings as one course file, or one lesson at a time
 // (app/course-pieces.ts), edited, and loaded back to read here before it is
 // committed (Didactics' course.ts): every JSON file in src/data except the
-// photo library (the eight lessons, the reference page, the quiz cards and the
+// photo library (the eleven lessons, the reference page, the quiz cards and the
 // glossary), and under "code" the words written in the source (figure labels
 // and commentary, headings, buttons; Didactics' code-text.ts).
 // main.ts imports this first, so edited words are in place before any module

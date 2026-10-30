@@ -97,3 +97,99 @@ export function remains(material: Material, months: number): Remains {
   const humus = TO_HUMUS * (ps - slow) + 0.1 * (pf - fast + pm - middle);
   return { fast, middle, slow, humus, gone: 1 - fast - middle - slow - humus };
 }
+
+// ---- A hot heap ----------------------------------------------------------------
+
+export type Moisture = 'dry' | 'damp' | 'soggy';
+
+export interface HeapCare {
+  /** Width, depth and height of a square heap, in metres. */
+  side: number;
+  moisture: Moisture;
+  /** Days between turnings, or 0 for a heap that is never turned. */
+  turnEvery: number;
+}
+
+/** The air temperature around the heap, in degrees C. */
+export const AIR_C = 15;
+
+/**
+ * How moisture sets the pace. A dry heap leaves microbes without the water
+ * films they live in, so they work slowly. A soggy heap fills its pores with
+ * water, and fresh air seeps back in far more slowly than through damp ones.
+ */
+const WET: Record<Moisture, { pace: number; seep: number }> = {
+  dry: { pace: 0.4, seep: 0.5 },
+  damp: { pace: 1, seep: 0.22 },
+  soggy: { pace: 0.85, seep: 0.03 },
+};
+
+/**
+ * How hard the microbes work at a core temperature: everyday microbes speed
+ * up as the heap warms, heat-loving ones take over past 40 degrees C and do
+ * best near 55 to 60, and above about 65 even they start to die off.
+ */
+export function pace(c: number): number {
+  if (c > 62) return Math.max(0, 1 - (c - 62) / 14);
+  return 0.35 + 0.65 * Math.min(1, Math.max(0, c - 10) / 48);
+}
+
+export interface HeapDay {
+  day: number;
+  /** Core temperature, degrees C. */
+  core: number;
+  /** Food the microbes can still eat quickly, as a share of what went in. */
+  food: number;
+  turned: boolean;
+}
+
+/**
+ * A balanced heap's core, day by day for `days` days. Each day the microbes eat
+ * in proportion to the food left, the oxygen in the core and how much they like
+ * the temperature. Eating warms the core and uses up oxygen; the heap's
+ * surface sheds heat and lets a little air seep back in, both faster for a small
+ * heap than a big one. Turning brings all the air back at once and lets some
+ * heat out. A sketch of the behaviour reported for garden and farm heaps,
+ * tuned by hand rather than fitted to measurements.
+ */
+/** Degrees a day of warming at full work, the share of food eaten and of oxygen used. */
+const GAIN = 45;
+const EAT = 0.05;
+const BREATHE = 0.3;
+
+export function heapRun(care: HeapCare, days = 84): HeapDay[] {
+  const wet = WET[care.moisture];
+  let core = AIR_C;
+  let food = 1;
+  let air = 1;
+  const out: HeapDay[] = [{ day: 0, core, food, turned: false }];
+  for (let day = 1; day <= days; day++) {
+    const turned = care.turnEvery > 0 && day % care.turnEvery === 0;
+    if (turned) {
+      air = 1;
+      core -= 0.3 * (core - AIR_C);
+    }
+    const work = food * air * wet.pace * pace(core);
+    core += GAIN * work - (0.45 / care.side) * (core - AIR_C);
+    food = Math.max(0, food - EAT * work);
+    air = Math.min(1, Math.max(0.04, air - BREATHE * work + (wet.seep / care.side) * (1 - air)));
+    out.push({ day, core, food, turned });
+  }
+  return out;
+}
+
+export interface HeapSummary {
+  /** Hottest the core got, degrees C. */
+  peak: number;
+  /** Days the core spent at 55 degrees C or more. */
+  hotDays: number;
+  /** The day most of the quick food was gone, or null if it lasted the whole run. */
+  doneDay: number | null;
+}
+
+export function heapSummary(run: readonly HeapDay[]): HeapSummary {
+  const peak = Math.max(...run.map((d) => d.core));
+  const hotDays = run.filter((d) => d.day > 0 && d.core >= 55).length;
+  const done = run.find((d) => d.food < 0.25);
+  return { peak, hotDays, doneDay: done ? done.day : null };
+}

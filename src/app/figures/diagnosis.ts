@@ -1,4 +1,4 @@
-// Lesson 8, reading your soil: from a symptom, through questions that each
+// Lesson 9, reading your soil: from a symptom, through questions that each
 // lean on a test from an earlier lesson, to a likely cause and what to do
 // first. The trail of questions is drawn above, one stop per answer.
 

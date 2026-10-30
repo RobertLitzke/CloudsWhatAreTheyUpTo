@@ -1,4 +1,4 @@
-// The lessons: a gardener's workbook on soil, in eight short illustrated
+// The lessons: a gardener's workbook on soil, in eleven short illustrated
 // articles. Each is paragraphs and live figures to play with, in parts; the
 // next part opens once the figures in this one have had their small task done.
 // The last part is a check, and the lesson ends with a log to sign.
@@ -18,20 +18,26 @@ import madeOf from '../data/lessons/made-of.json';
 import water from '../data/lessons/water.json';
 import foodWeb from '../data/lessons/food-web.json';
 import organicMatter from '../data/lessons/organic-matter.json';
+import compostMethods from '../data/lessons/compost-methods.json';
 import structure from '../data/lessons/structure.json';
 import nutrients from '../data/lessons/nutrients.json';
 import seasons from '../data/lessons/seasons.json';
 import diagnosis from '../data/lessons/diagnosis.json';
+import raisedBeds from '../data/lessons/raised-beds.json';
+import pots from '../data/lessons/pots.json';
 
 export const FIGURE_IDS = [
   'handful', 'surface', 'sizes', 'feel', 'jar', 'triangle',
   'pores', 'rain', 'drying',
   'teaspoon', 'web',
   'heap', 'rot',
+  'heat', 'methods',
   'crumb', 'slake',
   'parking', 'ph', 'leaf',
   'year',
   'detective',
+  'settle',
+  'pot',
   'photo', 'check',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
@@ -45,10 +51,13 @@ export const LESSONS: readonly Lesson[] = [
   water as Lesson,
   foodWeb as Lesson,
   organicMatter as Lesson,
+  compostMethods as Lesson,
   structure as Lesson,
   nutrients as Lesson,
   seasons as Lesson,
   diagnosis as Lesson,
+  raisedBeds as Lesson,
+  pots as Lesson,
 ];
 
 export const isWritten = (l: Lesson): boolean => l.parts.length > 0;

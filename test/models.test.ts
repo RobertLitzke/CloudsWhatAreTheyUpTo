@@ -1,10 +1,13 @@
 // The models behind the lessons after the first: water, crumb, compost,
-// nutrients and pH, the seasons, the food web and the diagnosis tree.
+// nutrients and pH, the seasons, the food web, the diagnosis tree, raised
+// beds and pots.
 import { describe, expect, it } from 'vitest';
-import { heapRatio, remains, verdict } from '../src/core/compost';
+import { sunk } from '../src/core/beds';
+import { heapRatio, heapRun, heapSummary, remains, verdict } from '../src/core/compost';
 import { reachable, START, STEPS } from '../src/core/diagnosis';
 import { LESSONS } from '../src/core/lessons';
 import { DWELLERS, EATS, starves } from '../src/core/life';
+import { drained } from '../src/core/pots';
 import { availability, cec, leastAt, NUTRIENTS } from '../src/core/nutrients';
 import { project } from '../src/core/seasons';
 import { mixOf } from '../src/core/soil';
@@ -122,5 +125,38 @@ describe('the diagnosis tree', () => {
   it('uses every step', () => {
     const used = new Set(START.flatMap((s) => [...reachable(s)]));
     expect(Object.keys(STEPS).filter((id) => !used.has(id))).toEqual([]);
+  });
+});
+
+describe('a hot heap', () => {
+  const hot = (side: number, moisture: 'dry' | 'damp' | 'soggy', turnEvery: number) => heapSummary(heapRun({ side, moisture, turnEvery }));
+
+  it('gets hot only when big enough and damp', () => {
+    expect(hot(0.5, 'damp', 7).peak).toBeLessThan(50);
+    expect(hot(1, 'dry', 7).peak).toBeLessThan(45);
+    expect(hot(1, 'damp', 0).peak).toBeGreaterThan(55);
+  });
+
+  it('stays hot longer when turned, and goes cold when soggy', () => {
+    expect(hot(1, 'damp', 7).hotDays).toBeGreaterThan(hot(1, 'damp', 0).hotDays);
+    expect(hot(1, 'damp', 7).hotDays).toBeGreaterThanOrEqual(10);
+    const soggy = heapRun({ side: 1, moisture: 'soggy', turnEvery: 0 });
+    expect(soggy[21].core).toBeLessThan(30);
+  });
+});
+
+describe('raised beds and pots', () => {
+  it('sink more with more compost and with buried wood', () => {
+    const topsoil = sunk({ depth: 30, compost: 0, wood: 0 }, 1);
+    expect(topsoil).toBeCloseTo(3, 1);
+    expect(sunk({ depth: 30, compost: 1, wood: 0 }, 1)).toBeGreaterThan(30 * 0.24);
+    expect(sunk({ depth: 30, compost: 0.3, wood: 0.5 }, 3)).toBeGreaterThan(sunk({ depth: 30, compost: 0.3, wood: 0 }, 3));
+  });
+
+  it('perch the same depth of water in any pot, so tall pots and coarse mixes hold more air', () => {
+    expect(drained('garden', 15).soaked).toBe(1);
+    expect(drained('peat', 30).air).toBeGreaterThan(drained('peat', 10).air);
+    expect(drained('bark', 15).air).toBeGreaterThan(drained('peat', 15).air);
+    expect(drained('peat', 20, 5).air).toBeLessThan(drained('peat', 20).air);
   });
 });

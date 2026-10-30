@@ -27,16 +27,21 @@ library's radio is off). To move to a newer Didactics, run
   the soil cut away under it, roots, a worm and fungal threads; dark hedge
   green, seed-packet cream, leaf-green buttons, terracotta accents; Fraunces
   for headings.
-- **Eight lessons**, each built around live figures:
+- **Eleven lessons**, each built around live figures:
   1. Inside a handful of soil: a handful by volume, a cube cut down to clay size,
      the three grain sizes, texture by feel, the jar test, the texture triangle.
   2. Water and air in the pores: pores, a rainstorm on a bed, drying to wilting.
   3. The living soil: a teaspoon's census and a tap-through food web.
   4. Organic matter and compost: mixing a heap by C:N, how fast things rot.
-  5. Crumb: building or breaking structure, and the slake test.
-  6. Feeding plants: parking spots (CEC), the pH chart, leaf symptoms.
-  7. Building soil through the year: a seasons wheel of covers and digging.
-  8. Reading your soil: a symptom-to-cause detective that links back.
+  5. Advanced composting: a heap's core temperature by size, moisture and
+     turning, and how long each way of composting takes.
+  6. Crumb: building or breaking structure, and the slake test.
+  7. Feeding plants: parking spots (CEC), the pH chart, leaf symptoms.
+  8. Building soil through the year: a seasons wheel of covers and digging.
+  9. Reading your soil: a symptom-to-cause detective that links back.
+  10. Raised beds: how far a bed sinks over three years, by its fill.
+  11. Soil in pots: the perched water in a drained pot, by mix, height and
+      gravel.
 - **Footnotes** (`[^id]` in lesson text, from Didactics): technical terms and
   digressions open in a sheet; technical ones also feed the glossary.
 - The **reference page**: a glossary, and a section per lesson (texture,
@@ -133,8 +138,8 @@ in the real lessons on that device before it is committed (src/course.ts).
 src/core/     pure TypeScript, no DOM
   soil.ts       grain sizes, the USDA texture classes, settling in a jar
   water.ts, life.ts, compost.ts, structure.ts, nutrients.ts, seasons.ts,
-  diagnosis.ts  the models behind each lesson's figures
-  lessons.ts    the eight lessons, figure ids
+  diagnosis.ts, beds.ts, pots.ts  the models behind each lesson's figures
+  lessons.ts    the eleven lessons, figure ids
   reference.ts  the reference page's shape
   photos.ts     subjects, the photo entry shape and accepted licences
   save.ts       the save, on top of Didactics' progress.ts

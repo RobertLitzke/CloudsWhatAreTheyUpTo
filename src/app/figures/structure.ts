@@ -1,4 +1,4 @@
-// Lesson 5, crumb: a magnified bed whose grains gather into crumbs as roots,
+// Lesson 6, crumb: a magnified bed whose grains gather into crumbs as roots,
 // fungi and organic matter build them, or pack flat as digging and footsteps
 // break them; and the slake test, two dry clods dropped in water, drawn at
 // the moment they go in and five minutes later.

@@ -46,6 +46,28 @@ describe('figures', () => {
     web.node.querySelector('button')!.dispatchEvent(new Event('click'));
     await expect(web.done).resolves.toBeUndefined();
   });
+
+  it('the heat, settle and pot figures meet their goals', async () => {
+    const ctx = { save: emptySave(), closed: new AbortController().signal, score: () => {} };
+    const set = (node: HTMLElement, i: number, v: number) => {
+      const input = node.querySelectorAll('input')[i];
+      input.value = String(v);
+      input.dispatchEvent(new Event('input'));
+    };
+    const heat = FIGURES.heat(ctx, 'hot');
+    set(heat.node, 0, 1);
+    const chips = heat.node.querySelectorAll('button.chip');
+    chips[1].dispatchEvent(new Event('click'));
+    chips[5].dispatchEvent(new Event('click'));
+    await expect(heat.done).resolves.toBeUndefined();
+    const settle = FIGURES.settle(ctx, 'firm');
+    set(settle.node, 0, 30);
+    await expect(settle.done).resolves.toBeUndefined();
+    const pot = FIGURES.pot(ctx, 'air');
+    pot.node.querySelectorAll('button.chip')[1].dispatchEvent(new Event('click'));
+    set(pot.node, 0, 30);
+    await expect(pot.done).resolves.toBeUndefined();
+  });
 });
 
 describe('drawings', () => {

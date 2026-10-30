@@ -1,4 +1,4 @@
-// Lesson 6, feeding plants: the parking spots on clay and humus that hold
+// Lesson 7, feeding plants: the parking spots on clay and humus that hold
 // nutrients against the rain, the pH band chart, and where a shortage shows
 // on a plant.
 

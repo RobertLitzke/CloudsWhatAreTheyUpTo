@@ -1,4 +1,4 @@
-// Lesson 7, building soil through the year: a wheel of the four seasons, each
+// Lesson 8, building soil through the year: a wheel of the four seasons, each
 // with something covering the bed (or nothing), and what five years of that
 // does to its organic matter.
 

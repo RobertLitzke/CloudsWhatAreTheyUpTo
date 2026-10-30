@@ -103,6 +103,30 @@
       ]
     },
     {
+      "id": "hot-heap",
+      "title": "Running a hot heap",
+      "summary": "The stages of a hot heap, fixes for one that misbehaves, and how long each way of composting takes",
+      "lesson": "compost-methods",
+      "blocks": [
+        { "type": "table", "columns": ["Stage", "Core temperature", "How long", "Main workers"], "rows": [
+          ["Warming", "Air temperature to 40 C", "1 to 3 days", "Everyday bacteria and fungi eating sugars and proteins"],
+          ["Hot", "50 to 65 C", "Days to weeks, longer with turning", "Heat-loving bacteria and actinomycetes; weed seeds and diseases die above 55 C"],
+          ["Cooling", "Back down through the 40s", "Several weeks", "Fungi and actinomycetes on cellulose and lignin"],
+          ["Curing", "Air temperature", "1 to 2 months", "Fungi, worms, mites and springtails"]
+        ] },
+        { "type": "table", "columns": ["What you see", "Likely cause", "Fix"], "rows": [
+          ["Never warms", "Too small, too dry, or too many browns", "Build at least 1 m across in one go; water it; add greens"],
+          ["Hot for a week, then cools with food left", "Oxygen used up in the core", "Turn it"],
+          ["Smells sour or rotten, wet and slumped", "Soggy, airless", "Turn in dry browns"],
+          ["Smells of ammonia", "Too many greens", "Turn in dry browns"],
+          ["Over 70 C", "Very large or very green heap", "Turn it to let heat out"],
+          ["Grey, ash-like threads", "Actinomycetes at work", "Nothing; the heap is working"]
+        ] },
+        { "type": "diagram", "id": "methods", "caption": "Months until each kind of compost is ready to use" },
+        { "type": "text", "text": "Compost is ready for seedlings when it is dark, crumbly and earthy smelling, stays cool after it is turned and watered, and grows cress as well as bought seed compost does." }
+      ]
+    },
+    {
       "id": "structure",
       "title": "Structure and compaction",
       "summary": "What builds crumbs, and what breaks them",
@@ -267,6 +291,47 @@
           ["Lead", "Contamination, often from old paint or traffic", "Under about 100 parts per million to grow food without worry"]
         ] },
         { "type": "text", "text": "Labs use different methods for phosphorus and potassium, so compare numbers only within one lab, against its own ranges. For lead, follow your local health or extension service's guidance." }
+      ]
+    },
+    {
+      "id": "raised-beds",
+      "title": "Raised beds",
+      "summary": "How much fill a bed needs, what to fill it with, and how far it sinks",
+      "lesson": "raised-beds",
+      "blocks": [
+        { "type": "table", "columns": ["Bed, length by width by depth", "Fill", "50 L bags"], "rows": [
+          ["1.2 by 1.2 m, 30 cm deep", "430 litres", "9"],
+          ["1.8 by 0.9 m, 30 cm deep", "490 litres", "10"],
+          ["2.4 by 1.2 m, 30 cm deep", "860 litres", "18"],
+          ["3.0 by 1.2 m, 30 cm deep", "1080 litres", "22"],
+          ["2.4 by 1.2 m, 45 cm deep", "1300 litres", "26"]
+        ] },
+        { "type": "text", "text": "Length times width times depth, in metres, gives cubic metres; times 1000 gives litres. Add about a tenth for settling. Fill with about two parts screened topsoil to one part compost, in watered layers 10 to 15 cm deep, over ground loosened with a fork and with no gravel underneath." },
+        { "type": "interactive_diagram", "id": "settle", "caption": "How far a 30 cm bed sinks over three years, by its fill" }
+      ]
+    },
+    {
+      "id": "pots",
+      "title": "Soil in pots",
+      "summary": "Perched water by mix, potting mix ingredients, and feeding plants in pots",
+      "lesson": "pots",
+      "blocks": [
+        { "type": "table", "columns": ["Mix", "Saturated layer after draining", "Suits"], "rows": [
+          ["Sieved garden soil", "15 cm or more", "Large, deep containers only, and better mixed with coarse material"],
+          ["Peat or coir potting mix", "About 5 cm", "Most pots 15 cm deep or more"],
+          ["Bark and grit mix", "2 to 3 cm", "Shallow pots, herbs, alpines and long-lived plants"]
+        ] },
+        { "type": "interactive_diagram", "id": "pot", "caption": "A drained pot, by mix, height and gravel" },
+        { "type": "table", "columns": ["Ingredient", "Adds", "Watch for"], "rows": [
+          ["Peat", "Water held in fibres", "Very acidic until limed; draining bogs releases carbon"],
+          ["Coir", "Water held in fibres", "Salt, unless washed and treated with calcium"],
+          ["Composted bark", "Large air-filled pores", "Fresh bark ties up nitrogen"],
+          ["Perlite", "Air", "Holds little water"],
+          ["Vermiculite", "Water and nutrients", "Compresses over time"],
+          ["Grit, coarse sand", "Weight and drainage", "Fine sand clogs pores"],
+          ["Garden compost, leaf mould", "Nutrients and soil life", "Variable; keep to a third or so of the mix"]
+        ] },
+        { "type": "text", "text": "Bagged mixes feed for about four to six weeks. After that, give a liquid feed every week or two in the growing season, or mix in controlled-release granules. Leave out any gravel layer, and water until some drains from the holes." }
       ]
     }
   ]
