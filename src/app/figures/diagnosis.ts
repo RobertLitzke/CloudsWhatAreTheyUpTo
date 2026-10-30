@@ -31,7 +31,7 @@ export const detectiveFigure = figure(['solve'], (_ctx, t) => {
       const test = s?.kind === 'ask' ? s.test?.name : undefined;
       if (test) shapes.push(small(x, 64, test.replace(/^(The|A) /, ''), { anchor: 'middle', soft: true }));
     });
-    if (!path.length) shapes.push(label(200, 45, 'Pick what you see in the bed', { anchor: 'middle', soft: true }));
+    if (!path.length) shapes.push(label(200, 45, 'Select the symptom you see in the bed', { anchor: 'middle', soft: true }));
     redraw(trail, ...shapes);
   };
 
@@ -51,19 +51,19 @@ export const detectiveFigure = figure(['solve'], (_ctx, t) => {
     drawTrail(false);
     f.readout.textContent = s.question;
     body.replaceChildren(
-      s.test ? el('p.fig-hint', {}, `${s.test.name}, from `, lessonLink(s.test.lesson), ', answers this.') : '',
+      s.test ? el('p.fig-hint', {}, `${s.test.name}, from `, lessonLink(s.test.lesson), ', checks this.') : '',
       el('div.chips', {}, s.answers.map((a) => el('button.chip', { type: 'button', onclick: () => show(a.next) }, a.say))),
     );
   };
 
   const finding = (s: Finding) => {
     drawTrail(true);
-    f.readout.textContent = `Likely: ${s.cause.toLowerCase()}. ${s.why}`;
+    f.readout.textContent = `Likely cause: ${s.cause.toLowerCase()}. ${s.why}`;
     body.replaceChildren(
-      el('p.key-title', {}, 'What to do first'),
+      el('p.key-title', {}, 'Recommended first steps'),
       el('ol.steps', {}, s.fix.map((x) => el('li', {}, x))),
-      el('p.fig-hint', {}, 'More in ', lessonLink(s.lesson), '.'),
-      el('button.btn.btn-small.btn-ghost', { type: 'button', onclick: start }, 'Another symptom'),
+      el('p.fig-hint', {}, 'Reviewed in ', lessonLink(s.lesson), '.'),
+      el('button.btn.btn-small.btn-ghost', { type: 'button', onclick: start }, 'Try another symptom'),
     );
     if (t.goal === 'solve') t.done();
   };
@@ -71,7 +71,7 @@ export const detectiveFigure = figure(['solve'], (_ctx, t) => {
   function start() {
     path.length = 0;
     drawTrail(false);
-    f.readout.textContent = 'What is wrong in the bed?';
+    f.readout.textContent = 'Which symptom matches your bed?';
     body.replaceChildren(el('div.chips', {}, START.map((id) => el('button.chip', { type: 'button', onclick: () => show(id) }, SYMPTOMS[id]))));
   }
   start();

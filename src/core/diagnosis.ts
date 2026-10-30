@@ -34,85 +34,85 @@ export const SYMPTOMS: Record<Symptom, string> = {
 
 export const STEPS: Record<string, Step> = {
   // Yellow leaves.
-  yellow: { kind: 'ask', question: 'Which leaves yellowed first?', answers: [
-    { say: 'The oldest, low down', next: 'yellow-old' },
-    { say: 'The youngest, at the tips', next: 'yellow-new' },
+  yellow: { kind: 'ask', question: 'Which leaves turned yellow first?', answers: [
+    { say: 'The oldest lower leaves', next: 'yellow-old' },
+    { say: 'The youngest top leaves', next: 'yellow-new' },
   ] },
-  'yellow-old': { kind: 'ask', question: 'Is the bed wet and slow to drain?', test: { name: 'The can test', lesson: 'water' }, answers: [
+  'yellow-old': { kind: 'ask', question: 'Is the soil waterlogged and slow to drain?', test: { name: 'The can test', lesson: 'water' }, answers: [
     { say: 'Yes, water stands for hours', next: 'drowned' },
-    { say: 'No, it drains', next: 'yellow-veins' },
+    { say: 'No, it drains well', next: 'yellow-veins' },
   ] },
-  'yellow-veins': { kind: 'ask', question: 'Look closely: are the veins still green?', answers: [
-    { say: 'Yes, yellow between green veins', next: 'magnesium' },
-    { say: 'No, the whole leaf is pale', next: 'nitrogen' },
+  'yellow-veins': { kind: 'ask', question: 'Look closely at the yellow leaves: are the veins still green?', answers: [
+    { say: 'Yes, yellow tissue between green veins', next: 'magnesium' },
+    { say: 'No, the entire leaf blade is pale yellow', next: 'nitrogen' },
   ] },
-  'yellow-new': { kind: 'ask', question: 'What is the pH?', test: { name: 'A pH test', lesson: 'nutrients' }, answers: [
+  'yellow-new': { kind: 'ask', question: 'What is the soil pH?', test: { name: 'A pH test', lesson: 'nutrients' }, answers: [
     { say: 'Above 7.5', next: 'iron-lock' },
-    { say: '7 or below', next: 'sulfur' },
+    { say: '7.0 or below', next: 'sulfur' },
   ] },
-  drowned: { kind: 'finding', cause: 'Roots short of air', why: 'In a waterlogged bed the pores are full of water and roots cannot breathe, so they stop taking up nitrogen even when it is there.', fix: ['Stay off the bed while it is wet.', 'Lay compost or mulch on top and let worms work it in.', 'Grow deep-rooted cover crops between crops.', 'For a bed that never drains, build it up as a raised bed.'], lesson: 'water' },
-  nitrogen: { kind: 'finding', cause: 'Short of nitrogen', why: 'Nitrogen moves within the plant, so it robs the old leaves to feed the new ones, and they yellow first.', fix: ['Feed with compost, manure or a nitrogen fertilizer.', 'Do not dig fresh woody material in: microbes eating it take the nitrogen first.', 'Grow beans, peas or clover before a hungry crop.'], lesson: 'nutrients' },
-  magnesium: { kind: 'finding', cause: 'Short of magnesium', why: 'Magnesium is at the heart of the green pigment, and it moves from old leaves to new, so old leaves yellow between the veins.', fix: ['Test the pH: in acid soil, dolomitic lime adds magnesium as it raises the pH.', 'Ease off potassium-rich feeds, which crowd magnesium off the parking spots.'], lesson: 'nutrients' },
-  'iron-lock': { kind: 'finding', cause: 'Iron locked away by a high pH', why: 'There is usually plenty of iron in soil, but above pH 7.5 it turns into forms roots cannot take up. Iron cannot move to new leaves, so they yellow first.', fix: ['Do not add lime or wood ash.', 'Work in compost, which buffers the pH and holds iron in reach.', 'Lower the pH slowly with elemental sulfur, if a test says so.'], lesson: 'nutrients' },
-  sulfur: { kind: 'finding', cause: 'Short of sulfur, or of nitrogen in a young plant', why: 'Sulfur cannot move to new growth, so a shortage shows in young leaves first, pale all over. It is commonest in sandy soils low in organic matter.', fix: ['Add compost or well-rotted manure.', 'If a soil test confirms it, a sulfate fertilizer such as gypsum.'], lesson: 'nutrients' },
+  drowned: { kind: 'finding', cause: 'Waterlogged roots starved of oxygen', why: 'When soil pores stay filled with water, roots lack the oxygen required for respiration and cannot absorb nitrogen even from fertile soil.', fix: ['Stay off the bed whenever the soil is wet.', 'Spread compost or organic mulch on the surface and let earthworms pull it down.', 'Sow deep-rooted cover crops between vegetable harvests to open drainage channels.', 'If the site sits in a wet hollow that never drains, build a raised bed.'], lesson: 'water' },
+  nitrogen: { kind: 'finding', cause: 'Low available nitrogen', why: 'Because nitrogen is mobile inside the plant, hungry shoots pull nitrogen out of older lower leaves, turning them uniformly pale yellow first.', fix: ['Top-dress with finished compost, aged manure, or an organic nitrogen fertilizer.', 'Keep woody chips or straw on the surface as mulch rather than digging them in, where microbes will tie up soil nitrogen.', 'Rotate nitrogen-fixing legumes (beans, peas, clover, or vetch) ahead of heavy-feeding crops.'], lesson: 'nutrients' },
+  magnesium: { kind: 'finding', cause: 'Magnesium deficiency', why: 'Magnesium sits at the centre of every chlorophyll molecule and is mobile in the plant, so a shortage turns older leaves yellow between green veins.', fix: ['Check the soil pH: if the bed is acidic, apply dolomitic limestone, which supplies both calcium and magnesium as it raises pH.', 'Cut back on heavy potash (potassium) fertilizers, which compete with magnesium for uptake at the root surface.'], lesson: 'nutrients' },
+  'iron-lock': { kind: 'finding', cause: 'Iron locked up by alkaline soil', why: 'Most soils contain plenty of total iron, but above pH 7.5 iron forms insoluble compounds that roots cannot absorb. Because iron is immobile in plants, young top leaves turn yellow between green veins first.', fix: ['Avoid adding limestone, mushroom compost, or wood ash, all of which raise pH further.', 'Top-dress with acidic or neutral compost, whose organic acids help keep iron soluble near roots.', 'Apply elemental sulfur to gradually lower the pH if your soil does not contain free chalk or limestone.'], lesson: 'nutrients' },
+  sulfur: { kind: 'finding', cause: 'Sulfur deficiency (or early nitrogen shortage)', why: 'Because sulfur moves poorly inside the plant, a shortage turns the youngest leaves uniformly pale green or yellow first, most often in leached sandy soils with little organic matter.', fix: ['Top-dress the bed with finished compost or well-rotted manure.', 'Apply agricultural gypsum (calcium sulfate) if a lab test confirms low sulfur without needing a pH change.'], lesson: 'nutrients' },
 
   // Soggy.
-  soggy: { kind: 'ask', question: 'What does the jar test say?', test: { name: 'The jar test', lesson: 'made-of' }, answers: [
+  soggy: { kind: 'ask', question: 'What texture does the jar test show?', test: { name: 'The jar test', lesson: 'made-of' }, answers: [
     { say: 'Mostly clay', next: 'soggy-clay' },
-    { say: 'A loam or sandier', next: 'soggy-loam' },
+    { say: 'Loam or sandy soil', next: 'soggy-loam' },
   ] },
-  'soggy-clay': { kind: 'ask', question: 'Does a dry crumb hold together in water?', test: { name: 'The slake test', lesson: 'structure' }, answers: [
-    { say: 'It falls apart at once', next: 'clay-no-crumb' },
-    { say: 'It holds', next: 'clay-wet' },
+  'soggy-clay': { kind: 'ask', question: 'Does a dry soil clod hold together in water?', test: { name: 'The slake test', lesson: 'structure' }, answers: [
+    { say: 'It disintegrates right away', next: 'clay-no-crumb' },
+    { say: 'It stays intact', next: 'clay-wet' },
   ] },
-  'soggy-loam': { kind: 'ask', question: 'Can you push a screwdriver into the moist soil?', test: { name: 'The screwdriver test', lesson: 'structure' }, answers: [
-    { say: 'It stops a few inches down', next: 'compacted' },
-    { say: 'It goes in easily', next: 'low-ground' },
+  'soggy-loam': { kind: 'ask', question: 'How easily does a screwdriver push into moist soil?', test: { name: 'The screwdriver test', lesson: 'structure' }, answers: [
+    { say: 'It hits a hard layer a few inches down', next: 'compacted' },
+    { say: 'It pushes in smoothly to the handle', next: 'low-ground' },
   ] },
-  'clay-no-crumb': { kind: 'finding', cause: 'Clay with no crumb', why: 'Clay alone has only tiny pores. Without crumbs to open big ones between them, water has nowhere to go.', fix: ['Stop digging it and stay off it when wet.', 'Lay 5 cm of compost on top each year.', 'Keep living roots in it all year, with cover crops.'], lesson: 'structure' },
-  'clay-wet': { kind: 'finding', cause: 'A clay soil that is simply slow', why: 'Even with good crumbs, clay holds a lot of water and drains slowly. It is not broken; it needs patience.', fix: ['Plant a little later in spring, when it has dried.', 'Grow in raised beds or on ridges for early crops.', 'Keep adding organic matter on top.'], lesson: 'water' },
-  compacted: { kind: 'finding', cause: 'A compacted layer', why: 'Footsteps, machines or digging to the same depth every year can press a hard layer with no big pores, and water sits on top of it.', fix: ['Break it once with a fork, rocking the tines without turning the soil.', 'Then keep off the bed: use paths.', 'Grow deep-rooted cover crops, such as daikon radish, to keep it open.'], lesson: 'structure' },
-  'low-ground': { kind: 'finding', cause: 'Water running in from around', why: 'The soil drains, but the bed sits low and collects water from paths, roofs or a slope.', fix: ['Divert the water with a shallow ditch or a swale.', 'Raise the bed.'], lesson: 'water' },
+  'clay-no-crumb': { kind: 'finding', cause: 'Clay soil with weak crumb structure', why: 'Unaggregated clay contains only microscopic pores that hold water tightly. Without humus and fungal glues to bind clay into crumbs with wide channels between them, rainwater cannot drain.', fix: ['Stop tilling or digging, and never step on the bed when the clay is wet.', 'Spread 5 cm of compost on the surface each year and let worms incorporate it.', 'Grow fibrous and taprooted cover crops through winter to open root channels.'], lesson: 'structure' },
+  'clay-wet': { kind: 'finding', cause: 'Well-structured clay that warms and drains slowly', why: 'Even well-aggregated clay holds a large volume of water and warms up more slowly in spring than sandy ground, so working with its natural pace pays off.', fix: ['Wait until the soil is crumbly rather than sticky before planting in spring.', 'Mound the soil into raised beds or ridges to help early spring crops drain and warm faster.', 'Continue mulching with compost each year to maintain surface crumbs.'], lesson: 'water' },
+  compacted: { kind: 'finding', cause: 'Subsurface compaction (hardpan)', why: 'Foot traffic, wheelbarrows, or tilling to the same depth every year can pack a dense layer a few inches down, blocking roots and perching water above it.', fix: ['Loosen the pan once with a garden fork or broadfork, rocking the tines back to crack the layer without flipping the soil.', 'Dedicate permanent walking paths so feet never press the growing bed again.', 'Plant taprooted cover crops like daikon (forage) radish in late summer to punch biological channels through the pan.'], lesson: 'structure' },
+  'low-ground': { kind: 'finding', cause: 'Runoff collecting in a low spot', why: 'The soil itself has open pores, but the bed sits in a dip that catches surface runoff from surrounding paths, downspouts, or slopes.', fix: ['Intercept uphill water with a shallow diversion swale or French drain.', 'Build the growing area up into a raised bed above the standing water level.'], lesson: 'water' },
 
   // Dry.
-  dry: { kind: 'ask', question: 'What does the jar test say?', test: { name: 'The jar test', lesson: 'made-of' }, answers: [
+  dry: { kind: 'ask', question: 'What texture does the jar test show?', test: { name: 'The jar test', lesson: 'made-of' }, answers: [
     { say: 'Mostly sand', next: 'sandy' },
-    { say: 'A loam or heavier', next: 'dry-bare' },
+    { say: 'Loam, silt, or clay', next: 'dry-bare' },
   ] },
-  'dry-bare': { kind: 'ask', question: 'Is the soil bare between plants?', answers: [
-    { say: 'Yes', next: 'bare' },
-    { say: 'No, it is mulched', next: 'shallow' },
+  'dry-bare': { kind: 'ask', question: 'Is the soil surface left bare between plants?', answers: [
+    { say: 'Yes, bare soil is exposed', next: 'bare' },
+    { say: 'No, the surface is mulched', next: 'shallow' },
   ] },
-  sandy: { kind: 'finding', cause: 'A sandy soil', why: 'Sand has big pores that drain fast and few small ones to hold water, so it holds little a plant can use.', fix: ['Mulch every bed, all year.', 'Add compost each year: organic matter holds water like a sponge.', 'Water deeply and less often, so roots grow down.'], lesson: 'water' },
-  bare: { kind: 'finding', cause: 'Bare soil drying in sun and wind', why: 'A bare surface heats up and loses water to the air quickly, and the rain that falls on it runs off.', fix: ['Mulch with straw, leaves or compost.', 'Plant closer, or fill gaps with a living cover.'], lesson: 'seasons' },
-  shallow: { kind: 'finding', cause: 'Roots that stay shallow', why: 'Plants watered a little every day keep their roots in the top few centimetres, the first part to dry.', fix: ['Water deeply once or twice a week instead of daily.', 'Check for a hard layer that stops roots going down.'], lesson: 'water' },
+  sandy: { kind: 'finding', cause: 'Fast-draining sandy texture', why: 'Coarse sand grains create wide pores that drain rapidly by gravity and very few medium pores to hold plant-available moisture.', fix: ['Keep the surface blanketed with organic mulch year-round.', 'Top-dress with compost every year to build humus, which holds several times its weight in water.', 'Water thoroughly and less frequently to encourage roots to grow deeper.'], lesson: 'water' },
+  bare: { kind: 'finding', cause: 'Evaporation from exposed bare soil', why: 'Direct sun and wind bake exposed soil and wick moisture out of the top layer, while rain crusts the bare surface and runs off instead of soaking in.', fix: ['Tuck 5 to 8 cm of straw, shredded leaves, or compost mulch around plants.', 'Space vegetable rows closely so leaf canopies shade the bed, or intersow quick cover crops in open gaps.'], lesson: 'seasons' },
+  shallow: { kind: 'finding', cause: 'Shallow rooting from light daily watering (or a hardpan)', why: 'Sprinkling a bed lightly every day wets only the top few centimetres of soil, training roots to stay near the surface where they bake as soon as a hot afternoon arrives.', fix: ['Soak the bed deeply once or twice a week so moisture penetrates 15 to 20 cm down.', "Probe with a screwdriver to make sure a compacted layer isn't physically blocking roots from growing deeper."], lesson: 'water' },
 
   // Crust.
-  crust: { kind: 'ask', question: 'Does a dry crumb hold together in water?', test: { name: 'The slake test', lesson: 'structure' }, answers: [
-    { say: 'It melts', next: 'crust-weak' },
-    { say: 'It holds', next: 'crust-silt' },
+  crust: { kind: 'ask', question: 'Does a dry soil clod hold together in water?', test: { name: 'The slake test', lesson: 'structure' }, answers: [
+    { say: 'It disintegrates', next: 'crust-weak' },
+    { say: 'It stays intact', next: 'crust-silt' },
   ] },
-  'crust-weak': { kind: 'finding', cause: 'Crumbs too weak to stand rain', why: 'Raindrops smash weak crumbs, the loose grains wash into the pores, and the surface dries to a skin.', fix: ['Keep the surface covered with mulch.', 'Dig less: every digging breaks crumbs and burns organic matter.', 'Add compost to feed the life that glues crumbs.'], lesson: 'structure' },
-  'crust-silt': { kind: 'finding', cause: 'A silty soil left bare', why: 'Silt grains are just the size to pack into a crust, even in a soil with decent crumbs.', fix: ['Mulch after sowing, or sow under a thin layer of compost.', 'Water seedlings gently, not with a hard spray.'], lesson: 'made-of' },
+  'crust-weak': { kind: 'finding', cause: 'Weak soil crumbs collapsing under rain', why: 'Without enough organic glues, falling raindrops shatter surface crumbs and wash loose silt and clay into the pores, drying into a sealed crust.', fix: ['Keep the soil surface cushioned under mulch or living foliage.', 'Stop tilling or digging, which shatters aggregates and speeds up the loss of humus.', 'Spread compost on top to feed the fungi, bacteria, and worms that cement soil particles into water-stable crumbs.'], lesson: 'structure' },
+  'crust-silt': { kind: 'finding', cause: 'Exposed silty soil sealing after rain', why: 'Smooth, medium-sized silt particles pack closely together when splashed by rain or overhead watering, forming a surface skin even when the soil underneath has decent structure.', fix: ['Cover seed drills with a thin layer of sifted compost rather than native silty soil, and mulch between rows.', 'Water germinating beds with a fine rose on a watering can or drip tape rather than a forceful hose spray.'], lesson: 'made-of' },
 
   // Stunted.
-  stunted: { kind: 'ask', question: 'What is the pH?', test: { name: 'A pH test', lesson: 'nutrients' }, answers: [
+  stunted: { kind: 'ask', question: 'What is the soil pH?', test: { name: 'A pH test', lesson: 'nutrients' }, answers: [
     { say: 'Below 5.5', next: 'acid' },
     { say: 'Above 7.5', next: 'chalky' },
-    { say: 'Between', next: 'stunted-worms' },
+    { say: 'Between 5.5 and 7.5', next: 'stunted-worms' },
   ] },
-  'stunted-worms': { kind: 'ask', question: 'How many worms in a spadeful?', test: { name: 'The worm count', lesson: 'food-web' }, answers: [
+  'stunted-worms': { kind: 'ask', question: 'How many earthworms do you find in a spadeful of moist, mild soil?', test: { name: 'The worm count', lesson: 'food-web' }, answers: [
     { say: 'Fewer than five', next: 'hungry' },
-    { say: 'Plenty', next: 'stunted-hard' },
+    { say: 'Five or more', next: 'stunted-hard' },
   ] },
-  'stunted-hard': { kind: 'ask', question: 'Can you push a screwdriver into the moist soil?', test: { name: 'The screwdriver test', lesson: 'structure' }, answers: [
-    { say: 'It stops a few inches down', next: 'compacted' },
-    { say: 'It goes in easily', next: 'lab' },
+  'stunted-hard': { kind: 'ask', question: 'How easily does a screwdriver push into moist soil?', test: { name: 'The screwdriver test', lesson: 'structure' }, answers: [
+    { say: 'It hits a hard layer a few inches down', next: 'compacted' },
+    { say: 'It pushes in smoothly to the handle', next: 'lab' },
   ] },
-  acid: { kind: 'finding', cause: 'Soil too acid', why: 'Below about 5.5 many nutrients are locked away, and aluminium dissolves and harms roots.', fix: ['Add garden lime, by the amount a soil test suggests, a little each year.', 'Choose acid-loving plants, such as blueberries and potatoes, until it comes up.'], lesson: 'nutrients' },
-  chalky: { kind: 'finding', cause: 'Soil too alkaline', why: 'Above about 7.5, phosphorus, iron, manganese and zinc are hard for roots to reach.', fix: ['Do not lime.', 'Add compost generously; it softens the effect.', 'Lower the pH with sulfur only if a test says so; it is slow and has to be repeated.'], lesson: 'nutrients' },
-  hungry: { kind: 'finding', cause: 'A soil short of life and food', why: 'Few worms means little to eat: not much organic matter, bare soil, or a lot of digging.', fix: ['Add compost and mulch.', 'Keep roots in the bed for as many months as you can.', 'Dig less.'], lesson: 'food-web' },
-  lab: { kind: 'finding', cause: 'Time for a lab soil test', why: 'The pH, the life and the structure all look fine. A lab test will show whether a nutrient is short.', fix: ['Send a sample to a soil lab or extension service.', 'Read its report against the reference page.'], lesson: 'diagnosis' },
+  acid: { kind: 'finding', cause: 'Strongly acidic soil (below pH 5.5)', why: 'Below pH 5.5, phosphorus, calcium, and magnesium become scarce, beneficial bacteria slow down, and aluminium dissolves out of clay to stunt root tips.', fix: ['Apply ground garden limestone according to a soil test recommendation to gradually raise the pH.', 'Grow acid-tolerant crops like potatoes, berries, or rhubarb while the limestone reacts over several months.'], lesson: 'nutrients' },
+  chalky: { kind: 'finding', cause: 'Alkaline soil (above pH 7.5)', why: 'Above pH 7.5, phosphorus binds to calcium and micronutrients like iron, manganese, boron, and zinc lock into insoluble compounds.', fix: ['Never add limestone, wood ash, or lime-treated amendments.', 'Apply generous layers of compost each year; decomposing organic matter releases mild acids that help roots absorb trace minerals.', 'If the soil is not naturally chalky (test with vinegar first), apply elemental sulfur according to a lab test to lower pH gradually.'], lesson: 'nutrients' },
+  hungry: { kind: 'finding', cause: 'Depleted organic matter and low biological activity', why: 'Finding very few earthworms in moist spring or autumn soil indicates a sparse underground food web, usually caused by bare ground, frequent tilling, or a lack of organic matter.', fix: ['Blanket the bed with compost and organic mulch to feed decomposers.', 'Keep living roots in the ground year-round using succession planting and winter cover crops.', 'Leave the soil undug so fungal networks and worm burrows remain intact.'], lesson: 'food-web' },
+  lab: { kind: 'finding', cause: 'A specific nutrient deficiency (or pest/disease)', why: 'When drainage, crumb structure, pH, and worm counts all look healthy, poor growth points to a specific mineral shortage (such as phosphorus or potassium) or a root pest.', fix: ['Mail a composite soil sample to an agricultural extension or commercial soil lab.', 'Compare the lab report against the course reference page and add only the specific nutrients recommended.'], lesson: 'diagnosis' },
 };
 
 /** Every step a symptom can lead to, for a content test. */
