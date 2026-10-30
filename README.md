@@ -149,8 +149,9 @@ labels and commentary, headings, buttons, check feedback) under `"code"`,
 one table per source file, as written → as edited; import writes the edited
 ones back into the source.
 
-Settings in the app has the same, code words included: **Download the
-course**, and **Load edited text** to read an edited file in the real
+Settings in the app has the same, code words included, for **All** or one
+lesson picked from a menu (src/app/course-pieces.ts says what a lesson's
+piece holds): **Download**, and **Load edited text** to read an edited file in the real
 lessons on that device before it is committed (src/course.ts). Edited code
 words show wherever the page has them as text, but not on the sky lab's
 canvas. A lesson block is `text`, `key_ideas`, or a
