@@ -92,12 +92,12 @@ export const crumbFigure = figure(['crumb'], (_ctx, t) => {
       small(x, 190, 'the same loam each time', { soft: true }),
     );
     f.readout.textContent = s > 0.7 && !bed.trodden
-      ? 'Good crumb: the grains are glued into clumps, with big pores between them for air and water and roots.'
+      ? 'Good crumb: mineral grains are bound into rounded clumps, leaving wide pores between them for air, drainage, and roots.'
       : bed.trodden
-        ? 'Footsteps press the crumbs flat and squeeze out the big pores. Try keeping to paths.'
+        ? 'Footsteps crush the crumbs and squeeze out the large pores between them. Try keeping off the bed.'
         : s < 0.35
-          ? 'Weak crumb: the grains sit packed on their own, with only small pores between them.'
-          : 'Some crumb. More months of roots, more organic matter or less digging would build more.';
+          ? 'Weak structure: mineral grains sit packed together with very few large pores between them.'
+          : 'Moderate crumb. Keeping living roots in the ground longer, adding compost, or digging less will build stronger aggregates.';
     if (t.goal === 'crumb' && s > 0.7 && !bed.trodden) t.done();
   };
   const digs = Object.keys(DISTURBANCE) as Disturbance[];
