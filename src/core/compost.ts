@@ -60,11 +60,11 @@ export function verdict(ratio: number | null): HeapVerdict {
 }
 
 export const VERDICTS: Record<HeapVerdict, string> = {
-  empty: 'An empty bin. Add something.',
-  smelly: 'Too much green: the microbes have more nitrogen than they can use, and the spare goes off as ammonia. It will smell, and slump wet.',
-  hot: 'About right. The microbes have the carbon to burn and the nitrogen to build with, and a big enough heap heats up and rots in a few months.',
-  slow: 'On the brown side. It will rot, but slowly, over a year or more, and stay cool.',
-  stalled: 'Far too brown. The microbes are starved of nitrogen and the heap will sit for years.',
+  empty: 'An empty bin. Add a bucket to start.',
+  smelly: 'Too many greens: the microbes have more nitrogen than they can use, so the excess escapes as smelly ammonia gas and the pile slumps into a wet mat.',
+  hot: 'Well balanced. The microbes have enough carbon for energy and nitrogen to build proteins, so a full-sized heap will heat up and turn to compost in a few months.',
+  slow: 'A bit brown-heavy. The pile will still break down, though it will stay cool and take a year or more.',
+  stalled: 'Far too brown. The microbes are short of nitrogen, so the pile will sit for years without much decay.',
 };
 
 // ---- Rotting away --------------------------------------------------------------

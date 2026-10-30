@@ -53,7 +53,7 @@ export const heapFigure = figure(['hot'], (_ctx, t) => {
     const g: SVGElement[] = [
       svg('rect', { x: gx, y: gy0, width: 24, height: gh, rx: 4, fill: tint(COL.ink, 0.06), stroke: COL.grid }),
       svg('rect', { x: gx, y: f1(Y(40)), width: 24, height: f1(Y(20) - Y(40)), fill: tint(COL.good, 0.5) }),
-      small(gx + 30, Y(30) + 3, 'just right, 20–40', { fill: COL.good, bold: true }),
+      small(gx + 30, Y(30) + 3, 'balanced, 20 to 40', { fill: COL.good, bold: true }),
       small(gx + 30, Y(12) + 3, 'too green: smelly', { soft: true }),
       small(gx + 30, Y(70) + 3, 'brown: slow', { soft: true }),
       small(gx + 30, Y(250) + 3, 'far too brown', { soft: true }),
@@ -128,6 +128,6 @@ export function rotDiagram(): { node: HTMLElement } {
     const ly = 168 + Math.floor(i / 2) * 18;
     s.svg.append(svg('rect', { x: lx, y: ly - 9, width: 12, height: 12, rx: 2, fill: p.fill }), small(lx + 18, ly + 1, p.name));
   });
-  s.svg.append(small(20, 208, 'dashed: what went in. The rest was breathed out as carbon dioxide or became soil life.', { soft: true }));
+  s.svg.append(small(20, 208, 'dashed: initial volume. The rest was breathed out as carbon dioxide or built into soil microbes.', { soft: true }));
   return { node: s.node };
 }
