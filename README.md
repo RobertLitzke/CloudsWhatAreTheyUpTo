@@ -107,6 +107,20 @@ OPENROUTER_API_KEY=... node tools/rewrite/rewrite.mjs            # dry run, all 
 OPENROUTER_API_KEY=... node tools/rewrite/rewrite.mjs water --write
 ```
 
+## Revising the text
+
+All of the course's words are JSON in `src/data` (lessons, reference page,
+quiz cards, glossary). To revise them in one file:
+
+```sh
+npx didactics-course export src/data --skip src/data/photos.json --title Dirt --out course.json
+npx didactics-course import course.json
+```
+
+Settings in the app has the same: **Download the course**, and **Load edited
+text** to read an edited file in the real lessons on that device before it
+is committed (src/course.ts).
+
 ## Layout
 
 ```
