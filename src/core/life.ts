@@ -18,48 +18,48 @@ export interface DwellerInfo {
 export const INFO: Record<Dweller, DwellerInfo> = {
   roots: {
     name: 'Plant roots',
-    does: 'Roots leak sugars into the soil around them, as much as a fifth of what the leaves make, and feed the crowd that gathers there.',
-    without: 'With no living roots, the bacteria and fungi that feed on root sugars dwindle, and so does everything that eats them.',
+    does: 'Roots release up to a fifth of the plant\'s sugars into the surrounding soil, feeding the microbes that gather there.',
+    without: 'With no living roots, the bacteria and fungi that rely on root sugars dwindle, along with the predators that eat them.',
   },
   litter: {
     name: 'Dead plants',
-    does: 'Fallen leaves, old roots and compost: the food at the bottom of the web, for everything that cannot feed on a living root.',
-    without: 'With nothing dead to eat, the decomposers starve, and the soil slowly loses its organic matter.',
+    does: 'Fallen leaves, dead roots and compost feed the decomposers at the base of the food web.',
+    without: 'Without dead plant matter to eat, decomposers starve and the soil gradually loses its organic matter.',
   },
   bacteria: {
     name: 'Bacteria',
-    does: 'Single cells that eat root sugars and dead matter, lock nutrients up in their bodies, and make the gums that stick grains together.',
-    without: 'Without bacteria, dead matter barely rots and nothing feeds the protozoa and nematodes that release their nutrients.',
+    does: 'Single-celled microbes that eat root sugars and dead matter, store nutrients in their bodies, and produce sticky gums that hold soil grains together.',
+    without: 'Without bacteria, soft plant matter rots much slower, and the protozoa and nematodes that release bacterial nutrients go hungry.',
   },
   fungi: {
     name: 'Fungi',
-    does: 'Threads that break down tough woody matter, and partners that join roots and reach water and phosphorus a root cannot.',
-    without: 'Without fungi, woody matter piles up, crumbs fall apart sooner, and plants lose their reach for phosphorus and water.',
+    does: 'Microscopic threads that break down tough, woody debris, or partner with roots to fetch water and phosphorus from tiny soil pores.',
+    without: 'Without fungi, woody debris piles up, soil clumps fall apart more easily, and plants have a harder time reaching phosphorus and water.',
   },
   protozoa: {
     name: 'Protozoa',
-    does: 'Single cells that hunt bacteria. A bacterium holds more nitrogen than a protozoan needs, so the surplus comes out right by the roots.',
-    without: 'Without protozoa, the nitrogen stays locked inside the bacteria, out of a plant’s reach.',
+    does: 'Single-celled predators that hunt bacteria. Because bacteria contain more nitrogen than a protozoan needs, the excess is excreted right by the roots.',
+    without: 'Without protozoa, much of that nitrogen stays locked inside bacterial cells where plants cannot reach it.',
   },
   nematodes: {
     name: 'Nematodes',
-    does: 'Tiny worms, most of them harmless: they graze bacteria and fungi and release nitrogen as protozoa do. A few eat roots.',
-    without: 'Without nematodes, less nitrogen is released, and the bacteria and fungi are kept in check by less.',
+    does: 'Microscopic worms that mostly graze on bacteria and fungi, releasing extra nitrogen just like protozoa do, though a few species eat plant roots.',
+    without: 'Without nematodes, less nitrogen is released for plants, and fewer predators keep bacteria and fungi in check.',
   },
   arthropods: {
     name: 'Mites, springtails and beetles',
-    does: 'Shredders chew dead leaves into pieces small enough for fungi and bacteria; hunters keep the shredders and nematodes in check.',
-    without: 'Without the shredders, dead leaves sit whole on the surface for far longer.',
+    does: 'Some chew fallen leaves into tiny bits that fungi and bacteria can digest, while predatory species hunt nematodes and other small insects.',
+    without: 'Without these chewing creatures, fallen leaves sit intact on the soil surface for much longer.',
   },
   worms: {
     name: 'Earthworms',
-    does: 'They pull dead leaves underground, eat soil with it, and leave behind casts rich in nutrients and burrows that let water and roots in.',
-    without: 'Without worms, the litter stays on top, the soil is less mixed, and rain has fewer ways in.',
+    does: 'Worms drag fallen leaves underground and swallow soil, leaving behind nutrient-rich casts and burrows that carry air, water and roots downward.',
+    without: 'Without worms, leaf litter stays on the surface, the soil is poorly mixed, and heavy rain drains more slowly.',
   },
   birds: {
     name: 'Birds, moles and beetles above',
-    does: 'The top of the web: they eat worms and insects, and their droppings and bodies go back into the soil.',
-    without: 'Without them, worms and insects are kept in check only by each other.',
+    does: 'Top predators that hunt worms and insects, eventually returning nutrients to the soil through their droppings and bodies.',
+    without: 'Without top predators, worm and insect numbers are only kept in check by their food supply and each other.',
   },
 };
 
