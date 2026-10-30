@@ -28,9 +28,9 @@ library's radio is off). To move to a newer Didactics, run
   green, seed-packet cream, leaf-green buttons, terracotta accents; Fraunces
   for headings.
 - **Eight lessons**, each built around live figures:
-  1. What soil is made of: a handful by volume, a cube cut down to clay size,
+  1. Inside a handful of soil: a handful by volume, a cube cut down to clay size,
      the three grain sizes, texture by feel, the jar test, the texture triangle.
-  2. Where water and air live: pores, a rainstorm on a bed, drying to wilting.
+  2. Water and air in the pores: pores, a rainstorm on a bed, drying to wilting.
   3. The living soil: a teaspoon's census and a tap-through food web.
   4. Organic matter and compost: mixing a heap by C:N, how fast things rot.
   5. Crumb: building or breaking structure, and the slake test.

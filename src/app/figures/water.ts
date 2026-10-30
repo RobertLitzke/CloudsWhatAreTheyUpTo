@@ -93,8 +93,8 @@ export const poresFigure = figure(['more'], (_ctx, t) => {
     redraw(g, ...shapes);
     const [sandy, , clay] = results;
     f.readout.textContent = om <= 1
-      ? `Three soils, 30 cm deep, with very little organic matter. The sandy bed holds only ${Math.round(sandy.mm)} mm a plant can use, about ${Math.round(sandy.mm / 5)} hot summer days; the clay one drains at under a millimetre an hour.`
-      : `With ${om}% organic matter, the sandy bed holds ${Math.round(sandy.mm)} mm a plant can use, and the clay one drains at ${clay.ksat.toFixed(1)} mm an hour: organic matter helps each soil where it is weakest.`;
+      ? `Three soils, 30 cm deep, with little organic matter. The sandy bed stores ${Math.round(sandy.mm)} mm of usable water (roughly ${Math.round(sandy.mm / 5)} hot summer days), while the clay bed drains at under a millimetre an hour.`
+      : `At ${om}% organic matter, the sandy bed stores ${Math.round(sandy.mm)} mm of usable water and the clay bed drains at ${clay.ksat.toFixed(1)} mm an hour, shoring up each soil's weak spot.`;
     if (t.goal === 'more' && om >= 5) t.done();
   };
   f.controls.append(slider('Organic matter', 1, 8, 0.5, om, (v) => `${v}%`, (v) => { om = v; paint(); }, 'organic').node);
@@ -139,8 +139,8 @@ export const rainFigure = figure(['puddle'], (_ctx, t) => {
     shapes.push(small(24, top + depth + 14, '30 cm', { soft: true }));
     redraw(g, ...shapes);
     f.readout.textContent = s.pooled > 0.5
-      ? `${SOILS[soil].name}: rain came faster than the soil could take it. Of ${rate} mm, ${Math.round(s.soaked)} soaked in and ${Math.round(s.pooled)} pooled on the top or ran off.`
-      : `${SOILS[soil].name}: all ${rate} mm of the hour's rain soaked in, wetting the bed ${Math.round(s.front / 10)} cm down.`;
+      ? `${SOILS[soil].name}: rain fell faster than the pores could take it in. Out of ${rate} mm, ${Math.round(s.soaked)} mm soaked in while ${Math.round(s.pooled)} mm pooled on top or ran off.`
+      : `${SOILS[soil].name}: all ${rate} mm of the hour's rain soaked in, wetting the bed ${Math.round(s.front / 10)} cm deep.`;
     if (t.goal === 'puddle' && s.pooled > 0.5) t.done();
   };
   f.controls.append(
