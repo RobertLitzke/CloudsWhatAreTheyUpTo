@@ -109,17 +109,23 @@ OPENROUTER_API_KEY=... node tools/rewrite/rewrite.mjs water --write
 
 ## Revising the text
 
-All of the course's words are JSON in `src/data` (lessons, reference page,
+The course's longer words are JSON in `src/data` (lessons, reference page,
 quiz cards, glossary). To revise them in one file:
 
 ```sh
-npx didactics-course export src/data --skip src/data/photos.json --title Dirt --out course.json
+npx didactics-course export src/data --skip src/data/photos.json --code src --title Dirt --out course.json
 npx didactics-course import course.json
 ```
 
-Settings in the app has the same: **Download the course**, and **Load edited
-text** to read an edited file in the real lessons on that device before it
-is committed (src/course.ts).
+`--code src` adds every string in the code that reads as words (figure
+labels and commentary, headings, buttons, check feedback) under `"code"`,
+one table per source file, as written → as edited; import writes the edited
+ones back into the source.
+
+Settings in the app has the same, code words included, for **All** or one
+lesson picked from a menu (src/app/course-pieces.ts says what a lesson's
+piece holds): **Download**, and **Load edited text** to read an edited file
+in the real lessons on that device before it is committed (src/course.ts).
 
 ## Layout
 
