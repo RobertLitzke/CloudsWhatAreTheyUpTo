@@ -91,10 +91,10 @@ export interface Sign {
 }
 
 export const SIGNS: Record<Shortage, Sign> = {
-  N: { where: 'old', looks: 'The oldest leaves turn pale yellow all over, and the whole plant looks pale and thin.', leaf: '#d9cf6a', vein: '#cfc35d', cause: 'Too little nitrogen, or roots sitting in waterlogged soil that cannot take it up.' },
-  P: { where: 'old', looks: 'Old leaves go dull dark green, often with purple tints, and the plant stays small.', leaf: '#3f5f3a', vein: '#6b3f6e', edge: '#6b3f6e', cause: 'Cold soil in spring, a very acid or very chalky soil, or too little phosphorus.' },
-  K: { where: 'old', looks: 'Old leaves yellow and then brown at the edges, as if scorched.', leaf: '#7fa04a', vein: '#6f9142', edge: '#8a5a2a', cause: 'Too little potassium, common in sandy soils where it washes out.' },
-  Mg: { where: 'old', looks: 'Old leaves yellow between the veins, while the veins stay green.', leaf: '#d6cf6a', vein: '#4f8a38', cause: 'Too little magnesium, or too much potassium fertilizer crowding it off the parking spots.' },
-  Fe: { where: 'new', looks: 'The youngest leaves yellow between the veins, the veins green; the old leaves stay green.', leaf: '#e3de8a', vein: '#4f8a38', cause: 'Usually not too little iron but too high a pH, which locks it away.' },
-  Ca: { where: 'new', looks: 'New growth is stunted and twisted; in tomatoes, the fruit rots black at the blossom end.', leaf: '#5f8f3a', vein: '#4f7a33', edge: '#5a3a1a', cause: 'Usually uneven watering, which stops calcium moving with the water to new growth.' },
+  N: { where: 'old', looks: 'The oldest leaves turn pale yellow all over, and the whole plant looks spindly.', leaf: '#d9cf6a', vein: '#cfc35d', cause: 'Low soil nitrogen, or waterlogged roots that lack the oxygen needed to absorb nutrients.' },
+  P: { where: 'old', looks: 'Older leaves turn dull dark green with reddish-purple tints, and growth is stunted.', leaf: '#3f5f3a', vein: '#6b3f6e', edge: '#6b3f6e', cause: 'Cold spring soil that slows root uptake, extreme soil pH locking phosphorus up, or low soil phosphorus.' },
+  K: { where: 'old', looks: 'The margins and tips of older leaves turn yellow and then papery brown.', leaf: '#7fa04a', vein: '#6f9142', edge: '#8a5a2a', cause: 'Low soil potassium, especially common in sandy beds where potassium leaches away.' },
+  Mg: { where: 'old', looks: 'Older leaves turn yellow between the veins while the veins themselves remain green.', leaf: '#d6cf6a', vein: '#4f8a38', cause: 'Low soil magnesium, or excess potassium fertilizer competing with magnesium for root uptake.' },
+  Fe: { where: 'new', looks: 'The youngest top leaves turn yellow between green veins while older leaves stay green.', leaf: '#e3de8a', vein: '#4f8a38', cause: 'Alkaline soil (high pH), which converts soil iron into insoluble forms that roots cannot absorb.' },
+  Ca: { where: 'new', looks: 'New leaves grow hooked and stunted, and tomatoes or peppers develop sunken black patches at the blossom end.', leaf: '#5f8f3a', vein: '#4f7a33', edge: '#5a3a1a', cause: 'Erratic watering or drought stress, which interrupts the flow of water and dissolved calcium into fast-growing fruit.' },
 };

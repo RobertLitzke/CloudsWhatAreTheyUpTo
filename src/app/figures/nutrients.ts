@@ -47,11 +47,11 @@ export const parkingFigure = figure(['hold'], (_ctx, t) => {
       if (!gone) shapes.push(svg('circle', { cx: f1(x), cy: f1(yy), r: 4, fill: 'none', stroke: COL.water, 'stroke-width': 2 }));
     }
     shapes.push(
-      small(30, 20, 'held on the spots: calcium, magnesium, potassium', { fill: COL.ink, bold: true }),
-      small(30, 32, 'loose in the water: nitrate', { fill: COL.water, bold: true }),
+      small(30, 20, 'held on soil charges: calcium, magnesium, potassium', { fill: COL.ink, bold: true }),
+      small(30, 32, 'dissolved in water: nitrate', { fill: COL.water, bold: true }),
     );
     redraw(g, ...shapes);
-    f.readout.textContent = `About ${Math.round(c)} parking spots' worth (cation exchange capacity ${Math.round(c)}). ${rain > 0 ? `After ${rain} cm of rain, ${Math.round(left * 100)}% of the loose nitrate is still in reach; what is parked stays.` : 'Slide the rain to see what washes out.'}`;
+    f.readout.textContent = `Cation exchange capacity: ${Math.round(c)} cmol+/kg. ${rain > 0 ? `After ${rain} cm of rain, ${Math.round(left * 100)}% of the dissolved nitrate remains in the root zone, while ions held on clay and humus stay put.` : 'Move the rain slider to see how nitrate leaches out.'}`;
     if (t.goal === 'hold' && c >= 15) t.done();
   };
   f.controls.append(
