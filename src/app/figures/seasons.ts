@@ -78,7 +78,7 @@ export const yearFigure = figure(['build'], (_ctx, t) => {
     );
     const c = cover(plan);
     const delta = om[5] - om[0];
-    f.readout.textContent = `Roots in the bed ${c.roots} season${c.roots === 1 ? '' : 's'} of four, covered ${c.covered}. In five years organic matter ${Math.abs(delta) < 0.05 ? 'holds steady' : delta > 0 ? `rises from ${om[0].toFixed(1)}% to ${om[5].toFixed(1)}%` : `falls from ${om[0].toFixed(1)}% to ${om[5].toFixed(1)}%`}.`;
+    f.readout.textContent = `Living roots in ${c.roots} of 4 season${c.roots === 1 ? '' : 's'}, surface covered in ${c.covered}. Over five years, organic matter ${Math.abs(delta) < 0.05 ? 'holds steady' : delta > 0 ? `rises from ${om[0].toFixed(1)}% to ${om[5].toFixed(1)}%` : `falls from ${om[0].toFixed(1)}% to ${om[5].toFixed(1)}%`}.`;
     if (t.goal === 'build' && delta >= 0.5) t.done();
   };
   const digs = Object.keys(DISTURBANCE) as Disturbance[];
@@ -87,7 +87,7 @@ export const yearFigure = figure(['build'], (_ctx, t) => {
     chips.forEach((c, i) => c.classList.toggle('on', digs[i] === d));
     paint();
   } }, DISTURBANCE[d].name));
-  f.controls.append(el('p.fig-hint', {}, 'Tap a season on the wheel to change what covers the bed.'), el('div.chips', {}, chips));
+  f.controls.append(el('p.fig-hint', {}, 'Tap any season on the wheel to change how the bed is covered.'), el('div.chips', {}, chips));
   paint();
   return f.node;
 });
