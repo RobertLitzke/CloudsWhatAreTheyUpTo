@@ -249,6 +249,8 @@ function photoSteps(o: PhotoCalls, rng: Rng): CheckStep[] {
       answer: call.options.indexOf(answer),
       why: `That’s ${g.name}, on ${where}. ${g.look}`,
       row: true,
+      // The same words over another photo are another question for review.
+      key: `${mode}${target ? `-${target}` : ''}:${call.photo?.id ?? `sketch-${call.genus}`}`,
     };
   });
 }

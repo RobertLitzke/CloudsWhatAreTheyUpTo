@@ -54,7 +54,7 @@ defineCourse({
 
   home: homeView,
   pages: [{ path: '/reference', label: 'Reference', view: referenceView }],
-  menu: ['/home', '/reference', '/quiz', '/settings'],
+  menu: ['/home', '/reference', '/review', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
   quiz: {

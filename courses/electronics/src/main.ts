@@ -51,7 +51,7 @@ defineCourse({
     // Circuitry has no photos, so not Didactics' photo Credits page.
     { path: '/credits', view: creditsView },
   ],
-  menu: ['/home', '/reference', '/quiz', '/settings'],
+  menu: ['/home', '/reference', '/review', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
   quiz: {

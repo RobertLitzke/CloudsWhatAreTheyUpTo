@@ -54,7 +54,7 @@ defineCourse({
     { path: '/journal/:tab', view: journalView },
   ],
   // The pages sit in a menu under the current page's name, so more can join without crowding the bar.
-  menu: ['/home', '/sky', '/quiz', '/journal', '/settings'],
+  menu: ['/home', '/sky', '/review', '/journal', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
 

@@ -63,7 +63,7 @@ Vitest) rather than `node --experimental-strip-types`.
   as coming, with what each will cover.
 - The **reference page**: the four decisions, the camera at a glance, the stop
   scale, settings to start from, and a glossary.
-- A **quiz** of flash cards with spaced repetition (`src/data/quiz.json`).
+- A **Review** page (Didactics' review): every check question answered, and the flash cards in `src/data/quiz.json`, on Anki's schedule, with an Anki download.
 
 ## Run
 

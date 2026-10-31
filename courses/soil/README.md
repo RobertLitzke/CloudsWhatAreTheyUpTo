@@ -47,7 +47,7 @@ and run `npm install` at the root, then `npm test` and `npm run build`.
 - The **reference page**: a glossary, and a section per lesson (texture,
   water by texture, the food web, C:N, structure, home tests, amendments,
   deficiencies, pH, cover crops, the year, symptoms, reading a soil test).
-- A **quiz** of flash cards with spaced repetition (`src/data/quiz.json`).
+- A **Review** page (Didactics' review): every check question answered, and the flash cards in `src/data/quiz.json`, on Anki's schedule, with an Anki download.
 - **Photos with drawn fallbacks**: wherever the app shows a subject (a soil
   type, a jar test, later creatures and practices) it uses a photo from the
   library if there is one, and a drawing of it if not (`src/app/picture.ts`).

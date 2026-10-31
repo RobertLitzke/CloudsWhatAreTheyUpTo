@@ -42,7 +42,7 @@ root; run it with `npm run dev -w electronics`). There is no story or radio ment
   section per topic still to fill (symbols, parts, wire, capacitors,
   semiconductors, the multimeter, solder faults, pedal standards, solar
   sizing, off-grid safety).
-- A **quiz** of flash cards with spaced repetition (`src/data/quiz.json`),
+- A **Review** page (Didactics' review): every check question answered, and the flash cards in `src/data/quiz.json`, on Anki's schedule, with an Anki download,
   empty until the first lesson is written.
 
 ## Run
