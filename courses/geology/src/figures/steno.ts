@@ -131,41 +131,72 @@ const EVENTS: Event[] = [
   { id: 'dike', says: 'Melted rock fills a crack (dike) through everything', early: 'The dike cuts through D as well, so it is the youngest.' },
 ];
 
-/** A cliff of four layers, a fault through the lower three, and a dike through all; tap the events oldest first. */
+/**
+ * A cliff of four layers, a fault through the lower three, and a dike through
+ * all; tap the events oldest first. The whole cliff stays in view, and each
+ * event named in order is outlined and numbered on it.
+ */
 export const orderFigure = figure(['ordered'], (_ctx, t) => {
   const f = frame(W, 240, 3);
   const g = svg('g');
   f.svg.append(g);
   let done = 0;
-  const shown = (id: string) => EVENTS.findIndex((e) => e.id === id) < done;
   const top = 70;
   // The fault runs from (176, 236) up to (208, top + 22).
   const xf = (y: number) => 176 + ((236 - y) * 32) / (236 - (top + 22));
   const drop = 22;
+  /** Each bed's two halves: the raised left side (worn level under D) and the dropped right side. */
+  const halves = (y0: number, y1: number, worn = 0) => {
+    const lt = y0 + worn;
+    return [
+      `20,${lt} ${xf(lt)},${lt} ${xf(y1)},${y1} 20,${y1}`,
+      `${xf(y0 + drop)},${y0 + drop} 380,${y0 + drop} 380,${y1 + drop} ${xf(y1 + drop)},${y1 + drop}`,
+    ];
+  };
+  const BEDS_AT: Record<string, { i: number; pts: string[]; badge: [number, number] }> = {
+    A: { i: 0, pts: halves(170, 236), badge: [70, 205] },
+    B: { i: 1, pts: halves(130, 170), badge: [70, 152] },
+    C: { i: 2, pts: halves(top + 25, 130, drop), badge: [70, 124] },
+  };
+  const D_RECT = { x: 20, y: top - 10, width: 360, height: 35 + drop };
+  const DIKE = `292,${top - 10} 304,${top - 10} 300,236 288,236`;
+  const BADGE: Record<string, [number, number]> = { A: BEDS_AT.A.badge, B: BEDS_AT.B.badge, C: BEDS_AT.C.badge, fault: [226, 120], D: [70, top + 8], dike: [324, 150] };
   const paint = () => {
-    const bed = (i: number, y0: number, y1: number, id: string, worn = 0) => {
-      if (!shown(id)) return [];
-      const o = shown('fault') ? drop : 0;
-      // Once D is laid, the raised side has been worn down level with the dropped side.
-      const top = shown('D') ? Math.max(y0, y0 + worn) : y0;
-      return [
-        svg('polygon', { points: `20,${top} ${xf(top)},${top} ${xf(y1)},${y1} 20,${y1}`, fill: BEDS[i] }),
-        svg('polygon', { points: `${xf(y0 + o)},${y0 + o} 380,${y0 + o} 380,${y1 + o} ${xf(y1 + o)},${y1 + o}`, fill: BEDS[i] }),
-        label(40, (top + y1) / 2 + 4, id, { bold: true }),
-        label(350, (y0 + y1) / 2 + 4 + o, id, { bold: true, anchor: 'middle' }),
-      ];
-    };
-    redraw(g,
-      svg('rect', { x: 20, y: 40, width: 360, height: 196, fill: COL.grid }),
-      ...bed(0, 170, 236, 'A'),
-      ...bed(1, 130, 170, 'B'),
-      ...bed(2, top + 25, 130, 'C', drop),
+    const found = EVENTS.slice(0, done).map((e) => e.id);
+    const latest = found[found.length - 1];
+    const glow = (id: string) => ({ stroke: id === latest ? COL.heat : COL.good, 'stroke-width': id === latest ? 3.5 : 2.5, fill: 'none', 'stroke-linejoin': 'round' });
+    const parts: SVGElement[] = [svg('rect', { x: 20, y: 40, width: 360, height: 196, fill: COL.grid })];
+    for (const bd of Object.values(BEDS_AT)) for (const pts of bd.pts) parts.push(svg('polygon', { points: pts, fill: BEDS[bd.i] }));
+    parts.push(
       // The lowest layer's broken-off end runs below the frame.
       svg('rect', { x: 20, y: 236, width: 360, height: 10, fill: COL.paper }),
-      ...(shown('fault') ? [line(176, 236, 208, top + 22, COL.ink, 2.4), small(212, top + 30, 'fault')] : []),
-      ...(shown('D') ? [svg('rect', { x: 20, y: top - 10, width: 360, height: 35 + drop, fill: BEDS[3] }), label(40, top + 12, 'D', { bold: true })] : []),
-      ...(shown('dike') ? [svg('polygon', { points: `292,${top - 10} 304,${top - 10} 300,236 288,236`, fill: COL.heat }), small(308, top + 4, 'dike', { fill: COL.heat })] : []),
+      line(176, 236, 208, top + 22, COL.ink, 2.4),
+      small(212, top + 30, 'fault'),
+      svg('rect', { ...D_RECT, fill: BEDS[3] }),
+      label(40, top + 12, 'D', { bold: true }),
+      svg('polygon', { points: DIKE, fill: COL.heat }),
+      small(308, top + 4, 'dike', { fill: COL.heat }),
+      // Bed names last, so the layer above never covers them.
+      ...(['A', 'B', 'C'] as const).flatMap((id) => [
+        label(40, (id === 'A' ? 203 : id === 'B' ? 150 : 126) + 4, id, { bold: true }),
+        label(350, (id === 'A' ? 203 : id === 'B' ? 150 : 108) + 4 + drop, id, { bold: true, anchor: 'middle' }),
+      ]),
     );
+    // Outline what has been put in order, the newest strongest.
+    for (const id of found) {
+      if (BEDS_AT[id]) for (const pts of BEDS_AT[id].pts) parts.push(svg('polygon', { points: pts, ...glow(id) }));
+      if (id === 'fault') parts.push(line(176, 236, 208, top + 22, id === latest ? COL.heat : COL.good, 5, { opacity: 0.85 }));
+      if (id === 'D') parts.push(svg('rect', { ...D_RECT, ...glow(id) }));
+      if (id === 'dike') parts.push(svg('polygon', { points: DIKE, ...glow(id), stroke: id === latest ? COL.ink : COL.good }));
+    }
+    found.forEach((id, n) => {
+      const [x, y] = BADGE[id];
+      parts.push(
+        svg('circle', { cx: x, cy: y, r: 9, fill: id === latest ? COL.heat : COL.good, stroke: COL.paper, 'stroke-width': 1.5 }),
+        label(x, y + 4, String(n + 1), { anchor: 'middle', bold: true, fill: COL.paper }),
+      );
+    });
+    redraw(g, ...parts);
   };
   const order = [4, 1, 5, 0, 3, 2];
   const buttons = order.map((k) => {
@@ -179,10 +210,11 @@ export const orderFigure = figure(['ordered'], (_ctx, t) => {
         done++;
         b.disabled = true;
         b.classList.add('on');
+        b.textContent = `${done}. ${e.says}`;
         t.keep(done);
         f.readout.textContent = done === EVENTS.length
           ? 'Right: A, B, C, then the fault, then D, and the dike last. A layer is younger than the one under it, and anything that cuts through rock is younger than the rock it cuts.'
-          : `${e.says}: yes. What happened next?`;
+          : `${e.says}: yes, that is number ${done}. What happened next?`;
         paint();
         if (done === EVENTS.length && t.goal === 'ordered') t.done();
       } else {
@@ -195,18 +227,11 @@ export const orderFigure = figure(['ordered'], (_ctx, t) => {
   list.className = 'answer-list';
   list.append(...buttons);
   f.controls.append(list);
-  // The cliff as it is today, before taking it apart.
-  const today = () => {
-    const was = done;
-    done = EVENTS.length;
-    paint();
-    done = was;
-  };
+  paint();
   if (typeof t.kept === 'number' && t.kept > 0) {
     for (let i = 0; i < t.kept; i++) buttons[order.indexOf(i)].click();
   } else {
-    today();
-    f.readout.textContent = 'This is the cliff as it stands. Tap the events below from oldest to youngest, and the cliff builds up as you go.';
+    f.readout.textContent = 'This is the cliff as it stands. Tap the events below from oldest to youngest; each one you get right is numbered on the cliff.';
   }
   return f.node;
 });
