@@ -14,16 +14,6 @@ const coming = (id: string, n: number, title: string, teaches: string, more: Par
   ({ id, n, title, teaches, parts: [], coming: true, learned: [], next: '', journal: [], ...more });
 
 const TRUNK_COMING: GeoLesson[] = [
-  coming('siccar', 6, 'The rock at Siccar Point', 'Unconformities, the rock cycle, and how Hutton saw deep time'),
-  coming('age', 7, 'How old is the Earth?', 'Kelvin against the geologists, and the clock in radioactive atoms'),
-  coming('drift', 8, 'Continents that fit', 'Wegener’s evidence, and why physicists turned it down'),
-  coming('stripes', 9, 'Stripes on the seafloor', 'Magnetic reversals and spreading ridges'),
-  coming('quakes', 10, 'Where the Earth shakes', 'Plate edges, sinking slabs and lines of volcanoes'),
-  coming('hotspot', 11, 'Islands that get older in a line', 'Hawaii, the Emperor bend, and plates moving over a plume'),
-  coming('rivers', 12, 'A river that cuts through a mountain', 'Powell, Gilbert, erosion and base level'),
-  coming('erratics', 13, 'Boulders where they don’t belong', 'How glaciers flow, carry rock and drop it'),
-  coming('pacemaker', 14, 'The pacemaker of the ice ages', 'The Earth’s orbit and the record in deep-sea mud'),
-  coming('kettles', 15, 'A lake with no river', 'What an ice sheet leaves behind, read from lidar'),
   coming('faults', 16, 'Why faults snap', 'Elastic rebound, and why soft ground shakes harder'),
   coming('explode', 17, 'Why some volcanoes explode', 'Thick magma, gas, and Mont Pelée in 1902'),
   coming('barnacles', 18, 'Barnacles above the tide', 'Alaska 1964 and how a megathrust moves the coast'),

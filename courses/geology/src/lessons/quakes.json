@@ -1,0 +1,74 @@
+{
+  "id": "quakes",
+  "n": 10,
+  "title": "Where the Earth shakes",
+  "teaches": "How earthquakes outline the plates, and how the angle of a sinking slab of ocean floor sets where volcanoes rise",
+  "parts": [
+    {
+      "title": "A map drawn by earthquakes",
+      "blocks": [
+        {"type": "text", "text": "In the early 1960s the United States set up more than a hundred identical seismograph stations around the world, mainly to detect underground nuclear tests. The World-Wide Standardized Seismograph Network did that job, and it also recorded every sizeable earthquake on Earth with a consistency never achieved before. From the arrival times of an earthquake's waves at many stations, seismologists could work out both its position on the map and its depth."},
+        {"type": "text", "text": "Plotted on a world map, the earthquakes fell in narrow bands, often less than a hundred kilometres wide, separating huge regions that barely shook at all. Some bands followed the crests of the mid-ocean ridges from lesson 9. Others ran along the deep trenches around the Pacific, beside the volcano chains of Japan, the Aleutians and the Andes, while a third set crossed land through the Alps, the Himalaya and California."},
+        {"type": "diagram", "id": "plates", "caption": "The boundaries of the plates, from a published model by Peter Bird (2003). Orange: spreading ridges, dashed where a continent is splitting. Red: trenches, where a plate sinks. Rose: collisions between continents. Grey: transform faults, where plates slide past each other.", "options": {"relief": "maps/world", "title": "The plates", "water": 0, "alt": "A world map with the plate boundaries drawn: ridges down the middle of the Atlantic and Indian Oceans and the eastern Pacific, trenches around much of the Pacific rim, collision zones from the Alps to the Himalaya, and transform faults crossing the ridges."}},
+        {"type": "text", "text": "Between 1965 and 1968, in papers by J. Tuzo Wilson, Dan McKenzie and Robert Parker, Jason Morgan, and Xavier Le Pichon, that pattern became the theory of **plate tectonics**. The Earth's stiff outer shell, about 100 kilometres thick and comprising the crust and the top of the mantle, is broken into a dozen or so large rigid **plates** and many smaller ones. The plates move relative to one another at a few centimetres a year. Their interiors are mostly quiet; nearly all the deformation happens at their edges, where they pull apart, grind past or override one another, and that is where the earthquakes are."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Earthquakes fall in narrow belts that outline about a dozen large rigid plates and many smaller ones.", "Each plate is a stiff outer shell of crust and uppermost mantle, roughly 100 km thick, moving a few centimetres a year.", "Plate interiors are largely quiet; most earthquakes and volcanoes occur along the boundaries."]}
+      ]
+    },
+    {
+      "title": "Three kinds of edge",
+      "blocks": [
+        {"type": "text", "text": "Two plates can meet in three ways. Where they pull apart, as at a mid-ocean ridge, new plate forms from rising mantle (lesson 9), and the earthquakes are shallow, within a few kilometres of the sea floor. Where they slide past each other horizontally, the boundary is a **transform fault**; the San Andreas Fault in California is one, along which the Pacific plate creeps northwest past the North American plate at about 5 centimetres a year."},
+        {"type": "diagram", "id": "photo", "caption": "The San Andreas Fault crossing the Carrizo Plain in California, looking northwest. The Pacific plate is on the left.", "options": {"photo": "san-andreas", "aspect": 1.08}},
+        {"type": "text", "text": "Or two plates can move toward each other. What happens then depends on the kind of crust they carry. An ocean plate, made of basalt crust and the chilled mantle rock fused beneath it, grows denser as it ages and cools. Where it meets another plate head-on, the old ocean plate bends downward and sinks back into the mantle, a process called **subduction**. The bend forms a deep **trench** in the sea floor; the Mariana Trench in the western Pacific drops nearly 11 kilometres below sea level. Subduction is where old ocean floor goes, balancing the new floor made at the ridges."},
+        {"type": "text", "text": "Continental crust is too buoyant to sink far into the denser mantle, for the same reason it cannot form sunken land bridges (lesson 8). When an ocean closes completely and two continents meet, neither gives way downward; they crumple and stack into thick mountain belts instead. The Himalaya are rising where India, carried north on its plate, has been driving into Asia for about 50 million years. The Highland rocks of lesson 5 were buried in an older collision of the same kind."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Plate boundaries are divergent (ridges), transform (faults where plates slide past each other), or convergent.", "At a convergent boundary, dense old ocean plate bends down at a trench and sinks into the mantle (subduction).", "Buoyant continental crust resists subduction; when two continents collide they thicken into mountain belts such as the Himalaya."]}
+      ]
+    },
+    {
+      "title": "Earthquakes that go deep",
+      "blocks": [
+        {"type": "text", "text": "Most earthquakes happen in the top 20 kilometres or so of the Earth, where rock is cold and brittle enough to snap. In the late 1920s, however, the Japanese seismologist Kiyoo Wadati showed that some earthquakes beneath Japan came from hundreds of kilometres down, and that the deeper ones lay farther inland from the Pacific coast. In the 1940s and 1950s the American seismologist Hugo Benioff found the same geometry beneath South America and other Pacific margins: earthquakes arranged along a sloping plane, shallow near the trench and descending under the continent or island chain to depths of nearly 700 kilometres."},
+        {"type": "text", "text": "Plate tectonics explained this sloping band of earthquakes, the **Wadati-Benioff zone**. It traces the sinking plate itself, a **slab** of cold, stiff ocean floor sliding down into the hotter mantle. Because rock warms up slowly by conduction, the interior of the slab stays cold enough to fracture for millions of years as it descends, and the earthquakes within it trace its shape. Some slabs dip gently; others plunge almost vertically."},
+        {"type": "interactive_diagram", "id": "slab", "caption": "A subduction zone in cross-section, drawn without vertical exaggeration. Red dots are earthquakes in the sinking slab. The section shows the top 285 km; the deepest earthquakes are farther down. The dashed line rising from the slab is melt feeding the volcanoes.", "task": "Find a slab dip that puts the volcanoes within 160 km of the trench", "goal": "close", "aspect_ratio": 1.74},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Beneath subduction zones, earthquakes lie along a sloping plane (the Wadati-Benioff zone) from the trench down to nearly 700 km.", "Those deep earthquakes occur inside the cold, brittle slab of ocean plate as it sinks into the hotter mantle."]}
+      ]
+    },
+    {
+      "title": "How a cold slab makes volcanoes",
+      "blocks": [
+        {"type": "text", "text": "Above almost every subduction zone stands a line of volcanoes parallel to the trench, a volcanic **arc** such as the Cascades, the Andes, or the chains of Japan and the Aleutians. At first sight this is puzzling, since the slab sinking beneath them is colder than the mantle it enters."},
+        {"type": "text", "text": "The trigger is water. An ocean plate spends tens of millions of years under the sea before it reaches a trench, and its basalt and overlying sediment carry water locked inside hydrous minerals. As the sinking slab heats up under increasing pressure, those minerals break down and release their water, much of it by the time the slab reaches about 100 kilometres depth. The water rises into the hot wedge of mantle rock above the slab and lowers its melting temperature, much as salt lowers the freezing point of ice. Part of that mantle wedge melts, and the buoyant magma works its way to the surface to feed the arc, which therefore stands roughly above the line where the top of the slab is 100 kilometres down."},
+        {"type": "diagram", "id": "photo", "caption": "Mount Rainier in Washington, one of the Cascade volcanoes above the sinking Juan de Fuca plate.", "options": {"photo": "mount-rainier", "aspect": 1.5}},
+        {"type": "text", "text": "The dip of the slab therefore sets how far the volcanoes stand from the trench. Off the Pacific Northwest, the Juan de Fuca plate, the same small plate whose magnetic stripes appeared in lesson 9, slides beneath North America at a gentle angle, so Mount St Helens and Mount Rainier rise 250 to 300 kilometres inland from the trench. Beneath parts of Peru and central Chile, the slab runs nearly horizontal at depth for hundreds of kilometres before resuming its descent, leaving the mantle wedge too thin and cool to melt; above those flat-slab stretches, the Andes have no active volcanoes at all."},
+        {"type": "diagram", "id": "photo", "caption": "Mount St Helens from Harrys Ridge in May 1982, with a plume of steam and ash rising from the crater left by the 1980 eruption.", "options": {"photo": "st-helens", "aspect": 1.48}},
+        {"type": "text", "text": "Subduction zones also generate the largest earthquakes on Earth. The shallow interface where the sinking plate scrapes beneath the overriding plate can lock for centuries, storing elastic strain until it slips by tens of metres in a few minutes. The largest earthquake ever recorded by instruments, the 1960 Chile earthquake of magnitude 9.5 (each whole step on the magnitude scale represents about 32 times more energy released), ruptured nearly a thousand kilometres of such a boundary, and the 2004 Sumatra and 2011 Tohoku earthquakes in Japan broke in the same way. Lessons 16 and 18 return to these giant subduction earthquakes, and to the geological clues that the Pacific Northwest has had them too."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["As a slab sinks to around 100 km depth, heat and pressure drive water out of its minerals into the hot mantle wedge above, lowering the mantle's melting point.", "Arc volcanoes form roughly above the line where the slab reaches 100 km depth, so a steeper slab places the volcanic arc closer to the trench.", "The locked shallow boundary between a subducting slab and the overriding plate produces the largest earthquakes on Earth."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on plates and subduction", "task": "Select the best answer for each question",
+          "options": { "items": [
+            { "ask": "Why do most earthquakes on a world map fall in narrow belts rather than scattering evenly across the globe?", "choices": ["The plates are stiff and deform mainly along the edges where they move against one another", "They follow the coastlines, where heavy ocean water presses against the continents", "They cluster near the equator, where the Earth's rotation stresses the crust most"], "answer": 0, "why": "Because plate interiors are rigid, nearly all the slipping and breaking takes place where one plate meets another." },
+            { "ask": "When an old ocean plate and a continent converge, why is it the ocean plate that sinks into the mantle?", "choices": ["Old ocean plate has cooled and grown denser than the underlying mantle, whereas continental crust is too buoyant to sink", "The thicker continent pushes the ocean floor down by its greater weight", "The ocean plate melts as soon as it reaches the trench and drains downward"], "answer": 0, "why": "An ocean plate includes a thick layer of cooled mantle rock beneath thin basalt crust, making the whole plate denser as it ages; continental crust is lighter and stays at the surface." },
+            { "ask": "Beneath Japan, earthquakes occur from near the sea floor at the trench down to several hundred kilometres deep beneath the Sea of Japan. What does that arrangement reveal?", "choices": ["A cold, brittle slab of Pacific ocean floor is sinking at an angle beneath Japan", "Japan is drifting away from the Pacific and leaving broken mantle behind it", "Mantle rock becomes more brittle as pressure increases with depth"], "answer": 0, "why": "Rock at several hundred kilometres depth is normally too hot to snap; earthquakes there happen inside the cold descending slab, outlining its tilt." },
+            { "ask": "A subducting slab is colder than the surrounding mantle. Why does magma nevertheless form above it?", "choices": ["Water driven out of the warming slab rises into the hot mantle wedge above and lowers its melting temperature", "Friction between the two plates heats the top of the slab above the melting point of dry rock", "The bottom of the slab melts as soon as it touches the deeper mantle"], "answer": 0, "why": "Hydrous minerals in the slab break down around 100 km depth; the water they release fluxes the already hot mantle wedge above, allowing part of it to melt." },
+            { "ask": "If a subducting slab begins to sink at a shallower angle than before, what happens to the position of the volcanic arc?", "choices": ["The line of volcanoes lies farther inland from the trench", "The line of volcanoes shifts closer to the trench", "The volcanoes stay in the same place, directly above the trench"], "answer": 0, "why": "A gently dipping slab travels farther horizontally before reaching the roughly 100 km depth where water is released to melt the mantle wedge." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Global earthquake belts outline about a dozen large rigid plates (and many smaller ones) moving a few centimetres a year.",
+    "Plates pull apart at mid-ocean ridges, slide past each other on transform faults, and converge at trenches and continental collision zones.",
+    "At a trench, dense old ocean plate bends down and sinks into the mantle as a cold slab, traced by Wadati-Benioff earthquakes down to nearly 700 km.",
+    "Water released from the sinking slab at around 100 km depth lowers the melting point of the hot mantle wedge above, so volcanic arcs stand roughly where the slab reaches that depth."
+  ],
+  "next": "Next: Hawaii sits in the middle of the Pacific plate, thousands of kilometres from any plate edge, and its islands get steadily older to the northwest.",
+  "journal": [],
+  "footnotes": {
+  }
+}
