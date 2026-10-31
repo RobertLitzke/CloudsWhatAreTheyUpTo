@@ -68,3 +68,13 @@ a { color: var(--link); }
   .course { grid-template-columns: 48px 1fr; gap: 12px; }
   .course-icon img { width: 48px; height: 48px; border-radius: 11px; }
 }
+
+/* The way to the review of all courses, under the masthead, and that page. */
+.review-line { margin: 14px 0 0; font-style: italic; }
+.review-line a { font-style: normal; font-weight: bold; }
+.review-all h1 { font-size: 2.2rem; font-weight: normal; margin: 8px 0; }
+.review-all h2 { font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; }
+.review-all .ra-courses th { font-family: var(--sans); }
+.review-all .ra-btn { font-family: var(--sans); }
+.review-all .ra-courses th, .review-all .ra-courses td { border-bottom-color: var(--rule); }
+.review-all .ra-courses thead th { border-bottom: 1px solid var(--ink); }

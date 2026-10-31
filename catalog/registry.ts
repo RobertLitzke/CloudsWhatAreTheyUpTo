@@ -21,8 +21,10 @@ export interface CourseInfo {
   lessons: string;
   /** Its square icon, an SVG or PNG, from the course's folder. */
   icon: string;
-  /** Its save's localStorage key, so the catalog can say how far the reader got. */
+  /** Its save's localStorage key, so the catalog can say how far the reader got and review its cards. */
   save: string;
+  /** Its colours (from its tokens.css), for its cards in the review of all courses. */
+  theme?: { bg: string; panel?: string; text: string; accent: string; good?: string; bad?: string; display?: string };
 }
 
 /** A course as the catalog page gets it. */

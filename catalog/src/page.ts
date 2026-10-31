@@ -4,7 +4,24 @@
 // stays plain paper and ink.
 
 import { el } from 'didactics/dom';
+import { dayCounts, migrateCollection } from 'didactics/srs';
 import type { CatalogEntry } from '../registry';
+
+/** Cards due today across every course, from each save's review cards. */
+export function dueEverywhere(courses: readonly CatalogEntry[], read: (key: string) => string | null): number {
+  let n = 0;
+  for (const c of courses) {
+    try {
+      const save = JSON.parse(read(c.save) ?? 'null') as { review?: unknown } | null;
+      if (!save?.review) continue;
+      const d = dayCounts(migrateCollection(save.review));
+      n += d.new + d.learning + d.review;
+    } catch {
+      // Not a save: nothing due.
+    }
+  }
+  return n;
+}
 
 /** How far the reader has got in a course on this device, from its save, or null if not begun. */
 export function standing(entry: CatalogEntry, read: (key: string) => string | null): string | null {
@@ -67,6 +84,7 @@ export function catalogPage(courses: readonly CatalogEntry[], read: (key: string
         'Take them in any order, on a phone or a computer, online or off. Your place in each is kept on this device.',
       ),
     ),
+    reviewLine(courses, read),
     el('nav.contents', { 'aria-label': 'Departments' }, el('h2', {}, 'Contents'), el('ol', {}, departments.map((d) => el('li', {}, el('a', { href: `#${slug(d)}` }, d))))),
     departments.map((d) =>
       el(
@@ -78,6 +96,12 @@ export function catalogPage(courses: readonly CatalogEntry[], read: (key: string
     ),
     el('footer.colophon', {}, el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.')),
   );
+}
+
+/** The way to review every course's cards together, with how many are waiting today. */
+function reviewLine(courses: readonly CatalogEntry[], read: (key: string) => string | null): HTMLElement {
+  const n = dueEverywhere(courses, read);
+  return el('p.review-line', {}, el('a', { href: '#review' }, 'Review all courses'), n ? `: ${n} ${n === 1 ? 'card' : 'cards'} waiting today, from every course in one sitting.` : ': the cards from every course’s checks, in one sitting.');
 }
 
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
