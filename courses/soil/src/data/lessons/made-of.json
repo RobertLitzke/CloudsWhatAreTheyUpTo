@@ -1,0 +1,97 @@
+{
+  "id": "made-of",
+  "n": 1,
+  "title": "Inside a handful of soil",
+  "teaches": "The ingredients in a handful of soil, the sizes of mineral grain, and how their mix shapes a garden bed",
+  "parts": [
+    {
+      "title": "The good bed and the bad corner",
+      "blocks": [
+        { "type": "text", "text": "Scoop a handful of soil from a thriving garden bed and another from a corner where nothing grows, then squeeze them both. One might crumble apart, gritty and loose, while the other stays in a sticky lump that holds the print of your fingers. Both look like the same brown dirt and share the same basic ingredients, differing only in their proportions and how the pieces fit together." },
+        { "type": "text", "text": "By volume, about **half** of a good garden soil is solid matter. Most of that solid part consists of tiny broken bits of rock called [[minerals|mineral]], mixed with a little [[organic matter|organic]] from plants and animals at various stages of decay. The remaining half consists of empty gaps between the grains called **pores**,[^porosity] which hold a shifting balance of [[water|water]] and [[air|air]]." },
+        { "type": "diagram", "id": "handful", "caption": "A handful of loam by volume, a day after a heavy soaking" },
+        { "type": "text", "text": "Plant roots need both water and air in those spaces, drinking from the thin films of moisture on the grains and breathing from the open pockets in between. A root sitting in waterlogged pores for days will drown, while one surrounded only by air dries out. Digging, mulching, and adding compost all aim to keep that pore space open and roughly half full of moisture." },
+        { "type": "text", "text": "Organic matter makes up a small fraction of the soil, often just 2 to 6 percent by weight, yet it feeds soil life, glues mineral grains into crumbs, and holds moisture like a sponge (covered in lessons 3 and 4). First come the minerals: rock that frost, rain, roots, and lichens have been breaking down for ages.[^slow-soil]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Healthy garden soil is roughly half solid matter and half pore space.",
+          "Once a heavy watering drains, those pores hold a roughly equal mix of [[water|water]] and [[air|air]] for roots to use."
+        ] }
+      ]
+    },
+    {
+      "title": "Sand, silt and clay",
+      "blocks": [
+        { "type": "text", "text": "Soil scientists sort mineral grains into categories by width.[^size-limits] [[Sand|sand]] runs from 2 mm down to 0.05 mm, large enough to see with the naked eye and feel as grit. [[Silt|silt]] ranges from 0.05 mm down to 0.002 mm; the individual grains are microscopic, and dry silt feels smooth like flour. [[Clay|clay]] is anything smaller than 0.002 mm, formed into flat microscopic plates[^clay-plates] that turn sticky when wet and bake hard as brick when dry. Stones and gravel larger than 2 mm are sieved out before measuring soil texture." },
+        { "type": "diagram", "id": "sizes", "caption": "The grain sizes magnified so that a clay plate is as wide as a pea" },
+        { "type": "text", "text": "Grain size matters because of surface area. Slice a sugar-cube-sized piece of rock in half, and then in half again: the total volume of rock stays the same, but every cut exposes fresh faces. Keep slicing down to the size of [[clay|clay]] and that single cube unfolds enough surface area to cover a rug." },
+        { "type": "diagram", "id": "surface", "caption": "The total surface area of one cubic centimetre of rock, sliced into smaller and smaller grains, with each square drawn to scale" },
+        { "type": "text", "text": "Water and dissolved plant nutrients cling to mineral surfaces. Because [[clay|clay]] has an immense surface area, clay-heavy soil holds onto moisture and plant food tightly, whereas [[sand|sand]] has very little surface area and lets water and nutrients drain right through. Real clay particles are also flat plates rather than cubes, giving them even more surface than the diagram suggests: a single teaspoon of certain clays has the surface area of half a football pitch.[^surface-area]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "[[Sand|sand]], [[silt|silt]] and [[clay|clay]] are size classes of weathered rock and mineral particles.",
+          "Smaller grains pack far more surface area into the same volume, allowing the soil to hold more water and nutrients."
+        ] }
+      ]
+    },
+    {
+      "title": "Telling them apart",
+      "blocks": [
+        { "type": "text", "text": "Your hands and a splash of water are enough to judge a soil's texture. Sand grates against your skin, silt feels silky, and clay smears and sticks; the longer a flat ribbon of wet soil you can squeeze out between your thumb and forefinger before it snaps, the more clay is in the mix. Field surveyors test soil by hand every day and regularly match lab results within a few percentage points." },
+        { "type": "interactive_diagram", "id": "feel", "caption": "Texture by feel: testing a damp ball of soil in your hand", "task": "Name a soil by feel", "goal": "name" },
+        { "type": "text", "text": "A glass jar gives a clearer measurement because different grain sizes sink through water at very different speeds. Heavy sand grains plummet to the bottom right away, while microscopic clay plates can stay suspended for days.[^stokes]" },
+        { "type": "diagram", "id": "jar", "caption": "A jar of loam, shaken with water and left to sit: each particle size settles at its own pace, marked with a pencil on the glass" },
+        { "type": "text", "text": "To run the test, pick the stones and roots out of some garden soil and fill a straight-sided jar a third of the way up. Fill it nearly to the top with water, add a teaspoon of non-foaming dishwasher detergent or water softener to keep the grains from clumping together,[^dispersant] and shake hard for several minutes to break up every crumb. Set the jar down and mark the glass at the top of the [[sand|sand]] after one minute, at the top of the [[silt|silt]] after two to four hours, and at the top of the [[clay|clay]] once the water clears a day or two later. Bits of [[organic matter|organic]] will float to the surface or rest loosely on the very top, so ignore them when measuring the mineral layers. Dividing each layer's height by the total height of the settled soil gives its percentage." }
+      ]
+    },
+    {
+      "title": "Naming a soil",
+      "blocks": [
+        { "type": "text", "text": "Soil scientists call this ratio of grain sizes the soil's **texture** and plot it on a triangular chart. Each corner represents 100 percent of a single grain size, while any point inside represents a blend. The chart is divided into twelve named zones, with **loam** sitting near the centre: a balanced mix where no single grain size dominates, at roughly 40 percent [[sand|sand]], 40 percent [[silt|silt]] and 20 percent [[clay|clay]]. Adjust the jar layers below to see where different mixes land on the chart." },
+        { "type": "interactive_diagram", "id": "triangle", "caption": "The soil texture triangle, plotted from the settled layers in a jar", "task": "Find the layers that make a loam", "goal": "loam" },
+        { "type": "text", "text": "Notice how uneven the zones are on the chart, and try adding a few extra millimetres of clay to the jar. A soil needs at least 85 percent [[sand|sand]] to be classified as pure sand, yet just 40 percent [[clay|clay]] puts it into the clay category regardless of the rest. A small share of clay dominates the feel of a soil because its tiny plates coat the larger grains and pack into the gaps between them." },
+        { "type": "key_ideas", "title": "Texture in the garden bed", "points": [
+          "Sandy soils drain quickly and warm up early in spring, though they dry out fast and let rain wash nutrients away.",
+          "Loamy soils hold plenty of moisture and nutrients while still draining well enough to let air reach the roots, suiting most vegetables.",
+          "Clay soils hold water and nutrients tightly, though they drain slowly, compact easily under foot, and warm up late in spring."
+        ] },
+        { "type": "text", "text": "You cannot realistically alter the mineral texture of a garden bed in a single season. Turning a heavy clay plot into a loam by mixing in sand would require tonnes of material, and adding only a few bags makes clay pack even harder.[^sand-in-clay] Instead, gardeners improve a bed by nurturing soil life and helping the mineral grains bind into loose crumbs—an approach covered over the next four lessons that improves sandy and clay beds alike." },
+        { "type": "key_ideas", "title": "Try it in the garden", "points": [
+          "Run the ribbon test on a damp pinch of soil from each bed and note down what you feel.",
+          "Set up a jar test from your main vegetable patch, mark the layers over two days, and plug the heights into the triangle above to check your hand estimate."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Eight questions on soil texture and composition", "task": "Answer them", "options": { "items": [
+          { "picture": "clay-soil", "question": "This bed dried out and cracked into plates like these. What is it rich in?", "options": ["Clay", "Sand", "Organic matter"], "answer": 0, "why": "Many clay minerals swell as they soak up water and shrink as they dry, pulling the soil apart into cracked plates during dry spells. Sand grains do not change size when wet." },
+          { "question": "In a jar test, which layer settles first?", "options": ["Sand", "Silt", "Clay", "They settle together"], "answer": 0, "why": "Larger particles sink much faster through water: sand hits the bottom within a minute, silt settles over a few hours, and clay takes a day or two." },
+          { "question": "Rubbed between wet fingers, a pinch of soil feels gritty. What is it mostly?", "options": ["Sand", "Silt", "Clay"], "answer": 0, "why": "Individual sand grains are wide enough to feel against your skin. Silt feels smooth and silky, while clay feels slick and sticky." },
+          { "question": "Roughly how much of a good garden soil, by volume, is pore space?", "options": ["About half", "Almost none", "About a tenth", "Nine tenths"], "answer": 0, "why": "Roughly half the volume of a well-structured garden soil is open pore space for water and air. Walking on wet soil or over-tilling squashes those pores down." },
+          { "question": "Why does a clay soil hold more water than a sandy one?", "options": ["Its tiny grains have far more surface for water to cling to", "Clay is a heavier rock", "Clay grains soak water up inside them like sponges"], "answer": 0, "why": "Splitting the same volume of mineral into microscopic plates creates thousands of times more surface area than coarse sand grains, giving water far more room to cling." },
+          { "question": "A jar test gives 70% sand, 20% silt and 10% clay. What will the bed be like?", "options": ["Quick to drain, and in need of watering more often", "Slow to drain, and sticky after rain", "Just like a loam"], "answer": 0, "why": "Those numbers describe a sandy loam. It drains and warms quickly in spring, though it holds less moisture and plant food than a balanced loam." },
+          { "picture": "loam", "question": "Why do most vegetables do best in a loam?", "options": ["It holds water and nutrients but still drains and lets air in", "It is the richest in clay", "It has no pore space to dry out"], "answer": 0, "why": "A loam balances all three grain sizes: sand keeps the larger pores open for drainage and air, while clay and silt hold enough water and nutrients to feed the crop." },
+          { "question": "Your clay bed drains slowly. What happens if you dig in a few bags of sand?", "options": ["Very little, or it packs harder", "It becomes a loam", "It drains like a sandy soil"], "answer": 0, "why": "A few bags of sand barely shift the overall percentage, and isolated sand grains surrounded by clay simply displace pore space. Adding compost or mulch is a much better way to open up heavy clay." }
+        ] } }
+      ]
+    }
+  ],
+  "learned": [
+    "Healthy garden soil is roughly half solid matter (minerals and a small share of organic matter) and half pore space filled with water and air.",
+    "Sand, silt and clay are the three size classes of mineral grain; smaller grains pack in far more surface area to hold water and plant nutrients.",
+    "You can estimate texture by feel or measure it in a settling jar, then use the texture triangle to name the soil.",
+    "A bed's mineral texture stays fixed from year to year, whereas its organic matter and crumb structure can be improved."
+  ],
+  "next": "Next: how water and air move through soil pores, and why one bed floods after rain while another turns to dust by the weekend.",
+  "journal": [],
+  "footnotes": {
+    "porosity": { "kind": "technical", "title": "Porosity", "text": "The fraction of a soil's total volume taken up by pores is called its **porosity**, which sits between 40 and 60 percent in most gardens. Clay soils actually have more total pore space than sandy soils, because tiny clay plates pack into complex arrangements, though the individual pores are so narrow that water clings tightly inside them and drains very slowly." },
+    "slow-soil": { "kind": "digression", "title": "How long soil takes", "text": "Weathering solid rock into a few centimetres of topsoil takes anywhere from a century to a thousand years, depending on the climate and parent rock. A bare garden bed can lose that much soil in a single wet winter's rain, which is why lesson 7 focuses on keeping beds covered." },
+    "size-limits": { "kind": "technical", "title": "Where the limits fall", "text": "These cutoffs come from the US Department of Agriculture (USDA) system used by most garden soil labs. The international system used across much of Europe and Australia draws the boundary between sand and silt at 0.02 mm rather than 0.05 mm, while both systems define clay as anything below 0.002 mm (2 micrometres)." },
+    "clay-plates": { "kind": "digression", "title": "What a clay plate is", "text": "Clay minerals aren't just pulverized rock dust. As primary minerals like feldspar weather in water, they chemically rearrange into new sheet-like minerals—such as kaolinite, illite, and smectite—built from layers of silicon, aluminium, and oxygen stacked like pages in a book. Expansive clays like smectite absorb water between those sheets, causing the ground to swell when wet and crack wide open in a drought." },
+    "surface-area": { "kind": "technical", "title": "Specific surface", "text": "Soil scientists measure the surface area per gram of dry soil, calling it **specific surface**. A gram of coarse sand has less than 0.1 square metres of surface, kaolinite clay has 10 to 20 square metres, and smectite clay—where water can slip between the internal sheets—reaches up to 800 square metres per gram. A 5-gram teaspoon of smectite therefore holds around 4,000 square metres of surface, more than half a standard football pitch." },
+    "stokes": { "kind": "technical", "title": "Stokes' law", "text": "In 1851, physicist George Stokes showed that a small sphere's settling speed in calm water is proportional to the *square* of its diameter. A particle ten times wider sinks roughly a hundred times faster, which is why coarse sand settles in seconds while microscopic clay plates take days." },
+    "dispersant": { "kind": "technical", "title": "Breaking up the crumbs", "text": "In garden soil, clay and silt normally cling together in tiny clumps called aggregates. If those clumps don't break apart when you shake the jar, they will sink fast like sand and skew your reading. Adding a pinch of sodium hexametaphosphate (sold as Calgon water softener) or non-foaming dishwasher detergent coats the clay plates with sodium ions so they repel each other and stay separate; ordinary liquid dish soap creates too much foam to read the layers clearly." },
+    "sand-in-clay": { "kind": "digression", "title": "Why sand can make clay worse", "text": "When you mix a modest amount of sand into clay, the sand grains float separately in the clay matrix rather than touching one another. The surrounding clay packs into every gap between the sand grains, replacing porous clay with solid rock and reducing total pore space. Sand grains only prop each other open to create large drainage pores once sand makes up roughly 70 to 80 percent of the total volume—which is why builders mix sand and clay to make dense bricks and adobe." }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "id": "diagnosis",
+  "n": 9,
+  "title": "Reading your soil",
+  "teaches": "Combining field tests to trace bed symptoms back to their root causes, prioritizing physical and biological fixes before buying fertilizers, and taking a composite sample for a soil lab.",
+  "parts": [
+    {
+      "title": "Testing before buying",
+      "blocks": [
+        { "type": "text", "text": "When vegetables turn yellow, stall in early summer, or sit in a muddy puddle every March only to bake into concrete by July, the tempting response is to head to the garden centre and buy a bag of fertilizer. Because a single symptom like yellowing leaves can stem from waterlogging, compaction, extreme pH, or actual hunger, testing the bed first ensures you fix the real problem." },
+        { "type": "text", "text": "Over the previous seven lessons you have assembled a practical field kit of observations and simple tests, none of which requires more than a glass jar, a trowel, a screwdriver, or a pH strip." },
+        { "type": "key_ideas", "title": "Your field kit", "points": [
+          "The ribbon feel test and jar settling test (lesson 1) reveal your soil's mineral texture, a permanent baseline you work with rather than try to change.",
+          "The tin-can infiltration test and hand-squeeze check (lesson 2) show how quickly water enters the bed and how much moisture the pores hold.",
+          "Counting earthworms in a spadeful of moist soil (lesson 3) gauges how well fed and active the underground food web is.",
+          "Checking the temperature, moisture, and smell of your compost heap (lesson 4) tells you whether microbes have enough air and water to finish breaking waste down.",
+          "The slake test, screwdriver probe, and spade slice (lesson 5) show whether soil crumbs hold together in water and whether a compacted pan is blocking roots.",
+          "Testing soil pH and noting whether older or newer leaves yellow first (lesson 6) help distinguish locked-up minerals from true shortages."
+        ] },
+        { "type": "text", "text": "Diagnosing a garden bed works best from the broadest physical conditions down to specific minerals.[^order] Water drainage, air in the pores, crumb structure, and soil life take priority because drowned, cold, or compacted roots cannot absorb fertilizer even when the soil is rich in nutrients. Across almost every garden problem, reducing digging, keeping the surface mulched, and adding compost do the heavy lifting." }
+      ]
+    },
+    {
+      "title": "Tracing a symptom to its cause",
+      "blocks": [
+        { "type": "text", "text": "The interactive decision tree below starts with five common garden complaints and uses your field tests to narrow down the culprit. Try following several branches, since an underlying issue like compaction or bare soil can trigger multiple surface symptoms." },
+        { "type": "interactive_diagram", "id": "detective", "caption": "Tracing a garden symptom to its root cause using field tests", "task": "Follow one symptom to its cause", "goal": "solve" },
+        { "type": "text", "text": "In a real garden, problems rarely show up in isolation. A heavily walked-on clay bed loses its large pores and drains poorly, suffocating roots and turning the lower leaves yellow even in fertile ground. Because physical structure, moisture, and biology depend on one another, a single change like staying off wet beds and applying an annual compost mulch often resolves two or three complaints at once.[^linked]" }
+      ]
+    },
+    {
+      "title": "Lab soil testing",
+      "blocks": [
+        { "type": "text", "text": "Home checks have limits: they cannot quantify available phosphorus and potassium, calculate a precise limestone buffer rate, or screen for heavy metals such as lead from old house paint or leaded petrol exhaust.[^lead] Sending a sample to an agricultural extension lab or commercial soil laboratory every three to five years fills in those numbers for a modest fee." },
+        { "type": "text", "text": "Because a laboratory tests only a few spoonfuls of earth, your results are only as good as the sample you collect. Scrape away surface mulch, dig down 15 cm with a clean stainless-steel or plastic trowel in eight to ten random spots across a single bed, and avoid unrepresentative patches like former compost piles or bonfire sites. Combine those slices in a clean plastic bucket (avoid galvanized metal buckets, which contaminate micronutrient readings with zinc), mix them thoroughly, and mail a cupful of the blend to the lab. A standard report lists soil pH, buffer pH, available phosphorus, potassium, calcium, and magnesium, organic matter percentage, cation exchange capacity, and tailored fertilizer recommendations.[^methods] The course reference page walks through how to read each line." },
+        { "type": "key_ideas", "title": "Field checks: your annual soil log", "points": [
+          "Record a baseline for each vegetable bed: its sand-silt-clay texture from the jar test, infiltration time from the can test, earthworm count per spadeful, crumb stability in the slake test, screwdriver penetration depth, and pH.",
+          "Identify the single factor holding each bed back most, choose one or two low-cost remedies (such as mulching bare soil or liming an acidic plot), and apply them this season.",
+          "Repeat the infiltration, worm, slake, screwdriver, and pH checks during the same month next year to see how the soil has responded."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Six garden cases to diagnose", "task": "Select the best diagnosis or first step for each case", "options": { "items": [
+          { "picture": "puddle", "question": "A clay bed stays waterlogged for days after rain, and a dry clod disintegrates immediately in the slake test. Which step should you take first?", "options": ["Stop digging, stay off the wet soil, and top-dress with compost and mulch", "Till a thin layer of builder's sand into the clay", "Scatter soluble nitrogen fertilizer across the puddles"], "answer": 0, "why": "Clay particles need biological glues from roots, fungi, and humus to bind into stable crumbs with drainage channels between them. Mixing a little sand into clay without massive amounts of sand just creates a dense, brick-like mix." },
+          { "picture": "yellow-leaves", "question": "The lower, older leaves on your tomato plants are turning pale yellow in a well-drained bed with pH 6.5 and very few earthworms. What is the most likely diagnosis?", "options": ["A nitrogen shortage in a bed depleted of organic matter", "Iron locked into insoluble forms by high pH", "Suffocated roots from standing water"], "answer": 0, "why": "Uniform yellowing on older leaves points to a shortage of a mobile nutrient, most often nitrogen, and the low worm count confirms that soil life is short of organic matter. Top-dressing with compost and a nitrogen source addresses both." },
+          { "picture": "sandy-soil", "question": "A sandy vegetable bed dries out two days after a thorough soaking. How should you improve its water supply?", "options": ["Blanket the surface with mulch and add compost every year", "Sprinkle the bed lightly with a hose for five minutes every evening", "Apply ground limestone to tighten the sand grains"], "answer": 0, "why": "Coarse sand drains rapidly because it lacks fine water-holding pores. Surface mulch cuts evaporation while humus acts like a sponge inside the root zone, whereas brief daily sprinkling encourages shallow, drought-prone roots." },
+          { "picture": "crusted-soil", "question": "A silty bed seals into a hard surface crust after every rainstorm, trapping germinating carrot seedlings underneath. How can you prevent the crust?", "options": ["Keep the soil covered by sowing into a shallow furrow topped with fine compost and mulching between rows", "Rototill the bed more finely before every sowing", "Water the seedbed with a high-pressure hose nozzle"], "answer": 0, "why": "Falling raindrops shatter exposed silt crumbs and wash fine grains into surface pores, drying into a hard skin. Cushioning the surface with fine compost or mulch absorbs the impact of rain and keeps the seedbed friable." },
+          { "question": "Vegetables across an entire bed grow slowly and look stunted, and a home test shows pH 5.0. What is the most effective first step?", "options": ["Apply ground garden limestone according to a soil test recommendation", "Pour concentrated liquid phosphorus onto the bed every week", "Double-dig the subsoil to 50 cm"], "answer": 0, "why": "At pH 5.0, phosphorus, calcium, and magnesium are poorly available and soluble aluminium damages root tips. Raising the pH with limestone unlocks the minerals already present in the soil." },
+          { "question": "Drainage, crumb stability, earthworm counts, and pH (6.5) all check out well, yet crops in the bed still yield poorly. What should you do next?", "options": ["Send a composite soil sample to an agricultural lab", "Dump a bag of every fertilizer on the garden centre shelf onto the plot", "Pave over the vegetable bed"], "answer": 0, "why": "When physical structure, drainage, biology, and pH are all healthy, a laboratory soil test can pinpoint specific mineral deficiencies (such as potassium, phosphorus, or boron) or check for soil contaminants." }
+        ] } }
+      ]
+    }
+  ],
+  "learned": [
+    "Because a single plant symptom can stem from several different underground problems, run your field tests before buying fertilizers.",
+    "Address drainage, pore space, crumb structure, and soil biology first, since damaged or suffocated roots cannot absorb added nutrients.",
+    "Minimizing digging, keeping beds covered with mulch or living plants, and adding compost resolve several interconnected soil faults at once.",
+    "An annual garden log tracks physical and biological progress, while a laboratory test every three to five years measures specific mineral levels and checks for contaminants."
+  ],
+  "next": "Next: raised beds, choosing their height and fill, joining them to the ground below, and keeping them level and fed.",
+  "journal": [],
+  "footnotes": {
+    "order": { "kind": "digression", "title": "Liebig's barrel", "text": "First formulated by German botanist Carl Sprengel in 1828 and popularized by chemist Justus von Liebig in the 1840s, the **law of the minimum** states that plant growth is limited by whichever essential resource is in shortest supply, even when every other resource is abundant. Agricultural textbooks often illustrate this as a wooden barrel built from staves of unequal height: the barrel can hold water only up to the top of its shortest stave. In backyard gardens, soil oxygen, water drainage, root-zone temperature, and physical root room act as the shortest stave far more often than mineral fertilizer." },
+    "linked": { "kind": "technical", "title": "Interconnected soil properties", "text": "Physical, chemical, and biological soil traits reinforce one another in feedback loops. Depleting organic matter weakens soil aggregates; weak aggregates collapse under rain, shrinking pore space and slowing drainage; waterlogged pores starve roots and aerobic microbes of oxygen; and fewer microbes and roots produce less of the glomalin and mucilage needed to glue new aggregates together. Soil scientists use the term **soil health** to capture how these physical, chemical, and biological processes work as a single system." },
+    "lead": { "kind": "technical", "title": "Testing urban soils for lead", "text": "Older urban and suburban yards (especially next to pre-1978 painted walls, demolished outbuildings, or busy roads) sometimes contain elevated soil lead. Plant roots take up relatively little lead into fruiting crops like tomatoes, beans, and squash, so the main hazard comes from inhaling or ingesting soil dust splashed onto leafy greens and root vegetables. If a lab test detects elevated lead, gardeners keep harvests safe by mulching bare paths to stop dust splash, washing root crops thoroughly, maintaining soil pH above 6.5 with plenty of compost (which binds lead into insoluble forms), and growing leafy greens and carrots in clean compost inside raised beds." },
+    "methods": { "kind": "technical", "title": "Soil lab extraction methods", "text": "Laboratories estimate plant-available phosphorus, potassium, and other minerals by shaking a measured scoop of dried soil in a mild chemical solution that mimics root uptake, then measuring what dissolves. Because different regions have different soils, labs use different extracting solutions: Mehlich-3 is standard across much of the eastern and central United States, Bray-1 is common in acidic to neutral Midwest soils, and the Olsen (sodium bicarbonate) test is designed for calcareous, alkaline soils in the western US and chalky regions of Britain. Each chemical extract pulls a different amount of phosphorus into solution from the exact same soil sample, so always interpret your numbers using that specific laboratory's low, medium (optimum), and high rating scales." }
+  }
+}

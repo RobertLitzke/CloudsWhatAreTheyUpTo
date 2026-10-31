@@ -1,0 +1,53 @@
+/* Design tokens: a garden at the start of summer. The page is the dark green
+   of a hedge in shade, lessons are on cream seed-packet paper, buttons are new
+   leaves, and the accents are terracotta pots and marigolds. */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('../../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+/* The lesson log's handwriting. */
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../../../node_modules/@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url('../../../node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+:root {
+  --bg: #1f2b1c; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #2f4029;
+  --panel: #efe6cf;
+  --panel-2: #ddd0ad;
+  --ink: #2b2418;
+  --ink-soft: #6b5d48;
+  --text: #efe6cf;
+  --muted: #aebd9b;
+  --sun: #b9d36c;
+  --sun-deep: #e3a64a;
+  --rose: #a8502c;
+  --teal: #3f7a5a;
+  --title: #f1e6c8;
+  --paper: #fbf7ec;
+  --good: #4f8f3a;
+  --bad: #b8432f;
+  --radius: 14px;
+
+  --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', cursive;
+}

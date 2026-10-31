@@ -1,0 +1,105 @@
+{
+  "id": "nutrients",
+  "n": 7,
+  "title": "Feeding plants: nutrients and pH",
+  "teaches": "Plants take mineral nutrients from soil water, clay and humus hold positive ions against rain, soil pH controls which nutrients stay dissolved, and leaf symptoms help diagnose shortages.",
+  "parts": [
+    {
+      "title": "Soil minerals",
+      "blocks": [
+        { "type": "text", "text": "When your tomato leaves turn yellow, the garden centre shelf offers a dozen remedies in bright bags. Picking the right one requires knowing which minerals a plant draws from the soil and how they reach the roots." },
+        { "type": "text", "text": "Plants build almost their entire bulk from air and water, taking carbon from carbon dioxide and hydrogen and oxygen from water.[^van-helmont] They draw only a small fraction of their weight from the soil, though they cannot survive without those minerals. They need three elements in large amounts: **nitrogen** for proteins and green chlorophyll in leaves, **phosphorus** for roots, flowers, seeds, and energy transfer, and **potassium** to regulate water inside cells and open or close leaf pores. Fertilizer bags list these three on the label as N, P, and K.[^npk] Plants also use a handful of other minerals in moderate quantities, and trace elements like iron and zinc in tiny amounts.[^others]" },
+        { "type": "text", "text": "Roots absorb minerals only after they dissolve in soil water as electrically charged particles called **ions**.[^ions] Because these nutrients sit in water, rainfall soaking through a garden bed can carry them down past the roots before the plant ever reaches them unless something in the soil holds them back." },
+        { "type": "key_ideas", "title": "Core ideas", "points": [
+          "Plants build almost all of their tissue from air and water, drawing a small but essential set of mineral nutrients from the soil.",
+          "Roots absorb nitrogen, phosphorus, potassium, and other minerals as charged ions dissolved in soil water."
+        ] }
+      ]
+    },
+    {
+      "title": "Holding nutrients in place",
+      "blocks": [
+        { "type": "text", "text": "As covered in lesson 1, [[clay|clay]] particles and [[humus|organic]] have huge surface areas covered in negative electric charges. Positively charged nutrient ions like calcium, magnesium, potassium, and ammonium stick to these negatively charged surfaces like magnets on a refrigerator door. Rainwater cannot easily wash them out, but roots can pry them loose by releasing positively charged hydrogen ions to take their place. Soil scientists call the total number of these holding sites a soil's **cation exchange capacity**.[^cec]" },
+        { "type": "interactive_diagram", "id": "parking", "caption": "Clay and humus holding positively charged nutrients on their surfaces during rain", "task": "Give the soil a cation exchange capacity of at least 15", "goal": "hold" },
+        { "type": "text", "text": "Negatively charged ions are repelled by those negative soil surfaces and stay loose in the water. Soil microbes quickly convert most nitrogen into **nitrate**, a negative ion that leaches away with autumn and winter rain, especially in fast-draining sandy beds.[^nitrate] Phosphorus behaves quite differently, binding so tightly to iron, aluminium, and calcium minerals in the soil that very little dissolves in water at any one time, making it slow to reach roots. Because sandy soil with little organic matter has few holding sites, gardeners get the best results by applying small doses of fertilizer during active growth while adding compost to build humus." }
+      ]
+    },
+    {
+      "title": "Soil pH and nutrient access",
+      "blocks": [
+        { "type": "text", "text": "A garden bed can contain plenty of a mineral that plants still struggle to absorb. Roots can only take up nutrients that remain dissolved in usable chemical forms, which depends on how acidic or alkaline the soil is, measured as **pH**.[^ph] In strongly acidic soil (low pH), iron and manganese dissolve readily and toxic aluminium can leach out of clay minerals to stunt roots, while phosphorus locks onto iron and aluminium oxides and calcium washes away. In alkaline soil (high pH), iron, manganese, and zinc form insoluble compounds that roots cannot absorb, and phosphorus binds tightly to calcium." },
+        { "type": "diagram", "id": "ph", "caption": "Nutrient availability across the pH scale: wider bands mean roots can absorb the nutrient more easily" },
+        { "type": "text", "text": "Most vegetables grow well between pH 6.0 and 7.0, where every essential nutrient stays reasonably soluble. Ground limestone raises soil pH and elemental sulfur lowers it, though both take months to react in the soil and should be applied based on a soil test.[^buffer] If a bad pH has locked a mineral into an insoluble solid, pouring more of that fertilizer onto the bed will only lock up too; adjusting the pH or mixing in compost to buffer the soil solves the actual problem. Acid-loving crops are the main exception: blueberries and rhododendrons thrive around pH 4.5 to 5.5, where iron stays plentiful." }
+      ]
+    },
+    {
+      "title": "Reading leaf symptoms",
+      "blocks": [
+        { "type": "text", "text": "When a plant runs low on a nutrient, the location of the damaged leaves offers the first diagnostic clue. Plants can pull mobile nutrients (nitrogen, phosphorus, potassium, and magnesium) out of old leaves and pipe them up to growing shoots, so shortages show up on the oldest, lowest leaves first. Immobile nutrients like iron and calcium stay locked into whatever leaf they first enter, while sulfur moves poorly, meaning shortages of those elements appear on the youngest leaves and shoot tips." },
+        { "type": "diagram", "id": "leaf", "caption": "Deficiency locations on a plant: mobile nutrient shortages show on older lower leaves, while immobile shortages show on new top growth" },
+        { "type": "key_ideas", "title": "Common deficiency signs", "points": [
+          "Nitrogen shortage turns the oldest leaves pale green and then uniformly yellow, leaving the plant spindly.",
+          "Phosphorus shortage leaves older foliage dull dark green with reddish-purple undersides and stunts growth, especially in cold spring soil.",
+          "Potassium shortage turns the margins and tips of older leaves yellow and then papery brown.",
+          "Magnesium shortage turns the tissue between the veins of older leaves yellow while the veins themselves stay green.",
+          "Iron shortage turns the tissue between the veins of the youngest leaves yellow, usually because alkaline soil has locked iron up.",
+          "Calcium shortage causes new leaves to curl and stunt, and produces sunken black patches on the bottom of tomatoes and peppers (blossom-end rot), usually triggered by uneven watering.[^blossom-end-rot]"
+        ] },
+        { "type": "text", "text": "Visual symptoms alone can be misleading because cold, waterlogged, compacted, or diseased roots fail to absorb minerals even from fertile soil, producing the exact same yellow leaves. Lesson 9 covers how to tell root damage and pests apart from hunger. Before buying fertilizer, check the soil moisture, root health, and pH." }
+      ]
+    },
+    {
+      "title": "Practical fertilizing",
+      "blocks": [
+        { "type": "text", "text": "Because annual additions of compost and a pH between 6.0 and 7.0 supply enough minerals for most backyard crops, the rows of specialty bottles at the garden centre are rarely necessary. Supplemental fertilizer makes sense mainly when a soil test shows a specific shortage or when growing heavy-feeding vegetables." },
+        { "type": "key_ideas", "title": "Applying fertilizers wisely", "points": [
+          "Nitrogen runs short most often because winter rain leaches nitrate out of the root zone. Leafy greens benefit from nitrogen early on, while fruiting and heavy crops like tomatoes, squash, sweetcorn, and cabbages respond well to a side-dressing once they begin growing rapidly or setting fruit.",
+          "Apply nitrogen during spring and summer when roots are actively growing and absorbing water, rather than in autumn when rain will wash it past idle roots.",
+          "Excess nitrogen forces lush, soft foliage that attracts aphids and delays flowering in fruiting crops like tomatoes. Because phosphorus builds up for years in heavily composted or fertilized beds (and excess phosphorus can interfere with zinc, iron, and mycorrhizal fungi), apply phosphorus and potassium only when a soil test recommends them.",
+          "Follow label rates carefully. Slow-release organic fertilizers (such as feather meal or composted manure) release nutrients gradually as microbes break them down, whereas concentrated water-soluble feeds act immediately and can burn roots if overapplied."
+        ] },
+        { "type": "key_ideas", "title": "Field checks for your garden", "points": [
+          "Measure the pH of each garden bed using a colour-test kit or pH strips from a garden centre, mixing soil with distilled water according to the instructions.",
+          "For a quick kitchen check of extreme soils, drop white vinegar onto a spoonful of dry soil; visible fizzing means the soil contains free calcium carbonate (chalk or limestone) and has a pH above 7.5. Mixing soil into a muddy paste with distilled water and dusting it with baking soda will fizz only in strongly acidic soil (below about pH 5.5). Most garden soils sit between 5.5 and 7.5 and will not fizz with either test.",
+          "Inspect any yellowing leaves in your beds, noting whether the discoloration starts on the lower old leaves or the upper new shoots, and whether the leaf veins remain green."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Questions on plant nutrients and soil pH", "task": "Select the best answer for each question", "options": { "items": [
+          { "question": "Which elements do the letters N, P, and K stand for on a fertilizer bag?", "options": ["Nitrogen, phosphorus, and potassium", "Nitrate, peat, and kelp", "Nickel, phosphate, and krypton"], "answer": 0, "why": "Plants take up these three mineral nutrients in the largest amounts from soil, and the three numbers on the bag state the percentage of each." },
+          { "question": "How do clay and humus keep nutrients from washing away in the rain?", "options": ["Their negatively charged surfaces attract and hold positively charged nutrient ions", "They are heavier than water and sink with the minerals", "They seal the soil pores so rainwater cannot drain through"], "answer": 0, "why": "Clay and humus surfaces carry negative electric charges that hold positive ions like calcium, magnesium, potassium, and ammonium until roots trade hydrogen ions for them." },
+          { "question": "Why does nitrogen fertilizer applied to a sandy bed in autumn mostly disappear by spring?", "options": ["Nitrate carries a negative charge, so soil surfaces cannot hold it and rainwater washes it down", "Winter frost breaks down the nitrogen atoms", "Dormant winter weeds absorb all of it"], "answer": 0, "why": "Soil microbes convert nitrogen into negatively charged nitrate, which is repelled by negatively charged clay and humus and drains quickly through sandy pores." },
+          { "question": "Which soil pH range suits the widest variety of garden vegetables?", "options": ["6.0 to 7.0", "3.0 to 4.0", "8.0 to 9.0"], "answer": 0, "why": "Between pH 6.0 and 7.0, all essential macro- and micronutrients remain reasonably soluble and toxic aluminium stays locked out of solution." },
+          { "question": "If a soil test reports pH 8.0, which nutrients become difficult for roots to absorb?", "options": ["Iron, manganese, zinc, and phosphorus", "Nitrogen and potassium", "Calcium and magnesium"], "answer": 0, "why": "In alkaline soil above pH 7.5, iron, manganese, and zinc form insoluble compounds, while phosphorus binds with calcium into insoluble calcium phosphates." },
+          { "picture": "yellow-leaves", "question": "The oldest, lowest leaves on a plant turn uniformly pale yellow while top leaves stay green. Which deficiency is the primary suspect?", "options": ["Nitrogen", "Iron", "Calcium"], "answer": 0, "why": "Because nitrogen is mobile inside the plant, a hungry plant pulls nitrogen out of its oldest leaves to supply new growth, turning the old leaves pale yellow." },
+          { "question": "The youngest leaves at the top of a plant turn yellow between bright green veins in a bed with pH 7.8. What is the most likely cause?", "options": ["Iron locked into insoluble forms by the alkaline pH", "Overwatering in acidic soil", "A shortage of potassium"], "answer": 0, "why": "Plants cannot move iron out of older leaves to feed new growth, and soil above pH 7.5 locks iron into compounds that roots cannot absorb." },
+          { "question": "Your tomato plants are tall, bushy, and dark green, but they have produced very few flowers. What is the likely cause?", "options": ["Excess nitrogen fertilizer", "A severe nitrogen shortage", "Acidic soil below pH 5.0"], "answer": 0, "why": "Heavy doses of nitrogen stimulate vigorous leaf and stem growth while delaying flowering and fruit set. Wait until fruits form before side-dressing tomatoes with nitrogen." },
+          { "question": "How do you raise the pH of an overly acidic garden bed?", "options": ["Mix in ground garden limestone according to soil test recommendations", "Apply elemental sulfur", "Apply ammonium-based nitrogen fertilizer"], "answer": 0, "why": "Limestone (calcium carbonate) reacts with acid in the soil to raise pH over several months, whereas elemental sulfur and ammonium fertilizers make soil more acidic." }
+        ] } }
+      ]
+    }
+  ],
+  "learned": [
+    "Plants take up nitrogen, phosphorus, potassium, and other essential minerals as charged ions dissolved in soil water.",
+    "Negatively charged clay and humus surfaces hold positive nutrient ions (cation exchange capacity), whereas negatively charged nitrate stays loose in water and leaches out in rain.",
+    "Soil pH controls mineral solubility; most vegetables grow best between pH 6.0 and 7.0, adjusted upward with limestone or downward with elemental sulfur.",
+    "Shortages of mobile nutrients (such as nitrogen, phosphorus, potassium, and magnesium) show up on older lower leaves first, while immobile nutrient shortages (such as iron and calcium) appear on new growth.",
+    "Annual compost covers most micronutrient and organic matter needs; apply nitrogen during active spring and summer growth, and add phosphorus or potassium only when a soil test shows a shortage."
+  ],
+  "next": "Lesson 8 covers managing beds through the four seasons, including cover crops, mulching, and crop rotation.",
+  "journal": [],
+  "footnotes": {
+    "van-helmont": { "kind": "digression", "title": "The willow in a pot", "text": "In the 1640s, Flemish physician Jan Baptist van Helmont planted a 5-pound (2.3 kg) willow shoot in 200 pounds (90.7 kg) of oven-dried soil and watered it only with rainwater or distilled water for five years. The willow grew to 169 pounds (76.7 kg), while the dried soil lost just 2 ounces (about 57 grams). Van Helmont concluded that the wood, bark, and roots had formed entirely out of water, missing the role of carbon dioxide in the air, which scientists did not discover until the late 1700s. Still, those missing 2 ounces of soil minerals made the tree's growth possible." },
+    "npk": { "kind": "technical", "title": "Reading a fertilizer bag", "text": "The three numbers on a fertilizer label, such as 10-10-10, state the guaranteed minimum percentages by weight of nitrogen (N), phosphate (P2O5), and potash (K2O). Because 19th-century chemists weighed phosphorus and potassium after burning samples into oxides, labels still report P2O5 and K2O rather than pure elements: elemental phosphorus makes up 43.6% of the phosphate number, and elemental potassium makes up 83.0% of the potash number." },
+    "others": { "kind": "technical", "title": "Secondary and trace nutrients", "text": "Beyond nitrogen, phosphorus, and potassium, plants require **secondary macronutrients** (calcium, magnesium, and sulfur) in moderate quantities, plus eight **micronutrients** in tiny traces: iron, manganese, zinc, copper, boron, molybdenum, chlorine, and nickel. Regular additions of diverse compost usually supply enough trace elements, so micronutrient deficiencies in gardens most often happen when high or low pH locks them into insoluble forms." },
+    "ions": { "kind": "technical", "title": "Ions in soil water", "text": "An **ion** is an atom or molecule that carries an electric charge because it has gained or lost electrons. Positively charged ions are called **cations**, including calcium (Ca2+), magnesium (Mg2+), potassium (K+), and ammonium (NH4+). Negatively charged ions are called **anions**, including nitrate (NO3-), sulfate (SO4 2-), and dihydrogen phosphate (H2PO4-)." },
+    "cec": { "kind": "technical", "title": "Cation exchange capacity", "text": "**Cation exchange capacity (CEC)** measures how many positively charged ions a soil can hold, reported in centimoles of charge per kilogram of dry soil (cmol+/kg, numerically equal to the older unit meq/100g). Pure sand often scores below 5, a typical garden loam falls between 10 and 20, and heavy clays or compost-rich soils can exceed 30. The interactive diagram uses a common rule of thumb at neutral pH: roughly 0.5 cmol+/kg for each 1% of mixed garden clay, and 2.0 cmol+/kg for each 1% of organic matter." },
+    "nitrate": { "kind": "digression", "title": "Where leached nitrate goes", "text": "Nitrate that drains past plant roots enters groundwater, streams, and eventually coastal waters. High nitrate levels in well water pose health risks, and nitrogen runoff from farmland and fertilized lawns fuels dense algal blooms that strip oxygen from the water when they decay, creating marine dead zones such as the one in the Gulf of Mexico. Timing nitrogen applications to match active crop growth and planting winter cover crops to scavenge leftover nitrate helps keep nitrogen in the garden." },
+    "ph": { "kind": "technical", "title": "The pH scale", "text": "**pH** measures the concentration of hydrogen ions (H+) in a solution on a logarithmic scale from 0 to 14, where 7.0 is neutral, values below 7.0 are acidic, and values above 7.0 are alkaline (basic). Because the scale is logarithmic, each whole-number step represents a tenfold change in acidity: a soil at pH 5.0 has ten times as many active hydrogen ions in solution as a soil at pH 6.0, and a hundred times as many as one at pH 7.0. Most mineral garden soils fall between pH 4.5 and 8.5." },
+    "buffer": { "kind": "technical", "title": "Soil buffering", "text": "Soils resist changes in pH because the huge reserve of hydrogen and aluminium ions held on clay and humus surfaces (reserve acidity) steps in to replace the dissolved hydrogen ions neutralized by lime. Because clay-rich and organic soils have a high cation exchange capacity, they are strongly **buffered** and require several times more limestone than a sandy soil to raise their pH by the same amount. Professional soil labs run a buffer-pH test to calculate the exact limestone dose your specific soil texture requires." },
+    "blossom-end-rot": { "kind": "technical", "title": "Why blossom-end rot is rarely a soil calcium shortage", "text": "Calcium travels up the plant inside its water-conducting xylem vessels, pulled along by water evaporating from the leaves (transpiration). Because bulky fruits like tomatoes evaporate very little water compared to leaves, erratic watering or root damage starves the fast-growing fruit tip of calcium even when the soil is rich in it. Mulching beds to keep moisture steady prevents blossom-end rot far better than scattering crushed eggshells or extra calcium onto the soil." }
+  }
+}
