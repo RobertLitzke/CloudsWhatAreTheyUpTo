@@ -1,25 +1,23 @@
 // First, so edited course text (Settings) is in place before anything reads it.
 import './course';
 import './app/styles/app.css';
+import { defineCourse } from 'didactics/app';
 import { el } from 'didactics/dom';
-import { Router } from 'didactics/router';
-import { appShell, type NavLink } from 'didactics/shell';
-import { retireWhenSaved } from 'didactics/offline';
-import { watchForUpdates } from 'didactics/update';
 import photos from './data/photos.json';
-import { creditsView } from './app/views/credits';
+import { COURSE } from './course';
+import { LESSONS } from './core/lessons';
+import { SUBJECTS } from './core/photos';
+import { emptySave } from './core/save';
+import { SITE_URL } from './app/asset';
+import { DECK } from './app/deck';
+import { lessonPieces } from './app/course-pieces';
+import { FIGURES } from './app/figures';
+import { prose } from './app/figures/kit';
+import { PHOTOS } from './app/picture';
+import { makeGarden } from './app/scene/garden';
+import { store } from './app/store';
 import { homeView } from './app/views/home';
-import { lessonView } from './app/views/lesson';
-import { quizView } from './app/views/quiz';
 import { referenceView } from './app/views/reference';
-import { settingsView } from './app/views/settings';
-
-const NAV: readonly NavLink[] = [
-  { path: '/home', label: 'Home' },
-  { path: '/reference', label: 'Reference' },
-  { path: '/quiz', label: 'Quiz' },
-  { path: '/settings', label: 'Settings' },
-];
 
 /** A sprout with an up arrow, for the update banner: drawn inline so it shows offline. */
 const SPROUT =
@@ -36,35 +34,50 @@ const MARK =
   '<path d="M50 50 C45 33 31 25 14 27 C14 45 30 54 50 50Z" fill="#4e8a2e"/>' +
   '<path d="M50 43 C55 26 69 18 86 20 C86 38 70 47 50 43Z" fill="#86b43e"/></g></svg>';
 
-function boot(): void {
-  const shell = appShell({
-    mount: document.getElementById('app')!,
-    title: 'Dirt',
-    subtitle: 'A soil workbook',
-    mark: el('span.mark', { innerHTML: MARK }),
-    nav: NAV,
-    // A lesson fills the screen: the header would only be in the way.
-    fullScreen: (path) => path.startsWith('/lesson/'),
-  });
-  const router = new Router(shell.outlet, { before: shell.before });
-  router
-    .add('/home', homeView)
-    .add('/lesson/:id', lessonView)
-    .add('/reference', referenceView)
-    .add('/quiz', quizView)
-    .add('/credits', creditsView)
-    .add('/settings', settingsView)
-    .start('/home');
-
-  if (import.meta.env.DEV) void import('didactics/overflow').then((m) => m.watchOverflow());
-
-  // The page also runs straight from disk, where there is no service worker.
-  if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    watchForUpdates({ title: 'Fresh growth', text: 'A new version of Dirt is ready.', icon: SPROUT });
-    // Earlier versions kept each photo once seen, in a cache of their own; the
-    // service worker now downloads them all, so drop that cache once it has.
-    void retireWhenSaved('photos/', photos.length, ['photos']);
-  }
-}
-
-boot();
+// The whole app (Didactics' app.ts): the save is "dirt.save", the course's
+// edited text "dirt.course", and the files dirt-save.json, dirt-course.json
+// and dirt.html.
+defineCourse({
+  id: 'dirt',
+  title: 'Dirt',
+  subtitle: 'A soil workbook',
+  mark: el('span.mark', { innerHTML: MARK }),
+  lessons: LESSONS,
+  figures: FIGURES,
+  prose,
+  // Each lesson opens under Dirt's garden.
+  lesson: { hero: (l) => makeGarden({ seed: 30 + l.n, time: l.n % 2 ? 'morning' : 'noon' }) },
+  // Dirt's own save (core/save.ts): in inches and feet to start.
+  save: { store, empty: emptySave },
+  // The garden in the morning over the lesson board, and the way to the reference.
+  home: homeView,
+  // The glossary is a section of the reference page.
+  pages: [{ path: '/reference', label: 'Reference', view: referenceView }],
+  menu: ['/home', '/reference', '/quiz', '/settings'],
+  quiz: {
+    deck: DECK,
+    blurb: 'Flash cards on the ideas in the lessons. Cards you get right come back after longer and longer gaps; cards you miss come back soon.',
+  },
+  photos: {
+    photos: PHOTOS,
+    name: (p) => SUBJECTS[p.subject],
+    intro: el('p', {}, 'Particle sizes and texture classes follow the USDA Soil Survey Manual. The drawings of the garden and the soils are made for this app.'),
+    empty: 'No photos have been fetched yet; drawings stand in for them until they are.',
+    after: [
+      el('h2', {}, 'Type'),
+      el('p', {}, 'Fraunces by Undercase Type, Nunito Sans by Vernon Adams, Jacques Le Bailly and Manvel Shmavonyan, and Kalam by the Indian Type Foundry, all under the SIL Open Font License.'),
+      el('p.muted', {}, `Version ${__APP_VERSION__}`),
+    ],
+  },
+  text: COURSE,
+  textPieces: lessonPieces(),
+  settings: {
+    units: { label: 'Measure in', imperial: 'Inches and feet', metric: 'Centimetres and metres' },
+    about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photos, and under what licence.'),
+  },
+  site: SITE_URL,
+  update: { title: 'Fresh growth', text: 'A new version of Dirt is ready.', icon: SPROUT },
+  // Earlier versions kept each photo once seen, in a cache of their own; the
+  // service worker now downloads them all, so that cache goes once it has.
+  offline: { folder: 'photos/', total: photos.length, noun: 'photos', retire: ['photos'] },
+});
