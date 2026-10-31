@@ -33,7 +33,7 @@ function courseEntry(c: CatalogEntry, read: (key: string) => string | null): HTM
     'article.course',
     {},
     // An <img> rather than inline SVG, so one icon's ids cannot clash with another's.
-    el('a.course-icon', { href, 'aria-hidden': 'true', tabIndex: -1 }, el('img', { src: `data:image/svg+xml,${encodeURIComponent(c.icon)}`, alt: '' })),
+    el('a.course-icon', { href, 'aria-hidden': 'true', tabIndex: -1 }, el('img', { src: c.icon, alt: '' })),
     el(
       'div.course-text',
       {},

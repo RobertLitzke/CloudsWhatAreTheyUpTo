@@ -1,5 +1,5 @@
 {
-  "name": "circuitry",
+  "name": "electronics",
   "version": "0.1.0",
   "description": "Circuitry: a workbook on circuits. Voltage and current you can watch, the parts that shape them, debugging boards, and branches into guitar pedals and off-grid solar.",
   "type": "module",
@@ -26,11 +26,8 @@
     "vite-plugin-singlefile": "^2.3.0",
     "vitest": "^3.0.0"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "dependencies": {
     "circuit-kit": "*",
-    "didactics": "github:RobertLitzke/Didactics#855b4ee9b4f8568d6241bc3a126ed27729661f40"
+    "didactics": "github:RobertLitzke/Didactics#1cf018336ddbd750e1f9612958c3bff92bc48a3c"
   }
 }

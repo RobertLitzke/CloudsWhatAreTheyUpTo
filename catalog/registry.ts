@@ -19,7 +19,7 @@ export interface CourseInfo {
   summary: string;
   /** The folder of its lesson JSON files, from the course's folder, to count them. */
   lessons: string;
-  /** Its square SVG icon, from the course's folder. */
+  /** Its square icon, an SVG or PNG, from the course's folder. */
   icon: string;
   /** Its save's localStorage key, so the catalog can say how far the reader got. */
   save: string;
@@ -31,7 +31,7 @@ export interface CatalogEntry extends Omit<CourseInfo, 'lessons' | 'icon'> {
   folder: string;
   /** How many lessons it has. */
   lessonCount: number;
-  /** The icon as SVG markup, so the page carries it inline. */
+  /** The icon as a data URI, so the page carries it inline. */
   icon: string;
 }
 
@@ -50,6 +50,13 @@ export function infoProblems(folder: string, info: unknown): string[] {
   return out;
 }
 
+/** A file as a data URI: an SVG as its text, so it stays small; anything else in base64. */
+function dataUri(file: string): string {
+  if (file.endsWith('.svg')) return `data:image/svg+xml,${encodeURIComponent(readFileSync(file, 'utf8'))}`;
+  const type = file.endsWith('.png') ? 'image/png' : file.endsWith('.webp') ? 'image/webp' : 'image/jpeg';
+  return `data:${type};base64,${readFileSync(file).toString('base64')}`;
+}
+
 /** Every course under `coursesDir`, in catalog order. Throws on a malformed course.json. */
 export function readCatalog(coursesDir: string): CatalogEntry[] {
   const entries: CatalogEntry[] = [];
@@ -64,7 +71,7 @@ export function readCatalog(coursesDir: string): CatalogEntry[] {
       ...rest,
       folder,
       lessonCount: readdirSync(join(coursesDir, folder, lessons)).filter((f) => f.endsWith('.json')).length,
-      icon: readFileSync(join(coursesDir, folder, icon), 'utf8'),
+      icon: dataUri(join(coursesDir, folder, icon)),
     });
   }
   return entries.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));

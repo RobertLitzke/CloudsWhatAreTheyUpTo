@@ -6,7 +6,8 @@
   "private": true,
   "workspaces": [
     "catalog",
-    "courses/*"
+    "courses/*",
+    "courses/*/packages/*"
   ],
   "scripts": {
     "build": "node tools/build-site.mjs",

@@ -6,11 +6,11 @@ explainers, on what voltage and current really are, how parts shape them,
 and how to find out why a board doesn't work. Every circuit is live: wires
 are coloured by their voltage and dots move along them with the current.
 
-Built on [Didactics](https://github.com/RobertLitzke/Didactics), the lesson
-library shared with [Dirt](https://github.com/RobertLitzke/Dirt) and
-[Clouds](https://github.com/RobertLitzke/CloudsWhatAreTheyUpTo), pinned to a
-commit in package.json (`npm install github:RobertLitzke/Didactics#<sha>` to
-move it). There is no story or radio mentor (the save has no radio). The circuit engine is our own,
+Built on [Didactics](https://github.com/RobertLitzke/Didactics), pinned to a
+commit in package.json. Circuitry is one course of several on one site: it
+lives in `courses/electronics/` of that site's repository and is served from
+`/electronics/` under the course catalog (see the README at the repository's
+root; run it with `npm run dev -w electronics`). There is no story or radio mentor (the save has no radio). The circuit engine is our own,
 `packages/circuit-kit`.
 
 ## What is built
@@ -133,5 +133,5 @@ tools/        gallery/, icons.mjs
 ## Deploy
 
 Pushes to `main` build and deploy to GitHub Pages
-(`.github/workflows/pages.yml`) at https://robertlitzke.github.io/Circuitry/.
+(`.github/workflows/pages.yml`) at https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/electronics/.
 In the repository's settings, Pages must be set to deploy from GitHub Actions.

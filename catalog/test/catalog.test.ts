@@ -17,7 +17,7 @@ describe('the courses on the site', () => {
     expect(all.map((c) => c.folder)).toContain('clouds');
     for (const c of all) {
       expect(c.lessonCount).toBeGreaterThan(0);
-      expect(c.icon).toMatch(/^<svg/);
+      expect(c.icon).toMatch(/^data:image\//);
     }
   });
 
@@ -44,7 +44,7 @@ describe('the courses on the site', () => {
 });
 
 const entry = (over: Partial<CatalogEntry> = {}): CatalogEntry => ({
-  folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: '<svg/>', ...over,
+  folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: 'data:image/svg+xml,%3Csvg%2F%3E', ...over,
 });
 
 describe('the catalog page', () => {

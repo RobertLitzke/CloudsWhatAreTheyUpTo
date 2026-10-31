@@ -52,6 +52,8 @@ defineCourse({
     { path: '/credits', view: creditsView },
   ],
   menu: ['/home', '/reference', '/quiz', '/settings'],
+  // The site's catalog of every course, one folder up.
+  catalog: { href: '../' },
   quiz: {
     deck: DECK,
     blurb: 'Flash cards on the ideas in the lessons. Cards you get right come back after longer and longer gaps; cards you miss come back soon.',
