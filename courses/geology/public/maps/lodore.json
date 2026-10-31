@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "lodore.png",
+  "width": 510,
+  "height": 547,
+  "zoom": 12,
+  "x0": 205491,
+  "y0": 393331,
+  "step": 4,
+  "bounds": [
+    -109.45026,
+    40.38029,
+    -108.74989,
+    40.95008
+  ],
+  "range": [
+    1441,
+    2968
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name lodore --bbox -109.45,40.38,-108.75,40.95 --zoom 12 --max 600 --precision 1 --out courses/geology/public/maps"
+}

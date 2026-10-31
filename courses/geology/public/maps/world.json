@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "world.png",
+  "width": 682,
+  "height": 384,
+  "zoom": 3,
+  "x0": 0,
+  "y0": 363,
+  "step": 3,
+  "bounds": [
+    -180,
+    -64.99794,
+    179.64844,
+    75.00494
+  ],
+  "range": [
+    -8720,
+    5860
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name world --bbox -180,-65,180,75 --zoom 3 --max 720 --precision 10 --out courses/geology/public/maps"
+}

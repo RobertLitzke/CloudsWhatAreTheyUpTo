@@ -1,0 +1,69 @@
+{
+  "id": "erratics",
+  "n": 13,
+  "title": "Boulders where they don’t belong",
+  "teaches": "How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age",
+  "parts": [
+    {
+      "title": "The stone above Neuchâtel",
+      "blocks": [
+        {"type": "text", "text": "In the woods above the town of Neuchâtel, in western Switzerland, sits a granite boulder the size of a small house, known as the Pierre à Bot. The Jura mountains it rests on are made of limestone, in layers like those in lesson 3. There is no granite anywhere in the Jura. The nearest granite of its kind is in the Mont Blanc massif and the high Alps of the Valais, more than 100 kilometres away across Lake Neuchâtel and the Swiss plateau."},
+        {"type": "diagram", "id": "map", "caption": "Western Switzerland: the Valais, the long valley of the Rhône in the Alps, and across the plateau, the Jura. Granite boulders from the Valais lie on the Jura's slopes above Neuchâtel.", "options": {"relief": "maps/rhone", "title": "From the Alps to the Jura", "water": 380, "ground": "height", "alt": "A shaded relief map of western Switzerland: the high Alps in the southeast cut by the deep valley of the Rhône running west past Brig and Sion to Lake Geneva; the Swiss plateau with Lake Neuchâtel; and the long ridges of the Jura in the northwest.", "labels": [{"lon": 8.38, "lat": 46.6, "text": "Rhône glacier", "side": "above"}, {"lon": 7.99, "lat": 46.32, "text": "Brig", "side": "below"}, {"lon": 7.36, "lat": 46.23, "text": "Sion", "side": "below"}, {"lon": 6.63, "lat": 46.52, "text": "Lausanne", "side": "above"}, {"lon": 6.913, "lat": 47.009, "text": "Pierre à Bot", "side": "left"}, {"lon": 7.45, "lat": 46.95, "text": "Bern"}, {"lon": 6.55, "lat": 46.9, "text": "Jura", "area": true}]}},
+        {"type": "text", "text": "Such stranded blocks, called **erratics**, are scattered across northern Europe and North America by the million: Scandinavian granite on the plains of northern Germany, Canadian rock across New England and the Midwest, boulders from British Columbia all over the Puget Lowland. The cover of loose sand, clay and boulders they lie in was called **drift**, because it was thought to have drifted there in Noah's flood. Charles Lyell later suggested icebergs, floating on a sea that once covered the land and dropping stones as they melted. Neither explanation fitted all the evidence."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Erratics are boulders resting far from the bedrock they came from.", "The Pierre à Bot is Alpine granite sitting on Jura limestone, more than 100 km from its source."]}
+      ]
+    },
+    {
+      "title": "The chamois hunter's idea",
+      "blocks": [
+        {"type": "text", "text": "People who lived near glaciers had a better idea. In 1815 Jean-Pierre Perraudin, a chamois hunter from the Val de Bagnes in the Valais, told visiting naturalists that the scratched rock and boulders far down his valley showed the glacier had once reached that far. The engineer Ignace Venetz and the mine director Jean de Charpentier took him seriously, and by the 1830s Charpentier was arguing that glaciers had once filled the Rhône valley and spread out across the plateau as far as the Jura."},
+        {"type": "text", "text": "Louis Agassiz, a young professor at Neuchâtel already famous for his work on fossil fish, at first set out to prove Charpentier wrong. After touring the Valais with him in 1836 he came back convinced, and characteristically went much further. In July 1837, in his presidential address to the Swiss Society of Natural Sciences, he argued that a great ice age had covered much of Europe, from the Alps to the North Pole. Many of his listeners were appalled, but Agassiz gathered evidence with enormous energy, camping on the Unteraar glacier for several summers to measure how it moved, and publishing his Études sur les glaciers in 1840."},
+        {"type": "text", "text": "The evidence was in the rock as well as the boulders. Glacier ice carries stones frozen into its base and drags them over the bedrock beneath, scratching it with parallel grooves called **striations** and polishing it smooth. Below today's glaciers, the same scratched, polished rock could be traced far beyond the ice, down the valleys and onto the Jura. Ridges of jumbled boulders and clay, **moraines**, curve across valley floors where glaciers once ended, just like the moraines in front of living glaciers."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Alpine glaciers leave erratics, scratched and polished bedrock, and moraines; the same features far beyond today's ice show where it once reached.", "Agassiz argued in 1837 for an ice age that had covered much of Europe."]}
+      ]
+    },
+    {
+      "title": "How a glacier works",
+      "blocks": [
+        {"type": "text", "text": "A glacier is a river of ice, fed by snow. High up, more snow falls each winter than melts the following summer, and it piles up year after year, compacting into granular firn and then into solid ice. Lower down, summer melting removes more than winter adds. The line between the two zones is the **equilibrium line**, roughly the snowline at the end of summer."},
+        {"type": "text", "text": "Ice is a solid, but under its own weight, tens of metres thick, it deforms and flows slowly downhill, and it can also slide on a wet bed. Agassiz's stakes on the Unteraar glacier moved tens of metres a year. Ice flows from the zone where snow piles up to the zone where it melts, and the glacier's length settles where the two balance: the yearly gain above the equilibrium line equals the yearly loss below it. If the climate cools or snowfall increases, the equilibrium line drops, the gain outweighs the loss, and the glacier advances until a new balance is reached. If the climate warms, it retreats."},
+        {"type": "text", "text": "Ice also carries rock. Stones that fall onto a glacier from the valley sides, or that it plucks from its bed, ride along inside it like goods on a conveyor belt, whatever their size, and are dropped where the ice melts. A glacier that stays at the same length for a while piles up a moraine at its end. When it retreats, the moraine and any large boulders stay behind."},
+        {"type": "interactive_diagram", "id": "glacier", "caption": "The path of the Rhône glacier from its source to the Jura, in long section (heights exaggerated). The red dashed line is the equilibrium line; the brown ridge is the moraine at the farthest point the ice has reached. A simplified model of the glacier, not a forecast.", "task": "Change the climate until the glacier reaches the Jura", "goal": "jura", "aspect_ratio": 1.82},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Above the equilibrium line snow accumulates; below it, ice melts away.", "A glacier flows from where it gains to where it loses ice, and its length adjusts until the two balance.", "Glaciers carry rock of any size and drop it where the ice melts, building moraines at their ends."]}
+      ]
+    },
+    {
+      "title": "The Rhône glacier at its greatest",
+      "blocks": [
+        {"type": "text", "text": "Today the Rhône glacier is about 8 kilometres long and shrinking fast; its tongue is wrapped in white blankets each summer to slow the melting near a tourist grotto. At the height of the last glaciation, about 24,000 to 20,000 years ago, it filled the whole Valais, more than a kilometre deep over Martigny, poured out across the basin of Lake Geneva, and spread over the Swiss plateau to bank up against the Jura, 200 kilometres from its source. That is how the Pierre à Bot got where it is, carried on or in the ice."},
+        {"type": "text", "text": "In the figure, cooling the climate by roughly 10 °C, with today's snowfall, sends the glacier to the Jura. That is in line with estimates that the equilibrium line in the Alps was 1,000 to 1,500 metres lower than today during the last glacial maximum. Changes in temperature matter so much because a lower equilibrium line exposes far more of the high ground to gaining snow, and a thicker glacier's surface stands higher, so it gains more still."},
+        {"type": "text", "text": "Agassiz's ice age turned out to be real, but more complicated than he imagined. There was not one ice age but dozens of advances and retreats over the last two and a half million years, and in North America a continental ice sheet up to 3 kilometres thick spread south to the Ohio and Missouri rivers and across the Puget Lowland. What drives the ice to come and go on such a regular schedule is the subject of the next lesson."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["About 20,000 years ago the Rhône glacier reached the Jura, 200 km from its source, carrying the erratics there.", "The equilibrium line in the Alps was then about 1,000 to 1,500 m lower than today.", "The ice age was many advances and retreats over the last 2.5 million years."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on glaciers and erratics", "task": "Select the best answer for each question",
+          "options": { "items": [
+            { "ask": "Why is the Pierre à Bot good evidence that ice once covered the Swiss plateau?", "choices": ["It is Alpine granite resting on Jura limestone, too big for any river to carry, and it lies with other ice-age evidence", "It is the same rock as the mountain it sits on", "It shows signs of having been melted"], "answer": 0, "why": "A boulder the size of a house cannot be rolled 100 km uphill by a river. Glacier ice can carry rock of any size, and the boulder lies among moraines and polished bedrock." },
+            { "ask": "What is the equilibrium line on a glacier?", "choices": ["The height above which more snow falls each year than melts", "The line where the glacier meets its bed", "The glacier's end, where its moraine is"], "answer": 0, "why": "Above it the glacier gains mass each year; below it, it loses mass. It is roughly the end-of-summer snowline." },
+            { "ask": "The climate cools and the equilibrium line drops 500 m. What happens to the glacier?", "choices": ["It advances until the extra loss at its new low end balances the extra gain", "It retreats, because there is less melting", "It stays the same length but gets thicker"], "answer": 0, "why": "More of the glacier is now above the equilibrium line, so it gains more than it loses and grows until a new balance is reached." },
+            { "ask": "What are striations?", "choices": ["Parallel scratches cut into bedrock by stones frozen into the base of moving ice", "Layers of snow in a glacier", "Cracks on the surface of a glacier"], "answer": 0, "why": "Stones held in the base of the ice act like sandpaper as the glacier slides over its bed." },
+            { "ask": "What does a moraine tell you about a glacier?", "choices": ["Where its end stood long enough to pile up the rock it was carrying", "Where it started", "How fast it was moving"], "answer": 0, "why": "Ice delivers rock to its end like a conveyor belt; a moraine builds where the end stays put for a while, and remains when the ice retreats." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Erratics, striations and moraines far beyond today's glaciers show where ice once reached.",
+    "A glacier gains snow above its equilibrium line and loses ice below it, flowing from one zone to the other; its length adjusts until gain and loss balance.",
+    "Cooling lowers the equilibrium line and makes glaciers advance.",
+    "About 20,000 years ago the Rhône glacier crossed the Swiss plateau to the Jura, carrying Alpine boulders there."
+  ],
+  "next": "Next: the ice ages come and go on a schedule, and the timing is set by slow changes in the Earth's orbit, recorded in the shells of tiny animals on the deep-sea floor.",
+  "journal": [],
+  "footnotes": {}
+}

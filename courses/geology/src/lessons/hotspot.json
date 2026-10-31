@@ -1,0 +1,71 @@
+{
+  "id": "hotspot",
+  "n": 11,
+  "title": "Islands that get older in a line",
+  "teaches": "How a fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records",
+  "parts": [
+    {
+      "title": "Volcanoes in the middle of a plate",
+      "blocks": [
+        {"type": "text", "text": "Hawaii does not fit the pattern of lesson 10. The islands stand in the middle of the Pacific plate, more than 3,000 kilometres from the nearest plate boundary, yet Kīlauea and Mauna Loa are among the most active volcanoes on Earth. And the chain they belong to has a peculiar arrangement: the islands get steadily older, and more worn down, toward the northwest."},
+        {"type": "diagram", "id": "map", "caption": "The main Hawaiian islands, with the approximate ages of their volcanoes. Only the island of Hawaiʻi, at the southeast end, has active volcanoes.", "options": {"relief": "maps/hawaii", "title": "The Hawaiian Islands", "water": 0, "exaggeration": 3, "alt": "A shaded relief map of the main Hawaiian Islands and the surrounding sea floor, from Kauaʻi in the northwest to the island of Hawaiʻi in the southeast.", "labels": [{"lon": -159.5, "lat": 22.07, "text": "Kauaʻi, 5 million years", "side": "above"}, {"lon": -157.98, "lat": 21.47, "text": "Oʻahu, 3 to 4 million", "side": "above"}, {"lon": -157.0, "lat": 21.13, "text": "Molokaʻi, 2 million", "side": "above"}, {"lon": -156.33, "lat": 20.8, "text": "Maui, 1 million", "side": "right"}, {"lon": -155.29, "lat": 19.41, "text": "Kīlauea, erupting", "side": "below"}]}},
+        {"type": "text", "text": "The difference is visible from the air. On the island of Hawaiʻi, lava flows are bare black rock, and the volcanoes are smooth domes. Maui is greener and gullied. Oʻahu's volcanoes have been carved into sharp ridges and deep valleys, and Kauaʻi, the oldest of the main islands, is cut by canyons a kilometre deep. The American geologist James Dwight Dana noted the trend in 1840 while sailing with a United States naval expedition. Hawaiian tradition had arrived at a similar story: the volcano goddess Pele moved from island to island, from Kauaʻi toward the southeast, before settling at Kīlauea."},
+        {"type": "text", "text": "Radioactive dating of the lavas (lesson 7) later put numbers on it. The volcanoes of Kauaʻi formed about 5 million years ago, those of Oʻahu between 2.6 and 3.7 million, those of Maui about 1 million. Beyond Kauaʻi the chain continues northwest as tiny islands, atolls and drowned volcanoes, getting older all the way: Midway, 2,400 kilometres from Kīlauea, is about 28 million years old."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Hawaii's volcanoes are far from any plate boundary.", "The volcanoes get older and more eroded toward the northwest, about 5 million years at Kauaʻi and 28 million at Midway."]}
+      ]
+    },
+    {
+      "title": "A plate passing over a hotspot",
+      "blocks": [
+        {"type": "text", "text": "In 1963 J. Tuzo Wilson suggested an explanation. Suppose there is a source of magma deep in the mantle that stays in one place while the plate slides over it. Each volcano would grow above the source, then be carried away by the plate, cut off from its supply, and die, while a new volcano started over the source behind it. The result would be a line of volcanoes getting older in the direction the plate moves, like the trail left by a sheet of paper pulled slowly over a candle."},
+        {"type": "text", "text": "Wilson called the source a **hotspot**. In 1971 Jason Morgan proposed that hotspots sit above **mantle plumes**, columns of unusually hot rock rising slowly from deep in the mantle, perhaps from as far down as the boundary with the core. As the hot rock nears the surface the pressure on it drops, and it partly melts, without needing the water that drives melting above subduction zones. Today the plume is under the island of Hawaiʻi, and a new volcano, Kamaʻehuakanaloa (formerly Lōʻihi), is already growing on the sea floor about 35 kilometres off its southeast coast, its summit still about a kilometre below the waves."},
+        {"type": "text", "text": "If the hotspot stays put, the ages of the volcanoes measure the speed of the plate: distance from the hotspot divided by age."},
+        {"type": "interactive_diagram", "id": "plume", "caption": "The Hawaiian-Emperor chain as seen from above, with the plume fixed under Kīlauea. Circles are dated volcanoes; red dots are where volcanoes would be if the plate moved at the chosen speed, turning north 47 million years ago. Below: age against distance from Kīlauea.", "task": "Set the plate's speed so the model's volcanoes fall on the dated ones", "goal": "speed", "aspect_ratio": 1.6},
+        {"type": "text", "text": "The answer, about 8 to 10 centimetres a year, is one of the fastest plate speeds on Earth, and it agrees with the rate the Pacific plate moves relative to the other plates, worked out independently from magnetic stripes."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["A hotspot is a long-lived source of magma, thought to be fed by a mantle plume, under a moving plate.", "The plate carries each volcano away from the hotspot, so ages increase along the chain.", "Distance divided by age gives the Pacific plate's speed: about 8 to 10 cm a year."]}
+      ]
+    },
+    {
+      "title": "The bend",
+      "blocks": [
+        {"type": "text", "text": "Northwest of Midway the chain of drowned volcanoes continues for another 1,000 kilometres or so, then turns sharply north. The northern arm, the **Emperor Seamounts**, runs up toward the Aleutian Islands, ending near the Kamchatka Peninsula, where the oldest seamounts, about 80 million years old, are being carried into the trench and destroyed. The volcanoes at the corner are about 47 million years old."},
+        {"type": "text", "text": "For decades the bend was read as a record of the Pacific plate changing direction, from north to west-northwest, about 47 million years ago. It is still the textbook example of plate motion written into the sea floor. But in 2001 an ocean drilling expedition sampled lavas from the Emperor Seamounts and measured their magnetism. The direction frozen into a lava shows the latitude at which it cooled (lavas formed near the equator record a nearly horizontal field, those near the poles a steep one). The Emperor lavas formed well north of Hawaii's present latitude: Detroit Seamount, the oldest, at about 36° N rather than 19° N. The plume itself must have drifted south during those 30 million years, as the mantle around it flowed. The bend records both a change in the plate's motion and the end of the plume's drift."},
+        {"type": "text", "text": "So hotspots are not perfectly fixed. They move much more slowly than the plates, though, and a hotspot track remains a good record of where a plate has been."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The chain turns north at volcanoes about 47 million years old, becoming the Emperor Seamounts.", "The bend records a change in the Pacific plate's motion, together with southward drift of the plume before then."]}
+      ]
+    },
+    {
+      "title": "How islands sink",
+      "blocks": [
+        {"type": "text", "text": "A Hawaiian volcano lives a predictable life. The island of Hawaiʻi stands about 9 kilometres above the surrounding sea floor at Mauna Kea and Mauna Loa, taller from its base than Everest. That enormous load bends the plate beneath it downward, so the island begins to sink while it is still growing. Once it moves off the hotspot, it sinks further, because the plate itself cools and contracts as it ages, and the sea floor gets deeper with distance from the hotspot's warm swell."},
+        {"type": "text", "text": "Meanwhile rain and waves wear the island down. In the warm sea, coral reefs grow around its shores. As the volcano sinks, the reef keeps growing upward to stay near the surface, until the volcanic peak disappears and only a ring of coral is left: an **atoll**, like Midway. Charles Darwin proposed exactly this sequence for coral atolls in 1842, long before anyone knew why the islands sank. Farther northwest the water is too cold for coral to keep up, and the volcanoes drown completely, becoming flat-topped seamounts called guyots, their tops planed off by waves when they were last at sea level."},
+        {"type": "text", "text": "There is a hotspot track in the Pacific Northwest too, on land. The Snake River Plain across southern Idaho is a line of volcanic centres that get younger toward the northeast, ending at Yellowstone. The North American plate is moving southwest over a plume, and the track's oldest end is near the Oregon border, close to where the Columbia River basalts, which bury much of eastern Washington and Oregon, erupted 16 to 17 million years ago."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Hawaiian volcanoes sink under their own weight and as the plate beneath them cools and ages.", "Coral reefs growing upward on sinking volcanoes form atolls; drowned volcanoes become seamounts.", "Yellowstone and the Snake River Plain are a continental hotspot track."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on hotspots", "task": "Select the best answer for each question",
+          "options": { "items": [
+            { "ask": "Why are the Hawaiian volcanoes older toward the northwest?", "choices": ["The Pacific plate moves northwest over a stationary source of magma, carrying each volcano away", "The magma source is moving southeast under a stationary plate at 10 cm a year", "Older volcanoes erupt more slowly"], "answer": 0, "why": "The plate carries volcanoes off the hotspot; new ones form behind them. Hotspots drift, but far more slowly than plates." },
+            { "ask": "A volcano 1,060 km from Kīlauea is 10.3 million years old. Roughly how fast has the plate moved?", "choices": ["About 10 cm a year", "About 1 cm a year", "About 1 m a year"], "answer": 0, "why": "1,060 km in 10.3 million years is about 103 km per million years, which is 103 mm or roughly 10 cm a year." },
+            { "ask": "What melts the mantle under a hotspot?", "choices": ["Unusually hot rock rises in a plume, and the falling pressure lets it partly melt", "Water released from a sinking slab", "Friction between the plate and the mantle"], "answer": 0, "why": "Hot rock rising toward the surface partly melts as the pressure on it drops. Water-driven melting is the subduction-zone mechanism." },
+            { "ask": "What did magnetic measurements on Emperor Seamount lavas show?", "choices": ["They formed farther north than Hawaii's present latitude, so the plume itself had drifted south", "They formed at exactly Hawaii's present latitude", "They were formed by a different, northern hotspot"], "answer": 0, "why": "The lavas' magnetic direction records the latitude where they cooled, about 36° N for Detroit Seamount, compared with 19° N for Hawaii today." },
+            { "ask": "How does an atoll like Midway form?", "choices": ["A coral reef keeps growing upward as the volcano beneath it sinks, until only the reef ring remains", "Coral grows on top of a new underwater volcano", "Waves pile coral sand into a ring around a lagoon"], "answer": 0, "why": "Darwin proposed this in 1842; later drilling found volcanic rock beneath the coral of Pacific atolls." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Hawaii lies over a hotspot, a long-lived magma source thought to be fed by a mantle plume, far from any plate boundary.",
+    "The Pacific plate carries volcanoes off the hotspot, so they get older along the chain; age against distance gives a plate speed of about 8 to 10 cm a year.",
+    "The Hawaiian-Emperor bend, about 47 million years old, records a change in the plate's motion and the end of the plume's southward drift.",
+    "Volcanoes sink as they age, becoming atolls and drowned seamounts."
+  ],
+  "next": "Next: John Wesley Powell rows the Green River into a canyon that cuts straight through a mountain range, when it could have gone around.",
+  "journal": [],
+  "footnotes": {}
+}

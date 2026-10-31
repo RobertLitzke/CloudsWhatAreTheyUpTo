@@ -1,0 +1,74 @@
+{
+  "id": "siccar",
+  "n": 6,
+  "title": "The rock at Siccar Point",
+  "teaches": "Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff",
+  "parts": [
+    {
+      "title": "A boat trip in 1788",
+      "blocks": [
+        {"type": "text", "text": "In June 1788 three men took a boat along the coast of Berwickshire, in southeast Scotland, looking for one particular kind of rock contact. They were James Hutton, a farmer, physician and chemist who had spent twenty years wondering how the land was made; John Playfair, a mathematician; and James Hall, the young laird of Dunglass, the same Hall who a decade later would melt basalt in a furnace (lesson 4). They found what they were looking for at a rocky headland called **Siccar Point**."},
+        {"type": "diagram", "id": "map", "caption": "The Berwickshire coast east of Dunglass. Siccar Point is the small headland where the cliffs turn south.", "options": {"relief": "maps/siccar", "title": "Siccar Point, Berwickshire", "water": 0.5, "ground": "height", "alt": "A shaded relief map of the Berwickshire coast with the North Sea to the north, Cockburnspath inland to the west and Siccar Point on the coast to the east.", "labels": [{"lon": -2.3008, "lat": 55.9316, "text": "Siccar Point", "side": "below"}, {"lon": -2.362, "lat": 55.932, "text": "Cockburnspath", "side": "below"}, {"lon": -2.33, "lat": 55.95, "text": "North Sea", "area": true}]}},
+        {"type": "text", "text": "Two kinds of rock meet in the low cliff there. The lower one is grey sandstone and mudstone in beds a few centimetres to a metre thick, and the beds stand almost on end, like books on a shelf. Resting on their worn-down edges is a reddish sandstone whose beds lie nearly flat, tipped gently toward the sea. The boundary between the two is sharp enough to put a hand on. At its base, the red rock is full of angular pieces of the grey rock below."},
+        {"type": "text", "text": "Hutton had seen the same arrangement the year before, at Jedburgh in the Borders and on the Isle of Arran. Siccar Point showed it more cleanly than either, and the explanation he gave for it is one of the founding arguments of geology."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["At Siccar Point, grey beds standing on end are overlain by nearly flat red sandstone.", "The red sandstone's lowest layer contains broken pieces of the grey rock beneath it."]}
+      ]
+    },
+    {
+      "title": "Reading the contact",
+      "blocks": [
+        {"type": "text", "text": "The rules from lesson 1 are enough to read the cliff. The grey beds were laid down as sand and mud on a sea floor, so they began horizontal. Some still show ripple marks and graded layers, coarse at the bottom and fine at the top, which only form in loose sediment settling through water. Since they now stand on end, something tilted them through about 80 degrees after they had hardened. Rock does not fold like that at the surface; it happens kilometres down, when the crust is squeezed, the same kind of event that buried the Highland muds in lesson 5."},
+        {"type": "text", "text": "The tops of the upright grey beds are cut off along a single, nearly flat surface. Whatever stood above them, including the upper parts of the folds, has been worn away. That surface had to be at or near the ground, exposed to weather and water, for this to happen. Then the red sand was laid on top of it, and the fragments of grey rock in its base show that the grey rock was already hard, already upended and already being broken up when the red sand arrived."},
+        {"type": "text", "text": "A buried surface of erosion like this, separating two sets of rock of very different ages, is called an **unconformity**. It records a gap: a span of time during which no rock was laid down here and some was removed. Siccar Point is now the best-known example in the world, and geologists still call it Hutton's Unconformity."},
+        {"type": "interactive_diagram", "id": "unconformity", "caption": "How the cliff at Siccar Point was made, in five stages. The red dashed line is the unconformity.", "task": "Run time forward to today's cliff, and see how long the whole story takes", "goal": "story", "aspect_ratio": 1.74},
+        {"type": "text", "text": "Every stage of that story is something that can be watched happening today. Rivers carry sand and mud to the sea and spread it in layers. Earthquakes raise coastlines by a metre or two at a time. Rain, frost and rivers wear down hills. The difficulty was not in imagining any single step; it was in accepting how slow each one is when measured, and therefore how long the sequence must have taken."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["An unconformity is a buried erosion surface between two sets of rock, and it marks a gap in time.", "At Siccar Point the gap covers the folding of the grey beds, their uplift into mountains and their erosion to a plain.", "Each step of the sequence can be seen happening today, slowly."]}
+      ]
+    },
+    {
+      "title": "The abyss of time",
+      "blocks": [
+        {"type": "text", "text": "Hutton had no way to measure ages in years. He did know that rivers move sediment slowly, that coasts change little in a lifetime, and that Roman roads and walls in Britain had hardly weathered in sixteen centuries. If the processes that built the cliff ran at rates anything like those, then laying down kilometres of grey sediment, folding it, raising it into mountains, wearing the mountains flat, and burying the stumps under red sand added up to an amount of time beyond anything people were used to thinking about."},
+        {"type": "text", "text": "Many educated Europeans of the time took the Earth to be about 6,000 years old, an age worked out from biblical genealogies in the seventeenth century, most famously by Archbishop James Ussher, who put creation in 4004 BC. Some naturalists already doubted it: the Comte de Buffon had suggested about 75,000 years, from how quickly heated iron balls cooled. Hutton's conclusion went further. In his 1788 paper he wrote that in the rocks \"we find no vestige of a beginning, no prospect of an end\". He meant that the record showed cycle after cycle of the same processes, with no sign of a first one."},
+        {"type": "text", "text": "Playfair, recalling the day at Siccar Point years later, wrote that \"the mind seemed to grow giddy by looking so far into the abyss of time.\" His clear and readable Illustrations of the Huttonian Theory (1802) did more than Hutton's own dense prose to spread the idea. Hutton's way of explaining the past by processes that can be observed in the present was later called **uniformitarianism**, after Charles Lyell built his Principles of Geology (1830 to 1833) on it."},
+        {"type": "diagram", "id": "timeline", "caption": "Deep time, from Siccar Point to the textbooks.", "options": {"events": [{"at": 1650, "label": "Ussher dates the creation to 4004 BC"}, {"at": 1778, "label": "Buffon estimates about 75,000 years from cooling iron balls"}, {"at": 1785, "label": "Hutton presents his Theory of the Earth in Edinburgh"}, {"at": 1788, "label": "Hutton, Playfair and Hall visit Siccar Point", "bold": true}, {"at": 1802, "label": "Playfair's Illustrations of the Huttonian Theory"}, {"at": 1830, "label": "Lyell's Principles of Geology begins to appear"}], "spacing": "even"}},
+        {"type": "text", "text": "With modern dating, which lesson 7 explains, the grey beds at Siccar Point are about 435 million years old. They were laid down on the floor of an ocean that once separated Scotland from England. The red sandstone above is about 370 million years old. So the unconformity spans roughly 65 million years, during which that ocean closed, the grey beds were crumpled in the collision, and the resulting mountains were worn down to a plain in a hot, seasonally dry climate. Hutton's instinct about the scale was right, even though he could not put a number on it."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Hutton argued that ordinary, slow processes, given enough time, could explain the rocks, and that enough time meant far more than 6,000 years.", "Explaining the past by processes observable today is called uniformitarianism.", "The gap at Siccar Point is now dated at about 65 million years."]}
+      ]
+    },
+    {
+      "title": "Hutton's cycle",
+      "blocks": [
+        {"type": "text", "text": "Hutton saw the Earth as a system that renews itself. Land is worn down, and the debris is carried into the sea and laid down in layers. Buried deep, the layers are hardened by heat and pressure, and some are melted. In time they are raised again as new land, which in turn is worn down. Each of the lessons so far has followed one leg of this loop, now usually called the **rock cycle**."},
+        {"type": "diagram", "id": "cycle", "caption": "The rock cycle, with the lessons that covered each step. Rock can also skip steps: igneous rock can be worn straight back to sediment, and sedimentary rock can be raised without being changed."},
+        {"type": "text", "text": "Siccar Point shows the cycle turning more than once. The grey beds went through sediment, rock, folding and uplift, and then were worn back toward sediment, which became part of the red sandstone. The red sandstone has since been tilted and raised in its turn, and the sea is now wearing both rocks away to make new sand on the beach below the cliff."},
+        {"type": "text", "text": "What Hutton could not say was what drove the cycle: where the heat came from, and what force raised the sea floor into mountains. Both answers would come much later. The first step toward them came from an attack on Hutton's endless time by the most famous physicist of the next century, which is where the next lesson begins."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The rock cycle links sediment, sedimentary, metamorphic and igneous rock through burial, heating, melting, uplift and erosion.", "An unconformity is the cycle made visible: rock made, raised, worn down and buried under the next round."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on unconformities and deep time", "task": "Select the best answer for each question",
+          "options": { "items": [
+            { "ask": "At Siccar Point, how do we know the grey beds were tilted after they were laid down?", "choices": ["They were sand and mud settling through water, which always begins as horizontal layers", "They are older than the red sandstone", "They contain fragments of the red sandstone"], "answer": 0, "why": "Sediment settles in roughly flat layers, so upright beds have been tilted since. Being older does not on its own show tilting." },
+            { "ask": "What do the pieces of grey rock in the bottom of the red sandstone show?", "choices": ["The grey rock was already hard and being eroded when the red sand was laid down", "The two rocks formed at the same time", "The red sandstone was squeezed into the grey rock from below"], "answer": 0, "why": "Fragments can only be broken off rock that already exists and is exposed, so the grey rock predates the red sand and was at the surface when it arrived." },
+            { "ask": "What does an unconformity represent?", "choices": ["A gap in time, when rock was eroded or not laid down at that place", "A layer of rock that formed very quickly", "A crack along which the rocks have moved"], "answer": 0, "why": "An unconformity is a buried surface of erosion. Time passes across it with no record left at that spot. A crack along which rocks have moved is a fault." },
+            { "ask": "Rock is laid down or worn away at about 0.1 mm a year. Roughly how long would the 11 km of rock made and removed at Siccar Point take?", "choices": ["About 100 million years", "About 100,000 years", "About 10,000 years"], "answer": 0, "why": "11 km is 11 million millimetres; at 0.1 mm a year that is 110 million years. Even at 10 mm a year, a very fast rate, it would take over a million years." },
+            { "ask": "What is uniformitarianism?", "choices": ["Explaining past rocks by processes that can be seen working today", "The idea that all rocks are the same age", "The idea that the Earth has always looked the same as it does now"], "answer": 0, "why": "Hutton and later Lyell argued that ordinary processes like erosion, deposition and uplift, working slowly over long times, account for the rocks. The Earth's surface itself changes greatly." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "An unconformity is a buried erosion surface separating rocks of very different ages, and it marks a gap in time.",
+    "At Siccar Point, upright grey beds were folded, raised and worn flat before red sandstone was laid on them, a gap of about 65 million years.",
+    "Hutton argued from slow, observable processes that the Earth must be vastly older than a few thousand years.",
+    "The rock cycle links sediment, sedimentary, metamorphic and igneous rock through burial, heating, melting, uplift and erosion."
+  ],
+  "next": "Next: Lord Kelvin calculates the age of the Earth from how fast it is cooling and gets an answer far too short for the geologists, until radioactivity changes the arithmetic.",
+  "journal": [],
+  "footnotes": {}
+}

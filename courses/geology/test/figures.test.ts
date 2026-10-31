@@ -114,4 +114,94 @@ describe('figures', () => {
     setSlider(squeeze.node, 0, 90);
     await expect(squeeze.done).resolves.toBeUndefined();
   });
+
+  it('lesson 6: the cliff at Siccar Point is built in five stages', async () => {
+    const unc = FIGURES.unconformity(context(), 'story');
+    await Promise.resolve();
+    guess(unc.node, 'Tens of millions of years');
+    setSlider(unc.node, 0, 5);
+    await expect(unc.done).resolves.toBeUndefined();
+    expect(unc.node.textContent).toContain('million years');
+  });
+
+  it('lesson 7: Kelvin gets about 100 million years, and two half-lives leave a quarter', async () => {
+    const cooling = FIGURES.cooling(context(), 'kelvin');
+    setSlider(cooling.node, 0, 2);
+    await expect(cooling.done).resolves.toBeUndefined();
+    expect(cooling.node.textContent).toContain('Kelvin');
+    const decay = FIGURES.decay(context(), 'two-halves');
+    guess(decay.node, 'None');
+    setSlider(decay.node, 0, 8.94);
+    await expect(decay.done).resolves.toBeUndefined();
+    expect(decay.node.textContent).toContain('50 uranium atoms remain');
+  });
+
+  it('lesson 8: South America meets Africa at the shelf edge', async () => {
+    const fit = FIGURES.fit(context(), 'fitted');
+    guess(fit.node, 'The shelf edges');
+    click(fit.node, 'Shelf edges');
+    setSlider(fit.node, 0, 100);
+    await expect(fit.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 9: the ridge matches the survey at about 2.9 cm a year', async () => {
+    const ridge = FIGURES.ridge(context(), 'matched');
+    setSlider(ridge.node, 1, 6);
+    expect(ridge.node.textContent).toContain('too wide');
+    setSlider(ridge.node, 1, 2.9);
+    await expect(ridge.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 10: a steeper slab brings the volcanoes nearer the trench', async () => {
+    const slab = FIGURES.slab(context(), 'close');
+    guess(slab.node, 'Closer to the trench');
+    setSlider(slab.node, 0, 60);
+    await expect(slab.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 11: the Pacific plate moves about 9 cm a year', async () => {
+    const plume = FIGURES.plume(context(), 'speed');
+    guess(plume.node, 'About 10 cm a year');
+    setSlider(plume.node, 0, 9);
+    await expect(plume.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 12: a river that keeps up cuts a canyon; a knickpoint climbs', async () => {
+    const race = FIGURES.race(context(), 'gorge');
+    setSlider(race.node, 0, 1.4);
+    setSlider(race.node, 2, 2);
+    expect(race.node.textContent).toContain('lake');
+    setSlider(race.node, 1, 1.5);
+    await expect(race.done).resolves.toBeUndefined();
+    const knick = FIGURES.knick(context(), 'knick');
+    setSlider(knick.node, 0, 60);
+    setSlider(knick.node, 1, 60);
+    await expect(knick.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 13: about 10 °C colder sends the Rhône glacier to the Jura', async () => {
+    const glacier = FIGURES.glacier(context(), 'jura');
+    expect(glacier.node.textContent).toMatch(/[5-9] km long|1[0-2] km long/);
+    setSlider(glacier.node, 0, -10);
+    await expect(glacier.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 14: a cold northern summer, and the 41,000-year beat', async () => {
+    const orbit = FIGURES.orbit(context(), 'cold');
+    setSlider(orbit.node, 0, 22.1);
+    setSlider(orbit.node, 1, 0.05);
+    setSlider(orbit.node, 2, 0);
+    await expect(orbit.done).resolves.toBeUndefined();
+    const record = FIGURES.record(context(), 'beat');
+    click(record.node, '1.2 to 2 million years ago');
+    setSlider(record.node, 0, 41);
+    await expect(record.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 15: the crust rises after the ice melts', async () => {
+    const rebound = FIGURES.rebound(context(), 'raised');
+    setSlider(rebound.node, 0, 3000);
+    setSlider(rebound.node, 1, 10);
+    await expect(rebound.done).resolves.toBeUndefined();
+  });
 });

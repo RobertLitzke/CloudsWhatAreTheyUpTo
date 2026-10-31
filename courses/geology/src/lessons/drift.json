@@ -1,0 +1,73 @@
+{
+  "id": "drift",
+  "n": 8,
+  "title": "Continents that fit",
+  "teaches": "Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years",
+  "parts": [
+    {
+      "title": "A jigsaw on the map",
+      "blocks": [
+        {"type": "text", "text": "Almost anyone who looks at a world map notices that the bulge of Brazil would tuck into the curve of West Africa. The Flemish mapmaker Abraham Ortelius remarked on it as early as 1596, suggesting that the Americas had been torn away from Europe and Africa. For three centuries the observation stayed a curiosity."},
+        {"type": "text", "text": "In January 1912 a German meteorologist named Alfred Wegener gave a lecture in Frankfurt arguing that it was not a coincidence. He proposed that all the continents had once been joined in a single landmass, which he later called **Pangaea** (\"all land\"), and that it had broken apart, the pieces drifting to their present positions. He set out the case in 1915 in a book, The Origin of Continents and Oceans, and kept revising it until his death."},
+        {"type": "text", "text": "Wegener made a point that is easy to miss. A coastline is not the true edge of a continent. Around most continents the sea floor slopes gently out to a depth of a hundred metres or so, then drops steeply to the deep ocean floor, three to five kilometres down. The gently sloping part, the **continental shelf**, is continent that happens to be flooded; when sea level fell during the ice ages, much of it was dry land. If continents had split apart, the edges that should match are the edges of the shelves, not wherever the sea happens to stand today."},
+        {"type": "interactive_diagram", "id": "fit", "caption": "South America and Africa, by their coastlines or by the edges of their continental shelves (the 1,000 m depth line). Closing the ocean turns South America about a fixed point near the Azores.", "task": "Close the Atlantic using the shelf edges", "goal": "fitted", "aspect_ratio": 1.33},
+        {"type": "text", "text": "Wegener could only fit paper cutouts on a globe. A proper test came in 1965, when Edward Bullard, Jim Everett and Alan Smith at Cambridge used an early computer to find the best fit of the continents around the Atlantic at the 500-fathom (about 900 m) depth line. The figure uses their rotation. Along most of the join, the gaps and overlaps are under a hundred kilometres, and the largest overlap is the Niger delta, which was built by the river after the continents separated."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Wegener proposed that the continents were once joined in a single landmass, Pangaea, which broke apart.", "The continental shelf is flooded continent; the shelf edge, not the coastline, marks a continent's real outline.", "South America and Africa fit closely at their shelf edges."]}
+      ]
+    },
+    {
+      "title": "More than a jigsaw",
+      "blocks": [
+        {"type": "text", "text": "A good fit could still be chance. Wegener's stronger argument was that the rocks and fossils match across the join, as if a torn newspaper could be put back together not only by its ragged edges but by the lines of print running across them."},
+        {"type": "text", "text": "Fossils of **Mesosaurus**, a small reptile about a metre long that lived in fresh or brackish water some 280 million years ago, are found only in southern Brazil and Uruguay and in southern Africa. It could not have swum the South Atlantic. Leaves of **Glossopteris**, a seed-bearing tree whose seeds were too heavy to blow far, are found in rocks of about the same age in South America, Africa, India, Antarctica and Australia."},
+        {"type": "diagram", "id": "gondwana", "caption": "South America fitted against Africa by the shelf edges, with Mesosaurus fossils and two-billion-year-old rocks on both sides of the join."},
+        {"type": "text", "text": "The rocks match too. A folded mountain belt about 250 million years old, the Cape Fold Belt of South Africa, lines up with the Sierra de la Ventana in Argentina when the continents are closed. After Wegener's time, ancient rocks near São Luís in Brazil, about two billion years old, were shown to continue the same rock province in Ghana, across the Atlantic."},
+        {"type": "text", "text": "The most striking evidence was ice. In South Africa, India, Australia and South America there are layers of **tillite**, a rock made of hardened glacial debris: boulders of many kinds set in a mass of ground-up rock, sitting on bedrock scratched and polished by moving ice (the subject of lesson 13). They are about 300 million years old, and many lie in places that are now tropical. On today's map the scratches point in directions that make no sense, some showing ice flowing in from the ocean. Fit the southern continents together around South Africa and Antarctica, and the scratches point outward from a single ice cap, like spokes from a hub. Wegener called the southern part of Pangaea by an older name, **Gondwana**."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Land animals and plants such as Mesosaurus and Glossopteris are found on continents now separated by oceans.", "Rock belts and ancient glacial deposits line up when the continents are reassembled.", "The southern continents together formed Gondwana, part of Pangaea."]}
+      ]
+    },
+    {
+      "title": "Why no one believed him",
+      "blocks": [
+        {"type": "text", "text": "Most geologists, especially in Britain and North America, rejected the idea, often with contempt. At a symposium in New York in 1926, speaker after speaker attacked it. Part of the reaction was against an outsider, a meteorologist telling geologists what their rocks meant. But the main objection was a reasonable one: Wegener could not say what moved the continents."},
+        {"type": "text", "text": "He suggested two forces: a slight tendency for continents to drift toward the equator as the Earth spins, and the drag of tides from the Sun and Moon. The Cambridge geophysicist Harold Jeffreys calculated in 1924 that both were millions of times too weak to shift a continent. Worse, Wegener pictured continents ploughing through the rock of the ocean floor like ships through ice. Jeffreys pointed out that the ocean floor is too strong for that; a continent forced through it would crumple first."},
+        {"type": "text", "text": "Opponents had their own explanation for the fossils: narrow land bridges that once linked the continents and later sank. But this ran into an idea from lesson 5. Continental crust is lighter than the rock beneath it and floats on it, like a barge. A large slab of continent could no more sink to the ocean floor than a cork can sink in water. The geologists who rejected drift had to accept land bridges that broke the same physics they used to criticise Wegener."},
+        {"type": "text", "text": "Wegener kept collecting evidence. In November 1930, on an expedition across the Greenland ice sheet, he died, aged fifty, on the way back from resupplying a remote research station. His idea survived among a minority, notably the South African geologist Alexander du Toit, who mapped the matching rocks of the southern continents in detail, and Arthur Holmes, who in 1931 suggested that slow currents in the hot mantle beneath the crust might carry the continents along. It was a good guess, but with no way to test it, it attracted little attention."},
+        {"type": "diagram", "id": "timeline", "caption": "Continental drift, from a remark on a map to a computer fit.", "options": {"events": [{"at": 1596, "label": "Ortelius notes the fit of the Atlantic coasts"}, {"at": 1912, "label": "Wegener's lecture on continental drift", "bold": true}, {"at": 1924, "label": "Jeffreys shows Wegener's forces are far too weak"}, {"at": 1926, "label": "New York symposium largely rejects drift"}, {"at": 1930, "label": "Wegener dies on the Greenland ice sheet"}, {"at": 1931, "label": "Holmes proposes convection in the mantle"}, {"at": 1937, "label": "du Toit, Our Wandering Continents"}, {"at": 1965, "label": "Bullard, Everett and Smith fit the Atlantic continents by computer"}], "spacing": "even"}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Drift was rejected mainly because Wegener had no workable mechanism; the forces he proposed were far too weak.", "Sunken land bridges, the alternative, conflict with continents being too buoyant to sink.", "Holmes suggested in 1931 that currents in the mantle could carry the continents."]}
+      ]
+    },
+    {
+      "title": "Looking under the sea",
+      "blocks": [
+        {"type": "text", "text": "Both sides of the argument had studied only the land, which is less than a third of the Earth's surface. Nobody knew what the ocean floor was made of, how old it was, or what its shape was, beyond a few lines of soundings. That changed after the Second World War, when navies began mapping the sea floor in detail to hide and hunt submarines, and found it nothing like what anyone had imagined."},
+        {"type": "text", "text": "Down the middle of the Atlantic runs a mountain range, the Mid-Atlantic Ridge, following the shape of the coasts on either side. Along its crest runs a valley, and earthquakes cluster beneath it. The next lesson follows the clue that finally explained it, recorded in the magnetism of the sea floor rock."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The answer to Wegener's problem lay on the ocean floor, which was barely explored until after 1945."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on continental drift", "task": "Select the best answer for each question",
+          "options": { "items": [
+            { "ask": "Why do South America and Africa fit better at the edges of their continental shelves than at their coastlines?", "choices": ["The shelf is part of the continent, flooded by the sea; the shelf edge is the continent's real boundary", "Coastlines have been worn back by waves since the continents split", "The shelves were added after the continents split"], "answer": 0, "why": "The shoreline depends on where sea level happens to be. The shelf edge, where the floor drops to the deep ocean, marks the edge of continental crust." },
+            { "ask": "Why is Mesosaurus good evidence that South America and Africa were once joined?", "choices": ["It was a small freshwater reptile that could not have crossed an ocean, yet it is found on both continents", "It was a large sea reptile found in every ocean", "It lived so recently that the continents must have split in historical times"], "answer": 0, "why": "An animal of fresh or brackish water, about a metre long, could not cross an ocean thousands of kilometres wide." },
+            { "ask": "Glacial scratches about 300 million years old in South Africa, India and Australia point in directions that make no sense today. What resolves this?", "choices": ["Reassembling the southern continents, so the scratches radiate from one ice cap", "Assuming the ice flowed uphill", "Assuming the Earth was once entirely covered in ice"], "answer": 0, "why": "Fitted together around South Africa and Antarctica, the scratches point outward from a single centre, as ice flows from an ice cap." },
+            { "ask": "What was the main scientific objection to Wegener's idea?", "choices": ["He could not explain what force moved the continents, and the forces he proposed were far too weak", "The continents do not fit together", "No matching fossils had been found across the oceans"], "answer": 0, "why": "Jeffreys showed that Wegener's forces were millions of times too weak, and that continents could not plough through the strong ocean floor." },
+            { "ask": "Why can't sunken land bridges explain the matching fossils?", "choices": ["Continental crust is too light to sink into the denser rock beneath the ocean floor", "Land bridges would have been too narrow for animals to cross", "Sea level has never been high enough to cover a land bridge"], "answer": 0, "why": "Continents float on denser rock, like a barge in water. A slab of continent the size of a land bridge could not sink to the ocean floor." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Wegener proposed that the continents were once joined as Pangaea and have drifted apart.",
+    "South America and Africa fit closely at the edges of their continental shelves, and fossils, rock belts and ancient glacial deposits match across the join.",
+    "Drift was rejected for decades because no one could explain what moved the continents.",
+    "The evidence that settled the question came from the ocean floor."
+  ],
+  "next": "Next: magnetic surveys find stripes in the rock of the ocean floor, and a pair of Cambridge geologists read them as a tape recording of the sea floor spreading apart.",
+  "journal": [],
+  "footnotes": {}
+}

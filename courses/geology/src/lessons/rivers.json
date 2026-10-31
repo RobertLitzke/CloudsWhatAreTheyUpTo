@@ -1,0 +1,71 @@
+{
+  "id": "rivers",
+  "n": 12,
+  "title": "A river that cuts through a mountain",
+  "teaches": "How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it",
+  "parts": [
+    {
+      "title": "The Gates of Lodore",
+      "blocks": [
+        {"type": "text", "text": "In May 1869 John Wesley Powell, a one-armed Civil War veteran and professor of geology, set off down the Green River in Wyoming with nine men and four wooden boats, to explore the canyons of the Green and the Colorado, the last large blank on the map of the United States. A few weeks in, after floating through an open valley called Browns Park, the river turned straight into the Uinta Mountains. Its course there was a narrow canyon walled by red sandstone cliffs some 700 metres high. They named it the Canyon of Lodore, after a poem by Robert Southey. In its rapids they lost a boat and much of their food."},
+        {"type": "diagram", "id": "map", "caption": "Where the Green River leaves Browns Park and enters the eastern Uinta Mountains through the Canyon of Lodore.", "options": {"relief": "maps/lodore", "title": "The Canyon of Lodore", "ground": "height", "exaggeration": 1.5, "alt": "A shaded relief map of the eastern end of the Uinta Mountains: the open valley of Browns Park in the north, and the Green River's canyon cutting south through the mountains to Echo Park.", "labels": [{"lon": -108.888, "lat": 40.723, "text": "Gates of Lodore", "side": "right"}, {"lon": -108.995, "lat": 40.52, "text": "Echo Park", "side": "right"}, {"lon": -109.05, "lat": 40.86, "text": "Browns Park", "area": true}, {"lon": -109.25, "lat": 40.62, "text": "Uinta Mountains", "area": true}]}},
+        {"type": "text", "text": "The puzzle struck Powell at once. The Uintas are a range of mountains, and a river in open country could easily have gone around their eastern end, where the land is lower. Instead it heads directly into the range and cuts through it. Water does not run uphill, so either the river was there first, or the mountains were once buried, or something else had happened. Powell spent the next years thinking about how rivers shape the land, and his answers, with those of his younger colleague Grove Karl Gilbert, laid the foundations of the science of landforms."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The Green River leaves the open valley of Browns Park and cuts straight through the Uinta Mountains in the Canyon of Lodore, though lower ground lay around the range's end."]}
+      ]
+    },
+    {
+      "title": "Base level",
+      "blocks": [
+        {"type": "text", "text": "Powell's first principle was simple. A river can only cut down as far as the body of water it flows into. \"We may consider the level of the sea to be a grand base level, below which the dry lands cannot be eroded,\" he wrote in 1875. A lake or a larger river acts as a local base level for the streams that drain into it. Every river works its bed down toward its base level, and with time it settles into a smooth profile, steep near its source and nearly flat near its mouth, just steep enough to carry the water and sediment it is given. Gilbert called a river in this state **graded**."},
+        {"type": "text", "text": "When base level drops, because sea level falls or the land rises, the river is no longer graded. It begins to cut down at its mouth, and the steepened reach where old and new profiles meet, called a **knickpoint**, moves upstream as the river erodes back into it. Often a knickpoint is a waterfall or a run of rapids. Niagara Falls is one: since the ice sheets retreated, the falls have worked about 11 kilometres back from the edge of the Niagara Escarpment, about a metre a year before engineers diverted much of the river's water for power. Gilbert used this to estimate how long ago the ice had left."},
+        {"type": "interactive_diagram", "id": "knick", "caption": "A river's long profile, from source (left) to mouth (right). The dashed line is the river before its base level fell.", "task": "Drop the base level and let the knickpoint climb at least 40% of the way upstream", "goal": "knick", "aspect_ratio": 2.0},
+        {"type": "text", "text": "This is why a fall in base level leaves its mark on a whole landscape, but slowly. The lower part of the river is cut down first; the headwaters only find out tens or hundreds of thousands of years later. Hanging valleys, terraces left high above a river, and waterfalls far upstream are all signs of a knickpoint still at work."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Base level, usually sea level or a lake, is the lowest level a river can cut down to.", "A graded river has a smooth profile, steep near its source and gentle near its mouth.", "When base level falls, a knickpoint, often a waterfall or rapids, migrates upstream, slowing as the river gets smaller."]}
+      ]
+    },
+    {
+      "title": "Powell's saw",
+      "blocks": [
+        {"type": "text", "text": "For Lodore, Powell offered an explanation. The river had been flowing on its present course before the Uintas existed. As the range rose slowly across its path, the river cut down as fast as the land rose, keeping its course while the mountains were lifted around it. \"The river preserved its level,\" he wrote, \"but the mountains were lifted up; as the saw revolves on a fixed pivot, while the log through which it cuts is moved along.\" He called such a river **antecedent**, meaning it came before the structure it crosses."},
+        {"type": "text", "text": "Whether this works depends on a race. A ridge rising across a river's path is pushed up at some rate; the river can cut down at another rate, which depends on how much water it carries, how steep it is, and how hard the rock is. If the river keeps up, it holds its course and a canyon deepens through the rising ridge. If not, its bed rises, a lake forms behind the ridge, and eventually the water spills out around the end of the ridge and abandons its old gap, leaving a dry notch called a **wind gap**."},
+        {"type": "interactive_diagram", "id": "race", "caption": "A ridge rising across a river's path, seen along the river. Brown: the ridge; blue: the river and any lake behind the ridge.", "task": "Find rates at which the river keeps its course and cuts a canyon at least 700 m deep", "goal": "gorge", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Antecedent rivers exist. In Washington State, the Yakima River winds in deep, tight meanders through Yakima Canyon, cutting across ridges of basalt that were folded up while the river was already flowing there. The Columbia River crosses the entire Cascade Range in the Columbia River Gorge, keeping a course it held while the range rose. Several large rivers cross the Himalaya the same way."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["An antecedent river kept its course by cutting down as fast as a mountain range rose across it.", "If uplift outpaces cutting, the river is dammed and diverted, leaving a wind gap.", "The Yakima River and the Columbia River Gorge are antecedent courses in Washington."]}
+      ]
+    },
+    {
+      "title": "What really happened at Lodore",
+      "blocks": [
+        {"type": "text", "text": "For the Green River itself, Powell's explanation turned out to be wrong. The Uintas were pushed up between about 70 and 50 million years ago, while the Green River's path through them appears to be no more than a few million years old, perhaps less than 8 million. The river came long after the mountains."},
+        {"type": "text", "text": "Powell had also described another possibility. If a mountain range is worn down and buried by its own debris, a river can begin flowing across the smooth cover with no knowledge of the buried range beneath. As it cuts down, it reaches the hard rock of the range and keeps its course, carving a canyon through it, while the soft cover around is stripped away. Such a river is **superimposed**. At Lodore, the eastern Uintas were partly buried by sediment that also fills Browns Park, and the eastern end of the range sagged downward along faults. Most geologists now think the Green River established its route across that low, partly buried end of the range, perhaps by a lake spilling over it or by the river flowing over the cover, and then cut down into the range as the region rose and the Colorado River system lowered its base level."},
+        {"type": "text", "text": "The full story is still being worked out, but both explanations depend on Powell's and Gilbert's principles: rivers cut toward a base level, the race between cutting and uplift decides whether a river keeps its course, and a canyon through a mountain range is evidence of time and of change in the land around it."},
+        {"type": "diagram", "id": "timeline", "caption": "Powell, Gilbert and the rules of rivers.", "options": {"events": [{"at": 1869, "label": "Powell's first expedition through Lodore and the Grand Canyon", "bold": true}, {"at": 1875, "label": "Powell defines base level and antecedent rivers"}, {"at": 1877, "label": "Gilbert's Henry Mountains report: graded rivers"}, {"at": 1890, "label": "Gilbert estimates the age of Niagara Falls from its retreat"}, {"at": 1986, "label": "Hansen: the Green River crossed the Uintas long after they rose"}], "spacing": "even"}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The Green River at Lodore is younger than the Uinta Mountains, so it is not antecedent.", "A superimposed river began on a cover of younger rock and kept its course as it cut down into older structures beneath."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on rivers and base level", "task": "Select the best answer for each question",
+          "options": { "items": [
+            { "ask": "What is base level?", "choices": ["The lowest level a river can erode down to, usually the sea or a lake it flows into", "The level of the river's source", "The depth of the river's water"], "answer": 0, "why": "A river cannot cut below the water it drains into, so that level sets the bottom of its profile." },
+            { "ask": "Sea level falls by 50 m. What happens to a river's headwaters right away?", "choices": ["Nothing yet; a knickpoint has to work its way upstream before they are affected", "They immediately cut down 50 m", "They begin depositing sediment"], "answer": 0, "why": "The fall is felt first at the mouth. The steepened reach migrates upstream over thousands of years, slowing as the river narrows." },
+            { "ask": "An antecedent river crosses a mountain range because:", "choices": ["It was flowing there before the range rose and cut down as fast as the land was lifted", "It found a pre-existing gap in the range", "It flowed uphill during floods"], "answer": 0, "why": "Powell's saw and log: the river kept its level while the mountains rose around it." },
+            { "ask": "A ridge rises 1 mm a year across a river that can only cut down 0.3 mm a year. What will happen?", "choices": ["The river's bed in the gap rises, a lake ponds behind it, and the river is eventually diverted", "The river cuts a canyon 1 km deep in a million years", "The ridge stops rising"], "answer": 0, "why": "The ridge wins the race. The river loses its gap, which is left as a dry wind gap." },
+            { "ask": "Why is the Green River at Lodore now thought to be superimposed rather than antecedent?", "choices": ["Its route through the Uintas is millions of years younger than the mountains", "It flows in the wrong direction for an antecedent river", "It contains too much water"], "answer": 0, "why": "The Uintas rose 70 to 50 million years ago; the river's path across them seems to be less than about 8 million years old, so it cannot have been there first." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Rivers cut down toward a base level and settle into a graded profile, steep at the source and gentle at the mouth.",
+    "A fall in base level sends a knickpoint, often a waterfall, slowly upstream.",
+    "A river crossing a range may be antecedent (older than the range) or superimposed (let down onto it from a cover of younger rock).",
+    "The Green River at Lodore is younger than the Uinta Mountains it crosses."
+  ],
+  "next": "Next: Louis Agassiz argues that boulders scattered across Switzerland, far from the rock they came from, were carried there by glaciers that once filled the valleys.",
+  "journal": [],
+  "footnotes": {}
+}

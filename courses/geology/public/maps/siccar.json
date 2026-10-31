@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "siccar.png",
+  "width": 583,
+  "height": 520,
+  "zoom": 13,
+  "x0": 1034478,
+  "y0": 653455,
+  "step": 2,
+  "bounds": [
+    -2.42008,
+    55.86,
+    -2.21992,
+    55.96006
+  ],
+  "range": [
+    -43,
+    290
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name siccar --bbox -2.42,55.86,-2.22,55.96 --zoom 13 --max 640 --precision 1 --out courses/geology/public/maps"
+}

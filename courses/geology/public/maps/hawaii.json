@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "hawaii.png",
+  "width": 564,
+  "height": 379,
+  "zoom": 8,
+  "x0": 3495,
+  "y0": 28562,
+  "step": 2,
+  "bounds": [
+    -160.80139,
+    18.6046,
+    -154.6051,
+    22.50241
+  ],
+  "range": [
+    -5839,
+    4107
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name hawaii --bbox -160.8,18.6,-154.6,22.5 --zoom 8 --max 640 --precision 1 --out courses/geology/public/maps"
+}
