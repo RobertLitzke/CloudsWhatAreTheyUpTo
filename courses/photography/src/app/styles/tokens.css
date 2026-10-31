@@ -1,0 +1,53 @@
+/* Design tokens: a camera bag and a cold morning. The page is slate, the
+   lessons are on warm paper, the one accent is the amber of low sun, and the
+   photographs are left to carry the colour. */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('../../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+/* The lesson log's handwriting. */
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../../../node_modules/@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url('../../../node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+:root {
+  --bg: #1d2430; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #2b3340;
+  --panel: #e9e5dd;
+  --panel-2: #cfc9bd;
+  --ink: #1d2430;
+  --ink-soft: #5d6a7d;
+  --text: #eceae5;
+  --muted: #a3adbb;
+  --sun: #e8a33d;
+  --sun-deep: #c4543f;
+  --rose: #c4543f;
+  --teal: #1f8a8f;
+  --title: #f4efe6;
+  --paper: #f7f5f0;
+  --good: #3f7d4a;
+  --bad: #c4543f;
+  --radius: 12px;
+
+  --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', cursive;
+}
