@@ -154,5 +154,5 @@ tools/        photos/, gallery/, rewrite/, icons.mjs
 ## Deploy
 
 Pushes to `main` build and deploy to GitHub Pages
-(`.github/workflows/pages.yml`) at https://robertlitzke.github.io/Dirt/. In
+(`.github/workflows/pages.yml`) at https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/soil/. In
 the repository's settings, Pages must be set to deploy from GitHub Actions.
