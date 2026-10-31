@@ -5,6 +5,6 @@ import { assetFrom } from 'didactics/asset';
 
 export { fromDisk } from 'didactics/asset';
 
-export const SITE_URL = 'https://robertlitzke.github.io/Dirt/';
+export const SITE_URL = 'https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/soil/';
 
 export const asset = assetFrom(SITE_URL);

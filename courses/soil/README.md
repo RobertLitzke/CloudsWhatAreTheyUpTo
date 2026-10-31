@@ -7,13 +7,13 @@ lesson is paragraphs and live figures to play with, a check at the end, and a
 log to sign. A reference page sets out what the lessons teach, to look up in
 the garden.
 
-Built on [Didactics](https://github.com/RobertLitzke/Didactics), the lesson
-library taken out of
-[Clouds](https://github.com/RobertLitzke/CloudsWhatAreTheyUpTo), pinned to a
-commit in package.json. There is no story or radio mentor for now (the
-library's radio is off). To move to a newer Didactics, run
-`npm install github:RobertLitzke/Didactics#<sha>`, then `npm test` and
-`npm run build`.
+Built on [Didactics](https://github.com/RobertLitzke/Didactics), pinned to a
+commit in package.json. Dirt is one course of several on one site: it lives in
+`courses/soil/` of that site's repository and is served from `/soil/` under
+the course catalog (see the README at the repository's root; run it with
+`npm run dev -w soil`). There is no story or radio mentor for now (the
+library's radio is off). To move to a newer Didactics, change the pin in every course's package.json
+and run `npm install` at the root, then `npm test` and `npm run build`.
 
 ## What is built
 
