@@ -1,0 +1,87 @@
+{
+  "id": "steno",
+  "n": 1,
+  "title": "Seashells on mountaintops",
+  "teaches": "How loose mud becomes layers of rock, and how to read their order",
+  "parts": [
+    {
+      "title": "Tongue stones",
+      "blocks": [
+        {"type": "text", "text": "For centuries, people in Malta and Tuscany dug pointed, glossy stones out of the hillsides. They were called *glossopetrae*, or tongue stones, and they were sold as charms against poison.[^tongues] Nobody knew what they were. The most popular idea was that they grew inside the rock, the way crystals do."},
+        {"type": "text", "text": "In October 1666, fishermen near Livorno caught an enormous shark. The Grand Duke of Tuscany had its head sent to Florence, to a young Danish anatomist at his court named Niels Stensen, known in Latin as **Steno**. Steno dissected the head and examined the teeth. They were the exact shape of the tongue stones, down to the fine saw-teeth along the edges."},
+        {"type": "diagram", "id": "photo", "caption": "Illustration of the shark's head from Steno's 1667 book.", "options": {"photo": "steno-shark", "aspect": 0.8, "position": "center top"}},
+        {"type": "diagram", "id": "tooth", "caption": "A tongue stone beside a modern shark's tooth, with the same shape and serrated edges.", "aspect_ratio": 2.35},
+        {"type": "text", "text": "Steno doubted the stones had merely grown inside the rock into the shape of teeth. Crystals grow with flat faces and sharp angles, pushing the surrounding material aside or filling open cavities. A tongue stone has the curved root and sharp, serrated blade of a tooth made for biting, and it sits neatly within the rock. Some layers held whole sets of them alongside seashells."},
+        {"type": "text", "text": "If tongue stones were real teeth, that raised a harder puzzle. How did one solid object end up sealed inside solid rock on a hill far from the sea? Steno reasoned that if a solid thing is surrounded by another solid and keeps its own shape, the inner one hardened first. The tooth was already solid when the rock formed around it. That rock must once have been loose **sediment**, the sand and mud that settles at the bottom of water, soft enough to bury a tooth before hardening into stone. And sediment that buries shark teeth lies on the floor of the sea."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Tongue stones were fossilised sharks' teeth.", "If an object is sealed inside a rock, it was there before the rock hardened, meaning the rock was once loose sediment."]}
+      ]
+    },
+    {
+      "title": "How mud becomes layers",
+      "blocks": [
+        {"type": "text", "text": "Steno spent the next two years travelling the hills of Tuscany, studying the rock the teeth came from. It appeared in **layers**, sheets of stone stacked like the pages of a closed book. Geologists call each sheet a *stratum* (plural *strata*).[^strata] Some layers were sandstone, made of sand grains stuck together. Others were mudstone or shale, made of hardened mud. Still others were limestone, a rock made mostly of calcium carbonate from shells and sea creatures, often holding whole shells too."},
+        {"type": "text", "text": "He reasoned that each layer had once been loose sediment, carried by a river and dropped on the floor of a sea or lake where the water slowed down. When the flow changes, what settles changes too. A flood brings coarse sand, while a calm spell lets fine mud settle. Each shift starts a new layer."},
+        {"type": "text", "text": "Loose sediment turns to rock as it is buried deeper. The weight of the layers above squeezes the water out from between the grains. Mineral-rich water seeping through the tiny gaps slowly leaves crystals behind, mostly calcite or quartz, which glue the grains together like mortar holding bricks. Given enough depth and time, a bed of sand becomes sandstone."},
+        {"type": "text", "text": "The floor of a sea is uneven, with hollows and old hills across it. Try adding sediment to the basin below to see what shape the layers take as they build up."},
+        {"type": "interactive_diagram", "id": "settle", "caption": "A basin with a lumpy, tilted floor, filling with mud and sand.", "task": "Guess, then add layers until the top is nearly level", "goal": "flat", "aspect_ratio": 1.74},
+        {"type": "text", "text": "With any movement in the water, loose grains wash off the high spots and collect in the low ones. Each new layer fills the hollows a little more than the one before, and after a few layers the top is nearly level. This is the rule of **original horizontality**: layers of sediment start out flat, or close to it. In very still water a thin layer can drape evenly over a bump, and on the front slope of a **delta**, the fan of sediment a river builds where it enters a lake or sea, layers can settle at an angle. Those are exceptions you learn to spot."},
+        {"type": "text", "text": "A second rule follows from the same process: **lateral continuity**. A layer spreads out sideways until it thins away to nothing or meets the edge of its basin. When a river cuts a valley through flat layers, the same bands of rock continue on the far wall at the same level. In the Grand Canyon you can trace a single band of rock for miles around every bend."},
+        {"type": "diagram", "id": "photo", "caption": "The Grand Canyon. Each band of colour is a layer, and it carries on across the canyon to the far wall.", "options": {"photo": "grand-canyon", "aspect": 1.5}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Layers form from grains that settle out of water or air.", "Buried sediment is squeezed and cemented into rock.", "Layers start out flat, or close to it.", "A layer continues sideways until it thins out or meets an edge."]}
+      ]
+    },
+    {
+      "title": "Reading a cliff",
+      "blocks": [
+        {"type": "text", "text": "Steno's most famous rule is **superposition**. In a pile of layers that nothing has overturned, the one at the bottom settled first and the one on top settled last. Lower is older. That simple rule lets you read a cliff from the bottom up as a timeline, with the earliest events at the base."},
+        {"type": "text", "text": "Another rule, **cross-cutting relationships**, was developed further by James Hutton in the late 1700s and Charles Lyell in the 1830s, though Steno used the basic idea himself. Anything that cuts across layers is younger than the layers it cuts. A crack can only break rock that is already solid, and melted rock can only squeeze into a fracture that has already opened."},
+        {"type": "text", "text": "The cliff below shows two kinds of cut. A **fault** is a fracture where the rock has slipped, leaving the layers on one side lower than on the other. A **dike** is a sheet of once-molten rock that forced its way up through a crack and cooled into stone. There is also a worn surface. When rock is lifted above the water, rain and rivers wear its top down in a process called **erosion**, and new layers can later settle across that worn surface."},
+        {"type": "interactive_diagram", "id": "order", "caption": "A cliff with four layers, a fault and a dike.", "task": "Tap the events from oldest to youngest", "goal": "ordered", "aspect_ratio": 1.67},
+        {"type": "text", "text": "Look at layer D. It lies unbroken across the top of the fault, so the fault must have slipped before D settled. In between, erosion planed the top of the broken layers flat, allowing D to lie evenly across both sides. The dike cuts through every layer, D included, so it came last. A geologist can work out the sequence of all six events without knowing a single calendar date."},
+        {"type": "text", "text": "When layers stand tilted, vertical, or bent into waves, original horizontality tells us they were moved after they formed. Great forces in the crust squeezed or tipped them long after the mud had settled."},
+        {"type": "diagram", "id": "photo", "caption": "Folded layers on a rocky shore. They were laid down flat on a sea floor, then squeezed into this shape.", "options": {"photo": "folded-strata", "aspect": 1.33}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Lower layers are older (superposition).", "Whatever cuts through a layer, such as a fault or a dike, is younger than that layer.", "A worn surface buried beneath new layers marks a time when the older rock was eroded.", "Tilted or folded layers were moved after they formed."]}
+      ]
+    },
+    {
+      "title": "Shells on the mountain",
+      "blocks": [
+        {"type": "text", "text": "This brings us back to the hills of Tuscany, where layers of rock sit full of seashells and sharks' teeth. By Steno's rules, those layers were once flat sheets of sediment on a sea floor. Today they stand hundreds of metres above the sea, and many of them are tilted."},
+        {"type": "diagram", "id": "photo", "caption": "Limestone from Ohio, full of fossil shells. These animals lived on a sea floor, and the rock is now far inland.", "options": {"photo": "fossil-limestone", "aspect": 1.33}},
+        {"type": "text", "text": "Rocks that formed in the sea, called **marine** rocks, now stand high on dry land. Either the sea once stood that high, or the land changed level. In 1669 Steno published a short book whose title names the puzzle he started from, *On a solid naturally contained within a solid*.[^prodromus] In it he sketched the history of Tuscany in six stages: layers settled flat under the sea, the sea retreated and caverns were hollowed out underneath, the roofs collapsed so the layers tilted, the sea returned to lay new flat sheets over the broken old ones, and the cycle of hollowing and collapse happened a second time."},
+        {"type": "text", "text": "Steno fitted all six stages into a few thousand years, matching the biblical timeline that nearly everyone in seventeenth-century Europe accepted for the age of the Earth. His rules work regardless of the clock. They reveal the order of events, while leaving open how long each stage took. The question of how much time is locked inside a pile of layers remained unresolved for another century, and we will return to it in later lessons."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Marine fossils on land show that those rocks formed under the sea before ending up on high ground.", "Steno's rules give the relative order of events, rather than their exact dates or durations."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on reading layers", "task": "Answer them",
+          "options": { "items": [
+            { "ask": "In this view of the Grand Canyon, which layers formed first?", "photo": "grand-canyon", "choices": ["The ones lowest down, near the river", "The ones at the rim", "They all formed at once"], "answer": 0, "why": "Undisturbed layers settle one on top of another, so the lowest are the oldest. The river has cut down through the stack and exposed them in order." },
+            { "ask": "Were these layers laid down in this shape?", "photo": "folded-strata", "choices": ["No: they settled flat and were bent later", "Yes: they settled over a folded sea floor"], "answer": 0, "why": "Layers start out flat or nearly flat, because loose grains fill the hollows first. Tight folds like these mean the rock was squeezed after it formed." },
+            { "ask": "Some people said tongue stones grew inside the rock, like crystals. What told Steno they were teeth?", "photo": "shark-tooth", "choices": ["Their shape matched a shark's teeth, edges and all, and nothing about them looked like a crystal", "They were found near the sea", "They were hard and shiny"], "answer": 0, "why": "Crystals have flat faces and sharp angles. Tongue stones had the curved root, sharp blade and serrated edges of a real shark's tooth." },
+            { "ask": "A dike cuts through layers A and B. Layer C lies on top of B and the dike stops at the bottom of C, without cutting it. Which is youngest?", "choices": ["Layer C", "The dike", "Layer A"], "answer": 0, "why": "The dike cuts A and B, so it is younger than both. C lies across the top of the dike without being cut, so C settled after the dike cooled." },
+            { "ask": "A rock full of fossil seashells sits on a hilltop far from the sea. What does that tell you?", "photo": "fossil-limestone", "choices": ["The rock formed on a sea floor and now stands above sea level", "A flood carried the shells up the hill", "The shells grew inside the rock after it formed"], "answer": 0, "why": "The shells are sealed inside the solid rock, meaning they were buried in sea-floor sediment before it hardened. A brief flood over land would only leave loose shells on the surface." },
+            { "ask": "Why do layers start out close to flat, even when the sea floor under them is lumpy?", "choices": ["Waves and currents move loose grains off the highs into the hollows", "The weight of the water presses them flat", "Sea floors are always flat"], "answer": 0, "why": "Moving water and gravity carry grains into the low places first, so each layer fills the hollows until the top levels out. In very still water a layer can drape over a bump instead." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Fossils sealed inside rock show the rock was once loose sediment.",
+    "Buried sediment is squeezed and cemented into solid rock.",
+    "Layers start nearly flat and spread sideways until they thin out.",
+    "Lower layers are older; anything cutting across a layer is younger than it.",
+    "Seashells in mountain rocks came from ancient sea floors that now stand on land."
+  ],
+  "next": "Next: a cliff in Utah made of sandstone, where the fine lines inside each layer slope steeply. How did they form?",
+  "journal": [],
+  "footnotes": {
+    "tongues": {"kind": "digression", "title": "Tongue stones as medicine", "text": "In Malta they were said to be serpents' tongues turned to stone by Saint Paul. Wealthy diners hung them in silver mounts or dipped them into wine to test for poison, and apothecaries sold them ground into powder well into the 1700s."},
+    "strata": {"kind": "technical", "title": "Stratum, strata", "text": "A **stratum** is a single layer of sedimentary rock, and *strata* is the plural. The study of rock layers and their order is called **stratigraphy**."},
+    "prodromus": {"kind": "digression", "title": "Steno's small book", "text": "The short name of the book is the *Prodromus*, Latin for a preview of a longer work. Steno never wrote the longer work. Having converted to Catholicism in 1667, he later gave up natural science, was ordained a priest, and became a bishop."}
+  }
+}

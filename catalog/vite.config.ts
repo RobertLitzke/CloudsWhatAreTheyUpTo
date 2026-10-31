@@ -47,6 +47,7 @@ export default defineConfig({
           '*/index.html',
           '*/poster.webp',
           '*/photos/*.webp',
+          '*/maps/*.{png,json}',
           '*/icons/*.{png,svg}',
         ],
         inlineWorkboxRuntime: true,

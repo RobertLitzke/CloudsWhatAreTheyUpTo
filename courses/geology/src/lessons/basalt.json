@@ -1,0 +1,81 @@
+{
+  "id": "basalt",
+  "n": 4,
+  "title": "The rock that was once on fire",
+  "teaches": "How molten rock cools into glass or crystals, and how a lava flow cracks into columns",
+  "parts": [
+    {
+      "title": "The milestones of Moulins",
+      "blocks": [
+        {"type": "text", "text": "In 1751 a French naturalist, Jean-Étienne Guettard, was travelling through Moulins, in central France, when he noticed the milestones by the road. They were cut from a dark stone full of small holes, like a hardened sponge. He knew of stone like it from around Vesuvius in Italy. It was **lava**: molten rock that has poured out of a volcano and hardened. The holes were gas bubbles, frozen in place."},
+        {"type": "text", "text": "He asked where the stone came from, and was sent to the quarries of Volvic, in the hills of Auvergne near Clermont-Ferrand. Above the quarries he found a line of round hills, some with hollow tops like bowls. They were volcanoes, dozens of them, now called the Chaîne des Puys, and there was no record anywhere of their ever having erupted."},
+        {"type": "diagram", "id": "map", "caption": "The Chaîne des Puys, a line of about eighty small volcanoes west of Clermont-Ferrand. The round bumps are cones, many with a crater on top.", "options": {"relief": "maps/auvergne", "title": "The volcanoes of Auvergne", "exaggeration": 3, "alt": "A shaded relief map of a line of round volcanic hills running north to south, with Puy de Dôme, Puy de Pariou, Volvic and Clermont-Ferrand marked.", "labels": [{"lon": 2.964, "lat": 45.772, "text": "Puy de Dôme", "side": "left"}, {"lon": 2.97, "lat": 45.796, "text": "Puy de Pariou", "side": "left"}, {"lon": 3.08, "lat": 45.78, "text": "Clermont-Ferrand", "side": "below"}, {"lon": 3.04, "lat": 45.87, "text": "Volvic"}]}},
+        {"type": "diagram", "id": "photo", "caption": "Puy de Pariou, a cone of cinders with a crater at the top.", "options": {"photo": "pariou", "aspect": 1.5}},
+        {"type": "text", "text": "So there were dead volcanoes in the middle of France. That was a surprise, though it threatened nobody's ideas. The real argument was over a different, far commoner rock called **basalt**, and whether it had once been molten like lava or had settled out of water like the layers of lesson 1."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Guettard traced a dark, holed building stone to old volcanoes in central France.", "Lava is molten rock that has poured out at the surface and hardened."]}
+      ]
+    },
+    {
+      "title": "Basalt and the ocean",
+      "blocks": [
+        {"type": "text", "text": "Basalt is the commonest volcanic rock on Earth; the ocean crust is largely made of it. It is hard, heavy and **fine-grained**, meaning its crystals are too small to see without a lens, and it is black or dark grey when fresh. In some places it stands in tall columns with flat sides, packed together like pencils in a box. The Giant's Causeway in Northern Ireland has tens of thousands of them."},
+        {"type": "diagram", "id": "photo", "caption": "The Giant's Causeway, Northern Ireland. Most of the columns have five, six or seven sides.", "options": {"photo": "causeway", "aspect": 1.2}},
+        {"type": "text", "text": "The most influential geology teacher of the late 1700s, Abraham Werner, taught at the mining school in Freiberg, in Germany. He held that nearly all rock, basalt included, had settled out of a great ocean that once covered the Earth, the way salt crystals settle from salty water. His followers were called **Neptunists**, after the Roman god of the sea. Many crystals grow with flat faces and regular shapes, so to them the neat columns looked like giant crystals. Lava, they said, was something else: rough and full of holes."},
+        {"type": "text", "text": "In 1763 another Frenchman, Nicolas Desmarest, went to Auvergne. He found columns of basalt there too, and he followed the rock they were part of. It ran in long tongues downhill from the cones and along the valleys, the way lava runs. On top, the tongues were rough and full of gas holes, like fresh lava. Lower down inside them, the same rock was dense and stood in columns. Rock that pours from a volcano, flows downhill and froths at its surface is lava. Basalt, he concluded, was lava that had cooled."},
+        {"type": "text", "text": "Those columns come from shrinkage as the rock cools. A thick flow of lava loses heat from its top, into the air, and from its base, into the cold ground beneath. As it shrinks, it cracks, like mud drying in the sun. The cracks start at the cool surfaces in a random jumble and grow inward as the cooling moves deeper into the flow."},
+        {"type": "interactive_diagram", "id": "columns", "caption": "The cracks in a cooling lava flow, seen from above as if the rock over them were sliced away at each depth. Blue-grey columns have six sides.", "task": "Go deeper into the flow until most columns are hexagons", "goal": "hexagons", "aspect_ratio": 1.82},
+        {"type": "text", "text": "As each crack grows inward, it follows the one before but bends a little toward meeting its neighbours at even angles, which releases the stress most efficiently. Some tens of centimetres in, the jumble has sorted itself into mostly six-sided columns, though some keep five or seven sides. When the lava cools fast, stress builds quickly and the rock cracks more often, so the cracks are closer together and the columns thinner."},
+        {"type": "diagram", "id": "photo", "caption": "The tops of the columns at Devils Postpile, California, seen from above like the figure.", "options": {"photo": "postpile", "aspect": 1.5}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Neptunists thought basalt settled out of an ancient ocean.", "Desmarest traced basalt columns back to lava flows from the volcanoes.", "Columns are the blocks between cracks that formed as the lava shrank while cooling."]}
+      ]
+    },
+    {
+      "title": "Hall's furnace",
+      "blocks": [
+        {"type": "text", "text": "Desmarest's evidence came from the field. The Neptunists had a laboratory answer. When lava from Vesuvius or Etna, Italy's active volcanoes, was melted again in a furnace and left to cool, it set into a black glass. Basalt is stony, made of tiny crystals, rather than glassy. The Neptunists argued that if basalt had once been molten, it would have cooled into glass too."},
+        {"type": "text", "text": "In Edinburgh, James Hall decided to test it. Hall was a friend of James Hutton, who argued that heat inside the Earth had made many rocks. In the late 1790s Hall took lumps of the local basalt and dolerite, melted them in a glasshouse and an iron foundry, and let the melt cool in two ways: some fast, some slowly."},
+        {"type": "interactive_diagram", "id": "furnace", "caption": "Melted rock cooling. Above, a close-up 2 cm across; below, the kind of rock it makes.", "task": "Guess, then let the basalt cool slowly enough to grow crystals", "goal": "crystals", "aspect_ratio": 1.4},
+        {"type": "text", "text": "When the melt cooled in a minute or so, it set as black glass, just like the glass on the chilled rim of a fresh lava flow. When Hall let it cool slowly, over hours, it came out stony and crystalline, much like the rock he had started with. For the same melt, only the cooling time separated glass from stone. A crystal is a solid whose atoms are stacked in an orderly, repeating pattern, and a **mineral** is a natural crystal substance with its own chemical make-up, such as quartz or feldspar. In a melt the atoms move freely. As it cools, they lock into the patterns of minerals, if they have time to find their places. Cooled too fast, they freeze where they are, in a jumble: a **glass**."},
+        {"type": "text", "text": "The longer the cooling, the bigger the crystals. Lava cools in days to years and makes fine-grained basalt. The same melt cooling more slowly underground, over years to centuries, makes **dolerite**, with crystals about a millimetre across; slower still, over thousands of years, it grows crystals several millimetres across that are easy to see with the naked eye, in a rock called **gabbro**."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Melted basalt cooled fast becomes glass; cooled slowly, it grows crystals again.", "The slower the cooling, the bigger the crystals."]}
+      ]
+    },
+    {
+      "title": "Rocks from fire",
+      "blocks": [
+        {"type": "text", "text": "Rocks that set from a melt are called **igneous** rocks, from the Latin for fire. Geologists group them by how fast they cooled, which sets the size of their crystals, and by what the melt was made of, which sets their minerals and colour."},
+        {"type": "text", "text": "A melt rich in iron and magnesium makes dark rocks: basalt where it cools fast at the surface, gabbro where it cools slowly deep down. A melt rich in **silica**, the main substance of quartz and of window glass, makes pale rocks: rhyolite at the surface, granite deep down, and obsidian when it cools so fast it turns to glass. Gas bubbling out of a frothy melt as it erupts leaves **pumice**, a glass so full of holes that it floats."},
+        {"type": "diagram", "id": "photo", "caption": "Granite, cooled slowly deep underground over many thousands of years. The crystals are pale quartz, pink and white feldspar, and black mica.", "options": {"photo": "granite", "aspect": 1.5}},
+        {"type": "text", "text": "Back in 1785, Hutton had gone to Glen Tilt, in the Scottish Highlands, to test his idea that granite, too, was once molten. There he found veins of granite cutting up through the layered rocks above it, as if squeezed into cracks while liquid. By lesson 1's rule of cross-cutting, the granite was younger than the layers it cut, so it could not have settled beneath them from an ocean. Field evidence like this, together with Hall's furnace, wore the Neptunist theory down. By the 1820s most geologists accepted that basalt and granite had both been molten."},
+        {"type": "diagram", "id": "timeline", "caption": "Basalt's story, from milestones to the furnace.", "options": {"events": [{"at": 1751, "label": "Guettard traces the Moulins milestones to volcanoes in Auvergne"}, {"at": 1763, "label": "Desmarest traces basalt to lava flows"}, {"at": 1785, "label": "Hutton finds granite veins in Glen Tilt"}, {"at": 1787, "label": "Werner teaches that basalt settled from water"}, {"at": 1798, "label": "Hall melts basalt and grows crystals again", "bold": true}, {"at": 1825, "when": "1820s", "label": "Most geologists accept basalt and granite were molten"}], "spacing": "even"}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Igneous rocks set from a melt.", "Fine crystals or glass mean fast cooling at the surface; big crystals mean slow cooling underground.", "Dark igneous rocks come from iron-rich melts, pale ones from silica-rich melts."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on rocks from fire", "task": "Answer them",
+          "options": { "items": [
+            { "ask": "This rock is glassy, with no crystals. How did it cool?", "photo": "obsidian", "choices": ["Very fast, before crystals could grow", "Slowly, over several weeks", "Very slowly, deep underground"], "answer": 0, "why": "Glass forms when a melt cools too fast for its atoms to line up into crystals. This is obsidian." },
+            { "ask": "The crystals in this rock are easy to see. Where did it most likely cool?", "photo": "granite", "choices": ["Deep underground, over thousands of years or more", "On the surface, as a lava flow", "In a fast-cooling lava, near its top"], "answer": 0, "why": "Big crystals need a long, slow cooling, which happens deep underground. This is granite." },
+            { "ask": "Neptunists said basalt couldn't be made by fire because melted rock cools into glass, while basalt is stony. How did Hall's furnace answer them?", "choices": ["Melted basalt cooled slowly came out stony and crystalline again", "Melted basalt always cooled to glass, whatever he did", "Basalt would not melt even in a foundry furnace"], "answer": 0, "why": "Cooled fast, the melt became glass; cooled slowly, it grew crystals like the original basalt. So basalt's stony look was no evidence against its having been lava." },
+            { "ask": "What made Desmarest decide that the basalt columns of Auvergne were lava?", "photo": "causeway", "choices": ["The columns were part of flows he could trace back to volcanic cones", "The columns were warm to the touch", "The columns had the same shape as salt crystals"], "answer": 0, "why": "The basalt ran in tongues downhill from the cones, frothy on top and in columns lower down. Rock that flows from a volcano is lava." },
+            { "ask": "Two lava flows have columns. One has columns 20 cm across, the other 2 metres. Which cooled faster?", "choices": ["The one with 20 cm columns", "The one with 2 metre columns", "Column size does not depend on cooling"], "answer": 0, "why": "Faster cooling makes more cracks, closer together, so the columns are thinner." },
+            { "ask": "Why does pumice float on water?", "photo": "pumice", "choices": ["It is glass blown full of gas bubbles", "It is made of very light crystals", "It is soaked with oil"], "answer": 0, "why": "Pumice forms when gas froths out of a melt as it erupts and the froth freezes as glass. The bubbles make it lighter than water." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Basalt formed from lava, as Desmarest showed by tracing it back to volcanoes.",
+    "A melt cooled fast makes glass; cooled slowly, it grows crystals, and the slower, the bigger.",
+    "Cooling lava shrinks and cracks; the blocks between the cracks are columns, mostly six-sided.",
+    "Igneous rocks come dark or pale, fine or coarse, from what the melt was made of and how fast it cooled."
+  ],
+  "next": "Next: in the Scottish Highlands, layers that began as mud turn up as glittering rock full of red garnets. What changed them?",
+  "journal": [],
+  "footnotes": {
+  }
+}

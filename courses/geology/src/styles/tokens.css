@@ -1,0 +1,36 @@
+/* Design tokens: a field notebook on a canyon rim at dusk. The page is dark
+   rock, lessons are on pale notebook paper, and the accents are the colours
+   of sandstone, red beds and lichen. */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+:root {
+  --bg: #2a2420; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #3b322c;
+  --panel: #f1e7d4;
+  --panel-2: #e2d3b6;
+  --ink: #2b2622;
+  --ink-soft: #6e6258;
+  --text: #f1e7d4;
+  --muted: #bfae97;
+  --sun: #e0a458;
+  --sun-deep: #c9734a;
+  --rose: #b4553a;
+  --teal: #2a8c7a;
+  --title: #f3d9a8;
+  --paper: #fbf6ec;
+  --good: #3f8f5a;
+  --bad: #c0392b;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }

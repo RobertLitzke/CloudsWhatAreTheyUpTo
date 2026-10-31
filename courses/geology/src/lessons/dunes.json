@@ -1,0 +1,83 @@
+{
+  "id": "dunes",
+  "n": 2,
+  "title": "A desert turned to stone",
+  "teaches": "How water and wind sort grains, and how a moving dune leaves sloping layers behind",
+  "parts": [
+    {
+      "title": "The striped mountain",
+      "blocks": [
+        {"type": "text", "text": "Drive into Zion National Park in southern Utah from the east, and one of the first things you pass is a pale dome of rock called Checkerboard Mesa. Its face is scored with lines, some running across it and some up and down, so the whole hill looks like a sheet of graph paper draped over a mountain."},
+        {"type": "diagram", "id": "photo", "caption": "Checkerboard Mesa, near the east entrance of Zion.", "options": {"photo": "checkerboard", "aspect": 1.33}},
+        {"type": "text", "text": "The lines running up and down are cracks, called **joints**. The surface of the rock swells in the heat of the day and shrinks at night, while water freezes in the cracks in winter. Over thousands of years, the rock splits along straight lines. The lines running across are layers inside the rock, and up close they are not level. They sweep down at angles of 20 or 30 degrees and curve near the bottom, until they are cut off by the next group of sloping lines above them, which may slope another way. Geologists call these sloping layers **cross-beds**, and each group of them a **set**."},
+        {"type": "text", "text": "In the last lesson, layers settled flat, whereas these slope. The rock is the **Navajo Sandstone**, a sandstone being sand that was buried and cemented into rock, as in lesson 1. Checkerboard Mesa is made of it, and so are the great walls of Zion Canyon, from the river nearly to the rim. In Zion it is over 600 metres thick."},
+        {"type": "diagram", "id": "map", "caption": "Zion Canyon, cut into the Navajo Sandstone. Springdale, the town at the canyon's mouth, sits over 500 metres below the peak of Angels Landing.", "options": {"relief": "maps/zion", "scale": "right", "title": "Zion, Utah", "alt": "A shaded relief map of Zion Canyon, a deep north-south gorge, with Springdale at its mouth and Checkerboard Mesa to the east.", "labels": [{"lon": -112.9481, "lat": 37.2694, "text": "Angels Landing"}, {"lon": -112.948, "lat": 37.3, "text": "Zion Canyon", "area": true}, {"lon": -112.998, "lat": 37.189, "text": "Springdale", "side": "right"}, {"lon": -112.882, "lat": 37.226, "text": "Checkerboard Mesa", "side": "above"}]}},
+        {"type": "text", "text": "All that sand had to be laid down somewhere, and something had to stack it in sloping sheets."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Zion's cliffs, Checkerboard Mesa included, are the Navajo Sandstone, over 600 metres of it.", "Inside it are cross-beds: thin layers that slope at 20 or 30 degrees, in sets cut off by the set above."]}
+      ]
+    },
+    {
+      "title": "Sorting the grains",
+      "blocks": [
+        {"type": "text", "text": "Start with the grains themselves. Under a hand lens the Navajo Sandstone is almost all quartz sand, and the grains are close to the same size, about a fifth of a millimetre across, with very little mud or gravel mixed in. Geologists call a rock like this **well sorted**. Something picked out sand of one size and left the rest behind."},
+        {"type": "text", "text": "Moving water and wind both do that. A current can pick up a grain only if it moves fast enough, and the bigger the grain, the faster the flow has to be. Fine grains ride along in the flow, while heavier ones roll and hop along the bottom, and the heaviest stay where they are. Wherever the flow slows down, it drops what it can no longer carry."},
+        {"type": "interactive_diagram", "id": "sorting", "caption": "Six sizes of grain, from clay to cobbles, in a river or in the wind.", "task": "Find a river speed that leaves a bed of clean sand", "goal": "sand-bed", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Water sorts by speed. A fast mountain stream leaves cobbles and gravel behind, while a slower river drops sand, and still water lets mud settle. Air is about 800 times less dense than water, so it can carry fine dust for thousands of kilometres, yet even a strong wind can barely nudge a pebble the size of a fingertip. Wind is an especially strict sorter. It bounces sand along the ground while blowing the dust away and leaving larger stones behind."},
+        {"type": "diagram", "id": "photo", "caption": "A beach sorted by the waves: fine sand where the water runs gently, a bank of pebbles where it breaks hardest.", "options": {"photo": "pebble-beach", "aspect": 1.5}},
+        {"type": "text", "text": "The grains hold one more clue. Seen under a microscope, many Navajo grains are well rounded, with a dull, frosted surface like sea glass. Sand from modern deserts often looks like this. In air, nothing cushions the grains, so they strike each other hard as they bounce along, and the tiny pits from all those impacts frost the surface. In water, the liquid slows the grains and cushions their collisions."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Flowing water and wind sort grains by size: the faster the flow, the bigger the grains it can move.", "Wind moves sand easily but can barely move pebbles, so wind-blown sand is very well sorted.", "Navajo grains are well sorted, rounded, and frosted."]}
+      ]
+    },
+    {
+      "title": "A dune on the move",
+      "blocks": [
+        {"type": "text", "text": "Wind piles loose sand into **dunes** rather than spreading it in an even sheet. A dune has a long, gentle back facing the wind and a short, steep front facing away. The wind rolls and bounces grains up the back to the crest. Just beyond the crest, the air slows in the shelter of the dune, and the grains drop out. When enough sand piles up near the top, the steep front gives way and a thin sheet of sand slides down it."},
+        {"type": "diagram", "id": "photo", "caption": "The steep slip face of a modern dune. Small avalanches of sand run down it all day.", "options": {"photo": "slipface", "aspect": 1.57}},
+        {"type": "text", "text": "That steep front is the **slip face**. Dry sand cannot hold a slope steeper than about 32 to 34 degrees before it slides, so every slip face ends up near that angle. Each avalanche leaves a thin sloping layer on it. Grain by grain, the back of the dune is stripped and the front is built up, so the whole dune creeps downwind."},
+        {"type": "interactive_diagram", "id": "dune", "caption": "A dune crossing an older sand bed. The red line is its slip face.", "task": "Guess the wind, then move time on", "goal": "built", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Dunes travel in rows, with a low hollow called a **trough** between one dune and the next. In the trough, the wind sweeps loose sand away. As the next dune advances, its trough passes over the slip-face layers the first dune left behind and skims off their upper parts. Only the lower parts survive, buried under the advancing dune. That is why the cross-beds in Zion slope at 20 or 30 degrees: they are the bottoms of old slip faces, where the slope eases off toward the ground. What remains is a stack of sets, each cut off flat at the top. Because the cross-beds slope down in the direction the wind was blowing, in an old sandstone they work like a fossil weather vane."},
+        {"type": "diagram", "id": "photo", "caption": "Cross-beds in the Navajo Sandstone. Each set of sloping lines is the lower part of one dune's slip faces, cut off by the dune that followed it.", "options": {"photo": "crossbeds", "aspect": 1.33}},
+        {"type": "text", "text": "Original horizontality, the rule from lesson 1 that layers start flat, still holds if you look at the sets instead of the lines inside them. The surfaces between sets, where one dune's trough cut across the last, are close to flat. Only the layers inside each set slope, because they slid down the front of a dune."},
+        {"type": "text", "text": "Cross-beds also tell you which way is up. Each layer is cut off sharply at its top and curves gently into the surface below, where the slip face met the ground. That helps with superposition, which only works if you know which end of a rock pile was originally the top. When mountains are squeezed, as in the folded layers of lesson 1, a pile of rock can be turned completely upside down. If the curves are at the top and the cut-off ends are at the bottom, the rock has been flipped, and the oldest layer is now on top."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Dunes move downwind by losing sand off the back and gaining it on the slip face.", "Cross-beds are the lower parts of old slip faces, so they slope down toward where the wind was going.", "Cross-beds are cut off at the top and curve in at the base, which shows if a rock has been turned over."]}
+      ]
+    },
+    {
+      "title": "Wind or water?",
+      "blocks": [
+        {"type": "text", "text": "Rivers and tides also build dunes and ripples under water, and those leave cross-beds too. As late as the 1970s, a few geologists argued that the Navajo Sandstone had been laid down in shallow sea water, before several lines of evidence settled the question in favour of a desert."},
+        {"type": "text", "text": "Scale is the clearest giveaway. Ripples under water are a few centimetres high and leave sets a few centimetres thick. Dunes on a river bed leave sets up to a metre or so thick, though giant sand waves on a tidal seafloor can occasionally build taller ones. In the Navajo Sandstone, many sets are more than 10 metres thick, and some exceed 20 metres. Across a vast region, only desert dunes as tall as buildings leave sets on that scale."},
+        {"type": "diagram", "id": "photo", "caption": "Ripple marks made by water in an older sandstone. Ripples like these are a few centimetres high, and so are the sets they leave.", "options": {"photo": "ripples", "aspect": 1.33}},
+        {"type": "text", "text": "The grains match that picture: they are very well sorted, well rounded, and frosted like modern wind-blown sand. Marine fossils are absent too, with no seashells or sea creatures of any kind. The only limestones in the Navajo are a few thin beds from small oasis lakes that formed between the dunes, holding the remains of freshwater plants and animals. And right on the cross-beds, geologists find footprints of small dinosaurs and other land animals that walked up the slopes of dry dunes."},
+        {"type": "text", "text": "Put together, the evidence shows that about 190 million years ago, in the Early Jurassic when the first large dinosaurs were spreading, this region was a desert of dunes. That sand sea (together with its neighbouring formations) reached across parts of what are now Utah, Arizona, Nevada, Idaho, Colorado, and Wyoming, making it one of the largest sand deserts in Earth's history. At Zion the cross-beds mostly slope down to the south and southwest, showing that the winds blew mainly from the north and northeast. For the dunes to be preserved as rock, the ground beneath the desert had to sink slowly over millions of years. Each new dune buried the lower parts of the last, until later rocks covered the whole pile and groundwater cemented the grains together."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Huge cross-bed sets, wind-sorted grains, land-animal footprints, and a lack of sea creatures all point to a desert.", "About 190 million years ago, Zion was part of a vast desert of dunes.", "The cross-beds slope south and southwest, so the wind blew mostly from the north and northeast."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on sand and dunes", "task": "Answer them",
+          "options": { "items": [
+            { "ask": "These sloping lines are in an old sandstone. What are they?", "photo": "crossbeds", "choices": ["The lower parts of slip faces of dunes that moved across the area", "Layers that were laid flat and tilted later", "Cracks that filled with sand"], "answer": 0, "why": "Each set of sloping lines is the lower part of old slip faces. The surfaces between the sets are close to flat, so the lines inside them were laid at a slope from the start." },
+            { "ask": "A river slows from a fast flow to a slower one. What does it drop first?", "choices": ["The largest grains it was carrying", "The smallest grains it was carrying", "Everything at once"], "answer": 0, "why": "Bigger grains need a faster flow to move, so they are the first to settle as the water slows. Mud stays in the water until it is nearly still." },
+            { "ask": "Why does wind-blown sand have almost no pebbles in it?", "choices": ["Air is too light to move pebbles, so they are left behind", "Wind sorts grains only by their colour", "The pebbles are carried farther than the sand"], "answer": 0, "why": "Air is about 800 times less dense than water. Even a strong wind can only bounce sand along the ground, so the sand it moves is sorted from everything bigger, and the dust is blown away." },
+            { "ask": "In a cliff, cross-beds slope down to the east. Which way was the wind blowing?", "choices": ["Toward the east", "Toward the west", "You can't tell from cross-beds"], "answer": 0, "why": "Cross-beds are laid on the slip face, the downwind side of the dune, so they slope down in the direction the wind was going." },
+            { "ask": "What is happening on this steep side of a dune?", "photo": "slipface", "choices": ["Sand blown over the crest slides down it in small avalanches", "The wind is pushing sand up it toward the crest", "The trough of the next dune is wearing it away"], "answer": 0, "why": "This is the slip face. Sand blown over the crest piles up until the slope fails, then slides down at about 32 to 34 degrees. The wind pushes sand up the gentle back of the dune, on the other side." },
+            { "ask": "A sandstone has cross-bed sets about 3 centimetres thick, with a few shells. What most likely laid it?", "choices": ["Ripples under water", "A desert of tall dunes", "Wind blowing over flat ground"], "answer": 0, "why": "Sets a few centimetres thick come from small ripples, which form easily under water, and shells point to water too. Desert dunes leave sets metres thick." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Flowing water and wind sort grains by size; wind moves sand and dust but barely moves pebbles.",
+    "Dunes move downwind and leave cross-beds that slope down the way the wind was going.",
+    "Cross-beds also show if a rock has been turned upside down.",
+    "Zion's Navajo Sandstone is a desert of dunes, about 190 million years old."
+  ],
+  "next": "Next: William Smith, a canal surveyor, finds that each layer of rock has its own fossils, and draws a map of a whole country.",
+  "journal": [],
+  "footnotes": {
+  }
+}

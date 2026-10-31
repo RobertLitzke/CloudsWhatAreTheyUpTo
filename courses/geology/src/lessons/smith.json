@@ -1,0 +1,76 @@
+{
+  "id": "smith",
+  "n": 3,
+  "title": "The map that read the ground",
+  "teaches": "How fossils match layers far apart, and how tilted layers show on a map",
+  "parts": [
+    {
+      "title": "Coal under the fields",
+      "blocks": [
+        {"type": "text", "text": "In the 1790s the hills south and southwest of Bath, in the west of England, were coal country. The coal lay deep, under hundreds of feet of other rock, and the land on top was farms and woods. A mine owner who sank a shaft in the wrong place could spend a fortune and find nothing. Everyone wanted to know what lay under the grass, and nobody could see it."},
+        {"type": "text", "text": "**William Smith** was a blacksmith's son from Oxfordshire who had taught himself surveying. In 1791 he came to Somerset to survey an estate, and soon he was working for the coal owners. Going down the shafts, he noticed something the miners took for granted. The layers above the coal came in the same order, a red mudstone the miners called red marl, then grey limestone, then clay, and so on, at every mine he visited. Geologists call a stack of layers like this a **pile**, and by lesson 1's superposition, the bottom of the pile is the oldest."},
+        {"type": "text", "text": "That was useful, though Smith needed more. To predict what lay under a field, he needed a way to tell which layer he was looking at when he only saw a small patch of it, in a quarry or a ditch. Many layers look alike. A grey limestone in one quarry might be the same layer as a grey limestone ten miles away, or a different one from far higher or lower in the pile."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["At every mine Smith visited, the layers came in the same order.", "The problem was telling one layer from another when they look alike."]}
+      ]
+    },
+    {
+      "title": "Each layer has its own fossils",
+      "blocks": [
+        {"type": "text", "text": "From 1794 Smith surveyed the route of the Somerset Coal Canal, built to carry coal out of the valleys. The digging cut fresh slices through the hillsides for miles, and he walked them all, collecting the fossils from each layer and labelling them."},
+        {"type": "text", "text": "He found that each layer held its own set of fossils. A clay low in the pile was full of ammonites, coiled shells of sea animals related to squid. A grey limestone held curled oysters, which quarrymen called devil's toenails. Cream limestones higher up held lamp shells, small two-part shells a little like clams, or the stems of sea lilies, animals that grew on stalks on the sea floor. Two layers of the same kind of rock could be told apart by what was buried in them. As Smith followed the layers farther, first across Somerset and then beyond, each one kept its own fossils."},
+        {"type": "interactive_diagram", "id": "correlate", "caption": "Three places a few miles apart, each showing part of the pile, oldest at the bottom. The rocks and fossils are simplified from Smith's.", "task": "Tie the layers in the side columns to the matching layers in the middle", "goal": "matched", "aspect_ratio": 2},
+        {"type": "text", "text": "Matching layers like this, from one place to another, is called **correlation**. A layer with no fossils can still be placed by what lies above and below it. No single quarry showed the whole pile, yet by tying them together Smith could build it up piece by piece, from the coal at the bottom to the white chalk of the hills to the east at the top. In 1799 he dictated a table of 23 layers around Bath, with the fossils of each."},
+        {"type": "text", "text": "Smith did not know why each layer had its own fossils. He used it as a practical rule. Sixty years later, Darwin's theory of evolution gave the reason. Kinds of living things change slowly over time: new ones appear, and old ones die out for good. So the sea floor of one age had a different mix of animals from the sea floor of another, and each layer buried the mix of its own age. Since an extinct kind never comes back, a given mix of fossils turns up only at one level in the pile. Geologists call this **faunal succession**, and it is still the main way to match rocks of the same age across the world."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Each layer has its own set of fossils, and keeps it wherever the layer goes.", "Matching layers between places by their rock and fossils is correlation.", "Fossils change upward through the pile because life changes over time."]}
+      ]
+    },
+    {
+      "title": "Layers on a map",
+      "blocks": [
+        {"type": "text", "text": "Smith noticed one more thing. Around Bath the layers lie at a slight angle. They tilt gently down toward the east, a few degrees at most. Geologists say they **dip** to the east. So if you walk east across the country, each layer slowly sinks below the ground and the next one up appears at the surface. Walk west and older layers come up from below. Seen from above, the pile shows as a set of bands across the land, oldest in the west."},
+        {"type": "text", "text": "Valleys bend those bands. A river runs downhill, and its valley floor falls in the direction it flows, **downstream**; the other way, toward its source, is **upstream**. Picture one band of rock lying flat, at a height of 100 metres. On the hillsides it runs along at that height. Going upstream, the valley floor rises, until at some point it reaches 100 metres. So on a map the band runs up one side of the valley to the place where the floor meets its height, crosses the river there, and comes back down the other side: a V, pointing upstream."},
+        {"type": "interactive_diagram", "id": "vees", "caption": "An invented valley cut into a stack of layers. Below the map, a slice along the river.", "task": "Guess, then tilt the layers until the V points downstream", "goal": "downstream", "aspect_ratio": 1.15},
+        {"type": "text", "text": "Flat layers, and layers that dip upstream, make Vs that point upstream. So do layers dipping downstream less steeply than the river falls. Only layers that dip downstream more steeply than the river make a V that points downstream, and layers standing on end cross the valley in a straight line. A V pointing downstream is the clearest sign: it tells a geologist which way the layers dip without digging."},
+        {"type": "diagram", "id": "map", "caption": "The country Smith surveyed. The River Avon flows through Bath, and the Coal Canal ran from the Avon at the Dundas Aqueduct up the valleys past Midford and Combe Hay toward the mines.", "options": {"relief": "maps/bath", "title": "Bath and the coal valleys", "ground": "height", "exaggeration": 2, "alt": "A shaded relief map of the hills and valleys around Bath, with Bath, the Dundas Aqueduct, Tucking Mill, Midford and Combe Hay marked.", "labels": [{"lon": -2.359, "lat": 51.3815, "text": "Bath"}, {"lon": -2.313, "lat": 51.362, "text": "Dundas Aqueduct", "side": "below"}, {"lon": -2.341, "lat": 51.354, "text": "Tucking Mill", "side": "left"}, {"lon": -2.342, "lat": 51.346, "text": "Midford", "side": "below"}, {"lon": -2.383, "lat": 51.343, "text": "Combe Hay", "side": "left"}]}},
+        {"type": "text", "text": "Smith bought an estate at Tucking Mill, near Midford, in 1798. On the map, it sits where valleys cut down into the gently dipping layers, so the bands he was tracing were laid out in the hillsides around him."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Gently dipping layers show on the surface as bands, oldest where they rise.", "Valleys bend the bands into Vs.", "A V pointing downstream means the layers dip downstream, more steeply than the river."]}
+      ]
+    },
+    {
+      "title": "The map of a country",
+      "blocks": [
+        {"type": "text", "text": "Smith spent the next fifteen years travelling Britain, mostly on foot and by coach, tracing the bands of rock from one county to the next. In 1815 he published the result: *A Delineation of the Strata of England and Wales, with part of Scotland* (strata being the layers of lesson 1). It was the first geological map of a whole country, more than 2.5 metres tall, coloured by hand, with each layer in its own colour."},
+        {"type": "diagram", "id": "photo", "caption": "Smith's map of 1815. Each band of colour is one layer of rock where it meets the ground.", "options": {"photo": "smith-map", "aspect": 0.71}},
+        {"type": "text", "text": "The map showed where each layer reaches the surface. Since the order of the pile was known, that also told you what lay under the fields, showing where to look for coal, where to find good building stone and brick clay, and where to dig canals and wells. It did not make Smith rich. Mapping had cost him far more than he earned, and in 1819 he spent ten weeks in a debtors' prison in London. In 1820 a rival map came out, drawn by George Bellas Greenough at the Geological Society of London and borrowing heavily from Smith's work."},
+        {"type": "text", "text": "Recognition came late. In 1831 the Geological Society gave him its first Wollaston Medal, its highest award, and its president Adam Sedgwick called him the Father of English Geology. Geologists still map the ground by Smith's method, identifying layers by their rock and fossils and following their bands and tilt across the land."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Smith's 1815 map was the first geological map of a whole country.", "It rested on the order of the layers, on fossils to tell them apart, and on their dip."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on fossils and maps", "task": "Answer them",
+          "options": { "items": [
+            { "ask": "Two quarries ten miles apart both show a cream limestone. One is full of lamp shells, the other of sea lily stems. What can you say?", "choices": ["They are different layers", "They are the same layer", "You can't tell without knowing their age in years"], "answer": 0, "why": "Each layer keeps its own fossils wherever it goes. The same rock with different fossils means two different layers, laid down at different times. No dates are needed." },
+            { "ask": "Why does the same mix of fossils never turn up again higher in the pile?", "choices": ["Kinds of animals die out and never come back", "Fossils dissolve once they are buried deep", "The sea floor was always too deep for them later"], "answer": 0, "why": "Life changes over time, and extinct kinds never return. Each layer holds the mix of its own age, so that mix belongs to one level only. This is faunal succession." },
+            { "ask": "On a map, layers cross a river valley in Vs pointing downstream. What does that tell you?", "choices": ["The layers dip downstream, more steeply than the river", "The layers are flat", "The layers dip upstream"], "answer": 0, "why": "Flat layers and layers dipping upstream make Vs that point upstream. Only layers dipping downstream, more steeply than the river falls, make Vs that point downstream." },
+            { "ask": "A map shows flat-lying layers crossing a river valley. Which way do the Vs point?", "choices": ["Upstream", "Downstream", "There are no Vs"], "answer": 0, "why": "Each flat layer keeps to one height. The valley floor rises upstream, so the band follows the valley side up the valley before it crosses." },
+            { "ask": "What do the bands of colour on this map show?", "photo": "smith-map", "choices": ["Where each layer of rock meets the ground", "The height of the land", "Areas of farmland and forest"], "answer": 0, "why": "Smith coloured each layer where it reaches the surface. Knowing the order of the pile, you can tell from that what lies underneath." },
+            { "ask": "What did Smith need to predict what lay under fields he could not dig?", "choices": ["The order of the layers, and a way to tell which layer is at the surface", "The age of each layer in years", "A map of the rivers"], "answer": 0, "why": "If you know the order of the pile and can name the layer under your feet, you know which layers lie below it." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Layers come in the same order from place to place.",
+    "Each layer has its own fossils, so fossils match layers from place to place.",
+    "Dipping layers show as bands on a map, bent into Vs where valleys cut them.",
+    "William Smith's 1815 map was the first geological map of a country."
+  ],
+  "next": "Next: some rocks never settled in layers at all. In central France, a naturalist spots old volcanoes where nobody expected them.",
+  "journal": [],
+  "footnotes": {
+  }
+}

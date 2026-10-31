@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "bath.png",
+  "width": 583,
+  "height": 560,
+  "zoom": 13,
+  "x0": 1034245,
+  "y0": 697893,
+  "step": 2,
+  "bounds": [
+    -2.46008,
+    51.33008,
+    -2.25992,
+    51.45005
+  ],
+  "range": [
+    10,
+    240
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name bath --bbox -2.46,51.33,-2.26,51.45 --zoom 13 --max 600 --precision 1 --out courses/geology/public/maps"
+}

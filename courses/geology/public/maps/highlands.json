@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "highlands.png",
+  "width": 583,
+  "height": 399,
+  "zoom": 10,
+  "x0": 128341,
+  "y0": 80243,
+  "step": 2,
+  "bounds": [
+    -3.75046,
+    56.44959,
+    -2.1492,
+    57.05044
+  ],
+  "range": [
+    -540,
+    1183
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name highlands --bbox -3.75,56.45,-2.15,57.05 --zoom 10 --max 600 --precision 1 --out courses/geology/public/maps"
+}
