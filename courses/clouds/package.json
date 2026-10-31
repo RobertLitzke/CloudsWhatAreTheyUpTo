@@ -1,0 +1,34 @@
+{
+  "name": "clouds",
+  "version": "0.1.0",
+  "description": "Clouds: What are they up to? A cloud-watching game: learn every kind of cloud, what made it and what it means for the weather.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "icons": "node tools/icons.mjs",
+    "photos:find": "node --experimental-strip-types tools/photos/find.ts",
+    "photos:fetch": "node --experimental-strip-types tools/photos/fetch.ts"
+  },
+  "devDependencies": {
+    "@fontsource-variable/nunito-sans": "^5.2.0",
+    "@fontsource-variable/oswald": "^5.2.0",
+    "@fontsource/kalam": "^5.3.0",
+    "@fontsource/special-elite": "^5.2.6",
+    "@types/node": "^20.19.43",
+    "happy-dom": "^20.14.6",
+    "sharp": "^0.34.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.0.0"
+  },
+  "dependencies": {
+    "didactics": "github:RobertLitzke/Didactics#1cf018336ddbd750e1f9612958c3bff92bc48a3c"
+  }
+}

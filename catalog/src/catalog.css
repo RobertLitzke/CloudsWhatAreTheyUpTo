@@ -1,0 +1,70 @@
+/* The catalog's look: a printed college course catalog of the early 2000s,
+   lightly. Paper and ink, a serif text face, small capitals for headings,
+   hairline rules, one deep red for links. The courses' own colours appear
+   only in their icons. */
+
+:root {
+  --paper: #f4f1e8;
+  --ink: #1f1d1a;
+  --soft: #5e5a52;
+  --rule: #b9b2a3;
+  --link: #7a1f2b;
+  --serif: Georgia, 'Times New Roman', Times, serif;
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font: 17px/1.55 var(--serif);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+a { color: var(--link); }
+
+.catalog { max-width: 720px; margin: 0 auto; padding: 20px 20px 48px; }
+
+.masthead { border-bottom: 3px double var(--ink); padding-bottom: 14px; }
+.running {
+  display: flex; justify-content: space-between; margin: 0 0 22px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--ink);
+  font: 600 0.72rem/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.masthead h1 { font-size: 2.6rem; font-weight: normal; line-height: 1.1; margin: 0 0 10px; }
+.lede { margin: 0; color: var(--soft); font-style: italic; }
+
+.contents { margin: 18px 0 8px; }
+.contents h2, .department h2 {
+  font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.contents h2 { margin: 0 0 4px; color: var(--soft); }
+.contents ol { margin: 0; padding-left: 1.4em; }
+
+.department { margin-top: 30px; }
+.department h2 { margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--ink); }
+
+.course {
+  display: grid; grid-template-columns: 64px 1fr; gap: 16px;
+  padding: 18px 0; border-bottom: 1px solid var(--rule);
+}
+.course-icon img { display: block; width: 64px; height: 64px; border-radius: 14px; }
+.course h3 { margin: 0 0 4px; font-size: 1.3rem; line-height: 1.25; }
+.course h3 a { color: var(--ink); text-decoration: none; }
+.course h3 a:hover { text-decoration: underline; }
+.course-subtitle { display: block; font-weight: normal; font-style: italic; font-size: 1rem; color: var(--soft); }
+.course-summary { margin: 6px 0; }
+.course-meta { margin: 0 0 8px; font: 0.8rem/1.4 var(--sans); color: var(--soft); }
+.course-meta span + span::before { content: ' · '; }
+.course-standing { color: var(--ink); }
+.course-open { font: 600 0.85rem/1 var(--sans); letter-spacing: 0.04em; }
+.course-open::after { content: ' \2192'; }
+
+.colophon { margin-top: 32px; font-size: 0.85rem; color: var(--soft); }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .masthead h1 { font-size: 2.1rem; }
+  .course { grid-template-columns: 48px 1fr; gap: 12px; }
+  .course-icon img { width: 48px; height: 48px; border-radius: 11px; }
+}

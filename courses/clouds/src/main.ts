@@ -55,6 +55,8 @@ defineCourse({
   ],
   // The pages sit in a menu under the current page's name, so more can join without crowding the bar.
   menu: ['/home', '/sky', '/quiz', '/journal', '/settings'],
+  // The site's catalog of every course, one folder up.
+  catalog: { href: '../' },
 
   quiz: {
     // The same wrong answers every time a card comes up, so a card is a card.

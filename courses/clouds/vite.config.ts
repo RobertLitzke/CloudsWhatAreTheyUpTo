@@ -18,6 +18,9 @@ export default defineConfig(
     oneFile: 'clouds.html',
     offlineFile: 'clouds-offline.html',
     precache: ['poster.webp', 'photos/*.webp'],
+    // One of several courses on the site, in its folder: the site's build
+    // (tools/build-site.mjs at the repo's root) writes the one service worker.
+    inSite: true,
     manifest: {
       name: 'Clouds: What are they up to?',
       short_name: 'Clouds',

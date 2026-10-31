@@ -1,0 +1,26 @@
+{
+  "name": "catalog",
+  "version": "0.1.0",
+  "description": "The site's front page: the catalog of courses, and the one service worker and manifest for the whole site.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "icons": "node tools/icons.mjs"
+  },
+  "devDependencies": {
+    "happy-dom": "^20.14.6",
+    "vite": "^6.0.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vitest": "^3.0.0",
+    "@types/node": "^20.19.43",
+    "sharp": "^0.34.1",
+    "typescript": "^5.7.2",
+    "vite-plugin-singlefile": "^2.3.0"
+  },
+  "dependencies": {
+    "didactics": "github:RobertLitzke/Didactics#1cf018336ddbd750e1f9612958c3bff92bc48a3c"
+  }
+}

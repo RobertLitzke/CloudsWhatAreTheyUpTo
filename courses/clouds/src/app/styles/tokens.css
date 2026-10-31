@@ -8,7 +8,7 @@
   font-display: swap;
   font-weight: 200 700;
   /* Latin only: this file is inlined into the page, so every subset costs. */
-  src: url('../../../node_modules/@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2') format('woff2-variations');
+  src: url('@fontsource-variable/oswald/files/oswald-latin-wght-normal.woff2') format('woff2-variations');
 }
 
 /* The radio transcripts' typewriter. */
@@ -17,7 +17,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url('../../../node_modules/@fontsource/special-elite/files/special-elite-latin-400-normal.woff2') format('woff2');
+  src: url('@fontsource/special-elite/files/special-elite-latin-400-normal.woff2') format('woff2');
 }
 
 /* The lesson log's handwriting. */
@@ -26,7 +26,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 400;
-  src: url('../../../node_modules/@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
+  src: url('@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -34,7 +34,7 @@
   font-style: normal;
   font-display: swap;
   font-weight: 200 1000;
-  src: url('../../../node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2') format('woff2-variations');
+  src: url('@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2') format('woff2-variations');
 }
 
 :root {
