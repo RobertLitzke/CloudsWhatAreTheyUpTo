@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "zion.png",
+  "width": 525,
+  "height": 549,
+  "zoom": 13,
+  "x0": 390128,
+  "y0": 813862,
+  "step": 2,
+  "bounds": [
+    -113.03009,
+    37.18001,
+    -112.84985,
+    37.33004
+  ],
+  "range": [
+    1167,
+    2433
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name zion --bbox -113.03,37.18,-112.85,37.33 --zoom 13 --max 560 --precision 1 --out courses/geology/public/maps"
+}

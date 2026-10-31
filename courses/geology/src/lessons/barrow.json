@@ -1,0 +1,81 @@
+{
+  "id": "barrow",
+  "n": 5,
+  "title": "Garnets in the mud",
+  "teaches": "How buried rock is changed by heat and pressure, and how its minerals record how deep it went",
+  "parts": [
+    {
+      "title": "Up the glen",
+      "blocks": [
+        {"type": "text", "text": "Scotland is split by a straight line. South of it lies the Midland Valley, low country of red sandstone and farmland. North of it rise the Highlands. The line is the **Highland Boundary Fault**, a fault being a crack in the Earth's crust along which the rock on one side has moved past the rock on the other. This one runs right across the country, from the Isle of Arran in the southwest to Stonehaven on the North Sea coast."},
+        {"type": "diagram", "id": "map", "caption": "The southeastern Highlands. The red line is the Highland Boundary Fault; north of it, Glen Esk and Glen Clova run up into the hills.", "options": {"relief": "maps/highlands", "title": "The Highland edge", "ground": "height", "water": 0, "exaggeration": 1.5, "alt": "A shaded relief map of the southeastern Scottish Highlands, with the Highland Boundary Fault running from southwest to northeast between lowland and hills, and Glen Esk, Glen Clova, Edzell, Kirriemuir and Stonehaven marked.", "labels": [{"lon": -2.211, "lat": 56.963, "text": "Stonehaven", "side": "left"}, {"lon": -2.655, "lat": 56.808, "text": "Edzell", "side": "below"}, {"lon": -3.003, "lat": 56.675, "text": "Kirriemuir", "side": "below"}, {"lon": -2.85, "lat": 56.9, "text": "Glen Esk", "area": true}, {"lon": -3.08, "lat": 56.84, "text": "Glen Clova", "area": true}], "lines": [{"points": [[-2.21, 56.965], [-2.43, 56.94], [-2.66, 56.86], [-2.87, 56.79], [-3.03, 56.73], [-3.2, 56.68], [-3.4, 56.61], [-3.59, 56.565], [-3.75, 56.52]], "color": "heat", "width": 2.5}]}},
+        {"type": "text", "text": "Cross the fault near Edzell and walk north up Glen Esk, and the rocks change under your feet. At first they are grey slates, the kind once split for roofs. A few miles on they have a silky sheen. Then they glitter, and small dark-red crystals appear in them, round as peas: **garnets**. Farther up the glen come brown, cross-shaped crystals of staurolite, then blue blades of kyanite, and at last a rock striped in pale and dark bands."},
+        {"type": "diagram", "id": "photo", "caption": "Garnet schist: red garnets in a glittering rock made mostly of mica flakes.", "options": {"photo": "garnet-schist", "aspect": 1.36}},
+        {"type": "text", "text": "Yet all of these began as the same thing. Near the fault, where the change is gentlest, the old layers of sand and mud still show, and in places even ripple marks like the ones in lesson 2. Farther north they fade, but the rocks can be traced bed by bed from one zone into the next. They were sand and mud, laid down in a sea, like the shale that forms today."},
+        {"type": "diagram", "id": "photo", "caption": "Shale: hardened mud, dark and fine, splitting along its layers.", "options": {"photo": "black-shale", "aspect": 1.5}},
+        {"type": "text", "text": "So something turned mud into a rock full of garnets, and turned it more the farther north you go. What was it?"},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["North of the Highland Boundary Fault, rocks that began as mud and sand change from slate to glittering, garnet-bearing rock and then banded rock.", "The change grows stronger the farther you go into the Highlands."]}
+      ]
+    },
+    {
+      "title": "Changed without melting",
+      "blocks": [
+        {"type": "text", "text": "Bury a rock deep enough and it is both heated and squeezed. It gets hotter because the inside of the Earth is hot, kept warm by radioactive elements in its rock, and that heat flows slowly outward. Measured in deep mines and boreholes, the temperature in most places rises by about 25 °C for every kilometre down. The rock is squeezed by the weight of the rock above it and by sideways push. The Earth's outer shell is broken into huge slabs called **plates**, which move a few centimetres a year. Where two push together, the crust between them crumples and thickens into mountains, and rock is pushed deep down."},
+        {"type": "text", "text": "Heat and pressure do not have to melt a rock to change it. The atoms in its minerals slowly shuffle about, even in solid rock, and rearrange themselves into new minerals that are more stable in the new conditions. A rock changed this way, in the solid state, is called **metamorphic**, from the Greek for change of form."},
+        {"type": "text", "text": "Squeezing also changes the rock's grain. Mud is mostly clay, made of tiny flat flakes lying any which way. Under pressure from one direction, new flat flakes of **mica** and related minerals grow as thin, shiny sheets lying at right angles to the squeeze, like sheets of paper pressed flat under a book, and old flakes turn to join them."},
+        {"type": "interactive_diagram", "id": "squeeze", "caption": "A close-up of mud being squeezed and heated. The pale streaks are flakes of clay and mica.", "task": "Squeeze the rock until it splits along its flakes", "goal": "cleavage", "aspect_ratio": 1.74},
+        {"type": "text", "text": "Once the flakes all lie one way, the rock splits easily along them, as a deck of cards splits between cards. The splitting often cuts right across the old layers, which can show as stripes on a split face. In a **slate** the flakes are too small to see, and it splits into thin, smooth sheets, which is why it makes good roofs. Hotter, the atoms move more freely and the flakes grow bigger: a silky **phyllite**, then a **schist**, where the mica flakes are big enough to glitter on every split face."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Buried rock is heated and squeezed.", "Metamorphic rock has changed its minerals while staying solid.", "Squeezed flakes line up, so slate and schist split along them."]}
+      ]
+    },
+    {
+      "title": "Barrow's zones",
+      "blocks": [
+        {"type": "text", "text": "In the 1880s and 1890s, George Barrow of the Geological Survey, the government's mapping service, mapped these glens rock by rock. He noticed that the minerals did not appear at random. Walking north from the Highland edge, each new mineral showed up at a line on the map, and once it appeared it kept appearing. The lines run roughly parallel to the Highland Boundary Fault, so the land is divided into bands. Barrow named each band, or **zone**, after the new mineral that first appears in it, its index mineral."},
+        {"type": "text", "text": "In order, going north, the zones are named for **chlorite**, a green, flaky mineral; **biotite**, a black mica; **garnet**; **staurolite**, brown crystals; **kyanite**, blue blades; and **sillimanite**, fine white needles. Barrow had found a sequence, the same in Glen Esk as in Glen Clova. Geologists later found the same order in other mountain belts, among them the Alps and the Appalachians."},
+        {"type": "diagram", "id": "photo", "caption": "Mica schist with red garnets and brown staurolite crystals. The mica flakes catch the light on every split face.", "options": {"photo": "mica-schist", "aspect": 1.5}},
+        {"type": "text", "text": "Each mineral grows only within a range of temperature and pressure, and since both rise with depth, the minerals record how hot the rock got and how deep it was buried. The figure plots that: temperature across, depth down. The dashed line shows how temperature climbs with depth. Bury some mud and see what grows."},
+        {"type": "interactive_diagram", "id": "burial", "caption": "Temperature across, depth down. The dashed line is how temperature rises with depth; the dot is the buried rock.", "task": "Bury the rock until garnets grow", "goal": "garnet", "aspect_ratio": 1.69},
+        {"type": "text", "text": "With ordinary warming of about 25 °C per kilometre, garnets grow around 20 km down. Kyanite needs more heat, and high pressure too: where the rock is just as hot but shallower than about 14 km, as next to a body of granite, a different mineral called andalusite grows in its place. Where rock is carried deep but stays cool, warming by less than about 10 °C per kilometre, it turns into a bluish rock called blueschist; this happens where one plate dives under another and drags cold rock down fast. And past about 700 °C the rock starts to melt."},
+        {"type": "diagram", "id": "photo", "caption": "Blue blades of kyanite. Kyanite grows only under high pressure, deep in the crust.", "options": {"photo": "kyanite", "aspect": 1.33}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Barrow's zones are chlorite, biotite, garnet, staurolite, kyanite and sillimanite, in order of rising heat.", "Each mineral grows only in a range of temperature and pressure, so the minerals record how deep and hot the rock got."]}
+      ]
+    },
+    {
+      "title": "The roots of a mountain range",
+      "blocks": [
+        {"type": "text", "text": "Barrow thought the heat came from bodies of granite underneath. Geologists now know that burial deep in a thickened crust was a major part of it. About 470 million years ago, a chain of volcanic islands crashed into the edge of an old continent that included Scotland. (The date comes from radioactive elements in the minerals, a method for a later lesson.) The crust crumpled and stacked up into a mountain range that may have been as high as the Himalaya are today. The muds and sands in its core were pushed down 20 kilometres or more, heated and squeezed, and grew garnets and kyanite."},
+        {"type": "text", "text": "Then the mountains wore away. The crust floats on denser, softer rock beneath, a little like a boat on water. As rain and rivers stripped rock off the top, the range grew lighter and the crust beneath rose, the way a boat rises when its cargo is unloaded. The kyanite says those rocks were once about 20 km down, so about that much rock must have been removed above them. What you walk on in Glen Esk today is the roots of the range. The banded **gneiss** was the deepest and hottest of all."},
+        {"type": "diagram", "id": "photo", "caption": "Gneiss: the minerals have sorted into pale and dark bands, at temperatures near melting.", "options": {"photo": "gneiss", "aspect": 1.33}},
+        {"type": "text", "text": "South of the Highland Boundary Fault, the red sandstones of the Midland Valley never went deep. Some of them hold pebbles of Highland schist, worn off the mountains as they eroded, so the sandstones must be younger than the changed rocks that supplied their pebbles. Rocks that formed at the surface now sit beside rocks that were once 20 km down. Wearing down a range that high takes a very long time. How long, and how anyone could know, is a question for the next lessons."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The Highlands were once the core of a high mountain range.", "Erosion removed the top of the range, and the roots rose into view.", "Metamorphic minerals at the surface show how deep the rock once was."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on changed rocks", "task": "Answer them",
+          "options": { "items": [
+            { "ask": "This schist is full of red garnets. What was it before?", "photo": "garnet-schist", "choices": ["Mud or shale laid down in water", "Granite that cooled slowly underground", "A basalt lava flow"], "answer": 0, "why": "The garnets grew inside the rock as it was heated and squeezed. Before that it was mud, as the old layers near the fault still show." },
+            { "ask": "How does a metamorphic rock change its minerals?", "choices": ["Its atoms rearrange into new minerals while it stays solid", "It melts and then cools again", "Water washes the old minerals away and leaves new ones"], "answer": 0, "why": "Metamorphism happens in the solid state. If the rock had melted and cooled, it would be igneous." },
+            { "ask": "Why does slate split into thin, flat sheets?", "choices": ["Its tiny mica flakes all lie the same way, across the direction it was squeezed", "It was laid down as thin sheets of mud", "It cracked as it cooled, like basalt"], "answer": 0, "why": "Squeezing lines up the flakes, and the rock splits along them. The splitting often cuts right across the old layers." },
+            { "ask": "Walking north up Glen Esk, you find garnet schist, then kyanite schist. What does that tell you?", "photo": "kyanite", "choices": ["The rocks farther north were buried deeper and got hotter", "The rocks farther north cooled more slowly from a melt", "The rocks farther north are much older"], "answer": 0, "why": "Kyanite needs more heat and pressure than garnet, so the kyanite zone was deeper and hotter." },
+            { "ask": "A rock was carried 30 km down but warmed only about 8 °C per kilometre on the way. What does it become?", "choices": ["Blueschist", "Gneiss", "Garnet schist"], "answer": 0, "why": "Deep but cold makes blueschist. It happens where one plate dives under another and drags cold rock down fast. At 25 °C per km, the same depth would make gneiss." },
+            { "ask": "If garnets grew 20 km down, how did this gneiss come to be at the surface?", "photo": "gneiss", "choices": ["The rock above it wore away, and the crust beneath rose", "It was pushed up through the rock above by its own heat", "Glen Esk sank, leaving the gneiss standing"], "answer": 0, "why": "Erosion removed the top of the old mountain range, and the crust rose as the weight came off, bringing the deep rocks to the surface." }
+          ] }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Heat and pressure change buried rock into metamorphic rock, without melting it.",
+    "Squeezed flakes line up, making slate, phyllite and schist that split along them.",
+    "Barrow's zones, from chlorite to sillimanite, map how deep and hot the rock got.",
+    "The Highlands are the worn-down roots of an old mountain range."
+  ],
+  "next": "Next: James Hutton finds a cliff in Scotland where tilted layers are cut off and covered by flat ones, and asks how much time that gap must hold.",
+  "journal": [],
+  "footnotes": {
+  }
+}

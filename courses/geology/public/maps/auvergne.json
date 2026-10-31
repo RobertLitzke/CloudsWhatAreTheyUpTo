@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "auvergne.png",
+  "width": 505,
+  "height": 613,
+  "zoom": 13,
+  "x0": 1065236,
+  "y0": 746756,
+  "step": 3,
+  "bounds": [
+    2.85988,
+    45.70007,
+    3.11995,
+    45.92011
+  ],
+  "range": [
+    319,
+    1438
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name auvergne --bbox 2.86,45.7,3.12,45.92 --zoom 13 --max 600 --precision 1 --out courses/geology/public/maps"
+}
