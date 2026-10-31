@@ -1,87 +1,111 @@
 {
   "id": "tour",
   "n": 1,
-  "title": "What the camera is deciding for you",
-  "teaches": "The four decisions behind every photograph, what Bird-watching mode picks for you, and what you get back by picking one of them yourself",
+  "title": "Camera decisions in automatic modes",
+  "teaches": "Core exposure and focus controls, preset priorities in Bird-watching mode, and manual overrides",
   "parts": [
     {
-      "title": "Four decisions",
+      "title": "Core exposure and focus controls",
       "blocks": [
-        { "type": "text", "text": "Point a camera at a heron and press the button, and the camera makes four decisions in the time it takes you to breathe in. It decides how wide to open the hole in the lens, how long to leave the shutter open, how hard to amplify what the sensor caught, and where to [[focus|focus]]. Everything else, from the colour of the light to how much of the scene is sharp, follows from those four." },
-        { "type": "text", "text": "A scene mode such as Bird-watching is a set of preferences for those decisions: a fast [[shutter|time]], [[focus|focus]] set to keep up with something that moves, and whatever [[ISO|sensor]] that costs. It is a good set of preferences. The trouble with it is not that it chooses badly but that it chooses the same way in a dim wood at dawn as on a bright shore at noon, and it never tells you which decision it had to compromise on." },
-        { "type": "text", "text": "This first lesson is a tour of the four. Each one has a figure below it that works on a real photograph: move the control and the picture changes the way the camera would really have changed it. Nothing here is a simulation of a *style*; it is the optics and the arithmetic of a [[Nikon Coolpix P950|subject]], the camera this course is written for.[^why-p950]" },
-        { "type": "key_ideas", "title": "Hold on to", "points": [
-          "Every photograph is four decisions: [[aperture|aperture]], [[shutter|time]], [[ISO|sensor]] and [[focus|focus]].",
-          "A scene mode makes all four for you, and tells you nothing about what it gave up."
+        { "type": "text", "text": "Point a camera at a heron and press the shutter button, and the camera makes a set of core physical adjustments in the time it takes you to breathe in. It sets the diameter of the opening in the lens, the duration the shutter stays open, the electronic amplification applied to the sensor's signal, and the distance at which the lens brings light to a [[focus|focus]]. Everything else in the image, from brightness to the span of sharp detail, follows from these settings." },
+        { "type": "text", "text": "A scene mode such as Bird-watching applies a fixed set of priorities to those adjustments: a fast [[shutter|time]], continuous [[focus|focus]] tracking for a moving animal, and whatever [[ISO|sensor]] amplification is required to keep the image bright enough. Although those priorities suit general wildlife work, the camera applies the exact same rules in a dim wood at dawn as it does on a bright shore at noon, without telling you which image quality compromise it had to make." },
+        { "type": "text", "text": "Each control has an interactive figure below that operates on a real photograph: move the slider and the picture changes according to the actual optics and arithmetic of the [[Nikon Coolpix P950|subject]], the camera used throughout this course.[^p950-specs]" },
+        { "type": "key_ideas", "title": "Automatic compromises", "points": [
+          "Every photograph depends on [[aperture|aperture]], [[shutter|time]], [[ISO|sensor]], and [[focus|focus]].",
+          "A scene mode sets all of them automatically without showing you what it sacrificed."
         ] }
       ]
     },
     {
-      "title": "The hole in the lens",
+      "title": "The lens opening",
       "blocks": [
-        { "type": "text", "text": "A lens gathers light from a scene and bends it back to a point. It can only [[focus|focus]] properly on one distance at a time: things at exactly that distance land on the sensor as points, and everything nearer or farther lands as a small disc.[^circle] When the disc is smaller than the sensor can resolve, it passes for a point and we call it sharp. That is all [[depth of field|sharp]] is: the band of distances whose discs are too small to notice." },
-        { "type": "interactive_diagram", "id": "cone", "caption": "A point, the cone of light the lens throws from it, and the disc it lands as", "task": "Move the point off the focused distance, then narrow the aperture until it looks sharp again", "goal": "sharp-again" },
-        { "type": "text", "text": "Narrowing the [[aperture|aperture]] trims the edges off that cone, so the disc shrinks and the sharp band widens. Opening it up does the reverse, which is how a photographer throws a background away. On a camera with a small sensor the sharp band is very wide to begin with, so a soft background takes some work: you want the lens long, the subject close, and the background far behind it." },
-        { "type": "interactive_diagram", "id": "aperture", "caption": "A perched bird, with the aperture and the focused distance in your hands", "task": "Throw the background out of focus while the bird stays sharp", "goal": "blur-background" }
+        { "type": "text", "text": "A lens gathers diverging light rays from a scene and bends them back toward a point.[^aperture-etymology] Because a lens can only [[focus|focus]] precisely on a single distance at a time, objects at that exact distance land on the sensor as sharp points, while anything nearer or farther lands as a small blurred disc.[^circle] When that disc is smaller than the sensor can resolve, it still looks like a point and registers as sharp. [[Depth of field|sharp]] is simply the band of distances in the scene whose blur discs remain too small to notice." },
+        { "type": "interactive_diagram", "id": "cone", "caption": "A point source, the cone of light the lens forms from it, and the disc it projects onto the sensor", "task": "Move the point off the focused distance, then narrow the aperture until the disc looks sharp again", "goal": "sharp-again" },
+        { "type": "text", "text": "Narrowing the [[aperture|aperture]] blocks the outer edges of the light cone, which shrinks the blur discs and widens the sharp zone. Opening the aperture widens the cone and enlarges the blur discs, allowing a photographer to melt away a distracting background. Because a small sensor requires a physically short lens that naturally keeps a very wide band of distances sharp, getting a soft background with the P950 takes deliberate positioning: zoom toward the long end, get close to your subject, and make sure the background sits far behind it." },
+        { "type": "interactive_diagram", "id": "aperture", "caption": "A perched bird, with the aperture and the focused distance under your control", "task": "Blur the background while keeping the bird sharp", "goal": "blur-background" }
       ]
     },
     {
-      "title": "How long the shutter stays open",
+      "title": "Shutter duration and motion",
       "blocks": [
-        { "type": "text", "text": "The [[shutter|time]] decides how long the sensor collects. Everything that moves during that time, in the scene or in your hands, is recorded along its whole path rather than at one instant. Those are two different blurs with two different cures, and telling them apart in your own pictures is one of the most useful things in this course: if the whole frame is smeared, it was you; if the bird is smeared against a sharp branch, it was the bird." },
-        { "type": "interactive_diagram", "id": "shutter", "caption": "A bird in flight, with the shutter and the stabiliser in your hands", "task": "Find a shutter speed that freezes the bird, then turn the stabiliser off and see which blur comes back", "goal": "freeze" },
-        { "type": "text", "text": "The stabiliser works on your hands and not on the bird, which is why it cannot save a picture of something moving. A tripod is the same bargain. Slow shutters are not only a hazard, though: left open on purpose, they turn moving water into something no eye ever sees." },
-        { "type": "interactive_diagram", "id": "silkWater", "caption": "A stream, on a tripod, with the shutter open as long as you like", "task": "Draw the water into threads", "goal": "silk" }
+        { "type": "text", "text": "The [[shutter|time]] speed sets the length of time the sensor collects light.[^muybridge] Anything that moves during that window, whether an animal in the scene or the camera in your hands, is recorded as a continuous streak along its path. Telling those two blurs apart in your own pictures lets you fix the right problem on the next shot: if the entire frame is smeared, the camera moved in your hands, whereas if the bird is smeared against a crisp branch, the bird moved while the camera stayed still." },
+        { "type": "interactive_diagram", "id": "shutter", "caption": "A bird in flight, with controls for shutter speed and optical stabilisation", "task": "Find a shutter speed that freezes the bird, then turn the stabiliser off to see which blur returns", "goal": "freeze" },
+        { "type": "text", "text": "Optical stabilisation shifts a lens group to counteract the tremor of your hands, which means it has no effect on a moving bird. Putting the camera on a tripod solves the same hand-shake problem while leaving subject motion untouched. Slow shutter speeds have deliberate creative uses too: with the camera locked on a tripod, a long exposure turns rushing water into smooth, misty ribbons." },
+        { "type": "interactive_diagram", "id": "silkWater", "caption": "A stream photographed from a tripod, allowing you to leave the shutter open as long as you like", "task": "Use a long shutter speed to draw the water into smooth threads", "goal": "silk" }
       ]
     },
     {
-      "title": "Amplifying what little there is",
+      "title": "Signal amplification and photon noise",
       "blocks": [
-        { "type": "text", "text": "Light arrives as photons, and a sensor pixel does nothing cleverer than count them. A count of ten thousand is steady; a count of fifty is not, because counting is a game of chance and a small count comes out rough.[^shot-noise] [[ISO|sensor]] is the amplifier applied afterwards: it does not add light, it multiplies the count you got, and multiplies its roughness with it. That roughness is what we call grain or noise." },
-        { "type": "interactive_diagram", "id": "photons", "caption": "The photons a mid-grey is counted from, at each ISO, and the grain that leaves", "task": "Raise the ISO until the count is visibly rough", "goal": "count" },
-        { "type": "text", "text": "Those three dials all do the same job, which is to decide how much light makes the picture, and each one charges a different price: the [[aperture|aperture]] in depth of field, the [[shutter|time]] in movement, the [[ISO|sensor]] in grain. A change of one **stop** on any of them halves or doubles the light, so a stop given up on one can be taken back on another." },
-        { "type": "interactive_diagram", "id": "stops", "caption": "Three dials, one scene, and how far the exposure is from right", "task": "Knock the exposure off, then put it back by moving a different dial", "goal": "trade" }
+        { "type": "text", "text": "Light arrives at the camera as discrete packets called photons, and each sensor pixel acts as a bucket that counts how many packets strike it during the exposure. A pixel that collects ten thousand photons gives a reliable measurement of brightness, whereas a pixel that collects only fifty fluctuates wildly from shot to shot because random arrivals vary strongly when the sample is small.[^shot-noise] Raising the [[ISO|sensor]] amplifies the voltage read from those pixels after the shutter closes; because it multiplies the tiny, uneven photon count you already captured, it magnifies the random variations right along with the image brightness.[^iso-history] That amplified variation appears across the picture as speckled grain or noise." },
+        { "type": "interactive_diagram", "id": "photons", "caption": "The photons a mid-grey tone is counted from at each ISO, and the grain they leave", "task": "Raise the ISO until the photon count looks visibly rough", "goal": "count" },
+        { "type": "text", "text": "Aperture, shutter speed, and ISO all govern the final brightness of the photograph, and each exacts its own visual trade-off: [[aperture|aperture]] alters depth of field, [[shutter|time]] alters motion blur, and [[ISO|sensor]] alters graininess, because a higher ISO lets the camera get by on less light. Photographers measure exposure in **stops**, where one stop always halves or doubles the light. A stop of light given up by narrowing the aperture or speeding up the shutter can be balanced by taking a stop back on one of the other two controls.[^stops-origin]" },
+        { "type": "interactive_diagram", "id": "stops", "caption": "Exposure controls for a single scene, with a meter showing how far the brightness sits from the target", "task": "Change one control to shift the exposure, then restore the brightness using a different control", "goal": "trade" }
       ]
     },
     {
-      "title": "Reach, and what it costs",
+      "title": "Superzoom reach and its optical cost",
       "blocks": [
-        { "type": "text", "text": "The P950's zoom runs from 24 mm to 2000 mm, which is an extraordinary range and the reason to own one.[^equivalent] Zooming in does not bring you closer; it narrows the wedge of the world that lands on the sensor and throws away everything outside it. What is left is magnified, and so is every problem: your shake, the heat shimmer over a field, and the fact that the lens cannot open as wide at the long end." },
-        { "type": "interactive_diagram", "id": "zoom", "caption": "The same animal across a field, from 24 mm to 2000 mm", "task": "Fill half the frame's height with the animal", "goal": "fill-frame" },
-        { "type": "interactive_diagram", "id": "longEnd", "caption": "The widest the lens will open, at every zoom", "task": "Zoom past 1200 mm and read what the lens has left", "goal": "price" },
-        { "type": "text", "text": "This is the bargain at the heart of a superzoom, and it is worth seeing plainly rather than being disappointed by it later: at 2000 mm you are working at f/6.5, which is two and a half stops darker than the wide end, with a shake problem that wants a shutter eight times faster. The camera in Bird-watching mode solves that for you by raising the ISO, quietly." },
-        { "type": "key_ideas", "title": "Hold on to", "points": [
-          "A stop is half the light or twice it, on any of the three dials.",
-          "The long end of the zoom costs light, and magnifies shake along with the bird."
+        { "type": "text", "text": "The P950's zoom lens spans an equivalent focal length range from 24 mm to 2000 mm, which makes it practical for distant wildlife.[^equivalent] Zooming in leaves your physical distance to the animal unchanged; instead, the lens narrows the angle of view so that a tiny fraction of the scene is stretched across the entire sensor. Stretching that small wedge of light magnifies the bird, and it equally magnifies every optical flaw and movement: the tremor of your hands, the heat shimmer rising off warm ground, and the light loss caused by the lens's narrower maximum f-number at full extension." },
+        { "type": "interactive_diagram", "id": "zoom", "caption": "An animal across a field, viewed from 24 mm to 2000 mm equivalent", "task": "Zoom in until the animal fills half the height of the frame", "goal": "fill-frame" },
+        { "type": "interactive_diagram", "id": "longEnd", "caption": "The widest available f-number across the zoom range", "task": "Zoom past 1200 mm and read the widest aperture the lens allows", "goal": "price" },
+        { "type": "text", "text": "Every superzoom lens carries a built-in optical trade-off at full extension: at 2000 mm the P950 can open no wider than f/6.5, which lets in nearly two and a half stops less light per unit area than f/2.8 at the wide end, just when the lens magnifies every tremor of your hands 83 times more than it does at 24 mm and so demands a much faster shutter speed. When you shoot at 2000 mm in Bird-watching mode, the camera compensates for that missing light by pushing the ISO up behind the scenes." },
+        { "type": "key_ideas", "title": "Stops and superzoom limits", "points": [
+          "One stop halves or doubles the light (or amplification) on any of the exposure controls.",
+          "Zooming to the long end reduces the light reaching the sensor while magnifying camera shake alongside the bird."
         ] }
       ]
     },
     {
-      "title": "Check",
+      "title": "Review",
       "blocks": [
-        { "type": "quiz", "id": "check", "caption": "Five questions on the four decisions", "task": "Answer them", "options": { "items": [
-          { "question": "The whole frame is smeared, background and all. What happened?", "options": ["The camera moved while the shutter was open", "The bird moved", "The ISO was too high", "The aperture was too wide"], "answer": 0, "why": "When everything smears together, the camera moved. A smeared subject against a sharp background is the other blur, and only a faster shutter fixes that one." },
-          { "question": "You narrow the aperture from f/2.8 to f/5.6. What else must change to keep the exposure?", "options": ["Two stops: a longer shutter or a higher ISO", "Nothing, the camera is already right", "Two stops faster a shutter", "The white balance"], "answer": 0, "why": "f/2.8 to f/4 is a stop, and f/4 to f/5.6 is another, so two stops of light have gone and must come back from the shutter or the ISO." },
-          { "question": "What does raising the ISO actually do?", "options": ["Amplifies the light the sensor caught, roughness and all", "Makes the sensor more sensitive to light", "Lets more light through the lens", "Opens the shutter for longer"], "answer": 0, "why": "The sensor's sensitivity does not change. ISO multiplies the count that was made, so a small, rough count becomes a bright, rough one: that is the grain." },
-          { "question": "Why is a soft background hard to get on this camera?", "options": ["The small sensor keeps a very wide band of the scene sharp", "The lens is not sharp enough", "The zoom does not go long enough", "The shutter cannot go slow enough"], "answer": 0, "why": "A small sensor means a short real focal length, and short lenses hold a wide band in focus. Length, a close subject and a distant background are the way round it." },
-          { "question": "At 2000 mm the lens opens no wider than f/6.5. What follows?", "options": ["Less light, so a slower shutter or a higher ISO just when shake is worst", "Deeper depth of field, which is always welcome", "Nothing, the camera compensates", "The picture is sharper"], "answer": 0, "why": "The long end is darker and shakier at once, which is why pictures at full zoom are so often grainy or soft. Knowing that is half of working around it." }
+        { "type": "quiz", "id": "check", "caption": "Questions on exposure, focus, and zoom", "task": "Select the best answer for each question", "options": { "items": [
+          { "question": "A photograph comes out smeared across the entire frame, including the tree branches and the background. Which problem caused the blur?", "options": ["The camera moved while the shutter was open", "The bird moved", "The ISO was too high", "The aperture was too wide"], "answer": 0, "why": "When stationary background details smear alongside the subject, the camera itself moved during the exposure. If the bird is blurred against a sharp branch, the bird moved and only a faster shutter speed will freeze it." },
+          { "question": "You narrow the aperture from f/2.8 to f/5.6. Which adjustment keeps the image at the same brightness?", "options": ["Two stops of compensation from a slower shutter speed or a higher ISO", "Nothing, because the exposure stays the same", "A shutter speed two stops faster", "Adjusting the white balance"], "answer": 0, "why": "Narrowing the lens from f/2.8 to f/4 cuts the light in half (one stop), and narrowing it from f/4 to f/5.6 cuts it in half again (a second stop). Those two lost stops must be recovered by leaving the shutter open four times as long or quadrupling the ISO." },
+          { "question": "How does raising the ISO setting brighten a dark image?", "options": ["It amplifies the electrical signal from the light the sensor already caught, including its random roughness", "It makes the silicon sensor capture a higher percentage of incoming photons", "It opens the lens wider to let more light through", "It holds the shutter open for a longer duration"], "answer": 0, "why": "A sensor's physical sensitivity to photons is fixed. Raising the ISO multiplies the weak signal read out from a small photon count, which turns a dim, statistically noisy measurement into a bright, grainy picture." },
+          { "question": "Why does a small-sensor camera like the P950 tend to keep backgrounds sharp unless you take specific steps to blur them?", "options": ["The small sensor uses short actual focal lengths, which produce a wide depth of field", "The lens glass is not sharp enough to separate planes", "The zoom range is too short for wildlife", "The shutter speed cannot go slow enough"], "answer": 0, "why": "Because the sensor measures only 6.17 by 4.55 mm, the lens has a short physical focal length that naturally keeps a deep zone in focus. Getting a softly blurred background requires zooming in, moving close to the subject, and choosing a distant background." },
+          { "question": "At the 2000 mm equivalent zoom setting, the P950 lens opens no wider than f/6.5. What practical consequence follows from this limit?", "options": ["Less light reaches the sensor, forcing a slower shutter or a higher ISO right when magnified hand shake is hardest to control", "Depth of field becomes deeper, which solves motion blur", "Nothing changes, because the lens gathers extra light at long focal lengths", "The image becomes free of photon noise"], "answer": 0, "why": "At full zoom the image is dimmer and every slight wobble of your hands is magnified across the frame, which is why shots at 2000 mm often suffer from high-ISO grain or motion blur unless the light is bright and the camera is braced." }
         ] } }
       ]
     }
   ],
   "learned": [
-    "Every photograph is four decisions: aperture, shutter, ISO and focus.",
-    "A stop is half the light or twice it, and a stop given up on one dial can be taken back on another.",
-    "Camera shake smears the whole frame; a moving subject smears only itself.",
-    "Grain is a counting problem, not a flaw in the camera.",
-    "The long end of the zoom costs light and magnifies every wobble."
+    "Every photograph is shaped by aperture, shutter speed, ISO, and focus.",
+    "One stop halves or doubles the light, allowing you to trade stops between aperture, shutter speed, and ISO.",
+    "Camera shake smears the entire frame, whereas subject motion blurs only the moving animal.",
+    "Digital grain comes from the random statistical variation of counting a small number of photons.",
+    "Zooming to the long end reduces the lens's maximum f-number and magnifies every wobble of your hands."
   ],
-  "next": "Next: what a stop is, how the camera measures the light, and the modes that hand each decision back to you.",
+  "next": "Next: stops, light metering, and the semi-automatic exposure modes that let you take over one control at a time.",
   "journal": [],
   "footnotes": {
-    "why-p950": { "kind": "digression", "title": "Why this camera", "text": "The figures run on the Nikon Coolpix P950's real numbers: a 6.17 by 4.55 mm sensor, a 4.3 to 357 mm lens (24 to 2000 mm equivalent) opening to f/2.8 at the wide end and f/6.5 at the long one. Another camera would move the numbers and leave the ideas where they are." },
-    "circle": { "kind": "technical", "title": "Circle of confusion", "text": "The disc a point lands as is called the **circle of confusion**, and the largest one that still passes for a point is usually taken as the sensor's diagonal divided by 1500: about 0.005 mm here, against 0.029 mm on a full-frame camera." },
-    "shot-noise": { "kind": "technical", "title": "Shot noise", "text": "A count of N photons is uncertain by about the square root of N, so a count of 10,000 is out by 1% and a count of 100 by 10%. This is **shot noise**, and it is a property of light rather than of cameras: no sensor can avoid it." },
-    "equivalent": { "kind": "technical", "title": "Equivalent millimetres", "text": "A lens's real focal length only says what it will do once you know the sensor size behind it. Makers quote the focal length a 36 by 24 mm camera would need for the same view, so 357 mm on this sensor is quoted as 2000 mm. The crop factor here is 5.6." }
+    "p950-specs": {
+      "kind": "digression",
+      "title": "The Nikon Coolpix P950",
+      "text": "Every interactive figure in this course uses the Nikon Coolpix P950's real specifications: a 1/2.3-inch sensor measuring 6.17 by 4.55 mm, and a 4.3 to 357 mm lens (24 to 2000 mm equivalent) with a maximum aperture that narrows from f/2.8 at the wide end to f/6.5 at the telephoto end. Another camera would shift the exact numbers while obeying the same physical rules."
+    },
+    "aperture-etymology": {
+      "kind": "digression",
+      "title": "Lens and aperture",
+      "text": "The word *aperture* comes from the Latin *apertura*, meaning an opening. *Lens* comes from the Latin name for the lentil, because a double-convex piece of glass is shaped like a lentil bean."
+    },
+    "circle": { "kind": "technical", "title": "Circle of confusion", "text": "Opticians call the blurred disc formed by an out-of-focus point the **circle of confusion**. The largest disc that still looks like a crisp point in a standard viewing print is conventionally taken as the sensor's diagonal divided by about 1500, which works out to roughly 0.005 mm on the P950's 7.66 mm diagonal compared with 0.029 mm on a 36 by 24 mm full-frame sensor." },
+    "muybridge": {
+      "kind": "digression",
+      "title": "Freezing the gallop",
+      "text": "Early photographic plates needed seconds of light, turning every moving animal into a ghost. In 1878, Eadweard Muybridge used mechanical shutters triggered by tripwires at roughly 1/1000 of a second to photograph a galloping horse at Palo Alto, California, proving for the first time that a galloping horse lifts all four hooves off the ground at once, tucked beneath its belly rather than stretched out like a rocking horse."
+    },
+    "shot-noise": { "kind": "technical", "title": "Shot noise", "text": "Because photons arrive independently at random intervals, a count of N photons carries a natural statistical uncertainty equal to the square root of N. Collecting 10,000 photons yields a standard deviation of 100 (or 1%), whereas collecting 100 photons yields a variation of 10 (or 10%). Physicists call this **shot noise** (or Poisson noise, after Simeon Denis Poisson); Walter Schottky first analysed the same effect in the current through vacuum tubes in 1918, and the English name translates his German *Schroteffekt*, from *Schrot*, small lead shot." },
+    "iso-history": {
+      "kind": "digression",
+      "title": "ASA, DIN, and ISO",
+      "text": "ISO stands for the International Organization for Standardization, which in 1974 merged the American ASA film speed scale and the German DIN scale into a single standard. A film photographer changed ISO by loading a different film; a digital camera has one sensor with a fixed ability to catch photons, so turning the ISO dial changes the electronic gain applied to its signal instead."
+    },
+    "stops-origin": {
+      "kind": "digression",
+      "title": "Waterhouse stops",
+      "text": "Before lenses had built-in iris diaphragms, photographers adjusted the aperture by sliding brass plates with holes of different diameters into a slot in the lens barrel. Invented by John Waterhouse of Halifax, England, in 1858, these inserts were called *Waterhouse stops*, and photographers still say they \"stop down\" a lens when they close the aperture."
+    },
+    "equivalent": { "kind": "technical", "title": "Equivalent focal length", "text": "A lens's physical focal length only tells you its angle of view once you know the size of the sensor behind it. Camera makers quote **35 mm equivalent focal length**, which is the focal length a 36 by 24 mm full-frame camera would need to frame the exact same view. Because the P950's sensor has a diagonal 5.6 times smaller than a full-frame sensor (a crop factor of 5.6), its 357 mm maximum focal length frames the same tight view as a 2000 mm lens on a full-frame camera." }
   }
 }

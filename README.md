@@ -54,7 +54,7 @@ Vitest) rather than `node --experimental-strip-types`.
   wedge of the world a lens takes in, the widest aperture closing as you zoom,
   the kelvin scale, and white balance on snow.
 - **A twelve-lesson outline** (`src/core/lessons.ts`), of which lesson 1,
-  "What the camera is deciding for you", is written: a tour of the four
+  "Camera decisions in automatic modes", is written: a tour of the four
   decisions that uses one figure of every kind. The rest show on the home page
   as coming, with what each will cover.
 - The **reference page**: the four decisions, the camera at a glance, the stop
