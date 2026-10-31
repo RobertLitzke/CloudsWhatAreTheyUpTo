@@ -1,18 +1,15 @@
-// A lesson (Didactics' lesson view), with Clouds' sky over the fields at the
-// top, the clouds it introduces under the lede, and Walla Walla on the radio:
-// a short opening as the lesson starts, and a few lines typed around the check.
+// What Clouds adds to a lesson (Didactics' lesson view, which main.ts sets up
+// through defineCourse): its sky over the fields at the top, the clouds it
+// introduces under the lede, and Walla Walla on the radio: a short opening as
+// the lesson starts, and a few lines typed around the check.
 
-import { lessonView } from 'didactics/lesson';
 import { el } from 'didactics/dom';
 import { genus } from '../../core/clouds';
-import { SHIFTS, type Shift } from '../../core/shifts';
+import type { Shift } from '../../core/shifts';
 import { radioFor, STATIONS } from '../../core/talk';
-import { FIGURES } from '../figures';
-import { prose } from '../figures/kit';
 import { clearRadio, playTalk } from '../radio';
 import { addToSky, placeCloud, SKY_SPOTS } from '../scene/drawn';
 import { makeScene, W } from '../scene/landscape';
-import { store } from '../store';
 
 /** The sky over the fields, with the clouds this lesson is about. */
 function hero(shift: Shift): Node {
@@ -25,12 +22,8 @@ function hero(shift: Shift): Node {
   return scene.root;
 }
 
-export const shiftView = lessonView({
-  lessons: SHIFTS,
-  figures: FIGURES,
-  store,
-  prose,
+export const shiftOptions = {
   hero,
-  intro: (shift) => (shift.clouds.length ? el('ul.meet', {}, shift.clouds.map((id) => el('li', {}, genus(id).name))) : null),
-  radio: { talks: (id) => radioFor(id).talks, play: playTalk, clear: clearRadio, them: STATIONS.them },
-});
+  intro: (shift: Shift) => (shift.clouds.length ? el('ul.meet', {}, shift.clouds.map((id) => el('li', {}, genus(id).name))) : null),
+  radio: { talks: (id: string) => radioFor(id).talks, play: playTalk, clear: clearRadio, them: STATIONS.them },
+};
