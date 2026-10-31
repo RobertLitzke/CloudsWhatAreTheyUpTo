@@ -29,6 +29,13 @@ lowercase word or two naming its subject (the catalog's test checks this).
 | Folder | Course | Save key |
 | --- | --- | --- |
 | `courses/clouds` | Clouds: What are they up to? | `clouds.save` |
+| `courses/soil` | Dirt: a soil workbook | `dirt.save` |
+| `courses/electronics` | Circuitry: a circuits workbook (its solver is the workspace `courses/electronics/packages/circuit-kit`) | `circuitry.save` |
+| `courses/photography` | Out of Auto: a field workbook | `outofauto.save` |
+
+Dirt, Circuitry and Out of Auto came in from their own repositories
+(RobertLitzke/Dirt, Circuitry, Photography) with their history, by
+`git subtree add`.
 
 Each course keeps its own `localStorage` keys (`<id>.save`, `<id>.course`, …),
 so progress made before the courses moved here is still found: the site is on

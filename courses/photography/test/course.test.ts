@@ -1,6 +1,7 @@
 // @vitest-environment happy-dom
 import { describe, expect, it } from 'vitest';
-import { settingsView } from '../src/app/views/settings';
+import { courseSection } from 'didactics/course-view';
+import { el } from 'didactics/dom';
 import { isWritten, LESSONS } from '../src/core/lessons';
 import { COURSE, LESSON_PIECES } from '../src/course';
 
@@ -21,8 +22,8 @@ describe('course text download', () => {
   });
 
   it('Settings shows the menu, All first', () => {
-    const root = document.createElement('main');
-    settingsView(root, { params: {}, navigate: () => {}, replace: () => {} });
+    // As defineCourse puts it on the Settings page, from main.ts's text and textPieces.
+    const root = el('main', {}, courseSection({ edits: COURSE, fileName: 'out-of-auto-course.json', pieces: LESSON_PIECES }));
     const options = [...root.querySelectorAll('select.course-piece option')].map((o) => o.textContent);
     expect(options).toEqual(['All', ...LESSON_PIECES.map((p) => p.label)]);
   });

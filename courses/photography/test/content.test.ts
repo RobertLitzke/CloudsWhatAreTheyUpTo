@@ -7,7 +7,7 @@ import { FIGURES } from '../src/app/figures';
 import { FIGURE_IDS, isWritten, LESSONS } from '../src/core/lessons';
 import { isSubjectId } from '../src/core/photos';
 import { REFERENCE } from '../src/core/reference';
-import { DECK } from '../src/app/views/quiz';
+import { DECK } from '../src/app/deck';
 import quiz from '../src/data/quiz.json';
 
 describe('lessons', () => {

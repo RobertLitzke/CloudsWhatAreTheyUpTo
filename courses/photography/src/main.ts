@@ -1,24 +1,20 @@
 // First: the edited words go in before any module reads them.
-import './course';
+import { COURSE, LESSON_PIECES } from './course';
 import './app/styles/app.css';
-import { BLADES } from './app/mark';
+import { defineCourse } from 'didactics/app';
 import { el } from 'didactics/dom';
-import { Router } from 'didactics/router';
-import { appShell } from 'didactics/shell';
-import { watchForUpdates } from 'didactics/update';
-import { creditsView } from './app/views/credits';
+import { SITE_URL } from './app/asset';
+import { CREDITS } from './app/credits';
+import { DECK } from './app/deck';
+import { FIGURES } from './app/figures';
+import { prose } from './app/figures/kit';
+import { BLADES } from './app/mark';
+import { makeScene } from './app/scene/field';
+import { store } from './app/store';
 import { homeView } from './app/views/home';
-import { lessonView } from './app/views/lesson';
-import { quizView } from './app/views/quiz';
 import { referenceView } from './app/views/reference';
-import { settingsView } from './app/views/settings';
-
-const NAV = [
-  { path: '/home', label: 'Home' },
-  { path: '/reference', label: 'Reference' },
-  { path: '/quiz', label: 'Quiz' },
-  { path: '/settings', label: 'Settings' },
-];
+import { LESSONS } from './core/lessons';
+import { emptySave } from './core/save';
 
 /** A shutter button with an up arrow, for the update banner: inline, so it shows offline. */
 const SHUTTER =
@@ -32,32 +28,42 @@ const MARK =
   BLADES +
   '</g></svg>';
 
-function boot(): void {
-  const shell = appShell({
-    mount: document.getElementById('app')!,
-    title: 'Out of Auto',
-    subtitle: 'A field workbook',
-    mark: el('span.mark', { innerHTML: MARK }),
-    nav: NAV,
-    // A lesson fills the screen: the bar would only be in the way.
-    fullScreen: (path) => path.startsWith('/lesson/'),
-  });
+// The whole app (Didactics' app.ts). The save stays under "outofauto.save"
+// (app/store.ts) and the edited text under "out-of-auto.course" (course.ts),
+// as before the course joined the site; the files are out-of-auto-save.json,
+// out-of-auto-course.json and out-of-auto.html.
+defineCourse({
+  id: 'out-of-auto',
+  title: 'Out of Auto',
+  subtitle: 'A field workbook',
+  mark: el('span.mark', { innerHTML: MARK }),
+  site: SITE_URL,
+  update: { title: 'New version', text: 'A fresh version of Out of Auto is ready.', icon: SHUTTER },
 
-  new Router(shell.outlet, { before: shell.before })
-    .add('/home', homeView)
-    .add('/lesson/:id', lessonView)
-    .add('/reference', referenceView)
-    .add('/quiz', quizView)
-    .add('/credits', creditsView)
-    .add('/settings', settingsView)
-    .start('/home');
+  lessons: LESSONS,
+  figures: FIGURES,
+  prose,
+  lesson: {
+    // "Lesson 1 of 12": the whole plan, which the home page shows too.
+    countComing: true,
+    hero: (l) => makeScene({ seed: 30 + l.n, time: l.n % 2 ? 'morning' : 'evening' }),
+  },
+  save: { store, empty: emptySave },
+  text: COURSE,
+  textPieces: LESSON_PIECES,
 
-  if (import.meta.env.DEV) void import('didactics/overflow').then((m) => m.watchOverflow());
-
-  // The page also runs straight from disk, where there is no service worker.
-  if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    watchForUpdates({ title: 'New version', text: 'A fresh version of Out of Auto is ready.', icon: SHUTTER });
-  }
-}
-
-boot();
+  home: homeView,
+  pages: [{ path: '/reference', label: 'Reference', view: referenceView }],
+  menu: ['/home', '/reference', '/quiz', '/settings'],
+  // The site's catalog of every course, one folder up.
+  catalog: { href: '../' },
+  quiz: {
+    deck: DECK,
+    blurb: 'Flash cards on the ideas in the lessons. Cards you get right come back after longer and longer gaps; cards you miss come back soon.',
+  },
+  photos: CREDITS,
+  settings: {
+    units: { label: 'Distances in', imperial: 'Feet', metric: 'Metres' },
+    about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photographs, and under what licence.'),
+  },
+});

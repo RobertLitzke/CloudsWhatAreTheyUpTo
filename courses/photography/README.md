@@ -15,14 +15,18 @@ frame crops as the lens zooms, and the whole picture tips warm or cold with
 the white balance. There is no story and no mentor; footnotes carry the
 history, the chemistry and the photographers.
 
-Built on [Didactics](https://github.com/RobertLitzke/Didactics), the lesson
-library taken out of
-[Clouds](https://github.com/RobertLitzke/CloudsWhatAreTheyUpTo): the lesson
+Out of Auto is one course of several on one site: it lives in
+`courses/photography/` of that site's repository and is served from
+`/photography/` under the course catalog (see the README at the repository's
+root; run it with `npm run dev -w photography`). Its `src/main.ts` is one
+Didactics `defineCourse` call.
+
+Built on [Didactics](https://github.com/RobertLitzke/Didactics): the lesson
 player, figures and their frames and sliders, checks, footnotes, glossary,
 reference page, quiz, photo credits, figure gallery, shell and PWA build. It
 is a git dependency pinned to a commit in `package.json`; to
-take a newer one, run `npm install github:RobertLitzke/Didactics#<sha>`, then
-`npm test` and `npm run build`. There is no radio, so the save has none.
+take a newer one, change the pin in every course's package.json and run
+`npm install` at the root, then `npm test` and `npm run build`. There is no radio, so the save has none.
 Didactics ships TypeScript source, which Node will not run from
 `node_modules`, so the photo tools run through `vite-node` (it comes with
 Vitest) rather than `node --experimental-strip-types`.
@@ -179,5 +183,5 @@ tools/        photos/ (find, fetch, import, depth), gallery/, icons.mjs
 
 Pushes to `main` build and deploy to GitHub Pages
 (`.github/workflows/pages.yml`) at
-https://robertlitzke.github.io/Photography/. In the repository's settings,
+https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/photography/. In the repository's settings,
 Pages must be set to deploy from GitHub Actions.

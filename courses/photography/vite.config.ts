@@ -12,6 +12,9 @@ export default defineConfig(
     version: pkg.version,
     // Ports follow the local-dev port scheme: one block of ten per web project.
     port: 5460,
+    // One of several courses on the site, in its folder: the site's build
+    // (tools/build-site.mjs at the repo's root) writes the one service worker.
+    inSite: true,
     oneFile: 'out-of-auto.html',
     precache: ['photos/*.webp'],
     manifest: {

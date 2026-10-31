@@ -1,12 +1,12 @@
-// Who made what: every photograph with its author, licence and source
-// (Didactics' Credits page), and the type.
+// Who made what: every photograph with its author, licence and source, and
+// the type (Didactics' Credits page, in defineCourse's `photos`).
 
 import { el } from 'didactics/dom';
-import { creditsView as kitCreditsView } from 'didactics/photos';
-import { SUBJECTS } from '../../core/photos';
-import { PHOTOS } from '../picture';
+import type { CreditsViewOptions } from 'didactics/photos';
+import { SUBJECTS, type Photo } from '../core/photos';
+import { PHOTOS } from './picture';
 
-export const creditsView = kitCreditsView({
+export const CREDITS: CreditsViewOptions<Photo> = {
   photos: PHOTOS,
   name: (p) => SUBJECTS[p.subject],
   intro: [
@@ -19,4 +19,4 @@ export const creditsView = kitCreditsView({
     el('p', {}, 'Fraunces by Undercase Type, Nunito Sans by Vernon Adams, Jacques Le Bailly and Manvel Shmavonyan, and Kalam by the Indian Type Foundry, all under the SIL Open Font License.'),
     el('p.muted', {}, `Version ${__APP_VERSION__}`),
   ],
-});
+};
