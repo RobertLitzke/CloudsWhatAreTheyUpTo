@@ -18,6 +18,7 @@
 // and [^id] for a footnote from the file's `footnotes` table, which opens in a
 // popup (Didactics' footnote.ts).
 
+import { CHART_IDS } from 'didactics/charts';
 import type { Footnotes } from 'didactics/footnote';
 import type { Block as KitBlock, Lesson, Part as KitPart } from 'didactics/lesson';
 import { lessonCodes, type TreeBranch } from 'didactics/tree';
@@ -52,13 +53,14 @@ export const FIGURE_IDS = [
   'radarEcho', 'brightBand', 'stormRadar', 'radarMap', 'frontRadar', 'seedLines',
   'lookAlike',
   'pressureMap', 'turntable', 'spinLatitude', 'windBalance', 'lowHigh', 'jetStream',
-  'upwelling', 'pacificHigh', 'marineLayer', 'coastSounding', 'thunderDays',
+  'upwelling', 'pacificHigh', 'marineLayer', 'coastSounding',
   'stormTrack', 'atmosphericRiver', 'windward', 'acrossWashington', 'snowLevel', 'convergenceZone',
   'fuelSounding', 'capDay', 'stormSorter', 'hailstone', 'stormRecipe',
   'shearRoll', 'skater', 'supercell', 'hookEcho', 'efScale',
   'tradeWinds', 'heatEngine', 'shipThrough', 'hurricaneBelt', 'surge',
   'coldPool', 'fogMaker', 'rime', 'iceLayers',
   'dustWall', 'downslope', 'gorgeGap', 'santaAna',
+  ...CHART_IDS,
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 

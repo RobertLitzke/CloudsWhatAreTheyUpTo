@@ -25,8 +25,18 @@
         },
         {
           "type": "diagram",
-          "id": "thunderDays",
-          "caption": "Approximate number of thunderstorm days per year across the United States, from Florida to the Pacific coast."
+          "id": "scale",
+          "caption": "Approximate number of thunderstorm days per year across the United States, from Florida to the Pacific coast.",
+          "options": {
+            "title": "Days a year with thunder, roughly",
+            "items": [
+              { "label": "Fort Myers, Florida", "value": 90, "color": "sun" },
+              { "label": "Wichita, Kansas", "value": 55, "color": "sun" },
+              { "label": "Spokane, Washington", "value": 11, "color": "sun" },
+              { "label": "Seattle, Washington", "value": 6, "color": "dew", "bold": true },
+              { "label": "San Francisco, California", "value": 2, "color": "dew", "bold": true }
+            ]
+          }
         },
         {
           "type": "text",

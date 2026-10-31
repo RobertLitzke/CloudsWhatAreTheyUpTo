@@ -12,16 +12,20 @@ import { checkFigure, lookAlikeDiagram, namesFigure, sortFigure } from './quizze
 import { agentRangeDiagram, coldBoxFigure, dryIceDiagram, fallstreakDiagram, iceShortageDiagram, iceStealDiagram, latticeDiagram, mountainSeedDiagram, seedLayerFigure } from './seeding';
 import { cloudWaterDiagram, conveyorDiagram, fairTestDiagram, fogHoleDiagram, seedLinesDiagram, seedWindowDiagram, trialFigure } from './seeding-limits';
 import { jetStreamDiagram, lowHighDiagram, pressureMapDiagram, spinLatitudeDiagram, turntableFigure, windBalanceFigure } from './wind';
-import { coastSoundingFigure, marineLayerFigure, pacificHighDiagram, thunderDaysDiagram, upwellingFigure } from './coast';
+import { coastSoundingFigure, marineLayerFigure, pacificHighDiagram, upwellingFigure } from './coast';
 import { acrossWashingtonDiagram, atmosphericRiverDiagram, convergenceZoneDiagram, snowLevelFigure, stormTrackFigure, windwardFigure } from './rivers';
 import { capDayFigure, fuelSoundingFigure, hailstoneFigure, stormRecipeDiagram, stormSorterFigure } from './violent';
 import { efScaleDiagram, hookEchoDiagram, shearRollFigure, skaterFigure, supercellDiagram } from './tornado';
 import { heatEngineFigure, hurricaneBeltDiagram, shipThroughFigure, surgeFigure, tradeWindsDiagram } from './hurricane';
 import { coldPoolFigure, fogMakerFigure, iceLayersFigure, rimeDiagram } from './winter-fog';
 import { downslopeFigure, dustWallFigure, gorgeGapFigure, santaAnaDiagram } from './east-wind';
-import type { FigureFactory } from './kit';
+import { charts } from 'didactics/charts';
+import { asset } from '../asset';
+import { COL, type FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
+  // Timelines, trees, scale comparisons and labelled plates, drawn from the lesson's JSON.
+  ...charts({ palette: COL, asset }),
   jar: jarFigure,
   parcel: parcelFigure,
   freezing: freezingFigure,
@@ -118,7 +122,6 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   pacificHigh: pacificHighDiagram,
   marineLayer: marineLayerFigure,
   coastSounding: coastSoundingFigure,
-  thunderDays: thunderDaysDiagram,
   stormTrack: stormTrackFigure,
   atmosphericRiver: atmosphericRiverDiagram,
   windward: windwardFigure,

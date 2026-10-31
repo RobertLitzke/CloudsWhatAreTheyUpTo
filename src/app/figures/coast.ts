@@ -332,32 +332,3 @@ export const coastSoundingFigure = figure(['storm'], (ctx, t) => {
 // ---- Days of thunder --------------------------------------------------------
 
 /** Days a year with thunder heard, roughly, from long-term records. */
-const THUNDER_DAYS: [string, number][] = [
-  ['Fort Myers, Florida', 90],
-  ['Wichita, Kansas', 55],
-  ['Spokane, Washington', 11],
-  ['Seattle, Washington', 6],
-  ['San Francisco, California', 2],
-];
-
-export const thunderDaysDiagram: FigureFactory = () => {
-  const W = 400;
-  const H = 200;
-  const d = still(W, H);
-  const x0 = 160;
-  const px = 2.4;
-  d.svg.append(
-    svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }),
-    note(8, 18, 'Days a year with thunder, roughly', { bold: true }),
-    ...THUNDER_DAYS.flatMap(([place, days], i) => {
-      const y = 40 + i * 30;
-      const coast = place.includes('Seattle') || place.includes('San Francisco');
-      return [
-        note(x0 - 8, y + 12, place, { anchor: 'end', fill: coast ? COL.dew : COL.ink, bold: coast }),
-        svg('rect', { x: x0, y, width: Math.max(3, days * px), height: 16, fill: coast ? COL.dew : COL.sun, rx: 2 }),
-        note(x0 + Math.max(3, days * px) + 6, y + 12, `${days}`, { fill: COL.ink }),
-      ];
-    }),
-  );
-  return { node: d.node };
-};

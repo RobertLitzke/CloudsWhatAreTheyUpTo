@@ -51,8 +51,9 @@ describe('figures', () => {
     it(`all build without throwing (${units})`, () => {
       const save = { ...emptySave(), units };
       const ctx: FigureContext = { save, closed: AbortSignal.abort(), score: () => {} };
-      for (const id of FIGURE_IDS) {
-        const use = uses.find((u) => u.block.id === id)?.block;
+      // A chart (didactics/charts) is drawn from each block's options: build every use, and none when unused.
+      const builds = FIGURE_IDS.flatMap((id) => (FIGURES[id].each ? uses.filter((u) => u.block.id === id).map((u) => [id, u.block] as const) : [[id, uses.find((u) => u.block.id === id)?.block] as const]));
+      for (const [id, use] of builds) {
         const handle = FIGURES[id](ctx, use?.goal, use?.options);
         expect(handle.node, id).toBeInstanceOf(HTMLElement);
         expect(handle.node.querySelector('svg, img, button'), id).not.toBeNull();
