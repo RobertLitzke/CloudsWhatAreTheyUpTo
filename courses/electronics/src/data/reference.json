@@ -1,0 +1,970 @@
+{
+  "sections": [
+    {
+      "id": "glossary",
+      "title": "Glossary",
+      "summary": "Every word the lessons use, A to Z, with the notes from the lessons",
+      "lesson": "what-flows",
+      "blocks": [
+        {
+          "type": "glossary"
+        }
+      ]
+    },
+    {
+      "id": "ohms-law",
+      "title": "Ohm's law and power",
+      "summary": "Voltage, current, resistance and watts, with a live circuit",
+      "lesson": "what-flows",
+      "blocks": [
+        {
+          "type": "interactive_diagram",
+          "id": "loop",
+          "caption": "A battery, a resistor, a lamp and a switch in one loop. Tap a wire to probe it."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "To find",
+            "From",
+            "Formula"
+          ],
+          "rows": [
+            [
+              "Voltage",
+              "Current and resistance",
+              "V = I × R"
+            ],
+            [
+              "Current",
+              "Voltage and resistance",
+              "I = V ÷ R"
+            ],
+            [
+              "Resistance",
+              "Voltage and current",
+              "R = V ÷ I"
+            ],
+            [
+              "Power",
+              "Voltage and current",
+              "P = V × I"
+            ],
+            [
+              "Power",
+              "Current and resistance",
+              "P = I² × R"
+            ],
+            [
+              "Power",
+              "Voltage and resistance",
+              "P = V² ÷ R"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Run it backwards to choose a part, then fit the nearest standard value. 9 V and 20 mA want 450 Ω; the E12 series gives 470 Ω."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Series",
+            "Values a decade",
+            "Values"
+          ],
+          "rows": [
+            [
+              "E12",
+              "12",
+              "10 12 15 18 22 27 33 39 47 56 68 82"
+            ],
+            [
+              "E24",
+              "24",
+              "E12 plus 11 13 16 20 24 30 36 43 51 62 75 91"
+            ]
+          ]
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "Energy",
+              "means": "Watt-hours = volts × amp-hours. 1 Wh = 3600 J."
+            },
+            {
+              "term": "Run time",
+              "means": "Hours = watt-hours ÷ watts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "symbols",
+      "title": "Schematic symbols",
+      "summary": "The symbol for every part the lessons use",
+      "lesson": "what-flows",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "How the lessons draw each part, and what to look for when you meet it in someone else's schematic. In the figures each wire takes the colour of its voltage; here everything is in ink."
+        },
+        {
+          "type": "text",
+          "text": "A line is a wire, and all of one line is at one voltage. Lines that meet at a T are joined. Many schematics also put a dot on every join, and draw lines that cross without a dot as not touching: when in doubt, look for the dot."
+        },
+        {
+          "type": "symbols",
+          "items": [
+            {
+              "symbol": "battery",
+              "name": "Battery or supply",
+              "means": "Two plates: the long one is +, the short one −. A battery of several cells is often drawn as several pairs; a bench supply is drawn the same way, with its voltage written beside it.",
+              "lesson": "what-flows"
+            },
+            {
+              "symbol": "resistor",
+              "name": "Resistor",
+              "means": "A zigzag. European schematics draw a plain rectangle instead. The value is written beside it, often with the multiplier as the decimal point: 4k7 is 4.7 kΩ.",
+              "lesson": "what-flows"
+            },
+            {
+              "symbol": "lamp",
+              "name": "Lamp",
+              "means": "A circle with a cross in it: a filament bulb. Its resistance rises as the filament heats, so it is not a fixed resistor.",
+              "lesson": "what-flows"
+            },
+            {
+              "symbol": "switch",
+              "name": "Switch",
+              "means": "A lever hinged at one contact, drawn open. Closed, it is a wire. Tap one in a figure to flip it.",
+              "lesson": "what-flows"
+            },
+            {
+              "symbol": "ground",
+              "name": "Ground",
+              "means": "The 0 V every other voltage is measured from. Every ground symbol in a drawing is joined to every other, so the return wires can be left out.",
+              "lesson": "what-flows"
+            },
+            {
+              "symbol": "pot",
+              "name": "Potentiometer",
+              "means": "A resistor with an arrow touching it partway along: a divider whose tap, the wiper, slides. Three legs, the two ends of the track and the wiper.",
+              "lesson": "sources"
+            },
+            {
+              "symbol": "current",
+              "name": "Current source",
+              "means": "A circle with an arrow: it pushes a set current the way the arrow points, whatever voltage that takes. More a way of thinking about a part than a part you buy.",
+              "lesson": "sources"
+            },
+            {
+              "symbol": "fuse",
+              "name": "Fuse",
+              "means": "A box with the wire running through it. It is a wire until too much current for too long melts it open.",
+              "lesson": "power"
+            },
+            {
+              "symbol": "load",
+              "name": "Steady-power load",
+              "means": "This workbook's box for a load that takes the same watts whatever its voltage, such as a pump, a converter or an inverter. Real schematics draw the part itself or a labelled box.",
+              "lesson": "power"
+            },
+            {
+              "symbol": "signal",
+              "name": "Signal source",
+              "means": "A circle with a wave in it: a voltage that keeps changing, such as a signal generator or a guitar pickup. A square in the circle means a square wave.",
+              "lesson": "signals"
+            },
+            {
+              "symbol": "opamp",
+              "name": "Op-amp",
+              "means": "A triangle pointing the way the signal goes, with a − and a + input and one output. Its power pins are often left off the drawing, but it still needs them.",
+              "lesson": "signals"
+            },
+            {
+              "symbol": "capacitor",
+              "name": "Capacitor",
+              "means": "Two plates with a gap between. An electrolytic, which has a + and a − leg, is drawn with one plate curved or a + by it; fit it the right way round.",
+              "lesson": "capacitors"
+            },
+            {
+              "symbol": "inductor",
+              "name": "Inductor or coil",
+              "means": "A row of humps: a coil of wire. A relay's coil is one, which is why it kicks back when it is switched off.",
+              "lesson": "capacitors"
+            },
+            {
+              "symbol": "diode",
+              "name": "Diode",
+              "means": "An arrow into a bar. Current flows the way the arrow points, from anode to cathode; the bar is the cathode, the end with the stripe on the part.",
+              "lesson": "diodes"
+            },
+            {
+              "symbol": "led",
+              "name": "LED",
+              "means": "A diode with two arrows coming off it, the light. It drops about 2 V (red) to 3 V (blue) and needs a resistor to set its current.",
+              "lesson": "diodes"
+            },
+            {
+              "symbol": "npn",
+              "name": "NPN transistor",
+              "means": "Base on the left, collector at the top, emitter at the bottom with its arrow pointing out. A small current into the base lets a bigger one flow from collector to emitter. A PNP's arrow points in.",
+              "lesson": "switches"
+            },
+            {
+              "symbol": "nmos",
+              "name": "N-channel MOSFET",
+              "means": "Gate on the left, not touching the channel: that gap is the insulation that means the gate draws no steady current. A voltage on the gate turns it on from drain (top) to source (bottom).",
+              "lesson": "switches"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "series-parallel",
+      "title": "Series, parallel and dividers",
+      "summary": "Adding resistances, Kirchhoff's laws, dividers and cells in series and parallel",
+      "lesson": "series-parallel",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Joined",
+            "What they share",
+            "Combined resistance"
+          ],
+          "rows": [
+            [
+              "In series",
+              "One current; the voltage splits",
+              "R1 + R2 + …"
+            ],
+            [
+              "In parallel",
+              "One voltage; the current splits",
+              "1 ÷ (1/R1 + 1/R2 + …), less than the smallest"
+            ],
+            [
+              "Two in parallel",
+              "",
+              "(R1 × R2) ÷ (R1 + R2)"
+            ]
+          ]
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "Current law",
+              "means": "The current into a junction equals the current out of it."
+            },
+            {
+              "term": "Voltage law",
+              "means": "The rises and drops round any loop add up to zero."
+            }
+          ]
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "Divider",
+              "means": "Out = in × R2 ÷ (R1 + R2), unloaded."
+            },
+            {
+              "term": "Stiff divider",
+              "means": "Let ten times the load's current run down the divider: R2 no more than a tenth of the load."
+            },
+            {
+              "term": "Thévenin",
+              "means": "Seen from its output a divider is its unloaded voltage behind R1 ∥ R2."
+            },
+            {
+              "term": "Inside resistance",
+              "means": "Open-circuit volts ÷ short-circuit amps, or the sag under a known load ÷ the load's current."
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Cells",
+            "Voltage",
+            "Current each gives"
+          ],
+          "rows": [
+            [
+              "Two in series",
+              "Twice one cell's",
+              "All of the load's"
+            ],
+            [
+              "Two matched in parallel",
+              "One cell's",
+              "Half the load's"
+            ]
+          ]
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "junction",
+          "caption": "Three resistors in parallel: the battery's current is the sum of theirs."
+        }
+      ]
+    },
+    {
+      "id": "reading-parts",
+      "title": "Reading parts",
+      "summary": "Resistor colour bands, standard values, capacitor codes and polarity marks",
+      "lesson": "sources",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Four-band resistors: two digits, then the number of noughts, then the tolerance. Five-band resistors have three digits before the multiplier."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Colour",
+            "Digit",
+            "Noughts"
+          ],
+          "rows": [
+            [
+              "Black",
+              "0",
+              "none"
+            ],
+            [
+              "Brown",
+              "1",
+              "0"
+            ],
+            [
+              "Red",
+              "2",
+              "00"
+            ],
+            [
+              "Orange",
+              "3",
+              "000"
+            ],
+            [
+              "Yellow",
+              "4",
+              "0000"
+            ],
+            [
+              "Green",
+              "5",
+              "00000"
+            ],
+            [
+              "Blue",
+              "6",
+              "000000"
+            ],
+            [
+              "Violet",
+              "7",
+              ""
+            ],
+            [
+              "Grey",
+              "8",
+              ""
+            ],
+            [
+              "White",
+              "9",
+              ""
+            ],
+            [
+              "Gold",
+              "",
+              "÷ 10, or ±5%"
+            ],
+            [
+              "Silver",
+              "",
+              "÷ 100, or ±10%"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Bands",
+            "Value"
+          ],
+          "rows": [
+            [
+              "Brown black red",
+              "1 kΩ"
+            ],
+            [
+              "Yellow violet brown",
+              "470 Ω"
+            ],
+            [
+              "Red red orange",
+              "22 kΩ"
+            ],
+            [
+              "Brown black orange",
+              "10 kΩ"
+            ],
+            [
+              "Orange orange brown",
+              "330 Ω"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wire",
+      "title": "Wire and trace sizes",
+      "summary": "Resistance and current by cable size, voltage drop over a run, and fusing",
+      "lesson": "power",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Drop = current × resistance of the whole loop, out and back. Aim for 3% or less on power runs. Fuse below the cable's rating, above the load's current, as close to the battery as you can."
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Cross-section",
+            "Nearest AWG",
+            "Ohms per metre",
+            "Typical rating"
+          ],
+          "rows": [
+            [
+              "0.5 mm²",
+              "20",
+              "0.034 Ω",
+              "3 A"
+            ],
+            [
+              "1.5 mm²",
+              "16",
+              "0.011 Ω",
+              "13 A"
+            ],
+            [
+              "2.5 mm²",
+              "14",
+              "0.0069 Ω",
+              "20 A"
+            ],
+            [
+              "4 mm²",
+              "12",
+              "0.0043 Ω",
+              "25 A"
+            ],
+            [
+              "6 mm²",
+              "10",
+              "0.0029 Ω",
+              "32 A"
+            ],
+            [
+              "10 mm²",
+              "8",
+              "0.0017 Ω",
+              "45 A"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Ratings depend on insulation, bundling and air temperature; take the cable maker's figure over this table. Trace widths on a board follow the same rule: a 1 oz copper trace 0.25 mm wide carries well under an amp."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "long-wire",
+          "caption": "20 m of cable to a 60 W pump: pick the size, or raise the voltage."
+        }
+      ]
+    },
+    {
+      "id": "signals",
+      "title": "Signals and the scope",
+      "summary": "Frequency and period, peak and RMS, and setting a scope",
+      "lesson": "signals",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Quantity",
+            "Means",
+            "Formula"
+          ],
+          "rows": [
+            [
+              "Period",
+              "Time for one cycle",
+              "T = 1 ÷ f"
+            ],
+            [
+              "Frequency",
+              "Cycles a second, in hertz",
+              "f = 1 ÷ T"
+            ],
+            [
+              "Amplitude",
+              "Middle to peak",
+              "A"
+            ],
+            [
+              "Peak to peak",
+              "Bottom to top",
+              "2 × A"
+            ],
+            [
+              "RMS of a sine",
+              "The steady volts that heat as much",
+              "A × 0.707"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Signal",
+            "Frequency",
+            "Size"
+          ],
+          "rows": [
+            [
+              "Hearing",
+              "20 Hz to 20 kHz",
+              "–"
+            ],
+            [
+              "Guitar, low E string",
+              "82 Hz",
+              "a few hundred mV from a pickup"
+            ],
+            [
+              "Mains",
+              "50 or 60 Hz",
+              "230 V or 120 V RMS"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "On a scope, set the volts a square so the wave fills most of the screen’s height, and the time a square so two or three cycles fit across. Check the steady voltages with a meter before looking at the signal."
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "Bias",
+              "means": "The steady voltage a signal rides on; half the supply gives the most headroom."
+            },
+            {
+              "term": "Clipping",
+              "means": "A wave cut flat where a stage runs out of room."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capacitors",
+      "title": "Capacitors and time",
+      "summary": "RC time, filters and their corners, decoupling, and common types",
+      "lesson": "capacitors",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "To find",
+            "Formula",
+            "Example"
+          ],
+          "rows": [
+            [
+              "Time constant",
+              "τ = R × C",
+              "10 kΩ × 100 µF = 1 s"
+            ],
+            [
+              "Charge after t",
+              "V × (1 − e^(−t/τ))",
+              "63% at τ, 86% at 2τ, 99% at 5τ"
+            ],
+            [
+              "Corner frequency",
+              "f = 1 ÷ (2π R C)",
+              "10 kΩ, 10 nF: 1.6 kHz"
+            ],
+            [
+              "Reactance",
+              "X = 1 ÷ (2π f C)",
+              "100 nF at 1 kHz: 1.6 kΩ"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Type",
+            "Values",
+            "Used for"
+          ],
+          "rows": [
+            [
+              "Ceramic",
+              "1 pF to 10 µF",
+              "Decoupling (100 nF by every chip), filters"
+            ],
+            [
+              "Film",
+              "1 nF to 10 µF",
+              "Audio paths and tone controls"
+            ],
+            [
+              "Electrolytic",
+              "1 µF and up",
+              "Reservoirs and big coupling caps; has a + and −"
+            ],
+            [
+              "Tantalum",
+              "0.1 to 100 µF",
+              "Small boards; fails short if reversed"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Capacitor markings: “104” is 10 and four noughts in picofarads, 100 nF; “473” is 47 nF. Choose a voltage rating well above the voltage across the part."
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "Low-pass",
+              "means": "R in the path, C to ground: passes below the corner."
+            },
+            {
+              "term": "High-pass",
+              "means": "C in the path, R to ground: passes above the corner."
+            },
+            {
+              "term": "Kickback",
+              "means": "The spike a coil makes when its current is cut. Lesson 8 adds the diode that catches it."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "semiconductors",
+      "title": "Diodes and transistors",
+      "summary": "Forward voltages, LED resistors, and transistors as switches",
+      "lesson": "diodes",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Diode",
+            "Forward voltage",
+            "Used for"
+          ],
+          "rows": [
+            [
+              "Silicon (1N4148, 1N400x)",
+              "0.6–0.7 V",
+              "Signals, rectifiers, protection, clipping"
+            ],
+            [
+              "Germanium (1N34A)",
+              "0.2–0.3 V",
+              "Soft clipping, old radios"
+            ],
+            [
+              "Schottky (1N5817, BAT46)",
+              "0.2–0.4 V",
+              "Low-loss protection, solar blocking"
+            ],
+            [
+              "Red LED",
+              "1.8–2 V",
+              "Indicators, loud clipping"
+            ],
+            [
+              "Green LED",
+              "2–2.2 V",
+              "Indicators"
+            ],
+            [
+              "Blue or white LED",
+              "2.8–3.2 V",
+              "Indicators, lighting"
+            ]
+          ]
+        },
+        {
+          "type": "table",
+          "columns": [
+            "Transistor",
+            "Kind",
+            "Good for"
+          ],
+          "rows": [
+            [
+              "2N3904, BC547",
+              "NPN, small",
+              "Switching up to 100 mA, small amplifiers"
+            ],
+            [
+              "2N3906, BC557",
+              "PNP, small",
+              "High-side switching, the other half of a pair"
+            ],
+            [
+              "2N7000",
+              "N MOSFET, small",
+              "Logic switching up to 200 mA"
+            ],
+            [
+              "IRLZ44N",
+              "N MOSFET, logic-level",
+              "Motors and lights up to tens of amps from 5 V"
+            ],
+            [
+              "IRF540",
+              "N MOSFET, standard",
+              "Big loads, with a 10 V gate drive"
+            ]
+          ]
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "LED resistor",
+              "means": "R = (supply − LED voltage) ÷ current. 2 to 20 mA."
+            },
+            {
+              "term": "Ripple",
+              "means": "≈ load current ÷ (frequency × reservoir capacitance); a bridge doubles the frequency."
+            },
+            {
+              "term": "Temperature",
+              "means": "A diode’s forward voltage falls about 2 mV for each degree warmer."
+            }
+          ]
+        },
+        {
+          "type": "terms",
+          "items": [
+            {
+              "term": "Base resistor",
+              "means": "R = (control − 0.7 V) ÷ (load current ÷ 10)."
+            },
+            {
+              "term": "Flyback diode",
+              "means": "Across every switched coil, cathode to the supply."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "switching",
+      "title": "Switching loads",
+      "summary": "Low-side and high-side switches, relays, and what each part needs",
+      "lesson": "switches",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Switch",
+            "Where it goes",
+            "Drive"
+          ],
+          "rows": [
+            [
+              "NPN transistor",
+              "Low side, load to ground",
+              "Base current a tenth of the load’s, through a resistor"
+            ],
+            [
+              "N MOSFET",
+              "Low side",
+              "Gate well above threshold; 10–100 kΩ gate to source"
+            ],
+            [
+              "PNP transistor or P MOSFET",
+              "High side, supply to load",
+              "Pull the base or gate down to turn on"
+            ],
+            [
+              "Relay",
+              "Either; contacts are a separate circuit",
+              "A transistor for the coil, and a flyback diode"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Check the switch’s power: fully on, a transistor loses about 0.1 V × current and a MOSFET I² × its on-resistance. Half on, it loses far more."
+        }
+      ]
+    },
+    {
+      "id": "amplifiers",
+      "title": "Amplifier stages",
+      "summary": "Bias, gain and impedance for the stages pedals are built from",
+      "lesson": "amplifiers",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Stage",
+            "Voltage gain",
+            "In / out impedance"
+          ],
+          "rows": [
+            [
+              "Common emitter",
+              "≈ Rc ÷ Re, inverted",
+              "Medium in, Rc out"
+            ],
+            [
+              "Emitter follower",
+              "≈ 1",
+              "High in, low out"
+            ],
+            [
+              "Op-amp, non-inverting",
+              "1 + Rf ÷ Rg",
+              "Very high in, low out"
+            ],
+            [
+              "Op-amp, inverting",
+              "−Rf ÷ Rin",
+              "Rin in, low out"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Biasing a common-emitter stage on a single supply: choose the current, put about a tenth of the supply across Re, size Rc to drop about half the supply, and set R1 and R2 so the base sits a diode’s drop above the emitter, with R2’s current several times the base current."
+        }
+      ]
+    },
+    {
+      "id": "multimeter",
+      "title": "Using a multimeter",
+      "summary": "Volts across, amps through, and what each reading tells you",
+      "lesson": "what-flows",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Volts are measured **across**: one probe on each side of the part, circuit left alone. Amps are measured **through**: break the loop and put the meter in the gap."
+        },
+        {
+          "type": "steps",
+          "items": [
+            "Volts: dial to V (DC is the straight-line symbol), black lead in COM, red in V.",
+            "Touch black to ground or one side of the part, red to the other. A minus sign means red is lower than black.",
+            "Amps: dial to A or mA, black in COM, red moved to the A or mA socket.",
+            "Break the loop (lift a wire, open a link) and put the probes in the gap, so the current goes through the meter.",
+            "Move the red lead back to V when you're done. A meter left in amps and put across a battery shorts it and blows its fuse."
+          ]
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "meter",
+          "caption": "Volts across, amps through. Tap a wire to place a probe or cut the loop."
+        }
+      ]
+    },
+    {
+      "id": "solder-faults",
+      "title": "Solder and layout faults",
+      "summary": "Cold joints, bridges, lifted pads and reversed parts: how each looks and measures",
+      "lesson": "dead-circuit",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": [
+            "Fault",
+            "Looks like",
+            "Measures"
+          ],
+          "rows": [
+            [
+              "Dry joint",
+              "Dull, grainy, balled up, a ring round the lead",
+              "Volts across the joint; may come and go when the board flexes"
+            ],
+            [
+              "Solder bridge",
+              "A blob joining neighbouring pads",
+              "Two nodes at the same voltage that should differ"
+            ],
+            [
+              "Cracked trace",
+              "Often nothing; a hairline across the copper",
+              "The full voltage across a stretch of copper"
+            ],
+            [
+              "Lifted pad",
+              "A pad peeled off the board, often after reheating",
+              "Like a dry joint, or open"
+            ],
+            [
+              "Part reversed",
+              "Diode band, LED flat, capacitor stripe or transistor flat the wrong way",
+              "Wrong voltages from the part onwards; a reversed electrolytic may bulge"
+            ],
+            [
+              "Wrong value",
+              "Bands that differ from the parts list",
+              "Right current, wrong voltage across it"
+            ]
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Fault-finding order: work out what each point should read, measure the steady voltages with no signal, split what's left in halves, and measure across joints and traces as well as from ground. A good joint or trace drops nothing at all."
+        }
+      ]
+    },
+    {
+      "id": "pedal-standards",
+      "title": "Pedal standards",
+      "summary": "9 V centre-negative power, impedances, clipping diodes and enclosures",
+      "lesson": "fuzz-face",
+      "blocks": []
+    },
+    {
+      "id": "solar-sizing",
+      "title": "Sizing a solar system",
+      "summary": "Panel ratings, string voltages in the cold, battery capacity and daily budgets",
+      "lesson": "solar-panels",
+      "blocks": []
+    },
+    {
+      "id": "off-grid-safety",
+      "title": "Fusing and safety off grid",
+      "summary": "Fuse and breaker sizes, disconnects, grounding and battery short-circuit current",
+      "lesson": "off-grid",
+      "blocks": []
+    }
+  ]
+}

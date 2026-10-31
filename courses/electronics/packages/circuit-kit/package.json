@@ -1,0 +1,10 @@
+{
+  "name": "circuit-kit",
+  "version": "0.1.0",
+  "description": "A small circuit solver for live lesson figures: parts on named nodes in, every node voltage and part current out. Pure TypeScript, no DOM.",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./*": "./src/*.ts"
+  }
+}

@@ -1,0 +1,712 @@
+{
+  "cards": [
+    {
+      "id": "loop-current",
+      "lesson": "what-flows",
+      "question": "A loop has a battery and three bulbs in series. Where is the current smallest?",
+      "options": [
+        "Nowhere: it's the same all the way round",
+        "After the last bulb",
+        "Before the first bulb"
+      ],
+      "answer": 0,
+      "why": "In a single loop the current is the same at every point, while the bulbs convert electrical energy into light and heat."
+    },
+    {
+      "id": "drift",
+      "lesson": "what-flows",
+      "question": "Why does a lamp light the instant you close the switch, though electrons drift less than a millimetre a second?",
+      "options": [
+        "The wire is already full of charge, and the push travels almost at the speed of light",
+        "The battery fires electrons down the wire very fast",
+        "The lamp stores charge from last time"
+      ],
+      "answer": 0,
+      "why": "Every electron in the loop starts drifting at once, because the push travels round the whole loop almost instantly."
+    },
+    {
+      "id": "volts-across",
+      "lesson": "what-flows",
+      "question": "What does \"5 V at this point\" mean on a schematic?",
+      "options": [
+        "5 V above ground",
+        "5 V of charge stored there",
+        "5 V flowing past"
+      ],
+      "answer": 0,
+      "why": "Voltage is always a difference between two points; a voltage stated at a single point is measured relative to ground."
+    },
+    {
+      "id": "amps-through",
+      "lesson": "what-flows",
+      "question": "Your meter is in amps mode and you touch the probes across a lamp. What happens?",
+      "options": [
+        "It shorts the lamp out and probably blows the meter's fuse",
+        "It reads the lamp's current",
+        "It reads the lamp's voltage"
+      ],
+      "answer": 0,
+      "why": "In amps mode a meter has very low resistance, nearly like a plain wire, so it must be placed in series inside a break in the loop."
+    },
+    {
+      "id": "ohm-design",
+      "lesson": "what-flows",
+      "question": "You need 12 V to push 25 mA through a resistor. Which do you fit?",
+      "options": [
+        "470 Ω",
+        "220 Ω",
+        "4.7 kΩ"
+      ],
+      "answer": 0,
+      "why": "R = V / I = 12 / 0.025 = 480 Ω, and 470 Ω is the nearest standard E12 value."
+    },
+    {
+      "id": "lamp-cold",
+      "lesson": "what-flows",
+      "question": "Why do filament bulbs usually fail just as they're switched on?",
+      "options": [
+        "A cold filament has low resistance, so it takes a surge of current",
+        "The voltage is higher at switch-on",
+        "The glass is cold"
+      ],
+      "answer": 0,
+      "why": "Cold tungsten has about a tenth of its hot resistance, so at switch-on the filament draws a brief surge of current several times normal."
+    },
+    {
+      "id": "parallel-voltage",
+      "lesson": "series-parallel",
+      "question": "What do two parts in parallel always share?",
+      "options": [
+        "The same voltage across them",
+        "The same current through them",
+        "The same resistance"
+      ],
+      "answer": 0,
+      "why": "Both their ends are joined, so they have the same voltage across them. The current splits between them."
+    },
+    {
+      "id": "series-current",
+      "lesson": "series-parallel",
+      "question": "What do two parts in series always share?",
+      "options": [
+        "The same current",
+        "The same voltage",
+        "The same power"
+      ],
+      "answer": 0,
+      "why": "There's only one path, so the same current goes through both. The voltage splits between them."
+    },
+    {
+      "id": "kcl",
+      "lesson": "series-parallel",
+      "question": "Three wires meet. 40 mA flows in on one and 15 mA out on another. What flows on the third?",
+      "options": [
+        "25 mA out",
+        "55 mA out",
+        "25 mA in"
+      ],
+      "answer": 0,
+      "why": "All current flowing into a junction flows out: 40 mA enters, so 40 mA leaves in total, and 40 - 15 = 25 mA goes out on the third wire."
+    },
+    {
+      "id": "parallel-smaller",
+      "lesson": "series-parallel",
+      "question": "You put a 10 kΩ resistor in parallel with a 1 kΩ resistor. The combined resistance of the pair is...",
+      "options": [
+        "a little less than 1 kΩ",
+        "11 kΩ",
+        "5.5 kΩ"
+      ],
+      "answer": 0,
+      "why": "Each parallel path adds another way for current to flow, so the combined resistance is always less than the smallest individual resistor: about 909 Ω."
+    },
+    {
+      "id": "mismatched-cells",
+      "lesson": "series-parallel",
+      "question": "Why not put a fresh battery in parallel with a flat one?",
+      "options": [
+        "Current flows from the fresh one into the flat one",
+        "The voltages add and overload the circuit",
+        "Nothing happens: they just share"
+      ],
+      "answer": 0,
+      "why": "The fresh battery pushes current back into the flat one, wasting charge and warming both. Big batteries can do it hard enough to be dangerous."
+    },
+    {
+      "id": "open-volts",
+      "lesson": "series-parallel",
+      "question": "A string of parts has stopped working. Across which part will you read the full supply voltage?",
+      "options": [
+        "The one with the break in it",
+        "The first one",
+        "None: it's all 0 V"
+      ],
+      "answer": 0,
+      "why": "With no current, nothing else drops any voltage, so all of it appears across the break."
+    },
+    {
+      "id": "divider-half",
+      "lesson": "sources",
+      "question": "Two equal resistors in series across 9 V. What's at the point between them, unloaded?",
+      "options": [
+        "4.5 V",
+        "9 V",
+        "3 V"
+      ],
+      "answer": 0,
+      "why": "Equal resistors share the voltage equally. Out = 9 x R / (R + R) = 4.5 V."
+    },
+    {
+      "id": "divider-sag",
+      "lesson": "sources",
+      "question": "Why does a divider's output fall when you connect a load?",
+      "options": [
+        "The load in parallel makes the bottom resistance smaller",
+        "The battery runs down",
+        "The top resistor heats up"
+      ],
+      "answer": 0,
+      "why": "Two resistances in parallel are less than either, so the bottom's share of the voltage shrinks."
+    },
+    {
+      "id": "stiff-cost",
+      "lesson": "sources",
+      "question": "What does a stiffer divider cost you?",
+      "options": [
+        "More current, wasted all the time",
+        "A higher voltage",
+        "Nothing"
+      ],
+      "answer": 0,
+      "why": "Lower resistances carry more current, whether the load is there or not."
+    },
+    {
+      "id": "thevenin-box",
+      "lesson": "sources",
+      "question": "A source reads 12 V open and 11 V while delivering 0.5 A. What's its inside resistance?",
+      "options": [
+        "2 Ω",
+        "24 Ω",
+        "0.5 Ω"
+      ],
+      "answer": 0,
+      "why": "It lost 1 V inside at 0.5 A: 1 / 0.5 = 2 Ω."
+    },
+    {
+      "id": "impedance-match",
+      "lesson": "sources",
+      "question": "To keep a signal's voltage, feed it into...",
+      "options": [
+        "a high input impedance",
+        "a low input impedance",
+        "any impedance at all"
+      ],
+      "answer": 0,
+      "why": "A high input impedance pulls little current, so the source hardly sags."
+    },
+    {
+      "id": "solar-source",
+      "lesson": "sources",
+      "question": "Measured open, shorted and loaded, a solar panel's points...",
+      "options": [
+        "bend: it holds its voltage, then collapses",
+        "lie on a straight line",
+        "are all the same"
+      ],
+      "answer": 0,
+      "why": "Inside a solar panel, light generates a steady current in parallel with the silicon cell's built-in diode, so the voltage stays nearly flat until the load draws almost all the available current."
+    },
+    {
+      "id": "i2r",
+      "lesson": "power",
+      "question": "Three times the current through a resistor means how much heat?",
+      "options": [
+        "Nine times",
+        "Three times",
+        "The same"
+      ],
+      "answer": 0,
+      "why": "Power is P = I^2 x R, so tripling the current multiplies the heat by 3^2 = 9."
+    },
+    {
+      "id": "wh",
+      "lesson": "power",
+      "question": "A 24 V, 100 Ah battery holds...",
+      "options": [
+        "2.4 kWh",
+        "100 Wh",
+        "124 Wh"
+      ],
+      "answer": 0,
+      "why": "Watt-hours equal volts times amp-hours: 24 V x 100 Ah = 2400 Wh, or 2.4 kWh."
+    },
+    {
+      "id": "system-voltage",
+      "lesson": "power",
+      "question": "Why do larger off-grid systems run at 48 V rather than 12 V?",
+      "options": [
+        "A quarter of the current, so a sixteenth of the cable loss",
+        "Batteries last longer at 48 V",
+        "48 V is safer to touch"
+      ],
+      "answer": 0,
+      "why": "Delivering the same power at four times the voltage requires a quarter of the current, so I^2 x R cable heating falls to one sixteenth."
+    },
+    {
+      "id": "fuse-wire",
+      "lesson": "power",
+      "question": "What does a fuse protect?",
+      "options": [
+        "The wire after it",
+        "The load",
+        "The battery's charge"
+      ],
+      "answer": 0,
+      "why": "The fuse must melt before the cable insulation overheats, so it is rated above the load's running current and at or below the cable's ampacity."
+    },
+    {
+      "id": "matching",
+      "lesson": "power",
+      "question": "A load matched to its source's inside resistance gets the most power. What's the catch?",
+      "options": [
+        "Half the energy is wasted inside the source",
+        "The voltage doubles",
+        "Nothing"
+      ],
+      "answer": 0,
+      "why": "When load resistance equals source internal resistance, the source and load dissipate equal power (50% efficiency). Power systems keep source resistance much smaller than load resistance so nearly all the energy reaches the load."
+    },
+    {
+      "id": "bad-joint",
+      "lesson": "power",
+      "question": "How do you find a high-resistance joint?",
+      "options": [
+        "Measure the voltage across it with the current flowing",
+        "Measure its resistance with the power off",
+        "Look for a broken wire"
+      ],
+      "answer": 0,
+      "why": "Under load, a resistive joint drops voltage that you can read directly with a voltmeter. With the circuit off, no current flows to create a voltage drop, and a multimeter's tiny resistance-mode test current often fails to reveal a faulty power connection."
+    },
+    {
+      "id": "period",
+      "lesson": "signals",
+      "question": "A wave repeats every 10 ms. Its frequency is...",
+      "options": [
+        "100 Hz",
+        "10 Hz",
+        "1000 Hz"
+      ],
+      "answer": 0,
+      "why": "Frequency is one divided by the period: 1 / 0.01 s = 100 Hz."
+    },
+    {
+      "id": "peak-to-peak",
+      "lesson": "signals",
+      "question": "A signal swings 0.4 V each way around its middle. Its peak to peak is...",
+      "options": [
+        "0.8 V",
+        "0.4 V",
+        "0.2 V"
+      ],
+      "answer": 0,
+      "why": "Peak-to-peak voltage from bottom to top is twice the amplitude."
+    },
+    {
+      "id": "half-supply",
+      "lesson": "signals",
+      "question": "A stage on 12 V can swing from 1 V to 11 V. Where should its steady voltage sit?",
+      "options": [
+        "6 V",
+        "1 V",
+        "11 V"
+      ],
+      "answer": 0,
+      "why": "Sitting halfway between the limits gives the same headroom up and down."
+    },
+    {
+      "id": "clip",
+      "lesson": "signals",
+      "question": "The bottoms of a wave come out flat, the tops don't. The steady voltage is...",
+      "options": [
+        "too low",
+        "too high",
+        "just right"
+      ],
+      "answer": 0,
+      "why": "The wave runs into the bottom limit first, so it sits too close to it. Raising the steady voltage gives the bottom half more room."
+    },
+    {
+      "id": "harmonics",
+      "lesson": "signals",
+      "question": "A guitar note at 110 Hz also has quieter sines at...",
+      "options": [
+        "220, 330, 440 Hz and up",
+        "55 Hz",
+        "100 Hz"
+      ],
+      "answer": 0,
+      "why": "Harmonics are at whole multiples of the note; their mix is the instrument's tone."
+    },
+    {
+      "id": "bias-first",
+      "lesson": "signals",
+      "question": "A pedal passes no sound. Its buffer's input should sit at 4.5 V and reads 9 V. Most likely...",
+      "options": [
+        "the resistor pulling it down is open",
+        "the guitar is broken",
+        "the battery is flat"
+      ],
+      "answer": 0,
+      "why": "The input has gone to the top: whatever should pull it down to the middle isn't working. A flat battery would make it lower than 4.5 V, not 9 V."
+    },
+    {
+      "id": "tau",
+      "lesson": "capacitors",
+      "question": "10 kΩ and 100 µF have a time constant of...",
+      "options": [
+        "1 s",
+        "0.1 s",
+        "10 s"
+      ],
+      "answer": 0,
+      "why": "τ = R x C = 10,000 Ω x 0.0001 F = 1 s."
+    },
+    {
+      "id": "five-tau",
+      "lesson": "capacitors",
+      "question": "A capacitor charges with τ = 2 s. When is it nearly full?",
+      "options": [
+        "After about 10 s",
+        "After 2 s",
+        "After 1 s"
+      ],
+      "answer": 0,
+      "why": "A capacitor reaches over 99% of its final voltage in about five time constants (10 s here). After one time constant (2 s), it is only 63% of the way."
+    },
+    {
+      "id": "dc-block",
+      "lesson": "capacitors",
+      "question": "In a circuit that has settled, how much current flows through a capacitor?",
+      "options": [
+        "None",
+        "The same as through the resistor before it",
+        "It depends on its size"
+      ],
+      "answer": 0,
+      "why": "Once the capacitor has charged to the steady DC voltage, no more DC current flows; only changing voltages push charge back and forth."
+    },
+    {
+      "id": "corner",
+      "lesson": "capacitors",
+      "question": "R = 1 kΩ and C = 100 nF in a low-pass filter. The corner is about...",
+      "options": [
+        "1.6 kHz",
+        "16 kHz",
+        "160 Hz"
+      ],
+      "answer": 0,
+      "why": "f = 1 / (2π x 1000 Ω x 0.0000001 F), which is about 1592 Hz."
+    },
+    {
+      "id": "tone",
+      "lesson": "capacitors",
+      "question": "Turning a tone knob that raises R in a low-pass filter makes the sound...",
+      "options": [
+        "darker, with fewer highs",
+        "brighter",
+        "louder"
+      ],
+      "answer": 0,
+      "why": "A bigger R lowers the corner, so more of the highs are cut."
+    },
+    {
+      "id": "kickback",
+      "lesson": "capacitors",
+      "question": "You switch off a relay coil. Across the opening switch there is, for an instant...",
+      "options": [
+        "a spike far above the supply voltage",
+        "exactly the supply voltage",
+        "nothing"
+      ],
+      "answer": 0,
+      "why": "The collapsing magnetic field keeps current moving and drives the voltage as high as needed to cross the opening gap until the stored energy is spent."
+    },
+    {
+      "id": "knee",
+      "lesson": "diodes",
+      "question": "A conducting silicon diode drops about...",
+      "options": [
+        "0.65 V",
+        "0.065 V",
+        "6.5 V"
+      ],
+      "answer": 0,
+      "why": "Past its knee, a silicon diode holds about 0.6 to 0.7 V whatever the current."
+    },
+    {
+      "id": "led-r",
+      "lesson": "diodes",
+      "question": "A red LED (2 V) on 12 V at 10 mA needs a resistor of about...",
+      "options": [
+        "1 kΩ",
+        "1.2 kΩ",
+        "200 Ω"
+      ],
+      "answer": 0,
+      "why": "(12 - 2) / 0.01 = 1000 Ω."
+    },
+    {
+      "id": "no-resistor",
+      "lesson": "diodes",
+      "question": "Why can't you run an LED straight from a 3 V battery that \"matches\" its voltage?",
+      "options": [
+        "A little extra voltage makes a lot of current, so nothing sets it",
+        "LEDs need AC",
+        "It would be too dim"
+      ],
+      "answer": 0,
+      "why": "Past the knee the current climbs steeply with tiny voltage changes, so a series resistor is needed to set the current."
+    },
+    {
+      "id": "temp",
+      "lesson": "diodes",
+      "question": "Warm a silicon diode by 50 °C. Its forward voltage...",
+      "options": [
+        "falls by about 0.1 V",
+        "rises by about 0.1 V",
+        "stays the same"
+      ],
+      "answer": 0,
+      "why": "A silicon diode's forward voltage drops by about 2 mV for every degree Celsius it warms."
+    },
+    {
+      "id": "ripple",
+      "lesson": "diodes",
+      "question": "A 50 Hz half-wave rectifier feeds 10 mA from 1000 µF. The ripple is about...",
+      "options": [
+        "0.2 V",
+        "2 V",
+        "0.02 V"
+      ],
+      "answer": 0,
+      "why": "I / (f x C) = 0.01 / (50 x 0.001) = 0.2 V."
+    },
+    {
+      "id": "clip-kind",
+      "lesson": "diodes",
+      "question": "Which clipping diodes let the most signal through before they clip?",
+      "options": [
+        "LEDs",
+        "Germanium",
+        "Silicon"
+      ],
+      "answer": 0,
+      "why": "LEDs have the highest knee, near 2 V, so they clip later and louder."
+    },
+    {
+      "id": "beta",
+      "lesson": "switches",
+      "question": "With β = 150 and 0.2 mA into the base, the collector can carry up to...",
+      "options": [
+        "30 mA",
+        "150 mA",
+        "0.2 mA"
+      ],
+      "answer": 0,
+      "why": "The maximum collector current in the active region is β x base current = 150 x 0.2 mA = 30 mA."
+    },
+    {
+      "id": "base-r",
+      "lesson": "switches",
+      "question": "To drive 5 mA into a transistor base from a 5 V pin, the base resistor should be about...",
+      "options": [
+        "860 Ω, so 820 Ω",
+        "10 kΩ",
+        "100 Ω"
+      ],
+      "answer": 0,
+      "why": "Subtracting the 0.7 V base-emitter drop leaves 4.3 V across the resistor, and (5 - 0.7) / 0.005 A = 860 Ω."
+    },
+    {
+      "id": "half-on",
+      "lesson": "switches",
+      "question": "Why is a transistor switch that is only half on a problem?",
+      "options": [
+        "It drops volts at full current, and heats",
+        "It draws too much base current",
+        "It cannot be turned off"
+      ],
+      "answer": 0,
+      "why": "Power dissipated in the transistor equals the collector-emitter voltage times the collector current, and both are substantial when the switch is half on."
+    },
+    {
+      "id": "gate",
+      "lesson": "switches",
+      "question": "A MOSFET's gate voltage is 0.5 V above its threshold. It is...",
+      "options": [
+        "barely on",
+        "fully on",
+        "off"
+      ],
+      "answer": 0,
+      "why": "The threshold is only the voltage where the MOSFET begins to conduct; it needs several volts above threshold to reach its low on-resistance."
+    },
+    {
+      "id": "flyback",
+      "lesson": "switches",
+      "question": "Without a flyback diode, switching a relay coil off can...",
+      "options": [
+        "kill the transistor with a voltage spike",
+        "blow the relay's contacts",
+        "reverse the battery"
+      ],
+      "answer": 0,
+      "why": "The coil's inductance keeps current flowing when the switch opens, driving the collector voltage far past the transistor's breakdown rating."
+    },
+    {
+      "id": "dead-short",
+      "lesson": "switches",
+      "question": "A load stays on with the control off, and the transistor's base reads 0 V. Most likely...",
+      "options": [
+        "the transistor has failed shorted",
+        "the base resistor is open",
+        "the load is shorted"
+      ],
+      "answer": 0,
+      "why": "With 0 V from base to emitter the transistor should be cut off, so current flowing from collector to emitter means the transistor has failed shorted."
+    },
+    {
+      "id": "ce-gain",
+      "lesson": "amplifiers",
+      "question": "Rc = 6.8 kΩ, Re = 680 Ω. The gain is about...",
+      "options": [
+        "10",
+        "4.6",
+        "100"
+      ],
+      "answer": 0,
+      "why": "The voltage gain is about Rc / Re = 6800 / 680 = 10."
+    },
+    {
+      "id": "invert",
+      "lesson": "amplifiers",
+      "question": "A common-emitter stage's output, compared with its input, is...",
+      "options": [
+        "upside down",
+        "in step",
+        "a quarter-cycle late"
+      ],
+      "answer": 0,
+      "why": "A rising base voltage causes more current to flow through Rc, which drops more voltage across Rc and pulls the collector voltage down."
+    },
+    {
+      "id": "bias-mid",
+      "lesson": "amplifiers",
+      "question": "An amplifier on 12 V clips its bottoms early. Its collector probably sits...",
+      "options": [
+        "too low",
+        "too high",
+        "exactly at 6 V"
+      ],
+      "answer": 0,
+      "why": "When the collector is biased too low, the downward swing hits saturation before the upward swing reaches the positive supply."
+    },
+    {
+      "id": "follower-use",
+      "lesson": "amplifiers",
+      "question": "Why put an emitter follower after a guitar pickup?",
+      "options": [
+        "So a heavy load doesn't pull the pickup's signal down",
+        "To double the signal",
+        "To clip it"
+      ],
+      "answer": 0,
+      "why": "Its high input impedance keeps the pickup from being loaded down, and its low output impedance easily drives the next stage or cable."
+    },
+    {
+      "id": "noninv",
+      "lesson": "amplifiers",
+      "question": "For a gain of 21 in a non-inverting op-amp stage with Rg = 1 kΩ, Rf should be...",
+      "options": [
+        "20 kΩ",
+        "21 kΩ",
+        "1 kΩ"
+      ],
+      "answer": 0,
+      "why": "The gain is 1 + Rf / Rg = 21, so Rf / Rg = 20 and Rf = 20 kΩ."
+    },
+    {
+      "id": "ts-diodes",
+      "lesson": "amplifiers",
+      "question": "In a Tube Screamer the clipping diodes sit...",
+      "options": [
+        "in the op-amp's feedback, across Rf",
+        "from the input to ground",
+        "in series with the battery"
+      ],
+      "answer": 0,
+      "why": "Putting the diodes across Rf lowers the feedback resistance once the signal exceeds a diode drop, rounding off the peaks smoothly."
+    },
+    {
+      "id": "silk",
+      "lesson": "dead-circuit",
+      "question": "How do you find a schematic's Q1 on its board?",
+      "options": [
+        "By the silkscreen label beside it",
+        "By its position on the schematic",
+        "By its colour"
+      ],
+      "answer": 0,
+      "why": "The board's layout differs from the drawing; the printed names match."
+    },
+    {
+      "id": "expect-first",
+      "lesson": "dead-circuit",
+      "question": "The first step in fault-finding a dead circuit is...",
+      "options": [
+        "Work out what each point should read",
+        "Replace the parts most likely to fail",
+        "Reflow every joint"
+      ],
+      "answer": 0,
+      "why": "Measurements only mean something against what they should be."
+    },
+    {
+      "id": "across-trace",
+      "lesson": "dead-circuit",
+      "question": "9 V across a stretch of copper trace means...",
+      "options": [
+        "The trace is broken",
+        "The trace is fine",
+        "The supply is low"
+      ],
+      "answer": 0,
+      "why": "Intact copper has negligible resistance and drops almost 0 V, whereas a break acts as an open circuit with the full supply voltage across it."
+    },
+    {
+      "id": "dry-look",
+      "lesson": "dead-circuit",
+      "question": "A dry solder joint usually looks...",
+      "options": [
+        "Dull and grainy, or balled up",
+        "Smooth and shiny",
+        "Exactly like a good one"
+      ],
+      "answer": 0,
+      "why": "Good solder wets the lead and pad to flow into a neat, concave cone, whereas a dry joint fails to wet the metal and stays rough or balled up."
+    },
+    {
+      "id": "halves",
+      "lesson": "dead-circuit",
+      "question": "With a hundred possible fault points in a chain, half-splitting takes about...",
+      "options": [
+        "7 measurements",
+        "50 measurements",
+        "100 measurements"
+      ],
+      "answer": 0,
+      "why": "2^7 = 128, so seven halvings cover a hundred points."
+    }
+  ]
+}

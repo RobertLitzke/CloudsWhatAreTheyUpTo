@@ -1,0 +1,422 @@
+{
+  "voltage": {
+    "term": "Voltage",
+    "text": "The difference in electrical pressure between two points, in volts (V). It is always measured between two points; a voltage \"at\" a point means from ground.",
+    "lesson": "what-flows",
+    "also": [
+      "potential difference"
+    ]
+  },
+  "current": {
+    "term": "Current",
+    "text": "How much charge flows past a point each second, in amperes (A). One amp is one coulomb a second.",
+    "lesson": "what-flows"
+  },
+  "resistance": {
+    "term": "Resistance",
+    "text": "How hard a part makes it for current to flow, in ohms (Ω). Ohm's law: V = I × R.",
+    "lesson": "what-flows"
+  },
+  "ground": {
+    "term": "Ground",
+    "text": "The point in a circuit chosen as 0 V, which every other voltage is measured from. Often the battery's − terminal or the chassis.",
+    "lesson": "what-flows"
+  },
+  "node": {
+    "term": "Node",
+    "text": "Every point joined by copper with no part in between: one stretch of a circuit at one voltage.",
+    "lesson": "what-flows"
+  },
+  "open-circuit": {
+    "term": "Open circuit",
+    "text": "A break in the loop, such as an open switch, a cracked joint or a lifted pad. No current flows, and the full voltage appears across the gap.",
+    "lesson": "what-flows"
+  },
+  "short-circuit": {
+    "term": "Short circuit",
+    "text": "A path with almost no resistance where none was meant to be, such as a solder bridge. Current is limited only by the source and the wires, and things get hot.",
+    "lesson": "what-flows"
+  },
+  "multimeter": {
+    "term": "Multimeter",
+    "text": "A meter for volts, amps and ohms. Volts are measured across a part; amps through a break in the loop, with the meter in it.",
+    "lesson": "what-flows",
+    "also": [
+      "meter",
+      "voltmeter",
+      "ammeter"
+    ]
+  },
+  "ohms-law": {
+    "term": "Ohm's law",
+    "text": "For a resistor, the current is the voltage divided by the resistance: I = V ÷ R. Lamps, diodes and transistors don't keep it.",
+    "lesson": "what-flows"
+  },
+  "filament": {
+    "term": "Filament",
+    "text": "The thin tungsten wire in a lamp, which glows when hot. Its resistance rises about tenfold from cold to lit.",
+    "lesson": "what-flows"
+  },
+  "series": {
+    "term": "Series",
+    "text": "Parts joined end to end on one path. They share one current; the voltage splits between them.",
+    "lesson": "series-parallel"
+  },
+  "kirchhoff": {
+    "term": "Kirchhoff's laws",
+    "text": "The current into a junction equals the current out of it, and the voltages round any loop add up to zero.",
+    "lesson": "series-parallel",
+    "also": [
+      "current law",
+      "voltage law"
+    ]
+  },
+  "junction": {
+    "term": "Junction",
+    "text": "A point where three or more wires meet. In a semiconductor, also the boundary between p-type and n-type material.",
+    "lesson": "series-parallel"
+  },
+  "potentiometer": {
+    "term": "Potentiometer",
+    "text": "A resistance strip with a sliding wiper: a divider you can turn. Volume and tone knobs are pots.",
+    "lesson": "sources",
+    "also": [
+      "pot"
+    ]
+  },
+  "load": {
+    "term": "Load",
+    "text": "Whatever a source or a stage of a circuit drives: the next stage, a lamp, a motor.",
+    "lesson": "sources"
+  },
+  "impedance": {
+    "term": "Impedance",
+    "text": "How much a source sags under load (output impedance) or how hard a load pulls (input impedance), in ohms. For capacitors and inductors it also depends on frequency.",
+    "lesson": "sources",
+    "also": [
+      "input impedance",
+      "output impedance"
+    ]
+  },
+  "internal-resistance": {
+    "term": "Internal resistance",
+    "text": "The resistance inside a battery or other source, which makes its voltage sag under load.",
+    "lesson": "sources"
+  },
+  "power": {
+    "term": "Power",
+    "text": "How fast energy is used or delivered, in watts: P = V × I.",
+    "lesson": "power"
+  },
+  "watt-hour": {
+    "term": "Watt-hour",
+    "text": "Energy: one watt for one hour, 3600 joules. Watt-hours = volts × amp-hours.",
+    "lesson": "power",
+    "also": [
+      "Wh",
+      "kWh"
+    ]
+  },
+  "amp-hour": {
+    "term": "Amp-hour",
+    "text": "A battery's charge: one amp for one hour. Multiply by the voltage to get energy.",
+    "lesson": "power",
+    "also": [
+      "Ah"
+    ]
+  },
+  "ampacity": {
+    "term": "Ampacity",
+    "text": "The current a cable can carry without overheating its insulation.",
+    "lesson": "power"
+  },
+  "fuse": {
+    "term": "Fuse",
+    "text": "A weak link that melts above its rated current, there to protect the wire after it.",
+    "lesson": "power"
+  },
+  "voltage-drop": {
+    "term": "Voltage drop",
+    "text": "The volts lost along a wire or across a part: current × resistance.",
+    "lesson": "power"
+  },
+  "signal": {
+    "term": "Signal",
+    "text": "A changing voltage that carries something: sound from a pickup, a reading from a sensor. Usually a wiggle riding on a steady voltage.",
+    "lesson": "signals"
+  },
+  "frequency": {
+    "term": "Frequency",
+    "text": "How many times a wave repeats each second, in hertz (Hz). One over the period: a wave that repeats every 5 ms is 200 Hz.",
+    "lesson": "signals",
+    "also": [
+      "hertz",
+      "period"
+    ]
+  },
+  "amplitude": {
+    "term": "Amplitude",
+    "text": "How far a wave swings from its middle to its peak. The peak to peak, bottom to top, is twice the amplitude.",
+    "lesson": "signals",
+    "also": [
+      "peak",
+      "peak to peak"
+    ]
+  },
+  "alternating-current": {
+    "term": "Alternating current",
+    "text": "Current that keeps turning round, as mains and audio signals do: AC. Current that only goes one way is direct current, DC.",
+    "lesson": "signals",
+    "also": [
+      "AC",
+      "DC"
+    ]
+  },
+  "clipping": {
+    "term": "Clipping",
+    "text": "A wave cut flat where it runs past what a stage can reach. By accident it is distortion; on purpose it is a fuzz or overdrive.",
+    "lesson": "signals"
+  },
+  "headroom": {
+    "term": "Headroom",
+    "text": "How far a signal can swing before it clips. Biasing a stage at half its supply gives the most headroom both ways.",
+    "lesson": "signals",
+    "also": []
+  },
+  "capacitor": {
+    "term": "Capacitor",
+    "text": "Two plates with an insulating gap: it stores charge, blocks a steady voltage and passes changes. Its value is in farads, usually µF or nF.",
+    "lesson": "capacitors",
+    "also": [
+      "cap"
+    ]
+  },
+  "time-constant": {
+    "term": "Time constant",
+    "text": "τ = R × C, in seconds: how long a capacitor takes to charge 63% of the way through a resistor. About 5τ to be full.",
+    "lesson": "capacitors",
+    "also": [
+      "tau",
+      "RC"
+    ]
+  },
+  "coupling-capacitor": {
+    "term": "Coupling capacitor",
+    "text": "A capacitor between two stages that passes the signal and keeps their steady voltages apart.",
+    "lesson": "capacitors"
+  },
+  "low-pass": {
+    "term": "Low-pass filter",
+    "text": "A resistor in the path and a capacitor to ground: passes low frequencies and cuts the highs above its corner. Swapped round, it is a high-pass filter.",
+    "lesson": "capacitors",
+    "also": [
+      "high-pass filter",
+      "tone control"
+    ]
+  },
+  "corner-frequency": {
+    "term": "Corner frequency",
+    "text": "Where a filter lets 71% through: f = 1 ÷ (2π R C).",
+    "lesson": "capacitors",
+    "also": [
+      "cutoff"
+    ]
+  },
+  "decoupling": {
+    "term": "Decoupling capacitor",
+    "text": "A capacitor across a supply right by a chip, which supplies bursts of current so the voltage doesn’t dip.",
+    "lesson": "capacitors",
+    "also": [
+      "bypass capacitor"
+    ]
+  },
+  "inductor": {
+    "term": "Inductor",
+    "text": "A coil of wire. Its magnetic field resists changes in its current, so cutting the current makes a voltage spike: kickback.",
+    "lesson": "capacitors",
+    "also": [
+      "coil",
+      "kickback"
+    ]
+  },
+  "diode": {
+    "term": "Diode",
+    "text": "A part that conducts one way, anode to cathode, and blocks the other. The cathode is marked with a band.",
+    "lesson": "diodes",
+    "also": [
+      "anode",
+      "cathode"
+    ]
+  },
+  "forward-voltage": {
+    "term": "Forward voltage",
+    "text": "The nearly fixed voltage a conducting diode holds past its knee: 0.6–0.7 V silicon, 0.2–0.3 V germanium or Schottky, 1.8–3 V for LEDs.",
+    "lesson": "diodes",
+    "also": [
+      "knee",
+      "Vf"
+    ]
+  },
+  "led": {
+    "term": "LED",
+    "text": "A light-emitting diode. Its colour sets its forward voltage. It needs a resistor (or other limit) to set its current.",
+    "lesson": "diodes",
+    "also": [
+      "light-emitting diode"
+    ]
+  },
+  "rectifier": {
+    "term": "Rectifier",
+    "text": "Diodes that turn AC into DC: one for half-wave, four in a bridge for full-wave.",
+    "lesson": "diodes",
+    "also": [
+      "bridge rectifier"
+    ]
+  },
+  "reservoir": {
+    "term": "Reservoir capacitor",
+    "text": "The capacitor after a rectifier that fills at each peak and feeds the load between them. The sag between peaks is the ripple.",
+    "lesson": "diodes",
+    "also": [
+      "ripple",
+      "smoothing capacitor"
+    ]
+  },
+  "clipping-diodes": {
+    "term": "Clipping diodes",
+    "text": "Two diodes back to back across a signal, which hold it to their forward voltage either way: the heart of most distortion pedals.",
+    "lesson": "diodes"
+  },
+  "transistor": {
+    "term": "Transistor",
+    "text": "A bipolar transistor: a small current into its base lets β times as much flow from collector to emitter. NPN switches the low side; PNP the high side.",
+    "lesson": "switches",
+    "also": [
+      "BJT",
+      "NPN",
+      "PNP",
+      "collector",
+      "base",
+      "emitter"
+    ]
+  },
+  "beta": {
+    "term": "Current gain (β)",
+    "text": "How many times the base current a bipolar transistor lets through its collector: typically 100 to 300, varying from part to part.",
+    "lesson": "switches",
+    "also": [
+      "hFE",
+      "beta"
+    ]
+  },
+  "saturation": {
+    "term": "Saturation",
+    "text": "A transistor switched fully on, dropping only a tenth of a volt or so. Drive the base with a tenth to a twentieth of the load current to get there.",
+    "lesson": "switches"
+  },
+  "mosfet": {
+    "term": "MOSFET",
+    "text": "A transistor switched by the voltage on its insulated gate: drain, gate and source. Fully on, it is a resistance of milliohms.",
+    "lesson": "switches",
+    "also": [
+      "gate",
+      "drain",
+      "source"
+    ]
+  },
+  "threshold": {
+    "term": "Threshold voltage",
+    "text": "The gate voltage at which a MOSFET starts to conduct. Fully on needs well above it; logic-level parts are fully on at 3.3 or 5 V.",
+    "lesson": "switches",
+    "also": [
+      "logic-level MOSFET"
+    ]
+  },
+  "relay": {
+    "term": "Relay",
+    "text": "A switch worked by an electromagnet, so a small circuit can switch a separate big one.",
+    "lesson": "switches"
+  },
+  "flyback-diode": {
+    "term": "Flyback diode",
+    "text": "A diode across a coil, cathode to the supply, that carries the coil’s current when it is switched off so its kick can’t damage the switch.",
+    "lesson": "switches",
+    "also": [
+      "freewheeling diode",
+      "snubber diode"
+    ]
+  },
+  "gain": {
+    "term": "Gain",
+    "text": "How many times bigger a stage makes a signal: out ÷ in. A common-emitter stage gives about Rc ÷ Re, inverted.",
+    "lesson": "amplifiers"
+  },
+  "common-emitter": {
+    "term": "Common-emitter stage",
+    "text": "A transistor amplifier with the signal in at the base and out at the collector: gain about Rc ÷ Re, upside down.",
+    "lesson": "amplifiers"
+  },
+  "emitter-follower": {
+    "term": "Emitter follower",
+    "text": "A transistor stage taking its output from the emitter: a gain of about 1, but a high impedance in and a low one out.",
+    "lesson": "amplifiers",
+    "also": [
+      "buffer"
+    ]
+  },
+  "op-amp": {
+    "term": "Op-amp",
+    "text": "An amplifier on a chip with + and − inputs and a huge gain. With negative feedback, two resistors set its gain.",
+    "lesson": "amplifiers",
+    "also": [
+      "operational amplifier"
+    ]
+  },
+  "negative-feedback": {
+    "term": "Negative feedback",
+    "text": "Feeding part of an amplifier’s output back to cancel some of its input, trading a large, sloppy gain for a small, exact one.",
+    "lesson": "amplifiers"
+  },
+  "schematic": {
+    "term": "Schematic",
+    "text": "A drawing of a circuit showing what connects to what, laid out to be read, not to be built.",
+    "lesson": "dead-circuit",
+    "also": [
+      "circuit diagram"
+    ]
+  },
+  "circuit-board": {
+    "term": "Circuit board",
+    "text": "A sheet of fibreglass with copper traces for wires and pads to solder each part's legs to.",
+    "lesson": "dead-circuit",
+    "also": [
+      "PCB",
+      "printed circuit board",
+      "trace",
+      "pad"
+    ]
+  },
+  "silkscreen": {
+    "term": "Silkscreen",
+    "text": "The white printing on a circuit board naming each part, R1, D1, Q1, as the schematic does.",
+    "lesson": "dead-circuit"
+  },
+  "breadboard": {
+    "term": "Breadboard",
+    "text": "A plastic block of holes joined in rows underneath, for building a circuit without solder.",
+    "lesson": "dead-circuit"
+  },
+  "dry-joint": {
+    "term": "Dry joint",
+    "text": "A solder joint where the solder never properly wet the lead or pad: dull, grainy, and anywhere from a few ohms to open.",
+    "lesson": "dead-circuit",
+    "also": [
+      "cold joint"
+    ]
+  },
+  "half-splitting": {
+    "term": "Half-splitting",
+    "text": "Fault-finding by measuring in the middle of what's left, so each reading halves where the fault can be.",
+    "lesson": "dead-circuit"
+  }
+}

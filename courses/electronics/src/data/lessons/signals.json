@@ -1,0 +1,218 @@
+{
+  "id": "signals",
+  "n": 5,
+  "track": "core",
+  "title": "Voltages that change",
+  "teaches": "The scope, sine waves and frequency, and a signal as a wiggle riding on a steady voltage",
+  "parts": [
+    {
+      "title": "A meter that draws",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every voltage so far has stood still, while the interesting ones change. A guitar string moving over a pickup, a microphone, a light sensor at dusk: each makes a voltage that changes, and the change is the message. A changing voltage that carries information is a [[signal|voltage]]."
+        },
+        {
+          "type": "text",
+          "text": "A meter is no use for a signal: it shows a blur of numbers, or their average. What you want is a picture of the voltage against time, and that is what an **oscilloscope**, or scope, draws.[^scope] Its screen runs left to right through a fixed stretch of time, and up for higher voltage. Here a signal generator, a source whose voltage moves, drives a resistor. The circuit runs two hundred times slower than life so you can follow the dots."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sine",
+          "caption": "A signal generator, a 1 kΩ resistor, and a scope on the generator",
+          "task": "Set the generator to match the target trace",
+          "goal": "match"
+        }
+      ]
+    },
+    {
+      "title": "Reading a wave",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "That smooth wave is a **sine**, the shape anything makes that swings back and forth evenly: a pendulum, a spring, a string. Its height above the middle is its **amplitude**, or peak; from the bottom to the top is twice that, the **peak to peak**. The time it takes to come back to where it started is its **period**, and how many times it does that in a second is its **frequency**, in hertz.[^hertz] A period of 5 ms is 200 Hz, because frequency is one divided by the period."
+        },
+        {
+          "type": "text",
+          "text": "Below the middle line the voltage goes below ground, and the dots run the other way. A current that keeps turning round like that is **alternating current** (AC); one that only ever goes one way is direct current (DC). The mains in a house is AC at 50 or 60 Hz.[^mains] Everything a young human ear can hear is between about 20 Hz and 20,000 Hz."
+        },
+        {
+          "type": "text",
+          "text": "Now switch the scope above to a guitar note. A real signal from a passive pickup is small, a few tenths of a volt, and instead of a pure sine it is a fundamental sine wave with quieter sines on top at whole multiples of its frequency.[^fourier] Those **harmonics** are what you hear as the instrument's tone, and every pedal changes the mix of them."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Waves and frequency",
+          "points": [
+            "A scope draws voltage against time. A signal is a changing voltage that carries something.",
+            "Amplitude is the peak height; period is the time for one cycle; frequency, in hertz, is cycles a second (one divided by the period).",
+            "A guitar note is a sine with harmonics on top. A pickup makes a few tenths of a volt."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Lifting the wiggle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A pedal runs from one 9 V battery. Nothing inside a simple battery-powered circuit can go below 0 V or above 9 V, yet the guitar's signal swings below 0 V as much as above. Lesson 3's voltage divider solves this: lift the whole signal up so it rides on a steady voltage, wiggling up and down around it, and both halves fit between the battery's ends.[^bias]"
+        },
+        {
+          "type": "text",
+          "text": "Here the signal sits on top of a steady voltage you can set, and goes into a **buffer**. A buffer is a circuit that copies the voltage at its input to its output, supplying all the current the next stage needs, though its output can only reach as far as its own supply allows: here, from 1.5 V up to 7.5 V. Lesson 9 opens the box; for now, it is a copier with limits."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "offset",
+          "caption": "A signal on a steady voltage, a buffer on 0 to 9 V, and a scope on its input and output",
+          "task": "Guess, then get a 2.5 V swing through with nothing cut off",
+          "goal": "centre"
+        }
+      ]
+    },
+    {
+      "title": "Headroom",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When the wave runs past what the buffer can reach, its tops or bottoms are cut flat. That is **clipping**, and it changes the sound because the flat tops add harmonics that weren't in the note. Clipping by accident is unwanted distortion; clipping on purpose is the basis of overdrive and fuzz pedals like the Fuzz Face and the Tube Screamer.[^fuzz]"
+        },
+        {
+          "type": "text",
+          "text": "The room a signal has to swing in before it clips is its **headroom**. Sitting the steady voltage halfway between the limits gives the same room both ways, and the biggest swing that fits. That is why a 9 V pedal sets its middle at 4.5 V."
+        },
+        {
+          "type": "text",
+          "text": "It also gives a way of seeing any voltage in a circuit: a steady part, and a changing part on top. A meter on DC reads the steady part, the average.[^rms] A scope shows both. When you work on a signal circuit, you check the steady voltages first with the meter, and only then look at the signal."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Bias and headroom",
+          "points": [
+            "A circuit on one battery carries a signal by lifting it onto a steady voltage, usually half the supply.",
+            "Past what a stage can reach, the wave is cut flat: clipping. Headroom is the room before it clips.",
+            "Any voltage is a steady part plus a changing part. Check the steady part first."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "No signal",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A signal can't get through a stage whose steady voltage is wrong, and no amount of looking at the signal will tell you which part has failed. Checking the steady voltages with the meter finds the fault straight away."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "stuck-bias",
+          "caption": "A buffer whose input should sit at half the battery",
+          "task": "Find the fault and mark it",
+          "goal": "find"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "A wave repeats every 2 ms. What is its frequency?",
+                "options": ["500 Hz", "2 Hz", "2000 Hz"],
+                "answer": 0,
+                "why": "Frequency is one divided by the period: 1 / 0.002 s = 500 cycles a second."
+              },
+              {
+                "question": "A sine rises to 3 V above its middle and falls to 3 V below. Its peak to peak is...",
+                "options": ["6 V", "3 V", "1.5 V"],
+                "answer": 0,
+                "why": "Peak-to-peak voltage goes from the bottom to the top, which is twice the amplitude."
+              },
+              {
+                "question": "Why does a pedal on a 9 V battery lift its signal to sit on 4.5 V?",
+                "options": ["So it can swing both ways without going past 0 V or 9 V", "To make it louder", "Because guitars make 4.5 V"],
+                "answer": 0,
+                "why": "Nothing in the pedal can go below 0 V or above 9 V. Halfway between gives the most room both ways."
+              },
+              {
+                "question": "The tops of a wave come out of a stage cut flat. What has happened?",
+                "options": ["It ran out of headroom and clipped", "The frequency went up", "The signal turned into DC"],
+                "answer": 0,
+                "why": "The stage couldn't reach as high as the wave asked it to, so it stopped at its limit."
+              },
+              {
+                "question": "What makes a guitar note sound different from a sine at the same frequency?",
+                "options": ["Its harmonics", "Its period", "Its steady voltage"],
+                "answer": 0,
+                "why": "A guitar note has quieter sines at multiples of its frequency on top, and their mix is its tone."
+              },
+              {
+                "question": "A stage passes no signal. What do you check first?",
+                "options": ["The steady voltages, with the meter", "The signal, with the scope", "The battery's label"],
+                "answer": 0,
+                "why": "A stage whose steady voltage is wrong can't pass a signal, and the meter finds the wrong part quickly."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "A scope draws voltage against time; a signal is a changing voltage that carries something.",
+    "Amplitude is the peak; frequency, in hertz, is one over the period.",
+    "A guitar note is a sine with harmonics on top, a few tenths of a volt high.",
+    "A one-battery circuit lifts its signal onto a steady voltage, usually half the supply.",
+    "Past what a stage can reach, the wave clips; headroom is the room before it does.",
+    "When a signal won't pass, check the steady voltages first."
+  ],
+  "next": "Next: the capacitor, which lets the wiggle through and stops the steady part.",
+  "journal": [],
+  "footnotes": {
+    "scope": {
+      "kind": "technical",
+      "title": "Oscilloscope traces",
+      "text": "Karl Ferdinand Braun invented the cathode-ray oscilloscope in 1897: it fired a beam of electrons at a phosphor screen, swept it left to right, and deflected it up and down with the measured voltage. Modern digital scopes sample the voltage millions or billions of times a second with an analogue-to-digital converter and draw the stored points on an LCD. Either way, you set how many volts each vertical square of the grid represents, and how much time each horizontal square covers.",
+      "glossary": "Oscilloscope"
+    },
+    "hertz": {
+      "kind": "digression",
+      "title": "Heinrich Hertz",
+      "text": "Heinrich Hertz generated and detected the first radio waves in his Karlsruhe laboratory in 1887, driving sparks across an induction-coil gap and catching the radiation across the room as tiny sparks in a wire loop. Asked what his confirmation of James Clerk Maxwell's electromagnetic theory was good for, he replied that it was of no practical use whatsoever. In 1930 the International Electrotechnical Commission replaced the older unit name, cycles per second, with the hertz."
+    },
+    "mains": {
+      "kind": "digression",
+      "title": "50 Hz and 60 Hz mains",
+      "text": "Early AC generators ran at dozens of different frequencies, from 16.7 Hz for traction motors to 133 Hz for small arc-lamp systems. Westinghouse engineers in Pittsburgh settled on 60 Hz in the 1890s because arc lights flickered noticeably below about 40 Hz while big induction motors ran poorly much above 60 Hz; AEG in Berlin settled on 50 Hz around the same time, which became the European standard."
+    },
+    "fourier": {
+      "kind": "digression",
+      "title": "Joseph Fourier and harmonics",
+      "text": "In 1807 the French mathematician Joseph Fourier showed that any repeating wave, no matter how jagged, can be built by adding together pure sine waves whose frequencies are whole-number multiples of the lowest, or fundamental, frequency. He developed the mathematics to calculate how heat spreads through solid metal, and the same harmonic series explains why a plucked guitar string and a blown clarinet playing the same note have different waveforms and timbres."
+    },
+    "bias": {
+      "kind": "technical",
+      "title": "DC bias",
+      "text": "The steady voltage set up to hold an amplifier stage in the middle of its working range is called its DC bias, or quiescent point. In single-supply audio circuits like guitar pedals, a pair of equal resistors across the supply usually sets a half-supply bias rail, and a third high-value resistor feeds that steady voltage to the amplifier input without shorting out the incoming signal.",
+      "glossary": "Bias"
+    },
+    "fuzz": {
+      "kind": "digression",
+      "title": "Accidental clipping in early rock",
+      "text": "Early guitarists discovered deliberate clipping through damaged gear and overdriven studio consoles. Marty Robbins's 1961 hit 'Don't Worry' got its buzzy bass solo when a faulty mixing-desk transformer clipped session guitarist Grady Martin's six-string bass, prompting Nashville engineer Glenn Snoddy to build the Maestro Fuzz-Tone, the first commercial fuzz pedal, in 1962."
+    },
+    "rms": {
+      "kind": "technical",
+      "title": "RMS meter readings on AC",
+      "text": "Set to DC, a multimeter reads the average voltage, which for a symmetrical signal riding on a steady voltage is simply the steady voltage. Set to AC, most meters block the steady part and report the changing part as its root-mean-square (RMS) value, the DC voltage that would deliver the same heating power to a resistor: for a pure sine wave, peak divided by the square root of 2 (peak x 0.707). European 230 V mains is an RMS figure whose sine wave actually peaks at about 325 V.",
+      "glossary": "RMS"
+    }
+  }
+}

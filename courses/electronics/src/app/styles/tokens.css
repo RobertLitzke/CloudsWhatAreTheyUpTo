@@ -1,0 +1,63 @@
+/* Design tokens: a circuit board on the bench. The page is solder-mask green,
+   lessons are on datasheet paper, buttons are an amber LED, and the accents
+   are copper. */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('../../../node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+/* Part labels and values in figures, like silkscreen. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 800;
+  src: url('../../../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+/* The lesson log's handwriting. */
+@font-face {
+  font-family: 'Kalam';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url('../../../node_modules/@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200 1000;
+  src: url('../../../node_modules/@fontsource-variable/nunito-sans/files/nunito-sans-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+:root {
+  --bg: #0f2a22; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #18392e;
+  --panel: #eef0ea;
+  --panel-2: #d5dbe3;
+  --ink: #1d2530;
+  --ink-soft: #5b6675;
+  --text: #e9efe9;
+  --muted: #9fb9ad;
+  --sun: #f0b23e;
+  --sun-deep: #c8793a;
+  --rose: #b4562a;
+  --teal: #1f7a8c;
+  --title: #f6f3ea;
+  --paper: #fbfaf6;
+  --good: #2f8a4f;
+  --bad: #c7362f;
+  --radius: 12px;
+
+  --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --display: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', cursive;
+}

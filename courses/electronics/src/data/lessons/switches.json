@@ -1,0 +1,268 @@
+{
+  "id": "switches",
+  "n": 8,
+  "track": "core",
+  "title": "A small current steering a big one",
+  "teaches": "Transistors and MOSFETs as switches, driving a relay, and the flyback diode",
+  "parts": [
+    {
+      "title": "A valve worked by a trickle",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **transistor** has three legs. In the common kind, a bipolar NPN transistor, they are the **collector**, the **base** and the **emitter**. A small current into the base and out through the emitter lets a much bigger current flow from the collector to the emitter, typically a hundred or two hundred times bigger. That ratio is its current gain, **β**.[^transistor]"
+        },
+        {
+          "type": "text",
+          "text": "Here one switches a 9 V, 100 mA lamp. A control voltage of 5 V, from a switch or a microcontroller's pin, feeds the base through a resistor; the base itself sits at a diode's drop, about 0.7 V, because the base and emitter form a diode junction. So the base current is (5 - 0.7) / R."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bjt-switch",
+          "caption": "A lamp, an NPN transistor, and a base resistor from a 5 V control",
+          "task": "Switch the lamp hard on",
+          "goal": "hard"
+        }
+      ]
+    },
+    {
+      "title": "On, off, and the bit in between",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "With too little base current the transistor lets through β times that base current and no more: the lamp is dim, and the transistor drops the rest of the voltage and turns it into heat. That in-between region is where an amplifier works, as you will see in lesson 9, but for a switch it is the worst place to be. Give the base more current than the collector needs and the transistor is **saturated**, fully on, dropping only a tenth of a volt or so. Then the lamp gets almost the whole supply voltage and the transistor barely warms."
+        },
+        {
+          "type": "text",
+          "text": "In practice, give the base about a tenth to a twentieth of the current the load needs rather than relying on β, because β varies widely from part to part and with temperature, and falls off as the transistor nears saturation. The transistor here sits between the load and ground as a **low-side switch**, which is the simplest way to switch a load with an NPN transistor.[^high-side]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Bipolar transistor switches",
+          "points": [
+            "A small base current lets a current β times larger flow from collector to emitter.",
+            "As a switch, drive it hard into saturation with a base current of about a tenth of the load current.",
+            "Half on, it wastes power as heat: P = V(collector to emitter) x I."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Switching with a voltage",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **MOSFET** does the same job a different way.[^mosfet-history] Its three legs are the **drain**, the **gate** and the **source**, and its gate is insulated from the channel by a thin film of silicon dioxide glass, so no steady current flows into it.[^gate-capacitance] Instead, the voltage on the gate, measured relative to the source, decides how freely current flows from drain to source. Below its **threshold voltage** it is off; several volts above the threshold it is fully on, with a channel resistance of only a few thousandths of an ohm."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "mosfet-switch",
+          "caption": "A 12 V pump drawing 2 A, a MOSFET, and its gate drive",
+          "task": "Guess, then run the pump fully from 3.3 V",
+          "goal": "logic"
+        },
+        {
+          "type": "text",
+          "text": "Standard power MOSFETs need about 10 V on the gate to turn fully on. A **logic-level** MOSFET is made to turn fully on at 3.3 or 5 V, so a microcontroller can drive it straight from a pin. Because they switch large loads such as motors, pumps, lights and solar charge controllers with almost no voltage drop, MOSFETs have largely replaced bipolar transistors as power switches. Always connect a bleed resistor of 10 to 100 kΩ from gate to source so the insulated gate cannot float and drift partway on while the controller pin is still starting up."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Switching with MOSFETs",
+          "points": [
+            "A MOSFET is controlled by its gate-to-source voltage, and its insulated gate draws no steady current.",
+            "Make sure its on-resistance is rated at the gate voltage you actually have, using logic-level parts for 3.3 or 5 V logic.",
+            "Fully on, a MOSFET behaves like a tiny resistance Rds(on) and dissipates I^2 x Rds(on) as heat."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Catching the kick",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **relay** is a mechanical switch worked by an electromagnet.[^relay-history] Current through its coil pulls a hinged armature across, and the moving contacts switch a completely separate circuit, such as AC mains or a high-current battery bank. A small transistor can easily drive the coil, though you have to guard against the voltage spike a coil produces when its current is suddenly cut off."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "relay",
+          "caption": "A transistor driving a relay's coil from 12 V",
+          "task": "Switch it off with and without a flyback diode",
+          "goal": "safe"
+        },
+        {
+          "type": "text",
+          "text": "A diode wired across the coil, with its cathode pointing back up to the positive supply, does nothing while the coil is energized because it is reverse biased. When the transistor turns off, the coil's inductance keeps current flowing in the same direction, and the diode gives that current a closed loop around the coil until its magnetic energy fades away as gentle heat in the coil's resistance. This **flyback diode** goes across every relay coil, solenoid and DC motor switched by a transistor."
+        },
+        {
+          "type": "key_ideas",
+          "title": "On a real bench",
+          "points": [
+            "Every inductive coil switched by a transistor needs a flyback diode across it, with the cathode connected to the positive supply side.",
+            "A relay's contacts are rated separately from its coil: check both, and pay special attention to the DC voltage rating when switching a DC load.[^dc-arc]"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Two switches, flipping each other",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Join two transistor switches in a loop, coupling each collector to the other transistor's base through a capacitor, and they take turns switching on and off for as long as the battery lasts. This two-transistor oscillator is an **astable multivibrator**, the classic two-LED blinker.[^multivibrator] It works because the voltage across a capacitor cannot jump instantaneously when one of the collectors pulls low."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "blinker",
+          "caption": "Two transistors, two capacitors, two LEDs",
+          "task": "Guess, then make it blink once a second",
+          "goal": "second"
+        },
+        {
+          "type": "text",
+          "text": "Each half of the cycle lasts about 0.6 x R x C, the time it takes the base resistor to charge the capacitor from -6.5 V back up to the 0.6 V that turns the transistor on: 47 kΩ and 10 µF give 0.28 s. Changing one capacitor changes only its half of the blink cycle. (Textbooks give 0.69 x R x C, assuming the collector swings the whole supply voltage; here the LED drops about 2 V of it.) On a real circuit board there is one extra consideration: a silicon transistor's base-emitter junction breaks down in reverse like a zener diode at around -6 V. On a 9 V supply it barely reaches breakdown and the 47 kΩ resistor keeps the current tiny, but on supplies of 12 V or higher a blinker needs a small signal diode in series with each base to block reverse current."
+        }
+      ]
+    },
+    {
+      "title": "Stuck on",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When a transistor is destroyed by overheating or a voltage spike, its silicon junctions usually melt through and short collector to emitter. Then the load stays on regardless of what the control input does."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "shorted-transistor",
+          "caption": "A transistor switching a lamp, with its control off",
+          "task": "Find the fault and mark it",
+          "goal": "find"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "A transistor with β = 100 has 1 mA flowing into its base. The maximum collector current it will allow is about...",
+                "options": [
+                  "100 mA",
+                  "1 mA",
+                  "10 mA"
+                ],
+                "answer": 0,
+                "why": "The collector current can be up to β times the base current."
+              },
+              {
+                "question": "A transistor switching a lamp drops 4 V and carries 50 mA. It is...",
+                "options": [
+                  "half on, and heating 0.2 W",
+                  "fully on",
+                  "off"
+                ],
+                "answer": 0,
+                "why": "Fully on, a saturated transistor drops only about 0.1 to 0.2 V. Dropping 4 V at 50 mA means it is partially on and turning 4 V x 50 mA = 0.2 W into heat."
+              },
+              {
+                "question": "A load needs 200 mA. A good base current for switching it hard on is...",
+                "options": [
+                  "10 to 20 mA",
+                  "200 mA",
+                  "0.2 mA"
+                ],
+                "answer": 0,
+                "why": "Driving the base with a tenth to a twentieth of the load current guarantees saturation across part-to-part variations in β."
+              },
+              {
+                "question": "How much current flows into a MOSFET's gate once it is on?",
+                "options": [
+                  "None",
+                  "A tenth of the drain current",
+                  "The same as the drain current"
+                ],
+                "answer": 0,
+                "why": "The gate is insulated by a layer of oxide, so once it is charged to the drive voltage no steady current flows into it."
+              },
+              {
+                "question": "A 3.3 V microcontroller must switch a 5 A motor through a MOSFET. Which MOSFET?",
+                "options": [
+                  "A logic-level one, fully on at 3.3 V",
+                  "Any MOSFET rated for 5 A",
+                  "One with a high threshold, for safety"
+                ],
+                "answer": 0,
+                "why": "A standard MOSFET is barely past its threshold at 3.3 V, so it would sit partially on with a high resistance and overheat."
+              },
+              {
+                "question": "Which way round does a flyback diode go across a relay coil?",
+                "options": [
+                  "Cathode to the supply, anode to the transistor",
+                  "Anode to the supply",
+                  "It doesn't matter"
+                ],
+                "answer": 0,
+                "why": "The diode must stay reverse biased while the coil is energized. When the transistor switches off, the coil pulls the collector voltage above the positive supply, forward-biasing the diode so the coil current can circulate safely."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "A transistor lets β times its base current flow from collector to emitter.",
+    "A switch should be hard on or off; half on, it heats.",
+    "A MOSFET is switched by its gate voltage; use logic-level parts for 3.3 V or 5 V.",
+    "A relay coil needs a flyback diode across it so its inductive kick does not destroy the switching transistor.",
+    "A transistor that has died shorted leaves its load on."
+  ],
+  "next": "Next: holding a transistor in its active region on purpose to amplify a weak signal.",
+  "journal": [],
+  "footnotes": {
+    "transistor": {
+      "kind": "digression",
+      "title": "The first transistor",
+      "text": "John Bardeen and Walter Brattain made the first working point-contact transistor at Bell Labs in December 1947 from two gold foil contacts pressed against a slab of germanium. Their group leader William Shockley worked out the theory of the junction transistor a month later, and Bell Labs engineer John Pierce coined the name 'transistor' from 'transfer resistor'. Within a decade transistors were replacing vacuum tubes in radios and computers."
+    },
+    "high-side": {
+      "kind": "technical",
+      "title": "Low-side and high-side switching",
+      "text": "An NPN transistor or N-channel MOSFET is easiest to use on the low side, between the load and ground, because its control voltage is referenced to ground. Switching the positive supply wire on the high side while keeping the load grounded is usually done with a complementary PNP transistor or P-channel MOSFET, whose control input is referenced to the positive rail.",
+      "glossary": "Low-side switch"
+    },
+    "mosfet-history": {
+      "kind": "digression",
+      "title": "The insulated gate",
+      "text": "Mohamed Atalla and Dawon Kahng built the first working MOSFET at Bell Labs in 1959 after Atalla discovered that a thermally grown layer of silicon dioxide cleanly passivated the surface of a silicon wafer. Today the MOSFET is the most manufactured device in human history, both as discrete power switches and as the billions of microscopic logic switches inside every microprocessor."
+    },
+    "gate-capacitance": {
+      "kind": "technical",
+      "title": "Gate capacitance",
+      "text": "Because a MOSFET's insulated gate sits over the semiconductor channel with a thin oxide layer in between, it forms a capacitor of a few hundred picofarads to a few nanofarads. No DC current flows once the gate is charged, but switching it fast requires a brief pulse of current to charge and discharge that capacitance, so circuits often include a 10 to 100 Ω resistor in series with the gate to limit peak current from a microcontroller pin.",
+      "glossary": "Gate capacitance"
+    },
+    "relay-history": {
+      "kind": "digression",
+      "title": "Telegraph relays",
+      "text": "Joseph Henry and Samuel Morse developed the electromagnetic relay in the 1830s to solve the problem of telegraph signals fading over miles of iron wire. When a weak current from a distant station arrived, it pulled a tiny electromagnet that closed a fresh local battery circuit to send the click onward, named by analogy with a relay of fresh horses along a post road."
+    },
+    "dc-arc": {
+      "kind": "technical",
+      "title": "DC contact ratings",
+      "text": "When relay contacts pull apart under load, the current briefly jumps the opening gap as a hot electric arc. Alternating current passes through zero 100 or 120 times a second, which naturally extinguishes the arc, whereas direct current never crosses zero and sustains an arc across a much wider gap; a relay rated for 10 A at 250 V AC is typically rated for only 28 V or 30 V DC at that same current.",
+      "glossary": "DC contact rating"
+    },
+    "multivibrator": {
+      "kind": "digression",
+      "title": "Naming the multivibrator",
+      "text": "French physicists Henri Abraham and Eugene Bloch built the first vacuum-tube version of this cross-coupled oscillator during the First World War and published it in 1919. They called it a 'multivibrator' because its sharp transitions produced a square wave rich in dozens of harmonic frequencies at once, which they used to calibrate radio receivers."
+    }
+  }
+}

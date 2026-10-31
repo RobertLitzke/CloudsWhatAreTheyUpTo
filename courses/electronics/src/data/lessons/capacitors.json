@@ -1,0 +1,291 @@
+{
+  "id": "capacitors",
+  "n": 6,
+  "track": "core",
+  "title": "Things that take time",
+  "teaches": "Capacitors and RC time, coupling and filtering, the corner frequency, and inductors in brief",
+  "parts": [
+    {
+      "title": "A bucket for charge",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **capacitor** is two metal plates with a thin insulating gap between them.[^leyden] No current crosses the gap. Push current into one plate, though, and charge piles up there, repelling an equal amount of charge off the other plate so that current appears to flow straight through for a while. The more charge the plates hold, the higher the voltage across them, much like water rising in a bucket."
+        },
+        {
+          "type": "text",
+          "text": "The charge a capacitor holds for each volt across it is its capacitance, measured in farads.[^farad] One farad is huge; everyday parts are measured in microfarads (µF, millionths of a farad) and nanofarads (nF, thousandths of a microfarad), down to picofarads (pF, thousandths of a nanofarad). Here a capacitor charges from a 9 V battery through a resistor while the scope plots its voltage in real time."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "rc-charge",
+          "caption": "A 9 V battery, a switch, a resistor, a capacitor, and a scope on the capacitor",
+          "task": "Guess, then set R and C to take one second",
+          "goal": "tau"
+        }
+      ]
+    },
+    {
+      "title": "The time constant",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At first the capacitor is empty, so the resistor has the whole 9 V across it and a large current flows. As the capacitor fills, the voltage left across the resistor shrinks, so the current shrinks, so the filling slows. It never quite finishes, but it gets close fast."
+        },
+        {
+          "type": "text",
+          "text": "Resistance times capacitance works out to seconds: **τ = R x C**, the **time constant**.[^tau-curve] In one τ the capacitor gets 63% of the way to the supply voltage, and in five τ it is over 99% full. A bigger resistor lets charge in more slowly, while a bigger capacitor needs more charge to reach the same voltage, so either one makes charging take longer. Discharging through a resistor follows the exact same curve downward. Every blinker, switch debouncer, and timer circuit relies on this RC delay."
+        },
+        {
+          "type": "key_ideas",
+          "title": "RC charging",
+          "points": [
+            "A capacitor stores charge; its voltage rises as it fills.",
+            "Through a resistor it fills fast at first, then slower: τ = R x C seconds to reach 63%, and about 5τ to be nearly full.",
+            "In a circuit that has settled, no current flows through a capacitor."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Across the gap",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 5 lifted an audio signal onto a steady DC voltage so the whole wave could stay between 0 V and 9 V. Each stage of a pedal sets its own DC voltage to suit its transistor or op-amp. Passing the signal from one stage to the next requires handing over the AC wiggle while leaving the steady DC voltage behind."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "coupling",
+          "caption": "A wiggle on 4.5 V, a capacitor, and a 100 kΩ resistor to ground",
+          "task": "Guess what comes out",
+          "goal": "reveal"
+        }
+      ]
+    },
+    {
+      "title": "Changes pass, steady stays",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Once the capacitor has charged to 4.5 V, the steady part pushes no more current, so none of it reaches the far side. The wiggle keeps changing, though, and each change pushes charge on and off the plates, so the far side wiggles too, around 0 V. A capacitor used like this is a **coupling capacitor**, and nearly every audio stage has one at its input and output."
+        },
+        {
+          "type": "text",
+          "text": "A smaller capacitor passes less of a low note because it fills up before a slow wave finishes half a cycle. That makes the coupling capacitor a high-pass filter too: pedal designers deliberately shrink it to trim muddy bass before a distortion stage."
+        },
+        {
+          "type": "key_ideas",
+          "title": "AC coupling",
+          "points": [
+            "A capacitor blocks a steady voltage and passes changes.",
+            "A coupling capacitor joins two stages that each keep their own steady voltage.",
+            "Smaller capacitors pass less of the low notes."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A tone knob",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Swap the two parts so the resistor sits in the signal's path and the capacitor goes from the output to ground. Now the capacitor acts as an easy path to ground for rapid changes, shunting high notes away while slow notes pass through to the output almost untouched. Sweep the frequency and watch how much signal gets through."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "lowpass",
+          "caption": "A 10 kΩ resistor and a 10 nF capacitor, a sweep, and the response it plots",
+          "task": "Find the frequency where 71% gets through",
+          "goal": "corner"
+        }
+      ]
+    },
+    {
+      "title": "The corner frequency",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The frequency where the output amplitude drops to 71% of the input is the filter's **corner frequency**: **f = 1 / (2π x R x C)**.[^corner] Here, 1 / (2π x 10 kΩ x 10 nF) comes out to about 1.6 kHz. Well below the corner nearly everything passes; well above it, each doubling of frequency halves the output voltage. This circuit is a **low-pass filter**, and it forms the tone control on most electric guitars and inside pedals like the Tube Screamer, where turning the pot changes R or C to slide the corner up and down."
+        },
+        {
+          "type": "text",
+          "text": "Put the capacitor back in the signal path and the resistor to ground, and you have a **high-pass filter** with the exact same corner formula, passing highs and cutting lows. The coupling capacitor from the previous circuit was a high-pass filter with its corner set below the lowest note you want to keep."
+        },
+        {
+          "type": "key_ideas",
+          "title": "RC filters",
+          "points": [
+            "A resistor in the path followed by a capacitor to ground makes a low-pass filter; a capacitor followed by a resistor to ground makes a high-pass filter.",
+            "The corner frequency, where 71% of the signal amplitude gets through, is f = 1 / (2π x R x C).",
+            "A tone knob is an adjustable RC filter that shifts the corner frequency."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Holding up the supply",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 4 said wire is a resistor. A load that switches on and off pulls bursts of current through it, and every burst drops the supply voltage for everything else on it. A capacitor right across the supply, beside the parts that need a steady voltage, fills up between bursts and gives the load what it asks for, so the battery's leads only have to supply the average."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "decoupling",
+          "caption": "A load switching on and off ten thousand times a second, long leads, and a chip on the same supply",
+          "task": "Keep the chip's supply within 0.1 V",
+          "goal": "hold"
+        },
+        {
+          "type": "text",
+          "text": "This part is a **decoupling capacitor** (or bypass capacitor), and every chip on a circuit board needs one placed right across its power and ground pins with the shortest tracks possible.[^decoupling] The same smoothing action on a larger scale is the **reservoir capacitor** in a mains power supply, which lesson 7 covers."
+        }
+      ]
+    },
+    {
+      "title": "Coils",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A coil of wire is an **inductor**, the magnetic counterpart to a capacitor.[^henry] Current through the coil builds a magnetic field around it, and that field fights any change in current: current is slow to build up when voltage is applied, and tries to keep flowing when you cut the circuit. Motors, relays, loudspeakers, and transformers are all built around coils. Watch what happens when you suddenly interrupt the current through a relay coil."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "kickback",
+          "caption": "A 12 V battery, a switch and a relay coil",
+          "task": "Guess, then open the switch",
+          "goal": "spike"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Bench safety and polarity",
+          "points": [
+            "Large power-supply capacitors can hold a dangerous charge long after you unplug the gear. Discharge them through a resistor of a few kilohms and verify with a voltmeter before touching the board; shorting them with a screwdriver blasts molten metal off the tip and can crack the capacitor's internal connections.",
+            "Electrolytic capacitors, the cylindrical metal cans used for values above about 1 µF, are polarized.[^electrolytic] A stripe on the case marks the negative lead, and the positive lead is longer on a new part; wired backwards or pushed past their voltage rating, they overheat, vent hot gas, or burst.",
+            "Any inductive load, such as a relay coil or motor, generates a sharp high-voltage spike across the switch contacts the instant its current is cut."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Stuck together",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The insulating layer inside a capacitor is only micrometres thick. If a voltage spike exceeds its rating, or if the material degrades with age and heat, the insulation punches through and conducts DC current. Then the two stages it was keeping apart share their DC current, pulling their bias voltages off target."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "shorted-cap",
+          "caption": "Two buffers joined by a coupling capacitor",
+          "task": "Find the fault and mark it",
+          "goal": "find"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "A 47 kΩ resistor charges a 22 µF capacitor. Its time constant is about...",
+                "options": ["1 second", "69 seconds", "1 millisecond"],
+                "answer": 0,
+                "why": "τ = R x C = 47,000 Ω x 0.000022 F = 1.034 s."
+              },
+              {
+                "question": "After one time constant, an empty capacitor charging toward 9 V reaches about...",
+                "options": ["5.7 V", "4.5 V", "9 V"],
+                "answer": 0,
+                "why": "In one time constant it covers 63% of the step: 0.63 x 9 V = 5.7 V. It takes about five time constants to get above 99%."
+              },
+              {
+                "question": "A signal of 1 V wiggling on 4.5 V passes through a coupling capacitor. What comes out?",
+                "options": ["The 1 V wiggle, around 0 V", "4.5 V and no wiggle", "Nothing"],
+                "answer": 0,
+                "why": "The capacitor blocks the steady part and passes the changes."
+              },
+              {
+                "question": "A low-pass filter has R = 10 kΩ and C = 10 nF. You double C. The corner frequency...",
+                "options": ["halves", "doubles", "stays the same"],
+                "answer": 0,
+                "why": "Because f = 1 / (2π x R x C), doubling C halves the corner frequency, so the filter starts cutting highs an octave lower."
+              },
+              {
+                "question": "Why does every chip have a capacitor beside its supply pin?",
+                "options": ["To supply bursts of current so its voltage doesn't dip", "To block the DC supply", "To filter the guitar's tone"],
+                "answer": 0,
+                "why": "The supply's wiring has resistance. A capacitor right by the chip gives it the quick bursts, and refills in between."
+              },
+              {
+                "question": "Two stages are joined by a coupling capacitor. At rest with no signal, you expect to measure across the capacitor...",
+                "options": ["The difference between their steady voltages", "0 V", "The whole battery voltage"],
+                "answer": 0,
+                "why": "An intact coupling capacitor blocks DC, so it holds the full difference between the two stages' steady bias voltages. Measuring 0 V across it when the stages are biased differently means the capacitor has shorted."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "A capacitor charges through a resistor to 63% in one time constant (τ = R x C) and is over 99% full in about 5τ.",
+    "A coupling capacitor blocks steady DC voltage while passing AC signals from one stage to the next.",
+    "A resistor in series followed by a capacitor to ground forms a low-pass filter with a corner frequency of f = 1 / (2π x R x C).",
+    "A capacitor across a supply holds it up while a load switches.",
+    "A coil resists changes in its current, and kicks back when it is cut off.",
+    "A shorted coupling capacitor reads 0 V and joins two stages' steady voltages."
+  ],
+  "next": "Next: diodes and LEDs, whose current curve bends like the lamp's, only much harder.",
+  "journal": [],
+  "footnotes": {
+    "leyden": {
+      "kind": "digression",
+      "title": "The Leyden jar and the word condenser",
+      "text": "The first capacitors were glass jars lined inside and out with metal foil, invented independently in 1745 by Ewald Georg von Kleist in Pomerania and Pieter van Musschenbroek in Leiden. Early experimenters thought electricity was a fluid that condensed inside the jar, so they called the device a condenser, a term you still see on vintage guitar schematics and in studio condenser microphones."
+    },
+    "farad": {
+      "kind": "technical",
+      "title": "Farads and capacitance",
+      "text": "A capacitor of one farad holds one coulomb of charge for every volt across it (Q = C x V). Named after Michael Faraday, who studied how different insulating materials (dielectrics) between the plates increase capacitance, a capacitor's value grows with plate area and shrinks as the gap gets wider.",
+      "glossary": "Capacitance"
+    },
+    "tau-curve": {
+      "kind": "technical",
+      "title": "Exponential charging and Euler's number",
+      "text": "Because the charging current is proportional to the voltage still left to go, the capacitor voltage follows an exponential curve: V(t) = V_supply x (1 - e^(-t / RC)), where e is about 2.718. After one time constant (t = RC), the remaining gap is 1 / e (about 37%) of the start, so the capacitor has covered 63.2% of the step.",
+      "glossary": "Time constant"
+    },
+    "corner": {
+      "kind": "technical",
+      "title": "Reactance and the -3 dB corner",
+      "text": "A capacitor's opposition to a sine wave of frequency f is its capacitive reactance, X_C = 1 / (2π x f x C) ohms, where 2π converts cycles per second into radians per second. At the corner frequency, X_C equals R; because voltage across the resistor and capacitor are 90 degrees out of phase, the output amplitude is 1 / sqrt(2) (about 70.7%, or -3 dB) of the input, which delivers half the power.",
+      "glossary": "Reactance"
+    },
+    "decoupling": {
+      "kind": "technical",
+      "title": "Ceramic decoupling values",
+      "text": "A 100 nF (0.1 µF) ceramic capacitor is the standard choice right beside each logic or op-amp supply pin because ceramic parts have very low internal inductance and respond to nanosecond current spikes. Designers often pair them with a larger 10 µF to 100 µF electrolytic capacitor where power enters the board to handle slower dips.",
+      "glossary": "Decoupling capacitor"
+    },
+    "henry": {
+      "kind": "digression",
+      "title": "Joseph Henry and inductance",
+      "text": "Inductance is measured in henries (H), named after the American physicist Joseph Henry, who discovered self-inductance in 1832 while building powerful electromagnets at the Albany Academy. When he disconnected a long coil from a battery, he noticed a bright spark and received a sharp shock caused by the collapsing magnetic field."
+    },
+    "electrolytic": {
+      "kind": "technical",
+      "title": "Inside an electrolytic capacitor",
+      "text": "An aluminum electrolytic capacitor gets a huge capacitance in a small can by using a microscopic oxide layer grown electrochemically on etched aluminum foil as its insulator, with a wet chemical paste (the electrolyte) serving as the other contact. Reversing the voltage strips that oxide layer away by electrolysis, causing a short circuit and boiling the liquid paste into gas.",
+      "glossary": "Electrolytic capacitor"
+    }
+  }
+}

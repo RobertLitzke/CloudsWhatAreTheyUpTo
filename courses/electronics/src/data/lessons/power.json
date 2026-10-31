@@ -1,0 +1,287 @@
+{
+  "id": "power",
+  "n": 4,
+  "track": "core",
+  "title": "Power, energy, and wire losses",
+  "teaches": "Calculating power in watts and energy in watt-hours, keeping components within their thermal ratings, sizing cables for voltage drop, and protecting wires with fuses",
+  "parts": [
+    {
+      "title": "Power and the rate of energy transfer",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A volt is energy per unit of charge: one joule for every coulomb pushed through. An amp is one coulomb per second. Multiply them and you get joules per second, which is [[power|power]] in watts: **P = V x I**.[^watt] Every component that carries current turns that much electrical energy into another form, mostly heat."
+        },
+        {
+          "type": "text",
+          "text": "Here is an ordinary 100 Ω resistor rated for a quarter of a watt (0.25 W). The red glow shows its heat."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "heat",
+          "caption": "An adjustable supply and a 1/4 W resistor",
+          "task": "Guess, then find the voltage where the resistor exceeds its power rating",
+          "goal": "rating"
+        }
+      ]
+    },
+    {
+      "title": "Twice the push, four times the heat",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Double the voltage across a resistor and twice the current flows, so the power (volts times amps) goes up four times. Substitute Ohm's law into P = V x I and you get two more ways to write it: **P = I^2 x R** and **P = V^2 / R**.[^joule-law] Those squared terms make heat climb rapidly whenever current or voltage rises."
+        },
+        {
+          "type": "text",
+          "text": "Every component has a power rating that sets the maximum heat it can shed into the surrounding air without cooking itself. Ordinary small resistors are rated for 1/4 W, and even at that limit they run hot enough to burn a finger (about 100 to 125 C in open air). Designers leave a safety margin, typically running parts at half their rating or less, because sustained heat ages materials and drifts values, and parts packed inside a warm enclosure cannot shed their full rated power. The physical path that brings energy into the resistor is also stranger than it first appears.[^fields]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Power and thermal ratings",
+          "points": [
+            "Power in watts is P = V x I = I^2 x R = V^2 / R.",
+            "Doubling the current through a resistor produces four times the heat.",
+            "Run components well below their maximum power rating so they stay cool and reliable."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Energy capacity in watt-hours",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Watts measure the rate at which energy is used. The total energy stored in a battery is measured in watt-hours (Wh), where one watt-hour is one watt sustained for an hour, or 3600 joules. A battery label usually lists its nominal voltage and its charge capacity in amp-hours (Ah), which you multiply together to get watt-hours.[^peukert]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "battery-time",
+          "caption": "A 12 V, 7 Ah battery and three loads",
+          "task": "Guess how long it runs the pump",
+          "goal": "hours"
+        },
+        {
+          "type": "text",
+          "text": "Amp-hours on their own say nothing about total energy. A phone's 3.7 V, 5 Ah cell holds 18.5 Wh, whereas a 12 V, 5 Ah battery holds 60 Wh, more than three times as much energy for the same amp-hour rating. Always multiply by voltage before comparing batteries. Sizing an off-grid solar system comes down to this arithmetic: add up the watt-hours your loads use in a day, and match them against the watt-hours your panels can harvest and your battery bank can store."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Power versus energy",
+          "points": [
+            "Watts measure the rate of energy flow; watt-hours measure total energy stored or used.",
+            "Watt-hours = volts x amp-hours, and running time in hours = watt-hours / watts."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wire is a resistor",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Copper conducts electricity well, though it still has a small resistance. One metre of 1 square millimetre copper wire measures about 0.017 Ω at room temperature. That resistance is negligible inside a guitar pedal, where a few centimetres of wire carry a few milliamps. It becomes a serious loss when a pump draws 5 A at the end of a 20-metre cable run, because the current must travel 20 metres out and 20 metres back through 40 metres of wire in total."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "long-wire",
+          "caption": "A battery and a 60 W pump 20 m away. The cable's colour fades as it drops volts.",
+          "task": "Get the pump within 3% of the battery voltage",
+          "goal": "pump"
+        }
+      ]
+    },
+    {
+      "title": "Higher voltage, thinner wire",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Delivering the same 60 W at 24 V requires half the current, and at 48 V it requires a quarter. Because heat lost in the cable is I^2 x R, cutting the current in half cuts the cable loss to a quarter, and cutting current to a quarter cuts the loss to a sixteenth. That is why larger off-grid solar systems run at 24 V or 48 V rather than 12 V, and why utility transmission lines run at hundreds of thousands of volts.[^war-of-currents] Raising the system voltage lets the same copper wire deliver the same power with a fraction of the loss."
+        },
+        {
+          "type": "text",
+          "text": "Off-grid and low-voltage wiring typically aims to lose no more than 3% of the supply voltage along a cable run. Calculate the round-trip resistance before buying wire: thick copper costs more up front, but undersized cable wastes battery energy on every run and can overheat if pushed too hard."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Cable voltage drop and system voltage",
+          "points": [
+            "A cable drops I x R volts and wastes I^2 x R watts as heat, so long runs at high current need thick wire.",
+            "Delivering the same power at a higher voltage draws less current and cuts cable heating by the square of the voltage ratio."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Fuses protect the wire",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A fuse is a deliberate weak link: a calibrated metal strip that melts and opens the circuit when current stays above its rating. Its primary job is protecting the **wire** from overheating and starting a fire, rather than saving the appliance at the far end. Every cable gauge has a maximum safe continuous current, called its ampacity,[^ampacity] above which the insulation softens, melts, or catches fire. The fuse must carry normal operating current without nuisance blowing, yet melt before the cable reaches a dangerous temperature."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "fuse",
+          "caption": "A 12 V battery, a fuse, and a motor on a cable rated for 20 A",
+          "task": "Choose a fuse that holds when running and blows when it should",
+          "goal": "protect"
+        },
+        {
+          "type": "text",
+          "text": "Size the fuse above the load's normal running current and at or below the cable's ampacity. Putting a 30 A fuse on a 15 A wire leaves the wire unprotected during an overload. Install the fuse as close to the battery positive terminal as physically possible so that a short circuit anywhere along the cable run is downstream of the fuse."
+        },
+        {
+          "type": "key_ideas",
+          "title": "On a real bench",
+          "points": [
+            "A lead-acid or lithium battery can deliver hundreds or thousands of amps into a dead short, enough to weld a spanner across the terminals or vaporize a ring on your finger. Take off metal rings, watches, and bracelets before working near battery terminals, and use insulated tools.",
+            "Direct current sustains an electric arc much longer than alternating current, which crosses zero volts 100 or 120 times a second and helps extinguish the spark.[^dc-arcs] Always use fuses and switches explicitly rated for DC at or above your system voltage, and verify the fuse's interrupt rating exceeds your battery bank's short-circuit current."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Maximum power transfer versus efficiency",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every real voltage source has internal resistance, as you saw in lesson 3. If you want to extract the maximum possible watts from a source, what load resistance should you attach? Make the load resistance very low and a large current flows, but almost all the voltage drops inside the source; make the load resistance very high and nearly full voltage appears at the terminals, but very little current flows."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "matching",
+          "caption": "A 12 V source with 4 Ω inside, and a load you can set",
+          "task": "Find the load that gets the most power",
+          "goal": "peak"
+        },
+        {
+          "type": "text",
+          "text": "A load extracts the most power when its resistance equals the source's internal resistance.[^jacobi] At that matched point, however, half the total energy is burned up inside the source and only 50% reaches the load. A battery bank or power supply needs the opposite regime: a load resistance many times larger than the source's internal resistance, so that well over 90% of the energy reaches the load. Impedance matching is reserved for weak signal sources such as radio antennas, where capturing every picowatt of signal matters more than 50% efficiency. A solar panel's maximum power point, which the solar lessons cover, arises from the physics of its photodiode curve rather than a fixed internal resistor."
+        }
+      ]
+    },
+    {
+      "title": "A dull lamp",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A dim lamp or sluggish motor at the end of a long wire turns up on every boat, camper van, and off-grid cabin. To find a corroded or loose connection, leave the load switched on so current is flowing and measure the voltage drop across short sections of the path one at a time; a clean wire or tight crimp drops only a few millivolts."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bad-joint",
+          "caption": "A 12 V lamp at the end of a cable",
+          "task": "Find the fault and mark it",
+          "goal": "find"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "A resistor turns 0.1 W into heat. You double the current through it. Now it turns...",
+                "options": ["0.4 W", "0.2 W", "0.1 W"],
+                "answer": 0,
+                "why": "Power is P = I^2 x R, so doubling the current produces four times the heat (0.4 W)."
+              },
+              {
+                "question": "Which battery holds more energy?",
+                "options": ["12 V, 10 Ah", "3.7 V, 20 Ah", "They're the same"],
+                "answer": 0,
+                "why": "Watt-hours equal volts times amp-hours, giving 120 Wh for the 12 V battery versus 74 Wh for the 3.7 V battery."
+              },
+              {
+                "question": "A 100 Wh battery runs a 25 W light for about...",
+                "options": ["4 hours", "25 hours", "100 hours"],
+                "answer": 0,
+                "why": "Running time in hours is watt-hours divided by watts: 100 Wh / 25 W = 4 hours."
+              },
+              {
+                "question": "You move a 240 W load from a 12 V system to a 48 V one, with the same cable. The cable's loss...",
+                "options": ["falls to a sixteenth", "falls to a quarter", "stays the same"],
+                "answer": 0,
+                "why": "At four times the voltage, the load draws a quarter of the current, and I^2 x R cable loss drops to a sixteenth."
+              },
+              {
+                "question": "A load draws 6 A on a cable rated for 15 A. Which fuse should you fit?",
+                "options": ["10 A", "20 A", "5 A"],
+                "answer": 0,
+                "why": "Pick a rating above the 6 A load current and below the 15 A cable ampacity. A 20 A fuse would let the cable overheat, while a 5 A fuse would blow during normal operation."
+              },
+              {
+                "question": "A crimped joint is warm and the lamp at the end is dim. With the lamp on, across the joint you'd expect to read...",
+                "options": ["several volts", "about 0 V", "the full battery voltage"],
+                "answer": 0,
+                "why": "A resistive joint drops several volts when load current flows through it, starving the lamp and heating the connector. Because current is still flowing and the lamp is dimly lit, the joint is not an open circuit and will not read the full battery voltage."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "Power is P = V x I = I^2 x R = V^2 / R, so doubling the current through a resistance produces four times the heat.",
+    "Watt-hours measure total energy (volts x amp-hours), and runtime in hours is watt-hours / watts.",
+    "Every cable has resistance, so long runs at high current require thick copper wire or a higher system voltage.",
+    "A fuse protects the wire and is sized above the load's normal current and at or below the cable's ampacity.",
+    "Matching load resistance to source resistance extracts maximum power at 50% efficiency, whereas power systems use a low source resistance relative to the load for high efficiency.",
+    "A corroded or loose joint has resistance that drops voltage and generates local heat when current flows."
+  ],
+  "next": "Next: time-varying voltages and watching waveforms on an oscilloscope.",
+  "journal": [],
+  "footnotes": {
+    "watt": {
+      "kind": "technical",
+      "title": "Joules and watts",
+      "text": "A joule (named after the English physicist James Prescott Joule) is the SI unit of energy, roughly the work needed to lift a small apple one metre. A watt (named after the Scottish engineer James Watt) is one joule per second. Because a volt is one joule per coulomb and an amp is one coulomb per second, volts x amps = joules per second = watts.",
+      "glossary": "Watt"
+    },
+    "joule-law": {
+      "kind": "digression",
+      "title": "Joule's heating experiments",
+      "text": "In 1840 the young brewer and experimenter James Prescott Joule immersed coils of resistance wire in measured flasks of water and tracked the temperature rise with a sensitive thermometer. He proved that the heat released every second is proportional to the resistance multiplied by the square of the current (I^2 x R), a relationship still called Joule heating."
+    },
+    "fields": {
+      "kind": "digression",
+      "title": "Energy flow in the surrounding fields",
+      "text": "In 1884, the physicist John Henry Poynting showed that electromagnetic energy travels through the empty space around conductors rather than inside the drifting electrons. Along a current-carrying resistor, the lengthwise electric field and the circular magnetic field cross at right angles, directing a steady flux of field energy radially inward through the resistor's surface whose total equals I^2 x R."
+    },
+    "peukert": {
+      "kind": "technical",
+      "title": "Usable capacity and discharge rate",
+      "text": "A battery's nameplate amp-hour rating is measured at a gentle discharge, typically over 20 hours (the C/20 rate). Drawing heavy current lowers the usable watt-hours because internal resistance drops the terminal voltage and chemical reactants cannot diffuse into the plates fast enough, an effect formulated by Wilhelm Peukert in 1897. Lead-acid batteries also wear out much faster if they are routinely drained below about 50% state of charge, whereas lithium iron phosphate (LiFePO4) cells deliver nearly their full rated watt-hours across a wide range of currents.",
+      "glossary": "Amp-hour"
+    },
+    "war-of-currents": {
+      "kind": "digression",
+      "title": "Edison's copper problem",
+      "text": "Thomas Edison's 1882 Pearl Street power station in Manhattan distributed 110 V DC, which suffered such severe I^2 x R voltage drop that his feeders could barely reach customers half a mile away without ruinously thick copper mains. George Westinghouse and Nikola Tesla used AC transformers to step generator voltage up to thousands of volts for long-distance transmission and back down near homes, establishing the high-voltage grid architecture used ever since."
+    },
+    "ampacity": {
+      "kind": "technical",
+      "title": "Ampacity and thermal environments",
+      "text": "Ampacity, short for 'ampere capacity', is the maximum continuous current a conductor can carry without exceeding its insulation's temperature limit, usually 60 C to 90 C for PVC and cross-linked polyethylene. Because a wire cools itself by shedding heat to its surroundings, the same copper gauge has a lower safe ampacity when bundled tightly with other cables, pulled through conduit, or routed through a hot engine bay.",
+      "glossary": "Ampacity"
+    },
+    "dc-arcs": {
+      "kind": "technical",
+      "title": "DC arc suppression and interrupt ratings",
+      "text": "When a fuse element melts or a switch opens under load, the air in the widening gap can ionize into a conductive plasma arc that keeps current flowing. Mains AC passes through zero current 100 or 120 times every second, giving the ionized gas a brief moment to cool and de-ionize, whereas a DC source drives a continuous arc until the gap is stretched wide or cooled by quartz sand inside a DC-rated fuse. Every fuse also has an interrupt rating (breaking capacity), the maximum short-circuit current it can safely extinguish without its body rupturing.",
+      "glossary": "Interrupt rating"
+    },
+    "jacobi": {
+      "kind": "digression",
+      "title": "Jacobi's maximum power theorem",
+      "text": "The Prussian mathematician and engineer Moritz von Jacobi published the maximum power transfer theorem around 1840 while designing battery-powered electromagnetic motors in Saint Petersburg. Matching the load to the source's internal resistance wastes half the energy inside the source, and for a while some engineers took this to mean a generator could never be more than 50% efficient. Edison's dynamos ran far better because he gave them a very low internal resistance and did not match the load at all."
+    }
+  }
+}

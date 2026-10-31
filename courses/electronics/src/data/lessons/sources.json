@@ -1,0 +1,261 @@
+{
+  "id": "sources",
+  "n": 3,
+  "track": "core",
+  "title": "Every source has a resistor inside",
+  "teaches": "Voltage dividers and pots, voltage sag under load, and measuring the resistance inside a source",
+  "parts": [
+    {
+      "title": "Splitting a voltage",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Circuits often need a voltage the battery doesn't give: 3 V from a 9 V battery, or half the supply for an amplifier to work around. The simplest way to get one is two resistors in series. The same current goes through both, so each drops a share of the 9 V in proportion to its resistance. The point between them sits at that share."
+        },
+        {
+          "type": "text",
+          "text": "This is a **voltage divider**. If R1 is on top and R2 below, the output is the input x R2 / (R1 + R2).[^divider] Two equal resistors give half. To get a third, R2 must be half of R1."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "divider",
+          "caption": "Two resistors in series across 9 V, and a meter on the point between them",
+          "task": "Make 3 V, within 3%",
+          "goal": "three"
+        }
+      ]
+    },
+    {
+      "title": "A divider you can turn",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **potentiometer**,[^pot-name] or pot, is a divider with a sliding tap. Inside is one strip of resistance with a leg at each end and a third leg on a wiper that rides along it. Turning the shaft moves the wiper, so the share above it and the share below it change while the total stays the same. A volume knob is a pot: the signal goes across the whole strip, and the wiper picks off as much of it as you want.[^taper]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "pot",
+          "caption": "A 10 kΩ pot across 9 V",
+          "task": "Turn it to give 4.5 V",
+          "goal": "half"
+        },
+        {
+          "type": "text",
+          "text": "Half the supply is worth remembering. A pedal running from one 9 V battery has no negative supply, so it makes a middle voltage of 4.5 V, usually with a divider of two equal resistors, and lets the guitar's signal swing up and down around it. You'll find that divider in the Tube Screamer."
+        }
+      ]
+    },
+    {
+      "title": "Loading it",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A voltage on its own does nothing until you connect the next part of the circuit, which draws some current. Here that load is a 4.7 kΩ resistor on a switch. The divider you made earlier gave 3 V with nothing connected. See what happens when the load goes on."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sag",
+          "caption": "A divider from 9 V, and a 4.7 kΩ load on a switch",
+          "task": "Make about 3 V that holds at 2.8 V or more under load",
+          "goal": "stiff"
+        }
+      ]
+    },
+    {
+      "title": "Sag under load",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The load sits in parallel with R2, and two resistors in parallel are less than either. So the bottom of the divider gets smaller, its share of the 9 V shrinks, and the output falls. The cure is to make the divider's own current large compared with what the load takes, so the load hardly changes it. A rule of thumb: let at least ten times the load's current run down the divider, which means R2 no more than a tenth of the load."
+        },
+        {
+          "type": "text",
+          "text": "Making a divider stiffer costs battery life. Lower resistances draw more current all the time, warming the resistors and draining the battery whether the load is connected or not. Every divider design trades steady output voltage against wasted current."
+        },
+        {
+          "type": "text",
+          "text": "Now look at the divider from the output, as the load does. It behaves like a voltage with a resistor in front of it: open, it gives its full voltage; loaded, it sags, and the harder you load it, the further it drops. **Every real source is like that.** A battery is a voltage with a small resistance inside it, from the chemistry and the plates.[^battery-ir] That internal drop is why the lamp in lesson 2 dimmed a hair when the second bulb went in.[^thevenin]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Dividers and internal resistance",
+          "points": [
+            "A divider gives the input x R2 / (R1 + R2), but only while nothing loads it.",
+            "Loading a divider pulls its output down. Make it stiffer with lower resistances, at the cost of more current.",
+            "Every real source is a voltage behind a resistance. The harder you load it, the more it sags."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Inside the box",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "If every source is a voltage behind a resistor, two measurements should tell you both. With nothing connected no current flows, so nothing is lost inside, and the meter reads the voltage itself. Short the terminals and the outside has no resistance at all, so the only thing limiting the current is the resistance inside. Divide one by the other and you have it."
+        },
+        {
+          "type": "text",
+          "text": "Here are three sealed boxes. Measure each open, shorted and loaded; the points go on the plot. Then set your model of what is inside so its line runs through them."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "mystery-box",
+          "caption": "Three sealed boxes with two terminals each, a meter, and a load you can set",
+          "task": "Work out what is inside a box, then try Box 3",
+          "goal": "inside"
+        },
+        {
+          "type": "key_ideas",
+          "title": "On a real bench",
+          "points": [
+            "Don't short a real battery to measure it. Even a 9 V battery gets hot, and a car battery can push hundreds of amps into a spanner or blow the fuse inside your ammeter. Measure it open and under a known load resistor instead, and work out the inside resistance from the sag."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Impedance",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Box 3 refuses to fit a straight line because it is a small solar panel. It holds its voltage almost steady until the current nears what the light can make, and then the voltage collapses. A solar panel behaves much more like a current source than a voltage behind a resistor. The solar lessons build on that curve and show how to hold the panel at the spot where it gives the most power."
+        },
+        {
+          "type": "text",
+          "text": "Everything else in this lesson has a name you'll meet everywhere: **impedance**.[^impedance-name] A source's output impedance is the resistance it seems to have inside, which sets how much it sags under load. A load's input impedance is how much resistance it presents to the source. A source with a low output impedance feeding a load with a high input impedance keeps nearly all its voltage; the other way round, most of the voltage is lost inside the source."
+        },
+        {
+          "type": "text",
+          "text": "A guitar pickup is a weak source, with several thousand ohms inside. Plug it into a pedal whose input impedance is low and the signal sags before the pedal sees it. The Fuzz Face has just such an input, and guitarists use that on purpose: turning the guitar's volume knob down changes the impedance the fuzz sees, and the fuzz cleans up."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Impedance and source models",
+          "points": [
+            "Open-circuit volts and short-circuit current give a source's volts and inside resistance.",
+            "Impedance is how much a source sags, or how hard a load pulls. Low out into high in keeps the voltage.",
+            "Solar panels don't fit the straight-line model: they act like current sources."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Wrong part",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Resistors are marked with coloured bands: two digits and a multiplier giving the number of noughts.[^colour-code] Brown-black-red is 1, 0 and two noughts, 1 kΩ. A tired eye under a yellow lamp mixes up red, orange and brown, and a wrong part looks just like a right one in the board. A meter tells them apart, though if you measure resistance while the part is still in the circuit, switch the supply off first and remember that parallel paths can lower the reading."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "wrong-value",
+          "caption": "Three resistors in series across 9 V",
+          "task": "Find the fault and mark it",
+          "goal": "find"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "A divider from 12 V has 2 kΩ on top and 1 kΩ below. What does it give, unloaded?",
+                "options": ["4 V", "8 V", "6 V"],
+                "answer": 0,
+                "why": "12 x 1 / (2 + 1) = 4 V. The bottom resistor gets a third of the voltage."
+              },
+              {
+                "question": "You connect a load to a divider's output. What happens to the output voltage?",
+                "options": ["It falls", "It stays the same", "It rises"],
+                "answer": 0,
+                "why": "The load is in parallel with the bottom resistor, which makes the bottom smaller and its share of the voltage smaller too."
+              },
+              {
+                "question": "How do you make a divider hold its voltage better under load?",
+                "options": ["Use smaller resistances in the same ratio", "Use larger resistances in the same ratio", "Add a resistor in series with the load"],
+                "answer": 0,
+                "why": "Smaller resistances carry more current, so the load's share matters less. The price is the extra current the divider wastes."
+              },
+              {
+                "question": "A box reads 6 V open and gives 0.3 A shorted. What is inside?",
+                "options": ["6 V behind 20 Ω", "6 V behind 1.8 Ω", "0.3 V behind 20 Ω"],
+                "answer": 0,
+                "why": "Open, the full voltage appears at the terminals: 6 V. Shorted, only the inside resistance limits the current: 6 / 0.3 = 20 Ω."
+              },
+              {
+                "question": "Why does turning a guitar's volume knob down clean up a Fuzz Face?",
+                "options": ["It changes the impedance the fuzz's input sees", "It lowers the battery voltage", "It switches the fuzz off"],
+                "answer": 0,
+                "why": "The Fuzz Face has a low input impedance, so the guitar and pedal form a divider. Turning the volume pot down puts resistance in series with the pickup, raising the impedance the fuzz sees and reducing distortion."
+              },
+              {
+                "question": "Three resistors in series should be equal. Across them you measure 2.5 V, 2.5 V and 4 V. Which is wrong?",
+                "options": ["The one dropping 4 V: it's larger than the others", "The two dropping 2.5 V", "None: the drops always differ"],
+                "answer": 0,
+                "why": "In series they share a current, so each drop is in proportion to resistance. The odd one out has more resistance."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "A divider gives the input x R2 / (R1 + R2), until something loads it.",
+    "Loading a divider pulls it down; a stiffer divider costs more current.",
+    "Every real source is a voltage behind a resistance: measure it open and shorted.",
+    "Impedance is how much a source sags or a load pulls; low out into high in keeps the voltage.",
+    "A solar panel acts more like a current source than a voltage behind a resistor."
+  ],
+  "next": "Next: power, heat, and the wire resistance that eats your voltage.",
+  "journal": [],
+  "footnotes": {
+    "divider": {
+      "kind": "technical",
+      "title": "The divider formula",
+      "text": "With nothing connected to the output, the same current flows through R1 and R2: I = Vin / (R1 + R2). Multiplying that current by R2 gives the voltage across the bottom resistor: Vout = Vin x R2 / (R1 + R2).",
+      "glossary": "Voltage divider"
+    },
+    "pot-name": {
+      "kind": "digression",
+      "title": "The name potentiometer",
+      "text": "Johann Christian Poggendorff invented the laboratory potentiometer in 1841 as an instrument for measuring unknown voltages ('potentials') by balancing them against a calibrated resistance wire until no current flowed. Modern three-terminal rotary pots use the same sliding-contact principle to divide a voltage or adjust a signal."
+    },
+    "taper": {
+      "kind": "technical",
+      "title": "Linear and audio taper pots",
+      "text": "A linear pot (usually marked 'B') has uniform resistance along its track, so halfway round gives half the voltage. Human hearing judges loudness on a logarithmic scale, so volume controls usually use a logarithmic or 'audio taper' pot (marked 'A'), where the resistance changes slowly at the bottom of the turn and steeply near the top.",
+      "glossary": "Potentiometer taper"
+    },
+    "battery-ir": {
+      "kind": "technical",
+      "title": "Battery internal resistance",
+      "text": "A fresh alkaline 9 V battery has an internal resistance of around 1 to 2 Ω, which rises to tens of ohms as the cell dries out and discharges. A lead-acid or lithium iron phosphate solar battery has an internal resistance of just a few milliohms, allowing it to deliver hundreds of amps without losing much voltage inside the case.",
+      "glossary": "Internal resistance"
+    },
+    "thevenin": {
+      "kind": "digression",
+      "title": "Thevenin's theorem",
+      "text": "Leon Charles Thevenin, a French telegraph engineer, proved in 1883 that any linear network of voltage sources and resistors, seen from two terminals, behaves identically to a single voltage source in series with a single resistor. For a two-resistor divider, the equivalent voltage is its unloaded output and the equivalent resistance is R1 and R2 in parallel (R1 x R2 / (R1 + R2))."
+    },
+    "impedance-name": {
+      "kind": "technical",
+      "title": "Resistance and impedance",
+      "text": "Oliver Heaviside coined the word 'impedance' in 1886 for the total opposition a circuit presents to alternating current, combining plain resistance with the frequency-dependent reactance of capacitors and inductors. For steady DC and purely resistive circuits, impedance and resistance are identical and both are measured in ohms.",
+      "glossary": "Impedance"
+    },
+    "colour-code": {
+      "kind": "digression",
+      "title": "Resistor colour bands",
+      "text": "The Radio Manufacturers Association introduced the resistor colour code in the 1920s because painted rings were easier to read on tiny cylindrical parts than printed numbers, even after a resistor was soldered in place. Standard four-band resistors give two digits, a multiplier, and a tolerance band (gold for 5%)."
+    }
+  }
+}

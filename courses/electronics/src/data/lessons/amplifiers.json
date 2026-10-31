@@ -1,0 +1,232 @@
+{
+  "id": "amplifiers",
+  "n": 9,
+  "track": "core",
+  "title": "Turning it up",
+  "teaches": "Bias, gain set by two resistors, the emitter follower, clipping, negative feedback and the op-amp",
+  "parts": [
+    {
+      "title": "Halfway on",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 8 drove transistors hard on or off and called the region in between wasteful. An amplifier operates in that middle region on purpose. A transistor held half on, with a small voltage wiggle on its base, lets through a collector current that wiggles with it, and a resistor turns that current back into a larger voltage than the one that went in."
+        },
+        {
+          "type": "text",
+          "text": "First the transistor has to be set halfway on with no signal at all. Setting this resting point is called **biasing**, and it uses lesson 5's steady voltage again. A voltage divider formed by R1 and R2 holds the base at a steady voltage; the emitter sits one diode drop below that; the resulting voltage across Re sets the emitter current; and nearly the same current flowing through Rc sets the collector voltage. Putting the collector about halfway between the emitter voltage and the 9 V supply gives the output signal the most room to swing either way.[^bias]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bias",
+          "caption": "A common-emitter stage on 9 V, with R1 47 kΩ, Rc 4.7 kΩ and Re 1 kΩ",
+          "task": "Set the collector halfway",
+          "goal": "centre"
+        }
+      ]
+    },
+    {
+      "title": "Gain",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now let a small wiggle into the base through a coupling capacitor, and take the collector's wiggle out through another."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "gain",
+          "caption": "The stage you biased, with a 1 kHz wiggle in and a scope on the output",
+          "task": "Guess, then turn the input up until it clips",
+          "goal": "clip"
+        }
+      ]
+    },
+    {
+      "title": "Two resistors set it",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The emitter follows the base, so the signal wiggle on the base appears across Re and makes the current through Re wiggle. Nearly the same current wiggle runs through Rc, which has a larger resistance, so the voltage wiggle across Rc is larger: the voltage **gain** is slightly less than **Rc / Re**.[^re-in] The output comes out upside down because an upward swing at the base pulls more current through Rc, dropping more voltage across Rc and pulling the collector voltage down."
+        },
+        {
+          "type": "text",
+          "text": "Because the emitter resistor sets the current swing, the gain barely depends on β. A transistor's β varies from part to part and changes with temperature, yet as long as β is large, the ratio of two resistors decides what the stage does. Push the input too far and the collector voltage runs into the 9 V supply at the top, or bottoms out near the emitter voltage as the transistor saturates, clipping the waveform. Which side clips first depends on the bias point: a Fuzz Face is a two-transistor amplifier biased so that the two stages clip at different levels, squaring off the wave asymmetrically.[^fuzz-face]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Common-emitter gain and clipping",
+          "points": [
+            "Bias a stage halfway so the signal can swing both ways.",
+            "A common-emitter stage's voltage gain is about Rc / Re, inverted.",
+            "Too big a signal clips against the supply or the transistor's saturation."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Current gain for heavy loads",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Take the output from the emitter instead of the collector and you get an **emitter follower**: the AC output follows the input with a voltage gain just under 1, sitting one DC diode drop lower. What the stage provides is current gain. The base draws β + 1 times less current than the emitter supplies, so a weak source can drive a heavy load through the transistor. Lesson 3 described this in terms of impedance: a follower has a high input impedance and a low output impedance."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "follower",
+          "caption": "A pickup-like source behind 10 kΩ, and a 1 kΩ load",
+          "task": "Try it straight in and through a follower",
+          "goal": "both"
+        },
+        {
+          "type": "text",
+          "text": "Many guitar pedals open with an emitter follower or a field-effect transistor version of it, called a **buffer**, so the guitar's pickup sees an easy load and keeps its treble.[^pickup-load] Lesson 5's buffer used this same principle, built around an op-amp."
+        }
+      ]
+    },
+    {
+      "title": "Feedback",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "An **op-amp** (operational amplifier)[^op-amp-name] is a complete high-gain amplifier on a chip, with two inputs marked + and -, and an open-loop voltage gain of 100,000 or more from the difference between them. On its own that raw gain is too high to use directly, because a fraction of a millivolt between the inputs drives the output hard against one of the supply rails. Feed a fraction of the output back to the - input through a voltage divider, though, and the op-amp settles wherever the - input matches the + input. Now the two divider resistors set the stage's closed-loop gain: **1 + Rf / Rg**. This arrangement is **negative feedback**,[^black-feedback] and it trades the chip's huge, wandering open-loop gain for a smaller gain fixed by two stable resistors."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "opamp-gain",
+          "caption": "A non-inverting op-amp stage on 9 V, centred on 4.5 V",
+          "task": "Set a gain of about ten",
+          "goal": "ten"
+        },
+        {
+          "type": "text",
+          "text": "Set Rf high enough and the output clips flat against the maximum voltage swing the op-amp can reach. The Ibanez Tube Screamer shapes the peaks more gently by putting two silicon diodes in parallel with Rf.[^tube-screamer] While the signal is small the diodes do not conduct and the gain stays high; as the output swing reaches about 0.6 V across Rf, the diodes begin to conduct and lower the feedback resistance, reducing the gain on the peaks. The resulting clipping is soft and rounded because of the gradual diode knee from lesson 7."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Followers and op-amp feedback",
+          "points": [
+            "An emitter follower has a voltage gain of about 1 and provides current gain, giving high input impedance and low output impedance.",
+            "Negative feedback sets a non-inverting op-amp's gain with two resistors: 1 + Rf / Rg.",
+            "On one battery, op-amps and transistors are biased at half the supply, like everything else."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A bridged resistor",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every fault so far has been an open connection or a wrong component value. Solder can create a fault of its own when a stray blob bridges two pads that should stay separate. Measure the steady DC voltages first, just as in lesson 5."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "bridged-emitter",
+          "caption": "The common-emitter stage, with no signal",
+          "task": "Find the fault and mark it",
+          "goal": "find"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions",
+          "task": "Answer them",
+          "options": {
+            "items": [
+              {
+                "question": "A stage has Rc = 10 kΩ and Re = 1 kΩ. Its gain is about...",
+                "options": ["10, inverted", "11", "1"],
+                "answer": 0,
+                "why": "The voltage gain is about Rc / Re, and the signal at the collector is inverted relative to the base."
+              },
+              {
+                "question": "On 9 V, where should an amplifier's collector sit with no signal?",
+                "options": ["About halfway", "Near 9 V", "Near 0 V"],
+                "answer": 0,
+                "why": "Biasing near the middle of the available voltage range gives the signal room to swing both up and down before clipping."
+              },
+              {
+                "question": "Why doesn't a common-emitter stage's gain depend much on β?",
+                "options": ["Re in the emitter sets the current swing, whatever β is", "β is always 100", "The coupling capacitors cancel it"],
+                "answer": 0,
+                "why": "The emitter voltage follows the base voltage, so the AC current through Re is set by the input voltage and Re rather than by β."
+              },
+              {
+                "question": "An emitter follower's voltage gain is about...",
+                "options": ["1", "β", "Rc ÷ Re"],
+                "answer": 0,
+                "why": "The emitter follows the base one diode drop lower, giving a voltage gain close to 1 while multiplying the available current."
+              },
+              {
+                "question": "A non-inverting op-amp stage has Rf = 47 kΩ and Rg = 1 kΩ. Its gain is...",
+                "options": ["48", "47", "0.02"],
+                "answer": 0,
+                "why": "A non-inverting stage has a gain of 1 + Rf / Rg, which is 1 + 47 = 48."
+              },
+              {
+                "question": "An amplifier's collector reads 0.1 V and there is 0 V across Re. Most likely...",
+                "options": ["Re is shorted", "R1 is open", "Rc is open"],
+                "answer": 0,
+                "why": "With Re shorted to ground, the emitter cannot rise to limit the base-emitter voltage, so the base divider drives the transistor hard into saturation. An open Rc would also leave the collector near 0 V, but base current would still flow into the emitter and produce voltage across Re."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "learned": [
+    "An amplifier biases a transistor in the active region halfway between cutoff and saturation so a signal can swing both ways.",
+    "A common-emitter stage's gain is about Rc / Re, inverted, and hardly depends on β.",
+    "Too large a signal clips against the supply or saturation limits; the bias point sets which side clips first.",
+    "An emitter follower provides current gain with a voltage gain near 1, offering high input impedance and low output impedance.",
+    "Negative feedback sets a non-inverting op-amp's gain with two resistors: 1 + Rf / Rg."
+  ],
+  "next": "Next: one circuit as a schematic and as a board, and nothing but a meter to find what's wrong with it.",
+  "journal": [],
+  "footnotes": {
+    "bias": {
+      "kind": "technical",
+      "title": "Calculating the bias point",
+      "text": "With R1 = 47 kΩ and R2 = 10 kΩ across 9 V, the unloaded divider gives 9 x 10 / 57 = about 1.58 V at the base. The emitter sits about 0.65 V lower at 0.93 V, so Re (1 kΩ) carries about 0.93 mA. Rc (4.7 kΩ) drops 4.7 x 0.93 = about 4.37 V, placing the collector near 4.6 V. Because the emitter rests at 0.93 V and saturation takes another 0.1 V to 0.2 V across the transistor, the collector can swing from roughly 1.1 V up to 9 V; true midpoint bias sits around 5 V, so 4.6 V is close enough. As a design rule, make the divider current through R2 five to ten times the base current so that variations in β do not pull the base voltage down.",
+      "glossary": "Bias"
+    },
+    "re-in": {
+      "kind": "technical",
+      "title": "Intrinsic emitter resistance",
+      "text": "A bipolar transistor's base-emitter junction has its own small dynamic slope resistance, r_e, equal to about 26 mV divided by the emitter current in milliamps (around 28 Ω at 0.9 mA). That internal resistance sits in series with the external resistor Re, so the actual voltage gain is Rc / (Re + r_e). With Re = 1 kΩ and Rc = 4.7 kΩ, the gain is 4700 / 1028 = about 4.57 instead of 4.70.",
+      "glossary": "Intrinsic emitter resistance (r_e)"
+    },
+    "fuzz-face": {
+      "kind": "digression",
+      "title": "The Arbiter Fuzz Face",
+      "text": "Ivor Arbiter's London music shop launched the Fuzz Face in 1966. Initially built with PNP germanium transistors (such as the NKT275) and later with silicon transistors, its two direct-coupled stages use overall DC feedback from the second transistor's emitter to the first transistor's base. Jimi Hendrix adopted the pedal late in 1966, making its asymmetrical clipped waveform a defining sound of late-1960s rock guitar."
+    },
+    "pickup-load": {
+      "kind": "technical",
+      "title": "Guitar pickup loading",
+      "text": "A typical single-coil or humbucking guitar pickup consists of thousands of turns of fine copper wire around magnets, giving it a DC resistance of 5 kΩ to 15 kΩ and a large series inductance of 2 to 8 henries. When connected to a low-impedance input or a long coaxial cable's capacitance, that inductance forms a low-pass filter that rolls off high frequencies and dampens the pickup's resonant peak, dulling the tone unless a high-impedance buffer isolates it.",
+      "glossary": "Buffer"
+    },
+    "op-amp-name": {
+      "kind": "digression",
+      "title": "Naming the operational amplifier",
+      "text": "John R. Ragazzini coined the term 'operational amplifier' in a 1947 paper describing high-gain DC tube amplifiers developed during World War II for analog computers and gun directors. By swapping resistors and capacitors in the feedback network, engineers made the circuits perform mathematical operations such as addition, subtraction, and integration. Robert Widlar designed the first widely used monolithic integrated-circuit op-amp, the uA702, at Fairchild Semiconductor in 1963, followed by Dave Fullagar's classic uA741 in 1968."
+    },
+    "black-feedback": {
+      "kind": "digression",
+      "title": "Harold Black and negative feedback",
+      "text": "Bell Labs engineer Harold Stephen Black invented the negative-feedback amplifier on August 2, 1927, sketching the equations on a copy of the New York Times while riding the Lackawanna Ferry to work in Manhattan. Transcontinental telephone lines needed dozens of vacuum-tube repeater amplifiers in cascade, and their cumulative distortion made speech unintelligible until Black showed that feeding a fraction of the output back out of phase sacrificed raw gain in exchange for rock-steady linearity."
+    },
+    "tube-screamer": {
+      "kind": "digression",
+      "title": "Susumu Tamura's Tube Screamer",
+      "text": "Nisshin Onpa engineer Susumu Tamura designed the Ibanez TS-808 Tube Screamer around 1979 to mimic the gradual overdrive of a vacuum-tube guitar amplifier. Earlier distortion pedals like the MXR Distortion+ placed clipping diodes from the op-amp's output to ground, which chopped the signal peaks abruptly. Tamura put the two diodes in the op-amp's feedback loop instead, which rounds the peaks off more gently, and a high-pass filter in the gain network amplifies the bass less, so low notes stay tighter when the pedal clips."
+    }
+  }
+}
