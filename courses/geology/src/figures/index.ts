@@ -13,6 +13,7 @@ import { photoFigure } from './photo';
 import { duneFigure, sortFigure } from './dunes';
 import { correlateFigure, veesFigure } from './smith';
 import { cycleStill, unconformityFigure } from './siccar';
+import { bowenFigure, conditionsFigure, igneousStill } from './families';
 import { coolingFigure, decayFigure } from './age';
 import { fitFigure, gondwanaStill, openingFigure } from './drift';
 import { ridgeFigure } from './stripes';
@@ -51,34 +52,38 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   squeeze: squeezeFigure,
   roots: rootsFigure,
   // Lesson 6
+  conditions: conditionsFigure,
+  'igneous-grid': igneousStill,
+  bowen: bowenFigure,
+  // Lesson 7
   unconformity: unconformityFigure,
   cycle: cycleStill,
-  // Lesson 7
+  // Lesson 8
   cooling: coolingFigure,
   decay: decayFigure,
-  // Lesson 8
+  // Lesson 9
   fit: fitFigure,
   gondwana: gondwanaStill,
-  // Lesson 9
+  // Lesson 10
   ridge: ridgeFigure,
   opening: openingFigure,
-  // Lesson 10
+  // Lesson 11
   plates: platesMap,
   slab: slabFigure,
-  // Lesson 11
+  // Lesson 12
   plume: plumeFigure,
   'island-drift': driftMapFigure,
-  // Lesson 12
+  // Lesson 13
   race: raceFigure,
   knick: knickFigure,
-  // Lesson 13
+  // Lesson 14
   glacier: glacierFigure,
   'rhone-ice': rhoneMapFigure,
-  // Lesson 14
+  // Lesson 15
   orbit: orbitFigure,
   record: recordFigure,
   cycles: cyclesFigure,
-  // Lesson 15
+  // Lesson 16
   sun: sunFigure,
   rebound: reboundFigure,
   'ice-sheets': iceSheetsFigure,

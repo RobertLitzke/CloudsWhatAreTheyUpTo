@@ -1,4 +1,4 @@
-// Lesson 8, Continents that fit: South America turned about Bullard's pole to
+// Lesson 9, Continents that fit: South America turned about Bullard's pole to
 // meet Africa, by its coastline or by the edge of its continental shelf (the
 // 1000 m depth line); and the fitted pair with the fossils and old rocks that
 // match across the join.
@@ -157,7 +157,7 @@ export const gondwanaStill = () => {
   return { node };
 };
 
-// ---- The South Atlantic opening, played (lesson 9) ----------------------------------------
+// ---- The South Atlantic opening, played (lesson 10) ----------------------------------------
 
 /** When the South Atlantic began to open, million years ago (simplified: one pole, a steady rate). */
 export const OPENED = 130;

@@ -1,4 +1,4 @@
-// Lesson 7, How old is the Earth?: Kelvin's cooling Earth, solved in one
+// Lesson 8, How old is the Earth?: Kelvin's cooling Earth, solved in one
 // dimension the way he set it up, with Perry's and the radioactive objections
 // as switches; and a box of uranium atoms decaying to lead.
 

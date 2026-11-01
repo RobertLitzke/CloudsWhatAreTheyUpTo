@@ -1,4 +1,4 @@
-// Lesson 10, Where the Earth shakes: the plate boundaries on a world map; and a
+// Lesson 11, Where the Earth shakes: the plate boundaries on a world map; and a
 // subduction zone in section, where the slab's dip sets how far behind the
 // trench its earthquakes reach down and its volcanoes rise.
 

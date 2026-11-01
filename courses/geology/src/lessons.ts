@@ -14,9 +14,9 @@ const coming = (id: string, n: number, title: string, teaches: string, more: Par
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], journal: [], ...more });
 
 const TRUNK_COMING: GeoLesson[] = [
-  coming('faults', 16, 'Why faults snap', 'Elastic rebound, and why soft ground shakes harder'),
-  coming('explode', 17, 'Why some volcanoes explode', 'Thick magma, gas, and Mont Pelée in 1902'),
-  coming('barnacles', 18, 'Barnacles above the tide', 'Alaska 1964 and how a megathrust moves the coast'),
+  coming('faults', 17, 'Why faults snap', 'Elastic rebound, and why soft ground shakes harder'),
+  coming('explode', 18, 'Why some volcanoes explode', 'Thick magma, gas, and Mont Pelée in 1902'),
+  coming('barnacles', 19, 'Barnacles above the tide', 'Alaska 1964 and how a megathrust moves the coast'),
 ];
 
 const BRANCH_COMING: GeoLesson[] = [

@@ -1,7 +1,7 @@
 // The ice ages played on real relief: the northern ice sheets and the sea
-// level over the last 130,000 years (lesson 15), and the Rhône glacier
-// growing from the Alps to the Jura and back (lesson 13). Both are driven by
-// the LR04 deep-sea record (lesson 14), turned into a share of the ice of the
+// level over the last 130,000 years (lesson 16), and the Rhône glacier
+// growing from the Alps to the Jura and back (lesson 14). Both are driven by
+// the LR04 deep-sea record (lesson 15), turned into a share of the ice of the
 // last glacial maximum; the shapes are simplified.
 
 import { fromCell, hillshade, heightRamp, loadRelief, mapKey, mapLabels, mapView, reliefFor, rgb, type Relief } from 'didactics/maps';

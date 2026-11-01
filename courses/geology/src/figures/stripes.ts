@@ -1,4 +1,4 @@
-// Lesson 9, Stripes on the seafloor: a spreading ridge as a tape recorder.
+// Lesson 10, Stripes on the seafloor: a spreading ridge as a tape recorder.
 // New crust at the axis takes the field's direction as it cools; spreading
 // carries it away on both sides; the field flips on the timescale below.
 

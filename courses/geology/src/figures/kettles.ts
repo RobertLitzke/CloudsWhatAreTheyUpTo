@@ -1,4 +1,4 @@
-// Lesson 15, A lake with no river: a drumlin field in western New York lit
+// Lesson 16, A lake with no river: a drumlin field in western New York lit
 // from a sun the reader moves; the crust pressed down under an ice sheet and
 // rising again after it melts; and how a buried block of ice leaves a kettle.
 

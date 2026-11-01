@@ -1,4 +1,4 @@
-// Lesson 14, The pacemaker of the ice ages: how tilt, the orbit's stretch and
+// Lesson 15, The pacemaker of the ice ages: how tilt, the orbit's stretch and
 // the timing of the closest approach set the summer sunshine at 65° N; and the
 // deep-sea record (LR04), tested against cycles of a chosen length.
 

@@ -1,4 +1,4 @@
-// Lesson 13, Boulders where they don't belong: the Rhône glacier on a long
+// Lesson 14, Boulders where they don't belong: the Rhône glacier on a long
 // section from its source to the Jura, grown or shrunk to balance snowfall
 // against melting; it leaves a moraine and its boulders at its farthest reach.
 

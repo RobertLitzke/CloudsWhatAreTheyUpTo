@@ -1,4 +1,4 @@
-// Lesson 6, The rock at Siccar Point: an unconformity built up stage by stage,
+// Lesson 7, The rock at Siccar Point: an unconformity built up stage by stage,
 // with the time each stage takes at the rates rock is laid down and worn away;
 // and the rock cycle that ties the lessons so far together.
 
@@ -137,10 +137,10 @@ export const cycleStill = () => {
   const items: { text: string; color: string; lesson: string; x: number; y: number }[] = [
     { text: 'Sediment', color: COL.sand, lesson: 'lesson 2', x: 200, y: 28 },
     { text: 'Sedimentary rock', color: '#c9a66b', lesson: 'lessons 1–3', x: 320, y: 88 },
-    { text: 'Metamorphic rock', color: '#b98aa0', lesson: 'lesson 5', x: 320, y: 168 },
+    { text: 'Metamorphic rock', color: '#b98aa0', lesson: 'lessons 5–6', x: 320, y: 168 },
     { text: 'Magma', color: COL.heat, lesson: 'lesson 4', x: 200, y: 225 },
     { text: 'Igneous rock', color: '#6b6670', lesson: 'lesson 4', x: 80, y: 168 },
-    { text: 'Mountains', color: '#8fa37a', lesson: 'lesson 6', x: 80, y: 88 },
+    { text: 'Mountains', color: '#8fa37a', lesson: 'lesson 7', x: 80, y: 88 },
   ];
   // How each step happens, placed beside its arrow: [text, x, y, anchor].
   const how: [string, number, number, 'start' | 'middle' | 'end'][] = [

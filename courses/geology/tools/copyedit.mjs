@@ -70,8 +70,8 @@ function pieces(lesson) {
       });
     });
   });
-  lesson.learned.forEach((_, i) => add('learned', () => lesson.learned[i], (v) => (lesson.learned[i] = v)));
-  add('next', () => lesson.next, (v) => (lesson.next = v));
+  (lesson.summary ?? []).forEach((_, i) => add('summary point', () => lesson.summary[i], (v) => (lesson.summary[i] = v)));
+  if (typeof lesson.next === 'string') add('next', () => lesson.next, (v) => (lesson.next = v));
   return out;
 }
 
@@ -93,8 +93,8 @@ function format(lesson) {
     ? `{"type": "quiz", "id": ${one(b.id)}, "caption": ${one(b.caption)}, "task": ${one(b.task)}, "options": {"items": [\n${b.options.items.map((q) => `          ${one(q)}`).join(',\n')}\n        ]}}`
     : one(b);
   const parts = lesson.parts.map((p) => `    {\n      "title": ${one(p.title)},\n      "blocks": [\n${p.blocks.map((b) => `        ${block(b)}`).join(',\n')}\n      ]\n    }`).join(',\n');
-  const head = Object.entries(lesson).filter(([k]) => k !== 'parts' && !['learned', 'next', 'journal', 'footnotes'].includes(k)).map(([k, v]) => `  ${one(k)}: ${one(v)}`);
-  const tail = [`  "learned": [\n${lesson.learned.map((l) => `    ${one(l)}`).join(',\n')}\n  ]`, `  "next": ${one(lesson.next)}`, `  "journal": ${one(lesson.journal ?? [])}`, `  "footnotes": ${one(lesson.footnotes ?? {})}`];
+  const head = Object.entries(lesson).filter(([k]) => k !== 'parts' && !['learned', 'summary', 'next', 'journal', 'footnotes'].includes(k)).map(([k, v]) => `  ${one(k)}: ${one(v)}`);
+  const tail = [...(lesson.learned ? [`  "learned": [\n${lesson.learned.map((l) => `    ${one(l)}`).join(',\n')}\n  ]`] : []), ...(lesson.summary ? [`  "summary": [\n${lesson.summary.map((l) => `    ${one(l)}`).join(',\n')}\n  ]`] : []), ...(lesson.next !== undefined ? [`  "next": ${one(lesson.next)}`] : []), `  "journal": ${one(lesson.journal ?? [])}`, `  "footnotes": ${one(lesson.footnotes ?? {})}`];
   return `{\n${[...head, `  "parts": [\n${parts}\n  ]`, ...tail].join(',\n')}\n}\n`;
 }
 

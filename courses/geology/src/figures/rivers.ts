@@ -1,4 +1,4 @@
-// Lesson 12, A river that cuts through a mountain: a ridge rising across a
+// Lesson 13, A river that cuts through a mountain: a ridge rising across a
 // river's path, and whether the river can cut down as fast as the ridge
 // rises; and a fall in base level, working its way upstream as a knickpoint.
 

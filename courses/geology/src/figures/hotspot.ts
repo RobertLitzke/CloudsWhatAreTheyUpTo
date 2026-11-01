@@ -1,4 +1,4 @@
-// Lesson 11, Islands that get older in a line: the Pacific plate carried over
+// Lesson 12, Islands that get older in a line: the Pacific plate carried over
 // a fixed plume at a speed the reader sets, against the dated volcanoes of the
 // Hawaiian-Emperor chain.
 
