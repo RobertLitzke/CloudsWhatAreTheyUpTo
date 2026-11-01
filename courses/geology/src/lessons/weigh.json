@@ -1,0 +1,61 @@
+{
+  "id": "weigh",
+  "n": 701,
+  "branch": "deep",
+  "needs": ["quakes"],
+  "title": "Weighing the Earth",
+  "teaches": "How a mountain and a pair of lead balls measured the Earth's density, and why that density demands a dense core",
+  "parts": [
+    {
+      "title": "A plumb line on a mountain",
+      "blocks": [
+        {"type": "text", "text": "Newton's law of gravitation, published in 1687, says that every mass pulls on every other, with a force that grows with the masses and weakens with distance. It has a consequence that puzzled people for nearly a century. A mountain should pull a hanging plumb bob slightly sideways, away from straight down. How far depends on how strongly the mountain pulls compared with the whole Earth beneath it, and so on how dense the mountain is compared with the Earth. Measure the deflection, estimate the mountain's density, and you can work out the density of the planet."},
+        {"type": "text", "text": "The effect is tiny. In 1774 the Astronomer Royal, Nevil Maskelyne, chose Schiehallion, a mountain in the Scottish Highlands, for the attempt, because its long east-west ridge is unusually regular and isolated, so its shape and pull could be calculated. He spent about four months camped on its slopes, first on the south side and then the north, measuring the positions of stars directly overhead against a plumb line. The mountain pulled the line north at the south station and south at the north station; comparing the two sets of stars with the true distance between the stations, measured by surveyors, gave the total deflection: 11.6 seconds of arc, about a third of a hundredth of a degree."},
+        {"type": "diagram", "id": "photo", "caption": "Schiehallion, in Perthshire, chosen for its regular, isolated shape.", "options": {"photo": "schiehallion"}},
+        {"type": "text", "text": "The mathematician Charles Hutton did the calculation. He needed the mountain's volume, so he took the surveyors' thousands of height measurements and drew lines joining points of equal height, which made the shape easy to read and compute. These were among the first **contour lines**, now on every topographic map. He assumed the mountain's rock had a density of 2.5 grams per cubic centimetre and found that the Earth must be about 1.8 times as dense: 4.5 grams per cubic centimetre."},
+        {"type": "interactive_diagram", "id": "plumb", "caption": "Plumb lines on each side of Schiehallion. The mountain's pull is fixed; the denser the whole Earth, the harder it pulls straight down, and the less the lines lean. The lean is drawn 4,000 times larger than life.", "task": "Find the Earth density that gives Maskelyne's 11.6 seconds", "goal": "match", "aspect_ratio": 2.0},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["A mountain pulls a plumb line sideways, by an amount that depends on its density compared with the whole Earth's.", "Maskelyne measured a total deflection of 11.6 seconds of arc at Schiehallion in 1774.", "Hutton calculated an Earth density of about 4.5 g/cm³, drawing early contour lines along the way."]}
+      ]
+    },
+    {
+      "title": "Lead balls in a shed",
+      "blocks": [
+        {"type": "text", "text": "Hutton's answer was only as good as his guess at the density of the mountain. In 1797 and 1798 Henry Cavendish removed the mountain from the problem. Using an apparatus designed by the clergyman and natural philosopher John Michell, who had died before he could use it, he hung a wooden rod with a small lead ball at each end from a fine wire, and set two large lead balls, about 160 kilograms each, beside the small ones. Their gravity pulled the small balls toward them and twisted the wire a little. From the twist, and from how fast the rod swung back and forth, he worked out the force between balls whose masses he knew exactly."},
+        {"type": "diagram", "id": "photo", "caption": "Cavendish's apparatus, from his 1798 paper. He watched it through telescopes from outside the room, because the warmth of his own body would have stirred air currents and swamped the force he was measuring.", "options": {"photo": "cavendish-apparatus"}},
+        {"type": "text", "text": "Comparing that force with the pull of the whole Earth on the same balls, which is just their weight, gave the Earth's mass, and so its density: 5.48 grams per cubic centimetre. The modern value is 5.51. Rock at the Earth's surface averages about 2.7. The planet as a whole is twice as dense as the rock we stand on."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Cavendish measured the gravity between lead balls in 1798 and found the Earth's density to be 5.48 g/cm³ (modern value 5.51).", "Surface rock averages about 2.7 g/cm³, so the Earth as a whole is twice as dense as its crust."]}
+      ]
+    },
+    {
+      "title": "Where is the extra mass?",
+      "blocks": [
+        {"type": "text", "text": "Part of the answer is squeezing. Rock deep down is compressed by the weight above, so it is denser than the same rock at the surface. But laboratory measurements of how much rock compresses showed that squeezing alone falls short. Something heavier than rock must lie inside, and the obvious candidate was iron. Most meteorites that people had seen fall are stony, but some are almost pure iron mixed with nickel, as if they were pieces of the cores of broken planets."},
+        {"type": "diagram", "id": "photo", "caption": "A slice of an iron meteorite, etched with acid to show its crystals of iron-nickel alloy. Material like this was the first hint of what fills the Earth's core.", "options": {"photo": "iron-meteorite"}},
+        {"type": "text", "text": "A second measurement says how the mass is arranged. The Earth's axis is not fixed: it slowly sweeps around a cone, once every 26,000 years, because the Sun and Moon tug on the Earth's equatorial bulge. How fast it sweeps depends on the Earth's **moment of inertia**, a number that measures how far its mass sits from the centre. A ball of the same density throughout would have a moment of inertia of 0.4 (in units of its mass times its radius squared); a ball with all its mass at the centre, 0. The Earth's is 0.331, so its mass is concentrated toward the middle."},
+        {"type": "interactive_diagram", "id": "layers", "caption": "A two-layer Earth: a core and a mantle. Set the core's size and density; the mantle takes whatever density keeps the whole Earth at Cavendish's 5.5. The gauge shows how far from the centre the mass sits.", "task": "Find a core that fits both the density and the moment of inertia", "goal": "core", "aspect_ratio": 1.9},
+        {"type": "text", "text": "In 1897 the German physicist Emil Wiechert put the two numbers together and proposed that the Earth has an iron core reaching about three-quarters of the way out toward the surface, under a rocky mantle. The figures were roughly right; the real core, it turned out, reaches a little over halfway. Within a few years seismologists would find that core directly, by listening for the waves that earthquakes send through it. The rest of this branch follows how."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Compression of rock cannot account for all of the Earth's density; something heavier lies inside.", "The moment of inertia, 0.331, shows the Earth's mass is concentrated toward the centre.", "Wiechert proposed an iron core in 1897; the core's radius is just over half the Earth's."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on weighing the Earth", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask": "Why did Maskelyne's plumb lines lean toward Schiehallion?", "choices": ["The mountain's gravity pulled the bob sideways", "Wind on the summit pushed the lines", "The Earth's spin swung the lines toward the mountain"], "answer": 0, "why": "Every mass attracts every other. The mountain's pull added a small sideways force to the Earth's downward pull."},
+          {"ask": "If the Earth were much denser, how would the plumb line on Schiehallion lean?", "choices": ["Less, because the Earth would pull harder downward compared with the mountain's sideways pull", "More, because a denser Earth would make the mountain heavier", "The same, because the deflection depends only on the mountain"], "answer": 0, "why": "The lean measures the mountain's pull against the whole Earth's. A stronger downward pull leaves the sideways one a smaller share."},
+          {"ask": "What did Cavendish's experiment measure that Maskelyne's could not do without a guess?", "choices": ["The gravity between masses known exactly, so no estimate of a mountain's density was needed", "The distance to the Moon", "The speed of the Earth's rotation"], "answer": 0, "why": "Hutton's answer depended on an assumed density for Schiehallion. Cavendish's lead balls had precisely known masses."},
+          {"ask": "The Earth averages 5.5 g/cm³; surface rock averages 2.7. What does that imply?", "choices": ["Much denser material, more than compressed rock can explain, lies inside", "The Earth is partly hollow", "Surface rock was measured wrongly"], "answer": 0, "why": "Compression raises rock's density with depth, but not enough. A dense iron core makes up the difference."},
+          {"ask": "Why does the Earth's moment of inertia (0.331, against 0.4 for an even ball) point to a dense core?", "choices": ["A value below 0.4 means mass is concentrated toward the centre", "A value below 0.4 means the Earth is spinning slowly", "A value below 0.4 means the crust is denser than the mantle"], "answer": 0, "why": "An evenly dense ball gives 0.4; putting more mass near the centre lowers the number. The Earth's 0.331 needs a heavy centre."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Maskelyne's plumb lines on Schiehallion (1774) gave the first estimate of the Earth's density, about 4.5 g/cm³.",
+    "Cavendish's lead balls (1798) gave 5.48 g/cm³; the modern value is 5.51, twice that of surface rock.",
+    "The moment of inertia shows the mass is concentrated toward the centre, which requires a dense, probably iron, core."
+  ],
+  "next": "Next: how seismologists find an earthquake's location from waves recorded far away.",
+  "journal": [],
+  "footnotes": {}
+}

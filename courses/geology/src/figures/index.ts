@@ -23,6 +23,9 @@ import { glacierFigure } from './ice';
 import { orbitFigure, recordFigure } from './pacemaker';
 import { kettleStill, reboundFigure, sunFigure } from './kettles';
 import { orderFigure, settleFigure, toothStill } from './steno';
+import { countFigure, impactFigure, mixFigure, oceanFigure } from './moon';
+import { cellsFigure, fossilFigure } from './fossils';
+import { drillFigure, earthStill, epicentreFigure, innerFigure, layersFigure, mohoFigure, plumbFigure, raysFigure, wavesStill } from './deep';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -73,4 +76,22 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   sun: sunFigure,
   rebound: reboundFigure,
   kettle: kettleStill,
+  // P, the Moon
+  impact: impactFigure,
+  'crater-count': countFigure,
+  'magma-ocean': oceanFigure,
+  'moon-mix': mixFigure,
+  // L, fossils
+  fossilize: fossilFigure,
+  cells: cellsFigure,
+  // D, deep Earth
+  plumb: plumbFigure,
+  layers: layersFigure,
+  epicentre: epicentreFigure,
+  waves: wavesStill,
+  moho: mohoFigure,
+  rays: raysFigure,
+  'inner-core': innerFigure,
+  earth: earthStill,
+  drill: drillFigure,
 };

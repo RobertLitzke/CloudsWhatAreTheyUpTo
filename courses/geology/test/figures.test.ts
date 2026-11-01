@@ -204,4 +204,63 @@ describe('figures', () => {
     setSlider(rebound.node, 1, 10);
     await expect(rebound.done).resolves.toBeUndefined();
   });
+  it('P branch: round craters at a slant, a dated plain, a floating crust, a Moon from a Mars-like impactor', async () => {
+    const impact = FIGURES.impact(context(), 'shallow-round');
+    guess(impact.node, 'Round');
+    setSlider(impact.node, 0, Math.log10(20));
+    setSlider(impact.node, 1, 15);
+    await expect(impact.done).resolves.toBeUndefined();
+    const count = FIGURES['crater-count'](context(), 'date');
+    guess(count.node, 'Only a few hundred million years older');
+    setSlider(count.node, 0, 3.8);
+    await expect(count.done).resolves.toBeUndefined();
+    const ocean = FIGURES['magma-ocean'](context(), 'crust');
+    guess(ocean.node, 'They float to the top');
+    setSlider(ocean.node, 0, 96);
+    await expect(ocean.done).resolves.toBeUndefined();
+    expect(ocean.node.textContent).toContain('white crust');
+    const mix = FIGURES['moon-mix'](context(), 'mars-like');
+    setSlider(mix.node, 0, 1);
+    await expect(mix.done).resolves.toBeUndefined();
+  });
+
+  it('L1: silica-rich water under ash turns a log to quartz, wall by wall', async () => {
+    const fossil = FIGURES.fossilize(context(), 'petrified');
+    guess(fossil.node, 'Volcanic ash');
+    for (const b of ['Buried fast', 'No oxygen', 'Silica']) click(fossil.node, b);
+    await expect(fossil.done).resolves.toBeUndefined();
+    const cells = FIGURES.cells(context(), 'replaced');
+    setSlider(cells.node, 0, 2000);
+    await expect(cells.done).resolves.toBeUndefined();
+  });
+
+  it('D branch: weighing, locating, the Moho, the core, the inner core and the drill', async () => {
+    const plumb = FIGURES.plumb(context(), 'match');
+    setSlider(plumb.node, 0, 4.5);
+    await expect(plumb.done).resolves.toBeUndefined();
+    const layers = FIGURES.layers(context(), 'core');
+    guess(layers.node, 'Packed at the centre');
+    setSlider(layers.node, 0, 0.55);
+    setSlider(layers.node, 1, 11);
+    await expect(layers.done).resolves.toBeUndefined();
+    const epi = FIGURES.epicentre(context(), 'found');
+    setSlider(epi.node, 0, 190);
+    setSlider(epi.node, 1, 130);
+    await expect(epi.done).resolves.toBeUndefined();
+    const moho = FIGURES.moho(context(), 'fit');
+    guess(moho.node, 'Farther from the quake');
+    setSlider(moho.node, 0, 54);
+    await expect(moho.done).resolves.toBeUndefined();
+    const rays = FIGURES.rays(context(), 'shadow');
+    setSlider(rays.node, 0, 3480);
+    await expect(rays.done).resolves.toBeUndefined();
+    const inner = FIGURES['inner-core'](context(), 'lehmann');
+    setSlider(inner.node, 0, 1220);
+    await expect(inner.done).resolves.toBeUndefined();
+    const drill = FIGURES.drill(context(), 'ktb');
+    guess(drill.node, 'Shallower');
+    setSlider(drill.node, 0, 28);
+    setSlider(drill.node, 1, 265);
+    await expect(drill.done).resolves.toBeUndefined();
+  });
 });

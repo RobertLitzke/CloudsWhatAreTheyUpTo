@@ -1,0 +1,60 @@
+{
+  "id": "moho",
+  "n": 703,
+  "branch": "deep",
+  "needs": ["epicentre"],
+  "title": "Mohorovičić’s second wave",
+  "teaches": "How a doubled wave from a 1909 earthquake revealed the base of the crust, and why the crust is thick under mountains and thin under oceans",
+  "parts": [
+    {
+      "title": "Two P waves",
+      "blocks": [
+        {"type": "text", "text": "On the morning of 8 October 1909 an earthquake shook the Kupa valley, about 40 kilometres southeast of Zagreb in Croatia, then part of Austria-Hungary. It damaged villages near Pokupsko and was felt across the region. The director of Zagreb's meteorological observatory, Andrija Mohorovičić, had installed new seismographs there a few months earlier. He collected the records of the quake from his own instruments and from observatories across Europe, as far as about 2,400 kilometres away, and plotted when the waves arrived at each, against its distance."},
+        {"type": "diagram", "id": "photo", "caption": "Andrija Mohorovičić (1857–1936), director of the meteorological observatory in Zagreb.", "options": {"photo": "mohorovicic"}},
+        {"type": "text", "text": "Close to the quake, each seismogram showed one P wave, followed by an S wave, as lesson D2 described. But at stations beyond about 200 kilometres there were two P waves, arriving one after the other, and two S waves as well. The gap between the two P waves changed with distance. At the nearer of these stations, one of them came first; farther out, the other one overtook it and arrived first, and kept increasing its lead. Mohorovičić asked how one earthquake could send two P waves to the same place by different routes."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Mohorovičić compiled records of the 8 October 1909 Kupa valley earthquake from across Europe.", "Beyond about 200 km, stations recorded two P waves; at greater distances the second kind arrived first."]}
+      ]
+    },
+    {
+      "title": "The detour that wins",
+      "blocks": [
+        {"type": "text", "text": "His answer, published in 1910, was a boundary under the crust. Down to a certain depth, he proposed, the rock carries P waves at about 5.6 kilometres a second; below it, the rock is different and carries them at about 7.8. One P wave travels straight through the slower upper layer. Another goes down to the boundary, is bent along it, and races along through the faster rock beneath before coming back up to the station."},
+        {"type": "text", "text": "The second route is longer, but more of it is in fast rock. Near the quake the direct wave wins, because the detour down and back up costs more time than the fast stretch saves. Farther away the fast stretch is long enough to make up for the detour, and the deep wave arrives first. The distance where the two arrive together is the **crossover distance**, and it depends on the depth of the boundary: the deeper the boundary, the longer the detour, and the farther away the deep wave has to travel before it catches up. Mohorovičić measured the crossover and worked back to a depth of about 54 kilometres."},
+        {"type": "interactive_diagram", "id": "moho", "caption": "Above, the two routes from the quake (red) to a station 520 km away, with depth stretched about 1.4 times. Below, arrival times against distance for the direct wave (orange) and the deep wave (blue). The circles are arrivals made from Mohorovičić's own figures, as stand-ins for his records.", "task": "Find the crust thickness that matches the records", "goal": "fit", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Rock speeds of about 7.8 to 8 kilometres a second match a dense rock rich in olivine, called **peridotite**, unlike the granite and basalt of the crust above. The boundary is now named the **Mohorovičić discontinuity**, or the **Moho** for short, and it is the base of the Earth's crust. Below it lies the mantle."},
+        {"type": "diagram", "id": "photo", "caption": "A lump of mantle peridotite, green with olivine, carried up from the mantle inside basalt lava.", "options": {"photo": "peridotite"}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Waves that dive to a faster layer and travel along it overtake the direct waves beyond the crossover distance.", "The crossover distance grows with the depth of the boundary, which is how Mohorovičić measured it.", "The Moho is the base of the crust; below it is the mantle, made of olivine-rich peridotite."]}
+      ]
+    },
+    {
+      "title": "Thick under mountains, thin under oceans",
+      "blocks": [
+        {"type": "text", "text": "Over the next half century, seismologists set off explosions and measured the Moho the same way across the world. Under the continents it lies 30 to 50 kilometres down (Mohorovičić's 54 km was on the deep side for Croatia, where today's value is mostly 30 to 40). Under the oceans it is much shallower: ocean crust is only about 7 kilometres thick, below several kilometres of water. Under high mountain ranges the crust is thicker still, reaching about 70 kilometres beneath Tibet and the Andes."},
+        {"type": "text", "text": "That last result had been predicted decades earlier, again from plumb lines. In the 1840s the surveyors mapping India under George Everest found that the Himalaya pulled their plumb lines sideways much less than the mountains' visible mass should. In 1855 George Airy, the Astronomer Royal, explained this: mountains, like icebergs, float on denser material beneath, and are held up by deep **roots** of light crust pushing down into it. The mass missing from the deep roots offsets the mass of the peaks. This balance is called **isostasy**, and the deep Moho beneath mountain ranges is the root Airy predicted."},
+        {"type": "diagram", "id": "photo", "caption": "The Tablelands in Gros Morne National Park, Newfoundland. Mantle peridotite pushed up onto the continent hundreds of millions of years ago forms these bare orange-brown hills, where few plants can grow. The Moho can be walked across here.", "options": {"photo": "tablelands"}},
+        {"type": "text", "text": "In a few places, collisions between plates have shoved slabs of ocean crust and the mantle beneath them up onto the land. In these **ophiolites**, as at the Tablelands in Newfoundland or in the mountains of Oman, the Moho is no longer underground, and a geologist can stand with one foot on crust and the other on mantle."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The Moho lies about 30 to 50 km down under continents, up to about 70 km under high mountains, and about 7 km below the sea floor under oceans.", "Mountains are buoyed by deep roots of light crust, a balance called isostasy (Airy, 1855).", "In ophiolites, slices of ocean crust and mantle pushed onto land, the Moho is exposed at the surface."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the Moho", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask": "Why does the deep wave arrive first at distant stations, though its path is longer?", "choices": ["Much of its path is in faster rock below the boundary, which more than makes up for the detour", "It is reflected straight up from the boundary to the station", "Deep waves are always released before surface waves"], "answer": 0, "why": "Near the quake the detour down and up costs more time than the fast stretch saves. Farther out, the long fast stretch wins."},
+          {"ask": "If the crust were thicker, how would the crossover distance change?", "choices": ["It would be farther from the quake", "It would be nearer the quake", "It would not change"], "answer": 0, "why": "A deeper boundary means a longer detour, so the deep wave needs a longer stretch of fast rock before it catches up."},
+          {"ask": "What lies directly below the Moho?", "choices": ["The mantle, made of olivine-rich peridotite", "The liquid outer core", "Ocean water trapped in rock"], "answer": 0, "why": "The Moho is the base of the crust. Below it, P waves travel at about 8 km/s, matching dense peridotite."},
+          {"ask": "Why is the Moho deepest under high mountain ranges?", "choices": ["Mountains float on the mantle on deep roots of light crust, like icebergs", "The weight of the mountains has melted the mantle below", "Earthquakes under mountains have pushed the boundary down"], "answer": 0, "why": "Airy explained in 1855 that light crust thickens downward beneath mountains, balancing the mass above. Seismology later found the roots."},
+          {"ask": "What is unusual about these hills?", "photo": "tablelands", "choices": ["They are mantle rock, pushed up onto the surface, so the Moho can be crossed on foot", "They are a crater made by an impact", "They are the youngest lava flows in North America"], "answer": 0, "why": "The Tablelands are part of an ophiolite: ocean crust and mantle thrust onto the continent. The bare peridotite is poor soil for plants."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Mohorovičić found two P waves from the 1909 Kupa valley quake, the second travelling along a faster layer below the crust.",
+    "The crossover distance gives the depth of that boundary, the Moho, which is the base of the crust.",
+    "The crust is about 7 km thick under oceans, 30 to 50 km under continents, and up to 70 km under high mountains."
+  ],
+  "next": "Next: waves that go missing on the far side of the Earth, and the core that hides them.",
+  "journal": [],
+  "footnotes": {}
+}

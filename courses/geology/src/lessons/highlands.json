@@ -1,0 +1,72 @@
+{
+  "id": "highlands",
+  "n": 503,
+  "branch": "moon",
+  "needs": ["crater-ages", "basalt"],
+  "title": "Why the highlands are white",
+  "teaches": "White crystals in Apollo 11's soil, the ocean of magma that floated the Moon's crust, and where the mare lavas came from",
+  "parts": [
+    {
+      "title": "White grains in a dark sea",
+      "blocks": [
+        {"type": "text", "text": "Apollo 11 landed on the Sea of Tranquility, a mare plain, and its rocks were what everyone expected: dark basalt, the kind of lava rock studied in lesson 4, crystallised from a melt and full of dark minerals. Mixed into the soil, though, were small grains that did not fit. A few per cent of the fragments were white, and they were made almost entirely of one mineral, **plagioclase feldspar**, a pale silicate of calcium, aluminium and sodium that is common in Earth's rocks but never on its own in such quantity."},
+        {"type": "text", "text": "In the weeks after the samples reached laboratories in late 1969, John Wood's group at the Smithsonian in Cambridge, Massachusetts, sorted more than a thousand of these fragments. Wood argued that they could not come from the mare. They had been thrown in by impacts from the bright highlands beyond the edge of the mare, and that meant the highland crust itself was made of this nearly pure plagioclase rock, called **anorthosite**. That would explain why the highlands are bright: plagioclase is white, and basalt, full of dark iron-rich minerals, is not."},
+        {"type": "diagram", "id": "photo", "caption": "Anorthosite, a rock made almost entirely of plagioclase feldspar.", "options": {"photo": "anorthosite"}},
+        {"type": "text", "text": "The proposal raised a harder question. On Earth, anorthosite occurs in scattered bodies a few kilometres to tens of kilometres across. The Moon's highlands cover more than four-fifths of its surface, and the crust beneath them, measured later from its gravity and by seismometers left by the crews, is 30 to 50 kilometres thick. How does a whole planet acquire a crust made of one mineral?"},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Apollo 11's mare soil held white fragments made almost entirely of plagioclase feldspar.", "John Wood argued they came from the highlands, so the highland crust is anorthosite, which is why it is bright.", "A crust tens of kilometres thick made of one mineral needed an explanation."]}
+      ]
+    },
+    {
+      "title": "Crystals sink and float",
+      "blocks": [
+        {"type": "text", "text": "Lesson 4 showed what happens as a melt cools: crystals of different minerals form one after another, as the temperature falls past each one's freezing point. In a thin lava flow they freeze where they grow. In a large, slowly cooling body of melt they have time to move, and they move according to their density. A crystal denser than the liquid around it sinks; one lighter than the liquid floats. Geologists see this in layered intrusions on Earth, where dense olivine crystals have settled into beds at the bottom of a cooled magma chamber like sand settling in water (lesson 1)."},
+        {"type": "text", "text": "Wood, and independently Joseph Smith's group at the University of Chicago, proposed in January 1970 that the outer part of the young Moon had been entirely molten: a **magma ocean** perhaps several hundred kilometres deep. As it cooled, the first crystals to form were olivine and then pyroxene, both dense, iron- and magnesium-rich minerals. They sank and piled up as the Moon's mantle. Only after most of the ocean had crystallised did plagioclase begin to form, and plagioclase, at about 2.7 grams per cubic centimetre, is lighter than the iron-rich liquid that remained. It rose and gathered at the top as a floating crust of anorthosite."},
+        {"type": "interactive_diagram", "id": "magma-ocean", "caption": "A column through the Moon's magma ocean, from the surface to its floor. Minerals form in the order and amounts estimated for the lunar ocean, simplified; each crystal sinks or floats by its density against the melt's.", "task": "Cool the ocean until a white crust forms at the real melt density", "goal": "crust", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Why doesn't this happen on Earth? It partly did: the young Earth probably had magma oceans too. But Earth's magma holds water, which makes its melts less dense and keeps plagioclase from forming early, and its crust has since been recycled by plate tectonics many times over. The Moon is dry and has no plates, so its first crust, about 4.4 billion years old, survives, battered by impacts but still in place."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Crystals forming in a large body of melt sink or float according to their density compared with the liquid.", "In the lunar magma ocean, dense olivine and pyroxene sank to form the mantle; light plagioclase floated to form the anorthosite crust.", "The Moon's dryness and lack of plate tectonics let that first crust survive."]}
+      ]
+    },
+    {
+      "title": "The Genesis Rock",
+      "blocks": [
+        {"type": "text", "text": "The crew of Apollo 15 knew the idea before they launched. Their geology teacher, the Caltech geologist Leon Silver, had trained them to look for pale, coarse-grained highland rock. On 1 August 1971, on the slope of the Apennine Mountains near a small crater called Spur, Dave Scott and Jim Irwin saw a white fragment sitting on a dusty rock. Scott radioed: \"Guess what we just found! I think we found what we came for.\""},
+        {"type": "diagram", "id": "photo", "caption": "Apollo 15 at the edge of Hadley Rille, a winding channel cut by flowing lava, with the Apennine Mountains behind.", "options": {"photo": "hadley-rille"}},
+        {"type": "text", "text": "The rock, numbered 15415 and nicknamed the Genesis Rock by the press, is almost pure plagioclase. It turned out to be about 4 billion years old, not the original crust itself but a piece of it, recrystallised by later impacts. Other anorthosites from Apollo 16, which landed in the highlands in 1972, give ages up to about 4.36 billion years, close to the time the magma ocean must have finished crystallising."},
+        {"type": "diagram", "id": "photo", "caption": "The Genesis Rock, sample 15415, about 6 cm long. It is almost entirely plagioclase feldspar.", "options": {"photo": "genesis-rock"}},
+        {"type": "text", "text": "The magma ocean predicted something else. As crystals were removed, the elements that fit poorly into any of them were left behind and concentrated in the last few per cent of liquid, trapped between the floating crust and the sunken mantle. Apollo samples contain exactly such a material, strangely rich in potassium (chemical symbol K), the rare earth elements (REE) and phosphorus (P), and named **KREEP** from those initials. The mare basalts carry a second clue. They are short of europium, the one rare earth element that plagioclase takes up readily, as if that element had already been carried off into the floating crust before their source rock melted."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Apollo 15 found the Genesis Rock, a piece of anorthosite crust about 4 billion years old.", "Highland anorthosites date to as old as about 4.36 billion years.", "KREEP, rich in potassium, rare earth elements and phosphorus, is the residue of the magma ocean's last liquid."]}
+      ]
+    },
+    {
+      "title": "Where the dark lava came from",
+      "blocks": [
+        {"type": "text", "text": "If the crust is white anorthosite, the dark maria are something added later. Their basalts are 3.1 to 3.9 billion years old (lesson P2), hundreds of millions of years younger than the crust. They formed when parts of the mantle, the pile of sunken olivine and pyroxene, warmed by radioactive elements such as those concentrated in KREEP, partly melted. The melt rose and erupted where the crust was thinnest: in the floors of the giant impact basins, hundreds of kilometres across, dug out during the heavy early bombardment."},
+        {"type": "text", "text": "That is why the maria are round in outline, and why most lie on the side of the Moon facing Earth, where the crust is thinner. The Soviet probe Luna 3 photographed the far side in 1959, and it surprised everyone: there are almost no maria there at all. Mare lavas cover about 17 per cent of the Moon's surface but make up only about 1 per cent of its crust; they are a thin dark coating, a few hundred metres to a few kilometres thick, poured into holes in a white world."},
+        {"type": "diagram", "id": "photo", "caption": "The full Moon, with the dark maria filling round basins on the side that faces Earth.", "options": {"photo": "full-moon"}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The maria are basalt from partial melting of the Moon's mantle, erupted 3.1 to 3.9 billion years ago.", "The lava filled giant impact basins, mostly on the near side, where the crust is thinner.", "The maria are a thin coating, about a sixth of the surface but around 1 per cent of the crust."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on the Moon's crust", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask": "Why are the Moon's highlands bright and the maria dark?", "choices": ["The highlands are anorthosite, made of white plagioclase; the maria are basalt, rich in dark iron-bearing minerals", "The highlands are covered in ice; the maria are bare rock", "The highlands catch more sunlight because they are higher"], "answer": 0, "why": "Rock colour follows its minerals. Plagioclase is white; basalt is full of dark pyroxene and iron oxides."},
+          {"ask": "In a cooling magma ocean, what decides whether a crystal ends up at the top or the bottom?", "choices": ["Whether it is denser or less dense than the liquid around it", "How large the crystal grows", "How early it forms"], "answer": 0, "why": "Like a stone or a cork in water, a crystal sinks if it is denser than the melt and floats if it is lighter."},
+          {"ask": "Why did plagioclase float in the lunar magma ocean?", "choices": ["It is lighter than the iron-rich melt that remained when it began to form", "It formed first, before the melt had time to cool", "Gas bubbles carried it to the surface"], "answer": 0, "why": "Plagioclase, at about 2.7 g/cm³, is less dense than the iron-rich liquid left after olivine and pyroxene had crystallised and sunk."},
+          {"ask": "What is KREEP?", "choices": ["The last liquid of the magma ocean, rich in elements that did not fit into the main minerals", "The oldest part of the anorthosite crust", "Glass beads from lunar fire fountains"], "answer": 0, "why": "Potassium (K), rare earth elements and phosphorus stayed in the melt as crystals formed, and ended up concentrated in its last few per cent."},
+          {"ask": "Why are the maria mostly on the side of the Moon facing Earth?", "choices": ["The crust is thinner on that side, so mantle melts could reach the surface in the basins there", "Earth's gravity pulled lava toward it", "Fewer impacts struck the far side"], "answer": 0, "why": "Mare basalt rose from the mantle and erupted where the crust was thinnest: in the floors of near-side impact basins."},
+          {"ask": "What is this rock, and what did it support?", "photo": "genesis-rock", "choices": ["The Genesis Rock, a piece of anorthosite crust supporting the magma ocean idea", "A mare basalt from Apollo 11, showing the Moon is volcanic", "A meteorite that formed a lunar crater"], "answer": 0, "why": "Sample 15415, collected on Apollo 15, is almost pure plagioclase, the kind of rock a floating magma-ocean crust should be made of."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "The highlands are anorthosite, almost pure plagioclase, which is why they are bright.",
+    "A magma ocean crystallised with dense minerals sinking to form the mantle and plagioclase floating to form the crust.",
+    "KREEP is the magma ocean's last liquid; anorthosites date to as old as about 4.36 billion years.",
+    "The maria are later basalt that filled impact basins, mostly on the near side."
+  ],
+  "next": "Next: how the Apollo rocks ruled out every theory of the Moon's origin that existed before they were collected.",
+  "journal": [],
+  "footnotes": {}
+}

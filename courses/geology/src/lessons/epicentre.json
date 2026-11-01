@@ -1,0 +1,69 @@
+{
+  "id": "epicentre",
+  "n": 702,
+  "branch": "deep",
+  "needs": ["weigh"],
+  "title": "Finding a quake nobody saw",
+  "teaches": "The two kinds of wave an earthquake sends through the Earth, how three stations find where it happened, and how its size is measured",
+  "parts": [
+    {
+      "title": "A twitch in Potsdam",
+      "blocks": [
+        {"type": "text", "text": "On 17 April 1889 the German astronomer Ernst von Rebeur-Paschwitz noticed a disturbance on the records of a delicate horizontal pendulum in Potsdam, which he had built to measure the tiny tilts of the ground caused by the Moon's tides. The pendulum had swung back and forth for over an hour, with no explanation in Germany. Weeks later he read in the journal *Nature* of a strong earthquake in Japan, at Tokyo, the same day. Its timing matched. The shaking had crossed the Earth, roughly 9,000 kilometres, and a sensitive instrument could detect it."},
+        {"type": "text", "text": "Within twenty years, observatories across the world had **seismographs**, instruments that write the ground's motion on paper (or now, digitally) against an accurate clock. A record of an earthquake is a **seismogram**. With them, seismologists could study earthquakes in places where no one felt them, under the oceans and in empty deserts. The first question was where each quake had happened."},
+        {"type": "diagram", "id": "photo", "caption": "An early seismograph. A heavy mass hung so that it stays still while the ground moves, and the motion between them is written against time.", "options": {"photo": "seismograph"}},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["In 1889 an instrument in Potsdam recorded an earthquake in Japan, about 9,000 km away.", "Seismographs record ground motion against an accurate clock; their records are seismograms."]}
+      ]
+    },
+    {
+      "title": "Two kinds of wave",
+      "blocks": [
+        {"type": "text", "text": "A seismogram from a distant quake does not show one jolt. It shows a first set of small, quick wiggles, then a gap, then a second, larger set. They are different waves, both travelling through the body of the Earth, and they move in different ways."},
+        {"type": "text", "text": "The first to arrive is the **P wave** (for primary). It is a pressure wave, like sound: the rock is squeezed and stretched along the direction the wave is travelling. The second is the **S wave** (secondary), a shear wave: the rock is shaken from side to side across the direction of travel, like a rope flicked at one end. Rock resists being sheared less than it resists being squeezed, so S waves are slower, about 3.5 kilometres a second in the upper crust against about 6 for P waves."},
+        {"type": "diagram", "id": "waves", "caption": "How the rock moves as each wave passes from left to right."},
+        {"type": "text", "text": "One difference will matter for the rest of this branch. A liquid can be squeezed, so it carries P waves, but it does not resist being sheared at all; push the side of a glass of water and the water just flows. So S waves cannot pass through a liquid."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["P waves squeeze and stretch rock along their path; S waves shake it from side to side.", "P waves are faster, about 6 km/s in the upper crust, against about 3.5 km/s for S waves.", "S waves cannot travel through liquid."]}
+      ]
+    },
+    {
+      "title": "From a gap to a distance",
+      "blocks": [
+        {"type": "text", "text": "Both waves leave the quake at the same moment. The P wave gets ahead, and the farther they travel, the bigger the lead becomes, just as the gap between a lightning flash and its thunder tells you how far away a storm is. For a quake within a few hundred kilometres, every second between the arrival of P and the arrival of S means about 8 kilometres of distance. (For distant quakes the waves dive deep, where they travel faster, so seismologists use tables of travel times measured from many past earthquakes.)"},
+        {"type": "text", "text": "One station turns its S-minus-P gap into a distance, which puts the quake somewhere on a circle around it. A second station's circle crosses the first at two points. A third circle picks one of them. In practice seismologists use dozens or hundreds of stations, and a computer finds the point and the depth that best fit every arrival, but the principle is the one in the figure."},
+        {"type": "interactive_diagram", "id": "epicentre", "caption": "Three stations record the same earthquake. Each seismogram shows the P wave at the left edge and the S wave later. Move the red marker: the dashed line shows when S would arrive at each station from that spot.", "task": "Find where the earthquake happened", "goal": "found", "aspect_ratio": 1.74},
+        {"type": "text", "text": "The point on the surface directly above where the rock first broke is the **epicentre**; the place of breaking itself, at depth, is the **hypocentre** or focus. Depth comes from the same arrivals, given enough stations, and from waves that bounce off the surface just above the quake and arrive a little later. Lesson 10's deep earthquakes along the sinking slabs were located this way."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The gap between P and S arrivals grows with distance: about 8 km per second of gap for nearby quakes.", "Each station gives a circle; three circles meet at the epicentre.", "The epicentre is the point on the surface above the hypocentre, where the rock first broke."]}
+      ]
+    },
+    {
+      "title": "How big?",
+      "blocks": [
+        {"type": "text", "text": "Knowing where is half the job. In 1935 Charles Richter at Caltech, working with Beno Gutenberg, wanted a way to compare the sizes of southern California's earthquakes. People rated quakes by the damage they did, which depends on the buildings and on how far away they were. Richter instead used the largest swing on a standard seismograph, the Wood-Anderson, corrected for the distance to the quake (a table that showed how much the swing fades with distance). Because the swings ranged from a thousandth of a millimetre to many centimetres, he took the logarithm: each step of one on his **magnitude** scale means a swing ten times larger."},
+        {"type": "diagram", "id": "photo", "caption": "A seismogram. The P wave arrives first; the larger S wave follows.", "options": {"photo": "seismogram"}},
+        {"type": "text", "text": "Each step also means about 32 times more energy released, so a magnitude 7 releases about a thousand times as much energy as a magnitude 5. Richter's scale saturates for the largest quakes: above about magnitude 7 the biggest swing stops growing, however much larger the rupture. Since 1979 seismologists have used the **moment magnitude**, worked out by Thomas Hanks and Hiroo Kanamori. It measures the earthquake directly, from the area of fault that slipped, how far it slipped and how stiff the rock is, and it keeps the same numbers as Richter's scale where the two overlap."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Richter's 1935 magnitude came from the largest swing on a standard seismograph, corrected for distance, on a scale where each step is ten times the swing.", "Each step of magnitude is about 32 times more energy.", "The moment magnitude, used since 1979, measures the slipped fault area, the slip and the rock's stiffness."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on locating earthquakes", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask": "How does the rock move as an S wave passes?", "choices": ["It shakes from side to side, across the direction the wave travels", "It is squeezed and stretched along the direction the wave travels", "It rolls in circles like an ocean wave"], "answer": 0, "why": "S waves are shear waves. P waves are the ones that squeeze and stretch along their path."},
+          {"ask": "Why do P waves arrive before S waves?", "choices": ["Rock resists squeezing more than shearing, so pressure waves travel faster", "P waves start earlier in the earthquake", "P waves take a shorter path through the Earth"], "answer": 0, "why": "A wave's speed depends on how stiffly the material resists that kind of motion. Rock is stiffer against compression than against shear."},
+          {"ask": "At a station 160 km from a quake, about how long after P does S arrive?", "choices": ["About 20 seconds", "About 2 seconds", "About 3 minutes"], "answer": 0, "why": "For nearby quakes each second of S-minus-P gap is about 8 km, so 160 km is about 20 seconds."},
+          {"ask": "Why does finding an epicentre need at least three stations?", "choices": ["One station gives a circle, two give two possible points, and a third picks one of them", "Each station only records one kind of wave", "Three stations are needed to measure the magnitude"], "answer": 0, "why": "Each S-minus-P time gives a distance. Two distance circles cross in two places; the third decides between them."},
+          {"ask": "How much more energy does a magnitude 7 earthquake release than a magnitude 5?", "choices": ["About a thousand times", "About twice", "About a hundred times"], "answer": 0, "why": "Each step is about 32 times the energy, so two steps are about 32 × 32, roughly 1,000."},
+          {"ask": "Why can't S waves travel through liquid?", "choices": ["A liquid flows instead of springing back when sheared", "Liquids are too dense for waves", "S waves need air to travel"], "answer": 0, "why": "A shear wave relies on the material springing back after being pushed sideways. A liquid just flows, so the wave cannot pass."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Earthquakes send P waves (pressure, faster) and S waves (shear, slower) through the Earth; S waves cannot cross liquid.",
+    "The S-minus-P gap gives a distance, and three stations fix the epicentre.",
+    "Magnitude measures size on a scale where each step is ten times the swing and about 32 times the energy."
+  ],
+  "next": "Next: a Croatian earthquake in 1909, and the boundary at the base of the crust.",
+  "journal": [],
+  "footnotes": {}
+}
