@@ -3,7 +3,7 @@
 
 /* What only this course has: the look over Didactics' shell, the home page,
    the reference page, the photographs and the camera figures' extras.
-   Everything else, from the top bar to the figures and the log, is
+   Everything else, from the top bar to the figures and the summary, is
    Didactics' kit.css. */
 
 /* ---- Type: a seed catalogue's serif for headings, plain sans for the small
@@ -45,8 +45,6 @@ h2 { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 
 .fig-task { background: #efe7d8; }
 .fig { box-shadow: 0 1px 0 var(--panel-2), 0 6px 20px rgba(43, 36, 24, 0.08); }
 .fig-slider input { accent-color: var(--thumb, var(--good)); }
-.logbook { background: repeating-linear-gradient(transparent 0 calc(var(--rule) - 1px), #d6cfc2 calc(var(--rule) - 1px) var(--rule)) #fbf9f4; }
-.logbook .score { color: var(--good); }
 .update-banner::before { background: linear-gradient(90deg, var(--sun), var(--good), var(--sun-deep)); }
 .update-icon { background: linear-gradient(160deg, var(--good), #2f5a2a); }
 

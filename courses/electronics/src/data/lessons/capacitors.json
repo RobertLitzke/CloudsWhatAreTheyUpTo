@@ -236,15 +236,15 @@
       ]
     }
   ],
-  "learned": [
-    "A capacitor charges through a resistor to 63% in one time constant (τ = R x C) and is over 99% full in about 5τ.",
-    "A coupling capacitor blocks steady DC voltage while passing AC signals from one stage to the next.",
-    "A resistor in series followed by a capacitor to ground forms a low-pass filter with a corner frequency of f = 1 / (2π x R x C).",
-    "A capacitor across a supply holds it up while a load switches.",
-    "A coil resists changes in its current, and kicks back when it is cut off.",
-    "A shorted coupling capacitor reads 0 V and joins two stages' steady voltages."
+  "summary": [
+    "**A capacitor stores charge, and its voltage rises as it fills.**",
+    "**RC sets the time.** Through a resistor it reaches 63% in τ = R × C seconds and is nearly full after about 5τ.",
+    "**Capacitors block steady voltages and pass changes.** That is how a coupling capacitor joins two stages that keep their own steady voltages.",
+    "**R then C to ground is a low-pass filter; C then R is a high-pass.** The corner frequency is f = 1 / (2π × R × C); a tone knob moves it.",
+    "**A capacitor across a supply holds it up while a load switches.**",
+    "**Big capacitors stay charged and bite.** Discharge them through a resistor and check with a meter; mind electrolytics’ polarity and voltage rating.",
+    "**A coil resists changes in its current.** Cut it off suddenly and it kicks back with a high-voltage spike."
   ],
-  "next": "Next: diodes and LEDs, whose current curve bends like the lamp's, only much harder.",
   "journal": [],
   "footnotes": {
     "leyden": {

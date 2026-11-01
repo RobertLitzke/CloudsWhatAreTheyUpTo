@@ -163,7 +163,7 @@ function notesTab(save: Save): HTMLElement {
   const open = groups.filter((g) => g.notes.some((id) => save.journal.includes(id)));
   const waiting = groups.reduce((sum, g) => sum + g.notes.filter((id) => !save.journal.includes(id)).length, 0);
   return el('div', {},
-    el('p.muted.journal-lede', {}, 'What each lesson wrote in when you signed its log. The clouds’ own notes are on their cards.'),
+    el('p.muted.journal-lede', {}, 'What each lesson added to the journal when you finished it. The clouds’ own notes are on their cards.'),
     open.length
       ? open.map(({ s, notes }) =>
           el('section.note-group', {},

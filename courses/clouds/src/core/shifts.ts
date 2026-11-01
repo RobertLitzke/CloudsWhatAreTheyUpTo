@@ -5,7 +5,7 @@
 // illustrated article in the manner of an interactive explainer: paragraphs
 // and live figures to play with. A lesson comes in parts; the next part opens
 // once the figures in this one have had their small task done. The last part
-// is a check, and the lesson ends with the log. (In the code a lesson is still
+// is a check, and the lesson ends with its summary. (In the code a lesson is still
 // called a shift, from an earlier story.)
 //
 // The lessons tell no story; the story is in the radio talks, core/talk.ts.
@@ -181,8 +181,7 @@ interface ShiftFile {
   title: string;
   teaches: string;
   parts: unknown[];
-  learned: string[];
-  next: string;
+  summary: string[];
   journal: Record<string, { title: string; text: string; rare?: boolean }>;
   footnotes?: Record<string, { kind: string; title: string; text: string; glossary?: boolean | string }>;
 }
@@ -197,8 +196,7 @@ function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; b
     book: more.book ?? 'training',
     teaches: file.teaches,
     parts: file.parts as Part[],
-    learned: file.learned,
-    next: file.next,
+    summary: file.summary,
     journal: Object.keys(file.journal),
     footnotes: (file.footnotes ?? {}) as Footnotes,
     ...(more.branch ? { branch: more.branch } : {}),

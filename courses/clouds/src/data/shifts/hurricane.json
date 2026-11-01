@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "hurricane",
   "n": 14,
   "title": "Why does a hurricane need a warm sea?",
@@ -260,14 +260,14 @@
       ]
     }
   ],
-  "learned": [
-    "Near the equator the air rises in daily storms, flows poleward aloft, sinks around 30° under the subtropical highs, and flows back near the surface as the trade winds.",
-    "A hurricane runs like an engine on the sea’s heat. Air spiralling in over a sea warmer than about 26 °C picks up heat and vapour, rises in the eyewall, and the heat from its rain warms the core and deepens the low, which pulls the air in faster.",
-    "Wind shear tears hurricanes apart; cold water, dry air and land starve them. They form between about 5° and 30° from the equator, never on it, since they need the Earth’s turn to start spinning.",
-    "The eye is calm and often clear, where air sinks. A ship crossing it meets the worst wind in the eyewall, a calm, then the same wind from the opposite direction.",
-    "The storm surge, the sea piled up against the coast, kills more people than the wind; it is highest over a wide, shallow shelf. None reach Washington as hurricanes, but the 1962 Columbus Day storm began as a typhoon."
+  "summary": [
+    "**The tropics run a loop of air.** It rises in storms near the equator, sinks around 30° under the subtropical highs, and returns along the surface as the trade winds.",
+    "**A hurricane is a heat engine fuelled by the sea.** Air spiralling in over water warmer than about 26 °C gains heat and vapour; the heat released in its rain deepens the low and speeds the inflow.",
+    "**The eye is calm because air sinks there.** Crossing it, the worst wind of the eyewall drops to calm, then returns from the opposite direction.",
+    "**Hurricanes form between about 5° and 30° from the equator.** They need the Earth’s turning to spin, so never on the equator itself.",
+    "**Shear tears hurricanes apart.** Cold water, dry air and land starve them of fuel.",
+    "**The storm surge is the deadliest part.** Sea piled against the coast kills more than the wind, and rises highest over a wide, shallow shelf."
   ],
-  "next": "That is the end of the violent storms.",
   "journal": {
     "trade-winds": {
       "title": "Trade winds",

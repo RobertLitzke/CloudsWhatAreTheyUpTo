@@ -2,7 +2,7 @@
 // who has soldered and wants to design. Each is paragraphs and live figures to
 // play with, in parts; the next part opens once the figures in this one have
 // had their small task done. The last part is a check, and the lesson ends
-// with a log to sign.
+// with its summary.
 //
 // They come in tracks. The core path builds the intuition every circuit
 // needs, in order; the pedal and solar tracks branch off it once the core is

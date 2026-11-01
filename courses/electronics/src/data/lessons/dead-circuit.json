@@ -188,14 +188,14 @@
       ]
     }
   ],
-  "learned": [
-    "A schematic shows what connects to what; a board is laid out to be built, and the part names tie the two together.",
-    "Work out what each point should read before measuring.",
-    "Steady voltages first, then split the circuit in halves.",
-    "Joints and traces should drop nothing: a voltage across one is the fault.",
-    "Wrong values and dry joints are as common as dead parts."
+  "summary": [
+    "**The schematic shows connections; the board is laid out to build.** Part names tie the two together.",
+    "**Predict before you measure.** Write down what each point should read first.",
+    "**Steady voltages first, then signals.** Then split the circuit in halves to find which half is wrong.",
+    "**Joints and traces should drop nothing.** A voltage across one is the fault.",
+    "**Look before you replace.** Wrong values, dry joints and solder bridges are as common as dead parts.",
+    "**Check polarity and pinout.** Diodes, LEDs, electrolytics and transistors only work one way round."
   ],
-  "next": "Next: pick a branch, off-grid solar or guitar pedals.",
   "journal": [],
   "footnotes": {
     "pcb": {

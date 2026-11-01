@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "winter-fog",
   "n": 15,
   "title": "Why does a valley stay grey for weeks in winter?",
@@ -278,14 +278,14 @@
       ]
     }
   ],
-  "learned": [
-    "On long, calm winter nights, cold air drains into basins and collects under a lid of milder air: a cold pool, deepening night after night under a high.",
-    "In midwinter the weak sun cannot heat through the grey along the top of a deep pool, so it can last for weeks while the hills above are sunny. A colder night or a sunny day only feeds it; a strong wind that stirs deeper than the pool clears it.",
-    "Fog is air chilled to its dew point at the ground: by cooling on a still night, by damp air blown over a colder surface (advection fog), by cold air over warmer water (steam fog), or by air pushed up a slope (upslope fog). A strong wind lifts the chill into stratus instead.",
-    "Fog below freezing is still liquid. Its droplets freeze where they hit, growing rime into the wind; hoar frost grows from vapour on clear, still nights, all round.",
-    "Snow that melts in a warm layer aloft lands as freezing rain over a shallow cold layer, or refreezes into sleet over a deep one."
+  "summary": [
+    "**Cold air pools in basins.** On long calm winter nights it drains downhill and collects under milder air, deepening night after night under a high.",
+    "**A deep cold pool can last for weeks.** The weak winter sun cannot burn through it; only a wind that stirs deeper than the pool clears it.",
+    "**Fog is air chilled to its dew point at the ground.** By a still night, by damp air over a colder surface, by cold air over warmer water, or by air pushed up a slope.",
+    "**A strong wind lifts fog into stratus.** Mixing spreads the chill through a deeper layer, so the cloud forms off the ground.",
+    "**Fog below freezing is still liquid.** Its droplets freeze where they hit, growing rime toward the wind; hoar frost grows from vapour on clear, still nights.",
+    "**A warm layer aloft turns snow to ice.** Snow melts in it, then lands as freezing rain over a shallow cold layer or refreezes into sleet over a deep one."
   ],
-  "next": "Next: the walls of dust and the hot, dry east winds.",
   "journal": {
     "cold-pool": {
       "title": "Cold pool",

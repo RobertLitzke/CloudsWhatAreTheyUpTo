@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "low-sky",
   "n": 2,
   "title": "Will this grey sky actually rain?",
@@ -474,14 +474,15 @@
       ]
     }
   ],
-  "learned": [
-    "Air is unstable when the surrounding sky cools with height faster than a rising parcel cools (10 °C per kilometre in clear air); a nudged parcel keeps rising to build cumulus heaps. In stable air, a lifted parcel ends up colder than its surroundings and sinks back down, so clouds form only as flat sheets when a whole layer is cooled or lifted.",
-    "An elevated temperature inversion acts as a lid. Cumulus heaps rising against it flatten and spread into stratocumulus—a cobbled grey sheet with darker centres and narrow gaps, often capped by sinking air in a high-pressure system, bringing overcast but dry weather.",
-    "A raindrop holds about a million cloud droplets’ worth of water. Growing drops to that size by collision takes time and vertical depth, so shallow clouds rarely rain no matter how dark their bases look.",
-    "A cloud column 1 km thick holds only about 0.2 mm of rainfall at any instant; hours of steady rain require a deep cloud that is continuously lifted and replenished like a conveyor belt.",
-    "Nimbostratus is the classic soaking rain cloud: kilometres deep, featureless, blotting out the sun completely, with a base blurred by falling rain and low shreds of scud. Rain streaks that evaporate before reaching the ground are virga."
+  "summary": [
+    "**Stability decides the shape of a cloud.** Nudged upward, stable air sinks back and makes flat sheets; unstable air keeps rising and builds heaps.",
+    "**An inversion is a lid.** Warmer air over cooler air stops rising air, and heaps that reach it spread out into a lumpy grey sheet: stratocumulus.",
+    "**Stratocumulus looks gloomy but stays mostly dry.** Lumps with chinks of sky under steady high pressure bring overcast, not rain.",
+    "**Depth makes rain, not darkness.** A raindrop holds about a million cloud droplets, and only a deep cloud gives drops the time and height to grow that big.",
+    "**Long rain needs a cloud that is constantly refilled.** A layer holds only about 0.2 mm of rain at a time; hours of rain mean air being lifted continuously.",
+    "**Nimbostratus is the soaking cloud.** Deep, dark and featureless, it hides the sun completely and rains steadily for hours.",
+    "**Stratus gives drizzle at most, and virga never lands.** Low flat grey after a calm night usually clears by midday; streaks that fade under a cloud are rain evaporating on the way down."
   ],
-  "next": "Next lesson: reading the whole sky in thirty seconds—sorting clouds by altitude floor using your eyes and your hand.",
   "journal": {
     "stability": {
       "title": "Stable and unstable air",

@@ -228,15 +228,15 @@
       ]
     }
   ],
-  "learned": [
-    "Power is P = V x I = I^2 x R = V^2 / R, so doubling the current through a resistance produces four times the heat.",
-    "Watt-hours measure total energy (volts x amp-hours), and runtime in hours is watt-hours / watts.",
-    "Every cable has resistance, so long runs at high current require thick copper wire or a higher system voltage.",
-    "A fuse protects the wire and is sized above the load's normal current and at or below the cable's ampacity.",
-    "Matching load resistance to source resistance extracts maximum power at 50% efficiency, whereas power systems use a low source resistance relative to the load for high efficiency.",
-    "A corroded or loose joint has resistance that drops voltage and generates local heat when current flows."
+  "summary": [
+    "**Power is P = V × I = I² × R = V² / R.** Double the current through a resistance and it makes four times the heat.",
+    "**Keep parts well under their power ratings.** Cool parts last; parts near their limit fail.",
+    "**Watts are a rate, watt-hours an amount.** Watt-hours = volts × amp-hours, and running time = watt-hours ÷ watts.",
+    "**Every cable wastes power.** It drops I × R volts and turns I² × R into heat, so long, high-current runs need thick wire or a higher voltage.",
+    "**A fuse protects the wire.** Size it above the load’s normal current and no higher than the cable can carry, and rated for DC on DC systems.",
+    "**Bad joints get hot.** A loose or corroded connection has resistance, dropping voltage and heating where current flows.",
+    "**Batteries can deliver enormous currents.** Remove rings and watches and use insulated tools near the terminals."
   ],
-  "next": "Next: time-varying voltages and watching waveforms on an oscilloscope.",
   "journal": [],
   "footnotes": {
     "watt": {

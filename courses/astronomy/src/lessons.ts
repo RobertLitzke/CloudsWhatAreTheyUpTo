@@ -11,7 +11,7 @@ const written = import.meta.glob<AstroLesson>('./lessons/*.json', { eager: true,
 
 /** A lesson not written yet: its place in the tree and what it will answer. */
 const coming = (id: string, n: number, title: string, teaches: string, more: Partial<AstroLesson> = {}): AstroLesson =>
-  ({ id, n, title, teaches, parts: [], coming: true, learned: [], next: '', journal: [], ...more });
+  ({ id, n, title, teaches, parts: [], coming: true, summary: [], journal: [], ...more });
 
 const TRUNK_COMING: AstroLesson[] = [
   coming('clusters', 11, 'Clusters as clocks', 'How a star’s mass decides its life, and how a cluster tells its age'),

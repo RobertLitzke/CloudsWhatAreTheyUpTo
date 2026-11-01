@@ -16,7 +16,7 @@ export const CREDITS: CreditsViewOptions<Photo> = {
   empty: 'No photographs have been fetched yet; the figures say so where one is missing.',
   after: [
     el('h2', {}, 'Type'),
-    el('p', {}, 'Fraunces by Undercase Type, Nunito Sans by Vernon Adams, Jacques Le Bailly and Manvel Shmavonyan, and Kalam by the Indian Type Foundry, all under the SIL Open Font License.'),
+    el('p', {}, 'Fraunces by Undercase Type and Nunito Sans by Vernon Adams, Jacques Le Bailly and Manvel Shmavonyan, all under the SIL Open Font License.'),
     el('p.muted', {}, `Version ${__APP_VERSION__}`),
   ],
 };

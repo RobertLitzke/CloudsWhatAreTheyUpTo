@@ -1,7 +1,7 @@
 // The lessons: a gardener's workbook on soil, in eleven short illustrated
 // articles. Each is paragraphs and live figures to play with, in parts; the
 // next part opens once the figures in this one have had their small task done.
-// The last part is a check, and the lesson ends with a log to sign.
+// The last part is a check, and the lesson ends with its summary.
 //
 // Each lesson opens on a gardener's question, meets the thing before it names
 // it, and ends with something to try in the garden. A lesson with no parts is

@@ -1,7 +1,7 @@
 // The lessons: a course on photography for someone who owns a long zoom and
 // wants to stop leaving it on automatic. Each is paragraphs and live figures,
 // in parts; the next part opens once the figures in this one have had their
-// small task done. The last part is a check, and the lesson ends with a log.
+// small task done. The last part is a check, and the lesson ends with its summary.
 //
 // The course is written for nature photography with a Nikon Coolpix P950
 // (src/core/camera.ts), so every number in a figure is one that camera can
@@ -127,7 +127,7 @@ export const LESSONS: readonly Lesson[] = [
 
 /** A lesson that is planned but not written: its title, its promise, and what it will cover. */
 function planned(n: number, id: string, title: string, teaches: string, covers: string[]): Lesson {
-  return { id, n, title, teaches, parts: [], learned: covers, next: '', journal: [] };
+  return { id, n, title, teaches, parts: [], summary: covers, journal: [] };
 }
 
 export const isWritten = (l: Lesson): boolean => l.parts.length > 0;

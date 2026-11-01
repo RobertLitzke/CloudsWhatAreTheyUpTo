@@ -67,7 +67,7 @@ defineCourse({
     empty: 'No photos have been fetched yet; drawings stand in for them until they are.',
     after: [
       el('h2', {}, 'Type'),
-      el('p', {}, 'Fraunces by Undercase Type, Nunito Sans by Vernon Adams, Jacques Le Bailly and Manvel Shmavonyan, and Kalam by the Indian Type Foundry, all under the SIL Open Font License.'),
+      el('p', {}, 'Fraunces by Undercase Type and Nunito Sans by Vernon Adams, Jacques Le Bailly and Manvel Shmavonyan, all under the SIL Open Font License.'),
       el('p.muted', {}, `Version ${__APP_VERSION__}`),
     ],
   },

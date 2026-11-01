@@ -11,7 +11,7 @@ const written = import.meta.glob<GeoLesson>('./lessons/*.json', { eager: true, i
 
 /** A lesson not written yet: its place in the tree and what it will answer. */
 const coming = (id: string, n: number, title: string, teaches: string, more: Partial<GeoLesson> = {}): GeoLesson =>
-  ({ id, n, title, teaches, parts: [], coming: true, learned: [], next: '', journal: [], ...more });
+  ({ id, n, title, teaches, parts: [], coming: true, summary: [], journal: [], ...more });
 
 const TRUNK_COMING: GeoLesson[] = [
   coming('faults', 16, 'Why faults snap', 'Elastic rebound, and why soft ground shakes harder'),

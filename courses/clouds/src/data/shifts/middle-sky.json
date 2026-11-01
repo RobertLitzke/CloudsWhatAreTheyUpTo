@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "middle-sky",
   "n": 3,
   "title": "Sorting the sky in 30 seconds",
@@ -415,15 +415,15 @@
       ]
     }
   ],
-  "learned": [
-    "The sky is divided into three floors: low (ground to ~2 km / 6,500 ft), middle (~2 to 7 km), and high (~5 km to the top of the weather). Temperature—and whether cloud particles are liquid droplets or ice crystals—is what truly defines them.",
-    "Low liquid clouds have crisp, sharp edges because tiny droplets evaporate in seconds in dry air; high ice clouds have soft, fibrous, feathery edges because larger ice crystals sublimate slowly. Detached high ice wisps are cirrus.",
-    "Cloud names combine shape roots—cumulus (heap), stratus (layer), cirrus (hair curl), nimbus (rain-bearing)—with height prefixes: cirro- for high, alto- for middle, and no prefix for low.",
-    "When a cloud sheet cools at its top by radiating infrared heat to space, it overturns in neat convection cells, creating lumpy layers on all three floors: stratocumulus (low), altocumulus (middle), and cirrocumulus (high).",
-    "At arm’s length, a fist spans ~10°, three fingers ~5°, a thumb ~2°, and a little-finger nail ~1°. High in the sky, lumps wider than three fingers are stratocumulus, fingernail to three fingers are altocumulus, and grains smaller than a fingernail are cirrocumulus.",
-    "Altocumulus lumps have shaded grey undersides, while thin cirrocumulus grains are pure white. In photographs, leave your hand down and use edge sharpness, belly shading, the 0.5° sun disc, and ground landmarks."
+  "summary": [
+    "**The sky has three floors.** Low (up to about 2 km), middle (2 to 7 km) and high (above about 5 km); temperature, and so water or ice, is what sets them apart.",
+    "**Cloud names are a code.** Cumulus is a heap, stratus a layer, cirrus a curl of hair, nimbus rain-bearing; cirro- means high and alto- means middle.",
+    "**Edges tell water from ice.** Crisp edges mean droplets on the low or middle floor; soft, fibrous edges mean ice high up, as in cirrus.",
+    "**Lumpy layers form on every floor.** A sheet that cools at its top overturns in cells: stratocumulus low, altocumulus in the middle, cirrocumulus high.",
+    "**Your hand is a ruler.** At arm’s length, lumps wider than three fingers are stratocumulus, a fingernail to three fingers altocumulus, smaller than a fingernail cirrocumulus.",
+    "**Shading gives the height away.** Altocumulus lumps have grey bellies; cirrocumulus grains are pure white.",
+    "**In photos, leave the hand down.** Judge by edges, shading, the half-degree sun and landmarks on the ground instead."
   ],
-  "next": "Next lesson: reading tomorrow’s weather in the high and middle sky—from mares’ tails and halos to the frosted-glass sun ahead of an approaching front.",
   "journal": {
     "floors": {
       "title": "The three floors",

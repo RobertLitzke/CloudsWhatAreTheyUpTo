@@ -216,14 +216,15 @@
       ]
     }
   ],
-  "learned": [
-    "A transistor lets β times its base current flow from collector to emitter.",
-    "A switch should be hard on or off; half on, it heats.",
-    "A MOSFET is switched by its gate voltage; use logic-level parts for 3.3 V or 5 V.",
-    "A relay coil needs a flyback diode across it so its inductive kick does not destroy the switching transistor.",
-    "A transistor that has died shorted leaves its load on."
+  "summary": [
+    "**A small current steers a big one.** A transistor lets about β times its base current flow from collector to emitter.",
+    "**A switch should be fully on or fully off.** Drive it hard into saturation; half on, it wastes power as heat.",
+    "**A MOSFET is switched by voltage.** Its gate draws no steady current; choose logic-level parts when driving from 3.3 or 5 V.",
+    "**Fully on, a MOSFET is a small resistor.** It heats by I² × Rds(on).",
+    "**Coils need a flyback diode.** Across a relay coil or motor, it catches the kick that would destroy the transistor.",
+    "**Check relay contacts and coil ratings separately.** DC loads need contacts rated for DC.",
+    "**A transistor that fails shorted leaves its load on.**"
   ],
-  "next": "Next: holding a transistor in its active region on purpose to amplify a weak signal.",
   "journal": [],
   "footnotes": {
     "transistor": {

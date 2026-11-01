@@ -208,14 +208,14 @@
       ]
     }
   ],
-  "learned": [
-    "A divider gives the input x R2 / (R1 + R2), until something loads it.",
-    "Loading a divider pulls it down; a stiffer divider costs more current.",
-    "Every real source is a voltage behind a resistance: measure it open and shorted.",
-    "Impedance is how much a source sags or a load pulls; low out into high in keeps the voltage.",
-    "A solar panel acts more like a current source than a voltage behind a resistor."
+  "summary": [
+    "**A voltage divider gives the input × R2 / (R1 + R2).** But only while nothing loads it.",
+    "**Loading a divider pulls its output down.** Lower resistances make it stiffer, at the cost of more current.",
+    "**Every real source is a voltage behind a resistance.** The harder you load it, the more it sags.",
+    "**Measure the inside resistance from the sag, not a short.** Compare the open-circuit voltage with the voltage under a known load; shorting a battery is dangerous.",
+    "**Impedance is how much a source sags or a load pulls.** Low output impedance into high input impedance keeps the voltage.",
+    "**Solar panels behave more like current sources.** They do not fit the voltage-behind-a-resistor model."
   ],
-  "next": "Next: power, heat, and the wire resistance that eats your voltage.",
   "journal": [],
   "footnotes": {
     "divider": {

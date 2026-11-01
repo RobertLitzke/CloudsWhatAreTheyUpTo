@@ -3,7 +3,7 @@
 
 /* What only Circuitry has: the circuit-board look over Didactics' shell, the
    home page and its tracks, the reference page, and the figures' extras.
-   Everything else, from the top bar to the figures and the log, is
+   Everything else, from the top bar to the figures and the summary, is
    Didactics' kit.css. */
 
 /* ---- Type: a geometric grotesque for headings, plain sans for the small
@@ -42,8 +42,6 @@ h2 { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 
 .fig-task { background: #fbf0d4; }
 .fig { box-shadow: 0 1px 0 var(--panel-2), 0 6px 20px rgba(29, 37, 48, 0.08); }
 .fig-slider input { accent-color: var(--thumb, var(--good)); }
-.logbook { background: repeating-linear-gradient(transparent 0 calc(var(--rule) - 1px), #d5dbe3 calc(var(--rule) - 1px) var(--rule)) #fbfaf6; }
-.logbook .score { color: var(--good); }
 .update-banner::before { background: linear-gradient(90deg, var(--sun), var(--good), var(--sun-deep)); }
 .update-icon { background: linear-gradient(160deg, #1f5a43, #0f2a22); }
 

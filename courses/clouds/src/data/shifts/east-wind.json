@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "east-wind",
   "n": 16,
   "title": "Where do walls of dust and hot east winds come from?",
@@ -265,14 +265,14 @@
       ]
     }
   ],
-  "learned": [
-    "Rain evaporating through dry air chills it, and the cold, heavy air plunges down and spreads out as the gust front. The higher the cloud base, the more rain evaporates and the harder the blast.",
-    "Over bare, dry soil the gust front lifts a wall of dust a kilometre or more high: a haboob.",
-    "Storms whose rain evaporates before it lands bring dry lightning, which starts most wildfires in the interior West.",
-    "Sinking air warms about 10 °C a kilometre by being squeezed, and keeps its vapour, so its humidity falls fast.",
-    "Heavy air east of the Cascades pours west through the Columbia River Gorge: a cold east wind in winter, bringing freezing rain at its mouth; a hot, dry one in late summer, fanning fires. California’s Santa Ana and Diablo winds are the same kind of wind."
+  "summary": [
+    "**Evaporating rain makes a cold blast.** Rain falling through dry air chills it, and the heavy air plunges and spreads out as a gust front; the higher the cloud base, the harder the blast.",
+    "**Over dry ground the blast raises dust.** A gust front can lift a wall of dust a kilometre or more high: a haboob.",
+    "**Rain that never lands brings dry lightning.** Storms with high, dry bases start most wildfires in the interior West.",
+    "**Sinking air warms and dries.** Squeezed as it descends, it warms about 10 °C per kilometre while keeping its vapour, so its humidity drops fast.",
+    "**Heavy air pours through mountain gaps.** East of the Cascades it flows west through the Columbia Gorge: cold with freezing rain in winter, hot and fire-fanning in late summer.",
+    "**California has the same winds.** The Santa Ana and Diablo are downslope winds of this kind."
   ],
-  "next": "That is the end of fog, dust and wind.",
   "journal": {
     "gust-front": {
       "title": "Gust front",

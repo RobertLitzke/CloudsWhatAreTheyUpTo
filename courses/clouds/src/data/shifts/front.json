@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "front",
   "n": 6,
   "title": "Wind shifts, cold fronts, and radar",
@@ -578,15 +578,14 @@
       ]
     }
   ],
-  "learned": [
-    "Mid-latitude storms are low-pressure systems (lows) 1,000+ km across whose winds spiral anticlockwise in the Northern Hemisphere; as a low drifts east at ~30 km/h (20 mph), a town experiences its warm front, warm sector, and cold front in sequence.",
-    "A barometer weighs the column of air overhead (averaging 1013 hPa or 29.92 inHg at sea level). A steady fall (~1 hPa every 3 hours) signals an approaching low; a sharp rise follows the passage of its cold front.",
-    "As a low passes to the north, surface winds back to the southeast ahead of the warm front, veer to the southwest in the mild, muggy warm sector, and swing to the northwest behind the cold front, ushering in colder, clearer air and daytime cumulus.",
-    "A warm front glides up a gentle ramp (~1 in 100), producing wide cloud sheets and hours of steady rain; a cold front plows in with a steep nose (~1 in 30), triggering a narrow line of storm towers and brief, heavy downpours.",
-    "Stand with your back to the surface wind and low pressure lies on your left (Buys Ballot’s law); if high clouds cross from left to right, the weather is worsening, and if from right to left, improving (the crossed-winds rule).",
-    "Weather radar detects precipitation drops rather than tiny cloud droplets: a wide green shield marks a warm front’s steady rain, a thin red line marks a cold front’s squall line, magenta marks hail, and a horizontal bright band marks melting snow just below the 0 °C freezing level."
+  "summary": [
+    "**Storms are lows a thousand kilometres across.** Each carries a warm front, a warm sector and a cold front, and drifts east at about 30 km/h (20 mph).",
+    "**The barometer weighs the air overhead.** A steady fall means a low is coming; a sharp rise means its cold front has passed.",
+    "**Warm fronts soak, cold fronts squall.** A gentle ramp makes broad cloud and hours of steady rain; a steep nose makes a narrow line of towers and short, heavy downpours.",
+    "**The wind turns as a low goes by.** Southeast ahead of the warm front, southwest in the mild warm sector, northwest and colder behind the cold front.",
+    "**With your back to the wind, low pressure is on your left.** If high clouds cross from your left to your right the weather is getting worse; from right to left, better.",
+    "**Radar sees rain, not cloud.** A broad green shield is a warm front’s steady rain, a thin red line a cold front’s squalls, magenta a hailstorm, and a bright band the melting level."
   ],
-  "next": "Next lesson: local tricks—what mountains and winter temperatures do to the forecast, from rain shadows and lenticular clouds to snow, sleet, and freezing rain.",
   "journal": {
     "lows": {
       "title": "A storm’s anatomy",

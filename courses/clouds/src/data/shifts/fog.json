@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "fog",
   "n": 1,
   "title": "Morning fog and afternoon puffs",
@@ -437,15 +437,15 @@
       ]
     }
   ],
-  "learned": [
-    "Clouds consist of microscopic liquid droplets or ice crystals, not invisible water vapour. Vapour condenses when air cools to its dew point; more vapour per cubic metre means a higher dew point (below 10 °C / 50 °F feels dry; above 20 °C / 68 °F feels muggy).",
-    "Cloud droplets need tiny specks of dust, smoke, or sea salt to form on, and every breath of outdoor air holds millions of them.",
-    "On clear, calm nights, the ground radiates heat to space and chills the air resting on it, creating a stable inversion (cold air trapped under warmer air). Cooled to its dew point, this bottom layer becomes fog; lifted off the ground, it is stratus, which clears from the bottom up during the morning.",
-    "Rising air expands in the lower pressure aloft and cools by about 10 °C per kilometre (5.4 °F per 1,000 feet), while its dew point drops by about 2 °C per kilometre—closing the gap by roughly 8 °C per kilometre.",
-    "Cumulus cloud bases sit about 125 metres up for every 1 °C between the temperature and dew point at the ground (220 feet per 1 °F): low on humid days, high on dry days.",
-    "Sun-warmed ground launches warm thermals that condense into flat-bottomed cumulus clouds. Small heaps that stay small through the afternoon indicate fair weather and dissolve at sunset."
+  "summary": [
+    "**Clouds are water you can see.** They are tiny liquid droplets or ice crystals; water vapour itself is invisible.",
+    "**Cool air to its dew point and a cloud forms.** Damper air has a higher dew point: below 10 °C (50 °F) feels dry, above 20 °C (68 °F) feels muggy.",
+    "**Every droplet needs a speck to form on.** Dust, smoke and sea salt seed cloud droplets, and every breath of outdoor air holds millions of them.",
+    "**Clear, calm, damp nights make fog.** The ground cools the air resting on it to its dew point under an inversion. Lifted off the ground the same layer is stratus, and morning sun clears it from the bottom up.",
+    "**Rising air cools.** It expands as the pressure falls, about 10 °C per kilometre (5.4 °F per 1,000 ft), so lifting air is the main way clouds are made.",
+    "**The dew-point gap sets the cloud base.** About 125 m up for every °C between the temperature and dew point at the ground (220 ft per °F): low bases on humid days, high on dry ones.",
+    "**Fair-weather cumulus are thermals made visible.** Small flat-based heaps that stay small through the afternoon mean fair weather, and they fade at sunset."
   ],
-  "next": "Next lesson: will that grey sky actually rain? Stable and unstable air, dry lumpy cloud sheets, and deep soaking rain clouds.",
   "journal": {
     "what-is-a-cloud": {
       "title": "What a cloud is",

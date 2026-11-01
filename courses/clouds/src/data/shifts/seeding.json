@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "seeding",
   "n": 8,
   "title": "The rainmakers, 1946",
@@ -470,14 +470,15 @@
       ]
     }
   ],
-  "learned": [
-    "Because active ice nuclei are scarce between 0 °C and −20 °C, clouds in this zone remain supercooled liquid for hours; once ice crystals are introduced, they rapidly scavenge vapour from the droplets (the Bergeron process) and fall as snow.",
-    "Dry ice (−78.5 °C) freezes a wake of droplets by extreme cold (< −40 °C) in any cloud below 0 °C; silver iodide has a hexagonal crystal lattice within 1.5% of ice, acting as a template speck in clouds colder than ~−5 °C and allowing dispersion from ground burners.",
-    "Dosing controls the outcome: ~10–1,000 crystals per litre snows out a supercooled layer and opens a hole, whereas injecting thousands per litre splits the water into crystals too tiny to fall (overseeding).",
-    "Seeding cannot create clouds or moisture. It works inside a −5 °C to −25 °C window, reliably clearing supercooled airport fog and adding roughly 5–15% snow to suitable winter mountain clouds, with no proven effect on droughts, hailstorms, or hurricanes.",
-    "Because natural storm totals vary wildly, only a multi-winter randomized trial—comparing randomly seeded storms against unseeded control storms—can separate a genuine seeding effect from luck and selection bias."
+  "summary": [
+    "**Many cold clouds are short of ice, not water.** Between 0 °C and −20 °C ice-forming specks are rare, so clouds stay supercooled for hours.",
+    "**Add ice and the cloud snows.** New crystals grow fast on the droplets’ vapour and fall out: the same process that makes most natural snow and rain.",
+    "**Dry ice works by cold, silver iodide by shape.** Dry ice (−78 °C) freezes droplets in any cloud below 0 °C; silver iodide’s lattice mimics ice and works below about −5 °C.",
+    "**The dose decides the result.** Tens to hundreds of crystals per litre snow out a layer and open a hole; thousands overseed it into crystals too small to fall.",
+    "**Seeding cannot make a cloud.** It needs supercooled cloud in a −5 °C to −25 °C window, deep enough for snow to grow and air below damp enough for it to land.",
+    "**What it reliably does is modest.** It clears supercooled fog and adds roughly 5 to 15% snow to suitable winter mountain clouds; there is no proven effect on drought, hail or hurricanes.",
+    "**Only a randomized trial can show it worked.** Natural storms vary so much that seeded and unseeded storms must be chosen at random and compared over many winters."
   ],
-  "next": "That completes the field guide. Step outside—the sky is yours to read.",
   "journal": {
     "supercooled": {
       "title": "Clouds waiting for ice",

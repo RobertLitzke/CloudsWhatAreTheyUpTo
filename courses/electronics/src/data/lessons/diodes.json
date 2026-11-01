@@ -220,15 +220,14 @@
       ]
     }
   ],
-  "learned": [
-    "A diode conducts one way, and past its knee holds a nearly fixed voltage.",
-    "Silicon drops 0.6 to 0.7 V, germanium and Schottky 0.2 to 0.3 V, and LEDs 1.8 to 3.3 V by colour.",
-    "An LED needs a series resistor: R = (supply - LED voltage) / current.",
-    "A diode guards against a battery put in backwards, at the cost of its drop.",
-    "A diode rectifies AC; a reservoir capacitor smooths the bumps.",
-    "Two diodes back to back clip a signal at their knee."
+  "summary": [
+    "**A diode conducts one way.** Anode to cathode it passes current; the other way it blocks.",
+    "**Past its knee a diode holds a nearly fixed voltage.** About 0.6 to 0.7 V for silicon, 0.2 to 0.3 V for germanium and Schottky, 1.8 to 3.3 V for LEDs.",
+    "**Never put an LED straight across a supply.** Set its current with a series resistor: R = (supply − LED voltage) / current.",
+    "**A diode can guard against reversed batteries.** It costs its voltage drop.",
+    "**Diodes rectify; capacitors smooth.** A rectifier turns AC into bumps of DC, and a reservoir capacitor fills in between them.",
+    "**Back-to-back diodes clip a signal.** They limit it at their knee voltage either way, and the kind of diode sets how hard and where."
   ],
-  "next": "Next: transistors, where a small current steers a big one.",
   "journal": [],
   "footnotes": {
     "anode-cathode": {

@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "wind",
   "n": 9,
   "title": "Why does wind blow in a circle around a storm?",
@@ -255,14 +255,14 @@
       ]
     }
   ],
-  "learned": [
-    "Differences in atmospheric weight create a pressure-gradient force that pushes air straight across the isobars from high pressure to low, strongest where isobars are closely spaced.",
-    "Because the Earth rotates beneath moving air, long-distance winds deflect to the right of their path in the Northern Hemisphere (and to the left in the Southern Hemisphere); this Coriolis deflection is strongest at the poles and zero at the equator.",
-    "Above the surface boundary layer, the inward pressure push and outward Coriolis deflection balance when the wind blows parallel to the isobars (the geostrophic wind), circulating anticlockwise around Northern Hemisphere lows and clockwise around highs.",
-    "Near the ground, surface friction slows the wind and weakens the Coriolis deflection, causing air to slant inward across the isobars into a low (10°–20° over water, 25°–40° over land) where it converges and rises into clouds, while spiralling outward from a high as air aloft sinks and clears.",
-    "Because cold polar air is denser and more compact than warm tropical air, the poleward pressure gradient strengthens with altitude, driving the upper-level westerlies and peaking in the jet stream (9–12 km up), which steers storms eastward and shifts south in winter and north in summer."
+  "summary": [
+    "**Pressure differences push the air.** Wind is driven from high pressure to low, hardest where the isobars are close together.",
+    "**The Earth turns under moving air.** Long-distance winds are deflected right in the Northern Hemisphere and left in the Southern; the effect is strongest at the poles and absent at the equator.",
+    "**Aloft, the wind blows along the isobars.** Push and deflection balance, so air circles lows anticlockwise and highs clockwise in the Northern Hemisphere instead of filling them.",
+    "**Near the ground, friction lets air in.** Slowed by the surface, wind slants across the isobars into a low, where it converges and rises into cloud; around a high it spreads out and the air sinks clear.",
+    "**Temperature contrast drives the jet stream.** Cold air is denser than warm, so the push toward the pole grows with height, peaking 9 to 12 km up.",
+    "**The jet stream steers storms.** It carries them east, and shifts south in winter and north in summer."
   ],
-  "next": "Next: why the Pacific coast stays cool and foggy in summer—and almost never thunders.",
   "journal": {
     "pressure-push": {
       "title": "Air slides downhill",

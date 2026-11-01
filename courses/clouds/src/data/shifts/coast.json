@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "coast",
   "n": 10,
   "title": "Why does the Pacific coast almost never thunder?",
@@ -291,14 +291,13 @@
       ]
     }
   ],
-  "learned": [
-    "Summer ocean water off the West Coast is cold (10–14 °C), cooled by the southward California Current and by coastal upwelling—where north winds and rightward Coriolis deflection (Ekman transport) drive surface water offshore and draw frigid deep water up to the beach.",
-    "Overhead in summer sits the North Pacific High (part of the global 30° latitude belt of subtropical highs). Its sinking air warms by compression at 10 °C/km, creating a strong inversion lid 300 to 800 metres above the cool sea.",
-    "Trapped beneath the inversion lid is the cool, damp marine layer, topped by stratus and stratocumulus. Rising hot air in interior valleys pulls the marine layer onshore through coastal gaps, while morning sunlight burns the cloud deck back from its thinner inland edge.",
-    "Thunderstorms require buoyant parcels that stay warmer than their surroundings past the freezing level. Over the cold summer Pacific and beneath the warm inversion lid, parcels stop at a few hundred metres—whereas Florida's 29 °C sea fuels deep storms almost daily.",
-    "Most of the Pacific coast’s few thunderstorms occur in autumn and winter behind cold fronts, when the summer lid is gone and frigid air from the Gulf of Alaska flows over the comparatively mild (10–11 °C) ocean, triggering convective showers, graupel, and occasional lightning."
+  "summary": [
+    "**The summer Pacific is cold.** The California Current and upwelling, deep water drawn up as the wind pushes surface water offshore, keep it at 10 to 14 °C.",
+    "**Sinking air presses a lid on the coast.** The North Pacific High’s air warms as it sinks, making a strong inversion a few hundred metres above the sea.",
+    "**Under the lid lies the marine layer.** Cool, damp air topped by stratus is drawn inland through gaps by hot valleys, and burns back from its thin inland edge in the morning.",
+    "**Thunderstorms need bubbles that stay warm past freezing.** Over a cold sea and under a warm lid, they stall at a few hundred metres; a warm sea like Florida’s fuels storms almost daily.",
+    "**The coast’s rare thunder comes in autumn and winter.** Behind cold fronts, frigid air over the milder sea brings showers, graupel and the occasional lightning."
   ],
-  "next": "Next: atmospheric rivers—where a week of winter rain comes from, and what the mountains do with it.",
   "journal": {
     "upwelling": {
       "title": "Upwelling",

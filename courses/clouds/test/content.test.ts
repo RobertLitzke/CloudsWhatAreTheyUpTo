@@ -128,7 +128,8 @@ describe('shifts', () => {
           } else expect(b.caption, `${s.id} ${b.id}`).toBeTruthy();
         }
       }
-      expect(s.learned.length, s.id).toBeGreaterThan(0);
+      expect(s.summary.length, s.id).toBeGreaterThanOrEqual(5);
+      expect(s.summary.length, s.id).toBeLessThanOrEqual(10);
     }
   });
 

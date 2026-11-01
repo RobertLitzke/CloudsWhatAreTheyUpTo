@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "local-sky",
   "n": 7,
   "title": "Local tricks: mountains, winter ice, and rare skies",
@@ -357,14 +357,15 @@
       ]
     }
   ],
-  "learned": [
-    "Air forced over a mountain range cools at the moist rate (~5 °C/km) while raining out on the windward slope, then warms at the full dry rate (10 °C/km) descending the leeward side—creating a warm, dry rain shadow where frontal clouds arrive on time with much less rain.",
-    "Strong wind blowing over a ridge into stable air creates standing mountain waves capped by smooth, stationary lens clouds (altocumulus lenticularis). Strong vertical wind shear across a stable cloud top curls it into short-lived breaking waves (fluctus).",
-    "Because ice nucleation requires rare template specks, cloud droplets stay supercooled liquid down to ~−38 °C. Supercooled fog builds feathery rime on windward surfaces, while rain falling through a shallow sub-freezing surface inversion glazes roads as freezing rain.",
-    "Because water molecules are bound more tightly in ice than in liquid water, the saturation vapour threshold over ice is lower than over supercooled water; in mixed-phase clouds (fastest at −10 °C to −15 °C), ice crystals rapidly grow by scavenging vapour from evaporating droplets, falling as snow that melts into rain below.",
-    "A circular fallstreak hole (cavum) with a wispy ice trail in an altocumulus or cirrocumulus deck forms when a passing aircraft initiates freezing in a layer of supercooled droplets."
+  "summary": [
+    "**Mountains wring out the rain.** Air rains out climbing the windward side, then sinks and warms on the lee side: a dry rain shadow where fronts bring cloud on time but little rain.",
+    "**Wind over a ridge makes standing waves.** In stable air they cap their crests with smooth, stationary lens clouds (lenticularis) and mean turbulence downwind.",
+    "**Shear curls cloud tops into breaking waves.** Fluctus form where the wind changes sharply across a stable layer, and vanish in minutes.",
+    "**Cloud water stays liquid far below freezing.** Freezing needs a rare ice-forming speck, so droplets can stay supercooled down to about −38 °C.",
+    "**Supercooled water makes rime and glaze.** Freezing fog grows feathery rime on fences; rain falling into a shallow sub-freezing layer glazes roads as freezing rain.",
+    "**Ice grows at the droplets’ expense.** Where crystals and supercooled drops mix, the crystals take the vapour and fall as snow; most mid-latitude rain starts as snow high in the cloud.",
+    "**A fallstreak hole proves a cloud was supercooled.** An aircraft set off freezing, and the ice fell out as a wispy trail in a round gap."
   ],
-  "next": "Training complete. Next, fifteen years on: the rainmakers, and how a supercooled cloud can be seeded to snow.",
   "journal": {
     "rain-shadow": {
       "title": "The rain shadow",

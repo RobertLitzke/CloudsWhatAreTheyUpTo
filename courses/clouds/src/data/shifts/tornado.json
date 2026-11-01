@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "tornado",
   "n": 13,
   "title": "How does a tornado form?",
@@ -269,14 +269,15 @@
       ]
     }
   ],
-  "learned": [
-    "Wind that grows stronger with height rolls the air between it over, like a pencil between two hands: spin lying on its side.",
-    "A storm’s updraft stands the roll on end. If the wind only strengthens with height, it arches up into a pair of opposite spins and the storm may split. If the wind also turns, the updraft swallows the roll end on and rotates: a mesocyclone, a few kilometres across.",
-    "Stretched and squeezed thin, a spinning column spins faster: half as wide, twice as fast. That is how a slow turn kilometres across becomes a tornado a hundred metres across. Only about one supercell in four makes one, and exactly why is still being studied.",
-    "A supercell’s rain falls ahead; the warm air flows in under a rain-free base at the back, where the wall cloud hangs and tornadoes form. On the radar, the hook at its south-west corner marks the rotating updraft.",
-    "Tornadoes are rated EF0 to EF5 by their damage. Most are weak; about 1,200 a year strike the United States. Scud, shelf clouds, gustnadoes, dust devils and fair-weather waterspouts are not tornadoes."
+  "summary": [
+    "**Shear makes spin lying on its side.** Wind that strengthens with height rolls the air between, like a pencil between two hands.",
+    "**An updraft stands the roll on end.** Where the wind also turns with height, the updraft takes in the spin and rotates: a mesocyclone a few kilometres across.",
+    "**Stretching a spinning column speeds it up.** Half as wide, twice as fast: that is how a slow turn kilometres wide becomes a tornado a hundred metres across.",
+    "**Most supercells make no tornado.** Only about one in four does, and exactly why is still being studied.",
+    "**Look under the rain-free base at the back.** The wall cloud hangs there and tornadoes form there; on radar, the hook at the storm’s south-west corner marks the rotating updraft.",
+    "**Tornadoes are rated by their damage.** EF0 to EF5, mostly weak, about 1,200 a year in the United States.",
+    "**Not every whirl is a tornado.** Scud, shelf clouds, gustnadoes, dust devils and fair-weather waterspouts are other things."
   ],
-  "next": "Next: the storm that feeds on a warm sea.",
   "journal": {
     "mesocyclone": {
       "title": "Mesocyclone",

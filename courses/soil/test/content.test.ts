@@ -24,7 +24,8 @@ describe('lessons', () => {
     for (const l of LESSONS.filter(isWritten)) {
       const last = l.parts[l.parts.length - 1];
       expect(last.blocks.some((b) => isDiagram(b) && FIGURES[b.id].quiz), l.id).toBe(true);
-      expect(l.learned.length, l.id).toBeGreaterThan(0);
+      expect(l.summary.length, l.id).toBeGreaterThanOrEqual(5);
+      expect(l.summary.length, l.id).toBeLessThanOrEqual(10);
     }
   });
 

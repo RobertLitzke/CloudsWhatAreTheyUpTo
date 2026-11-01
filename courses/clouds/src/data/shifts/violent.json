@@ -1,5 +1,5 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio.",
+  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "violent",
   "n": 12,
   "title": "What makes a storm violent?",
@@ -284,14 +284,14 @@
       ]
     }
   ],
-  "learned": [
-    "A storm’s fuel is the area between the rising bubble’s line and the air’s line on the temperature-height chart, in joules per kilogram: a few hundred for fair-weather cumulus, a thousand for an ordinary storm, three or four thousand on the worst Plains days. Damp air near the ground and cold air aloft make the most.",
-    "Fuel sets the updraft: about half the speed the energy would give, 40 m/s and more in the strongest storms.",
-    "A cap, a warm dry layer over damp air, holds bubbles down while the fuel builds. Too weak and the fuel is spent early in ordinary storms; middling and it is saved for a few violent ones late in the day; too strong and there are no storms.",
-    "Wind shear, the wind changing with height, decides how long a storm lasts. Little shear: one storm, choked by its own rain within the hour. Moderate: clusters and lines. Strong, with plenty of fuel: a supercell with a leaning, rotating updraft, lasting hours.",
-    "Hail grows coat by coat in the updraft until it is too heavy to hold up. Twice the updraft holds a stone four times as wide; golf balls need about 30 m/s."
+  "summary": [
+    "**Fuel is the warmth a rising bubble gains.** Measured in joules per kilogram, it is largest with damp air near the ground and cold air aloft.",
+    "**More fuel, faster updrafts.** A few hundred J/kg makes fair-weather cumulus, a thousand an ordinary storm, three or four thousand the worst Plains days, with updrafts of 40 m/s and more.",
+    "**A cap saves the fuel up.** A warm, dry layer over damp air holds bubbles down: too weak and the fuel is spent early, too strong and there are no storms, middling and a few violent storms break out late in the day.",
+    "**Wind shear decides how long a storm lives.** Little shear and a storm chokes on its own rain within the hour; moderate shear makes clusters and lines.",
+    "**Strong shear and plenty of fuel make supercells.** Their leaning, rotating updrafts keep the rain out of the way and last for hours.",
+    "**Hail grows coat by coat in the updraft.** It falls when it gets too heavy to hold up: twice the updraft holds a stone four times as wide, and golf balls need about 30 m/s."
   ],
-  "next": "Next: how a spinning storm makes a tornado.",
   "journal": {
     "storm-fuel": {
       "title": "Storm fuel (CAPE)",

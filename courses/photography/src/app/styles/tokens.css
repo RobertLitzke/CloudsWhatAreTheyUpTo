@@ -11,15 +11,6 @@
   src: url('@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
 }
 
-/* The lesson log's handwriting. */
-@font-face {
-  font-family: 'Kalam';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 400;
-  src: url('@fontsource/kalam/files/kalam-latin-400-normal.woff2') format('woff2');
-}
-
 @font-face {
   font-family: 'Nunito Sans';
   font-style: normal;
@@ -49,5 +40,4 @@
 
   --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --hand: 'Kalam', 'Segoe Print', 'Bradley Hand', cursive;
 }
