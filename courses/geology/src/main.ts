@@ -17,7 +17,7 @@ defineCourse({
   site: SITE_URL,
   lessons: LESSONS,
   branches: BRANCHES,
-  welcome: el('p', {}, 'Each lesson starts from a puzzle: something odd in a cliff or a hand of rock, or a question people argued about for decades. The trunk is geology anywhere; the branches read Seattle, Whidbey Island and the ice age floods with it.'),
+  welcome: el('p', {}, 'Each lesson starts from a puzzle: something odd in a cliff or a hand of rock, or a question people argued about for decades. The trunk is geology anywhere. Some branches read Seattle, Whidbey Island and the ice age floods with it; others go further, to the Moon, into fossils and down to the core.'),
   figures: FIGURES,
   prose,
   // "Lesson 3 of 18": the trunk's whole plan.

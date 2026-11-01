@@ -187,7 +187,7 @@ export const countFigure = figure(['date'], (_ctx, t) => {
   f.controls.append(sa.node);
   paint();
   guessFirst(t, f, {
-    ask: 'A highland surface has about ten times as many craters as a mare plain that Apollo 11 dated to 3.6 billion years. How old is the highland surface? Guess first.',
+    ask: 'An old plain in the highlands, not yet saturated, has about ten times as many craters as a mare plain that Apollo 11 dated to 3.6 billion years. How old is the older plain? Guess first.',
     options: ['Ten times older than the mare', 'Twice as old', 'Only a few hundred million years older'],
     sliders: [sa],
     after: (guess) => {
