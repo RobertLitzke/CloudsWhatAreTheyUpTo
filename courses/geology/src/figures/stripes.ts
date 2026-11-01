@@ -4,7 +4,7 @@
 
 import { svg } from 'didactics/dom';
 import { line, polyline, redraw, small, type P } from 'didactics/draw';
-import { COL, figure, frame, slider } from './kit';
+import { COL, figure, frame, player, slider } from './kit';
 
 const W = 400;
 
@@ -44,7 +44,7 @@ function anomaly(m: number[]): number[] {
 // The ship's profile: the true rate, with a little noise.
 const SURVEY = anomaly(crust(TRUE_RATE, 5)).map((v, i) => v + 0.08 * Math.sin(i * 0.31) * Math.cos(i * 0.13));
 
-export const ridgeFigure = figure(['matched'], (_ctx, t) => {
+export const ridgeFigure = figure(['matched'], (ctx, t) => {
   const f = frame(W, 236, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -96,7 +96,7 @@ export const ridgeFigure = figure(['matched'], (_ctx, t) => {
   };
   const time = slider('Time spreading', 0, 5, 0.05, myr, (v) => `${v.toFixed(1)} million years`, (v) => { myr = v; paint(); }, 'old');
   const speed = slider('Spreading on each side', 1, 8, 0.05, rate, (v) => `${v.toFixed(1)} cm a year`, (v) => { rate = v; paint(); }, 'heat');
-  f.controls.append(time.node, speed.node);
+  f.controls.append(player(time, ctx).node, time.node, speed.node);
   paint();
   return f.node;
 });

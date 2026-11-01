@@ -7,7 +7,7 @@ import { svg } from 'didactics/dom';
 import { label, redraw, small, still } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
 import data from '../data/atlantic.json';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { COL, figure, frame, guessFirst, player, rgbOf, slider } from './kit';
 
 type LL = [number, number];
 type V3 = [number, number, number];
@@ -156,3 +156,95 @@ export const gondwanaStill = () => {
   s.setAttribute('aria-label', 'South America fitted against Africa by the edges of their continental shelves. Fossils of the freshwater reptile Mesosaurus are found in southern Brazil and in southwestern Africa, on either side of the join; two-billion-year-old rocks near São Luís in Brazil continue into Ghana.');
   return { node };
 };
+
+// ---- The South Atlantic opening, played (lesson 9) ----------------------------------------
+
+/** When the South Atlantic began to open, million years ago (simplified: one pole, a steady rate). */
+export const OPENED = 130;
+/** South America's turn back toward Africa about Bullard's pole, `ma` million years ago: 0 today, the full fit before the opening. */
+export const turnAt = (ma: number) => (ANGLE * Math.max(0, Math.min(OPENED, ma))) / OPENED;
+
+/** Ocean floor's colour by its age: red at the ridge, through sand, to blue at the oldest. */
+const AGE_RAMP: readonly [number, string][] = [[0, '#c4462f'], [35, '#e3a23d'], [70, '#e3d27a'], [100, '#7fb3a8'], [OPENED, '#3d6ea6']];
+function ageColor(ma: number): string {
+  let i = 1;
+  while (i < AGE_RAMP.length - 1 && ma > AGE_RAMP[i][0]) i++;
+  const [a0, c0] = AGE_RAMP[i - 1];
+  const [a1, c1] = AGE_RAMP[i];
+  const k = Math.max(0, Math.min(1, (ma - a0) / (a1 - a0)));
+  const p = rgbOf(c0);
+  const q = rgbOf(c1);
+  return `rgb(${p.map((v, j) => Math.round(v + k * (q[j] - v))).join(',')})`;
+}
+
+/** A closed path through points (front of the globe only). */
+function shape(pts: V3[]): string {
+  return pts.map((v, i) => {
+    const [x, y] = project(v);
+    return `${i ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join('') + 'Z';
+}
+
+export const openingFigure = figure(['opened'], (ctx, t) => {
+  const f = frame(W, H, 3);
+  const g = svg('g');
+  f.svg.append(g);
+  const START = 150;
+  let pos = 0;
+  const saEdge = fitIdx('sa', 'shelf').map((i) => outline('sa', 'shelf')[i]);
+  const saAll = outline('sa', 'shelf');
+  const afAll = outline('af', 'shelf');
+  const afEdge = fitIdx('af', 'shelf').map((i) => afAll[i]);
+  /** An isochron: the ridge `age` million years ago, as it sits now on Africa's side or on South America's. */
+  const iso = (age: number, now: number, side: 'af' | 'sa') => {
+    const deg = side === 'af' ? (ANGLE + turnAt(age)) / 2 : turnAt(now) + (ANGLE - turnAt(age)) / 2;
+    return saEdge.map((v) => turn(v, POLE, deg));
+  };
+  const paint = () => {
+    const ma = START - pos;
+    const now = Math.min(OPENED, ma);
+    const parts: SVGElement[] = [...graticule()];
+    const STEP = 5;
+    if (ma < OPENED) {
+      for (let a = OPENED; a > now; a -= STEP) {
+        const b = Math.max(now, a - STEP);
+        const fill = ageColor((a + b) / 2);
+        for (const side of ['af', 'sa'] as const) {
+          const p = iso(a, now, side);
+          const q = iso(b, now, side);
+          parts.push(svg('path', { d: shape([...p, ...q.reverse()]), fill, stroke: fill, 'stroke-width': 0.4 }));
+        }
+      }
+      parts.push(svg('path', { d: path(iso(now, now, 'af')), fill: 'none', stroke: COL.ink, 'stroke-width': 1.2, 'stroke-dasharray': '4 2' }));
+    }
+    const sa = saAll.map((v) => turn(v, POLE, turnAt(now)));
+    parts.push(
+      svg('path', { d: path(afAll), fill: 'none', stroke: COL.ink, 'stroke-width': 1.5, 'stroke-linejoin': 'round' }),
+      svg('path', { d: path(sa), fill: 'none', stroke: COL.ink, 'stroke-width': 1.5, 'stroke-linejoin': 'round' }),
+      label(project(xyz([20, 5]))[0], project(xyz([20, 5]))[1], 'Africa', { bold: true, anchor: 'middle', halo: '#dfeaf0' }),
+      label(...(project(turn(xyz([-58, -12]), POLE, turnAt(now))).slice(0, 2) as [number, number]), 'South America', { bold: true, anchor: 'middle', halo: '#dfeaf0' }),
+      label(W - 8, 18, ma < 0.5 ? 'Today' : `${Math.round(ma)} million years ago`, { anchor: 'end', bold: true }),
+    );
+    // The key: age of the ocean floor.
+    const kx = 10;
+    const ky = 24;
+    for (let a = 0; a < OPENED; a += 5) parts.push(svg('rect', { x: kx + (a / OPENED) * 120, y: ky, width: 120 / 26 + 0.3, height: 8, fill: ageColor(a + 2.5) }));
+    parts.push(
+      small(kx, ky - 4, 'Age of the ocean floor', { bold: true }),
+      small(kx, ky + 19, 'new', { soft: true }),
+      small(kx + 120, ky + 19, `${OPENED} Myr`, { anchor: 'end', soft: true }),
+    );
+    redraw(g, ...parts);
+    const width = gap(saEdge.map((v) => turn(v, POLE, turnAt(now))), afEdge);
+    f.readout.textContent = ma > OPENED + 0.5
+      ? `${Math.round(ma)} million years ago: South America and Africa are one continent, part of Gondwana, with the matching rocks and fossils side by side.`
+      : ma >= OPENED - 6
+        ? `${Math.round(ma)} million years ago: a rift splits the continent and the sea floods in. Basalt wells up in the gap and becomes the first ocean floor.`
+        : `${ma < 0.5 ? 'Today' : `${Math.round(ma)} million years ago`}: the ocean is about ${Math.round(width / 100) * 100} km wide. New floor forms at the ridge (dashed) and is carried away on both sides, so the youngest floor is in the middle and the oldest lies against the continents, in matching bands on either side.${ma < 0.5 ? ` Spread over ${OPENED} million years, that is about ${(width * 1e5 / (OPENED * 1e6)).toFixed(1)} cm a year.` : ''}`;
+    if (ma < 0.5 && t.goal === 'opened') t.done();
+  };
+  const ts = slider('Time', 0, START, 1, 0, (v) => (v >= START ? 'today' : `${START - v} million years ago`), (v) => { pos = v; paint(); }, 'heat');
+  f.controls.append(player(ts, ctx, { seconds: 15 }).node, ts.node);
+  paint();
+  return f.node;
+});

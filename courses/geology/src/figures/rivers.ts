@@ -4,7 +4,7 @@
 
 import { svg } from 'didactics/dom';
 import { arrow, label, line, redraw, small, type P } from 'didactics/draw';
-import { COL, figure, frame, slider } from './kit';
+import { COL, figure, frame, player, slider } from './kit';
 
 const W = 400;
 
@@ -32,7 +32,7 @@ export function race(uplift: number, cut: number, years: number): Race {
   return { ridge, bed: SPILL + (uplift / 1000) * (years - tSpill), diverted: years - tSpill };
 }
 
-export const raceFigure = figure(['gorge'], (_ctx, t) => {
+export const raceFigure = figure(['gorge'], (ctx, t) => {
   const f = frame(W, 220, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -90,7 +90,7 @@ export const raceFigure = figure(['gorge'], (_ctx, t) => {
   const us = slider('Ridge rises', 0.1, 1.5, 0.05, uplift, (v) => `${v.toFixed(2)} mm a year`, (v) => { uplift = v; paint(); }, 'pressure');
   const cs = slider('River can cut down', 0.1, 1.5, 0.05, cut, (v) => `${v.toFixed(2)} mm a year`, (v) => { cut = v; paint(); }, 'water');
   const ts = slider('Time', 0, 2, 0.01, 0, (v) => `${v.toFixed(2)} million years`, (v) => { myr = v; paint(); }, 'old');
-  f.controls.append(us.node, cs.node, ts.node);
+  f.controls.append(us.node, cs.node, player(ts, ctx).node, ts.node);
   paint();
   return f.node;
 });
@@ -112,7 +112,7 @@ export function knickAt(kyr: number): number {
   return x;
 }
 
-export const knickFigure = figure(['knick'], (_ctx, t) => {
+export const knickFigure = figure(['knick'], (ctx, t) => {
   const f = frame(W, 200, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -152,7 +152,7 @@ export const knickFigure = figure(['knick'], (_ctx, t) => {
   };
   const ds = slider('Fall in base level', 0, 120, 5, 0, (v) => `${v} m`, (v) => { drop = v; paint(); }, 'water');
   const ts = slider('Time since', 0, 150, 1, 0, (v) => `${v} thousand years`, (v) => { kyr = v; paint(); }, 'old');
-  f.controls.append(ds.node, ts.node);
+  f.controls.append(ds.node, player(ts, ctx).node, ts.node);
   paint();
   return f.node;
 });

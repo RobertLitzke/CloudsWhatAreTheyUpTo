@@ -2,9 +2,11 @@
 // a fixed plume at a speed the reader sets, against the dated volcanoes of the
 // Hawaiian-Emperor chain.
 
-import { svg } from 'didactics/dom';
+import { el, svg } from 'didactics/dom';
 import { label, line, redraw, small, type P } from 'didactics/draw';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { cellSize, fromCell, hillshade, loadRelief, mapLabels, mapView, reliefFor, type Relief } from 'didactics/maps';
+import { asset } from '../asset';
+import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
 const W = 400;
 
@@ -116,5 +118,169 @@ export const plumeFigure = figure(['speed'], (_ctx, t) => {
       f.readout.textContent = `You guessed ${['about 1 mm a year', 'about 10 cm a year', 'about 10 m a year'][guess]}. Set the plate’s speed so the model’s volcanoes (red dots) land on the real ones (circles).`;
     },
   });
+  return f.node;
+});
+
+// ---- The islands carried off the plume, played on the map ---------------------------------
+
+/** The shield volcanoes on the map, with rounded ages of their main shield stage, million years. */
+const SHIELDS: { name: string; lon: number; lat: number; age: number }[] = [
+  { name: 'Kauaʻi', lon: -159.5, lat: 22.07, age: 5.1 },
+  { name: 'Niʻihau', lon: -160.15, lat: 21.9, age: 4.9 },
+  { name: 'Waiʻanae', lon: -158.15, lat: 21.5, age: 3.7 },
+  { name: 'Koʻolau', lon: -157.75, lat: 21.4, age: 2.6 },
+  { name: 'West Molokaʻi', lon: -157.2, lat: 21.15, age: 1.9 },
+  { name: 'East Molokaʻi', lon: -156.9, lat: 21.1, age: 1.8 },
+  { name: 'Lānaʻi', lon: -156.93, lat: 20.83, age: 1.3 },
+  { name: 'West Maui', lon: -156.6, lat: 20.88, age: 1.3 },
+  { name: 'Kahoʻolawe', lon: -156.6, lat: 20.55, age: 1.1 },
+  { name: 'Haleakalā', lon: -156.25, lat: 20.71, age: 0.9 },
+  { name: 'Kohala', lon: -155.73, lat: 20.08, age: 0.45 },
+  { name: 'Mauna Kea', lon: -155.47, lat: 19.82, age: 0.25 },
+  { name: 'Hualālai', lon: -155.87, lat: 19.69, age: 0.13 },
+  { name: 'Mauna Loa', lon: -155.6, lat: 19.47, age: 0.1 },
+  { name: 'Kīlauea', lon: -155.29, lat: 19.41, age: 0 },
+];
+/**
+ * The plate's motion over the plume, km per million years east and north:
+ * the direction of the straight-line fit to the shields' ages and places,
+ * at the speed that carries Kauaʻi to where it is in its 5.1 million years
+ * (the young shields on Hawaiʻi alone would make it faster).
+ */
+export const PLATE_VEL: P = (() => {
+  const k = SHIELDS[SHIELDS.length - 1];
+  const kx = 111.32 * Math.cos((20.5 * Math.PI) / 180);
+  let ae = 0;
+  let an = 0;
+  let aa = 0;
+  for (const v of SHIELDS) {
+    ae += v.age * (v.lon - k.lon) * kx;
+    an += v.age * (v.lat - k.lat) * 110.6;
+    aa += v.age * v.age;
+  }
+  const n = Math.hypot(ae, an);
+  const kauai = Math.hypot((SHIELDS[0].lon - k.lon) * kx, (SHIELDS[0].lat - k.lat) * 110.6) / SHIELDS[0].age;
+  return [(ae / n) * kauai, (an / n) * kauai];
+})();
+/** The same, cm a year. */
+const PLATE_CM = Math.round(Math.hypot(...PLATE_VEL)) / 10;
+/** The deep-ocean floor around the chain, m. */
+const ABYSS = -4600;
+/** How far a volcano has sunk since it was built, m, by its age in million years: fast at first, then slower. */
+export const sunk = (age: number) => 1500 * (1 - Math.exp(-Math.max(0, age) / 1.5));
+/** How long a volcano takes to grow from the sea floor to its full height, million years. */
+const GROW = 0.6;
+
+/** An arrow showing the plate's travel, centred at (x, y), with its speed. */
+function arrowAlong(x: number, y: number): SVGElement[] {
+  const n = Math.hypot(...PLATE_VEL);
+  const ux = PLATE_VEL[0] / n;
+  const uy = -PLATE_VEL[1] / n;
+  const L = 34;
+  const [x0, y0, x1, y1] = [x - ux * L, y - uy * L, x + ux * L, y + uy * L];
+  const hx = (a: number) => x1 - 9 * (ux * Math.cos(a) - uy * Math.sin(a));
+  const hy = (a: number) => y1 - 9 * (uy * Math.cos(a) + ux * Math.sin(a));
+  return [
+    svg('path', { d: `M${x0},${y0} L${x1},${y1} M${hx(0.5)},${hy(0.5)} L${x1},${y1} L${hx(-0.5)},${hy(-0.5)}`, fill: 'none', stroke: COL.ink, 'stroke-width': 1.8, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }),
+    small(x, y + 40, `Pacific plate, ${PLATE_CM} cm a year`, { anchor: 'middle', bold: true }),
+  ];
+}
+
+export const driftMapFigure = figure(['played'], (ctx, t) => {
+  const holder = el('div', {}, el('p.map-note', {}, 'Loading the map…'));
+  const f = frame({ drawing: holder, lines: 3 });
+  const START = 5.5;
+  let pos = 0;
+  let base: Relief | null = null;
+  let live: Relief | null = null;
+  let owner: Int16Array | null = null;
+  let weight: Float32Array | null = null;
+  let view: ReturnType<typeof mapView> | null = null;
+  let painted = -1;
+  const marks = svg('g');
+  const paint = () => {
+    const ma = START - pos / 100;
+    if (pos >= START * 100 && t.goal === 'played') t.done();
+    const over = SHIELDS.filter((v) => v.age >= ma - 0.15).sort((a, b) => a.age - b.age)[0];
+    const away = Math.round(Math.hypot(...PLATE_VEL) * ma);
+    f.readout.textContent = ma < 0.05
+      ? 'Today. Kīlauea sits over the plume. Every older volcano has been carried west-northwest, and the farther it has gone, the lower it has sunk: Kauaʻi, 5 million years old and about 500 km away, has sunk about 1,500 m and been worn down too.'
+      : `${ma.toFixed(1)} million years ago, with today’s islands ${away} km back toward the plume. ${over ? `Growing over the plume: ${over.name}.` : 'Kauaʻi is still to come.'} The plate carries each volcano off the plume at about ${PLATE_CM} cm a year; cut off from its magma, it stops growing and starts to sink.`;
+    if (!base || !live || !owner || !weight || !view) return;
+    const key = Math.round(ma * 50);
+    if (key === painted) return;
+    painted = key;
+    // The plate as it lay `ma` million years ago: everything moved back toward the plume (east-southeast),
+    // the volcanoes younger than that not yet built, and the older ones not yet sunk so far.
+    const cell = cellSize(base) / 1000;
+    const dx = (-PLATE_VEL[0] * ma) / cell;
+    const dy = (PLATE_VEL[1] * ma) / cell;
+    const { width: w, height: h, z } = base;
+    for (let row = 0; row < h; row++) {
+      for (let col = 0; col < w; col++) {
+        const sc = Math.round(col - dx);
+        const sr = Math.round(row - dy);
+        let v = ABYSS;
+        if (sc >= 0 && sc < w && sr >= 0 && sr < h) {
+          const j = sr * w + sc;
+          v = z[j];
+          if (owner[j * 3] >= 0) {
+            let lift = 0;
+            let grown = 0;
+            for (let k = 0; k < 3; k++) {
+              const o = owner[j * 3 + k];
+              if (o < 0) continue;
+              const a = SHIELDS[o].age;
+              const then = a - ma;
+              const wk = weight[j * 3 + k];
+              lift += wk * (sunk(a) - sunk(then));
+              grown += wk * Math.max(0, Math.min(1, then / GROW + 1));
+            }
+            v = ABYSS + (v + lift - ABYSS) * grown;
+          }
+        }
+        live.z[row * w + col] = v;
+      }
+    }
+    view.paint({ shade: hillshade(live, undefined, 3), water: 0, relief: 0.8 });
+    const [px, py] = view.xy(SHIELDS[SHIELDS.length - 1].lon, SHIELDS[SHIELDS.length - 1].lat);
+    redraw(marks,
+      svg('circle', { cx: px, cy: py, r: 30, fill: COL.heat, opacity: 0.18 }),
+      svg('circle', { cx: px, cy: py, r: 8, fill: COL.heat, opacity: 0.4 }),
+      ...mapLabels(view, [{ lon: -155.0, lat: 19.0, text: 'plume', area: true, color: COL.heat }]),
+      ...arrowAlong(70, view.h - 56),
+    );
+  };
+  const ts = slider('Time', 0, START * 100, 1, 0, (v) => (v >= START * 100 ? 'today' : `${(START - v / 100).toFixed(1)} million years ago`), (v) => { pos = v; paint(); }, 'heat');
+  f.controls.append(player(ts, ctx, { seconds: 18 }).node, ts.node);
+  paint();
+  t.waitFor(
+    reliefFor((p) => loadRelief(asset(p)), 'maps/hawaii').then((r) => {
+      base = r;
+      live = { ...r, z: new Float32Array(r.z.length) };
+      // Each cell standing above the deep floor belongs to its three nearest shield volcanoes, the nearest
+      // counting most, so the join between two volcanoes of different ages is a slope, not a cliff.
+      owner = new Int16Array(r.z.length * 3).fill(-1);
+      weight = new Float32Array(r.z.length * 3);
+      const kx = 111.32 * Math.cos((20.5 * Math.PI) / 180);
+      for (let row = 0; row < r.height; row++) {
+        for (let col = 0; col < r.width; col++) {
+          const i = row * r.width + col;
+          if (r.z[i] < -3800) continue;
+          const [lon, lat] = fromCell(r, col, row);
+          const near = SHIELDS.map((v, k) => ({ k, d: Math.hypot((lon - v.lon) * kx, (lat - v.lat) * 110.6) })).sort((a, b) => a.d - b.d).slice(0, 3);
+          if (near[0].d > 140) continue;
+          const ws = near.map((n) => Math.exp(-(((n.d - near[0].d) / 12) ** 2)));
+          const sum = ws.reduce((a, b) => a + b, 0);
+          near.forEach((n, m) => { owner![i * 3 + m] = n.k; weight![i * 3 + m] = ws[m] / sum; });
+        }
+      }
+      view = mapView(live, { alt: 'A shaded relief map of the main Hawaiian Islands, played over the last 5.5 million years: the islands rise one after another over the plume at the southeast and are carried northwest, sinking as they go.' });
+      view.svg.append(marks);
+      holder.replaceChildren(view.node, el('p.map-credit', {}, `Heights: ${r.meta.credit}. Past heights simplified: each volcano grows over the plume, then sinks; wear by rain and waves is left out.`));
+      painted = -1;
+      paint();
+    }).catch(() => holder.replaceChildren(el('p.map-note', {}, 'The map could not be loaded here.'))),
+  );
   return f.node;
 });

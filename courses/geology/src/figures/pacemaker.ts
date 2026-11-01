@@ -6,7 +6,8 @@ import { svg } from 'didactics/dom';
 import { label, line, redraw, small, type P } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
 import lr04 from '../data/lr04.json';
-import { COL, figure, frame, slider } from './kit';
+import orbit from '../data/orbit.json';
+import { COL, figure, frame, player, slider } from './kit';
 
 const W = 400;
 
@@ -186,6 +187,101 @@ export const recordFigure = figure(['beat'], (_ctx, t) => {
   const ws = segmented([{ value: 'recent', label: 'Last 800,000 years' }, { value: 'older', label: '1.2 to 2 million years ago' }] as const, 'recent', (v) => { w = v; paint(); });
   const ps = slider('Length of the cycle', 15, 150, 1, period, (v) => `${v} thousand years`, (v) => { period = v; paint(); }, 'heat');
   f.controls.append(ws, ps.node);
+  paint();
+  return f.node;
+});
+
+// ---- The last 800,000 years, played: the orbit, the summer sunshine and the ice ----------
+
+const SPAN = 800;
+const ORB_E = orbit.e as number[];
+const ORB_TILT = orbit.tilt as number[];
+const ORB_PERI = orbit.peri as number[];
+
+/** The orbit `ka` thousand years ago (Laskar 2004), and the midsummer sunshine at 65° N it gives. */
+export function orbitAt(ka: number): { e: number; tilt: number; peri: number; sun: number } {
+  const k = Math.max(0, Math.min(ORB_E.length - 1, Math.round(ka)));
+  const e = ORB_E[k];
+  const tilt = ORB_TILT[k];
+  const peri = ORB_PERI[k];
+  return { e, tilt, peri, sun: juneSun(tilt, e, peri) };
+}
+
+/** The LR04 value `ka` thousand years ago, read between its samples. */
+export function iceAt(ka: number): number {
+  let j = 0;
+  while (j + 1 < AGE.length && AGE[j + 1] < ka) j++;
+  const f = AGE[j + 1] === AGE[j] ? 0 : Math.max(0, Math.min(1, (ka - AGE[j]) / (AGE[j + 1] - AGE[j])));
+  return D18[j] + f * (D18[j + 1] - D18[j]);
+}
+
+export const cyclesFigure = figure(['played'], (ctx, t) => {
+  const H = 286;
+  const f = frame(W, H, 3);
+  const g = svg('g');
+  f.svg.append(g);
+  let pos = 0;
+  const X = (ka: number) => 30 + ((SPAN - ka) / SPAN) * 360;
+  const SY = (q: number) => 196 - ((q - 420) / (570 - 420)) * 56;
+  const IY = (d: number) => 214 + ((d - 3.0) / (5.1 - 3.0)) * 56;
+  const today = iceAt(0);
+  const paint = () => {
+    const ka = SPAN - pos;
+    const o = orbitAt(ka);
+    // The orbit from above (stretch ×5) with the Earth in June, and the Earth side-on with its tilt.
+    const a = 46;
+    const ee = Math.min(0.9, o.e * 5);
+    const b = a * Math.sqrt(1 - ee * ee);
+    const cx = 64;
+    const cy = 62;
+    const sunX = cx - a * ee;
+    const v = ((5.6 - o.peri) / 12) * 2 * Math.PI;
+    const r = (a * (1 - ee * ee)) / (1 + ee * Math.cos(v));
+    const ex = sunX - r * Math.cos(v);
+    const ey = cy + r * Math.sin(v) * (b / a);
+    const gx = 168;
+    const gy = 62;
+    const R = 30;
+    const tr = (o.tilt * Math.PI) / 180;
+    const axis: P = [-Math.sin(tr), -Math.cos(tr)];
+    const sun: string[] = [];
+    const ice: string[] = [];
+    for (let k = SPAN; k >= ka; k -= 1) {
+      sun.push(`${X(k).toFixed(1)},${SY(orbitAt(k).sun).toFixed(1)}`);
+      ice.push(`${X(k).toFixed(1)},${IY(iceAt(k)).toFixed(1)}`);
+    }
+    const more = iceAt(ka) - today;
+    redraw(g,
+      svg('rect', { width: W, height: 124, fill: '#1f2433' }),
+      svg('ellipse', { cx, cy, rx: a, ry: b, fill: 'none', stroke: '#8f97b3', 'stroke-width': 1 }),
+      svg('circle', { cx: sunX, cy, r: 7, fill: '#f2c14e' }),
+      svg('circle', { cx: ex, cy: ey, r: 4, fill: '#5d9fd0' }),
+      small(cx, 118, 'orbit from above, ×5', { anchor: 'middle', fill: '#8f97b3' }),
+      small(ex, ey - 7, 'June', { anchor: 'middle', fill: COL.paper }),
+      svg('circle', { cx: gx, cy: gy, r: R, fill: '#2c4766' }),
+      svg('path', { d: `M${gx},${gy - R} A${R},${R} 0 0 0 ${gx},${gy + R} Z`, fill: '#5d9fd0' }),
+      line(gx - axis[0] * (R + 10), gy - axis[1] * (R + 10), gx + axis[0] * (R + 10), gy + axis[1] * (R + 10), COL.paper, 1.3),
+      small(gx, 118, `tilt ${o.tilt.toFixed(1)}°`, { anchor: 'middle', fill: '#c9cde0' }),
+      label(W - 10, 22, ka < 0.5 ? 'Today' : `${Math.round(ka)},000 years ago`, { anchor: 'end', bold: true, fill: COL.paper }),
+      small(W - 10, 44, `closest to the Sun in ${MONTHS[Math.floor(o.peri) % 12]}`, { anchor: 'end', fill: '#c9cde0' }),
+      small(W - 10, 60, `orbit’s stretch ${o.e.toFixed(3)}`, { anchor: 'end', fill: '#c9cde0' }),
+      label(W - 10, 92, `${Math.round(o.sun)} W/m² at 65° N`, { anchor: 'end', bold: true, fill: '#f2c14e', size: 'note' }),
+      svg('rect', { y: 124, width: W, height: H - 124, fill: COL.paper }),
+      small(30, 138, 'Midsummer sunshine at 65° N (from the orbit)', { bold: true, fill: '#b8860b' }),
+      small(30, 208, 'Ice on land (deep-sea record), up = less ice', { bold: true, fill: COL.water }),
+      line(30, IY(today), 390, IY(today), COL.grid, 1, { dash: '3 3' }),
+      svg('polyline', { points: sun.join(' '), fill: 'none', stroke: '#d4a017', 'stroke-width': 1.3 }),
+      svg('polyline', { points: ice.join(' '), fill: 'none', stroke: COL.water, 'stroke-width': 1.5 }),
+      line(X(ka), 142, X(ka), 272, COL.heat, 1, { opacity: 0.6 }),
+      ...[800, 600, 400, 200, 0].map((k) => small(X(k), 282, k ? `${k}` : 'today', { anchor: k ? 'middle' : 'end', soft: true })),
+    );
+    f.readout.textContent = ka < 0.5
+      ? 'Today. The sunshine has swung up and down about every 20,000 years, fastest of all, while the ice grew slowly over about 90,000 years at a time and then melted in a few thousand: the sawtooth. The orbit sets when a melt can start; the ice and the carbon dioxide decide how big each swing is.'
+      : `${Math.round(ka)},000 years ago: tilt ${o.tilt.toFixed(1)}°, closest to the Sun in ${MONTHS[Math.floor(o.peri) % 12]}, so ${Math.round(o.sun)} W/m² of midsummer sunshine at 65° N (${Math.round(TODAY)} today). The ice sheets then held ${more > 0.15 ? 'more ice than today' : more < -0.1 ? 'a little less ice than today' : 'about as much ice as today'}.`;
+    if (pos >= SPAN && t.goal === 'played') t.done();
+  };
+  const ts = slider('Time', 0, SPAN, 1, 0, (v) => (v >= SPAN ? 'today' : `${SPAN - v},000 years ago`), (v) => { pos = v; paint(); }, 'water');
+  f.controls.append(player(ts, ctx, { seconds: 24 }).node, ts.node);
   paint();
   return f.node;
 });

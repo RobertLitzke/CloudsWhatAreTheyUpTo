@@ -7,6 +7,11 @@ import { emptyProgress } from 'didactics/progress';
 import type { Units } from 'didactics/units';
 import { FIGURES } from '../src/figures';
 import { WRITTEN } from '../src/lessons';
+import { orbitAt, TODAY } from '../src/figures/pacemaker';
+import { alpsCooling, lengthFor, seaLevel } from '../src/figures/iceage';
+import { JURA_KM } from '../src/figures/ice';
+import { PLATE_VEL, sunk } from '../src/figures/hotspot';
+import { turnAt } from '../src/figures/drift';
 
 const context = (units: Units = 'imperial') => ({ save: emptyProgress(units), closed: new AbortController().signal, score: () => {} });
 
@@ -196,6 +201,16 @@ describe('figures', () => {
     click(record.node, '1.2 to 2 million years ago');
     setSlider(record.node, 0, 41);
     await expect(record.done).resolves.toBeUndefined();
+    const cycles = FIGURES.cycles(context(), 'played');
+    expect([...cycles.node.querySelectorAll('button')].map((b) => b.textContent)).toContain('Play');
+    setSlider(cycles.node, 0, 800);
+    await expect(cycles.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 14: the orbit through time agrees with today, and 11,000 years ago had strong northern summers', () => {
+    expect(orbitAt(0).sun).toBeCloseTo(TODAY, -1);
+    expect(orbitAt(0).tilt).toBeCloseTo(23.44, 1);
+    expect(orbitAt(11).sun).toBeGreaterThan(TODAY + 40);
   });
 
   it('lesson 15: the crust rises after the ice melts', async () => {
@@ -263,4 +278,32 @@ describe('figures', () => {
     setSlider(drill.node, 1, 265);
     await expect(drill.done).resolves.toBeUndefined();
   });
+
+  it('time lapses: each played figure reaches today and is done', async () => {
+    for (const [id, end] of [['opening', 150], ['ice-sheets', 130], ['rhone-ice', 120], ['island-drift', 550], ['cycles', 800]] as const) {
+      const h = FIGURES[id](context(), id === 'opening' ? 'opened' : 'played');
+      expect([...h.node.querySelectorAll('button')].some((b) => b.textContent === 'Play'), id).toBe(true);
+      setSlider(h.node, 0, end);
+      await expect(h.done, id).resolves.toBeUndefined();
+    }
+  });
+
+  it('time lapses: the models behind the maps', () => {
+    // The South Atlantic: closed before it opened, open today.
+    expect(turnAt(140)).toBeCloseTo(57);
+    expect(turnAt(0)).toBe(0);
+    // The sea about 125 m lower at the last glacial maximum, as today now.
+    expect(seaLevel(20)).toBeLessThan(-110);
+    expect(Math.abs(seaLevel(0))).toBeLessThan(1);
+    // The Rhône glacier reaches the Jura at the maximum, and only its own valley today.
+    expect(lengthFor(alpsCooling(20))).toBeGreaterThanOrEqual(JURA_KM);
+    expect(lengthFor(alpsCooling(0))).toBeLessThan(20);
+    // The Pacific plate moves west-northwest at about 10 cm a year, and old islands have sunk most.
+    expect(PLATE_VEL[0]).toBeLessThan(0);
+    expect(PLATE_VEL[1]).toBeGreaterThan(0);
+    expect(Math.hypot(...PLATE_VEL) / 10).toBeGreaterThan(8);
+    expect(Math.hypot(...PLATE_VEL) / 10).toBeLessThan(12);
+    expect(sunk(5)).toBeGreaterThan(sunk(1));
+  });
 });
+

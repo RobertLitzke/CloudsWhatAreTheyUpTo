@@ -28,7 +28,7 @@ export function bedAt(x: number): number {
 }
 
 /** Ice thickness at x for a glacier `len` km long: a perfectly plastic ice sheet (Nye), thickest at the head. */
-const thickness = (x: number, len: number) => (x >= len ? 0 : Math.sqrt(22.7 * (len - x) * 1000) * 0.85);
+export const thickness = (x: number, len: number) => (x >= len ? 0 : Math.sqrt(22.7 * (len - x) * 1000) * 0.85);
 /** Ice-covered width relative to the trunk valley: many tributaries high up, a spreading lobe on the plateau. */
 const width = (x: number) => (x < 14 ? 8 : x < 130 ? 1.6 : 1.6 + (x - 130) * 0.045);
 

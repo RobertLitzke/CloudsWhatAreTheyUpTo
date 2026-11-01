@@ -5,7 +5,7 @@
 import { svg } from 'didactics/dom';
 import { label, line, polyline, redraw, small, type P } from 'didactics/draw';
 import { makeRng } from 'didactics/rng';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
 const W = 400;
 const deg = (d: number) => (d * Math.PI) / 180;
@@ -139,7 +139,7 @@ const SAMPLES = [
 const MYSTERY = 3.8;
 export const MYSTERY_COUNT = Math.round(perKm2(MYSTERY) * AREA);
 
-export const countFigure = figure(['date'], (_ctx, t) => {
+export const countFigure = figure(['date'], (ctx, t) => {
   const f = frame(W, 220, 4);
   const g = svg('g');
   f.svg.append(g);
@@ -185,7 +185,7 @@ export const countFigure = figure(['date'], (_ctx, t) => {
     if (match && t.goal === 'date') t.done();
   };
   const sa = slider('Age of the surface', 0, 4.4, 0.01, gyr, (v) => `${v.toFixed(2)} billion years`, (v) => { gyr = v; paint(); }, 'old');
-  f.controls.append(sa.node);
+  f.controls.append(player(sa, ctx).node, sa.node);
   paint();
   guessFirst(t, f, {
     ask: 'An old plain in the highlands, not yet saturated, has about ten times as many craters as a mare plain that Apollo 11 dated to 3.6 billion years. How old is the older plain? Guess first.',
@@ -220,7 +220,7 @@ export const formed = (done: number): number[] => [
   0.4 * span(done, 95, 99),
 ];
 
-export const oceanFigure = figure(['crust'], (_ctx, t) => {
+export const oceanFigure = figure(['crust'], (ctx, t) => {
   const f = frame(W, 220, 4);
   const g = svg('g');
   f.svg.append(g);
@@ -279,7 +279,7 @@ export const oceanFigure = figure(['crust'], (_ctx, t) => {
   };
   const sd = slider('Cooled', 0, 100, 1, done, (v) => `${v}% crystallised`, (v) => { done = v; paint(); }, 'old');
   const sm = slider('Density of the melt', 2.4, 3.6, 0.05, melt, (v) => `${v.toFixed(2)} g/cm³`, (v) => { melt = v; paint(); }, 'heat');
-  f.controls.append(sd.node, sm.node);
+  f.controls.append(player(sd, ctx).node, sd.node, sm.node);
   paint();
   guessFirst(t, f, {
     ask: 'Late in the cooling, crystals of plagioclase feldspar start to grow in the magma ocean. Where do they go? Guess first.',

@@ -6,7 +6,7 @@ import { el, svg } from 'didactics/dom';
 import { arrow, label, line, note, redraw, small, still } from 'didactics/draw';
 import { hillshade, loadRelief, mapView, reliefFor, type Relief } from 'didactics/maps';
 import { asset } from '../asset';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
 const W = 400;
 
@@ -70,7 +70,7 @@ const ICE_OVER_MANTLE = 917 / 3300;
 /** How long the rebound takes to fall to 1/e of what is left, thousand years. */
 const RELAX = 4.5;
 
-export const reboundFigure = figure(['raised'], (_ctx, t) => {
+export const reboundFigure = figure(['raised'], (ctx, t) => {
   const f = frame(W, 220, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -132,7 +132,7 @@ export const reboundFigure = figure(['raised'], (_ctx, t) => {
   };
   const is = slider('Ice sheet', 0, 3000, 100, 0, (v) => `${(v / 1000).toFixed(1)} km thick`, (v) => { ice = v; paint(); }, 'water');
   const ts = slider('After the ice melts', 0, 20, 0.5, 0, (v) => (v === 0 ? 'ice still there' : `${v} thousand years`), (v) => { kyr = v; paint(); }, 'old');
-  f.controls.append(is.node, ts.node);
+  f.controls.append(is.node, player(ts, ctx).node, ts.node);
   paint();
   return f.node;
 });

@@ -5,7 +5,7 @@ import { svg } from 'didactics/dom';
 import { arrow, label, line, note, redraw, small } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
 import { oneOf } from 'didactics/rng';
-import { COL, choices, figure, frame, lock, lockIn, slider, startRng, tellCard } from './kit';
+import { choices, COL, figure, frame, lock, lockIn, player, slider, startRng, tellCard } from './kit';
 
 const W = 400;
 
@@ -148,7 +148,7 @@ function duneScene(dir: 1 | -1, time: number, ghost: boolean): SVGElement[] {
   return out;
 }
 
-export const duneFigure = figure(['built'], (_ctx, t) => {
+export const duneFigure = figure(['built'], (ctx, t) => {
   const f = frame(W, 220, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -191,7 +191,7 @@ export const duneFigure = figure(['built'], (_ctx, t) => {
   });
   go.disabled = true;
   lock([ts], true);
-  f.controls.append(pick.node, go, wind, ts.node);
+  f.controls.append(pick.node, go, wind, player(ts, ctx).node, ts.node);
   paint();
   f.readout.textContent = `These beds in old sandstone all slope down to the ${was === 1 ? 'right' : 'left'}. They were laid by a dune. Guess which way the wind blew.`;
   if (typeof t.kept === 'number' && !t.card) {

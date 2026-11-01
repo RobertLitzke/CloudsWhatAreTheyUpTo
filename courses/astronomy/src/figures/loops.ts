@@ -4,7 +4,7 @@
 import { svg } from 'didactics/dom';
 import { line, note, polyline, redraw, small, type P } from 'didactics/draw';
 import { makeRng, shuffle } from 'didactics/rng';
-import { COL, figure, frame, guessFirst, sig, slider, startRng } from './kit';
+import { COL, figure, frame, guessFirst, player, sig, slider, startRng } from './kit';
 
 const W = 400;
 const TAU = Math.PI * 2;
@@ -66,7 +66,7 @@ const BACKGROUND = (() => {
   return Array.from({ length: 70 }, () => [rng(), rng(), 0.5 + rng() * 1.2]);
 })();
 
-export const retrogradeFigure = figure(['backwards'], (_ctx, t) => {
+export const retrogradeFigure = figure(['backwards'], (ctx, t) => {
   const f = frame(W, 250, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -140,7 +140,7 @@ export const retrogradeFigure = figure(['backwards'], (_ctx, t) => {
   };
   const sd = slider('Day', 0, DAYS, 2, day, (v) => `${Math.round(v)}`, (v) => { day = v; paint(); }, 'light');
   const sa = slider('Planet’s distance from the Sun', 1.3, 5.2, 0.02, a, (v) => `${v.toFixed(2)} × Earth’s`, (v) => { a = v; paint(); }, 'planet');
-  f.controls.append(sd.node, sa.node);
+  f.controls.append(player(sd, ctx, { seconds: 16 }).node, sd.node, sa.node);
   paint();
   if (t.card) {
     // A flash card: two planets out of the Earth's way, nearer and farther, in an order of its own.

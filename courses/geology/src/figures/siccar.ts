@@ -5,7 +5,7 @@
 import { svg } from 'didactics/dom';
 import { arrow, label, line, note, redraw, small, still } from 'didactics/draw';
 import { makeRng } from 'didactics/rng';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
 const W = 400;
 const H = 230;
@@ -41,7 +41,7 @@ function sayYears(years: number): string {
 /** The mountain profile pushed up in stage 2, as heights above the base line at x. */
 const ridge = (x: number) => 52 * Math.exp(-(((x - 210) / 95) ** 2)) + 18 * Math.exp(-(((x - 90) / 50) ** 2));
 
-export const unconformityFigure = figure(['story'], (_ctx, t) => {
+export const unconformityFigure = figure(['story'], (ctx, t) => {
   const f = frame(W, H, 4);
   const id = `unc${++clipCount}`;
   const defs = svg('defs');
@@ -115,7 +115,7 @@ export const unconformityFigure = figure(['story'], (_ctx, t) => {
   };
   const time = slider('Time', 0, 5, 0.05, 0, (v) => (v <= 0 ? 'start' : v >= 5 ? 'today' : `stage ${Math.min(5, Math.floor(v) + 1)}`), (v) => { s = v; paint(); }, 'old');
   const pace = slider('Rock laid down or worn away', -2, 1, 0.05, rate, (v) => `${(10 ** v < 0.1 ? (10 ** v).toFixed(2) : 10 ** v < 1 ? (10 ** v).toFixed(1) : Math.round(10 ** v))} mm a year`, (v) => { rate = v; paint(); }, 'heat');
-  f.controls.append(time.node, pace.node);
+  f.controls.append(player(time, ctx).node, time.node, pace.node);
   paint();
   guessFirst(t, f, {
     ask: 'At Siccar Point, grey beds stand on end under flat-lying red sandstone. How long do you think it took to make that arrangement? Guess first.',

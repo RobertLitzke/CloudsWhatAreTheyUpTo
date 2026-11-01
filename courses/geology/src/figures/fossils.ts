@@ -5,7 +5,7 @@
 import { svg } from 'didactics/dom';
 import { label, redraw, small } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
 const W = 400;
 
@@ -118,7 +118,7 @@ export function petrify(kyr: number, silica: number): { filled: number; replaced
   return { filled, replaced };
 }
 
-export const cellsFigure = figure(['replaced'], (_ctx, t) => {
+export const cellsFigure = figure(['replaced'], (ctx, t) => {
   const f = frame(W, 190, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -149,7 +149,7 @@ export const cellsFigure = figure(['replaced'], (_ctx, t) => {
   };
   const st = slider('Time buried', 0, 3000, 10, kyr, (v) => (v >= 1000 ? `${(v / 1000).toFixed(1)} million years` : `${v} thousand years`), (v) => { kyr = v; paint(); }, 'old');
   const ss = slider('Silica in the water', 0.05, 1, 0.05, silica, (v) => (v > 0.7 ? 'rich (volcanic ash)' : v > 0.3 ? 'some' : 'little'), (v) => { silica = v; paint(); }, 'rose');
-  f.controls.append(st.node, ss.node);
+  f.controls.append(player(st, ctx).node, st.node, ss.node);
   paint();
   return f.node;
 });

@@ -14,13 +14,14 @@ import { duneFigure, sortFigure } from './dunes';
 import { correlateFigure, veesFigure } from './smith';
 import { cycleStill, unconformityFigure } from './siccar';
 import { coolingFigure, decayFigure } from './age';
-import { fitFigure, gondwanaStill } from './drift';
+import { fitFigure, gondwanaStill, openingFigure } from './drift';
 import { ridgeFigure } from './stripes';
 import { platesMap, slabFigure } from './quakes';
-import { plumeFigure } from './hotspot';
+import { driftMapFigure, plumeFigure } from './hotspot';
 import { knickFigure, raceFigure } from './rivers';
 import { glacierFigure } from './ice';
-import { orbitFigure, recordFigure } from './pacemaker';
+import { iceSheetsFigure, rhoneMapFigure } from './iceage';
+import { cyclesFigure, orbitFigure, recordFigure } from './pacemaker';
 import { kettleStill, reboundFigure, sunFigure } from './kettles';
 import { orderFigure, settleFigure, toothStill } from './steno';
 import { countFigure, impactFigure, mixFigure, oceanFigure } from './moon';
@@ -60,22 +61,27 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   gondwana: gondwanaStill,
   // Lesson 9
   ridge: ridgeFigure,
+  opening: openingFigure,
   // Lesson 10
   plates: platesMap,
   slab: slabFigure,
   // Lesson 11
   plume: plumeFigure,
+  'island-drift': driftMapFigure,
   // Lesson 12
   race: raceFigure,
   knick: knickFigure,
   // Lesson 13
   glacier: glacierFigure,
+  'rhone-ice': rhoneMapFigure,
   // Lesson 14
   orbit: orbitFigure,
   record: recordFigure,
+  cycles: cyclesFigure,
   // Lesson 15
   sun: sunFigure,
   rebound: reboundFigure,
+  'ice-sheets': iceSheetsFigure,
   kettle: kettleStill,
   // P, the Moon
   impact: impactFigure,

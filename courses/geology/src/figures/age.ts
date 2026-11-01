@@ -5,7 +5,7 @@
 import { svg } from 'didactics/dom';
 import { label, line, polyline, redraw, small, type P } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
 const W = 400;
 
@@ -153,7 +153,7 @@ const LIFETIMES: number[] = (() => {
   return shuffled.map((i) => (-HALF_LIFE / Math.LN2) * Math.log(1 - (i + 0.5) / N_ATOMS));
 })();
 
-export const decayFigure = figure(['two-halves'], (_ctx, t) => {
+export const decayFigure = figure(['two-halves'], (ctx, t) => {
   const f = frame(W, 190, 3);
   const g = svg('g');
   f.svg.append(g);
@@ -184,7 +184,7 @@ export const decayFigure = figure(['two-halves'], (_ctx, t) => {
     if (halves >= 2 && t.goal === 'two-halves') t.done();
   };
   const time = slider('Time since the crystal grew', 0, 13.5, 0.05, 0, (v) => `${v.toFixed(2)} billion years`, (v) => { gyr = v; paint(); }, 'old');
-  f.controls.append(time.node);
+  f.controls.append(player(time, ctx).node, time.node);
   paint();
   guessFirst(t, f, {
     ask: 'Uranium-238 has a half-life of 4.47 billion years: in that time, half of any sample turns to lead. Of 200 atoms, how many are left after two half-lives? Guess first.',

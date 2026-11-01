@@ -4,7 +4,7 @@
 import { svg } from 'didactics/dom';
 import { arrow, label, line, polyline, redraw, small } from 'didactics/draw';
 import { makeRng } from 'didactics/rng';
-import { COL, figure, frame, slider } from './kit';
+import { COL, figure, frame, player, slider } from './kit';
 
 const W = 400;
 
@@ -435,7 +435,6 @@ export const rootsFigure = figure(['roots'], (ctx, t) => {
   const g = svg('g');
   f.svg.append(g);
   let pos = 0;
-  let playing = false;
   const paint = () => {
     const ma = maOf(pos);
     const s = sectionAt(ma);
@@ -444,34 +443,8 @@ export const rootsFigure = figure(['roots'], (ctx, t) => {
     if (pos >= 1000 && t.goal === 'roots') t.done();
   };
   const ts = slider('Time', 0, 1000, 1, 0, (v) => (v >= 1000 ? 'today' : `${Math.round(maOf(v))} million years ago`), (v) => { pos = v; paint(); }, 'old');
-  const play = document.createElement('button');
-  play.type = 'button';
-  play.className = 'btn btn-ghost';
-  const show = () => { play.textContent = playing ? 'Pause' : pos >= 1000 ? 'Play again' : 'Play'; };
-  play.onclick = () => {
-    if (!playing && pos >= 1000) pos = 0;
-    playing = !playing;
-    show();
-    if (!playing) return;
-    let last = performance.now();
-    let clock = pos;
-    const step = (now: number) => {
-      if (!playing || ctx.closed.aborted) return;
-      clock = Math.min(1000, clock + ((now - last) / 1000) * 70);
-      last = now;
-      ts.set(clock);
-      if (pos >= 1000) {
-        playing = false;
-        show();
-        return;
-      }
-      requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  ts.input.addEventListener('input', () => { playing = false; show(); });
-  show();
-  f.controls.append(play, ts.node);
+  const play = player(ts, ctx, { seconds: 14 });
+  f.controls.append(play.node, ts.node);
   paint();
   return f.node;
 });
