@@ -5,7 +5,7 @@ import { charts } from 'didactics/charts';
 import type { FigureFactory } from 'didactics/figure';
 import { maps } from 'didactics/maps';
 import { asset } from '../asset';
-import { burialFigure, squeezeFigure } from './barrow';
+import { burialFigure, rootsFigure, squeezeFigure } from './barrow';
 import { columnsFigure, furnaceFigure } from './basalt';
 import { checkFigure } from './check';
 import { COL } from './kit';
@@ -48,6 +48,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 5
   burial: burialFigure,
   squeeze: squeezeFigure,
+  roots: rootsFigure,
   // Lesson 6
   unconformity: unconformityFigure,
   cycle: cycleStill,
