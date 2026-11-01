@@ -1,0 +1,72 @@
+{
+  "id": "colour",
+  "n": 7,
+  "title": "Why are there no green stars?",
+  "teaches": "How a star's colour gives its temperature, and why no star looks green",
+  "parts": [
+    {
+      "title": "Red and blue",
+      "blocks": [
+        {"type":"text","text":"On a clear winter evening, find Orion. The hunter's right shoulder, top left as we see him, is **Betelgeuse**, and once you look for it, it is plainly orange. His left foot, bottom right, is **Rigel**, plainly blue-white. With a little practice you can see colours in many bright stars: Antares in Scorpius is deep orange-red, Arcturus golden, Vega and Sirius white with a blue edge."},
+        {"type":"diagram","id":"photo","caption":"Orion. Betelgeuse is the bright star at top left, Rigel the one at bottom right. Their colours are clearer to the eye, or in binoculars slightly out of focus.","options":{"photo":"orion","aspect":0.8}},
+        {"type":"text","text":"Stars come in red, orange, yellowish, white and blue. If you go looking for a green one, though, you won't find it. Not one star in the sky looks green, even though green sits in the middle of the rainbow, between yellow and blue, which are both common. The reason why also tells us the temperature of a star nobody can visit."},
+        {"type":"key_ideas","title":"Hold on to","points":["Stars have visibly different colours: Betelgeuse orange, Rigel blue-white.","No star looks green."]}
+      ]
+    },
+    {
+      "title": "The colour of hot things",
+      "blocks": [
+        {"type":"text","text":"Every blacksmith knows the colours of temperature. An iron bar in a forge glows dull red first, at about 600 °C, then cherry red, orange, yellow, and finally white. Push it hotter still, if you could, and it would turn bluish. The colour is the same whatever the metal: it depends on how hot it is. Astronomers count temperature in **kelvin** (K): the same steps as degrees Celsius, but starting from absolute zero, −273 °C, the coldest anything can be. So the forge's dull red, 600 °C, is about 870 K, and 5,800 K is about 5,500 °C."},
+        {"type":"text","text":"In 1859 Gustav Kirchhoff, the same Kirchhoff who read the Sun's lines, asked what the glow of a perfectly dark object would look like: one that absorbs every colour falling on it and so gives off only its own heat glow. He called it a **black body** and proved that its glow depends on its temperature and nothing else. He couldn't say what that dependence was. Working it out took forty years, and the answer started modern physics."},
+        {"type":"text","text":"The push came, as so often, from industry. Germany in the 1890s was electrifying its cities, and the new Imperial Physical and Technical Institute in Berlin, founded partly to set standards for lighting, needed to know exactly how much light a hot filament gave at each colour. Otto Lummer and Ernst Pringsheim built an oven with a small hole in its side, which is as near to a black body as you can get, and measured its glow at every wavelength they could reach, from the visible into the infrared."},
+        {"type":"text","text":"On 7 October 1900 Heinrich Rubens and his wife came to visit the physicist **Max Planck**, and Rubens mentioned his newest measurements of the glow far into the infrared. That evening Planck found a formula that fitted all of them, and sent it to Rubens on a postcard. When he tried to explain why the formula worked, he had to assume that a hot body could only give off light in small fixed packets of energy. He thought of it as a mathematical trick. It was the first appearance of the quantum, and it is what gives the curve its shape: a packet of blue light carries more energy than a packet of red, so a body has to be hotter before it can afford to give off many blue ones."},
+        {"type":"key_ideas","title":"Hold on to","points":["A hot object's glow, its colour and brightness, depends on its temperature and hardly at all on what it's made of.","Measurements of hot ovens in Berlin led Planck in 1900 to the exact formula for that glow, and to the idea of the quantum."]}
+      ]
+    },
+    {
+      "title": "Slide the temperature",
+      "blocks": [
+        {"type":"text","text":"Light is a wave, and its colour is set by its **wavelength**, the distance from one crest to the next. Red light has the longest waves we can see, about 700 nanometres (millionths of a millimetre); violet the shortest, about 400; green sits near 530. Longer than red is infrared, which we feel as heat; shorter than violet is ultraviolet. Light with every colour mixed in, roughly evenly, is what we call white: Newton's prism showed that sunlight is such a mixture."},
+        {"type":"text","text":"Planck's curve has a hump. A hot body gives off light at every wavelength, but most strongly at one, and the hotter the body, the shorter that peak wavelength and the bluer the light. The curve also grows enormously as the temperature rises. Jožef Stefan found from measurements in 1879 that the total goes as the temperature multiplied by itself four times, so doubling the temperature makes each square metre give off 2 × 2 × 2 × 2 = 16 times as much light."},
+        {"type":"interactive_diagram","id":"glow","caption":"Left: how a body glowing at this temperature looks to the eye. Right: how much light it gives off at each wavelength, scaled so the peak fills the height; the colours under the curve are the part we can see.","task":"Make a prediction, then take the temperature down to red and up to blue","goal":"no-green","aspect_ratio":1.67},
+        {"type":"text","text":"The curve is broad. When its peak sits in the green, at about 5,800 K, it is still giving off plenty of red and plenty of blue on either side. The eye adds them all together and sees white, with a faint warm tint. Move the peak toward the red and the blue end drops away, so the star looks orange; move it toward the blue and the red drops away. There is no temperature at which the green is strong and the red and blue are both weak. A glowing body can be red, orange, white or blue, but it can never be green."},
+        {"type":"text","text":"A star at 5,800 K peaking in the green is not hypothetical. It is the Sun. The Sun is white, not yellow. Photographs from space show it, and so does a sheet of white paper in full noon sunlight, which looks white, not yellow. The Sun only looks yellow or orange low in the sky, when the air scatters away its blue."},
+        {"type":"diagram","id":"photo","caption":"The Sun through a solar filter: white, with sunspots.","options":{"photo":"sun-spots","aspect":1.2}},
+        {"type":"key_ideas","title":"Hold on to","points":["The hotter a glowing body, the bluer the colour where its glow peaks, and the more light each square metre gives off: sixteen times as much for double the temperature.","The glow is so broad that when it peaks in the green, all colours are present and it looks white. That is why no star looks green.","The Sun peaks in the green and is white."]}
+      ]
+    },
+    {
+      "title": "A thermometer for stars",
+      "blocks": [
+        {"type":"text","text":"Stars are not perfect black bodies, but they are close: dense, hot gas, glowing because it is hot. So a star's colour is a thermometer. Photograph it through a blue filter and through a red one, compare how bright it is in each, and Planck's curve turns that ratio into a surface temperature, for a star on the other side of the galaxy."},
+        {"type":"diagram","id":"star-colours","caption":"Bright stars drawn in the colours their temperatures give, coolest on the left."},
+        {"type":"text","text":"Betelgeuse's surface is about 3,600 K, which is why it is orange. Rigel's is about 12,000 K. The Sun's is 5,772 K. The coolest stars that shine by steady fusion are under 2,500 K, deep red and faint; the hottest are over 40,000 K and blaze in the ultraviolet."},
+        {"type":"text","text":"Since each square metre's output depends so strongly on temperature, if two stars at the same distance have the same temperature but one is far brighter, it must have far more square metres. Colour tells you how hot a star is; colour and brightness together tell you how big it is. That will let us size up the stars in lesson 9."},
+        {"type":"diagram","id":"photo","caption":"Betelgeuse, imaged by the ALMA radio telescope array: one of the few stars big and close enough to show a disc. ALMA sees radio waves, so the colour here is added; what the picture shows is the size.","options":{"photo":"betelgeuse-alma","aspect":1.2}},
+        {"type":"key_ideas","title":"Hold on to","points":["A star's colour gives its surface temperature: Betelgeuse about 3,600 K, the Sun 5,772 K, Rigel about 12,000 K.","Two stars of the same temperature give out the same light per square metre, so a much brighter one must be much bigger."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on colour and temperature", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Betelgeuse looks orange and Rigel blue-white. Which is hotter?","photo":"orion","choices":["Rigel","Betelgeuse","They are the same temperature"],"answer":0,"why":"Hotter bodies glow bluer. Rigel's surface is about 12,000 K, Betelgeuse's about 3,600 K."},
+          {"ask":"Why does no star look green?","choices":["A glow broad enough to peak in the green also gives plenty of red and blue, so it looks white","Green light can't cross space","No star has the right temperature"],"answer":0,"why":"At about 5,800 K the glow peaks in the green, but its curve is so broad that all colours are present, and the eye adds them to white."},
+          {"ask":"What colour is the Sun, seen from space?","photo":"sun-spots","choices":["White","Yellow","Orange"],"answer":0,"why":"The Sun's glow peaks in the green but spans all colours, so it is white. The air makes it look yellow or orange near the horizon."},
+          {"ask":"An iron bar and a lump of glass are heated to the same high temperature. Their glow:","choices":["Has about the same colour","Depends on the material","Is red for iron and blue for glass"],"answer":0,"why":"Kirchhoff showed the glow of a black body depends only on temperature. Hot solids glow close to that, which is why a blacksmith can judge any metal's heat by its colour."},
+          {"ask":"Double a star's surface temperature. Each square metre gives off:","choices":["Sixteen times as much light","Twice as much light","Four times as much light"],"answer":0,"why":"The total glow per square metre rises as the fourth power of temperature: 2 × 2 × 2 × 2 = 16."},
+          {"ask":"Two stars at the same distance have the same colour, but one is 100 times brighter. What does that say?","choices":["The brighter one has about 100 times the surface area, so it is about 10 times wider","The brighter one is hotter","The brighter one is closer"],"answer":0,"why":"Same colour means same temperature, so same light per square metre. A hundred times the light needs a hundred times the area: ten times the width."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "A glowing body's colour depends on its temperature: red, orange, white and blue as it gets hotter.",
+    "Planck found the shape of the glow in 1900; its peak moves to shorter wavelengths as temperature rises, and the total rises sixteenfold for each doubling.",
+    "The glow is so broad that a peak in the green looks white, which is why there are no green stars and why the Sun is white.",
+    "A star's colour is its thermometer; colour and brightness together give its size."
+  ],
+  "next": "Next: Annie Jump Cannon sorts a quarter of a million stars by their dark lines, and Cecilia Payne finds out what the sorting really means.",
+  "journal": [],
+  "footnotes": {}
+}

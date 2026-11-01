@@ -1,0 +1,61 @@
+{
+  "id": "hydrogen",
+  "n": 8,
+  "title": "Mostly hydrogen",
+  "teaches": "How stars were sorted into classes, and why the classes are temperatures, not ingredients",
+  "parts": [
+    {
+      "title": "The Harvard computers",
+      "blocks": [
+        {"type":"text","text":"In the 1880s the Harvard College Observatory began photographing the spectra of every star it could reach. A large prism in front of the telescope lens turned each star on the photographic plate into a tiny spectrum a centimetre or so long, hundreds to a plate. The money came from the widow of Henry Draper, a doctor and amateur astronomer who had photographed the first spectrum of a star, and the plates piled up by the thousand. Someone had to look at them."},
+        {"type":"text","text":"The director, **Edward Pickering**, hired women to do it. They were called **computers**, which then meant people who computed. They were paid about half what a man would have been, and Pickering's critics called them his harem. They were also some of the best astronomers of their time, and several of them left marks that last."},
+        {"type":"diagram","id":"photo","caption":"Harvard computers at work, around 1890.","options":{"photo":"harvard-computers","aspect":1.3}},
+        {"type":"text","text":"Williamina Fleming, who had come to Pickering's house as a maid, sorted the first ten thousand spectra into classes lettered A to Q, by how strong the hydrogen lines were: A for the strongest. **Annie Jump Cannon**, who had lost most of her hearing as a young woman, refined the scheme and then applied it at a speed nobody has matched, a few stars a minute, glancing at a spectrum through a magnifier and calling out its class. Between 1911 and 1915 she classified about 225,000 stars for the Henry Draper Catalogue, and some 350,000 in her career."},
+        {"type":"text","text":"Along the way she dropped most of Fleming's letters and rearranged the rest into the order in which the lines changed smoothly from one type to the next: **O, B, A, F, G, K, M**. Generations of students have remembered it with \"Oh Be A Fine Girl, Kiss Me\". The order made sense of the spectra. Nobody yet knew what it meant."},
+        {"type":"key_ideas","title":"Hold on to","points":["The Harvard computers sorted hundreds of thousands of photographed stellar spectra.","Annie Jump Cannon arranged the classes in the order O, B, A, F, G, K, M, in which the lines change smoothly."]}
+      ]
+    },
+    {
+      "title": "Different stars, different stuff?",
+      "blocks": [
+        {"type":"text","text":"The natural reading of the classes was chemical. An A star like Sirius has enormous hydrogen lines and few others. The Sun, a G star, has weak hydrogen lines and thousands of lines from iron, calcium and other metals. M stars show broad dark bands from molecules. The obvious conclusion was that Sirius is made largely of hydrogen and the Sun largely of metals, much like the Earth."},
+        {"type":"diagram","id":"classes","caption":"Spectra of the seven classes, each at a typical temperature, drawn from the same model as the figure below. The hottest are at the top."},
+        {"type":"text","text":"Most astronomers believed the Sun was made of roughly the same things as the Earth. It was a reasonable belief. Meteorites, the only bits of space anyone could hold, were stone and iron. And it was backed by careful studies of the Sun's spectrum, which found that the Sun's mix of metals was much like the Earth's crust."},
+        {"type":"text","text":"The trouble was that a line's strength depends on two things: how much of an element is there, and how many of its atoms are in the right state to absorb that colour. The electrons in an atom can only have certain energies, like the rungs of a ladder. To absorb a particular colour, an electron must jump from one particular rung to a particular higher one. Hydrogen's visible lines all start from the second rung, not the bottom. In a cool gas almost every hydrogen atom has its electron on the bottom rung, so it can't absorb visible light at all. Heat the gas and collisions kick more electrons up to the second rung, and the lines grow. Heat it further and the collisions knock the electron off the ladder altogether: the atom is **ionised**, and absorbs nothing. So each element's lines are weak in cool stars, strongest at some middle temperature, and weak again in hot ones. In 1920 the Indian physicist **Meghnad Saha** worked out how to calculate this balance."},
+        {"type":"key_ideas","title":"Hold on to","points":["At first, different line patterns were read as different compositions: Sirius rich in hydrogen, the Sun rich in metals.","But a line's strength also depends on temperature: whether atoms have their electron at the right energy level to absorb, or have lost it. Saha showed how to calculate this."]}
+      ]
+    },
+    {
+      "title": "Cecilia Payne",
+      "blocks": [
+        {"type":"text","text":"In 1919, a student called **Cecilia Payne** went to a lecture in Cambridge by Arthur Eddington on his eclipse expedition, which had just tested Einstein's theory of gravity. She said afterwards that her world was so shaken that she had something close to a nervous breakdown, and that she decided there and then to be an astronomer. Cambridge did not give degrees to women. In 1923 she went to Harvard."},
+        {"type":"diagram","id":"photo","caption":"Cecilia Payne, later Payne-Gaposchkin. Her 1925 thesis was called by Otto Struve the most brilliant ever written in astronomy.","options":{"photo":"payne","aspect":1.2}},
+        {"type":"text","text":"There she had the Harvard plates and Saha's theory, and she put them together. For each class of star, she measured how strong the lines of each element were, and used Saha's calculation to work out how many atoms that strength implied, once you allowed for the temperature. The temperatures themselves came from how the strengths of each element's lines rose and fell from class to class, and they agreed with temperatures measured from the stars' colours. The classes turned out to be a temperature scale: O stars hottest, at tens of thousands of degrees, M stars coolest. And when the temperature was taken out, the stars were all made of nearly the same mixture."},
+        {"type":"interactive_diagram","id":"lines","caption":"A star's spectrum, and the strength of each family of lines, as its surface temperature changes. The make-up of the star stays the same throughout.","task":"Make a prediction, then find the temperature where hydrogen's lines are strongest","goal":"peak","aspect_ratio":1.6},
+        {"type":"text","text":"That mixture was the shock. The stars were not like the Earth. They were mostly hydrogen, with helium next and everything else in traces: by her numbers, hydrogen was about a million times more abundant than the metals that dominate the Sun's spectrum. The Sun's hydrogen lines are weak not because it lacks hydrogen, but because at 5,800 K very few hydrogen atoms have an electron on the second rung. Hydrogen's lines peak near 10,000 K, in the A stars like Sirius. Iron's lines are strong in spite of iron being rare, because at the Sun's temperature many iron atoms are on rungs that absorb visible light, and iron has hundreds of such jumps."},
+        {"type":"text","text":"Henry Norris Russell, the most powerful astronomer in America, read her thesis in 1925 and told her the result was clearly impossible. Under that pressure she wrote in it that the huge abundance of hydrogen was \"almost certainly not real\". Four years later Russell reached the same answer by a different route, and published it, crediting her. For a while it was his result. It is hers."},
+        {"type":"key_ideas","title":"Hold on to","points":["Payne showed in 1925 that the spectral classes are a temperature scale, from hot O to cool M.","Allowing for temperature, stars are mostly hydrogen and helium; the Sun's weak hydrogen lines mean it is too cool, not short of hydrogen.","Russell first called this impossible, then confirmed it in 1929."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on what stars are made of", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"What do the classes O, B, A, F, G, K, M turn out to measure, in order?","choices":["Surface temperature, from hottest to coolest","Composition, from most hydrogen to least","Distance, from nearest to farthest"],"answer":0,"why":"Payne showed that the classes are a temperature scale. The order Cannon found by eye was the order of temperature."},
+          {"ask":"The Sun's hydrogen lines are weak. What does that tell us?","photo":"sun-spots","choices":["The Sun is too cool for many hydrogen atoms to absorb visible light","The Sun has little hydrogen","The Sun's hydrogen has all burned away"],"answer":0,"why":"Hydrogen absorbs visible light only from its second energy level, and at 5,800 K very few atoms are lifted that far. The Sun is mostly hydrogen."},
+          {"ask":"Why do hydrogen's lines fade again in the hottest stars?","choices":["Most hydrogen atoms have lost their electron and can't absorb","Hot stars contain no hydrogen","The lines move into the infrared"],"answer":0,"why":"Above about 10,000 K more and more hydrogen is ionised, with no electron left to absorb light."},
+          {"ask":"Who sorted hundreds of thousands of stellar spectra, a few a minute, into classes?","photo":"cannon","choices":["Annie Jump Cannon","Cecilia Payne","Henry Draper"],"answer":0,"why":"Cannon classified about 350,000 stars in her career and fixed the order O, B, A, F, G, K, M."},
+          {"ask":"Why did astronomers before 1925 expect the Sun to be made mostly of metals?","choices":["Its spectrum is full of metal lines, and Earth and meteorites are rock and metal","Because metals are the heaviest elements","Because hydrogen can't glow"],"answer":0,"why":"The thousands of metal lines looked like evidence of metals, and nothing then known suggested the Sun differed from the Earth."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "The Harvard computers sorted stellar spectra; Annie Jump Cannon set the order O, B, A, F, G, K, M.",
+    "How strong a star's lines are depends on its temperature as well as on how much of each element it has.",
+    "Cecilia Payne showed in 1925 that the classes are a temperature scale and that stars are mostly hydrogen and helium."
+  ],
+  "next": "Next: Hertzsprung and Russell plot every star's brightness against its colour, and find that stars don't scatter at random. Some are giants.",
+  "journal": [],
+  "footnotes": {}
+}

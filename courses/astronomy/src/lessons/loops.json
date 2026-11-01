@@ -1,0 +1,72 @@
+{
+  "id": "loops",
+  "n": 2,
+  "title": "Planets that loop backwards",
+  "teaches": "Why planets sometimes run backwards across the sky, and why their orbits are ellipses",
+  "parts": [
+    {
+      "title": "Wanderers",
+      "blocks": [
+        {"type":"text","text":"Watch the sky for a year and the stars behave themselves. They wheel round the pole each night and shift a little each season, but they keep their places relative to one another: the shape of Orion does not change. Five bright points refuse to cooperate. Mercury, Venus, Mars, Jupiter and Saturn drift through the constellations, which is why the Greeks called them *planetai*, wanderers."},
+        {"type":"text","text":"Mostly they drift in one direction, eastward against the stars, slowly enough that you notice it over weeks. But every two years or so Mars does something peculiar. It slows, stops, and runs backwards, westward, for about ten weeks, then stops again and resumes its eastward course, having traced a loop or a zigzag on the sky. Jupiter and Saturn do the same thing, more often and in smaller loops. Any theory of the heavens had to explain this."},
+        {"type":"diagram","id":"photo","caption":"Mars photographed night after night over several months, the frames combined into one picture: it runs east, stops, loops backwards and goes on.","options":{"photo":"mars-retrograde","aspect":1.2}},
+        {"type":"text","text":"Claudius Ptolemy, working in Alexandria around 150 AD, explained it with circles riding on circles. Each planet moved on a small circle, the **epicycle**, whose centre moved on a big circle round the Earth. Most of the time the two motions added up and the planet crept forward; but on the inner part of the small circle it moved the opposite way to the big one, fast enough to win, and it appeared to go backwards. With enough adjustments the scheme predicted planetary positions well enough to be used for fourteen hundred years."},
+        {"type":"key_ideas","title":"Hold on to","points":["Planets drift eastward against the stars, but each one regularly stops, runs westward for a while and turns east again: retrograde motion.","Ptolemy explained it with small circles riding on large ones, centred on the Earth."]}
+      ]
+    },
+    {
+      "title": "Overtaking on the inside lane",
+      "blocks": [
+        {"type":"text","text":"In 1543 Nicolaus Copernicus, a canon of Frombork Cathedral in Poland, published a book arguing that the Sun, not the Earth, sits at the centre, with the Earth as one more planet going round it. He had worked on it for thirty years and saw the first printed copy, the story goes, on the day he died. One of its strongest points was what it did to the backward loops."},
+        {"type":"text","text":"If the Earth is a planet, and inner planets go round faster than outer ones, then every so often the Earth overtakes Mars, the way a car on the inside lane of a motorway passes a slower car on the outside. While you are passing it, the slower car seems to slide backwards against the distant hills, even though it is moving forwards the whole time. Mars against the stars is the slower car against the hills."},
+        {"type":"interactive_diagram","id":"retrograde","caption":"The Earth and an outer planet on their orbits (left), and the planet's track against the distant stars as seen from Earth (right). The yellow line is our line of sight.","task":"Make a prediction, then move through the days until you see the planet run backwards","goal":"backwards","aspect_ratio":1.6},
+        {"type":"text","text":"This explains several things for free. For an outer planet, the loop always happens when it is opposite the Sun in our sky, high at midnight, because that is when the Earth lies between it and the Sun: the moment we draw level on the inside lane and pass it. Farther planets loop more often, because they move so slowly that we lap them sooner, and through a smaller angle, because the same sideways swerve of the Earth makes a smaller shift in something farther away (hold up a finger and look at it with each eye in turn, then try with your arm outstretched; lesson 5 makes much of this). Ptolemy had to arrange these facts by hand; for Copernicus they fell out of the geometry."},
+        {"type":"text","text":"But Copernicus still believed, like most astronomers since Plato, that heavenly motion had to be made of uniform circles. When simple Sun-centred circles didn't quite match the sky, he too had to add small epicycles. His system was simpler in spirit but no more accurate than Ptolemy's. Something was still wrong."},
+        {"type":"key_ideas","title":"Hold on to","points":["With the Sun at the centre, retrograde loops come from the faster inner planet overtaking the slower outer one.","Outer planets loop when opposite the Sun in our sky; farther planets make smaller loops."]}
+      ]
+    },
+    {
+      "title": "Eight minutes of arc",
+      "blocks": [
+        {"type":"text","text":"The trouble was data. **Tycho Brahe**, a Danish nobleman with a temper, a fortune and a metal nose (he had lost part of the original in a duel over a mathematical point), built the finest observatory of the age on the island of Hven. His instruments had no lenses; the telescope did not yet exist. What they had was size and care: a brass arc about two metres in radius fixed to a wall, sights read by assistants, every measurement taken with care. For twenty years Tycho logged planetary positions to a routine accuracy of a minute or two of arc, roughly five times better than anyone before him."},
+        {"type":"diagram","id":"photo","caption":"Tycho's great wall quadrant at Uraniborg, from his 1598 book. Tycho himself is painted on the wall, pointing at the sky.","options":{"photo":"tycho-quadrant","aspect":0.9,"position":"center top"}},
+        {"type":"text","text":"In 1600 he hired a brilliant, impecunious German mathematician, **Johannes Kepler**, and soon set him on the hardest problem in the collection: the orbit of Mars. Tycho died the next year, and Kepler, after some unpleasantness with the heirs, kept the observations."},
+        {"type":"text","text":"Kepler spent nearly five years on what he called his war with Mars. He tried one circular scheme after another, shifting the centre and adjusting speeds. One model fitted Tycho's observations at opposition to within two minutes of arc, but at other points it missed by eight minutes, about a quarter of the width of the full Moon. Earlier astronomers would have shrugged; their own observations were no better than that. Kepler trusted Tycho. \"These eight minutes alone,\" he wrote, \"have pointed the way to a reformation of all astronomy.\" He gave up the circle."},
+        {"type":"key_ideas","title":"Hold on to","points":["Tycho Brahe measured planet positions to about one or two minutes of arc, without a telescope.","Kepler's circular model for Mars missed Tycho's data by eight minutes of arc, and he believed the data rather than the circle."]}
+      ]
+    },
+    {
+      "title": "The ellipse",
+      "blocks": [
+        {"type":"text","text":"What fitted was an **ellipse**, a stretched circle, with the Sun not at the centre but off to one side at a point called a **focus**. Kepler published this in 1609 in a book called *Astronomia nova*, the New Astronomy, along with a second rule about speed. A planet goes faster when it is near the Sun and slower when it is far. Precisely: the line from the Sun to the planet sweeps out equal areas in equal times."},
+        {"type":"interactive_diagram","id":"ellipse","caption":"An orbit with the Sun at one focus. The dots mark where the planet is at each twelfth of its year, and each coloured wedge is swept out in the same time.","task":"Make a prediction, then stretch the orbit and watch where the planet moves fastest","goal":"fast-near","aspect_ratio":1.38},
+        {"type":"text","text":"Mars's orbit is only slightly stretched. Its **eccentricity**, the measure of how far an ellipse is from a circle, is 0.093, and if you drew it you would hardly see that it isn't round. That was precisely the trouble. The difference between a circle and Mars's ellipse is small enough to hide in poor data and large enough to stand out in Tycho's."},
+        {"type":"text","text":"Ten years later Kepler added a third rule. The farther a planet is from the Sun, the longer its year, in a fixed proportion: the square of the time to go round is in proportion to the cube of the orbit's average distance from the Sun. Saturn, about nine and a half times as far as the Earth, takes about twenty-nine and a half years. Kepler thought a force from the Sun drove the planets, though the true physics waited for Newton, in the next lesson."},
+        {"type":"diagram","id":"photo","caption":"A page of diagrams from Kepler's *Astronomia nova*, 1609.","options":{"photo":"astronomia-nova","aspect":0.8}},
+        {"type":"key_ideas","title":"Hold on to","points":["Kepler's first rule: planets move on ellipses with the Sun at one focus.","Second rule: the line from the Sun to a planet sweeps equal areas in equal times, so planets move fastest near the Sun.","Third rule: farther planets take longer to go round, the square of the period in proportion to the cube of the average distance."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on loops and ellipses", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Mars traced this loop against the stars. What was really happening?","photo":"mars-retrograde","choices":["The Earth was overtaking Mars on its smaller, faster orbit","Mars was stopping and reversing on its orbit","Mars was going round a small circle of its own"],"answer":0,"why":"Mars keeps moving forward on its orbit. As we pass it, our line of sight to it swings backwards against the far stars."},
+          {"ask":"When in our sky does Mars run backwards?","choices":["When it is opposite the Sun, high at midnight","When it is close to the Sun, low at dusk","At random times"],"answer":0,"why":"We overtake Mars when the Earth lies between it and the Sun, which puts Mars opposite the Sun in our sky."},
+          {"ask":"Why does Jupiter's backward loop span a smaller angle than Mars's?","choices":["Jupiter is farther away, so the same sideways shift of the Earth makes a smaller angle","Jupiter moves faster than Mars","Jupiter is bigger"],"answer":0,"why":"The loop comes from the Earth's own motion seen against the far planet. The farther the planet, the smaller the angle that motion makes."},
+          {"ask":"Why did Kepler abandon circular orbits?","choices":["His circular model missed Tycho's measurements of Mars by eight minutes of arc","Copernicus had already used ellipses","Circles couldn't explain retrograde loops"],"answer":0,"why":"Tycho's data were good to a minute or two of arc, so a misfit of eight minutes was real. Kepler trusted the data over the circle."},
+          {"ask":"A comet's orbit is a long, thin ellipse. Where does it move fastest?","choices":["When it swings closest to the Sun","At the far end of its orbit","At the same speed throughout"],"answer":0,"why":"Equal areas in equal times: near the Sun the line to the comet is short, so it has to sweep fast to cover the same area."},
+          {"ask":"What instruments gave Tycho his precise measurements?","photo":"tycho-quadrant","choices":["Large, carefully built sighting instruments such as his wall quadrant, with no lenses","The first telescopes","Photographs"],"answer":0,"why":"Tycho worked before the telescope. His accuracy came from the size and care of instruments like the two-metre quadrant."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Retrograde loops of outer planets come from the Earth overtaking them on its faster inside orbit; they happen when the planet is opposite the Sun.",
+    "Tycho Brahe's naked-eye measurements were accurate to about one or two minutes of arc.",
+    "Kepler found that planets move on ellipses with the Sun at a focus, faster when nearer the Sun (equal areas in equal times).",
+    "Farther planets take longer to go round: the square of the period is in proportion to the cube of the average distance."
+  ],
+  "next": "Next: Newton asks whether the force that pulls an apple down also holds the Moon, and finds the answer is 3,600.",
+  "journal": [],
+  "footnotes": {}
+}

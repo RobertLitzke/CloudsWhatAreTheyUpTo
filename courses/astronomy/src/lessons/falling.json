@@ -1,0 +1,71 @@
+{
+  "id": "falling",
+  "n": 3,
+  "title": "The falling Moon",
+  "teaches": "Why the Moon goes round the Earth instead of falling down, and why orbits are ellipses",
+  "parts": [
+    {
+      "title": "A plague year",
+      "blocks": [
+        {"type":"text","text":"In the summer of 1665 plague closed the University of Cambridge, and a twenty-two-year-old student called **Isaac Newton** went home to his mother's farm at Woolsthorpe in Lincolnshire. Over the next eighteen months, by his own later account, he worked out the mathematics now called calculus, the nature of colour, and the beginnings of a theory of gravity. Old men's memories of their youth are not always reliable, and Newton was not a modest man. But the notebooks bear much of it out."},
+        {"type":"diagram","id":"photo","caption":"The apple tree at Woolsthorpe Manor, said to descend from the one Newton watched.","options":{"photo":"apple-tree","aspect":1.5}},
+        {"type":"text","text":"The famous apple comes from Newton himself, in conversation with a friend sixty years later: the thought of gravitation, he said, was \"occasioned by the fall of an apple\" as he sat in a contemplative mood. Nothing hit him on the head. What he asked was more interesting. The pull that brings the apple down reaches to the top of the tallest tree and the highest mountain. Does it reach to the Moon? And if it does, why doesn't the Moon fall?"},
+        {"type":"key_ideas","title":"Hold on to","points":["Newton's question: does the pull that makes an apple fall reach as far as the Moon?"]}
+      ]
+    },
+    {
+      "title": "The Moon does fall",
+      "blocks": [
+        {"type":"text","text":"The answer is that the Moon does fall, all the time. It is moving sideways at about a kilometre a second. If nothing pulled on it, it would carry on in a straight line and leave. Instead its path curves round the Earth, and the amount it drops below that straight line each second is how far it falls. You can work it out from the size of the Moon's orbit, about 384,000 km in radius, and the time it takes to go round, 27.3 days: the speed and the curve together say how far it must drop each second to stay on that circle. It comes to about 1.4 millimetres in the first second."},
+        {"type":"text","text":"An apple near the ground falls 4.9 metres in its first second, about 3,600 times as far. Now, the apple is 6,400 km from the centre of the Earth and the Moon about 384,000 km, 60 times as far, and 60 times 60 is 3,600. If the pull weakened simply in proportion to distance, the Moon would fall 60 times less than the apple; it falls 3,600 times less. So the pull is the same pull, weakened by distance in a very particular way: twice as far, a quarter as strong; ten times as far, a hundredth. It goes down as the square of the distance. This is the **inverse square law**."},
+        {"type":"diagram","id":"moon-drop","caption":"In one second the Moon moves about a kilometre along its orbit and drops about 1.4 mm below the straight line it would otherwise follow. An apple drops 4.9 m."},
+        {"type":"text","text":"Newton did this sum in the 1660s and found that it \"answered pretty nearly\". Not exactly, partly because the size of the Earth he used was too small. He put the problem aside for nearly twenty years."},
+        {"type":"key_ideas","title":"Hold on to","points":["The Moon falls toward the Earth about 1.4 mm each second while moving sideways about 1 km.","That is 3,600 times less than an apple falls, and the Moon is 60 times farther from the Earth's centre: gravity weakens as the square of the distance."]}
+      ]
+    },
+    {
+      "title": "Newton's cannon",
+      "blocks": [
+        {"type":"text","text":"Why doesn't a falling Moon hit the ground? Newton answered with a thought experiment that later appeared in his writings with a picture. Put a cannon on top of a very high mountain and fire a ball sideways. It curves down and lands some way off. Fire it faster and it lands farther, and because the Earth is round, the ground curves away beneath it as it goes. Fire it fast enough and the ground curves away exactly as fast as the ball falls. It falls for ever and never lands. That is an orbit."},
+        {"type":"interactive_diagram","id":"cannon","caption":"A cannon on an impossibly tall mountain, 400 km up, above the air. The yellow line is the ball's path.","task":"Make a prediction, then find the speed at which the ball circles the Earth","goal":"circle","aspect_ratio":1.54},
+        {"type":"text","text":"At 400 km up the circling speed is about 7.7 km a second, and the ball goes round in about an hour and a half. This is what the International Space Station does. Astronauts aboard it float not because they are beyond the reach of gravity, which at that height is still about nine-tenths as strong as on the ground, but because they and the station are falling together, all the time, and missing."},
+        {"type":"diagram","id":"photo","caption":"The International Space Station, falling round the Earth at about 7.7 km a second.","options":{"photo":"earth-iss","aspect":1.5}},
+        {"type":"text","text":"A little faster and the ball swings out on an ellipse and comes back round to the mountain. Faster still, about 10.9 km a second from that height, and gravity, weakening with distance, can never quite stop it. It leaves for good. Newton's cannon explains how the Moon, the space station, and every spacecraft move once launched."},
+        {"type":"key_ideas","title":"Hold on to","points":["An orbit is falling while moving sideways fast enough that the ground curves away as fast as you fall.","From 400 km up: about 7.7 km/s for a circle, faster for an ellipse, about 10.9 km/s to escape."]}
+      ]
+    },
+    {
+      "title": "Why ellipses?",
+      "blocks": [
+        {"type":"text","text":"In August 1684 the astronomer **Edmond Halley** came to Cambridge to ask Newton a question that he, Robert Hooke and Christopher Wren had argued about over coffee in London. If the Sun pulled the planets with a force that weakened as the square of the distance, what shape would their orbits be? Newton answered at once: an ellipse. He had calculated it years before. He couldn't find the papers, so he promised to work it out again."},
+        {"type":"text","text":"What he sent Halley grew into the *Principia*, published in 1687 at Halley's expense, which tied Kepler's three rules to one law of gravity. Ellipses, equal areas, and the link between distance and year all follow from a pull toward the Sun that weakens as the square of the distance. Of forces that weaken with distance, no other gives all three. In 1964 Richard Feynman gave a lecture at Caltech showing why ellipses follow, using elementary geometry much like Newton's; it was later published as *Feynman's Lost Lecture*. You can see the idea without the geometry by changing the law and watching what the orbit does."},
+        {"type":"interactive_diagram","id":"law","caption":"A planet released sideways, slower than circular speed, under a pull that weakens with distance as 1/rⁿ. The inverse square law is n = 2.","task":"Try other force laws, then come back to the inverse square","goal":"closed","aspect_ratio":1.67},
+        {"type":"text","text":"With any other law in which the pull weakens with distance, the orbit doesn't close on itself. The planet's farthest point swings round a little each time, tracing a rosette, and at some laws it spirals in to the centre. So the planets coming back to nearly the same ellipse, year after year, is one more sign of the inverse square. Hold on to the rosette. In lesson 4 one planet's orbit turns very slightly when it shouldn't, and the answer will not be a slightly different power of distance but a new theory of gravity."},
+        {"type":"text","text":"Newton's law says that every piece of matter pulls every other. That was a bold claim. It meant the planets pull on each other, not just on the Sun, and that their orbits are only nearly ellipses. Within a hundred and sixty years that small correction would find a new planet."},
+        {"type":"key_ideas","title":"Hold on to","points":["Newton showed that Kepler's three rules all follow from one pull toward the Sun that weakens as the square of the distance.","Under other laws of weakening with distance, orbits don't close: their far points swing round in a rosette.","Every piece of matter pulls every other, so planets also pull on each other."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on gravity and orbits", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"The Moon is about 60 times farther from the Earth's centre than an apple on a tree. How much weaker is the Earth's pull on it?","choices":["About 3,600 times weaker","About 60 times weaker","About 120 times weaker"],"answer":0,"why":"Gravity weakens as the square of the distance: 60 × 60 = 3,600."},
+          {"ask":"Why do astronauts float inside the International Space Station?","photo":"earth-iss","choices":["They and the station are falling round the Earth together","There is no gravity 400 km up","The station spins to cancel gravity"],"answer":0,"why":"At 400 km gravity is still about nine-tenths as strong as at the ground. Everything aboard falls together, so nothing presses on anything else."},
+          {"ask":"A ball fired sideways from 400 km up at 7.7 km/s circles the Earth. What happens at 9 km/s?","choices":["It swings out on an ellipse and comes back round","It escapes for good","It falls back to the ground"],"answer":0,"why":"Faster than circular speed but below the 10.9 km/s needed to escape, the ball swings out on an ellipse and returns to the starting point once each orbit."},
+          {"ask":"What would orbits look like if gravity weakened with distance faster or slower than the inverse square?","choices":["They wouldn't close: each loop's far point would swing round in a rosette","They would be perfect circles","Nothing would change"],"answer":0,"why":"Of the laws in which the pull weakens with distance, only the inverse square gives non-circular orbits that close on themselves. The others make the orbit turn each time round, or spiral."},
+          {"ask":"What was Halley's question to Newton in 1684?","choices":["What shape of orbit an inverse square pull from the Sun would give","How far away the Sun is","Why the Moon has phases"],"answer":0,"why":"Halley, Hooke and Wren had argued about it and couldn't show what orbits an inverse square pull made. Newton said ellipses, and the Principia followed."},
+          {"ask":"Newton's law says every piece of matter pulls every other. What did that predict about the planets?","choices":["They tug on each other, so their orbits are only nearly ellipses","They all move in perfect circles","Only the Sun has any gravity"],"answer":0,"why":"If every planet pulls on every other, each orbit is nudged by the rest, and the small departures from a perfect ellipse can be measured."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "The Moon falls toward the Earth 3,600 times less per second than an apple, because it is 60 times farther away: gravity weakens as the square of the distance.",
+    "An orbit is a fall that keeps missing the ground; from 400 km up that takes about 7.7 km/s, and escaping takes about 10.9 km/s.",
+    "Kepler's three rules all follow from Newton's inverse square law; under any other law that weakens with distance, orbits wouldn't close.",
+    "Every piece of matter pulls every other, so the planets nudge each other's orbits."
+  ],
+  "next": "Next: Uranus wanders off its predicted path, and a Frenchman with a pen tells a German with a telescope where to look.",
+  "journal": [],
+  "footnotes": {}
+}

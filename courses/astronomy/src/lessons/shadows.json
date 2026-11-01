@@ -1,0 +1,73 @@
+{
+  "id": "shadows",
+  "n": 1,
+  "title": "Two shadows",
+  "teaches": "How a shadow measured the Earth, and how an angle measured the distance to the Sun",
+  "parts": [
+    {
+      "title": "A well at Syene",
+      "blocks": [
+        {"type":"text","text":"Around 240 BC the most useful building in the world was a library. The kings of Egypt, Greek-speaking heirs of one of Alexander the Great's generals, had filled it with every scroll they could buy, copy or confiscate: ships that docked at Alexandria were searched for books, which were copied and the copies given back. The man in charge of it was **Eratosthenes** of Cyrene, a mathematician, poet and geographer whose rivals called him *Beta*, because he was second best at everything. It was meant as an insult. It reads now like a fair description of a very useful person."},
+        {"type":"text","text":"Somewhere among the reports that reached him was a curious one from **Syene**, the frontier town 800 km up the Nile that is now Aswan. At noon on the longest day of the year, it was said, the Sun shone straight down a deep well and lit the water at the bottom, and upright pillars cast no shadow at all. The Sun, that one day, stood exactly overhead."},
+        {"type":"diagram","id":"photo","caption":"The Nile at Aswan, the ancient Syene. Syene lies almost on the line where the midsummer noon Sun stands straight overhead.","options":{"photo":"aswan","aspect":1.6}},
+        {"type":"text","text":"In Alexandria, on the same day at the same hour, an upright stick did cast a shadow. A short one, but definitely there. Most people would have filed this under the general heading of foreign places being odd. Eratosthenes saw that it was a measurement of the whole Earth."},
+        {"type":"key_ideas","title":"Hold on to","points":["At noon on midsummer's day the Sun was straight overhead at Syene, so upright things there cast no shadow.","At the same moment in Alexandria, about 800 km north, a stick did cast a shadow."]}
+      ]
+    },
+    {
+      "title": "A fiftieth of a circle",
+      "blocks": [
+        {"type":"text","text":"The Greeks already knew the Earth was round. Sailors saw the hulls of ships vanish over the horizon before their masts, and in an eclipse of the Moon the Earth's shadow on the Moon is always a curved edge, whatever the direction it falls. What nobody knew was its size."},
+        {"type":"text","text":"Eratosthenes made two assumptions. The first is that the Sun is so far away that its rays arrive in parallel, like the lines of a ruled page. The second is that Alexandria lies due north of Syene, on the same line of longitude, so that noon comes to both at once. Neither is quite true, but both are close enough."},
+        {"type":"text","text":"Now the geometry does the rest. A stick stands straight up from the ground, and on a round Earth \"straight up\" means directly away from the centre, the way a plumb line hangs straight toward it. At Syene the stick points at the Sun. At Alexandria the stick also points away from the centre, but the curve of the Earth has turned it, so the Sun's rays arrive at an angle to it, and it casts a shadow. Because the Sun is so far away its rays reach both cities in parallel, so the angle between the rays and the Alexandria stick equals the angle between the two sticks, which is the angle between the two cities measured at the centre of the Earth. Eratosthenes found it to be about 7.2°, or one fiftieth of a full circle. The distance between the cities must then be one fiftieth of the way round the Earth."},
+        {"type":"interactive_diagram","id":"shadow","caption":"Parallel sunlight on a round Earth. The stick at Syene points at the Sun; the stick at Alexandria, 800 km away round the curve, leans by the angle the two cities make at the centre.","task":"Change the size of the Earth until the Alexandria shadow comes out at 7.2°","goal":"matched","aspect_ratio":1.6},
+        {"type":"text","text":"He put the distance between the cities at 5,000 **stadia**, the Greek unit of length, perhaps from the records of surveyors who paced the road. Fifty times that is 250,000 stadia. How long a stadion was is still argued over, because there were several in use.[^stadion] If it was about 160 metres, his Earth was about 40,000 km round, which is very nearly right. The stadia in use ranged from about 150 to 210 metres, so even the least generous choice puts him within about 30 per cent, with a stick, a shadow and a report about a well."},
+        {"type":"key_ideas","title":"Hold on to","points":["If the Sun's rays arrive in parallel, the shadow angle at one place, when the Sun is overhead at another, equals the angle between the two places at the Earth's centre.","7.2° is a fiftieth of a circle, so the Earth is fifty times the Syene-Alexandria distance round: about 40,000 km."]}
+      ]
+    },
+    {
+      "title": "But what if the Earth were flat?",
+      "blocks": [
+        {"type":"text","text":"A good scientist asks what else could explain the same measurement. Eratosthenes assumed a round Earth and a distant Sun. Suppose instead the Earth were flat, and the Sun was a small lamp hanging not far above it. A lamp straight above Syene would cast no shadow there, and a slanting one at Alexandria. Could that explain the two shadows just as well?"},
+        {"type":"interactive_diagram","id":"flat","caption":"A flat Earth lit by a nearby Sun hanging over Syene, and on the right the noon shadow angle at each distance north: measured (solid) and what the flat Earth predicts (dashed).","task":"Fit the flat Earth to the two shadows, then test it with a third stick farther north","goal":"ruled-out","aspect_ratio":1.6},
+        {"type":"text","text":"It can. Raise or lower the Sun in the figure until the Alexandria shadow fits: with the Sun hanging about 6,300 km above Syene, a flat Earth gives the right two shadows. Two measurements can't tell a round Earth from a flat one. That is not a weakness of the round Earth; it is a fact about two measurements."},
+        {"type":"text","text":"A third measurement settles it. Farther north, at Rhodes, Athens, Massalia (now Marseille) or Britain, the noon shadow angle on midsummer's day goes on growing by the same amount for every equal step north, as a round Earth predicts. Under the near Sun of the flat Earth that angle would grow more and more slowly, and no single height of the lamp fits every place. The ancient world did have such measurements. Around 325 BC Pytheas of Massalia sailed north past Britain and recorded the Sun's height at noon at his home port. The round Earth survives every test. The flat one fails the third."},
+        {"type":"key_ideas","title":"Hold on to","points":["Two shadows can be explained by a round Earth with a distant Sun or by a flat Earth with a nearby Sun.","Shadows measured at more places agree with the round Earth and not with the flat one."]}
+      ]
+    },
+    {
+      "title": "How far away is the Sun?",
+      "blocks": [
+        {"type":"text","text":"Eratosthenes needed the Sun to be far away. A generation earlier, **Aristarchus** of Samos had tried to find out how far, with an idea so simple it is almost cheeky. When the Moon is half lit, the line from the Moon to the Sun must make a right angle with the line from the Moon to us. If the Moon is half lit and you can see the Sun at the same time, as you often can in daylight, you have a right-angled triangle. Measure the angle between the Moon and the Sun as seen from Earth, and the shape of the triangle tells you how much farther away the Sun is than the Moon."},
+        {"type":"diagram","id":"photo","caption":"A half Moon. At this moment the Sun, the Moon and the Earth make a right angle at the Moon.","options":{"photo":"half-moon","aspect":1.6}},
+        {"type":"text","text":"Aristarchus used an angle of 87°. That made the Sun about 19 times as far away as the Moon. And since the Sun and the Moon look almost the same size in the sky (which is why the Moon can just cover the Sun in a total eclipse), the Sun had to be about 19 times as wide as the Moon too. He also used the time the Moon takes to cross the Earth's shadow in a lunar eclipse, which gave the Moon's size compared with the Earth's, and so, at 19 Moons wide, the Sun had to be several times wider than the Earth."},
+        {"type":"interactive_diagram","id":"half-moon","caption":"Aristarchus's triangle at half Moon. The angle at the Earth between the Moon and the Sun fixes how much farther the Sun is.","task":"Make a prediction, then move the angle from Aristarchus's 87° to the true 89.85°","goal":"true-angle","aspect_ratio":1.8},
+        {"type":"text","text":"His method was sound; his angle was not. The true angle is 89.85°, so close to a right angle that no one could have measured it by eye, and the Sun is about 390 times as far away as the Moon, roughly 150 million kilometres. This is a lesson that comes back again and again in astronomy. When the answer depends on the small difference between an angle and a right angle, a tiny error in the measurement makes an enormous error in the result."},
+        {"type":"text","text":"Still, even his underestimate had a consequence that he did not shy away from. If the Sun is far larger than the Earth, it seemed absurd that the large thing should circle the small one. Aristarchus proposed that the Earth goes round the Sun. Almost nobody agreed, and for good reasons we will come to in lesson 5. The idea waited eighteen centuries for Copernicus."},
+        {"type":"key_ideas","title":"Hold on to","points":["At half Moon, Earth, Moon and Sun make a right angle at the Moon; the angle at the Earth gives the Sun's distance in Moon distances.","Aristarchus used 87° and got 19 times; the true 89.85° gives about 390. Near a right angle, a small error in angle makes a huge error in distance.","A Sun much bigger than the Earth led Aristarchus to put the Sun, not the Earth, at the centre."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on measuring the Earth and the Sun", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Why does Eratosthenes's method need the Sun to be very far away?","choices":["So its rays arrive in parallel at both cities","So that it is bright enough to cast a shadow","So that it moves slowly across the sky"],"answer":0,"why":"The geometry works because the rays at Syene and Alexandria are parallel; then the shadow angle equals the angle between the cities at the Earth's centre. A nearby Sun sends rays out in a fan instead."},
+          {"ask":"At Alexandria the noon shadow on midsummer's day is 7.2°, a fiftieth of a circle. Syene is 800 km away. How far is it all the way round the Earth?","choices":["About 40,000 km","About 4,000 km","About 400,000 km"],"answer":0,"why":"800 km is a fiftieth of the way round, so the whole way round is 50 × 800 = 40,000 km."},
+          {"ask":"If the Earth were smaller, but Syene and Alexandria still 800 km apart, the shadow at Alexandria would be:","choices":["Longer, because the Sun’s rays meet the stick at a bigger angle","Shorter, because they meet it at a smaller angle","The same"],"answer":0,"why":"On a smaller Earth, 800 km is a bigger slice of the circle, so the ground at Alexandria is tilted further from the Sun's rays."},
+          {"ask":"A flat Earth with a Sun about 6,300 km up can give both shadows. What rules it out?","choices":["Shadows measured at a third place, farther north, which fit only a round Earth","Nothing; the two pictures are equally good","The fact that Syene's well is deep"],"answer":0,"why":"Two measurements can be fitted by either picture. Farther north the flat Earth predicts shadow angles that grow more and more slowly with distance, and the real ones don't."},
+          {"ask":"This is a half Moon. Standing on the Moon, what angle is there between the direction of the Sun and the direction of the Earth?","photo":"half-moon","choices":["A right angle","None: they are in the same direction","Half a circle: they are in opposite directions"],"answer":0,"why":"Half the Moon's face is lit only when sunlight strikes it from the side, at a right angle to our line of sight."},
+          {"ask":"Aristarchus used 87° where the truth is 89.85°. Why did such a small error matter so much?","choices":["Close to a right angle, the triangle's long side changes enormously for a tiny change in angle","Because he used the wrong distance to the Moon","It didn't matter; his answer was close"],"answer":0,"why":"The Sun's distance comes from how far the angle falls short of 90°. Being short by 3° instead of 0.15° made the Sun twenty times too close."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "With the Sun overhead at one place, the shadow angle at another equals their angle apart at the Earth's centre; Eratosthenes used this to measure the Earth at about 40,000 km round.",
+    "Two measurements can fit more than one picture; a third test is what tells a round Earth from a flat one.",
+    "At half Moon, the angle between Moon and Sun gives the Sun's distance; Aristarchus got 19 Moon distances, the truth is about 390.",
+    "Near a right angle, small errors in angle make huge errors in distance."
+  ],
+  "next": "Next: why Mars, every two years or so, stops and runs backwards across the sky, and how Kepler fought eight minutes of arc for six years.",
+  "journal": [],
+  "footnotes": {"stadion":{"kind":"technical","title":"Stadion","text":"A **stadion** (plural *stadia*) was the length of a Greek running track, but tracks differed: the one at Olympia was about 192 m, others nearer 157 m or 185 m. Which one Eratosthenes meant is unknown, so his result is quoted anywhere from about 39,000 to 46,000 km round. The true figure through the poles is 40,008 km."}}
+}

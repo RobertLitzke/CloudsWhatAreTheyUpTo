@@ -1,0 +1,80 @@
+{
+  "id": "sunshine",
+  "n": 10,
+  "title": "What makes the Sun shine?",
+  "teaches": "Why burning and shrinking can't power the Sun for long enough, and how fusing hydrogen into helium does",
+  "parts": [
+    {
+      "title": "Kelvin against the geologists",
+      "blocks": [
+        {"type":"text","text":"In 1859 Charles Darwin, in the first edition of *On the Origin of Species*, estimated how long the sea and rain would take to wear away the chalk of the Weald in southern England, and came up with about 300 million years. Evolution by small steps needed that kind of time, and more. The geologists, reading slow processes in the rocks, had come to think the same."},
+        {"type":"text","text":"Three years later **William Thomson**, later Lord Kelvin, the most celebrated physicist in Britain, published a short paper called *On the Age of the Sun's Heat*. Whatever powers the Sun, he argued, it is losing energy at an enormous rate, and it must have a supply. Find the supply, divide by the rate, and you have the most time the Sun can have been shining. If Kelvin was right about the supply, the Earth could not have had the time Darwin wanted. (He made the same argument from the Earth's own cooling; that story is in lesson 7 of the Geology course on this site.)"},
+        {"type":"text","text":"The obvious answer for what the Sun was burning was fuel in the ordinary sense, like coal. Kelvin and others did the sum. A Sun made of coal and oxygen, giving out light at its present rate, would burn out in a few thousand years. Recorded history is longer than that."},
+        {"type":"key_ideas","title":"Hold on to","points":["Darwin and the geologists needed hundreds of millions of years of sunlight; Kelvin argued that the Sun's fuel couldn't last that long.","A Sun of coal would burn out in a few thousand years."]}
+      ]
+    },
+    {
+      "title": "A shrinking Sun",
+      "blocks": [
+        {"type":"text","text":"Kelvin's answer, following the German physicist Hermann von Helmholtz, was gravity. If the Sun slowly shrinks under its own weight, each layer falling a little closer to the centre, the falling releases energy as heat, the way a dropped weight warms the floor it hits. A Sun shrinking by a few tens of metres a year, too little to notice, would keep shining at its present rate. But even shrinking can only go on for so long. Kelvin's numbers gave the Sun perhaps 20 to 30 million years. He said, firmly, that the geologists were wrong."},
+        {"type":"interactive_diagram","id":"fuel","caption":"How long the Sun can shine at its present output, by how much of its mass each fuel turns into light, against the ages of things on Earth. Each mark on the scale is ten times the last.","task":"Make a prediction, then slide up from burning, through shrinking, to fusion","goal":"fusion","aspect_ratio":1.82},
+        {"type":"text","text":"It is a useful way to think of fuels. Burning coal turns a few ten-billionths of its mass into energy. Shrinking the whole Sun turns a couple of millionths. To shine for billions of years, the Sun needs a fuel that turns thousandths of its mass into light, a million times better than coal. Nothing known in 1862 came close."},
+        {"type":"key_ideas","title":"Hold on to","points":["A Sun shrinking under its own gravity could shine for 20 to 30 million years, Kelvin's estimate.","To last billions of years, the Sun has to turn thousandths of its mass into light."]}
+      ]
+    },
+    {
+      "title": "The missing seven-tenths of a per cent",
+      "blocks": [
+        {"type":"text","text":"In 1896 Henri Becquerel found that uranium salts gave off energy on their own, and in 1903 Pierre Curie and Albert Laborde measured that radium gives off heat continuously. Here was an energy source inside atoms, far more concentrated than any chemical fire. If atoms held that much energy, perhaps the Sun was drawing on it. In 1904 Ernest Rutherford lectured on it at the Royal Institution in London with the aged Kelvin in the audience. Rutherford remembered that he was dreading the part about the age of the Earth, and that the old man fell asleep until it came, then sat up and glared. He survived by noting that Kelvin had limited the age *provided no new source of heat was discovered*. Kelvin, he said, beamed at him."},
+        {"type":"text","text":"The next year, 1905, Albert Einstein showed that mass itself is a form of energy, in the amount given by **E = mc²**, where c is the speed of light. Because c is so large, a very little mass is a very great deal of energy: one gram, entirely converted, is about as much as 20,000 tonnes of TNT."},
+        {"type":"text","text":"Then in 1920 Francis Aston, at Cambridge, weighed atoms with a new instrument of his own design and found that a helium atom is lighter than four hydrogen atoms, by about seven-tenths of one per cent. That August, in a lecture in Cardiff, **Arthur Eddington** put these together. If the Sun can somehow fuse four hydrogen nuclei into one helium nucleus, the missing 0.7% of the mass comes out as energy. The Sun has plenty of hydrogen, though nobody yet knew it was mostly hydrogen (that was Cecilia Payne's result five years later). Burning only the hydrogen in its hot core, the Sun could shine for about ten billion years."},
+        {"type":"diagram","id":"photo","caption":"Arthur Eddington, who argued in 1920 that the Sun is powered by turning hydrogen into helium.","options":{"photo":"eddington","aspect":0.85,"position":"center 25%"}},
+        {"type":"text","text":"There was a catch. Every nucleus carries positive electric charge, and like charges repel, more and more fiercely the closer they come. To fuse, two nuclei must be driven into contact at enormous speed. Physicists calculated that the Sun's core, at about 15 million K (at that size, kelvin or Celsius makes no difference), was nowhere near hot enough. Eddington's reply has become famous: he told his critics to go and find a hotter place. In 1928 George Gamow used quantum mechanics to show that a nucleus that comes close, though not close enough, can occasionally slip through the repulsion anyway, a little like a ball rolling through a hill it couldn't climb. Ten years later **Hans Bethe** and Charles Critchfield worked out the proton-proton chain that powers the Sun, while Bethe found the carbon-nitrogen cycle for hotter stars. The Sun turns about four million tonnes of its mass into light every second, and it has done so for four and a half billion years without making a dent."},
+        {"type":"diagram","id":"timeline","caption":"From Kelvin's shrinking Sun to the neutrinos that proved fusion.","options":{"events":[{"at":1854,"label":"Helmholtz: a shrinking Sun"},{"at":1862,"label":"Kelvin: the Sun is at most a few tens of millions of years old"},{"at":1896,"label":"Becquerel: radioactivity"},{"at":1905,"label":"Einstein: E = mc²"},{"at":1920,"label":"Eddington: hydrogen to helium","bold":true},{"at":1938,"label":"Bethe works out the reactions"},{"at":1968,"label":"Davis catches a third of the expected neutrinos"},{"at":2001,"label":"Sudbury: the rest had changed type","bold":true}],"spacing":"even"}},
+        {"type":"key_ideas","title":"Hold on to","points":["Four hydrogen nuclei weigh 0.7% more than one helium nucleus; fusing them turns that mass into energy (E = mc²).","Burning the hydrogen in its core, the Sun can shine for about ten billion years; it is now four and a half billion years old."]}
+      ]
+    },
+    {
+      "title": "A thermostat",
+      "blocks": [
+        {"type":"text","text":"Fusion is extremely sensitive to temperature: a core a few per cent hotter fuses hydrogen many per cent faster. That sounds like a recipe for a bomb, and on Earth it is. Yet the Sun does not run away."},
+        {"type":"interactive_diagram","id":"thermostat","caption":"The core's temperature after a sudden nudge hotter, for a star free to swell and for a core held rigid.","task":"Nudge the core with the star free to swell, then with it held rigid","goal":"steady","aspect_ratio":1.82},
+        {"type":"text","text":"The Sun stays stable because it is held together only by its own gravity. If the core gets a little too hot, the extra heat pushes the layers above outward; the core expands, and expanding gas cools, so fusion slows down again. If it gets too cool, the weight above squeezes it, it heats up, and fusion speeds up. (Squeezing a gas speeds up its particles, which is what heat is, as anyone who has felt a bicycle pump warm up knows; letting it expand slows them.) A star is a thermostat, and this is why it can sit steadily on the main sequence for billions of years. A hydrogen bomb has no such restraint. Nothing holds its fuel in but the split second before it flies apart, and nothing stops the runaway."},
+        {"type":"key_ideas","title":"Hold on to","points":["A star self-regulates: too hot and its core expands and cools; too cool and it is squeezed and heats.","That balance keeps a star steady on the main sequence for most of its life."]}
+      ]
+    },
+    {
+      "title": "A tank of cleaning fluid",
+      "blocks": [
+        {"type":"text","text":"All of this was inference: we cannot see the Sun's core. Light made there is absorbed and given off again countless times on the way out, wandering at random, and takes something like a hundred thousand years to reach the surface. But fusion makes another product, the **neutrino**, a particle so aloof that it passes through the entire Sun, and the Earth, almost as if they were not there. About sixty billion of them pass through each square centimetre of you every second, day and night."},
+        {"type":"text","text":"In the 1960s the chemist **Ray Davis** built a trap for them 1,500 metres underground in the Homestake gold mine in South Dakota, where the rock shields out everything else: a tank of 380,000 litres of dry-cleaning fluid. About once every couple of days, a neutrino would turn one chlorine atom in the tank into argon, and Davis would count the argon atoms. From 1968 he found neutrinos, which showed that fusion really is happening in the Sun's core. But he found only about a third as many as the theory predicted."},
+        {"type":"diagram","id":"photo","caption":"Ray Davis's neutrino detector in the Homestake mine: a tank of cleaning fluid the size of a railway tanker, a mile underground.","options":{"photo":"homestake","aspect":1.25}},
+        {"type":"text","text":"For thirty years the solar neutrino problem would not go away. Either the model of the Sun was wrong or something happened to neutrinos on the way. In 2001 and 2002 the Sudbury Neutrino Observatory, in a nickel mine in Canada, used heavy water to catch all three kinds of neutrino, and found the total was just what the Sun should make. Two-thirds had changed type during the journey into kinds Davis's tank couldn't see. The model of the Sun was right. Davis got the Nobel Prize in 2002, at eighty-seven."},
+        {"type":"diagram","id":"photo","caption":"The Sun in ultraviolet light from NASA's Solar Dynamics Observatory: four million tonnes of mass turned into light every second.","options":{"photo":"sun-sdo","aspect":1.1}},
+        {"type":"key_ideas","title":"Hold on to","points":["Fusion makes neutrinos that escape the Sun's core directly; detecting them confirmed that fusion powers the Sun.","Davis caught only a third of the expected neutrinos; the Sudbury experiment showed the rest had changed type on the way."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on what powers the Sun", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Why can't the Sun be burning like coal?","choices":["It would burn out in a few thousand years","There is no oxygen in space","Coal doesn't glow white"],"answer":0,"why":"Chemical burning releases only a few ten-billionths of the fuel's mass as energy; at the Sun's output that lasts only thousands of years."},
+          {"ask":"Kelvin's shrinking Sun could last 20 to 30 million years. Why was that a problem?","choices":["Geology and evolution needed hundreds of millions of years or more","The Sun is not shrinking","It was longer than the age of the universe"],"answer":0,"why":"Rocks and fossils recorded far longer histories. The Earth turned out to be 4.54 billion years old."},
+          {"ask":"Four hydrogen nuclei are fused into one helium nucleus. Where does the energy come from?","choices":["The helium is 0.7% lighter, and that mass becomes energy","From burning the hydrogen with oxygen","From the Sun shrinking"],"answer":0,"why":"E = mc²: the small difference in mass becomes a large amount of energy, because c is so big."},
+          {"ask":"If the Sun's core gets slightly too hot, what happens?","choices":["The core expands and cools, and fusion slows back down","Fusion runs away and the Sun explodes","Nothing changes"],"answer":0,"why":"Extra heat pushes the layers out; expanding gas cools; fusion slows. The Sun is a thermostat."},
+          {"ask":"Why was Davis's neutrino tank a mile underground?","photo":"homestake","choices":["The rock blocks other particles but neutrinos pass straight through it","To be closer to the Sun's core","To keep the fluid cold"],"answer":0,"why":"Cosmic rays and other radiation would swamp the few neutrino captures. Neutrinos pass through the rock as easily as through the Sun."},
+          {"ask":"Davis found only a third of the expected solar neutrinos. What was the answer?","choices":["Neutrinos change type on the way, and his tank could only see one type","The Sun had partly stopped fusing","His tank leaked"],"answer":0,"why":"The Sudbury Neutrino Observatory counted all three types and found the full number the Sun should make."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Burning would power the Sun for thousands of years, shrinking for tens of millions; neither is enough.",
+    "Fusing four hydrogen nuclei into helium turns 0.7% of their mass into energy (E = mc²), enough for about ten billion years.",
+    "A star is a thermostat: its core expands and cools if it gets too hot.",
+    "Neutrinos from the core confirmed fusion; the missing two-thirds had changed type on the way."
+  ],
+  "next": "Next: two star clusters, born all at once, look different on the Hertzsprung–Russell diagram. Their difference is a clock.",
+  "journal": [],
+  "footnotes": {}
+}

@@ -1,0 +1,59 @@
+{
+  "id": "hr",
+  "n": 9,
+  "title": "Giants and dwarfs",
+  "teaches": "How plotting brightness against colour sorted the stars, and showed that some are giants and some are no bigger than the Earth",
+  "parts": [
+    {
+      "title": "Same colour, different brightness",
+      "blocks": [
+        {"type":"text","text":"Once Bessel and those after him had measured distances, astronomers could do something new: work out how much light a star really gives out, not just how bright it looks. A candle across the room and a lighthouse across the bay can look equally bright. Knowing the distance, you can tell which is which. The real output of a star, compared with the Sun's, is its **luminosity**."},
+        {"type":"text","text":"In 1905 **Ejnar Hertzsprung**, a Danish chemical engineer who had taught himself astronomy, looked at the stars whose distances were known and noticed something strange. Among the reddish stars, most were very faint, but a few were enormously bright, hundreds or thousands of times brighter than their faint cousins of the same colour. There seemed to be no stars in between. It was as if every red animal were either a mouse or an elephant."},
+        {"type":"text","text":"Lesson 7 tells you what that means. The same colour means the same surface temperature, and the same temperature means each square metre gives off the same light. A star a thousand times brighter, at the same temperature, has a thousand times the surface area. Area grows as the square of width, so ten thousand times the area is a hundred times the width (100 × 100 = 10,000), and a thousand times the area about 32 times. Hertzsprung called the bright ones **giants** and the faint ones **dwarfs**, and the names stuck. In his sense the Sun is a dwarf: an ordinary star, not a small one."},
+        {"type":"diagram","id":"same-colour","caption":"Two stars of the same temperature. The giant gives out more light only because it is bigger. The sizes here are to scale with each other."},
+        {"type":"key_ideas","title":"Hold on to","points":["Luminosity is the light a star really gives out, worked out from how bright it looks and how far away it is.","Stars of the same colour can differ in luminosity a thousandfold; the bright ones must be much bigger: giants."]}
+      ]
+    },
+    {
+      "title": "The diagram",
+      "blocks": [
+        {"type":"text","text":"Hertzsprung published in a photography journal, and few astronomers read it. In 1913 **Henry Norris Russell** at Princeton, the same Russell who later doubted Cecilia Payne, independently made the same discovery and drew it as a picture: luminosity going up the page, spectral class (and so temperature) across. The **Hertzsprung–Russell diagram** is the most useful single picture in astronomy. Here it is for the 1,500 or so stars within about 65 light-years, with some famous more distant ones added and labelled."},
+        {"type":"interactive_diagram","id":"hr","caption":"The Hertzsprung–Russell diagram: every star within about 65 light-years of the Sun, each a dot in its own colour, with hot stars on the left and bright ones at the top. The dashed lines join stars of equal size. The ringed star is yours to set.","task":"Make a prediction, then set your star's temperature and size to put it where Betelgeuse is","goal":"betelgeuse","aspect_ratio":1.56},
+        {"type":"text","text":"The stars don't scatter. Most of them, the Sun included, lie on one band running from hot and bright at the top left to cool and faint at the bottom right. This is the **main sequence**. Above it, top right, are the cool, bright giants and supergiants: Arcturus, Aldebaran, Betelgeuse. Below it, bottom left, is a small group of stars that are hot but extremely faint. Hot and faint means tiny."},
+        {"type":"text","text":"Each dashed line joins stars of the same width, worked out from temperature and luminosity as above. Read them off and the sizes are startling. Betelgeuse, at about 3,600 K and 100,000 times the Sun's luminosity, must be roughly 800 times the Sun's width. Put it where the Sun is and its surface would reach past the orbit of Mars. The faint hot stars at the bottom, the **white dwarfs**, are about the size of the Earth. The first one measured, the faint companion of Sirius, weighs about as much as the Sun. Squeezing a Sun into an Earth gives a density so extreme, a teaspoonful weighing tonnes, that many astronomers at first refused to believe it. It is real, and it is lesson 12."},
+        {"type":"diagram","id":"photo","caption":"Sirius and, at lower left, its faint companion Sirius B, a white dwarf about the size of the Earth, photographed by Hubble. The spikes are made by the telescope.","options":{"photo":"sirius-b","aspect":1}},
+        {"type":"key_ideas","title":"Hold on to","points":["On the Hertzsprung–Russell diagram, most stars lie on one diagonal band, the main sequence.","Cool, bright stars at top right are giants and supergiants, hundreds of times the Sun's width; hot, faint stars at bottom left are white dwarfs, the size of the Earth."]}
+      ]
+    },
+    {
+      "title": "What the band means",
+      "blocks": [
+        {"type":"text","text":"Most stars lie on one line because a star on the main sequence is doing one particular thing, steadily, for most of its life. The place it sits on that line is set almost entirely by one number: its mass. Heavier stars are hotter, bigger and far brighter; lighter ones are cooler, smaller and dimmer. A star of ten Suns sits up near the top left, thousands of times brighter than the Sun; a star of a fifth of a Sun sits down at the bottom right, a few hundred times fainter."},
+        {"type":"text","text":"The next lessons explain what that one particular thing is, and what makes a star leave the main sequence to become a giant or end as a white dwarf. But the diagram already told astronomers a century ago that stars have lives: that a red giant and a white dwarf are not different kinds of creature, but the same kind at different ages. It was like finding a crowd photograph and realising, from how the people are spread out, that children grow into adults."},
+        {"type":"diagram","id":"photo","caption":"Betelgeuse's size, measured by the ALMA telescope, compared with the Sun and the orbits of the inner planets.","options":{"photo":"betelgeuse-size","aspect":1.2}},
+        {"type":"key_ideas","title":"Hold on to","points":["Where a star sits on the main sequence is set by its mass: heavier stars are hotter, bigger and much brighter.","Giants and white dwarfs are stars at other stages of life, not different kinds of thing."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the Hertzsprung–Russell diagram", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Two stars are the same colour, but one is 10,000 times more luminous. How much wider is it?","choices":["About 100 times","About 10,000 times","The same width"],"answer":0,"why":"Same colour, same light per square metre. Ten thousand times the light needs ten thousand times the area, which is a hundred times the width."},
+          {"ask":"Where on the Hertzsprung–Russell diagram are the white dwarfs?","choices":["Bottom left: hot but very faint","Top right: cool but very bright","In the middle of the main sequence"],"answer":0,"why":"Hot means bright per square metre; very faint overall means very few square metres. They are about the size of the Earth."},
+          {"ask":"Sirius B, the faint dot at lower left, is hot, but in visible light about 10,000 times fainter than Sirius. What must it be?","photo":"sirius-b","choices":["Tiny: about the size of the Earth","Very far behind Sirius","Cool and red"],"answer":0,"why":"It orbits Sirius, so it is at the same distance; it is hot, so its faintness can only mean a very small surface."},
+          {"ask":"What mostly sets where a star lies on the main sequence?","choices":["Its mass","Its distance from us","Its age"],"answer":0,"why":"Heavier main-sequence stars are hotter, bigger and much brighter; lighter ones cooler and dimmer."},
+          {"ask":"Betelgeuse is cooler than the Sun but 100,000 times more luminous. Where is it on the diagram?","photo":"betelgeuse-size","choices":["Top right, among the supergiants","Bottom right, among the faint cool stars","Top left, among the hot blue stars"],"answer":0,"why":"Cool puts it on the right, enormous luminosity at the top: a supergiant, roughly 800 times the Sun's width."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "A star's luminosity, its real output of light, comes from its apparent brightness and its distance.",
+    "Stars of one colour can differ in luminosity a thousandfold, so some are giants.",
+    "On the Hertzsprung–Russell diagram most stars lie on the main sequence, set by mass; giants lie above it, white dwarfs below.",
+    "Betelgeuse is about 800 times the Sun's width; a white dwarf is about the Earth's size."
+  ],
+  "next": "Next: Kelvin says the Sun can be no more than a few tens of millions of years old. The geologists need billions. Who is right, and what is the Sun burning?",
+  "journal": [],
+  "footnotes": {}
+}

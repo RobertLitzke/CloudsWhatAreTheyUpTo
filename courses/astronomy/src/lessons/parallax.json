@@ -1,0 +1,60 @@
+{
+  "id": "parallax",
+  "n": 5,
+  "title": "How far are the stars?",
+  "teaches": "Why the stars should shift as the Earth moves, why nobody could see it, and how Bessel finally did",
+  "parts": [
+    {
+      "title": "The missing shift",
+      "blocks": [
+        {"type":"text","text":"Hold a finger up at arm's length and look at it with one eye, then the other. It jumps against the background. Bring it closer and it jumps more; move it away and it jumps less. This is **parallax**: a near thing seems to shift against far things when you look from two different places. Your brain uses it all the time, through two eyes a few centimetres apart, to judge distance."},
+        {"type":"text","text":"Now make the two eyes the Earth in January and the Earth in July, on opposite sides of its orbit round the Sun, 300 million km apart. If the Earth really moves, then the nearer stars ought to shift back and forth against the more distant ones once a year. Aristarchus's critics in the third century BC made this point. No such shift could be seen. Therefore, they said, the Earth does not move."},
+        {"type":"text","text":"It was a good argument, and the strongest scientific case against Copernicus. Tycho Brahe, the most accurate observer in the world, looked for the shift and found nothing, to within the minute or two of arc his instruments could measure. If the Earth went round the Sun, the stars had to be so far away that even a 300-million-km baseline made no visible difference. To Tycho that seemed an absurd waste of space. He preferred a compromise, with the Sun circling the Earth and the other planets circling the Sun."},
+        {"type":"text","text":"The Copernicans had only one reply, and it turned out to be right: the stars are much, much farther away than anyone was comfortable imagining."},
+        {"type":"key_ideas","title":"Hold on to","points":["Parallax: a near object shifts against far ones when seen from two places; the nearer it is, the bigger the shift.","If the Earth orbits the Sun, near stars should shift once a year. For two thousand years no shift was seen, which was a serious argument against a moving Earth."]}
+      ]
+    },
+    {
+      "title": "Two centuries of trying",
+      "blocks": [
+        {"type":"text","text":"Once telescopes arrived in the 1600s, the hunt for stellar parallax became one of the great prizes in astronomy. It went on failing for two hundred years. Several astronomers announced it and were proved wrong. James Bradley, searching in the 1720s, found that stars do shift slightly over the year, but in the wrong pattern for parallax. He had discovered something else, the **aberration** of starlight. Run through vertical rain and it seems to slant toward you; the Earth runs through starlight at 30 km a second, so the light seems to slant by a tiny angle in the direction we are moving, and the angle tells you how fast light is compared with the Earth. It gave the best measurement of the speed of light for a century. A wonderful discovery, and still no parallax."},
+        {"type":"text","text":"Part of the problem was knowing which star to try. The brightest stars are not necessarily the nearest. Some are close; others are enormously luminous and far away. A better clue was **proper motion**, the slow drift of a star across the sky over decades, independent of any yearly swing. Near things seem to move faster than distant ones, as a nearby car crosses your view faster than a distant one. A star with a large proper motion is probably close."},
+        {"type":"diagram","id":"photo","caption":"Friedrich Wilhelm Bessel in 1839, the year after his parallax.","options":{"photo":"bessel","aspect":0.82}},
+        {"type":"text","text":"**Friedrich Wilhelm Bessel** started out as a clerk in a trading company in Bremen, taught himself astronomy at night, and at twenty-five became director of a new observatory at Königsberg. He chose **61 Cygni**, a faint star in the Swan with one thing going for it: it had the largest proper motion then known, crossing the width of the full Moon in about 350 years. He measured it against two faint background stars with a heliometer, a telescope whose lens is cut in two so that the two halves can be slid apart to bring one star's image onto another's, measuring the gap very precisely, night after night, for more than a year."},
+        {"type":"key_ideas","title":"Hold on to","points":["Telescope-era searches for parallax failed for two centuries; Bradley found instead a shift caused by the Earth's motion through starlight.","A star that drifts fast across the sky over the years (large proper motion) is probably near, so it is the best place to look for parallax."]}
+      ]
+    },
+    {
+      "title": "A third of a second of arc",
+      "blocks": [
+        {"type":"text","text":"In 1838 Bessel announced that 61 Cygni swung to and fro by about 0.3 seconds of arc either side of its average position. Each swing is about the width of a coin seen from fifteen kilometres. It put the star about 660,000 times as far away as the Sun (the modern figure, 11.4 light-years, is a little more). Around the same time Thomas Henderson, at the Cape of Good Hope, measured a parallax for Alpha Centauri, and Friedrich Struve, in Russia, one for Vega. After two thousand years the Earth was seen to move, and the stars were found to be as far away as the Copernicans had needed."},
+        {"type":"interactive_diagram","id":"parallax","caption":"Left: the Earth in January and July, and a near star (not to scale). Right: the star against far background stars through a telescope, enormously magnified.","task":"Make a prediction, then find Bessel's star, 61 Cygni, 11.4 light-years away","goal":"bessel","aspect_ratio":1.6},
+        {"type":"text","text":"Distances like this need a bigger unit than the kilometre. The **light-year** is how far light travels in a year, about 9.5 million million km. 61 Cygni is 11.4 light-years away; the nearest star, Proxima Centauri, 4.2. Astronomers also use the **parsec**, the distance at which a star would show a parallax of one second of arc, about 3.26 light-years.[^parsec]"},
+        {"type":"diagram","id":"scale","caption":"Distances from the Earth, each mark on the scale ten times the last.","options":{"items":[{"label":"The Moon","value":384000},{"label":"The Sun","value":150000000},{"label":"Neptune","value":4500000000},{"label":"Proxima Centauri","value":40000000000000},{"label":"61 Cygni","value":108000000000000,"bold":true},{"label":"Vega","value":237000000000000}],"unit":"km","log":true}},
+        {"type":"text","text":"The parallax of a star shrinks in step with its distance. Twice as far, half the shift. Most stars even in our corner of the galaxy show parallaxes of a hundredth of a second of arc or less, which is why the job had to wait for space. The European Space Agency's **Gaia** satellite, launched in 2013, has measured the positions of nearly two billion stars, and parallaxes for more than a billion of them, the best of them to about ten millionths of a second of arc."},
+        {"type":"diagram","id":"photo","caption":"The Milky Way from southern Oregon. Almost every individual star you can make out is close enough for Gaia to measure its parallax; the glow behind them is far beyond.","options":{"photo":"milky-way","aspect":1.5}},
+        {"type":"key_ideas","title":"Hold on to","points":["Bessel measured 61 Cygni's parallax in 1838: about a third of a second of arc, 11.4 light-years away.","Parallax shrinks in step with distance: twice as far, half the shift.","A light-year is the distance light travels in a year, about 9.5 million million km; the nearest star is 4.2 light-years away."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the distances to stars", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Why was the missing stellar parallax a serious argument against a moving Earth?","choices":["If the Earth moves round the Sun, near stars should shift once a year, and none was seen","The Bible said the Earth was still","Stars were known to be very close"],"answer":0,"why":"It was a fair test with a clear prediction. The Copernican answer, that the stars are too far for the shift to be seen, was right but couldn't be checked for almost three centuries."},
+          {"ask":"Why did Bessel choose 61 Cygni, a faint star?","choices":["Its large proper motion suggested it was near","It was the brightest star in the Swan","It was the only star visible from Königsberg"],"answer":0,"why":"Brightness is a poor guide to distance, but a star that drifts quickly across the sky over the years is probably close, and so should have a large parallax."},
+          {"ask":"A star twice as far away as 61 Cygni would show a parallax of:","choices":["Half as much","A quarter as much","The same"],"answer":0,"why":"The angle shrinks in step with distance, so doubling the distance halves the shift."},
+          {"ask":"What is a light-year?","choices":["The distance light travels in a year","The time light takes to reach us from the Sun","The brightness of a star after one year"],"answer":0,"why":"It is a distance, about 9.5 million million km, despite the 'year' in its name."},
+          {"ask":"Most of the stars in this picture are close enough for Gaia to measure their parallax. What makes Gaia better at it than telescopes on the ground?","photo":"milky-way","choices":["Above the air's shimmer, it measures positions far more precisely","It is closer to the stars","It uses a longer baseline than the Earth's orbit"],"answer":0,"why":"Gaia circles the Sun alongside the Earth, so its baseline is about the same. Its advantage is precision: no air shimmering in front of the stars (which blurs every telescope on the ground), and a very stable instrument."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Parallax is the shift of a near object against far ones seen from two places; it shrinks in step with distance.",
+    "The missing parallax of the stars was a good argument against a moving Earth until Bessel measured 61 Cygni in 1838.",
+    "Stars are light-years away; the nearest is 4.2 light-years, and Gaia has measured parallaxes for over a billion stars."
+  ],
+  "next": "Next: in 1835 a French philosopher said we could never know what stars are made of. Twenty-four years later, two Germans in Heidelberg found out.",
+  "journal": [],
+  "footnotes": {"parsec":{"kind":"technical","title":"Parsec","text":"A **parsec** (from *parallax second*) is the distance at which a star would shift by one second of arc either side of its average position as the Earth goes round the Sun: about 3.26 light-years, or 31 million million km. A star's distance in parsecs is one divided by its parallax in seconds of arc."}}
+}

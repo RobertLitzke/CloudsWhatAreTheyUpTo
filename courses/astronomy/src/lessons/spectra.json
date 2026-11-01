@@ -1,0 +1,71 @@
+{
+  "id": "spectra",
+  "n": 6,
+  "title": "What the stars are made of",
+  "teaches": "How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth",
+  "parts": [
+    {
+      "title": "Forever unknowable",
+      "blocks": [
+        {"type":"text","text":"In 1835 the French philosopher **Auguste Comte** set out to describe the limits of human knowledge, and chose the stars as his example. We can learn their shapes, distances and motions, he wrote, but we shall never be able to study their chemical composition by any means. It seemed a safe bet. You cannot put a piece of a star in a test tube."},
+        {"type":"text","text":"He was wrong within twenty-five years, and the clue that proved him wrong had already been found. It was in sunlight, split into colours."},
+        {"type":"text","text":"Newton had shown in the 1660s that a glass prism spreads white light into a band of colours, red at one end and violet at the other, which he called a **spectrum**. For the next hundred and thirty years the solar spectrum was assumed to be a smooth rainbow. In 1802 William Wollaston, looking through a narrow slit instead of a round hole, noticed seven dark lines across it, and supposed they were the natural boundaries between colours."},
+        {"type":"key_ideas","title":"Hold on to","points":["A prism spreads light into a spectrum of colours, red to violet.","In 1835 Comte gave the make-up of the stars as an example of something we could never know."]}
+      ]
+    },
+    {
+      "title": "The glassmaker's lines",
+      "blocks": [
+        {"type":"text","text":"**Joseph Fraunhofer** had been orphaned at eleven and apprenticed to a mirror-maker in Munich. When he was fourteen the workshop collapsed on him; he was dug out of the rubble alive, and the Elector of Bavaria, who came to the scene, gave him money that allowed him to buy books and a glass-grinding machine. He became the finest maker of optical glass in Europe. To make better lenses he needed to know exactly how each kind of glass bent each colour, and for that he needed fixed marks in the spectrum to measure against."},
+        {"type":"text","text":"In 1814, testing prisms with a small telescope, he found them in sunlight: not a few dark lines but hundreds, some thick, some fine, always in the same places. He mapped 574 of them and labelled the strongest with letters, starting from A in the deep red. The labels are still used. He had no idea what the lines were. They were simply the most useful rulers a glassmaker ever had."},
+        {"type":"text","text":"Over the next forty years chemists noticed something about flames. Sprinkle a little table salt into a gas flame and it burns bright yellow; through a prism, that yellow is a pair of bright lines, very close together. Different substances gave different colours and different patterns of bright lines, like signatures. And the yellow pair from salt fell exactly where Fraunhofer's dark D line sat in sunlight."},
+        {"type":"diagram","id":"photo","caption":"Sodium, from a pinch of salt, colouring a gas flame yellow. Through a prism this light is two bright yellow lines.","options":{"photo":"sodium-flame","aspect":0.8}},
+        {"type":"key_ideas","title":"Hold on to","points":["Fraunhofer mapped hundreds of dark lines in sunlight in 1814, always at the same colours.","A heated substance in a flame glows only at certain colours, a pattern of bright lines unique to it; sodium's yellow pair matched Fraunhofer's dark D line."]}
+      ]
+    },
+    {
+      "title": "Heidelberg, 1859",
+      "blocks": [
+        {"type":"text","text":"In Heidelberg the chemist **Robert Bunsen** had a new gas burner with an almost colourless flame, ideal for watching the colours of substances heated in it, and his friend the physicist **Gustav Kirchhoff** suggested putting the light through a prism instead of judging the colours by eye. Together they built a spectroscope and started cataloguing elements by their lines. In the process they found two new metals, which they named caesium and rubidium after the colours of their lines, sky blue and dark red."},
+        {"type":"diagram","id":"photo","caption":"Kirchhoff (left) and Bunsen in Heidelberg.","options":{"photo":"kirchhoff-bunsen","aspect":0.85,"position":"center 25%"}},
+        {"type":"text","text":"In the autumn of 1859, Kirchhoff passed sunlight through a sodium flame on its way into the spectroscope, expecting the flame's bright yellow lines to fill in the Sun's dark D line. When the sunlight was dim, they did. When he let full sunlight through, to his astonishment the dark line grew much darker. He then shone a bright white lamp through the sodium flame, and dark lines appeared at sodium's colours, where a moment before there had been none."},
+        {"type":"interactive_diagram","id":"bench","caption":"Kirchhoff's bench: a lamp at 3,000 K, a cell of gas in front of it, a prism, and the spectrum it makes. (K is kelvin: degrees Celsius counted up from absolute zero, −273 °C, so 3,000 K is about 2,700 °C.)","task":"Make a prediction, then make sodium's lines dark, and try a hotter gas","goal":"dark-lines","aspect_ratio":1.74},
+        {"type":"text","text":"The rule Kirchhoff worked out is this. A hot, dense thing (a lamp filament, a glowing coal, the deeper layers of a star) glows at every colour, a continuous rainbow. A thin gas glows only at its own colours. Put a thin gas in front of a hot source and, at its own colours, it does both: it soaks up the light coming from behind and glows with its own. Which wins depends on temperature. A gas cooler than the source glows more feebly than the light it soaked up, so less light reaches you at its colours than at the colours around them: dark lines, in exactly the places its bright lines would be. A gas hotter than the source glows more brightly than what it takes away, and its lines come out bright."},
+        {"type":"key_ideas","title":"Hold on to","points":["A hot dense body glows at all colours; a thin gas glows only at its own colours (bright lines).","A cooler gas in front of a hotter source shows the same colours as dark lines; each element's set of lines is its fingerprint."]}
+      ]
+    },
+    {
+      "title": "Iron in the Sun",
+      "blocks": [
+        {"type":"text","text":"The meaning for the Sun was immediate. The Sun's glowing surface is the lamp; its thinner, cooler outer gas is the flame. Every dark line in sunlight is the signature of an element in that gas. Kirchhoff spent the next few years comparing the Sun's lines with those of elements in the laboratory, line by line, and found sodium, iron, magnesium, calcium, chromium, nickel and others. Iron alone matched sixty lines in his first count. Comte's unknowable thing was known, and he had died in 1857, just before it was."},
+        {"type":"interactive_diagram","id":"sun-lines","caption":"Top: a simplified spectrum of sunlight with its strongest dark lines, lettered as Fraunhofer lettered them. Bottom: the bright lines seen at the edge of the Sun during the 1868 eclipse. Lighting an element marks its laboratory lines on both.","task":"Find the elements that account for every dark line in sunlight","goal":"all-matched","aspect_ratio":1.6},
+        {"type":"text","text":"In August 1868 a total eclipse crossed India. When the Moon covered the Sun's bright face, astronomers could see red flames, the prominences, standing out from its edge, and Pierre Janssen pointed a spectroscope at them. They were hot thin gas, with bright lines: hydrogen's lines and others, including a bright yellow line close to sodium's pair. Two months later in England, without waiting for an eclipse, Norman Lockyer saw the same yellow line at the Sun's edge and noticed it lay just beside sodium's pair, matching no known element. He and the chemist Edward Frankland named the unknown substance after the Greek for the Sun, *helios*: **helium**."},
+        {"type":"diagram","id":"photo","caption":"Prominences at the Sun's edge, photographed during the total eclipse of April 2024. In 1868 the light of prominences like these gave away helium.","options":{"photo":"prominences","aspect":1}},
+        {"type":"text","text":"For twenty-seven years helium was known only from the Sun. Many chemists doubted it was real. Then in 1895 William Ramsay, treating a uranium mineral with acid, collected a gas whose spectrum showed the yellow line. Helium had been found on Earth, after it had been found in a star. The order of those two discoveries is as good a reply to Comte as one could want."},
+        {"type":"key_ideas","title":"Hold on to","points":["The Sun's dark lines are the fingerprints of elements in its outer gas: sodium, iron, magnesium, calcium, hydrogen and more.","Helium was found in the Sun's spectrum in 1868, 27 years before it was found on Earth."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on spectra", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Through a prism, this flame's yellow light is:","photo":"sodium-flame","choices":["Two bright yellow lines, sodium's fingerprint","A smooth rainbow from red to violet","Dark lines on a rainbow"],"answer":0,"why":"A thin heated gas glows only at its own colours. Sodium's are a close pair in the yellow."},
+          {"ask":"A white lamp shines through cool sodium vapour into a spectroscope. What do you see?","choices":["A rainbow with dark lines where sodium's bright lines would be","Only sodium's bright yellow lines","A plain rainbow"],"answer":0,"why":"Cooler gas in front of a hotter source takes its own colours out of the light, leaving dark lines in the same places as its bright ones."},
+          {"ask":"Why are there dark lines in sunlight?","choices":["Thinner, cooler gas in the Sun's outer layers takes its elements' colours out of the light from below","The Sun has gaps between its colours","The Earth's shadow blocks some colours"],"answer":0,"why":"The Sun's deep, dense gas glows at every colour; the thinner gas above it absorbs at its elements' own colours."},
+          {"ask":"How did astronomers know the dark D line in sunlight was sodium?","choices":["It sits at exactly the colour of sodium's bright yellow pair in the laboratory","Sodium is the most common element","Fraunhofer named it after sodium"],"answer":0,"why":"Each element's lines fall at fixed colours. A match, line for line, is the fingerprint."},
+          {"ask":"In 1868 a yellow line in the Sun's prominences matched no known element. What was it?","photo":"prominences","choices":["Helium, not found on Earth until 1895","Hydrogen, glowing hotter than usual","Iron at a very high temperature"],"answer":0,"why":"Lockyer showed the line belonged to no known element and named it after the Sun. Ramsay found helium on Earth 27 years later."},
+          {"ask":"What did Comte say in 1835 that turned out to be wrong?","choices":["That we could never know what the stars are made of","That the Earth goes round the Sun","That stars are suns"],"answer":0,"why":"Within 25 years Kirchhoff, with the spectroscope he built with Bunsen, was reading the Sun's elements from its spectrum."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "A prism spreads light into a spectrum; sunlight's spectrum is crossed by hundreds of dark lines.",
+    "A thin gas glows at its own colours (bright lines); in front of a hotter source it shows the same colours as dark lines.",
+    "Every element has its own set of lines, so the Sun's dark lines tell us what it is made of.",
+    "Helium was discovered in the Sun in 1868, 27 years before it was found on Earth."
+  ],
+  "next": "Next: look at Orion and you'll see one red star and one blue one. Why do stars come in every colour except green?",
+  "journal": [],
+  "footnotes": {}
+}

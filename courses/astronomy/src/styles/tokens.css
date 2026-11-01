@@ -1,0 +1,40 @@
+/* Design tokens: an observatory notebook at night. The page is the night sky,
+   lessons are on pale paper under a red-shaded lamp, and the accents are star
+   colours, from cool red to hot blue-white. */
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
+}
+
+:root {
+  --bg: #141a2e; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #232b45;
+  --panel: #f4efe4;
+  --panel-2: #e3dccb;
+  --ink: #1f2233;
+  --ink-soft: #5f6275;
+  --text: #ece6d8;
+  --muted: #a9adc2;
+  --sun: #e8b75a;
+  --sun-deep: #d9824a;
+  --rose: #c75b6a;
+  --teal: #4f9fb8;
+  --violet: #8f7fd0; /* branch colours */
+  --leaf: #6fa86a;
+  --ice: #8fb8d8;
+  --ember: #b0603a;
+  --title: #f6dfa6;
+  --paper: #fbf8f1;
+  --good: #3f8f5a;
+  --bad: #c0392b;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }

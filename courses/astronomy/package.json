@@ -1,0 +1,30 @@
+{
+  "name": "astronomy",
+  "version": "0.1.0",
+  "description": "Astronomy: how we found out. The sky, gravity, starlight and the lives of stars, each lesson opening on a puzzle someone actually faced.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "icons": "node tools/icons.mjs",
+    "photos": "node tools/photos.mjs",
+    "stars": "node tools/stars.mjs"
+  },
+  "dependencies": {
+    "didactics": "github:RobertLitzke/Didactics#f45402590a161e320e0230aea3b158975be165aa"
+  },
+  "devDependencies": {
+    "@fontsource-variable/fraunces": "^5.2.0",
+    "@types/node": "^20.19.43",
+    "happy-dom": "^20.14.6",
+    "sharp": "^0.34.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.0.0"
+  }
+}

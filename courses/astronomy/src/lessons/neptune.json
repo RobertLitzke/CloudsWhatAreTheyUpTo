@@ -1,0 +1,70 @@
+{
+  "id": "neptune",
+  "n": 4,
+  "title": "A planet found with a pen",
+  "teaches": "How small errors in Uranus's orbit revealed Neptune, and why the same trick failed for Mercury",
+  "parts": [
+    {
+      "title": "A planet nobody ordered",
+      "blocks": [
+        {"type":"text","text":"On the night of 13 March 1781, **William Herschel**, a German-born musician who earned his living as an organist in Bath and spent his nights with telescopes he built himself, noticed that one of the stars in Gemini was not a point but a tiny disc. Over the following nights it moved. He reported a comet. It turned out to be a planet, the first found since antiquity, twice as far from the Sun as Saturn. It was eventually named **Uranus**."},
+        {"type":"diagram","id":"photo","caption":"Uranus, photographed by Voyager 2 in 1986. From Earth it is a faint greenish dot, just visible to the naked eye on a very dark night.","options":{"photo":"uranus","aspect":1}},
+        {"type":"text","text":"Astronomers soon found that Uranus had been seen before. At least twenty earlier sightings, the first in 1690, had logged it as an ordinary star. Those old positions were a gift: Uranus takes 84 years to go round the Sun, so they gave a long stretch of its orbit straight away. In 1821 the French astronomer **Alexis Bouvard** used them, with Newton's law, to compute tables of where Uranus would be in the years to come. He allowed for the pull of Jupiter and Saturn, which nudge Uranus noticeably."},
+        {"type":"text","text":"The tables fitted the newer observations up to 1821 well, though Bouvard had to set the older sightings aside to make them fit. Then Uranus started to drift away from the new tables too. By the 1840s it was nearly two minutes of arc off course. Two minutes is less than a tenth of the width of the Moon, but it was far bigger than the errors in the measurements, and it was growing."},
+        {"type":"key_ideas","title":"Hold on to","points":["Herschel found Uranus in 1781; older sightings logged as a star gave much of its orbit at once.","Bouvard's 1821 tables, allowing for Jupiter and Saturn, fitted Uranus at first, but it then drifted steadily away from them."]}
+      ]
+    },
+    {
+      "title": "Two answers",
+      "blocks": [
+        {"type":"text","text":"There were two ways out. One was that Newton's law of gravity was not quite right at Uranus's great distance from the Sun. The other was that something unseen was pulling on it: another planet, beyond. The second idea was more modest, because it kept a law that had worked everywhere else. It was also much harder to use. Working backwards from the wobbles of one planet to the position of another that nobody had ever seen is a problem with a great many unknowns."},
+        {"type":"text","text":"Two people took it on, separately. In England, **John Couch Adams**, a young Cambridge mathematician, worked on it from 1843 and got answers he had trouble getting anyone to act on. In France, **Urbain Le Verrier**, a severe and very able calculator at the Paris Observatory, worked through 1845 and the summer of 1846 and published a prediction: where the planet should be in the sky, and how heavy."},
+        {"type":"text","text":"The logic runs like this. Uranus moves faster than any planet beyond it, so sooner or later it overtakes. While the outer planet is ahead, its gravity tugs Uranus forward. Once Uranus has passed, the pull comes from behind and drags it back. The pattern of the drift, when it turns and how fast it grows, tells you when the overtaking happened and therefore where the hidden planet is now. How big the drift is tells you its mass."},
+        {"type":"interactive_diagram","id":"uranus","caption":"Left: the orbits of Uranus and the unseen planet in 1846. Right: how far Uranus ran ahead of or behind Bouvard's 1821 tables, observed (solid) and as your planet would make it (dashed). A simplified model with circular orbits.","task":"Make a prediction, then move the unseen planet and set its mass until its pull explains the drift","goal":"found","aspect_ratio":1.54},
+        {"type":"key_ideas","title":"Hold on to","points":["Uranus's drift could mean Newton's law failed far out, or that an unseen planet was pulling it.","Uranus overtook the unseen planet around 1822; after that the outer planet pulled it back, which is why it drifted off the tables."]}
+      ]
+    },
+    {
+      "title": "Berlin, 23 September 1846",
+      "blocks": [
+        {"type":"text","text":"Le Verrier could not get the French observatories interested quickly enough, so he wrote to **Johann Galle** at the Berlin Observatory, which happened to have a new, detailed star chart of the right part of the sky. Galle got the letter on 23 September 1846 and looked that same night, with his student Heinrich d'Arrest checking the chart. Soon after they found the chart, d'Arrest called out that a star of eighth magnitude, too faint for the naked eye, where Galle was pointing, was not on it. A star that isn't on a careful chart may be something that moves. The next night it had moved. It was within a degree of Le Verrier's spot."},
+        {"type":"diagram","id":"photo","caption":"Neptune, from Voyager 2 in 1989: the planet found with a pen.","options":{"photo":"neptune","aspect":1}},
+        {"type":"text","text":"It was a sensation. A planet had been discovered by calculation, from the faint errors in another's motion, before anyone had seen it. Nothing could have shown more clearly that Newton's gravity worked out to the edge of the known solar system. Britain and France then argued for years over how much credit Adams deserved; the two men themselves got on rather well. The new planet was named **Neptune**."},
+        {"type":"text","text":"There is a footnote that makes the story more human, and more interesting. Both Le Verrier and Adams assumed the hidden planet was farther out than it really is, about 36 times the Earth's distance from the Sun rather than 30, and heavier. Their orbits for it were wrong. But what Uranus felt was a tug in a certain direction, of a certain strength, in the years around their closest approach. A heavier planet farther off can give much the same tug as a lighter one nearer, and in those years both would sit in almost the same direction in the sky. So the wrong orbits still pointed to almost the right place. They were right where it counted and lucky elsewhere, which is not a bad description of a lot of good science."},
+        {"type":"diagram","id":"photo","caption":"Urbain Le Verrier, who went on to direct the Paris Observatory.","options":{"photo":"le-verrier","aspect":0.8,"position":"center 30%"}},
+        {"type":"key_ideas","title":"Hold on to","points":["Galle found Neptune on 23 September 1846, within a degree of where Le Verrier said it would be.","Le Verrier's assumed distance and mass were off, but its pull in the years that mattered pointed the right way."]}
+      ]
+    },
+    {
+      "title": "Vulcan",
+      "blocks": [
+        {"type":"text","text":"Le Verrier now turned to the innermost planet. Mercury's orbit is a noticeably stretched ellipse, and that ellipse slowly turns: its point of closest approach to the Sun creeps round. Most of the turning is the pull of the other planets, and Newton's law accounts for it. But in 1859 Le Verrier found that a little was left over, about 38 seconds of arc per century (later refined to 43). It is a minute amount: a full turn would take three million years, but it was more than the measurements allowed."},
+        {"type":"diagram","id":"mercury","caption":"Mercury's orbit turning a little each time round, enormously exaggerated, and the planet Vulcan that might have caused it."},
+        {"type":"text","text":"He did the obvious thing, the thing that had worked so brilliantly before. He proposed a small planet, or perhaps a ring of rubble, inside Mercury's orbit, so close to the Sun that it would be lost in the glare. The hypothetical planet was named **Vulcan**. Amateur astronomers reported seeing it cross the Sun's face; eclipse expeditions searched for it near the darkened Sun. Some thought they had found it. None of the sightings held up."},
+        {"type":"text","text":"Vulcan does not exist. The extra turning of Mercury's orbit is real, and Newton's law cannot explain it. The method that found Neptune, trusting the law and adding an unseen mass, was the wrong answer this time. This time the right answer was the first one, the one nobody wanted: the law itself was not quite right. It took until 1915 to see how, and the explanation needed a new idea of space and time, which is lesson 16."},
+        {"type":"key_ideas","title":"Hold on to","points":["Mercury's orbit turns 43 seconds of arc per century more than Newton's law allows.","Le Verrier proposed an unseen planet, Vulcan, but none exists; the fault was in the law of gravity itself."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on Neptune and Vulcan", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Why did Uranus fall behind its expected motion after 1822?","photo":"uranus","choices":["Once Uranus overtook the unseen planet, that planet's gravity pulled it back","The tables forgot Jupiter and Saturn","Uranus was slowing down as it aged"],"answer":0,"why":"Uranus moves faster than any planet beyond it. After it passed Neptune, around 1822, Neptune trailed behind and tugged it backwards."},
+          {"ask":"What made the discovery of Neptune such strong support for Newton's law?","photo":"neptune","choices":["The law predicted where an unseen planet was, and it was found there","Neptune was the first planet seen through a telescope","Neptune's orbit is a perfect circle"],"answer":0,"why":"A theory that can point to something nobody has seen, and be right, has passed a much harder test than one that only explains what is already known."},
+          {"ask":"The drift of Uranus told Le Verrier the hidden planet's direction. What told him its mass?","choices":["How large the drift was","How bright Uranus was","How long Uranus's year is"],"answer":0,"why":"A heavier planet pulls harder, so the size of the departure from the tables measures the mass; its timing gives the direction."},
+          {"ask":"Le Verrier proposed Vulcan to explain Mercury's turning orbit. What was actually wrong?","choices":["Newton's law of gravity is not exactly right","Vulcan was too faint to find","The measurements of Mercury were mistaken"],"answer":0,"why":"No planet Vulcan exists. The extra 43 seconds of arc per century were explained in 1915 by a new theory of gravity."},
+          {"ask":"Le Verrier assumed Neptune was farther away and heavier than it is. How did he still point to the right place?","choices":["In the years that mattered, a farther, heavier planet pulls Uranus in almost the same direction","Galle corrected his figures before looking","He didn't; Galle found it by chance"],"answer":0,"why":"The drift mainly fixes the direction of the pull around the time of overtaking, so different combinations of distance and mass pointed to nearly the same spot in 1846."}
+        ]}}
+      ]
+    }
+  ],
+  "learned": [
+    "Uranus fell behind its predicted path after it overtook an unseen planet, which then pulled it back.",
+    "Le Verrier worked out where that planet must be, and Galle found Neptune there on 23 September 1846.",
+    "Mercury's orbit turns 43 seconds of arc per century more than Newton's law allows; the planet Vulcan proposed to explain it does not exist.",
+    "When an orbit misbehaves, either something unseen is pulling or the law of gravity needs fixing; both have happened."
+  ],
+  "next": "Next: if the Earth goes round the Sun, the nearer stars should shift back and forth each year. For 2,000 years nobody could see them move.",
+  "journal": [],
+  "footnotes": {}
+}
