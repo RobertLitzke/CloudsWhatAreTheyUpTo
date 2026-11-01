@@ -65,6 +65,7 @@ export const dustWallFigure = figure(['dust'], (ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || base < 2.9 ? '' : pick.picked() === DUST_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(DUST_RIGHT);
     f.readout.textContent = verdict + (lands < 0.25
       ? `Almost none of the rain lands: it evaporates on the way down through the dry air, chilling the downdraft ${deg(chill)} below the air round it. That cold, heavy air slams down and spreads out at ${gust} km/h. Lightning with little or no rain: dry lightning.`
       : `${Math.round(lands * 100)}% of the rain lands. What evaporates on the way down chills the downdraft ${deg(chill)}, and it spreads out along the ground at ${gust} km/h.`)
@@ -143,6 +144,7 @@ export const downslopeFigure = figure(['sink'], (ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || at > 0 ? '' : pick.picked() === SLOPE_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(SLOPE_RIGHT);
     f.readout.textContent = verdict + (at >= TOP_M
       ? 'On the plateau. Drag it down the slope.'
       : `Sunk ${height(TOP_M - at, ctx.save.units)}: squeezed by the heavier air below, it has warmed ${deg(Math.round(p.c - TOP_C))}, about 10 °C a kilometre, with no heat added. It holds the same vapour, but warmer air could hold much more, so its humidity has fallen to ${p.humidity}%.`);

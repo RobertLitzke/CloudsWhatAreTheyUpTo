@@ -168,6 +168,7 @@ export const flatFigure = figure(['ruled-out'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Suppose the Earth were flat and the Sun near, straight above Syene at noon. Could it cast no shadow at Syene and a 7.2° shadow at Alexandria? Guess first.',
     options: ['Yes, at the right height', 'No, never'],
+    answer: 0,
     sliders: [sh, s3],
     after: (guess) => {
       paint();
@@ -222,6 +223,7 @@ export const halfMoonFigure = figure(['true-angle'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Aristarchus measured 87°, which puts the Sun 19 times as far as the Moon. The true angle is 89.85°, less than three degrees more. With the true angle, how far is the Sun? Guess first.',
     options: ['A little farther, about 20 Moon distances', 'Twice as far, about 40', 'About twenty times farther, near 400'],
+    answer: 2, reveal: 'done',
     sliders: [s],
     after: () => {
       paint();

@@ -12,6 +12,8 @@ import { schematic, type Placement } from '../circuit/schematic';
 import { amps, ohms, volts } from '../circuit/units';
 import { hunt } from './bench';
 import { guess, stars } from './guess';
+import { oneOf, shuffle } from 'didactics/rng';
+import { startRng } from 'didactics/figure';
 import { COL, figure, frame, slider } from './kit';
 import { capture, scope } from './scope';
 
@@ -127,12 +129,23 @@ export const gainFigure = figure(['clip'], (ctx, t) => {
   let guessed = false;
   let fresh = false;
   let clipped = false;
+  // R2 for each Re, keeping the collector near the middle.
+  const r2For = (r: number) => (r === 470 ? 6800 : r === 1000 ? 10000 : 22000);
+  // A flash card starts on an Re and an input of its own.
+  const rnd = t.card ? startRng(t) : null;
+  const re0 = rnd ? oneOf(rnd, [470, 1000, 2200]) : 1000;
+  const vin0 = rnd ? oneOf(rnd, [0.05, 0.1, 0.2]) : 0.1;
+  amp.re.ohms = re0;
+  amp.r2.ohms = r2For(re0);
+  amp.sig.wave.amp = vin0;
+  const gainNow = amp.rc.ohms / re0;
+  const out = (v: number) => volts(Math.round(v * 100) / 100);
 
   const paint = () => {
     if (!guessed) {
       scr.hide('Guess first');
       sch.show(solve(amp.parts));
-      f.readout.textContent = `The stage from before, biased near 4.7 V, with Rc = 4.7 kΩ and Re = 1 kΩ. A 0.1 V peak signal comes in through a coupling capacitor to the base.`;
+      f.readout.textContent = `The stage from before, biased near 4.7 V, with Rc = 4.7 kΩ and Re = ${ohms(re0)}. A ${volts(vin0)} peak signal comes in through a coupling capacitor to the base.`;
       return;
     }
     scr.hide(null);
@@ -150,11 +163,19 @@ export const gainFigure = figure(['clip'], (ctx, t) => {
     fresh = false;
     if (clipped) t.done();
   };
+  // A flash card's options, worked out from its own Re and input, in an order of its own.
+  const cardChoices = rnd ? shuffle([
+    { right: true, text: `About ${out(vin0 * gainNow)} each way, upside down`, reply: `Correct: the collector swings Rc / Re = ${gainNow.toFixed(1)} times as far as the base, and the opposite way.` },
+    { text: `${volts(vin0)}, the same as went in`, reply: `The current through Re wiggles with the base, and the same current flows through Rc, ${gainNow.toFixed(1)} times larger, so the collector swings ${gainNow.toFixed(1)} times as far.` },
+    { text: `About ${out(vin0 * gainNow)} each way, the same way up`, reply: 'More current through Rc pulls the collector down, so the output is upside down.' },
+    { text: `About ${out(vin0 * gainNow * 10)} each way, upside down`, reply: `That is a gain of ${(gainNow * 10).toFixed(0)}. The ratio Rc / Re sets it at about ${gainNow.toFixed(1)}.` },
+  ], rnd) : null;
   const q = guess({
     question: 'What comes out?',
-    options: ['About 0.47 V each way, upside down', '0.1 V, the same as went in', 'About 4.7 V each way'],
-    answer: 0,
-    replies: [
+    options: cardChoices ? cardChoices.map((c) => c.text) : ['About 0.47 V each way, upside down', '0.1 V, the same as went in', 'About 4.7 V each way'],
+    answer: cardChoices ? cardChoices.findIndex((c) => 'right' in c) : 0,
+    t,
+    replies: cardChoices ? cardChoices.map((c) => c.reply) : [
       'Correct: the collector swings about 4.7 times as far as the base, and in the opposite direction.',
       'The emitter follows the base wiggle, which makes the current through Re wiggle by the same proportion. That current flows through Rc too, which is 4.7 times larger than Re.',
       'A 4.7 V peak output from a 0.1 V input would be a gain of 47. The ratio Rc / Re sets the gain here at about 4.7.',
@@ -166,13 +187,18 @@ export const gainFigure = figure(['clip'], (ctx, t) => {
     },
   });
   const knobs = el('div', {},
-    slider('Input', 0.05, 1, 0.05, 0.1, (v) => volts(v), (v) => { amp.sig.wave.amp = v; paint(); }, 'voltage').node,
-    chipRow([470, 1000, 2200], (r) => `Re ${ohms(r)}`, () => amp.re.ohms, (r) => { amp.re.ohms = r; amp.r2.ohms = r === 470 ? 6800 : r === 1000 ? 10000 : 22000; paint(); }),
+    slider('Input', 0.05, 1, 0.05, vin0, (v) => volts(v), (v) => { amp.sig.wave.amp = v; paint(); }, 'voltage').node,
+    chipRow([470, 1000, 2200], (r) => `Re ${ohms(r)}`, () => amp.re.ohms, (r) => { amp.re.ohms = r; amp.r2.ohms = r2For(r); paint(); }),
   );
   knobs.style.display = 'none';
   f.controls.append(q.node, knobs);
   paint();
   return f.node;
+}, {
+  card: {
+    front: 'A common-emitter stage with Rc = 4.7 kΩ, a given Re and a small sine wave in. What comes out? Guess, then turn the input up until it clips.',
+    back: 'The input swung Rc / Re times as far and upside down: the current through Re follows the base, and the same current through Rc pulls the collector the other way. Too big an input clips against the supply or saturation.',
+  },
 });
 
 // ---------------------------------------------------------------------------

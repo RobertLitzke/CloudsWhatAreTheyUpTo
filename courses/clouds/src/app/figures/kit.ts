@@ -11,7 +11,7 @@ import type { FootnoteSet } from 'didactics/footnote';
 import { prose as kitProse } from 'didactics/lesson';
 
 export {
-  animate, choices, figure, frame, lock, lockIn, placeable, quiz, textBox,
+  animate, choices, figure, frame, lock, lockIn, placeable, quiz, showVerdict, startRng, tellCard, textBox, verdict,
   type Choices, type FigureContext, type FigureFactory, type FigureHandle, type Frame, type Options, type Slider, type Task,
 } from 'didactics/figure';
 export { deg, height, temp } from 'didactics/units';

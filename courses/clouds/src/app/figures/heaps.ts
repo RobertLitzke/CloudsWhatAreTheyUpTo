@@ -6,7 +6,8 @@
 import { cloudBase, parcelAt } from '../../core/air';
 import { el, svg } from 'didactics/dom';
 import { arrow, heading, heapAt, label, line, polyline, puff, redraw, small, still } from './draw';
-import { COL, animate, figure, frame, height, lock, lockIn, placeable, slider, temp, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, lock, lockIn, placeable, showVerdict, slider, startRng, temp, tint, type FigureFactory } from './kit';
+import { between } from 'didactics/rng';
 
 // ---- Rising air expands and cools -------------------------------------------
 
@@ -87,8 +88,17 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
   const x0 = 236;
   const x1 = 388;
   const xOf = (c: number) => x0 + ((c - 0) / 30) * (x1 - x0);
-  let tempC = 24;
-  let dewC = 12;
+  // A morning's readings: 14 to 30 °C, with a gap to the dew point of 3 to
+  // 20 °C and the dew point inside its slider's 4 to 22 °C. A flash card
+  // starts on a morning of its own.
+  const morning = (rnd: () => number) => {
+    const at = between(rnd, 14, 30, 1);
+    const least = Math.max(3, at - 22);
+    return { tempC: at, dewC: at - between(rnd, least, Math.min(20, at - 4), 1) };
+  };
+  let { tempC, dewC } = t.card ? morning(startRng(t)) : { tempC: 24, dewC: 12 };
+  // The guess has been judged this morning.
+  let judged = false;
   let lift = 0;
   // First the reader marks where they expect the cloud base; only then does
   // the air lift. `guessM` is null once they are just playing with the dew point.
@@ -163,6 +173,10 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
       );
     } else if (guessM != null && p.cloud) {
       const off = guessM - base;
+      if (!judged) {
+        judged = true;
+        showVerdict(t, guessBox, Math.abs(off) <= NEAR_M, Math.abs(off) <= NEAR_M ? `Your guess was right: within ${height(NEAR_M, ctx.save.units)}.` : `Your guess was wrong: ${height(Math.abs(off), ctx.save.units)} too ${off > 0 ? 'high' : 'low'}.`);
+      }
       f.readout.replaceChildren(...at, '. The air is cloud. ',
         el('b', {}, Math.abs(off) <= NEAR_M ? 'Your guess was right.' : `Your guess was ${height(Math.abs(off), ctx.save.units)} too ${off > 0 ? 'high' : 'low'}.`),
         Math.abs(off) <= NEAR_M ? '' : ` The gap was ${tempC - dewC} °C, and it closes by about 8 °C a kilometre.`,
@@ -190,12 +204,12 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
   });
   // Another morning: new readings, and a new guess to make.
   const another = lockIn('Another morning', () => {
-    tempC = 14 + Math.floor(Math.random() * 17);
-    // A gap of 3 to 20 °C, with the dew point inside its slider's 4 to 22 °C.
-    const least = Math.max(3, tempC - 22);
-    const gap = least + Math.floor(Math.random() * (Math.min(20, tempC - 4) - least + 1));
+    const next = morning(Math.random);
+    tempC = next.tempC;
     lifter.set(0);
-    setDew(tempC - gap);
+    setDew(next.dewC);
+    judged = false;
+    guessBox.querySelector('.fig-verdict')?.remove();
     // Tell the lesson the sliders moved, so a reader coming back gets this morning.
     dew.input.dispatchEvent(new Event('input', { bubbles: true }));
     guessM = 500;
@@ -207,10 +221,12 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
     paint();
   });
   another.classList.add('btn-ghost');
-  f.controls.append(el('div.fig-guess', {}, markIt), lifter.node);
+  const guessBox = el('div.fig-guess', {}, markIt);
+  f.controls.append(guessBox, lifter.node);
   lock([lifter, dew], true);
   place.enable(true);
-  const free = () => f.controls.append(dew.node, el('div.fig-guess', {}, another));
+  // A flash card is one morning: the next asking brings another.
+  const free = () => f.controls.append(dew.node, ...(t.card ? [] : [el('div.fig-guess', {}, another)]));
   // Coming back to it: the morning it was on, and the guess if it was marked.
   const kept = t.kept as { tempC?: unknown; dewC?: unknown; guessM?: unknown; marked?: unknown } | undefined;
   if (typeof kept?.tempC === 'number' && typeof kept.dewC === 'number') {
@@ -225,6 +241,11 @@ export const parcelFigure = figure(['base'], (ctx, t) => {
   else void t.promise.then(free);
   paint();
   return f.node;
+}, {
+  card: {
+    front: 'A morning’s temperature and dew point are given. Mark where lifted air will turn to cloud, then lift it to check.',
+    back: 'The gap between temperature and dew point closes by about 8 °C a kilometre of lift, so the cloud base is about 125 m up for each degree of gap.',
+  },
 });
 
 // ---- Stable and unstable, in numbers ----------------------------------------

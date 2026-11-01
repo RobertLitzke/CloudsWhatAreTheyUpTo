@@ -94,6 +94,8 @@ export const settleFigure = figure(['flat'], (_ctx, t) => {
     if (guess < 0) return;
     t.keep(guess);
     pick.freeze(true);
+    if (t.restored) pick.mark(2);
+    else void t.promise.then(() => pick.mark(2));
     go.remove();
     lock(sliders, false);
     paint();

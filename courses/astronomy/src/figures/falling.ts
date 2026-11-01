@@ -131,6 +131,7 @@ export const cannonFigure = figure(['circle'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: `From 400 km up, a ball fired sideways at ${circular.toFixed(1)} km/s falls round the Earth in a circle. Fire it at 12 km/s, about half as fast again. What happens? Guess first.`,
     options: ['A bigger circle', 'A long ellipse that comes back', 'It leaves for good'],
+    answer: 2,
     sliders: [s],
     after: () => {
       v = 12;

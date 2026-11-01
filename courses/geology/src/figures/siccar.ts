@@ -120,6 +120,7 @@ export const unconformityFigure = figure(['story'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'At Siccar Point, grey beds stand on end under flat-lying red sandstone. How long do you think it took to make that arrangement? Guess first.',
     options: ['About 6,000 years', 'A few hundred thousand years', 'Tens of millions of years'],
+    answer: 2, reveal: 'done',
     sliders: [time, pace],
     after: (guess) => {
       paint();

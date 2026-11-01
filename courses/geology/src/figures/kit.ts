@@ -1,7 +1,7 @@
 // The colours that always mean the same thing, in every figure and in the
 // text ([[words|key]]), and the figure kit with them filled in.
 
-import { choices, lock, lockIn, slider as kitSlider, type Slider, type Task } from 'didactics/figure';
+import { slider as kitSlider, type Slider } from 'didactics/figure';
 import { prose as kitProse } from 'didactics/lesson';
 
 export * from 'didactics/figure';
@@ -45,36 +45,5 @@ export const rgbOf = (hex: string): [number, number, number] => {
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
 };
 
-/**
- * A guess before the controls: `ask` in the readout, the options as chips, and
- * the sliders locked until a pick is locked in; then `after(guess)` runs. The
- * guess is kept, so a reader who comes back finds it made. Returns whether the
- * guess is in.
- */
-export function guessFirst(t: Task, f: { controls: HTMLElement; readout: HTMLElement }, o: { ask: string; options: readonly string[]; sliders: readonly Slider[]; hidden?: readonly HTMLElement[]; after: (guess: number) => void }): () => boolean {
-  let open = false;
-  const pick = choices(o.options, () => (go.disabled = false));
-  const go = lockIn('Lock it in', () => {
-    const guess = pick.picked();
-    if (guess < 0) return;
-    t.keep(guess);
-    pick.freeze(true);
-    go.remove();
-    lock(o.sliders, false);
-    for (const h of o.hidden ?? []) h.style.display = '';
-    open = true;
-    o.after(guess);
-  });
-  go.disabled = true;
-  lock(o.sliders, true);
-  for (const h of o.hidden ?? []) h.style.display = 'none';
-  f.controls.prepend(pick.node, go);
-  f.readout.textContent = o.ask;
-  queueMicrotask(() => {
-    if (typeof t.kept === 'number' && !open) {
-      pick.pick(t.kept);
-      go.click();
-    }
-  });
-  return () => open;
-}
+/** A guess before the controls; see didactics/figure guessFirst. */
+export { guessFirst } from 'didactics/figure';

@@ -45,6 +45,7 @@ export const sunFigure = figure(['lit'], (_ctx, t) => {
   isOpen = guessFirst(t, f, {
     ask: 'This is a lidar-style map of farmland near Palmyra, New York, lit from the north-northwest. The ice sheet that covered it left the low hills you can barely see. Which way did the ice move? Guess first, then move the sun.',
     options: ['From north to south', 'From south to north', 'From west to east'],
+    answer: 0, reveal: 'done',
     sliders: [sun],
     after: (guess) => {
       paint();

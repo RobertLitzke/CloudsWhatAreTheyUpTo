@@ -109,6 +109,7 @@ export const plumeFigure = figure(['speed'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Kauaʻi is about 520 km from Kīlauea and about 5 million years old. How fast must the Pacific plate be moving? Guess first.',
     options: ['About 1 mm a year', 'About 10 cm a year', 'About 10 m a year'],
+    answer: 1, reveal: 'done',
     sliders: [sp],
     after: (guess) => {
       paint();

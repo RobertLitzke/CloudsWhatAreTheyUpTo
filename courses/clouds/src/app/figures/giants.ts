@@ -10,7 +10,8 @@ import { celAnvil, celCumulus, celHeap } from '../clouds/flat';
 import { FIGURE } from '../clouds/tones';
 import { arrow, heading, heapAt, line, points, polyline, radarImage, radarKey, redraw, small, still } from './draw';
 import { fbm } from '../clouds/noise';
-import { COL, animate, choices, figure, frame, height, lock, lockIn, slider, type FigureFactory } from './kit';
+import { COL, animate, choices, figure, frame, height, lock, lockIn, slider, startRng, tellCard, type FigureFactory } from './kit';
+import { between } from 'didactics/rng';
 import { strikeKm } from '../../core/sky';
 
 // ---- How tall the clouds grow -----------------------------------------------
@@ -198,6 +199,7 @@ export const stormFigure = figure(['end'], (_ctx, t) => {
     else if (pick.picked() >= 0 && min >= 50) f.readout.textContent = `${min} minutes. ${stage} ` + (pick.picked() === STORM_END ? 'You guessed right.' : 'Not what you guessed: the storm still had water and warm air nearby.');
     else f.readout.textContent = `${min} minutes. ${stage}`;
     if (t.goal === 'end' && !asking && min >= 50) t.done();
+    if (!asking && pick.picked() >= 0 && min >= 50) tellCard(t, pick.mark(STORM_END));
   };
   // First the reader guesses what ends the storm.
   let asking = t.goal === 'end';
@@ -476,11 +478,13 @@ const STRONG_LID = 3;
 const LID_GUESSES = ['More difference in wind', 'Less difference in wind', 'The same'] as const;
 
 export const billowFigure = figure(['curl'], (ctx, t) => {
+  // A flash card starts from readings of its own.
+  const rnd = t.card ? startRng(t) : null;
   const W = 400;
   const H = 200;
   const f = frame(W, H, 4);
-  let wind = 3;
-  let lid = 1;
+  let wind = rnd ? between(rnd, 1, 6, 1) : 3;
+  let lid = rnd ? between(rnd, 0.5, 2, 0.5) : 1;
   let phase = 0;
   // How far past the curling point: under 1 the layer holds, over 1 it breaks.
   const k = () => wind / curlWind(lid);
@@ -521,6 +525,7 @@ export const billowFigure = figure(['curl'], (ctx, t) => {
     else if (t.goal === 'curl' && k() >= 1 && lid >= STRONG_LID) f.readout.textContent = `${state} With a ${lid} °C lid it took ${Math.ceil(curlWind(lid))} m/s; a 1 °C lid curls at ${Math.ceil(curlWind(1))}. ` + (pick.picked() === 0 ? 'You guessed right.' : 'Not what you guessed.');
     else f.readout.textContent = state;
     if (t.goal === 'curl' && !asking && k() >= 1 && lid >= STRONG_LID) t.done();
+    if (t.goal === 'curl' && !asking && pick.picked() >= 0 && k() >= 1 && lid >= STRONG_LID) tellCard(t, pick.mark(0));
   };
   let asking = t.goal === 'curl';
   const shear = slider('Difference in wind', 0, 25, 1, wind, (v) => `${v} m/s`, (v) => { wind = v; paint(); }, 'ice');
@@ -544,4 +549,9 @@ export const billowFigure = figure(['curl'], (ctx, t) => {
   }
   paint();
   return f.node;
+}, {
+  card: {
+    front: 'Warm air lying on colder holds a cloud layer’s top flat. Make the warm layer warmer still: does it take more or less difference in wind to curl the waves over? Guess, then make them curl.',
+    back: 'More: a warmer lid holds the boundary more firmly, so the wind above has to run faster before the waves curl over (Kelvin-Helmholtz billows).',
+  },
 });

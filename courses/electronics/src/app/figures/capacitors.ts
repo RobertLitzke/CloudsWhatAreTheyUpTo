@@ -173,7 +173,7 @@ export const couplingFigure = figure(['reveal'], (ctx, t) => {
     options: ['Just the wiggle, around 0 V', 'The wiggle on 4.5 V, unchanged', 'Nothing: it\'s a gap'],
     answer: 0,
     replies: [
-      'Right. As the capacitor fills, less voltage remains across the resistor, so the charging current slows down.',
+      'Right. The steady 4.5 V cannot cross the gap, but every wiggle pushes charge onto one plate and as much off the other, so the wiggle comes out swinging around 0 V.',
       'The steady DC voltage cannot cross the gap: once the capacitor charges up to 4.5 V, steady current stops.',
       'No charge crosses the gap, but each wiggle pushes charge onto one plate and pushes as much off the other.',
     ],
@@ -372,7 +372,7 @@ export const kickbackFigure = figure(['spike'], (ctx, t) => {
     options: ['far more than 12 V, for an instant', '12 V', '0 V'],
     answer: 0,
     replies: [
-      'Right. As the capacitor fills, less voltage remains across the resistor, so the charging current slows down.',
+      'Right. The coil’s current cannot stop in an instant.',
       '12 V is where it settles afterward, but watch the spike at the instant the contacts open.',
       'Once the field dies out, no current flows and the 12 V supply sits across the open switch, but a big inductive spike happens first.',
     ],

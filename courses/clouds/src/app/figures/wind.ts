@@ -7,7 +7,7 @@
 
 import { el, svg } from 'didactics/dom';
 import { arrow, heading, label, line, note, points, polyline, redraw, small, still, type P } from './draw';
-import { COL, choices, figure, frame, lock, lockIn, slider, tint, type FigureFactory } from './kit';
+import { COL, choices, figure, frame, lock, lockIn, slider, tint, tellCard, type FigureFactory } from './kit';
 
 /** The land on a weather map. */
 export const MAP = '#eef0e6';
@@ -244,6 +244,7 @@ export const windBalanceFigure = figure(['balance'], (ctx, t) => {
     else if (rub === 0) f.readout.textContent = `The turn bends the air to its right until it runs along the lines, low on its left: the push and the turn balance (${Math.abs(across) < 8 ? 'crossing the lines hardly at all' : `still crossing them by ${across}°`}). The low is not filled in.${guessNote()}`;
     else f.readout.textContent = `Friction near the ground slows the wind, the turn weakens, and the push wins a little: the wind crosses the lines by about ${across}° into the low, at ${Math.round((speed / (spin || 1)) * 100)}% of the speed aloft.${guessNote()}`;
     if (t.goal === 'balance' && !asking && spin >= 1 && rub >= 0.4) t.done();
+    if (!asking && pick.picked() >= 0 && spin > 0 && rub === 0) tellCard(t, pick.mark(WIND_RIGHT));
   };
   const guessNote = () => (pick.picked() < 0 ? '' : pick.picked() === WIND_RIGHT ? ' As you guessed.' : ' Not what you guessed.');
   let asking = t.goal === 'balance';
@@ -268,6 +269,11 @@ export const windBalanceFigure = figure(['balance'], (ctx, t) => {
   }
   paint();
   return f.node;
+}, {
+  card: {
+    front: 'With the Earth still, air runs straight downhill into a low. Let the Earth turn under it: where does the air end up going? Guess, then turn it.',
+    back: 'Along the lines, with the low on its left (in the northern hemisphere): the turn bends the air to its right until push and turn balance. Friction near the ground lets it cross the lines a little, into the low.',
+  },
 });
 
 // ---- A low and a high -------------------------------------------------------

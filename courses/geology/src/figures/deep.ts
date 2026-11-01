@@ -7,7 +7,8 @@ import { svg } from 'didactics/dom';
 import { label, line, polyline, redraw, small, still, type P } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
 import { arrivals, fan, R_EARTH, shadow, type EarthModel } from './rays';
-import { COL, figure, frame, guessFirst, slider } from './kit';
+import { oneOf } from 'didactics/rng';
+import { COL, figure, frame, guessFirst, slider, startRng } from './kit';
 
 const W = 400;
 const deg = (d: number) => (d * Math.PI) / 180;
@@ -126,6 +127,7 @@ export const layersFigure = figure(['core'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Rock at the surface averages about 2.7 g/cm³, but the whole Earth averages 5.5. Where is the extra mass? Guess first.',
     options: ['Spread evenly: all the rock is denser', 'Packed at the centre', 'In a dense layer near the surface'],
+    answer: 1, reveal: 'done',
     sliders: [sx, sr],
     after: (guess) => {
       paint();
@@ -297,6 +299,7 @@ export const mohoFigure = figure(['fit'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Deep waves take a detour down to faster rock and back. If the crust were thicker, where would they start to arrive first? Guess first.',
     options: ['Nearer the quake', 'Farther from the quake', 'At the same distance'],
+    answer: 1, reveal: 'done',
     sliders: [sh],
     after: (guess) => {
       paint();
@@ -470,9 +473,25 @@ export const drillFigure = figure(['ktb'], (_ctx, t) => {
   const sl = slider('Hottest the drill can stand', 120, 320, 5, limit, (v) => `${v} °C`, (v) => { limit = v; paint(); }, 'bad');
   f.controls.append(sg.node, sl.node);
   paint();
-  guessFirst(t, f, {
+  // A flash card: the same drill as Kola's (its rock was 180 °C at the bottom), in rock of its own.
+  const cardGrad = t.card ? oneOf(startRng(t), [8, 10, 11, 20, 24, 28, 35]) : 0;
+  if (t.card) guessFirst(t, f, {
+    ask: `Kola’s drill stopped at 12.3 km, where the rock was 180 °C, warming about 14 °C per kilometre. The same drill goes down through rock that warms ${cardGrad} °C per kilometre. Does it get deeper or shallower than Kola? Guess first.`,
+    options: ['Deeper', 'Shallower', 'About the same'],
+    answer: cardGrad < 14 ? 0 : 1,
+    sliders: [sg, sl],
+    after: () => {
+      grad = cardGrad;
+      sg.set(grad);
+      limit = 180;
+      sl.set(limit);
+      paint();
+    },
+  });
+  else guessFirst(t, f, {
     ask: 'Germany’s KTB hole went through rock that warms about 28 °C per kilometre, nearly twice Kola’s rate. Did it get deeper or shallower than Kola? Guess first.',
     options: ['Deeper', 'Shallower', 'About the same'],
+    answer: 1, reveal: 'done',
     sliders: [sg, sl],
     after: (guess) => {
       paint();
@@ -480,4 +499,9 @@ export const drillFigure = figure(['ktb'], (_ctx, t) => {
     },
   });
   return f.node;
+}, {
+  card: {
+    front: 'A drill can stand only so much heat. Given how fast the rock warms with depth, will a hole go deeper or shallower than Kola’s 12.3 km? Guess, then set it.',
+    back: 'The faster the rock warms with depth, the sooner it reaches what the drill can stand: hot young crust stops a hole early, cold old crust like Kola’s lets it go deep.',
+  },
 });

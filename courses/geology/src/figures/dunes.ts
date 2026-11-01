@@ -4,7 +4,8 @@
 import { svg } from 'didactics/dom';
 import { arrow, label, line, note, redraw, small } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
-import { COL, choices, figure, frame, lock, lockIn, slider } from './kit';
+import { oneOf } from 'didactics/rng';
+import { COL, choices, figure, frame, lock, lockIn, slider, startRng, tellCard } from './kit';
 
 const W = 400;
 
@@ -154,10 +155,13 @@ export const duneFigure = figure(['built'], (_ctx, t) => {
   let dir: 1 | -1 = 1;
   let time = 0;
   let open = false;
+  // The puzzle's beds slope down to the right (wind from the left); a flash card's may slope either way.
+  const was: 1 | -1 = t.card ? oneOf(startRng(t), [1, -1] as const) : 1;
+  const answer = was === 1 ? 0 : 1;
   const paint = () => {
     if (!open) {
-      // The puzzle: a block of old beds, all sloping down to the right.
-      redraw(g, ...duneScene(1, 1, true), label(200, 60, 'Old sandstone: which way was the wind?', { anchor: 'middle', bold: true }));
+      // The puzzle: a block of old beds, all sloping down the same way.
+      redraw(g, ...duneScene(was, 1, true), label(200, 60, 'Old sandstone: which way was the wind?', { anchor: 'middle', bold: true }));
       return;
     }
     const windArrow = dir === 1 ? arrow(20, 30, 90, 30, COL.wind, 2.5) : arrow(380, 30, 310, 30, COL.wind, 2.5);
@@ -176,6 +180,8 @@ export const duneFigure = figure(['built'], (_ctx, t) => {
     if (guess < 0) return;
     t.keep(guess);
     pick.freeze(true);
+    if (t.restored || t.card) tellCard(t, pick.mark(answer));
+    else void t.promise.then(() => pick.mark(answer));
     go.remove();
     lock([ts], false);
     wind.style.display = '';
@@ -187,10 +193,15 @@ export const duneFigure = figure(['built'], (_ctx, t) => {
   lock([ts], true);
   f.controls.append(pick.node, go, wind, ts.node);
   paint();
-  f.readout.textContent = 'These beds in old sandstone all slope down to the right. They were laid by a dune. Guess which way the wind blew.';
-  if (typeof t.kept === 'number') {
+  f.readout.textContent = `These beds in old sandstone all slope down to the ${was === 1 ? 'right' : 'left'}. They were laid by a dune. Guess which way the wind blew.`;
+  if (typeof t.kept === 'number' && !t.card) {
     pick.pick(t.kept);
     go.click();
   }
   return f.node;
+}, {
+  card: {
+    front: 'Beds in an old dune sandstone all slope down one way. Which way did the wind blow? Guess, then build a dune.',
+    back: 'From the side the beds slope away from: sand blown over the crest slides down the downwind slip face, so the beds dip the way the wind was going.',
+  },
 });

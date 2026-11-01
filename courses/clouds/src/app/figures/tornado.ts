@@ -150,6 +150,7 @@ export const skaterFigure = figure(['tornado'], (_ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || width !== 1000 ? '' : pick.picked() === SKATE_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(SKATE_RIGHT);
     f.readout.textContent = `${verdict}Half as wide, twice as fast: a column squeezed thin keeps its spin, like a skater pulling in her arms. ${width <= 200 ? `At ${Math.round(width)} m across, the edge is moving at ${Math.round(v)} m/s: a tornado, ${rating ? `with ${rating} winds` : ''}. Near the ground, friction drags some of that back.` : `At ${Math.round(width).toLocaleString()} m across, ${Math.round(v)} m/s.`}`;
     if (t.goal === 'tornado' && !asking && v >= 50) t.done();
   };

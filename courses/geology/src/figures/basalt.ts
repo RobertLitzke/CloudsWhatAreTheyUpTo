@@ -171,7 +171,7 @@ export const furnaceFigure = figure(['crystals'], (_ctx, t) => {
     const guess = pick.picked();
     if (guess < 0) return;
     t.keep(guess);
-    pick.freeze(true);
+    pick.mark(0);
     go.remove();
     lock([ts], false);
     mix.style.display = '';

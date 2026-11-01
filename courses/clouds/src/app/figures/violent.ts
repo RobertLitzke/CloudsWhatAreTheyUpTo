@@ -8,7 +8,8 @@ import { el, svg } from 'didactics/dom';
 import { parcelAt } from '../../core/air';
 import { TOP_M, breakC, capBreak, dayGroundC, hailFall, hailHeld, hailName, stormEnvC, stormFuel, stormKind, type StormKind } from '../../core/violent';
 import { arrow, heapAt, line, note, points, polyline, redraw, small, still, type P } from './draw';
-import { COL, choices, deg, figure, frame, height, lock, lockIn, slider, tint, type FigureFactory } from './kit';
+import { COL, choices, deg, figure, frame, height, lock, lockIn, slider, startRng, tint, tellCard, type FigureFactory } from './kit';
+import { oneOf } from 'didactics/rng';
 
 const FIELD = '#a39150';
 
@@ -77,6 +78,7 @@ export const fuelSoundingFigure = figure(['fuel'], (ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || ground !== 32 || dew !== 20 ? '' : pick.picked() === FUEL_RIGHT ? 'As you guessed: ' : 'Not what you guessed: ';
+    if (verdict) pick.mark(FUEL_RIGHT);
     f.readout.textContent = `${verdict}${fuel.cape.toLocaleString()} J/kg of fuel, ${fuelWords(fuel.cape)}. The bubble turns to cloud at ${height(fuel.baseM, ctx.save.units)}, and from there its condensing water keeps it warmer than the air ${fuel.topM > fuel.baseM ? `up to ${height(fuel.topM, ctx.save.units)}` : 'for no distance at all'}. An updraft of about ${speed(fuel.updraft)}.`;
     if (t.goal === 'fuel' && fuel.cape >= 2500) t.done();
   };
@@ -150,6 +152,7 @@ export const capDayFigure = figure(['cap'], (_ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 ? '' : pick.picked() === CAP_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(CAP_RIGHT);
     f.readout.textContent = verdict + (!br
       ? 'The cap is too warm for even the afternoon’s hottest bubbles. The fuel sits there unused, and the day ends without a storm.'
       : cap === 0
@@ -195,11 +198,13 @@ const SHEAR_GUESSES = ['Dies sooner: the wind tears it apart', 'Much the same', 
 const SHEAR_RIGHT = 2;
 
 export const stormSorterFigure = figure(['supercell'], (_ctx, t) => {
+  // A flash card starts from fuel of its own.
+  const fuel = t.card ? oneOf(startRng(t), [1500, 2000, 2500, 3000, 3500]) : 2500;
   const W = 400;
   const H = 250;
   const f = frame(W, H, 4);
   const ground = 222;
-  let cape = 2500;
+  let cape = fuel;
   let shear = 10;
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: ground, fill: COL.sky }), svg('rect', { x: 0, y: ground, width: W, height: H - ground, fill: FIELD }), g);
@@ -248,7 +253,8 @@ export const stormSorterFigure = figure(['supercell'], (_ctx, t) => {
       f.readout.textContent = `${KIND_WORDS[kind]} Now the same fuel, but the wind 6 km up blows 80 km/h faster than the wind at the ground. The storm…`;
       return;
     }
-    const verdict = pick.picked() < 0 || shear !== 80 || cape !== 2500 ? '' : pick.picked() === SHEAR_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    const verdict = pick.picked() < 0 || shear !== 80 || cape !== fuel ? '' : pick.picked() === SHEAR_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) tellCard(t, pick.mark(SHEAR_RIGHT));
     f.readout.textContent = verdict + KIND_WORDS[kind];
     if (t.goal === 'supercell' && !asking && kind === 'supercell') t.done();
   };
@@ -276,6 +282,11 @@ export const stormSorterFigure = figure(['supercell'], (_ctx, t) => {
   }
   paint();
   return f.node;
+}, {
+  card: {
+    front: 'Same fuel, but now the wind 6 km up blows 80 km/h faster than at the ground. What happens to the storm? Guess, then add the wind.',
+    back: 'It lasts far longer: the wind changing with height tilts the updraft so its rain falls clear of it, and the updraft can start to turn. That is a supercell.',
+  },
 });
 
 // ---- Hail ---------------------------------------------------------------------

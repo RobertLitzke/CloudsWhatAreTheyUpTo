@@ -5,7 +5,8 @@
 import { svg } from 'didactics/dom';
 import { line, note, redraw, small } from 'didactics/draw';
 import data from '../data/stars.json';
-import { big, COL, figure, frame, guessFirst, sig, slider } from './kit';
+import { oneOf } from 'didactics/rng';
+import { big, COL, figure, frame, guessFirst, sig, slider, startRng } from './kit';
 import { glowColour, SUN_T } from './light';
 
 const W = 400;
@@ -59,7 +60,19 @@ function axes(parts: SVGElement[]) {
   }
 }
 
+/** Stars a flash card asks about, from tiny to vast: temperature, kelvin, and light, Suns. */
+const CARD_STARS: { name: string; t: number; l: number }[] = [
+  ...FAMOUS.filter((s) => s.name !== 'Sun'),
+  { name: 'Alpha Centauri A', t: 5790, l: 1.5 },
+];
+/** Sizes to guess between, by radius in Suns. */
+const SIZES = ['Smaller than the Sun', 'About the Sun’s size', 'Tens of times wider than the Sun', 'Hundreds of times wider than the Sun'];
+const sizeOf = (r: number) => (r < 0.5 ? 0 : r < 3 ? 1 : r < 100 ? 2 : 3);
+
 export const hrFigure = figure(['betelgeuse'], (_ctx, t) => {
+  // The star to find: Betelgeuse in the lesson, any of CARD_STARS on a flash card.
+  const target = t.card ? oneOf(startRng(t), CARD_STARS) : FAMOUS[0];
+  const targetR = Math.sqrt(target.l) / (target.t / SUN_T) ** 2;
   const f = frame(W, 256, 4);
   const g = svg('g');
   f.svg.append(g);
@@ -88,18 +101,31 @@ export const hrFigure = figure(['betelgeuse'], (_ctx, t) => {
       small(X0 + 6, Y1 - 8, 'most stars lie on the diagonal band, the main sequence', { fill: '#a9adc2' }),
     );
     redraw(g, ...parts);
-    const bet = Math.abs(T - 3600) < 250 && L > 50000 && L < 200000;
+    const bet = Math.abs(T - target.t) < Math.max(250, target.t * 0.04) && L > target.l / 2 && L < target.l * 2;
     const where = L > 1000 && T < 5000 ? 'among the red giants and supergiants, top right' : R < 0.05 ? 'down with the white dwarfs, bottom left' : Math.abs(Math.log10(L) - 7.2 * (logT - Math.log10(SUN_T))) < 0.8 ? 'on the main sequence, like most stars' : 'off the main band';
-    f.readout.textContent = `Your star: ${big(T)} K and ${R < 1 ? sig(R, 2) : big(R)} times the Sun’s radius, so ${L < 1 ? sig(L, 2) : big(L)} times as bright as the Sun, ${where}.${bet ? ' That is Betelgeuse: a red supergiant that would reach past Mars’s orbit if it sat where the Sun is.' : ''}`;
+    f.readout.textContent = `Your star: ${big(T)} K and ${R < 1 ? sig(R, 2) : big(R)} times the Sun’s radius, so ${L < 1 ? sig(L, 2) : big(L)} times as bright as the Sun, ${where}.${bet ? (target.name === 'Betelgeuse' ? ' That is Betelgeuse: a red supergiant that would reach past Mars’s orbit if it sat where the Sun is.' : ` That is ${target.name}: ${sig(targetR, 2)} times the Sun’s radius.`) : ''}`;
     if (bet && t.goal === 'betelgeuse') t.done();
   };
   const st = slider('Surface temperature', Math.log10(2500), Math.log10(40000), 0.004, logT, (v) => `${big(10 ** v)} K`, (v) => { logT = v; paint(); }, 'heat');
   const sr = slider('Radius', -2, 3.2, 0.01, logR, (v) => `${10 ** v < 1 ? sig(10 ** v, 2) : big(10 ** v)} × the Sun’s`, (v) => { logR = v; paint(); }, 'light');
   f.controls.append(st.node, sr.node);
   paint();
-  guessFirst(t, f, {
+  const light = (l: number) => (l < 1 ? `only ${sig(l, 2)} of the Sun’s light` : l < 3 ? 'about as much light as the Sun' : `about ${big(l)} times as much light as the Sun`);
+  guessFirst(t, f, t.card ? {
+    ask: `${target.name} is about ${big(target.t)} K, ${target.t < SUN_T - 300 ? 'cooler than' : target.t > SUN_T + 300 ? 'hotter than' : 'as hot as'} the Sun, and gives out ${light(target.l)}. How big must it be? Guess first.`,
+    options: SIZES,
+    answer: sizeOf(targetR),
+    sliders: [st, sr],
+    after: () => {
+      logT = Math.log10(target.t);
+      st.set(logT);
+      paint();
+      f.readout.textContent = `${f.readout.textContent} Now size it until it is as bright as ${target.name}.`;
+    },
+  } : {
     ask: 'Betelgeuse is about 3,600 K, cooler than the Sun, yet gives out about 100,000 times as much light. How big must it be? Guess first.',
     options: ['Smaller than the Sun', 'About the Sun’s size', 'Hundreds of times wider than the Sun'],
+    answer: 2, reveal: 'done',
     sliders: [st, sr],
     after: () => {
       logT = Math.log10(3600);
@@ -109,6 +135,11 @@ export const hrFigure = figure(['betelgeuse'], (_ctx, t) => {
     },
   });
   return f.node;
+}, {
+  card: {
+    front: 'A star’s temperature and how much light it gives out are given. How big must it be? Guess, then size it on the diagram.',
+    back: 'Light grows with the square of the radius and the fourth power of the temperature, so a cool star that is very bright must be vast, and a hot star that is faint must be tiny.',
+  },
 });
 
 /** Two stars of the same colour and different sizes: a still. */

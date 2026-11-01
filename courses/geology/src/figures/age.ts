@@ -189,6 +189,7 @@ export const decayFigure = figure(['two-halves'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Uranium-238 has a half-life of 4.47 billion years: in that time, half of any sample turns to lead. Of 200 atoms, how many are left after two half-lives? Guess first.',
     options: ['None', '50', '100'],
+    answer: 1, reveal: 'done',
     sliders: [time],
     after: (guess) => {
       paint();

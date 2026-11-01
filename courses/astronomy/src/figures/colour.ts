@@ -67,6 +67,7 @@ export const glowFigure = figure(['no-green'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Near 5,800 K, about the Sun’s temperature, the glow is brightest in green light. What colour does the star look? Guess first.',
     options: ['Green', 'White', 'Yellow'],
+    answer: 1,
     sliders: [s],
     after: () => {
       logT = Math.log10(5800);

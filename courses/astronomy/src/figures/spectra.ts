@@ -4,7 +4,8 @@
 
 import { svg } from 'didactics/dom';
 import { line, note, redraw, small } from 'didactics/draw';
-import { COL, figure, frame, guessFirst, sig, slider, toggles } from './kit';
+import { oneOf } from 'didactics/rng';
+import { COL, figure, frame, guessFirst, sig, slider, startRng, toggles } from './kit';
 import { LINES, planck, wavelengthColour } from './light';
 
 const W = 400;
@@ -51,10 +52,14 @@ export const benchFigure = figure(['dark-lines'], (_ctx, t) => {
   const f = frame(W, 230, 3);
   const g = svg('g');
   f.svg.append(g);
+  // A flash card puts a gas of its own, cooler or hotter than the lamp, in the way.
+  const rnd = t.card ? startRng(t) : null;
   let lamp = true;
   let gas = false;
-  let gasT = 1500;
-  let el: (typeof ELEMENTS)[number] = 'sodium';
+  let gasT = rnd ? oneOf(rnd, [1200, 1500, 2000, 4000, 5000, 6000]) : 1500;
+  let el: (typeof ELEMENTS)[number] = rnd ? oneOf(rnd, ELEMENTS) : 'sodium';
+  const startT = gasT;
+  const colourOf = el === 'sodium' ? 'yellow' : 'red';
   const paint = () => {
     const lines = LINES[el];
     const o = { lamp, gas, gasT, lines };
@@ -97,7 +102,7 @@ export const benchFigure = figure(['dark-lines'], (_ctx, t) => {
     if (dark && t.goal === 'dark-lines') t.done();
   };
   const tg = toggles(['Lamp on', 'Gas in the way'], [lamp, gas], (on) => { [lamp, gas] = on; paint(); });
-  const kinds = toggles(['Sodium', 'Hydrogen'], [true, false], (on) => {
+  const kinds = toggles(['Sodium', 'Hydrogen'], [el === 'sodium', el === 'hydrogen'], (on) => {
     const now = el === 'sodium' ? (on[1] ? 'hydrogen' : 'sodium') : (on[0] ? 'sodium' : 'hydrogen');
     el = now;
     kinds.set(0, el === 'sodium');
@@ -108,8 +113,11 @@ export const benchFigure = figure(['dark-lines'], (_ctx, t) => {
   f.controls.append(tg.node, kinds.node, st.node);
   paint();
   guessFirst(t, f, {
-    ask: 'The lamp’s rainbow, then sodium gas at 1,500 K put in its way, cooler than the lamp. Sodium glows yellow. What happens at sodium’s yellow? Guess first.',
-    options: ['A bright yellow line', 'A dark gap', 'Nothing changes'],
+    ask: t.card
+      ? `The lamp’s rainbow (3,000 K), then ${el} gas at ${sig(startT, 2)} K put in its way, ${startT < LAMP ? 'cooler' : 'hotter'} than the lamp. ${el === 'sodium' ? 'Sodium' : 'Hydrogen'} glows ${colourOf}. What happens at its ${colourOf}? Guess first.`
+      : 'The lamp’s rainbow, then sodium gas at 1,500 K put in its way, cooler than the lamp. Sodium glows yellow. What happens at sodium’s yellow? Guess first.',
+    options: [`A bright ${colourOf} line`, 'A dark gap', 'Nothing changes'],
+    answer: startT < LAMP ? 1 : 0,
     sliders: [st],
     buttons: [...tg.buttons, ...kinds.buttons],
     after: () => {
@@ -119,6 +127,11 @@ export const benchFigure = figure(['dark-lines'], (_ctx, t) => {
     },
   });
   return f.node;
+}, {
+  card: {
+    front: 'A gas is put between a hot lamp and a prism. What shows at the gas’s own colour: a bright line, a dark gap, or nothing new? Guess, then try it.',
+    back: 'It depends on the gas’s temperature against the lamp’s: cooler gas takes its colours out and glows them back more weakly, so dark lines; hotter gas glows brighter there, so bright lines (Kirchhoff).',
+  },
 });
 
 // ---- The Sun's dark lines ------------------------------------------------------------------

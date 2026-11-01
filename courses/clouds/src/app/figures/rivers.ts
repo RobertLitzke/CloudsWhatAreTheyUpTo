@@ -192,6 +192,7 @@ export const windwardFigure = figure(['flood'], (ctx, t) => {
     const kind = mm < 30 ? 'an ordinary showery day' : mm < 90 ? 'a wet day, a steady soaking' : mm < 150 ? 'heavy rain: the streams are rising fast' : 'a deluge: the rivers off these slopes will flood within a day';
     if (asking) f.readout.textContent = `A wind of 30 km/h drives damp air up the slope, and ${rain(mm, ctx.save.units)} of rain falls on it a day. Now the wind doubles to 60 km/h, with the same damp air. What happens to the rain on the slope?`;
     else f.readout.textContent = `The wind lifts the damp sea air up the slope; it cools, and its vapour is wrung out as rain: ${rain(mm, ctx.save.units)} a day, ${kind}.${pick.picked() < 0 || wind !== 60 || vapour !== 20 ? '' : pick.picked() === WINDWARD_RIGHT ? ` Twice the wind lifts twice the air up the slope each hour, so twice the rain, as you guessed: ${rain(windwardRain(30, 20), ctx.save.units)} became ${rain(mm, ctx.save.units)}.` : ` Not what you guessed: twice the wind lifts twice the air up the slope each hour, so ${rain(windwardRain(30, 20), ctx.save.units)} became ${rain(mm, ctx.save.units)}.`}`;
+    if (!asking && pick.picked() >= 0 && wind === 60 && vapour === 20) pick.mark(WINDWARD_RIGHT);
     if (t.goal === 'flood' && !asking && mm >= 150) t.done();
   };
   let asking = t.goal === 'flood';
@@ -340,6 +341,7 @@ export const snowLevelFigure = figure(['flood'], (ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || level !== 2000 ? '' : pick.picked() === SNOW_RIGHT ? ' As you guessed.' : ' Not what you guessed.';
+    if (verdict) pick.mark(SNOW_RIGHT);
     f.readout.textContent = `${verdict ? `${verdict.trim()} ` : ''}The same 100 mm of water falls on the whole basin. Below the snow level it falls as rain, on ${pct}% of the basin, and runs straight off${meltNote}. Above, it falls as snow and stays put. The river carries off ${runoffMm} mm a day: ${runoffMm >= FLOOD_MM ? 'it floods.' : 'high, but in its banks.'}`;
     if (t.goal === 'flood' && runoffMm >= FLOOD_MM) t.done();
   };

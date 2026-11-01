@@ -5,7 +5,8 @@ import { el, svg } from 'didactics/dom';
 import { arrow, label, line, redraw, small } from 'didactics/draw';
 import { cellSize, fromCell, hillshade, makeRelief, mapView, mercator, outcrops, type Relief } from 'didactics/maps';
 import { segmented } from 'didactics/ui';
-import { BEDS, COL, choices, figure, frame, lock, lockIn, rgbOf, slider } from './kit';
+import { oneOf } from 'didactics/rng';
+import { BEDS, COL, choices, figure, frame, lock, lockIn, rgbOf, slider, startRng, tellCard } from './kit';
 
 const W = 400;
 
@@ -219,8 +220,16 @@ export const veesFigure = figure(['downstream'], (_ctx, t) => {
   section.append(sg);
   const drawing = el('div', {}, view.node, section);
   const f = frame({ drawing, lines: 3 });
+  // A flash card asks about layers of its own: flat, sloping either way, or on end.
+  const card = t.card ? oneOf(startRng(t), [
+    { dip: 0, down: true, answer: 0 },
+    { dip: 20, down: false, answer: 0 },
+    { dip: 35, down: true, answer: 1 },
+    { dip: 60, down: true, answer: 1 },
+    { dip: 90, down: true, answer: 2 },
+  ]) : null;
   let dip = 0;
-  let down = true;
+  let down = card?.down ?? true;
   let open = false;
   const through = () => {
     const [lon, lat] = fromCell(r, VW / 2, VH / 2);
@@ -297,18 +306,23 @@ export const veesFigure = figure(['downstream'], (_ctx, t) => {
     redraw(sg, ...parts);
   };
   const ds = slider('Slope of the layers', 0, 90, 1, 0, (v) => `${v}°`, (v) => { dip = v; paint(); }, 'old');
-  const way = segmented([{ value: 'down', label: 'Sloping downstream' }, { value: 'up', label: 'Upstream' }] as const, 'down', (v) => { down = v === 'down'; paint(); });
+  const way = segmented([{ value: 'down', label: 'Sloping downstream' }, { value: 'up', label: 'Upstream' }] as const, down ? 'down' : 'up', (v) => { down = v === 'down'; paint(); });
   way.style.display = 'none';
   const pick = choices(['A V pointing upstream', 'A V pointing downstream', 'Straight across the valley'], () => (go.disabled = false));
   const go = lockIn('Lock it in', () => {
     const guess = pick.picked();
     if (guess < 0) return;
     t.keep(guess);
-    pick.freeze(true);
+    if (card) tellCard(t, pick.mark(card.answer));
+    else pick.mark(0);
     go.remove();
     lock([ds], false);
     way.style.display = '';
     open = true;
+    if (card) {
+      ds.set(card.dip);
+      return;
+    }
     paint();
     f.readout.textContent = guess === 0
       ? 'Right: flat layers make a V pointing upstream. Now tilt them.'
@@ -318,10 +332,17 @@ export const veesFigure = figure(['downstream'], (_ctx, t) => {
   lock([ds], true);
   f.controls.append(pick.node, go, way, ds.node);
   paint();
-  f.readout.textContent = 'A river has cut a valley into flat layers of rock. Seen from above, what shape will one layer make where it crosses the valley? Guess first.';
-  if (typeof t.kept === 'number') {
+  f.readout.textContent = card
+    ? `A river, falling about ${riverDip.toFixed(0)}°, has cut a valley into layers of rock ${card.dip === 0 ? 'lying flat' : card.dip >= 85 ? 'standing on end' : `sloping ${card.dip}° ${card.down ? 'downstream' : 'upstream'}`}. Seen from above, what shape will one layer make where it crosses the valley? Guess first.`
+    : 'A river has cut a valley into flat layers of rock. Seen from above, what shape will one layer make where it crosses the valley? Guess first.';
+  if (typeof t.kept === 'number' && !card) {
     pick.pick(t.kept);
     go.click();
   }
   return f.node;
+}, {
+  card: {
+    front: 'A river cuts a valley through layers of rock. Seen from above, which way does a layer’s V point where it crosses the valley? Guess, then tilt the layers.',
+    back: 'Upstream for flat layers and layers sloping upstream (or downstream less steeply than the river); downstream for layers sloping downstream more steeply than the river; straight across for layers on end.',
+  },
 });

@@ -55,6 +55,7 @@ export const coldPoolFigure = figure(['scour'], (ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || !day.scoured || nights < 5 ? '' : pick.picked() === POOL_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(POOL_RIGHT);
     const nightsSaid = nights === 1 ? 'One calm night' : `${nights} calm nights`;
     f.readout.textContent = verdict + (day.scoured
       ? `The wind stirs the air ${height(stirDepth(wind), ctx.save.units)} deep, deeper than the cold pool: the cold air is mixed up into the mild air above, and the basin clears.`
@@ -254,6 +255,7 @@ export const iceLayersFigure = figure(['pellets'], (ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || fall !== 'freezing rain' ? '' : pick.picked() === FALL_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(FALL_RIGHT);
     f.readout.textContent = verdict + FALL_SAY[fall];
     if (t.goal === 'pellets' && fall === 'sleet') t.done();
   };

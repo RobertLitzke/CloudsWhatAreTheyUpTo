@@ -12,10 +12,10 @@ import { realClouds } from '../clouds/real';
 import { DAY } from '../clouds/tones';
 import { PALETTES } from '../scene/landscape';
 import { arrow, crystal, flake, heading, hexagon, label, line, points, polyline, radarDish, radarImage, radarKey, redraw, small, still, type P } from './draw';
-import { COL, animate, figure, frame, height, lock, lockIn, radarColor, slider, tint, type FigureFactory } from './kit';
+import { COL, animate, figure, frame, height, lock, lockIn, radarColor, slider, startRng, tint, verdict, type FigureFactory } from './kit';
 import { fbm } from '../clouds/noise';
 import { radarWords, rainDbz, sameWaterEcho, stratiformDbz } from '../../core/radar';
-import { makeRng } from 'didactics/rng';
+import { makeRng, shuffle } from 'didactics/rng';
 import { fullOverIce, fullOverWater } from '../../core/air';
 import { deviation, ICE_N, minimumDeviation, refract, type V } from '../../core/optics';
 import { FRONT_KMH, FRONT_SLOPE, frontHeightM, frontSky } from '../../core/sky';
@@ -677,9 +677,11 @@ type Genus = 'cirrus' | 'cirrostratus' | 'altostratus' | 'nimbostratus';
 /** The order a warm front's clouds pass overhead, highest first. */
 const ARRIVAL: readonly Genus[] = ['cirrus', 'cirrostratus', 'altostratus', 'nimbostratus'];
 /** The same four as the reader is offered them. */
-const SHUFFLED: readonly Genus[] = ['altostratus', 'cirrus', 'nimbostratus', 'cirrostratus'];
+const OFFERED: readonly Genus[] = ['altostratus', 'cirrus', 'nimbostratus', 'cirrostratus'];
 
 export const frontFigure = figure(['arrive'], (ctx, t) => {
+  // A flash card offers them in an order of its own.
+  const SHUFFLED = t.card ? shuffle(ARRIVAL, startRng(t)) : OFFERED;
   const W = 400;
   const H = 260;
   const f = frame(W, H, 5);
@@ -743,6 +745,7 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
     }
     if (order.length && hours <= 3) {
       const right = order.filter((g, i) => g === ARRIVAL[i]).length;
+      revealOrder(right);
       f.readout.textContent = `${hours} hours before the front: nimbostratus and steady rain. ` + (right === ARRIVAL.length
         ? 'Your order was right: the highest cloud came first.'
         : `You had ${right} of 4 in the right place. They came highest first: ${ARRIVAL.map((g) => genus(g).name.toLowerCase()).join(', ')}.`);
@@ -762,6 +765,18 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
     else order.push(g);
     showOrder();
   } }, genus(g).name) as HTMLButtonElement);
+  // Once the front arrives: each place in the order green or red, and the verdict.
+  let revealed = false;
+  const revealOrder = (right: number) => {
+    if (revealed || asking) return;
+    revealed = true;
+    const all = right === ARRIVAL.length;
+    guess.replaceChildren(
+      el('div.chips.fig-choices', {}, order.map((g, i) => el(`span.chip.${g === ARRIVAL[i] ? 'right' : 'wrong'}`, {}, `${i + 1} ${genus(g).name}`))),
+      verdict(all, all ? 'Your order was right.' : `Your order had ${right} of 4 in the right place.`),
+    );
+    t.card?.verdict(all);
+  };
   const markIt = lockIn('Mark the order', () => {
     asking = false;
     t.keep([...order]);
@@ -795,4 +810,9 @@ export const frontFigure = figure(['arrive'], (ctx, t) => {
   }
   paint(time.value());
   return f.node;
+}, {
+  card: {
+    front: 'A warm front is two days away. Put its four clouds in the order they pass overhead, then let the front come in.',
+    back: 'Highest first: cirrus, cirrostratus, altostratus, then nimbostratus with steady rain, because the front’s surface slopes down toward the ground ahead of it.',
+  },
 });

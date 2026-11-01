@@ -118,6 +118,7 @@ export const fitFigure = figure(['fitted'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Close the Atlantic and fit South America against Africa. Which outline do you expect to fit better: the coastlines, or the edges of the continental shelves, where the sea floor drops to the deep ocean? Guess first.',
     options: ['The coastlines', 'The shelf edges', 'Neither fits well'],
+    answer: 1, reveal: 'done',
     sliders: [move],
     hidden: [which],
     after: (guess) => {

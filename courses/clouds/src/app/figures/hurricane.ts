@@ -233,6 +233,7 @@ export const surgeFigure = figure(['surge'], (_ctx, t) => {
       return;
     }
     const verdict = pick.picked() < 0 || wind !== 58 || !isShallow ? '' : pick.picked() === SURGE_RIGHT ? 'As you guessed. ' : 'Not what you guessed. ';
+    if (verdict) pick.mark(SURGE_RIGHT);
     f.readout.textContent = `${verdict}The wind drags the sea towards the shore. Over deep water the push spreads through a deep layer, and water can flow back underneath; over a wide shallow shelf it has nowhere to go but up. ${s.toFixed(1)} m of surge${s >= 4 ? ', with waves on top: enough to sweep houses away' : ''}.`;
     if (t.goal === 'surge' && !asking && isShallow && s >= 5) t.done();
   };

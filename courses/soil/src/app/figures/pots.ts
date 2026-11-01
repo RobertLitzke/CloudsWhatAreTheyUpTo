@@ -5,6 +5,8 @@
 import { el, svg } from 'didactics/dom';
 import { label, redraw, small } from 'didactics/draw';
 import { drained, MIX_IDS, MIXES, waterAt } from '../../core/pots';
+import { guessFirst, startRng } from 'didactics/figure';
+import { between } from 'didactics/rng';
 import { choices, COL, figure, frame, slider } from './kit';
 
 const f1 = (n: number) => n.toFixed(1);
@@ -23,8 +25,10 @@ export const potFigure = figure(['air'], (_ctx, t) => {
   const f = frame(W, H, 3);
   const g = svg('g');
   f.svg.append(svg('rect', { x: 0, y: 0, width: W, height: H, fill: COL.paper }), g);
-  let mixAt = 0;
-  let height = 15;
+  // A flash card starts on a mix and a pot of its own.
+  const rnd = t.card ? startRng(t) : null;
+  let mixAt = rnd ? between(rnd, 0, MIX_IDS.length - 1, 1) : 0;
+  let height = rnd ? between(rnd, 25, 40, 5) : 15;
   let gravel = 0;
 
   const paint = () => {
@@ -83,12 +87,27 @@ export const potFigure = figure(['air'], (_ctx, t) => {
   const mixes = choices(MIX_IDS.map((m) => MIXES[m].name), (i) => { mixAt = i; paint(); });
   const layer = choices(['No gravel', '5 cm of gravel underneath'], (i) => { gravel = i ? 5 : 0; paint(); });
   mixes.node.prepend(el('span.chip-label', {}, 'Mix:'));
-  f.controls.append(
-    mixes.node,
-    slider('Pot height', 10, 40, 5, height, (v) => `${v} cm`, (v) => { height = v; paint(); }, 'clay').node,
-    layer.node,
-  );
-  mixes.pick(0);
+  const tall = slider('Pot height', 10, 40, 5, height, (v) => `${v} cm`, (v) => { height = v; paint(); }, 'clay');
+  f.controls.append(mixes.node, tall.node, layer.node);
+  mixes.pick(mixAt);
   layer.pick(0);
+  if (t.card) {
+    // Gravel: less air for the roots, as the wet layer perches on top of it.
+    const id = MIX_IDS[mixAt];
+    const less = drained(id, height, 5).air < drained(id, height, 0).air - 0.01;
+    guessFirst(t, f, {
+      ask: `${MIXES[id].name} in a ${height} cm pot, drained after watering. Put 5 cm of gravel under the mix, in the same pot, “for drainage”. Do the roots get more air, less, or the same? Guess first.`,
+      options: ['More air', 'Less air', 'The same'],
+      answer: less ? 1 : 2,
+      sliders: [tall],
+      hidden: [mixes.node, layer.node],
+      after: () => layer.pick(1),
+    });
+  }
   return f.node;
+}, {
+  card: {
+    front: 'A pot of mix, drained after watering. Put a layer of gravel under the mix “for drainage”: do the roots get more air, less, or the same? Guess, then add the gravel.',
+    back: 'Less: water perches in the bottom of the mix whatever is under it, so the gravel only lifts the wet layer up the pot and leaves less mix above it for air.',
+  },
 });

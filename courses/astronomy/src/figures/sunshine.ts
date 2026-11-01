@@ -67,6 +67,7 @@ export const fuelFigure = figure(['fusion'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Eddington’s idea: four hydrogen atoms become one helium atom, and 0.7% of their mass becomes light. Only the core, about a tenth of the Sun, is hot enough. How long can the Sun shine? Guess first.',
     options: ['Less than the age of the Earth', 'About the age of the Earth', 'About twice the age of the Earth'],
+    answer: 2, reveal: 'done',
     sliders: [s],
     after: () => {
       paint();

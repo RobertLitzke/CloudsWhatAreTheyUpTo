@@ -83,6 +83,7 @@ export const parallaxFigure = figure(['bessel'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'A star 2 light-years away would swing back and forth by 3.3 seconds of arc in six months. Move it twice as far away. What happens to the swing? Guess first.',
     options: ['It halves', 'It drops to a quarter', 'It stays the same'],
+    answer: 0,
     sliders: [s],
     after: (guess) => {
       paint();

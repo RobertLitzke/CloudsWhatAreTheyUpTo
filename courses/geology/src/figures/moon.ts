@@ -99,6 +99,7 @@ export const impactFigure = figure(['shallow-round'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'A rock hits the Moon at 20 km a second, coming in 30° above the ground. What shape is its crater? Guess first.',
     options: ['Round', 'An oval stretched along its path', 'A teardrop'],
+    answer: 0, reveal: 'done',
     sliders: [sv, sa],
     after: (guess) => {
       logV = Math.log10(20);
@@ -189,6 +190,7 @@ export const countFigure = figure(['date'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'An old plain in the highlands, not yet saturated, has about ten times as many craters as a mare plain that Apollo 11 dated to 3.6 billion years. How old is the older plain? Guess first.',
     options: ['Ten times older than the mare', 'Twice as old', 'Only a few hundred million years older'],
+    answer: 2, reveal: 'done',
     sliders: [sa],
     after: (guess) => {
       paint();
@@ -282,6 +284,7 @@ export const oceanFigure = figure(['crust'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Late in the cooling, crystals of plagioclase feldspar start to grow in the magma ocean. Where do they go? Guess first.',
     options: ['They sink to the bottom', 'They float to the top', 'They stay spread through the melt'],
+    answer: 1, reveal: 'done',
     sliders: [sd, sm],
     after: (guess) => {
       paint();

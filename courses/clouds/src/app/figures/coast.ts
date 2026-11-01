@@ -303,6 +303,7 @@ export const coastSoundingFigure = figure(['storm'], (ctx, t) => {
     const kind = topM < 1200 ? 'a flat grey deck under the lid, and nothing more' : topM < 4000 ? 'heaps that stop well short of the ice: no thunder' : topM < 7500 ? 'deep showers, with ice and hail in their tops: thunder is possible' : 'a towering thunderstorm';
     if (asking) f.readout.textContent = `A summer day on the coast: a ${deg(Math.round(sea))} sea, and air ${deg(Math.round(aloft))} a kilometre and a half up, kept warm by the sinking air. How high will a bubble off the sea get?`;
     else f.readout.textContent = `The bubble rises while it is warmer than the air around it (orange shading: its fuel), and stops at ${height(topM, ctx.save.units)}: ${kind}.${pick.picked() < 0 ? '' : topM < 1200 && sea === 13 && aloft === 20 ? (pick.picked() === BUBBLE_RIGHT ? ' As you guessed.' : ' Not what you guessed.') : ''}`;
+    if (!asking && pick.picked() >= 0 && topM < 1200 && sea === 13 && aloft === 20) pick.mark(BUBBLE_RIGHT);
     if (t.goal === 'storm' && !asking && topM >= 8000) t.done();
   };
   let asking = t.goal === 'storm';

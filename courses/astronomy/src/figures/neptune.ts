@@ -181,6 +181,7 @@ export const uranusFigure = figure(['found'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Tables made in 1821 fitted every sighting of Uranus until then. After 1821 Uranus fell further and further behind them. Where was the unseen planet in the 1830s? Guess first.',
     options: ['Ahead of Uranus, pulling it on', 'Behind Uranus, pulling it back', 'Right beside it'],
+    answer: 1,
     sliders: [sa, sm],
     after: (guess) => {
       paint();

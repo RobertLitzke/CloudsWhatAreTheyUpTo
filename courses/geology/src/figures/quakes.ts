@@ -108,6 +108,7 @@ export const slabFigure = figure(['close'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'An ocean plate sinks under a continent, and a line of volcanoes rises above it. If the plate sank more steeply, where would the volcanoes stand? Guess first.',
     options: ['Closer to the trench', 'Farther from the trench', 'In the same place'],
+    answer: 0, reveal: 'done',
     sliders: [ds],
     after: (guess) => {
       paint();

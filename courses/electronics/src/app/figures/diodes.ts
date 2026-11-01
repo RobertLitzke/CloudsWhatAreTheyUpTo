@@ -360,7 +360,7 @@ export const clipperFigure = figure(['clip'], (ctx, t) => {
     options: ['The wave, cut flat at under a volt each way', 'The same wave, smaller', 'Only the top half'],
     answer: 0,
     replies: [
-      'Right: current stays tiny until the knee, then shoots up.',
+      'Right: once the wave passes a diode’s knee, that diode conducts and holds it there, so both peaks are cut flat at under a volt.',
       'A resistor divider scales the whole wave down, whereas diodes clamp the peaks once the signal reaches their knee.',
       'A single diode clips only one half of the wave; the second diode, facing the opposite way, clips the other half too.',
     ],

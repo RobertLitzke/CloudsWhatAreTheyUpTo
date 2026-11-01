@@ -162,6 +162,7 @@ export const linesFigure = figure(['peak'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'Hydrogen’s lines are weak in the Sun’s spectrum and strong in Sirius’s. Why? Guess first.',
     options: ['The Sun has little hydrogen', 'The Sun is too cool to show its hydrogen', 'The Sun is too hot to show it'],
+    answer: 1,
     sliders: [s],
     after: (guess) => {
       paint();

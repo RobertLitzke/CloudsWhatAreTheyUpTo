@@ -9,7 +9,8 @@ import { OPEN, wire } from '../circuit/build';
 import { schematic, type Placement } from '../circuit/schematic';
 import { amps, ohms, volts } from '../circuit/units';
 import { hunt } from './bench';
-import { guess, stars } from './guess';
+import { startRng } from 'didactics/figure';
+import { guess, shuffled, stars, type GuessOptions } from './guess';
 import { figure, frame, slider } from './kit';
 
 // ---------------------------------------------------------------------------
@@ -192,34 +193,45 @@ export const rankingFigure = figure(['rank'], (ctx, t) => {
     else
       f.readout.textContent = `${second.reply()} With C out, B and A are simply in series: ${amps(s.i.A)} through both. A dims from ${amps(0.3)} and B brightens from ${amps(0.15)}. Taking a bulb away made the circuit harder to push through, so less current flows from the battery.`;
   };
-  const first = guess({
+  // A flash card offers the options in an order of its own, and is right only if both guesses are.
+  const rnd = t.card ? startRng(t) : null;
+  const mix = (o: GuessOptions) => (rnd ? shuffled(o, rnd) : o);
+  let firstRight = false;
+  const first = guess(mix({
     question: 'Rank the bulbs, brightest first.',
     options: ['A, then B and C equal', 'All three equal', 'B and C, then A'],
     answer: 0,
     replies: ['That is right: A carries the full current while B and C split it.', 'They would be equally bright in a single series loop, but here A carries the combined current of B and C.', 'B and C share what comes through A, so each gets half of it.'],
-    onLock: () => {
+    onLock: (_k, right) => {
+      firstRight = right;
       stage = 1;
       sch.cover({});
       paint();
       second.node.style.display = '';
     },
-  });
-  const second = guess({
+  }));
+  const second = guess(mix({
     question: 'Take bulb C out. What happens to A?',
     options: ['A gets brighter', 'A dims', 'A stays the same'],
     answer: 1,
     replies: ['It feels as though removing a bulb should leave more current for A, but taking away a parallel path raises the circuit\'s total resistance, so less current flows from the battery.', 'That is right: A dims, and B brightens because it no longer shares the current with C.', 'Everything in a circuit is joined up: change one branch and the rest changes too.'],
-    onLock: () => {
+    onLock: (_k, right) => {
       stage = 2;
       sw.closed = false;
       paint();
+      t.card?.verdict(firstRight && right);
       t.done();
     },
-  });
+  }));
   second.node.style.display = 'none';
   f.controls.append(first.node, second.node);
   paint();
   return f.node;
+}, {
+  card: {
+    front: 'Three identical bulbs: A in line with the battery, then B and C side by side. Rank them, brightest first; then say what taking C out does to A.',
+    back: 'A is brightest, with B and C equal: A carries the whole current and B and C split it. Take C out and A dims (B brightens): one path fewer makes the circuit harder to push through, so less current flows.',
+  },
 });
 
 // ---------------------------------------------------------------------------

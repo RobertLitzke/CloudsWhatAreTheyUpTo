@@ -97,6 +97,7 @@ export const fossilFigure = figure(['petrified'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'The Arizona logs are quartz all the way through, with every cell kept. What buried them? Guess first.',
     options: ['River sand', 'Volcanic ash', 'Sea mud'],
+    answer: 1, reveal: 'done',
     sliders: [],
     hidden: [sBurial, sOxygen, sWater],
     after: (guess) => {

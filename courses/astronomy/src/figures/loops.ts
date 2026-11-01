@@ -3,8 +3,8 @@
 
 import { svg } from 'didactics/dom';
 import { line, note, polyline, redraw, small, type P } from 'didactics/draw';
-import { makeRng } from 'didactics/rng';
-import { COL, figure, frame, guessFirst, sig, slider } from './kit';
+import { makeRng, shuffle } from 'didactics/rng';
+import { COL, figure, frame, guessFirst, sig, slider, startRng } from './kit';
 
 const W = 400;
 const TAU = Math.PI * 2;
@@ -142,15 +142,34 @@ export const retrogradeFigure = figure(['backwards'], (_ctx, t) => {
   const sa = slider('Planet’s distance from the Sun', 1.3, 5.2, 0.02, a, (v) => `${v.toFixed(2)} × Earth’s`, (v) => { a = v; paint(); }, 'planet');
   f.controls.append(sd.node, sa.node);
   paint();
-  guessFirst(t, f, {
-    ask: 'Jupiter is about five times as far from the Sun as the Earth, Mars about one and a half. Compared with Mars, is Jupiter’s backward run across the sky wider or narrower? Guess first.',
-    options: ['Wider', 'Narrower', 'About the same'],
-    sliders: [sd, sa],
-    after: () => {
-      paint();
-    },
-  });
+  if (t.card) {
+    // A flash card: two planets out of the Earth's way, nearer and farther, in an order of its own.
+    const rnd = startRng(t);
+    const [p, q] = shuffle([1.5, 2.8, 5.2], rnd).slice(0, 2);
+    const options = shuffle([`The one ${p} times the Earth’s distance`, `The one ${q} times the Earth’s distance`], rnd);
+    const nearer = Math.min(p, q);
+    guessFirst(t, f, {
+      ask: `Two planets circle the Sun outside the Earth’s orbit, one ${p} and one ${q} times as far out as the Earth. As the Earth overtakes each, which slides backwards across a wider stretch of sky? Guess first.`,
+      options: [...options, 'Both the same'],
+      answer: options.findIndex((o) => o.includes(` ${nearer} times`)),
+      sliders: [sd, sa],
+      after: () => paint(),
+    });
+  } else {
+    guessFirst(t, f, {
+      ask: 'Jupiter is about five times as far from the Sun as the Earth, Mars about one and a half. Compared with Mars, is Jupiter’s backward run across the sky wider or narrower? Guess first.',
+      options: ['Wider', 'Narrower', 'About the same'],
+      answer: 1, reveal: 'done',
+      sliders: [sd, sa],
+      after: () => paint(),
+    });
+  }
   return f.node;
+}, {
+  card: {
+    front: 'Two outer planets, at different distances from the Sun. As the Earth overtakes each, which slides backwards across the wider stretch of sky? Guess, then watch.',
+    back: 'The nearer one: its backward run is the Earth’s own motion seen against the stars, and like any parallax it shrinks with distance.',
+  },
 });
 
 // ---- Kepler's ellipse ----------------------------------------------------------------------
@@ -212,6 +231,7 @@ export const ellipseFigure = figure(['fast-near'], (_ctx, t) => {
   guessFirst(t, f, {
     ask: 'A planet on a stretched orbit: where does it move fastest? Guess first.',
     options: ['Nearest the Sun', 'Farthest from the Sun', 'At the same speed all the way round'],
+    answer: 0, reveal: 'done',
     sliders: [s],
     after: () => paint(),
   });

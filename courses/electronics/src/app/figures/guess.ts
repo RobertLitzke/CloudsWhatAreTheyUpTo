@@ -11,6 +11,7 @@
 import { el, svg } from 'didactics/dom';
 import { label } from 'didactics/draw';
 import { choices, COL, lockIn } from './kit';
+import type { Task } from 'didactics/figure';
 
 export interface GuessOptions {
   question: string;
@@ -22,6 +23,24 @@ export interface GuessOptions {
   unsure?: string;
   /** Called once the guess is locked in, with whether it was right (false when unsure). */
   onLock: (picked: number, right: boolean) => void;
+  /** The figure's task, so a flash card hears the verdict. */
+  t?: Pick<Task, 'card'>;
+}
+
+/** The same guess with its options (and their replies) in an order drawn from `rng`, for a flash card. */
+export function shuffled(o: GuessOptions, rng: () => number): GuessOptions {
+  const order = o.options.map((_, i) => i);
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+  return {
+    ...o,
+    options: order.map((i) => o.options[i]),
+    replies: order.map((i) => o.replies[i]),
+    answer: order.indexOf(o.answer),
+    onLock: (picked, right) => o.onLock(picked < order.length ? order[picked] : picked, right),
+  };
 }
 
 export interface Guess {
@@ -41,9 +60,14 @@ export function guess(o: GuessOptions): Guess {
     const k = pick.picked();
     if (k < 0 || locked) return;
     locked = true;
-    pick.freeze(true);
     button.remove();
     const unsure = k === o.options.length;
+    // The pick marked right or wrong, the right one ringed; "not sure" only rings it.
+    if (unsure) {
+      pick.freeze(true);
+      pick.node.querySelectorAll('.chip')[o.answer]?.classList.add('answer');
+    } else pick.mark(o.answer);
+    o.t?.card?.verdict(!unsure && k === o.answer);
     reply = unsure ? (o.unsure ?? 'Fair enough. Here is what happens.') : o.replies[k];
     node.classList.add('locked');
     o.onLock(k, !unsure && k === o.answer);
