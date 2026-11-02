@@ -1,0 +1,297 @@
+{
+ "id": "fill",
+ "n": 204,
+ "branch": "seattle",
+ "needs": [
+  "faults"
+ ],
+ "title": "The ground people built",
+ "teaches": "How Seattle sluiced away hills and filled its tideflats, and why loose, wet fill shook hardest and liquefied in the 2001 Nisqually earthquake",
+ "parts": [
+  {
+   "title": "Shaking in SoDo",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "At 10:54 on the morning of 28 February 2001, a magnitude 6.8 earthquake struck 52 kilometres beneath Anderson Island, near Olympia. It was deep, inside the subducting plate (lesson 11), so the shaking was spread out and moderate, and nobody was killed by falling debris or collapsing structures. But its damage in Seattle was strangely uneven. Brick buildings in Pioneer Square lost **parapets**, the brick walls along their rooflines, and pieces of their outer walls. In SoDo, on Harbor Island and at Boeing Field, the ground cracked, sank and spat out fountains of sand and water; a runway at Boeing Field was broken. Up on the hills, a few kilometres away, little happened. The hills are glacial sand, gravel and till, packed hard under a kilometre of ice."
+    },
+    {
+     "type": "text",
+     "text": "The damage followed a map, but not of the fault or the distance from it. It followed a map of what the ground was made of. And much of the ground that failed had been put there by people since the 1890s."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "The deep 2001 Nisqually quake (M6.8) damaged Pioneer Square, SoDo, Harbor Island and Boeing Field.",
+      "The damage followed the ground: the worst was on young, artificial land."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The city moved its hills",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Early Seattle was cramped between steep hills and the water. Its leaders decided to move the hills. From 1898 to 1930, in a series of **regrades**, crews sluiced Denny Hill, north of downtown, into Elliott Bay with high-pressure water cannons, and later dug it away with steam shovels and conveyors. Other hills were cut down too. South of downtown, the wide **tideflats** at the mouth of the Duwamish River, which flooded twice a day, were filled with dredged sand and silt and with earth from the regrades, to make flat land for railways, factories and the port. Harbor Island, built between about 1903 and 1909 from material dredged from the river and tideflats, was for a while the largest artificial island in the world."
+    },
+    {
+     "type": "diagram",
+     "id": "map",
+     "caption": "Seattle around 1900 and today. Shaded: roughly where the tideflats were filled, Harbor Island, and Denny Hill, sluiced away.",
+     "options": {
+      "relief": "maps/seattle",
+      "title": "Ground made and unmade",
+      "ground": "height",
+      "water": 0,
+      "exaggeration": 3,
+      "alt": "A shaded relief map of central Seattle. A large shaded area south of downtown marks the filled tideflats around the Duwamish mouth, with Harbor Island at its north-west corner; a smaller shaded patch north of downtown marks where Denny Hill once stood.",
+      "areas": [
+       {
+        "points": [
+         [
+          -122.342,
+          47.597
+         ],
+         [
+          -122.322,
+          47.597
+         ],
+         [
+          -122.315,
+          47.578
+         ],
+         [
+          -122.318,
+          47.55
+         ],
+         [
+          -122.345,
+          47.55
+         ],
+         [
+          -122.345,
+          47.578
+         ]
+        ],
+        "color": "sand",
+        "opacity": 0.55
+       },
+       {
+        "points": [
+         [
+          -122.362,
+          47.588
+         ],
+         [
+          -122.347,
+          47.588
+         ],
+         [
+          -122.347,
+          47.566
+         ],
+         [
+          -122.362,
+          47.566
+         ]
+        ],
+        "color": "sand",
+        "opacity": 0.55
+       },
+       {
+        "points": [
+         [
+          -122.352,
+          47.618
+         ],
+         [
+          -122.337,
+          47.618
+         ],
+         [
+          -122.337,
+          47.609
+         ],
+         [
+          -122.352,
+          47.609
+         ]
+        ],
+        "color": "rose",
+        "opacity": 0.45
+       }
+      ],
+      "labels": [
+       {
+        "lon": -122.333,
+        "lat": 47.6015,
+        "text": "Pioneer Square",
+        "side": "right"
+       },
+       {
+        "lon": -122.33,
+        "lat": 47.565,
+        "text": "SoDo",
+        "side": "right"
+       },
+       {
+        "lon": -122.355,
+        "lat": 47.577,
+        "text": "Harbor Island",
+        "side": "left"
+       },
+       {
+        "lon": -122.344,
+        "lat": 47.614,
+        "text": "Denny Hill (gone)",
+        "side": "left"
+       }
+      ],
+      "key": [
+       {
+        "color": "sand",
+        "text": "Filled tideflats (approximate)"
+       },
+       {
+        "color": "rose",
+        "text": "Denny Hill, sluiced away"
+       }
+      ],
+      "scale": "right"
+     }
+    },
+    {
+     "type": "text",
+     "text": "The fill was dumped wet, into water, and never packed down. Its grains of sand lie loosely against each other with water in every gap. Under it, at depths of tens of metres, lies the dense glacial ground that the ice packed down under a kilometre of its own weight (the first lesson of this branch). Pioneer Square, too, sits partly on fill: after a fire destroyed the old town in 1889, the streets were raised a storey on fill, leaving the old ground floors underground.[^underground]"
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "From 1898 to 1930 Seattle sluiced away Denny Hill and other hills, and filled the Duwamish tideflats.",
+      "Harbor Island was built from dredged river sediment, about 1903–1909.",
+      "The fill is loose, wet sand and silt; the glacial ground beneath it is dense."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "When sand turns to liquid",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Shake a jar of loose wet sand and it settles: the grains slip into the gaps and pack tighter. In the ground, the gaps are full of water, so as the grains try to pack down, they squeeze the water. If the shaking is quick, the water cannot get out in time, and its pressure rises. Soon it carries part of the weight that the grains carried before, and the grains press on each other less. If the water pressure rises until it carries all the weight, the grains lose contact and the sand has no strength at all. It flows like a thick liquid. This is **liquefaction**."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "liquefy",
+     "caption": "Two boxes of ground under the same shaking: dense glacial soil and loose wet fill. The numbers are illustrative.",
+     "task": "Shake the fill until it liquefies",
+     "goal": "liquefied",
+     "aspect_ratio": 1.75
+    },
+    {
+     "type": "text",
+     "text": "Buildings on liquefied ground sink and tilt, buried pipes and tanks float up, and the pressurised water escapes through cracks, carrying sand to the surface as **sand boils**. In Niigata, Japan, in 1964, whole apartment blocks tipped over intact. Dense glacial soil, already packed as tightly as shaking could pack it, does not liquefy. That is the difference between SoDo and Capitol Hill in 2001, and it will matter even more in a shallow quake on the Seattle fault (two lessons back) or a great Cascadia earthquake (lesson 19)."
+    },
+    {
+     "type": "text",
+     "text": "Engineers can fight it. They pack the fill with vibrating probes, drive stone columns through it to pack the sand and let water out, or stand buildings on **piles**, long columns of steel or concrete driven down through the fill to the dense ground below. Much of the new waterfront was built this way, while the highway tunnel that in 2019 replaced the earthquake-damaged Alaskan Way Viaduct was bored deep through the glacial soil beneath."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Shaking packs loose wet grains; the trapped water’s pressure rises until it carries the weight.",
+      "Then the sand flows: buildings sink and tilt, and sand boils erupt.",
+      "Dense glacial soil does not liquefy; engineers pack fill or reach down to dense ground."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Seattle’s fill",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "Why was damage in 2001 worst in SoDo and on Harbor Island?",
+        "choices": [
+         "They are built on loose, wet fill that shakes hard and can liquefy",
+         "They were closest to the epicentre",
+         "Their buildings were the tallest"
+        ],
+        "answer": 0,
+        "why": "The epicentre was far away and deep; the difference was the ground."
+       },
+       {
+        "ask": "Where did much of the fill come from?",
+        "choices": [
+         "Dredged river sediment and earth from regraded hills like Denny Hill",
+         "Volcanic ash from Mount Rainier",
+         "Rock blasted from the Cascades"
+        ],
+        "answer": 0,
+        "why": "The city sluiced away its hills and dredged the river to fill the tideflats."
+       },
+       {
+        "ask": "What causes liquefaction?",
+        "choices": [
+         "Water pressure between loose grains rises during shaking until it carries the weight",
+         "The sand melts from friction",
+         "The ground fills with air"
+        ],
+        "answer": 0,
+        "why": "Shaking packs the grains, squeezing the trapped water; its pressure takes over the load and the grains lose contact."
+       },
+       {
+        "ask": "Why does dense glacial soil not liquefy?",
+        "choices": [
+         "Its grains are already packed tightly, so shaking cannot pack them more",
+         "It has no water",
+         "It is frozen"
+        ],
+        "answer": 0,
+        "why": "With no room to pack tighter, the grains do not squeeze the water, and its pressure does not rise."
+       },
+       {
+        "ask": "Which is a way to protect a building on fill?",
+        "choices": [
+         "Stand it on piles that reach the dense ground below",
+         "Add more loose sand on top",
+         "Water the ground before a quake"
+        ],
+        "answer": 0,
+        "why": "Piles carry the load past the fill; packing the fill or draining it also works."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Nisqually 2001 damaged the flats.** Pioneer Square, SoDo, Harbor Island and Boeing Field.",
+  "**Damage followed the ground.** Not the distance from the quake.",
+  "**Seattle moved its hills.** Regrades from 1898 to 1930 sluiced Denny Hill into the bay.",
+  "**The tideflats were filled.** Harbor Island was built from dredged sediment.",
+  "**Fill is loose and wet.** It was dumped into water and never packed.",
+  "**Shaking can liquefy it.** Water pressure takes the weight and the grains lose contact.",
+  "**Dense glacial ground holds.** Engineers pack fill or reach down to dense ground."
+ ],
+ "journal": [],
+ "footnotes": {
+  "underground": {
+   "kind": "technical",
+   "title": "The Seattle Underground",
+   "text": "After the Great Seattle Fire of 1889, the city rebuilt in brick and raised the streets of Pioneer Square, in places by a storey or more, to lift them above the tides and give the sewers a slope. For years the pavements stayed at the old level, with ladders down from the new streets; later they were roofed over. Parts of the old street level can still be toured."
+  }
+ }
+}

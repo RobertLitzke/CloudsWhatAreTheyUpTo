@@ -1,0 +1,176 @@
+{
+ "id": "slides",
+ "n": 203,
+ "branch": "seattle",
+ "needs": [
+  "rivers"
+ ],
+ "title": "Why the hills slide",
+ "teaches": "Why Seattle’s landslides happen at the same level on its bluffs, and why they come after wet winters: sand over clay, and water that cannot get out",
+ "parts": [
+  {
+   "title": "The winter of 1996–97",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Seattle had a white Christmas in 1996: heavy snow, followed at the New Year by warm, heavy rain that melted it. Water poured into the ground. Over the next weeks, hundreds of landslides broke loose across the city and along the shores of Puget Sound. Houses on Magnolia and in West Seattle slid or were left hanging over new **scarps**, fresh steps in the ground where a slide broke away; the railway along the Sound north of the city was blocked again and again, and in January a slide near Woodway pushed freight cars off the track towards the water. More slides followed in March, after more rain."
+    },
+    {
+     "type": "text",
+     "text": "When geologists mapped the slides, two things stood out. They happened on steep bluffs, which is no surprise. But on many bluffs they started at about the same height, along a line you could trace around a hillside. And they came not in the wettest single storm, but after weeks of rain, when the ground was already full."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Wet winter 1996–97: snow, then warm rain, then hundreds of slides across Seattle.",
+      "Many slides started at the same height on the bluffs, after weeks of rain."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Sand on clay",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Cut into almost any Seattle bluff and you find the same two layers. Above is the **Esperance Sand**, clean sand and gravel spread by meltwater rivers ahead of the advancing Puget lobe (the previous lessons). Below is the **Lawton Clay**, fine silt and clay that settled in a lake dammed in front of the ice before the sand arrived.[^lawton] Above both, the ice later plastered its till."
+    },
+    {
+     "type": "text",
+     "text": "Rain soaks quickly through the sand, which is full of connected pores, but stops on the clay, which has pores too small for water to pass at any speed. So the water piles up in the sand just above the clay, like water in a bathtub, and seeps sideways until it comes out at the bluff face along the contact. Look along a Seattle bluff in winter and you can often see the line: a row of springs and wet patches, ferns and horsetails, at one level."
+    },
+    {
+     "type": "text",
+     "text": "That water does two things. Where it comes out, it washes sand from the face and undermines the bluff above. Inside the sand, the grains carry the weight of everything above them, pressing hard against each other where they touch, and that pressing gives them friction. Water under pressure in the pores pushes back against that weight, so the grains press on each other less and their friction drops. Friction holds a slope up. When the water rises far enough, the sand above the clay gives way."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "bluff",
+     "caption": "A bluff with sand over clay, through a winter. Rain soaks in; the clay lets it out only slowly. The line below the bluff tracks the water held in the sand.",
+     "task": "Find a winter that brings the bluff down",
+     "goal": "failed",
+     "aspect_ratio": 1.4
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Esperance Sand (outwash) lies on Lawton Clay (lake beds) in Seattle’s bluffs.",
+      "Water soaks through the sand, stops on the clay and builds up; it seeps out at the contact.",
+      "Water pressure in the sand lowers the friction between grains, and the slope fails."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Reading the rain",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "That explains both patterns. The slides start at the contact, which is at about the same height around a hill, because the layers were laid down flat. And they come after long wet spells, because the water in the sand rises only when rain arrives faster than the clay and the bluff face can let it out. A steady drizzle drains away; the same rain crowded into a few weeks does not."
+    },
+    {
+     "type": "text",
+     "text": "The US Geological Survey turned this into a warning tool for Seattle. It compares the rain of the last three days with the rain of the fifteen days before. When both are high enough, the ground is full and a new storm will bring slides, so the city and the weather service can warn people.[^threshold] The rest is mostly common sense that people often ignore: do not pour roof water or a swimming pool over a bluff, do not pile fill or build heavy structures at its edge, keep the plants whose roots hold the surface, and drain the water from the sand before it builds up."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Slides start at the sand–clay contact, a level line around each hill.",
+      "They follow long wet spells, when water comes in faster than it can drain.",
+      "The USGS warns using rain over the last 3 and 15 days; good drainage is the best defence."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Seattle’s landslides",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "Why do many Seattle slides start at about the same height on a hill?",
+        "choices": [
+         "They start at the contact between the sand and the clay, which is level",
+         "Landslides always start halfway up",
+         "The city built a road at that height"
+        ],
+        "answer": 0,
+        "why": "The layers were laid down flat, so the contact, where water seeps out, runs at one level."
+       },
+       {
+        "ask": "Why does water collect just above the Lawton Clay?",
+        "choices": [
+         "Water passes easily through sand but hardly at all through clay",
+         "Clay attracts water from the air",
+         "The sea seeps in from below"
+        ],
+        "answer": 0,
+        "why": "The sand’s connected pores let water through; the clay’s tiny pores stop it, so it piles up."
+       },
+       {
+        "ask": "How does water in the sand make the slope fail?",
+        "choices": [
+         "Its pressure pushes the grains apart, reducing the friction that holds the slope",
+         "It dissolves the sand",
+         "It makes the sand lighter"
+        ],
+        "answer": 0,
+        "why": "Friction depends on how hard grains press together; water pressure lowers that."
+       },
+       {
+        "ask": "The same total rain falls in two winters. Which is more dangerous?",
+        "choices": [
+         "One where it comes in a few wet weeks",
+         "One where it falls evenly all winter",
+         "Both the same"
+        ],
+        "answer": 0,
+        "why": "Crowded rain arrives faster than the water can drain, so the level in the sand rises."
+       },
+       {
+        "ask": "Which is the worst thing to do on a bluff-top lot?",
+        "choices": [
+         "Drain the roof onto the bluff",
+         "Plant shrubs",
+         "Install drains in the sand"
+        ],
+        "answer": 0,
+        "why": "Adding water to the sand above the clay is what makes bluffs fail."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**1996–97 brought hundreds of slides.** Snow, then warm rain, then more storms.",
+  "**Seattle’s bluffs are sand on clay.** Esperance Sand above, Lawton Clay below.",
+  "**Water stops at the clay.** It piles up in the sand and seeps out at the contact.",
+  "**Water pressure kills friction.** The grains press together less, and the slope fails.",
+  "**Slides line up at one level.** The contact is flat around a hill.",
+  "**Timing matters.** Rain crowded into weeks is worse than the same rain spread out.",
+  "**Warnings use recent rain.** The USGS compares the last 3 days with the 15 before."
+ ],
+ "journal": [],
+ "footnotes": {
+  "lawton": {
+   "kind": "technical",
+   "title": "Fort Lawton",
+   "text": "The Lawton Clay is named after Fort Lawton, the old army post that is now Discovery Park on Magnolia, where the layer is well exposed in the bluffs. The lake it settled in formed when the advancing ice blocked the Strait of Juan de Fuca and the northern Sound, so that rivers flowing north from the Cascades were dammed."
+  },
+  "threshold": {
+   "kind": "technical",
+   "title": "The rain threshold",
+   "text": "The USGS threshold for Seattle, worked out by Alan Chleborad from the slides of 1933 to 1997, is a line on a graph of the rain in the last 3 days against the rain in the 15 days before. Above the line, landslides become likely. It works because the 15-day rain says how full the sand already is, and the 3-day rain says how much more is coming."
+  }
+ }
+}

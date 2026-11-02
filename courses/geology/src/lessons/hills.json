@@ -1,0 +1,232 @@
+{
+ "id": "hills",
+ "n": 201,
+ "branch": "seattle",
+ "needs": [
+  "kettles"
+ ],
+ "title": "Why Seattle’s hills run north–south",
+ "teaches": "How a lobe of the Cordilleran ice sheet, a kilometre thick, flowed south over Seattle and left its hills, lakes and the Sound lined up in its direction",
+ "parts": [
+  {
+   "title": "A city of ridges",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Look at a map of Seattle and the city seems combed. Queen Anne Hill, Capitol Hill, Beacon Hill and Magnolia are long ridges, each a few kilometres long, and all of them run north to south. Between them lie long, narrow water bodies that run the same way: Lake Union, Lake Washington, and the arms of Puget Sound itself. Lake Washington is about 30 kilometres long and only 2 to 6 kilometres wide, and its floor lies below sea level. The Sound west of the city is up to about 280 metres deep."
+    },
+    {
+     "type": "text",
+     "text": "Rivers do not make a pattern like this. A river system branches like a tree, with valleys running every way and joining downhill. Here the hills and hollows are parallel, as if something had dragged across the whole region from north to south. Something did."
+    },
+    {
+     "type": "diagram",
+     "id": "map",
+     "caption": "Seattle and its surroundings, with the hills and lakes all lined up north to south. Lake Washington is on the right, Puget Sound on the left.",
+     "options": {
+      "relief": "maps/seattle",
+      "title": "Seattle’s grain",
+      "ground": "height",
+      "water": 0,
+      "exaggeration": 4,
+      "alt": "A shaded relief map of Seattle. Long ridges and the long, narrow lakes between them all run north to south: Magnolia and Queen Anne Hill in the west, Capitol Hill and Beacon Hill in the middle, Lake Washington to the east, Puget Sound to the west.",
+      "labels": [
+       {
+        "lon": -122.356,
+        "lat": 47.637,
+        "text": "Queen Anne Hill",
+        "side": "left"
+       },
+       {
+        "lon": -122.317,
+        "lat": 47.627,
+        "text": "Capitol Hill",
+        "side": "right"
+       },
+       {
+        "lon": -122.305,
+        "lat": 47.565,
+        "text": "Beacon Hill",
+        "side": "left"
+       },
+       {
+        "lon": -122.4,
+        "lat": 47.65,
+        "text": "Magnolia",
+        "side": "left"
+       },
+       {
+        "lon": -122.255,
+        "lat": 47.62,
+        "text": "Lake Washington",
+        "area": true
+       },
+       {
+        "lon": -122.335,
+        "lat": 47.642,
+        "text": "Lake Union",
+        "side": "right"
+       },
+       {
+        "lon": -122.45,
+        "lat": 47.6,
+        "text": "Puget Sound",
+        "area": true
+       }
+      ],
+      "scale": "right"
+     }
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Seattle’s hills (Queen Anne, Capitol, Beacon, Magnolia) and its waters (Lake Union, Lake Washington, the Sound) all run north to south.",
+      "Rivers make branching valleys, not parallel ridges and troughs."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "A kilometre of ice",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "About 20,000 years ago, during the last cold peak of the ice age (lesson 15), the Cordilleran ice sheet that covered British Columbia pushed south. The Olympic Mountains and the Cascades split it, and a tongue of ice called the **Puget lobe** flowed down the lowland between them. It reached Seattle around 17,400 years ago and stopped just south of Olympia about 16,900 years ago. Over Seattle it was about a kilometre thick, so that the Space Needle, had it been there, would have been buried under more than five times its height of ice."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "puget-lobe",
+     "caption": "The Puget Lowland from the Canadian border to Olympia. The ice surface comes from a simple ice-sheet profile: it rises with the square root of the distance back from the front.",
+     "task": "Play the ice south past Olympia and back north again",
+     "goal": "covered",
+     "aspect_ratio": 0.62
+    },
+    {
+     "type": "text",
+     "text": "Geologists can tell how thick the ice was from several clues. On the flanks of the Cascades and Olympics, the highest erratics and till of the Puget lobe mark where its surface stood, and old shorelines have risen since the ice left (lesson 16) by about as much as a kilometre of ice would have pressed the ground down: mantle rock is about three times as dense as ice, so the ground sinks by roughly a third of the ice’s thickness. Over Seattle, every hilltop is capped with **till**, the unsorted mix of clay, sand and boulders that ice drops beneath itself (lesson 14), and the bedrock and boulders are scratched in lines that point north to south."
+    },
+    {
+     "type": "text",
+     "text": "The Puget lobe did not last. By about 16,000 years ago the ice had melted back from the Seattle basin, and the sea flowed into the troughs it left. The ice stood over Seattle for only about a thousand years; its whole advance and retreat through the lowland took just a few thousand."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "The Puget lobe of the Cordilleran ice sheet flowed south between the Olympics and Cascades, reaching just south of Olympia about 16,900 years ago.",
+      "Over Seattle the ice was about 1 km thick; till caps the hilltops and scratches run north to south.",
+      "The ice was gone from the basin by about 16,000 years ago, after a few thousand years."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Shaped from underneath",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Ice a kilometre thick weighs on its bed with about 9 million pascals of pressure, ninety times the pressure of the air. As the Puget lobe slid south, it smeared the sand and gravel under it into long, smooth hills with their long axes along the flow: **drumlins**, like the ones in New York in lesson 16. Seattle’s ridges are large drumlin-like hills: cores of older sand and gravel, laid down by rivers ahead of the advancing ice, then overridden, streamlined and plastered with till."
+    },
+    {
+     "type": "text",
+     "text": "The troughs were carved a different way. Ice sheets melt at their base, from the heat of the Earth and the friction of sliding, and the meltwater runs under the ice under enormous pressure toward the front. Under the Puget lobe it flowed south and cut deep channels into the soft sediments, down to more than a hundred metres below sea level.[^troughs] When the ice melted, the sea filled the western troughs to make the Sound; the eastern ones became Lake Washington and Lake Sammamish, cut off from the sea by sediment."
+    },
+    {
+     "type": "text",
+     "text": "So the shape of the city, with its ridges, lakes and waterfront, is the footprint of a glacier, left only about 16,000 years ago. Two hundred years of building has hardly touched it. In later lessons, that ground meets a fault that broke it about 1,100 years ago, slopes that keep sliding, and the parts that people rebuilt themselves."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "The ice smeared the sediment under it into streamlined, till-capped ridges along its flow.",
+      "Meltwater under pressure beneath the ice cut deep north-to-south troughs, now the Sound and Lake Washington."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the ice over Seattle",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "Why do geologists think something dragged across Seattle, rather than rivers shaping it?",
+        "choices": [
+         "The hills and troughs are parallel, all running north to south, unlike the branching pattern rivers make",
+         "The hills are all the same height",
+         "Rivers never flow north"
+        ],
+        "answer": 0,
+        "why": "Rivers make branching valleys; parallel ridges and troughs need something moving in one direction over the whole region."
+       },
+       {
+        "ask": "Which way did the Puget lobe flow?",
+        "choices": [
+         "North to south",
+         "South to north",
+         "West to east, off the Olympics"
+        ],
+        "answer": 0,
+        "why": "It came from the Cordilleran ice sheet in Canada, flowing south down the lowland between the Olympics and Cascades."
+       },
+       {
+        "ask": "About how thick was the ice over Seattle?",
+        "choices": [
+         "About 1 kilometre",
+         "About 10 metres",
+         "About 10 kilometres"
+        ],
+        "answer": 0,
+        "why": "About a kilometre: the highest erratics and till on the mountain flanks and the rebound of the ground fit that."
+       },
+       {
+        "ask": "What made the deep troughs that hold Lake Washington and the Sound?",
+        "choices": [
+         "Meltwater flowing south under the ice at high pressure",
+         "The sea, after the ice left",
+         "Rivers flowing west from the Cascades"
+        ],
+        "answer": 0,
+        "why": "Water at the base of the ice was squeezed south and cut channels deep into the soft sediments, some below sea level."
+       },
+       {
+        "ask": "What is a Seattle hill typically made of?",
+        "choices": [
+         "Older sand and gravel, streamlined by the ice and capped with till",
+         "Solid bedrock",
+         "Lava"
+        ],
+        "answer": 0,
+        "why": "The ice overrode sediment that rivers had laid down ahead of it, streamlined it, and left till on top."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Seattle is combed north to south.** Its ridges, lakes and the Sound are parallel.",
+  "**The Puget lobe did it.** Ice from Canada flowed south between the Olympics and Cascades.",
+  "**It stopped just south of Olympia.** That was about 16,900 years ago.",
+  "**About a kilometre thick over Seattle.** Erratics, till and rebound tell the thickness.",
+  "**The hills are streamlined.** Older sediment was shaped along the flow and capped with till.",
+  "**Meltwater cut the troughs.** Pressurised water under the ice dug the lakes and the Sound.",
+  "**It was brief.** The ice came and went in a few thousand years, gone from the basin by about 16,000 years ago."
+ ],
+ "journal": [],
+ "footnotes": {
+  "troughs": {
+   "kind": "technical",
+   "title": "Carved from below",
+   "text": "The idea that water under the ice, not the ice itself, cut Puget Sound’s troughs was argued in detail by Derek Booth and Bernard Hallet in 1993. The troughs branch and rejoin, and some of their floors rise toward the south, which water flowing under pressure can do but an ordinary river cannot."
+  }
+ }
+}

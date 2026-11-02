@@ -9,23 +9,14 @@ export type GeoLesson = Lesson & TreeLesson;
 
 const written = import.meta.glob<GeoLesson>('./lessons/*.json', { eager: true, import: 'default' });
 
-/** A lesson not written yet: its place in the tree and what it will answer. */
-const coming = (id: string, n: number, title: string, teaches: string, more: Partial<GeoLesson> = {}): GeoLesson =>
+/** A lesson not written yet: its place in the tree and what it will answer. Every planned lesson is written now; kept for the next ones. */
+export const coming = (id: string, n: number, title: string, teaches: string, more: Partial<GeoLesson> = {}): GeoLesson =>
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], journal: [], ...more });
 
 const TRUNK_COMING: GeoLesson[] = [
 ];
 
 const BRANCH_COMING: GeoLesson[] = [
-  coming('ebey', 101, 'Shells at the top of the bluff', 'Reading the cliff at Ebey’s Landing', { branch: 'whidbey', needs: ['kettles'] }),
-  coming('prairie', 102, 'Holes in the prairie', 'Kettles and outwash on central Whidbey', { branch: 'whidbey', needs: ['kettles'] }),
-  coming('feeder-bluffs', 103, 'Where the beaches come from', 'Bluffs, landslides and drift cells', { branch: 'whidbey', needs: ['kettles', 'rivers'] }),
-  coming('deception', 104, 'Seafloor at Deception Pass', 'Pieces of ocean floor stuck onto the continent', { branch: 'whidbey', needs: ['quakes', 'barrow'] }),
-  coming('whidbey-fault', 105, 'A fault under the island', 'How to prove a fault is active with no quake on record', { branch: 'whidbey', needs: ['faults'] }),
-  coming('hills', 201, 'Why Seattle’s hills run north–south', 'The Puget lobe and the ground it shaped', { branch: 'seattle', needs: ['kettles'] }),
-  coming('drowned', 202, 'Drowned forests in Lake Washington', 'The Seattle fault’s quake about 900 CE', { branch: 'seattle', needs: ['faults'] }),
-  coming('slides', 203, 'Why the hills slide', 'Sand on clay, and wet winters', { branch: 'seattle', needs: ['rivers'] }),
-  coming('fill', 204, 'The ground people built', 'Regrades, filled tideflats and shaking', { branch: 'seattle', needs: ['faults'] }),
 ];
 
 /** The branches: Pacific Northwest geology, read with what the trunk teaches, and three that go further than the trunk (the Moon, fossils, the deep Earth). */

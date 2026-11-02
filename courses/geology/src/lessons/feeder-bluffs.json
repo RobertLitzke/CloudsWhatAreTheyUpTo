@@ -1,0 +1,179 @@
+{
+ "id": "feeder-bluffs",
+ "n": 103,
+ "branch": "whidbey",
+ "needs": [
+  "kettles",
+  "rivers"
+ ],
+ "title": "Where the beaches come from",
+ "teaches": "How Whidbey’s bluffs fail when water builds up above clay, and how the sand that falls feeds the beaches along the shore, until a bulkhead cuts it off",
+ "parts": [
+  {
+   "title": "Ledgewood, March 2013",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Early on the morning of 27 March 2013, residents of Ledgewood Beach, on the west side of Whidbey south of Coupeville, woke to the sound of the ground moving. A long section of the bluff above the beach had begun to slide toward Admiralty Inlet. Over the next hours it carried trees, a road and part of the neighbourhood down and out; one house was knocked off its foundation and destroyed, and dozens of others were cut off or threatened. Nobody was hurt. At the foot, the slide shoved the beach and the seabed up and out into the water."
+    },
+    {
+     "type": "text",
+     "text": "Slides like this are common on Whidbey and around Puget Sound: almost every winter, somewhere, a bluff comes down. They are dangerous for the people who live on top. Yet they are also how the shore works. Without them, the beaches would vanish."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "In March 2013 a large section of bluff at Ledgewood Beach slid into Admiralty Inlet.",
+      "Bluff slides are common around Puget Sound, and they feed the beaches."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Why bluffs fail",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Whidbey’s bluffs are built of the layers from the first lesson in this branch: sand and gravel from the ice ages, in places with layers of clay and silt between them. The same thing happens here as on Seattle’s bluffs (in the Seattle branch): rain soaks down through the sand and stops on the finer layers, which let it pass only very slowly. Water builds up above them and seeps out at the bluff face, while its pressure in the sand lowers the friction that holds the slope up. Waves cutting at the foot of the bluff steepen it from below. After a wet winter, something gives."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "bluff",
+     "caption": "A bluff of sand over clay, through a winter of rain. Water held up by the clay seeps out at the face; when it builds up far enough, the slope fails.",
+     "task": "Find a winter that brings the bluff down",
+     "goal": "failed",
+     "aspect_ratio": 1.4
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Rain soaks through sand and stops on clay or silt; water builds up above it.",
+      "Water pressure lowers the friction in the sand; waves steepen the foot; wet winters bring slides."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The bluff feeds the beach",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Look at what a slide leaves on the beach: a heap of sand, gravel and boulders. The fine silt washes out to sea, while the waves sort the sand and gravel and start to move them. Waves rarely arrive square to the shore. Each one runs up the beach at a slant and drains straight back down the slope, so every wave carries sand a step along the shore. Day after day, the beach moves like a slow river of sand, a process called **longshore drift**."
+    },
+    {
+     "type": "text",
+     "text": "Around Puget Sound the shore is divided into **drift cells**: stretches where the sand moves mostly one way, from the bluffs that feed it to a spit or a lagoon at the far end where it piles up. A **spit** is a finger of sand and gravel built out into the water where the shore turns; **downdrift** means farther along in the direction the sand moves. Most of the sand on the beaches comes from eroding bluffs, which geologists call **feeder bluffs**. Rivers bring much less, and there is little other source of sand."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "drift-cell",
+     "caption": "A stretch of shore from above, with a feeder bluff in the middle. The beach widths are exaggerated so they can be seen.",
+     "task": "Build a bulkhead and watch the beach down the shore",
+     "goal": "starved",
+     "aspect_ratio": 1.8
+    },
+    {
+     "type": "text",
+     "text": "Owners of houses on bluffs often build a **bulkhead**, a wall of concrete or rock along the foot, to stop the waves from cutting it. This slows the waves’ undercutting, though it does nothing about the water inside the bluff, so slides still happen. It also cuts the bluff off from the beach. The waves keep carrying sand away down the drift cell, and nothing replaces it. Over the years the beach in front of the wall, and then the beaches downdrift, lose their sand and turn to cobbles. About a quarter of Puget Sound’s shoreline now has armour of this kind.[^smelt]"
+    },
+    {
+     "type": "text",
+     "text": "At Ebey’s Landing, the beach below the bluff from the first lesson in this branch carries its sand along to a long gravel barrier that holds Perego’s Lagoon behind it. The bluff, the beach and the lagoon are one system."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Waves arriving at an angle move sand along the shore: longshore drift.",
+      "Drift cells carry sand from feeder bluffs to spits and lagoons; most beach sand comes from bluffs.",
+      "Bulkheads cut off the supply and starve the beaches downdrift."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on bluffs and beaches",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "Why does water build up inside a sandy bluff?",
+        "choices": [
+         "It soaks through the sand but stops on finer layers below",
+         "The sea pushes it in",
+         "It condenses from the air"
+        ],
+        "answer": 0,
+        "why": "Sand lets water through; clay and silt hardly do, so the water piles up above them."
+       },
+       {
+        "ask": "How do waves move sand along a beach?",
+        "choices": [
+         "They run up at a slant and drain straight back, moving the sand a step each time",
+         "They push it straight up the beach",
+         "They only move sand during storms from the north"
+        ],
+        "answer": 0,
+        "why": "The slanting run-up and straight backwash make a zigzag that adds up to drift along the shore."
+       },
+       {
+        "ask": "Where does most of the sand on Puget Sound beaches come from?",
+        "choices": [
+         "Eroding bluffs",
+         "Rivers from the Cascades",
+         "The open ocean"
+        ],
+        "answer": 0,
+        "why": "Feeder bluffs supply most of it; rivers contribute much less."
+       },
+       {
+        "ask": "A bulkhead protects one bluff. What happens a kilometre down the drift cell?",
+        "choices": [
+         "The beach slowly loses its sand",
+         "Nothing",
+         "The beach grows"
+        ],
+        "answer": 0,
+        "why": "The waves keep moving sand away, and the walled bluff no longer replaces it."
+       },
+       {
+        "ask": "What is at the far end of a drift cell, where the sand stops?",
+        "choices": [
+         "A spit or barrier, often with a lagoon behind it",
+         "A bluff",
+         "A river delta"
+        ],
+        "answer": 0,
+        "why": "The drifting sand piles up where the shore turns or the waves weaken, building spits and barriers."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Ledgewood slid in March 2013.** A whole section of bluff moved onto the beach.",
+  "**Water above clay starts slides.** As on Seattle’s bluffs.",
+  "**Waves move sand along the shore.** A slanting run-up and a straight backwash.",
+  "**Drift cells run one way.** From feeder bluffs to spits and lagoons.",
+  "**Bluffs feed the beaches.** Most of the Sound’s beach sand comes from them.",
+  "**Bulkheads starve beaches.** The waves keep taking sand; nothing replaces it.",
+  "**Bluff, beach and lagoon are one system.** As at Ebey’s Landing and Perego’s Lagoon."
+ ],
+ "journal": [],
+ "footnotes": {
+  "smelt": {
+   "kind": "digression",
+   "title": "Fish that need sand",
+   "text": "Surf smelt and Pacific sand lance, small fish that salmon, seabirds and orcas’ prey depend on, lay their eggs in the fine sand and gravel of the upper beach. Where a bulkhead has stripped the beach to cobbles, or buried the upper beach under the wall itself, they lose their spawning ground. Washington now encourages removing old bulkheads where houses are not at risk."
+  }
+ }
+}

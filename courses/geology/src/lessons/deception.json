@@ -1,0 +1,211 @@
+{
+ "id": "deception",
+ "n": 104,
+ "branch": "whidbey",
+ "needs": [
+  "quakes",
+  "barrow"
+ ],
+ "title": "Seafloor at Deception Pass",
+ "teaches": "How pillow basalt, ribbon chert and serpentinite at Deception Pass record pieces of ocean floor scraped off and welded onto North America",
+ "parts": [
+  {
+   "title": "Ocean floor on a cliff",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "At the north tip of Whidbey Island, the tide races through Deception Pass between steep rock cliffs, under a bridge that is one of the most visited places in Washington. The rock here is unlike anything in the glacial sand and gravel of the rest of the island. At Rosario Head, just to the north-west on Fidalgo Island, three kinds of rock tell a story together."
+    },
+    {
+     "type": "text",
+     "text": "One is **pillow basalt**: dark lava in rounded lumps like stacked sacks, each with a glassy skin. Lava takes this shape only when it erupts under water, which chills each blob’s surface as it oozes out, as it does on the mid-ocean ridges of lesson 10. Another is **ribbon chert**: thin, hard beds of silica, red or green, separated by partings of shale. Under a microscope it is full of the tiny silica skeletons of **radiolarians**, plankton that rain onto the deep ocean floor far from land. The third is **serpentinite**, a green, slippery rock that forms when the mantle’s rock, peridotite, reacts with seawater (lesson 5)."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Pillow basalt (lava erupted under water), ribbon chert (deep-sea plankton) and serpentinite (altered mantle) appear at Deception Pass and Rosario Head.",
+      "Together they are a slice of ocean floor, now standing on land."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Suspect terranes",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Mantle, deep seafloor and seafloor lava, stacked together, are what you would find if you could drill straight down through the ocean crust. Such a stack on land is called an **ophiolite**. The rocks at Deception Pass and on Fidalgo Island are pieces of one, about 160 million years old, from the Jurassic.[^fidalgo] How did ocean floor come to be on the edge of a continent?"
+    },
+    {
+     "type": "text",
+     "text": "In the 1970s, geologists mapping western North America from Alaska to California found that it is a patchwork. Blocks of rock, tens to hundreds of kilometres across, sit side by side but have nothing to do with one another: they have different ages, fossils and histories, and are bounded by faults. Some contain fossils of creatures that lived in warm tropical seas; the magnetism frozen in some of their lavas (lesson 10) says they formed thousands of kilometres to the south. In 1980 Peter Coney, David Jones and James Monger called them **suspect terranes**: suspect because they might not have formed where they are now."
+    },
+    {
+     "type": "text",
+     "text": "Plate tectonics explained them (lesson 11). An ocean plate carries everything on it toward the trench: ordinary seafloor, **seamounts** (undersea volcanoes), volcanic island arcs, even small pieces of continent. Two different things happen at the trench. Ordinary ocean crust is thin and dense, and most of it sinks under the continent; only its top layers, the sediment, the chert and some of the pillow lava, are scraped off, like snow off a shovel, and stacked slice by slice against the continent’s edge in an **accretionary wedge**. Thick crust is different. An island arc or an ocean plateau is tens of kilometres thick and made of lighter rock: too **buoyant**, too ready to float on the denser mantle, to be dragged down. It jams the trench and is welded on whole. Then a new trench forms on its far side, and the process goes on."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "accrete",
+     "caption": "An ocean plate carrying three different riders into a trench. The sizes and speeds are schematic.",
+     "task": "Send each of the three into the trench",
+     "goal": "accreted",
+     "aspect_ratio": 1.65
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "An ophiolite is a slice of ocean crust and mantle on land; Fidalgo’s is about 160 million years old.",
+      "Western North America is a patchwork of ‘suspect terranes’ with unrelated histories.",
+      "Plates carry pieces to the trench; light ones jam and weld on; slices of seafloor are scraped off."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "How a continent grows",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Much of Washington west of the Okanogan Highlands is built this way, from pieces added over the last 200 million years. The San Juan Islands are a stack of slices pushed one over another. The Olympic Mountains, across the water, show the same process still going on. They are an accretionary wedge: seafloor sediments and basalt scraped off the Juan de Fuca plate as it dives under North America, piled up and pushed into mountains."
+    },
+    {
+     "type": "diagram",
+     "id": "map",
+     "caption": "Deception Pass between Whidbey and Fidalgo islands, with Rosario Head to the north-west.",
+     "options": {
+      "relief": "maps/deception",
+      "title": "Deception Pass",
+      "ground": "height",
+      "water": 0,
+      "exaggeration": 2,
+      "alt": "A shaded relief map of the north tip of Whidbey Island and southern Fidalgo Island, separated by the narrow channel of Deception Pass. Rosario Head is a small headland on Fidalgo’s west shore.",
+      "labels": [
+       {
+        "lon": -122.645,
+        "lat": 48.406,
+        "text": "Deception Pass",
+        "side": "right"
+       },
+       {
+        "lon": -122.663,
+        "lat": 48.417,
+        "text": "Rosario Head",
+        "side": "left"
+       },
+       {
+        "lon": -122.61,
+        "lat": 48.44,
+        "text": "Fidalgo Island",
+        "area": true
+       },
+       {
+        "lon": -122.64,
+        "lat": 48.38,
+        "text": "Whidbey Island",
+        "area": true
+       }
+      ],
+      "scale": "right"
+     }
+    },
+    {
+     "type": "text",
+     "text": "So the ground at Deception Pass has travelled a long way. It formed on an ocean floor, perhaps far from here, rode a plate to a trench, and was scraped onto the edge of the continent. Later, the ice sheets of the last lessons rode over it, scratched it and left their gravel on it. Walking from the beach at Ebey’s Landing to the cliffs at Deception Pass is a walk from 16,000 years ago to 160 million."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Western Washington grew by additions; the San Juans are stacked slices.",
+      "The Olympics are a wedge of scraped-off seafloor being added today."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on Deception Pass",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "What does pillow basalt tell you?",
+        "choices": [
+         "The lava erupted under water",
+         "The lava erupted in a desert",
+         "The rock was squeezed deep underground"
+        ],
+        "answer": 0,
+        "why": "Only water chills lava fast enough to make the rounded pillows with glassy skins."
+       },
+       {
+        "ask": "Ribbon chert is full of radiolarian skeletons. Where did it form?",
+        "choices": [
+         "On the deep ocean floor, far from land",
+         "In a river",
+         "In a lake under the ice"
+        ],
+        "answer": 0,
+        "why": "Radiolarian ooze builds up where nothing else settles: the deep ocean, far from rivers."
+       },
+       {
+        "ask": "Why were some terranes called ‘suspect’?",
+        "choices": [
+         "They might not have formed where they are now",
+         "They were radioactive",
+         "Nobody had dated them"
+        ],
+        "answer": 0,
+        "why": "Their fossils, rocks and magnetism did not match their neighbours, hinting they came from elsewhere."
+       },
+       {
+        "ask": "Which riders on an ocean plate are most likely to be added whole to a continent?",
+        "choices": [
+         "Thick, light ones like island arcs",
+         "Ordinary thin ocean crust",
+         "None ever are"
+        ],
+        "answer": 0,
+        "why": "Buoyant crust resists sinking, jams the trench and is welded on."
+       },
+       {
+        "ask": "Where is the same process happening today near Whidbey?",
+        "choices": [
+         "In the Olympic Mountains, made of seafloor scraped off the Juan de Fuca plate",
+         "In the Puget Lowland’s glacial gravels",
+         "In the Columbia River basalts"
+        ],
+        "answer": 0,
+        "why": "The Olympics are an accretionary wedge, still growing as the plate goes under."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Deception Pass is ocean floor on land.** Pillow basalt, ribbon chert, serpentinite.",
+  "**Pillows form under water.** Chert forms on the deep seafloor.",
+  "**Together they are an ophiolite.** About 160 million years old on Fidalgo.",
+  "**The West is a patchwork.** Terranes with unrelated histories, bounded by faults.",
+  "**Plates deliver them.** Light pieces jam the trench and weld on; slices are scraped off.",
+  "**Washington grew by additions.** Over the last 200 million years.",
+  "**The Olympics are doing it now.** Seafloor scraped off the Juan de Fuca plate."
+ ],
+ "journal": [],
+ "footnotes": {
+  "fidalgo": {
+   "kind": "technical",
+   "title": "The Fidalgo ophiolite",
+   "text": "Geologists call the stack on Fidalgo Island and around Deception Pass the Fidalgo ophiolite or Fidalgo complex, dated to the Late Jurassic. It is one of several thrust slices in the San Juan Islands and the northwest Cascades. Whether it formed in an open ocean or behind an island arc is still argued; its rocks fit both, and the chemistry of its lavas leans toward the second."
+  }
+ }
+}

@@ -15,12 +15,12 @@
     48.46
   ],
   "range": [
-    -6532,
+    -20,
     397
   ],
-  "credit": "Copernicus GLO-30 (© DLR, Airbus; EU/ESA) and Terrain Tiles on AWS",
+  "credit": "Copernicus GLO-30 (\u00a9 DLR, Airbus; EU/ESA) and Terrain Tiles on AWS",
   "licence": "Copernicus DEM: free to use with the attribution in source. Terrain Tiles: mostly public domain.",
-  "source": "Copernicus GLO-30 DEM (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved) for the land; the sea floor from Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "source": "Copernicus GLO-30 DEM (\u00a9 DLR e.V. 2010-2014 and \u00a9 Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved) for the land; the sea floor from Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
   "fetched": "2026-11-02",
   "made": "node tools/geo/relief.mjs --name deception --bbox -122.73,48.37,-122.56,48.46 --zoom 14 --max 560 --precision 1 --coast --out courses/geology/public/maps"
 }

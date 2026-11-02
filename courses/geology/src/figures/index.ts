@@ -33,6 +33,8 @@ import { columnFigure, conduitFigure } from './volcano';
 import { barnacleStill, megathrustFigure } from './megathrust';
 import { bedsFigure, bergsFigure, cataractFigure, damFigure, missoulaFigure, spillFigure } from './floods';
 import { blastFigure, laharFigure, marshFigure, pacificFigure } from './cascadia';
+import { bluffFigure, liquefyFigure, lobeFigure, seattleFaultFigure } from './seattle';
+import { accreteFigure, bluffBuilderFigure, driftCellFigure, soilWaterFigure, trenchFigure } from './whidbey';
 import { drillFigure, earthStill, epicentreFigure, innerFigure, layersFigure, mohoFigure, plumbFigure, raysFigure, wavesStill } from './deep';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
@@ -118,6 +120,17 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'orphan-tsunami': pacificFigure,
   lahar: laharFigure,
   blast: blastFigure,
+  // W, Whidbey
+  'bluff-builder': bluffBuilderFigure,
+  'soil-water': soilWaterFigure,
+  'drift-cell': driftCellFigure,
+  accrete: accreteFigure,
+  trench: trenchFigure,
+  // S, Seattle
+  'puget-lobe': lobeFigure,
+  'seattle-fault': seattleFaultFigure,
+  bluff: bluffFigure,
+  liquefy: liquefyFigure,
   // P, the Moon
   impact: impactFigure,
   'crater-count': countFigure,
