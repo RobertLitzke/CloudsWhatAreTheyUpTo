@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "missoula.png",
+  "width": 516,
+  "height": 313,
+  "zoom": 8,
+  "x0": 10667,
+  "y0": 22506,
+  "step": 3,
+  "bounds": [
+    -121.40442,
+    45.5025,
+    -112.901,
+    49.00184
+  ],
+  "range": [
+    -2,
+    3010
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name missoula --bbox -121.4,45.5,-112.9,49 --zoom 8 --max 640 --precision 2 --out courses/geology/public/maps"
+}

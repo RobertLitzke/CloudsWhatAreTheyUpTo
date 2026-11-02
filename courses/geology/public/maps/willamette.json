@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "willamette.png",
+  "width": 474,
+  "height": 623,
+  "zoom": 9,
+  "x0": 20534,
+  "y0": 46656,
+  "step": 1,
+  "bounds": [
+    -123.60168,
+    44.74868,
+    -122.2998,
+    45.95115
+  ],
+  "range": [
+    -998,
+    1436
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name willamette --bbox -123.6,44.75,-122.3,45.95 --zoom 9 --max 520 --precision 2 --out courses/geology/public/maps"
+}

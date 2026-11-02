@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "seattle.png",
+  "width": 437,
+  "height": 670,
+  "zoom": 13,
+  "x0": 334961,
+  "y0": 731084,
+  "step": 4,
+  "bounds": [
+    -122.50013,
+    47.44992,
+    -122.20007,
+    47.7601
+  ],
+  "range": [
+    -1021,
+    178
+  ],
+  "credit": "Copernicus GLO-30 (© DLR, Airbus; EU/ESA) and Terrain Tiles on AWS",
+  "licence": "Copernicus DEM: free to use with the attribution in source. Terrain Tiles: mostly public domain.",
+  "source": "Copernicus GLO-30 DEM (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved) for the land; the sea floor from Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name seattle --bbox -122.5,47.45,-122.2,47.76 --zoom 13 --max 560 --precision 1 --coast --out courses/geology/public/maps"
+}

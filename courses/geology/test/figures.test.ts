@@ -358,5 +358,34 @@ describe('figures', () => {
     setSlider(mt.node, 1, 25);
     await expect(mt.done).resolves.toBeUndefined();
   });
+
+  it('floods and Cascadia branches: spill, plucking, a floating dam, flood beds, a buried marsh, the blast', async () => {
+    const spill = FIGURES.spillover(context(), 'spilled');
+    guess(spill.node, 'No, it would stay in its valley');
+    setSlider(spill.node, 0, 1000);
+    await expect(spill.done).resolves.toBeUndefined();
+    const cat = FIGURES.cataract(context(), 'retreated');
+    setSlider(cat.node, 0, 90);
+    setSlider(cat.node, 1, 30);
+    await expect(cat.done).resolves.toBeUndefined();
+    const dam = FIGURES['ice-dam'](context(), 'floated');
+    guess(dam.node, 'About nine-tenths as deep');
+    setSlider(dam.node, 1, 60);
+    await expect(dam.done).resolves.toBeUndefined();
+    const beds = FIGURES['flood-beds'](context(), 'counted');
+    guess(beds.node, 'They were separate floods, with time between them for animals to live on the dry bed');
+    setSlider(beds.node, 0, 40);
+    setSlider(beds.node, 1, 40);
+    await expect(beds.done).resolves.toBeUndefined();
+    const marsh = FIGURES.marsh(context(), 'buried');
+    guess(marsh.node, 'It drops into the reach of the tides');
+    setSlider(marsh.node, 0, 2000);
+    await expect(marsh.done).resolves.toBeUndefined();
+    const blast = FIGURES.blast(context(), 'blasted');
+    guess(blast.node, 'Explode, sideways through the gap');
+    setSlider(blast.node, 0, 59);
+    await expect(blast.done).resolves.toBeUndefined();
+    expect(blast.node.textContent).toContain('largest landslide');
+  });
 });
 

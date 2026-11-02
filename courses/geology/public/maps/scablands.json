@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "scablands.png",
+  "width": 583,
+  "height": 535,
+  "zoom": 9,
+  "x0": 21699,
+  "y0": 45508,
+  "step": 2,
+  "bounds": [
+    -120.40192,
+    46.0999,
+    -117.1994,
+    48.10009
+  ],
+  "range": [
+    -210,
+    2090
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name scablands --bbox -120.4,46.1,-117.2,48.1 --zoom 9 --max 600 --precision 2 --out courses/geology/public/maps"
+}

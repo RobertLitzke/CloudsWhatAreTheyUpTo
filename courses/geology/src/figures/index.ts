@@ -31,6 +31,8 @@ import { cellsFigure, fossilFigure } from './fossils';
 import { fenceFigure, groundFigure, stickFigure } from './faults';
 import { columnFigure, conduitFigure } from './volcano';
 import { barnacleStill, megathrustFigure } from './megathrust';
+import { bedsFigure, bergsFigure, cataractFigure, damFigure, missoulaFigure, spillFigure } from './floods';
+import { blastFigure, laharFigure, marshFigure, pacificFigure } from './cascadia';
 import { drillFigure, earthStill, epicentreFigure, innerFigure, layersFigure, mohoFigure, plumbFigure, raysFigure, wavesStill } from './deep';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
@@ -104,6 +106,18 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 19
   megathrust: megathrustFigure,
   barnacles: barnacleStill,
+  // F, the ice age floods
+  spillover: spillFigure,
+  cataract: cataractFigure,
+  'ice-dam': damFigure,
+  'lake-missoula': missoulaFigure,
+  'flood-beds': bedsFigure,
+  icebergs: bergsFigure,
+  // C, Cascadia
+  marsh: marshFigure,
+  'orphan-tsunami': pacificFigure,
+  lahar: laharFigure,
+  blast: blastFigure,
   // P, the Moon
   impact: impactFigure,
   'crater-count': countFigure,

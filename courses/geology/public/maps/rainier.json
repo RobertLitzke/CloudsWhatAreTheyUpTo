@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "rainier.png",
+  "width": 383,
+  "height": 359,
+  "zoom": 10,
+  "x0": 41906,
+  "y0": 91752,
+  "step": 2,
+  "bounds": [
+    -122.45087,
+    46.74927,
+    -121.39893,
+    47.42065
+  ],
+  "range": [
+    -436,
+    4360
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name rainier --bbox -122.45,46.75,-121.4,47.42 --zoom 10 --max 560 --precision 2 --out courses/geology/public/maps"
+}

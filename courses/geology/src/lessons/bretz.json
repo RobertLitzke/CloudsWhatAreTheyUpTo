@@ -1,0 +1,265 @@
+{
+ "id": "bretz",
+ "n": 301,
+ "branch": "floods",
+ "needs": [
+  "dunes",
+  "rivers"
+ ],
+ "title": "Bretz’s heresy",
+ "teaches": "How J Harlen Bretz read the channelled scablands of eastern Washington as the work of a flood far bigger than any river, and why geologists refused to believe him for forty years",
+ "parts": [
+  {
+   "title": "Scars on a wheat plateau",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most of eastern Washington is a gently tilted plateau of basalt, the stacked lava flows of lesson 4, covered by a blanket of fine wind-blown dust called **loess** that grows some of the best dryland wheat in the world. Across the plateau, from Spokane southwest to the Columbia and the Snake, run long strips where the loess is gone. In them the black basalt lies bare, cut into canyons, dry waterfalls, rock basins full of lakes with no streams to feed them, and mounds of gravel. Farmers called this ground **scabland**, because it stood out on the plateau like scabs on skin."
+    },
+    {
+     "type": "text",
+     "text": "The canyons, which locals call **coulees**, make no sense as the work of ordinary rivers. Many are dry. Some begin and end abruptly, cutting straight through **divides**, the ridges of higher ground that separate one river's watershed from the next. They split into many branches that rejoin downstream, like the braided channels of a river on a gravel bed, but each branch is a canyon tens of metres deep and the whole braid is up to 100 kilometres wide. Grand Coulee, the largest, is about 80 kilometres long and up to 270 metres deep, and no river runs through it."
+    },
+    {
+     "type": "diagram",
+     "id": "map",
+     "caption": "Eastern Washington, from Spokane to the Columbia and Snake rivers. The scablands are the dark, rough strips running southwest across the smooth loess-covered plateau.",
+     "options": {
+      "relief": "maps/scablands",
+      "title": "The channelled scablands",
+      "ground": "height",
+      "exaggeration": 3,
+      "alt": "A shaded relief map of eastern Washington. Smooth rolling hills of loess cover most of the plateau, but rough, braided channels run south-west across it from Spokane toward the Snake and Columbia rivers. Grand Coulee and Dry Falls are marked in the north-west; Palouse Falls, in the south-east, drops over another cataract cut by the same water.",
+      "labels": [
+       {
+        "lon": -117.42,
+        "lat": 47.66,
+        "text": "Spokane",
+        "side": "left"
+       },
+       {
+        "lon": -119,
+        "lat": 47.9,
+        "text": "Grand Coulee",
+        "side": "right"
+       },
+       {
+        "lon": -119.32,
+        "lat": 47.61,
+        "text": "Dry Falls",
+        "side": "right"
+       },
+       {
+        "lon": -118.22,
+        "lat": 46.66,
+        "text": "Palouse Falls",
+        "side": "right"
+       },
+       {
+        "lon": -119.1,
+        "lat": 46.24,
+        "text": "Pasco",
+        "side": "right"
+       },
+       {
+        "lon": -118.38,
+        "lat": 47.13,
+        "text": "Ritzville",
+        "side": "right"
+       }
+      ],
+      "scale": "right"
+     }
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Eastern Washington is a basalt plateau covered by wind-blown dust (loess); the scablands are strips where the loess has been stripped away and the basalt carved.",
+      "The coulees are dry canyons that cross divides and split and rejoin in a braid up to 100 km wide."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "A flood bigger than any river",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "J Harlen Bretz, a geologist at the University of Chicago who had taught high school in Seattle, began mapping the scablands in 1922 with his students. In 1923 he published his conclusion: the scablands had been carved in a very short time by an enormous flood, which had poured across the plateau from the northeast, overflowed the valleys, spilled across the divides between them, scoured off the loess, and plucked the basalt beneath into canyons and cataracts. He called it the Spokane Flood."
+    },
+    {
+     "type": "text",
+     "text": "He listed his evidence. The channels were linked into a braid, so water must have filled them all at once, deep enough to overtop the divides between them. Their floors held potholes and rock basins gouged by violent eddies. Hills of loess survived between the channels as islands with steep, streamlined prows pointing upstream, shaped like the sandbars of lesson 2 but a hundred times bigger. Huge bars of gravel, some over 30 metres high, lay in the lee of obstacles, and boulders of basalt the size of cars had been carried kilometres. Nothing in the region looked worn down slowly; everything looked torn up at once."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "spillover",
+     "caption": "A sketch of the plateau. The river's valley lies on the left; beyond it are four shallower valleys, separated by low divides. The flow sets how deep the water stands in the valley.",
+     "task": "Find a flow big enough to fill three or more channels at once",
+     "goal": "spilled",
+     "aspect_ratio": 1.6
+    },
+    {
+     "type": "text",
+     "text": "The size of the flood follows from the shape of the channels. To fill the valleys so deep that the water spilled over their divides into the next valley, again and again, the flood had to carry millions of cubic metres of water a second, many times the flow of all the world's rivers put together. Today's estimates of its peak run to about 10 to 20 million cubic metres a second. For comparison, the Mississippi's greatest recorded flood, in 1927, carried roughly 70,000 cubic metres a second. In the figure, a flow that size stays inside its valley; Bretz's flood was more than a hundred times larger."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "In 1923 Bretz argued that a single huge flood had carved the scablands in a short time.",
+      "His evidence: braided channels that overtopped divides, potholes and rock basins, streamlined loess islands, giant gravel bars and boulders moved far.",
+      "To fill the valleys and spill across the divides, the water had to flow at millions of cubic metres a second."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dry Falls",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The most striking scar is Dry Falls, at the head of the lower Grand Coulee. It is a cliff of basalt 5.5 kilometres wide and about 120 metres high, curved like a horseshoe, with plunge pools at its foot. Niagara Falls is about 1 kilometre wide and 50 metres high. During the flood, water poured over this lip in a sheet tens of metres deep."
+    },
+    {
+     "type": "text",
+     "text": "The cliff has not always been here. The basalt of the plateau cracked into tall columns as it cooled (lesson 4), and deep, fast water pouring over a ledge of such rock does not wear it down grain by grain. It pries out whole columns, which topple into the plunge pool below and are swept away. Each column lost moves the lip a little further upstream. Below Dry Falls, the lower Grand Coulee is the canyon left behind as the falls retreated for more than 20 kilometres. Ordinary rivers cannot do this to basalt; it takes water so deep and fast that its eddies can lift blocks weighing tonnes."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "cataract",
+     "caption": "A cut through the basalt along the coulee floor. Deep water pours over the lip and plucks out columns of basalt, so the falls cut back upstream.",
+     "task": "Cut the falls back at least 5 km",
+     "goal": "retreated",
+     "aspect_ratio": 1.82
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Dry Falls is a dry cliff 5.5 km wide and about 120 m high, over which the flood once poured.",
+      "Deep, fast water plucks whole columns out of jointed basalt, so a waterfall retreats upstream and leaves a canyon behind it."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Forty years of disbelief",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Bretz's flood was a heresy. Since Charles Lyell's *Principles of Geology* in the 1830s, geologists had built their science on **uniformitarianism**: the present is the key to the past, and the land was shaped by the slow processes we can watch today, given enough time. The older view it replaced, **catastrophism**, explained mountains and valleys by sudden, enormous disasters, often tied to the biblical Flood. Geologists had fought hard to rid the science of such catastrophes, which smelled of Noah. Bretz seemed to be dragging them back."
+    },
+    {
+     "type": "text",
+     "text": "And he had no source. There was no lake or glacier anyone knew of that could release so much water at once. In January 1927 Bretz presented his case at the Geological Society of Washington, in Washington DC. Speaker after speaker rejected it and offered slow alternatives: ordinary rivers swollen by melting ice over thousands of years, ice blocking the rivers, many small floods. Bretz kept mapping and kept publishing, and for decades most geologists treated the scablands as a curiosity explained by any process except his."
+    },
+    {
+     "type": "text",
+     "text": "The answer came in pieces, as the next lesson tells. In 1965 a party of geologists from an international congress toured the scablands, and at the end of the trip they sent Bretz, then 83, a telegram that ended: “We are now all catastrophists.” In 1979, at 97, he received the Penrose Medal, the highest award of the Geological Society of America. Uniformitarianism survived, in a better form: the processes of the past are the ones we can still see working, but their size and speed need not match what happens to have occurred in a geologist's lifetime.[^uniform]"
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Geologists of the time held that landscapes form by slow, ordinary processes (uniformitarianism), and saw Bretz's flood as a return to catastrophism.",
+      "Bretz could not name a source for the water, and his 1927 presentation was rejected.",
+      "By the late 1960s the evidence had won; Bretz received geology's highest American honour in 1979."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Six questions on the scablands",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "Why did the braided pattern of the scabland channels suggest a single huge flood rather than many rivers?",
+        "choices": [
+         "The channels were all filled at once, deep enough to overflow the divides between them",
+         "Rivers never form braids",
+         "The channels all point toward the same lake"
+        ],
+        "answer": 0,
+        "why": "Many separate coulees joined into a braid across divides means water stood above the divides, which needs an enormous flow at one time."
+       },
+       {
+        "ask": "What are the streamlined hills of loess with prows pointing upstream?",
+        "choices": [
+         "Islands of the old plateau surface that the flood flowed around and shaped",
+         "Sand dunes built by the wind after the flood",
+         "Moraines left by an ice sheet"
+        ],
+        "answer": 0,
+        "why": "The flood stripped the loess from the channels and sculpted what was left between them, like sandbars in a river but a hundred times larger."
+       },
+       {
+        "ask": "How did Dry Falls move upstream?",
+        "choices": [
+         "Deep, fast water pried whole columns out of the jointed basalt at its lip",
+         "Rain slowly wore the cliff back over millions of years",
+         "An earthquake pushed the cliff back"
+        ],
+        "answer": 0,
+        "why": "Basalt cracks into columns as it cools. A deep, powerful flow pulls out columns, so the lip retreats and leaves a canyon."
+       },
+       {
+        "ask": "Why did most geologists of the 1920s reject Bretz's idea?",
+        "choices": [
+         "It looked like a return to catastrophism, and he could not say where the water came from",
+         "He had not visited the scablands",
+         "Floods cannot carve rock"
+        ],
+        "answer": 0,
+        "why": "Geology had built itself on slow, observable processes, and a flood with no known source seemed both unscientific and unexplained."
+       },
+       {
+        "ask": "In the spillover figure, a flow like the Mississippi's largest stays in its valley. Why does that matter for Bretz's argument?",
+        "choices": [
+         "It shows that no ordinary flood could fill the channels the scablands show",
+         "It proves the Mississippi once flowed here",
+         "It shows the scablands formed slowly"
+        ],
+        "answer": 0,
+        "why": "Ordinary floods, even huge ones, would leave the divides dry. The scablands show water over the divides, so the flow must have been more than a hundred times larger."
+       },
+       {
+        "ask": "What does the modern form of uniformitarianism say?",
+        "choices": [
+         "The processes of the past are those we can still see, but they may have acted at sizes and speeds never seen in a human lifetime",
+         "All past events happened slowly",
+         "Catastrophes explain most landscapes"
+        ],
+        "answer": 0,
+        "why": "Floods, plucking and scour are ordinary processes; the scablands show them acting on a scale far beyond any recorded flood."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**The scablands are scars on a loess plateau.** Strips of bare, carved basalt run southwest across eastern Washington.",
+  "**The channels form a braid that crosses divides.** That needs water deep enough to overtop them all at once.",
+  "**Bretz read it as one huge flood.** Potholes, streamlined loess islands, giant gravel bars and moved boulders all pointed the same way.",
+  "**Dry Falls is a retreated waterfall.** Deep water plucked columns from the basalt and cut the lower Grand Coulee.",
+  "**The flood was rejected for decades.** It looked like catastrophism, and its source was unknown.",
+  "**Bretz was vindicated.** By the late 1960s geologists accepted the floods, and uniformitarianism made room for rare, huge events."
+ ],
+ "journal": [],
+ "footnotes": {
+  "uniform": {
+   "kind": "digression",
+   "title": "Two meanings of uniformitarianism",
+   "text": "Philosophers of geology separate two ideas that Lyell bundled together. One is that the laws of nature and the kinds of process have stayed the same through Earth's history, which every geologist accepts. The other is that those processes have always worked at about the same, gradual rate, which the scablands, asteroid impacts and great earthquakes all contradict."
+  }
+ }
+}

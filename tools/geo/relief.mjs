@@ -48,7 +48,7 @@ function args() {
     process.exit(1);
   }
   const bbox = a.bbox.split(',').map(Number);
-  if (bbox.length !== 4 || bbox.some((n) => !Number.isFinite(n)) || bbox[0] >= bbox[2] || bbox[1] >= bbox[3]) throw new Error('--bbox is west,south,east,north in degrees');
+  if (bbox.length !== 4 || bbox.some((n) => !Number.isFinite(n)) || bbox[0] >= bbox[2] || bbox[1] >= bbox[3]) throw new Error('--bbox is west,south,east,north in degrees (east may pass 180)');
   return { name: a.name, bbox, out: a.out, zoom: Number(a.zoom ?? 12), max: Number(a.max ?? 640), precision: Number(a.precision ?? 1), credit: a.credit, coast: 'coast' in a };
 }
 
@@ -124,7 +124,8 @@ async function main() {
     for (let tx = Math.floor(px0 / 256); tx <= Math.floor((px1 - 1) / 256); tx++) tiles.push([tx, ty]);
   console.log(`${o.name}: ${tiles.length} tiles at zoom ${o.zoom}, grid ${width}×${height}, ${step} px per cell`);
   const got = new Map();
-  for (const [tx, ty] of tiles) got.set(`${tx}/${ty}`, await tile(o.zoom, tx, ty));
+  // A box may run east past 180° (west 125, east 240 for the Pacific): tiles wrap round.
+  for (const [tx, ty] of tiles) got.set(`${tx}/${ty}`, await tile(o.zoom, ((tx % 2 ** o.zoom) + 2 ** o.zoom) % 2 ** o.zoom, ty));
   const height_at = (gx, gy) => {
     const t = got.get(`${Math.floor(gx / 256)}/${Math.floor(gy / 256)}`);
     const i = ((gy % 256) * 256 + (gx % 256)) * 4;

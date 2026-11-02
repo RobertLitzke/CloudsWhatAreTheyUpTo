@@ -26,13 +26,6 @@ const BRANCH_COMING: GeoLesson[] = [
   coming('drowned', 202, 'Drowned forests in Lake Washington', 'The Seattle fault’s quake about 900 CE', { branch: 'seattle', needs: ['faults'] }),
   coming('slides', 203, 'Why the hills slide', 'Sand on clay, and wet winters', { branch: 'seattle', needs: ['rivers'] }),
   coming('fill', 204, 'The ground people built', 'Regrades, filled tideflats and shaking', { branch: 'seattle', needs: ['faults'] }),
-  coming('bretz', 301, 'Bretz’s heresy', 'The channelled scablands and a flood nobody believed', { branch: 'floods', needs: ['dunes', 'rivers'] }),
-  coming('ripples', 302, 'Ripples the size of hills', 'Glacial Lake Missoula and its ice dam', { branch: 'floods', needs: ['bretz', 'erratics'] }),
-  coming('rhythmites', 303, 'How many floods?', 'Counting floods in the Touchet beds', { branch: 'floods', needs: ['ripples', 'age'] }),
-  coming('montana-rocks', 304, 'Montana rocks in Oregon', 'Icebergs on the floodwater', { branch: 'floods', needs: ['ripples', 'erratics'] }),
-  coming('orphan', 401, 'The orphan tsunami', 'January 1700, ghost forests and Japanese records', { branch: 'cascadia', needs: ['barnacles'] }),
-  coming('osceola', 402, 'Mud under Auburn', 'Rainier’s lahars', { branch: 'cascadia', needs: ['explode'] }),
-  coming('blast', 403, 'The sideways blast', 'Mount St Helens, 18 May 1980', { branch: 'cascadia', needs: ['explode'] }),
 ];
 
 /** The branches: Pacific Northwest geology, read with what the trunk teaches, and three that go further than the trunk (the Moon, fossils, the deep Earth). */

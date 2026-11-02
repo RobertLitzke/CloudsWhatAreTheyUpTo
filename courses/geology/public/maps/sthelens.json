@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "sthelens.png",
+  "width": 437,
+  "height": 463,
+  "zoom": 12,
+  "x0": 167917,
+  "y0": 371697,
+  "step": 2,
+  "bounds": [
+    -122.35027,
+    46.10014,
+    -122.05021,
+    46.32014
+  ],
+  "range": [
+    404,
+    2528
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name sthelens --bbox -122.35,46.1,-122.05,46.32 --zoom 12 --max 520 --precision 2 --out courses/geology/public/maps"
+}

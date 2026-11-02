@@ -1,0 +1,163 @@
+{
+ "id": "osceola",
+ "n": 402,
+ "branch": "cascadia",
+ "needs": [
+  "explode"
+ ],
+ "title": "Mud under Auburn",
+ "teaches": "How towns from Enumclaw to Kent came to stand on a mudflow from Mount Rainier, and why lahars are the volcano's biggest threat to the Puget Lowland",
+ "parts": [
+  {
+   "title": "Rainier's rubble in the suburbs",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Enumclaw, Buckley, Auburn and Kent are farm towns turned suburbs in the valleys south-east of Seattle, 50 to 80 kilometres from Mount Rainier. Dig a foundation almost anywhere there and you hit a layer of grey-brown clay packed with rocks of every size, up to boulders a metre across, with no sorting and no layering, sometimes with logs in it. In places it is several metres thick. The rocks in it are andesite, the volcanic rock that makes up Rainier, and many are stained yellow and orange, altered by hot acid water."
+    },
+    {
+     "type": "text",
+     "text": "In the 1950s and 1960s Dwight Crandell of the US Geological Survey mapped this deposit and traced it back up the White River valley to the volcano. He named it the **Osceola Mudflow**. About 5,600 years ago, during an eruption, the top of Mount Rainier collapsed, and the rubble, about 3.8 cubic kilometres of it mixed with water, swept down the valley and spread over more than 500 square kilometres of the lowland. It reached what was then an arm of Puget Sound near Auburn and Kent. Rainier lost several hundred metres from its summit; the old crater the collapse left has since been partly filled by new eruptions."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Towns from Enumclaw to Kent are built on the Osceola Mudflow, a layer of unsorted mud and rock, several metres thick in places.",
+      "About 5,600 years ago Rainier's summit collapsed, and the debris flowed down the White River valley over 100 km to the lowland."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Wet concrete at highway speed",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A volcanic mudflow is called a **lahar**, from an Indonesian word. It is a slurry of rock, mud and water, roughly as thick as wet concrete, which can flow far and fast because it is so dense: it can carry boulders the size of cars that water could never move. In a narrow valley on the volcano's flank it moves at 50 to 80 kilometres an hour; on the gentler lowland it slows but keeps going for hours. Unlike a lava flow it does not stop when it cools, and unlike a flood it does not soak away. It stops only when it has spread so thin that it can no longer move, and then it sets in place."
+    },
+    {
+     "type": "text",
+     "text": "Lahars need loose rock and water. Rainier has plenty of both: about 3 cubic kilometres of glacier ice, more than any other volcano in the lower 48 states, and a summit made of rock rotted by hot, acidic volcanic gases and water, a process called **hydrothermal alteration**, which turns hard lava into weak clay. A slope of altered rock can collapse without any eruption at all, or during a small one."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "lahar",
+     "caption": "Mount Rainier and the valleys to its north-west, with a lahar running down the White River. The spread of each lahar comes from LAHARZ, a US Geological Survey method built on measurements of past lahars: a lahar of a given volume fills a valley cross-section of a certain size, so it keeps running downstream until its volume is used up.",
+     "task": "Send a lahar the size of the Osceola, 3.8 km³ or more, down the valley until it buries Auburn",
+     "goal": "reached",
+     "aspect_ratio": 1
+    },
+    {
+     "type": "text",
+     "text": "The bigger the lahar, the further it reaches, and not in proportion: as the figure shows, a lahar of 0.1 cubic kilometres stays in the mountain valleys, while one of several cubic kilometres fills them and spreads across the lowland. Geologists at the US Geological Survey estimated the reach of future lahars by measuring the past ones in the same valleys: how wide and deep each flow filled its valley, and how much ground it covered for its size."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "A lahar is a slurry of rock and water, as dense as wet concrete, that can flow at highway speeds and carry huge boulders.",
+      "Rainier holds more ice than any other volcano in the contiguous United States, and its rock is weakened by hydrothermal alteration.",
+      "Bigger lahars travel much further: the largest reach the Puget Lowland."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "The next one",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The Osceola Mudflow was not the last. About 500 years ago the Electron Mudflow came down the Puyallup River and buried a forest under several metres of mud where the town of Orting now stands; it seems to have happened without an eruption, from a collapse of altered rock. More than 100,000 people now live in Rainier's lahar hazard zones, on the deposits of past lahars. The US Geological Survey calls Rainier one of the most dangerous volcanoes in the United States, not because it erupts often or violently, but because of the lahars and the people in their way."
+    },
+    {
+     "type": "text",
+     "text": "Since 1998 the valleys below Rainier have had a lahar warning system: sensors along the Puyallup and Carbon rivers that detect the ground shaking of a passing lahar and trigger sirens downstream. A lahar could reach Orting in about 40 minutes, so schools there practise walking to high ground."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "The Electron Mudflow buried the site of Orting about 500 years ago, probably without an eruption.",
+      "More than 100,000 people live in Rainier's lahar hazard zones; sensors and sirens give the valleys some warning."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on lahars",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "What tells geologists that the Osceola deposit was laid by a mudflow, not a river?",
+        "choices": [
+         "It is unsorted, with clay and boulders mixed together and no layering",
+         "It is made of well-rounded sand",
+         "It has fossils of sea creatures"
+        ],
+        "answer": 0,
+        "why": "Rivers sort grains by size and lay them in beds. A dense lahar carries everything together and drops it all at once."
+       },
+       {
+        "ask": "Why can a lahar carry boulders the size of cars?",
+        "choices": [
+         "It is as dense as wet concrete, so it buoys up and pushes much bigger rocks than water can",
+         "It moves faster than any river",
+         "The boulders are hollow"
+        ],
+        "answer": 0,
+        "why": "The dense slurry supports rocks that would sink in water, and moves them as part of the flow."
+       },
+       {
+        "ask": "Why can Rainier produce a lahar without erupting?",
+        "choices": [
+         "Its rock is weakened by hydrothermal alteration and can collapse, mixing with water and ice",
+         "Its glaciers melt every summer into lahars",
+         "Earthquakes always trigger eruptions"
+        ],
+        "answer": 0,
+        "why": "Hot acidic fluids turn lava into weak clay; a flank of it can fail and become a lahar on its own."
+       },
+       {
+        "ask": "In the figure, what happens as the lahar's volume grows from 0.1 to 4 km³?",
+        "choices": [
+         "It reaches much further, out of the mountains and across the lowland",
+         "It stays the same length but gets deeper",
+         "It moves more slowly and stops sooner"
+        ],
+        "answer": 0,
+        "why": "A larger lahar fills each valley cross-section and still has volume left to spread further downstream."
+       },
+       {
+        "ask": "Why does the USGS rank Rainier among the most dangerous US volcanoes?",
+        "choices": [
+         "Its lahars could reach valleys where more than 100,000 people live",
+         "It erupts every few years",
+         "Its lava flows are the fastest in the country"
+        ],
+        "answer": 0,
+        "why": "The danger comes from lahars and the people living on the deposits of past ones, not from frequent eruptions."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**The lowland stands on Rainier's mud.** Enumclaw to Kent sits on the Osceola Mudflow of 5,600 years ago.",
+  "**The summit collapsed.** Several cubic kilometres of altered rock swept 100 km down the White River.",
+  "**A lahar is a dense slurry.** It flows like wet concrete and carries huge boulders.",
+  "**Rainier has the ingredients.** More glacier ice than any other volcano in the lower 48, and rock rotted by hydrothermal alteration.",
+  "**Bigger lahars reach much further.** The largest spread across the Puget Lowland.",
+  "**It can happen without an eruption.** The Electron Mudflow buried Orting's site 500 years ago."
+ ],
+ "journal": [],
+ "footnotes": {}
+}
