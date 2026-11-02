@@ -1,5 +1,26 @@
 [
   {
+    "id": "bird-in-flight-01",
+    "subject": "bird-in-flight",
+    "author": "Courtney Celley, U.S. Fish and Wildlife Service",
+    "license": "PD",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bald_eagle_in_flight_(53542416342).jpg",
+    "source": "Wikimedia Commons",
+    "scene": {
+      "subjectAt": 50,
+      "near": 50,
+      "far": null,
+      "speed": 12,
+      "kelvin": 5500,
+      "ev": 14,
+      "eqFocal": 600
+    },
+    "file": "photos/bird-in-flight-01.webp",
+    "depthFile": "photos/bird-in-flight-01-depth.webp",
+    "width": 1200,
+    "height": 800
+  },
+  {
     "id": "distant-wildlife-01",
     "subject": "distant-wildlife",
     "author": "Robert Litzke",
@@ -205,5 +226,47 @@
     "depthFile": "photos/perched-bird-02-depth.webp",
     "width": 1200,
     "height": 900
+  },
+  {
+    "id": "running-water-01",
+    "subject": "running-water",
+    "author": "Dietmar Rabich",
+    "license": "CC-BY-SA-4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Yosemite_National_Park_(CA,_USA),_Yosemite_Valley,_Tenaya_Creek_--_2022_--_2825.jpg",
+    "source": "Wikimedia Commons",
+    "scene": {
+      "subjectAt": 4,
+      "near": 1.5,
+      "far": 25,
+      "speed": 1.5,
+      "kelvin": 5500,
+      "ev": 13,
+      "eqFocal": 35
+    },
+    "file": "photos/running-water-01.webp",
+    "depthFile": "photos/running-water-01-depth.webp",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "id": "snow-scene-01",
+    "subject": "snow-scene",
+    "author": "Photos public domain.com",
+    "license": "PD",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunny_winter_morning.jpg",
+    "source": "Wikimedia Commons",
+    "scene": {
+      "subjectAt": 30,
+      "near": 3,
+      "far": 400,
+      "speed": 0,
+      "kelvin": 5500,
+      "ev": 15,
+      "eqFocal": 24
+    },
+    "file": "photos/snow-scene-01.webp",
+    "depthFile": "photos/snow-scene-01-depth.webp",
+    "width": 1200,
+    "height": 800
   }
 ]
