@@ -20,6 +20,7 @@ import { fitFigure, gondwanaStill, openingFigure } from './drift';
 import { ridgeFigure } from './stripes';
 import { platesMap, slabFigure } from './quakes';
 import { driftMapFigure, plumeFigure } from './hotspot';
+import { dipFigure, iapetusFigure, seaLevelFigure, supercontinentsFigure, wilsonStill } from './supercontinents';
 import { knickFigure, raceFigure } from './rivers';
 import { glacierFigure } from './ice';
 import { iceSheetsFigure, rhoneMapFigure } from './iceage';
@@ -84,28 +85,34 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   plume: plumeFigure,
   'island-drift': driftMapFigure,
   // Lesson 13
+  iapetus: iapetusFigure,
+  dip: dipFigure,
+  supercontinents: supercontinentsFigure,
+  wilson: wilsonStill,
+  'sea-level': seaLevelFigure,
+  // Lesson 14
   race: raceFigure,
   knick: knickFigure,
-  // Lesson 14
+  // Lesson 15
   glacier: glacierFigure,
   'rhone-ice': rhoneMapFigure,
-  // Lesson 15
+  // Lesson 16
   orbit: orbitFigure,
   record: recordFigure,
   cycles: cyclesFigure,
-  // Lesson 16
+  // Lesson 17
   sun: sunFigure,
   rebound: reboundFigure,
   'ice-sheets': iceSheetsFigure,
   kettle: kettleStill,
-  // Lesson 17
+  // Lesson 18
   fence: fenceFigure,
   'stick-slip': stickFigure,
   shaking: groundFigure,
-  // Lesson 18
+  // Lesson 19
   conduit: conduitFigure,
   column: columnFigure,
-  // Lesson 19
+  // Lesson 20
   megathrust: megathrustFigure,
   barnacles: barnacleStill,
   // F, the ice age floods

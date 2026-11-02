@@ -21,7 +21,7 @@ defineCourse({
   figures: FIGURES,
   prose,
   // "Lesson 3 of 19": the trunk's whole plan.
-  lesson: { of: () => 19 },
+  lesson: { of: () => 20 },
   save: { units: 'imperial' },
   photos: {
     photos: PHOTOS,

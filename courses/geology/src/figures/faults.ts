@@ -1,4 +1,4 @@
-// Lesson 17, Why faults snap: a fence across a locked fault, bent by the
+// Lesson 18, Why faults snap: a fence across a locked fault, bent by the
 // plates and broken by the earthquake (Reid's elastic rebound, played as a
 // time lapse); a block on a spring that sticks and slips, where how hard the
 // fault sticks sets how big and how often its earthquakes are; and the same

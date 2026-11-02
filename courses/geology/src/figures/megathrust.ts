@@ -1,4 +1,4 @@
-// Lesson 19, Barnacles above the tide: a subduction zone whose plates are
+// Lesson 20, Barnacles above the tide: a subduction zone whose plates are
 // locked, played through centuries of squeezing and then the earthquake,
 // with three places marked (an island near the trench, a coast town, a town
 // inland) that rise or sink; and minutes after it, the tsunami leaving the

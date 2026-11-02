@@ -1,4 +1,4 @@
-// Lesson 18, Why some volcanoes explode: magma rising up a conduit, where
+// Lesson 19, Why some volcanoes explode: magma rising up a conduit, where
 // the water dissolved in it comes out as bubbles as the pressure falls, and
 // how sticky the melt is decides whether the gas leaves quietly or tears the
 // foam into ash; and an eruption column that either rises as a plume or, too
