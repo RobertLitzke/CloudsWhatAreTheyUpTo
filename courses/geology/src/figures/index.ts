@@ -15,7 +15,7 @@ import { duneFigure, sortFigure } from './dunes';
 import { correlateFigure, veesFigure } from './smith';
 import { cycleStill, unconformityFigure } from './siccar';
 import { bowenFigure, conditionsFigure, igneousStill } from './families';
-import { coolingFigure, decayFigure } from './age';
+import { coolingFigure, decayFigure, leadLineFigure } from './age';
 import { fitFigure, gondwanaStill, openingFigure } from './drift';
 import { ridgeFigure } from './stripes';
 import { platesMap, slabFigure } from './quakes';
@@ -63,6 +63,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 8
   cooling: coolingFigure,
   decay: decayFigure,
+  'lead-line': leadLineFigure,
   // Lesson 9
   fit: fitFigure,
   gondwana: gondwanaStill,

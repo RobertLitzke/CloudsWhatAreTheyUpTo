@@ -7,70 +7,414 @@
     {
       "title": "A physicist's clock",
       "blocks": [
-        {"type": "text", "text": "By the middle of the nineteenth century, geologists had taken Hutton's lesson to heart. In the first edition of *On the Origin of Species* (1859), Charles Darwin estimated that rain and rivers had needed some 300 million years just to wear away the dome of chalk and sandstone across the Weald in southern England, and he wanted far more time than that for natural selection to do its work. Time, for the geologists, seemed to be available in whatever quantity the rocks required."},
-        {"type": "text", "text": "William Thomson, later Lord Kelvin, thought this was loose thinking. He was the leading physicist in Britain, one of the founders of thermodynamics, and he had a way to put a number on the problem. Miners had known for centuries that the deeper a shaft goes, the warmer the rock becomes; measurements in mines and wells showed a rise of roughly 1 °F for every 50 feet of depth, or about 36 °C per kilometre. Because rock grows warmer with depth, a rate of increase known as the **geothermal gradient**, heat must be flowing continually out of the interior and escaping into space. An Earth losing heat had to be hotter in the past, and that gave Kelvin a clock."},
-        {"type": "diagram", "id": "photo", "caption": "William Thomson, Lord Kelvin, in later life.", "options": {"photo": "kelvin-portrait", "aspect": 0.8}},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Temperature rises with depth, so heat is steadily flowing out of the Earth through its surface.", "Kelvin reasoned that the present rate of heat loss could show how long the planet had been cooling from a molten state."]}
+        {
+          "type": "text",
+          "text": "By the middle of the nineteenth century, geologists had taken Hutton's lesson to heart. In the first edition of *On the Origin of Species* (1859), Charles Darwin estimated that rain and rivers had needed some 300 million years just to wear away the dome of chalk and sandstone across the Weald in southern England, and he wanted far more time than that for natural selection to do its work. Time, for the geologists, seemed to be available in whatever quantity the rocks required."
+        },
+        {
+          "type": "text",
+          "text": "William Thomson, later Lord Kelvin, thought this was loose thinking. He was the leading physicist in Britain, one of the founders of thermodynamics, and he had a way to put a number on the problem. Miners had known for centuries that the deeper a shaft goes, the warmer the rock becomes; measurements in mines and wells showed a rise of roughly 1 °F for every 50 feet of depth, or about 36 °C per kilometre. Because rock grows warmer with depth, a rate of increase known as the **geothermal gradient**, heat must be flowing continually out of the interior and escaping into space. An Earth losing heat had to be hotter in the past, and that gave Kelvin a clock."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "William Thomson, Lord Kelvin, in later life.",
+          "options": {
+            "photo": "kelvin-portrait",
+            "aspect": 0.8
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Temperature rises with depth, so heat is steadily flowing out of the Earth through its surface.",
+            "Kelvin reasoned that the present rate of heat loss could show how long the planet had been cooling from a molten state."
+          ]
+        }
       ]
     },
     {
       "title": "Kelvin's calculation",
       "blocks": [
-        {"type": "text", "text": "In 1862 Kelvin published his estimate. He assumed the Earth had begun at a single uniform temperature around the melting point of rock, which he took to be about 7,000 °F (3,900 °C), and had then cooled from the outside in by **conduction**, heat passing directly through solid rock the way it travels up the handle of a poker left in a fire. He also assumed there was no source of fresh heat inside the Earth to slow the cooling down."},
-        {"type": "text", "text": "Under those assumptions, the history of the planet's temperature follows a simple curve. At first only a thin skin at the surface is cold, while the rock a short distance down is still near its starting temperature, so the gradient near the surface is very steep and heat floods out. As the cooled outer layer thickens over the millennia, the rise in temperature with depth becomes gentler and the outward flow of heat slows. Measure how steep the gradient is in mines today, and you can calculate how long the cooling has been going on."},
-        {"type": "interactive_diagram", "id": "cooling", "caption": "Temperature against depth in an Earth that began molten and has cooled by conduction alone. The green dashed line is the gradient measured in mines.", "task": "With no changes to Kelvin's assumptions, find the age at which the surface gradient matches the one measured in mines", "goal": "kelvin", "aspect_ratio": 1.82},
-        {"type": "text", "text": "Kelvin's best figure was about 100 million years. Because he was uncertain about the melting temperature of rock and how well it conducts heat, he allowed a wide margin, between 20 and 400 million years. By the 1890s, armed with new laboratory measurements of melting rocks, he had narrowed the estimate to between 20 and 40 million years. The Sun, he argued in a parallel calculation, could not have been shining for much longer than that either, since gravitational contraction was the only known source of energy big enough to keep it hot."},
-        {"type": "text", "text": "For geologists and for Darwin, this was a crisis. Kelvin's physics was sound, his mathematics was unimpeachable, and his scientific authority was immense. Darwin quietly cut the passage about the Weald from the third edition of the *Origin*, and many geologists tried to compress the whole history of the strata into a hundred million years or less. Independent estimates based on the total thickness of sedimentary rocks and the rate at which rivers carry salt to the sea gave ages in the same range, which seemed to settle the matter."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Kelvin modelled the Earth as a once-molten sphere cooling by conduction alone, with no internal heat source.", "Matching the geothermal gradient measured in mines gave an age of roughly 100 million years, which he later revised down to 20 to 40 million."]}
+        {
+          "type": "text",
+          "text": "In 1862 Kelvin published his estimate. He assumed the Earth had begun at a single uniform temperature around the melting point of rock, which he took to be about 7,000 °F (3,900 °C), and had then cooled from the outside in by **conduction**, heat passing directly through solid rock the way it travels up the handle of a poker left in a fire. He also assumed there was no source of fresh heat inside the Earth to slow the cooling down."
+        },
+        {
+          "type": "text",
+          "text": "Under those assumptions, the history of the planet's temperature follows a simple curve. At first only a thin skin at the surface is cold, while the rock a short distance down is still near its starting temperature, so the gradient near the surface is very steep and heat floods out. As the cooled outer layer thickens over the millennia, the rise in temperature with depth becomes gentler and the outward flow of heat slows. Measure how steep the gradient is in mines today, and you can calculate how long the cooling has been going on."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "cooling",
+          "caption": "Temperature against depth in an Earth that began molten and has cooled by conduction alone. The green dashed line is the gradient measured in mines.",
+          "task": "With no changes to Kelvin's assumptions, find the age at which the surface gradient matches the one measured in mines",
+          "goal": "kelvin",
+          "aspect_ratio": 1.82
+        },
+        {
+          "type": "text",
+          "text": "Kelvin's best figure was about 100 million years. Because he was uncertain about the melting temperature of rock and how well it conducts heat, he allowed a wide margin, between 20 and 400 million years. By the 1890s, armed with new laboratory measurements of melting rocks, he had narrowed the estimate to between 20 and 40 million years. The Sun, he argued in a parallel calculation, could not have been shining for much longer than that either, since gravitational contraction was the only known source of energy big enough to keep it hot."
+        },
+        {
+          "type": "text",
+          "text": "For geologists and for Darwin, this was a crisis. Kelvin's physics was sound, his mathematics was unimpeachable, and his scientific authority was immense. Darwin quietly cut the passage about the Weald from the third edition of the *Origin*, and many geologists tried to compress the whole history of the strata into a hundred million years or less. Independent estimates based on the total thickness of sedimentary rocks and the rate at which rivers carry salt to the sea gave ages in the same range, which seemed to settle the matter."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Kelvin modelled the Earth as a once-molten sphere cooling by conduction alone, with no internal heat source.",
+            "Matching the geothermal gradient measured in mines gave an age of roughly 100 million years, which he later revised down to 20 to 40 million."
+          ]
+        }
       ]
     },
     {
       "title": "Two assumptions that failed",
       "blocks": [
-        {"type": "text", "text": "The first challenge to the calculation came in 1895 from John Perry, an engineer and mathematician who had once been Kelvin's assistant. Perry pointed out that the whole argument rested on heat moving through the deep interior just as sluggishly as it moves through cold crust at the surface. If the interior carried heat outward more easily, either because hot rock conducts better or because the deep Earth is partly fluid and can circulate, then the core of the planet would keep feeding heat to the base of the crust. The outer skin would stay thin, the surface gradient would remain steep for vastly longer, and the same mine measurements would allow an Earth billions of years old. Moving the second slider in the diagram above shows Perry's effect."},
-        {"type": "text", "text": "Perry was right, even if Kelvin brushed the paper aside and few geologists had the mathematics to follow it. The mantle, the nearly 2,900-kilometre-thick shell of rock between the thin crust and the iron core, is solid, yet over millions of years it yields and circulates like warm pitch. This slow turnover, **convection**, carries heat upward far faster than conduction ever could. Kelvin had calculated the cooling of an iron cannonball, when the Earth behaves much more like a deep pot of thick soup on a stove."},
-        {"type": "text", "text": "The second objection came from a phenomenon nobody in 1862 could have imagined. In 1896 Henri Becquerel found that uranium salts fogged photographic plates in the dark, and over the next few years Marie and Pierre Curie, Ernest Rutherford and others showed that certain heavy atoms are unstable, breaking down spontaneously into lighter atoms and giving off energetic particles as they do. The process was named **radioactivity**. In 1903 Pierre Curie and Albert Laborde measured the heat given off by a small tube of radium and found that it stayed warmer than the room around it without cooling down. Within a few years Robert Strutt had measured trace amounts of radium in ordinary crustal rocks like granite and shown that the radioactive elements scattered through the crust could account for much of the heat escaping at the surface."},
-        {"type": "text", "text": "The Earth therefore had its own furnace. A planet that generates heat from within does not need to be young to be warm underfoot, and the temperature gradient in a mine shaft says very little about when the planet formed. Switching on the radioactive crust in the diagram shows why: after an initial drop, the surface gradient settles near 25 °C per kilometre and stays there indefinitely. Current measurements of heat flow and chemical models of the interior indicate that roughly half the heat escaping the Earth today comes from the decay of uranium, thorium and potassium, while the other half is primordial heat left over from the planet's formation."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Perry showed that a convecting or better-conducting interior keeps the surface gradient steep for billions of years.", "Radioactive decay generates heat inside the Earth, invalidating Kelvin's assumption that the planet is simply cooling down.", "Kelvin's mathematics was faultless, but his physical model left out convection and internal heat."]}
+        {
+          "type": "text",
+          "text": "The first challenge to the calculation came in 1895 from John Perry, an engineer and mathematician who had once been Kelvin's assistant. Perry pointed out that the whole argument rested on heat moving through the deep interior just as sluggishly as it moves through cold crust at the surface. If the interior carried heat outward more easily, either because hot rock conducts better or because the deep Earth is partly fluid and can circulate, then the core of the planet would keep feeding heat to the base of the crust. The outer skin would stay thin, the surface gradient would remain steep for vastly longer, and the same mine measurements would allow an Earth billions of years old. Moving the second slider in the diagram above shows Perry's effect."
+        },
+        {
+          "type": "text",
+          "text": "Perry was right, even if Kelvin brushed the paper aside and few geologists had the mathematics to follow it. The mantle, the nearly 2,900-kilometre-thick shell of rock between the thin crust and the iron core, is solid, yet over millions of years it yields and circulates like warm pitch. This slow turnover, **convection**, carries heat upward far faster than conduction ever could. Kelvin had calculated the cooling of an iron cannonball, when the Earth behaves much more like a deep pot of thick soup on a stove."
+        },
+        {
+          "type": "text",
+          "text": "The second objection came from a phenomenon nobody in 1862 could have imagined. In 1896 Henri Becquerel found that uranium salts fogged photographic plates in the dark, and over the next few years Marie and Pierre Curie, Ernest Rutherford and others showed that certain heavy atoms are unstable, breaking down spontaneously into lighter atoms and giving off energetic particles as they do. The process was named **radioactivity**. In 1903 Pierre Curie and Albert Laborde measured the heat given off by a small tube of radium and found that it stayed warmer than the room around it without cooling down. Within a few years Robert Strutt had measured trace amounts of radium in ordinary crustal rocks like granite and shown that the radioactive elements scattered through the crust could account for much of the heat escaping at the surface."
+        },
+        {
+          "type": "text",
+          "text": "The Earth therefore had its own furnace. A planet that generates heat from within does not need to be young to be warm underfoot, and the temperature gradient in a mine shaft says very little about when the planet formed. Switching on the radioactive crust in the diagram shows why: after an initial drop, the surface gradient settles near 25 °C per kilometre and stays there indefinitely. Current measurements of heat flow and chemical models of the interior indicate that roughly half the heat escaping the Earth today comes from the decay of uranium, thorium and potassium, while the other half is primordial heat left over from the planet's formation."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Perry showed that a convecting or better-conducting interior keeps the surface gradient steep for billions of years.",
+            "Radioactive decay generates heat inside the Earth, invalidating Kelvin's assumption that the planet is simply cooling down.",
+            "Kelvin's mathematics was faultless, but his physical model left out convection and internal heat."
+          ]
+        }
       ]
     },
     {
       "title": "The clock inside the atoms",
       "blocks": [
-        {"type": "text", "text": "Radioactivity did more than ruin Kelvin's clock; it provided a reliable one. Every radioactive **isotope**, a variety of an element distinguished by the number of neutrons in its atomic nucleus, decays at a constant statistical rate that ignores temperature, pressure and chemical bonding. That rate is expressed as a **half-life**, the time required for half the atoms in any given sample to decay. Uranium-238, for instance, passes through a cascade of short-lived intermediate steps before coming to rest as stable lead-206, with a half-life for the whole chain of 4.47 billion years."},
-        {"type": "text", "text": "Because the probability of decay over a given interval is the same for every surviving atom, each half-life reduces the remaining parent isotope by half rather than subtracting a fixed amount. A sample drops to ahalf, then a quarter, then an eighth of its initial stock, never speeding up or slowing down."},
-        {"type": "interactive_diagram", "id": "decay", "caption": "200 atoms of uranium-238 in a crystal (green), decaying to lead-206 (grey). The readout reads the age back from the ratio of lead to uranium.", "task": "Run the clock through two half-lives", "goal": "two-halves", "aspect_ratio": 2.1},
-        {"type": "text", "text": "For a mineral grain to work as a stopwatch, it has to lock in the parent atom when it crystallises while keeping out the daughter atom. If the crystal starts with zero lead, every atom of lead-206 found inside it today must be the ghost of a decayed uranium-238 atom, and the ratio of lead to uranium gives the time elapsed since the mineral grew. **Zircon**, a tough zirconium silicate that crystallises in small grains in many granites and survives erosion for billions of years, fits the requirement closely: its crystal lattice readily substitutes uranium for zirconium, while rejecting lead almost completely. Because natural uranium also includes a rarer isotope, uranium-235, which decays to lead-207 with a half-life of 704 million years, every zircon grain carries two independent clocks running at different speeds. If both clocks give the same date, the analyst knows no lead or uranium has leaked in or out since the crystal formed."},
-        {"type": "diagram", "id": "photo", "caption": "A zircon crystal from Mogok, Myanmar, 3.4 centimetres long. The grains dated in laboratories are far smaller, about the size of sand.", "options": {"photo": "zircon-crystal", "aspect": 0.61}},
-        {"type": "text", "text": "Rutherford first proposed using radioactive decay to measure geological time in 1904. Three years later the American radiochemist Bertram Boltwood used ratios of lead to uranium in minerals to obtain ages of up to 2.2 billion years, and in 1913 the young British geologist Arthur Holmes published *The Age of the Earth*, pulling together radiometric dates that put the oldest known rocks at 1.6 billion years. Geologists had all the time Darwin had wanted, and several times over."},
-        {"type": "diagram", "id": "photo", "caption": "Arthur Holmes in 1912, the year before his book on the age of the Earth appeared.", "options": {"photo": "arthur-holmes", "aspect": 0.95}},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Each radioactive isotope decays at a constant rate characterised by its half-life, unaffected by heat or pressure.", "Each half-life halves the remaining parent atoms, leaving a quarter after two half-lives and an eighth after three.", "Measuring the ratio of daughter to parent atoms in a mineral such as zircon reveals how long ago the crystal grew."]}
+        {
+          "type": "text",
+          "text": "Radioactivity did more than ruin Kelvin's clock; it provided a reliable one. Every radioactive **isotope**, a variety of an element distinguished by the number of neutrons in its atomic nucleus, decays at a constant statistical rate that ignores temperature, pressure and chemical bonding. That rate is expressed as a **half-life**, the time required for half the atoms in any given sample to decay. Uranium-238, for instance, passes through a cascade of short-lived intermediate steps before coming to rest as stable lead-206, with a half-life for the whole chain of 4.47 billion years."
+        },
+        {
+          "type": "text",
+          "text": "Because the probability of decay over a given interval is the same for every surviving atom, each half-life reduces the remaining parent isotope by half rather than subtracting a fixed amount. A sample drops to a half, then a quarter, then an eighth of its initial stock, never speeding up or slowing down."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "decay",
+          "caption": "200 atoms of uranium-238 in a crystal (green), decaying to lead-206 (grey). The readout reads the age back from the ratio of lead to uranium.",
+          "task": "Run the clock through two half-lives",
+          "goal": "two-halves",
+          "aspect_ratio": 2.1
+        },
+        {
+          "type": "text",
+          "text": "For a mineral grain to work as a stopwatch, it has to lock in the parent atom when it crystallises while keeping out the daughter atom. If the crystal starts with zero lead, every atom of lead-206 found inside it today must be the ghost of a decayed uranium-238 atom, and the ratio of lead to uranium gives the time elapsed since the mineral grew. **Zircon**, a tough zirconium silicate that crystallises in small grains in many granites and survives erosion for billions of years, fits the requirement closely: its crystal lattice readily substitutes uranium for zirconium, while rejecting lead almost completely. Because natural uranium also includes a rarer isotope, uranium-235, which decays to lead-207 with a half-life of 704 million years, every zircon grain carries two independent clocks running at different speeds. If both clocks give the same date, the analyst knows no lead or uranium has leaked in or out since the crystal formed."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A zircon crystal from Mogok, Myanmar, 3.4 centimetres long. The grains dated in laboratories are far smaller, about the size of sand.",
+          "options": {
+            "photo": "zircon-crystal",
+            "aspect": 0.61
+          }
+        },
+        {
+          "type": "text",
+          "text": "Rutherford first proposed using radioactive decay to measure geological time in 1904. Three years later the American radiochemist Bertram Boltwood used ratios of lead to uranium in minerals to obtain ages of up to 2.2 billion years, and in 1913 the young British geologist Arthur Holmes published *The Age of the Earth*, pulling together radiometric dates that put the oldest known rocks at 1.6 billion years. Geologists had all the time Darwin had wanted, and several times over."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Arthur Holmes in 1912, the year before his book on the age of the Earth appeared.",
+          "options": {
+            "photo": "arthur-holmes",
+            "aspect": 0.95
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Each radioactive isotope decays at a constant rate characterised by its half-life, unaffected by heat or pressure.",
+            "Each half-life halves the remaining parent atoms, leaving a quarter after two half-lives and an eighth after three.",
+            "Measuring the ratio of daughter to parent atoms in a mineral such as zircon reveals how long ago the crystal grew."
+          ]
+        }
       ]
     },
     {
-      "title": "Four and a half billion years",
+      "title": "Older than any rock",
       "blocks": [
-        {"type": "text", "text": "Even with zircon, the Earth's own rocks cannot take us all the way back to the beginning, because the earliest crust was remelted and reworked by the tectonic processes that later lessons will cover. The oldest intact rock dated with certainty is the Acasta Gneiss of northwestern Canada, a banded metamorphic rock similar to those in lesson 5, which crystallized about 4.0 billion years ago (greenstone belts in northern Quebec may be older still, though their dates remain contested). Loose zircon grains eroded out of a vanished crust and preserved in younger sandstone in the Jack Hills of Western Australia go back 4.4 billion years. To find the age of the planet itself, geologists had to look to meteorites, rocky fragments left over from the formation of the solar system that have never been melted since."},
-        {"type": "text", "text": "In 1956 the geochemist Clair Patterson measured lead isotopes in several meteorites, compared them with lead from modern ocean sediment, and calculated an age for the Earth and the solar system of 4.55 billion years, a figure that sixty years of subsequent work has barely shifted. (To get a clean measurement, Patterson first had to build an ultra-clean laboratory because every surface, beaker and reagent he tested was swamped with industrial lead from tetraethyl petrol and paint; he spent much of his later career campaigning to get lead removed from petrol.)"},
-        {"type": "diagram", "id": "timeline", "caption": "From Kelvin's cooling ball to the age of meteorites.", "options": {"events": [{"at": 1862, "label": "Kelvin: about 100 million years, from cooling"}, {"at": 1895, "label": "Perry: a flowing interior allows billions"}, {"at": 1896, "label": "Becquerel discovers radioactivity"}, {"at": 1903, "label": "Pierre Curie measures heat from radium"}, {"at": 1907, "label": "Boltwood dates minerals from lead and uranium"}, {"at": 1913, "label": "Holmes, The Age of the Earth"}, {"at": 1956, "label": "Patterson: 4.55 billion years, from meteorites", "bold": true}], "spacing": "even"}},
-        {"type": "diagram", "id": "scale", "caption": "Ages of the Earth, as proposed and measured, on a scale where each mark is ten times the last.", "options": {"items": [{"label": "Ussher (1650)", "value": 6000}, {"label": "Buffon (1778)", "value": 75000}, {"label": "Kelvin (1897)", "value": 30000000}, {"label": "Kelvin (1862)", "value": 100000000}, {"label": "Holmes, oldest rocks (1913)", "value": 1600000000}, {"label": "Patterson (1956)", "value": 4550000000, "bold": true}], "unit": "years", "log": true}},
-        {"type": "text", "text": "By the standards of a 4.55-billion-year-old planet, the rocks at Siccar Point are comparatively young, and the 65-million-year gap between their lower and upper beds represents only about one-seventieth of Earth history. The absolute ages mentioned in earlier lessons, 470 million years for the Scottish Highland metamorphism and 190 million years for the Navajo desert dunes, all come from isotopic clocks of the kind Boltwood, Holmes and Patterson built."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Lead isotopes in meteorites date the solar system and the Earth to about 4.55 billion years.", "Because the earliest crust was destroyed, the oldest surviving Earth rocks are about 4.0 billion years old, and the oldest detached zircon grains are 4.4 billion years old."]}
+        {
+          "type": "text",
+          "text": "Even with zircon, the Earth's own rocks cannot take us all the way back to the beginning, because the earliest crust was remelted and reworked by the tectonic processes that later lessons will cover. The oldest intact rock dated with certainty is the Acasta Gneiss of northwestern Canada, a banded metamorphic rock similar to those in lesson 5, which crystallized about 4.0 billion years ago (greenstone belts in northern Quebec may be older still, though their dates remain contested). Loose zircon grains eroded out of a vanished crust and preserved in younger sandstone in the Jack Hills of Western Australia go back 4.4 billion years. The planet is older than anything left on it."
+        },
+        {
+          "type": "text",
+          "text": "So geologists looked off the planet. The Sun, the planets and the asteroids all formed out of the same disc of gas and dust, over a span that is short compared with the age we are after. The Earth grew big enough to melt, churn and keep remaking its surface. The asteroids, small rocky and metallic bodies that orbit mostly between Mars and Jupiter, stayed small: some melted early and separated into an iron core and a stony shell, others never melted at all, and since then little has happened to them beyond being knocked about. A **meteorite** is a piece of an asteroid that has fallen to Earth. Date a meteorite and you have dated the solar system, and the Earth, built at the same time from the same materials, should be the same age. That last step is an assumption, but as we will see, the measurement came with a way to test it."
+        },
+        {
+          "type": "text",
+          "text": "There is a catch. The zircon clock works because the crystal starts with no lead, so every lead atom inside it was made by decay. A meteorite is not so obliging. The cloud the solar system formed from already contained lead, made in older stars, and some of it went into every rock from the start. When you find lead-206 in a meteorite, you cannot tell how much was there at the beginning and how much uranium has added since. The American geochemist Clair Patterson solved this in the early 1950s, in three steps."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The Earth's first crust is gone: its oldest rocks are about 4.0 billion years old, its oldest loose zircons 4.4 billion.",
+            "Meteorites are pieces of asteroids, which formed with the Earth and have changed little since, so their age stands for the solar system's.",
+            "Meteorites began with some lead already in them, so the simple zircon clock does not work on them."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Patterson's lead",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Step one: a lead that never changes.** Natural lead comes in four stable isotopes: lead-204, lead-206, lead-207 and lead-208. Uranium-238 decays to lead-206 and uranium-235 to lead-207 (thorium makes lead-208, which we can leave aside). Nothing decays to lead-204, so a rock keeps exactly the lead-204 it started with. That makes it a ruler. Instead of asking how much lead-206 a meteorite contains, which depends on how big a piece you grind up, ask how many atoms of lead-206 it has for every atom of lead-204. That number begins at some value and can only grow as uranium decays. The same goes for lead-207. A mass spectrometer, which sorts atoms by weight, measures exactly these ratios."
+        },
+        {
+          "type": "text",
+          "text": "**Step two: the first lead.** Iron meteorites, the cores of asteroids that melted, hold a little lead in grains of iron sulphide but almost no uranium, which went into the stony shells instead. With no uranium, nothing has been added to their lead since they formed: it is the solar system's first lead, about 9.3 atoms of lead-206 and 10.3 of lead-207 for every atom of lead-204. Patterson measured it in the iron that dug Meteor Crater in Arizona, called Canyon Diablo, which is still the standard."
+        },
+        {
+          "type": "text",
+          "text": "**Step three: two clocks, one line.** Stony meteorites started with that same first lead, plus some uranium, and their lead has been growing ever since. How far it has grown depends on two things, how long and how much uranium, and one number cannot untangle them. Two numbers can, because uranium carries two clocks. Uranium-235 decays about six times faster than uranium-238, and every piece of the solar system began with the same mix of the two: about one atom of uranium-235 for every three of uranium-238, falling to one in 138 today. So in any rock, the new lead-207 and the new lead-206 pile up in a proportion that depends on time alone. A meteorite with twice the uranium makes twice as much of each, in the same proportion."
+        },
+        {
+          "type": "text",
+          "text": "Put each meteorite on a chart, with lead-206 per lead-204 along the bottom and lead-207 per lead-204 up the side. All of them began on one point, the first lead. Uranium-rich ones have since moved far from it and uranium-poor ones only a little, but because they all added lead in the same proportion, they still lie on a single straight line through that point. Geologists call such a line an **isochron**, from the Greek for \"same time\". Its steepness is the clock. The older the rocks, the steeper the line, because an older rock's new lead includes the burst of lead-207 made early on, while uranium-235 was still plentiful. A rock that formed only a billion years ago started after most of the uranium-235 had gone, and its new lead is nearly all lead-206."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "lead-line",
+          "caption": "Lead in meteorites, counted as atoms of lead-206 (across) and lead-207 (up) for each atom of lead-204. The black square is the first lead, kept in iron meteorites. The rings are two stony meteorites Patterson measured.",
+          "task": "Find the age at which the line from the first lead runs through the rings",
+          "goal": "line",
+          "aspect_ratio": 1.69
+        },
+        {
+          "type": "text",
+          "text": "That is what Patterson did. In 1956 he published the lead of two iron meteorites and three stony ones. The stony ones lay on a straight line through the irons' first lead, and its steepness gave an age of 4.55 billion years, give or take 70 million. (Today's more precise decay rates put his line nearer 4.5 billion, and the best modern dates, from the oldest grains in stony meteorites, are 4.567 billion years.)"
+        },
+        {
+          "type": "text",
+          "text": "That dated the meteorites. To tie the Earth to them, Patterson needed the Earth's average lead, and no single rock has it, because the planet's lead has been melted, moved and sorted for billions of years. Mud from the deep ocean floor comes close: it is ground from rocks across whole continents and mixed by rivers and currents. His sample of ocean mud landed on the meteorite line. The Earth's lead had started from the same first lead at the same moment and grown alongside the meteorites', so the Earth is the same age, and a figure of about 4.55 billion years has barely shifted in the decades since."
+        },
+        {
+          "type": "text",
+          "text": "To get a clean measurement, Patterson first had to build an ultra-clean laboratory, because every surface, beaker and reagent he tested was swamped with industrial lead from leaded petrol and paint. He spent much of his later career campaigning to get lead out of petrol."
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "From Kelvin's cooling ball to the age of meteorites.",
+          "options": {
+            "events": [
+              {
+                "at": 1862,
+                "label": "Kelvin: about 100 million years, from cooling"
+              },
+              {
+                "at": 1895,
+                "label": "Perry: a flowing interior allows billions"
+              },
+              {
+                "at": 1896,
+                "label": "Becquerel discovers radioactivity"
+              },
+              {
+                "at": 1903,
+                "label": "Pierre Curie measures heat from radium"
+              },
+              {
+                "at": 1907,
+                "label": "Boltwood dates minerals from lead and uranium"
+              },
+              {
+                "at": 1913,
+                "label": "Holmes, The Age of the Earth"
+              },
+              {
+                "at": 1956,
+                "label": "Patterson: 4.55 billion years, from meteorites",
+                "bold": true
+              }
+            ],
+            "spacing": "even"
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "scale",
+          "caption": "Ages of the Earth, as proposed and measured, on a scale where each mark is ten times the last.",
+          "options": {
+            "items": [
+              {
+                "label": "Ussher (1650)",
+                "value": 6000
+              },
+              {
+                "label": "Buffon (1778)",
+                "value": 75000
+              },
+              {
+                "label": "Kelvin (1897)",
+                "value": 30000000
+              },
+              {
+                "label": "Kelvin (1862)",
+                "value": 100000000
+              },
+              {
+                "label": "Holmes, oldest rocks (1913)",
+                "value": 1600000000
+              },
+              {
+                "label": "Patterson (1956)",
+                "value": 4550000000,
+                "bold": true
+              }
+            ],
+            "unit": "years",
+            "log": true
+          }
+        },
+        {
+          "type": "text",
+          "text": "By the standards of a 4.55-billion-year-old planet, the rocks at Siccar Point are comparatively young, and the 65-million-year gap between their lower and upper beds represents only about one-seventieth of Earth history. The absolute ages mentioned in earlier lessons, 470 million years for the Scottish Highland metamorphism and 190 million years for the Navajo desert dunes, all come from isotopic clocks of the kind Boltwood, Holmes and Patterson built."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "No decay makes lead-204, so counting the other lead isotopes per atom of lead-204 shows how much lead has been added.",
+            "Iron meteorites have lead but no uranium, so they keep the solar system's first lead.",
+            "Rocks of one age line up on a straight line from the first lead, however much uranium each has; the older they are, the steeper the line.",
+            "Patterson's stony meteorites, and the Earth's average lead in ocean mud, sit on one line: the Earth and the meteorites are about 4.55 billion years old."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on the age of the Earth", "task": "Select the best answer for each question",
-          "options": { "items": [
-            { "ask": "What physical observation did Kelvin's calculation of the Earth's age rest on?", "choices": ["Rock gets warmer with depth, showing that heat is flowing out of the interior", "Rivers carry sediment to the sea at a measurable annual rate", "The oceans grow slightly saltier every year as rivers wash in dissolved minerals"], "answer": 0, "why": "Kelvin used the temperature gradient measured in mines and wells to calculate how long an initially molten Earth had been losing heat through its surface." },
-            { "ask": "In Kelvin's conductive cooling model, how does the temperature gradient near the surface change over time?", "choices": ["It grows gentler as the cooled outer shell thickens", "It grows steeper as the surface radiates away more heat", "It remains constant until the core freezes solid"], "answer": 0, "why": "Early on, molten rock sits just below a thin cold skin, making the gradient very steep. As cooling penetrates deeper, the temperature change is spread over a thicker layer and the surface gradient flattens." },
-            { "ask": "Why did the discovery of radioactivity invalidate Kelvin's age limit?", "choices": ["Radioactive decay generates heat inside the Earth, so a warm interior does not require a young planet", "Radiation alters the thermal conductivity of deep crustal rocks", "Radioactive dating showed the Sun was much younger than the planets"], "answer": 0, "why": "Kelvin assumed the Earth had no internal heat source. Because uranium, thorium and potassium release heat as they decay, the surface temperature gradient cannot be read as a simple record of cooling from a molten start." },
-            { "ask": "A crystal forms with 1,000 atoms of uranium-238 and no lead. After two half-lives have passed, how many uranium-238 atoms remain?", "choices": ["250", "0", "500"], "answer": 0, "why": "Each half-life reduces the remaining parent isotope by half: 1,000 drops to 500 after one half-life, and to 250 after two." },
-            { "ask": "What property of zircon makes it the standard mineral for uranium-lead dating?", "choices": ["Its crystal structure accepts uranium when it grows but rejects lead, so its lead comes almost entirely from decay", "Uranium decays faster inside zircon than in softer silicate minerals", "Zircon only crystallises during meteorite impacts"], "answer": 0, "why": "Because a newly formed zircon grain contains virtually no lead, the lead-206 and lead-207 found in it today directly record how much uranium-238 and uranium-235 have decayed since crystallisation." },
-            { "ask": "Why did Clair Patterson turn to meteorites rather than terrestrial rocks to determine the age of the Earth?", "choices": ["The Earth's earliest crust was recycled by geology, whereas meteorites preserve primitive material from the solar system's birth", "Meteorites contain far higher concentrations of uranium than continental granites", "Terrestrial rocks lose all their radiogenic lead to groundwater"], "answer": 0, "why": "Geological activity has destroyed the Earth's original crust, leaving no intact rocks older than about 4.0 billion years. Meteorites formed at the same time as the planets and have remained largely unchanged since." }
-          ] }
+          "type": "quiz",
+          "id": "check",
+          "caption": "Eight questions on the age of the Earth",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "What physical observation did Kelvin's calculation of the Earth's age rest on?",
+                "choices": [
+                  "Rock gets warmer with depth, showing that heat is flowing out of the interior",
+                  "Rivers carry sediment to the sea at a measurable annual rate",
+                  "The oceans grow slightly saltier every year as rivers wash in dissolved minerals"
+                ],
+                "answer": 0,
+                "why": "Kelvin used the temperature gradient measured in mines and wells to calculate how long an initially molten Earth had been losing heat through its surface."
+              },
+              {
+                "ask": "In Kelvin's conductive cooling model, how does the temperature gradient near the surface change over time?",
+                "choices": [
+                  "It grows gentler as the cooled outer shell thickens",
+                  "It grows steeper as the surface radiates away more heat",
+                  "It remains constant until the core freezes solid"
+                ],
+                "answer": 0,
+                "why": "Early on, molten rock sits just below a thin cold skin, making the gradient very steep. As cooling penetrates deeper, the temperature change is spread over a thicker layer and the surface gradient flattens."
+              },
+              {
+                "ask": "Why did the discovery of radioactivity invalidate Kelvin's age limit?",
+                "choices": [
+                  "Radioactive decay generates heat inside the Earth, so a warm interior does not require a young planet",
+                  "Radiation alters the thermal conductivity of deep crustal rocks",
+                  "Radioactive dating showed the Sun was much younger than the planets"
+                ],
+                "answer": 0,
+                "why": "Kelvin assumed the Earth had no internal heat source. Because uranium, thorium and potassium release heat as they decay, the surface temperature gradient cannot be read as a simple record of cooling from a molten start."
+              },
+              {
+                "ask": "A crystal forms with 1,000 atoms of uranium-238 and no lead. After two half-lives have passed, how many uranium-238 atoms remain?",
+                "choices": [
+                  "250",
+                  "0",
+                  "500"
+                ],
+                "answer": 0,
+                "why": "Each half-life reduces the remaining parent isotope by half: 1,000 drops to 500 after one half-life, and to 250 after two."
+              },
+              {
+                "ask": "What property of zircon makes it the standard mineral for uranium-lead dating?",
+                "choices": [
+                  "Its crystal structure accepts uranium when it grows but rejects lead, so its lead comes almost entirely from decay",
+                  "Uranium decays faster inside zircon than in softer silicate minerals",
+                  "Zircon only crystallises during meteorite impacts"
+                ],
+                "answer": 0,
+                "why": "Because a newly formed zircon grain contains virtually no lead, the lead-206 and lead-207 found in it today directly record how much uranium-238 and uranium-235 have decayed since crystallisation."
+              },
+              {
+                "ask": "Why did Clair Patterson turn to meteorites rather than the Earth's own rocks to find the age of the Earth?",
+                "choices": [
+                  "The Earth's earliest crust was recycled, whereas meteorites are pieces of asteroids that formed with the Earth and have changed little since",
+                  "Meteorites contain far more uranium than continental granites",
+                  "Terrestrial rocks lose all their lead to groundwater"
+                ],
+                "answer": 0,
+                "why": "Geological activity has destroyed the Earth's original crust, leaving no intact rocks older than about 4.0 billion years. Asteroids formed alongside the planets from the same materials and stayed small and quiet, so their fragments still record the solar system's birth."
+              },
+              {
+                "ask": "Why did Patterson count lead-206 and lead-207 for every atom of lead-204?",
+                "choices": [
+                  "No radioactive decay makes lead-204, so the amount a rock started with never changes and serves as a fixed ruler",
+                  "Lead-204 is the most common lead isotope, so it is easiest to measure",
+                  "Lead-204 decays into lead-206 at a known rate"
+                ],
+                "answer": 0,
+                "why": "Uranium adds lead-206 and lead-207 over time, but nothing adds lead-204. Measured against it, the other leads show how much has grown, whatever the size of the sample."
+              },
+              {
+                "ask": "Two stony meteorites formed at the same moment, but one has three times as much uranium. On Patterson's chart of lead-207 against lead-206, where does the uranium-rich one sit today?",
+                "choices": [
+                  "On the same straight line from the first lead, three times as far out",
+                  "On a line three times as steep",
+                  "At the same point as the other"
+                ],
+                "answer": 0,
+                "why": "Both started with the same first lead and the same mix of uranium-235 and uranium-238, so their new lead grew in the same proportion. More uranium only means more of it, so the dot is farther out along the same line; the steepness of the line depends on age alone."
+              },
+              {
+                "ask": "What did it show when Patterson's sample of deep-ocean mud fell on the same line as the meteorites?",
+                "choices": [
+                  "The Earth's lead started from the same first lead at the same time, so the Earth is as old as the meteorites",
+                  "Ocean mud is made mostly of ground-up meteorites",
+                  "Lead in sea water is younger than lead in rocks"
+                ],
+                "answer": 0,
+                "why": "Ocean mud mixes rock from whole continents, so it approximates the Earth's average lead. Landing on the meteorites' line means it grew from the same starting lead over the same time."
+              }
+            ]
+          }
         }
       ]
     }
@@ -80,9 +424,11 @@
     "**His assumptions were wrong twice.** Convection moves heat out of the interior far more efficiently, and radioactivity adds heat he did not know about.",
     "**Radioactive atoms are clocks.** Each isotope decays with a fixed half-life, so the ratio of parent to daughter atoms gives an age.",
     "**Some minerals keep the clock well.** Zircon locks in uranium and keeps out lead when it forms.",
-    "**The Earth is 4.55 billion years old.** Lead isotopes in meteorites date the whole solar system to that age."
+    "**The Earth is older than its rocks.** Its first crust is gone, so meteorites, pieces of asteroids that formed with it, stand in.",
+    "**Lead-204 is a fixed ruler.** No decay makes it, so other lead per lead-204 shows how much uranium has added.",
+    "**Same age, same line.** Rocks that formed together line up from the first lead, kept in iron meteorites; the line's steepness is their age.",
+    "**The Earth is 4.55 billion years old.** Patterson's meteorites and the Earth's average lead in ocean mud lie on one line."
   ],
   "journal": [],
-  "footnotes": {
-  }
+  "footnotes": {}
 }

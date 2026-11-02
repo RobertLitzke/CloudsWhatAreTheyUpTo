@@ -198,3 +198,124 @@ export const decayFigure = figure(['two-halves'], (ctx, t) => {
   });
   return f.node;
 });
+
+// ---- Patterson's lead line ------------------------------------------------------
+
+/** Decay constants per billion years: uranium-238 and uranium-235. */
+const L238 = 0.155125;
+const L235 = 0.98485;
+/** Uranium-238 atoms for each uranium-235 atom today. */
+const U_RATIO = 137.88;
+/** The first lead of the solar system, from the iron meteorite of Meteor Crater: lead-206 and lead-207 per lead-204. */
+const START: P = [9.307, 10.294];
+
+/** Lead-206 and lead-207 per lead-204 today, in a rock `gyr` old that has `mu` uranium-238 atoms per lead-204 atom today. */
+export function leadAt(mu: number, gyr: number): P {
+  return [START[0] + mu * (Math.exp(L238 * gyr) - 1), START[1] + (mu / U_RATIO) * (Math.exp(L235 * gyr) - 1)];
+}
+
+/** The steepness of the line through the start and every rock of age `gyr`, whatever their uranium. */
+export const leadSlope = (gyr: number) => (Math.exp(L235 * gyr) - 1) / (U_RATIO * (Math.exp(L238 * gyr) - 1));
+
+/** The age a line of steepness `s` belongs to, by bisection. */
+export function slopeAge(s: number): number {
+  let lo = 0.001;
+  let hi = 8;
+  for (let i = 0; i < 50; i++) {
+    const mid = (lo + hi) / 2;
+    if (leadSlope(mid) < s) lo = mid;
+    else hi = mid;
+  }
+  return (lo + hi) / 2;
+}
+
+/** Rocks on the chart: uranium (`mu`, chosen to land each on its measurement at 4.5 billion years) and Patterson's measured lead. */
+const ROCKS: { name: string; mu: number; measured?: P; color: string }[] = [
+  { name: 'Nuevo Laredo', mu: 40.57, measured: [50.28, 34.86], color: COL.old },
+  { name: 'Forest City', mu: 9.87, measured: [19.27, 15.95], color: COL.old },
+  { name: 'Earth’s lead', mu: 9.2, color: COL.water },
+];
+
+export const leadLineFigure = figure(['line'], (ctx, t) => {
+  const f = frame(W, 236, 4);
+  const g = svg('g');
+  f.svg.append(g);
+  let gyr = 0.5;
+  const X0 = 46;
+  const X1 = 388;
+  const Y0 = 12;
+  const Y1 = 204;
+  const XMAX = 56;
+  const YMAX = 40;
+  const px = (x: number) => X0 + ((x - 5) / (XMAX - 5)) * (X1 - X0);
+  const py = (y: number) => Y1 - ((y - 5) / (YMAX - 5)) * (Y1 - Y0);
+  const at = ([x, y]: P): P => [px(x), py(y)];
+  // Rocks that run off the chart are cut at its edge.
+  const clip = svg('clipPath', { id: 'lead-line-clip' }, svg('rect', { x: X0, y: Y0, width: X1 - X0, height: Y1 - Y0 }));
+  const inside = svg('g', { 'clip-path': 'url(#lead-line-clip)' });
+  f.svg.append(svg('defs', {}, clip));
+  const paint = () => {
+    const s = leadSlope(gyr);
+    // The line from the start out to the chart's edge.
+    const xEnd = Math.min(XMAX, START[0] + (YMAX - START[1]) / s);
+    const end: P = [xEnd, START[1] + s * (xEnd - START[0])];
+    const back: SVGElement[] = [
+      svg('rect', { x: X0, y: Y0, width: X1 - X0, height: Y1 - Y0, fill: '#f3e8d8' }),
+      ...[10, 20, 30, 40, 50].map((v) => small(px(v), Y1 + 12, `${v}`, { anchor: 'middle', soft: true })),
+      ...[10, 20, 30, 40].map((v) => small(X0 - 5, py(v) + 3, `${v}`, { anchor: 'end', soft: true })),
+      small(X1, Y1 + 25, 'lead-206 for each lead-204 →', { anchor: 'end', soft: true }),
+      small(X0 + 4, Y0 + 12, '↑ lead-207 for each lead-204', { soft: true }),
+    ];
+    const marks: SVGElement[] = [];
+    if (gyr > 0.02) marks.push(line(...at(START), ...at(end), COL.heat, 1.6, { 'stroke-dasharray': '6 3' }));
+    for (const r of ROCKS) {
+      if (r.measured) {
+        const [mx, my] = at(r.measured);
+        marks.push(svg('circle', { cx: mx, cy: my, r: 7, fill: 'none', stroke: COL.ink, 'stroke-width': 1.2 }));
+      }
+      const [x, y] = at(leadAt(r.mu, gyr));
+      marks.push(svg('circle', { cx: x, cy: y, r: 4.5, fill: r.color }));
+    }
+    const [sx, sy] = at(START);
+    marks.push(svg('rect', { x: sx - 4, y: sy - 4, width: 8, height: 8, fill: COL.ink }));
+    const labels: SVGElement[] = [small(sx + 8, sy + 14, 'iron meteorite: no uranium, so the first lead')];
+    // Named once the rocks have spread apart, and only while they are on the chart.
+    if (gyr > 3 && gyr < 4.9) {
+      const nl = at(leadAt(ROCKS[0].mu, gyr));
+      const fc = at(leadAt(ROCKS[1].mu, gyr));
+      const earth = at(leadAt(ROCKS[2].mu, gyr));
+      labels.push(
+        small(Math.min(nl[0], X1 - 4), nl[1] - 9, 'stony meteorite, uranium-rich', { anchor: 'end', fill: COL.old, bold: true, halo: '#f3e8d8' }),
+        small(fc[0] + 8, fc[1] - 6, 'stony meteorite', { fill: COL.old, bold: true, halo: '#f3e8d8' }),
+        small(earth[0] + 8, earth[1] + 12, 'Earth (ocean mud)', { fill: COL.water, bold: true, halo: '#f3e8d8' }),
+      );
+    }
+    redraw(inside, ...marks);
+    redraw(g, ...back, inside, ...labels);
+    // Patterson's line: the start and the uranium-rich meteorite he measured.
+    const measured = (ROCKS[0].measured![1] - START[1]) / (ROCKS[0].measured![0] - START[0]);
+    const match = Math.abs(s - measured) < 0.015;
+    const age = gyr.toFixed(2);
+    f.readout.textContent = gyr <= 0.02
+      ? 'Brand-new rocks would all hold the same first lead, so they would all sit on the black square.'
+      : `If they are ${age} billion years old, each rock has moved off the square by an amount set by its uranium, but all of them sit on one straight line, of steepness ${s.toFixed(2)}. ${
+        match ? `That line runs through the rings, the lead Patterson measured: the meteorites and the Earth are about ${gyr.toFixed(1)} billion years old.`
+        : s < measured ? 'The line is not as steep as the rings, the lead Patterson measured: they must be older than this.'
+        : 'The line is steeper than the rings, the lead Patterson measured: they must be younger than this.'}`;
+    if (match && t.goal === 'line') t.done();
+  };
+  const time = slider('Age of the meteorites', 0, 6, 0.01, gyr, (v) => `${v.toFixed(2)} billion years`, (v) => { gyr = v; paint(); }, 'old');
+  f.controls.append(player(time, ctx).node, time.node);
+  paint();
+  guessFirst(t, f, {
+    ask: 'Two meteorites formed at the same moment, but one has twice as much uranium for each atom of lead. Billions of years later, where does its lead sit on this chart, compared with the other’s? Guess first.',
+    options: ['Twice as far out along the same line', 'On a steeper line', 'In the same place'],
+    answer: 0, reveal: 'done',
+    sliders: [time],
+    after: (guess) => {
+      paint();
+      f.readout.textContent = `You guessed: ${['twice as far out along the same line', 'on a steeper line', 'in the same place'][guess]}. Make the meteorites older and watch the dots.`;
+    },
+  });
+  return f.node;
+});
