@@ -325,5 +325,38 @@ describe('figures', () => {
     expect(Math.hypot(...PLATE_VEL) / 10).toBeLessThan(12);
     expect(sunk(5)).toBeGreaterThan(sunk(1));
   });
+
+  it('lessons 17 to 19: faults snap, magma explodes, a megathrust lifts and drops the coast', async () => {
+    const fence = FIGURES.fence(context(), 'snapped');
+    guess(fence.node, 'Broken at the fault, each side straight again but shifted');
+    setSlider(fence.node, 0, 160);
+    await expect(fence.done).resolves.toBeUndefined();
+    const stick = FIGURES['stick-slip'](context(), 'compared');
+    setSlider(stick.node, 0, 1.5);
+    setSlider(stick.node, 1, 400);
+    setSlider(stick.node, 0, 6);
+    setSlider(stick.node, 1, 401);
+    await expect(stick.done).resolves.toBeUndefined();
+    const shake = FIGURES.shaking(context(), 'resonant');
+    guess(shake.node, 'On the old lake mud');
+    setSlider(shake.node, 0, 20);
+    await expect(shake.done).resolves.toBeUndefined();
+    const conduit = FIGURES.conduit(context(), 'both');
+    guess(conduit.node, 'It comes out as bubbles that stay trapped and tear the magma apart');
+    setSlider(conduit.node, 2, 100);
+    expect(conduit.node.textContent).toContain('Explosion');
+    setSlider(conduit.node, 0, 50);
+    await expect(conduit.done).resolves.toBeUndefined();
+    const column = FIGURES.column(context(), 'collapsed');
+    guess(column.node, 'It falls back and pours down the mountain');
+    setSlider(column.node, 1, 500);
+    await expect(column.done).resolves.toBeUndefined();
+    const mt = FIGURES.megathrust(context(), 'wave');
+    guess(mt.node, 'Down');
+    setSlider(mt.node, 0, 300);
+    expect(mt.node.textContent).toContain('coast town drops');
+    setSlider(mt.node, 1, 25);
+    await expect(mt.done).resolves.toBeUndefined();
+  });
 });
 

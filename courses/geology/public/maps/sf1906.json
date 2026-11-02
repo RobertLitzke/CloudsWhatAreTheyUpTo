@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "sf1906.png",
+  "width": 291,
+  "height": 419,
+  "zoom": 8,
+  "x0": 10085,
+  "y0": 24762,
+  "step": 2,
+  "bounds": [
+    -124.60144,
+    36.59789,
+    -121.40442,
+    40.20405
+  ],
+  "range": [
+    -4195,
+    2290
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name sf1906 --bbox -124.6,36.6,-121.4,40.2 --zoom 8 --max 520 --precision 5 --out courses/geology/public/maps"
+}

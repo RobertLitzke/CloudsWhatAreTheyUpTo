@@ -28,6 +28,9 @@ import { kettleStill, reboundFigure, sunFigure } from './kettles';
 import { orderFigure, settleFigure, toothStill } from './steno';
 import { countFigure, impactFigure, mixFigure, oceanFigure } from './moon';
 import { cellsFigure, fossilFigure } from './fossils';
+import { fenceFigure, groundFigure, stickFigure } from './faults';
+import { columnFigure, conduitFigure } from './volcano';
+import { barnacleStill, megathrustFigure } from './megathrust';
 import { drillFigure, earthStill, epicentreFigure, innerFigure, layersFigure, mohoFigure, plumbFigure, raysFigure, wavesStill } from './deep';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
@@ -91,6 +94,16 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   rebound: reboundFigure,
   'ice-sheets': iceSheetsFigure,
   kettle: kettleStill,
+  // Lesson 17
+  fence: fenceFigure,
+  'stick-slip': stickFigure,
+  shaking: groundFigure,
+  // Lesson 18
+  conduit: conduitFigure,
+  column: columnFigure,
+  // Lesson 19
+  megathrust: megathrustFigure,
+  barnacles: barnacleStill,
   // P, the Moon
   impact: impactFigure,
   'crater-count': countFigure,
