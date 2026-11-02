@@ -10,6 +10,7 @@ import { columnsFigure, furnaceFigure } from './basalt';
 import { checkFigure } from './check';
 import { COL } from './kit';
 import { photoFigure } from './photo';
+import { bioStill } from './bio';
 import { duneFigure, sortFigure } from './dunes';
 import { correlateFigure, veesFigure } from './smith';
 import { cycleStill, unconformityFigure } from './siccar';
@@ -33,6 +34,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
   ...maps({ palette: COL, asset }),
   photo: photoFigure,
+  bio: bioStill,
   check: checkFigure,
   // Lesson 1
   tooth: toothStill,

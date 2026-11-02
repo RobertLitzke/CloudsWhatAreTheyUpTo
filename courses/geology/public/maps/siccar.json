@@ -16,11 +16,11 @@
   ],
   "range": [
     -43,
-    290
+    296
   ],
-  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
-  "licence": "Mostly public domain; some sources ask for attribution (see source).",
-  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
-  "fetched": "2026-10-31",
-  "made": "node tools/geo/relief.mjs --name siccar --bbox -2.42,55.86,-2.22,55.96 --zoom 13 --max 640 --precision 1 --out courses/geology/public/maps"
+  "credit": "Copernicus GLO-30 (© DLR, Airbus; EU/ESA) and Terrain Tiles on AWS",
+  "licence": "Copernicus DEM: free to use with the attribution in source. Terrain Tiles: mostly public domain.",
+  "source": "Copernicus GLO-30 DEM (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved) for the land; the sea floor from Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-02",
+  "made": "node tools/geo/relief.mjs --name siccar --bbox -2.42,55.86,-2.22,55.96 --zoom 13 --max 640 --precision 1 --coast --out courses/geology/public/maps"
 }
