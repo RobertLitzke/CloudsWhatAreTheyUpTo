@@ -122,7 +122,7 @@ a { color: var(--link); }
   margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--ink);
   font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
 }
-.map { position: relative; aspect-ratio: 1000 / 700; margin: 30px 26px 40px; }
+.map { position: relative; aspect-ratio: 1000 / 950; margin: 30px 26px 40px; }
 .map svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .edge { stroke: var(--rule); stroke-width: 2; vector-effect: non-scaling-stroke; }
 .edge.coming { stroke-dasharray: 3 5; }

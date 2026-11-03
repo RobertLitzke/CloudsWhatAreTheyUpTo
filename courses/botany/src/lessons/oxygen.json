@@ -1,0 +1,87 @@
+{
+  "id": "oxygen",
+  "n": 4,
+  "title": "Where the oxygen comes from",
+  "teaches": "That the oxygen plants give off comes from splitting water, and how carbon dioxide is turned into sugar in a cycle",
+  "parts": [
+    {
+      "title": "The obvious answer",
+      "blocks": [
+        {"type": "text", "text": "By 1900 the bookkeeping of photosynthesis was settled. A plant takes in carbon dioxide and water, and with energy from light it makes sugar and gives off oxygen. Written in chemists' shorthand, six molecules of carbon dioxide and six of water become one of sugar and six of oxygen. The atoms balance."},
+        {"type": "text", "text": "What the bookkeeping doesn't say is where the oxygen comes from. Carbon dioxide has oxygen in it, and so does water. For decades almost everyone assumed the answer was obvious: light splits carbon dioxide, the carbon goes into sugar, and the oxygen left over floats away. Carbon dioxide is CO₂; take away the C and O₂ is what's left. It looked almost too neat to question."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Photosynthesis: carbon dioxide and water, with light, become sugar and oxygen.", "For decades the oxygen was assumed to come from splitting carbon dioxide."]}
+      ]
+    },
+    {
+      "title": "Purple bacteria",
+      "blocks": [
+        {"type": "text", "text": "The first doubt came from a stranger kind of life. In the early 1930s Cornelis van Niel, a Dutch microbiologist at Stanford's marine station in Pacific Grove, California, was studying purple sulphur bacteria. These live in stagnant water and mud that smell of rotten eggs, and they photosynthesise: they need light and they turn carbon dioxide into the stuff of their bodies. But they give off no oxygen at all. Instead they need hydrogen sulphide, the rotten-egg gas, and they leave behind grains of yellow sulphur."},
+        {"type": "text", "text": "Van Niel compared the two. A purple bacterium takes in carbon dioxide and hydrogen sulphide, H₂S, and gives off sulphur. A plant takes in carbon dioxide and water, H₂O, and gives off oxygen. Line them up and the sulphur in the bacterium's equation sits exactly where the oxygen sits in the plant's. Nobody thought the bacteria were getting sulphur from carbon dioxide. So, van Niel argued, perhaps both are doing the same thing: using light to tear hydrogen off something. The bacteria tear it off hydrogen sulphide and leave sulphur. Plants tear it off water and leave oxygen."},
+        {"type": "text", "text": "It was a bold argument from comparison alone, and it was an argument, not proof. The proof needed a way to tell one oxygen atom from another."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Purple bacteria photosynthesise with hydrogen sulphide and give off sulphur, not oxygen.", "Van Niel argued that plants likewise split water, and that the oxygen comes from the water."]}
+      ]
+    },
+    {
+      "title": "Heavy oxygen",
+      "blocks": [
+        {"type": "text", "text": "Most oxygen atoms weigh 16 units, but about one in five hundred weighs 18. The heavy kind behaves the same in every chemical reaction, but it can be counted with an instrument called a mass spectrometer, which sorts molecules by weight. In 1941 Samuel Ruben, Martin Kamen and their colleagues at Berkeley grew algae in water enriched with heavy oxygen, and measured the oxygen gas the algae gave off."},
+        {"type": "interactive_diagram", "id": "label", "caption": "Heavy oxygen put into the water or into the carbon dioxide, and where it turns up.", "task": "Guess, then try heavy oxygen in each", "goal": "traced", "aspect_ratio": 2},
+        {"type": "text", "text": "The gas carried the same share of heavy oxygen as the water. When the heavy oxygen was put in the carbon dioxide instead, the gas came out ordinary. Van Niel was right: the oxygen comes from water. The oxygen atoms of the carbon dioxide go into the sugar, and into some new water the plant makes along the way. The experiment had complications (oxygen atoms swap between water and carbon dioxide dissolved in it), and it was checked more carefully in later decades, but the answer held."},
+        {"type": "text", "text": "So the shorthand is better written with twelve molecules of water going in and six coming out. All six oxygen molecules come from splitting the twelve waters, and building the sugar makes six fresh waters along the way; the old shorthand had simply cancelled six from each side. Every breath of oxygen you take was once part of a water molecule in a leaf or an alga."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Ruben and Kamen (1941) used heavy oxygen to show that the oxygen gas comes from water.", "The carbon dioxide's oxygen goes into sugar and new water."]}
+      ]
+    },
+    {
+      "title": "Two halves of one process",
+      "blocks": [
+        {"type": "text", "text": "A few years earlier, in 1937, Robert Hill at Cambridge had ground up leaves and separated out the **chloroplasts**, the small green bodies in leaf cells that hold the chlorophyll. Lit in a test tube with an iron salt that could accept hydrogen, they gave off oxygen. There was no carbon dioxide in the tube, and no sugar was made. Splitting water and fixing carbon dioxide could be pulled apart."},
+        {"type": "text", "text": "Photosynthesis, it turned out, is two linked processes. In the first, light absorbed by chlorophyll splits water, releasing oxygen, and stores the energy in two kinds of small carrier molecule (called ATP and NADPH), a little like charging batteries. In the second, those charged carriers are spent to attach carbon dioxide to other molecules and build sugar. The first needs light directly. The second only needs the charged carriers, so it can run on for a moment in the dark, and its steps happen too fast to follow by ordinary chemistry. Seeing them took a new trick."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Hill (1937): chloroplasts in a test tube give off oxygen in light with no carbon dioxide present.", "Photosynthesis is two halves: light splits water and charges energy carriers; the carriers are spent to build sugar from carbon dioxide."]}
+      ]
+    },
+    {
+      "title": "The lollipop",
+      "blocks": [
+        {"type": "text", "text": "After the Second World War, laboratories had something new: radioactive carbon-14, a by-product of the atomic programme. At Berkeley, Melvin Calvin, Andrew Benson and James Bassham used it to follow carbon into a plant. They grew the green alga *Chlorella* in a flat, round glass flask shaped like a lollipop, lit from both sides. They squirted in carbon dioxide made with carbon-14, waited a set number of seconds, and then opened a tap that dropped the algae into boiling alcohol, killing them instantly and freezing their chemistry at that moment."},
+        {"type": "text", "text": "Then they spread the extract on a sheet of paper and let two solvents creep across it, one way and then the other, so that each kind of molecule ended up at its own spot. Laid against photographic film, any spot holding radioactive carbon showed up dark."},
+        {"type": "interactive_diagram", "id": "lollipop", "caption": "Calvin's paper: where the radioactive carbon has got to when the algae are killed. Spot positions simplified. A model of the sequence they found.", "task": "Find the first molecule the carbon goes into", "goal": "first", "aspect_ratio": 2},
+        {"type": "text", "text": "After a minute the film was covered with spots. As they shortened the time, the spots dropped out one by one, and after a few seconds almost all the radioactivity was in a single molecule with three carbon atoms, called PGA. That is the first thing carbon dioxide becomes. Working out what came next, and where the PGA's partner came from, took years. The answer was a **cycle**: carbon dioxide is attached to a five-carbon sugar, the result splits into two PGAs, and these are rebuilt, using the charged carriers, partly into new sugar and partly back into the five-carbon sugar to catch more carbon dioxide. Calvin received the Nobel Prize in Chemistry for it in 1961."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Calvin, Benson and Bassham fed algae radioactive carbon dioxide for a few seconds and found where it went.", "Carbon dioxide first becomes PGA; then a cycle builds sugar and regenerates the molecule that catches carbon dioxide."]}
+      ]
+    },
+    {
+      "title": "The slowest busy enzyme",
+      "blocks": [
+        {"type": "text", "text": "The step that catches carbon dioxide is done by an enzyme, a protein that speeds up a reaction. Its name is **rubisco**. Most enzymes handle thousands of molecules a second. Rubisco manages about three. And it isn't fussy: now and then it grabs an oxygen molecule instead of carbon dioxide, and the plant has to spend energy cleaning up the mistake."},
+        {"type": "text", "text": "A plant's answer to a slow enzyme is to make a lot of it. Rubisco can be a third or more of all the protein in a leaf, and it is probably the most abundant protein on Earth. That is one reason leaves need so much nitrogen, and why trees take it back before their leaves fall (lesson 3). Rubisco's slowness and its mistakes with oxygen are behind some of the most interesting inventions in plants, which lesson 8 follows into a field of corn and a cactus."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["**Rubisco** catches carbon dioxide, slowly (about three a second), and sometimes grabs oxygen by mistake.", "Leaves make huge amounts of it; it is probably the most abundant protein on Earth."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on oxygen and carbon", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A plant is given carbon dioxide made with heavy oxygen and ordinary water. Where does the heavy oxygen end up?", "choices": ["In the sugar and new water, not the oxygen gas", "In the oxygen gas", "Nowhere: it is lost"], "answer": 0, "why": "The oxygen given off comes from water. Carbon dioxide's oxygen goes into the sugar and some new water."},
+            {"ask": "What was van Niel's argument that plants split water?", "choices": ["Purple bacteria give off sulphur from hydrogen sulphide, in the place where plants give off oxygen", "He measured heavy oxygen in the gas", "He saw water splitting under a microscope"], "answer": 0, "why": "He reasoned by comparison: the sulphur clearly came from H₂S, so the oxygen probably came from H₂O."},
+            {"ask": "Hill's chloroplasts gave off oxygen with no carbon dioxide present. What did that show?", "choices": ["Splitting water can happen without carbon dioxide being fixed", "Chloroplasts don't need light", "Oxygen comes from carbon dioxide"], "answer": 0, "why": "The two halves of photosynthesis can be separated: the light-driven splitting of water doesn't need carbon dioxide."},
+            {"ask": "Why did Calvin's team kill the algae after only a few seconds?", "choices": ["To see the first molecule the carbon went into before it spread", "Because carbon-14 is dangerous", "Because the algae died anyway"], "answer": 0, "why": "Given time, the label spreads to many molecules. In a few seconds it was almost all in PGA, the first product."},
+            {"ask": "Why do leaves contain so much rubisco?", "choices": ["It is very slow, so a lot is needed to fix enough carbon dioxide", "It stores water", "It makes the leaf green"], "answer": 0, "why": "Rubisco handles only about three molecules a second, so leaves make it in huge amounts."},
+            {"ask": "Where did the oxygen you just breathed in last come from, before it was in the air?", "choices": ["Water split in a leaf or an alga", "Carbon dioxide split in a leaf", "Rocks"], "answer": 0, "why": "Photosynthesis takes the oxygen it releases from water."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**For decades the oxygen was assumed to come from carbon dioxide.**",
+    "**Van Niel's purple bacteria give off sulphur where plants give off oxygen.** So, he argued, plants split water as the bacteria split hydrogen sulphide.",
+    "**Heavy oxygen proved it (Ruben and Kamen, 1941).** The oxygen gas comes from water; carbon dioxide's oxygen goes into sugar.",
+    "**Photosynthesis has two halves.** Light splits water and charges energy carriers; the carriers are spent building sugar (Hill, 1937).",
+    "**Calvin's lollipop: carbon dioxide becomes PGA first.** Then a cycle builds sugar and regenerates the molecule that catches more.",
+    "**Rubisco catches the carbon dioxide.** It is slow and sometimes grabs oxygen by mistake, so leaves make vast amounts of it."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

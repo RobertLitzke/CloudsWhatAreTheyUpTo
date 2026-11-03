@@ -1,0 +1,28 @@
+{
+  "name": "botany",
+  "version": "0.1.0",
+  "description": "Botany: how plants work. Light, air, water and soil, each lesson opening on an old experiment.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "photos": "node tools/photos.mjs"
+  },
+  "dependencies": {
+    "didactics": "github:RobertLitzke/Didactics#5232c5348e8c731dcd752d213011a2dc11143194"
+  },
+  "devDependencies": {
+    "@fontsource-variable/fraunces": "^5.2.0",
+    "@types/node": "^20.19.43",
+    "happy-dom": "^20.14.6",
+    "sharp": "^0.34.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.0.0"
+  }
+}

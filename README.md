@@ -33,6 +33,8 @@ lowercase word or two naming its subject (the catalog's test checks this).
 | `courses/electronics` | Circuitry: a circuits workbook (its solver is the workspace `courses/electronics/packages/circuit-kit`) | `circuitry.save` |
 | `courses/photography` | Out of Auto: a field workbook | `outofauto.save` |
 | `courses/geology` | Geology: mysteries in the rocks (its map reliefs are made by `tools/geo/relief.mjs`) | `geology.save` |
+| `courses/botany` | Botany: how plants work | `botany.save` |
+| `courses/ecology` | Ecology: who lives where, and why | `ecology.save` |
 
 Dirt, Circuitry and Out of Auto came in from their own repositories
 (RobertLitzke/Dirt, Circuitry, Photography) with their history, by

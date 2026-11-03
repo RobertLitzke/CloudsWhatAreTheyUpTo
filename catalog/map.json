@@ -1,12 +1,14 @@
 {
-  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-700. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists.",
+  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-950. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists.",
   "courses": {
     "photography": [150, 80],
     "astronomy": [870, 80],
     "clouds": [390, 330],
     "geology": [780, 420],
     "electronics": [110, 560],
-    "soil": [470, 650]
+    "soil": [470, 650],
+    "botany": [260, 840],
+    "ecology": [760, 840]
   },
   "bridges": [
     { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash.", "at": 0.45 },
@@ -17,8 +19,6 @@
     { "id": "sensor", "title": "How a sensor counts light", "between": ["electronics", "photography"], "promise": "Photodiodes, gain and where noise comes from." }
   ],
   "candidates": {
-    "botany": { "title": "Botany", "icon": "icons/candidates/botany.svg" },
-    "ecology": { "title": "Ecology", "icon": "icons/candidates/ecology.svg" },
     "salish-sea": { "title": "People of the Salish Sea", "icon": "icons/candidates/salish-sea.svg" },
     "music-theory": { "title": "Music Theory", "icon": "icons/candidates/music-theory.svg" },
     "fungi": { "title": "Fungi", "icon": "icons/candidates/fungi.svg" },
