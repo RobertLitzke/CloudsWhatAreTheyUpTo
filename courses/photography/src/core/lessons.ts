@@ -18,6 +18,7 @@
 
 import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'didactics/lesson';
 import tour from '../data/lessons/tour.json';
+import light from '../data/lessons/light.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -25,13 +26,13 @@ export const FIGURE_IDS = [
   // Time and movement.
   'shutter', 'shake', 'silkWater',
   // Light and the sensor.
-  'stops', 'iso', 'photons',
+  'stops', 'iso', 'photons', 'meter', 'modes',
   // The lens.
   'zoom', 'angle', 'longEnd',
   // Colour.
   'kelvin', 'whiteBalance',
   // The pieces every lesson has.
-  'photo', 'check',
+  'photo', 'challenge', 'check',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -46,13 +47,7 @@ export type Lesson = KitLesson<FigureId>;
  */
 export const LESSONS: readonly Lesson[] = [
   tour as Lesson,
-  planned(2, 'light', 'Light, and the three ways to let it in', 'What a stop is, how the camera measures the light, and why the same picture can be had three different ways', [
-    'A stop: half the light, or twice it, on any of the three dials',
-    'What the meter is doing, and the two or three ways it can be fooled (snow, a bird against the sky)',
-    'The histogram, and exposing to the right without clipping the whites',
-    'Exposure compensation: the one dial to reach for when the camera is nearly right',
-    'The P950\'s modes: P, S, A and M, and what each one hands back to you',
-  ]),
+  light as Lesson,
   planned(3, 'aperture', 'The aperture and what stays sharp', 'Why the hole in the lens decides how much of the scene is in focus, and why a small sensor makes that band so wide', [
     'Depth of field from first principles: a point, a cone, a disc',
     'The three things that move the band: aperture, how far away you focus, and focal length',
