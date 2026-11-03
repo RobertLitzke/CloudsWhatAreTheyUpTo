@@ -59,6 +59,8 @@ a { color: var(--link); }
 .course-standing { color: var(--ink); }
 .course-open { font: 600 0.85rem/1 var(--sans); letter-spacing: 0.04em; }
 .course-open::after { content: ' \2192'; }
+/* A department's heading rule closes the one above it, so its last entry has none. */
+.department > .course:last-child { border-bottom: none; }
 
 .colophon { margin-top: 32px; font-size: 0.85rem; color: var(--soft); }
 
@@ -155,7 +157,13 @@ a { color: var(--link); }
   .map-panel ul { list-style: none; margin: 0; padding: 0; }
   .map-panel li { padding: 7px 0; border-top: 1px solid var(--rule); font-size: 0.95rem; line-height: 1.3; }
   .map-panel li small { display: block; font: 0.75rem/1.35 var(--sans); color: var(--soft); }
-  .listing { columns: 2; column-gap: 48px; }
+  /* The two columns start level: no top margin on whatever heads a column. */
+  .listing { columns: 2; column-gap: 48px; margin-top: 30px; }
+  .listing > .department { margin-top: 0; padding-bottom: 30px; }
+  /* The panel takes the map's height and scrolls inside it if it must, so
+     picking another course or bridge never moves what is below the map. */
+  .map-wrap { min-height: 620px; }
+  .map-panel { contain: size; overflow-y: auto; }
   .listing .department > h2 { break-after: avoid; }
   .listing .course { break-inside: avoid; }
 }
