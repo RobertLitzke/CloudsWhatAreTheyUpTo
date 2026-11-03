@@ -24,6 +24,7 @@ import { onionFigure, originsFigure } from './star-stuff';
 import { sameOrbitStill, squashFigure, tippingStill } from './dark-stars';
 import { cepheidFigure, shapleyStill } from './island';
 import { ageFigure, expansionFigure } from './running';
+import { flickerFigure, s2Figure } from './quasars';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -100,4 +101,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 20
   expansion: expansionFigure,
   age: ageFigure,
+  // Lesson 21
+  flicker: flickerFigure,
+  s2: s2Figure,
 };

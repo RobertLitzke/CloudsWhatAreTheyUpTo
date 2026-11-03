@@ -11,6 +11,7 @@ import { cell, madeBy, SOURCES, stagesBegun } from '../src/figures/star-stuff';
 import { BODIES, escapeShare, horizon } from '../src/figures/dark-stars';
 import { cepheidSuns, looks, V1 } from '../src/figures/island';
 import { ageFromRate, HUBBLE_1929, TODAY } from '../src/figures/running';
+import { flicker, period, QUASAR_SIZE, S2 } from '../src/figures/quasars';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -167,5 +168,20 @@ describe('trunk lessons', () => {
     guess(a.node, 'Hubble’s distances to the galaxies');
     setSlider(a.node, 0, 21.5);
     await expect(a.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 21: small sources flicker, big ones don’t, and S2 needs four million Suns', async () => {
+    expect(flicker(QUASAR_SIZE)).toBeGreaterThan(0.6);
+    expect(flicker(1000)).toBeLessThan(0.05);
+    expect(period(S2.mass)).toBeCloseTo(16, 0);
+    expect(period(4 * S2.mass) / period(S2.mass)).toBeCloseTo(0.5, 5);
+    const q = FIGURES.flicker(context(), 'size');
+    guess(q.node, 'No more than a few light-days across');
+    setSlider(q.node, 0, Math.log10(QUASAR_SIZE));
+    await expect(q.done).resolves.toBeUndefined();
+    const s2 = FIGURES.s2(context(), 'mass');
+    guess(s2.node, 'A few million Suns');
+    setSlider(s2.node, 0, 4.3);
+    await expect(s2.done).resolves.toBeUndefined();
   });
 });
