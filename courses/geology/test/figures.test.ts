@@ -1,6 +1,7 @@
 // @vitest-environment happy-dom
 // Every figure the lessons name builds, in both unit systems, and the ones
 // with a task can reach it.
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { isDiagram } from 'didactics/blocks';
 import { emptyProgress } from 'didactics/progress';
@@ -13,6 +14,11 @@ import { JURA_KM } from '../src/figures/ice';
 import { atollAt, PLATE_VEL, sunk } from '../src/figures/hotspot';
 import { iceSpread, turnAt } from '../src/figures/drift';
 import { rockAt } from '../src/figures/families';
+import { fan, arrivals, shadow, REAL_EARTH } from '../src/figures/rays';
+import { setPaleomap } from '../src/figures/paleomap';
+
+// The plate model is fetched on the page (data/paleomap.json); here it is read from disk.
+setPaleomap(JSON.parse(readFileSync('public/data/paleomap.json', 'utf8')));
 
 const context = (units: Units = 'imperial') => ({ save: emptyProgress(units), closed: new AbortController().signal, score: () => {} });
 
@@ -190,6 +196,7 @@ describe('figures', () => {
     setSlider(plume.node, 0, 9);
     await expect(plume.done).resolves.toBeUndefined();
     const ice = FIGURES['gondwana-ice'](context(), 'hub');
+    await ice.ready;
     guess(ice.node, 'Spread out from one centre');
     setSlider(ice.node, 0, 300);
     await expect(ice.done).resolves.toBeUndefined();
@@ -443,5 +450,13 @@ describe('figures', () => {
     guess(trench.node, 'Three');
     setSlider(trench.node, 0, 7);
     await expect(trench.done).resolves.toBeUndefined();
+  });
+});
+
+describe('the real Earth', () => {
+  it('throws a P-wave shadow starting near 104 degrees', () => {
+    const [from] = shadow(arrivals(fan(REAL_EARTH)).bins)!;
+    expect(from).toBeGreaterThan(95);
+    expect(from).toBeLessThan(110);
   });
 });

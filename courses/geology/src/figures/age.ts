@@ -217,18 +217,6 @@ export function leadAt(mu: number, gyr: number): P {
 /** The steepness of the line through the start and every rock of age `gyr`, whatever their uranium. */
 export const leadSlope = (gyr: number) => (Math.exp(L235 * gyr) - 1) / (U_RATIO * (Math.exp(L238 * gyr) - 1));
 
-/** The age a line of steepness `s` belongs to, by bisection. */
-export function slopeAge(s: number): number {
-  let lo = 0.001;
-  let hi = 8;
-  for (let i = 0; i < 50; i++) {
-    const mid = (lo + hi) / 2;
-    if (leadSlope(mid) < s) lo = mid;
-    else hi = mid;
-  }
-  return (lo + hi) / 2;
-}
-
 /** Rocks on the chart: uranium (`mu`, chosen to land each on its measurement at 4.5 billion years) and Patterson's measured lead. */
 const ROCKS: { name: string; mu: number; measured?: P; color: string }[] = [
   { name: 'Nuevo Laredo', mu: 40.57, measured: [50.28, 34.86], color: COL.old },
