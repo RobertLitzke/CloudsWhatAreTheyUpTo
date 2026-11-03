@@ -284,3 +284,130 @@ export const driftMapFigure = figure(['played'], (ctx, t) => {
   );
   return f.node;
 });
+
+// ---- Darwin's atoll: a reef racing a sinking island (lesson 12) -------------------------------
+
+/** How far the island has sunk `age` million years after it left the plume, metres: fast off the swell, then slowly as the plate cools. */
+export const islandSink = (age: number) => 1500 * (1 - Math.exp(-age / 4)) + 20 * age;
+/** Its summit before the waves reach it, metres above the sea: sinking and worn down by rain. */
+const summitAt = (age: number) => 1800 - 900 * (1 - Math.exp(-age / 3)) - islandSink(age);
+/** Latitude as the plate carries the island northwest, degrees north (Kīlauea today; Kure, at about 28°, after some 29 million years). */
+const latAt = (age: number) => 19.4 + 0.31 * age;
+/** How fast coral can grow at that latitude, as a fraction of its rate in the warm tropics. */
+export const warmth = (age: number) => Math.max(0, Math.min(1, (29 - latAt(age)) / 6));
+/** Coral lives only in the sunlit top of the sea: a reef top deeper than this is dead. */
+const SUNLIT = 60;
+const REEF_FROM = 0.3;
+
+export interface AtollState {
+  /** Summit of the volcanic rock, metres above sea level (negative: under water). */
+  rock: number;
+  /** Top of the reef, metres above sea level (0: at the surface), or null before it starts. */
+  reef: number | null;
+  alive: boolean;
+  stage: 'island' | 'fringing' | 'barrier' | 'atoll' | 'drowned' | 'guyot';
+}
+
+/** The island and its reef, `age` million years on, for coral that grows `mm` a year in warm water. */
+export function atollAt(age: number, mm: number): AtollState {
+  const dt = 0.02;
+  let reef: number | null = null;
+  let alive = true;
+  let planed: number | null = null;
+  for (let a = 0; a < age - 1e-9; a += dt) {
+    const b = Math.min(age, a + dt);
+    const sank = islandSink(b) - islandSink(a);
+    if (planed === null && summitAt(b) <= 0) planed = b;
+    if (reef === null) {
+      if (b >= REEF_FROM) reef = 0;
+      continue;
+    }
+    reef -= sank;
+    if (alive) {
+      reef = Math.min(0, reef + mm * 1000 * warmth(b) * (b - a));
+      if (reef < -SUNLIT) alive = false;
+    }
+  }
+  const rock = planed === null ? summitAt(age) : -(islandSink(age) - islandSink(planed));
+  let stage: AtollState['stage'];
+  if (reef === null) stage = 'island';
+  else if (!alive) stage = rock > 0 ? 'drowned' : 'guyot';
+  else if (rock > 0) stage = islandSink(age) - islandSink(REEF_FROM) < 400 ? 'fringing' : 'barrier';
+  else stage = 'atoll';
+  return { rock, reef, alive, stage };
+}
+
+export const atollFigure = figure(['atoll'], (ctx, t) => {
+  const H = 240;
+  const f = frame(W, H, 3);
+  const g = svg('g');
+  f.svg.append(g);
+  let age = 0;
+  let mm = 0.1;
+  const SEA = 92;
+  const Z = (m: number) => SEA - m / 25; // 1 px = 25 m up and down
+  const CX = W / 2;
+  /** The cone's flank: half-width in px at height `m` (metres above sea, for the island as built). */
+  const half = (m: number) => Math.max(0, (1800 - m) / 25 / 0.55);
+  const reefX = half(islandSink(REEF_FROM)); // where the shore was when the reef took hold
+  const paint = () => {
+    const s = atollAt(age, mm);
+    const sink = islandSink(age);
+    const w = warmth(age);
+    const sea = `rgb(${Math.round(110 - 50 * (1 - w))},${Math.round(190 - 60 * (1 - w))},${Math.round(200 - 10 * (1 - w))})`;
+    const parts: SVGElement[] = [
+      svg('rect', { width: W, height: SEA, fill: '#f3e6d4' }),
+      svg('rect', { y: SEA, width: W, height: H - SEA, fill: sea }),
+    ];
+    // The volcano: the cone as built, sunk, with its top worn down.
+    const top = Z(s.rock);
+    const pts: P[] = [];
+    for (let x = -W / 2; x <= W / 2; x += 4) {
+      const cone = Z(1800 - Math.abs(x) * 0.55 * 25 - sink);
+      // Above the sea the worn summit is rounded; once the waves reach it, they plane it flat.
+      const k = 10; // px: how softly the worn top meets the flanks
+      pts.push([CX + x, s.rock > 0 ? k * Math.log(Math.exp(cone / k) + Math.exp(top / k)) : Math.max(cone, top)]);
+    }
+    parts.push(svg('polygon', { points: [...pts.map(([x, y]) => `${x},${y}`), `${W},${H}`, `0,${H}`].join(' '), fill: '#5a4a44' }));
+    // The reef: a wall of coral on the old shore, as tall as it has grown.
+    if (s.reef !== null) {
+      for (const side of [-1, 1]) {
+        const x = CX + side * reefX;
+        const foot = Z(-(sink - islandSink(REEF_FROM)));
+        const y = Math.min(Z(s.reef), foot - 2);
+        parts.push(svg('rect', { x: x - 6, y, width: 12, height: Math.max(2, foot - y + 4), rx: 2, fill: s.alive ? '#e7a7a0' : '#b8b0a6', stroke: s.alive ? '#c76a62' : '#8f877d', 'stroke-width': 1 }));
+      }
+    }
+    parts.push(
+      line(0, SEA, W, SEA, COL.water, 1.4),
+      small(6, SEA - 4, 'sea level', { fill: COL.water, bold: true }),
+      label(W - 8, 18, `${age.toFixed(1)} million years after leaving the plume`, { anchor: 'end', bold: true, size: 'note' }),
+      small(W - 8, 32, `${latAt(age).toFixed(0)}°N: ${w > 0.8 ? 'warm tropical water' : w > 0.3 ? 'cooler water' : w > 0 ? 'cold for coral' : 'too cold for coral'}`, { anchor: 'end', soft: true }),
+      label(CX, H - 10, { island: 'A new volcanic island', fringing: 'Fringing reef along the shore', barrier: 'Barrier reef, with a lagoon behind it', atoll: 'An atoll: a ring of reef, no rock above the sea', drowned: 'The reef has drowned', guyot: 'A drowned, flat-topped seamount: a guyot' }[s.stage], { anchor: 'middle', bold: true, halo: sea }),
+    );
+    redraw(g, ...parts);
+    const sinkRate = (islandSink(age + 0.05) - islandSink(age)) / 0.05 / 1000;
+    const growRate = mm * w;
+    f.readout.textContent = `Now the island sinks ${sinkRate.toFixed(2)} mm a year; coral here can build ${growRate.toFixed(2)} mm a year. ${
+      s.stage === 'island' ? 'Coral is just settling on the new shore.'
+        : !s.alive ? 'The sea floor sank faster than the coral could build, and the reef slipped into the dark and died. Waves had planed the summit flat, and it goes on sinking.'
+          : s.stage === 'atoll' ? 'The last of the volcano has sunk, but the reef kept pace and still breaks the surface around the lagoon.'
+            : 'The reef keeps its top at the surface while the rock behind it sinks.'}`;
+    if (s.stage === 'atoll' && t.goal === 'atoll') t.done();
+  };
+  const grow = slider('Coral growth in warm water', 0, 1, 0.05, mm, (v) => `${v.toFixed(2)} mm a year`, (v) => { mm = v; paint(); }, 'rose');
+  const time = slider('Time', 0, 40, 0.1, 0, (v) => `${v.toFixed(1)} million years`, (v) => { age = v; paint(); }, 'heat');
+  f.controls.append(grow.node, player(time, ctx, { seconds: 16 }).node, time.node);
+  paint();
+  guessFirst(t, f, {
+    ask: 'The island keeps sinking long after its peak goes under. If the reef can grow upward faster than the rock sinks, what is left at the surface? Guess first.',
+    options: ['Nothing: the reef sinks with the rock', 'A ring of reef around a lagoon', 'A coral hill where the peak was'],
+    answer: 1, reveal: 'done',
+    sliders: [grow, time],
+    after: (guess) => {
+      paint();
+      f.readout.textContent = `You guessed ${['nothing', 'a ring of reef around a lagoon', 'a coral hill'][guess]}. Set how fast coral grows, then play the island’s next 40 million years as the plate carries it into colder water.`;
+    },
+  });
+  return f.node;
+});

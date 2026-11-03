@@ -8,6 +8,7 @@ import { label, redraw, small, still } from 'didactics/draw';
 import { segmented } from 'didactics/ui';
 import data from '../data/atlantic.json';
 import { COL, figure, frame, guessFirst, player, rgbOf, slider } from './kit';
+import { PALEOMAP_CREDIT, drawn, globeView, km, lonLat, rotate, rotationAt, xyz as xyzP, type V3 as V3P } from './paleomap';
 
 type LL = [number, number];
 type V3 = [number, number, number];
@@ -246,5 +247,135 @@ export const openingFigure = figure(['opened'], (ctx, t) => {
   const ts = slider('Time', 0, START, 1, 0, (v) => (v >= START ? 'today' : `${START - v} million years ago`), (v) => { pos = v; paint(); }, 'heat');
   f.controls.append(player(ts, ctx, { seconds: 15 }).node, ts.node);
   paint();
+  return f.node;
+});
+
+// ---- The ice of Gondwana: scratches that point to one hub (lesson 9) ------------------------
+
+/** Places with 300-million-year-old glacial beds on scratched bedrock: present longitude, latitude, and PALEOMAP plate. */
+export const ICE_SITES: { name: string; lon: number; lat: number; p: number }[] = [
+  { name: 'South Africa', lon: 30.5, lat: -29.5, p: 701 },
+  { name: 'Namibia', lon: 14, lat: -19, p: 701 },
+  { name: 'Brazil', lon: -50, lat: -25, p: 201 },
+  { name: 'India', lon: 85.2, lat: 21, p: 501 },
+  { name: 'Western Australia', lon: 115.5, lat: -29, p: 801 },
+  { name: 'Victoria', lon: 144.4, lat: -37.7, p: 801 },
+  { name: 'Antarctica', lon: -60, lat: -84, p: 802 },
+];
+/** When the ice spread, million years ago. */
+export const ICE_AGE = 300;
+
+type Quat = [number, number, number, number];
+const conj = ([w, x, y, z]: Quat): Quat => [w, -x, -y, -z];
+const unit = (v: number[]): V3P => {
+  const n = Math.hypot(...v) || 1;
+  return [v[0] / n, v[1] / n, v[2] / n];
+};
+/** Along the great circle from a to b, fraction k. */
+function slerp(a: V3P, b: V3P, k: number): V3P {
+  const d = Math.acos(Math.max(-1, Math.min(1, a[0] * b[0] + a[1] * b[1] + a[2] * b[2])));
+  if (d < 1e-9) return a;
+  const s0 = Math.sin((1 - k) * d) / Math.sin(d);
+  const s1 = Math.sin(k * d) / Math.sin(d);
+  return unit([0, 1, 2].map((i) => a[i] * s0 + b[i] * s1));
+}
+
+/**
+ * Each site's scratches, as present-day points on its plate: the line back up
+ * the ice flow (toward the ice centre of 300 million years ago) and the arrow
+ * of flow, outward. Simplified: the directions are drawn radiating from one
+ * centre, as the measured scratches roughly do.
+ */
+const ICE = (() => {
+  const then = ICE_SITES.map((s) => rotate(rotationAt(s.p, ICE_AGE), xyzP(s.lon, s.lat)));
+  const hub = unit([0, 1, 2].map((i) => then.reduce((sum, v) => sum + v[i], 0)));
+  return ICE_SITES.map((s, i) => {
+    const back = conj(rotationAt(s.p, ICE_AGE));
+    const up: V3P[] = [];
+    for (let k = 0; k <= 1.0001; k += 0.05) up.push(rotate(back, slerp(then[i], hub, k)));
+    // The arrow: 8 degrees onward, away from the hub.
+    const d = Math.acos(Math.max(-1, Math.min(1, then[i][0] * hub[0] + then[i][1] * hub[1] + then[i][2] * hub[2])));
+    const ahead = rotate(back, slerp(hub, then[i], (d + (8 * Math.PI) / 180) / d));
+    return { ...s, up, ahead, site: xyzP(s.lon, s.lat) };
+  });
+})();
+
+/** How far apart the ends of the lines drawn back up the ice flow lie, `ma` million years ago: mean km from their middle. */
+export function iceSpread(ma: number): number {
+  const ends = ICE.map((s) => rotate(rotationAt(s.p, ma), s.up[s.up.length - 1]));
+  const mid = unit([0, 1, 2].map((i) => ends.reduce((sum, v) => sum + v[i], 0)));
+  return ends.reduce((sum, v) => sum + km(v, mid), 0) / ends.length;
+}
+
+export const gondwanaIceFigure = figure(['hub'], (ctx, t) => {
+  const f = frame(W, H, 3);
+  const g = svg('g');
+  f.svg.append(g);
+  let ma = 0;
+  const paint = () => {
+    const now = ICE.map((s) => ({ ...s, q: rotationAt(s.p, ma) }));
+    const centre = unit([0, 1, 2].map((i) => now.reduce((sum, s) => sum + rotate(s.q, s.site)[i], 0)));
+    const view = globeView(W / 2, H / 2, 140, centre);
+    const parts: SVGElement[] = [svg('rect', { width: W, height: H, fill: COL.paper }), svg('circle', { cx: W / 2, cy: H / 2, r: 140, fill: '#dfeaf0' })];
+    for (let lat = -75; lat <= 75; lat += 15) {
+      const ps: [number, number, boolean][] = [];
+      for (let lon = -180; lon <= 180; lon += 3) ps.push(view.at(xyzP(lon, lat)));
+      let d = '';
+      ps.forEach(([x, y, front], i) => { if (front) d += `${i && ps[i - 1][2] ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`; });
+      parts.push(svg('path', { d, fill: 'none', stroke: '#fff', 'stroke-width': 0.8 }));
+    }
+    const land = drawn(view.rings, ma);
+    parts.push(
+      svg('path', { d: land.shelf, fill: '#e9dfc9' }),
+      svg('path', { d: land.land, fill: '#bfa982', stroke: COL.ink, 'stroke-width': 0.4, 'stroke-opacity': 0.5 }),
+    );
+    const pole = view.at(xyzP(0, -90));
+    if (pole[2]) parts.push(svg('circle', { cx: pole[0], cy: pole[1], r: 2.2, fill: 'none', stroke: COL.ink, 'stroke-width': 1 }), small(pole[0] + 5, pole[1] + 12, 'South Pole', { bold: true, halo: '#fff' }));
+    for (const s of now) {
+      const up = s.up.map((v) => view.at(rotate(s.q, v)));
+      const [x0, y0, f0] = up[0];
+      const [x1, y1, f1] = view.at(rotate(s.q, s.ahead));
+      if (!f0) continue;
+      let d = '';
+      up.forEach(([x, y, front], i) => { if (front) d += `${i && up[i - 1][2] ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`; });
+      parts.push(svg('path', { d, fill: 'none', stroke: COL.water, 'stroke-width': 1.1, 'stroke-dasharray': '3 3' }));
+      if (f1) {
+        const a = Math.atan2(y1 - y0, x1 - x0);
+        parts.push(
+          svg('line', { x1: x0, y1: y0, x2: x1, y2: y1, stroke: COL.water, 'stroke-width': 2.2, 'stroke-linecap': 'round' }),
+          svg('path', { d: `M${x1 + 5 * Math.cos(a)},${y1 + 5 * Math.sin(a)}L${x1 + 5 * Math.cos(a + 2.3)},${y1 + 5 * Math.sin(a + 2.3)}L${x1 + 5 * Math.cos(a - 2.3)},${y1 + 5 * Math.sin(a - 2.3)}Z`, fill: COL.water }),
+        );
+      }
+      parts.push(svg('circle', { cx: x0, cy: y0, r: 2.4, fill: COL.ink }));
+      if (ma < 1) parts.push(small(x0 + (x0 > W / 2 ? -5 : 5), y0 - 5, s.name, { anchor: x0 > W / 2 ? 'end' : undefined, halo: '#fff' }));
+    }
+    parts.push(label(W - 8, 18, ma < 1 ? 'Today' : `${Math.round(ma)} million years ago`, { anchor: 'end', bold: true }));
+    redraw(g, ...parts);
+    const spread = iceSpread(ma);
+    const lat = lonLat(centre)[1];
+    f.readout.textContent = ma < 1
+      ? `Today: arrows show which way the ice moved at each site, judged from the scratches; dashed lines run back up the flow. They point every which way, some from the open ocean, and their far ends lie about ${Math.round(spread / 100) * 100} km apart on average.`
+      : ma >= ICE_AGE - 3
+        ? `${ICE_AGE} million years ago the southern continents sit together over the South Pole, and every dashed line ends at the same spot: one ice sheet, spreading outward like spokes from a hub.`
+        : `${Math.round(ma)} million years ago, the middle of the scratched ground lay at ${Math.abs(Math.round(lat))}°${lat < 0 ? 'S' : 'N'}. The far ends of the dashed lines are about ${Math.round(spread / 100) * 100} km apart on average.`;
+    if (ma >= ICE_AGE - 3 && t.goal === 'hub') t.done();
+  };
+  const ts = slider('Back in time', 0, ICE_AGE, 1, 0, (v) => (v < 1 ? 'today' : `${v} million years ago`), (v) => { ma = v; paint(); }, 'water');
+  f.controls.append(player(ts, ctx, { seconds: 10 }).node, ts.node);
+  const credit = document.createElement('p');
+  credit.className = 'map-credit';
+  credit.textContent = PALEOMAP_CREDIT;
+  f.node.append(credit);
+  paint();
+  guessFirst(t, f, {
+    ask: 'Today the ice scratches in Africa, India, Australia and South America point every which way. Run the continents back 300 million years. What will the arrows do? Guess first.',
+    options: ['Still point every which way', 'All point the same way, like a wind', 'Spread out from one centre'],
+    answer: 2, reveal: 'done',
+    sliders: [ts],
+    after: (guess) => {
+      paint();
+      f.readout.textContent = `You guessed ${['every which way', 'all the same way', 'out from one centre'][guess]}. Play the continents back to ${ICE_AGE} million years ago.`;
+    },
+  });
   return f.node;
 });

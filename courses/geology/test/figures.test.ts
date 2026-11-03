@@ -10,8 +10,8 @@ import { WRITTEN } from '../src/lessons';
 import { orbitAt, TODAY } from '../src/figures/pacemaker';
 import { alpsCooling, lengthFor, seaLevel } from '../src/figures/iceage';
 import { JURA_KM } from '../src/figures/ice';
-import { PLATE_VEL, sunk } from '../src/figures/hotspot';
-import { turnAt } from '../src/figures/drift';
+import { atollAt, PLATE_VEL, sunk } from '../src/figures/hotspot';
+import { iceSpread, turnAt } from '../src/figures/drift';
 import { rockAt } from '../src/figures/families';
 
 const context = (units: Units = 'imperial') => ({ save: emptyProgress(units), closed: new AbortController().signal, score: () => {} });
@@ -189,6 +189,20 @@ describe('figures', () => {
     guess(plume.node, 'About 10 cm a year');
     setSlider(plume.node, 0, 9);
     await expect(plume.done).resolves.toBeUndefined();
+    const ice = FIGURES['gondwana-ice'](context(), 'hub');
+    guess(ice.node, 'Spread out from one centre');
+    setSlider(ice.node, 0, 300);
+    await expect(ice.done).resolves.toBeUndefined();
+    expect(iceSpread(300)).toBeLessThan(5);
+    expect(iceSpread(0)).toBeGreaterThan(2000);
+    const atoll = FIGURES.atoll(context(), 'atoll');
+    guess(atoll.node, 'A ring of reef around a lagoon');
+    setSlider(atoll.node, 0, 0.05);
+    setSlider(atoll.node, 1, 12);
+    expect(atoll.node.textContent).toContain('died');
+    setSlider(atoll.node, 0, 0.5);
+    await expect(atoll.done).resolves.toBeUndefined();
+    expect(atollAt(40, 0.5).stage).toBe('guyot');
   });
 
   it('lesson 13: a river that keeps up cuts a canyon; a knickpoint climbs', async () => {

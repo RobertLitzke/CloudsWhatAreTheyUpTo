@@ -16,10 +16,10 @@ import { correlateFigure, veesFigure } from './smith';
 import { cycleStill, unconformityFigure } from './siccar';
 import { bowenFigure, conditionsFigure, igneousStill } from './families';
 import { coolingFigure, decayFigure, leadLineFigure } from './age';
-import { fitFigure, gondwanaStill, openingFigure } from './drift';
+import { fitFigure, gondwanaIceFigure, gondwanaStill, openingFigure } from './drift';
 import { ridgeFigure } from './stripes';
 import { platesMap, slabFigure } from './quakes';
-import { driftMapFigure, plumeFigure } from './hotspot';
+import { atollFigure, driftMapFigure, plumeFigure } from './hotspot';
 import { dipFigure, iapetusFigure, seaLevelFigure, supercontinentsFigure, wilsonStill } from './supercontinents';
 import { knickFigure, raceFigure } from './rivers';
 import { glacierFigure } from './ice';
@@ -74,6 +74,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'lead-line': leadLineFigure,
   // Lesson 9
   fit: fitFigure,
+  'gondwana-ice': gondwanaIceFigure,
   gondwana: gondwanaStill,
   // Lesson 10
   ridge: ridgeFigure,
@@ -83,6 +84,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   slab: slabFigure,
   // Lesson 12
   plume: plumeFigure,
+  atoll: atollFigure,
   'island-drift': driftMapFigure,
   // Lesson 13
   iapetus: iapetusFigure,
