@@ -25,6 +25,7 @@ import iso from '../data/lessons/iso.json';
 import lens from '../data/lessons/lens.json';
 import focus from '../data/lessons/focus.json';
 import colour from '../data/lessons/colour.json';
+import seeing from '../data/lessons/seeing.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -34,7 +35,7 @@ export const FIGURE_IDS = [
   // Light and the sensor.
   'stops', 'iso', 'photons', 'meter', 'modes', 'pooling', 'dusk',
   // The lens.
-  'zoom', 'angle', 'longEnd', 'compression', 'crop',
+  'zoom', 'angle', 'longEnd', 'compression', 'crop', 'stepAside', 'lightAngle',
   // Colour.
   'kelvin', 'whiteBalance', 'sun', 'polariser',
   // The pieces every lesson has.
@@ -60,13 +61,7 @@ export const LESSONS: readonly Lesson[] = [
   lens as Lesson,
   focus as Lesson,
   colour as Lesson,
-  planned(9, 'seeing', 'Seeing the picture before you take it', 'Backgrounds, light direction, distance and framing: the decisions that are made with your feet', [
-    'The background is half the picture, and you move it by moving',
-    'Light from behind you, beside you, and in front of you',
-    'Portrait of an animal, or an animal in its place: two different pictures',
-    'Framing, the horizon, and what to leave out',
-    'Getting close without disturbing: fieldcraft as a photographic technique',
-  ]),
+  seeing as Lesson,
   planned(10, 'birds', 'Birds, in practice', 'A settings recipe for perched and flying birds, and the way to work when there is no time to think', [
     'A starting point for a perched bird, and why',
     'A starting point for a bird in flight, and what changes',

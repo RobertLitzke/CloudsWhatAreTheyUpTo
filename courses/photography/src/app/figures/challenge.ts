@@ -18,7 +18,7 @@
 import { el } from 'didactics/dom';
 import { P950, fromEquivalent, widestAperture } from '../../core/camera';
 import { shoot, settingsLine, type Settings } from '../../core/shot';
-import { BRAMBLE, MOONRISE, PERCHED, place, standFor, type Stage } from '../../core/stage';
+import { BRAMBLE, MEADOW, MOONRISE, PERCHED, place, standFor, stepAside, type Stage } from '../../core/stage';
 import { develop, loadPhoto } from '../photo/film';
 import { PHOTOS, credit } from '../picture';
 import { asset } from '../asset';
@@ -34,6 +34,10 @@ export interface Panel extends Settings {
   behind?: number;
   /** For a stage: focus as a share of the subject's distance (1 on the subject). */
   focusRatio?: number;
+  /** For a stage: metres the photographer has stepped to the right, still aimed at the subject. */
+  step?: number;
+  /** For a stage: metres the photographer stands from the subject, instead of where the framing puts them. */
+  stand?: number;
 }
 
 export interface ChallengeOptions extends Options {
@@ -42,7 +46,7 @@ export interface ChallengeOptions extends Options {
   panels: Panel[];
 }
 
-const STAGES: Record<string, Stage> = { perched: PERCHED, moonrise: MOONRISE, bramble: BRAMBLE };
+const STAGES: Record<string, Stage> = { perched: PERCHED, moonrise: MOONRISE, bramble: BRAMBLE, meadow: MEADOW };
 
 /** Canvas size of one panel: the sensor's proportions. */
 const W = 560;
@@ -70,9 +74,9 @@ export const challengeDiagram = Object.assign(function challengeDiagram(_ctx: Fi
     t.waitFor(stagePictures(stage).then(({ pictures, planes }) => {
       for (const c of cells) {
         const focal = fromEquivalent(P950, c.p.eqFocal);
-        const stand = standFor(stage, focal);
+        const stand = c.p.stand ?? standFor(stage, focal);
         const n = Math.max(c.p.aperture ?? widestAperture(P950, focal), widestAperture(P950, focal));
-        const placed = place({ ...stage, planes }, { focal, n, stand, focusAt: stand * (c.p.focusRatio ?? 1), behind: c.p.behind });
+        const placed = place(stepAside({ ...stage, planes }, c.p.step ?? 0, stand), { focal, n, stand, focusAt: stand * (c.p.focusRatio ?? 1), behind: c.p.behind });
         stageRenderer(c.canvas).draw(placed, pictures);
         c.settings.textContent = settingsLine(shoot({ subjectAt: stand, near: stand, far: null, ev: 12 }, { ...c.p, aperture: n, focusAt: stand }));
       }

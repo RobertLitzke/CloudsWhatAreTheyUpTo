@@ -15,6 +15,7 @@ import { shakeDiagram, shutterFigure, silkWaterFigure } from './motion';
 import { duskFigure, poolingFigure } from './noise';
 import { panFigure } from './pan';
 import { photoDiagram } from './photo';
+import { lightFigure, stepAsideFigure } from './seeing';
 import { angleDiagram, closeUpFigure, longEndDiagram, zoomFigure } from './zoom';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
@@ -41,6 +42,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   longEnd: longEndDiagram,
   compression: compressionFigure,
   crop: cropFigure,
+  stepAside: stepAsideFigure,
+  lightAngle: lightFigure,
   kelvin: kelvinDiagram,
   whiteBalance: whiteBalanceFigure,
   sun: sunFigure,

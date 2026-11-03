@@ -8,7 +8,7 @@ import { makeRng, type Rng } from 'didactics/rng';
 import { WREN_HEAD as WREN } from '../../core/stage';
 
 /** Pixels across each stand-in, by plane id. Its height follows the plane's proportions. */
-const WIDTH: Record<string, number> = { hills: 2048, trees: 2048, bushes: 2048, bird: 2048, sky: 1024, moon: 1024, ridge: 2048, pine: 1024, woods: 1024, bramble: 2048, wren: 2048, twigs: 2048 };
+const WIDTH: Record<string, number> = { hills: 2048, trees: 2048, bushes: 2048, bird: 2048, sky: 1024, moon: 1024, ridge: 2048, pine: 1024, woods: 1024, bramble: 2048, wren: 2048, twigs: 2048, forest: 2048, meadow: 2048, deer: 2048, grass: 2048 };
 
 /** A stand-in picture for plane `id`, `aspect` (height over width) as the plane is; null without a 2D canvas. */
 export function placeholder(id: string, aspect: number): HTMLCanvasElement | null {
@@ -499,5 +499,122 @@ const DRAW: Record<string, Painter> = {
     cane([[-0.3, -0.25], [-0.2, -0.1], [-0.14, 0.05], [-0.08, 0.2]], 0.006);
     cane([[-0.12, -0.18], [-0.02, -0.03], [0.05, 0.04], [0.3, 0.09]], 0.005);
     cane([[0.3, -0.2], [0.22, -0.16], [0.18, -0.2], [0.1, -0.25]], 0.004);
+  },
+
+  forest(g, w, h, rng) {
+    // The dark edge of a conifer forest: deep shade, trunks, and a ragged
+    // right-hand edge of spires where it meets the open meadow. Ground at the bottom.
+    const edge = w;
+    g.fillStyle = '#1c2a22';
+    g.beginPath();
+    g.moveTo(0, h);
+    g.lineTo(0, h * 0.25);
+    for (let x = 0; x <= edge; x += w * 0.012) g.lineTo(x, h * (0.12 + 0.18 * rng()));
+    g.lineTo(edge, h);
+    g.fill();
+    for (let i = 0; i < 160; i++) {
+      const x = rng() * edge;
+      g.fillStyle = `rgba(${50 + rng() * 30},${40 + rng() * 20},${30},${0.3 + rng() * 0.4})`;
+      g.fillRect(x, h * (0.4 + rng() * 0.3), w * 0.0025, h);
+    }
+    for (let i = 0; i < 260; i++) {
+      const x = rng() * edge;
+      const y = h * (0.15 + rng() * 0.6);
+      g.fillStyle = ['#22362a', '#2a4232', '#18241d'][Math.floor(rng() * 3)];
+      g.beginPath();
+      g.moveTo(x, y - h * 0.08);
+      g.lineTo(x + w * 0.008, y);
+      g.lineTo(x - w * 0.008, y);
+      g.fill();
+    }
+  },
+
+  meadow(g, w, h, rng) {
+    // Twenty metres of dry meadow, seen edge-on: golden grass, darker toward
+    // the bottom of the picture, which is nearer.
+    const ground = g.createLinearGradient(0, 0, 0, h);
+    ground.addColorStop(0, '#d9bf7f');
+    ground.addColorStop(1, '#a88a4c');
+    g.fillStyle = ground;
+    g.fillRect(0, 0, w, h);
+    g.strokeStyle = 'rgba(120,92,48,0.35)';
+    g.lineWidth = 2;
+    for (let i = 0; i < 3000; i++) {
+      const x = rng() * w;
+      const y = rng() * h;
+      g.beginPath();
+      g.moveTo(x, y);
+      g.lineTo(x + (rng() - 0.5) * 6, y - 4 - rng() * 8);
+      g.stroke();
+    }
+  },
+
+  deer(g, w, h) {
+    // A mule deer side-on, facing left and looking at the camera: body, neck,
+    // big ears, legs to the hooves. Drawn in metres: 2.4 × 1.8 m, middle on the axis.
+    const X = (m: number) => ((m + 1.2) / 2.4) * w;
+    const Y = (m: number) => ((0.75 - m) / 1.8) * h;
+    const R = (m: number) => (m / 2.4) * w;
+    g.fillStyle = '#8a6e52';
+    g.beginPath();
+    g.ellipse(X(0.1), Y(0.0), R(0.62), R(0.27), 0, 0, Math.PI * 2);
+    g.fill();
+    g.beginPath();
+    g.moveTo(X(-0.38), Y(0.12));
+    g.lineTo(X(-0.55), Y(0.52));
+    g.lineTo(X(-0.36), Y(0.56));
+    g.lineTo(X(-0.2), Y(0.16));
+    g.fill();
+    g.beginPath();
+    g.ellipse(X(-0.5), Y(0.58), R(0.12), R(0.09), 0.2, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#7a5f46';
+    for (const [x, r] of [[-0.62, -0.5], [-0.38, 0.5]] as const) {
+      g.beginPath();
+      g.ellipse(X(x), Y(0.72), R(0.1), R(0.045), r, 0, Math.PI * 2);
+      g.fill();
+    }
+    g.fillStyle = '#efe6d6';
+    g.beginPath();
+    g.ellipse(X(0.68), Y(0.02), R(0.1), R(0.14), 0, 0, Math.PI * 2);
+    g.fill();
+    g.beginPath();
+    g.ellipse(X(-0.52), Y(0.52), R(0.05), R(0.03), 0, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#1b1b1b';
+    g.beginPath();
+    g.arc(X(-0.6), Y(0.56), R(0.018), 0, Math.PI * 2);
+    g.arc(X(-0.47), Y(0.6), R(0.014), 0, Math.PI * 2);
+    g.fill();
+    g.strokeStyle = '#6e563f';
+    g.lineCap = 'round';
+    g.lineWidth = R(0.06);
+    for (const x of [-0.3, -0.18, 0.38, 0.52]) {
+      g.beginPath();
+      g.moveTo(X(x), Y(-0.15));
+      g.lineTo(X(x + 0.02), Y(-0.98));
+      g.stroke();
+    }
+  },
+
+  grass(g, w, h, rng) {
+    // Two metres of tall dry grass rising from the bottom edge, with seed heads.
+    for (let i = 0; i < 700; i++) {
+      const x = rng() * w;
+      const tall = h * (0.4 + rng() * 0.6);
+      g.strokeStyle = ['#c9a96a', '#b8955a', '#d8bd84', '#a3854f'][Math.floor(rng() * 4)];
+      g.lineWidth = 2 + rng() * 3;
+      g.beginPath();
+      g.moveTo(x, h);
+      const tx = x + (rng() - 0.5) * w * 0.05;
+      g.quadraticCurveTo(x, h - tall * 0.6, tx, h - tall);
+      g.stroke();
+      if (rng() < 0.35) {
+        g.fillStyle = '#e2cb93';
+        g.beginPath();
+        g.ellipse(tx, h - tall, 4, 14, 0.2, 0, Math.PI * 2);
+        g.fill();
+      }
+    }
   },
 };

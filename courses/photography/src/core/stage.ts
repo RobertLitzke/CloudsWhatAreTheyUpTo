@@ -185,3 +185,35 @@ export const BRAMBLE: Stage = {
 
 /** Where the wren's head is on its plane, metres from the axis: what a spot focus point should sit on. */
 export const WREN_HEAD = { x: -0.03, y: 0.03 } as const;
+
+/**
+ * A mule deer in a meadow 40 m away, with tall grass in front, the dark edge
+ * of a conifer forest 60 m behind it on the left, and open hills far off on
+ * the right. The forest's edge stands right behind the deer, so a few steps
+ * sideways decide which background it is seen against.
+ */
+export const MEADOW: Stage = {
+  id: 'meadow',
+  subjectTall: 1.7,
+  framing: 0.5,
+  planes: [
+    { id: 'hills', behind: 3000, width: 8000, height: 1200, bottom: -300, backdrop: true },
+    { id: 'forest', behind: 60, width: 120, height: 32, bottom: -1.2, x: -60 },
+    { id: 'meadow', behind: 25, width: 400, height: 6, bottom: -7.05, tile: 20 },
+    { id: 'deer', behind: 0, width: 2.4, height: 1.8, bottom: -1.05 },
+    { id: 'grass', behind: -6, width: 200, height: 0.9, bottom: -1.25, tile: 2 },
+  ],
+};
+
+/**
+ * The stage seen after the photographer steps `step` metres to the right and
+ * turns to keep the subject in the middle of the frame. Seen from there, a
+ * plane `behind` metres behind the subject slides sideways against it by
+ * step × behind / stand: far things slide most, which is parallax.
+ */
+export function stepAside(stage: Stage, step: number, stand: number): Stage {
+  return {
+    ...stage,
+    planes: stage.planes.map((p) => ({ ...p, x: (p.x ?? 0) - step + (step * (stand + p.behind)) / stand })),
+  };
+}

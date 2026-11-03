@@ -137,6 +137,19 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the step-aside figure is done with dark forest behind a zoomed deer', async () => {
+    const fig = FIGURES.stepAside(context(), 'dark-behind');
+    setSlider(fig.node, 0, 8);
+    setLogSlider(fig.node, 1, 600, 150, 1500);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the light figure is done once front, side and back light have been tried', async () => {
+    const fig = FIGURES.lightAngle(context(), 'all-three');
+    for (const v of [90, 180, 0]) setSlider(fig.node, 0, v);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.
