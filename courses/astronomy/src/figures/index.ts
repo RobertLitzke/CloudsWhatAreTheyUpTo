@@ -17,6 +17,8 @@ import { aberrationFigure, parallaxFigure } from './parallax';
 import { photoFigure } from './photo';
 import { flatFigure, halfMoonFigure, shadowFigure } from './shadows';
 import { balmerStill, rungsFigure, stringsStill } from './ladder';
+import { bestPathFigure, eclipseStill, gpsFigure, ringStill } from './bending';
+import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
 
@@ -64,4 +66,13 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 12
   clusters: clustersFigure,
   'sun-life': sunLifeStill,
+  // Lesson 13
+  'light-clock': lightClockFigure,
+  'muon-rain': muonRainFigure,
+  'light-cone': lightConeStill,
+  // Lesson 14
+  'best-path': bestPathFigure,
+  gps: gpsFigure,
+  'eclipse-1919': eclipseStill,
+  'einstein-ring': ringStill,
 };

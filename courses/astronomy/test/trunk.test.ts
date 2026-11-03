@@ -4,8 +4,10 @@
 import { describe, expect, it } from 'vitest';
 import { emptyProgress } from 'didactics/progress';
 import { FIGURES } from '../src/figures';
+import { arcGain, heightGain, realPeak, speedLoss } from '../src/figures/bending';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
+import { SEA, slowing, survivors } from '../src/figures/muons';
 
 const context = () => ({ save: emptyProgress('metric'), closed: new AbortController().signal, score: () => {} });
 
@@ -53,5 +55,38 @@ describe('trunk lessons', () => {
     click(c.node, 'Match M67');
     setSlider(c.node, 0, Math.log10(4e9));
     await expect(c.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 13: clocks at 87% tick at half speed, and slow clocks match Frisch and Smith', async () => {
+    expect(slowing(0.87)).toBeCloseTo(2, 1);
+    expect(survivors(0.995, false)).toBeGreaterThan(20);
+    expect(survivors(0.995, false)).toBeLessThan(40);
+    expect(Math.abs(survivors(0.995, true) - SEA) / SEA).toBeLessThan(0.08);
+    const c = FIGURES['light-clock'](context(), 'clock');
+    guess(c.node, 'About half as fast');
+    setSlider(c.node, 0, 0.87);
+    await expect(c.done).resolves.toBeUndefined();
+    const m = FIGURES['muon-rain'](context(), 'count');
+    guess(m.node, 'About 30');
+    click(m.node, 'Moving clocks slow');
+    setSlider(m.node, 0, 0.995);
+    await expect(m.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 14: the real arc is the one the clock likes best, and GPS clocks gain 38 µs a day', async () => {
+    expect(realPeak()).toBeCloseTo(4.9, 1);
+    expect(arcGain(realPeak())).toBeGreaterThan(arcGain(4));
+    expect(arcGain(realPeak())).toBeGreaterThan(arcGain(6));
+    expect(heightGain(20200)).toBeCloseTo(45.7, 0);
+    expect(heightGain(20200) - speedLoss(3.87)).toBeCloseTo(38.5, 0);
+    const b = FIGURES['best-path'](context(), 'best');
+    guess(b.node, 'About five metres up');
+    setSlider(b.node, 0, 4.9);
+    await expect(b.done).resolves.toBeUndefined();
+    const g = FIGURES.gps(context(), 'gps');
+    guess(g.node, 'About ten kilometres');
+    setSlider(g.node, 0, 20200);
+    setSlider(g.node, 1, 3.87);
+    await expect(g.done).resolves.toBeUndefined();
   });
 });
