@@ -11,8 +11,9 @@
 //   OPENROUTER_API_KEY=… node tools/copyedit.mjs --queue [--write]
 //
 // --queue edits every lesson waiting in tools/review-queue.json, where new
-// prose is listed when it is written (lesson, date, what changed), so the
-// reviews can be run later as one batch. With --write each lesson that comes
+// prose is listed when it is written (lesson, date, what changed, and
+// optionally notes: specific fixes for the editor to make), so the reviews
+// can be run later as one batch. With --write each lesson that comes
 // back cleanly is taken off the queue.
 //
 // Reports go to tools/copyedit-out/<lesson>.md (not committed). With
@@ -115,7 +116,10 @@ for (const id of ids) {
   const file = join(ROOT, 'src/lessons', `${id}.json`);
   const lesson = JSON.parse(readFileSync(file, 'utf8'));
   const ps = pieces(lesson);
-  const prompt = `Lesson: "${lesson.title}"\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
+  // A queue entry may carry reviewers' notes: specific fixes the editor should make in this lesson.
+  const notes = queued.filter((q) => q.lesson === id).flatMap((q) => q.notes ?? []);
+  const ask = notes.length ? `Reviewers' notes for this lesson. Make these changes where they fall, within the rules above (same pieces, same markup, length limit):\n${notes.map((n) => `- ${n}`).join('\n')}\n\n` : '';
+  const prompt = `${ask}Lesson: "${lesson.title}"\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
   const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
