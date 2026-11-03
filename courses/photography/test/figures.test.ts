@@ -57,6 +57,27 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the aperture figure can keep the pines readable behind the bird', async () => {
+    const fig = FIGURES.aperture(context(), 'in-place');
+    setLogSlider(fig.node, 0, 300, 200, 2000);
+    setSlider(fig.node, 1, 10);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the hyperfocal figure holds the flowers and the hills at the wide end', async () => {
+    const fig = FIGURES.hyperfocal(context(), 'boots-to-hills');
+    setLogSlider(fig.node, 0, 24, 24, 2000);
+    setSlider(fig.node, 1, 3);
+    setLogSlider(fig.node, 2, 1.5, 0.3, 2000);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the modes figure is done once the light has changed a few times', async () => {
+    const fig = FIGURES.modes(context(), 'follow');
+    for (const v of [10, 12, 14]) setSlider(fig.node, 0, v);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

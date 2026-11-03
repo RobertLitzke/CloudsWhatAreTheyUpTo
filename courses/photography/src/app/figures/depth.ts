@@ -34,8 +34,10 @@ const ZOOM = { min: 200, max: 2000 } as const;
 /** The background counts as melted away past this blur (a fiftieth of the frame), and as readable under a 250th. */
 const MELTED = 0.02;
 const READABLE = 0.004;
+/** Pines are big shapes: they read as pines up to a hundredth of the frame's blur. */
+const PINES_READABLE = 0.01;
 
-export const apertureFigure = figure(['blur-background', 'all-sharp'], (ctx, t) => {
+export const apertureFigure = figure(['blur-background', 'all-sharp', 'in-place'], (ctx, t) => {
   const units = ctx.save.units;
   const stage = PERCHED;
 
@@ -81,8 +83,9 @@ export const apertureFigure = figure(['blur-background', 'all-sharp'], (ctx, t) 
     const band = birdSharp
       ? `Sharp from ${distance(depth.near, units)} to ${distance(depth.far, units)}.`
       : `The lens is focused at ${distance(focusAt, units)}, so the bird is soft.`;
-    const back = `Bushes ${distance(behind, units)} behind: blurred over ${(soft * 100).toFixed(1)}% of the frame, ` +
-      (soft >= MELTED ? 'melted away.' : soft <= READABLE ? 'every leaf readable.' : 'soft but still busy.');
+    const word = (b: number) => (b >= MELTED ? 'melted' : b <= READABLE ? 'readable' : 'soft but busy');
+    const pines = placed.find((p) => p.plane.id === 'trees')?.blur ?? 0;
+    const back = `Blur, as a share of the frame: bushes ${distance(behind, units)} behind ${(soft * 100).toFixed(1)}%, ${word(soft)}; pines ${(pines * 100).toFixed(1)}%, ${pines <= PINES_READABLE ? 'readable' : word(pines)}.`;
     f.readout.textContent = `${where} ${band} ${back}${clamped}`;
     canvas.setAttribute('aria-label', `A bird on a branch at ${eqFocal.toFixed(0)} mm and ${apertureLabel(aperture)}; the bushes behind are ${soft >= MELTED ? 'a smooth blur' : soft <= READABLE ? 'sharp' : 'soft'}.`);
 
@@ -90,6 +93,7 @@ export const apertureFigure = figure(['blur-background', 'all-sharp'], (ctx, t) 
 
     if (t.goal === 'blur-background' && birdSharp && soft >= MELTED) t.done();
     if (t.goal === 'all-sharp' && birdSharp && soft <= READABLE) t.done();
+    if (t.goal === 'in-place' && birdSharp && pines <= PINES_READABLE) t.done();
   };
 
   const focusText = (v: number) => (Math.abs(v - 1) < 0.004

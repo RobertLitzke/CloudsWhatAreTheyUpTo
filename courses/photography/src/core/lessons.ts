@@ -19,10 +19,11 @@
 import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'didactics/lesson';
 import tour from '../data/lessons/tour.json';
 import light from '../data/lessons/light.json';
+import aperture from '../data/lessons/aperture.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
-  'cone', 'aperture', 'closeUp',
+  'cone', 'aperture', 'closeUp', 'diffraction', 'hyperfocal',
   // Time and movement.
   'shutter', 'shake', 'silkWater',
   // Light and the sensor.
@@ -48,13 +49,7 @@ export type Lesson = KitLesson<FigureId>;
 export const LESSONS: readonly Lesson[] = [
   tour as Lesson,
   light as Lesson,
-  planned(3, 'aperture', 'The aperture and what stays sharp', 'Why the hole in the lens decides how much of the scene is in focus, and why a small sensor makes that band so wide', [
-    'Depth of field from first principles: a point, a cone, a disc',
-    'The three things that move the band: aperture, how far away you focus, and focal length',
-    'Why the P950 holds nearly everything sharp, and what you do when you want a soft background anyway',
-    'Diffraction: why f/8 on this camera is softer than f/4 everywhere, not just behind the subject',
-    'Hyperfocal focusing for landscapes',
-  ]),
+  aperture as Lesson,
   planned(4, 'shutter', 'Shutter speed, and everything that moves', 'Freezing a wingbeat, catching a panning bird, and telling your own shake apart from the subject\'s movement', [
     'What a shutter speed does to a moving thing, in fractions of the frame',
     'Two blurs that look alike and have different cures: subject movement and camera shake',

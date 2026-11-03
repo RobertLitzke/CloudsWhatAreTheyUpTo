@@ -8,6 +8,7 @@ import { apertureFigure, coneFigure } from './focus';
 import type { FigureFactory } from './kit';
 import { isoFigure, photonsDiagram, stopsFigure } from './light';
 import { meterFigure, modesFigure } from './meter';
+import { diffractionFigure, hyperfocalFigure } from './sharpness';
 import { shakeDiagram, shutterFigure, silkWaterFigure } from './motion';
 import { photoDiagram } from './photo';
 import { angleDiagram, closeUpFigure, longEndDiagram, zoomFigure } from './zoom';
@@ -16,6 +17,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   cone: coneFigure,
   aperture: apertureFigure,
   closeUp: closeUpFigure,
+  diffraction: diffractionFigure,
+  hyperfocal: hyperfocalFigure,
   shutter: shutterFigure,
   shake: shakeDiagram,
   silkWater: silkWaterFigure,

@@ -133,7 +133,7 @@ export const longEndDiagram = figure(['price'], (_ctx, t) => {
  * aperture one, on a flower at half a metre, where the reader meets the other
  * end of depth of field.
  */
-export const closeUpFigure = figure<PhotoOptions>(['thin-band'], (ctx, t, options) => {
+export const closeUpFigure = figure<PhotoOptions>(['thin-band', 'whole-subject'], (ctx, t, options) => {
   const units = ctx.save.units;
   const photo = shotPhoto('flower-close', options?.photo);
   if (!photo?.scene) return noPhoto('a flower, close up').node;
@@ -151,6 +151,8 @@ export const closeUpFigure = figure<PhotoOptions>(['thin-band'], (ctx, t, option
     const clamped = shot.aperture > n + 0.05 ? ` The lens opens no wider than ${apertureLabel(shot.aperture)} at this zoom.` : '';
     f.paint(shot, `Sharp from ${distance(shot.depth.near, units)} to ${distance(shot.depth.far, units)}: a band ${band < 0.1 ? `${Math.round(band * 1000)} mm` : distance(band, units)} thick. Up close, that band is thinner than the flower.${clamped}`);
     if (t.goal === 'thin-band' && band < 0.08) t.done();
+    // An insect is a couple of centimetres front to back: the band has to hold all of it.
+    if (t.goal === 'whole-subject' && band >= 0.028 && focusAt >= shot.depth.near && focusAt <= shot.depth.far) t.done();
   };
 
   f.controls.append(
@@ -159,4 +161,4 @@ export const closeUpFigure = figure<PhotoOptions>(['thin-band'], (ctx, t, option
   );
   f.start(t, paint);
   return f.node;
-}, { options: photoOptions('flower-close') });
+}, { options: (o) => (photoOptions('insect-close')(o).length ? photoOptions('flower-close')(o) : []) });

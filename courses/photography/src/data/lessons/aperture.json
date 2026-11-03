@@ -1,0 +1,267 @@
+{
+ "id": "aperture",
+ "n": 3,
+ "title": "The aperture and what stays sharp",
+ "teaches": "Why the hole in the lens decides how much of the scene is sharp, why a small sensor makes that band so deep, and where narrowing the aperture stops helping",
+ "parts": [
+  {
+   "title": "The bird in its place",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The challenge.** In the first lesson you melted the background away until the bluebird sat alone on a smooth wash of colour. This time you want the opposite picture. The bird lives here, on the edge of the pines with the dry hills beyond, and you want all of that in the frame and recognisable: the bird sharp, and the pines behind it still pines. At 2000 mm the camera gives you the left-hand picture, a green and brown blur. The right-hand one is what you are after."
+    },
+    {
+     "type": "diagram",
+     "id": "challenge",
+     "caption": "The bluebird at 2000 mm, and as a picture of the bird in its place",
+     "options": {
+      "stage": "perched",
+      "panels": [
+       {
+        "label": "What you got",
+        "eqFocal": 2000,
+        "behind": 40
+       },
+       {
+        "label": "What you wanted",
+        "eqFocal": 300,
+        "aperture": 8,
+        "behind": 40
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "To make it you need to know what decides how much of a scene is sharp, which turns out to be three things, only one of which is the aperture. You also need to know what the aperture costs when you narrow it, because on a camera with pixels as small as the P950's, narrowing it eventually makes everything softer.[^pixel-size]"
+    }
+   ]
+  },
+  {
+   "title": "A point, a cone, a disc",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Every point in the scene sends out light in all directions, and the lens catches a cone of it: as wide at the lens as the [[aperture|aperture]], narrowing behind the lens to a point. If the sensor sits exactly where the cone narrows to its point, that point in the scene is recorded as a point. A lens can put that meeting place on the sensor for one distance only, the distance it is [[focus|focused]] at."
+    },
+    {
+     "type": "text",
+     "text": "Anything nearer or farther has its cone meeting in front of the sensor or behind it, so the sensor cuts through the cone and records a small disc instead of a point. A picture of a branch twenty metres behind a bird is really thousands of these discs overlapping. If a disc is small enough, smaller than the eye can tell from a point when the whole picture is viewed, it still looks sharp. On the P950 that limit is about five thousandths of a millimetre on the sensor, roughly four pixels across. The range of distances whose discs stay under it is the [[depth of field|sharp]]."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "cone",
+     "caption": "A point, the cone of light the lens takes from it, and the disc it lands as",
+     "task": "Move the point off the focused distance, then narrow the aperture until the disc looks sharp again",
+     "goal": "sharp-again"
+    }
+   ]
+  },
+  {
+   "title": "Three things move the band",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Narrowing the aperture narrows every cone, so every disc shrinks, and the band of distances that look sharp gets deeper. That is the lever on the camera. The other two are where you stand and how far you zoom, and on the P950 they matter more, because at the long end of the zoom its aperture has less than a stop of range, from f/6.5 to f/8."
+    },
+    {
+     "type": "text",
+     "text": "**Distance to the subject.** The depth of field grows roughly with the square of the distance you focus at: twice as far gives about four times the depth. A bird at 20 m has a band of sharpness ten times deeper than a bird at a little over 6 m, at the same zoom and aperture. **Focal length.** Zooming in shrinks the band just as fast, also with the square: double the focal length and the band is a quarter as deep. Those two cancel when you step back to keep the bird the same size, which is why the depth of field around a subject at a given framing depends almost only on the f-number. What changes as you zoom and step back is the far background: the longer lens blurs distant things far more, while making them look bigger."
+    },
+    {
+     "type": "text",
+     "text": "There is a fourth thing hiding in the first three, which is the size of the sensor. A small sensor needs a short real focal length for the same view (the P950's 2000 mm view comes from a 357 mm lens), and short focal lengths give deep bands. In depth of field, the P950 at f/2.8 behaves like a full-frame camera at about f/16, and at f/6.5 at the long end like one at about f/36.[^equivalence] That is why the camera keeps nearly everything sharp unless you work to stop it, and why getting a recognisable background behind a bird is the easy half of this lesson."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "aperture",
+     "caption": "The bluebird with the pines and hills behind it; zooming in, you step back to keep the bird the same size",
+     "task": "Make the right-hand picture: the bird sharp and the pines behind it still readable",
+     "goal": "in-place"
+    }
+   ]
+  },
+  {
+   "title": "Up close, the band is millimetres",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The square law cuts both ways. A hoverfly on a flower half a metre away, framed at 140 mm in macro mode, is so close that the band of sharpness is a couple of centimetres deep even on the P950, and wide open it is less than the insect's own depth: its eyes sharp and its wings already soft. This is where the aperture earns its keep. The P950 also has a macro mode that lets the wide end of the zoom focus a centimetre from the front of the lens, where the band is thinner than a sheet of card."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "closeUp",
+     "caption": "A hoverfly half a metre away, at 140 mm",
+     "task": "Get the whole insect inside the sharp band, front to back",
+     "goal": "whole-subject",
+     "options": {
+      "photo": "insect-close-02"
+     }
+    }
+   ]
+  },
+  {
+   "title": "Why f/8 is soft everywhere",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "If narrowing the aperture only made the band deeper, you would always set f/8 and be done. It does not, because light passing through a small hole spreads out. This is **diffraction**, and it puts a small blurred disc, called an Airy disc after the astronomer who worked out its size, on every point in the picture, including the ones in perfect focus.[^airy] Its diameter is about 2.4 times the wavelength of light times the f-number: about 4 thousandths of a millimetre at f/2.8 and 11 at f/8."
+    },
+    {
+     "type": "text",
+     "text": "On a full-frame camera with big pixels, that hardly matters until about f/11. The P950's pixels are only 1.34 thousandths of a millimetre across, so even at f/2.8 the Airy disc covers about three of them, and at f/8 it covers eight. Diffraction never stops the picture from being sharp enough to look at whole, but it softens the fine detail a crop needs, everywhere at once. Narrowing the aperture trades one blur for another: the out-of-focus parts get sharper and the in-focus parts get softer. For any scene there is an aperture where the two balance, and it is wider than most people expect."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "diffraction",
+     "caption": "A flower bed a metre away at 100 mm: the blur at its front edge from focus, from diffraction, and in total",
+     "task": "Change how deep the bed is, then find the aperture where the total blur is smallest",
+     "goal": "sweet"
+    }
+   ]
+  },
+  {
+   "title": "From your boots to the hills",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The landscape version of the challenge: lupines at your feet, a meadow, and hills on the horizon, all sharp. The answer is a particular focus distance called the **hyperfocal distance**. Focus there, and the band of sharpness runs from half that distance all the way to the horizon. Focus nearer and the hills go soft; focus at the hills and the flowers do."
+    },
+    {
+     "type": "text",
+     "text": "The hyperfocal distance shrinks with a shorter focal length and a narrower aperture, and on a small sensor at the wide end it is tiny: at 24 mm and f/4 on the P950 it is about a metre, so almost any focus does the job. Zoom in to 100 mm and at f/4 it is over 15 metres; even at f/8 the near edge of the band is four metres away, and no aperture this camera has will hold both your boots and the hills."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "hyperfocal",
+     "caption": "A meadow from the side: flowers a metre away, a tree at 30 m, hills on the horizon, and the sharp band",
+     "task": "Get the flowers and the hills inside the sharp band at once",
+     "goal": "boots-to-hills"
+    },
+    {
+     "type": "text",
+     "text": "In practice: for a landscape, use the wide end of the zoom, f/4 to f/5.6 rather than f/8, and focus about a third of the way into the scene or on something a couple of metres away. For a bird in its place, zoom out further than feels natural and step closer, so the background is less magnified and less blurred. And when you want the opposite, lesson 1's soft wash, you now know the three levers: a long lens, a subject you are close to, and a background far behind it."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Every out-of-focus point lands as a disc; depth of field is the range where the discs are too small to notice.",
+      "Aperture, subject distance and focal length all move the band; on the P950, distance and zoom matter more than the aperture.",
+      "A small sensor gives deep depth of field: f/2.8 on the P950 is like f/16 on full frame.",
+      "Narrowing the aperture adds diffraction blur everywhere; for most scenes the sharpest aperture is wider than f/8."
+     ]
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Depth of field",
+     "task": "Answer each question",
+     "options": {
+      "items": [
+       {
+        "question": "You keep a bird the same size in the frame by zooming from 500 mm to 1000 mm and stepping back to twice the distance. What happens to the depth of field around the bird?",
+        "options": [
+         "It stays about the same",
+         "It doubles",
+         "It halves",
+         "It becomes four times deeper"
+        ],
+        "answer": 0,
+        "why": "Depth of field grows with the square of the distance and shrinks with the square of the focal length. Doubling both cancels, so at the same framing and f-number the band around the subject barely changes. The distant background, though, gets blurrier and looks bigger."
+       },
+       {
+        "question": "Why does the P950 keep backgrounds sharp more readily than a full-frame camera with the same view?",
+        "options": [
+         "Its small sensor needs much shorter real focal lengths",
+         "Its lens has fewer glass elements",
+         "It focuses faster",
+         "Its sensor has more pixels"
+        ],
+        "answer": 0,
+        "why": "The same field of view on a sensor 5.6 times smaller takes a lens 5.6 times shorter, and short focal lengths give deep depth of field. In depth of field, f/2.8 on the P950 acts like about f/16 on full frame."
+       },
+       {
+        "question": "At f/8 on the P950, roughly how many pixels wide is the Airy disc that diffraction puts on every point?",
+        "options": [
+         "About eight",
+         "Less than one",
+         "About two",
+         "About fifty"
+        ],
+        "answer": 0,
+        "why": "The Airy disc is about 2.4 times the wavelength times the f-number: around 11 thousandths of a millimetre at f/8. The P950's pixels are 1.34 thousandths of a millimetre, so the disc spans about eight of them."
+       },
+       {
+        "question": "A hoverfly half a metre away is sharp at the eyes but soft at the wings. What is the most direct fix?",
+        "options": [
+         "Narrow the aperture",
+         "Raise the ISO",
+         "Zoom in further",
+         "Use a faster shutter"
+        ],
+        "answer": 0,
+        "why": "Up close, depth of field is a couple of centimetres or less. Narrowing the aperture deepens the band enough to hold the whole insect. Zooming in at the same distance would make the band thinner."
+       },
+       {
+        "question": "What does focusing at the hyperfocal distance do?",
+        "options": [
+         "Makes everything from half that distance to the horizon sharp",
+         "Makes only the horizon sharp",
+         "Removes diffraction",
+         "Makes the background as soft as possible"
+        ],
+        "answer": 0,
+        "why": "Focused at the hyperfocal distance, the far edge of the sharp band just reaches infinity, and the near edge falls at half that distance. It is the deepest sharp band a given focal length and aperture can give."
+       },
+       {
+        "question": "A friend sets f/8 for every picture 'to be safe'. On the P950, what is the catch?",
+        "options": [
+         "Diffraction softens fine detail across the whole frame",
+         "The shutter cannot go fast enough",
+         "Colours shift toward blue",
+         "Autofocus stops working"
+        ],
+        "answer": 0,
+        "why": "On the P950's tiny pixels, diffraction at f/8 spreads every point over several pixels. It looks fine as a whole picture, but detail suffers, and for most scenes a wider aperture is just as deep and sharper."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Depth of field is a band of distances.** Points inside it land as discs too small to notice; points outside it look soft.",
+  "**Three levers move it.** A narrower aperture, a more distant subject and a shorter focal length all deepen the band.",
+  "**Framing decides more than the aperture.** Zoom in and step back to keep a subject the same size, and its band barely changes, but the far background gets blurrier and bigger.",
+  "**Small sensors are deep.** On the P950, f/2.8 behaves like f/16 on a full-frame camera, so a soft background takes deliberate work.",
+  "**Up close, the band is millimetres.** For insects and flowers, the aperture is the lever that matters.",
+  "**Diffraction softens everything as you narrow.** On the P950's small pixels it bites from about f/4; the sharpest aperture for a scene is usually wider than f/8.",
+  "**The hyperfocal distance holds a landscape.** Focused there, the picture is sharp from half that distance to the horizon."
+ ],
+ "journal": [],
+ "footnotes": {
+  "pixel-size": {
+   "kind": "technical",
+   "title": "How small the P950's pixels are",
+   "text": "The P950's sensor is 6.17 mm wide and 4608 pixels across, so each pixel is about 1.34 thousandths of a millimetre, or 1.34 micrometres, wide. A full-frame camera with 24 megapixels has pixels about six micrometres across, over four times wider and twenty times the area. Each of the P950's pixels catches a twentieth of the light, which is the story of the ISO lesson, and is smaller than the blur the lens itself makes at middling apertures, which is the story of this one."
+  },
+  "equivalence": {
+   "kind": "technical",
+   "title": "Equivalent apertures",
+   "text": "Two cameras give the same depth of field for the same view and framing when their lens openings are the same width in millimetres. The P950's sensor is 5.6 times smaller across than full frame, so its real focal lengths are 5.6 times shorter, and the same f-number gives an opening 5.6 times narrower. To match it, a full-frame camera would need an f-number 5.6 times larger: f/2.8 on the P950 is about f/16 on full frame, and f/6.5 about f/36. The exposure, which depends on the f-number alone, is the same on both."
+  },
+  "airy": {
+   "kind": "digression",
+   "title": "George Airy",
+   "text": "George Biddell Airy, later Astronomer Royal, worked out in 1835 the pattern of light that a perfect lens makes from a single star: a bright central disc ringed by fainter rings. The disc's size depends only on the wavelength and the f-number, so no lens, however perfect, can do better. Astronomers build telescopes with huge apertures partly to make that disc small."
+  }
+ }
+}
