@@ -3,6 +3,11 @@
 // author, refused unless the licence is public domain, CC0, CC BY or CC BY-SA,
 // resized to 1024 px wide, saved as public/photos/<id>.webp, and credited in
 // src/data/photos.json. Picks already saved are skipped (--all to redo them).
+// A photo that isn't on Commons (a USGS or NOAA library, say) is picked by
+// its file instead: { id, url, page, source, author, license, about }, where
+// `page` is the record the licence was read from and `license` is one of the
+// same short names. Either kind may add `crop: [left, top, width, height]`
+// in source pixels to cut off scanned borders.
 //   npm run photos -w geology
 
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
@@ -38,9 +43,31 @@ async function polite(url, init = {}) {
 }
 
 const out = redo ? [] : have.filter((p) => picks.some((k) => k.id === p.id) && existsSync(join(root, 'public', p.file)));
+/** Resizes a downloaded image into public/photos/<id>.webp. */
+async function save(pick, img) {
+  let s = sharp(img);
+  if (pick.crop) {
+    const [left, top, width, height] = pick.crop;
+    s = sharp(await s.extract({ left, top, width, height }).toBuffer());
+  }
+  const file = `photos/${pick.id}.webp`;
+  const info = await s.resize({ width: WIDTH, withoutEnlargement: true }).webp({ quality: 72, effort: 6 }).toFile(join(root, 'public', file));
+  return { file, width: info.width, height: info.height };
+}
+
 for (const pick of picks) {
   if (out.some((p) => p.id === pick.id)) continue;
-  const q = new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', titles: pick.title, prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: String(WIDTH) });
+  if (pick.url) {
+    const lic = licence(pick.license);
+    if (!lic) { console.error(`${pick.id}: licence "${pick.license}" not allowed`); continue; }
+    const r = await polite(pick.url);
+    if (!r.ok) { console.error(`${pick.id}: ${r.status} from ${pick.url}`); continue; }
+    const saved = await save(pick, Buffer.from(await r.arrayBuffer()));
+    out.push({ id: pick.id, about: pick.about, ...saved, author: pick.author, license: lic, sourceUrl: pick.page, source: pick.source });
+    console.log(`${pick.id}: ${lic}, ${saved.width}×${saved.height} from ${pick.source}`);
+    continue;
+  }
+  const q =new URLSearchParams({ action: 'query', format: 'json', formatversion: '2', titles: pick.title, prop: 'imageinfo', iiprop: 'url|size|extmetadata', iiurlwidth: String(WIDTH) });
   const d = await (await polite(`${API}?${q}`)).json();
   const ii = d.query?.pages?.[0]?.imageinfo?.[0];
   if (!ii) { console.error(`${pick.id}: no file ${pick.title}`); continue; }
@@ -48,15 +75,13 @@ for (const pick of picks) {
   const lic = licence(m.LicenseShortName?.value);
   if (!lic) { console.error(`${pick.id}: licence "${m.LicenseShortName?.value}" not allowed`); continue; }
   const src = (ii.thumburl ?? ii.url).replace('https://thumb.wikimedia.org/', 'https://upload.wikimedia.org/');
-  const img = Buffer.from(await (await polite(src)).arrayBuffer());
-  const file = `photos/${pick.id}.webp`;
-  const info = await sharp(img).resize({ width: WIDTH, withoutEnlargement: true }).webp({ quality: 72, effort: 6 }).toFile(join(root, 'public', file));
+  const saved = await save(pick, Buffer.from(await (await polite(src)).arrayBuffer()));
   out.push({
-    id: pick.id, about: pick.about, file, width: info.width, height: info.height,
+    id: pick.id, about: pick.about, ...saved,
     author: plain(m.Artist?.value) || 'Unknown', license: lic,
     sourceUrl: ii.descriptionurl, source: 'Wikimedia Commons',
   });
-  console.log(`${pick.id}: ${lic}, ${info.width}×${info.height}`);
+  console.log(`${pick.id}: ${lic}, ${saved.width}×${saved.height}`);
   await new Promise((ok) => setTimeout(ok, 600));
 }
 out.sort((a, b) => picks.findIndex((k) => k.id === a.id) - picks.findIndex((k) => k.id === b.id));
