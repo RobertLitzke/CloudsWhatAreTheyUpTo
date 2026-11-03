@@ -9,12 +9,14 @@ import { FIGURES } from './figures';
 import { prose } from './figures/kit';
 import { BRANCHES, LESSONS } from './lessons';
 import { PHOTOS } from './photos';
+import { makeBanner } from './banner';
 
 defineCourse({
   id: 'geology',
   title: 'Geology',
   subtitle: 'Mysteries in the rocks',
   mark: el('img', { src: 'icons/icon.svg', alt: '' }),
+  hero: makeBanner,
   site: SITE_URL,
   lessons: LESSONS,
   branches: BRANCHES,

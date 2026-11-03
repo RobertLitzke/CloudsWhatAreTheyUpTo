@@ -6,8 +6,10 @@
    bar to the figures, the lesson cards and the photos, is Didactics' kit.css. */
 
 
-/* ---- Home ------------------------------------------------------------- */
-.hero-text { padding-top: 7vh; }
+/* ---- Home: the dusk banner (scene/banner.ts) with the poster lettering
+   over its upper half. */
+.hero-text { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 16px 24%; }
+@media (min-width: 700px) { .hero-text { padding-bottom: 150px; } }
 .hero-text h1 {
   font-size: clamp(3.4rem, 17vw, 7rem);
   letter-spacing: 0.04em;

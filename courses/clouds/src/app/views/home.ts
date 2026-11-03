@@ -1,4 +1,4 @@
-// The fields at dusk, and the lessons as a tree: the trunk of training, the
+// The dusk banner, and the lessons as a tree: the trunk of training, the
 // branches that fork off it, and the cloud-seeding lesson hung off the end.
 // With the radio on, the page tells the story and the opening talk plays the
 // first time.
@@ -10,25 +10,15 @@ import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
 import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { nextLesson, treeView, type TreeNode } from 'didactics/tree';
-import { placeCloud } from '../scene/drawn';
-import { makeScene } from '../scene/landscape';
+import { makeBanner } from '../scene/banner';
 import { getSave, updateSave } from '../store';
 import { INTRO } from '../../core/talk';
 import { clearRadio, playTalk } from '../radio';
 
 export const homeView: View = (root, nav) => {
   const save = getSave();
-  // Cropped from the left on a phone, so the town and the sun stay in view.
-  const scene = makeScene({ time: 'dusk', seed: 11, sun: [0.36, 0.7], align: 'xMinYMax' });
-  const p = scene.palette;
-  scene.sky.append(
-    // Banks of heaped cloud catching the last light, as on the poster.
-    placeCloud('cirrus', p, 120, 138, 0.6, 3),
-    placeCloud('altocumulus', p, 300, 120, 0.6, 5),
-    placeCloud('cumulus', p, 170, 180, 1.7, 8),
-    placeCloud('cumulus', p, 28, 186, 1.1, 4),
-    placeCloud('cumulus', p, 330, 184, 1.3, 9),
-  );
+  // The dusk banner, in the look of the course icon (scene/banner.ts).
+  const scene = makeBanner();
 
   type Item = (typeof TREE_LESSONS)[number];
   const nextUp = nextLesson(TREE_LESSONS, save) as Exclude<Item, { coming: true }> | undefined;
@@ -63,7 +53,7 @@ export const homeView: View = (root, nav) => {
     el(
       'section.hero',
       {},
-      scene.root,
+      scene,
       el(
         'div.hero-text',
         {},
