@@ -69,11 +69,57 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Apollo supplied the missing piece. Each crew landed on a surface whose craters had already been counted from orbital photographs, and brought back rocks that could be dated with the radioactive clocks of lesson 8. The Soviet Union's robotic Luna 16, 20 and 24 missions, between 1970 and 1976, returned a further 320 grams or so of soil from three more sites."
+     "text": "Apollo supplied the missing piece. Each crew landed on a surface whose craters had already been counted from orbital photographs, and brought back rocks that could be dated with the radioactive clocks of lesson 8. The Soviet Union's robotic Luna 16, 20 and 24 missions,[^luna] between 1970 and 1976, returned a further 320 grams or so of soil from three more sites."
     },
     {
      "type": "text",
      "text": "The mare basalts turned out to be old: 3.6 to 3.8 billion years at Apollo 11's Sea of Tranquility, 3.75 billion at Apollo 17, 3.3 billion at Apollo 15 and Luna 24, about 3.15 billion at Apollo 12's Ocean of Storms. Highland rocks gave older ages, around 3.9 billion years for most, with fragments of the first crust older still. Some samples dated single craters. An impact melts some of the rock it hits and resets its radioactive clocks, so rock melted and thrown out by an impact records when the crater formed. Material that Apollo 12 picked up from a bright ray of debris crossing its landing site, thrown there by the crater Copernicus, gave Copernicus an age of about 800 million years. At Apollo 17, debris from the crater Tycho, 2,200 km away, had set off a landslide; the time the slide's boulders have lain exposed at the surface gave Tycho about 100 million years."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "Dated surfaces of the Moon, in billions of years ago.",
+     "options": {
+      "events": [
+       {
+        "at": -4.36,
+        "label": "The oldest highland anorthosites (lesson P3)",
+        "when": "4.36"
+       },
+       {
+        "at": -3.9,
+        "label": "The Imbrium basin; most highland impact melts",
+        "when": "3.9"
+       },
+       {
+        "at": -3.7,
+        "label": "Mare basalts at Apollo 11 and 17",
+        "when": "3.6–3.8"
+       },
+       {
+        "at": -3.3,
+        "label": "Mare basalts at Apollo 15 and Luna 24",
+        "when": "3.3"
+       },
+       {
+        "at": -3.15,
+        "label": "Mare basalts at Apollo 12, Ocean of Storms",
+        "when": "3.15"
+       },
+       {
+        "at": -0.8,
+        "label": "The crater Copernicus",
+        "when": "0.8",
+        "bold": true
+       },
+       {
+        "at": -0.1,
+        "label": "The crater Tycho",
+        "when": "0.1",
+        "bold": true
+       }
+      ]
+     }
     },
     {
      "type": "diagram",
@@ -233,5 +279,11 @@
   "**The lunar calibration dates other worlds.** The same curve is used for surfaces on Mars, Mercury and beyond."
  ],
  "journal": [],
- "footnotes": {}
+ "footnotes": {
+  "luna": {
+   "kind": "digression",
+   "title": "Robots that came home",
+   "text": "Each Luna lander drilled or scooped a sample, sealed it in a capsule on top of its return rocket and launched it straight back to Earth. Luna 16, in September 1970, was the first robot to bring back rock from another world."
+  }
+ }
 }

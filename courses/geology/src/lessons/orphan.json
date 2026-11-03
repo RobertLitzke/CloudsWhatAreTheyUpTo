@@ -13,7 +13,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Around midnight between 27 and 28 January 1700 by the Western calendar, a tsunami came ashore along about 1,000 kilometres of the Pacific coast of Japan, from northern Honshu to the Kii Peninsula. At Miyako the sea flooded houses and fields, and the flooding set off a fire that burned houses; at Tanabe the flood ran into rice paddies and storehouses. Officials and merchants wrote it down, as they recorded everything that affected taxes and rice. What puzzled them was that nobody had felt an earthquake. In Japan tsunamis follow earthquakes, and this one had come out of a calm night. It was a tsunami without a parent: an orphan."
+     "text": "Around midnight between 27 and 28 January 1700 by the Western calendar,[^genroku] a tsunami came ashore along about 1,000 kilometres of the Pacific coast of Japan, from northern Honshu to the Kii Peninsula. At Miyako the sea flooded houses and fields, and the flooding set off a fire that burned houses; at Tanabe the flood ran into rice paddies and storehouses. Officials and merchants wrote it down, as they recorded everything that affected taxes and rice. What puzzled them was that nobody had felt an earthquake. In Japan tsunamis follow earthquakes, and this one had come out of a calm night. It was a tsunami without a parent: an orphan."
     },
     {
      "type": "text",
@@ -59,7 +59,7 @@
     },
     {
      "type": "text",
-     "text": "Red cedar rots very slowly, and its tree rings record each year it grew. David Yamaguchi, a tree-ring scientist, matched the rings of the dead cedars against those of living old trees nearby, ring by ring, to find the year of each dead tree's outermost ring. In 1997, with Atwater and others, he reported the result: in the roots of the dead trees, the last ring had grown in 1699, and the roots died before the growing season of 1700 began. The earthquake had struck in the winter between."
+     "text": "Red cedar rots very slowly, and its tree rings record each year it grew. David Yamaguchi, a tree-ring scientist, matched the rings of the dead cedars against those of living old trees nearby, ring by ring,[^crossdate] to find the year of each dead tree's outermost ring. In 1997, with Atwater and others, he reported the result: in the roots of the dead trees, the last ring had grown in 1699, and the roots died before the growing season of 1700 began. The earthquake had struck in the winter between."
     },
     {
      "type": "key_ideas",
@@ -94,6 +94,41 @@
     {
      "type": "text",
      "text": "People on the coast had their own record. Peoples of the coast from Vancouver Island to northern California tell of a night when the ground shook and the sea came in and swept villages away. The Huu-ay-aht First Nation's account tells how the people of Pachena Bay on Vancouver Island were lost in a flood one winter night. In 2005 the seismologist Ruth Ludwin and colleagues gathered such accounts, and many fit a winter night about three hundred years ago."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "How the orphan found its parent.",
+     "options": {
+      "events": [
+       {
+        "at": 1700,
+        "label": "A tsunami reaches Japan with no earthquake felt",
+        "bold": true
+       },
+       {
+        "at": 1986,
+        "label": "Atwater finds buried marshes on the Washington coast"
+       },
+       {
+        "at": 1987,
+        "label": "Atwater publishes evidence of sudden drops of the coast"
+       },
+       {
+        "at": 1996,
+        "label": "Satake and colleagues date the earthquake from the Japanese records"
+       },
+       {
+        "at": 1997,
+        "label": "Yamaguchi’s tree rings put it in the winter of 1699–1700"
+       },
+       {
+        "at": 2005,
+        "label": "Ludwin and colleagues gather the coast peoples’ accounts"
+       }
+      ],
+      "spacing": "even"
+     }
     },
     {
      "type": "key_ideas",
@@ -213,5 +248,16 @@
   "**It will happen again.** About twenty great earthquakes have struck in 10,000 years, and the fault is locked now."
  ],
  "journal": [],
- "footnotes": {}
+ "footnotes": {
+  "genroku": {
+   "kind": "digression",
+   "title": "The twelfth month of Genroku 12",
+   "text": "Japanese records date the wave to the eighth day of the twelfth month of the twelfth year of the Genroku era, by the calendar then used in Japan."
+  },
+  "crossdate": {
+   "kind": "technical",
+   "title": "Cross-dating",
+   "text": "Wet and dry, warm and cold years make wide and narrow rings, and the same run of years leaves the same pattern in every tree of a region. Matching a dead tree's pattern against a living tree, whose rings can be counted back from today, gives each of the dead tree's rings its calendar year."
+  }
+ }
 }

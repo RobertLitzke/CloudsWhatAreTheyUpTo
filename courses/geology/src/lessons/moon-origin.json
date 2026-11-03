@@ -90,7 +90,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In 1975 William Hartmann and Donald Davis at the Planetary Science Institute in Tucson proposed a different event, and in 1976 Alastair Cameron and William Ward at Harvard reached the same idea from the spin. Late in the building of the planets, a body roughly the size of Mars, now often called Theia, struck the young Earth a glancing blow. The impact melted and vaporised much of both bodies' outer layers and threw a disc of hot debris into orbit around the Earth. In computer simulations the Moon gathers out of that disc quickly, within a few centuries or less."
+     "text": "In 1975 William Hartmann and Donald Davis at the Planetary Science Institute in Tucson proposed a different event, and in 1976 Alastair Cameron and William Ward at Harvard reached the same idea from the spin. Late in the building of the planets, a body roughly the size of Mars, now often called Theia,[^theia] struck the young Earth a glancing blow. The impact melted and vaporised much of both bodies' outer layers and threw a disc of hot debris into orbit around the Earth. In computer simulations the Moon gathers out of that disc quickly, within a few centuries or less."
     },
     {
      "type": "text",
@@ -98,7 +98,50 @@
     },
     {
      "type": "text",
-     "text": "The idea was not taken seriously at first. It invoked a unique catastrophe, and planetary scientists preferred processes that happen routinely. The turning point was a conference at Kona, Hawaii, in 1984, where the arguments for the other theories were set side by side with the impact. The impact was the only one left standing, and it has been the leading explanation since."
+     "text": "The idea was not taken seriously at first. It invoked a unique catastrophe, and planetary scientists preferred processes that happen routinely. The turning point was a conference at Kona, Hawaii, in 1984,[^kona] where the arguments for the other theories were set side by side with the impact. The impact was the only one left standing, and it has been the leading explanation since."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "Where the Moon came from: the argument so far.",
+     "options": {
+      "events": [
+       {
+        "at": 1879,
+        "label": "George Darwin: the Moon split off a fast-spinning Earth"
+       },
+       {
+        "at": 1882,
+        "label": "Fisher: the Pacific is the scar"
+       },
+       {
+        "at": 1969,
+        "label": "Apollo 11 brings back the first samples"
+       },
+       {
+        "at": 1973,
+        "label": "Clayton finds Earth and Moon share their oxygen"
+       },
+       {
+        "at": 1975,
+        "label": "Hartmann and Davis propose a giant impact"
+       },
+       {
+        "at": 1976,
+        "label": "Cameron and Ward reach it from the Earth’s spin"
+       },
+       {
+        "at": 1984,
+        "label": "The Kona meeting: the impact is left standing",
+        "bold": true
+       },
+       {
+        "at": 2016,
+        "label": "Young’s group finds Earth and Moon oxygen identical to a few parts per million"
+       }
+      ],
+      "spacing": "even"
+     }
     },
     {
      "type": "key_ideas",
@@ -230,5 +273,16 @@
   "**Samples can settle old debates.** Chemistry from returned rock decided what telescopes and theory could not."
  ],
  "journal": [],
- "footnotes": {}
+ "footnotes": {
+  "theia": {
+   "kind": "digression",
+   "title": "Theia",
+   "text": "In Greek myth Theia was a Titan, the mother of Selene, the Moon. The British geochemist Alex Halliday suggested the name for the impactor in 2000."
+  },
+  "kona": {
+   "kind": "digression",
+   "title": "Kona, 1984",
+   "text": "The meeting, on the origin of the Moon, was organised by William Hartmann, Roger Phillips and Jeffrey Taylor. Its proceedings, published in 1986, became the standard reference for the impact idea."
+  }
+ }
 }

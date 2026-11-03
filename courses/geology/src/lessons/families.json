@@ -21,7 +21,7 @@
     },
     {
      "type": "text",
-     "text": "The scheme was tidy, and it was useful to miners, who could learn what lay under what. Its trouble was that rocks kept turning up in the wrong drawer. Lesson 4 described one problem: granite that had been squeezed, molten, into cracks in younger rock. A second came from the Alps. By the 1820s and 1830s geologists working there were finding glittering, crystalline schists and marbles that could be followed along the mountainside into ordinary shale and limestone with fossils in them. In some places the schist held fossils itself: **belemnites**, the bullet-shaped internal shells of squid-like animals that lived in the Jurassic seas, stretched and snapped apart inside rock that Werner would have called Primitive."
+     "text": "The scheme was tidy, and it was useful to miners, who could learn what lay under what. Its trouble was that rocks kept turning up in the wrong drawer. Lesson 4 described one problem: granite that had been squeezed, molten, into cracks in younger rock. A second came from the Alps. By the 1820s and 1830s geologists working there were finding glittering, crystalline schists and marbles that could be followed along the mountainside into ordinary shale and limestone with fossils in them. In some places the schist held fossils itself: **belemnites**[^thunderbolts], the bullet-shaped internal shells of squid-like animals that lived in the Jurassic seas, stretched and snapped apart inside rock that Werner would have called Primitive."
     },
     {
      "type": "diagram",
@@ -200,7 +200,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In the 1910s and 1920s Norman Bowen, a Canadian working at the Geophysical Laboratory in Washington, D.C., showed why a melt can become rich in silica, and why granite melts so much more easily than basalt. He melted mixtures of rock-forming minerals in small capsules, cooled them to a set temperature, and then quenched them in water or mercury so that whatever crystals had formed by then were frozen in place in glass. Run after run, the crystals appeared in the same order."
+     "text": "In the 1910s and 1920s Norman Bowen, a Canadian working at the Geophysical Laboratory in Washington, D.C., showed why a melt can become rich in silica, and why granite melts so much more easily than basalt. He melted mixtures of rock-forming minerals in small capsules, cooled them to a set temperature, and then quenched them in water or mercury so that whatever crystals had formed by then were frozen in place in glass. Run after run, the crystals appeared in the same order.[^bowen]"
     },
     {
      "type": "interactive_diagram",
@@ -325,5 +325,16 @@
   "**Bowen's order ties them together.** Minerals crystallise from olivine to quartz; removing early crystals makes a melt richer in silica, the last to crystallise melt first, and weathering leaves quartz sand and clay."
  ],
  "journal": [],
- "footnotes": {}
+ "footnotes": {
+  "thunderbolts": {
+   "kind": "digression",
+   "title": "Thunderbolts",
+   "text": "In English folklore belemnites were thunderbolts or thunderstones, thought to have fallen from the sky in storms, and they were kept in houses as a charm against lightning."
+  },
+  "bowen": {
+   "kind": "technical",
+   "title": "Bowen's reaction series",
+   "text": "Geologists call the order **Bowen's reaction series**. It has two branches: dark minerals that replace one another as the melt cools (olivine, then pyroxene, amphibole and biotite), each reacting with the liquid to make the next, and feldspar that changes gradually from calcium-rich to sodium-rich. The branches meet in the last minerals to form: potassium feldspar, muscovite mica and quartz."
+  }
+ }
 }

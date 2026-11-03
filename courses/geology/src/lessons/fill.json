@@ -47,6 +47,46 @@
     },
     {
      "type": "diagram",
+     "id": "timeline",
+     "caption": "Seattle remakes its ground.",
+     "options": {
+      "events": [
+       {
+        "at": 1851,
+        "label": "The Denny party lands at Alki Point"
+       },
+       {
+        "at": 1889,
+        "label": "The Great Fire; the old town is rebuilt a storey higher on fill"
+       },
+       {
+        "at": 1898,
+        "label": "The first regrade of Denny Hill begins",
+        "to": 1930
+       },
+       {
+        "at": 1903,
+        "label": "Harbor Island built from dredged river sediment",
+        "to": 1909
+       },
+       {
+        "at": 1930,
+        "label": "The last of Denny Hill is carried away"
+       },
+       {
+        "at": 2001,
+        "label": "The Nisqually earthquake: the fill cracks and liquefies",
+        "bold": true
+       },
+       {
+        "at": 2019,
+        "label": "A tunnel through glacial soil replaces the Alaskan Way Viaduct"
+       }
+      ]
+     }
+    },
+    {
+     "type": "diagram",
      "id": "map",
      "caption": "Seattle around 1900 and today. Shaded: roughly where the tideflats were filled, Harbor Island, and Denny Hill, sluiced away.",
      "options": {

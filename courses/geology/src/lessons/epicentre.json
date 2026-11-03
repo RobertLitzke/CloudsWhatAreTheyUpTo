@@ -107,7 +107,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Knowing where is half the job. In 1935 Charles Richter at Caltech, working with Beno Gutenberg, wanted a way to compare the sizes of southern California's earthquakes. People rated quakes by the damage they did, which depends on the buildings and on how far away they were. Richter instead used the largest swing on a standard seismograph, the Wood-Anderson, corrected for the distance to the quake (using a table that showed how much the swing fades with distance). Because the swings ranged from a thousandth of a millimetre to many centimetres, he counted powers of ten instead of millimetres, as a pH or decibel scale does: each step of one on his **magnitude** scale means a swing ten times larger, so a magnitude 5 swings ten times as far as a 4 and a hundred times as far as a 3."
+     "text": "Knowing where is half the job. In 1935 Charles Richter at Caltech, working with Beno Gutenberg,[^gutenberg] wanted a way to compare the sizes of southern California's earthquakes. People rated quakes by the damage they did, which depends on the buildings and on how far away they were. Richter instead used the largest swing on a standard seismograph, the Wood-Anderson, corrected for the distance to the quake (using a table that showed how much the swing fades with distance). Because the swings ranged from a thousandth of a millimetre to many centimetres, he counted powers of ten instead of millimetres, as a pH or decibel scale does: each step of one on his **magnitude** scale means a swing ten times larger, so a magnitude 5 swings ten times as far as a 4 and a hundred times as far as a 3."
     },
     {
      "type": "diagram",
@@ -217,5 +217,11 @@
   "**Magnitude is logarithmic.** Each step is ten times the ground swing and about 32 times the energy."
  ],
  "journal": [],
- "footnotes": {}
+ "footnotes": {
+  "gutenberg": {
+   "kind": "digression",
+   "title": "Whose scale?",
+   "text": "Richter acknowledged that the logarithmic form was Gutenberg's suggestion, and the two extended the scale to distant earthquakes together. The name that stuck in the newspapers was Richter's alone."
+  }
+ }
 }

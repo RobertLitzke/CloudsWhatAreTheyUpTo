@@ -53,7 +53,7 @@
     },
     {
      "type": "text",
-     "text": "Volcanoes gave a second clock. Between two beds high in the pile lie thin layers of volcanic ash from Mount St Helens, more than 200 kilometres to the west, from eruptions that geologists have dated to about 15,000 years ago (about 13,000 radiocarbon years). The ash settled on dry ground and lay in an undisturbed sheet; it had not been stirred into moving floodwater. So that ground was dry when the ash fell, between one flood and the next."
+     "text": "Volcanoes gave a second clock. Between two beds high in the pile lie thin layers of volcanic ash from Mount St Helens, more than 200 kilometres to the west, from eruptions that geologists have dated to about 15,000 years ago (about 13,000 radiocarbon years)[^c14]. The ash settled on dry ground and lay in an undisturbed sheet; it had not been stirred into moving floodwater. So that ground was dry when the ash fell, between one flood and the next."
     },
     {
      "type": "interactive_diagram",
@@ -97,6 +97,45 @@
     {
      "type": "text",
      "text": "Bretz's single flood thus became many, and that did not weaken his case. It strengthened it. Each flood was still far beyond anything in the historical record, and the many of them together shaped the scablands in ways no ordinary river could have done."
+    },
+    {
+     "type": "diagram",
+     "id": "timeline",
+     "caption": "The argument over the floods.",
+     "options": {
+      "events": [
+       {
+        "at": 1910,
+        "label": "Pardee describes Glacial Lake Missoula"
+       },
+       {
+        "at": 1923,
+        "label": "Bretz proposes the Spokane Flood"
+       },
+       {
+        "at": 1927,
+        "label": "Bretz’s case is rejected at a meeting in Washington, DC"
+       },
+       {
+        "at": 1940,
+        "label": "Pardee shows giant ripples where the lake drained"
+       },
+       {
+        "at": 1965,
+        "label": "“We are now all catastrophists”: a telegram to Bretz"
+       },
+       {
+        "at": 1979,
+        "label": "Bretz, 96, receives the Penrose Medal"
+       },
+       {
+        "at": 1980,
+        "label": "Waitt counts about forty floods in the Touchet Beds",
+        "bold": true
+       }
+      ],
+      "spacing": "even"
+     }
     },
     {
      "type": "key_ideas",
@@ -183,5 +222,11 @@
   "**Many floods, not one.** Each was still enormous, and together they shaped the scablands."
  ],
  "journal": [],
- "footnotes": {}
+ "footnotes": {
+  "c14": {
+   "kind": "technical",
+   "title": "Radiocarbon years",
+   "text": "Radiocarbon dating assumes the air always held the same share of carbon-14, and it has not: the share has wandered as the Sun's activity and the Earth's magnetic field changed. A raw radiocarbon age is therefore converted to calendar years with a curve built from tree rings, corals and cave deposits of known age. For ice-age dates the two differ by a couple of thousand years."
+  }
+ }
 }

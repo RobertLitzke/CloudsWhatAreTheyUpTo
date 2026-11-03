@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "By the middle of the nineteenth century, geologists had taken Hutton's lesson to heart. In the first edition of *On the Origin of Species* (1859), Charles Darwin estimated that rain and rivers had needed some 300 million years just to wear away the dome of chalk and sandstone across the Weald in southern England, and he wanted far more time than that for natural selection to do its work. Time, for the geologists, seemed to be available in whatever quantity the rocks required."
+          "text": "By the middle of the nineteenth century, geologists had taken Hutton's lesson to heart. In the first edition of *On the Origin of Species* (1859), Charles Darwin estimated that rain and rivers had needed some 300 million years just to wear away the dome of chalk and sandstone across the Weald in southern England[^weald], and he wanted far more time than that for natural selection to do its work. Time, for the geologists, seemed to be available in whatever quantity the rocks required."
         },
         {
           "type": "text",
@@ -188,7 +188,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Step one: a lead that never changes.** Natural lead comes in four stable isotopes: lead-204, lead-206, lead-207 and lead-208. Uranium-238 decays to lead-206 and uranium-235 to lead-207 (thorium makes lead-208, which we can leave aside). Nothing decays to lead-204, so a rock keeps exactly the lead-204 it started with. That makes it a ruler. Instead of asking how much lead-206 a meteorite contains, which depends on how big a piece you grind up, ask how many atoms of lead-206 it has for every atom of lead-204. That number begins at some value and can only grow as uranium decays. The same goes for lead-207. A mass spectrometer, which sorts atoms by weight, measures exactly these ratios."
+          "text": "**Step one: a lead that never changes.** Natural lead comes in four stable isotopes: lead-204, lead-206, lead-207 and lead-208. Uranium-238 decays to lead-206 and uranium-235 to lead-207 (thorium makes lead-208, which we can leave aside). Nothing decays to lead-204, so a rock keeps exactly the lead-204 it started with. That makes it a ruler. Instead of asking how much lead-206 a meteorite contains, which depends on how big a piece you grind up, ask how many atoms of lead-206 it has for every atom of lead-204. That number begins at some value and can only grow as uranium decays. The same goes for lead-207. A mass spectrometer, which sorts atoms by weight, measures exactly these ratios.[^spectrometer]"
         },
         {
           "type": "text",
@@ -220,7 +220,7 @@
         },
         {
           "type": "text",
-          "text": "To get a clean measurement, Patterson first had to build an ultra-clean laboratory, because every surface, beaker and reagent he tested was swamped with industrial lead from leaded petrol and paint. He spent much of his later career campaigning to get lead out of petrol."
+          "text": "To get a clean measurement, Patterson first had to build an ultra-clean laboratory, because every surface, beaker and reagent he tested was swamped with industrial lead from leaded petrol and paint. He spent much of his later career campaigning to get lead out of petrol.[^ice-lead]"
         },
         {
           "type": "diagram",
@@ -430,5 +430,21 @@
     "**The Earth is 4.55 billion years old.** Patterson's meteorites and the Earth's average lead in ocean mud lie on one line."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "weald": {
+      "kind": "digression",
+      "title": "Darwin's Weald",
+      "text": "Darwin assumed the sea had cut back the edges of the Weald by about an inch a century, and came to just over 306 million years. Critics, among them the geologist John Phillips, said the rate was far too slow, and Darwin took the passage out, as the next part tells."
+    },
+    "spectrometer": {
+      "kind": "technical",
+      "title": "Mass spectrometer",
+      "text": "A mass spectrometer turns atoms into electrically charged ions, speeds them up and bends their path with a magnet. Heavier ions bend less, so each isotope lands in its own place on the detector, and counting the ions at each place gives the ratio."
+    },
+    "ice-lead": {
+      "kind": "digression",
+      "title": "Lead in the ice",
+      "text": "In 1969 Patterson and his colleagues showed that snow laid down on the Greenland ice sheet in recent decades held about two hundred times as much lead as snow from before the Industrial Revolution, most of it from leaded petrol. Lead was taken out of American petrol from the 1970s, and the lead in Americans' blood fell by more than three-quarters."
+    }
+  }
 }
