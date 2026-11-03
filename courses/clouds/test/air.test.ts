@@ -34,7 +34,7 @@ describe('parcel', () => {
   });
 });
 
-import { column, envTemp, mixedTop, moistRate } from '../src/core/air';
+import { column, envTemp, fullOverWater, mixingRatio, mixedTop, moistRate, pressureAt, qsat } from '../src/core/air';
 
 describe('moist rate', () => {
   it('is slow in warm cloud and near the dry rate in cold cloud', () => {
@@ -42,10 +42,31 @@ describe('moist rate', () => {
     expect(moistRate(-40)).toBeGreaterThan(9);
     expect(moistRate(5)).toBeGreaterThan(moistRate(15));
   });
+
+  it('matches the textbook near the ground and is slower in the thin air aloft', () => {
+    expect(moistRate(20)).toBeCloseTo(4.3, 0);
+    expect(moistRate(0)).toBeCloseTo(6.5, 0);
+    expect(moistRate(-10, 5000)).toBeLessThan(moistRate(-10) - 0.8);
+  });
+});
+
+describe('shared thermodynamics', () => {
+  it('gives a standard atmosphere’s pressure', () => {
+    expect(pressureAt(0)).toBeCloseTo(1013.25, 1);
+    expect(pressureAt(5000)).toBeCloseTo(540, 0);
+    expect(pressureAt(10000)).toBeCloseTo(264, 0);
+  });
+
+  it('holds about 3.8 g/kg at 0 °C and sea level, and less over ice than over water', () => {
+    expect(qsat(273.15, 101325) * 1000).toBeCloseTo(3.8, 1);
+    expect(qsat(253.15, 5e4, true)).toBeLessThan(qsat(253.15, 5e4));
+    expect(qsat(273.15, 1e5, true)).toBeCloseTo(qsat(273.15, 1e5), 4);
+    expect(mixingRatio(fullOverWater(10), 1013)).toBeCloseTo(7.6, 0);
+  });
 });
 
 describe('the afternoon column', () => {
-  const base = { dawnC: 12, lapsePerKm: 6, groundC: 22, inversion: { atM: 2400, deltaC: 3 } };
+  const base = { dawnC: 12, lapsePerKm: 5.5, groundC: 22, inversion: { atM: 2400, deltaC: 3 } };
 
   it('stirs a deeper layer as the ground warms', () => {
     expect(mixedTop({ ...base, groundC: 26 })).toBeGreaterThan(mixedTop(base));

@@ -44,9 +44,36 @@ describe('sky lab', () => {
 
   it('keeps every field finite and water non-negative', () => {
     const s = run({ sun: 10, humidity: 85, aloftC: -14, windMs: -10 }, 2);
-    for (const f of [s.th, s.qv, s.qc, s.qr, s.u, s.w]) expect(f.every(Number.isFinite)).toBe(true);
-    for (const f of [s.qv, s.qc, s.qr]) expect(Math.min(...f)).toBeGreaterThanOrEqual(0);
+    for (const f of [s.th, s.qv, s.qc, s.qi, s.qr, s.u, s.w]) expect(f.every(Number.isFinite)).toBe(true);
+    for (const f of [s.qv, s.qc, s.qi, s.qr]) expect(Math.min(...f)).toBeGreaterThanOrEqual(0);
   }, 60000);
+
+  it('freezes a storm’s top into ice, and melts the snow before it lands on a summer day', () => {
+    const s = run({ sun: 10, humidity: 85, aloftC: -14 }, 2);
+    const t = s.totals();
+    expect(t.ice).toBeGreaterThan(t.cloud);
+    let cold = 0;
+    for (let j = 0; j < s.nz; j++) {
+      for (let i = 0; i < s.nx; i++) {
+        if (s.tempC(i, j) >= -38) continue;
+        cold++;
+        expect(s.qc[i + j * s.nx]).toBeLessThan(1e-6);
+      }
+    }
+    expect(cold).toBeGreaterThan(100);
+    expect(t.rain).toBeGreaterThan(0.5);
+    const snow = s.snow.reduce((a, b) => a + b, 0) / s.nx;
+    expect(snow).toBeLessThan(t.rain / 100);
+  }, 60000);
+
+  it('puts the air 5 km up at the temperature the control says', () => {
+    for (const aloftC of [-16, -6, 6]) {
+      const s = new SkySim(ridge, { ...ridge.start, aloftC });
+      const j = Math.round(5000 / s.dz - 0.5);
+      const slope = (25 - aloftC) / 5000;
+      expect(s.th0[j] * s.pi0[j] - 273.15).toBeCloseTo(aloftC - slope * (s.zOf(j) - 5000), 0);
+    }
+  });
 
   it('eases a change of air mass in rather than all at once', () => {
     const s = new SkySim(ridge);

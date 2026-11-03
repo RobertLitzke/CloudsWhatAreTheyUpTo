@@ -17,8 +17,9 @@
 // flurries, 5 to 3,000 snow the cloud out, and more than that share the water
 // so thinly that none grow big enough to fall: an overseeded veil of ice.
 
-import { TROPOPAUSE_M, cloudBase, column, parcelAt, type Environment } from './air';
+import { ICE_TOP_M, TROPOPAUSE_M, cloudBase, column, parcelAt, type Environment } from './air';
 import type { GenusId } from './clouds';
+import { CRYSTALS_PER_LB_MILE, HOMOGENEOUS_C, fletcherIce } from './cold-cloud';
 
 export type Cooling = 'night' | 'sun' | 'hills' | 'front';
 export type Agent = 'none' | 'dryIce' | 'silverIodide';
@@ -55,8 +56,7 @@ export const DOSE: Record<Exclude<Agent, 'none'>, { label: string; min: number; 
   silverIodide: { label: 'Silver iodide', min: 0, max: 50, step: 1, unit: 'g per mile' },
 };
 
-/** Below this, droplets freeze on their own. */
-export const HOMOGENEOUS_C = -38;
+export { HOMOGENEOUS_C };
 /** Silver iodide starts to make ice below this. */
 export const SILVER_IODIDE_C = -5;
 /** Crystals per litre: under FLURRIES only flurries; over VEIL, overseeded. */
@@ -66,8 +66,6 @@ export const VEIL = 3000;
 const NATURAL_SNOW = 0.5;
 /** Clouds thinner than this are layers that seeding clears rather than empties. */
 const THIN_M = 1000;
-/** Cumulus tops above this have frozen into a cumulonimbus (core/air.ts). */
-const ICE_TOP_M = 8000;
 
 export type Made = GenusId | 'fog' | 'clear';
 
@@ -104,23 +102,32 @@ export function clampSetup(s: Setup): Setup {
 }
 
 /**
- * Natural ice crystals per litre at a temperature: tenfold for every 4 °C, one
- * per litre at -20 °C. Nature never overseeds: in a cloud colder than that,
+ * Natural ice crystals per litre at a temperature: Fletcher's rule from the
+ * seeding lessons (core/cold-cloud.ts), tenfold for every 4 °C and one per
+ * litre at -20 °C. Nature never overseeds: in a cloud colder than that,
  * crystals that form early fall out and take the water with them, so the count
  * is held at 100.
  */
 export function naturalIce(tempC: number): number {
   if (tempC >= 0) return 0;
   if (tempC <= HOMOGENEOUS_C) return 100;
-  return Math.min(100, Math.pow(10, (-20 - tempC) / 4));
+  return Math.min(100, fletcherIce(tempC));
 }
 
-/** Crystals per litre a seeding run makes in cloud at `tempC`. */
+/** Below about this, °C, every speck of silver iodide is already at work, and colder makes no more ice. */
+const SILVER_IODIDE_ALL_C = -20;
+
+/**
+ * Crystals per litre a seeding run makes in cloud at `tempC`. Dry ice freezes
+ * droplets at any temperature below 0 °C, the same number per pound whatever
+ * the cold. Silver iodide starts below −5 °C, and tenfold more of its specks
+ * work for every 4 °C colder until, around −20 °C, all of them do.
+ */
 export function seededIce(agent: Agent, dose: number, tempC: number): number {
   if (agent === 'none' || dose <= 0 || tempC >= 0) return 0;
-  if (agent === 'dryIce') return dose * 50;
+  if (agent === 'dryIce') return dose * CRYSTALS_PER_LB_MILE;
   if (tempC > SILVER_IODIDE_C) return 0;
-  return dose * 0.2 * Math.pow(10, (SILVER_IODIDE_C - tempC) / 4);
+  return dose * 0.2 * Math.pow(10, (SILVER_IODIDE_C - Math.max(tempC, SILVER_IODIDE_ALL_C)) / 4);
 }
 
 const round = (n: number) => Math.round(n);

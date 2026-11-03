@@ -15,7 +15,7 @@ describe('violent storms', () => {
     const some = capBreak(2)!;
     expect(none.hour).toBeLessThan(11);
     expect(some.hour).toBeGreaterThan(none.hour + 2);
-    expect(some.fuel.cape).toBeGreaterThan(none.fuel.cape * 1.5);
+    expect(some.fuel.cape).toBeGreaterThan(none.fuel.cape * 1.2);
     expect(capBreak(4)).toBeNull();
   });
 

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { ORDERS } from '../src/core/orders';
 import { DEFAULT_SETUP, VEIL, formCloud, naturalIce, seed, seededIce, type Setup } from '../src/core/seeding';
+import * as coldCloud from '../src/core/cold-cloud';
 import { migrate } from '../src/core/save';
 
 const sky = (s: Partial<Setup>) => seed({ ...DEFAULT_SETUP, ...s });
@@ -17,6 +18,13 @@ describe('ice', () => {
     expect(seededIce('dryIce', 1, 3)).toBe(0);
     expect(seededIce('silverIodide', 10, -4)).toBe(0);
     expect(seededIce('silverIodide', 10, -15)).toBeGreaterThan(seededIce('silverIodide', 10, -8));
+    // Every speck is at work by −20 °C; colder makes no more.
+    expect(seededIce('silverIodide', 10, -30)).toBe(seededIce('silverIodide', 10, -20));
+  });
+
+  it('counts natural ice the same way as the seeding lessons', () => {
+    expect(naturalIce(-12)).toBeCloseTo(coldCloud.naturalIce(-12), 6);
+    expect(naturalIce(-40)).toBe(100);
   });
 });
 
@@ -42,7 +50,7 @@ describe('seeding', () => {
   const deck: Partial<Setup> = { cooling: 'front', groundC: 8, dewC: 0, strength: 2600, lapsePerKm: 5.5 };
 
   it('does nothing to a warm cloud', () => {
-    const warm: Partial<Setup> = { cooling: 'front', groundC: 20, dewC: 18, strength: 1500, lapsePerKm: 5.5 };
+    const warm: Partial<Setup> = { cooling: 'front', groundC: 20, dewC: 18, strength: 1500, lapsePerKm: 4 };
     expect(formCloud({ ...DEFAULT_SETUP, ...warm }).topC).toBeGreaterThan(0);
     const s = sky({ ...warm, agent: 'dryIce', dose: 5 });
     expect(s.seededIce).toBe(0);

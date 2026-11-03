@@ -10,6 +10,31 @@
 export const DRY_RATE = 9.8 / 1000;
 export const DEW_RATE = 1.8 / 1000;
 
+// ---------------------------------------------------------------------------
+// The constants every model in core shares, so that no two of them disagree.
+
+/** Gravity, m/s². */
+export const G = 9.81;
+/** Heat capacity of air at constant pressure, J/(kg K). */
+export const CP = 1004;
+/** Gas constants of dry air and of water vapour, J/(kg K). */
+export const RD = 287;
+export const RV = 461.5;
+/** Vapour's share of the weight of air, molecule for molecule: RD / RV. */
+export const EPSILON = RD / RV;
+/** Latent heat of condensing vapour, of freezing water, and of vapour going straight to ice, J/kg. */
+export const LV = 2.5e6;
+export const LF = 3.34e5;
+export const LS = LV + LF;
+
+/**
+ * Pressure of a standard atmosphere at a height, hPa: 1013 at sea level,
+ * about 540 at 5 km, 265 at 10 km.
+ */
+export function pressureAt(heightM: number): number {
+  return 1013.25 * Math.pow(Math.max(0, 1 - (0.0065 * heightM) / 288.15), 5.2559);
+}
+
 /** Height in metres at which air from the ground turns to cloud. */
 export function cloudBase(tempC: number, dewC: number): number {
   return Math.max(0, (tempC - dewC) / (DRY_RATE - DEW_RATE));
@@ -45,6 +70,22 @@ export function fullOverIce(tempC: number): number {
   return 6.112 * Math.exp((22.46 * tempC) / (272.62 + tempC));
 }
 
+/** Grams of vapour in a kilogram of dry air when its vapour pressure is `hPa`, at pressure `pHpa`. */
+export function mixingRatio(hPa: number, pHpa: number): number {
+  return (1000 * EPSILON * hPa) / Math.max(pHpa - hPa, 1e-3);
+}
+
+/**
+ * The most vapour a kilogram of air can hold at `tK` kelvin and `pPa` pascals,
+ * as a fraction by weight (kg/kg), next to water, or next to ice with `ice`.
+ * This is the form the sky lab's fields are kept in.
+ */
+export function qsat(tK: number, pPa: number, ice = false): number {
+  const c = tK - 273.15;
+  const es = 100 * (ice ? fullOverIce(c) : fullOverWater(c));
+  return (EPSILON * es) / Math.max(pPa - es, 1);
+}
+
 export interface Parcel {
   heightM: number;
   tempC: number;
@@ -54,20 +95,20 @@ export interface Parcel {
 }
 
 /**
- * How fast saturated air cools, °C per kilometre, at a temperature. Warm air
- * holds a lot of water, and condensing it releases a lot of heat, so warm
- * cloud cools slowly (about 4 °C/km); very cold air has little water left to
- * give and cools almost at the dry rate.
+ * How fast saturated air cools, °C per kilometre, at a temperature and a
+ * height. Warm air holds a lot of water, and condensing it releases a lot of
+ * heat, so warm cloud cools slowly (about 4 °C/km near the ground); very cold
+ * air has little water left to give and cools almost at the dry rate. Higher
+ * up the air is thinner, so a kilogram of it holds more vapour at the same
+ * temperature and cools more slowly still: about 6.5 °C/km at −10 °C near the
+ * ground, but 5.5 at the same temperature 5 km up.
  */
-export function moistRate(tempC: number): number {
-  const table: [number, number][] = [[30, 3.6], [20, 4.3], [10, 5.3], [0, 6.5], [-10, 7.7], [-20, 8.6], [-30, 9.2], [-40, 9.5], [-60, 9.7]];
-  if (tempC >= table[0][0]) return table[0][1];
-  for (let i = 1; i < table.length; i++) {
-    const [t0, r0] = table[i - 1];
-    const [t1, r1] = table[i];
-    if (tempC >= t1) return r0 + ((tempC - t0) / (t1 - t0)) * (r1 - r0);
-  }
-  return table[table.length - 1][1];
+export function moistRate(tempC: number, heightM = 0): number {
+  const t = tempC + 273.15;
+  const qs = qsat(t, 100 * pressureAt(heightM));
+  const a = (LV * qs) / (RD * t);
+  const b = (LV * LV * qs * EPSILON) / (CP * RD * t * t);
+  return DRY_RATE * 1000 * ((1 + a) / (1 + b));
 }
 
 /** The parcel that left the ground at tempC and dewC, lifted to heightM. */
@@ -77,7 +118,7 @@ export function parcelAt(heightM: number, tempC: number, dewC: number): Parcel {
     return { heightM, tempC: tempC - DRY_RATE * heightM, dewC: dewC - DEW_RATE * heightM, cloud: false };
   }
   let t = tempC - DRY_RATE * base;
-  for (let h = base; h < heightM; h += 10) t -= (moistRate(t) / 1000) * Math.min(10, heightM - h);
+  for (let h = base; h < heightM; h += 10) t -= (moistRate(t, h) / 1000) * Math.min(10, heightM - h);
   return { heightM, tempC: t, dewC: t, cloud: true };
 }
 

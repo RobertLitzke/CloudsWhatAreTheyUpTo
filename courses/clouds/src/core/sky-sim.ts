@@ -6,21 +6,22 @@
 // gives back its heat and keeps the cloud rising. Cloud water that collects
 // long enough turns to rain, which falls, and dries back into the air below
 // if that air is dry. Wind carries all of it, and the ground turns it upward.
+// High up, where it is far below freezing, cloud turns to ice, which falls
+// slowly as snow and melts into rain below the freezing line.
 //
 // The physics, for the curious: a two-dimensional Boussinesq atmosphere in
 // vorticity and streamfunction form (the flow can't pile up, so a column of
 // numbers per cell is enough), potential temperature so dry air keeps its
-// value as it rises, saturation adjustment for cloud, and Kessler's warm rain
-// (autoconversion, collection, evaporation). Ice is left out: anything above
-// the freezing line is still drawn as cloud, it just doesn't snow.
+// value as it rises, semi-Lagrangian advection, Smagorinsky mixing for the
+// turbulence the cells are too big to hold (which is what entrains dry air
+// into a thermal), and in core/sky-moist.ts saturation adjustment for cloud,
+// one class of ice with glaciation, deposition and melting, and Kessler's
+// warm rain. The slice is two-dimensional, so its convection is somewhat too
+// vigorous and its wind is the same at every height.
 
 import { makeRng } from 'didactics/rng';
-
-const G = 9.81;
-const CP = 1004;
-const RD = 287;
-const RV = 461.5;
-const LV = 2.5e6;
+import { CP, G, RD, qsat } from './air';
+import { fall, moist } from './sky-moist';
 
 export type Ground = 'field' | 'lake' | 'forest' | 'rock';
 
@@ -32,9 +33,10 @@ export interface Controls {
   /** Wind from the west (+) or east (-), m/s. */
   windMs: number;
   /**
-   * Air temperature 5 km up, °C, with the ground air at 25 °C. The colder the
-   * air aloft, the faster temperature falls with height and the further a
-   * warm bubble rises before it is no warmer than the air around it.
+   * Air temperature 5 km up, °C, with the air at sea level at 25 °C and the
+   * temperature falling steadily between them. The colder the air aloft, the
+   * faster temperature falls with height and the further a warm bubble rises
+   * before it is no warmer than the air around it.
    */
   aloftC: number;
 }
@@ -97,15 +99,17 @@ const LAKE_COOL = 4;
 const NIGHT_CHILL = 7;
 /** How long land takes to follow the sun, s. */
 const GROUND_LAG_S = 1800;
-/** Ice cloud thins by snowing out over about this long, s. */
-const ICE_FALL_S = 2400;
 /** A shear spanning the whole slice fades over about this long, s. */
 const MEAN_SHEAR_S = 1800;
-
-export function qsat(tK: number, pPa: number): number {
-  const es = 611.2 * Math.exp((17.67 * (tK - 273.15)) / (tK - 29.65));
-  return (0.622 * es) / Math.max(pPa - es, 1);
-}
+/**
+ * Smagorinsky's constant: the cells are too coarse to hold the eddies that
+ * stir a thermal into the air around it, so where the wind changes sharply
+ * from cell to cell, heat and water are mixed between them at a rate set by
+ * that change, less where warm air lies on cold and holds the mixing down.
+ */
+const SMAGORINSKY = 0.17;
+/** The most mixing allowed, m²/s, well under what the step could carry. */
+const MIX_MAX = 1500;
 
 export interface SkyOptions {
   /** Cells across and up. */
@@ -144,6 +148,7 @@ export class SkySim {
   th: Float32Array; // potential temperature minus the base state, K
   qv: Float32Array; // water vapour, kg/kg
   qc: Float32Array; // cloud water, kg/kg
+  qi: Float32Array; // cloud ice and snow, kg/kg
   qr: Float32Array; // rain water, kg/kg
   eta: Float32Array; // vorticity, 1/s
   psi: Float32Array; // streamfunction, m²/s
@@ -156,11 +161,13 @@ export class SkySim {
   readonly kind: Ground[];
   /** Ground temperature under each column, K. */
   readonly groundK: Float64Array;
-  /** Rain that has reached the ground in each column, mm. */
+  /** Rain and snow that have reached the ground in each column, mm of water, and the snow's share of it. */
   readonly rain: Float64Array;
+  readonly snow: Float64Array;
   /** Each column's lasting share of the sun, so thermals start in different places. */
   private readonly patch: Float64Array;
   private scratch: Float32Array;
+  private mixK: Float32Array;
   private depX: Float32Array;
   private depY: Float32Array;
   private rng: () => number;
@@ -177,12 +184,14 @@ export class SkySim {
     this.th = new Float32Array(n);
     this.qv = new Float32Array(n);
     this.qc = new Float32Array(n);
+    this.qi = new Float32Array(n);
     this.qr = new Float32Array(n);
     this.eta = new Float32Array(n);
     this.psi = new Float32Array(n);
     this.u = new Float32Array(n);
     this.w = new Float32Array(n);
     this.scratch = new Float32Array(n);
+    this.mixK = new Float32Array(n);
     this.depX = new Float32Array(n);
     this.depY = new Float32Array(n);
     this.th0 = new Float64Array(this.nz);
@@ -197,6 +206,7 @@ export class SkySim {
     this.heightM = new Float64Array(this.nx);
     this.kind = [];
     this.rain = new Float64Array(this.nx);
+    this.snow = new Float64Array(this.nx);
     this.groundK = new Float64Array(this.nx);
     this.patch = new Float64Array(this.nx);
     this.rng = makeRng(opts.seed ?? 7);
@@ -238,15 +248,30 @@ export class SkySim {
     return (this.scenario.startHour + this.t / 3600) % 24;
   }
 
-  /** The background air the controls ask for, which the base state eases toward. */
+  /**
+   * The background air the controls ask for, which the base state eases
+   * toward. Temperature falls steadily from 25 °C at sea level to `aloftC` at
+   * 5 km and on at the same rate to the tropopause, then holds. Potential
+   * temperature is that temperature over the Exner function π of a column in
+   * hydrostatic balance, which for a steady lapse rate is (T/T₀)^(g/(cp Γ)).
+   */
   private target(): void {
     const { aloftC, humidity } = this.controls;
-    // Temperature falls steadily from the ground to 5 km; potential temperature gains what the dry rate takes back.
-    const lapse = (GROUND_K - 273.15 - aloftC) / ALOFT_M;
-    const rate = Math.max(0.0005, 0.0098 - lapse);
+    const lapse = Math.max(1e-4, (GROUND_K - 273.15 - aloftC) / ALOFT_M);
+    const tTrop = GROUND_K - lapse * TROPOPAUSE_M;
+    const piTrop = Math.pow(tTrop / GROUND_K, G / (CP * lapse));
     for (let j = 0; j < this.nz; j++) {
       const z = this.zOf(j);
-      this.th0Goal[j] = z < TROPOPAUSE_M ? GROUND_K + rate * z : GROUND_K + rate * TROPOPAUSE_M + 0.016 * (z - TROPOPAUSE_M);
+      let t: number;
+      let pi: number;
+      if (z < TROPOPAUSE_M) {
+        t = GROUND_K - lapse * z;
+        pi = Math.pow(t / GROUND_K, G / (CP * lapse));
+      } else {
+        t = tTrop;
+        pi = piTrop * Math.exp((-G * (z - TROPOPAUSE_M)) / (CP * tTrop));
+      }
+      this.th0Goal[j] = t / pi;
       this.rhGoal[j] = z > TROPOPAUSE_M ? 0.02 : Math.max(0.05, (humidity / 100) * (1 - (0.75 * z) / TROPOPAUSE_M));
     }
   }
@@ -326,11 +351,14 @@ export class SkySim {
     this.shiftTheta(-1);
     this.advect(this.qv, 1);
     this.advect(this.qc, 2);
-    this.advect(this.qr, 2);
+    // Ice and rain are often absent altogether, and then there is nothing to carry.
+    if (this.qi.some((v) => v > 0)) this.advect(this.qi, 2);
+    if (this.qr.some((v) => v > 0)) this.advect(this.qr, 2);
     this.advect(this.eta, 2);
     this.surface();
-    this.microphysics();
-    this.fall();
+    moist(this);
+    fall(this);
+    this.mix();
     this.buoyancy();
     this.edges();
     // Fewer passes leave the flow lagging the buoyancy, and on a still, stable night that lag grows into a storm.
@@ -563,7 +591,8 @@ export class SkySim {
       const k = i + j * nx;
       const kind = this.kind[i];
       let shade = 0;
-      for (let jj = j; jj < this.nz; jj++) shade += this.qc[i + jj * nx];
+      // Ice cloud is thinner for its weight than water cloud, having fewer, bigger pieces.
+      for (let jj = j; jj < this.nz; jj++) shade += this.qc[i + jj * nx] + 0.5 * this.qi[i + jj * nx];
       const clear = Math.exp(-shade * 900);
       const pi = this.pi0[j];
       const air0 = this.th0[j] * pi;
@@ -604,75 +633,94 @@ export class SkySim {
     return this.groundK[i] - 273.15;
   }
 
-  private microphysics(): void {
-    const { nx, nz, dt, th, qv, qc, qr, floor } = this;
-    const latent = this.latentHeat ? 1 : 0;
+  /**
+   * Sub-grid mixing (Smagorinsky and Lilly): where the wind changes sharply
+   * between neighbouring cells there is turbulence the cells can't hold, and
+   * it mixes heat and water between them, the more the sharper the change;
+   * where warmer air lies on colder (a stable layer), the mixing is held
+   * down, and dies when the Richardson number reaches one. This is what lets
+   * a thermal entrain the drier air around it and lose some of its lift.
+   */
+  private mix(): void {
+    const { nx, nz, dx, dz, u, w, th, th0, floor } = this;
+    const K = this.mixK;
+    const cs2 = SMAGORINSKY * SMAGORINSKY * dx * dz;
     for (let j = 0; j < nz; j++) {
-      const pi = this.pi0[j];
-      const p = this.p0[j];
-      const th0 = this.th0[j];
-      const lcp = LV / (CP * pi);
       for (let i = 0; i < nx; i++) {
-        if (j < floor[i]) continue;
         const k = i + j * nx;
-        let t = (th0 + th[k]) * pi;
-        let qs = qsat(t, p);
-        // Cloud forms or dries at once, enough to leave the air just saturated.
-        if (qv[k] > qs || qc[k] > 0) {
-          let d = (qv[k] - qs) / (1 + (LV * LV * qs) / (CP * RV * t * t));
-          if (d < -qc[k]) d = -qc[k];
-          qv[k] -= d;
-          qc[k] += d;
-          th[k] += latent * lcp * d;
-          t = (th0 + th[k]) * pi;
-          qs = qsat(t, p);
+        if (i === 0 || i === nx - 1 || j < floor[i]) {
+          K[k] = 0;
+          continue;
         }
-        // Kessler: cloud water over 1 g/kg (an inland cloud's many small droplets) slowly turns to rain; rain sweeps up cloud.
-        if (qc[k] > 0) {
-          // High up, below −20 °C, the cloud is ice, and ice crystals drift down out of it whatever its size.
-          const auto = 1e-3 * Math.max(0, qc[k] - 1e-3) + (t < 253 ? qc[k] / ICE_FALL_S : 0);
-          const coll = qr[k] > 0 ? 2.2 * qc[k] * Math.pow(qr[k], 0.875) : 0;
-          const m = Math.min(qc[k], (auto + coll) * dt);
-          qc[k] -= m;
-          qr[k] += m;
+        const jm = Math.max(j - 1, floor[i]);
+        const jp = Math.min(j + 1, nz - 1);
+        const span = (jp - jm) * dz;
+        const dudx = (u[k + 1] - u[k - 1]) / (2 * dx);
+        const dwdx = (w[k + 1] - w[k - 1]) / (2 * dx);
+        const dudz = span > 0 ? (u[i + jp * nx] - u[i + jm * nx]) / span : 0;
+        const dwdz = span > 0 ? (w[i + jp * nx] - w[i + jm * nx]) / span : 0;
+        const s2 = 2 * dudx * dudx + 2 * dwdz * dwdz + (dudz + dwdx) * (dudz + dwdx);
+        if (s2 < 1e-12) {
+          K[k] = 0;
+          continue;
         }
-        // Rain dries into unsaturated air and cools it.
-        if (qr[k] > 0 && qv[k] < qs) {
-          const ev = Math.min(qr[k], qs - qv[k], 4e-3 * (1 - qv[k] / qs) * Math.sqrt(qr[k] * 1e-3) * dt);
-          qr[k] -= ev;
-          qv[k] += ev;
-          th[k] -= latent * lcp * ev;
+        const n2 = span > 0 ? (G / th0[j]) * ((th0[jp] + th[i + jp * nx] - th0[jm] - th[i + jm * nx]) / span) : 0;
+        const ri = n2 / s2;
+        if (ri >= 1) {
+          K[k] = 0;
+          continue;
         }
+        K[k] = Math.min(MIX_MAX, cs2 * Math.sqrt(s2) * Math.min(2, Math.sqrt(1 - ri)));
       }
     }
+    // Heat is mixed as the whole potential temperature, so a well-stirred layer stays as it is.
+    this.shiftTheta(1);
+    this.diffuse(th);
+    this.shiftTheta(-1);
+    this.diffuse(this.qv);
+    this.diffuse(this.qc);
+    this.diffuse(this.qi);
+    this.diffuse(this.qr);
   }
 
-  /** Rain falls at its own speed, faster when heavier, and lands. */
-  private fall(): void {
-    const { nx, nz, dz, dt, qr, floor } = this;
-    for (let i = 0; i < nx; i++) {
-      const f = floor[i];
-      let fromAbove = 0;
-      for (let j = nz - 1; j >= f; j--) {
+  /** One explicit step of diffusion with the mixing field, no flux through the ground or the sides. */
+  private diffuse(f: Float32Array): void {
+    const { nx, nz, dx, dz, dt, floor } = this;
+    const K = this.mixK;
+    const out = this.scratch;
+    const ax = dt / (dx * dx);
+    const az = dt / (dz * dz);
+    for (let j = 0; j < nz; j++) {
+      for (let i = 1; i < nx - 1; i++) {
         const k = i + j * nx;
-        const v = Math.min(9, 4 + 3000 * qr[k]);
-        const frac = Math.min(1, (v * dt) / dz);
-        const out = qr[k] * frac;
-        qr[k] += fromAbove - out;
-        fromAbove = out * (this.rho0[j] / this.rho0[Math.max(j - 1, 0)]);
-        if (j === f) this.rain[i] += out * this.rho0[j] * dz; // kg/m² = mm
+        if (j < floor[i] || (K[k] === 0 && K[k + 1] === 0 && K[k - 1] === 0 && (j === nz - 1 || K[k + nx] === 0) && (j === floor[i] || K[k - nx] === 0))) {
+          out[k] = f[k];
+          continue;
+        }
+        let d = 0;
+        if (j >= floor[i + 1]) d += ax * 0.5 * (K[k] + K[k + 1]) * (f[k + 1] - f[k]);
+        if (j >= floor[i - 1]) d -= ax * 0.5 * (K[k] + K[k - 1]) * (f[k] - f[k - 1]);
+        if (j < nz - 1) d += az * 0.5 * (K[k] + K[k + nx]) * (f[k + nx] - f[k]);
+        if (j > floor[i]) d -= az * 0.5 * (K[k] + K[k - nx]) * (f[k] - f[k - nx]);
+        out[k] = f[k] + d;
+      }
+    }
+    for (let j = 0; j < nz; j++) {
+      for (let i = 1; i < nx - 1; i++) {
+        const k = i + j * nx;
+        if (j >= floor[i]) f[k] = out[k];
       }
     }
   }
 
   private buoyancy(): void {
-    const { nx, nz, dx, dt, th, qv, qc, qr, eta, floor } = this;
+    const { nx, nz, dx, dt, th, qv, qc, qi, qr, eta, floor } = this;
     const b = this.scratch;
     for (let j = 0; j < nz; j++) {
       const inv = 1 / this.th0[j];
       for (let i = 0; i < nx; i++) {
         const k = i + j * nx;
-        b[k] = j < floor[i] ? 0 : G * (th[k] * inv + 0.61 * (qv[k] - this.qv0[j]) - qc[k] - qr[k]);
+        b[k] = j < floor[i] ? 0 : G * (th[k] * inv + 0.61 * (qv[k] - this.qv0[j]) - qc[k] - qi[k] - qr[k]);
       }
     }
     const spongeFrom = nz - 8;
@@ -736,6 +784,7 @@ export class SkySim {
           const k = i + j * nx;
           this.qv[k] += r * (this.qv0[j] - this.qv[k]);
           this.qc[k] -= r * this.qc[k];
+          this.qi[k] -= r * this.qi[k];
           this.qr[k] -= r * this.qr[k];
           this.eta[k] -= r * this.eta[k];
         }
@@ -756,21 +805,24 @@ export class SkySim {
     return this.nz * this.dz;
   }
 
-  /** Totals for the gauges and tests. */
-  totals(): { cloud: number; rain: number; topM: number; maxW: number } {
+  /** Totals for the gauges and tests: cloud water and ice in the slice, kg per metre of its depth; rain landed, mm averaged across; the cloud top; the strongest updraught. */
+  totals(): { cloud: number; ice: number; rain: number; topM: number; maxW: number } {
     let cloud = 0;
+    let ice = 0;
     let topM = 0;
     let maxW = 0;
     for (let j = 0; j < this.nz; j++) {
       for (let i = 0; i < this.nx; i++) {
         const k = i + j * this.nx;
-        cloud += this.qc[k] * this.rho0[j] * this.dz * this.dx;
-        if (this.qc[k] > 1e-5) topM = Math.max(topM, (j + 1) * this.dz);
+        const area = this.rho0[j] * this.dz * this.dx;
+        cloud += this.qc[k] * area;
+        ice += this.qi[k] * area;
+        if (this.qc[k] + this.qi[k] > 1e-5) topM = Math.max(topM, (j + 1) * this.dz);
         maxW = Math.max(maxW, this.w[k]);
       }
     }
     let rain = 0;
     for (let i = 0; i < this.nx; i++) rain += this.rain[i];
-    return { cloud, rain: rain / this.nx, topM, maxW };
+    return { cloud, ice, rain: rain / this.nx, topM, maxW };
   }
 }

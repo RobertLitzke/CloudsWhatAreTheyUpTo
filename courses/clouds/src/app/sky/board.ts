@@ -4,7 +4,8 @@
 // Heights are stretched, as in every cross-section: the slice is 64 km wide
 // and 12 km tall, drawn about four times taller than true.
 
-import { qsat, type Ground, type SkySim } from '../../core/sky-sim';
+import { qsat } from '../../core/air';
+import type { Ground, SkySim } from '../../core/sky-sim';
 
 type RGB = [number, number, number];
 
@@ -131,8 +132,9 @@ export class Board {
   private h = 0;
   private dpr = 1;
   private od: Float32Array;
-  /** Cloud and rain water softened across a cell or two, for drawing. */
+  /** Cloud (water and ice together), ice alone and rain, softened across a cell or two, for drawing. */
   private qc: Float32Array;
+  private qi: Float32Array;
   private qr: Float32Array;
   private tmp: Float32Array;
   private motes: Mote[] = [];
@@ -151,6 +153,7 @@ export class Board {
     this.bctx = this.buf.getContext('2d')!;
     this.od = new Float32Array(sim.nx * sim.nz);
     this.qc = new Float32Array(sim.nx * sim.nz);
+    this.qi = new Float32Array(sim.nx * sim.nz);
     this.qr = new Float32Array(sim.nx * sim.nz);
     this.tmp = new Float32Array(sim.nx * sim.nz);
     this.tempC = new Float32Array(sim.nx * sim.nz);
@@ -162,6 +165,7 @@ export class Board {
     this.sim = sim;
     this.od = new Float32Array(sim.nx * sim.nz);
     this.qc = new Float32Array(sim.nx * sim.nz);
+    this.qi = new Float32Array(sim.nx * sim.nz);
     this.qr = new Float32Array(sim.nx * sim.nz);
     this.tmp = new Float32Array(sim.nx * sim.nz);
     this.tempC = new Float32Array(sim.nx * sim.nz);
@@ -384,10 +388,11 @@ export class Board {
     const mm = String(Math.floor((hour % 1) * 60)).padStart(2, '0');
     ctx.fillText(`${hh}:${mm}`, 12, 10);
     const rain = sim.rain.reduce((a, b) => a + b, 0) / sim.nx;
+    const snow = sim.snow.reduce((a, b) => a + b, 0) / sim.nx;
     if (rain >= 0.05) {
       ctx.textAlign = 'right';
       ctx.font = '600 11px "Nunito Sans", system-ui, sans-serif';
-      ctx.fillText(`${rain.toFixed(1)} mm rain`, w - 12, 11);
+      ctx.fillText(`${rain.toFixed(1)} mm ${snow > rain / 2 ? 'snow and rain' : 'rain'}`, w - 12, 11);
       ctx.textAlign = 'left';
     }
     ctx.textBaseline = 'alphabetic';
@@ -483,7 +488,9 @@ export class Board {
     const bh = img.height;
     const sun = s.sunNow();
     // Sunlight slants in from the east in the morning and the west later.
-    this.soften(s.qc, this.qc);
+    for (let k = 0; k < s.qc.length; k++) this.tmp[k] = s.qc[k] + s.qi[k];
+    this.soften(this.tmp, this.qc);
+    this.soften(s.qi, this.qi);
     this.soften(s.qr, this.qr);
     const elev = Math.max(0.15, sun);
     const toward = hour < 12 ? 1 : -1;
@@ -542,7 +549,9 @@ export class Board {
           const light = Math.exp(-depth * 0.75);
           const n = light > 0.72 ? 0 : light > 0.4 ? 1 : light > 0.14 ? 2 : 3;
           const c = tones[n];
-          const a = (q > 0.03 ? 1 : 0.67) * cloudA;
+          // Ice cloud is fibrous and lets a little sky through: anvils and fallstreaks look like it.
+          const icy = s.sample(this.qi, cx, cz) * 1000 > 0.6 * q;
+          const a = (q > 0.03 ? (icy ? 0.86 : 1) : icy ? 0.55 : 0.67) * cloudA;
           r0 = c[0] * a + r0 * (1 - a);
           g0 = c[1] * a + g0 * (1 - a);
           b0 = c[2] * a + b0 * (1 - a);

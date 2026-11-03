@@ -3,9 +3,7 @@
 // height (shear) that sorts storms into lone showers, clusters, lines and
 // supercells, and the hail an updraft can hold up.
 
-import { parcelAt } from './air';
-
-const G = 9.81;
+import { DRY_RATE, G, parcelAt } from './air';
 
 /** A spring afternoon's air over the Plains, with a warm cap a kilometre and a half up. */
 export interface StormAir {
@@ -27,7 +25,7 @@ const morningC = (h: number) => 15 - 7.5 * ((Math.min(h, 11000) - CAP_FROM_M) / 
 export function stormEnvC(h: number, a: StormAir): number {
   // The cap: a warm layer that comes in over the cap's bottom and fades out a kilometre above its top.
   const cap = h <= CAP_FROM_M ? 0 : h <= CAP_TO_M ? a.capC * ((h - CAP_FROM_M) / (CAP_TO_M - CAP_FROM_M)) : a.capC * Math.max(0, 1 - (h - CAP_TO_M) / 1000);
-  return Math.max(a.groundC - 9.8 * (h / 1000), morningC(h) + cap);
+  return Math.max(a.groundC - DRY_RATE * h, morningC(h) + cap);
 }
 
 export interface Fuel {

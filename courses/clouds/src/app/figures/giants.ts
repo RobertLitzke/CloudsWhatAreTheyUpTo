@@ -3,7 +3,7 @@
 // over a ridge, wind-shear billows, mammatus pouches under an anvil, and
 // stills of the tropopause and a storm's charges.
 
-import { cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
+import { G, cloudBase, column, dawnTemp, envTemp, mixedTop, parcelAt, type Environment } from '../../core/air';
 import { el, svg } from 'didactics/dom';
 import { realClouds } from '../clouds/real';
 import { celAnvil, celCumulus, celHeap } from '../clouds/flat';
@@ -473,7 +473,7 @@ export const mammaFigure = figure(['pouches'], (_ctx, t) => {
 // (Δwind)², falls below a quarter. Here the layer is 300 m deep at about 280 K.
 const BILLOW_DEPTH = 300;
 /** The wind difference, m/s, at which billows start to curl over a lid `lidC` warmer. */
-const curlWind = (lidC: number) => Math.sqrt((9.8 * (lidC / 280) * BILLOW_DEPTH) / 0.25);
+const curlWind = (lidC: number) => Math.sqrt((G * (lidC / 280) * BILLOW_DEPTH) / 0.25);
 const STRONG_LID = 3;
 const LID_GUESSES = ['More difference in wind', 'Less difference in wind', 'The same'] as const;
 

@@ -7,7 +7,7 @@
 // Hours are counted from the moment the warm front reaches the watcher:
 // negative before it, positive after. The cold front follows 12 hours behind.
 
-import { cloudBase, DEW_RATE, DRY_RATE, fullOverWater, parcelAt } from './air';
+import { cloudBase, DEW_RATE, DRY_RATE, fullOverWater, mixingRatio, parcelAt, pressureAt } from './air';
 import type { GenusId } from './clouds';
 
 /** A storm's fronts travel at about this speed. */
@@ -171,11 +171,7 @@ export interface Crossing {
 }
 
 /** Grams of vapour in a kilogram of air with this dew point at this height. */
-function mixing(dewC: number, heightM: number): number {
-  const p = 1013.25 * Math.exp(-heightM / 8400);
-  const e = fullOverWater(dewC);
-  return (622 * e) / (p - e);
-}
+const mixing = (dewC: number, heightM: number) => mixingRatio(fullOverWater(dewC), pressureAt(heightM));
 
 /**
  * Pacific air (COAST_C, with the dew point given) blown over a range `crestM`

@@ -2,7 +2,7 @@
 // rain into a cold blast and a wall of dust, how air warms and dries sinking
 // down a slope, and how hard the wind blows through a gap in the mountains.
 
-import { DEW_RATE, DRY_RATE } from './air';
+import { DEW_RATE, DRY_RATE, G, fullOverWater } from './air';
 
 // ---- Rain that never lands, and the blast it makes ------------------------------------------
 
@@ -13,7 +13,7 @@ export const rainLands = (baseKm: number) => Math.max(0, Math.min(1, 1 - (baseKm
 export const downdraftChill = (baseKm: number) => Math.round((2 + 3.2 * Math.min(baseKm, 2.5)) * 10) / 10;
 
 /** How fast the cold air spreads out along the ground, km/h: a pool of colder, heavier air about a kilometre deep slumping outwards. */
-export const outflowKmh = (chillC: number) => Math.round(0.9 * Math.sqrt((9.8 * 1000 * chillC) / 300) * 3.6);
+export const outflowKmh = (chillC: number) => Math.round(0.9 * Math.sqrt((G * 1000 * chillC) / 300) * 3.6);
 
 export type Soil = 'ploughed' | 'stubble' | 'wet';
 /** The wind, km/h, it takes to lift dust off each kind of field. */
@@ -24,8 +24,8 @@ export const dustWall = (gustKmh: number, soil: Soil) => Math.round(Math.min(150
 
 // ---- Down the slope ------------------------------------------------------------------------
 
-/** Saturation vapour pressure over water, hPa (Magnus). */
-const vapour = (c: number) => 6.112 * Math.exp((17.62 * c) / (243.12 + c));
+/** Saturation vapour pressure over water, hPa. */
+const vapour = fullOverWater;
 
 /** A parcel that sank from `fromM`, where it was `fromC` with dew point `dewC`, to `atM`, warming at the dry rate all the way. */
 export function sinkTo(fromM: number, fromC: number, dewC: number, atM: number): { c: number; dewC: number; humidity: number } {

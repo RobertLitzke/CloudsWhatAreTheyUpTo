@@ -14,16 +14,25 @@ export const DROPLETS_PER_L = 1e5;
 /** Grams of liquid water in a litre of an ordinary layer cloud (0.2 g in a cubic metre). */
 export const WATER_G_PER_L = 2e-4;
 
+/** Below this, °C, every droplet freezes by itself, dust or no dust. */
+export const HOMOGENEOUS_C = -38;
+
 /**
  * Ice crystals per litre that ordinary air's dust and soil can start at a
- * temperature (Fletcher's rule of thumb): about one in a hundred thousand
- * litres at −1 °C, rising tenfold for every 4 °C colder, to about one per
- * litre at −20 °C. Below −38 °C every droplet freezes by itself.
+ * temperature (Fletcher's rule of thumb, as the lessons give it): one per
+ * litre at −20 °C, tenfold more for every 4 °C colder and tenfold fewer for
+ * every 4 °C warmer, so about one in a hundred thousand litres at −1 °C.
+ * The seeding game and the seeding lessons both count with this.
  */
+export function fletcherIce(tempC: number): number {
+  return tempC >= 0 ? 0 : Math.pow(10, (-20 - tempC) / 4);
+}
+
+/** Fletcher's ice, and below −38 °C every droplet frozen. */
 export function naturalIce(tempC: number): number {
   if (tempC >= 0) return 0;
-  if (tempC <= -38) return DROPLETS_PER_L;
-  return 1e-5 * Math.exp(0.6 * -tempC);
+  if (tempC <= HOMOGENEOUS_C) return DROPLETS_PER_L;
+  return fletcherIce(tempC);
 }
 
 /**
@@ -61,7 +70,7 @@ export function coldBox(agent: Agent, tempC: number): { perL: number; result: Bo
 // ---- Seeding a layer of cloud ------------------------------------------------
 
 /** Crystals per litre made by a pound of dry ice dropped over each mile of flight, spread through the layer below. */
-export const CRYSTALS_PER_LB_MILE = 56;
+export const CRYSTALS_PER_LB_MILE = 50;
 
 export type LayerResult = 'warm' | 'nothing' | 'flurries' | 'hole' | 'overseeded';
 

@@ -72,7 +72,7 @@ export const ORDERS: readonly Order[] = [
     id: 'tower',
     title: 'Make a heap grow',
     ask: 'The day is given: cumulus with supercooled tops that never rain. Seed one so that it grows and showers.',
-    fixed: { groundC: 14, dewC: 6, lapsePerKm: 6.5, cooling: 'sun', strength: 8 },
+    fixed: { groundC: 14, dewC: 6, lapsePerKm: 6.2, cooling: 'sun', strength: 7 },
     hint: 'Freezing the supercooled water in a heap releases heat, and warmer air rises further.',
     met: (s) => s.seeded && s.grew && (s.fall === 'showers' || s.fall === 'thunderstorm') && s.reaches,
   },

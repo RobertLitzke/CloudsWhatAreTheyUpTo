@@ -3,7 +3,7 @@
 // air, and stills of rising air expanding, stability in numbers, the anatomy
 // of a heap and why a cloudy bubble keeps rising.
 
-import { cloudBase, parcelAt } from '../../core/air';
+import { DRY_RATE, cloudBase, parcelAt } from '../../core/air';
 import { el, svg } from 'didactics/dom';
 import { arrow, heading, heapAt, label, line, polyline, puff, redraw, small, still } from './draw';
 import { COL, animate, figure, frame, height, lock, lockIn, placeable, showVerdict, slider, startRng, temp, tint, type FigureFactory } from './kit';
@@ -312,7 +312,8 @@ export const stabilityDiagram: FigureFactory = () => {
 // ---- Stable and unstable: nudge a bubble ------------------------------------
 
 /** The figure's air, from unstable (-1) to stable (1), as how fast it cools with height in °C per km. Below zero it warms with height. */
-const lapseOf = (stability: number) => (stability < 0 ? 9.8 - stability * 3 : 9.8 - stability * 13);
+const DRY_PER_KM = DRY_RATE * 1000;
+const lapseOf = (stability: number) => (stability < 0 ? DRY_PER_KM - stability * 3 : DRY_PER_KM - stability * 13);
 const M_PER_PX = 10;
 const START_C = 15;
 
@@ -356,7 +357,7 @@ export const nudgeFigure = figure(['both'], (ctx, t) => {
     const py = rest - z;
     // The bubble cools at the dry rate as it climbs; the air around it at the day's own rate.
     const m = z * M_PER_PX;
-    const mine = START_C - 9.8 * (m / 1000);
+    const mine = START_C - DRY_RATE * m;
     const theirs = START_C - lapseOf(stability) * (m / 1000);
     redraw(ball,
       thing,
