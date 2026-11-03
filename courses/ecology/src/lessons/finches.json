@@ -1,0 +1,88 @@
+{
+  "id": "finches",
+  "n": 5,
+  "title": "A drought on Daphne Major",
+  "teaches": "What natural selection is, and how it was watched changing a population in a single year",
+  "parts": [
+    {
+      "title": "Measuring every bird",
+      "blocks": [
+        {"type": "text", "text": "Daphne Major is a dead volcano in the Galápagos, a cone of rock a few hundred metres across with a crater in the middle and no fresh water. In 1973 Peter and Rosemary Grant, two British biologists then working at McGill University, started visiting it with their students to study its finches. Darwin's finches, as they are now called, are small, dull-coloured birds whose beaks vary from species to species, from slim insect-picking beaks to heavy nutcrackers. The Grants wanted to see how a beak's shape fitted what a bird ate."},
+        {"type": "text", "text": "The island's main species is the **medium ground finch**. The Grants caught almost every one of them in mist nets, gave each a unique set of coloured leg bands, and measured it: weight, wing length, and the length, width and depth of its beak, to a tenth of a millimetre. Then they let it go and watched which seeds it ate, whom it mated with, and how many chicks it raised. Year after year they came back and did it again. By the mid-1970s they knew the island's finches as individuals."},
+        {"type": "text", "text": "Their measurements showed what any breeder of pigeons or dogs would expect: the birds varied. Beak depth, from top to bottom at the base, ranged from about 8 to 11 millimetres. And parents with deep beaks tended to have chicks with deep beaks. Neither fact seemed very important until the rain stopped."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The Grants caught, banded and measured nearly every medium ground finch on Daphne Major every year from 1973.", "Beak depth varied from bird to bird, and deep-beaked parents tended to have deep-beaked chicks."]}
+      ]
+    },
+    {
+      "title": "The drought of 1977",
+      "blocks": [
+        {"type": "text", "text": "In the Galápagos, the rains usually come from January to May. In 1977 they hardly came at all: about 24 millimetres fell on Daphne Major in the whole year. Plants didn't flower or set seed. The finches ate their way through the seeds left from earlier years, starting with the small, soft ones that every bird could manage. By the middle of the year those were gone."},
+        {"type": "text", "text": "What was left were big, hard seeds, above all those of the caltrop, *Tribulus cistoides*, which come in woody, spiny cases. A finch has to crack or tear the case to get at the seeds inside, and that takes a deep, strong beak. Big birds with deep beaks could do it, with effort. Smaller-beaked birds mostly couldn't. Over the year, about 85 percent of the medium ground finches died, from about 1,200 to under 200."},
+        {"type": "interactive_diagram", "id": "drought", "caption": "A flock of medium ground finches, by beak depth. In a drought year only hard seeds are left, and a deeper beak gives a better chance of cracking them. A model, built from the Grants' findings.", "task": "Guess, then bring on the drought and let the survivors breed", "goal": "shift", "aspect_ratio": 1.6},
+        {"type": "text", "text": "When the Grants and their student Peter Boag measured the survivors, their beaks were on average about half a millimetre deeper than the flock's before the drought. That is not because any bird's beak grew; an adult finch's beak doesn't change. It is because the birds that already had deep beaks were the ones that lived. The flock had been sorted."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["In the 1977 drought only big, hard seeds were left, and about 85 percent of the medium ground finches died.", "The survivors had deeper beaks on average, because deep-beaked birds were more likely to survive, not because any beak grew."]}
+      ]
+    },
+    {
+      "title": "Does it pass on?",
+      "blocks": [
+        {"type": "text", "text": "Sorting the parents would mean nothing for the future if their chicks didn't take after them. How much a trait passes from parents to young is called its **heritability**, and it can be measured with a ruler. Plot each chick's beak depth against its parents' average. If chicks ignore their parents, the cloud of points is flat. If they take after them completely, it slopes upward one for one. The slope is the heritability."},
+        {"type": "interactive_diagram", "id": "herit", "caption": "Parents and their chicks: each dot is a family. The slope of the line is the heritability. Illustrative points, drawn with the scatter the Grants found.", "task": "Turn heritability down to zero", "goal": "none", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Boag measured it for Daphne Major's finches and found the heritability of beak depth was high, about 0.8. Part of a bird's beak depth comes from things that aren't passed on, such as how well it was fed as a chick, but most of the difference between one bird and the next was inherited. So the chicks hatched in 1978, whose parents were the drought's survivors, had beaks about four percent deeper than the flock's average before the drought."},
+        {"type": "text", "text": "That is **natural selection**: in a population whose members differ, some survive and breed more than others because of those differences, and if the differences are inherited, the next generation is different. Nothing in it requires any individual to change, try or need anything. Switch heritability off in the drought figure and the survivors' chicks snap back to the old average, and the drought leaves no mark."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["**Heritability** is the share of parents' difference from the average that their young inherit; for beak depth on Daphne it was about 0.8.", "**Natural selection**: inherited differences in survival or breeding change the next generation.", "Selection on parents changes the young only if the trait is inherited."]}
+      ]
+    },
+    {
+      "title": "The rains came back",
+      "blocks": [
+        {"type": "text", "text": "Selection has no fixed direction. It favours whatever works now. In 1982–83 a powerful El Niño brought the Galápagos the wettest year on record, with more than fifty times the rain of 1977. Vines smothered the island, and the plants produced huge crops of small, soft seeds. When drier years followed, small seeds were what was left, and small birds, which handle small seeds more efficiently and need less food, now survived better. The average beak depth swung back the other way."},
+        {"type": "text", "text": "Over decades of measuring, the Grants saw the beaks of Daphne's finches shift one way and then the other, following the weather. In 2004–05, after a larger-beaked species had moved onto the island and taken over the big seeds, a drought favoured *smaller* beaks in the medium ground finch, the reverse of 1977. Evolution on Daphne was not a march in one direction; it was a population tracking a changing world, year by year."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Selection favours whatever works at the time: after the wet El Niño of 1982–83, smaller beaks did better.", "Over decades, the Grants saw beak size swing back and forth with the weather and with competitors."]}
+      ]
+    },
+    {
+      "title": "Selection elsewhere",
+      "blocks": [
+        {"type": "text", "text": "The same logic works wherever three things are true: individuals differ, some of the differences are inherited, and the differences affect who survives and breeds. Bacteria meet all three. When penicillin came into use in the 1940s, a few bacteria in any large population happened to carry genes that let them survive it. Every dose killed the rest and left those few to multiply. By the late 1940s, penicillin-resistant *Staphylococcus* was already common in hospitals."},
+        {"type": "text", "text": "Doctors now treat this as a selection problem. Stopping a course of antibiotics early leaves the toughest bacteria alive; using antibiotics where they aren't needed breeds resistance for no gain. Farmers see the same thing with weeds that survive a herbicide sprayed every year, and with insects that survive an insecticide. In each case nothing in the weed or insect learns or tries: the spray picks the survivors, and the survivors are the next generation's parents."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Natural selection needs variation, inheritance and differences in survival or breeding.", "Antibiotic, herbicide and insecticide resistance are natural selection by the dose."]}
+      ]
+    },
+    {
+      "title": "Watching evolution",
+      "blocks": [
+        {"type": "text", "text": "Darwin thought natural selection was too slow to see. “We see nothing of these slow changes in progress,” he wrote in the *Origin*, “until the hand of time has marked the long lapse of ages.” The Grants showed he was too pessimistic. When conditions change sharply, selection can move a population measurably within a single generation. What looks slow over geological time is often fast change swinging back and forth, with only a small net drift that lasts."},
+        {"type": "text", "text": "The finches' story also completes lesson 2. Darwin's elephants could have filled the Earth; something stopped them, which means most young must die. Who dies is not entirely chance. When the deaths fall harder on one kind of individual than another, and the difference is inherited, the population changes. The struggle for existence and natural selection are the same fact seen from two sides."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Darwin thought selection too slow to watch; the Grants measured it in one year.", "Most young die (lesson 2); when who dies depends on inherited traits, the population evolves."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on selection", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "After the 1977 drought, the average beak of the surviving finches was deeper than before. Which statement is correct?", "choices": ["Finches with deeper beaks were more likely to survive", "Finches grew deeper beaks to crack the hard seeds", "Finches with shallow beaks flew to other islands"], "answer": 0, "why": "An adult finch's beak doesn't change. The average shifted because deep-beaked birds survived better, so the survivors were a sorted sample of the flock."},
+            {"ask": "Suppose beak depth had a heritability of zero. What would the chicks of the 1977 survivors have looked like?", "choices": ["Like the flock before the drought, on average", "Even deeper-beaked than their parents", "Shallower-beaked than the flock before"], "answer": 0, "why": "With zero heritability, chicks don't take after their parents at all, so the sorting of the parents leaves no trace in the next generation."},
+            {"ask": "Survivors' beaks average 0.5 mm deeper than the flock before the drought, and heritability is about 0.8. About how much deeper are their chicks' beaks than the old average?", "choices": ["About 0.4 mm", "About 0.5 mm", "About 0.8 mm"], "answer": 0, "why": "The chicks inherit about heritability × the parents' difference: 0.8 × 0.5 = 0.4 mm. Breeders use the same rule."},
+            {"ask": "After the wet El Niño of 1982–83, which finches survived best on Daphne?", "choices": ["Smaller ones, since small soft seeds were plentiful", "The deepest-beaked ones, as in 1977", "All equally"], "answer": 0, "why": "Selection favours whatever works at the time. With small seeds abundant, small birds, which handle them well and need less food, did better."},
+            {"ask": "Which of these is natural selection?", "choices": ["Weeds in a field sprayed every year become mostly the kind that survives the spray", "A weightlifter's muscles grow, and so her children are strong", "A plant grows toward the window"], "answer": 0, "why": "The spray kills weeds that differ in an inherited way and leaves the resistant ones to breed. Muscles built in one life aren't inherited, and growing toward light is a response, not a change between generations."},
+            {"ask": "Why does finishing a full course of antibiotics matter, in terms of selection?", "choices": ["Stopping early leaves the most resistant bacteria alive to multiply", "The bacteria learn to resist if given time", "Antibiotics only work on the last day"], "answer": 0, "why": "An early stop kills the easy bacteria and leaves the toughest survivors, which are exactly the ones you don't want to breed."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**The Grants measured nearly every finch on Daphne Major, every year.** Beak depth varied from bird to bird and was largely inherited.",
+    "**The 1977 drought left only big, hard seeds.** About 85 percent of the medium ground finches died.",
+    "**The survivors had deeper beaks.** Not because any beak grew, but because deep-beaked birds were more likely to live.",
+    "**Heritability is the share that passes on.** About 0.8 for beak depth, so the next generation's beaks were about four percent deeper.",
+    "**Natural selection is inherited differences in survival and breeding changing the next generation.** No individual needs to change.",
+    "**Selection follows conditions.** After the wet El Niño of 1982–83 smaller beaks did better.",
+    "**Resistance to antibiotics and sprays is selection by the dose.** The treatment picks the survivors that become the next generation's parents."
+  ],
+  "journal": [],
+  "footnotes": {}
+}
