@@ -15,6 +15,7 @@ import { shakeDiagram, shutterFigure, silkWaterFigure } from './motion';
 import { duskFigure, poolingFigure } from './noise';
 import { panFigure } from './pan';
 import { photoDiagram } from './photo';
+import { recipeFigure } from './recipe';
 import { lightFigure, stepAsideFigure } from './seeing';
 import { angleDiagram, closeUpFigure, longEndDiagram, zoomFigure } from './zoom';
 
@@ -48,6 +49,7 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   whiteBalance: whiteBalanceFigure,
   sun: sunFigure,
   polariser: polariserFigure,
+  recipe: recipeFigure,
   photo: photoDiagram,
   challenge: challengeDiagram,
   check: checkFigure,

@@ -26,6 +26,7 @@ import lens from '../data/lessons/lens.json';
 import focus from '../data/lessons/focus.json';
 import colour from '../data/lessons/colour.json';
 import seeing from '../data/lessons/seeing.json';
+import birds from '../data/lessons/birds.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -39,7 +40,7 @@ export const FIGURE_IDS = [
   // Colour.
   'kelvin', 'whiteBalance', 'sun', 'polariser',
   // The pieces every lesson has.
-  'photo', 'challenge', 'check',
+  'recipe', 'photo', 'challenge', 'check',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -62,13 +63,7 @@ export const LESSONS: readonly Lesson[] = [
   focus as Lesson,
   colour as Lesson,
   seeing as Lesson,
-  planned(10, 'birds', 'Birds, in practice', 'A settings recipe for perched and flying birds, and the way to work when there is no time to think', [
-    'A starting point for a perched bird, and why',
-    'A starting point for a bird in flight, and what changes',
-    'Leaving Bird-watching mode: what it was choosing, and what you now choose instead',
-    'Finding the bird at 2000 mm, and the P950\'s framing button',
-    'Working a subject: a safe frame first, then better ones',
-  ]),
+  birds as Lesson,
   planned(11, 'after', 'After the shutter', 'The file the camera made, what can still be recovered from it, and a short editing pass that is mostly undoing', [
     'JPEG and RAW on this camera, and what each keeps',
     'White balance, exposure and shadows after the fact',

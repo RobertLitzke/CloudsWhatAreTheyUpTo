@@ -34,6 +34,8 @@ export interface Panel extends Settings {
   behind?: number;
   /** For a stage: focus as a share of the subject's distance (1 on the subject). */
   focusRatio?: number;
+  /** A photo of its own, instead of the challenge's. */
+  photo?: string;
   /** For a stage: metres the photographer has stepped to the right, still aimed at the subject. */
   step?: number;
   /** For a stage: metres the photographer stands from the subject, instead of where the framing puts them. */
@@ -58,11 +60,11 @@ export const challengeDiagram = Object.assign(function challengeDiagram(_ctx: Fi
   const t = { waitFor: (p: Promise<unknown>) => { waits.push(p.catch(() => undefined)); } };
   const panels = options?.panels ?? [];
   const stage = options?.stage ? STAGES[options.stage] : undefined;
-  const photo = options?.photo ? PHOTOS.find((p) => p.id === options.photo) : undefined;
 
   // A photo keeps its own proportions; a stage has the sensor's.
-  const h = photo && !stage ? Math.round((W * photo.height) / photo.width) : H;
   const cells = panels.map((p) => {
+    const own = !stage ? PHOTOS.find((x) => x.id === (p.photo ?? options?.photo)) : undefined;
+    const h = own ? Math.round((W * own.height) / own.width) : H;
     const canvas = el('canvas.shot', { width: W, height: h, role: 'img', 'aria-label': p.label }) as HTMLCanvasElement;
     const settings = el('p.shot-settings');
     return { p, canvas, settings, node: el('figure.challenge-panel', {}, el('p.challenge-label', {}, p.label), canvas, settings) };
@@ -81,17 +83,23 @@ export const challengeDiagram = Object.assign(function challengeDiagram(_ctx: Fi
         c.settings.textContent = settingsLine(shoot({ subjectAt: stand, near: stand, far: null, ev: 12 }, { ...c.p, aperture: n, focusAt: stand }));
       }
     }));
-  } else if (photo?.scene) {
-    const scene = photo.scene;
-    t.waitFor(loadPhoto(photo, asset).then((loaded) => {
-      for (const c of cells) {
+  } else {
+    // Each panel may have its own photo; by default the challenge's.
+    const used = new Set<string>();
+    for (const c of cells) {
+      const pic = PHOTOS.find((p) => p.id === (c.p.photo ?? options?.photo));
+      if (!pic?.scene) continue;
+      const scene = pic.scene;
+      used.add(pic.id);
+      t.waitFor(loadPhoto(pic, asset).then((loaded) => {
         const shot = shoot(scene, c.p);
         const render = { ...shot.render, exposure: shot.render.exposure * 2 ** (c.p.stops ?? 0) };
         develop(c.canvas, loaded, render);
         c.settings.textContent = settingsLine(shot);
-      }
-    }));
-    body.append(el('p.challenge-credit', {}, credit(photo)));
+      }));
+    }
+    const credits = [...used].map((id) => PHOTOS.find((p) => p.id === id)!).map((p) => el('p.challenge-credit', {}, credit(p)));
+    body.append(...credits);
   }
   return { node: body, ready: Promise.all(waits).then(() => undefined) };
 }, { options: challengeOptions });
@@ -102,7 +110,8 @@ function challengeOptions(o: Options | undefined): string[] {
   if (!c?.panels?.length) out.push('a challenge needs panels');
   if (c?.stage && !STAGES[c.stage]) out.push(`no stage "${c.stage}"`);
   if (c?.photo && !PHOTOS.some((p) => p.id === c.photo && p.scene)) out.push(`no photo "${c.photo}" with a scene`);
-  if (!c?.stage && !c?.photo) out.push('a challenge needs a photo or a stage');
+  if (!c?.stage && !c?.photo && !(c?.panels ?? []).every((p) => p.photo)) out.push('a challenge needs a photo or a stage');
+  for (const p of c?.panels ?? []) if (p.photo && !PHOTOS.some((x) => x.id === p.photo && x.scene)) out.push(`no photo "${p.photo}" with a scene`);
   for (const p of c?.panels ?? []) if (!(p.eqFocal > 0)) out.push(`panel "${p.label}" needs eqFocal`);
   return out;
 }

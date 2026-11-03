@@ -5,6 +5,7 @@
 import { describe, expect, it } from 'vitest';
 import { isDiagram } from 'didactics/blocks';
 import { FIGURES } from '../src/app/figures';
+import { SITUATIONS, score } from '../src/app/figures/recipe';
 import { makeScene } from '../src/app/scene/field';
 import { FIGURE_IDS, LESSONS, type FigureId } from '../src/core/lessons';
 import { emptySave } from '../src/core/save';
@@ -148,6 +149,13 @@ describe('figures', () => {
     const fig = FIGURES.lightAngle(context(), 'all-three');
     for (const v of [90, 180, 0]) setSlider(fig.node, 0, v);
     await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the recipe scores a good perched recipe and a good flight recipe as passing', () => {
+    const [perched, flying] = SITUATIONS;
+    expect(score(perched, { shutter: 1 / 125, aperture: 5.6, focus: 'Single', area: 'Spot' }).every((c) => c.ok)).toBe(true);
+    expect(score(flying, { shutter: 1 / 2000, aperture: 5.6, focus: 'Continuous', area: 'Centre' }).every((c) => c.ok)).toBe(true);
+    expect(score(flying, { shutter: 1 / 250, aperture: 5.6, focus: 'Single', area: 'Centre' }).some((c) => !c.ok)).toBe(true);
   });
 
   it('the stops figure wants the exposure put back by hand', async () => {
