@@ -6,10 +6,7 @@
 import { svg } from 'didactics/dom';
 import { label, line, note, redraw } from 'didactics/draw';
 import { P950, apertureLabel, blurCircle, fromEquivalent, sharpEnough } from '../../core/camera';
-import { shoot } from '../../core/shot';
-import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
 import { COL, apertureSlider, distance, figure, frame, slider, tint } from './kit';
-import { noPhoto, shotFrame } from './shot';
 
 /**
  * The ray diagram: a point at one distance, the cone of light the lens throws
@@ -87,43 +84,5 @@ export const coneFigure = figure(['sharp-again'], (ctx, t) => {
   return f.node;
 });
 
-/**
- * The same thing on a photograph: the reader opens the aperture and watches
- * the background come apart, and moves the focus and watches what is sharp
- * move with it. The task is to throw the background out of focus.
- */
-export const apertureFigure = figure<PhotoOptions>(['blur-background', 'all-sharp'], (ctx, t, options) => {
-  const units = ctx.save.units;
-  const photo = shotPhoto('perched-bird', options?.photo);
-  if (!photo?.scene) return noPhoto('a bird perched in a tree').node;
-  const scene = photo.scene;
-
-  const f = shotFrame(photo, 3);
-  let n = 8;
-  let focusAt = scene.subjectAt;
-  const eqFocal = scene.eqFocal ?? 1000;
-
-  const paint = () => {
-    const shot = shoot(scene, { eqFocal, aperture: n, focusAt });
-    const far = shot.depth.far;
-    const background = scene.far ?? Infinity;
-    // The background is "gone" when it is spread by more than a hundredth of the frame.
-    const softness = shot.render.blurAt(background);
-    const clamped = shot.aperture > n + 0.05 ? ` The lens opens no wider than ${apertureLabel(shot.aperture)} at this zoom.` : '';
-    const say = focusAt < shot.depth.near || focusAt > shot.depth.far
-      ? `Nothing is sharp: the lens is focused at ${distance(focusAt, units)} and the bird is not there.${clamped}`
-      : `Sharp from ${distance(shot.depth.near, units)} to ${distance(far, units)}. ` +
-        (softness > 0.004 ? 'The background is well out of focus.' : 'The background is still readable.') + clamped;
-    f.paint(shot, say);
-    if (t.goal === 'blur-background' && softness > 0.004 && Math.abs(focusAt - scene.subjectAt) < scene.subjectAt * 0.25) t.done();
-    if (t.goal === 'all-sharp' && softness <= 0.002) t.done();
-  };
-
-  f.controls.append(
-    apertureSlider(n, (v) => { n = v; paint(); }).node,
-    slider('Focus on', { min: Math.max(0.5, scene.near), max: scene.far ?? scene.subjectAt * 6, scale: 'log', value: focusAt,
-      show: (v) => distance(v, units), onInput: (v) => { focusAt = v; paint(); }, color: 'focus' }).node,
-  );
-  f.start(t, paint);
-  return f.node;
-}, { options: photoOptions('perched-bird') });
+// The same thing in a scene, aperture, focus and zoom together: depth.ts.
+export { apertureFigure } from './depth';

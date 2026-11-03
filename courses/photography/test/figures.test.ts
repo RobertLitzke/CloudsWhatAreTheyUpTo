@@ -49,6 +49,14 @@ describe('figures', () => {
     await expect(cone.done).resolves.toBeUndefined();
   });
 
+  it('the aperture figure meets its goal once the bushes melt behind a sharp bird', async () => {
+    const fig = FIGURES.aperture(context(), 'blur-background');
+    setLogSlider(fig.node, 0, 2000, 200, 2000);
+    setSlider(fig.node, 1, 0);
+    setLogSlider(fig.node, 3, 40, 1, 40);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.
@@ -92,8 +100,8 @@ describe('units', () => {
 
 describe('figure options', () => {
   it('catch a photo of the wrong subject, a missing photo and a bad question', () => {
-    expect(FIGURES.aperture.options?.({ photo: 'perched-bird-01' })).toEqual([]);
-    expect(FIGURES.aperture.options?.({ photo: 'distant-wildlife-01' })?.[0]).toMatch(/not perched-bird/);
+    expect(FIGURES.closeUp.options?.({ photo: 'flower-close-01' })).toEqual([]);
+    expect(FIGURES.closeUp.options?.({ photo: 'distant-wildlife-01' })?.[0]).toMatch(/not flower-close/);
     expect(FIGURES.zoom.options?.({ photo: 'no-such-photo' })?.[0]).toMatch(/no photo/);
     expect(FIGURES.photo.options?.({ subject: 'unicorn' })?.[0]).toMatch(/unknown subject/);
     expect(FIGURES.check.options?.({ items: [{ question: 'Q?', options: ['a'], answer: 2, why: 'Because it is so.' }] })?.[0]).toMatch(/not one of its 1 options/);

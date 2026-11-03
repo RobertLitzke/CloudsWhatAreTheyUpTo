@@ -50,6 +50,16 @@ Vitest) rather than `node --experimental-strip-types`.
   composited back to front, a directional smear for the subject and another
   for your hands, and a pixel pass in linear light for exposure, white balance
   and grain.
+- **The depth-of-field stage** (`src/core/stage.ts`, `src/app/stage/`): the
+  aperture figure is not a photo but a stage of flat, fully sharp pictures (a
+  bird on its branch, bushes, trees, hills) at real distances. Each plane is
+  scaled by the lens's real magnification and blurred, in WebGL, by a disc the
+  size of its blur circle (a Gaussian on a 2D canvas where WebGL is missing).
+  Zooming steps the camera back so the bird keeps its size, which shows blur
+  and compression together. Until real pictures are in
+  `public/stage/perched/<plane>.webp` (and listed in `REAL` in
+  `src/app/stage/pictures.ts`) the planes are drawn stand-ins; the brief for
+  the pictures is in the project files, `photography-dof/image-brief.md`.
 - **Fourteen figures** over those two: a ray diagram of a point becoming a
   disc, aperture and focus on a perched bird, a close-up where the sharp band
   is millimetres thick, shutter speed against a bird in flight, shake against

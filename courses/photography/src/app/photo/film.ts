@@ -119,8 +119,8 @@ export function develop(target: HTMLCanvasElement, loaded: Loaded, render: Rende
   const depth = loaded.depth;
   if (depth && scene) focusPass(ctx, image, depth, scene, render, { srcX, srcY, srcW, srcH, w, h });
   else {
-    const flat = render.blurAt(scene?.subjectAt ?? 10) * w;
-    ctx.filter = flat > 0.4 ? `blur(${flat.toFixed(2)}px)` : 'none';
+    const flat = toSigma(render.blurAt(scene?.subjectAt ?? 10) * w);
+    ctx.filter = flat > 0.3 ? `blur(${flat.toFixed(2)}px)` : 'none';
     ctx.drawImage(image, srcX, srcY, srcW, srcH, 0, 0, w, h);
     ctx.filter = 'none';
   }
@@ -130,6 +130,14 @@ export function develop(target: HTMLCanvasElement, loaded: Loaded, render: Rende
   if (render.shake > 0.0008) smearPass(target, ctx, render.shake * w);
   lightPass(ctx, w, h, render);
 }
+
+/**
+ * The browser's blur is a Gaussian, given by its standard deviation; a lens's
+ * is a disc, given by its diameter. A disc of diameter d spreads light with a
+ * standard deviation of d/4 each way, so that is the Gaussian that matches it.
+ * (Passing the diameter itself blurred everything four times too much.)
+ */
+const toSigma = (diameter: number): number => diameter / 4;
 
 interface Box {
   srcX: number;
@@ -175,11 +183,20 @@ function focusPass(
   }
   const shift = focused - (Math.floor(focused * SLICES) + 0.5) / SLICES;
 
+  // An underlay: the whole picture at the farthest slice's blur. Cutting a
+  // photo into slices leaves holes behind its nearer things (the photo has
+  // nothing there), and a blurred slice fades out into those holes; without
+  // this the page would show through them as a pale rim around the subject.
+  const farBlur = toSigma(render.blurAt(distanceAt(0.5 / SLICES + shift, scene.near, scene.far)) * w);
+  ctx.filter = farBlur > 0.3 ? `blur(${farBlur.toFixed(2)}px)` : 'none';
+  ctx.drawImage(image, box.srcX, box.srcY, box.srcW, box.srcH, 0, 0, w, h);
+  ctx.filter = 'none';
+
   for (let i = 0; i < SLICES; i++) {
     const lo = i === 0 ? -1 : i / SLICES + shift;
     const hi = i === SLICES - 1 ? 2 : (i + 1) / SLICES + shift;
     const metres = distanceAt((i + 0.5) / SLICES + shift, scene.near, scene.far);
-    const blur = render.blurAt(metres) * w;
+    const blur = toSigma(render.blurAt(metres) * w);
 
     // The mask: full where this slice is, fading over one slice either side so
     // the joins do not show as bands.
@@ -202,7 +219,7 @@ function focusPass(
     lc.drawImage(mask, box.srcX * kx, box.srcY * ky, box.srcW * kx, box.srcH * ky, 0, 0, w, h);
     lc.globalCompositeOperation = 'source-over';
 
-    ctx.filter = blur > 0.4 ? `blur(${blur.toFixed(2)}px)` : 'none';
+    ctx.filter = blur > 0.3 ? `blur(${blur.toFixed(2)}px)` : 'none';
     ctx.drawImage(layer, 0, 0);
     ctx.filter = 'none';
   }
