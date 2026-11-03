@@ -35,15 +35,14 @@
   --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
-.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
-.photo .credit a { color: inherit; }
 
 /* A short life (figures/bio.ts): portrait beside name and dates, a few lines under them. */
 .bio { padding: 14px 16px 4px; }
 .bio-head { display: flex; gap: 14px; align-items: flex-end; margin-bottom: 10px; }
 .bio-face { flex: 0 0 auto; width: 112px; }
 .bio-face .photo img { border-radius: 6px; }
-.bio-face .photo .credit { margin: 3px 0 0; font-size: 0.66rem; line-height: 1.3; }
+.bio-face .photo figcaption { padding: 3px 0 0; }
+.bio-face .photo .credit { font-size: 0.66rem; line-height: 1.3; }
 .bio-title { flex: 1; min-width: 0; padding-bottom: 28px; }
 .bio-name { margin: 0; font-family: var(--display); font-size: 1.35rem; font-weight: 600; line-height: 1.15; color: var(--ink); }
 .bio-dates { margin: 4px 0 0; font-size: 0.9rem; color: var(--ink); }

@@ -55,9 +55,6 @@ export function hydraulics(mix: Mix, om: number, density = 1): Hydraulics {
 /** Water a plant can use: between field capacity and the wilting point, as a share of volume. */
 export const available = (h: Hydraulics): number => h.field - h.wilt;
 
-/** The big pores that drain within a day or two and then hold air. */
-export const airAfterDraining = (h: Hydraulics): number => h.saturated - h.field;
-
 /** Millimetres of water a plant can use in a root zone `depthMm` deep. */
 export const availableMm = (h: Hydraulics, depthMm: number): number => available(h) * depthMm;
 

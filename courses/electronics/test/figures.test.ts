@@ -6,7 +6,7 @@ import { testContext } from 'didactics/figure';
 import { FIGURES } from '../src/app/figures';
 import { makeBoard } from '../src/app/scene/board';
 import { LESSONS, type FigureId } from '../src/core/lessons';
-import { emptySave } from '../src/core/save';
+import { empty as emptySave } from '../src/store';
 
 const ctx = () => testContext(emptySave());
 

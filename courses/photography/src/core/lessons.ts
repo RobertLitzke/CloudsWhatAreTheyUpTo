@@ -127,7 +127,7 @@ export const LESSONS: readonly Lesson[] = [
 
 /** A lesson that is planned but not written: its title, its promise, and what it will cover. */
 function planned(n: number, id: string, title: string, teaches: string, covers: string[]): Lesson {
-  return { id, n, title, teaches, parts: [], summary: covers, journal: [] };
+  return { id, n, title, teaches, parts: [], summary: covers };
 }
 
 export const isWritten = (l: Lesson): boolean => l.parts.length > 0;

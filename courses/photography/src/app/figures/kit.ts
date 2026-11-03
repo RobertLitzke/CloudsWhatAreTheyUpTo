@@ -8,9 +8,8 @@
 // and its noise violet, and focus green, which is also the colour of whatever
 // is sharp. Light is gold, and what is out of focus grey-blue.
 
-import type { FootnoteSet } from 'didactics/footnote';
-import { slider as kitSlider, type Slider, type SliderOptions } from 'didactics/figure';
-import { prose as kitProse } from 'didactics/lesson';
+import type { Slider } from 'didactics/figure';
+import { courseKit } from 'didactics/kit';
 import { length, type Units } from 'didactics/units';
 import { APERTURE_STEPS, ISO_STEPS, SHUTTER_STEPS, apertureLabel, shutterLabel } from '../../core/camera';
 
@@ -50,23 +49,8 @@ export const COL = {
 
 export type ColorKey = keyof typeof COL;
 
-/** A colour at the given opacity, for a translucent fill. */
-export function tint(hex: string, alpha: number): string {
-  const n = parseInt(hex.slice(1), 16);
-  return `rgba(${n >> 16}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
-}
-
-/**
- * A labelled slider whose thumb wears one of the palette's colours: either
- * Didactics' positional form, or its options form, which also walks a list of
- * set values (`steps`) or runs on a log scale (`scale: 'log'`).
- */
-export function slider(label: string, min: number, max: number, step: number, value: number, show: (v: number) => string, onInput: (v: number) => void, color?: ColorKey): Slider;
-export function slider(label: string, o: Omit<SliderOptions, 'color'> & { color?: ColorKey }): Slider;
-export function slider(label: string, a: number | (Omit<SliderOptions, 'color'> & { color?: ColorKey }), max?: number, step?: number, value?: number, show?: (v: number) => string, onInput?: (v: number) => void, color: ColorKey = 'ink'): Slider {
-  if (typeof a === 'object') return kitSlider(label, { ...a, color: COL[a.color ?? 'ink'] });
-  return kitSlider(label, a, max!, step!, value!, show!, onInput!, COL[color]);
-}
+/** The slider coloured by a palette key, prose with the palette filled in, and tint for a translucent fill (didactics/kit). */
+export const { slider, prose, tint } = courseKit(COL);
 
 /** A slider over the settings the camera really offers, one stop at a time. */
 const stepSlider = (label: string, steps: readonly number[], value: number, show: (v: number) => string, onInput: (v: number) => void, color: ColorKey): Slider =>
@@ -90,5 +74,3 @@ export function distance(m: number, units: Units): string {
   return isFinite(m) ? length(m, units) : 'the horizon';
 }
 
-/** A paragraph of lesson text: **bold**, *italic*, [[words|key]] in the colour COL[key], and [^id] footnotes. */
-export const prose = (text: string, notes?: FootnoteSet): HTMLElement => kitProse(text, COL, notes);

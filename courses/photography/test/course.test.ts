@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest';
 import { courseSection } from 'didactics/course-view';
 import { el } from 'didactics/dom';
+import { FULL_FRAME, P950 } from '../src/core/camera';
 import { isWritten, LESSONS } from '../src/core/lessons';
 import { COURSE, LESSON_PIECES } from '../src/course';
 
@@ -26,5 +27,12 @@ describe('course text download', () => {
     const root = el('main', {}, courseSection({ edits: COURSE, fileName: 'out-of-auto-course.json', pieces: LESSON_PIECES }));
     const options = [...root.querySelectorAll('select.course-piece option')].map((o) => o.textContent);
     expect(options).toEqual(['All', ...LESSON_PIECES.map((p) => p.label)]);
+  });
+});
+
+describe('the comparison camera', () => {
+  it('is full frame: a sensor many times the P950’s, with the same zoom range', () => {
+    expect(FULL_FRAME.sensor.w / P950.sensor.w).toBeGreaterThan(5);
+    expect(Math.abs(FULL_FRAME.sensor.w / FULL_FRAME.sensor.h - 1.5)).toBeLessThan(0.01);
   });
 });

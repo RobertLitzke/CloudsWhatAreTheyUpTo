@@ -171,11 +171,6 @@ export function isoFor(sceneEv: number, n: number, t: number): number {
   return 100 * 2 ** (Math.log2((n * n) / t) - sceneEv);
 }
 
-/** The shutter time that exposes a scene right at this aperture and ISO. */
-export function shutterFor(sceneEv: number, n: number, iso: number): number {
-  return (n * n) / 2 ** (sceneEv + Math.log2(iso / 100));
-}
-
 /** The P950's shutter steps, in thirds of a stop, seconds. */
 export const SHUTTER_STEPS: readonly number[] = [
   1 / 4000, 1 / 3200, 1 / 2500, 1 / 2000, 1 / 1600, 1 / 1250, 1 / 1000, 1 / 800, 1 / 640, 1 / 500, 1 / 400, 1 / 320,
@@ -241,11 +236,6 @@ export function safeShutter(eqFocal: number, vr: boolean, cam: Camera = P950): n
  */
 export function motionBlur(eqFocal: number, speed: number, d: number, t: number): number {
   return ((speed * t) / d) * (eqFocal / 36);
-}
-
-/** How much of the frame's height a thing `size` metres tall fills at `d` metres. */
-export function frameShare(eqFocal: number, size: number, d: number): number {
-  return (size / d) * (eqFocal / 24);
 }
 
 // ---- Colour --------------------------------------------------------------------

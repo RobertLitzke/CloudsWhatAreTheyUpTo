@@ -37,6 +37,7 @@ defineCourse({
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photographs, and where the maps’ heights come from.'),
   },
   catalog: { href: '../' },
+  offline: { noun: 'photos and maps' },
   encyclopedia: { data: encyclopedia, course: 'geology' },
   text: {
     files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),

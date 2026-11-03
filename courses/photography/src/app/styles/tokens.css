@@ -39,6 +39,8 @@
   --go-done: var(--good);
   --bad: #c4543f;
   --radius: 12px;
+  --stripe: #333c4b; /* the reference card's second stripe */
+  --photo-aspect: 400 / 260; /* every photo cropped to the drawings' shape */
 
   --font: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --display: 'Fraunces', Georgia, 'Times New Roman', serif;

@@ -4,17 +4,15 @@ import './app/styles/app.css';
 import { defineCourse } from 'didactics/app';
 import { el } from 'didactics/dom';
 import { SITE_URL } from './app/asset';
-import { lessonPieces } from './app/course-pieces';
 import { DECK } from './app/deck';
 import { FIGURES } from './app/figures';
 import { prose } from './app/figures/kit';
-import { store } from './app/store';
+import { empty, store } from './store';
 import { creditsView } from './app/views/credits';
 import { homeView } from './app/views/home';
 import { lessonOptions } from './app/views/lesson';
 import { referenceView } from './app/views/reference';
 import { LESSONS } from './core/lessons';
-import { emptySave } from './core/save';
 
 /** A lit LED on a board, for the update banner: drawn inline so it shows offline. */
 const LED =
@@ -39,10 +37,11 @@ defineCourse({
   figures: FIGURES,
   prose,
   lesson: lessonOptions,
-  // Circuitry's own save (core/save.ts): metric only, no radio.
-  save: { store, empty: emptySave },
+  // Circuitry's save (store.ts): metric only, no radio, under "circuitry.save".
+  save: { store, empty },
   text: COURSE,
-  textPieces: lessonPieces(),
+  // A lesson's downloadable piece: its file and the words in the code of its figures.
+  textPieces: { modules: import.meta.glob('/src/app/figures/*.ts', { eager: true }), files: (l) => [`src/data/lessons/${l.id}.json`] },
 
   // The board over the lessons by track (core, then pedals and solar), and the way to the reference.
   home: homeView,
@@ -57,8 +56,6 @@ defineCourse({
   quiz: {
     deck: DECK,
     blurb: 'Flash cards on the ideas in the lessons. Cards you get right come back after longer and longer gaps; cards you miss come back soon.',
-    // Until a lesson is written the deck is empty; after that Didactics says the cards come as lessons are done.
-    empty: DECK.length ? undefined : 'Flash cards arrive with the first written lesson.',
   },
   settings: {
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': type and sources.'),

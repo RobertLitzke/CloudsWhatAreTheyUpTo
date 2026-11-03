@@ -4,8 +4,9 @@ import pkg from './package.json';
 
 // The build is Didactics' (didactics/vite): everything
 // inlined into dist/index.html, the same page again as dist/out-of-auto.html for
-// Settings' download link, and a service worker. Photos sit in dist/photos/
-// and the service worker keeps each one once it has been seen.
+// Settings' download link, and a service worker. Photos sit in dist/photos/,
+// listed in offline.json; the site's service worker caches each as it is read,
+// and Settings saves them all at once.
 export default defineConfig(
   lessonApp({
     root: __dirname,

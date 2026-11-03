@@ -8,10 +8,10 @@ import type { View } from 'didactics/router';
 import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS } from '../../core/lessons';
 import { makeGarden } from '../scene/garden';
-import { getSave } from '../store';
+import { store } from '../../store';
 
 export const homeView: View = (root) => {
-  const save = getSave();
+  const save = store.get();
   const written = LESSONS.filter(isWritten);
   const nextUp = written.find((l) => !save.lessons[l.id]?.done);
   // A lesson left part way opens where the reader was (Didactics' resume.ts).

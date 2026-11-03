@@ -1,14 +1,18 @@
-// Settings' per-lesson downloads: each lesson's piece names files that exist,
+// Settings' per-lesson downloads (Didactics' lessonPieces, as main.ts asks for
+// them): each lesson's piece names files that exist,
 // and a written lesson's names the code of the figures it shows.
 
 import { existsSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { lessonPieces } from '../src/app/course-pieces';
+import { lessonPieces } from 'didactics/course';
+import { FIGURES } from '../src/app/figures';
 import { isWritten, LESSONS } from '../src/core/lessons';
+
+const modules = import.meta.glob<Record<string, unknown>>('/src/app/figures/*.ts', { eager: true });
 
 describe('lesson pieces', () => {
   it('has one per lesson, each with its lesson file and figure code', () => {
-    const pieces = lessonPieces();
+    const pieces = lessonPieces({ lessons: LESSONS, figures: FIGURES, modules, files: (l) => [`src/data/lessons/${l.id}.json`], fileName: (l) => `circuitry-${l.id}.json` });
     expect(pieces).toHaveLength(LESSONS.length);
     LESSONS.forEach((l, i) => {
       const p = pieces[i];
