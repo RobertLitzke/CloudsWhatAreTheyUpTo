@@ -479,29 +479,38 @@ export const wilsonStill = () => {
   const { node, svg: s } = still(W, H);
   const PW = 124;
   const PH = 118;
-  const C = '#d9c39a';
-  const OC = '#4a4a5a';
-  const MANTLE = COL.mantle;
+  const C = COL.landCrust;
+  const OC = COL.oceanCrust;
+  // In each panel's own coordinates y is sea level + 8: land tops sit at y - 8, the crust ends by
+  // y + 24, the stiff mantle lid that makes up the rest of the plate ends at y + 34, and the hot,
+  // solid, slowly creeping mantle fills only what lies below that. Nothing hot shows above ground.
   const panel = (i: number, title: string, where: string, draw: (x: number, y: number) => SVGElement[]) => {
     const x = 6 + (i % 3) * (PW + 8);
     const y = 6 + Math.floor(i / 3) * (PH + 30);
+    const g = y + 50;
     return [
-      svg('rect', { x, y: y + 34, width: PW, height: PH - 34, fill: MANTLE }),
-      svg('rect', { x, y: y + 14, width: PW, height: 20, fill: SEA, opacity: 0.0 }),
-      ...draw(x, y + 50),
+      svg('rect', { x, y: g + 34, width: PW, height: PH - 84, fill: COL.mantle }),
+      svg('rect', { x, y: g + 22, width: PW, height: 12, fill: COL.lid }),
+      ...draw(x, g),
       small(x, y + 8, `${i + 1}. ${title}`, { bold: true }),
       small(x, y + PH + 12, where, { soft: true }),
     ];
   };
   const sea = (x: number, y: number, x1: number, x2: number, depth = 26) => svg('rect', { x: x + x1, y: y - 8, width: x2 - x1, height: depth, fill: SEA });
-  const block = (pts: [number, number][], fill: string) => svg('path', { d: `M${pts.map((p) => p.join(',')).join('L')}Z`, fill, stroke: COL.ink, 'stroke-width': 0.6 });
+  const block = (pts: [number, number][], fill: string, stroke: string = COL.ink) => svg('path', { d: `M${pts.map((p) => p.join(',')).join('L')}Z`, fill, stroke, 'stroke-width': 0.6 });
+  /** Hot mantle welling up into the thinned lid under a rift or ridge at x + cx, never above the crust's base. */
+  const upwell = (x: number, y: number, cx: number, half: number, top: number) => block([[x + cx - half, y + 34], [x + cx, y + top], [x + cx + half, y + 34]], COL.mantle, 'none');
   s.append(
     ...panel(0, 'A continent rifts', 'East Africa today', (x, y) => [
-      block([[x, y - 8], [x + 52, y - 8], [x + 58, y + 2], [x + 62, y + 2], [x + 66, y - 8], [x + PW, y - 8], [x + PW, y + 24], [x, y + 24]], C),
+      upwell(x, y, 60, 24, 24),
+      block([[x, y - 8], [x + 52, y - 8], [x + 58, y + 2], [x + 62, y + 2], [x + 66, y - 8], [x + PW, y - 8], [x + PW, y + 24], [x + 72, y + 24], [x + 60, y + 20], [x + 48, y + 24], [x, y + 24]], C),
       svg('path', { d: `M${x + 55},${y - 8}l5,-9l5,9z`, fill: COL.heat }),
-      svg('path', { d: `M${x + 60},${y + 52}C${x + 60},${y + 40} ${x + 60},${y + 32} ${x + 60},${y + 26}`, stroke: COL.heat, 'stroke-width': 3, fill: 'none', opacity: 0.6 }),
+      svg('path', { d: `M${x + 60},${y + 64}V${y + 30}`, stroke: COL.heat, 'stroke-width': 3, fill: 'none', opacity: 0.6 }),
+      small(x + PW - 3, y + 31, 'plate', { anchor: 'end', fill: '#fff' }),
+      small(x + 3, y + 64, 'mantle', { soft: true }),
     ]),
     ...panel(1, 'A narrow sea', 'The Red Sea', (x, y) => [
+      upwell(x, y, 62, 18, 22),
       sea(x, y, 44, 80),
       block([[x, y - 8], [x + 44, y - 8], [x + 50, y + 16], [x + 50, y + 24], [x, y + 24]], C),
       block([[x + 80, y - 8], [x + PW, y - 8], [x + PW, y + 24], [x + 74, y + 24], [x + 74, y + 16]], C),
@@ -509,14 +518,16 @@ export const wilsonStill = () => {
       svg('path', { d: `M${x + 62},${y + 14}v-4`, stroke: COL.heat, 'stroke-width': 2 }),
     ]),
     ...panel(2, 'A wide ocean', 'The Atlantic', (x, y) => [
+      upwell(x, y, 62, 30, 22),
       sea(x, y, 18, PW - 18),
       block([[x, y - 8], [x + 18, y - 8], [x + 24, y + 16], [x + 24, y + 24], [x, y + 24]], C),
       block([[x + PW - 18, y - 8], [x + PW, y - 8], [x + PW, y + 24], [x + PW - 24, y + 24], [x + PW - 24, y + 16]], C),
       block([[x + 24, y + 16], [x + 58, y + 10], [x + 62, y + 8], [x + 66, y + 10], [x + PW - 24, y + 16], [x + PW - 24, y + 22], [x + 24, y + 22]], OC),
-      svg('path', { d: `M${x + 50},${y + 30}h-14m0,0l4,-3m-4,3l4,3M${x + 74},${y + 30}h14m0,0l-4,-3m4,3l-4,3`, stroke: COL.ink, 'stroke-width': 1, fill: 'none' }),
+      svg('path', { d: `M${x + 50},${y + 50}h-14m0,0l4,-3m-4,3l4,3M${x + 74},${y + 50}h14m0,0l-4,-3m4,3l-4,3`, stroke: COL.ink, 'stroke-width': 1, fill: 'none' }),
     ]),
     ...panel(3, 'Old floor sinks', 'The Andes, the Pacific rim', (x, y) => [
       sea(x, y, 0, 86),
+      block([[x + 74, y + 22], [x + 102, y + 64], [x + 95, y + 68], [x + 86, y + 68], [x + 67, y + 34], [x, y + 34], [x, y + 22]], COL.lid, 'none'),
       block([[x + 86, y - 8], [x + PW, y - 8], [x + PW, y + 24], [x + 84, y + 24], [x + 80, y + 14]], C),
       block([[x, y + 16], [x + 78, y + 16], [x + 110, y + 60], [x + 102, y + 64], [x + 74, y + 22], [x, y + 22]], OC),
       svg('path', { d: `M${x + 95},${y - 8}l5,-9l5,9z`, fill: COL.heat }),
@@ -524,19 +535,20 @@ export const wilsonStill = () => {
     ]),
     ...panel(4, 'The ocean closes', 'The Mediterranean', (x, y) => [
       sea(x, y, 34, 86),
+      block([[x + 74, y + 22], [x + 92, y + 60], [x + 82, y + 66], [x + 67, y + 34], [x + 40, y + 34], [x + 40, y + 22]], COL.lid, 'none'),
       block([[x, y - 8], [x + 34, y - 8], [x + 40, y + 16], [x + 40, y + 24], [x, y + 24]], C),
       block([[x + 86, y - 8], [x + PW, y - 8], [x + PW, y + 24], [x + 84, y + 24], [x + 80, y + 14]], C),
       block([[x + 40, y + 16], [x + 78, y + 16], [x + 100, y + 56], [x + 92, y + 60], [x + 74, y + 22], [x + 40, y + 22]], OC),
-      svg('path', { d: `M${x + 22},${y + 32}h12m0,0l-4,-3m4,3l-4,3`, stroke: COL.ink, 'stroke-width': 1, fill: 'none' }),
+      svg('path', { d: `M${x + 22},${y + 50}h12m0,0l-4,-3m4,3l-4,3`, stroke: COL.ink, 'stroke-width': 1, fill: 'none' }),
     ]),
     ...panel(5, 'Continents collide', 'The Himalaya', (x, y) => [
       block([[x, y - 8], [x + 44, y - 8], [x + 52, y - 26], [x + 62, y - 34], [x + 72, y - 24], [x + 82, y - 12], [x + PW, y - 10], [x + PW, y + 34], [x + 60, y + 40], [x, y + 24]], C),
       svg('path', { d: `M${x + 50},${y - 18}C${x + 56},${y} ${x + 60},${y + 20} ${x + 62},${y + 38}`, stroke: COL.ink, 'stroke-width': 1.2, 'stroke-dasharray': '3 2', fill: 'none' }),
       small(x + 66, y + 16, 'suture', { soft: true }),
-      block([[x + 70, y + 40], [x + 96, y + 44], [x + 98, y + 60], [x + 92, y + 62]], OC),
+      block([[x + 70, y + 44], [x + 96, y + 48], [x + 98, y + 64], [x + 92, y + 66]], OC),
     ]),
   );
-  s.setAttribute('aria-label', 'The Wilson cycle in six cross-sections. 1: a continent stretches and cracks along a rift valley, as in East Africa today. 2: the sea floods in and a narrow strip of new ocean floor forms, as in the Red Sea. 3: the ocean widens, with a spreading ridge in the middle and continents on either side, as in the Atlantic. 4: the old, cold ocean floor at one edge sinks down a trench under the continent, as along the Andes. 5: the ocean narrows as it is swallowed, as in the Mediterranean. 6: the continents collide, the ocean is gone, and a mountain range rises over the join, or suture, as in the Himalaya.');
+  s.setAttribute('aria-label', 'The Wilson cycle in six cross-sections. In each, the plates (crust on a stiff mantle lid) lie on top and the hot but solid mantle lies below them. 1: a continent stretches and cracks along a rift valley, as in East Africa today, and hot mantle rises under the thinned plate. 2: the sea floods in and a narrow strip of new ocean floor forms, as in the Red Sea. 3: the ocean widens, with a spreading ridge in the middle and continents on either side, as in the Atlantic. 4: the old, cold ocean floor at one edge sinks down a trench under the continent, as along the Andes. 5: the ocean narrows as it is swallowed, as in the Mediterranean. 6: the continents collide, the ocean is gone, and a mountain range rises over the join, or suture, as in the Himalaya.');
   return { node };
 };
 
