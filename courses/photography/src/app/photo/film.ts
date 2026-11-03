@@ -250,16 +250,33 @@ function subjectSmearPass(
   }
   mc.putImageData(md, 0, 0);
 
-  const subject = scratch(w, h);
-  const sc = subject.getContext('2d')!;
-  sc.drawImage(target, 0, 0);
-  sc.globalCompositeOperation = 'destination-in';
-  sc.drawImage(mask, 0, 0, w, h);
-  sc.globalCompositeOperation = 'source-over';
-
-  ctx.globalAlpha = 1 / SMEAR_STEPS;
-  for (let i = 0; i < SMEAR_STEPS; i++) ctx.drawImage(subject, (i / (SMEAR_STEPS - 1) - 0.5) * pixels, 0);
-  ctx.globalAlpha = 1;
+  // The whole frame smeared, as if everything had moved (a running average of
+  // shifted copies), kept only where the subject was or passed through: the
+  // mask swept along the same path. Laid over the frame, that replaces the
+  // sharp subject with its streak instead of ghosting the streak over it.
+  const smeared = scratch(w, h);
+  const sg = smeared.getContext('2d')!;
+  for (let i = 0; i < SMEAR_STEPS; i++) {
+    sg.globalAlpha = 1 / (i + 1);
+    sg.drawImage(target, (i / (SMEAR_STEPS - 1) - 0.5) * pixels, 0);
+  }
+  sg.globalAlpha = 1;
+  // Against open sky (nothing has a distance but the subject) the whole frame
+  // can smear: the sky looks the same smeared, and no edge of the depth map
+  // leaves a wingtip behind.
+  if (scene.far === null) {
+    ctx.drawImage(smeared, 0, 0);
+    return;
+  }
+  const swept = scratch(w, h);
+  const wg = swept.getContext('2d')!;
+  wg.filter = 'blur(1.5px)';
+  for (let i = 0; i < SMEAR_STEPS; i++) wg.drawImage(mask, (i / (SMEAR_STEPS - 1) - 0.5) * pixels, 0, w, h);
+  wg.filter = 'none';
+  sg.globalCompositeOperation = 'destination-in';
+  sg.drawImage(swept, 0, 0);
+  sg.globalCompositeOperation = 'source-over';
+  ctx.drawImage(smeared, 0, 0);
 }
 
 /** A smear: the frame drawn again and again along a line, as the camera moved. */

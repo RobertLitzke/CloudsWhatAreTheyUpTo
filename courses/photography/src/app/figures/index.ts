@@ -4,7 +4,7 @@ import type { FigureId } from '../../core/lessons';
 import { afAreaFigure, trackingFigure } from './autofocus';
 import { challengeDiagram } from './challenge';
 import { checkFigure } from './check';
-import { kelvinDiagram, whiteBalanceFigure } from './colour';
+import { kelvinDiagram, polariserFigure, sunFigure, whiteBalanceFigure } from './colour';
 import { apertureFigure, coneFigure } from './focus';
 import type { FigureFactory } from './kit';
 import { isoFigure, photonsDiagram, stopsFigure } from './light';
@@ -43,6 +43,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   crop: cropFigure,
   kelvin: kelvinDiagram,
   whiteBalance: whiteBalanceFigure,
+  sun: sunFigure,
+  polariser: polariserFigure,
   photo: photoDiagram,
   challenge: challengeDiagram,
   check: checkFigure,

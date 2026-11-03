@@ -56,8 +56,10 @@ export const challengeDiagram = Object.assign(function challengeDiagram(_ctx: Fi
   const stage = options?.stage ? STAGES[options.stage] : undefined;
   const photo = options?.photo ? PHOTOS.find((p) => p.id === options.photo) : undefined;
 
+  // A photo keeps its own proportions; a stage has the sensor's.
+  const h = photo && !stage ? Math.round((W * photo.height) / photo.width) : H;
   const cells = panels.map((p) => {
-    const canvas = el('canvas.shot', { width: W, height: H, role: 'img', 'aria-label': p.label }) as HTMLCanvasElement;
+    const canvas = el('canvas.shot', { width: W, height: h, role: 'img', 'aria-label': p.label }) as HTMLCanvasElement;
     const settings = el('p.shot-settings');
     return { p, canvas, settings, node: el('figure.challenge-panel', {}, el('p.challenge-label', {}, p.label), canvas, settings) };
   });

@@ -24,6 +24,7 @@ import shutter from '../data/lessons/shutter.json';
 import iso from '../data/lessons/iso.json';
 import lens from '../data/lessons/lens.json';
 import focus from '../data/lessons/focus.json';
+import colour from '../data/lessons/colour.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -35,7 +36,7 @@ export const FIGURE_IDS = [
   // The lens.
   'zoom', 'angle', 'longEnd', 'compression', 'crop',
   // Colour.
-  'kelvin', 'whiteBalance',
+  'kelvin', 'whiteBalance', 'sun', 'polariser',
   // The pieces every lesson has.
   'photo', 'challenge', 'check',
 ] as const;
@@ -58,13 +59,7 @@ export const LESSONS: readonly Lesson[] = [
   iso as Lesson,
   lens as Lesson,
   focus as Lesson,
-  planned(8, 'colour', 'The colour of light', 'White balance, the hour of the day, and the difference between light you fix and light you go out for', [
-    'Colour temperature, and why warm is the low number',
-    'What automatic white balance is guessing, and the scenes that fool it',
-    'Golden hour, blue hour and overcast, as three different kinds of light to use',
-    'Backlight and rim light, and metering for them',
-    'What a polariser does to water, leaves and sky',
-  ]),
+  colour as Lesson,
   planned(9, 'seeing', 'Seeing the picture before you take it', 'Backgrounds, light direction, distance and framing: the decisions that are made with your feet', [
     'The background is half the picture, and you move it by moving',
     'Light from behind you, beside you, and in front of you',

@@ -124,6 +124,19 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the sun figure is done in the golden hour', async () => {
+    const fig = FIGURES.sun(context(), 'golden');
+    setSlider(fig.node, 0, 3);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the polariser figure is done once the sky has darkened and the glare has gone', async () => {
+    const fig = FIGURES.polariser(context(), 'both-ways');
+    setSlider(fig.node, 1, 0);
+    setSlider(fig.node, 1, 90);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

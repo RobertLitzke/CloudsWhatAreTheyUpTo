@@ -27,7 +27,11 @@ export const shutterFigure = figure<PhotoOptions>(['freeze', 'see-shake'], (_ctx
   const eqFocal = scene.eqFocal ?? 1200;
 
   const paint = () => {
-    const shot = shoot(scene, { eqFocal, shutter, vr });
+    // The camera in shutter priority keeps the exposure right (with a grey
+    // filter where the light is too bright even at f/8 and ISO 100), so only
+    // the blur changes here.
+    const taken = shoot(scene, { eqFocal, shutter, vr });
+    const shot = { ...taken, render: { ...taken.render, exposure: Math.min(1, taken.render.exposure) } };
     const smear = shot.render.smear;
     const shake = shot.render.shake;
     const blurry = (x: number) => x > 0.004;
