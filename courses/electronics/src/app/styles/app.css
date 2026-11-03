@@ -12,10 +12,13 @@
 .fig-task { background: #fbf0d4; }
 .update-icon { background: linear-gradient(160deg, #1f5a43, #0f2a22); }
 
-/* ---- Home ------------------------------------------------------------- */
-.hero-text h1 { color: var(--title); text-shadow: 0 3px 18px rgba(0, 0, 0, 0.55); }
-.hero-text .subtitle { color: var(--text); text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); }
-.hero .eyebrow { color: var(--sun); }
+/* ---- Home: the board banner (scene/banner.ts) with the title over its
+   upper half, in the heading face with a hard shadow like the buttons. */
+.hero-text { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 16px 24%; }
+.hero-text h1 { font: 900 clamp(3.4rem, 10vw, 7rem)/0.95 var(--head); font-variation-settings: var(--head-settings); color: var(--title); text-shadow: 4px 4px 0 #0f2624; }
+.hero-text .subtitle { margin: 12px 0 0; font: italic 500 clamp(1.1rem, 2.6vw, 1.7rem)/1.25 var(--head); font-variation-settings: var(--head-settings); color: var(--title); text-shadow: 2px 2px 0 #0f2624; max-width: 24em; }
+.hero .eyebrow { color: var(--title); margin-bottom: 14px; }
+@media (min-width: 700px) { .hero-text { padding-bottom: 150px; } }
 .track { margin-top: 28px; }
 .track h2 { margin-bottom: 2px; }
 .track-blurb { color: var(--muted); margin: 0 0 12px; }
