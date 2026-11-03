@@ -8,7 +8,6 @@ import { CREDITS } from './app/credits';
 import { DECK } from './app/deck';
 import { FIGURES } from './app/figures';
 import { prose } from './app/figures/kit';
-import { BLADES } from './app/mark';
 import { makeScene } from './app/scene/field';
 import { empty, store } from './store';
 import { homeView } from './app/views/home';
@@ -20,24 +19,18 @@ const SHUTTER =
   '<svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="14" fill="none" stroke="#e8a33d" stroke-width="3"/>' +
   '<path d="M22 29v-14m-5 5 5-5 5 5" fill="none" stroke="#f2efe9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
-/** The app icon (tools/icons.mjs) as the header's logo mark: inline, so it shows offline. */
-const MARK =
-  '<svg viewBox="0 0 100 100" aria-hidden="true"><clipPath id="mark-r"><rect width="100" height="100" rx="22"/></clipPath>' +
-  '<g clip-path="url(#mark-r)"><rect width="100" height="100" fill="#f2efe9"/>' +
-  BLADES +
-  '</g></svg>';
-
 // The whole app (Didactics' app.ts). The save stays under "outofauto.save"
 // (store.ts) and the edited text under "out-of-auto.course" (course.ts), as
 // before the course joined the site; the files are out-of-auto-save.json,
 // out-of-auto-course.json and out-of-auto.html.
 defineCourse({
   id: 'out-of-auto',
-  title: 'Out of Auto',
-  subtitle: 'A field workbook',
-  mark: el('span.mark', { innerHTML: MARK }),
+  title: 'Photography',
+  subtitle: 'Out of Auto',
+  // The course's icon (catalog/icons, `npm run icons` at the root) as the header's logo mark.
+  mark: el('img', { src: 'icons/icon.svg', alt: '' }),
   site: SITE_URL,
-  update: { title: 'New version', text: 'A fresh version of Out of Auto is ready.', icon: SHUTTER },
+  update: { title: 'New version', text: 'A fresh version of Photography: Out of Auto is ready.', icon: SHUTTER },
 
   lessons: LESSONS,
   figures: FIGURES,

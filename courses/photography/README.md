@@ -1,4 +1,4 @@
-# Out of Auto
+# Photography: Out of Auto
 
 A photography workbook for someone who owns a long zoom and leaves it on
 automatic. Short illustrated lessons, in the manner of Bartosz Ciechanowski's
@@ -93,7 +93,6 @@ photo has been drawn, for screenshots.
 | `npm test -w photography` | Vitest: the optics and exposure arithmetic, lesson and reference content, every figure built, the save, photo credits |
 | `npm run build -w photography` | Typecheck, then build `dist/` |
 | `npm run preview -w photography` | Serve `dist/` on http://localhost:5461 |
-| `npm run icons -w photography` | Regenerate the icons from `src/app/mark.ts` (written by the root's `tools/lib/icons.mjs`) |
 | `npm run photos:find -w photography` | List candidate photographs from Commons into a contact sheet to pick from |
 | `npm run photos:fetch -w photography` | Download the picked photographs, resize them, make depth maps and write their credits |
 | `npm run photos:import -w photography -- <folder>` | Bring in photographs from a folder on this machine: your own, or a set from elsewhere |
@@ -190,7 +189,7 @@ src/app/      store.ts, asset.ts, picture.ts, mark.ts (the aperture icon)
                 focus.ts, motion.ts, light.ts, zoom.ts, colour.ts, check.ts, index.ts
   scene/        field.ts, the drawn valley at the top of each page
   views/        home, lesson, reference, quiz, settings, credits
-tools/        photos/ (find, fetch, import, depth), gallery/, icons.mjs
+tools/        photos/ (find, fetch, import, depth), gallery/
 ```
 
 ## Deploy

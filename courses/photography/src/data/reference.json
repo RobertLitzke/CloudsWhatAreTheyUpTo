@@ -1,90 +1,896 @@
 {
-  "sections": [
+ "sections": [
+  {
+   "id": "glossary",
+   "title": "Glossary",
+   "summary": "Every word the lessons use, A to Z, with the notes from the lessons",
+   "lesson": "tour",
+   "blocks": [
     {
-      "id": "glossary",
-      "title": "Glossary",
-      "summary": "Every word the lessons use, A to Z, with the notes from the lessons",
-      "lesson": "tour",
-      "blocks": [
-        { "type": "glossary" }
+     "type": "glossary"
+    }
+   ]
+  },
+  {
+   "id": "four-decisions",
+   "title": "The four decisions",
+   "summary": "What each dial decides, and what it charges for it",
+   "lesson": "tour",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Dial",
+      "Decides",
+      "Costs",
+      "Reach for it when"
+     ],
+     "rows": [
+      [
+       "Aperture",
+       "How much light, and how deep the sharp band is",
+       "Depth of field; past f/4 on this camera, overall sharpness",
+       "You want a background gone, or everything sharp"
+      ],
+      [
+       "Shutter",
+       "How much light, and how movement is recorded",
+       "Blur, from the subject or from your hands",
+       "Anything is moving, including you"
+      ],
+      [
+       "ISO",
+       "How hard the count is amplified",
+       "Grain, and some fine detail",
+       "There is no more light to be had from the other two"
+      ],
+      [
+       "Focus",
+       "What distance is sharp",
+       "Nothing, when it lands where you meant",
+       "Always: it is the one the camera gets wrong most often"
       ]
+     ]
     },
     {
-      "id": "four-decisions",
-      "title": "The four decisions",
-      "summary": "What each dial decides, and what it charges for it",
-      "lesson": "tour",
-      "blocks": [
-        { "type": "table", "columns": ["Dial", "Decides", "Costs", "Reach for it when"], "rows": [
-          ["Aperture", "How much light, and how deep the sharp band is", "Depth of field; past f/4 on this camera, overall sharpness", "You want a background gone, or everything sharp"],
-          ["Shutter", "How much light, and how movement is recorded", "Blur, from the subject or from your hands", "Anything is moving, including you"],
-          ["ISO", "How hard the count is amplified", "Grain, and some fine detail", "There is no more light to be had from the other two"],
-          ["Focus", "What distance is sharp", "Nothing, when it lands where you meant", "Always: it is the one the camera gets wrong most often"]
-        ] },
-        { "type": "interactive_diagram", "id": "stops", "caption": "Three dials, one scene, and how far the exposure is from right" }
+     "type": "interactive_diagram",
+     "id": "stops",
+     "caption": "Three dials, one scene, and how far the exposure is from right"
+    }
+   ]
+  },
+  {
+   "id": "p950",
+   "title": "The P950 at a glance",
+   "summary": "The numbers the figures are built on",
+   "lesson": "tour",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "",
+      "Value",
+      "What it means in the field"
+     ],
+     "rows": [
+      [
+       "Sensor",
+       "6.17 × 4.55 mm, 16 megapixels",
+       "A crop factor of 5.6: deep depth of field, and grain sooner than a big camera"
+      ],
+      [
+       "Lens",
+       "4.3–357 mm, quoted as 24–2000 mm",
+       "83×: a landscape and a distant bird with the same camera"
+      ],
+      [
+       "Widest aperture",
+       "f/2.8 wide, f/6.5 at 2000 mm",
+       "Two and a half stops darker at the long end"
+      ],
+      [
+       "ISO",
+       "100 to 6400",
+       "Usable to about 800; above 1600 it is a record, not a portrait"
+      ],
+      [
+       "Shutter",
+       "1/4000 to 15 s",
+       "15 s only in M at ISO 100; other modes stop at 1 s"
+      ],
+      [
+       "Stabiliser",
+       "Rated 5.5 stops",
+       "Count on 3 or 4 hand-held, and nothing at all against a moving bird"
+      ],
+      [
+       "Closest focus",
+       "About 0.5 m wide, 5 m at full zoom",
+       "The long end cannot focus on anything near"
       ]
+     ]
     },
     {
-      "id": "p950",
-      "title": "The P950 at a glance",
-      "summary": "The numbers the figures are built on",
-      "lesson": "tour",
-      "blocks": [
-        { "type": "table", "columns": ["", "Value", "What it means in the field"], "rows": [
-          ["Sensor", "6.17 × 4.55 mm, 16 megapixels", "A crop factor of 5.6: deep depth of field, and grain sooner than a big camera"],
-          ["Lens", "4.3–357 mm, quoted as 24–2000 mm", "83×: a landscape and a distant bird with the same camera"],
-          ["Widest aperture", "f/2.8 wide, f/6.5 at 2000 mm", "Two and a half stops darker at the long end"],
-          ["ISO", "100 to 6400", "Usable to about 800; above 1600 it is a record, not a portrait"],
-          ["Shutter", "1/4000 to 15 s", "15 s only in M at ISO 100; other modes stop at 1 s"],
-          ["Stabiliser", "Rated 5.5 stops", "Count on 3 or 4 hand-held, and nothing at all against a moving bird"],
-          ["Closest focus", "About 0.5 m wide, 5 m at full zoom", "The long end cannot focus on anything near"]
-        ] },
-        { "type": "interactive_diagram", "id": "longEnd", "caption": "The widest the lens will open, at every zoom" }
+     "type": "interactive_diagram",
+     "id": "longEnd",
+     "caption": "The widest the lens will open, at every zoom"
+    }
+   ]
+  },
+  {
+   "id": "stops",
+   "title": "Stops, in numbers",
+   "summary": "The three scales, side by side, so a trade can be counted",
+   "lesson": "tour",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Stops from here",
+      "Aperture",
+      "Shutter",
+      "ISO"
+     ],
+     "rows": [
+      [
+       "+2 (four times the light)",
+       "f/2.8",
+       "1/60",
+       "400"
+      ],
+      [
+       "+1",
+       "f/4",
+       "1/125",
+       "200"
+      ],
+      [
+       "0",
+       "f/5.6",
+       "1/250",
+       "100"
+      ],
+      [
+       "−1",
+       "f/8",
+       "1/500",
+       "—"
+      ],
+      [
+       "−2 (a quarter)",
+       "f/11",
+       "1/1000",
+       "—"
       ]
+     ]
     },
     {
-      "id": "stops",
-      "title": "Stops, in numbers",
-      "summary": "The three scales, side by side, so a trade can be counted",
-      "lesson": "tour",
-      "blocks": [
-        { "type": "table", "columns": ["Stops from here", "Aperture", "Shutter", "ISO"], "rows": [
-          ["+2 (four times the light)", "f/2.8", "1/60", "400"],
-          ["+1", "f/4", "1/125", "200"],
-          ["0", "f/5.6", "1/250", "100"],
-          ["−1", "f/8", "1/500", "—"],
-          ["−2 (a quarter)", "f/11", "1/1000", "—"]
-        ] },
-        { "type": "text", "text": "Aperture numbers go up by about 1.4 a stop because the hole's *area* has to halve. The shutter and the ISO simply double." }
+     "type": "text",
+     "text": "Aperture numbers go up by about 1.4 a stop because the hole's *area* has to halve. The shutter and the ISO simply double."
+    }
+   ]
+  },
+  {
+   "id": "starting-points",
+   "title": "Settings to start from",
+   "summary": "A first guess for the usual nature subjects, to adjust rather than invent",
+   "lesson": "tour",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Subject",
+      "Mode",
+      "Shutter",
+      "Aperture",
+      "ISO"
+     ],
+     "rows": [
+      [
+       "Perched bird, good light",
+       "A",
+       "watch it stays over 1/500",
+       "wide open",
+       "auto, capped at 800"
+      ],
+      [
+       "Bird in flight",
+       "S",
+       "1/2000",
+       "whatever it gives",
+       "auto, capped at 1600"
+      ],
+      [
+       "Animal across a field",
+       "S",
+       "1/1000",
+       "wide open",
+       "auto"
+      ],
+      [
+       "Landscape",
+       "A",
+       "whatever it gives",
+       "f/4",
+       "100"
+      ],
+      [
+       "Flower or insect close up",
+       "A",
+       "over 1/250 if there is any breeze",
+       "f/5.6 to f/8",
+       "100 to 400"
+      ],
+      [
+       "Waterfall",
+       "M, on a tripod",
+       "1/4 to 2 s",
+       "f/8",
+       "100"
       ]
+     ]
     },
     {
-      "id": "starting-points",
-      "title": "Settings to start from",
-      "summary": "A first guess for the usual nature subjects, to adjust rather than invent",
-      "lesson": "tour",
-      "blocks": [
-        { "type": "table", "columns": ["Subject", "Mode", "Shutter", "Aperture", "ISO"], "rows": [
-          ["Perched bird, good light", "A", "watch it stays over 1/500", "wide open", "auto, capped at 800"],
-          ["Bird in flight", "S", "1/2000", "whatever it gives", "auto, capped at 1600"],
-          ["Animal across a field", "S", "1/1000", "wide open", "auto"],
-          ["Landscape", "A", "whatever it gives", "f/4", "100"],
-          ["Flower or insect close up", "A", "over 1/250 if there is any breeze", "f/5.6 to f/8", "100 to 400"],
-          ["Waterfall", "M, on a tripod", "1/4 to 2 s", "f/8", "100"]
-        ] },
-        { "type": "text", "text": "These are starting points, not answers. Take one frame, look at it, and move the dial that is costing you the most." }
+     "type": "text",
+     "text": "These are starting points, not answers. Take one frame, look at it, and move the dial that is costing you the most."
+    }
+   ]
+  },
+  {
+   "id": "metering",
+   "title": "Measuring the light",
+   "summary": "The meter, the histogram, and exposure compensation",
+   "lesson": "light",
+   "blocks": []
+  },
+  {
+   "id": "depth-of-field",
+   "title": "What stays sharp",
+   "summary": "Depth of field, hyperfocal distances and diffraction",
+   "lesson": "aperture",
+   "blocks": []
+  },
+  {
+   "id": "movement",
+   "title": "Shutter speeds for moving things",
+   "summary": "What it takes to freeze a wingbeat, and what the stabiliser is worth",
+   "lesson": "shutter",
+   "blocks": []
+  },
+  {
+   "id": "noise",
+   "title": "ISO and noise",
+   "summary": "Where this sensor runs out, and what to do about it",
+   "lesson": "iso",
+   "blocks": []
+  },
+  {
+   "id": "reach",
+   "title": "Reach",
+   "summary": "How big a subject gets at each focal length, and when to crop instead",
+   "lesson": "lens",
+   "blocks": []
+  },
+  {
+   "id": "autofocus",
+   "title": "Autofocus",
+   "summary": "The modes and areas, and which to use for what",
+   "lesson": "focus",
+   "blocks": []
+  },
+  {
+   "id": "colour",
+   "title": "The colour of light",
+   "summary": "Colour temperature, white balance and the hours of the day",
+   "lesson": "colour",
+   "blocks": []
+  },
+  {
+   "id": "composition",
+   "title": "Framing in the field",
+   "summary": "Backgrounds, light direction and distance",
+   "lesson": "seeing",
+   "blocks": []
+  },
+  {
+   "id": "birds",
+   "title": "Birds",
+   "summary": "A field recipe for perched and flying birds",
+   "lesson": "birds",
+   "blocks": []
+  },
+  {
+   "id": "afterwards",
+   "title": "After the shutter",
+   "summary": "Files, editing and what can still be recovered",
+   "lesson": "after",
+   "blocks": []
+  },
+  {
+   "id": "history",
+   "title": "A short history",
+   "summary": "From the camera obscura to the sensor in your hand",
+   "lesson": "history",
+   "blocks": []
+  },
+  {
+   "id": "compensation",
+   "title": "Exposure compensation, by scene",
+   "summary": "Where the meter goes wrong, and which way to correct it",
+   "lesson": "light",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Scene",
+      "The meter gives",
+      "Compensation"
+     ],
+     "rows": [
+      [
+       "Snow or a white beach in sun",
+       "Grey whites",
+       "+1 to +2"
+      ],
+      [
+       "A bird against bright sky",
+       "A dark silhouette",
+       "+1 to +2"
+      ],
+      [
+       "A white bird filling the frame",
+       "A grey bird",
+       "+1"
+      ],
+      [
+       "A meadow, a forest, a street",
+       "About right",
+       "0"
+      ],
+      [
+       "A black animal filling the frame",
+       "Grey fur",
+       "−1"
+      ],
+      [
+       "A sunlit animal against deep shade",
+       "A washed-out animal",
+       "−1 to −2"
       ]
+     ]
     },
-    { "id": "metering", "title": "Measuring the light", "summary": "The meter, the histogram, and exposure compensation", "lesson": "light", "blocks": [] },
-    { "id": "depth-of-field", "title": "What stays sharp", "summary": "Depth of field, hyperfocal distances and diffraction", "lesson": "aperture", "blocks": [] },
-    { "id": "movement", "title": "Shutter speeds for moving things", "summary": "What it takes to freeze a wingbeat, and what the stabiliser is worth", "lesson": "shutter", "blocks": [] },
-    { "id": "noise", "title": "ISO and noise", "summary": "Where this sensor runs out, and what to do about it", "lesson": "iso", "blocks": [] },
-    { "id": "reach", "title": "Reach", "summary": "How big a subject gets at each focal length, and when to crop instead", "lesson": "lens", "blocks": [] },
-    { "id": "autofocus", "title": "Autofocus", "summary": "The modes and areas, and which to use for what", "lesson": "focus", "blocks": [] },
-    { "id": "colour", "title": "The colour of light", "summary": "Colour temperature, white balance and the hours of the day", "lesson": "colour", "blocks": [] },
-    { "id": "composition", "title": "Framing in the field", "summary": "Backgrounds, light direction and distance", "lesson": "seeing", "blocks": [] },
-    { "id": "birds", "title": "Birds", "summary": "A field recipe for perched and flying birds", "lesson": "birds", "blocks": [] },
-    { "id": "afterwards", "title": "After the shutter", "summary": "Files, editing and what can still be recovered", "lesson": "after", "blocks": [] },
-    { "id": "history", "title": "A short history", "summary": "From the camera obscura to the sensor in your hand", "lesson": "history", "blocks": [] }
-  ]
+    {
+     "type": "text",
+     "text": "Check the histogram after the first shot: reach the right edge, but do not pile up against it."
+    }
+   ]
+  },
+  {
+   "id": "depth-levers",
+   "title": "Moving the sharp band",
+   "summary": "What deepens depth of field and what shrinks it, on the P950",
+   "lesson": "aperture",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "To get",
+      "Do",
+      "Why"
+     ],
+     "rows": [
+      [
+       "A soft background",
+       "Long end, close to the subject, background far behind",
+       "The far background's blur grows with the lens opening in millimetres"
+      ],
+      [
+       "The background recognisable",
+       "Shorter zoom, step closer, f/5.6 to f/8",
+       "Less magnified, less blurred"
+      ],
+      [
+       "A whole insect sharp",
+       "Narrow the aperture; don't zoom in further",
+       "Up close the band is millimetres"
+      ],
+      [
+       "A landscape sharp throughout",
+       "Wide end, f/4 to f/5.6, focus a third into the scene",
+       "At 24 mm the hyperfocal distance is about a metre"
+      ],
+      [
+       "The sharpest detail",
+       "Avoid f/8 unless you need the depth",
+       "Diffraction spreads every point over several pixels"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "shutter-speeds",
+   "title": "Shutter speeds for moving things",
+   "summary": "Starting points at the long end of the zoom",
+   "lesson": "shutter",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Subject",
+      "Shutter",
+      "Notes"
+     ],
+     "rows": [
+      [
+       "Perched bird, hand-held at 2000 mm",
+       "1/250 s or faster",
+       "Stabiliser on; brace yourself"
+      ],
+      [
+       "Bird in flight",
+       "1/1000 to 1/2000 s",
+       "Faster for small birds and wingtips"
+      ],
+      [
+       "Panning a flying bird",
+       "1/15 to 1/60 s",
+       "Swing with it, follow through, shoot a burst"
+      ],
+      [
+       "Water as threads",
+       "1/4 to 1/2 s",
+       "Tripod or braced camera"
+      ],
+      [
+       "Water as mist",
+       "1 s and longer",
+       "Tripod; a neutral density filter in daylight"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "iso-limits",
+   "title": "ISO on the P950",
+   "summary": "What each ISO costs, seen whole on a screen",
+   "lesson": "iso",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "ISO",
+      "Grain",
+      "Use it for"
+     ],
+     "rows": [
+      [
+       "100 to 400",
+       "None you will see",
+       "Daylight; anything you can expose at base ISO"
+      ],
+      [
+       "800 to 1600",
+       "Visible at 100%, faint on a screen",
+       "Shade, overcast, the first minutes after sunset"
+      ],
+      [
+       "3200",
+       "Plain at 100%, mild on a phone",
+       "Dusk, when the shutter cannot go slower"
+      ],
+      [
+       "6400",
+       "Heavy; detail softens",
+       "Only to save a shot that would otherwise be lost"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "After sunset the light falls about a stop every four minutes. Take the moving subjects first and leave the still ones for last, when a braced camera at 1/30 s can stand in for two stops of ISO."
+    }
+   ]
+  },
+  {
+   "id": "zoom-crop",
+   "title": "Zoom, crop and distance",
+   "summary": "What each focal length takes in, and what a crop leaves",
+   "lesson": "lens",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Equivalent focal length",
+      "Across the frame",
+      "Wide at 100 m"
+     ],
+     "rows": [
+      [
+       "24 mm",
+       "74°",
+       "150 m"
+      ],
+      [
+       "200 mm",
+       "10°",
+       "18 m"
+      ],
+      [
+       "1000 mm",
+       "2°",
+       "3.6 m"
+      ],
+      [
+       "2000 mm",
+       "1°",
+       "1.8 m"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "columns": [
+      "Pixels across",
+      "Enough for"
+     ],
+     "rows": [
+      [
+       "4608 (no crop)",
+       "A large print"
+      ],
+      [
+       "3500",
+       "A sharp A4 print"
+      ],
+      [
+       "1920",
+       "A computer screen"
+      ],
+      [
+       "1080",
+       "A phone"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "A crop to half the frame's width keeps a quarter of the pixels. For a big background behind a subject, step back and zoom in; for less shimmer, get closer and shoot in the cool of the morning."
+    }
+   ]
+  },
+  {
+   "id": "focus-modes",
+   "title": "Focus, by situation",
+   "summary": "Which focus area and mode for which bird",
+   "lesson": "focus",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Situation",
+      "Focus area",
+      "Mode"
+     ],
+     "rows": [
+      [
+       "Bird in the open, perched",
+       "Centre or spot",
+       "Single"
+      ],
+      [
+       "Bird behind twigs or reeds",
+       "Spot on the eye, or manual focus",
+       "Single"
+      ],
+      [
+       "Bird crossing in front of you",
+       "Centre, or subject tracking",
+       "Continuous, burst"
+      ],
+      [
+       "Bird flying toward you",
+       "Centre",
+       "Continuous, burst; narrow the aperture if light allows"
+      ],
+      [
+       "Bird that returns to a perch",
+       "Focus on the perch first",
+       "Manual, then wait"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "light-colour",
+   "title": "The colour of light",
+   "summary": "Kelvin, white balance presets and the hours of the day",
+   "lesson": "colour",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Light",
+      "About",
+      "White balance to keep it as it looked"
+     ],
+     "rows": [
+      [
+       "Candle",
+       "1900 K",
+       "Daylight (keeps it orange)"
+      ],
+      [
+       "Lamp indoors",
+       "2700 to 3200 K",
+       "Incandescent to make it neutral"
+      ],
+      [
+       "Golden hour",
+       "3000 to 4500 K",
+       "Daylight"
+      ],
+      [
+       "Noon sun",
+       "5500 K",
+       "Daylight or Auto"
+      ],
+      [
+       "Overcast",
+       "6500 K",
+       "Cloudy, or Daylight for a cooler look"
+      ],
+      [
+       "Shade, blue hour",
+       "8000 K and up",
+       "Daylight keeps it blue; Shade neutralises it"
+      ]
+     ]
+    },
+    {
+     "type": "text",
+     "text": "A polariser works best 90° from the sun and costs about a stop and a half of light."
+    }
+   ]
+  },
+  {
+   "id": "before-the-shutter",
+   "title": "Before you press",
+   "summary": "A checklist for the picture made with your feet",
+   "lesson": "seeing",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Check",
+      "Fix"
+     ],
+     "rows": [
+      [
+       "Something behind the subject's head",
+       "Step sideways"
+      ],
+      [
+       "Busy or bright background",
+       "Step sideways, zoom in, or open the aperture"
+      ],
+      [
+       "Flat light",
+       "Walk round for side light"
+      ],
+      [
+       "No catchlight",
+       "Move so the sun is more behind you"
+      ],
+      [
+       "Looking down on the animal",
+       "Get down to its level"
+      ],
+      [
+       "No room in front of it",
+       "Recompose, leaving space where it faces"
+      ],
+      [
+       "The animal is watching you",
+       "Stop, or back away"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bird-recipes",
+   "title": "Two bird recipes",
+   "summary": "Starting settings for a perched bird and a bird in flight",
+   "lesson": "birds",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "",
+      "Perched bird",
+      "Bird in flight"
+     ],
+     "rows": [
+      [
+       "Mode",
+       "A (aperture priority)",
+       "S (shutter priority), saved on U"
+      ],
+      [
+       "Aperture",
+       "Wide open",
+       "Whatever the camera picks"
+      ],
+      [
+       "Shutter",
+       "Camera's choice; watch it stays above 1/125 s at 1000 mm",
+       "1/2000 s (1/1000 s for big, slow birds)"
+      ],
+      [
+       "ISO",
+       "Auto, ceiling 1600 to 3200",
+       "Auto"
+      ],
+      [
+       "Focus",
+       "Single, spot on the eye",
+       "Continuous, centre area"
+      ],
+      [
+       "Drive",
+       "Bursts of 3 or 4",
+       "Burst"
+      ],
+      [
+       "Zoom",
+       "As long as the bird allows",
+       "600 to 1000 mm, crop later"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "editing-pass",
+   "title": "A short editing pass",
+   "summary": "The order to edit in, and what each file keeps",
+   "lesson": "after",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Step",
+      "What it fixes"
+     ],
+     "rows": [
+      [
+       "1. White balance",
+       "Colours, before anything else"
+      ],
+      [
+       "2. Exposure",
+       "How bright the subject is"
+      ],
+      [
+       "3. Highlights and shadows",
+       "Sky, water, shade under the bird"
+      ],
+      [
+       "4. Crop and straighten",
+       "Composition and the horizon"
+      ],
+      [
+       "5. Noise reduction",
+       "Grain, gently"
+      ],
+      [
+       "6. Sharpening",
+       "Edges, gently, last"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "columns": [
+      "",
+      "JPEG",
+      "RAW (NRW)"
+     ],
+     "rows": [
+      [
+       "Levels per colour",
+       "256",
+       "Thousands"
+      ],
+      [
+       "Above white",
+       "Cut off",
+       "About a stop kept"
+      ],
+      [
+       "Choices",
+       "Baked in",
+       "Made when you develop it"
+      ],
+      [
+       "Size",
+       "Small",
+       "Several times bigger"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "timeline",
+   "title": "A short timeline",
+   "summary": "From the dark room to the chip",
+   "lesson": "history",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "When",
+      "What"
+     ],
+     "rows": [
+      [
+       "c. 1020",
+       "Ibn al-Haytham explains the camera obscura"
+      ],
+      [
+       "1717",
+       "Schulze finds silver salts darken in light"
+      ],
+      [
+       "1826–27",
+       "Niépce's view from his window, hours of exposure"
+      ],
+      [
+       "1838–39",
+       "Daguerre's boulevard; the daguerreotype announced"
+      ],
+      [
+       "1841",
+       "Talbot's calotype: negatives and prints"
+      ],
+      [
+       "1851",
+       "Wet collodion: seconds"
+      ],
+      [
+       "1878",
+       "Muybridge stops a galloping horse"
+      ],
+      [
+       "1888",
+       "Kodak's roll-film camera"
+      ],
+      [
+       "1969",
+       "The CCD at Bell Labs"
+      ],
+      [
+       "1975",
+       "Sasson's digital camera at Kodak"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "columns": [
+      "Whole stops"
+     ],
+     "rows": [
+      [
+       "f/1.4 · 2 · 2.8 · 4 · 5.6 · 8 · 11 · 16, each half the light of the last"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
 }

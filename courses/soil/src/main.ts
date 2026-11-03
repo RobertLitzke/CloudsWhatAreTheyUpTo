@@ -22,15 +22,6 @@ const SPROUT =
   '<path d="M22 33V20" stroke="#efe6cf" stroke-width="2.4" stroke-linecap="round"/>' +
   '<path d="M22 22c-1-6-6-9-12-8 0 6 5 9 12 8Z" fill="#b9d36c"/><path d="M22 19c1-6 6-9 12-8 0 6-5 9-12 8Z" fill="#b9d36c"/></svg>';
 
-/** The app icon (tools/icons.mjs) as the header's logo mark: inline, so it shows offline. */
-const MARK =
-  '<svg viewBox="0 0 100 100" aria-hidden="true"><clipPath id="mark-r"><rect width="100" height="100" rx="22"/></clipPath>' +
-  '<g clip-path="url(#mark-r)"><rect width="100" height="100" fill="#efe6cf"/>' +
-  '<path d="M-40 76 Q50 50 140 76 V140 H-40Z" fill="#5a3f28"/>' +
-  '<path d="M50 70 V47" stroke="#3f6b2a" stroke-width="7" stroke-linecap="round"/>' +
-  '<path d="M50 50 C45 33 31 25 14 27 C14 45 30 54 50 50Z" fill="#4e8a2e"/>' +
-  '<path d="M50 43 C55 26 69 18 86 20 C86 38 70 47 50 43Z" fill="#86b43e"/></g></svg>';
-
 // The whole app (Didactics' app.ts): the save is "dirt.save", the course's
 // edited text "dirt.course", and the files dirt-save.json, dirt-course.json
 // and dirt.html.
@@ -38,7 +29,8 @@ defineCourse({
   id: 'dirt',
   title: 'Dirt',
   subtitle: 'A soil workbook',
-  mark: el('span.mark', { innerHTML: MARK }),
+  // The course's icon (catalog/icons, `npm run icons` at the root) as the header's logo mark.
+  mark: el('img', { src: 'icons/icon.svg', alt: '' }),
   lessons: LESSONS,
   figures: FIGURES,
   prose,

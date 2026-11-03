@@ -1,0 +1,244 @@
+{
+ "id": "shutter",
+ "n": 4,
+ "title": "Shutter speed, and everything that moves",
+ "teaches": "How far things move while the shutter is open, telling your own shake from the subject's movement, panning, and leaving the shutter open on purpose",
+ "parts": [
+  {
+   "title": "The eagle that smeared",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The challenge.** A bald eagle comes low over the river, fifty metres out, wings fully spread. You zoom to 600 mm, follow it and press the shutter. The picture on the screen is the left-hand one: the shape is an eagle, but the wingtips are a brown haze and the white head has a ghost beside it. What you wanted is the right-hand one, every primary feather separate. The light was good and the focus was right. What went wrong took less than a hundredth of a second."
+    },
+    {
+     "type": "diagram",
+     "id": "challenge",
+     "caption": "An eagle in flight at 1/125 s, and at 1/2000 s",
+     "options": {
+      "photo": "bird-in-flight-01",
+      "panels": [
+       {
+        "label": "What you got",
+        "eqFocal": 600,
+        "shutter": 0.008,
+        "aperture": 8,
+        "stops": -1
+       },
+       {
+        "label": "What you wanted",
+        "eqFocal": 600,
+        "shutter": 0.0005
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "And a second picture for later in the lesson, from the same walk: the creek below the bridge, drawn out into smooth white threads around sharp black rocks. That one needs the shutter open for a long time, not a short one, and it has its own problem, which is too much light.[^muybridge-gap]"
+    }
+   ]
+  },
+  {
+   "title": "How far it moves while the shutter is open",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The [[shutter|shutter]] speed is the time the sensor collects light, and anything that moves across the frame in that time is recorded as a streak along its path. What matters is not how fast the bird flies but how far its image travels across the sensor, and that depends on three things: its speed, its distance, and how far you are zoomed in. An eagle at 12 metres a second, 50 metres away, crosses about a seventh of a degree of view every hundredth of a second. At 600 mm the frame is only about three and a half degrees wide, so in 1/125 s the eagle's image slides across about three per cent of it, some 150 of the picture's 4608 pixels."
+    },
+    {
+     "type": "text",
+     "text": "A smear starts to show when it covers a few pixels of the picture as you see it on a computer screen, about ten of the sensor's 4608, so for a bird in flight at a long zoom you need speeds of 1/1000 s to 1/2000 s, and for the wingtips, which move faster than the body, faster still. Automatic modes often settle somewhere around 1/250 s and spend the rest of the light on a lower ISO, which suits a perched bird and fails a flying one."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "shutter",
+     "caption": "The eagle at 600 mm, 50 m away, flying at about 12 m/s",
+     "task": "Find a shutter speed that freezes the eagle, wingtips and all",
+     "goal": "freeze"
+    }
+   ]
+  },
+  {
+   "title": "Two blurs that look alike",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "There is a second thing moving while the shutter is open: you. A hand-held camera wanders a little all the time, and it turns rather than slides, so the wander is an angle, and an angle covers more of the frame the more you zoom in. At 2000 mm the frame is about one degree wide and the slightest tremor sweeps right across it."
+    },
+    {
+     "type": "text",
+     "text": "The old rule of thumb says the slowest safe hand-held shutter is one over the focal length: 1/2000 s at 2000 mm, 1/50 s at 50 mm (equivalent millimetres). The P950's stabiliser moves a lens group to cancel the wander, and in practice it buys three or four stops, so 1/125 s to 1/250 s at the long end is about the limit on a steady day.[^vr]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "shake",
+     "caption": "The same small wobble of the camera, seen through a lens from 24 mm to 2000 mm",
+     "task": "Zoom past 600 mm, then find the shutter that keeps the frame sharp",
+     "goal": "rule-of-thumb"
+    },
+    {
+     "type": "text",
+     "text": "The two blurs look alike on the back of the camera but have different cures, and the picture tells you which you have. If everything is smeared the same way, branch, bird and background alike, the camera moved: brace yourself, turn the stabiliser on, use a support. If the bird is smeared and the branch beside it is sharp, the bird moved, and only a shorter shutter will stop it. The stabiliser does nothing for a moving bird."
+    }
+   ]
+  },
+  {
+   "title": "Panning",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A bird frozen at 1/2000 s can look strangely still, as if it were hanging in the air. There is another way to show speed: swing the camera with the bird while the shutter is open, at a slower speed such as 1/30 s. What smears is whatever moves across the sensor. If the camera turns exactly as fast as the bird flies, the bird's image stays put and comes out sharp, while the trees behind it slide past and become streaks."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "pan",
+     "caption": "A bird flying past a line of trees at 600 mm, with the camera still or swinging",
+     "task": "Get the bird sharp and the trees streaked behind it",
+     "goal": "pan"
+    },
+    {
+     "type": "text",
+     "text": "In the field, panning is a matter of practice and of keeping the swing going after you press the button, the way a golfer follows through. Start your swing before the bird reaches you, keep it smooth, and take a burst; some of the frames will have the speed matched. It works best side-on, at shutter speeds from 1/15 s to 1/60 s, and with the background some way behind the bird so that its streaks are long."
+    }
+   ]
+  },
+  {
+   "title": "The creek as silk",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The creek is the same physics turned round. The water moves and the rocks do not, so a long shutter smears the water into threads and leaves the rocks sharp, as long as the camera itself does not move: this is tripod work, or at least a camera braced on a rail with the self-timer. Around 1/4 s the water starts to thread; at a second or more it turns to mist."
+    },
+    {
+     "type": "text",
+     "text": "The problem is light. On a bright overcast day, at the camera's narrowest aperture, f/8, and its lowest ISO, 100, the right exposure is about 1/60 s. A one-second exposure lets in six stops too much. The P950 cannot make the hole smaller or the sensor less sensitive, so the light has to be cut before it reaches the lens, with a grey **neutral density** filter screwed onto the front, or by waiting for dusk.[^nd]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "silkWater",
+     "caption": "A creek on a tripod, at ISO 100 and f/8",
+     "task": "Lengthen the shutter until the water turns to silk",
+     "goal": "silk"
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "What smears is how far a thing's image travels across the sensor while the shutter is open: speed, distance and zoom together.",
+      "If the whole frame smears, the camera moved; if only the subject smears, the subject did.",
+      "The rule of thumb is one over the equivalent focal length; the stabiliser buys three or four stops of it, and nothing against a moving bird.",
+      "Panning matches the camera's swing to the subject: subject sharp, background streaked."
+     ]
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Shutter speed and movement",
+     "task": "Answer each question",
+     "options": {
+      "items": [
+       {
+        "question": "A heron stands still on a log, but in your picture the heron, the log and the water are all smeared in the same direction. What happened?",
+        "options": [
+         "The camera moved during the exposure",
+         "The heron moved during the exposure",
+         "The aperture was set too wide",
+         "The ISO was set too high"
+        ],
+        "answer": 0,
+        "why": "When everything smears the same way, including things that cannot move, the camera moved. A steadier hold, the stabiliser, a support or a faster shutter fixes it."
+       },
+       {
+        "question": "The same goose flies past at the same speed. In which case does it smear most at a given shutter speed?",
+        "options": [
+         "Close and zoomed in",
+         "Far away and zoomed out",
+         "Far away and zoomed in",
+         "Close and zoomed out"
+        ],
+        "answer": 0,
+        "why": "The smear is how far the goose's image travels across the frame. A nearer goose crosses more degrees of view each second, and zooming in makes the frame fewer degrees wide, so both make the smear bigger."
+       },
+       {
+        "question": "At 2000 mm with the stabiliser off, what does the rule of thumb call the slowest safe hand-held shutter?",
+        "options": [
+         "About 1/2000 s",
+         "About 1/250 s",
+         "About 1/30 s",
+         "About 1/20 s"
+        ],
+        "answer": 0,
+        "why": "One over the equivalent focal length: 1/2000 s at 2000 mm. The stabiliser relaxes this by three or four stops, to roughly 1/125 to 1/250 s."
+       },
+       {
+        "question": "Will turning the stabiliser on freeze a bird in flight?",
+        "options": [
+         "No, it only cancels your own movement",
+         "Yes, it tracks a moving subject too",
+         "Yes, but only at the long end of the zoom",
+         "Only when the camera is in shutter priority"
+        ],
+        "answer": 0,
+        "why": "The stabiliser moves a lens group to counter the wobble of your hands. It knows nothing about the bird, whose movement only a faster shutter can stop."
+       },
+       {
+        "question": "You pan with a cyclist at 1/30 s. The cyclist is sharp but the background is not streaked at all. Why might that be?",
+        "options": [
+         "The background is plain, like an even sky",
+         "The shutter was too slow for the pan",
+         "You panned faster than the bird",
+         "The stabiliser was switched on"
+        ],
+        "answer": 0,
+        "why": "Streaks are made of detail sliding across the sensor. A plain background has no edges to streak, so panning against open sky looks the same as a frozen shot. A textured background shows the motion."
+       },
+       {
+        "question": "At ISO 100 and f/8 on a bright day, a one-second exposure of a waterfall comes out almost white. What is the fix?",
+        "options": [
+         "A neutral density filter on the lens",
+         "A higher ISO for the slow shutter",
+         "A wider aperture to soften the water",
+         "Turning the stabiliser off for it"
+        ],
+        "answer": 0,
+        "why": "The camera cannot make the hole smaller or the sensor less sensitive than f/8 and ISO 100, so a grey filter has to cut the light before it reaches the lens, or you wait for dimmer light."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**The shutter speed is a window of time.** Anything whose image moves across the sensor in that window is recorded as a streak.",
+  "**The smear depends on speed, distance and zoom together.** A flying bird at a long zoom needs 1/1000 s to 1/2000 s.",
+  "**Shake and movement look alike but read differently.** Everything smeared means the camera moved; only the subject smeared means the subject did.",
+  "**The rule of thumb is one over the focal length.** The stabiliser buys three or four stops of it, and does nothing for a moving subject.",
+  "**Panning swaps which thing is sharp.** Swing with the bird at a slow shutter: the bird stays sharp and the background streaks.",
+  "**Long exposures need less light.** Silky water takes a tripod, and in daylight a neutral density filter."
+ ],
+ "journal": [],
+ "footnotes": {
+  "muybridge-gap": {
+   "kind": "digression",
+   "title": "Fast and slow",
+   "text": "Photography spent its first decades unable to do the eagle and only able to do the creek. Early plates needed seconds or minutes of light, so moving water was always smooth and moving animals were blurs or ghosts. It took until the late 1870s, and Eadweard Muybridge's horse, for a camera to stop a moving animal, and until the 1880s for faster gelatine plates to make it ordinary."
+  },
+  "vr": {
+   "kind": "technical",
+   "title": "How a stabiliser works",
+   "text": "Gyroscopes in the camera measure how it is turning, hundreds of times a second, and a group of lens elements is shifted the opposite way so that the image stays still on the sensor. Nikon calls it Vibration Reduction and rates the P950's at 5.5 stops; the figures in this course assume four, nearer what a birder gets hand-held at the long end. It works best on slow wander, so a very jerky hand defeats it."
+  },
+  "nd": {
+   "kind": "technical",
+   "title": "Neutral density filters",
+   "text": "A neutral density filter is a sheet of grey glass that cuts all colours equally. They are rated in stops or by their transmission: an ND8 passes an eighth of the light, three stops; an ND64, six stops; an ND1000, about ten. The P950 takes 67 mm screw-in filters on the front of its lens."
+  }
+ }
+}

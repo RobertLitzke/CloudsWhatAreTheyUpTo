@@ -18,8 +18,9 @@
 // below. Its lessons are read from the folder course.json names.
 //
 // --queue edits every lesson waiting in courses/<course>/tools/review-queue.json,
-// where new prose is listed when it is written (lesson, date, what changed),
-// so the reviews can be run later as one batch (tools/review-queue.mjs runs
+// where new prose is listed when it is written (lesson, date, what changed,
+// and optionally notes: specific fixes for the editor to make), so the
+// reviews can be run later as one batch (tools/review-queue.mjs runs
 // every course's). With --write each lesson that comes back cleanly is taken
 // off the queue.
 //
@@ -132,7 +133,10 @@ for (const id of ids) {
   const source = readFileSync(file, 'utf8');
   const lesson = JSON.parse(source);
   const ps = pieces(lesson);
-  const prompt = `Lesson: "${lesson.title}"\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
+  // A queue entry may carry reviewers' notes: specific fixes the editor should make in this lesson.
+  const notes = queued.filter((q) => q.lesson === id).flatMap((q) => q.notes ?? []);
+  const ask = notes.length ? `Reviewers' notes for this lesson. Make these changes where they fall, within the rules above (same pieces, same markup, length limit):\n${notes.map((n) => `- ${n}`).join('\n')}\n\n` : '';
+  const prompt = `${ask}Lesson: "${lesson.title}"\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
   const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },

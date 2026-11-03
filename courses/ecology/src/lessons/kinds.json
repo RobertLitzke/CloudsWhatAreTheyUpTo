@@ -1,0 +1,89 @@
+{
+  "id": "kinds",
+  "n": 1,
+  "title": "How many kinds are there?",
+  "teaches": "How to estimate what you can’t count, and why no one knows how many species there are",
+  "parts": [
+    {
+      "title": "Sheets under a tree",
+      "blocks": [
+        {"type": "text", "text": "In the 1970s Terry Erwin, a beetle specialist at the Smithsonian Institution, wanted to know what lived in the crowns of tropical trees. The canopy of a rainforest starts thirty metres up, out of reach of a net, and most of what lives there never comes down. So Erwin brought it down. Before dawn, when the air is still, he fired a fog of fast-acting insecticide up into the crown of one tree, and for a few hours insects, spiders and mites rained onto plastic sheets spread on the ground below.[^fogging]"},
+        {"type": "text", "text": "He chose nineteen trees of a single species, *Luehea seemannii*, in a forest near Panama City, and fogged them in three different seasons. Then he and his colleagues sorted the catch. Among the beetles alone they counted about **1,200 kinds**, many of them never named by anyone. Nineteen trees of one species, in one patch of forest, held more kinds of beetle than there are kinds of bird in all of North America."},
+        {"type": "text", "text": "In 1982 Erwin wrote up what this might mean in a two-page note in *The Coleopterists Bulletin*, a journal read mostly by beetle experts. At the time, the textbooks said that biologists had named about one and a half million species of every kind, and that the total might be two or three million. Erwin's note ended with a different number: perhaps **thirty million** kinds of arthropod (insects, spiders, mites and their relatives) in the tropics alone."},
+        {"type": "text", "text": "Thirty million is not a count. Nobody has seen thirty million kinds of anything. It was an estimate, built by multiplying a real count by a chain of guesses. This lesson is about that chain: how you estimate something you cannot count, why each link matters, and why, forty years on, the answer is still argued over."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["A **species** is a kind of living thing whose members can breed with each other; the word here means the same as “kind”.", "Most of the living world has never been counted; totals are estimates from samples."]}
+      ]
+    },
+    {
+      "title": "Erwin's chain of guesses",
+      "blocks": [
+        {"type": "text", "text": "Erwin's arithmetic took four steps. First, how many of the 1,200 beetles were tied to *Luehea* alone? Many beetles eat only one kind of plant, or a few close relatives, and Erwin went through the plant-eaters, the predators, the scavengers and the fungus-eaters group by group. He guessed that about **13.5 percent**, some 160 kinds, would be found on *Luehea* and on no other tree."},
+        {"type": "text", "text": "Second, there are about 50,000 species of tropical tree. If each had its own 160 or so specialist beetles, the canopies of the tropics would hold about eight million kinds of beetle. Third, beetles are not everything. In his fogging catches they were about **40 percent** of the arthropods, so the canopy's arthropods would come to about twenty million. Fourth, he guessed the canopy holds about twice as many kinds as the forest floor, so the canopy would be two thirds of the total: thirty million."},
+        {"type": "text", "text": "Each step multiplies or divides by a guess, so the error in any one guess carries straight through to the answer. Halve a guess you multiply by and the answer halves; halve one you divide by and the answer doubles. The guesses were not all equally shaky, though. Beetles' share of arthropods can be counted in many fogging catches, and it varies only so much. How many beetles feed on one kind of tree and no other is much harder to know, because it means following each beetle to see what it eats."},
+        {"type": "interactive_diagram", "id": "erwin", "caption": "Erwin's chain of guesses. Each slider runs across the values the evidence allowed in 1982.", "task": "Guess which link matters most, then bring the total under five million", "goal": "low", "aspect_ratio": 1.49},
+        {"type": "text", "text": "The share of specialists can swing the total from about two million to over fifty, more than either of the other guesses can. Every chain of guesses is only as good as its weakest link, and the useful thing to know about an estimate is which link that is. Then you know where to spend the next ten years of fieldwork."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Erwin's thirty million was a real count (1,200 beetles) multiplied and divided by three guesses.", "In a chain of multiplications, an error in any link carries straight to the answer.", "The weakest link was how many insects feed on one kind of plant only."]}
+      ]
+    },
+    {
+      "title": "Curves that keep climbing",
+      "blocks": [
+        {"type": "text", "text": "Erwin's 1,200 beetles were themselves an undercount. Fog the twentieth tree and new kinds still fall onto the sheets. Any survey of living things, a pond, a meadow or a forest canopy, runs into the same pattern: a few kinds are common and turn up everywhere, and most kinds are rare. Search a little and you find the common ones. Search more and you keep finding rare ones, more slowly, for a very long time."},
+        {"type": "text", "text": "A **species accumulation curve** plots the number of kinds found against the effort spent finding them: squares searched, traps emptied or trees fogged. It always rises steeply at first and then bends. The question that matters is whether it has levelled off, and it almost never has."},
+        {"type": "interactive_diagram", "id": "sampler", "caption": "A meadow with ninety kinds of plant in it, searched one square at a time. The curve counts the kinds found so far.", "task": "Search at least twenty squares and watch the curve", "goal": "curve", "aspect_ratio": 1.21},
+        {"type": "text", "text": "After the first few squares, each new one adds fewer new kinds, and it is tempting to think you are nearly done. The rare kinds say otherwise. A kind seen only once is a warning: if many kinds turn up just once, there are probably many more that have not turned up at all. In 1943 the statistician Ronald Fisher, working from butterflies the entomologist Steven Corbet had caught in Malaya, turned that warning into a formula for how many kinds a sample has missed.[^logseries] Make the rare kinds rarer in the meadow, and the curve climbs for longer before it bends."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["In most places a few kinds are common and most are rare.", "A species accumulation curve rises steeply and then bends, but rarely levels off.", "Many kinds seen only once mean many more not yet seen."]}
+      ]
+    },
+    {
+      "title": "Thirty million revisited",
+      "blocks": [
+        {"type": "text", "text": "Erwin's note was meant to start an argument, and it did. Entomologists went back into the canopy with the specific aim of testing his weakest link. In the 1990s Vojtěch Novotny, George Weiblen and their colleagues in Papua New Guinea raised caterpillars and beetles on dozens of kinds of tree, one by one, to see what each would eat. Most insects were less fussy than Erwin had guessed: many fed on several related trees, so the same insect was being counted over and over in the multiplication."},
+        {"type": "text", "text": "Frode Ødegaard reworked the sum in 2000 with better numbers for each link, and other teams have redone it since. Most recent estimates put the number of insect species on Earth at around **five or six million**, with a wide margin either way. For all plants, animals and fungi together, an estimate by Camilo Mora and colleagues in 2011 came to about nine million, of which only about one in seven had been named.[^mora]"},
+        {"type": "diagram", "id": "scale", "caption": "Some estimates of how many kinds there are, against the number named so far. Each estimate counts a different group, so they don't simply disagree.", "options": {"title": "Kinds of living thing, in millions", "items": [{"label": "Named so far (all life)", "value": 2.1, "says": "about 2.1", "color": "ink", "bold": true}, {"label": "Erwin 1982 (tropical arthropods)", "value": 30, "says": "30", "color": "heat"}, {"label": "Ødegaard 2000 (all arthropods)", "value": 6, "says": "about 5 to 7", "color": "prey"}, {"label": "Mora and colleagues 2011 (plants, animals, fungi)", "value": 8.7, "says": "about 8.7", "color": "plant"}, {"label": "Stork 2018 (insects)", "value": 5.5, "says": "about 5.5", "color": "rival"}]}},
+        {"type": "text", "text": "Thirty million was too high, but it did its job. Before 1982, few biologists thought the number of species was a question worth asking. After it, the canopy, the soil and the deep sea were all being sampled with the same question in mind, and it became clear that the living world was still mostly unexplored."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Field tests of Erwin's weakest link found insects less specialised than he had guessed.", "Recent estimates: around five to six million kinds of insect, nine million plants, animals and fungi. About two million kinds of living thing of all sorts have been named so far."]}
+      ]
+    },
+    {
+      "title": "What we don't know",
+      "blocks": [
+        {"type": "text", "text": "Taxonomists, the people who name and describe species, add about fifteen to twenty thousand new species a year. At that rate, naming what is already out there would take centuries. Some groups are nearly done: almost every bird has a name, and new mammals are rare. Most beetles, mites, worms and fungi are not, and bacteria are another matter again. Their kinds blur into each other, and most have never been grown in a dish, so even the meaning of “species” is harder to pin down."},
+        {"type": "text", "text": "In 1988 the ecologist Robert May pointed out how strange this is. Astronomers can say how many stars are in our galaxy to within a factor of a few; biologists could not say how many species share our planet to within a factor of ten. The number is not just a curiosity. Each species is a tested design for living, and most of the ones that are lost will be lost before anyone knows they were there."},
+        {"type": "text", "text": "You can draw your own accumulation curve in a garden or a park. Hold an old pale sheet or umbrella under a low branch and give the branch a sharp knock, then count how many kinds of small creature land on it; there is no need to name them, just tell them apart. Do the same under a second branch, a third and a fourth, keeping a running total of kinds. The curve will rise, bend and keep climbing, the same shape as Erwin's."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["About fifteen to twenty thousand species are named each year.", "Birds and mammals are nearly all named; most insects, mites, worms, fungi and bacteria are not."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on counting kinds", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A student searches a pond for twenty days. The number of kinds she has found rose steeply for the first week and is still rising slowly. What can she conclude?", "choices": ["She has not found every kind yet, and the rare ones are still turning up", "She has found every kind in the pond", "The pond is losing kinds as she searches"], "answer": 0, "why": "An accumulation curve that is still rising means each day still brings new kinds. Only when the curve flattens out does a survey start to look complete, and in rich places it almost never does."},
+            {"ask": "Erwin's total was 1,200 beetles × 13.5% × 50,000 trees ÷ 40% ÷ ⅔. Suppose new fieldwork showed the specialist share was really about 4.5%, a third of his guess. What happens to the total?", "choices": ["It falls to a third, about ten million", "It falls by 9 percentage points, to about 29 million", "It stays the same, since the beetle count didn't change"], "answer": 0, "why": "The share multiplies everything after it, so a third of the share gives a third of the total. In a chain of multiplications, errors scale the answer rather than adding to it."},
+            {"ask": "Why was the share of beetles found on only one tree species the weakest link in Erwin's chain?", "choices": ["To know it, you must find out what each beetle actually eats, which is slow and had hardly been done", "Beetles are too small to count", "It was the largest number in the chain"], "answer": 0, "why": "The other links could be checked from fogging catches. Knowing which trees a beetle depends on means raising or watching it on many kinds of tree, the work later done in New Guinea."},
+            {"ask": "Two meadow surveys each find 60 kinds after 30 squares. In the first, 25 kinds were seen only once; in the second, only 3. Which meadow probably holds more kinds that haven't been found?", "choices": ["The first", "The second", "Neither; both found 60"], "answer": 0, "why": "Many kinds seen only once is the sign of a long tail of rare kinds, most of which haven't turned up yet. Fisher's formula uses exactly this."},
+            {"ask": "Which group of animals has nearly every species already named?", "choices": ["Birds", "Beetles", "Mites"], "answer": 0, "why": "Birds are large, conspicuous and watched by many people; new species are rare. Beetles and mites are small, numerous and mostly unstudied."},
+            {"ask": "Erwin's own count of 1,200 kinds from nineteen trees was itself probably too low. Why?", "choices": ["A twentieth tree would still have added new kinds: in a place this rich, the count was still climbing", "Insecticide only kills common beetles", "Beetles move between trees, so some were counted twice"], "answer": 0, "why": "Like any sample, nineteen trees caught the common kinds and only some of the rare ones. More fogging would have added more."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**No one knows how many species there are.** About two million kinds of living thing are named; estimates of the total run from a few million to around ten million or more.",
+    "**Erwin's thirty million came from a chain.** A real count of 1,200 beetle kinds was multiplied and divided by three guesses.",
+    "**Errors in a chain carry straight through.** Halve a guess that multiplies and the answer halves.",
+    "**Find the weakest link.** For Erwin it was how many beetles live on one kind of tree only; field tests found insects less fussy, and estimates fell.",
+    "**Most kinds are rare.** In a sample a few kinds are common and most turn up once or not at all.",
+    "**Accumulation curves bend but keep climbing.** Many kinds seen once means many more not yet seen.",
+    "**Most insects, mites, fungi and bacteria are unnamed.** Birds and mammals are nearly all known."
+  ],
+  "journal": [],
+  "footnotes": {
+    "fogging": {"kind": "technical", "title": "Canopy fogging", "text": "The usual insecticide is a pyrethrin, a natural compound from chrysanthemum flowers, or a close synthetic relative. It knocks insects out within minutes and breaks down quickly in sunlight. The fog is blown up from a machine on the ground or a rope hoisted into the crown, early in the morning before the breeze can carry it off. Collectors wait a couple of hours, then sweep the sheets into jars of alcohol."},
+    "logseries": {"kind": "digression", "title": "Fisher's log series", "text": "Corbet had spent years catching butterflies in Malaya, and his catch had many species represented by a single specimen and fewer by two, three or four. Fisher noticed that the numbers fell away in a regular pattern, which he described with a mathematical series, the **log series**. With it he could estimate how many species a longer collecting trip would add. Similar methods, refined since, are how ecologists judge whether a survey is close to complete."},
+    "mora": {"kind": "technical", "title": "Mora's method", "text": "Mora's team noticed that the number of named groups at each level of classification (phylum, class, order, family, genus) climbs in a regular way from the top to the bottom. The higher levels are almost fully known, so the pattern can be extended down to predict the number of species. They got about 8.7 million species of plants, animals, fungi and single-celled algae and protists, about 2.2 million of them in the sea, with a margin of error of over a million. Bacteria were left out."}
+  }
+}

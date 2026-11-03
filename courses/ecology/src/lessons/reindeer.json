@@ -1,0 +1,91 @@
+{
+  "id": "reindeer",
+  "n": 3,
+  "title": "The reindeer of St Matthew Island",
+  "teaches": "Why a population can shoot past its ceiling and crash when its food is slow to grow back",
+  "parts": [
+    {
+      "title": "Twenty-nine reindeer",
+      "blocks": [
+        {"type": "text", "text": "St Matthew Island lies in the Bering Sea, about 300 kilometres off the coast of Alaska: fifty kilometres of tundra, cliffs and seabirds, with no trees and no people. In 1944, during the Second World War, the United States Coast Guard built a radio navigation station there. In August of that year it shipped in 29 reindeer from Nunivak Island, 24 females and 5 males, as a store of fresh meat for the station's crew in case supplies were cut off."},
+        {"type": "text", "text": "The war ended, and the station was closed within two years. The reindeer were left behind. They had what reindeer need: thick mats of lichen, the pale grey-green “reindeer moss” they live on through the winter, which had been growing undisturbed on the island since the end of the last ice age. There were no wolves, no bears and no hunters. For the herd, it was as close to the beginning of Darwin's elephant sum as a real population ever gets."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["St Matthew Island: 29 reindeer released in 1944, with plenty of lichen and no predators."]}
+      ]
+    },
+    {
+      "title": "Klein's counts",
+      "blocks": [
+        {"type": "text", "text": "In 1957 David Klein, a young biologist with the U.S. Fish and Wildlife Service, went to the island to see what had happened. He counted **1,350 reindeer**. They were bigger and fatter than reindeer on the mainland, and the lichen was holding up, though he could see places where it had been grazed thin. The herd had grown by more than a quarter every year for thirteen years."},
+        {"type": "text", "text": "In 1963 Klein went back and counted about **6,000**, about 47 reindeer for every square mile of the island. They were smaller now, and the lichen was in trouble: in large areas the mats had been grazed down to stubble and trampled. Lesson 2's logistic brake says a population should slow as it nears its ceiling and settle there. This one had not slowed at all."},
+        {"type": "text", "text": "In the summer of 1966 Klein went back a third time. He and his team walked the whole island and found **42 reindeer**: 41 females and one male, which had abnormal antlers and was probably unable to breed. Not a single fawn. The tundra was strewn with skeletons, most of them from animals that had died together in the late winter of 1963–64. The herd had gone from 6,000 to 42 in three years, and it was never going to recover. By the 1980s the last of them had died."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Klein's counts: 29 in 1944, 1,350 in 1957, about 6,000 in 1963, 42 in 1966.", "The herd did not slow down near a ceiling; it shot past it and crashed."]}
+      ]
+    },
+    {
+      "title": "A slow food stock",
+      "blocks": [
+        {"type": "text", "text": "The logistic brake has a hidden assumption: the ceiling stays where it is. The brake works on the population's food *today*, and today's food is fixed. On St Matthew, the food was itself a stock, in the bathtub sense of lesson 2, and a very slow one. Lichen grows a few millimetres a year. A mat grazed to the ground takes decades to grow back. So the reindeer were not living on what grew each year; they were living off thousands of years of savings."},
+        {"type": "text", "text": "While the savings lasted, every reindeer ate well and the herd grew as fast as reindeer can. By the time food per head began to fall, the stock was nearly spent, and there were thousands of animals eating what was left. The ceiling, which for a herd like this is set by what the lichen can regrow each year, was far below 6,000, and it had been falling for years as the mats were eaten down."},
+        {"type": "interactive_diagram", "id": "island", "caption": "A model of St Matthew Island, beside Klein's counts. Lichen grows back toward full cover; each reindeer eats a ration while it can find one.", "task": "Guess, then make the lichen grow back in six years or less and run to 1970", "goal": "fast", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Make the lichen fast-growing and the same herd behaves almost like Carlson's yeast: it rises, overshoots a little, and settles at a ceiling it can keep. Make the lichen slow, as it really is, and the herd shoots up, strips the island and crashes. Nothing about the reindeer changed between the two runs. The difference is in how fast the food stock refills compared with how fast the herd can empty it."},
+        {"type": "text", "text": "There is a second slow thing in the model: the reindeer themselves. A well-fed reindeer carries fat into the winter, so the herd keeps breeding for a while after its food has started to run short, and it starves a season late. That is a reindeer living on its own savings, and it pushes the herd still further past its ceiling."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The reindeer lived off a stock of lichen thousands of years old, not on what grew each year.", "A food stock that refills slowly lets a population overshoot its ceiling and crash.", "The same herd with fast-growing food levels off."]}
+      ]
+    },
+    {
+      "title": "The winter of 1963",
+      "blocks": [
+        {"type": "text", "text": "Klein's 1968 paper blamed two things. One was the lichen, eaten out by too many reindeer. The other was the winter of 1963–64, one of the hardest on record in that part of the Bering Sea, with deep snow and a crust of ice that kept the animals from digging down to what lichen remained. Reindeer that had gone into the winter thin had no reserves to carry them through."},
+        {"type": "text", "text": "Which mattered more? Switch the hard winter off in the model and the crash still comes, a little later and not quite as deep. A hard winter is a blow that falls whatever the herd's size, the kind of thing lesson 2 said can knock a population down but cannot set its ceiling. On St Matthew it struck a herd that had already outrun its food, and turned a decline into a catastrophe. Later work on the island's weather records, by Klein and the climatologist Martha Shulski in 2011, came to the same conclusion: the overgrazing set it up, the winter brought it down."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Klein blamed both overgrazing and the hard winter of 1963–64.", "The winter fell on a herd that had already outrun its food, so it struck far harder than it would have otherwise."]}
+      ]
+    },
+    {
+      "title": "Delays",
+      "blocks": [
+        {"type": "text", "text": "St Matthew is one example of a general rule about stocks and flows: a brake that acts late causes overshoot. You know it from a shower with a long pipe. You turn the tap toward hot, nothing happens, so you turn it further; by the time the hot water arrives you have turned it far too far, and you scald yourself, turn it back hard, and freeze. The tap was fine. The delay did it."},
+        {"type": "text", "text": "In a population the delay can be the time food takes to regrow, the time young take to grow up and breed, or the time fat lasts. The simplest way to see its effect is to take lesson 2's logistic brake and make it act on the numbers from a little while ago instead of today. The ecologist G. Evelyn Hutchinson did this in 1948."},
+        {"type": "interactive_diagram", "id": "delay", "caption": "The logistic brake acting late: the population is held back by how crowded it was some time ago, not how crowded it is now. A model.", "task": "Make the brake act late enough that the population overshoots its ceiling", "goal": "overshoot", "aspect_ratio": 1.82},
+        {"type": "text", "text": "With no delay the curve slides into the ceiling. A short delay makes it overshoot a little and swing back. A long one makes it boom far past the ceiling and bust far below it, again and again. How long counts as long depends on how fast the population grows: the faster it can breed, the less delay it takes to send it past its ceiling.[^chaos]"},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["A brake that acts late makes a population overshoot its ceiling and swing back.", "The longer the delay, and the faster the growth, the bigger the swings."]}
+      ]
+    },
+    {
+      "title": "Overshoot elsewhere",
+      "blocks": [
+        {"type": "text", "text": "Put a spoonful of yeast in a bottle of sugar water, seal it, and the same story plays out in a few days. The yeast grows fast on a sugar stock that never refills, then stops as the sugar runs out and the alcohol it has made poisons it. A winemaker counts on exactly that crash. Stretch a balloon over the neck of the bottle and you can watch the gas the yeast gives off: the balloon fills quickly, then stops."},
+        {"type": "text", "text": "Ecology textbooks used to tell a similar story about deer on the Kaibab Plateau in Arizona, which were said to have boomed and crashed in the 1920s after their predators were killed off. In 1970 the New Zealand ecologist Graeme Caughley went back to the records and found them too patchy to say whether the boom happened at all. It is a useful warning. A crash is easy to believe in and hard to show; St Matthew is famous partly because Klein counted the herd before, during and after."},
+        {"type": "text", "text": "Islands like St Matthew make good natural experiments because nothing comes or goes. On a mainland, a hungry herd spreads out, and wolves take the weak. The lesson carries over all the same: when a population lives on a stock that it uses faster than it refills, it can grow for a long time on borrowed food, and the bill comes due all at once."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Yeast in a sealed bottle of sugar water booms and stops on a food stock that never refills.", "Boom-and-bust stories need counts before, during and after; the Kaibab deer story did not have them."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on overshoot", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Goats are let loose on two islands. On one the main food is a grass that grows back within weeks; on the other, a slow-growing shrub that takes twenty years. Which herd is more likely to boom and crash?", "choices": ["The one eating slow-growing shrubs", "The one eating fast-growing grass", "Neither: both will level off at their ceilings"], "answer": 0, "why": "A slow food stock lets the herd grow for years on old growth before shortage bites, so it overshoots. Fast-growing grass refills quickly enough to act as a brake that responds almost at once."},
+            {"ask": "Which explanation of the St Matthew crash is the best?", "choices": ["The herd lived off decades of stored lichen, grew past what the island could regrow, and a hard winter struck once the lichen was nearly gone", "The reindeer ate too much", "A hard winter killed them"], "answer": 0, "why": "“They ate too much” leaves out why they didn't slow down first: the food was a slow stock, so shortage came late. The winter alone would not have killed a herd in good condition on good lichen."},
+            {"ask": "In 1957 the herd was fat and growing fast. What did that say about the island's ceiling?", "choices": ["Nothing reliable: they were living off stored lichen, so a well-fed herd could already be past the ceiling", "The ceiling was far above 1,350", "The ceiling had been reached"], "answer": 0, "why": "With a slow food stock, good condition now shows only that the savings haven't run out yet. That is why the crash came as a surprise."},
+            {"ask": "A population's brake acts on how crowded it was two years ago. What happens compared with a brake that acts at once?", "choices": ["It overshoots its ceiling and swings back", "It levels off more smoothly", "It never reaches the ceiling"], "answer": 0, "why": "Like a shower with a long pipe, a delayed brake keeps the population growing after it has already passed the ceiling, so it overshoots and then falls back too far."},
+            {"ask": "Why did no new herd grow back on St Matthew after 1966?", "choices": ["The 42 survivors were almost all females, and the one male probably couldn't breed", "The island had no lichen at all left", "Predators reached the island"], "answer": 0, "why": "Klein found 41 females and one male with abnormal antlers, and no fawns. Without breeding, the remnant simply aged and died out."},
+            {"ask": "Why is a sealed bottle of yeast and sugar water a fair small-scale copy of St Matthew Island?", "choices": ["The food is a fixed stock that doesn't refill, and the population grows fast on it", "Yeast and reindeer eat the same thing", "Both suffer from cold"], "answer": 0, "why": "The shared feature is the food stock: used faster than it refills (in the bottle, not at all), it supports a boom that ends in a crash."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**St Matthew Island: 29 reindeer in 1944, about 6,000 in 1963, 42 in 1966.** The herd shot past its ceiling and crashed.",
+    "**The food was a slow stock.** Lichen takes decades to grow back, so the herd lived for years on old growth.",
+    "**A slow food stock causes overshoot.** Shortage comes late, after the herd is far too big; with fast-growing food the same herd levels off.",
+    "**The hard winter of 1963–64 struck a herd that had already outrun its food.** Overgrazing set up the crash; the winter brought it down.",
+    "**A brake that acts late causes overshoot.** Delays in food, fat or breeding make populations boom past their ceiling and bust below it.",
+    "**Boom and bust needs good counts to show.** St Matthew has them; the old Kaibab deer story did not."
+  ],
+  "journal": [],
+  "footnotes": {
+    "chaos": {"kind": "digression", "title": "Chaos in a simple model", "text": "In 1976 the ecologist Robert May showed that the simplest population model with a built-in delay, one generation to the next in a species that breeds once a year, can behave very strangely. At low growth rates it settles at a ceiling. Raise the growth rate and it swings between two values, then four, then eight, and beyond a certain point it never repeats at all: it is **chaotic**, unpredictable in the long run even though every step follows a simple rule. May's paper was one of the starting points of chaos theory."}
+  }
+}

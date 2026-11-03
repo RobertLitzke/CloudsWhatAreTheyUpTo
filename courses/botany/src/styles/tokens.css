@@ -1,0 +1,31 @@
+/* Design tokens: a herbarium. The page is dark leaf-green, lessons are on
+   cream mounting paper, and the accents are the colours of petals, pollen,
+   new leaves and bark. */
+
+:root {
+  --bg: #1b2a1c; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #2a3d2a;
+  --panel: #f3efe0;
+  --panel-2: #e2dcc4;
+  --ink: #23281f;
+  --ink-soft: #5f6656;
+  --text: #eef0dc;
+  --muted: #aebc9c;
+  --sun: #e48a6e;
+  --sun-deep: #d9824a;
+  --rose: #c75b6a;
+  --teal: #4f9fb8;
+  --violet: #8f7fd0; /* branch colours */
+  --leaf: #6fa86a;
+  --ice: #8fb8d8;
+  --ember: #b0603a;
+  --title: #f6d9a0;
+  --paper: #fbf8f1;
+  --good: #3f8f5a;
+  --bad: #c0392b;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }

@@ -1,21 +1,27 @@
 {
-  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-700. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second.",
+  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-950. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists.",
   "courses": {
     "photography": [150, 80],
     "astronomy": [870, 80],
     "clouds": [390, 330],
     "geology": [780, 420],
     "electronics": [110, 560],
-    "soil": [470, 650]
+    "soil": [470, 650],
+    "botany": [260, 840],
+    "ecology": [760, 840]
   },
   "bridges": [
     { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash.", "at": 0.45 },
     { "id": "sky-photos", "title": "Photographing the sky", "between": ["clouds", "photography"], "promise": "Exposing for clouds, polarisers, the light near sunset, time lapses." },
     { "id": "old-weather", "title": "Old weather in the rocks", "between": ["clouds", "geology"], "promise": "Fossil dunes, ice-age winds and rain shadows written in stone." },
     { "id": "sky-rocks", "title": "Rocks from the sky", "between": ["geology", "astronomy"], "promise": "Meteorites, craters and where the Moon came from.", "at": 0.55 },
-    { "id": "night-sky", "title": "The night sky on a camera", "between": ["photography", "astronomy"], "promise": "Star trails, how long a shutter can stay open, stacking." },
     { "id": "rock-soil", "title": "From rock to soil", "between": ["geology", "soil"], "promise": "Weathering, wind-blown loess and the till the glaciers left." },
-    { "id": "sensor", "title": "How a sensor counts light", "between": ["electronics", "photography"], "promise": "Photodiodes, gain and where noise comes from." },
-    { "id": "weather-station", "title": "A weather station on the bench", "between": ["electronics", "clouds"], "promise": "Thermistors, a pressure sensor and a log of the sky." }
-  ]
+    { "id": "sensor", "title": "How a sensor counts light", "between": ["electronics", "photography"], "promise": "Photodiodes, gain and where noise comes from." }
+  ],
+  "candidates": {
+    "salish-sea": { "title": "People of the Salish Sea", "icon": "icons/candidates/salish-sea.svg" },
+    "music-theory": { "title": "Music Theory", "icon": "icons/candidates/music-theory.svg" },
+    "fungi": { "title": "Fungi", "icon": "icons/candidates/fungi.svg" },
+    "pnw-forests": { "title": "PNW Forests", "icon": "icons/candidates/pnw-forests.svg" }
+  }
 }

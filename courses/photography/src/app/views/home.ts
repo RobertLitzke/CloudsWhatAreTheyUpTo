@@ -42,7 +42,7 @@ export const homeView: View = (root) => {
         'section.hero',
         {},
         makeScene({ seed: 8, h: 320, horizon: 0.66, align: 'xMidYMax' }),
-        el('div.hero-text', {}, el('p.eyebrow', {}, 'A field workbook'), el('h1', {}, 'Out of Auto'), el('p.subtitle', {}, 'Photographing what is out there, on purpose')),
+        el('div.hero-text', {}, el('p.eyebrow', {}, 'Photography · a field workbook'), el('h1', {}, 'Out of Auto'), el('p.subtitle', {}, 'Photographing what is out there, on purpose')),
       ),
       el(
         'section.page',

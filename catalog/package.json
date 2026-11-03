@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "test": "vitest run",
-    "icons": "node tools/icons.mjs"
+    "test": "vitest run"
   },
   "devDependencies": {
     "happy-dom": "^20.14.6",
@@ -18,6 +17,7 @@
     "@types/node": "^20.19.43",
     "sharp": "^0.34.1",
     "typescript": "^5.7.2",
-    "vite-plugin-singlefile": "^2.3.0"
+    "vite-plugin-singlefile": "^2.3.0",
+    "@fontsource-variable/fraunces": "^5.3.0"
   }
 }

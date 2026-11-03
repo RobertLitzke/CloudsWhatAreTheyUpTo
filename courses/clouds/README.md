@@ -13,7 +13,7 @@ The lessons themselves are a plain workbook; the story lives only in the
 radio talks, which can be switched off in Settings.
 
 The look comes from the poster in `art/poster.jpg`, which is also the
-loading screen and the source of the app icons: a violet and magenta evening,
+loading screen: a violet and magenta evening,
 heaped clouds with peach rims, slanted outlined lettering. The game draws
 flat, lightly geometric landscapes and clouds in that palette for teaching,
 and uses real photos for testing.
@@ -77,7 +77,7 @@ the same picture on every load, `?imperial` for imperial units, or
 | `npm test -w clouds` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, radio talks, photo credits |
 | `npm run build -w clouds` | Typecheck, then build `dist/` |
 | `npm run preview -w clouds` | Serve `dist/` on http://localhost:5421 |
-| `npm run icons -w clouds` | Regenerate the icons (the cel cumulus in `tools/icons.mjs`, written by the root's `tools/lib/icons.mjs`) and `poster.webp` from `art/poster.jpg` |
+| `npm run poster -w clouds` | Regenerate `public/poster.webp` from `art/poster.jpg` (icons come from `npm run icons` at the repository's root) |
 | `npm run photos:find -- clouds` | At the root: list candidate photos from Commons into a contact sheet to pick from |
 | `npm run photos -- clouds` | At the root: download the picked photos, resize them and write their credits |
 
@@ -131,7 +131,7 @@ src/app/      store.ts, asset.ts, photos.ts, radio.ts (Walla Walla on Didactics'
                 draw.ts cloud and radar pieces over Didactics' draw.ts;
                 index.ts naming them all
   views/        home, lesson, guide, sky, seed (the rest are Didactics' views)
-tools/photos/ find.ts, fetch.ts, commons.ts, config.ts, picks.json
+tools/        gallery/, poster.mjs, photo-picks.json, photo-search.json (the photo tools are the root's)
 test/
 ```
 

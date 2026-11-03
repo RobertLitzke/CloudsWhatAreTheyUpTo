@@ -123,12 +123,97 @@ export const PERCHED: Stage = {
   subjectTall: 0.17,
   framing: 0.3,
   planes: [
-    { id: 'hills', behind: 4000, width: 2400, height: 900, bottom: -260, backdrop: true },
-    { id: 'trees', behind: 80, width: 240, height: 15, bottom: -6, tile: 40 },
-    { id: 'bushes', behind: 8, width: 60, height: 3, bottom: -2.2, tile: 4, movable: true },
-    { id: 'bird', behind: 0, width: 1.2, height: 0.6, bottom: -0.3 },
+    // Rob's pictures (2752 px wide): hills, a stand of pines, a bush, and a
+    // western bluebird on a dead tree. Real widths from what is in them: the
+    // bird is 17 cm beak to tail, a leaf of the bush about 4 cm, a pine about
+    // 25 m. The bird is left of its picture's middle, hence x. The trees
+    // stand 500 m off on lower ground, so a short zoom sees over them to the
+    // hills; the hills are a backdrop, placed for the view, not measured.
+    { id: 'hills', behind: 4000, width: 1200, height: 670, bottom: -389, backdrop: true },
+    { id: 'trees', behind: 500, width: 600, height: 44.5, bottom: -19.6, tile: 60 },
+    { id: 'bushes', behind: 8, width: 60, height: 2.56, bottom: -2.33, x: -1.8, tile: 3, movable: true },
+    { id: 'bird', behind: 0, width: 1.164, height: 0.65, bottom: -0.306, x: 0.195 },
   ],
 };
 
 /** The range the "bushes behind the bird" slider runs over, metres. */
 export const BEHIND_RANGE = { min: 1, max: 40 } as const;
+
+/** The moon: 3,474 km across, 384,400 km away. */
+const MOON = { width: 3.474e6, distance: 3.844e8 };
+
+/**
+ * A full moon rising behind a lone pine on a ridge. The pine is the subject
+ * (18 m tall, kept at a fifth of the frame's height), standing on the crest,
+ * which sits in the lower part of the frame. The moon is fixed in the sky, a
+ * twentieth of a degree above the camera's axis and half a degree across;
+ * stepping back and zooming in keeps the pine the same size while the moon
+ * grows, until at 2000 mm it fills most of the frame behind the tree. The
+ * crest and the pine are lengths at the pine's distance, so they keep their
+ * place in the frame; the moon is an angle, so it keeps its place in the sky.
+ */
+export const MOONRISE: Stage = {
+  id: 'moonrise',
+  subjectTall: 18,
+  framing: 0.22,
+  planes: [
+    { id: 'sky', behind: 1e9, width: 2e9, height: 1.4e9, bottom: -6e8, backdrop: true },
+    { id: 'moon', behind: MOON.distance, width: MOON.width, height: MOON.width, bottom: 4.03e5 - MOON.width / 2 },
+    { id: 'ridge', behind: 0.5, width: 4000, height: 40, bottom: -64.5, tile: 80 },
+    { id: 'pine', behind: 0, width: 10, height: 18.3, bottom: -24.8 },
+  ],
+};
+
+/**
+ * A wren in a bramble, with bare canes crossing close in front of it: the
+ * scene where autofocus takes the twigs. The wren (10 cm) is the subject; a
+ * tangle of bramble stands a metre and a half behind it, dim woods beyond,
+ * and a few canes a metre and a half in front, crossing the frame on the
+ * diagonal. The wren's head is a little left of and above the frame's middle.
+ */
+export const BRAMBLE: Stage = {
+  id: 'bramble',
+  subjectTall: 0.1,
+  framing: 0.4,
+  planes: [
+    { id: 'woods', behind: 25, width: 60, height: 40, bottom: -15, backdrop: true },
+    { id: 'bramble', behind: 1.5, width: 20, height: 1.05, bottom: -0.97, tile: 1 },
+    { id: 'wren', behind: 0, width: 0.4, height: 0.2, bottom: -0.1 },
+    { id: 'twigs', behind: -1.5, width: 0.6, height: 0.45, bottom: -0.25 },
+  ],
+};
+
+/** Where the wren's head is on its plane, metres from the axis: what a spot focus point should sit on. */
+export const WREN_HEAD = { x: -0.03, y: 0.03 } as const;
+
+/**
+ * A mule deer in a meadow 40 m away, with tall grass in front, the dark edge
+ * of a conifer forest 60 m behind it on the left, and open hills far off on
+ * the right. The forest's edge stands right behind the deer, so a few steps
+ * sideways decide which background it is seen against.
+ */
+export const MEADOW: Stage = {
+  id: 'meadow',
+  subjectTall: 1.7,
+  framing: 0.5,
+  planes: [
+    { id: 'hills', behind: 3000, width: 8000, height: 1200, bottom: -300, backdrop: true },
+    { id: 'forest', behind: 60, width: 120, height: 32, bottom: -1.2, x: -60 },
+    { id: 'meadow', behind: 25, width: 400, height: 6, bottom: -7.05, tile: 20 },
+    { id: 'deer', behind: 0, width: 2.4, height: 1.8, bottom: -1.05 },
+    { id: 'grass', behind: -6, width: 200, height: 0.9, bottom: -1.25, tile: 2 },
+  ],
+};
+
+/**
+ * The stage seen after the photographer steps `step` metres to the right and
+ * turns to keep the subject in the middle of the frame. Seen from there, a
+ * plane `behind` metres behind the subject slides sideways against it by
+ * step × behind / stand: far things slide most, which is parallax.
+ */
+export function stepAside(stage: Stage, step: number, stand: number): Stage {
+  return {
+    ...stage,
+    planes: stage.planes.map((p) => ({ ...p, x: (p.x ?? 0) - step + (step * (stand + p.behind)) / stand })),
+  };
+}

@@ -5,6 +5,7 @@
 import { describe, expect, it } from 'vitest';
 import { isDiagram } from 'didactics/blocks';
 import { FIGURES } from '../src/app/figures';
+import { SITUATIONS, score } from '../src/app/figures/recipe';
 import { makeScene } from '../src/app/scene/field';
 import { FIGURE_IDS, LESSONS, type FigureId } from '../src/core/lessons';
 import { empty as emptySave } from '../src/store';
@@ -54,6 +55,125 @@ describe('figures', () => {
     setLogSlider(fig.node, 0, 2000, 200, 2000);
     setSlider(fig.node, 1, 0);
     setLogSlider(fig.node, 3, 40, 1, 40);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the aperture figure can keep the pines readable behind the bird', async () => {
+    const fig = FIGURES.aperture(context(), 'in-place');
+    setLogSlider(fig.node, 0, 300, 200, 2000);
+    setSlider(fig.node, 1, 10);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the hyperfocal figure holds the flowers and the hills at the wide end', async () => {
+    const fig = FIGURES.hyperfocal(context(), 'boots-to-hills');
+    setLogSlider(fig.node, 0, 24, 24, 2000);
+    setSlider(fig.node, 1, 3);
+    setLogSlider(fig.node, 2, 1.5, 0.3, 2000);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the modes figure is done once the light has changed a few times', async () => {
+    const fig = FIGURES.modes(context(), 'follow');
+    for (const v of [10, 12, 14]) setSlider(fig.node, 0, v);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the pan figure is done once the bird is sharp on streaked trees', async () => {
+    const fig = FIGURES.pan(context(), 'pan');
+    setSlider(fig.node, 0, 22);
+    setSlider(fig.node, 1, 1);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the pooling figure is done when a high-ISO picture is seen whole on a phone', async () => {
+    const fig = FIGURES.pooling(context(), 'phone');
+    const buttons = fig.node.querySelectorAll('button');
+    (buttons[buttons.length - 1] as HTMLButtonElement).click();
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the dusk figure is done with a clean, steady shot well after sunset', async () => {
+    const fig = FIGURES.dusk(context(), 'late');
+    setSlider(fig.node, 0, 16);
+    // The shutter steps run 1/2000 s to 1/8 s; 1/60 s is the 16th.
+    setSlider(fig.node, 1, 15);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the compression figure is done when the moon fills half the frame behind the pine', async () => {
+    const fig = FIGURES.compression(context(), 'moon-big');
+    setLogSlider(fig.node, 0, 1800, 24, 2000);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the crop figure is done at a shorter zoom that still fills a screen', async () => {
+    const fig = FIGURES.crop(context(), 'screen');
+    setLogSlider(fig.node, 0, 900, 200, 2000);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the focus-area figure is done when a spot finds the wren', async () => {
+    const fig = FIGURES.afArea(context(), 'wren');
+    (fig.node.querySelectorAll('button')[2] as HTMLButtonElement).click();
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the tracking figure is done in continuous autofocus', async () => {
+    const fig = FIGURES.tracking(context(), 'continuous');
+    (fig.node.querySelectorAll('button')[1] as HTMLButtonElement).click();
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the sun figure is done in the golden hour', async () => {
+    const fig = FIGURES.sun(context(), 'golden');
+    setSlider(fig.node, 0, 3);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the polariser figure is done once the sky has darkened and the glare has gone', async () => {
+    const fig = FIGURES.polariser(context(), 'both-ways');
+    setSlider(fig.node, 1, 0);
+    setSlider(fig.node, 1, 90);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the step-aside figure is done with dark forest behind a zoomed deer', async () => {
+    const fig = FIGURES.stepAside(context(), 'dark-behind');
+    setSlider(fig.node, 0, 8);
+    setLogSlider(fig.node, 1, 600, 150, 1500);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the light figure is done once front, side and back light have been tried', async () => {
+    const fig = FIGURES.lightAngle(context(), 'all-three');
+    for (const v of [90, 180, 0]) setSlider(fig.node, 0, v);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the recipe scores a good perched recipe and a good flight recipe as passing', () => {
+    const [perched, flying] = SITUATIONS;
+    expect(score(perched, { shutter: 1 / 125, aperture: 5.6, focus: 'Single', area: 'Spot' }).every((c) => c.ok)).toBe(true);
+    expect(score(flying, { shutter: 1 / 2000, aperture: 5.6, focus: 'Continuous', area: 'Centre' }).every((c) => c.ok)).toBe(true);
+    expect(score(flying, { shutter: 1 / 250, aperture: 5.6, focus: 'Single', area: 'Centre' }).some((c) => !c.ok)).toBe(true);
+  });
+
+  it('the headroom figure is done when a RAW file is brought back to right', async () => {
+    const fig = FIGURES.headroom(context(), 'rescue');
+    (fig.node.querySelectorAll('button')[1] as HTMLButtonElement).click();
+    setSlider(fig.node, 1, -1);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the ghosts figure is done when a long exposure empties the street', async () => {
+    const fig = FIGURES.ghosts(context(), 'vanish');
+    setLogSlider(fig.node, 0, 300, 1 / 250, 900);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the f-number figure is done after a few steps along the series', async () => {
+    const fig = FIGURES.fNumber(context(), 'halve');
+    for (const v of [1, 2, 3]) setSlider(fig.node, 0, v);
     await expect(fig.done).resolves.toBeUndefined();
   });
 

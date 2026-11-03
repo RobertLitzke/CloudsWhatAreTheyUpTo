@@ -2,15 +2,6 @@
    lessons are on pale paper under a red-shaded lamp, and the accents are star
    colours, from cool red to hot blue-white. */
 
-@font-face {
-  font-family: 'Fraunces';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  /* Latin only: this file is inlined into the page, so every subset costs. */
-  src: url('@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
-}
-
 :root {
   --bg: #141a2e; /* keep in sync with theme_color in vite.config.ts and index.html */
   --bg-2: #232b45;

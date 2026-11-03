@@ -1,0 +1,230 @@
+{
+ "id": "after",
+ "n": 11,
+ "title": "After the shutter",
+ "teaches": "What the JPEG and RAW files keep, what can still be recovered from them, and a short editing pass that is mostly undoing",
+ "parts": [
+  {
+   "title": "The heron by the bright water",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The challenge.** A heron stands on a dock with the lake glittering behind it. You set the exposure for the heron. The water behind it is a stop brighter than the camera can hold, and it comes out white: the left-hand picture, where the ripples have turned into a featureless glare. At home, you try to darken the water, and it only turns from white to flat grey. The right-hand picture was taken at the same moment with the same settings. The only difference is the kind of file the camera saved."
+    },
+    {
+     "type": "diagram",
+     "id": "challenge",
+     "caption": "The same moment, saved as a JPEG and as a RAW file",
+     "options": {
+      "photo": "distant-wildlife-01",
+      "panels": [
+       {
+        "label": "The JPEG",
+        "eqFocal": 2000,
+        "stops": 1.4
+       },
+       {
+        "label": "The RAW file",
+        "eqFocal": 2000,
+        "stops": 1.4,
+        "raw": true
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "This lesson is about what happens after the shutter closes: what the camera does to the sensor's counts before it saves them, what is thrown away, what can still be changed, and a short routine for the pictures worth keeping.[^raw-name]"
+    }
+   ]
+  },
+  {
+   "title": "JPEG and RAW",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The sensor records a count for each pixel, and the camera then makes a picture out of the counts. It sets the white balance, brightens the mid-tones, the greys between black and white,, adds contrast and colour, reduces the noise, sharpens the edges, and finally saves a **JPEG**: 256 levels per colour, compressed to a small file. Every one of those choices is baked in. Anything brighter than the JPEG's white is cut off at white, and anything darker than its black at black."
+    },
+    {
+     "type": "text",
+     "text": "A **RAW** file is the counts themselves, before any of that, with thousands of levels per pixel instead of 256[^levels] and typically about a stop of room above the point the JPEG would have called white. The P950 can save RAW files (Nikon calls them NRW), alone or alongside a JPEG. They are several times bigger and have to be developed on a computer, where you make the choices the camera would have made, at leisure, and can change them later."
+    }
+   ]
+  },
+  {
+   "title": "What can still be rescued",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The difference matters most at the bright end. A part of the picture that was clipped to white in the JPEG has no detail left in it at all; darkening it gives you grey with no detail. In a RAW file the same area may still hold its detail, because the counts above the JPEG's white were kept."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "headroom",
+     "caption": "The heron by the bright water, taken too bright, and fixed afterwards",
+     "options": {
+      "photo": "distant-wildlife-01"
+     },
+     "task": "Bring the water back: switch to RAW and darken it until it is right",
+     "goal": "rescue"
+    },
+    {
+     "type": "text",
+     "text": "Try it the other way too: take the picture another stop brighter, and even the RAW file runs out. A RAW file is a safety margin, not a cure, and the histogram on the camera is still the best defence, as in the lesson Light, and the three ways to let it in. Shadows can be lifted in either kind of file, at the cost of the noise that lives there (see the lesson on ISO), but a RAW file lifts them more cleanly, because it has many more levels to stretch."
+    }
+   ]
+  },
+  {
+   "title": "A short editing pass",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most editing of a nature photograph is undoing what went slightly wrong, in a sensible order. **White balance** first, because it changes every colour after it. Then **exposure**, so the subject is as bright as it should be. Then **highlights and shadows**: pull back the sky or the water, open up the shade under the bird. Then **crop**: straighten the horizon, take out the clutter at the edges, and place the subject where it belongs."
+    },
+    {
+     "type": "text",
+     "text": "Then **noise reduction**, gently, before **sharpening**, also gently, since sharpening noise makes it worse. Stop there. A picture that has been pushed hard looks it: halos around the bird, a crunchy texture to the feathers, colours that no feather has. Free programs such as Nikon's NX Studio, darktable and RawTherapee do all of this with RAW files, and most phone and computer photo apps do it with JPEGs."
+    }
+   ]
+  },
+  {
+   "title": "Cropping, the last part of composing",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A crop is a second chance at composition: you can decide exactly where the bird sits, take out the distracting branch at the edge, and level the horizon you tilted while tracking a bird. What it costs is pixels, as in the lesson The lens: 24 mm to 2000 mm: a picture for a screen needs about 1920 pixels across and a sharp A4 print about 3500, out of the P950's 4608."
+    },
+    {
+     "type": "text",
+     "text": "Crop to the proportions of where the picture will go: square for some social media, 3:2 or 4:3 for prints, a tall frame for a phone screen. And crop to help the picture, not just to enlarge the bird. A bird that fills the frame edge to edge, with its tail cut off, looks cramped; a little room around it, more on the side it faces, looks like a photograph."
+    }
+   ]
+  },
+  {
+   "title": "Keeping the ones worth keeping",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Bursts and bird outings make hundreds of frames, and almost all of them are near-misses. Go through them soon, while you remember what you were trying to do. Look at each burst zoomed in on the eye and keep the sharpest; delete the blurred, the badly exposed and the ones where the bird has its back to you. Keeping three good pictures from an outing and deleting two hundred is normal."
+    },
+    {
+     "type": "text",
+     "text": "Then keep the good ones safely, in more than one place. A common rule is three copies, on two different kinds of storage, one of them somewhere else, such as a cloud service or a drive at a friend's house. Memory cards and laptop drives fail without warning."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "A JPEG is the camera's finished picture, 256 levels per colour, with its choices baked in and everything past white cut off.",
+      "A RAW file keeps the sensor's counts, with more levels and about a stop of room above the JPEG's white.",
+      "Detail clipped in a JPEG is gone; darkening it gives flat grey. RAW can often bring it back, within limits.",
+      "Edit in order: white balance, exposure, highlights and shadows, crop, then gentle noise reduction and sharpening.",
+      "Crop for composition as well as size, keep the best of each burst, and keep three copies of the good ones."
+     ]
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "After the shutter",
+     "task": "Answer each question",
+     "options": {
+      "items": [
+       {
+        "question": "A gull's white wing came out pure white with no feather detail in a JPEG. What happens if you darken it in an editor?",
+        "options": [
+         "It turns flat grey, with no detail",
+         "The feather detail all reappears",
+         "It turns a pale, even blue",
+         "Nothing at all about it changes"
+        ],
+        "answer": 0,
+        "why": "The JPEG stored those pixels as plain white. Darkening plain white gives plain grey; the detail was never saved."
+       },
+       {
+        "question": "What does a RAW file keep that a JPEG does not?",
+        "options": [
+         "The sensor's own counts, with room above white",
+         "Twice the pixels of the JPEG version",
+         "The camera's autofocus and exposure data",
+         "A sharper copy of the same JPEG picture"
+        ],
+        "answer": 0,
+        "why": "RAW stores the counts before the camera's processing: thousands of levels per pixel and highlights a little beyond the JPEG's white. The pixel count is the same."
+       },
+       {
+        "question": "In which order is it best to apply sharpening and noise reduction?",
+        "options": [
+         "Noise reduction first, then sharpening",
+         "Sharpening first, then noise reduction",
+         "Either; the order makes no difference",
+         "Only one of them, never both"
+        ],
+        "answer": 0,
+        "why": "Sharpening makes any noise more visible, so reduce noise first and sharpen what is left, gently."
+       },
+       {
+        "question": "Why is white balance usually the first thing to set when editing?",
+        "options": [
+         "Every later colour change depends on it",
+         "It is the easiest one to undo later",
+         "It also sets the exposure of the file",
+         "It only works before the picture is cropped"
+        ],
+        "answer": 0,
+        "why": "White balance shifts every colour in the picture. Setting it first means the later adjustments start from the right colours."
+       },
+       {
+        "question": "You crop a picture to a quarter of its width to enlarge a distant bird. Roughly how many pixels across are left?",
+        "options": [
+         "About 1150",
+         "About 2300",
+         "About 3500",
+         "About 4600"
+        ],
+        "answer": 0,
+        "why": "4608 ÷ 4 is about 1150 pixels across, enough for a phone but not for a computer screen or a print."
+       },
+       {
+        "question": "What is a sensible way to keep your best pictures safe?",
+        "options": [
+         "Three copies, one kept somewhere else",
+         "One copy on the camera's memory card",
+         "Two copies on the same laptop drive",
+         "Prints, with the files then deleted"
+        ],
+        "answer": 0,
+        "why": "Cards and drives fail without warning, and a fire or theft takes everything in one place. Copies on different storage, one off-site, survive both."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A JPEG is the camera's finished picture.** 256 levels per colour, its choices baked in, everything past white cut off.",
+  "**A RAW file is the counts.** More levels, and about a stop of room above the JPEG's white; the P950 saves it as NRW.",
+  "**Clipped is gone.** A blown JPEG highlight darkens to flat grey; a RAW file can often bring it back, within limits.",
+  "**Edit in order.** White balance, exposure, highlights and shadows, crop, then gentle noise reduction before sharpening.",
+  "**Crop to compose, not only to enlarge.** Leave room, more on the side the subject faces, and mind the pixels left.",
+  "**Keep few, keep them safe.** Keep the sharpest of each burst, and three copies of the good ones, one elsewhere."
+ ],
+ "journal": [],
+ "footnotes": {
+  "raw-name": {
+   "kind": "digression",
+   "title": "Why it is called raw",
+   "text": "RAW is not an abbreviation, though it is often written in capitals. It means what it says: the data as it came off the sensor, uncooked. Each maker has its own format, Nikon's NEF and NRW, Canon's CR3 and others, and editing programs have to be updated to read each new camera's version."
+  },
+  "levels": {
+   "kind": "technical",
+   "title": "Levels and bits",
+   "text": "A JPEG stores 8 bits per colour, 256 levels from black to white. RAW files typically store 12 or 14 bits, 4096 or 16384 levels, spread over the sensor's linear counts. Most of those levels sit in the highlights, since each stop down has half as many, which is why lifting deep shadows hard can still show banding and noise even in RAW."
+  }
+ }
+}

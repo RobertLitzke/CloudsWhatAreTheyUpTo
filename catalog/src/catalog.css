@@ -1,15 +1,35 @@
-/* The catalog's look: a printed college course catalog of the early 2000s,
-   lightly. Paper and ink, a serif text face, small capitals for headings,
-   hairline rules, one deep red for links. The courses' own colours appear
-   only in their icons. */
+/* The catalog's look: a printed college course catalog, lightly, with the
+   warmth of the painted course icons: cream paper and brown ink, Fraunces
+   (a soft serif) for text and, at its heaviest, for titles, small capitals
+   for section heads in teal, hairline rules, burnt orange for links, and a
+   four-colour band under the masthead. The courses' own colours appear only
+   in their icons. */
+
+/* Fraunces with its weight and softness axes, Latin only, roman and italic. */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-soft-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('@fontsource-variable/fraunces/files/fraunces-latin-soft-italic.woff2') format('woff2-variations');
+}
 
 :root {
-  --paper: #f4f1e8;
-  --ink: #1f1d1a;
-  --soft: #5e5a52;
-  --rule: #b9b2a3;
-  --link: #7a1f2b;
-  --serif: Georgia, 'Times New Roman', Times, serif;
+  --paper: #f3e7d2;
+  --ink: #3a2418;
+  --soft: #6b5243;
+  --rule: #cfbb9d;
+  --link: #c0522a;
+  --head: #2f7f78;
+  --stripe: linear-gradient(to bottom, transparent calc(100% - 12px), #c0522a calc(100% - 12px) calc(100% - 9px), #d9a441 calc(100% - 9px) calc(100% - 6px), #2f7f78 calc(100% - 6px) calc(100% - 3px), #3a2418 calc(100% - 3px) calc(100% - 2px), transparent calc(100% - 2px));
+  --serif: 'Fraunces', Georgia, 'Times New Roman', Times, serif;
   --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color-scheme: light;
 }
@@ -19,37 +39,38 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--paper); color: var(--ink);
   font: 17px/1.55 var(--serif);
+  font-variation-settings: 'SOFT' 50;
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 a { color: var(--link); }
 
 .catalog { max-width: 720px; margin: 0 auto; padding: 20px 20px 48px; }
 
-.masthead { border-bottom: 3px double var(--ink); padding-bottom: 14px; }
+.masthead { padding-bottom: 22px; background-image: var(--stripe); }
 .running {
   display: flex; justify-content: space-between; margin: 0 0 22px; padding-bottom: 6px;
-  border-bottom: 1px solid var(--ink);
+  border-bottom: 1px solid var(--head); color: var(--head);
   font: 600 0.72rem/1 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
 }
-.masthead h1 { font-size: 2.6rem; font-weight: normal; line-height: 1.1; margin: 0 0 10px; }
+.masthead h1 { font-size: 3rem; font-weight: 900; font-variation-settings: 'SOFT' 100; color: var(--link); line-height: 1.1; margin: 0 0 10px; }
 .lede { margin: 0; color: var(--soft); font-style: italic; }
 
 .contents { margin: 18px 0 8px; }
 .contents h2, .department h2 {
   font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
 }
-.contents h2 { margin: 0 0 4px; color: var(--soft); }
+.contents h2 { margin: 0 0 4px; color: var(--head); }
 .contents ol { margin: 0; padding-left: 1.4em; }
 
 .department { margin-top: 30px; }
-.department h2 { margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--ink); }
+.department h2 { margin: 0; padding-bottom: 6px; color: var(--head); border-bottom: 2px solid var(--head); }
 
 .course {
   display: grid; grid-template-columns: 64px 1fr; gap: 16px;
   padding: 18px 0; border-bottom: 1px solid var(--rule);
 }
 .course-icon img { display: block; width: 64px; height: 64px; border-radius: 14px; }
-.course h3 { margin: 0 0 4px; font-size: 1.3rem; line-height: 1.25; }
+.course h3 { margin: 0 0 4px; font-size: 1.3rem; line-height: 1.25; font-weight: 900; font-variation-settings: 'SOFT' 100; }
 .course h3 a { color: var(--ink); text-decoration: none; }
 .course h3 a:hover { text-decoration: underline; }
 .course-subtitle { display: block; font-weight: normal; font-style: italic; font-size: 1rem; color: var(--soft); }
@@ -59,6 +80,8 @@ a { color: var(--link); }
 .course-standing { color: var(--ink); }
 .course-open { font: 600 0.85rem/1 var(--sans); letter-spacing: 0.04em; }
 .course-open::after { content: ' \2192'; }
+/* A department's heading rule closes the one above it, so its last entry has none. */
+.department > .course:last-child { border-bottom: none; }
 
 .colophon { margin-top: 32px; font-size: 0.85rem; color: var(--soft); }
 
@@ -99,7 +122,7 @@ a { color: var(--link); }
   margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--ink);
   font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
 }
-.map { position: relative; aspect-ratio: 1000 / 700; margin: 30px 26px 40px; }
+.map { position: relative; aspect-ratio: 1000 / 950; margin: 30px 26px 40px; }
 .map svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
 .edge { stroke: var(--rule); stroke-width: 2; vector-effect: non-scaling-stroke; }
 .edge.coming { stroke-dasharray: 3 5; }
@@ -109,7 +132,7 @@ a { color: var(--link); }
   color: var(--ink); text-decoration: none; text-align: center;
 }
 .map-course img { display: block; width: 44px; height: 44px; margin: 0 auto 2px; border-radius: 10px; box-shadow: 0 0 0 3px var(--paper); }
-.map-course .map-title { display: block; font: 600 0.72rem/1.15 var(--sans); background: var(--paper); }
+.map-course .map-title { display: block; font: 900 0.78rem/1.15 var(--serif); font-variation-settings: 'SOFT' 100; background: var(--paper); }
 .map-course .map-meta, .map-course .map-bar { display: none; }
 .map-bridge {
   width: 13px; height: 13px; padding: 0; border-radius: 50%; overflow: hidden;
@@ -130,7 +153,7 @@ a { color: var(--link); }
   .map-course { width: 150px; }
   .map-course img { width: 64px; height: 64px; border-radius: 14px; box-shadow: 0 0 0 4px var(--paper); }
   .map-course.picked img { box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--link); }
-  .map-course .map-title { font: bold 1.05rem/1.2 var(--serif); width: max-content; margin: 2px auto 0; padding: 0 4px; }
+  .map-course .map-title { font: 900 1.05rem/1.2 var(--serif); width: max-content; margin: 2px auto 0; padding: 0 4px; }
   .map-course .map-meta { display: block; width: max-content; margin: 0 auto; padding: 0 4px; font: 0.72rem/1.3 var(--sans); color: var(--soft); background: var(--paper); }
   .map-course .map-bar { display: block; width: 80px; height: 4px; margin: 4px auto 0; background: #ddd6c6; }
   .map-course .map-bar i { display: block; height: 100%; background: var(--ink); }
@@ -155,7 +178,13 @@ a { color: var(--link); }
   .map-panel ul { list-style: none; margin: 0; padding: 0; }
   .map-panel li { padding: 7px 0; border-top: 1px solid var(--rule); font-size: 0.95rem; line-height: 1.3; }
   .map-panel li small { display: block; font: 0.75rem/1.35 var(--sans); color: var(--soft); }
-  .listing { columns: 2; column-gap: 48px; }
+  /* The two columns start level: no top margin on whatever heads a column. */
+  .listing { columns: 2; column-gap: 48px; margin-top: 30px; }
+  .listing > .department { margin-top: 0; padding-bottom: 30px; }
+  /* The panel takes the map's height and scrolls inside it if it must, so
+     picking another course or bridge never moves what is below the map. */
+  .map-wrap { min-height: 620px; }
+  .map-panel { contain: size; overflow-y: auto; }
   .listing .department > h2 { break-after: avoid; }
   .listing .course { break-inside: avoid; }
 }

@@ -8,8 +8,7 @@
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest run",
-    "icons": "node tools/icons.mjs"
+    "test": "vitest run"
   },
   "devDependencies": {
     "@fontsource-variable/fraunces": "^5.2.0",

@@ -9,8 +9,7 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "icons": "node tools/icons.mjs"
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@fontsource-variable/fraunces": "^5.2.0",

@@ -1,0 +1,99 @@
+{
+  "id": "elephants",
+  "n": 2,
+  "title": "Why aren’t we knee-deep in elephants?",
+  "teaches": "How populations grow, why growth compounds, and what brings it to a stop",
+  "parts": [
+    {
+      "title": "Darwin's elephants",
+      "blocks": [
+        {"type": "text", "text": "In the third chapter of *On the Origin of Species* (1859), Charles Darwin set out to show that every kind of living thing produces far more young than can possibly survive. To make the point as hard as he could, he chose the slowest breeder he knew of: the elephant. Suppose, he wrote, that an elephant starts breeding at thirty, goes on until ninety, has six young in that time and lives to a hundred. Start with one pair. How many elephants would there be after a few centuries?"},
+        {"type": "text", "text": "Darwin's own sum went wrong at first. The first edition said fifteen million after five hundred years; later editions corrected it to “nearly nineteen million” after about 750 years.[^sum] The exact figure depends on small choices, such as exactly when in her life each calf arrives, but every honest version of the sum comes out in the millions. One pair, a slow breeder, and in less time than has passed since the Norman Conquest the descendants would cover a country."},
+        {"type": "interactive_diagram", "id": "darwin", "caption": "Darwin's elephants, with each female's calves spread evenly between her first and age ninety, and every elephant living to a hundred.", "task": "Guess, then play the 750 years", "goal": "run", "aspect_ratio": 1.6},
+        {"type": "text", "text": "There are not millions of elephants descended from every pair. Africa holds a few hundred thousand, and they have been there for millions of years. Something stops them, and something stops every other population too. This lesson is about what that something is, and how to think about a population that grows and then stops."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Even the slowest breeder, left unchecked, would multiply into millions within centuries.", "Real populations don't, so something always stops them."]}
+      ]
+    },
+    {
+      "title": "Doubling",
+      "blocks": [
+        {"type": "text", "text": "On the ordinary scale, Darwin's elephants seem to do nothing for five centuries and then shoot straight up. They were doing the same thing all along. Each elephant had the same number of calves at the same ages, whether the herd was ten strong or ten million. The number of new calves each year was therefore always the same **share** of the herd, so the herd grew by the same percentage each year."},
+        {"type": "text", "text": "Growth by a fixed share is called **exponential** growth, and its signature is a fixed **doubling time**. If a herd doubles every 50 years, it goes from 2 to 4 in the first fifty years and from a million to two million in a later fifty. Switch the figure to the scale of tens, where each step up the axis is ten times the one below, and the curve becomes a straight line: the same doubling, over and over."},
+        {"type": "text", "text": "A handy rule turns a growth rate into a doubling time: divide 70 by the percentage growth per year. A population growing 2 percent a year doubles in about 35 years; 7 percent a year, in about 10.[^seventy] Darwin had read the same arithmetic in Thomas Malthus's *Essay on the Principle of Population* (1798), which argued that human numbers grow geometrically, doubling again and again, while food supply grows far more slowly."},
+        {"type": "text", "text": "The figure also shows which numbers matter. Give each female two calves and the herd stays the same size forever: each elephant just replaces itself. Give her three, and it grows. Start breeding younger and it grows faster, because each generation comes round sooner. Real African elephants have their first calf at about twelve and one every four or five years after that, so a real herd, if none of its young died, could grow much faster than Darwin's. What holds it back is death, the subject of the last section."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["When the young each year are a fixed share of the population, it grows by a fixed percentage: exponential growth.", "Exponential growth has a fixed doubling time; 70 divided by the growth rate in percent gives it in years.", "Two young per female (who both survive to breed) just replaces a population; more than two grows it."]}
+      ]
+    },
+    {
+      "title": "Bathtubs",
+      "blocks": [
+        {"type": "text", "text": "There is a simple way to think about any population, and it will come up again and again in this course. Think of the population as water in a bathtub. Births pour in from a tap; deaths drain out of the plughole. The amount in the tub is a **stock**, and births and deaths are **flows**. Whatever the details, the stock rises when inflow is bigger than outflow, falls when it is smaller, and holds steady only when the two are equal."},
+        {"type": "text", "text": "With the taps set to fixed amounts, a tub fills by the same amount each year, and its level rises in a straight line. A population is not like that. The number of births depends on how many animals there are to give birth, and the number of deaths on how many there are to die. In other words, the taps are tied to the level. If births are 10 percent of the population each year and deaths 6 percent, the tub fills by 4 percent of whatever is in it, and the fuller it gets, the faster it fills."},
+        {"type": "interactive_diagram", "id": "bathtub", "caption": "A population as water in a tub: births flow in, deaths drain out.", "task": "Tie the taps to the level, then set them so the level holds steady for fifty years", "goal": "steady", "aspect_ratio": 1.67},
+        {"type": "text", "text": "With tied taps, there is only one way to hold the level: births and deaths must be the same share of the population. Any difference, however small, compounds. So the question “why aren’t we knee-deep in elephants?” becomes a question about flows: what makes births fall, or deaths rise, until they are equal?"},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["A **stock** changes by inflow minus outflow; it holds steady only when the two are equal.", "In a population, births and deaths are shares of the stock itself, so any gap between them compounds."]}
+      ]
+    },
+    {
+      "title": "The brake",
+      "blocks": [
+        {"type": "text", "text": "In 1838 the Belgian mathematician Pierre-François Verhulst, who had also read Malthus, proposed a brake. Suppose growth slows as a population gets crowded: the more individuals there are, the less food and space each has, so fewer young are born or more die. Then the gap between births and deaths shrinks as the population grows, and closes altogether at some size. Verhulst called the curve this makes **logistic**. It rises like exponential growth at first, bends, and levels off at a ceiling, now usually called the **carrying capacity**."},
+        {"type": "text", "text": "Verhulst's paper was forgotten until 1920, when the American biologist Raymond Pearl and the statistician Lowell Reed reinvented the same curve for the census of the United States. Pearl went looking for populations that grew this way and found a beautiful one in a paper by the Swedish scientist Tor Carlson, who in 1913 had measured the amount of yeast in a flask of sugary malt liquid every hour for eighteen hours."},
+        {"type": "interactive_diagram", "id": "brake", "caption": "Left: growth per hour against the amount of yeast, with the brake on. Right: Carlson's yeast, hour by hour, and the logistic model's curve.", "task": "Fit the model to Carlson's yeast", "goal": "fit", "aspect_ratio": 1.48},
+        {"type": "text", "text": "The left-hand graph is the brake itself. When there is little yeast, growth is small because there is little yeast to grow. When there is a lot, growth is small because it is crowded. In between it is fastest, and at the ceiling it is zero: births equal deaths, and the tub's level holds. Carlson's yeast fits the curve closely, growing at first by more than half its own amount each hour and stopping near 660 of his units, when the sugar was running out and the alcohol it had made was poisoning it."},
+        {"type": "text", "text": "Few wild populations follow the logistic curve as neatly as yeast in a flask. It is a model, a simplification that leaves almost everything out. Its use is the one idea it contains: crowding closes the gap between births and deaths. The next two lessons show what happens when that idea is not quite enough."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Crowding closes the gap between births and deaths, so a population levels off at a ceiling, its **carrying capacity**.", "Growth is fastest at middling numbers and zero at the ceiling.", "The logistic curve is a model; yeast in a flask fits it well, most wild populations less well."]}
+      ]
+    },
+    {
+      "title": "Counting a real herd",
+      "blocks": [
+        {"type": "text", "text": "Testing any of this means knowing how many animals there are, and that is harder than it sounds. Fish can't be seen; mice hide; birds fly off. In 1896 the Danish fisheries biologist Carl Georg Johannes Petersen found a way round it for the plaice of the Limfjord. He caught a batch of fish, fixed a small tag to each and let them go. Later he caught another batch and counted how many carried his tags."},
+        {"type": "text", "text": "If the tagged fish have mixed in evenly, the share of tagged fish in the second catch should be about the same as their share in the whole fjord. Tag 50, catch 40 later and find 10 tagged, and a quarter of the fjord's fish carry tags. If 50 fish are a quarter, the whole is about 200. In general, the population is about the number tagged times the second catch, divided by the tagged fish in it."},
+        {"type": "interactive_diagram", "id": "recapture", "caption": "Mark and recapture: tag a catch, let it go, and count tags in a second catch.", "task": "Tag fifty, make a second catch and estimate the pond", "goal": "estimate", "aspect_ratio": 1.82},
+        {"type": "text", "text": "The method rests on assumptions you can check: the tags don't fall off, tagged animals are no easier or harder to catch, and nothing is born, dies or moves in between. When those fail, the estimate fails with them. Biologists still use the method for everything from butterflies to whales, with refinements to correct for each failure."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Mark and recapture: population ≈ number tagged × second catch ÷ tagged animals in the second catch.", "It works only if tagged animals mix in and are caught as easily as the rest."]}
+      ]
+    },
+    {
+      "title": "What sets the ceiling",
+      "blocks": [
+        {"type": "text", "text": "For yeast in a flask the ceiling is plain: sugar runs out and alcohol builds up. For a wild population the brake can be any of several things, often several at once. Food runs short and the young starve. Nest holes fill, so the latecomers don't breed. Disease spreads faster in a crowd. Predators find more prey where prey are thick. What these have in common is that they bite harder the more crowded the population is. Ecologists call them **density-dependent** causes of death and failed breeding."},
+        {"type": "text", "text": "Other causes don't care about crowding. A hard frost kills a share of the insects in a field whether there are a hundred or a million. Those can knock a population down, but on their own they can't hold it at a ceiling, because they don't push back harder when numbers rise."},
+        {"type": "text", "text": "Darwin's point was that this push-back means most young must die. An elephant population that holds steady, in which each female raises six calves in her life, loses four of them, on average, before they breed. Which four die is not entirely chance. That is the seed of natural selection, which lesson 5 watches at work on a Galápagos island. Lessons 3 and 4 first look at two populations that refused to sit quietly at their ceiling."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["**Density-dependent** causes (food, space, disease, predators) bite harder in a crowd; they are what hold a population near a ceiling.", "Causes that kill a fixed share whatever the crowding can knock numbers down but can't set a ceiling.", "In a steady population, most young die before breeding."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Seven questions on growth and limits", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A lake holds 2,000 fish. Each year 300 are born and 260 die, and fish don't come or go otherwise. What happens to the number in the lake?", "choices": ["It rises by 40 a year", "It falls by 40 a year", "It holds steady"], "answer": 0, "why": "A stock changes by inflow minus outflow: 300 in, 260 out, so it gains 40 a year for as long as the flows stay the same."},
+            {"ask": "A population grows by 7 percent a year. About how long does it take to double?", "choices": ["About 10 years", "About 7 years", "About 70 years"], "answer": 0, "why": "Divide 70 by the growth rate in percent: 70 ÷ 7 = 10 years. This is the rule of 70."},
+            {"ask": "Two populations start at 100. One gains 10 animals every year; the other gains 10 percent every year. After 50 years, which is larger?", "choices": ["The one that gains 10 percent a year, by far", "The one that gains 10 animals a year", "They are about the same"], "answer": 0, "why": "Ten animals a year adds 500, giving 600. Ten percent a year compounds: about 11,700 after 50 years. Growth that is a share of the population runs away."},
+            {"ask": "You tag 60 butterflies and release them. A week later you catch 50, and 12 of them carry your tags. About how many butterflies live in the meadow?", "choices": ["About 250", "About 120", "About 720"], "answer": 0, "why": "60 × 50 ÷ 12 = 250. Tagged butterflies are 12 out of 50 in the catch, so 60 tagged should be about the same share of the whole meadow."},
+            {"ask": "In the logistic model, when is a population growing fastest?", "choices": ["At middling numbers, about halfway to the ceiling", "When it is tiny", "When it is right at the ceiling"], "answer": 0, "why": "When tiny, there are few to breed; near the ceiling, crowding has closed the gap between births and deaths. Growth peaks in between."},
+            {"ask": "A hard winter kills about a third of the voles in every field, however many there were. Can that alone hold the vole population at a ceiling?", "choices": ["No: it doesn't push back harder when voles are crowded", "Yes: it kills so many", "Yes, but only in cold places"], "answer": 0, "why": "A ceiling needs a brake that grows stronger as numbers grow. A fixed share killed each winter knocks numbers down, but a population growing faster than that loss would still run away."},
+            {"ask": "A population holds steady over many years. Each female has six young in her life. On average, how many of her six young survive to breed?", "choices": ["Two", "Six", "None"], "answer": 0, "why": "To hold steady, each pair must be replaced by one pair. Of the six young, two survive to breed and four die first."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Every population could grow without end.** Even Darwin's slow-breeding elephants would reach millions from one pair within centuries.",
+    "**Growth compounds.** When births are a share of the population, it grows by a fixed percentage and has a fixed doubling time (about 70 ÷ the percent a year).",
+    "**A population is a stock.** Births flow in and deaths flow out; it holds steady only when the two are equal.",
+    "**Crowding brakes growth.** As numbers rise, births fall or deaths rise until they balance at a ceiling, the carrying capacity.",
+    "**The logistic curve is a model.** Carlson's yeast fits it closely; most wild populations less so.",
+    "**Mark and recapture counts what you can't see.** Population ≈ tagged × second catch ÷ tagged in the second catch.",
+    "**Most young die.** In a steady population, only enough survive to replace their parents."
+  ],
+  "journal": [],
+  "footnotes": {
+    "sum": {"kind": "digression", "title": "Darwin's arithmetic", "text": "Readers wrote to Darwin pointing out that his first figure was wrong. He reworked it, with help, and from the fifth edition (1869) the book says that “after a period of from 740 to 750 years there would be nearly nineteen million elephants alive, descended from the first pair.” The figure in this lesson, which spreads each female's calves evenly over her breeding years, gives a few million: different timing, the same conclusion."},
+    "seventy": {"kind": "technical", "title": "Why 70?", "text": "A population growing by a fraction *r* each year doubles when (1 + *r*) to the power of the number of years equals 2. For small *r*, that number of years is close to 0.69 ÷ *r*, because 0.69 is the natural logarithm of 2. Written with *r* as a percentage, 0.69 becomes 69, which is rounded to 70 because 70 divides more easily."}
+  }
+}

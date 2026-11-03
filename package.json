@@ -17,9 +17,10 @@
     "copyedit": "node tools/copyedit.mjs",
     "photos": "node tools/photos.mjs",
     "photos:find": "node tools/photos-find.mjs",
-    "restore-photos": "node tools/restore-photos.mjs"
+    "restore-photos": "node tools/restore-photos.mjs",
+    "icons": "node tools/process-icons.mjs"
   },
   "dependencies": {
-    "didactics": "github:RobertLitzke/Didactics#ac3eba65c8c4f7793dae7d45b5f13e50f2c2c0aa"
+    "didactics": "github:RobertLitzke/Didactics#a38bb5ef57a028efaf825d49854af1264402d5de"
   }
 }

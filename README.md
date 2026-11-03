@@ -24,7 +24,8 @@ tools/              what every course shares at the command line:
   restore-photos.mjs  puts parked photo blocks back into lessons
   copyedit.mjs        the Gemini copy edit, with each course's brief
   review-queue.mjs    runs the copy edits waiting in every course
-  lib/                the pieces the tools and the courses' icons.mjs share
+  process-icons.mjs   crops every course's icons from the painted sheets in catalog/icons/
+  lib/                the pieces the tools share (Commons, course folders)
 tsconfig.base.json  the compiler options every workspace extends
 ```
 
@@ -42,6 +43,8 @@ lowercase word or two naming its subject (the catalog's test checks this).
 | `courses/photography` | Out of Auto: a field workbook | `outofauto.save` |
 | `courses/geology` | Geology: mysteries in the rocks (its map reliefs are made by `tools/geo/relief.mjs`) | `geology.save` |
 | `courses/astronomy` | Astronomy: how we found out | `astronomy.save` |
+| `courses/botany` | Botany: how plants work | `botany.save` |
+| `courses/ecology` | Ecology: who lives where, and why | `ecology.save` |
 
 Dirt, Circuitry and Out of Auto came in from their own repositories
 (RobertLitzke/Dirt, Circuitry, Photography) with their history, by
@@ -64,9 +67,9 @@ npm run photos -- geology   # fetch a course's photos (tools/photo-picks.json)
 npm run copyedit -- geology dunes --write   # the Gemini copy edit of a lesson
 ```
 
-Each course's README has its own commands (`npm run icons -w soil`, say).
+Each course's README has its own commands (`npm run poster -w clouds`, say).
 The root `tools/` holds one copy of each tool the courses share; a course
-keeps in its `tools/` only what is its own: its icon drawing, its photo picks
+keeps in its `tools/` only what is its own: its photo picks
 and search categories, its copy-edit brief (`copyedit.json`), its review
 queue. The dependency on Didactics is pinned once, in the root
 `package.json`, and every workspace extends `tsconfig.base.json`
@@ -109,7 +112,10 @@ build; use `npm run build && npm run preview` to click through the site.
    `catalog: { href: '../' }` in its `defineCourse` call.
 3. Place it on the catalog's map: add its folder and `[x, y]` to `courses` in
    `catalog/map.json` (the catalog's tests fail for a course left off).
-4. `npm install` at the root, then `npm test` and `npm run build`.
+4. Give it an icon: add it to `catalog/icons/icons.json` (a crop box on one of
+   the painted sheets, or its own image) and run `npm run icons`, which writes
+   its `public/icons/` set; see `catalog/icons/README.md`.
+5. `npm install` at the root, then `npm test` and `npm run build`.
 
 ## Bridges
 
