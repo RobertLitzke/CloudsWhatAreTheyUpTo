@@ -20,12 +20,13 @@ import type { Block as KitBlock, Lesson as KitLesson, Part as KitPart } from 'di
 import tour from '../data/lessons/tour.json';
 import light from '../data/lessons/light.json';
 import aperture from '../data/lessons/aperture.json';
+import shutter from '../data/lessons/shutter.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
   'cone', 'aperture', 'closeUp', 'diffraction', 'hyperfocal',
   // Time and movement.
-  'shutter', 'shake', 'silkWater',
+  'shutter', 'shake', 'silkWater', 'pan',
   // Light and the sensor.
   'stops', 'iso', 'photons', 'meter', 'modes',
   // The lens.
@@ -50,13 +51,7 @@ export const LESSONS: readonly Lesson[] = [
   tour as Lesson,
   light as Lesson,
   aperture as Lesson,
-  planned(4, 'shutter', 'Shutter speed, and everything that moves', 'Freezing a wingbeat, catching a panning bird, and telling your own shake apart from the subject\'s movement', [
-    'What a shutter speed does to a moving thing, in fractions of the frame',
-    'Two blurs that look alike and have different cures: subject movement and camera shake',
-    'The rule of thumb, the stabiliser, and what each is worth at 2000 mm',
-    'Panning, and letting the background blur on purpose',
-    'Long exposures on water, and why daylight runs out of room',
-  ]),
+  shutter as Lesson,
   planned(5, 'iso', 'ISO, noise, and the light you do not have', 'Why grain is a counting problem, when to raise ISO without hesitating, and where this camera runs out', [
     'Photons as a count, and why the count is rough when it is small',
     'What ISO really changes, and what it does not',

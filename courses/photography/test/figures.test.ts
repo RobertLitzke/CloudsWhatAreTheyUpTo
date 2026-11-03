@@ -78,6 +78,13 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the pan figure is done once the bird is sharp on streaked trees', async () => {
+    const fig = FIGURES.pan(context(), 'pan');
+    setSlider(fig.node, 0, 22);
+    setSlider(fig.node, 1, 1);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

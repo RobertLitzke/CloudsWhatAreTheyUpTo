@@ -126,7 +126,7 @@ export const silkWaterFigure = figure<PhotoOptions>(['silk'], (ctx, t, options) 
   let shutter = 1 / 500;
 
   const paint = () => {
-    const shot = shoot(scene, { eqFocal: scene.eqFocal ?? 50, shutter, iso: 100, tripod: true });
+    const shot = shoot(scene, { eqFocal: scene.eqFocal ?? 50, shutter, iso: 100, aperture: 8, tripod: true });
     const over = Math.log2(shot.render.exposure);
     const say = shot.render.smear < 0.002
       ? `Every drop is stopped where it was. ${distance(scene.subjectAt, units)} away, at ${shutterLabel(shutter)} s, the water moves less than a pixel.`
