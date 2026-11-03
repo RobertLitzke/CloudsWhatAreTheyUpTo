@@ -25,10 +25,12 @@
       "clipping",
       "doppler-effect",
       "speed-of-sound",
-      "linearity"
+      "linearity",
+      "white-noise"
     ],
     "things": [
-      "yamaha-dx7"
+      "yamaha-dx7",
+      "roland-tr-808"
     ],
     "tables": [
       {
@@ -629,6 +631,59 @@
         }
       ],
       "wikipedia": "Linear_system"
+    },
+    "white-noise": {
+      "kind": "idea",
+      "title": "White noise",
+      "also": [
+        "noise",
+        "pink noise"
+      ],
+      "line": "A random signal with its energy spread evenly over every frequency: a hiss with no pitch.",
+      "text": [
+        "White noise never repeats, so it has no harmonics and no pitch. Its energy is the same in every hertz, and since most hertz are high, it sounds bright, like steam. Pink noise has the same energy in every octave instead, and sounds darker, like rain.",
+        "Synths keep a noise generator beside their oscillators. Filtered, it becomes surf, wind, the wires of a snare drum or the shimmer of a cymbal."
+      ],
+      "matters": "It is the raw material for every sound that has no note in it.",
+      "see": [
+        "subtractive-synthesis",
+        "roland-tr-808"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "noise",
+          "for": "Make wind from a hiss"
+        }
+      ],
+      "wikipedia": "White_noise"
+    },
+    "roland-tr-808": {
+      "kind": "thing",
+      "title": "Roland TR-808",
+      "also": [
+        "TR-808",
+        "808"
+      ],
+      "dates": "1980–1983",
+      "line": "A drum machine that built every drum from circuits rather than recordings, and whose kick became a staple of hip-hop.",
+      "text": [
+        "Roland made about twelve thousand 808s. Its kick is a tuned circuit struck by a short pulse, falling slightly in pitch as it rings; its snare mixes two tuned tones with filtered noise; its hi-hats are six square waves through band-pass filters.",
+        "It sold poorly against machines that played recorded drums, then became cheap second-hand and was taken up by electro and hip-hop producers in the early 1980s."
+      ],
+      "matters": "Its long, booming kick, played as a bass line, is still one of the most used sounds in popular music.",
+      "see": [
+        "white-noise",
+        "envelope"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "drums",
+          "for": "Build a kick and a snare from a synth"
+        }
+      ],
+      "wikipedia": "Roland_TR-808"
     }
   }
 }

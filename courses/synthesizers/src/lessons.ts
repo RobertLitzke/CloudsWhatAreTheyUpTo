@@ -17,9 +17,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: SynthLesson[] = [
-  coming('silent', 10, 'The silent key', 'Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound'),
-  coming('noise', 11, 'Wind from nothing', 'Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice'),
-  coming('drums', 12, 'A drum with no drum', 'An envelope sent to pitch instead of volume: a kick and a snare built from nothing'),
   coming('random', 13, 'The computer that burbles', 'LFO shapes, sample-and-hold, smooth random, tempo sync and retrigger'),
   coming('cycle', 14, 'The envelope that wouldn’t stop', 'A second envelope that loops: rise, fall, hold, curve, and one-shot or looping modes'),
   coming('matrix', 15, 'The invisible patch cord', 'The modulation matrix: sources, destinations, amounts that go both ways, key tracking'),

@@ -44,6 +44,9 @@ export const PARAM_IDS = [
   'filterMode',
   'lfoShape',
   'glide',
+  'oscLevel',
+  'env2Amt',
+  'env2Fall',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -51,7 +54,7 @@ export type Patch = Record<ParamId, number>;
 export type Sound = Record<ParamId, number>;
 export type StepTable = Record<ParamId, readonly number[]>;
 
-export type ModuleId = 'osc' | 'osc2' | 'fm' | 'noise' | 'filter' | 'env' | 'lfo' | 'voice' | 'drive' | 'echo' | 'chain';
+export type ModuleId = 'osc' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'voice' | 'drive' | 'echo' | 'chain';
 export type Category = 'tone' | 'brightness' | 'shape' | 'movement' | 'thickness' | 'metal' | 'grit' | 'space' | 'order';
 
 export const WAVE = { saw: 0, pulse: 1, triangle: 2, sine: 3 } as const;
@@ -403,9 +406,9 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
   },
   noise: {
     id: 'noise',
-    label: 'Level',
+    label: 'Noise',
     full: 'Noise level',
-    module: 'noise',
+    module: 'mixer',
     category: 'tone',
     kind: 'knob',
     interp: 'lin',
@@ -455,6 +458,46 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'quick',
     high: 'slow',
   },
+  oscLevel: {
+    id: 'oscLevel',
+    label: 'Osc',
+    full: 'Oscillator level',
+    module: 'mixer',
+    category: 'tone',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 10,
+    format: (x) => (x === 0 ? 'Off' : pct(x)),
+    low: 'quiet',
+    high: 'loud',
+  },
+  env2Amt: {
+    id: 'env2Amt',
+    label: 'Pitch',
+    full: 'Envelope 2 to pitch',
+    module: 'env2',
+    category: 'shape',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 12,
+    // The value is how far above the note each note starts, in semitones.
+    format: (st) => (st === 0 ? 'Off' : `+${Math.round(st)} st`),
+    low: 'little',
+    high: 'much',
+  },
+  env2Fall: {
+    id: 'env2Fall',
+    label: 'Fall',
+    full: 'Envelope 2 fall',
+    module: 'env2',
+    category: 'shape',
+    kind: 'knob',
+    interp: 'log',
+    stage: 12,
+    format: ms,
+    low: 'quick',
+    high: 'slow',
+  },
 };
 
 /**
@@ -467,9 +510,10 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'osc', label: 'Oscillator', stage: 1, params: ['wave', 'pw'] },
   { id: 'osc2', label: 'Osc 2', stage: 5, params: ['osc2Interval', 'osc2Level', 'osc2Detune'] },
   { id: 'fm', label: 'FM', stage: 6, params: ['fmRatio', 'fmAmount'] },
-  { id: 'noise', label: 'Noise', stage: 11, params: ['noise'] },
+  { id: 'mixer', label: 'Mixer', stage: 10, params: ['oscLevel', 'noise'] },
   { id: 'filter', label: 'Filter', stage: 1, params: ['filterMode', 'cutoff', 'res', 'envAmt'] },
   { id: 'env', label: 'Envelope', stage: 1, params: ['attack', 'decay', 'sustain', 'release'] },
+  { id: 'env2', label: 'Envelope 2', stage: 12, params: ['env2Amt', 'env2Fall'] },
   { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
   { id: 'voice', label: 'Voice', stage: 17, params: ['glide'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },

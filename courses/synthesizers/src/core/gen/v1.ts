@@ -55,6 +55,9 @@ export const STEPS: StepTable = {
   filterMode: [0, 1, 2, 3], // low-pass 24 dB, low-pass 12 dB, band-pass, high-pass
   lfoShape: [0, 1, 2, 3, 4], // sine, triangle, saw, square, sample and hold
   glide: [0, 0.03, 0.08, 0.2, 0.5], // seconds
+  oscLevel: [0, 0.25, 0.5, 0.75, 1],
+  env2Amt: [0, 7, 12, 24, 36], // semitones above the note that each note starts at
+  env2Fall: [0.01, 0.03, 0.08, 0.2, 0.5], // seconds: the time constant of the fall back to the note
 };
 
 /** An open, organ-like saw: what a locked module sits at. */
@@ -90,6 +93,9 @@ export const DEFAULTS: Patch = {
   filterMode: 0,
   lfoShape: 0,
   glide: 0,
+  oscLevel: 4,
+  env2Amt: 0,
+  env2Fall: 2,
 };
 
 export const RULES: Rules = { steps: STEPS, defaults: DEFAULTS, active: isActive, alike: soundsAlike };
@@ -360,6 +366,9 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   filterMode: 0,
   lfoShape: 0,
   glide: 0,
+  oscLevel: 0,
+  env2Amt: 0,
+  env2Fall: 0,
 };
 const GOAL_SUBTLE = 30; // a difference of a single step
 const GOAL_CONFUSABLE = 75; // both halves of a confusable pair differ

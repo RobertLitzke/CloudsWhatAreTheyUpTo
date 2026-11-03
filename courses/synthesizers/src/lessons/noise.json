@@ -1,0 +1,407 @@
+{
+ "id": "noise",
+ "n": 11,
+ "title": "Wind from nothing",
+ "teaches": "Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice",
+ "parts": [
+  {
+   "title": "Surf and wind",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The sound.** Here is a hiss, like a radio tuned between stations. Then the same hiss twice more: once as surf rolling onto a beach, once as wind whistling past a window. No recording of the sea went into either, and nothing in them has a pitch. All three are the same raw sound with different parts of it taken away. By the end of the lesson you will make the wind yourself."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "One hiss, three sounds",
+     "options": {
+      "stage": 11,
+      "riff": 103,
+      "start": {
+       "oscLevel": 0,
+       "noise": 4,
+       "attack": 2,
+       "sustain": 4,
+       "release": 3,
+       "cutoff": 7
+      },
+      "sounds": [
+       {
+        "name": "Hiss",
+        "set": {}
+       },
+       {
+        "name": "Surf",
+        "set": {
+         "cutoff": 3,
+         "attack": 3,
+         "release": 4,
+         "lfoDest": 1,
+         "lfoDepth": 3,
+         "lfoRate": 0,
+         "lfoShape": 1
+        }
+       },
+       {
+        "name": "Wind",
+        "set": {
+         "filterMode": 2,
+         "cutoff": 3,
+         "res": 3,
+         "lfoDest": 1,
+         "lfoDepth": 2,
+         "lfoRate": 0
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Every sound so far in this course has been made by an oscillator, something that repeats. A repeating wave has a pitch, and its harmonics sit at whole-number multiples of it, like the rungs of a ladder. Surf and wind don't repeat, and they have no ladder. They need a different kind of source."
+    }
+   ]
+  },
+  {
+   "title": "Every pitch at once",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "That source is **noise**: a signal that jumps about at random, never repeating. Where a saw wave puts its energy on the rungs of a ladder, noise spreads it evenly across every frequency at once. That is what a hiss is, and why steam, rain, a cymbal and the letter *s* all sound like relatives. Most synths have a noise generator beside their oscillators, with its own level in the mixer."
+    },
+    {
+     "type": "text",
+     "text": "Turn the oscillator off and the noise up. Then play the keys. The scope's spectrum fills from end to end with a ragged, level band, and the keys stop meaning anything: noise has no pitch to change, so every key plays the same hiss. The keys still start and stop it, because the envelope still opens and closes the amplifier."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The oscillator and the noise in the mixer. Turn the oscillator off and the noise up, then play the keys.",
+     "task": "Turn the oscillator off and the noise up to 55 % or more",
+     "goal": "noise-only",
+     "options": {
+      "stage": 11,
+      "knobs": [
+       "oscLevel",
+       "noise"
+      ],
+      "start": {
+       "sustain": 4,
+       "release": 2
+      },
+      "riff": 103,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "This hiss is **[[white noise]]**, named by analogy with white light, which holds every colour. Its energy is spread evenly over every *hertz*, and since there are far more hertz between 10,000 and 20,000 than between 100 and 200, most of it sits high up, which is why it sounds so bright.[^pink] An analog synth makes it by amplifying the random jostling of electrons in a transistor; a digital one draws a fresh random number for every sample.[^source]"
+    }
+   ]
+  },
+  {
+   "title": "Three ways to filter",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Lesson 2's filter was a **low-pass**: it keeps what lies below the cutoff and takes away what lies above. Many filters can be switched to two other shapes. A **high-pass** does the opposite and keeps only what lies above the cutoff. A **band-pass** keeps a band around the cutoff and takes away both sides. The switch is usually labelled *mode* or *type*, with the letters LP, HP and BP."
+    },
+    {
+     "type": "text",
+     "text": "Noise is the best sound to learn them on, because it has something at every frequency for a filter to remove. Watch the spectrum as you change mode: the low-pass leaves a slope falling to the right, the high-pass a slope falling to the left, and the band-pass a hill."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "White noise through the filter. Try each mode, and move the cutoff in each.",
+     "task": "Hear all four modes",
+     "goal": "modes-all",
+     "options": {
+      "stage": 11,
+      "knobs": [
+       "filterMode",
+       "cutoff"
+      ],
+      "start": {
+       "oscLevel": 0,
+       "noise": 4,
+       "attack": 2,
+       "sustain": 4,
+       "release": 3,
+       "cutoff": 4
+      },
+      "riff": 103
+     }
+    },
+    {
+     "type": "text",
+     "text": "Low-pass noise rumbles, like surf or distant traffic. High-pass noise fizzes, like steam or a cymbal's shimmer. Band-pass noise breathes: a narrow band of it sounds almost like a sung *ooh* or *ahh*, because a mouth is a band-pass filter too, as lesson 2 found."
+    }
+   ]
+  },
+  {
+   "title": "The thin voice",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A voice on an old telephone sounds thin and boxed in, and the reason is a band-pass filter. The telephone network was built to carry roughly 300 to 3,400 hertz, enough for speech to be understood and no more.[^phone] The deep body of a voice, below 300, is cut away, and so is the crisp hiss of its consonants above 3,400. What is left is the middle, and the ear hears that as small and far away."
+    },
+    {
+     "type": "text",
+     "text": "A high-pass alone does half of that, and half is often all a sound needs. Take a full saw wave and high-pass it: the fundamental and the lowest harmonics go, and the note thins out though its pitch stays put. Musicians use it constantly, to stop a sound crowding the bass, and the way to hear it is to move the cutoff up slowly and listen to the weight drain away."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A saw wave through the filter. Switch to high-pass and thin it out.",
+     "task": "Make it thin: high-pass, with the cutoff at 1.6 kHz or higher",
+     "goal": "hp-thin",
+     "options": {
+      "stage": 11,
+      "knobs": [
+       "filterMode",
+       "cutoff"
+      ],
+      "start": {
+       "cutoff": 7
+      },
+      "riff": 69
+     }
+    },
+    {
+     "type": "text",
+     "text": "Notice that the pitch doesn't change even when the fundamental is gone. The ear rebuilds the missing fundamental from the spacing of the harmonics that remain.[^missing] This is why a small phone speaker, which cannot play a bass note's fundamental at all, still lets you hear the bass line."
+    }
+   ]
+  },
+  {
+   "title": "Steep and gentle",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Filters differ in how sharply they cut, as well as where. The figure in a synth's manual is the **slope**, in decibels per octave: how much quieter the sound gets for each octave past the cutoff. A 12 dB filter halves the level and a bit for every octave; a 24 dB filter does twice that, a steeper wall. The low-pass in lessons 1 to 9 was 24 dB, the slope of Moog's ladder. Listen to the two at the same cutoff."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "The same saw at the same cutoff, through a steep and a gentle low-pass",
+     "options": {
+      "stage": 11,
+      "riff": 69,
+      "start": {
+       "cutoff": 3
+      },
+      "sounds": [
+       {
+        "name": "24 dB",
+        "set": {}
+       },
+       {
+        "name": "12 dB",
+        "set": {
+         "filterMode": 1
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The 12 dB filter sounds brighter and more open, because more of the top leaks through. Neither is better. A steep filter makes a dark sound truly dark and a resonant sweep dramatic; a gentle one keeps some air in a sound and sits it in a mix more politely. Many synths offer one slope only, so their makers chose, and the choice is part of each instrument's character.[^sem] The band-pass and high-pass on this synth are the gentle kind, 12 dB."
+    }
+   ]
+  },
+  {
+   "title": "Making the wind",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now the wind. A band-pass with its resonance turned up keeps only a narrow band of noise, so narrow that it starts to have a pitch: a whistle, like wind in a wire. Find it first. Set band-pass, raise the resonance, and listen to the hiss turn into a hollow, breathy tone."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Noise through a band-pass. Turn up the resonance until the noise whistles.",
+     "task": "Band-pass, with resonance at Q 8 or more",
+     "goal": "bp-whistle",
+     "options": {
+      "stage": 11,
+      "knobs": [
+       "filterMode",
+       "res",
+       "cutoff"
+      ],
+      "start": {
+       "oscLevel": 0,
+       "noise": 4,
+       "attack": 2,
+       "sustain": 4,
+       "release": 3,
+       "cutoff": 4
+      },
+      "riff": 103
+     }
+    },
+    {
+     "type": "text",
+     "text": "Wind is that whistle, moving. Gusts push its pitch up and let it fall back, and the LFO from lesson 4 can do the pushing, set to the cutoff and slowed right down. Make the wind: the noise is already on, and the LFO is already sent to the cutoff at its slowest rate, with its depth at zero."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Noise, a filter and a slow LFO on the cutoff. Make the wind.",
+     "task": "Make the wind",
+     "goal": "match",
+     "options": {
+      "stage": 11,
+      "knobs": [
+       "filterMode",
+       "cutoff",
+       "res",
+       "lfoDepth"
+      ],
+      "start": {
+       "oscLevel": 0,
+       "noise": 4,
+       "attack": 2,
+       "sustain": 4,
+       "release": 3,
+       "cutoff": 7,
+       "lfoDest": 1,
+       "lfoRate": 0,
+       "lfoDepth": 0
+      },
+      "riff": 103,
+      "target": {
+       "name": "The wind",
+       "set": {
+        "filterMode": 2,
+        "cutoff": 3,
+        "res": 3,
+        "lfoDepth": 2
+       }
+      },
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "The surf was the same idea with the low-pass: a slow rise and fall of the cutoff, a soft attack and a long release. Sound designers built storms, engines, rain and spaceships this way for decades of radio, film and games, from noise and a filter that moves."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Six questions on noise and filters",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What is white noise?",
+        "choices": [
+         "A random signal with its energy spread evenly over every frequency",
+         "A sine wave too high to hear",
+         "The sound of an oscillator with no filter"
+        ],
+        "answer": 0,
+        "why": "It never repeats, so it has no pitch, and every frequency carries the same share of energy."
+       },
+       {
+        "ask": "You play different keys with only the noise turned up. What changes?",
+        "choices": [
+         "Nothing but when the sound starts and stops",
+         "The pitch",
+         "The brightness"
+        ],
+        "answer": 0,
+        "why": "Noise has no pitch to follow the keys; the envelope still starts and stops it."
+       },
+       {
+        "ask": "Which mode keeps only what lies above the cutoff?",
+        "choices": [
+         "High-pass",
+         "Low-pass",
+         "Band-pass"
+        ],
+        "answer": 0,
+        "why": "High-pass passes the highs. Low-pass passes the lows, band-pass a band in between."
+       },
+       {
+        "ask": "Why does a voice on an old telephone sound thin?",
+        "choices": [
+         "The line passes a band of about 300 to 3,400 hertz and cuts the rest",
+         "The microphone adds noise",
+         "The voice is clipped"
+        ],
+        "answer": 0,
+        "why": "It is a band-pass filter: the low body and the high crispness of the voice are cut."
+       },
+       {
+        "ask": "Two low-pass filters have the same cutoff. One is 12 dB per octave, the other 24. Which sounds brighter?",
+        "choices": [
+         "The 12 dB",
+         "The 24 dB",
+         "They sound the same"
+        ],
+        "answer": 0,
+        "why": "The gentler slope lets more of the top leak through past the cutoff."
+       },
+       {
+        "ask": "How do you turn a hiss into wind?",
+        "choices": [
+         "A resonant band-pass on noise, its cutoff moved slowly up and down",
+         "A high-pass with a fast LFO on the level",
+         "A low-pass with the cutoff closed"
+        ],
+        "answer": 0,
+        "why": "The narrow band whistles, and the moving cutoff makes the gusts."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Noise is a random signal with no pitch**: its energy is spread over every frequency at once.",
+  "**White noise** has equal energy per hertz, so most of it is high and it sounds bright; pink sounds darker.",
+  "**A synth's mixer** sets how much of each oscillator and of the noise goes on to the filter.",
+  "**Low-pass keeps the lows, high-pass the highs, band-pass a band** around the cutoff.",
+  "**A telephone line is a band-pass** of about 300 to 3,400 hertz, which is why voices on it sound thin.",
+  "**A filter's slope** is its steepness in decibels per octave: 24 dB cuts harder than 12 dB.",
+  "**A resonant band-pass on noise whistles**; moved slowly by an LFO, it becomes wind."
+ ],
+ "footnotes": {
+  "pink": {
+   "kind": "technical",
+   "title": "Pink noise",
+   "text": "Pink noise has equal energy in every octave instead of every hertz, so it falls off by 3 decibels per octave and sounds like rain or a waterfall rather than steam. Sound engineers use it to test speakers, because the ear judges loudness roughly octave by octave."
+  },
+  "source": {
+   "kind": "technical",
+   "title": "Where an analog synth's noise comes from",
+   "text": "A common circuit runs a small current backwards through a transistor junction until it starts to break down. The breakdown happens in tiny random avalanches of electrons, and amplified, the current's flicker is a usable hiss. It is the same kind of randomness that makes the background hiss on a cassette or an old radio."
+  },
+  "phone": {
+   "kind": "digression",
+   "title": "The telephone band",
+   "text": "Engineers settled on roughly 300 to 3,400 hertz because it holds enough of speech to be understood while letting many calls share one line. Calls carried as digital audio kept the band, sampled 8,000 times a second. Newer 'HD voice' calls carry 50 to 7,000 hertz, and sound noticeably fuller."
+  },
+  "missing": {
+   "kind": "technical",
+   "title": "The missing fundamental",
+   "text": "If the harmonics at 200, 300 and 400 hertz are present and 100 is not, the ear still hears a pitch of 100, because 100 is the spacing they share. The brain works out the pitch from the pattern, not from one component."
+  },
+  "sem": {
+   "kind": "digression",
+   "title": "One filter, several shapes",
+   "text": "Tom Oberheim's SEM module of 1974 used a 12 dB 'state-variable' filter, a circuit that produces low-pass, band-pass and high-pass outputs at the same time. One knob blended from low-pass through a notch to high-pass, and a switch gave band-pass. Its gentle, round sound is still copied, and many small synths today offer the same three modes from one filter."
+  }
+ },
+ "journal": []
+}

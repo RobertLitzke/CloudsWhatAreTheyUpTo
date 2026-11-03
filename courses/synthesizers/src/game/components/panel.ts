@@ -72,8 +72,8 @@ function sidewaysRows(present: readonly ModuleId[]): ModuleId[][] {
   const rows: ModuleId[][] =
     has('fm') || has('drive')
       ? [
-          ['osc', 'osc2', 'fm', 'noise'],
-          ['filter', 'env', 'voice', 'chain'],
+          ['osc', 'osc2', 'fm', 'mixer'],
+          ['filter', 'env', 'env2', 'voice', 'chain'],
           ['lfo', 'drive', 'echo'],
         ]
       : [

@@ -9,6 +9,11 @@
 import { describe, expect, it } from 'vitest';
 import { generateRound } from '../src/core/gen';
 import { formatKey, parseKey } from '../src/core/key';
+import { GAME_STAGES, PARAM_IDS, PARAMS, type Patch } from '../src/core/params';
+
+/** The game's own knobs, in order. Knobs the course adds later are no part of what a key means. */
+const GAME_KNOBS = PARAM_IDS.filter((id) => PARAMS[id].stage <= GAME_STAGES);
+const written = (p: Patch) => GAME_KNOBS.map((id) => p[id]).join('');
 
 const KEYS = [
   '11E-000001',
@@ -54,7 +59,7 @@ describe('golden keys', () => {
       out[text] = generateRound(parsed!.key).map((r) => {
         if (!r.ok) throw new Error(`${text}: ${r.reason}`);
         const { riffId, target, start, goal, turns } = r.puzzle;
-        return { riffId, goal, turns, target: Object.values(target).join(''), start: Object.values(start).join('') };
+        return { riffId, goal, turns, target: written(target), start: written(start) };
       });
     }
     await expect(JSON.stringify(out, null, 1) + '\n').toMatchFileSnapshot('./golden-keys.json');

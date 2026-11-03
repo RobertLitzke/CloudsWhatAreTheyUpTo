@@ -58,3 +58,16 @@
 .synth-fig .sounds { display: flex; flex-wrap: wrap; gap: 8px; }
 .synth-fig .btn.on { outline: 2px solid var(--title); outline-offset: 1px; }
 .synth-fig .matched { margin: 0; color: var(--title); font-weight: 600; text-align: center; }
+
+/* Lesson 10's signal strip: each stage lit by how much of a note gets that far. */
+.synth-fig .strip { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+.synth-fig .strip-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: center; }
+.synth-fig .strip-box { display: flex; flex-direction: column; align-items: center; min-width: 64px; padding: 6px 10px; border: 1px solid var(--cyan); border-radius: 6px; background: var(--cyan-dim); color: var(--text); transition: background 0.2s, border-color 0.2s, opacity 0.2s; }
+.synth-fig .strip-box.faint { background: transparent; border-color: var(--cyan); opacity: 0.6; }
+.synth-fig .strip-box.dark { background: transparent; border-color: var(--hair-dim); border-style: dashed; opacity: 0.45; }
+.synth-fig .strip-name { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+.synth-fig .strip-db { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.synth-fig .strip-arrow { color: var(--muted); }
+.synth-fig .strip-say { margin: 0; font-size: 14px; color: var(--muted); text-align: center; }
+.synth-fig .keys-wrap { position: static; border-top: 0; padding: 0; background: transparent; }
+.synth-fig .keys { height: 84px; }

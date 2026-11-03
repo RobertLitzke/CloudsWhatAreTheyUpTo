@@ -1,0 +1,293 @@
+{
+ "id": "silent",
+ "n": 10,
+ "title": "The silent key",
+ "teaches": "Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound",
+ "parts": [
+  {
+   "title": "A key that does nothing",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The mystery.** You walk up to a synthesizer in a shop, press a key, and nothing happens. The power light is on. The screen says something cheerful. You press harder, then try another key, then another. Silence. Below is the synth as someone left it, and the same synth with one setting changed. Somewhere among its knobs is the reason the first makes no sound, and by the end of this lesson you will be able to find it without guessing."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "The synth as it was left, and with one setting changed",
+     "options": {
+      "stage": 10,
+      "riff": 69,
+      "start": {
+       "wave": 3,
+       "filterMode": 3,
+       "cutoff": 7
+      },
+      "sounds": [
+       {
+        "name": "As it was left",
+        "set": {}
+       },
+       {
+        "name": "One setting changed",
+        "set": {
+         "filterMode": 0
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Nothing is broken. A synthesizer is a chain of parts, each handing the sound to the next, and any one of them can be set to pass nothing on. The first is quiet for the same reason a garden hose runs dry when one valve along it is closed: nothing is wrong with the water or the hose. You just have to walk along it and find the valve."
+    }
+   ]
+  },
+  {
+   "title": "Following the sound",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Every synth in this course, and nearly every one you will meet, has the same short chain. **Sources** make a sound: oscillators, and often a noise generator. A **mixer** sets how much of each goes on. The **filter** takes some of it away. The **amplifier** lets it out, but only as far as its envelope opens it. Then come any effects, and the volume knob. Panels are usually laid out in that order, left to right, so the chain is printed on the front of the instrument."
+    },
+    {
+     "type": "text",
+     "text": "The figure below is the synth with a strip across it: each box lights up by how much of a note gets that far along. It is an estimate from the knobs, not a meter, but it is good at one thing: showing the place where a sound dies. Turn the oscillator's level in the **mixer** to zero and watch the darkness start at the very first box."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The chain, lit by how much of a note reaches each stage. Turn the oscillator down to nothing, then bring it back.",
+     "task": "Turn the oscillator level off, and back on until the sound gets all the way out",
+     "goal": "osc-off-on",
+     "options": {
+      "stage": 10,
+      "knobs": [
+       "oscLevel"
+      ],
+      "start": {
+       "oscLevel": 4
+      },
+      "riff": 69,
+      "strip": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "This is the habit to build: when a key is silent, don't twiddle at random. Start at the sources and walk toward the output, asking at each stage whether the sound gets through. Most panels make this easy, because most stages have one knob that can shut them: a level, a cutoff, an envelope."
+    }
+   ]
+  },
+  {
+   "title": "Shut by the filter",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The commonest silent synth is a filter set to take everything away. Remember that a filter only removes: it has nothing to work with but what the sources give it. A low-pass filter with its cutoff far below the note leaves almost nothing of a bright wave, and nothing at all of a sine above it. Most filters can also be switched to keep the top instead of the bottom, a **high-pass**, and then a cutoff set high leaves nothing of a low note. That is what had happened in the shop: a pure sine, and a filter set to keep only what lies above nine thousand hertz."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A sine through the filter, set to high-pass at 9 kHz. Find the sound.",
+     "task": "Get the sound through the filter",
+     "goal": "heard",
+     "options": {
+      "stage": 10,
+      "knobs": [
+       "filterMode",
+       "cutoff"
+      ],
+      "start": {
+       "wave": 3,
+       "filterMode": 3,
+       "cutoff": 7
+      },
+      "riff": 69,
+      "strip": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "Either knob fixes it. Switch the mode back to low-pass, or bring the cutoff down below the note. The strip shows the difference between the two cures: the first lets the whole note through, the second only what lies above the new cutoff. Lesson 11 takes the filter's modes in turn; for now the rule is enough. **If the filter box is dark, open the filter.**"
+    }
+   ]
+  },
+  {
+   "title": "Gate and trigger",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A key does two jobs. It says **which note** to play, and it says **when**. The when comes in two parts. The moment it goes down is the **trigger**, which starts the envelope from the beginning. The time it is held is the **gate**, which keeps the envelope at its sustain level until the key comes up, when the release begins. An organ note lasts exactly as long as the gate. A piano note starts with the trigger and then fades on its own, whatever the gate does."
+    },
+    {
+     "type": "text",
+     "text": "So the amplifier can be the silent stage too, in a way the other stages can't: it depends on how you play. Give a sound a long attack and short notes never get loud. Each one ends before the envelope has climbed. Hold a key down instead, and the same sound swells in. The figure below has a keyboard: press and hold a key, then tap one, and listen to the difference before you touch a knob."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "An attack of 700 ms on a quick tune. Play the keys: hold one, then tap. Then shorten the attack.",
+     "task": "Shorten the attack until the tune is clearly heard",
+     "goal": "heard",
+     "options": {
+      "stage": 10,
+      "knobs": [
+       "attack",
+       "sustain"
+      ],
+      "start": {
+       "attack": 4,
+       "sustain": 4
+      },
+      "riff": 69,
+      "keys": 48,
+      "strip": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "The strip calls the amplifier faint here, not dark, because something does come through: the first breath of each note. That is a useful sign. A sound that is there when a key is held and missing when it is tapped is almost always an envelope, never a filter or an oscillator."
+    }
+   ]
+  },
+  {
+   "title": "The blank patch",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Synth players have an answer for a panel they don't understand: start again from nothing. Nearly every instrument has an **init patch** (from *initialise*), a setting saved at the factory for exactly this. It is never silent, and never interesting: one oscillator, usually a saw; the filter wide open with no resonance; the envelope like an organ, full on while the key is held; no modulation, no effects. Every knob then does what its label says, from a sound you can hear."
+    },
+    {
+     "type": "text",
+     "text": "Loading the init patch is the quickest cure for a silent key, and the best way to learn a new instrument: turn one knob at a time away from the blank and listen. The last lesson of this course builds five sounds that way. Two other causes of a silent key live outside the patch. One is the obvious one, the volume. The other is the **octave** setting: most small keyboards can be shifted up or down several octaves, and a sound shifted far enough down lands below what a small speaker can play, so it seems to vanish though the synth is working perfectly."
+    },
+    {
+     "type": "key_ideas",
+     "title": "What to check, in order",
+     "points": [
+      "Volume and octave: is anything coming out, and in a range you can hear?",
+      "Sources and mixer: is any oscillator or noise turned up?",
+      "Filter: is the cutoff letting the note through, in the mode it is in?",
+      "Amplifier: does the sound come in when a key is held, but not when it is tapped?",
+      "Still lost? Load the init patch and start again."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Two faults at once",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Here is a patch with two faults, as a patch someone has played with usually has. Walk along the chain: the strip will show you the first dark box, and when that is fixed it will show you the next. The tune's sound is not hard to find. It is a plain triangle wave, which a reader of lesson 1 will know as soft and slightly hollow."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Two stages are shut. Find them both, using the strip to see where the sound stops.",
+     "task": "Make the tune sound",
+     "goal": "heard",
+     "options": {
+      "stage": 10,
+      "knobs": [
+       "oscLevel",
+       "filterMode",
+       "cutoff",
+       "attack"
+      ],
+      "start": {
+       "wave": 2,
+       "oscLevel": 0,
+       "filterMode": 3,
+       "cutoff": 6,
+       "attack": 0
+      },
+      "riff": 69,
+      "strip": true,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "Most silent synths in a shop are like this: two or three knobs left somewhere odd by the last person to play. The walk along the chain finds them in seconds, where turning knobs at random can take minutes and leave the patch worse than before."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on where a sound goes",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "A key makes no sound. Where do you start looking?",
+        "choices": [
+         "At the sources, then along the chain to the output",
+         "At whichever knob looks most unusual",
+         "At the effects"
+        ],
+        "answer": 0,
+        "why": "The sound passes through the stages in order. Walking along them finds the first one that is shut."
+       },
+       {
+        "ask": "A sine wave, a high-pass filter and a high cutoff. What do you hear?",
+        "choices": [
+         "Almost nothing",
+         "A bright, thin sine",
+         "A sine an octave higher"
+        ],
+        "answer": 0,
+        "why": "A sine has nothing above its own pitch, and a high-pass with a high cutoff keeps only what is above the cutoff."
+       },
+       {
+        "ask": "A sound is there when you hold a key down, and nearly gone when you tap it. What is the likeliest cause?",
+        "choices": [
+         "A long attack in the envelope",
+         "A closed filter",
+         "The oscillator turned down"
+        ],
+        "answer": 0,
+        "why": "Only the envelope depends on how long the key is held. A filter or an oscillator would silence the held note too."
+       },
+       {
+        "ask": "What is the gate?",
+        "choices": [
+         "The signal that is on for as long as the key is held",
+         "The moment the key goes down",
+         "The volume knob"
+        ],
+        "answer": 0,
+        "why": "The trigger is the moment the key goes down; the gate lasts while it is held, and the release starts when it ends."
+       },
+       {
+        "ask": "What is an init patch for?",
+        "choices": [
+         "A plain, audible starting point where each knob does what it says",
+         "The factory's best sound",
+         "Testing the speakers"
+        ],
+        "answer": 0,
+        "why": "Init, short for initialise, is a blank patch: one oscillator, an open filter, an organ envelope, nothing else."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A synth is a chain**: sources, mixer, filter, amplifier, effects, volume. Panels are laid out in that order.",
+  "**A silent key means one stage is shut.** Walk along the chain from the sources and find the first.",
+  "**A filter can only remove.** A low-pass far below the note, or a high-pass far above it, leaves nothing.",
+  "**A key sends a trigger and a gate**: the trigger starts the envelope, the gate holds it until release.",
+  "**Silent when tapped, heard when held**: that is the envelope, usually a long attack.",
+  "**The init patch** is a plain, audible blank: one saw, open filter, organ envelope.",
+  "**Outside the patch**: check the volume, and the octave, which can drop a sound below a small speaker."
+ ],
+ "footnotes": {},
+ "journal": []
+}

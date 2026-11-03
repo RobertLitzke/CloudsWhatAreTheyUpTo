@@ -127,6 +127,9 @@ const CONTEXTS: Record<ParamId, { name: string; set: Partial<Patch> }[]> = {
   filterMode: [{ name: 'saw at 900 Hz', set: { cutoff: 3 } }, { name: 'saw at 900 Hz, Q 4', set: { cutoff: 3, res: 2 } }],
   lfoShape: [{ name: 'cutoff, depth 35 %', set: { lfoDest: 1, lfoDepth: 2, cutoff: 3 } }],
   glide: [{ name: 'saw', set: {} }],
+  oscLevel: [{ name: 'saw', set: {} }],
+  env2Amt: [{ name: 'sine pluck', set: { wave: 3, sustain: 0, decay: 2 } }],
+  env2Fall: [{ name: 'sine pluck, +24 st', set: { wave: 3, sustain: 0, decay: 2, env2Amt: 3 } }],
 };
 
 // --- the measure ------------------------------------------------------------------

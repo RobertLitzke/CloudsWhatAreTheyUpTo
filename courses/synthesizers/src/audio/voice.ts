@@ -8,6 +8,7 @@
 //   osc 2: the same again, a chosen interval and detune away ─ level ─┘
 //   FM:    a sine at a ratio of the note ─ amount ─▶ the frequency of osc 1
 //   noise: a looping buffer of white noise ─ level ─┘ (joins at the mix)
+//   envelope 2: a fall from some semitones above the note at each note start ─▶ every oscillator's pitch
 //
 // (1), (2) and (3) are the three places the drive pedal can be plugged in:
 // ahead of the filter, after the synth, or after the echo. There is a drive at
@@ -261,6 +262,9 @@ export class Voice {
   private readonly lfoLevel: GainNode;
 
   private readonly noiseLevel: GainNode;
+  /** Envelope 2: jumps to 1 at each note and falls back to 0, scaled to cents on the way to the oscillators. */
+  private readonly env2Src: ConstantSourceNode;
+  private readonly env2Pitch: GainNode;
   private readonly noiseSrc: AudioBufferSourceNode;
 
   private lfos: Lfo[] = [];
@@ -329,6 +333,12 @@ export class Voice {
     this.noiseSrc.connect(this.noiseLevel).connect(this.mix);
     this.noiseSrc.start(startAt);
 
+    this.env2Src = ctx.createConstantSource();
+    this.env2Src.offset.value = 0;
+    this.env2Src.start(startAt);
+    this.env2Pitch = gain(0);
+    this.env2Src.connect(this.env2Pitch);
+
     this.amp = gain(0);
     this.trem = gain(1);
     this.makeup = gain(1);
@@ -396,6 +406,7 @@ export class Voice {
       o.connect(g).connect(to);
       fades.push(g);
       this.lfoPitch.connect(o.detune);
+      this.env2Pitch.connect(o.detune);
     };
     o1.forEach((o, i) => {
       wire(o, this.in1[i]);
@@ -407,6 +418,7 @@ export class Voice {
     });
     // Vibrato moves the modulator too, so the ratio holds.
     this.lfoPitch.connect(mod.detune);
+    this.env2Pitch.connect(mod.detune);
     return { o1, o2, mod, modGain, fades, from: t };
   }
 
@@ -416,6 +428,7 @@ export class Voice {
       for (const o of all) {
         o.disconnect();
         this.lfoPitch.disconnect(o.detune);
+        this.env2Pitch.disconnect(o.detune);
       }
       for (const g of bank.fades) g.disconnect();
       bank.modGain.disconnect();
@@ -502,7 +515,7 @@ export class Voice {
     };
 
     const wave = Math.round(s.wave);
-    this.waveGains.forEach((g, i) => set(g.gain, i === wave ? WAVE_GAIN[i] : 0));
+    this.waveGains.forEach((g, i) => set(g.gain, i === wave ? WAVE_GAIN[i] * s.oscLevel : 0));
     this.wave2Gains.forEach((g, i) => set(g.gain, i === wave ? WAVE_GAIN[i] : 0));
     set(this.level2.gain, s.osc2Level);
     for (const bank of this.banks) for (const o of bank.o2) set(o.detune, s.osc2Interval + s.osc2Detune);
@@ -518,12 +531,17 @@ export class Voice {
     // at Q 0.7 a band-pass is too wide to hear as one, so its floor is higher.
     set(this.f2.Q, mode === FILTER_MODE.bp ? Math.max(1, s.res) : qToDb(Math.max(0.5, s.res)));
     set(this.noiseLevel.gain, s.noise * NOISE_GAIN);
+    set(this.env2Pitch.gain, s.env2Amt * 100);
     // Two oscillators are loud, and so is a high resonance on an open filter;
     // take some back. Two detuned oscillators add as powers. The oscillators
     // are levelled where they meet, so a drive ahead of the filter is pushed
     // no harder by two of them than by one.
     set(this.mix.gain, 1 / Math.sqrt(1 + s.osc2Level * s.osc2Level));
-    set(this.makeup.gain, 1 / (1 + 0.05 * Math.max(0, s.res - 0.7)));
+    // A band-pass keeps only a narrow slice, and on noise or a bright wave the
+    // narrower it is the quieter it gets; give some of that back, so turning up
+    // the resonance makes it whistle rather than vanish.
+    const bandMakeup = mode === FILTER_MODE.bp ? Math.pow(Math.max(1, s.res), 0.75) : 1;
+    set(this.makeup.gain, bandMakeup / (1 + 0.05 * Math.max(0, s.res - 0.7)));
     set(this.envToFilter.gain, s.envAmt * 1200);
 
     const place = Math.round(s.chain);
@@ -641,10 +659,19 @@ export class Voice {
     this.pending.push({ on, hz });
     this.lastHz = hz;
 
+    this.fall(on);
     const { events, end } = noteEnvelope(this.level, on, off, next, this.sound);
     this.level = end;
     this.play(this.amp.gain, events);
     this.play(this.envSrc.offset, events);
+  }
+
+  /** Envelope 2 starts a note at the top and falls back. */
+  private fall(t: number): void {
+    const p = this.env2Src.offset;
+    p.cancelScheduledValues(t);
+    p.setValueAtTime(1, t);
+    p.setTargetAtTime(0, t, Math.max(this.sound.env2Fall, 0.0005));
   }
 
   /** The time constant a glide approaches the new pitch with; a tiny one is no glide. */
@@ -692,6 +719,7 @@ export class Voice {
     this.pending = [{ on: t, hz }];
     this.lastHz = hz;
     this.aim(t, hz, this.glideTau());
+    this.fall(t);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
       p.cancelScheduledValues(t);
       p.setTargetAtTime(1, t, Math.max(s.attack / 3, 0.0005));
@@ -735,6 +763,8 @@ export class Voice {
       this.envSrc.disconnect();
       this.noiseSrc.stop();
       this.noiseSrc.disconnect();
+      this.env2Src.stop();
+      this.env2Src.disconnect();
       this.echo.dispose();
       this.out.disconnect();
     }, 140);

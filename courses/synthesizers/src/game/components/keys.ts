@@ -18,6 +18,10 @@ export interface KeysOptions {
   onNote: (midi: number | null) => void;
   /** Every key going down or coming up, for a recorder. */
   onKey?: (midi: number, down: boolean) => void;
+  /** Whether the computer's keys play this strip now. A lesson has several; only the one in use listens. */
+  typing?: () => boolean;
+  /** The lowest C shown, as a MIDI note (48 is C3). */
+  base?: number;
 }
 
 export interface Keys {
@@ -32,7 +36,7 @@ export function createKeys(opts: KeysOptions): Keys {
   // A narrow screen gets fewer, wider keys. Turning a phone on its side changes which.
   const narrow = window.matchMedia('(max-width: 720px)');
   let semitones = narrow.matches ? 16 : 24;
-  let base = 48; // C3
+  let base = opts.base ?? 48; // C3
   let active = true;
 
   const held: number[] = [];
@@ -137,7 +141,7 @@ export function createKeys(opts: KeysOptions): Keys {
   const typingIn = (target: EventTarget | null) =>
     target instanceof HTMLInputElement || target instanceof HTMLSelectElement || target instanceof HTMLTextAreaElement;
   const onDown = (e: KeyboardEvent) => {
-    if (!active || e.repeat || e.ctrlKey || e.metaKey || e.altKey || typingIn(e.target)) return;
+    if (!active || (opts.typing && !opts.typing()) || e.repeat || e.ctrlKey || e.metaKey || e.altKey || typingIn(e.target)) return;
     const k = e.key.toLowerCase();
     if (k === 'z' || k === 'x') {
       shift(k === 'z' ? -1 : 1);

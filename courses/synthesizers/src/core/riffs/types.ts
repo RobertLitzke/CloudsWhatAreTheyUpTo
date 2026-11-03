@@ -18,6 +18,8 @@ export interface RiffSource {
   /** How far to trust the transcription: 3 confident, 2 roughly right, 1 a guess. */
   sure: 1 | 2 | 3;
   notes: string;
+  /** Keep the written pitches: a drum pattern on a low note, not moved to the common register. */
+  fixed?: boolean;
 }
 
 /** A riff ready to play and to reason about. */

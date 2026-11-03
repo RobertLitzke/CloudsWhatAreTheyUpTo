@@ -6,6 +6,7 @@
 
 import { FOLK } from './folk';
 import { parseNotation, type RiffNote } from './notation';
+import { PATTERNS } from './patterns';
 import { POPULAR } from './popular';
 import type { Riff, RiffSource } from './types';
 
@@ -49,7 +50,7 @@ export function buildRiff(src: RiffSource): Riff {
   const bar = src.bar ?? 16;
   const parsed = parseNotation(src.notes, bar);
   const mean = parsed.notes.reduce((sum, n) => sum + n.midi, 0) / parsed.notes.length;
-  const shift = 12 * Math.round((REGISTER_CENTRE - mean) / 12);
+  const shift = src.fixed ? 0 : 12 * Math.round((REGISTER_CENTRE - mean) / 12);
   const notes: RiffNote[] = parsed.notes.map((n) => ({ ...n, midi: n.midi + shift }));
   const six = 60 / src.bpm / 4;
 
@@ -83,7 +84,10 @@ export function buildRiff(src: RiffSource): Riff {
 
 export const RIFFS: readonly Riff[] = SOURCES.map(buildRiff);
 
-const BY_ID = new Map(RIFFS.map((r) => [r.id, r]));
+/** Loops written for the course's lessons: drum patterns and held notes. Not in the game's riff list. */
+export const LESSON_LOOPS: readonly Riff[] = PATTERNS.map(buildRiff);
+
+const BY_ID = new Map([...RIFFS, ...LESSON_LOOPS].map((r) => [r.id, r]));
 
 export function riffById(id: number): Riff | undefined {
   return BY_ID.get(id);
