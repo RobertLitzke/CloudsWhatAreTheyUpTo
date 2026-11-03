@@ -14,6 +14,7 @@ import { ageFromRate, HUBBLE_1929, TODAY } from '../src/figures/running';
 import { flicker, period, QUASAR_SIZE, S2 } from '../src/figures/quasars';
 import { covered, glowTemp } from '../src/figures/dark-night';
 import { ripplesToday, seenSpeed, totalSpeed } from '../src/figures/missing-mass';
+import { brightnessVsCoasting, history } from '../src/figures/speeding';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -216,5 +217,18 @@ describe('trunk lessons', () => {
     guess(p.node, 'No: they would be only about 1% denser today');
     setSlider(p.node, 0, 0.84);
     await expect(p.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 24: dark energy makes distant supernovae fainter, and the universe 13.8 billion years old', async () => {
+    expect(brightnessVsCoasting(0.5, 0)).toBeGreaterThan(1);
+    expect(brightnessVsCoasting(0.5, 0.7)).toBeLessThan(1);
+    const today = history(0.69).find(([, a]) => a >= 1);
+    expect(today![0]).toBeCloseTo(13.8, 0);
+    const slowToday = history(0).find(([, a]) => a >= 1);
+    expect(slowToday![0]).toBeLessThan(10);
+    const s = FIGURES.supernovae(context(), 'match');
+    guess(s.node, 'The expansion is speeding up');
+    setSlider(s.node, 0, 0.7);
+    await expect(s.done).resolves.toBeUndefined();
   });
 });
