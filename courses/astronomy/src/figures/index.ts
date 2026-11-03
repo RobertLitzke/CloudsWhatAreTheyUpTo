@@ -23,6 +23,7 @@ import { bellChartStill, spinFigure } from './pulsars';
 import { onionFigure, originsFigure } from './star-stuff';
 import { sameOrbitStill, squashFigure, tippingStill } from './dark-stars';
 import { cepheidFigure, shapleyStill } from './island';
+import { ageFigure, expansionFigure } from './running';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -96,4 +97,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 19
   shapley: shapleyStill,
   cepheid: cepheidFigure,
+  // Lesson 20
+  expansion: expansionFigure,
+  age: ageFigure,
 };

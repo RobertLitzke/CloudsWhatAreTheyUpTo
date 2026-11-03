@@ -10,6 +10,7 @@ import { breakup, CRAB, DWARF, NEUTRON } from '../src/figures/pulsars';
 import { cell, madeBy, SOURCES, stagesBegun } from '../src/figures/star-stuff';
 import { BODIES, escapeShare, horizon } from '../src/figures/dark-stars';
 import { cepheidSuns, looks, V1 } from '../src/figures/island';
+import { ageFromRate, HUBBLE_1929, TODAY } from '../src/figures/running';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -152,5 +153,19 @@ describe('trunk lessons', () => {
     setSlider(c.node, 0, 31.4);
     setSlider(c.node, 1, Math.log10(2.5e6));
     await expect(c.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 20: every home sees the same expansion, and today’s rate gives about 14 billion years', async () => {
+    expect(ageFromRate(HUBBLE_1929) / 1e9).toBeCloseTo(2, 0);
+    expect(ageFromRate(TODAY) / 1e9).toBeCloseTo(13.9, 0);
+    const e = FIGURES.expansion(context(), 'centre');
+    guess(e.node, 'No: every galaxy would see the same');
+    click(e.node, 'Home: galaxy B');
+    click(e.node, 'Home: galaxy C');
+    await expect(e.done).resolves.toBeUndefined();
+    const a = FIGURES.age(context(), 'age');
+    guess(a.node, 'Hubble’s distances to the galaxies');
+    setSlider(a.node, 0, 21.5);
+    await expect(a.done).resolves.toBeUndefined();
   });
 });

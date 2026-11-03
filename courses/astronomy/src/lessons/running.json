@@ -1,0 +1,71 @@
+{
+  "id": "running",
+  "n": 20,
+  "title": "Everything is running away",
+  "teaches": "How the redshifts of galaxies showed the universe is expanding, why that doesn't put us at the centre, and how the expansion gives the universe an age",
+  "parts": [
+    {
+      "title": "Slipher's spectra",
+      "blocks": [
+        {"type":"text","text":"In 1912, years before anyone knew what the spiral nebulae were, Vesto Slipher at the Lowell Observatory in Flagstaff, Arizona, set out to measure how fast they were moving. It was miserable work. A spiral is so faint that to spread its light into a spectrum he had to keep the telescope pointed at it for twenty, thirty, forty hours, over several nights, on the same photographic plate. But a spectrum shows dark lines, and as *What the stars are made of* showed, the lines of something coming towards you are shifted to the blue and the lines of something going away are shifted to the red. The size of the shift gives the speed."},
+        {"type":"text","text":"His first target was the Andromeda nebula. Its lines were shifted to the blue: it was coming towards us at 300 kilometres a second, faster than any star then known. Then he tried others, and the pattern turned round. By 1917 he had measured twenty-five spirals, and twenty-one were moving away, some at over a thousand kilometres a second. The red shifts kept coming. Andromeda, it turned out, was the exception, a near neighbour falling towards us. Nearly everything else was running away."}
+      ]
+    },
+    {
+      "title": "The farther, the faster",
+      "blocks": [
+        {"type":"text","text":"Once Hubble had shown, in *Island universes*, that the spirals were galaxies and found ways to estimate their distances, the obvious thing was to put the two together. The first to do it was Georges Lemaître, a Belgian who had been an engineer, an artillery officer in the First World War, and then both a priest and a physicist. In 1927 he showed that Einstein's general relativity allowed a universe that expands, and that in such a universe galaxies should recede at speeds in proportion to their distances. He took Slipher's speeds and Hubble's distances and found roughly that. He published it in French, in an obscure Belgian journal, and almost nobody read it."},
+        {"type":"text","text":"Two years later Hubble, working with his assistant Milton Humason, published a graph of the galaxies' speeds against their distances. The points scattered, but they lay along a straight line: a galaxy twice as far away recedes twice as fast. It became famous as Hubble's law. When Lemaître's paper was translated into English in 1931, the passage with his own estimate of the rate was missing, which for decades looked like someone suppressing his priority. In 2011 the letters turned up: Lemaître had cut it himself, because Hubble's newer figures were better. In 2018 the International Astronomical Union voted to call it the Hubble–Lemaître law."},
+        {"type":"key_ideas","title":"Hold on to","points":["Galaxies are receding from us at speeds in proportion to their distances: the universe is expanding."]}
+      ]
+    },
+    {
+      "title": "No centre, no edge",
+      "blocks": [
+        {"type":"text","text":"If everything is moving away from us, are we at the centre? It looks that way, but try it from somewhere else."},
+        {"type":"interactive_diagram","id":"expansion","caption":"A patch of galaxies stretched evenly, seen from the galaxy you call home. The faint dots are where they started. On the right, each galaxy's speed away from home against its distance.","task":"Make a prediction, then stretch the patch and look from each of three homes","goal":"centre","aspect_ratio":1.6},
+        {"type":"text","text":"When a pattern stretches evenly, every point sees every other point moving away, and the further one moving faster. The straight line on the graph is what even stretching looks like from anywhere. So the expansion has no centre, and nothing to expand into. It isn't galaxies flying out from one spot into empty space; it is the distances between galaxies growing, everywhere at once. (Galaxies themselves don't stretch: gravity holds them together, as it holds the Solar System. So do clusters of galaxies. It is the gaps between them that grow.)"},
+        {"type":"text","text":"Two consequences. The most distant galaxies are receding faster than light. That breaks no rule: the speed limit of *Muons that live too long* is for things moving through space, and here it is space itself that stretches. And the redshift of a distant galaxy isn't really a Doppler shift. Its light was stretched along with space on its long way here; the longer the journey, the more it has been stretched. For nearby galaxies the two ways of thinking give the same answer, which is why Slipher's method worked."}
+      ]
+    },
+    {
+      "title": "A universe younger than its rocks",
+      "blocks": [
+        {"type":"text","text":"If the galaxies are flying apart, then run the film backwards and they were once together. At a steady rate, the time since then is just distance divided by speed. Hubble's rate, in modern units, was that galaxies a million light years further away recede about 150 km/s faster. Run that back and everything was together about two billion years ago."},
+        {"type":"text","text":"That was a problem, because by then geologists were dating rocks by their radioactivity, as in Geology's *How old is the Earth?*, and the oldest were already coming out at two to three billion years. A universe can't be younger than the rocks in it. Some astronomers took this as a reason to doubt the whole idea of an expanding universe."},
+        {"type":"interactive_diagram","id":"age","caption":"The age of a universe that has always expanded at a steady rate, against the age of the Earth and its oldest crystals.","task":"Make a prediction, then bring the expansion rate down to today's value","goal":"age","aspect_ratio":2},
+        {"type":"text","text":"The mistake was in the distances. During the Second World War, the blackout in Los Angeles gave Walter Baade, a German-born astronomer barred from war work, unusually dark skies at Mount Wilson. He found that stars come in two broad families, younger ones in the discs of galaxies and older ones in their central bulges and in globular clusters, and that each family has its own kind of Cepheid. Hubble's Cepheids in Andromeda were the brighter kind, measured against a rule made with the fainter kind. Corrected in 1952, every distance beyond our galaxy doubled, the expansion rate halved, and the universe was suddenly older than the Earth. Later refinements, by Allan Sandage and others, moved it further."},
+        {"type":"text","text":"Today the expansion rate, measured many ways, gives an **age of the universe** of 13.8 billion years: the time since everything was crowded together, hot and dense. (The careful figure allows for the rate having changed over time, which is the story of *The speeding universe*.) The Sun and the Earth, at 4.6 billion, are a third that age."}
+      ]
+    },
+    {
+      "title": "An argument still going",
+      "blocks": [
+        {"type":"text","text":"The expansion rate is now known to a few per cent, which is where a new puzzle has appeared. Measured close to home, with Cepheids and exploding stars as standard candles, it comes out at about 22 kilometres a second faster for each million light years further away. Worked out from the afterglow of the early universe (*Why is the night sky dark?*), assuming our best description of what the universe contains, it comes out at about 20.5. The difference is small, but both teams say their errors are smaller still. This is called the Hubble tension, and it is unsettled. It may be a hidden mistake in one of the measurements, or a sign that something is missing from our picture of the universe. New telescopes are checking both."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on the expanding universe", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Galaxy X is 200 million light years away and recedes at 4,300 km/s. Galaxy Y is 600 million light years away. About how fast does Y recede?","choices":["About 13,000 km/s","About 4,300 km/s","About 1,400 km/s"],"answer":0,"why":"Three times as far, three times as fast: that is the Hubble–Lemaître law."},
+          {"ask":"An astronomer in a galaxy a billion light years away measures the speeds of galaxies around her. What does she find?","choices":["They all recede from her, faster the further they are","They all recede from us, not from her","Half approach and half recede"],"answer":0,"why":"Even stretching looks the same from every point. There is no centre."},
+          {"ask":"Slipher's first spiral, Andromeda, was approaching at 300 km/s. Why doesn't that contradict the expansion?","choices":["It is a near neighbour, pulled towards us by gravity","Andromeda is not a galaxy","The universe is shrinking near us"],"answer":0,"why":"Galaxies close together are held by gravity, like stars in a galaxy. The expansion shows up in the gaps between distant galaxies."},
+          {"ask":"The most distant galaxies recede faster than light. Why is that allowed?","choices":["Space itself is stretching; nothing is moving through space faster than light","Relativity doesn't apply to galaxies","The measurements are wrong"],"answer":0,"why":"Light's speed is a limit on motion through space. The growth of the distances between galaxies isn't that kind of motion."},
+          {"ask":"Hubble's 1929 rate gave a universe of 2 billion years, younger than Earth's rocks. What fixed it?","choices":["Baade found two kinds of Cepheid, which doubled the distances to galaxies","The rocks were dated again and found younger","The universe was found to be shrinking"],"answer":0,"why":"With greater distances, the same speeds mean a slower rate, so a longer time since everything was together."},
+          {"ask":"What is the Hubble tension?","choices":["Two good ways of measuring the expansion rate disagree slightly","Hubble and Lemaître argued about credit","Galaxies are being pulled apart by expansion"],"answer":0,"why":"Measurements nearby give about 22 km/s per million light years; the early universe gives about 20.5. It is unsettled."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Nearly every galaxy is redshifted.** Slipher from 1912: most spirals are moving away (Andromeda, a neighbour, is approaching).",
+    "**The farther, the faster.** Lemaître (1927) and Hubble (1929): recession speed grows in step with distance. The universe is expanding.",
+    "**No centre.** Even stretching looks the same from every galaxy; it is the distances between galaxies that grow.",
+    "**Space stretches.** Faster-than-light recession breaks no rule; the redshift is light stretched on its journey.",
+    "**The expansion gives an age.** Hubble's distances were too small (two kinds of Cepheid, 1952); today the universe is 13.8 billion years old.",
+    "**The Hubble tension.** Nearby measurements give about 22 km/s per million light years, the early universe about 20.5; still unsettled."
+  ],
+  "journal": [],
+  "footnotes": {}
+}
