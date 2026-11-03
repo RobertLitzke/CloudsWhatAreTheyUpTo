@@ -19,7 +19,7 @@ import {
   P950, apertureLabel, blurCircle, depthOfField, fromEquivalent, sharpEnough, widestAperture,
 } from '../../core/camera';
 import { shoot, settingsLine } from '../../core/shot';
-import { BEHIND_RANGE, PERCHED, place, standFor } from '../../core/stage';
+import { BEHIND_RANGE, PERCHED, place, standFor, type Placed } from '../../core/stage';
 import { stagePictures } from '../stage/pictures';
 import { stageRenderer } from '../stage/render';
 import { COL, apertureSlider, distance, figure, frame, slider, tint } from './kit';
@@ -58,6 +58,7 @@ export const apertureFigure = figure(['blur-background', 'all-sharp', 'in-place'
   let behind = stage.planes.find((p) => p.movable)?.behind ?? 8;
 
   let frameId = 0;
+  let latest: Placed[] = [];
   const g = svg('g');
   side.append(g);
 
@@ -72,7 +73,8 @@ export const apertureFigure = figure(['blur-background', 'all-sharp', 'in-place'
     const depth = depthOfField(P950, focal, aperture, focusAt);
     const birdSharp = blurCircle(focal, aperture, focusAt, stand) <= sharpEnough(P950);
 
-    if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; renderer.draw(placed, pictures); });
+    latest = placed;
+    if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; renderer.draw(latest, pictures); });
 
     // The settings line, as the camera's own display would show them.
     const shot = shoot({ subjectAt: stand, near: stand, far: null, ev: 12 }, { eqFocal, aperture, focusAt });

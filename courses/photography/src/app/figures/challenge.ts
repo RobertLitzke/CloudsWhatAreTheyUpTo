@@ -18,7 +18,7 @@
 import { el } from 'didactics/dom';
 import { P950, fromEquivalent, widestAperture } from '../../core/camera';
 import { shoot, settingsLine, type Settings } from '../../core/shot';
-import { MOONRISE, PERCHED, place, standFor, type Stage } from '../../core/stage';
+import { BRAMBLE, MOONRISE, PERCHED, place, standFor, type Stage } from '../../core/stage';
 import { develop, loadPhoto } from '../photo/film';
 import { PHOTOS, credit } from '../picture';
 import { asset } from '../asset';
@@ -42,7 +42,7 @@ export interface ChallengeOptions extends Options {
   panels: Panel[];
 }
 
-const STAGES: Record<string, Stage> = { perched: PERCHED, moonrise: MOONRISE };
+const STAGES: Record<string, Stage> = { perched: PERCHED, moonrise: MOONRISE, bramble: BRAMBLE };
 
 /** Canvas size of one panel: the sensor's proportions. */
 const W = 560;

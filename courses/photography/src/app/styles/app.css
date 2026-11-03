@@ -245,3 +245,7 @@ h2 { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 
 }
 .challenge-panel .shot-settings { margin: 4px 0 0; font-size: 0.7rem; }
 .challenge-credit { margin: 6px 0 0; font-size: 0.72rem; color: var(--ink-soft); }
+
+/* The autofocus figure draws its focus area over the picture. */
+.af-holder { position: relative; }
+.af-holder .af-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }

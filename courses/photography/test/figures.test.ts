@@ -112,6 +112,18 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the focus-area figure is done when a spot finds the wren', async () => {
+    const fig = FIGURES.afArea(context(), 'wren');
+    (fig.node.querySelectorAll('button')[2] as HTMLButtonElement).click();
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the tracking figure is done in continuous autofocus', async () => {
+    const fig = FIGURES.tracking(context(), 'continuous');
+    (fig.node.querySelectorAll('button')[1] as HTMLButtonElement).click();
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

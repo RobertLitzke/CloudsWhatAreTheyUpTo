@@ -1,0 +1,232 @@
+{
+ "id": "focus",
+ "n": 7,
+ "title": "Focus: telling the camera what you meant",
+ "teaches": "How autofocus chooses what to focus on, why it grabs the twig in front of the bird, and how to point it, follow a moving bird, or wait for one",
+ "parts": [
+  {
+   "title": "The wren in the bramble",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The challenge.** A wren is singing from inside a blackberry tangle, twenty metres off, fully visible but behind a screen of bare canes.[^wren] You zoom to 2000 mm, half-press, the camera beeps happily, and the picture is the left-hand one: every thorn on the canes in front is crisp and the wren is a brown smudge. What you wanted is the right-hand one, the wren sharp to its eye-stripe and the canes melted into soft bars of colour. Nothing about the exposure is different. The camera simply focused on the wrong thing, and it was sure it had got it right."
+    },
+    {
+     "type": "diagram",
+     "id": "challenge",
+     "caption": "A wren behind bramble canes at 2000 mm, focused on the canes and on the wren",
+     "options": {
+      "stage": "bramble",
+      "panels": [
+       {
+        "label": "What the camera gave",
+        "eqFocal": 2000,
+        "focusRatio": 0.924
+       },
+       {
+        "label": "What you wanted",
+        "eqFocal": 2000
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "At 2000 mm and twenty metres, everything sharp lies in a band about 20 cm deep. The canes are a metre and a half in front of the wren, far outside it. So the question is not whether to focus well but where, and that is a decision the camera makes for you unless you tell it otherwise."
+    }
+   ]
+  },
+  {
+   "title": "How the camera chooses",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The P950 focuses by looking at contrast. It moves the focusing lens in and out, watching the picture inside its **focus area**, and stops where the edges there are crispest.[^contrast-af] What it cannot know is which of those edges you care about. In a big focus area there are many candidates, and its rule of thumb is a sensible one in most situations: the nearest thing with clear detail is probably the subject. In a bramble, the nearest thing with clear detail is a cane."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "afArea",
+     "caption": "The wren at 2000 mm, wide open, with four ways of choosing what to focus on",
+     "task": "Get the wren sharp and the canes soft",
+     "goal": "wren"
+    },
+    {
+     "type": "text",
+     "text": "The wide area sees the canes on the left first. The centre box is smaller but still large enough to catch a cane crossing below the wren. Only a small spot, put on the wren's head, sees nothing nearer than the wren. And manual focus lets you ignore the camera's opinion altogether."
+    }
+   ]
+  },
+  {
+   "title": "Four ways out",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Shrink the area and put it on the bird.** The P950's area mode called Manual (spot) gives the smallest box, and you can move it around the frame with the multi-selector. Put it on the eye, or on a patch of the bird with some texture; a plain breast gives contrast detection nothing to grip."
+    },
+    {
+     "type": "text",
+     "text": "**Focus by hand.** Switch to manual focus and turn the control ring. The P950 can magnify the middle of the frame while you focus and outline whatever is sharpest in colour (**focus peaking**), so you can see the moment the wren snaps in. It is slower than autofocus on an open subject but often faster in a tangle, where autofocus keeps jumping back to the canes."
+    },
+    {
+     "type": "text",
+     "text": "**Focus on something else at the same distance.** Find a cane or leaf right beside the wren, not in front of it, half-press to focus there, keep the button held to lock the focus, and swing back to the wren. At twenty metres a few centimetres either way is inside the sharp band."
+    },
+    {
+     "type": "text",
+     "text": "**Move.** A step or two to one side changes which canes are in front of the bird, and sometimes opens a gap. Moving also changes the background, which is the subject of the lesson Seeing the picture before you take it."
+    }
+   ]
+  },
+  {
+   "title": "A bird coming toward you",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A perched wren stays at one distance. A heron flying straight at you does not: it closes ten or fifteen metres every second, and at 2000 mm the sharp band around it is a few tens of centimetres. Focusing once and firing is fine for the first frame and hopeless for the rest."
+    },
+    {
+     "type": "text",
+     "text": "Cameras offer two ways of behaving while the shutter button is half-pressed. **Single** autofocus focuses once and locks, which is what you want for a still subject or for focus-and-recompose. **Continuous** autofocus keeps refocusing as long as you hold the button, following the subject in or out. The P950's menus call these Single AF and Full-time AF, and its Subject tracking area mode also follows a subject across the frame."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "tracking",
+     "caption": "A heron flying toward you from 60 m, shot as a burst at 1000 mm, with the sharp band in green",
+     "task": "Switch to continuous autofocus and see how many frames it saves",
+     "goal": "continuous"
+    },
+    {
+     "type": "text",
+     "text": "Continuous focus is never perfectly on time; it is always correcting for where the bird was a moment ago. Small-sensor cameras like the P950 also focus more slowly than bigger cameras built for sport, so a bird coming straight at you is one of the hardest subjects it has. Help it with a burst of frames, a slightly narrower aperture if the light allows, and a bird that is crossing your view rather than coming at you, since a crossing bird stays at the same distance."
+    }
+   ]
+  },
+  {
+   "title": "Waiting at the perch",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Many birds come back to the same perch: a kingfisher to its branch over the stream, a flycatcher to the same snag between sallies. Instead of chasing the bird, focus on the perch before it arrives. Set the focus on the branch, switch to manual focus so the camera does not change its mind, frame with a little room on the side the bird usually lands, and wait. When it lands, it lands in focus, and all you have to do is press the button."
+    },
+    {
+     "type": "text",
+     "text": "The same trick works for a hole in a bank, a feeder or the edge of a reed bed. It turns the hardest part of long-lens focusing, finding focus quickly on a small subject behind clutter, into something you did calmly five minutes earlier."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Autofocus finds crisp edges inside its focus area; in a big area it tends to choose the nearest thing with detail.",
+      "At long range the sharp band is centimetres to tens of centimetres deep, so the camera has to be told exactly where.",
+      "Shrink the focus area and put it on the bird, focus by hand, focus on something beside it, or move.",
+      "Single autofocus locks once; continuous keeps following a subject that changes distance.",
+      "For a bird that returns to a perch, focus on the perch first and wait."
+     ]
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Focus",
+     "task": "Answer each question",
+     "options": {
+      "items": [
+       {
+        "question": "In the widest focus area, the camera keeps focusing on a branch in front of a warbler. Why?",
+        "options": [
+         "It favours the nearest thing with clear detail",
+         "The branch is brighter than the warbler",
+         "The aperture is too narrow",
+         "The warbler is moving too fast"
+        ],
+        "answer": 0,
+        "why": "With a large focus area the camera has to guess, and the nearest detailed thing is its usual guess. A small area placed on the warbler removes the branch from consideration."
+       },
+       {
+        "question": "Which autofocus mode suits a duck swimming steadily toward you?",
+        "options": [
+         "Continuous, which keeps refocusing while you half-press",
+         "Single, which locks focus once",
+         "Manual focus set once at the start",
+         "Whichever mode has the largest focus area"
+        ],
+        "answer": 0,
+        "why": "The duck's distance keeps changing, so focus has to keep up. Single autofocus would stay at the first distance while the duck swims out of the sharp band."
+       },
+       {
+        "question": "A heron stands perfectly still on a sandbar behind tall reeds. What is a good way to get it sharp?",
+        "options": [
+         "Use a small focus spot on its head, or focus by hand",
+         "Use the widest focus area so the camera can choose",
+         "Switch to continuous autofocus and hold the button",
+         "Zoom out so the reeds look smaller"
+        ],
+        "answer": 0,
+        "why": "The reeds are nearer and full of detail, so a wide area will pick them. A small spot on the heron, or manual focus, tells the camera what you meant."
+       },
+       {
+        "question": "Why does focus matter more at 2000 mm and 20 m than at 100 mm and 20 m?",
+        "options": [
+         "The sharp band is much thinner at the long end",
+         "The lens lets in more light at 2000 mm",
+         "The camera cannot autofocus below 100 mm",
+         "Distant subjects are always out of focus"
+        ],
+        "answer": 0,
+        "why": "Magnifying the scene also magnifies focus errors. At 2000 mm the sharp band at 20 m is only about 20 cm deep, so a twig a metre in front is far outside it."
+       },
+       {
+        "question": "A kingfisher keeps returning to the same branch. What is the calmest way to photograph it?",
+        "options": [
+         "Focus on the branch in advance, then wait",
+         "Track it in flight with the widest focus area",
+         "Turn up the ISO and use a slow shutter",
+         "Zoom to the widest angle and crop later"
+        ],
+        "answer": 0,
+        "why": "Pre-focusing on the perch means the bird lands already in focus; you only have to press the shutter."
+       },
+       {
+        "question": "Contrast-detection autofocus struggles on a plain white egret's breast. Why?",
+        "options": [
+         "There are few edges for it to judge sharpness by",
+         "White feathers reflect too much infrared",
+         "The breast is always outside the sharp band",
+         "Egrets move too quickly for autofocus"
+        ],
+        "answer": 0,
+        "why": "Contrast detection looks for crisp edges. A smooth white patch has almost none, so put the focus point on the eye, the bill or the edge of a wing instead."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Focus is a decision.** At long range the sharp band is centimetres to tens of centimetres deep, so the camera has to be told exactly where.",
+  "**Autofocus looks for crisp edges in its area.** In a large area it usually picks the nearest detailed thing, which in cover is a twig.",
+  "**Put a small focus area on the bird.** The eye, or a textured patch, gives the camera something to grip.",
+  "**Manual focus is often fastest in a tangle.** Magnify the view and use focus peaking.",
+  "**Focus beside the bird and recompose, or move.** A step sideways can open a gap.",
+  "**Single locks; continuous follows.** Use continuous for a bird that is coming or going, and shoot a burst.",
+  "**Pre-focus on a perch.** Let the bird land in focus."
+ ],
+ "journal": [],
+ "footnotes": {
+  "wren": {
+   "kind": "digression",
+   "title": "A loud small bird",
+   "text": "Pacific wrens weigh about nine grams and have one of the longest, loudest songs of any North American bird, a tumbling string of notes that can run for ten seconds. They sing from inside cover, which is exactly why they are hard to photograph: the bird is easy to find by ear and almost always behind something."
+  },
+  "contrast-af": {
+   "kind": "technical",
+   "title": "Contrast and phase detection",
+   "text": "Contrast-detection autofocus, used by the P950 and most compact cameras, has to move the focus past the sharpest point to know it was the sharpest, then come back: reliable but slow, and inclined to hunt in dim or low-contrast light. Larger cameras add phase detection, which can tell from a single look which way and how far focus is off, and so can follow moving subjects much better."
+  }
+ }
+}

@@ -7,7 +7,7 @@ import { el, svg } from 'didactics/dom';
 import { label, line, note, redraw } from 'didactics/draw';
 import { P950, angleOfView, fromEquivalent } from '../../core/camera';
 import { shoot, settingsLine } from '../../core/shot';
-import { MOONRISE, place, standFor } from '../../core/stage';
+import { MOONRISE, place, standFor, type Placed } from '../../core/stage';
 import { stagePictures } from '../stage/pictures';
 import { stageRenderer } from '../stage/render';
 import { COL, choices, distance, figure, frame, slider, tint, zoomSlider } from './kit';
@@ -41,12 +41,14 @@ export const compressionFigure = figure(['moon-big'], (ctx, t) => {
   /** Where the camera stands when it stays put: where 200 mm frames the pine. */
   const fixed = standFor(stage, fromEquivalent(P950, 200));
   let frameId = 0;
+  let latest: Placed[] = [];
 
   const paint = () => {
     const focal = fromEquivalent(P950, eqFocal);
     const stand = walk ? standFor(stage, focal) : fixed;
     const placed = place({ ...stage, planes }, { focal, n: 5.6, stand, focusAt: stand });
-    if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; renderer.draw(placed, pictures); });
+    latest = placed;
+    if (!frameId) frameId = requestAnimationFrame(() => { frameId = 0; renderer.draw(latest, pictures); });
     const tall = (angleOfView(P950, focal) * P950.sensor.h) / P950.sensor.w; // the frame's height, degrees
     const moon = MOON_DEG / tall;
     const pine = (stage.subjectTall / stand) * (180 / Math.PI) / tall;

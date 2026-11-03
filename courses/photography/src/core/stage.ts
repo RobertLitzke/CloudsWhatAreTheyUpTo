@@ -163,3 +163,25 @@ export const MOONRISE: Stage = {
     { id: 'pine', behind: 0, width: 10, height: 18.3, bottom: -24.8 },
   ],
 };
+
+/**
+ * A wren in a bramble, with bare canes crossing close in front of it: the
+ * scene where autofocus takes the twigs. The wren (10 cm) is the subject; a
+ * tangle of bramble stands a metre and a half behind it, dim woods beyond,
+ * and a few canes a metre and a half in front, crossing the frame on the
+ * diagonal. The wren's head is a little left of and above the frame's middle.
+ */
+export const BRAMBLE: Stage = {
+  id: 'bramble',
+  subjectTall: 0.1,
+  framing: 0.4,
+  planes: [
+    { id: 'woods', behind: 25, width: 60, height: 40, bottom: -15, backdrop: true },
+    { id: 'bramble', behind: 1.5, width: 20, height: 1.05, bottom: -0.97, tile: 1 },
+    { id: 'wren', behind: 0, width: 0.4, height: 0.2, bottom: -0.1 },
+    { id: 'twigs', behind: -1.5, width: 0.6, height: 0.45, bottom: -0.25 },
+  ],
+};
+
+/** Where the wren's head is on its plane, metres from the axis: what a spot focus point should sit on. */
+export const WREN_HEAD = { x: -0.03, y: 0.03 } as const;

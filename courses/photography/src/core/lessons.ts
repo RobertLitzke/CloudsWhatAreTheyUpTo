@@ -23,10 +23,11 @@ import aperture from '../data/lessons/aperture.json';
 import shutter from '../data/lessons/shutter.json';
 import iso from '../data/lessons/iso.json';
 import lens from '../data/lessons/lens.json';
+import focus from '../data/lessons/focus.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
-  'cone', 'aperture', 'closeUp', 'diffraction', 'hyperfocal',
+  'cone', 'aperture', 'closeUp', 'diffraction', 'hyperfocal', 'afArea', 'tracking',
   // Time and movement.
   'shutter', 'shake', 'silkWater', 'pan',
   // Light and the sensor.
@@ -56,13 +57,7 @@ export const LESSONS: readonly Lesson[] = [
   shutter as Lesson,
   iso as Lesson,
   lens as Lesson,
-  planned(7, 'focus', 'Focus: telling the camera what you meant', 'Autofocus modes, focus areas, and getting the bird instead of the branch in front of it', [
-    'Single and continuous autofocus, and which to use for what',
-    'Focus areas: spot, centre, subject tracking, and the P950\'s bird option',
-    'Why the camera grabs the branch, and the three ways out',
-    'Manual focus, the zoomed view, and when it is the fastest way',
-    'Pre-focusing on a perch and waiting',
-  ]),
+  focus as Lesson,
   planned(8, 'colour', 'The colour of light', 'White balance, the hour of the day, and the difference between light you fix and light you go out for', [
     'Colour temperature, and why warm is the low number',
     'What automatic white balance is guessing, and the scenes that fool it',

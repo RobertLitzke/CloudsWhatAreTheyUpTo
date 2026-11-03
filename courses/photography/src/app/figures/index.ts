@@ -1,6 +1,7 @@
 // Every figure a lesson can use, by the id core/lessons.ts names it with.
 
 import type { FigureId } from '../../core/lessons';
+import { afAreaFigure, trackingFigure } from './autofocus';
 import { challengeDiagram } from './challenge';
 import { checkFigure } from './check';
 import { kelvinDiagram, whiteBalanceFigure } from './colour';
@@ -22,6 +23,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   closeUp: closeUpFigure,
   diffraction: diffractionFigure,
   hyperfocal: hyperfocalFigure,
+  afArea: afAreaFigure,
+  tracking: trackingFigure,
   shutter: shutterFigure,
   shake: shakeDiagram,
   silkWater: silkWaterFigure,

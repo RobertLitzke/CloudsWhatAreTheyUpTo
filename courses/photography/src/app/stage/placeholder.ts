@@ -5,9 +5,10 @@
 // glints on the leaves so the out-of-focus discs can be seen as discs.
 
 import { makeRng, type Rng } from 'didactics/rng';
+import { WREN_HEAD as WREN } from '../../core/stage';
 
 /** Pixels across each stand-in, by plane id. Its height follows the plane's proportions. */
-const WIDTH: Record<string, number> = { hills: 2048, trees: 2048, bushes: 2048, bird: 2048, sky: 1024, moon: 1024, ridge: 2048, pine: 1024 };
+const WIDTH: Record<string, number> = { hills: 2048, trees: 2048, bushes: 2048, bird: 2048, sky: 1024, moon: 1024, ridge: 2048, pine: 1024, woods: 1024, bramble: 2048, wren: 2048, twigs: 2048 };
 
 /** A stand-in picture for plane `id`, `aspect` (height over width) as the plane is; null without a 2D canvas. */
 export function placeholder(id: string, aspect: number): HTMLCanvasElement | null {
@@ -332,5 +333,171 @@ const DRAW: Record<string, Painter> = {
     g.beginPath();
     g.ellipse(cx, h * 0.07, w * 0.08, h * 0.05, 0, 0, Math.PI * 2);
     g.fill();
+  },
+
+  woods(g, w, h, rng) {
+    // Dim conifer woods: dark green shade with trunks fading into it.
+    const shade = g.createLinearGradient(0, 0, 0, h);
+    shade.addColorStop(0, '#46584a');
+    shade.addColorStop(0.5, '#2c3b31');
+    shade.addColorStop(1, '#25301f');
+    g.fillStyle = shade;
+    g.fillRect(0, 0, w, h);
+    for (let i = 0; i < 40; i++) {
+      const x = rng() * w;
+      g.fillStyle = `rgba(${60 + rng() * 30},${50 + rng() * 20},${40},${0.4 + rng() * 0.4})`;
+      g.fillRect(x, 0, w * (0.006 + rng() * 0.02), h);
+    }
+    // A few sunlit patches, which the blur turns into soft discs.
+    for (let i = 0; i < 26; i++) {
+      g.fillStyle = `rgba(190,205,140,${0.25 + rng() * 0.3})`;
+      g.beginPath();
+      g.arc(rng() * w, rng() * h * 0.7, w * (0.004 + rng() * 0.01), 0, Math.PI * 2);
+      g.fill();
+    }
+  },
+
+  bramble(g, w, h, rng) {
+    // One metre of bramble and fern: arching canes and leaves, dense below,
+    // ragged on top, clear above (one copy; the plane repeats it).
+    const top = (x: number) => h * (0.08 + 0.12 * (1 + Math.sin((x / w) * Math.PI * 4)) / 2);
+    g.lineCap = 'round';
+    for (let i = 0; i < 60; i++) {
+      const x = rng() * w;
+      g.strokeStyle = ['#5b3b3b', '#6b4a3c', '#4d3a2f'][Math.floor(rng() * 3)];
+      g.lineWidth = 4 + rng() * 4;
+      g.beginPath();
+      g.moveTo(x, h);
+      g.quadraticCurveTo(x + (rng() - 0.5) * w * 0.4, top(x) - h * 0.1, x + (rng() - 0.5) * w * 0.5, top(x) + h * rng() * 0.4);
+      g.stroke();
+    }
+    const greens = ['#2f5232', '#3e6a3c', '#4f7c45', '#5f8a4a', '#28432a'];
+    for (let i = 0; i < 9000; i++) {
+      const x = rng() * w;
+      const t = top(x);
+      const y = t + rng() ** 0.7 * (h - t);
+      g.fillStyle = greens[Math.floor(rng() * greens.length)];
+      g.beginPath();
+      g.ellipse(x, y, 8 + rng() * 14, 5 + rng() * 7, rng() * Math.PI, 0, Math.PI * 2);
+      g.fill();
+    }
+  },
+
+  wren(g, w, h) {
+    // A small brown wren, tail cocked, on a bramble cane running off both
+    // edges. Drawn in metres: the picture is 0.4 × 0.2 m, its middle on the axis.
+    const X = (m: number) => ((m + 0.2) / 0.4) * w;
+    const Y = (m: number) => ((0.1 - m) / 0.2) * h;
+    const R = (m: number) => (m / 0.4) * w;
+    g.lineCap = 'round';
+    g.strokeStyle = '#6b4a3c';
+    g.lineWidth = R(0.008);
+    g.beginPath();
+    g.moveTo(X(-0.2), Y(-0.045));
+    g.bezierCurveTo(X(-0.05), Y(-0.03), X(0.05), Y(-0.028), X(0.2), Y(-0.05));
+    g.stroke();
+    g.fillStyle = '#3a2a24';
+    for (let k = -0.18; k < 0.2; k += 0.025) {
+      g.beginPath();
+      g.moveTo(X(k), Y(-0.035));
+      g.lineTo(X(k + 0.004), Y(-0.025));
+      g.lineTo(X(k + 0.008), Y(-0.035));
+      g.fill();
+    }
+    // Tail, body, head, eye, bill, barring, legs.
+    g.fillStyle = '#6e4e36';
+    g.beginPath();
+    g.moveTo(X(0.03), Y(0.0));
+    g.lineTo(X(0.06), Y(0.045));
+    g.lineTo(X(0.045), Y(0.05));
+    g.lineTo(X(0.018), Y(0.008));
+    g.fill();
+    g.fillStyle = '#7c5a3e';
+    g.beginPath();
+    g.ellipse(X(0.0), Y(0.0), R(0.035), R(0.022), -0.15, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#8a6646';
+    g.beginPath();
+    g.arc(X(WREN.x), Y(WREN.y), R(0.016), 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#c9ad8a';
+    g.beginPath();
+    g.ellipse(X(-0.012), Y(-0.008), R(0.02), R(0.012), -0.2, 0, Math.PI * 2);
+    g.fill();
+    g.strokeStyle = '#3e2a1e';
+    g.lineWidth = R(0.0015);
+    for (let k = 0; k < 6; k++) {
+      g.beginPath();
+      g.moveTo(X(0.032 + k * 0.004), Y(0.012 + k * 0.006));
+      g.lineTo(X(0.04 + k * 0.004), Y(0.008 + k * 0.006));
+      g.stroke();
+      g.beginPath();
+      g.moveTo(X(0.0 + k * 0.006), Y(0.012));
+      g.lineTo(X(0.004 + k * 0.006), Y(0.004));
+      g.stroke();
+    }
+    g.strokeStyle = '#efe0c4';
+    g.lineWidth = R(0.002);
+    g.beginPath();
+    g.moveTo(X(WREN.x - 0.004), Y(WREN.y + 0.008));
+    g.lineTo(X(WREN.x + 0.014), Y(WREN.y + 0.006));
+    g.stroke();
+    g.fillStyle = '#111111';
+    g.beginPath();
+    g.arc(X(WREN.x - 0.006), Y(WREN.y + 0.002), R(0.003), 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#3b2f28';
+    g.beginPath();
+    g.moveTo(X(WREN.x - 0.014), Y(WREN.y + 0.002));
+    g.lineTo(X(WREN.x - 0.03), Y(WREN.y - 0.002));
+    g.lineTo(X(WREN.x - 0.014), Y(WREN.y - 0.004));
+    g.fill();
+    g.strokeStyle = '#8d6b52';
+    g.lineWidth = R(0.002);
+    for (const x of [-0.006, 0.006]) {
+      g.beginPath();
+      g.moveTo(X(x), Y(-0.018));
+      g.lineTo(X(x - 0.002), Y(-0.031));
+      g.stroke();
+    }
+  },
+
+  twigs(g, w, h, rng) {
+    // Bare canes with thorns and a few leaves, close to the camera, crossing
+    // the frame on the diagonal. Drawn in metres: 0.6 × 0.45 m, from x −0.3
+    // and y −0.25. One crosses just below and right of the frame's middle,
+    // so a big focus area catches it; none crosses the wren's head.
+    const X = (m: number) => ((m + 0.3) / 0.6) * w;
+    const Y = (m: number) => ((0.2 - m) / 0.45) * h;
+    const R = (m: number) => (m / 0.6) * w;
+    const cane = (pts: [number, number][], width: number) => {
+      g.strokeStyle = '#7a4f45';
+      g.lineWidth = R(width);
+      g.lineCap = 'round';
+      g.beginPath();
+      g.moveTo(X(pts[0][0]), Y(pts[0][1]));
+      g.bezierCurveTo(X(pts[1][0]), Y(pts[1][1]), X(pts[2][0]), Y(pts[2][1]), X(pts[3][0]), Y(pts[3][1]));
+      g.stroke();
+      // Thorns and leaves along it.
+      for (let i = 1; i < 14; i++) {
+        const t = i / 14;
+        const u = 1 - t;
+        const px = u ** 3 * pts[0][0] + 3 * u * u * t * pts[1][0] + 3 * u * t * t * pts[2][0] + t ** 3 * pts[3][0];
+        const py = u ** 3 * pts[0][1] + 3 * u * u * t * pts[1][1] + 3 * u * t * t * pts[2][1] + t ** 3 * pts[3][1];
+        g.fillStyle = '#e8d6b0';
+        g.beginPath();
+        g.arc(X(px), Y(py), R(0.0018), 0, Math.PI * 2);
+        g.fill();
+        if (rng() < 0.22) {
+          g.fillStyle = ['#557a3d', '#6f8f45', '#8a6d3a'][Math.floor(rng() * 3)];
+          g.beginPath();
+          g.ellipse(X(px + 0.012), Y(py + 0.01), R(0.02), R(0.01), -0.6 + rng(), 0, Math.PI * 2);
+          g.fill();
+        }
+      }
+    };
+    cane([[-0.3, -0.25], [-0.2, -0.1], [-0.14, 0.05], [-0.08, 0.2]], 0.006);
+    cane([[-0.12, -0.18], [-0.02, -0.03], [0.05, 0.04], [0.3, 0.09]], 0.005);
+    cane([[0.3, -0.2], [0.22, -0.16], [0.18, -0.2], [0.1, -0.25]], 0.004);
   },
 };
