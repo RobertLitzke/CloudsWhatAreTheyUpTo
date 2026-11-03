@@ -2,7 +2,8 @@
 // tools/copyedit.mjs keeps a tools/review-queue.json: lessons whose new prose
 // (paragraphs, captions, footnotes) has not yet had the final copy edit, with
 // the date and what was added. Writers append to it; this runs them as one
-// batch.
+// batch. The encyclopedia's queue, tools/encyclopedia-review-queue.json, runs
+// with them (tools/encyclopedia-copyedit.mjs).
 //
 //   node tools/review-queue.mjs                              list what is waiting
 //   OPENROUTER_API_KEY=… node tools/review-queue.mjs --run   edit and write every queued lesson
@@ -31,6 +32,20 @@ for (const course of readdirSync(join(root, 'courses'))) {
   if (run) {
     const r = spawnSync(process.execPath, ['tools/copyedit.mjs', '--queue', '--write'], { cwd: dir, stdio: 'inherit' });
     if (r.status) process.exitCode = r.status;
+  }
+}
+// The encyclopedia (encyclopedia/ at the root) keeps a queue of its own, by file.
+const encQueue = join(root, 'tools/encyclopedia-review-queue.json');
+if (existsSync(encQueue)) {
+  const queue = JSON.parse(readFileSync(encQueue, 'utf8'));
+  if (queue.length) {
+    total += queue.length;
+    console.log(`encyclopedia: ${queue.length} file${queue.length === 1 ? '' : 's'}`);
+    for (const q of queue) console.log(`  ${q.file.padEnd(16)} ${q.added ?? ''}  ${q.what ?? ''}`);
+    if (run) {
+      const r = spawnSync(process.execPath, ['tools/encyclopedia-copyedit.mjs', '--queue', '--write'], { cwd: root, stdio: 'inherit' });
+      if (r.status) process.exitCode = r.status;
+    }
   }
 }
 if (!total) console.log('Nothing waiting for a copy edit.');

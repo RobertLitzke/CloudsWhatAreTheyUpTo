@@ -3,6 +3,7 @@ import './styles/tokens.css';
 import { courseFiles } from 'didactics/course';
 import { defineCourse } from 'didactics/app';
 import { el } from 'didactics/dom';
+import encyclopedia from 'virtual:didactics/encyclopedia';
 import { SITE_URL } from './asset';
 import { FIGURES } from './figures';
 import { prose } from './figures/kit';
@@ -36,6 +37,7 @@ defineCourse({
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photographs, and where the maps’ heights come from.'),
   },
   catalog: { href: '../' },
+  encyclopedia: { data: encyclopedia, course: 'geology' },
   text: {
     files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),
     code: () => import('virtual:didactics/code-text').then((m) => m.default),

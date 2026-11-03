@@ -43,7 +43,7 @@ The voice is modelled on Stephen Hawking's popular writing: plain words, short c
 You get one lesson as numbered pieces of prose, each with a note of where it sits. For each piece:
 1. Fix factual errors: names, dates, numbers, places, who did what, and the science. Correct them in the text. Do not add new facts or examples beyond a correction.
 2. Copy edit: clear, concrete, natural sentences in British-leaning spelling as the source uses ("metres", "colour", "recognised"). Keep the meaning, the order of ideas and the paragraph's role. Pieces that are already good can come back unchanged.
-3. Keep markup exactly: **bold** and *italic* spans stay, around the same words.
+3. Keep markup exactly: **bold** and *italic* spans stay, around the same words, and so do [[links]] to the encyclopedia (keep the words inside the brackets, and anything after a |, as they are).
 4. Keep the length: the same or shorter, never more than a quarter longer.
 5. Quiz pieces: the choice marked (correct) must stay correct and the others wrong.
 
@@ -89,7 +89,7 @@ function pieces(lesson) {
   return out;
 }
 
-const MARKUP = /\*\*.+?\*\*|\*[^*]+?\*/g;
+const MARKUP = /\*\*.+?\*\*|\*[^*]+?\*|\[\[.+?\]\]/g;
 function problem(before, after) {
   if (typeof after !== 'string' || !after.trim()) return 'empty';
   const m0 = (before.match(MARKUP) ?? []).length;

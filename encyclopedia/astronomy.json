@@ -1,0 +1,324 @@
+{
+  "course": {
+    "line": "How people on one small planet worked out the size of the Earth, the paths of the planets, the distance and make-up of the stars, and what makes the Sun shine.",
+    "text": [
+      "Nobody has ever been to a star. Everything here was reasoned out from points of light, by people with shadows, clocks, prisms and patience. These are the ones the course leans on, and the numbers that keep the sky in scale."
+    ],
+    "people": ["eratosthenes", "johannes-kepler", "isaac-newton", "urbain-le-verrier", "friedrich-bessel", "joseph-fraunhofer", "annie-jump-cannon", "cecilia-payne", "arthur-eddington", "lord-kelvin"],
+    "ideas": ["retrograde-motion", "keplers-laws", "gravity", "parallax", "spectral-lines", "star-colour", "hr-diagram", "nuclear-fusion"],
+    "things": ["helium", "neptune"],
+    "tables": [
+      {
+        "title": "The sky in scale",
+        "columns": ["Distance", "How far", "If the Sun were a grapefruit"],
+        "rows": [
+          ["Around the Earth", "40,000 km", "The Earth is a grain of salt"],
+          ["Earth to Moon", "384,000 km, 1.3 light-seconds", "About 3 centimetres from the grain"],
+          ["Earth to Sun (1 astronomical unit)", "150 million km, 8.3 light-minutes", "13 metres away"],
+          ["Sun to Neptune", "30 astronomical units, 4 light-hours", "Nearly 400 metres away"],
+          ["Nearest star, Proxima Centauri", "4.2 light-years", "3,500 km: another grapefruit in another country"],
+          ["61 Cygni, Bessel's star", "11.4 light-years", "9,000 km"]
+        ],
+        "note": "A light-year is the distance light goes in a year: 9.5 trillion km. A parsec, 3.26 light-years, is the distance at which a star's parallax is one second of arc."
+      },
+      {
+        "title": "The kinds of star",
+        "columns": ["Class", "Surface temperature (roughly)", "Looks", "For example"],
+        "rows": [
+          ["O", "over 30,000 °C", "Blue", "The belt of Orion (one of them)"],
+          ["B", "10,000–30,000 °C", "Blue-white", "Rigel"],
+          ["A", "7,200–9,700 °C", "White", "Sirius, Vega"],
+          ["F", "5,700–7,200 °C", "White, a touch of yellow", "Procyon"],
+          ["G", "4,900–5,700 °C", "Yellow-white", "The Sun (5,500 °C)"],
+          ["K", "3,400–4,900 °C", "Orange", "Arcturus"],
+          ["M", "under 3,400 °C", "Red", "Betelgeuse, Proxima Centauri"]
+        ],
+        "note": "The old classroom phrase for the order: \"Oh Be A Fine Girl, Kiss Me\"."
+      }
+    ]
+  },
+  "entries": {
+    "eratosthenes": {
+      "kind": "person",
+      "title": "Eratosthenes",
+      "dates": "about 276–194 BC",
+      "line": "Librarian of Alexandria who measured the whole Earth with a shadow.",
+      "text": [
+        "Eratosthenes ran the greatest library of the ancient world, and his rivals nicknamed him Beta, second best at everything. Then he heard that at noon on midsummer's day the Sun shone straight down a well at Syene, far up the Nile. In Alexandria, on the same day, a pole still cast a short shadow: the Sun was about 7 degrees from overhead.",
+        "If the Sun is so far away that its rays arrive parallel, that 7 degrees can only mean one thing: the ground itself is curved, and Alexandria sits 7 degrees around the Earth from Syene. Seven degrees is a fiftieth of a circle. Multiply the distance between the towns by fifty, and you have walked around the world."
+      ],
+      "matters": "It is the first measurement of something too big to see, made with a stick and some reasoning. His answer was within a few per cent of the true 40,000 km.",
+      "see": ["parallax"],
+      "learn": [{ "course": "astronomy", "lesson": "shadows", "for": "Measure the Earth with two shadows" }],
+      "wikipedia": "Eratosthenes"
+    },
+    "retrograde-motion": {
+      "kind": "idea",
+      "title": "Retrograde motion",
+      "also": ["retrograde"],
+      "line": "The way a planet seems to stop, run backwards across the stars for a while, and turn forwards again.",
+      "text": [
+        "Watch Mars night after night against the stars, and for most of the year it creeps steadily east. Then it slows, stops, slides back west for a couple of months, and swings east again, tracing a loop. For two thousand years astronomers built ever more elaborate wheels within wheels to explain it.",
+        "Copernicus saw the simple answer. We're on a moving planet too. When the faster Earth overtakes slower Mars on the inside track, Mars appears to fall behind, the way a car you pass on the motorway seems to drift backwards against the hills."
+      ],
+      "matters": "Retrograde loops were the best clue that the Earth goes around the Sun, and the puzzle that led, through Tycho's measurements, to [[Kepler's laws]].",
+      "see": ["johannes-kepler", "keplers-laws"],
+      "learn": [{ "course": "astronomy", "lesson": "loops", "for": "Overtake Mars and watch it loop" }],
+      "wikipedia": "Apparent_retrograde_motion"
+    },
+    "johannes-kepler": {
+      "kind": "person",
+      "title": "Johannes Kepler",
+      "also": ["Kepler"],
+      "dates": "1571–1630",
+      "line": "German mathematician who discovered that planets move on ellipses, not circles.",
+      "text": [
+        "Kepler inherited the best measurements in the world: twenty years of planet positions logged by Tycho Brahe. He set out to fit Mars's orbit with circles, as everyone since the Greeks had. After years of calculation, his best circle missed Tycho's positions by 8 minutes of arc, a quarter of the Moon's width.",
+        "Anyone else might have blamed the data. Kepler trusted Tycho, threw out the circle, and tried other shapes. The one that worked was an ellipse, with the Sun not at the centre but off to one side, at a focus. \"Out of these eight minutes,\" he wrote, \"we will construct a new theory.\""
+      ],
+      "matters": "[[Kepler's laws]] described how the planets move with perfect precision, and set the puzzle that [[Isaac Newton]] answered: why ellipses?",
+      "see": ["keplers-laws", "isaac-newton", "retrograde-motion"],
+      "learn": [{ "course": "astronomy", "lesson": "loops", "for": "Find the ellipse in Tycho's numbers" }],
+      "wikipedia": "Johannes_Kepler"
+    },
+    "keplers-laws": {
+      "kind": "idea",
+      "title": "Kepler's laws",
+      "also": ["ellipse", "elliptical orbit", "elliptical orbits", "orbit", "orbits"],
+      "line": "Three rules for how planets move: on ellipses, faster when nearer the Sun, and with a fixed link between distance and year.",
+      "text": [
+        "First: each planet's path is an ellipse, a slightly squashed circle, with the Sun not at the centre but at a focus, one of two points along its long axis that define its shape. Second: a planet speeds up as it swings near the Sun and slows as it climbs away, so that the line from Sun to planet sweeps out equal areas in equal times. Third: the farther out a planet is, the longer its year, in a precise way. Twice as far means a year almost three times as long.",
+        "[[Johannes Kepler]] found them by grinding through numbers. He had no idea why they were true."
+      ],
+      "matters": "Newton showed that all three follow from one law of [[gravity]]. They still steer every spacecraft we send to the planets.",
+      "see": ["johannes-kepler", "isaac-newton", "gravity"],
+      "learn": [{ "course": "astronomy", "lesson": "loops" }, { "course": "astronomy", "lesson": "falling", "for": "Why gravity makes ellipses" }],
+      "wikipedia": "Kepler's_laws_of_planetary_motion"
+    },
+    "isaac-newton": {
+      "kind": "person",
+      "title": "Isaac Newton",
+      "also": ["Newton"],
+      "dates": "1643–1727",
+      "line": "English physicist who saw that the force that drops an apple also holds the Moon.",
+      "text": [
+        "In 1665 plague closed Cambridge, and Newton, 22, went home to his mother's farm. There, he later said, the fall of an apple set him wondering how far up the pull of the Earth reaches. To the treetops? The mountains? The Moon?",
+        "The Moon, he realised, is falling too. It is moving sideways so fast that as it falls it keeps missing the Earth. He worked out how far it falls each second and found it was 3,600 times less than an apple falls; the Moon is 60 times farther from the Earth's centre, and 60 times 60 is 3,600. The pull weakens with the square of distance."
+      ],
+      "matters": "For the first time, the heavens and the Earth ran on the same rules. [[Gravity]] explained [[Kepler's laws]], the tides and comets; two centuries later it let Le Verrier find [[Neptune]], and it weighed the Earth.",
+      "see": ["gravity", "keplers-laws", "johannes-kepler", "urbain-le-verrier"],
+      "learn": [
+        { "course": "astronomy", "lesson": "falling", "for": "Make the Moon fall" },
+        { "course": "astronomy", "lesson": "colour", "for": "His prism" },
+        { "course": "geology", "lesson": "weigh", "for": "Weighing the Earth with his law" }
+      ],
+      "wikipedia": "Isaac_Newton"
+    },
+    "gravity": {
+      "kind": "idea",
+      "title": "Gravity",
+      "also": ["gravitation", "universal gravitation", "law of gravity", "inverse square law"],
+      "line": "Every mass pulls on every other, more weakly the farther apart they are: twice as far, a quarter the pull.",
+      "text": [
+        "It is the weakest force we know. A fridge magnet beats the whole Earth's pull on a paperclip. But gravity never cancels out and it reaches forever, so on the scale of moons, planets and galaxies it is the only force that matters.",
+        "An orbit is just falling while moving sideways fast enough to keep missing. Throw a ball harder and harder, and with no air or mountains in the way it would eventually fall all the way around the Earth and hit you in the back of the head."
+      ],
+      "matters": "[[Isaac Newton]]'s law held the solar system together for two centuries of tests. Its one tiny failure, in Mercury's orbit, was a clue that led to Einstein's deeper theory.",
+      "see": ["isaac-newton", "keplers-laws", "neptune"],
+      "learn": [{ "course": "astronomy", "lesson": "falling" }, { "course": "astronomy", "lesson": "neptune" }, { "course": "geology", "lesson": "weigh" }],
+      "wikipedia": "Newton's_law_of_universal_gravitation"
+    },
+    "urbain-le-verrier": {
+      "kind": "person",
+      "title": "Urbain Le Verrier",
+      "also": ["Le Verrier"],
+      "dates": "1811–1877",
+      "line": "French mathematician who found a planet with a pen, and started the first national weather service.",
+      "text": [
+        "Uranus was drifting off course: never by much, but more than [[gravity]] from the known planets allowed. Le Verrier bet that an unseen planet was tugging it. Working backwards from the drift, he calculated where that planet must be. On 23 September 1846, Johann Galle in Berlin pointed his telescope at the spot and found [[Neptune]] within an hour.",
+        "He tried the same trick on Mercury, which also drifted, and predicted a planet he named Vulcan. It doesn't exist; Einstein explained Mercury in 1915. In between, after a storm sank warships in the Crimean War, Le Verrier showed it could have been tracked by telegraph, and started France's storm warnings."
+      ],
+      "matters": "Neptune was the triumph of Newton's physics: a planet found by reasoning before anyone saw it. And Le Verrier's weather network was a seed of modern forecasting.",
+      "see": ["neptune", "gravity", "isaac-newton"],
+      "learn": [
+        { "course": "astronomy", "lesson": "neptune", "for": "Find the planet from Uranus's drift" },
+        { "course": "clouds", "lesson": "wind", "for": "The weather maps he started" }
+      ],
+      "wikipedia": "Urbain_Le_Verrier"
+    },
+    "neptune": {
+      "kind": "thing",
+      "title": "Neptune",
+      "line": "The outermost planet, found in 1846 by mathematics before anyone recognised it in a telescope.",
+      "text": [
+        "Neptune is a blue ice giant, four times as wide as the Earth and thirty times as far from the Sun. Its year lasts 165 of ours; it finished its first orbit since its discovery only in 2011. Galileo actually saw it in 1612 and drew it as a star, not noticing it had moved.",
+        "Its winds are the fastest in the solar system, over 2,000 km an hour, driven by a Sun that looks from there like a very bright star."
+      ],
+      "matters": "Its discovery by [[Urbain Le Verrier]] was the most dramatic proof that [[gravity]] works the same everywhere.",
+      "see": ["urbain-le-verrier", "gravity"],
+      "learn": [{ "course": "astronomy", "lesson": "neptune" }],
+      "wikipedia": "Neptune"
+    },
+    "parallax": {
+      "kind": "idea",
+      "title": "Parallax",
+      "also": ["stellar parallax", "parsec"],
+      "line": "The way a near thing seems to shift against far ones when you change where you look from.",
+      "text": [
+        "Hold up a thumb and wink one eye, then the other. Your thumb jumps against the far wall. The jump is bigger the nearer your thumb is, so the size of the jump tells you the distance.",
+        "Astronomers do the same with the whole Earth's orbit as the gap between their eyes. Look at a star in January, look again in July from 300 million km away, and a near star should shift a little against the farther ones. For two thousand years nobody could see any shift at all, which was taken as proof that the Earth stands still. The truth was stranger: the stars are so far that even for the nearest one the shift is about the width of a coin seen from 6 km away."
+      ],
+      "matters": "Parallax was the first measured distance to a star, by [[Friedrich Bessel]] in 1838. It is still the bottom rung of the ladder by which we measure the universe.",
+      "see": ["friedrich-bessel", "eratosthenes"],
+      "learn": [{ "course": "astronomy", "lesson": "parallax", "for": "Measure a star's distance" }],
+      "wikipedia": "Stellar_parallax"
+    },
+    "friedrich-bessel": {
+      "kind": "person",
+      "title": "Friedrich Bessel",
+      "also": ["Friedrich Wilhelm Bessel", "Bessel"],
+      "dates": "1784–1846",
+      "line": "German astronomer who in 1838 measured the distance to a star for the first time.",
+      "text": [
+        "Bessel started as a merchant's clerk who taught himself astronomy at night, and was running his own observatory at 25. To catch a star's [[parallax]] he chose 61 Cygni, a faint star in the Swan that moves unusually fast across the sky, a hint that it might be close.",
+        "Through a year of measurements he saw it swing to and fro by 0.3 seconds of arc (a second of arc is 1/3,600 of a degree), about the width of a coin 15 km away. That put it about 11 light-years off: 100 trillion km. Within months two others measured stars too, but Bessel was first and most convincing."
+      ],
+      "matters": "Suddenly the stars had distances, and they were vast. Every later measurement of the universe's size stands on his.",
+      "see": ["parallax"],
+      "learn": [{ "course": "astronomy", "lesson": "parallax" }],
+      "wikipedia": "Friedrich_Bessel"
+    },
+    "joseph-fraunhofer": {
+      "kind": "person",
+      "title": "Joseph Fraunhofer",
+      "also": ["Fraunhofer"],
+      "dates": "1787–1826",
+      "line": "Bavarian glassmaker who found hundreds of dark lines in the colours of sunlight.",
+      "text": [
+        "Fraunhofer was an orphan apprentice who was pulled alive from the rubble of his master's collapsed workshop, and grew up to make the best lenses in Europe. Testing glass in 1814, he spread sunlight into a long rainbow and saw that it was crossed by hundreds of fine dark lines, always at exactly the same colours.",
+        "He mapped them and labelled the strongest with letters, A to K. He had no idea what they were. That had to wait for Kirchhoff and Bunsen, forty years later."
+      ],
+      "matters": "His lines turned out to be the fingerprints of the elements in the Sun. Reading them, the [[spectral lines]], became the main way we learn anything about the stars.",
+      "see": ["spectral-lines", "helium"],
+      "learn": [{ "course": "astronomy", "lesson": "spectra" }],
+      "wikipedia": "Joseph_von_Fraunhofer"
+    },
+    "spectral-lines": {
+      "kind": "idea",
+      "title": "Spectral lines",
+      "also": ["spectrum", "spectra", "spectroscopy", "spectral line", "Fraunhofer lines"],
+      "line": "Sharp bright or dark lines at particular colours, a fingerprint of the atoms that made or absorbed the light.",
+      "text": [
+        "Heat salt in a flame and it glows a particular yellow; pass that light through a prism and it isn't a rainbow at all, just two bright lines. Every element has its own set of lines, as unique as a fingerprint, because its atoms can only take in and give out light of certain energies.",
+        "In 1859 Kirchhoff and Bunsen showed that a cool gas in front of a hot light swallows those same colours, leaving dark lines. So [[Joseph Fraunhofer]]'s dark lines in sunlight were the Sun's atoms, read from 150 million km away. Sodium was there, and iron, and calcium."
+      ],
+      "matters": "In 1835 the philosopher Auguste Comte had named the make-up of the stars as something we could never know. Within 25 years it was being read off in laboratories. Spectra later gave stars' temperatures, speeds, and the expansion of the universe.",
+      "see": ["joseph-fraunhofer", "helium", "star-colour", "cecilia-payne"],
+      "learn": [{ "course": "astronomy", "lesson": "spectra", "for": "Match the Sun's lines to the elements" }],
+      "wikipedia": "Spectral_line"
+    },
+    "helium": {
+      "kind": "thing",
+      "title": "Helium",
+      "line": "The second element, found in the Sun's light in 1868, nearly thirty years before anyone found it on Earth.",
+      "text": [
+        "During an eclipse in 1868, astronomers looking at the glowing gas around the Sun saw a bright yellow line that matched no known element. Norman Lockyer named the stranger after the Greek for the Sun, helios. It was 1895 before William Ramsay found it in a uranium mineral on Earth.",
+        "It is so light that our atmosphere can't hold it: helium that leaks from a party balloon escapes to space."
+      ],
+      "matters": "It is the only element discovered in space first, and the Sun's fuel ash: [[nuclear fusion]] turns hydrogen into helium.",
+      "see": ["spectral-lines", "nuclear-fusion"],
+      "learn": [{ "course": "astronomy", "lesson": "spectra" }, { "course": "astronomy", "lesson": "sunshine" }],
+      "wikipedia": "Helium"
+    },
+    "star-colour": {
+      "kind": "idea",
+      "title": "Star colour",
+      "also": ["star color", "colour and temperature", "black body", "blackbody", "thermal radiation"],
+      "line": "A star's colour tells its temperature: red stars are cooler, blue ones hotter.",
+      "text": [
+        "Heat a poker in a fire and it glows dull red, then orange, then yellow-white. Anything hot glows, and the hotter it is, the more its light shifts towards blue. The same rule reads the stars: Betelgeuse, red, is around 3,300 °C at its surface; the Sun about 5,500; blue-white Rigel over 10,000.",
+        "So why are there no green stars? A star doesn't glow in one colour but a broad smear of them. A star whose light peaks in the green is pouring out red and blue too, and our eyes add the mixture up to white. The Sun is one."
+      ],
+      "matters": "A star's colour is a thermometer you can read from trillions of kilometres away, and the key axis of the [[HR diagram]].",
+      "see": ["spectral-lines", "hr-diagram", "annie-jump-cannon"],
+      "learn": [{ "course": "astronomy", "lesson": "colour", "for": "Heat a star and watch its colour" }],
+      "wikipedia": "Black-body_radiation"
+    },
+    "annie-jump-cannon": {
+      "kind": "person",
+      "title": "Annie Jump Cannon",
+      "also": ["Cannon", "OBAFGKM", "spectral class", "spectral classes", "spectral type"],
+      "dates": "1863–1941",
+      "line": "Harvard astronomer who sorted a quarter of a million stars by their spectra: O, B, A, F, G, K, M.",
+      "text": [
+        "At Harvard around 1900, the work of measuring photographs of the sky was done by women, the \"computers\", paid half what a man would be. Cannon, mostly deaf since her twenties, became the fastest of them. She could glance at a star's spectrum through a magnifier and call out its class, three a minute.",
+        "She also cleaned up the system. The old classes, lettered by the strength of hydrogen lines, jumped about. Cannon dropped most of the letters and put the rest in the order where the lines changed smoothly: O, B, A, F, G, K, M. We still use it."
+      ],
+      "matters": "Her sequence turned out to be a temperature scale, hottest to coolest, though no one knew it until [[Cecilia Payne]]. Her catalogue of 225,000 stars was the raw material of modern astrophysics.",
+      "see": ["cecilia-payne", "star-colour", "hr-diagram"],
+      "learn": [{ "course": "astronomy", "lesson": "hydrogen" }],
+      "wikipedia": "Annie_Jump_Cannon"
+    },
+    "cecilia-payne": {
+      "kind": "person",
+      "title": "Cecilia Payne",
+      "also": ["Cecilia Payne-Gaposchkin", "Payne"],
+      "dates": "1900–1979",
+      "line": "Astronomer who showed in 1925 that the stars are made mostly of hydrogen.",
+      "text": [
+        "Everyone assumed the Sun was made of roughly what the Earth is: iron, silicon, oxygen. The spectra seemed to agree, being full of metal lines. Payne, a young Englishwoman at Harvard, used new atomic physics to work out how temperature changes which lines a gas shows. She found that [[Annie Jump Cannon]]'s classes are a temperature scale, and that once you allow for it, the stars are nearly all hydrogen and [[helium]].",
+        "It was so far from what everyone believed that the leading astronomer Henry Norris Russell told her it was \"clearly impossible\", and she softened her conclusion. Four years later he reached the same answer himself."
+      ],
+      "matters": "It is one of the great discoveries in astronomy: the universe is mostly hydrogen. Without it, there is no understanding [[nuclear fusion]] or how stars live.",
+      "see": ["annie-jump-cannon", "spectral-lines", "hr-diagram", "nuclear-fusion"],
+      "learn": [{ "course": "astronomy", "lesson": "hydrogen", "for": "Read the stars' make-up as she did" }],
+      "wikipedia": "Cecilia_Payne-Gaposchkin"
+    },
+    "hr-diagram": {
+      "kind": "idea",
+      "title": "HR diagram",
+      "also": ["Hertzsprung–Russell diagram", "Hertzsprung-Russell diagram", "main sequence", "giants and dwarfs", "white dwarf", "white dwarfs"],
+      "line": "A chart of stars by temperature and true brightness, where most fall on one diagonal band.",
+      "text": [
+        "Plot every star you know the distance to: how hot it is across the bottom, how much light it really gives out up the side. You'd expect a scatter. Instead, nine in ten stars fall on one band from hot and bright to cool and dim, the main sequence. The Sun is there.",
+        "A few cool stars sit far above the band, hugely bright for their temperature, so they must be enormous: giants. A few hot ones sit far below, so they must be tiny: white dwarfs, the size of the Earth. Ejnar Hertzsprung noticed the pattern in 1905; Henry Norris Russell drew the picture in 1913."
+      ],
+      "matters": "It is the most useful single picture in astronomy. A star's place on it tells its size, its stage of life, and, read the right way, its age.",
+      "see": ["star-colour", "annie-jump-cannon", "nuclear-fusion"],
+      "learn": [{ "course": "astronomy", "lesson": "hr", "for": "Plot the nearby stars" }],
+      "wikipedia": "Hertzsprung–Russell_diagram"
+    },
+    "arthur-eddington": {
+      "kind": "person",
+      "title": "Arthur Eddington",
+      "also": ["Eddington"],
+      "dates": "1882–1944",
+      "line": "English astrophysicist who argued in 1920 that the Sun shines by turning hydrogen into helium.",
+      "text": [
+        "In 1920 a chemist weighed atoms precisely and found that one helium atom is lighter than the four hydrogen atoms it could be built from, by seven-tenths of a per cent. Eddington saw what that meant. By Einstein's E = mc², a little lost mass is a lot of energy. If the Sun is fusing hydrogen into helium, it has fuel for billions of years.",
+        "Critics said the Sun's centre wasn't hot enough for atoms to fuse. Eddington's reply has become famous: they should go and find a hotter place."
+      ],
+      "matters": "He solved, in outline, the riddle that had stumped [[Lord Kelvin]]: what powers the Sun for as long as the rocks say it has shone. The details, worked out by Hans Bethe in 1938 and 1939, proved him right.",
+      "see": ["nuclear-fusion", "lord-kelvin", "helium"],
+      "learn": [{ "course": "astronomy", "lesson": "sunshine" }],
+      "wikipedia": "Arthur_Eddington"
+    },
+    "nuclear-fusion": {
+      "kind": "idea",
+      "title": "Nuclear fusion",
+      "also": ["fusion", "what makes the Sun shine"],
+      "line": "Light atoms squeezed together into heavier ones, releasing energy: what makes the Sun and stars shine.",
+      "text": [
+        "In the Sun's core, at about 15 million °C, hydrogen nuclei slam together hard enough to stick, and after a few steps four of them become one helium nucleus. The helium is a little lighter than the four hydrogens. That missing sliver of mass comes out as energy.",
+        "The Sun turns about four million tonnes of itself into light every second, and has done for 4.5 billion years, and has used only a small part of its hydrogen. The energy from that fire takes many thousands of years to work its way out of the Sun, and then 8 minutes to reach us."
+      ],
+      "matters": "Fusion answered [[Lord Kelvin]]: the Sun is as old as the rocks. It also made most of the atoms heavier than helium, in stars long dead, including the carbon in you.",
+      "see": ["arthur-eddington", "helium", "lord-kelvin", "cecilia-payne", "deep-time"],
+      "learn": [
+        { "course": "astronomy", "lesson": "sunshine", "for": "Weigh the Sun's fuel" },
+        { "course": "geology", "lesson": "age", "for": "The age the rocks demanded" }
+      ],
+      "wikipedia": "Nuclear_fusion"
+    }
+  }
+}

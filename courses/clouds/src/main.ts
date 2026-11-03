@@ -3,6 +3,7 @@ import { COURSE } from './course';
 import './app/styles/app.css';
 import { defineCourse } from 'didactics/app';
 import { el } from 'didactics/dom';
+import encyclopedia from 'virtual:didactics/encyclopedia';
 import { makeRng } from 'didactics/rng';
 import { genus } from './core/clouds';
 import { mirrorFor } from './core/photos';
@@ -57,6 +58,7 @@ defineCourse({
   menu: ['/home', '/sky', '/review', '/journal', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
+  encyclopedia: { data: encyclopedia, course: 'clouds' },
 
   quiz: {
     // The same wrong answers every time a card comes up, so a card is a card.

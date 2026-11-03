@@ -99,6 +99,22 @@ has a `folder` it shows as in preparation; once written as a course in
 `courses/<folder>/` (steps above, minus the map place), set its `folder` and
 it opens like any other course, with its own save and review cards.
 
+## Encyclopedia
+
+`encyclopedia/` holds one encyclopedia for the whole site, a JSON file per
+course (`geology.json`): short entries on the ideas, people, places and
+things the lessons rest on, and the course's own page, its one-page glossary
+(key people, ideas, things and reference tables). Every course that turns it
+on (`encyclopedia` in its vite.config.ts and main.ts) bundles all of it, so an
+entry can send a reader to a lesson in any course. Lesson text links to an
+entry with `[[deep time]]` (by title or other name) or `[[words|@entry-id]]`.
+The format and the voice are in Didactics' README; catalog/test/encyclopedia.test.ts
+checks every link and that each entry is linked from some lesson. New prose
+goes on `tools/encyclopedia-review-queue.json` for the Gemini pass
+(`npm run review-queue`). A course's file can be revised in its downloaded
+course file and put back with `npx didactics-course import course.json --map
+encyclopedia/=../../encyclopedia/`.
+
 ## Deploy
 
 Pushes to `main` test, build and deploy the whole site to GitHub Pages

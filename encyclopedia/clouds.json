@@ -1,0 +1,307 @@
+{
+  "course": {
+    "line": "How to read the sky: what clouds are made of, why air rises and sinks, and how fronts, storms, fog and mountains write tomorrow's weather overhead.",
+    "text": [
+      "A cloud is a message about the air you can't see: whether it is rising or sinking, wet or dry, warm or cold, still or turning. Learn a handful of ideas and the sky becomes a forecast. These are the people and ideas the course is built on, and the rules of thumb worth carrying outdoors."
+    ],
+    "people": ["luke-howard", "lord-kelvin", "urbain-le-verrier", "vilhelm-bjerknes", "alfred-wegener", "tor-bergeron", "vincent-schaefer", "bernard-vonnegut"],
+    "ideas": ["dew-point", "lapse-rate", "latent-heat", "stability", "inversion", "supercooled-water", "bergeron-process", "weather-front", "coriolis-effect", "atmospheric-river", "cloud-seeding", "kelvin-helmholtz-waves"],
+    "things": ["cloud-types", "halo"],
+    "tables": [
+      {
+        "title": "The ten clouds, by floor",
+        "columns": ["Floor", "Height (mid-latitudes)", "Clouds"],
+        "rows": [
+          ["High", "about 5 km (16,500 ft) to the top of the weather", "Cirrus, cirrostratus, cirrocumulus: ice"],
+          ["Middle", "about 2–7 km (6,500–23,000 ft)", "Altostratus, altocumulus, and nimbostratus (its base is often low, but its bulk sits here)"],
+          ["Low", "ground to about 2 km (6,500 ft)", "Stratus, stratocumulus, cumulus"],
+          ["Every floor", "base low, top up to 12 km or more", "Cumulonimbus, the thunderstorm"]
+        ]
+      },
+      {
+        "title": "Numbers to carry outdoors",
+        "columns": ["Rule", "Number"],
+        "rows": [
+          ["Clear rising air cools", "10 °C per km (5.5 °F per 1,000 ft)"],
+          ["Cloudy rising air cools", "about 5–6 °C per km, slowed by latent heat"],
+          ["The air around you cools with height, on average", "about 6.5 °C per km"],
+          ["Cumulus base", "125 m up for every °C between temperature and dew point (220 ft per °F)"],
+          ["A halo around the Sun", "22°, a spread hand at arm's length: rain often within a day"],
+          ["Lightning to thunder", "3 seconds per kilometre (5 per mile); indoors if under 30 seconds"],
+          ["Cloud droplets stay liquid", "down to about −38 °C, unless something gives them ice to copy"]
+        ]
+      }
+    ]
+  },
+  "entries": {
+    "luke-howard": {
+      "kind": "person",
+      "title": "Luke Howard",
+      "dates": "1772–1864",
+      "line": "London chemist who gave the clouds their names.",
+      "text": [
+        "Before 1802, clouds had no names that anyone agreed on. They were thought too changeable to sort, like trying to classify smoke. Howard, a Quaker pharmacist who watched the sky on his walk to work, saw that clouds come in a few basic forms that shift into one another. He gave them Latin names, the way botanists name plants: cumulus for a heap, stratus for a layer, cirrus for a curl of hair, nimbus for rain.",
+        "The idea caught fire well beyond science. John Constable wrote Howard's names on his sky sketches, and Goethe wrote him poems."
+      ],
+      "matters": "A sky with names can be written down, compared and forecast. Nearly every name in the International Cloud Atlas still combines Howard's roots. See [[the ten cloud types|@cloud-types]].",
+      "see": ["cloud-types"],
+      "learn": [{ "course": "clouds", "lesson": "middle-sky", "for": "Sort the sky in 30 seconds" }],
+      "wikipedia": "Luke_Howard"
+    },
+    "cloud-types": {
+      "kind": "thing",
+      "title": "Cloud types",
+      "also": ["cloud names", "the ten clouds", "genera", "cloud genera", "floors"],
+      "line": "Ten kinds of cloud, sorted by height into three floors, and by shape into heaps and layers.",
+      "text": [
+        "Every cloud name is built from a few Latin pieces. Cumulus, a heap: air rising in bubbles. Stratus, a layer: air lifted gently, all together. Cirrus, a wisp: ice, high up. Nimbus, rain. Alto, the middle floor. So altocumulus is a middle-height layer of little heaps, and cumulonimbus is a heap that rains.",
+        "The shapes tell you what the air is doing. Heaps mean the air is unstable, churning upwards; flat layers mean it is calm and steady. Height tells you temperature: up on the high floor, clouds are made of ice."
+      ],
+      "matters": "Ten names are enough to read the sky. With them, a glance up tells you whether the air is stirring, how wet it is, and often what's coming tomorrow.",
+      "see": ["luke-howard", "stability", "halo"],
+      "learn": [{ "course": "clouds", "lesson": "middle-sky" }, { "course": "clouds", "lesson": "low-sky" }, { "course": "clouds", "lesson": "ice-realm" }],
+      "wikipedia": "List_of_cloud_types"
+    },
+    "dew-point": {
+      "kind": "idea",
+      "title": "Dew point",
+      "also": ["dewpoint"],
+      "line": "The temperature air must cool to before its water vapour starts to condense: into dew, fog or cloud.",
+      "text": [
+        "Air always carries some invisible water vapour. Cool it down and there comes a point where it can't hold it all as vapour, and the extra appears as droplets: on grass as dew, in the air as fog, aloft as cloud. That temperature is the dew point.",
+        "It is the best single measure of how humid the air really is. A dew point under 10 °C (50 °F) feels crisp; over 20 °C (68 °F), muggy. The gap between the air's temperature and its dew point tells you how much cooling it takes to make a cloud."
+      ],
+      "matters": "As air rises it cools 10 °C per kilometre, while its dew point drops only about 2, so the gap closes at about 8 °C per kilometre. The gap at the ground therefore predicts how high the bases of the day's cumulus will be: 125 metres per °C.",
+      "see": ["lapse-rate", "latent-heat"],
+      "learn": [{ "course": "clouds", "lesson": "fog", "for": "Make fog and find the cloud base" }],
+      "wikipedia": "Dew_point"
+    },
+    "lapse-rate": {
+      "kind": "idea",
+      "title": "Lapse rate",
+      "also": ["adiabatic cooling", "rising air cools", "dry adiabatic lapse rate"],
+      "line": "How fast air cools as it rises: about 10 °C for every kilometre, unless it is cloudy.",
+      "text": [
+        "Let air rise and it moves into lower pressure, so it spreads out. Spreading out takes energy, and the air pays for it with its own heat. No heat has to leave; the air simply cools, about 10 °C for every kilometre it climbs. Let it sink and the reverse happens: squeezed, it warms. That is why the tops of mountains are cold and why winds falling off them arrive hot and dry.",
+        "This one fact makes almost every cloud. Air doesn't need to touch anything cold to reach its [[dew point]]. It only needs to rise."
+      ],
+      "matters": "The air around you usually cools about 6.5 °C per kilometre with height. A clear bubble rising and cooling 10 falls behind it and sinks back; a cloudy one, cooling only 5 or 6, can stay warmer and keep going. That race is the whole question of [[stability]].",
+      "see": ["dew-point", "latent-heat", "stability"],
+      "learn": [{ "course": "clouds", "lesson": "fog" }, { "course": "clouds", "lesson": "giants", "for": "Race a rising bubble against the air" }],
+      "wikipedia": "Lapse_rate"
+    },
+    "latent-heat": {
+      "kind": "idea",
+      "title": "Latent heat",
+      "line": "Heat taken in when water evaporates and handed back when it condenses: the hidden fuel of storms.",
+      "text": [
+        "Boiling a kettle dry takes about seven times as much heat as bringing the water to the boil. All that energy goes into pulling the water molecules apart into vapour, and it isn't lost: it's stored. When the vapour turns back into water, every bit of it comes back out as heat.",
+        "So humid air is loaded with energy. When it rises and condenses into cloud, the heat released warms the cloud from inside, and it cools only about half as fast as clear air as it climbs."
+      ],
+      "matters": "Latent heat is what lets a cumulus tower into a thunderstorm and what drives a hurricane: a warm sea turned into vapour, carried up, and released as heat kilometres overhead.",
+      "see": ["lapse-rate", "stability", "dew-point"],
+      "learn": [{ "course": "clouds", "lesson": "giants" }, { "course": "clouds", "lesson": "hurricane", "for": "A storm that runs on it" }],
+      "wikipedia": "Latent_heat"
+    },
+    "stability": {
+      "kind": "idea",
+      "title": "Stable and unstable air",
+      "also": ["stability", "stable air", "unstable air", "instability", "conditional instability"],
+      "line": "Whether a bubble of air, once nudged upward, sinks back (stable) or keeps on rising (unstable).",
+      "text": [
+        "Push a bubble of air up. It cools as it rises. If it ends up colder than the air around it, it's denser, and it sinks back: the air is stable, and you get flat layers of cloud or none. If it ends up warmer than its surroundings, it's lighter, and it keeps going, faster and faster: unstable, and you get towering heaps.",
+        "The trick is that cloud changes the answer. A bubble that's stable while dry can turn unstable once it condenses, because [[latent heat]] slows its cooling. Forecasters call that conditional instability: calm until something lifts it high enough, then explosive."
+      ],
+      "matters": "Stability is the first question for any forecast of showers or storms, and the reason a summer morning of small puffs can turn into an afternoon of thunder.",
+      "see": ["lapse-rate", "latent-heat", "inversion", "cloud-types"],
+      "learn": [{ "course": "clouds", "lesson": "low-sky" }, { "course": "clouds", "lesson": "giants" }, { "course": "clouds", "lesson": "violent" }],
+      "wikipedia": "Atmospheric_instability"
+    },
+    "inversion": {
+      "kind": "idea",
+      "title": "Inversion",
+      "also": ["temperature inversion", "cold pool"],
+      "line": "A layer where the air gets warmer with height instead of colder: a lid on the air below.",
+      "text": [
+        "Normally the air cools as you climb. In an inversion it does the opposite, and that makes a lid. Air rising from below hits warmer air and stops, because it's suddenly the denser of the two. Clouds spread out flat under it; smoke and fog pile up beneath it.",
+        "Clear, still nights make one at the ground, as the earth radiates its heat to space and chills the air touching it. In winter a valley can fill with cold air and stay under its lid for weeks, grey and damp below, while the hills above bask in sunshine."
+      ],
+      "matters": "Inversions flatten cumulus, trap smog, hold fog in valleys, and decide whether a thunderstorm can break out at all. The top of the weather, the tropopause, 10 to 12 km up, where the air stops getting colder with height, acts as one giant permanent inversion.",
+      "see": ["stability", "lapse-rate"],
+      "learn": [{ "course": "clouds", "lesson": "low-sky" }, { "course": "clouds", "lesson": "winter-fog", "for": "The valley that stays grey for weeks" }],
+      "wikipedia": "Inversion_(meteorology)"
+    },
+    "supercooled-water": {
+      "kind": "idea",
+      "title": "Supercooled water",
+      "also": ["supercooled", "supercooled droplets"],
+      "line": "Liquid water colder than 0 °C, which is what most clouds below freezing are made of.",
+      "text": [
+        "We learn that water freezes at 0 °C. That's only true if it has something to freeze onto. A tiny cloud droplet, with no speck of dust shaped right to show it how to stack into ice, can stay liquid down to about −38 °C.",
+        "So most clouds colder than freezing are full of liquid droplets, waiting. Touch one with ice and it freezes instantly. That is how aircraft ice up, how freezing rain glazes a road, and how a single crystal can set off a cloud full of snow."
+      ],
+      "matters": "Supercooled water is why most rain outside the tropics begins as snow, via the [[Bergeron process]], and the reason [[cloud seeding]] can work at all.",
+      "see": ["bergeron-process", "cloud-seeding", "vincent-schaefer"],
+      "learn": [{ "course": "clouds", "lesson": "local-sky" }, { "course": "clouds", "lesson": "seeding" }],
+      "wikipedia": "Supercooling"
+    },
+    "bergeron-process": {
+      "kind": "idea",
+      "title": "Bergeron process",
+      "also": ["Wegener–Bergeron–Findeisen process", "Wegener-Bergeron-Findeisen process", "ice crystal process"],
+      "line": "In a cloud with both ice and supercooled droplets, the ice crystals grow by stealing water from the droplets.",
+      "text": [
+        "Cloud droplets are tiny: a million of them make one raindrop. Bumping together, they grow far too slowly to rain in the hour a cloud lives. Something else has to happen.",
+        "Here it is. Below freezing, water molecules escape from liquid more easily than from ice. So in a cloud with both, the same air is damp enough to make ice grow but not quite damp enough to keep the droplets whole. The droplets evaporate; the vapour lands on the crystals. A crystal can grow big enough to fall in minutes, gathering more as it goes, and melt into rain on the way down. [[Alfred Wegener]] spotted the physics in 1911; Tor Bergeron saw in 1933 that it makes most rain."
+      ],
+      "matters": "In the middle latitudes, most rain starts as snow. It also explains the round holes that sometimes open in a thin cloud deck, and why [[cloud seeding]] adds ice, not water.",
+      "see": ["supercooled-water", "tor-bergeron", "alfred-wegener", "cloud-seeding"],
+      "learn": [{ "course": "clouds", "lesson": "local-sky", "for": "Watch crystals steal from droplets" }, { "course": "clouds", "lesson": "seeding" }],
+      "wikipedia": "Wegener–Bergeron–Findeisen_process"
+    },
+    "tor-bergeron": {
+      "kind": "person",
+      "title": "Tor Bergeron",
+      "also": ["Bergeron"],
+      "dates": "1891–1977",
+      "line": "Swedish meteorologist of the Bergen School who explained how most rain begins.",
+      "text": [
+        "Bergeron was one of the young forecasters gathered by [[Vilhelm Bjerknes]] in Norway after the First World War, the group that drew the first fronts on weather maps. Bergeron worked out what happens as a storm ages: its fast cold front catches up with its warm front and lifts the warm air clean off the ground, an occluded front.",
+        "In 1933 he took up an idea of [[Alfred Wegener]]'s and argued that most raindrops start life as ice crystals growing among supercooled droplets. Walter Findeisen confirmed it with flights through clouds a few years later."
+      ],
+      "matters": "The [[Bergeron process]] is the reason seeding a cloud with ice can make it snow.",
+      "see": ["bergeron-process", "vilhelm-bjerknes", "weather-front"],
+      "learn": [{ "course": "clouds", "lesson": "local-sky" }],
+      "wikipedia": "Tor_Bergeron"
+    },
+    "vilhelm-bjerknes": {
+      "kind": "person",
+      "title": "Vilhelm Bjerknes",
+      "also": ["Bjerknes", "Bergen School"],
+      "dates": "1862–1951",
+      "line": "Norwegian physicist who said weather could be calculated, and whose school drew the first fronts.",
+      "text": [
+        "In 1904 Bjerknes made a bold claim: the weather is just physics, air obeying the laws of motion, heat and water. Know the state of the air today, solve the equations, and you'll know tomorrow. No one could yet do the sums fast enough; computers did, fifty years later.",
+        "Meanwhile, cut off by the First World War, he gathered a team of young forecasters in Bergen, including his son Jacob, aged 21. Studying dense networks of weather stations, they saw that storms form where cold and warm air meet, along sharp boundaries. Fresh from the war, they called them [[fronts|@weather-front]]."
+      ],
+      "matters": "Every weather map with blue and red lines is the Bergen School's picture, and every computer forecast is Bjerknes's dream come true.",
+      "see": ["weather-front", "tor-bergeron"],
+      "learn": [{ "course": "clouds", "lesson": "front", "for": "Pass a front over the town" }],
+      "wikipedia": "Vilhelm_Bjerknes"
+    },
+    "weather-front": {
+      "kind": "idea",
+      "title": "Weather front",
+      "also": ["front", "fronts", "cold front", "warm front", "occluded front"],
+      "line": "The boundary where a mass of cold air meets a mass of warm air, and where most stormy weather happens.",
+      "text": [
+        "Cold air is dense and hugs the ground; warm air rides up over it. Where a warm air mass advances, it climbs slowly up a long gentle slope of cold air, and you get a day of thickening cloud and steady rain: a warm front. Where cold air advances, it shoves under the warm air like a snowplough, forcing it up fast, and you get a short burst of heavy showers, a wind shift and a sudden chill: a cold front.",
+        "The two fronts wrap around a centre of low pressure, and the whole storm drifts east across the map over a few days."
+      ],
+      "matters": "Fronts turned weather maps from scattered readings into a story with a beginning, middle and end, the first real way to forecast a day ahead.",
+      "see": ["vilhelm-bjerknes", "tor-bergeron", "coriolis-effect", "halo"],
+      "learn": [{ "course": "clouds", "lesson": "front" }, { "course": "clouds", "lesson": "ice-realm", "for": "A warm front's countdown in the clouds" }],
+      "wikipedia": "Weather_front"
+    },
+    "coriolis-effect": {
+      "kind": "idea",
+      "title": "Coriolis effect",
+      "also": ["Coriolis", "Coriolis force"],
+      "line": "On a spinning Earth, anything moving a long way seems to curve: to the right in the north, to the left in the south.",
+      "text": [
+        "Air flows from high pressure towards low, so you'd expect it to rush straight into a storm and fill it. But over hundreds of kilometres the Earth turns beneath the moving air, and seen from the ground the wind bends. In the northern hemisphere it bends right, until it is blowing around the low instead of into it, anticlockwise.",
+        "It is far too weak to notice in a sink or a bathtub, whatever you've heard: it only wins over distances and times big enough for the Earth's turning to matter. It vanishes at the equator, which is why hurricanes never cross it."
+      ],
+      "matters": "It is why storms spin, why winds blow along the lines of a weather map instead of across them, and why you can stand with your back to the wind and point to the low.",
+      "see": ["weather-front", "atmospheric-river"],
+      "learn": [{ "course": "clouds", "lesson": "wind", "for": "Bend the wind round a storm" }, { "course": "clouds", "lesson": "hurricane" }],
+      "wikipedia": "Coriolis_force"
+    },
+    "atmospheric-river": {
+      "kind": "idea",
+      "title": "Atmospheric river",
+      "also": ["atmospheric rivers", "Pineapple Express"],
+      "line": "A long, narrow stream of water vapour from the tropics that can drop days of rain on a coast.",
+      "text": [
+        "Look at a satellite picture of water vapour over the Pacific in winter and you'll sometimes see a ribbon, 2,000 kilometres long and only a few hundred wide, reaching from near Hawaii to the coast of Oregon. That is a river in the sky. It carries as much water as many Mississippis, as invisible vapour, a kilometre or two up.",
+        "When it hits the mountains, the air is forced up, cools, and wrings the vapour out as rain. One that stalls can flood every river from California to British Columbia."
+      ],
+      "matters": "A few atmospheric rivers a year bring a large share of the West Coast's water, and most of its floods.",
+      "see": ["weather-front", "coriolis-effect"],
+      "learn": [{ "course": "clouds", "lesson": "rivers", "for": "Steer a river into the mountains" }],
+      "wikipedia": "Atmospheric_river"
+    },
+    "vincent-schaefer": {
+      "kind": "person",
+      "title": "Vincent Schaefer",
+      "also": ["Schaefer"],
+      "dates": "1906–1993",
+      "line": "Self-taught scientist who made the first snowfall from a cloud, with a chest freezer and some dry ice.",
+      "text": [
+        "Schaefer left school at 16 and became the assistant to Irving Langmuir at General Electric. In 1946 he was studying aircraft icing in a chest freezer lined with black velvet: he breathed into it to make a little cloud of supercooled droplets and tried dusting it with everything he could think of to make them freeze. Nothing worked.",
+        "One hot July day, to cool the freezer, he dropped in a lump of dry ice. The cloud burst into millions of glittering ice crystals. That November he flew over Massachusetts, scattered dry ice into a cloud, and watched curtains of snow fall from his trail."
+      ],
+      "matters": "It was the first time anyone had changed a cloud on purpose, and the start of [[cloud seeding]].",
+      "see": ["cloud-seeding", "bernard-vonnegut", "supercooled-water"],
+      "learn": [{ "course": "clouds", "lesson": "seeding", "for": "Run the freezer experiment" }],
+      "wikipedia": "Vincent_Schaefer"
+    },
+    "bernard-vonnegut": {
+      "kind": "person",
+      "title": "Bernard Vonnegut",
+      "also": ["Vonnegut"],
+      "dates": "1914–1997",
+      "line": "Chemist who found that silver iodide fools water into freezing, the seed still used today.",
+      "text": [
+        "Dry ice works by cold alone, and it is gone in minutes. Vonnegut, down the hall from [[Vincent Schaefer]] at General Electric, wanted a seed that would last: a speck whose atoms are spaced like the atoms in ice, so that water would mistake it for ice and freeze on it. Hunting through tables of crystal shapes, he found silver iodide, a near-perfect match. A whiff of its smoke contains trillions of seeds.",
+        "His younger brother Kurt worked at GE as a publicist. Kurt's novel *Cat's Cradle* imagines \"ice-nine\", a seed that freezes all the water on Earth."
+      ],
+      "matters": "Silver iodide is the agent in nearly every cloud seeding programme in the world.",
+      "see": ["cloud-seeding", "vincent-schaefer", "supercooled-water"],
+      "learn": [{ "course": "clouds", "lesson": "seeding" }],
+      "wikipedia": "Bernard_Vonnegut"
+    },
+    "cloud-seeding": {
+      "kind": "idea",
+      "title": "Cloud seeding",
+      "also": ["seeding", "silver iodide", "dry ice"],
+      "line": "Adding ice or ice-like specks to a supercooled cloud so that it snows more, or sooner.",
+      "text": [
+        "A cloud below freezing can be full of [[supercooled water]] and hardly any ice, because natural ice seeds are rare. Add some, as dry ice or silver iodide smoke, and the [[Bergeron process]] does the rest: the new crystals feed on the droplets and fall as snow.",
+        "It works, but only in the right cloud: cold enough, with plenty of liquid and too little ice. It can't make a cloud where there is none, and in many clouds nature already does the job. Proving it adds snow over a whole winter took decades of careful trials, and in 2017 radar finally watched seeded snow fall from a plume."
+      ],
+      "matters": "Seeding is used on mountains from Idaho to China to add snowpack. It's the rare case where people can nudge the weather, and a lesson in how hard it is to prove you did.",
+      "see": ["vincent-schaefer", "bernard-vonnegut", "supercooled-water", "bergeron-process"],
+      "learn": [{ "course": "clouds", "lesson": "seeding", "for": "Seed a cloud and run a fair trial" }],
+      "wikipedia": "Cloud_seeding"
+    },
+    "kelvin-helmholtz-waves": {
+      "kind": "idea",
+      "title": "Kelvin–Helmholtz waves",
+      "also": ["Kelvin-Helmholtz waves", "Kelvin–Helmholtz instability", "Kelvin-Helmholtz instability", "fluctus", "billows", "billow clouds"],
+      "line": "Rows of curling cloud like breaking surf, where a fast layer of air slides over a slower one.",
+      "text": [
+        "When wind blows over water it raises waves. The same happens between two layers of air: if the top one slides fast enough over a heavier one below, the boundary ripples, the ripples steepen, and they curl over and break. If the lower layer is cloudy, you can see it, a row of perfect breaking waves along the top of the cloud.",
+        "They last only a minute or two, because the breaking mixes the layers and wipes out the difference that made them. Hermann von Helmholtz worked out the instability in 1868 and [[Lord Kelvin]] in 1871."
+      ],
+      "matters": "They're a warning of turbulence for pilots, and the same instability curls ocean whitecaps and twists the bands of Jupiter and Saturn.",
+      "see": ["lord-kelvin", "stability"],
+      "learn": [{ "course": "clouds", "lesson": "local-sky", "for": "Make the billows break" }],
+      "wikipedia": "Kelvin–Helmholtz_instability"
+    },
+    "halo": {
+      "kind": "thing",
+      "title": "22° halo",
+      "also": ["halo", "halos", "solar halo"],
+      "line": "A ring of light 22° around the Sun or Moon, made by sunlight bending through tiny ice crystals.",
+      "text": [
+        "Spread your hand at arm's length, thumb tip on the Sun: your little finger lands on the ring. It is there because the ice crystals in thin high cloud are little six-sided prisms. Light passing through two of their faces is bent by at least 22°, never less, and piles up near that angle, so the sky inside the ring looks darker and the ring itself bright, faintly red on the inside.",
+        "Old sailors said a ring around the Moon means rain soon. Often they're right."
+      ],
+      "matters": "A halo means cirrostratus, and cirrostratus often runs ahead of a warm front: rain within a day.",
+      "see": ["weather-front", "cloud-types"],
+      "learn": [{ "course": "clouds", "lesson": "ice-realm", "for": "Turn an ice prism" }],
+      "wikipedia": "22°_halo"
+    }
+  }
+}
