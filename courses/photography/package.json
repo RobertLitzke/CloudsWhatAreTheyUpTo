@@ -11,9 +11,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "icons": "node --experimental-strip-types tools/icons.mjs",
-    "photos:find": "vite-node tools/photos/find.ts --",
-    "photos:fetch": "vite-node tools/photos/fetch.ts --",
-    "photos:import": "vite-node tools/photos/import.ts --"
+    "photos:find": "node --experimental-strip-types tools/photos/find.ts",
+    "photos:fetch": "node --experimental-strip-types tools/photos/fetch.ts",
+    "photos:import": "node --experimental-strip-types tools/photos/import.ts"
   },
   "devDependencies": {
     "@fontsource-variable/fraunces": "^5.2.0",
@@ -26,8 +26,5 @@
     "vite-plugin-pwa": "^1.0.0",
     "vite-plugin-singlefile": "^2.3.0",
     "vitest": "^3.0.0"
-  },
-  "dependencies": {
-    "didactics": "github:RobertLitzke/Didactics#51bee7523b75b414ee82d049192807ca33b00345"
   }
 }
