@@ -1,16 +1,22 @@
 import { resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
+import { courseFilesRoute } from 'didactics/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 import { readCatalog, readMap } from './registry';
 
 // The catalog page, built last, into the root of the site's dist/ after every
 // course has been built into its own folder there (tools/build-site.mjs). Its
-// service worker is the whole site's: it lists the catalog and every course's
-// page, icons, poster and photos, so the one installed app works offline in
-// every course.
+// service worker is the whole site's: it precaches the catalog and every
+// course's page, icons and poster, so the one installed app opens offline in
+// every course. A course's photos, maps and data files are not downloaded on
+// install (they run to hundreds of files): the worker keeps each as it is
+// first fetched, and a course's Settings page saves them all at once
+// (didactics/offline, from the offline.json each course's build writes).
 
 const courses = resolve(__dirname, '../courses');
+/** The courses on the site, for the manifest's description: never a stale list. */
+const courseNames = readCatalog(courses).map((c) => c.title.toLowerCase());
 
 /** Serves `virtual:courses`: every course's course.json and the catalog's map, read when the page is built. */
 function coursesModule(): Plugin {
@@ -43,19 +49,12 @@ export default defineConfig({
       injectRegister: null, // registered in src/main.ts and by each course
       includeManifestIcons: false,
       workbox: {
-        globPatterns: [
-          'index.html',
-          'icons/*.{png,svg}',
-          '*/index.html',
-          '*/poster.webp',
-          '*/photos/*.webp',
-          '*/maps/*.{png,json}',
-          '*/icons/*.{png,svg}',
-        ],
+        globPatterns: ['index.html', 'icons/*.{png,svg}', '*/index.html', '*/poster.webp', '*/offline.json', '*/icons/*.{png,svg}'],
+        runtimeCaching: [courseFilesRoute()],
         inlineWorkboxRuntime: true,
         navigateFallback: 'index.html',
         cleanupOutdatedCaches: true,
-        // Photos are well under this; Clouds' inlined page is the largest file.
+        // Clouds' inlined page is the largest file.
         maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
         // Nothing here has a hashed name, so every file gets a revision.
         dontCacheBustURLsMatching: /^(?!)/,
@@ -63,7 +62,7 @@ export default defineConfig({
       manifest: {
         name: 'Course Catalog',
         short_name: 'Courses',
-        description: 'Interactive workbooks: clouds and weather, soil, electronics, photography.',
+        description: `Interactive workbooks: ${courseNames.join(', ')}.`,
         // Kept from when the site was Clouds alone, so the app already
         // installed on a phone updates in place rather than becoming a second app.
         id: 'clouds-app',
