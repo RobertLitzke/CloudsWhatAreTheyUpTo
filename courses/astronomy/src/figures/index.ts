@@ -22,6 +22,7 @@ import { dwarfFigure, twoPerRungStill } from './dead-stars';
 import { bellChartStill, spinFigure } from './pulsars';
 import { onionFigure, originsFigure } from './star-stuff';
 import { sameOrbitStill, squashFigure, tippingStill } from './dark-stars';
+import { cepheidFigure, shapleyStill } from './island';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -92,4 +93,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   squash: squashFigure,
   'same-orbit': sameOrbitStill,
   'tipping-cones': tippingStill,
+  // Lesson 19
+  shapley: shapleyStill,
+  cepheid: cepheidFigure,
 };

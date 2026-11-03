@@ -1,0 +1,71 @@
+{
+  "id": "island",
+  "n": 19,
+  "title": "Island universes",
+  "teaches": "How we found we are not at the centre of our galaxy, how the 1920 debate about the spiral nebulae was settled, and how a pulsing star measures distances to other galaxies",
+  "parts": [
+    {
+      "title": "Lopsided clusters",
+      "blocks": [
+        {"type":"text","text":"Look at a list of the **globular clusters**, the dense balls of a hundred thousand to a million old stars that you met in *Clusters as clocks*, and something odd stands out. There are about 150 of them in our sky, and nearly all of them are in one half of it. They crowd towards Sagittarius, low in the summer sky from the northern hemisphere, as if the whole swarm were centred somewhere off in that direction."},
+        {"type":"text","text":"Everyone at the time assumed we lived somewhere near the middle of our galaxy, the great flat disc of stars we see edge-on as the Milky Way. William Herschel, counting stars in every direction in the 1780s, had found roughly as many each way, and put the Sun near the centre. The Dutch astronomer Jacobus Kapteyn did the same thing more carefully and got the same answer."},
+        {"type":"text","text":"In 1918 a young astronomer at Mount Wilson, Harlow Shapley, took the lopsided clusters seriously. A swarm of clusters orbiting a galaxy should be centred on the galaxy's middle, not on one ordinary star. He measured the distances to them, and the swarm's centre came out tens of thousands of light years away, towards Sagittarius. The Sun was nowhere near the centre of anything. It was out in the suburbs. Herschel and Kapteyn had been fooled by dust: the disc of the galaxy is full of it, and in every direction along the disc you can only see a few thousand light years, so every observer seems to be in the middle of a small fog-bound circle."},
+        {"type":"diagram","id":"shapley","caption":"Our galaxy from above, roughly. The globular clusters swarm round its centre, about 26,000 light years from the Sun."}
+      ]
+    },
+    {
+      "title": "The great debate",
+      "blocks": [
+        {"type":"text","text":"Shapley was right about our place and drew a bigger conclusion from it. Our galaxy, he decided, was enormous, some 300,000 light years across, and it was the whole universe. That put him on one side of the biggest argument in astronomy: what were the **spiral nebulae**?"},
+        {"type":"text","text":"Telescopes showed thousands of faint, misty spirals scattered across the sky; the biggest, in Andromeda, is just visible to the naked eye on a dark night as a fuzzy oval. In 1755 the philosopher Immanuel Kant had guessed that they were other galaxies like our own, “island universes” far across space. Others thought they were small, nearby clouds of gas, perhaps solar systems being born, inside our own galaxy."},
+        {"type":"text","text":"On 26 April 1920 Shapley and Heber Curtis of the Lick Observatory argued it out in front of the National Academy of Sciences in Washington. Curtis said the spirals were island universes and our galaxy was fairly small, with the Sun near its middle. Shapley said our galaxy was huge and the spirals were inside it. He had a strong card: his friend Adriaan van Maanen at Mount Wilson had compared photographs taken years apart and measured several spirals visibly turning. If something as big as a galaxy turned that fast in a few years, its edges would be moving faster than light. The spirals must be small and close."},
+        {"type":"text","text":"Nobody won on the day. The answer turned out to be that each man was right about one thing and wrong about the other. Shapley was right about where the Sun is and wrong about the spirals. Curtis was right about the spirals and wrong about where the Sun is. Van Maanen's turning spirals were simply a mistake, an error in measuring tiny shifts on photographs, which nobody caught because nobody else could make the measurements. What settled it was a better way of measuring distance, and it came from a woman who had died before it was used."}
+      ]
+    },
+    {
+      "title": "A standard candle",
+      "blocks": [
+        {"type":"text","text":"At the Harvard College Observatory at the turn of the century, the work of measuring photographs was done by a team of women, hired as “computers” for about thirty cents an hour. One of them, Henrietta Swan Leavitt, was given plates of the Small Magellanic Cloud, a small hazy patch of the southern sky photographed from Harvard's station in Peru, and asked to look for stars that changed in brightness. She found more than a thousand."},
+        {"type":"text","text":"Some were a kind called **Cepheids**, after the first known one, Delta Cephei: they brighten quickly and fade slowly, over and over, as regular as clockwork, every few days or weeks. In 1912 Leavitt noticed that in the Small Magellanic Cloud, the brighter Cepheids took longer over each cycle. All the stars in the Cloud are at about the same distance from us, so the brighter-looking ones really were brighter. A Cepheid's rhythm tells you its true brightness."},
+        {"type":"text","text":"That made Cepheids what astronomers call a **standard candle**: a light whose true brightness you know. Measure how bright it looks, and the inverse square of *Giants and dwarfs* gives its distance: twice as far, a quarter as bright. Leavitt's rule only gave relative distances until somebody measured the distance to a few nearby Cepheids another way; the Danish astronomer Ejnar Hertzsprung did a rough job of that the next year. Leavitt died of cancer in 1921. In 1924 a Swedish mathematician wrote to Harvard to say he wanted to nominate her for the Nobel Prize. She had been dead for three years."}
+      ]
+    },
+    {
+      "title": "VAR!",
+      "blocks": [
+        {"type":"text","text":"Edwin Hubble was a former boxer, Rhodes scholar and lawyer who had taken up astronomy and acquired an English accent along the way. At Mount Wilson he had the 100-inch telescope, the biggest in the world. On the night of 5 October 1923 he photographed the Andromeda nebula and found three spots that weren't on older plates. He marked each with an N for nova, a star flaring up. Then he checked earlier photographs of the same spot and found that one of them came and went regularly. He crossed out its N and wrote, in red, “VAR!”: a variable star. It was a Cepheid, with a period of about 31 days."},
+        {"type":"interactive_diagram","id":"cepheid","caption":"A Cepheid's brightness through its cycle, against Hubble's measurements of V1 in Andromeda; and how bright it looks at the distance you choose, against V1 on Hubble's plate.","task":"Make a prediction, then match V1's rhythm and its faintness to find how far away it is","goal":"distance","aspect_ratio":1.6},
+        {"type":"text","text":"A Cepheid that keeps that rhythm shines like thousands of Suns, and this one looked very faint. Hubble put it about 900,000 light years away, many times further than even Shapley's giant galaxy stretched. Andromeda was not a cloud inside our galaxy. It was a galaxy itself, an island universe, just as Kant had guessed. In February 1924 Hubble wrote to Shapley with the news. Shapley read the letter, handed it to a student standing nearby, and said, “Here is the letter that has destroyed my universe.”"}
+      ]
+    },
+    {
+      "title": "The real size of things",
+      "blocks": [
+        {"type":"text","text":"Hubble's distance was too small, as it turned out, by a factor of two and a half; the reason, two kinds of Cepheid that had been mixed up, comes in *Everything is running away*. Andromeda is about two and a half million light years away. The light you see from it on a dark autumn night set off before there were any humans. Our own galaxy is about 100,000 light years across, with a few hundred billion stars, and Andromeda is a little bigger."},
+        {"type":"text","text":"In a few years the universe had grown from one galaxy to countless millions of them. Shrink the Milky Way to the size of a dinner plate and Andromeda is another plate about six metres away; beyond them, scattered every few metres in every direction, as far as any telescope can see, are hundreds of billions more."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the galaxy and the galaxies", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Most globular clusters lie in one half of our sky. What did Shapley conclude?","choices":["The Sun is far from the centre of the galaxy","The clusters are falling towards us","Our galaxy is lopsided"],"answer":0,"why":"The clusters swarm round the galaxy's centre. That they are all off to one side means we are too."},
+          {"ask":"Why did Herschel and Kapteyn think the Sun was near the galaxy's centre?","choices":["Dust hides distant stars, so every observer seems to be in the middle","They counted the stars wrongly","They didn't know the Milky Way was a disc"],"answer":0,"why":"Along the disc you can only see a few thousand light years in any direction, so the stars seem to thin out equally all round."},
+          {"ask":"Two Cepheids keep the same rhythm, but one looks a hundred times fainter. How much further away is it?","choices":["Ten times","A hundred times","It can't be told"],"answer":0,"why":"The same rhythm means the same true brightness. A hundred times fainter by the inverse square means ten times further."},
+          {"ask":"What made Leavitt's discovery possible?","choices":["All the Cepheids in the Small Magellanic Cloud are at about the same distance","She could measure each Cepheid's distance","The Cepheids were all the same colour"],"answer":0,"why":"With all of them equally far away, differences in how bright they looked were differences in how bright they really were."},
+          {"ask":"Van Maanen measured spirals turning visibly in a few years. Why did that matter so much, and what was wrong?","choices":["Spirals that big would be spinning faster than light, so they had to be small; his measurements were in error","It proved spirals were galaxies; his telescope was too small","It showed the spirals were moving away; he measured the wrong spirals"],"answer":0,"why":"A turning that fast only made sense for small, nearby clouds. The turning wasn't real: it was an error in measuring tiny shifts on photographs."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**We are not at the centre.** Shapley (1918) found the globular clusters swarm round a centre far from the Sun, towards Sagittarius; dust had fooled earlier star counts.",
+    "**The 1920 debate.** Shapley: one huge galaxy, spirals inside it. Curtis: the spirals are island universes. Each was half right.",
+    "**Cepheids are standard candles.** Leavitt (1912): a Cepheid's period tells its true brightness, so how bright it looks tells its distance.",
+    "**Twice as far, a quarter as bright.** The inverse square turns brightness into distance.",
+    "**Andromeda is a galaxy.** Hubble found a Cepheid in it in 1923; it is about 2.5 million light years away.",
+    "**The universe is full of galaxies.** Our galaxy is about 100,000 light years across; there are hundreds of billions of others."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

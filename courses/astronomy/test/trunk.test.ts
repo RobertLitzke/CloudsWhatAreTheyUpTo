@@ -9,6 +9,7 @@ import { dwarfRadius, electronSpeed, teaspoon } from '../src/figures/dead-stars'
 import { breakup, CRAB, DWARF, NEUTRON } from '../src/figures/pulsars';
 import { cell, madeBy, SOURCES, stagesBegun } from '../src/figures/star-stuff';
 import { BODIES, escapeShare, horizon } from '../src/figures/dark-stars';
+import { cepheidSuns, looks, V1 } from '../src/figures/island';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -140,5 +141,16 @@ describe('trunk lessons', () => {
     guess(q.node, 'The size of a marble');
     setSlider(q.node, 0, Math.log10(0.008));
     await expect(q.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 19: V1’s period and faintness put Andromeda 2.5 million light years away', async () => {
+    expect(cepheidSuns(31.4)).toBeGreaterThan(5000);
+    expect(cepheidSuns(31.4)).toBeLessThan(20000);
+    expect(looks(cepheidSuns(V1.days), V1.ly * 2)).toBeCloseTo(0.25, 5);
+    const c = FIGURES.cepheid(context(), 'distance');
+    guess(c.node, 'A quarter as bright');
+    setSlider(c.node, 0, 31.4);
+    setSlider(c.node, 1, Math.log10(2.5e6));
+    await expect(c.done).resolves.toBeUndefined();
   });
 });
