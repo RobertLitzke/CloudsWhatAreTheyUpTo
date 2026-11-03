@@ -6,9 +6,9 @@ import { describe, expect, it } from 'vitest';
 import { forecastPicture } from '../src/app/figures/quizzes';
 import { forecastSky } from '../src/app/scene/forecast-sky';
 import { isDiagram } from 'didactics/lesson';
-import { SHIFTS, type Forecast } from '../src/core/shifts';
+import { LESSONS, type Forecast } from '../src/core/lessons';
 
-const items: Forecast[] = SHIFTS.flatMap((s) => s.parts.flatMap((p) => p.blocks.flatMap((b) =>
+const items: Forecast[] = LESSONS.flatMap((s) => s.parts.flatMap((p) => p.blocks.flatMap((b) =>
   isDiagram(b) && b.id === 'check' ? (b.options!.items as Forecast[]) : []))).filter((q) => q.sky || q.profile);
 
 describe('forecast skies', () => {

@@ -3,13 +3,13 @@
 // clouds. A bare genus drawing is a patch of cloud on a blue sky under a full
 // sun, which is wrong for most of what a forecast question describes: an
 // overcast fills the sky and hides the sun, a thickening sheet gets darker and
-// lower, fog lies on the fields. So a panel (core/shifts.ts SkyPanel) says
+// lower, fog lies on the fields. So a panel (core/lessons.ts SkyPanel) says
 // what the question says, and this draws it.
 
 import { svg } from 'didactics/dom';
 import { makeRng, type Rng } from 'didactics/rng';
 import type { GenusId } from '../../core/clouds';
-import type { SkyPanel } from '../../core/shifts';
+import type { SkyPanel } from '../../core/lessons';
 import { celCumulus, type Tones } from '../clouds/flat';
 import { addToSky, drawCloud, placeCloud, SKY_SPOTS } from './drawn';
 import { H, HORIZON, makeScene, W, type Palette } from './landscape';

@@ -6,9 +6,14 @@
 //
 // Drawn on an Equal Earth world map whose centre follows the land (ancient
 // longitude is not recorded in the rocks, so nothing is lost), or on a globe.
+//
+// The model is a quarter of a megabyte, so it is not carried in the page: a
+// figure that needs it builds through `onPlateModel`, which fetches it the
+// first time (data.ts) and draws once it is here.
 
-import { svg } from 'didactics/dom';
-import raw from '../data/paleomap.json';
+import { el, svg } from 'didactics/dom';
+import type { Task } from 'didactics/figure';
+import { dataFile, provideData } from '../data';
 
 type LL = [number, number];
 export type V3 = [number, number, number];
@@ -23,28 +28,75 @@ interface Packed {
   shelf: Ring[];
   anchors: Record<string, { p: number; lon: number; lat: number }>;
 }
-const D = raw as unknown as Packed;
-
+/** How far the model runs: a billion years back, 50 million ahead, in steps of 10. */
+export const OLDEST = 1000;
+export const AHEAD = 50;
+const STEP = 10;
 /** Ages of the data's steps, million years ago, from the furthest ahead (negative) to the oldest. */
-export const AGES = D.ages;
-export const OLDEST = AGES[AGES.length - 1];
-export const AHEAD = -AGES[0];
+export const AGES: number[] = Array.from({ length: (OLDEST + AHEAD) / STEP + 1 }, (_, i) => -AHEAD + i * STEP);
+
+const FILE = 'paleomap.json';
+const fetchModel = dataFile<Packed>(FILE);
+let D: Packed | undefined;
+/** Each plate's rotations, undone from the packing: 4 numbers per age. */
+let SEQ: Float64Array[] = [];
+let LAND: Shape[] = [];
+let SHELF: Shape[] = [];
+let CENTRES: number[] = [];
+
+/** Take the packed model in, undoing the packing once so every draw stays cheap. */
+export function setPaleomap(raw: Packed): void {
+  if (D === raw) return;
+  const ages = raw.ages;
+  if (ages.length !== AGES.length || ages[0] !== -AHEAD || ages[ages.length - 1] !== OLDEST) {
+    throw new Error(`${FILE}: its ages run ${ages[0]} to ${ages[ages.length - 1]} in ${ages.length} steps; this code expects ${-AHEAD} to ${OLDEST} by ${STEP}`);
+  }
+  provideData(FILE, raw);
+  D = raw;
+  SEQ = raw.seq.map(unpack);
+  LAND = shapes(raw.land);
+  SHELF = shapes(raw.shelf);
+  CENTRES = centres();
+}
+
+/** Fetch the model, once, and take it in. */
+export const loadPaleomap = (): Promise<void> => fetchModel().then(setPaleomap);
+
+/** Whether the model is here; the functions below throw until it is. */
+export const hasPaleomap = () => !!D;
+
+function need(): Packed {
+  if (!D) throw new Error('paleomap.ts: the plate model is not loaded yet (loadPaleomap, or build through onPlateModel)');
+  return D;
+}
+
+/**
+ * A figure drawn from the model: `f`'s frame is on the page at once, and
+ * `draw` fills it when the data is here (the figure's `ready` waits for it).
+ * If it cannot be fetched, a line in the frame says so.
+ */
+export function onPlateModel(t: Pick<Task, 'waitFor'>, f: { node: HTMLElement }, draw: () => void): HTMLElement {
+  const ready = loadPaleomap().then(draw, () => {
+    f.node.append(el('p.fig-hint', {}, 'The continents could not be fetched. Open the lesson again when you are online.'));
+  });
+  t.waitFor(ready);
+  return f.node;
+}
 
 const rad = (d: number) => (d * Math.PI) / 180;
 export const xyz = (lon: number, lat: number): V3 => [Math.cos(rad(lat)) * Math.cos(rad(lon)), Math.cos(rad(lat)) * Math.sin(rad(lon)), Math.sin(rad(lat))];
 export const lonLat = (v: V3): LL => [(Math.atan2(v[1], v[0]) * 180) / Math.PI, (Math.asin(Math.max(-1, Math.min(1, v[2]))) * 180) / Math.PI];
 
-/** Each plate's rotations, undone from the packing: 4 numbers per age. */
-const SEQ = D.seq.map((f) => {
+function unpack(f: number[]): Float64Array {
   const out = new Float64Array(f.length);
   for (let i = 0; i < f.length; i++) out[i] = f[i] + (i >= 4 ? out[i - 4] : 0);
   for (let i = 0; i < out.length; i++) out[i] /= 1e4;
   return out;
-});
+}
 
 /** The rotation that carries a present-day point on plate `p` to where it was `ma` million years ago. */
 export function rotationAt(p: number, ma: number): Q {
-  const s = SEQ[D.plate[String(p)] ?? -1];
+  const s = SEQ[need().plate[String(p)] ?? -1];
   if (!s) return [1, 0, 0, 0];
   const x = Math.max(AGES[0], Math.min(OLDEST, ma));
   let i = Math.min(AGES.length - 2, Math.floor((x - AGES[0]) / (AGES[1] - AGES[0])));
@@ -66,16 +118,17 @@ export function rotate([w, x, y, z]: Q, [vx, vy, vz]: V3): V3 {
 /** Present-day outlines as unit vectors, ready to rotate. */
 interface Shape { p: number; from: number; pts: V3[] }
 const shapes = (rings: Ring[]): Shape[] => rings.map((r) => ({ p: r.p, from: r.from, pts: r.ring.map(([lon, lat]) => xyz(lon, lat)) }));
-export const LAND = shapes(D.land);
-export const SHELF = shapes(D.shelf);
+/** The land's outlines, and the edges of the continental shelves. */
+export const land = (): Shape[] => (need(), LAND);
+export const shelf = (): Shape[] => (need(), SHELF);
 
 /** A named present-day point, carried by its plate, `ma` million years ago. */
 export function anchor(name: string, ma: number): V3 {
-  const a = D.anchors[name];
+  const a = need().anchors[name];
   if (!a) throw new Error(`no anchor ${name}`);
   return rotate(rotationAt(a.p, ma), xyz(a.lon, a.lat));
 }
-export const plateOf = (name: string) => D.anchors[name].p;
+export const plateOf = (name: string) => need().anchors[name].p;
 
 /** Halfway between two points on the sphere. */
 export function between(a: V3, b: V3, k = 0.5): V3 {
@@ -104,7 +157,7 @@ export function carried(list: Shape[], ma: number): { p: number; pts: V3[] }[] {
 // ---- Where to centre the map -------------------------------------------------------------
 
 /** The longitude of the land's middle at each step, smoothed over ±40 Myr and unwrapped. */
-const CENTRES: number[] = (() => {
+function centres(): number[] {
   const raw = AGES.map((ma) => {
     let x = 0;
     let y = 0;
@@ -122,13 +175,14 @@ const CENTRES: number[] = (() => {
     while (sm[i] - sm[i - 1] < -180) sm[i] += 360;
   }
   return sm;
-})();
+}
 
 /** The map's central meridian for `ma`: the land's middle, but today's ordinary view (centred on 10° E) near the present. */
 export function centreAt(ma: number): number {
   const x = Math.max(AGES[0], Math.min(OLDEST, ma));
   const i = Math.min(AGES.length - 2, Math.max(0, Math.floor((x - AGES[0]) / (AGES[1] - AGES[0]))));
   const k = (x - AGES[i]) / (AGES[i + 1] - AGES[i]);
+  need();
   const c = CENTRES[i] * (1 - k) + CENTRES[i + 1] * k;
   // Blend to 10° E over the last 60 million years and the future, so today looks like an ordinary map.
   const today = 10 + 360 * Math.round((c - 10) / 360);
@@ -283,18 +337,6 @@ export function drawn(rings: (r: V3[][]) => string, ma: number, pick: (p: number
     shelf: rings(carried(SHELF, ma).filter((s) => pick(s.p)).map((s) => s.pts)),
     land: rings(carried(LAND, ma).filter((s) => pick(s.p)).map((s) => s.pts)),
   };
-}
-
-/** Plates that moved with `p` at `ma` (their rotations then nearly the same). */
-export function movingWith(p: number, ma: number): Set<number> {
-  const q = rotationAt(p, ma);
-  const out = new Set<number>();
-  for (const id of Object.keys(D.plate)) {
-    const r = rotationAt(Number(id), ma);
-    const dotq = Math.abs(q[0] * r[0] + q[1] * r[1] + q[2] * r[2] + q[3] * r[3]);
-    if (dotq > Math.cos(rad(1.5))) out.add(Number(id));
-  }
-  return out;
 }
 
 export const PALEOMAP_CREDIT = 'Continents: PALEOMAP plate model, C. R. Scotese (2016), CC BY 3.0, via GPlates';

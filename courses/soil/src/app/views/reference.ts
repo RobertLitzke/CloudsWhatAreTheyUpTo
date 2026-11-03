@@ -9,7 +9,7 @@ import { REFERENCE, type PictureBlock } from '../../core/reference';
 import { FIGURES } from '../figures';
 import { prose } from '../figures/kit';
 import { picture } from '../picture';
-import { store } from '../store';
+import { store } from '../../store';
 
 export const referenceView = reference<ReturnType<typeof store.get>, PictureBlock>({
   sections: REFERENCE,

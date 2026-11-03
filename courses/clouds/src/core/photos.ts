@@ -11,7 +11,7 @@ import type { Rng } from 'didactics/rng';
 // their checks are Didactics' (didactics/photos); what a photo is of is ours.
 export { isLicenseId, LICENSES, type LicenseId } from 'didactics/photos';
 
-/** The rare clouds of the last shift, by their journal entry. */
+/** The rare clouds: sights the lessons point out, with a card of their own in the field guide. */
 export const FEATURES = ['lenticularis', 'mammatus', 'fluctus'] as const;
 export type FeatureId = (typeof FEATURES)[number];
 
@@ -23,8 +23,8 @@ export interface Photo extends Credited {
   id: string;
   genus: GenusId;
   /**
-   * Set when the photo is of a rare cloud. It is shown with that cloud's
-   * journal note and kept out of the everyday radio checks, where a lens
+   * Set when the photo is of a rare cloud. It is shown on that cloud's own
+   * card and kept out of the everyday radio checks, where a lens
    * cloud filed as altocumulus would be an unfair call.
    */
   feature?: FeatureId;

@@ -4,9 +4,9 @@
 
 import type { LessonViewOptions } from 'didactics/lesson';
 import type { Lesson } from '../../core/lessons';
-import type { SaveData } from '../../core/save';
+import type { Progress } from 'didactics/progress';
 import { makeBoard } from '../scene/board';
 
-export const lessonOptions: Partial<LessonViewOptions<Lesson, SaveData>> = {
+export const lessonOptions: Partial<LessonViewOptions<Lesson, Progress>> = {
   hero: (l) => makeBoard({ seed: 30 + l.n, h: 220 }),
 };

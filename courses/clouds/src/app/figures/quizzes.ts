@@ -3,7 +3,7 @@
 // side by side in photos, and the check that ends a lesson (real photos to
 // name, then skies to forecast from, as one run of questions).
 
-import type { Forecast, PhotoCalls, Profile } from '../../core/shifts';
+import type { Forecast, PhotoCalls, Profile } from '../../core/lessons';
 import { compose, floorInfo, genus, type Body, type Floor, type GenusId, type Prefix } from '../../core/clouds';
 import { dealFloorCalls } from '../../core/photo-call';
 import { dealNameCalls } from '../../core/radio-check';

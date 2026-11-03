@@ -11,7 +11,7 @@ const written = import.meta.glob<EcoLesson>('./lessons/*.json', { eager: true, i
 
 /** A lesson not written yet: its place in the tree and what it will answer. */
 export const coming = (id: string, n: number, title: string, teaches: string, more: Partial<EcoLesson> = {}): EcoLesson =>
-  ({ id, n, title, teaches, parts: [], coming: true, summary: [], journal: [], ...more });
+  ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: EcoLesson[] = [
   coming('breathes', 11, 'The planet breathes', 'Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows'),

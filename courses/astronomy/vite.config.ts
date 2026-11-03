@@ -4,8 +4,8 @@ import pkg from './package.json';
 
 // The build is Didactics' (didactics/vite): the page with everything inlined,
 // the same page again as dist/astronomy.html for Settings' download link, and
-// a service worker entry. Photos sit in dist/photos/; the site's service
-// worker keeps them for offline.
+// a service worker entry. Photos sit in dist/photos/, listed in offline.json;
+// the site's service worker caches them as read, and Settings saves them all.
 export default defineConfig(
   lessonApp({
     root: __dirname,

@@ -1,6 +1,6 @@
-// Every figure a shift can use, by the id core/shifts.ts names it with.
+// Every figure a lesson can use, by the id core/lessons.ts names it with.
 
-import type { FigureId } from '../../core/shifts';
+import type { FigureId } from '../../core/lessons';
 import { burnOffDiagram, dayNightDiagram, densityDiagram, fogStratusDiagram, inversionDiagram, jarFigure, kettleDiagram, moleculesDiagram, nightFigure, radiatorsDiagram, specksDiagram } from './fog';
 import { barographDiagram, barometerDiagram, buysBallotDiagram, crossedWindsDiagram, frontPassFigure, frontRadarFigure, lowMapDiagram, occlusionDiagram, radarMapDiagram, rainShadowFigure, slopeFigure, twoFrontsDiagram, veerDiagram } from './front';
 import { billowFigure, chargeDiagram, flashFigure, mammaFigure, soundingFigure, stormFigure, stormRadarDiagram, tropopauseDiagram, waveFigure } from './giants';

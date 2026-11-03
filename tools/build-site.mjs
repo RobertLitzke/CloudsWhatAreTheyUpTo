@@ -15,7 +15,16 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const OWN_WORKER = /^(sw\.js|workbox-[^/]*\.js|registerSW\.js|manifest\.webmanifest)$/;
 
-const run = (args, cwd = root) => execFileSync('npm', args, { cwd, stdio: 'inherit' });
+// Run npm as the npm that ran this script (npm_execpath, set by `npm run`),
+// through the same Node, so it works on Windows too, where there is no `npm`
+// file to exec, only npm.cmd; a direct `node tools/build-site.mjs` falls back
+// to the npm on the path, through a shell on Windows.
+const npm = process.env.npm_execpath;
+const win = process.platform === 'win32';
+const run = (args, cwd = root) =>
+  npm
+    ? execFileSync(process.execPath, [npm, ...args], { cwd, stdio: 'inherit' })
+    : execFileSync(win ? 'npm.cmd' : 'npm', args, { cwd, stdio: 'inherit', shell: win });
 
 rmSync(dist, { recursive: true, force: true });
 const courses = readdirSync(join(root, 'courses')).filter((f) => existsSync(join(root, 'courses', f, 'course.json'))).sort();

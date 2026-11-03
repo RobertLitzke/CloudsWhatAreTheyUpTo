@@ -3,7 +3,7 @@
 // With the radio on, the page tells the story and the opening talk plays the
 // first time.
 
-import { BRANCHES, TREE_LESSONS, lessonName } from '../../core/shifts';
+import { BRANCHES, TREE_LESSONS, lessonName } from '../../core/lessons';
 import { el } from 'didactics/dom';
 import { passed, skipLesson } from 'didactics/progress';
 import { keepPlace } from 'didactics/place';
@@ -48,10 +48,10 @@ export const homeView: View = (root, nav) => {
               : state === 'soft' ? `Better after ${names(wanting)}`
                 : null;
     const open = state !== 'locked' && state !== 'coming';
-    return el('div.shift-card', { className: `shift-card stand-${standing}${state === 'next' ? ' next' : ''}` },
+    return el('div.lesson-card', { className: `lesson-card stand-${standing}${state === 'next' ? ' next' : ''}` },
       el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), status ? el('p.score', {}, status) : null),
-      open ? el('div.shift-actions', {},
-        lessonGo(`#/shift/${s.id}`, standing),
+      open ? el('div.lesson-actions', {},
+        lessonGo(`#/lesson/${s.id}`, standing),
         state === 'next' ? el('button.btn.btn-ghost.btn-small', { type: 'button', onclick: () => { updateSave((v) => skipLesson(v, s.id)); nav.replace('/home'); } }, 'Skip') : null,
       ) : null,
     );
@@ -86,14 +86,14 @@ export const homeView: View = (root, nav) => {
             ]
           : [el('p', {}, 'Short lessons on what a cloud is made of, how to name every kind, and what each one says about the weather to come. Branches fork off the main line for weather further afield, and the last lesson is on cloud seeding.')]),
       ),
-      nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, started(nextUp) ? `Continue ${lessonName(nextUp).toLowerCase()}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `${lessonName(nextUp)}: ${nextUp.title}`) : null,
+      nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, started(nextUp) ? `Continue ${lessonName(nextUp).toLowerCase()}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `${lessonName(nextUp)}: ${nextUp.title}`) : null,
       el('h2', {}, 'Lessons'),
       treeView({ lessons: TREE_LESSONS, branches: BRANCHES, save, card, remember: 'clouds.tree' }),
       // Open from the start: the natural skies can be made as soon as their
       // clouds are met; the seeding orders wait on the cloud-seeding lesson.
       el(
-        'div.seeding',
-        { className: 'seeding open' },
+        'div.ref-card.seeding',
+        {},
         el('h2', {}, 'The forecast desk: make the sky'),
         el('p', {}, 'Set the heat, the moisture and what lifts the air, and make the skies on the list. The orders marked Seed are for after the cloud-seeding lesson.'),
         el('a.btn', { href: '#/seed' }, 'Take the orders'),

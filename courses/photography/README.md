@@ -78,8 +78,8 @@ Vitest) rather than `node --experimental-strip-types`.
 ## Run
 
 ```bash
-npm install
-npm run dev
+npm install          # at the repository's root
+npm run dev -w photography
 ```
 
 Opens on http://localhost:5460. http://localhost:5460/figures.html shows every
@@ -90,12 +90,16 @@ photo has been drawn, for screenshots.
 
 | Command | What it does |
 |---|---|
-| `npm test` | Vitest: the optics and exposure arithmetic, lesson and reference content, every figure built, the save, photo credits |
-| `npm run build` | Typecheck, then build `dist/` |
-| `npm run preview` | Serve `dist/` on http://localhost:5461 |
-| `npm run photos:find` | List candidate photographs from Commons into a contact sheet to pick from |
-| `npm run photos:fetch` | Download the picked photographs, resize them, make depth maps and write their credits |
-| `npm run photos:import -- <folder>` | Bring in photographs from a folder on this machine: your own, or a set from elsewhere |
+| `npm test -w photography` | Vitest: the optics and exposure arithmetic, lesson and reference content, every figure built, the save, photo credits |
+| `npm run build -w photography` | Typecheck, then build `dist/` |
+| `npm run preview -w photography` | Serve `dist/` on http://localhost:5461 |
+| `npm run photos:find -w photography` | List candidate photographs from Commons into a contact sheet to pick from |
+| `npm run photos:fetch -w photography` | Download the picked photographs, resize them, make depth maps and write their credits |
+| `npm run photos:import -w photography -- <folder>` | Bring in photographs from a folder on this machine: your own, or a set from elsewhere |
+
+This course keeps photo tools of its own (`tools/photos/`), because each
+photograph needs a depth map and a hand-written `scene` beside it; the other
+courses use the root's `tools/photos.mjs`.
 
 ## Photographs
 
