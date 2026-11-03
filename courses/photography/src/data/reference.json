@@ -752,6 +752,77 @@
      ]
     }
    ]
+  },
+  {
+   "id": "editing-pass",
+   "title": "A short editing pass",
+   "summary": "The order to edit in, and what each file keeps",
+   "lesson": "after",
+   "blocks": [
+    {
+     "type": "table",
+     "columns": [
+      "Step",
+      "What it fixes"
+     ],
+     "rows": [
+      [
+       "1. White balance",
+       "Colours, before anything else"
+      ],
+      [
+       "2. Exposure",
+       "How bright the subject is"
+      ],
+      [
+       "3. Highlights and shadows",
+       "Sky, water, shade under the bird"
+      ],
+      [
+       "4. Crop and straighten",
+       "Composition and the horizon"
+      ],
+      [
+       "5. Noise reduction",
+       "Grain, gently"
+      ],
+      [
+       "6. Sharpening",
+       "Edges, gently, last"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "columns": [
+      "",
+      "JPEG",
+      "RAW (NRW)"
+     ],
+     "rows": [
+      [
+       "Levels per colour",
+       "256",
+       "Thousands"
+      ],
+      [
+       "Above white",
+       "Cut off",
+       "About a stop kept"
+      ],
+      [
+       "Choices",
+       "Baked in",
+       "Made when you develop it"
+      ],
+      [
+       "Size",
+       "Small",
+       "Several times bigger"
+      ]
+     ]
+    }
+   ]
   }
  ]
 }

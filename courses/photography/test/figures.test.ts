@@ -158,6 +158,13 @@ describe('figures', () => {
     expect(score(flying, { shutter: 1 / 250, aperture: 5.6, focus: 'Single', area: 'Centre' }).some((c) => !c.ok)).toBe(true);
   });
 
+  it('the headroom figure is done when a RAW file is brought back to right', async () => {
+    const fig = FIGURES.headroom(context(), 'rescue');
+    (fig.node.querySelectorAll('button')[1] as HTMLButtonElement).click();
+    setSlider(fig.node, 1, -1);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

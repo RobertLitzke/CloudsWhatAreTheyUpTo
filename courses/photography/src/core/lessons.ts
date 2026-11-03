@@ -27,6 +27,7 @@ import focus from '../data/lessons/focus.json';
 import colour from '../data/lessons/colour.json';
 import seeing from '../data/lessons/seeing.json';
 import birds from '../data/lessons/birds.json';
+import after from '../data/lessons/after.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -40,7 +41,7 @@ export const FIGURE_IDS = [
   // Colour.
   'kelvin', 'whiteBalance', 'sun', 'polariser',
   // The pieces every lesson has.
-  'recipe', 'photo', 'challenge', 'check',
+  'recipe', 'headroom', 'photo', 'challenge', 'check',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -64,13 +65,7 @@ export const LESSONS: readonly Lesson[] = [
   colour as Lesson,
   seeing as Lesson,
   birds as Lesson,
-  planned(11, 'after', 'After the shutter', 'The file the camera made, what can still be recovered from it, and a short editing pass that is mostly undoing', [
-    'JPEG and RAW on this camera, and what each keeps',
-    'White balance, exposure and shadows after the fact',
-    'Cropping as the last part of composition, and how far it goes',
-    'Sharpening and noise reduction, in that order and in moderation',
-    'Keeping the ones worth keeping',
-  ]),
+  after as Lesson,
   planned(12, 'history', 'How the camera got here', 'The long story behind the dials: the dark room, the silver, the film, the chip', [
     'The camera obscura, and the problem of keeping the picture',
     'Silver halides: the chemistry that made photography possible',

@@ -1,6 +1,7 @@
 // Every figure a lesson can use, by the id core/lessons.ts names it with.
 
 import type { FigureId } from '../../core/lessons';
+import { headroomFigure } from './after';
 import { afAreaFigure, trackingFigure } from './autofocus';
 import { challengeDiagram } from './challenge';
 import { checkFigure } from './check';
@@ -50,6 +51,7 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   sun: sunFigure,
   polariser: polariserFigure,
   recipe: recipeFigure,
+  headroom: headroomFigure,
   photo: photoDiagram,
   challenge: challengeDiagram,
   check: checkFigure,

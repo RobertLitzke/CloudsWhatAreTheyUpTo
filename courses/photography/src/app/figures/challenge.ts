@@ -24,6 +24,7 @@ import { PHOTOS, credit } from '../picture';
 import { asset } from '../asset';
 import { stagePictures } from '../stage/pictures';
 import { stageRenderer } from '../stage/render';
+import { shoulder } from './after';
 import type { FigureContext, Options } from './kit';
 
 export interface Panel extends Settings {
@@ -34,6 +35,8 @@ export interface Panel extends Settings {
   behind?: number;
   /** For a stage: focus as a share of the subject's distance (1 on the subject). */
   focusRatio?: number;
+  /** Shown as a RAW file brightened by `stops` would be: highlights eased into white rather than cut off. */
+  raw?: boolean;
   /** A photo of its own, instead of the challenge's. */
   photo?: string;
   /** For a stage: metres the photographer has stepped to the right, still aimed at the subject. */
@@ -93,8 +96,9 @@ export const challengeDiagram = Object.assign(function challengeDiagram(_ctx: Fi
       used.add(pic.id);
       t.waitFor(loadPhoto(pic, asset).then((loaded) => {
         const shot = shoot(scene, c.p);
-        const render = { ...shot.render, exposure: shot.render.exposure * 2 ** (c.p.stops ?? 0) };
-        develop(c.canvas, loaded, render);
+        const gain = 2 ** (c.p.stops ?? 0);
+        develop(c.canvas, loaded, { ...shot.render, exposure: shot.render.exposure * (c.p.raw ? 1 : gain) });
+        if (c.p.raw) easeHighlights(c.canvas, gain);
         c.settings.textContent = settingsLine(shot);
       }));
     }
@@ -114,4 +118,16 @@ function challengeOptions(o: Options | undefined): string[] {
   for (const p of c?.panels ?? []) if (p.photo && !PHOTOS.some((x) => x.id === p.photo && x.scene)) out.push(`no photo "${p.photo}" with a scene`);
   for (const p of c?.panels ?? []) if (!(p.eqFocal > 0)) out.push(`panel "${p.label}" needs eqFocal`);
   return out;
+}
+
+/** Brighten a developed picture by `gain` the way a raw converter would, easing highlights into white. */
+function easeHighlights(canvas: HTMLCanvasElement, gain: number): void {
+  const g = canvas.getContext('2d', { willReadFrequently: true });
+  if (!g) return;
+  const img = g.getImageData(0, 0, canvas.width, canvas.height);
+  const d = img.data;
+  const lin = (v: number) => { const c = v / 255; return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4; };
+  const out = (c: number) => Math.round(255 * (c <= 0.0031308 ? c * 12.92 : 1.055 * c ** (1 / 2.4) - 0.055));
+  for (let p = 0; p < d.length; p += 4) for (let k = 0; k < 3; k++) d[p + k] = out(Math.min(1, shoulder(lin(d[p + k]) * gain)));
+  g.putImageData(img, 0, 0);
 }
