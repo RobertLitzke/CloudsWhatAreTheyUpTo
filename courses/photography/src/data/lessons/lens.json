@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "**The challenge.** You have seen the picture: a full moon rising enormous behind a single tree on a ridge, the tree a dark cut-out against the bright disc. You try it from the road below the ridge with the lens at 200 mm, and get the left-hand picture: a nice pine and a small white moon floating above it. Zooming in only makes the pine bigger. The right-hand picture is the same pine and the same moon, and nothing has been pasted in. The difference is that the photographer was standing six kilometres away.[^moon-sunset]"
+     "text": "**The challenge.** You have seen the picture: a full moon rising enormous behind a single tree on a ridge, the tree a dark cut-out against the bright disc. You try it from the road below the ridge with the lens at 200 mm, and get the left-hand picture: a nice pine and a small white moon floating above it. Zooming in only makes the pine bigger. The right-hand picture is the same pine and the same moon, and nothing has been pasted in. The difference is that the photographer was standing about seven kilometres away.[^moon-sunset]"
     },
     {
      "type": "diagram",
@@ -73,11 +73,11 @@
     },
     {
      "type": "text",
-     "text": "Try **Stay put** and zoom: the moon and the pine grow together and their sizes keep the same ratio, because neither got farther away. Then **Walk back**: the camera retreats as the lens lengthens, so the pine stays the same size in the frame, and the moon swells behind it. At 2000 mm, to keep an 18 m pine a fifth of the frame's height, you have to stand over six kilometres away."
+     "text": "Try **Stay put** and zoom: the moon and the pine grow together and their sizes keep the same ratio, because neither got farther away. Then **Walk back**: the camera retreats as the lens lengthens, so the pine stays the same size in the frame, and the moon swells behind it. At 2000 mm, to keep an 18 m pine a fifth of the frame's height, you have to stand about seven kilometres away."
     },
     {
      "type": "text",
-     "text": "This is a picture you plan rather than stumble on. You need the spot six kilometres from the tree, in line with where the moon will rise, and the moon has to come up exactly behind it, which a planning app or a map and a compass can tell you. Arrive early, frame the tree, and wait, but not long: the moon moves its own width in about two minutes, so at 2000 mm the moment behind the tree is short.[^moon-exposure] The same rule works on a smaller scale with a bird: step back and zoom in, and the hills behind it grow and close in."
+     "text": "This is a picture you plan rather than stumble on. You need a spot about seven kilometres from the tree, in line with where the moon will rise, and the moon has to come up exactly behind it, which a planning app or a map and a compass can tell you. Arrive early, frame the tree, and wait, but not long: the moon moves its own width in about two minutes, so at 2000 mm the moment behind the tree is short.[^moon-exposure] The same rule works on a smaller scale with a bird: step back and zoom in, and the hills behind it grow and close in."
     }
    ]
   },
@@ -97,7 +97,7 @@
     },
     {
      "type": "text",
-     "text": "So zoom first and crop second: every halving of the zoom quarters the pixels you keep. But how many you need depends on how the picture will be seen. A phone shows about 1080 pixels across, a big screen 1920, and a sharp A4 print wants about 3500. A picture for a screen can survive a fair crop, and sometimes cropping is the better choice: a wider frame is easier to keep a moving bird in, and the lens is a little brighter at 1000 mm than at 2000 mm, with less air shimmer in the way (see below). The P950's digital zoom, which goes past 2000 mm, is a crop done inside the camera; you lose nothing by cropping yourself afterwards instead."
+     "text": "So zoom first and crop second: every halving of the zoom halves the pixels you keep across, and quarters their total. But how many you need depends on how the picture will be seen. A phone screen is at most about 1080 pixels across, a computer screen 1920, and a sharp A4 print wants about 3500. A picture for a screen can survive a fair crop, and sometimes cropping is the better choice: a wider frame is easier to keep a moving bird in, and the lens is a little brighter at 1000 mm than at 2000 mm, with less air shimmer in the way (see below). The P950's digital zoom, which goes past 2000 mm, is a crop done inside the camera; you lose nothing by cropping yourself afterwards instead."
     }
    ]
   },
@@ -124,7 +124,7 @@
       "Focal length sets how wide a wedge of the world reaches the sensor; equivalent focal lengths are 5.6 times the P950's real ones.",
       "How big a far thing looks against a near one depends only on where you stand; the lens just frames the pair.",
       "Stepping back and zooming in keeps the subject the same size and makes the background bigger.",
-      "Cropping is zooming that costs pixels: half the zoom leaves a quarter of them.",
+      "Cropping is zooming that costs pixels: half the zoom keeps half the pixels across, a quarter of the total.",
       "At long range, shimmering air often limits sharpness more than the lens does."
      ]
     },
@@ -149,10 +149,10 @@
        {
         "question": "Why does the P950 call its lens 24 to 2000 mm when it is really 4.3 to 357 mm?",
         "options": [
-         "Those are the focal lengths giving the same view on a 36 × 24 mm frame",
+         "They give the same view as on a 36 × 24 mm frame",
          "The lens has a hidden extension inside the body",
-         "Nikon measures the lens from the sensor's back",
-         "The numbers include the digital zoom"
+         "Nikon measures the lens from the back of the sensor",
+         "The numbers already include the digital zoom"
         ],
         "answer": 0,
         "why": "On the small sensor, 357 mm takes in the same wedge as 2000 mm would on a full-frame camera. Equivalent numbers let people compare views across cameras."
@@ -172,8 +172,8 @@
         "question": "On a hot afternoon, your 2000 mm shots of a deer 300 m away across a field are soft whatever you do. What is the most likely cause?",
         "options": [
          "Heat shimmer in the air between you",
-         "The aperture is too wide",
-         "The ISO is too low",
+         "The aperture is too wide for the scene",
+         "The ISO is too low for the light",
          "The stabiliser is switched on"
         ],
         "answer": 0,
@@ -212,7 +212,7 @@
   "**Equivalent millimetres compare views.** The P950's real 4.3 to 357 mm give the views of 24 to 2000 mm on a full-frame camera.",
   "**Compression is where you stand.** How big a far thing looks next to a near one depends only on their distances from you.",
   "**Step back and zoom in for a big background.** The subject stays the same size and the background grows; a huge moon needs kilometres.",
-  "**Cropping is zooming that costs pixels.** Half the zoom keeps a quarter of them; a screen needs about 1920 across, a print about 3500.",
+  "**Cropping is zooming that costs pixels.** Half the zoom keeps half the pixels across; a screen needs about 1920 across, a print about 3500.",
   "**The air is part of the lens.** Heat shimmer softens long shots; get closer, and shoot in the cool of the morning."
  ],
  "journal": [],

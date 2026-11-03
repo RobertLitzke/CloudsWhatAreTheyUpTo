@@ -73,7 +73,7 @@
     },
     {
      "type": "text",
-     "text": "Narrowing the [[aperture|aperture]] blocks the outer edges of the light cone, which shrinks the blur discs and widens the sharp zone; opening it does the reverse. How smooth a background goes depends on three things: how wide the opening in the lens really is in millimetres (the focal length divided by the f-number: about 55 mm at 2000 mm and f/6.5, about 1.5 mm at 24 mm and f/2.8), how far the background sits behind the subject, and how far you stand from the subject. For a bush a few metres behind the bird, the distance behind is what decides it: zooming in and stepping back to keep the bird the same size hardly changes that bush's blur. For hills far behind, the long lens wins. Because the P950's small sensor needs physically short focal lengths, a soft background takes deliberate positioning: the long end of the zoom, and a bird with plenty of open space behind it."
+     "text": "Narrowing the [[aperture|aperture]] blocks the outer edges of the light cone, which shrinks the blur discs and widens the sharp zone; opening it does the reverse. How smooth a background goes depends on three things: how wide the opening in the lens really is in millimetres (the lens's real focal length divided by the f-number: 357 mm ÷ 6.5, about 55 mm, at the long end, and 4.3 mm ÷ 2.8, about 1.5 mm, at the wide end), how far the background sits behind the subject, and how far you stand from the subject. For a bush a few metres behind the bird, the distance behind is what decides it: zooming in and stepping back to keep the bird the same size hardly changes that bush's blur. For hills far behind, the long lens wins. Because the P950's small sensor needs physically short focal lengths, a soft background takes deliberate positioning: the long end of the zoom, and a bird with plenty of open space behind it."
     },
     {
      "type": "interactive_diagram",
@@ -105,7 +105,7 @@
     {
      "type": "interactive_diagram",
      "id": "silkWater",
-     "caption": "A stream photographed from a tripod, allowing you to leave the shutter open as long as you like",
+     "caption": "A stream photographed from a tripod, so the shutter can stay open as long as the light allows",
      "task": "Use a long shutter speed to draw the water into smooth threads",
      "goal": "silk"
     }
@@ -187,9 +187,9 @@
         "question": "A photograph comes out smeared across the entire frame, including the tree branches and the background. Which problem caused the blur?",
         "options": [
          "The camera moved while the shutter was open",
-         "The bird moved",
-         "The ISO was too high",
-         "The aperture was too wide"
+         "The bird moved while the shutter was open",
+         "The ISO was set too high for the light",
+         "The aperture was set too wide"
         ],
         "answer": 0,
         "why": "When stationary background details smear alongside the subject, the camera itself moved during the exposure. If the bird is blurred against a sharp branch, the bird moved and only a faster shutter speed will freeze it."
@@ -197,10 +197,10 @@
        {
         "question": "You narrow the aperture from f/2.8 to f/5.6. Which adjustment keeps the image at the same brightness?",
         "options": [
-         "Two stops of compensation from a slower shutter speed or a higher ISO",
+         "Two stops more from a slower shutter or higher ISO",
          "Nothing, because the exposure stays the same",
-         "A shutter speed two stops faster",
-         "Adjusting the white balance"
+         "A shutter speed two stops faster than before",
+         "A change of white balance to match the light"
         ],
         "answer": 0,
         "why": "Narrowing the lens from f/2.8 to f/4 cuts the light in half (one stop), and narrowing it from f/4 to f/5.6 cuts it in half again (a second stop). Those two lost stops must be recovered by leaving the shutter open four times as long or quadrupling the ISO."
@@ -208,10 +208,10 @@
        {
         "question": "How does raising the ISO setting brighten a dark image?",
         "options": [
-         "It amplifies the electrical signal from the light the sensor already caught, including its random roughness",
-         "It makes the silicon sensor capture a higher percentage of incoming photons",
-         "It opens the lens wider to let more light through",
-         "It holds the shutter open for a longer duration"
+         "It amplifies the signal the sensor already caught, roughness and all",
+         "It makes the silicon sensor catch a bigger share of incoming photons",
+         "It opens the lens wider to let more light reach the sensor",
+         "It holds the shutter open for longer to collect more light"
         ],
         "answer": 0,
         "why": "A sensor's physical sensitivity to photons is fixed. Raising the ISO multiplies the weak signal read out from a small photon count, which turns a dim, statistically noisy measurement into a bright, grainy picture."
@@ -219,10 +219,10 @@
        {
         "question": "Why does a small-sensor camera like the P950 tend to keep backgrounds sharp unless you take specific steps to blur them?",
         "options": [
-         "The small sensor uses short actual focal lengths, which produce a wide depth of field",
-         "The lens glass is not sharp enough to separate planes",
-         "The zoom range is too short for wildlife",
-         "The shutter speed cannot go slow enough"
+         "Its small sensor uses short real focal lengths",
+         "Its lens glass is not sharp enough to separate planes",
+         "Its zoom range is too short for most wildlife",
+         "Its shutter speed cannot go slow enough"
         ],
         "answer": 0,
         "why": "Because the sensor measures only 6.17 by 4.55 mm, the lens has a short physical focal length that naturally keeps a deep zone in focus. Getting a softly blurred background requires zooming in, moving close to the subject, and choosing a distant background."
@@ -230,10 +230,10 @@
        {
         "question": "At the 2000 mm equivalent zoom setting, the P950 lens opens no wider than f/6.5. What practical consequence follows from this limit?",
         "options": [
-         "Less light reaches the sensor, forcing a slower shutter or a higher ISO right when magnified hand shake is hardest to control",
-         "Depth of field becomes deeper, which solves motion blur",
-         "Nothing changes, because the lens gathers extra light at long focal lengths",
-         "The image becomes free of photon noise"
+         "Less light gets in, so the shutter slows or the ISO rises",
+         "The depth of field gets deeper, which cures motion blur",
+         "Nothing, since the lens gathers extra light when zoomed",
+         "The picture becomes completely free of photon noise"
         ],
         "answer": 0,
         "why": "At full zoom the image is dimmer and every slight wobble of your hands is magnified across the frame, which is why shots at 2000 mm often suffer from high-ISO grain or motion blur unless the light is bright and the camera is braced."

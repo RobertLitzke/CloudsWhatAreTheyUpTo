@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "**The challenge.** A wren is singing from inside a blackberry tangle, twenty metres off, fully visible but behind a screen of bare canes.[^wren] You zoom to 2000 mm, half-press, the camera beeps happily, and the picture is the left-hand one: every thorn on the canes in front is crisp and the wren is a brown smudge. What you wanted is the right-hand one, the wren sharp to its eye-stripe and the canes melted into soft bars of colour. Nothing about the exposure is different. The camera simply focused on the wrong thing, and it was sure it had got it right."
+     "text": "**The challenge.** A wren is singing from inside a blackberry tangle, twenty metres off, in plain sight but behind a screen of bare canes.[^wren] You zoom to 2000 mm, half-press, the camera beeps happily, and the picture is the left-hand one: every thorn on the canes in front is crisp and the wren is a brown smudge. What you wanted is the right-hand one, the wren sharp to its eye-stripe and the canes melted into soft bars of colour. Nothing about the exposure is different. The camera simply focused on the wrong thing, and it was sure it had got it right."
     },
     {
      "type": "diagram",
@@ -61,7 +61,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "**Shrink the area and put it on the bird.** The P950's area mode called Manual (spot) gives the smallest box, and you can move it around the frame with the multi-selector. Put it on the eye, or on a patch of the bird with some texture; a plain breast gives contrast detection nothing to grip."
+     "text": "**Shrink the area and put it on the bird.** The P950's area mode called Manual (spot) gives the smallest box (this is a focus area setting, not manual focus, which comes below), and you can move it around the frame with the multi-selector. Put it on the eye, or on a patch of the bird with some texture; a plain breast gives contrast detection nothing to grip."
     },
     {
      "type": "text",
@@ -69,7 +69,7 @@
     },
     {
      "type": "text",
-     "text": "**Focus on something else at the same distance.** Find a cane or leaf right beside the wren, not in front of it, half-press to focus there, keep the button held to lock the focus, and swing back to the wren. At twenty metres a few centimetres either way is inside the sharp band."
+     "text": "**Focus on something else at the same distance.** Find a cane or leaf right beside the wren, not in front of it, half-press to focus there, keep the button held to lock the focus, and swing back to the wren. At twenty metres a few centimetres either way is inside the sharp band, the depth of field from the lesson on the aperture."
     },
     {
      "type": "text",
@@ -92,7 +92,7 @@
      "type": "interactive_diagram",
      "id": "tracking",
      "caption": "A heron flying toward you from 60 m, shot as a burst at 1000 mm, with the sharp band in green",
-     "task": "Switch to continuous autofocus and see how many frames it saves",
+     "task": "Switch to continuous autofocus and count how many of the ten frames come out sharp",
      "goal": "continuous"
     },
     {
@@ -138,10 +138,10 @@
        {
         "question": "In the widest focus area, the camera keeps focusing on a branch in front of a warbler. Why?",
         "options": [
-         "It favours the nearest thing with clear detail",
+         "It favours the nearest thing with detail",
          "The branch is brighter than the warbler",
-         "The aperture is too narrow",
-         "The warbler is moving too fast"
+         "The aperture is too narrow for the scene",
+         "The warbler is moving too fast for it"
         ],
         "answer": 0,
         "why": "With a large focus area the camera has to guess, and the nearest detailed thing is its usual guess. A small area placed on the warbler removes the branch from consideration."
@@ -149,10 +149,10 @@
        {
         "question": "Which autofocus mode suits a duck swimming steadily toward you?",
         "options": [
-         "Continuous, which keeps refocusing while you half-press",
+         "Continuous, which keeps refocusing",
          "Single, which locks focus once",
-         "Manual focus set once at the start",
-         "Whichever mode has the largest focus area"
+         "Manual focus, set once at the start",
+         "Whichever has the largest focus area"
         ],
         "answer": 0,
         "why": "The duck's distance keeps changing, so focus has to keep up. Single autofocus would stay at the first distance while the duck swims out of the sharp band."

@@ -108,7 +108,7 @@
     },
     {
      "type": "text",
-     "text": "Now the second half of the challenge. A bald eagle crosses a bright blue sky. The sky fills nearly the whole frame and is much brighter than mid-grey, so the meter darkens everything to compensate, and the eagle, which is small and dark, goes nearly black. The same tool fixes it, in the same direction: more light than the meter wants."
+     "text": "Now the second half of the challenge. A bald eagle crosses a bright blue sky. The sky fills nearly the whole frame and is much brighter than mid-grey, so the meter darkens everything to compensate, and the eagle, which is small and dark, goes nearly black. The same tool fixes it, in the same direction: more light than the meter wants. About a stop is enough to give the eagle its feathers back while the sky stays blue; much more and the sky washes out to white."
     },
     {
      "type": "interactive_diagram",
@@ -191,10 +191,10 @@
        {
         "question": "The histogram of your eagle picture is a tall spike pressed against the right edge. What does that mean?",
         "options": [
-         "Part of the picture is pure white and its detail is lost",
-         "The picture is too dark",
-         "The picture is noisy",
-         "The eagle is out of focus"
+         "Part of the picture is white, detail lost",
+         "The whole picture is too dark to use",
+         "The picture is noisy in the shadows",
+         "The eagle is out of focus against the sky"
         ],
         "answer": 0,
         "why": "The right edge is white. A pile-up there means many pixels reached maximum brightness, which records no detail. Less exposure, or minus compensation, pulls it back."

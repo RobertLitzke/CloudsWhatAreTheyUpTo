@@ -48,7 +48,7 @@
     },
     {
      "type": "text",
-     "text": "A smear starts to show at around a pixel or two of a picture viewed whole, so for a bird in flight at a long zoom you need speeds of 1/1000 s to 1/2000 s, and for the wingtips, which move faster than the body, faster still. Automatic modes often settle somewhere around 1/250 s and spend the rest of the light on a lower ISO, which suits a perched bird and fails a flying one."
+     "text": "A smear starts to show when it covers a few pixels of the picture as you see it on a computer screen, about ten of the sensor's 4608, so for a bird in flight at a long zoom you need speeds of 1/1000 s to 1/2000 s, and for the wingtips, which move faster than the body, faster still. Automatic modes often settle somewhere around 1/250 s and spend the rest of the light on a lower ISO, which suits a perched bird and fails a flying one."
     },
     {
      "type": "interactive_diagram",
@@ -147,9 +147,9 @@
         "question": "A heron stands still on a log, but in your picture the heron, the log and the water are all smeared in the same direction. What happened?",
         "options": [
          "The camera moved during the exposure",
-         "The heron moved",
-         "The aperture was too wide",
-         "The ISO was too high"
+         "The heron moved during the exposure",
+         "The aperture was set too wide",
+         "The ISO was set too high"
         ],
         "answer": 0,
         "why": "When everything smears the same way, including things that cannot move, the camera moved. A steadier hold, the stabiliser, a support or a faster shutter fixes it."
@@ -179,10 +179,10 @@
        {
         "question": "Will turning the stabiliser on freeze a bird in flight?",
         "options": [
-         "No, it only cancels the camera's movement",
-         "Yes, it tracks moving subjects",
-         "Yes, but only at the long end",
-         "Only in shutter priority"
+         "No, it only cancels your own movement",
+         "Yes, it tracks a moving subject too",
+         "Yes, but only at the long end of the zoom",
+         "Only when the camera is in shutter priority"
         ],
         "answer": 0,
         "why": "The stabiliser moves a lens group to counter the wobble of your hands. It knows nothing about the bird, whose movement only a faster shutter can stop."
@@ -190,10 +190,10 @@
        {
         "question": "You pan with a cyclist at 1/30 s. The cyclist is sharp but the background is not streaked at all. Why might that be?",
         "options": [
-         "The background is plain, like an even sky or wall",
-         "The shutter was too slow",
-         "You panned too fast",
-         "The stabiliser was on"
+         "The background is plain, like an even sky",
+         "The shutter was too slow for the pan",
+         "You panned faster than the bird",
+         "The stabiliser was switched on"
         ],
         "answer": 0,
         "why": "Streaks are made of detail sliding across the sensor. A plain background has no edges to streak, so panning against open sky looks the same as a frozen shot. A textured background shows the motion."
@@ -201,10 +201,10 @@
        {
         "question": "At ISO 100 and f/8 on a bright day, a one-second exposure of a waterfall comes out almost white. What is the fix?",
         "options": [
-         "A neutral density filter in front of the lens",
-         "A higher ISO",
-         "A wider aperture",
-         "Turning the stabiliser off"
+         "A neutral density filter on the lens",
+         "A higher ISO for the slow shutter",
+         "A wider aperture to soften the water",
+         "Turning the stabiliser off for it"
         ],
         "answer": 0,
         "why": "The camera cannot make the hole smaller or the sensor less sensitive than f/8 and ISO 100, so a grey filter has to cut the light before it reaches the lens, or you wait for dimmer light."

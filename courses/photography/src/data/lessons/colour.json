@@ -52,7 +52,7 @@
     },
     {
      "type": "text",
-     "text": "Photographers describe the colour of light by its **colour temperature**, in kelvin. The name comes from physics: a hot object glows, first red, then orange, then white, then bluish as it gets hotter, and the temperature that would glow a given colour labels it.[^kelvin] The confusing part is that this runs opposite to the way we talk about colour. \"Warm\" orange light is the low number, around 2000 K for a candle; \"cool\" blue light is the high one, 8000 K and up for blue shade."
+     "text": "Photographers describe the colour of light by its **colour temperature**, in kelvin. The name comes from physics: a hot object glows, first red, then orange, then white, then bluish as it gets hotter, and the temperature that would glow a given colour labels it.[^kelvin] The confusing part is that this runs opposite to the way we talk about colour. \"Warm\" orange light is the low number, around 1900 K for a candle; \"cool\" blue light is the high one, 8000 K and up for blue shade."
     },
     {
      "type": "interactive_diagram",
@@ -68,7 +68,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "**White balance** is the camera's guess at the colour of the light, which it then cancels out. Tell it the light is 5500 K and it leaves noon sunlight alone; tell it 3000 K and it adds blue to cancel the orange it expects. On automatic, it looks at the picture and guesses, usually by assuming the scene ought to average out neutral. At noon on snow that guess is right. At blue hour it is right in the wrong way: the light really is blue, so it cancels the blue."
+     "text": "**White balance** is the camera's guess at the colour of the light, which it then cancels out. Tell it the light is 5500 K and it leaves noon sunlight alone; tell it 3000 K and it adds blue to cancel the orange it expects. On automatic, it looks at the picture and guesses, usually by assuming the scene ought to average out neutral. At noon on snow that guess works, because the light is white and so is the snow. At blue hour it is right in the wrong way: the light really is blue, so it cancels the blue."
     },
     {
      "type": "interactive_diagram",
@@ -102,7 +102,7 @@
     },
     {
      "type": "text",
-     "text": "The **golden hour** is roughly the hour after sunrise and the hour before sunset, while the sun is low. The **blue hour** is the twenty minutes or so after sunset or before sunrise, when there is no direct sun at all and everything is lit by the glowing sky. **Overcast** light is a third kind: the whole sky becomes one huge, soft lamp, a little blue, with almost no shadows. Photographers often grumble about grey days, but for birds in trees overcast is excellent: no hard shadows, no blown-out white feathers, and colours that look rich rather than bleached."
+     "text": "The **golden hour** is the time when the sun is less than about six degrees above the horizon, roughly the first and last hour of sunlight. The **blue hour** is the twenty minutes or so after sunset or before sunrise, when there is no direct sun at all and everything is lit by the glowing sky. **Overcast** light is a third kind: the whole sky becomes one huge, soft lamp, a little blue, with almost no shadows. Photographers often grumble about grey days, but for birds in trees overcast is excellent: no hard shadows, no blown-out white feathers, and colours that look rich rather than bleached."
     }
    ]
   },
@@ -128,7 +128,7 @@
     },
     {
      "type": "text",
-     "text": "Blue sky is polarised most strongly at 90 degrees from the sun, so a polariser can darken it there, making clouds stand out. Glare off water and wet leaves is polarised too, horizontally, so the filter can cut it, letting you see into a stream or bringing back the green of shiny leaves. With the sun low and to one side, the two are polarised across each other, so you have to choose which to cut.[^polariser-stops]"
+     "text": "Blue sky is polarised most strongly at 90 degrees from the sun, and hardly at all toward the sun or straight away from it, so a polariser can darken it there, making clouds stand out. Glare off water and wet leaves is polarised too, horizontally, so the filter can cut it, letting you see into a stream or bringing back the green of shiny leaves. With the sun low and to one side, the two are polarised at right angles to each other, so you have to choose which to cut.[^polariser-stops]"
     },
     {
      "type": "interactive_diagram",
@@ -200,10 +200,10 @@
        {
         "question": "Why is the light warm in the golden hour?",
         "options": [
-         "Low sunlight passes through more air, which scatters away the blue",
-         "The sun itself is cooler in the evening",
-         "Dust only rises in the evening",
-         "The camera's sensor warms up during the day"
+         "Low sun shines through more air, which scatters blue",
+         "The sun itself burns cooler in the evening hours",
+         "Dust in the air only rises in the evening",
+         "The camera's sensor warms up over the day"
         ],
         "answer": 0,
         "why": "When the sun is low its light crosses much more atmosphere, and air scatters blue light more than red, leaving the direct sunlight orange and gold."
@@ -211,10 +211,10 @@
        {
         "question": "Your polariser does nothing to the sky when you face directly away from the sun. Why?",
         "options": [
-         "Skylight is barely polarised near 180° from the sun",
-         "Polarisers work only on water",
-         "The filter needs to be turned past 90°",
-         "The sun must be in the frame for it to work"
+         "Skylight there is barely polarised",
+         "Polarisers only work on water",
+         "The filter must be turned past 90°",
+         "The sun has to be in the frame"
         ],
         "answer": 0,
         "why": "Skylight is most strongly polarised at about 90° from the sun and hardly at all toward or directly away from it, so turning the filter there changes little."
@@ -222,10 +222,10 @@
        {
         "question": "For a bird in leafy trees, why can an overcast day be better than bright sun?",
         "options": [
-         "Soft, even light without hard shadows or blown highlights",
+         "Soft, even light without hard shadows",
          "Overcast light is warmer than sunlight",
          "Birds sit more still on cloudy days",
-         "The camera can use a faster shutter"
+         "The camera can use a faster shutter then"
         ],
         "answer": 0,
         "why": "Cloud turns the whole sky into a big soft light. Shadows under leaves and across the bird's face fade, and white feathers keep their detail, at the cost of some light."

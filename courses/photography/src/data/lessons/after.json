@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "**The challenge.** A heron stands on a dock with the lake glittering behind it. You expose for the heron, and the water, a stop brighter than it should be, comes out white: the left-hand picture, where the ripples have turned into a featureless glare. At home, you try to darken the water, and it only turns from white to flat grey. The right-hand picture was taken at the same moment with the same settings. The only difference is the kind of file the camera saved."
+     "text": "**The challenge.** A heron stands on a dock with the lake glittering behind it. You set the exposure for the heron. The water behind it is a stop brighter than the camera can hold, and it comes out white: the left-hand picture, where the ripples have turned into a featureless glare. At home, you try to darken the water, and it only turns from white to flat grey. The right-hand picture was taken at the same moment with the same settings. The only difference is the kind of file the camera saved."
     },
     {
      "type": "diagram",
@@ -43,7 +43,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "The sensor records a count for each pixel, and the camera then makes a picture out of the counts. It sets the white balance, brightens the mid-tones with a tone curve, adds contrast and colour, reduces the noise, sharpens the edges, and finally saves a **JPEG**: 256 levels per colour, compressed to a small file. Every one of those choices is baked in. Anything brighter than the JPEG's white is cut off at white, and anything darker than its black at black."
+     "text": "The sensor records a count for each pixel, and the camera then makes a picture out of the counts. It sets the white balance, brightens the mid-tones, the greys between black and white,, adds contrast and colour, reduces the noise, sharpens the edges, and finally saves a **JPEG**: 256 levels per colour, compressed to a small file. Every one of those choices is baked in. Anything brighter than the JPEG's white is cut off at white, and anything darker than its black at black."
     },
     {
      "type": "text",
@@ -137,10 +137,10 @@
        {
         "question": "A gull's white wing came out pure white with no feather detail in a JPEG. What happens if you darken it in an editor?",
         "options": [
-         "It turns flat grey, still with no detail",
-         "The feather detail reappears",
-         "It turns blue",
-         "Nothing at all changes"
+         "It turns flat grey, with no detail",
+         "The feather detail all reappears",
+         "It turns a pale, even blue",
+         "Nothing at all about it changes"
         ],
         "answer": 0,
         "why": "The JPEG stored those pixels as plain white. Darkening plain white gives plain grey; the detail was never saved."
@@ -148,10 +148,10 @@
        {
         "question": "What does a RAW file keep that a JPEG does not?",
         "options": [
-         "The sensor's counts, with more levels and some room above white",
-         "A higher pixel count than the JPEG",
-         "The camera's autofocus data",
-         "A built-in sharper version of the picture"
+         "The sensor's own counts, with room above white",
+         "Twice the pixels of the JPEG version",
+         "The camera's autofocus and exposure data",
+         "A sharper copy of the same JPEG picture"
         ],
         "answer": 0,
         "why": "RAW stores the counts before the camera's processing: thousands of levels per pixel and highlights a little beyond the JPEG's white. The pixel count is the same."
@@ -170,10 +170,10 @@
        {
         "question": "Why is white balance usually the first thing to set when editing?",
         "options": [
-         "Every later colour adjustment depends on it",
-         "It is the easiest one to undo",
-         "It also sets the exposure",
-         "It is only possible before cropping"
+         "Every later colour change depends on it",
+         "It is the easiest one to undo later",
+         "It also sets the exposure of the file",
+         "It only works before the picture is cropped"
         ],
         "answer": 0,
         "why": "White balance shifts every colour in the picture. Setting it first means the later adjustments start from the right colours."
@@ -187,15 +187,15 @@
          "About 4600"
         ],
         "answer": 0,
-        "why": "4608 ÷ 4 is about 1150 pixels across, enough for a phone but not for a big screen or a print."
+        "why": "4608 ÷ 4 is about 1150 pixels across, enough for a phone but not for a computer screen or a print."
        },
        {
         "question": "What is a sensible way to keep your best pictures safe?",
         "options": [
-         "Three copies, on two kinds of storage, one kept elsewhere",
+         "Three copies, one kept somewhere else",
          "One copy on the camera's memory card",
          "Two copies on the same laptop drive",
-         "Printing them and deleting the files"
+         "Prints, with the files then deleted"
         ],
         "answer": 0,
         "why": "Cards and drives fail without warning, and a fire or theft takes everything in one place. Copies on different storage, one off-site, survive both."

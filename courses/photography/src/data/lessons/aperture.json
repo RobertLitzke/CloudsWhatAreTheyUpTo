@@ -179,10 +179,10 @@
        {
         "question": "Why does the P950 keep backgrounds sharp more readily than a full-frame camera with the same view?",
         "options": [
-         "Its small sensor needs much shorter real focal lengths",
-         "Its lens has fewer glass elements",
-         "It focuses faster",
-         "Its sensor has more pixels"
+         "Its small sensor needs short real focal lengths",
+         "Its lens has fewer glass elements inside it",
+         "Its autofocus works faster than a big camera's",
+         "Its sensor has more pixels than a big camera's"
         ],
         "answer": 0,
         "why": "The same field of view on a sensor 5.6 times smaller takes a lens 5.6 times shorter, and short focal lengths give deep depth of field. In depth of field, f/2.8 on the P950 acts like about f/16 on full frame."
@@ -212,10 +212,10 @@
        {
         "question": "What does focusing at the hyperfocal distance do?",
         "options": [
-         "Makes everything from half that distance to the horizon sharp",
-         "Makes only the horizon sharp",
-         "Removes diffraction",
-         "Makes the background as soft as possible"
+         "Everything from half that distance to the horizon",
+         "Only the horizon, with the foreground soft",
+         "Everything, with diffraction removed as well",
+         "Only the subject, with a soft background"
         ],
         "answer": 0,
         "why": "Focused at the hyperfocal distance, the far edge of the sharp band just reaches infinity, and the near edge falls at half that distance. It is the deepest sharp band a given focal length and aperture can give."
@@ -223,13 +223,13 @@
        {
         "question": "A friend sets f/8 for every picture 'to be safe'. On the P950, what is the catch?",
         "options": [
-         "Diffraction softens fine detail across the whole frame",
-         "The shutter cannot go fast enough",
-         "Colours shift toward blue",
-         "Autofocus stops working"
+         "Diffraction softens fine detail everywhere",
+         "The shutter cannot go fast enough at f/8",
+         "Colours across the frame shift toward blue",
+         "Autofocus stops working in that range"
         ],
         "answer": 0,
-        "why": "On the P950's tiny pixels, diffraction at f/8 spreads every point over several pixels. It looks fine as a whole picture, but detail suffers, and for most scenes a wider aperture is just as deep and sharper."
+        "why": "On the P950's tiny pixels, diffraction at f/8 spreads every point over several pixels. It looks fine as a whole picture, but detail suffers, and for most scenes a wider aperture is nearly as deep and sharper."
        }
       ]
      }
@@ -243,7 +243,7 @@
   "**Framing decides more than the aperture.** Zoom in and step back to keep a subject the same size, and its band barely changes, but the far background gets blurrier and bigger.",
   "**Small sensors are deep.** On the P950, f/2.8 behaves like f/16 on a full-frame camera, so a soft background takes deliberate work.",
   "**Up close, the band is millimetres.** For insects and flowers, the aperture is the lever that matters.",
-  "**Diffraction softens everything as you narrow.** On the P950's small pixels it bites from about f/4; the sharpest aperture for a scene is usually wider than f/8.",
+  "**Diffraction softens everything as you narrow.** On the P950's small pixels it already spreads a point over a few pixels wide open, and more with every stop; the sharpest aperture for a scene is usually wider than f/8.",
   "**The hyperfocal distance holds a landscape.** Focused there, the picture is sharp from half that distance to the horizon."
  ],
  "journal": [],

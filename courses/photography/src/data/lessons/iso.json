@@ -54,7 +54,7 @@
      "type": "interactive_diagram",
      "id": "photons",
      "caption": "A patch of the P950's sensor at a mid-grey, the photons it catches, and the picture they make",
-     "task": "Raise the ISO to 1600 or more and watch the count fall",
+     "task": "Raise the ISO to 1600 or more: the camera lets in less light to match, and the count falls",
      "goal": "count"
     }
    ]
@@ -64,7 +64,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Here is the surprise: raising the [[ISO|sensor]] does not make the sensor catch more light. The sensor is exactly as sensitive at ISO 6400 as at ISO 100. What ISO changes is the amplification afterwards, how much the camera multiplies each pixel's count before it calls the result a brightness. At ISO 100 a mid-grey is about 800 photons; at ISO 1600 the camera calls 50 photons mid-grey and multiplies them by sixteen. The count is sixteen times smaller, so its error is four times bigger in proportion, and multiplying makes the error as visible as the grey.[^read-noise]"
+     "text": "Here is the surprise: raising the [[ISO|sensor]] does not make the sensor catch more light. The sensor is exactly as sensitive at ISO 6400 as at ISO 100. What ISO changes is the amplification afterwards, how much the camera multiplies each pixel's count before it calls the result a brightness. At ISO 100 the camera calls about 800 photons a mid-grey. Set ISO 1600 and the camera lets in sixteen times less light, with a shorter shutter or a narrower aperture, so a mid-grey pixel now catches about 50 photons, and the camera multiplies them by sixteen. The count is sixteen times smaller, so its error is four times bigger in proportion, and multiplying makes the error as visible as the grey.[^read-noise]"
     },
     {
      "type": "text",
@@ -91,7 +91,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "There is a second reason grain is less of a disaster than it looks on the back of the camera. Each photo from the P950 is 4608 pixels across, and you will almost never see it that big. A phone shows it about 750 dots wide, so every dot on the screen is the average of about 36 pixels. Their errors are random, some high and some low, and when 36 of them are averaged most cancel: the noise falls by the square root of 36, six times."
+     "text": "There is a second reason grain is less of a disaster than it looks on the back of the camera. Each photo from the P950 is 4608 pixels across, and you will almost never see it that big. A phone held upright shows it about 750 dots wide, so every dot on the screen is the average of about 36 pixels. Their errors are random, some high and some low, and when 36 of them are averaged most cancel: the noise falls by the square root of 36, six times."
     },
     {
      "type": "interactive_diagram",
@@ -118,7 +118,7 @@
     },
     {
      "type": "text",
-     "text": "Dusk is a clock, and a fast one. From sunset to the end of twilight the light falls by about a stop every four minutes, so a shot that needs ISO 400 at sunset needs 6400 sixteen minutes later.[^dusk-light] At the long end the lens is f/5.9 at best, so the window closes even sooner."
+     "text": "Dusk is a clock, and a fast one. From sunset to the end of twilight the light falls by about a stop every four minutes, so a shot that needs ISO 400 at sunset needs 6400 sixteen minutes later.[^dusk-light] From 1000 mm up the lens is f/5.9 to f/6.5 at best, so the window closes even sooner."
     },
     {
      "type": "interactive_diagram",
@@ -192,10 +192,10 @@
        {
         "question": "At dusk a perched owl needs ISO 6400 at 1/250 s. It is sitting still. What is the better move?",
         "options": [
-         "Brace the camera and slow to 1/30 s, which brings the ISO down to 800",
-         "Keep 1/250 s and fix the grain later",
+         "Brace the camera and slow to 1/30 s at ISO 800",
+         "Keep 1/250 s and fix the grain afterwards",
          "Switch to a narrower aperture for more depth",
-         "Zoom in further to fill the frame"
+         "Zoom in further so the heron fills the frame"
         ],
         "answer": 0,
         "why": "A still subject does not need a fast shutter. Three stops slower on the shutter buys three stops lower on the ISO, as long as the camera is steady. A narrower aperture or a longer zoom would make things darker."
@@ -203,21 +203,21 @@
        {
         "question": "A picture taken at ISO 3200 looks gritty on the camera's screen zoomed to 100%. Will it look as grainy as a small print?",
         "options": [
-         "No; shrinking averages neighbouring pixels and hides much of the noise",
-         "Yes; grain is the same at every size",
-         "Only if it is printed on glossy paper",
-         "No; prints never show grain"
+         "No; shrinking it averages much of the noise away",
+         "Yes; grain looks the same at every picture size",
+         "Only if it is printed large on glossy paper",
+         "No; prints never show any grain at all"
         ],
         "answer": 0,
         "why": "Each dot of a small print or a phone screen pools dozens of pixels, and their random errors largely cancel. Judge grain at the size the picture will be seen."
        },
        {
-        "question": "Why does a full-frame camera have less noise than the P950 at the same ISO and framing?",
+        "question": "Why does a full-frame camera have less noise than the P950 at the same ISO, framing and f-number?",
         "options": [
-         "Its sensor is about 30 times larger and catches more photons",
+         "Its sensor is about 30 times larger",
          "Its sensor amplifies the signal less",
-         "It uses a different kind of light",
-         "Its lens has no glass elements"
+         "It records a different kind of light",
+         "Its lens has no glass elements at all"
         ],
         "answer": 0,
         "why": "At the same framing and f-number, a sensor with thirty times the area collects thirty times the light, about five stops, so each part of the picture is counted from far more photons."
@@ -226,9 +226,9 @@
         "question": "Heavy in-camera noise reduction on a picture of a sparrow will most likely...",
         "options": [
          "Make its feathers look smooth and waxy",
-         "Make the background more grainy",
-         "Darken the whole picture",
-         "Sharpen the sparrow's outline"
+         "Make the background look more grainy",
+         "Darken the whole picture by a stop",
+         "Sharpen the outline of the sparrow"
         ],
         "answer": 0,
         "why": "Noise reduction averages away fine detail it takes for noise, and feather texture is exactly that kind of detail. Turn it down, or shoot RAW and do it gently later."

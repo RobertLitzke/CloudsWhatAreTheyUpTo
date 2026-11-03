@@ -47,7 +47,7 @@
     },
     {
      "type": "text",
-     "text": "Then watch the shutter speed the camera chooses. At 1000 mm, braced, about 1/125 s is the slowest you can trust; at 2000 mm, about 1/250 s. If the camera goes slower than that, you have run out of light: get steadier (lean on a tree, sit down, use a monopod[^monopod]), or accept a higher ISO. Take a short burst of three or four frames rather than a single one. Between the small tremors of your hands, one frame is often sharper than the rest."
+     "text": "Then watch the shutter speed the camera chooses. The rule from the lesson on shutter speed says 1/1000 s at 1000 mm, but the stabiliser buys about three stops, so at 1000 mm, braced, about 1/125 s is the slowest you can trust; at 2000 mm, about 1/250 s. If the camera goes slower than that, you have run out of light: get steadier (lean on a tree, sit down, use a monopod[^monopod]), or raise the ISO ceiling and accept the grain. Take a short burst of three or four frames rather than a single one. Between the small tremors of your hands, one frame is often sharper than the rest."
     }
    ]
   },
@@ -102,7 +102,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "When a bird stays put, you have time to improve on the first picture. Take a safe frame first, with the starting recipe, as soon as you see it. Then work through the list: is the eye sharp (check by zooming into the picture on the screen)? Is the histogram sensible? Is there a twig across the face or something growing out of the head, and would a step to the side clear it? Is the light coming from somewhere useful? Can you get lower?"
+     "text": "When a bird stays put, you have time to improve on the first picture. Take a safe frame first, with the starting recipe, as soon as you see it. Then work through the list: is the eye sharp (check by zooming into the picture on the screen)? Is the histogram clear of both edges? Is there a twig across the face or something growing out of the head, and would a step to the side clear it? Is the light coming from somewhere useful? Can you get lower?"
     },
     {
      "type": "text",
@@ -134,9 +134,9 @@
        {
         "question": "A thrush sits still in dim shade at 1000 mm. In aperture priority the camera picks 1/30 s. What should you do?",
         "options": [
-         "Brace well and raise the ISO ceiling so the shutter gets faster",
+         "Brace well and raise the ISO ceiling",
          "Switch to shutter priority at 1/2000 s",
-         "Narrow the aperture to f/8",
+         "Narrow the aperture to f/8 for depth",
          "Switch to continuous autofocus"
         ],
         "answer": 0,
@@ -145,10 +145,10 @@
        {
         "question": "Why zoom out to around 800 mm for a swallow in flight?",
         "options": [
-         "A wider frame makes it far easier to keep the bird in it",
-         "The lens focuses faster at 800 mm",
+         "A wider frame keeps the bird in it more easily",
+         "The lens focuses faster at 800 mm than 2000 mm",
          "Shorter focal lengths freeze motion better",
-         "The camera only allows burst mode below 1000 mm"
+         "The camera only allows bursts below 1000 mm"
         ],
         "answer": 0,
         "why": "At the long end the frame is about a degree wide, and a darting bird leaves it constantly. A wider view lets you follow it, and you can crop afterwards."
@@ -167,10 +167,10 @@
        {
         "question": "What does the P950's button on the side of the lens barrel do?",
         "options": [
-         "Zooms out while held, then back in when released",
+         "Zooms out while held, back in when released",
          "Locks the focus at its current distance",
-         "Starts a burst of shots",
-         "Turns the stabiliser on and off"
+         "Starts a burst of shots at the top speed",
+         "Turns the image stabiliser on and off"
         ],
         "answer": 0,
         "why": "It is a quick way to find a bird you have lost at the long end: hold it to see a wider view, centre the bird, and let go."
@@ -178,10 +178,10 @@
        {
         "question": "Why take a burst of three or four frames of a perched bird?",
         "options": [
-         "One of them is often sharper, between the tremors of your hands",
-         "It lets the camera average the noise out",
+         "One is often sharper, between hand tremors",
+         "The camera averages the noise out of them",
          "The camera exposes the later frames better",
-         "It is needed for the stabiliser to work"
+         "The stabiliser needs several frames to work"
         ],
         "answer": 0,
         "why": "Hand-held at long zooms, shake varies from moment to moment. In a short burst, one frame often falls in a still moment."
@@ -189,8 +189,8 @@
        {
         "question": "A heron has been standing for ten minutes and you have a sharp, well-exposed picture. What is the best next step?",
         "options": [
-         "Look for a cleaner background or better light, then wait for it to do something",
-         "Leave; the shot is done",
+         "Look for better light or background, and wait",
+         "Leave, because the safe shot is already done",
          "Move much closer for a frame-filling shot",
          "Change to a slower shutter for more light"
         ],
