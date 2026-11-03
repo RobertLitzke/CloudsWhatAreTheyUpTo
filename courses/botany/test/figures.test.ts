@@ -15,6 +15,8 @@ import { cell, rise } from '../src/figures/cells';
 import { column } from '../src/figures/xylem';
 import { stoma } from '../src/figures/stomata';
 import { day } from '../src/figures/cam';
+import { girdled, munch } from '../src/figures/phloem';
+import { pot } from '../src/figures/peas';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -163,5 +165,38 @@ describe('figures', () => {
     setSlider(p.node, 0, 24);
     click(p.node, 'Take away rubisco’s mistake');
     await expect(p.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 9: a ringed tree starves its roots before its leaves, and Münch flow stops when the sink fills', async () => {
+    const ringed = girdled('bark', 30);
+    const firstRootLoss = ringed.findIndex((s) => s.roots < 1);
+    const firstLeafLoss = ringed.findIndex((s) => s.leaves < 1);
+    expect(firstRootLoss).toBeGreaterThan(0);
+    expect(firstLeafLoss).toBeGreaterThan(firstRootLoss);
+    expect(girdled('wood', 1)[1].leaves).toBe(0);
+    expect(munch(0.6, true, 60)[60].flow).toBeGreaterThan(0.05);
+    expect(munch(0.6, false, 60)[60].flow).toBeLessThan(0.01);
+    const g = FIGURES.girdle(context(), 'roots');
+    guess(g.node, 'The roots');
+    setSlider(g.node, 0, 30);
+    await expect(g.done).resolves.toBeUndefined();
+    const m = FIGURES.munch(context(), 'stops');
+    click(m.node, 'Stop the sink using sugar');
+    setSlider(m.node, 0, 60);
+    await expect(m.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 10: soil wash feeds peas but not oats, and shortages show on old or new leaves', async () => {
+    expect(pot('peas', 'wash').growth).toBeGreaterThan(0.8);
+    expect(pot('oats', 'wash').growth).toBeLessThan(0.3);
+    expect(pot('peas', 'wash').nodules).toBe(true);
+    const p = FIGURES.pots(context(), 'nodules');
+    guess(p.node, 'Only the peas');
+    click(p.node, 'Oats');
+    await expect(p.done).resolves.toBeUndefined();
+    const k = FIGURES.knop(context(), 'mobile');
+    click(k.node, 'No N');
+    click(k.node, 'No Fe');
+    await expect(k.done).resolves.toBeUndefined();
   });
 });

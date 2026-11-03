@@ -1,0 +1,89 @@
+{
+  "id": "peas",
+  "n": 10,
+  "title": "Peas in sterile sand",
+  "teaches": "What plants take from the soil, why fertiliser isn't food, and how peas get nitrogen from the air with the help of bacteria",
+  "parts": [
+    {
+      "title": "Peas, oats and a spoonful of soil",
+      "blocks": [
+        {"type": "text", "text": "Farmers had known for two thousand years that some crops leave a field richer and others leave it poorer. Roman writers advised sowing beans, vetch or lupins before wheat. In the 1700s English farmers grew clover in rotation and found the next year's grain much better for it. But nobody knew why. The answer turned on nitrogen, which every plant needs in large amounts, and which is everywhere and almost nowhere: the air is 78 percent nitrogen gas, but no plant can use it in that form."},
+        {"type": "text", "text": "In the 1880s two German agricultural chemists, Hermann Hellriegel and Hermann Wilfarth, at an experiment station in Bernburg, set out to settle it. They grew peas and oats in pots of sand that they had heated to kill everything living in it, watered them with every mineral a plant needs except nitrogen, and watched them starve. Both crops grew a few pale leaves and stopped. Then, to some of the pots, they added a little water that had been shaken up with ordinary field soil."},
+        {"type": "interactive_diagram", "id": "pots", "caption": "Hellriegel and Wilfarth's pots: sterile sand with every mineral but nitrogen, with soil wash or nitrate added. A model of their results.", "task": "Guess, then look at both crops", "goal": "nodules", "aspect_ratio": 1.69},
+        {"type": "text", "text": "The oats did nothing. The peas took off, grew green and tall, and when the experimenters tipped them out, their roots were covered in small pink lumps called **nodules**. Pots of peas with no soil wash had no nodules and no growth. Something living in the soil, invisible in a spoonful of water, was letting peas take nitrogen from the air. Hellriegel announced it in 1886."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Peas and oats in sterile sand with no nitrogen both starved.", "A spoonful of soil wash made peas grow, with nodules on their roots; oats stayed starved (Hellriegel and Wilfarth, 1886)."]}
+      ]
+    },
+    {
+      "title": "Liebig's minerals",
+      "blocks": [
+        {"type": "text", "text": "The question had been set up by Justus von Liebig, the most famous chemist in Germany. In 1840 he published a book on chemistry in agriculture that overturned the old belief that plants feed on humus, the dark rotted matter of the soil. Plants, Liebig said, build themselves from carbon dioxide and water, as Saussure had shown, and take only minerals from the soil: potassium, phosphorus, calcium and the rest, which you can find in their ash. Return those minerals to the field and it will stay fertile."},
+        {"type": "text", "text": "He also made popular a rule that the German agronomist Carl Sprengel had stated earlier: a plant's growth is limited by whichever necessary thing is scarcest. Add more of anything else and nothing changes. It is often drawn as a barrel with staves of different heights, which can hold water only up to its shortest stave."},
+        {"type": "diagram", "id": "barrel", "caption": "The law of the minimum, as a barrel: growth is set by the scarcest necessity.", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Liebig was mostly right, but wrong about nitrogen. He thought plants got enough of it from ammonia in rain and air, and his first fertilisers left it out. They failed. Experiments in England, at Rothamsted, showed that crops grew far better with nitrogen added, and that peas and clover were somehow different. Hellriegel and Wilfarth showed how."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Liebig (1840): plants build themselves from air and water and take only minerals from the soil.", "The law of the minimum: growth is set by whatever necessity is scarcest.", "Liebig was wrong about nitrogen; crops need it added, except peas and their relatives."]}
+      ]
+    },
+    {
+      "title": "What fertiliser is and isn't",
+      "blocks": [
+        {"type": "text", "text": "Garden shops sell fertiliser as “plant food”, which is a fair description of the label and a poor one of the plant. Food, for any living thing, is what it gets energy from. A plant's food is the sugar it makes itself from carbon dioxide and water, using sunlight, as lessons 1 to 4 described. The minerals it takes from the soil hold no usable energy at all. They are building parts: nitrogen for proteins and chlorophyll, phosphorus for the molecules that carry energy and genes, magnesium at the heart of chlorophyll, potassium to run the cell's osmosis (lesson 5)."},
+        {"type": "text", "text": "Together the minerals make up only a few percent of a plant's dry weight, but without any one of them, growth stops. The three numbers on a fertiliser bag are its shares of nitrogen, phosphorus and potassium, the three a crop is most likely to run short of. In 1860 Julius Sachs and Wilhelm Knop showed that plants can be grown to full size with their roots in nothing but water with these and a handful of other salts dissolved in it. Their recipes are the ancestors of hydroponics."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Fertiliser isn't food: plant food is the sugar a plant makes; minerals carry no energy.", "Minerals are building parts, a few percent of dry weight, each essential.", "Sachs and Knop (1860) grew plants in water with dissolved salts alone."]}
+      ]
+    },
+    {
+      "title": "Nodules",
+      "blocks": [
+        {"type": "text", "text": "In 1888 the Dutch microbiologist Martinus Beijerinck grew the bacteria from inside pea nodules in a dish. They are now called *Rhizobium*. They live freely in soil, but when they meet the root of a pea, bean, clover, lupin or other member of the legume family, root and bacteria exchange chemical signals, the bacteria are let in, and the root grows a nodule round them."},
+        {"type": "text", "text": "Inside the nodule, the bacteria **fix nitrogen**: they break apart the very strong bond holding the two atoms of a nitrogen gas molecule together and join the nitrogen to hydrogen, making ammonia, which the plant builds into proteins. Breaking that bond takes a great deal of energy, and the plant pays for it in sugar, sent down through the phloem (lesson 9). It is a mutualism, of the kind the Ecology course's acacia ants are. The enzyme that does the fixing is destroyed by oxygen, so the nodule keeps its oxygen low with a red, blood-like protein. That is why a working nodule is pink inside."},
+        {"type": "text", "text": "When the pea dies or is ploughed in, its nitrogen-rich leaves and roots rot and release nitrogen into the soil for the next crop. That is what the Roman farmers and the clover rotations were using without knowing it. Since the early 1900s people have also fixed nitrogen in factories, by the Haber–Bosch process, at high temperature and pressure; about half the nitrogen in your body probably passed through one. Alders, which colonise bare ground on Northwest riverbanks, do the same with a different microbe, *Frankia*, in their own root nodules."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["*Rhizobium* bacteria in legume root nodules **fix nitrogen**: they turn nitrogen gas into ammonia the plant can use.", "The plant pays in sugar; it is a mutualism. A working nodule is pink inside.", "Legumes enrich soil for the next crop; factories now fix nitrogen too (Haber–Bosch)."]}
+      ]
+    },
+    {
+      "title": "Reading a hungry plant",
+      "blocks": [
+        {"type": "text", "text": "A plant short of one mineral shows it, and where it shows it tells you something. Some elements, such as nitrogen, phosphorus, potassium and magnesium, can be taken back out of a leaf and moved through the phloem to where the plant is growing. When they run short, the plant strips its old leaves to feed the new ones, and the oldest leaves show the shortage first. Others, such as iron and calcium, are locked in place once used. Then it's the newest leaves and growing tips that go short."},
+        {"type": "interactive_diagram", "id": "knop", "caption": "A plant grown in water with every mineral but one. A sketch of the classic signs, not a guide to diagnosing a real plant.", "task": "Leave out one element that shows on the old leaves and one that shows on the new", "goal": "mobile", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Gardeners use exactly this. Yellow lower leaves on a tomato usually mean it needs nitrogen. Yellow young leaves with green veins on a blueberry or a rhododendron usually mean it can't get iron, often because the soil is too alkaline for the iron in it to dissolve: the iron is there, but locked up. A real plant can be short of several things at once, and diseases can mimic shortages, so the signs are a starting point, not a verdict."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Elements the plant can move (N, P, K, Mg) show their shortage on the old leaves first.", "Elements it can't move (Fe, Ca) show on the youngest growth first."]}
+      ]
+    },
+    {
+      "title": "Back to the willow",
+      "blocks": [
+        {"type": "text", "text": "Van Helmont's two ounces of lost soil, from lesson 1, now make sense. Over five years his willow took from the soil only its minerals, a percent or so of its dry weight. If it had needed a lot of nitrogen it could have run short, since his tub got only rainwater; willows grow slowly in poor soil. Everything else came from the air and the water, assembled with sunlight."},
+        {"type": "text", "text": "So a plant is mostly air and water, held together by sugar it makes itself, with a pinch of minerals from the soil, one of which, nitrogen, came from the air too, through bacteria or a factory. The soil isn't where a plant gets its bulk or its food. It is where it gets its building parts, and where it meets the partners, bacteria and fungi, that help it get them. The next lesson goes underground to meet the fungi."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The soil supplies minerals, a small share of the plant, and its nitrogen comes from the air through bacteria or factories.", "A plant's bulk is air and water; its food is the sugar it makes."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on minerals and nitrogen", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Why did the oats in Hellriegel and Wilfarth's sterile sand starve even after soil wash was added?", "choices": ["Oats can't form nodules with nitrogen-fixing bacteria", "The soil wash was poisonous to oats", "Oats need more light"], "answer": 0, "why": "The soil wash carried Rhizobium bacteria, which form nodules only on legumes like peas. Oats still had no nitrogen."},
+            {"ask": "A gardener calls fertiliser plant food. What's wrong with that?", "choices": ["Minerals carry no energy; a plant's food is the sugar it makes", "Fertiliser contains no minerals", "Plants don't need minerals"], "answer": 0, "why": "Food is an energy source. A plant makes its own from carbon dioxide, water and light; minerals are building parts."},
+            {"ask": "A tomato's lowest leaves are turning yellow all over while the top looks fine. What is it most likely short of?", "choices": ["Nitrogen", "Iron", "Calcium"], "answer": 0, "why": "Nitrogen can be moved from old leaves to new ones, so a shortage shows first on the oldest leaves."},
+            {"ask": "A field has plenty of nitrogen and potassium but very little phosphorus. A farmer adds more nitrogen. What happens to the crop?", "choices": ["Little or nothing: phosphorus still limits it", "It grows much better", "It dies"], "answer": 0, "why": "The law of the minimum: growth is set by the scarcest necessity. Raising another stave of the barrel doesn't help."},
+            {"ask": "Why is a working pea nodule pink inside?", "choices": ["It holds a red protein that keeps oxygen low for the nitrogen-fixing enzyme", "It is full of blood from insects", "The bacteria are red"], "answer": 0, "why": "The enzyme that fixes nitrogen is destroyed by oxygen. A red, blood-like protein holds oxygen at a low level inside the nodule."},
+            {"ask": "A pea crop fixes about 100 kg of nitrogen per hectare. A 50 kg bag of urea fertiliser holds about 23 kg of nitrogen. About how many bags is that?", "choices": ["About 4", "About 2", "About 10"], "answer": 0, "why": "100 divided by 23 is a little over 4."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Peas and oats in sterile sand starved without nitrogen.** A spoonful of soil wash made only the peas grow, with nodules on their roots (Hellriegel and Wilfarth, 1886).",
+    "**Liebig: plants take only minerals from the soil.** Growth is set by the scarcest necessity, like water in a barrel with a short stave.",
+    "**Fertiliser isn't food.** A plant's food is the sugar it makes; minerals are building parts, a few percent of its dry weight.",
+    "**Rhizobium bacteria in legume nodules fix nitrogen from the air.** The plant pays them in sugar; a working nodule is pink inside.",
+    "**Legumes enrich the soil for the next crop.** That is why rotations with beans and clover work; factories now fix nitrogen too.",
+    "**Where a shortage shows tells you what's short.** Mobile elements (N, P, K, Mg) show on old leaves; locked ones (Fe, Ca) on new growth.",
+    "**A plant is mostly air and water, held together by sugar it makes.** The soil supplies minerals and partners."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

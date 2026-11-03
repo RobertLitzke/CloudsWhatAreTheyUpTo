@@ -1,0 +1,87 @@
+{
+  "id": "phloem",
+  "n": 9,
+  "title": "The ring around the trunk",
+  "teaches": "How sugar moves through a plant in the phloem, pushed by osmotic pressure from where it's made to where it's used",
+  "parts": [
+    {
+      "title": "Malpighi's ring",
+      "blocks": [
+        {"type": "text", "text": "Marcello Malpighi was an Italian physician and one of the first great microscopists. In the 1670s he published *Anatome Plantarum*, the anatomy of plants, full of careful drawings of stems, roots and seeds, and of experiments. In one, he cut a ring of bark from the trunk of a young tree, all the way round, down to the wood, and watched what happened."},
+        {"type": "text", "text": "For a long time, not much. The leaves stayed green and the tree seemed healthy through the season. But the bark just above the ring began to swell, as if something coming down the trunk was piling up there and couldn't get past. And in time, months later or the next year, the tree died."},
+        {"type": "interactive_diagram", "id": "girdle", "caption": "A young tree after a ring of bark is cut away all round the trunk, or after its wood is cut and the bark left. A model.", "task": "Guess, then follow the ringed tree until its roots fail", "goal": "roots", "aspect_ratio": 1.67},
+        {"type": "text", "text": "Malpighi had cut something that runs in the bark, not in the wood. The wood was still carrying water up, which is why the leaves stayed green. What couldn't pass was food on its way down. The swelling above the cut was that food piling up, and the roots below were slowly starving. When they failed, they stopped taking up water, and only then did the leaves die."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Malpighi cut a ring of bark from a trunk in the 1670s: the bark above swelled, the leaves stayed green for months, then the tree died.", "Water goes up in the wood; food comes down in the bark. Ringing starves the roots first."]}
+      ]
+    },
+    {
+      "title": "Two kinds of pipe",
+      "blocks": [
+        {"type": "text", "text": "A tree's trunk is two sets of pipes running in opposite directions. Lesson 6's xylem, the wood, carries water and minerals up from the roots. Just inside the bark is a thin layer of a second kind of pipe, the **phloem** (from the Greek for bark), carrying sugar and other food made in the leaves to wherever it's needed."},
+        {"type": "text", "text": "Under a microscope the two look very different. Xylem pipes are dead, empty and thick-walled. Phloem pipes, called **sieve tubes**, are made of living cells joined end to end, whose end walls are perforated like sieves, which the German forester Theodor Hartig described in 1837. Each sieve-tube cell has given up its nucleus and most of its insides to leave room for the flow, and is kept alive by a small companion cell beside it. Every plant with veins has both: in a leaf vein, in a celery stalk, in a blade of grass, xylem and phloem run side by side."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["**Phloem** carries sugar from the leaves; xylem carries water up.", "Phloem pipes are **sieve tubes**: living cells joined end to end through perforated walls, kept alive by companion cells."]}
+      ]
+    },
+    {
+      "title": "Aphids as syringes",
+      "blocks": [
+        {"type": "text", "text": "Phloem is hard to study, because the tubes are tiny and they seal themselves within seconds when cut. In 1953 two entomologists at Cambridge, John Kennedy and Tom Mittler, found a way in. Aphids feed on phloem sap, pushing a needle-like mouthpart, the stylet, into a single sieve tube. Kennedy and Mittler let aphids settle on a willow stem, put them to sleep with carbon dioxide, and cut their bodies away from their stylets with a fine blade."},
+        {"type": "text", "text": "The stylets stayed in place, and sap kept welling out of them, drop after drop, for hours and sometimes days. The aphid hadn't been sucking at all. The sap was under pressure inside the tube, and was being pushed out. Collected and analysed, it was a strong solution of sugar, mostly sucrose, with amino acids and other substances: a tree's food on the move."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Kennedy and Mittler (1953) cut feeding aphids away from their stylets; phloem sap kept flowing out under pressure.", "Phloem sap is a strong sugar solution under positive pressure."]}
+      ]
+    },
+    {
+      "title": "Pressure flow",
+      "blocks": [
+        {"type": "text", "text": "What pushes it? In 1930 the German forester Ernst Münch proposed an explanation that uses only lesson 5's osmosis. In a leaf, sugar is loaded into the sieve tubes. Water follows by osmosis from the xylem next door, raising the pressure there. Where the sugar is being used or stored (a root, a growing tip, a ripening fruit), it is unloaded out of the tubes, the water follows it out, and the pressure falls. Sap flows from high pressure to low, carrying its sugar with it, the way water flows out of a squeezed hose."},
+        {"type": "text", "text": "Münch showed it with two bulbs made of a membrane that lets water through but not sugar, joined by a tube and sunk in water. Fill one with sugar solution and water rushes into it, pushing sap through the tube into the other. The flow keeps going as long as the first bulb is kept sugary and the second has its sugar taken away."},
+        {"type": "interactive_diagram", "id": "munch", "caption": "Münch's bulbs: a source kept full of sugar and a sink, joined by a tube, in a water bath. A model.", "task": "Stop the sink using sugar and see the flow die away", "goal": "stops", "aspect_ratio": 2},
+        {"type": "text", "text": "Phloem sap moves fast for something inside a plant: up to about a metre an hour. The xylem's water is pulled by tension, from evaporation; the phloem's sap is pushed by pressure, from osmosis. Both run on physics, with no pump anywhere."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Münch (1930): sugar loaded at a source draws in water by osmosis; the pressure pushes sap to a sink where sugar is unloaded.", "If the sink stops using sugar, the pressure evens out and the flow stops.", "Phloem sap can move about a metre an hour."]}
+      ]
+    },
+    {
+      "title": "Sources and sinks",
+      "blocks": [
+        {"type": "text", "text": "Because the flow goes from wherever sugar is loaded to wherever it's unloaded, phloem doesn't have a fixed direction. Botanists call the places that supply sugar **sources** and the places that use or store it **sinks**. In summer, mature leaves are the sources; roots, growing shoots, seeds and fruit are sinks, and sap runs both down and up from the leaves. But when a stored potato sprouts, or a tulip bulb pushes up its first leaves, the store is the source and the new shoot is the sink, and the sap flows the other way."},
+        {"type": "text", "text": "A young leaf is a sink until it's about half grown, importing sugar to build itself; then it switches over and starts exporting. A potato plant sends its sugar down into its tubers; a grapevine sends it into its grapes. Growers use this: grape growers sometimes cut a thin ring of bark on a vine's trunk after flowering, so the sugar can't go down to the roots for a few weeks and goes into the fruit instead, giving bigger grapes. The ring heals before the roots suffer."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["**Sources** load sugar (mature leaves; a sprouting tuber or bulb); **sinks** use or store it (roots, tips, fruit, young leaves).", "Phloem flows from source to sink, so its direction changes with the season and the plant part."]}
+      ]
+    },
+    {
+      "title": "Why ringing kills",
+      "blocks": [
+        {"type": "text", "text": "Ringing, or girdling, kills a tree slowly and surely, and people have used it for centuries to clear forest without felling it: settlers in North America ring-barked trees and planted crops among the dead trunks. Animals do it by accident. Voles gnaw the bark of young fruit trees under the snow, porcupines and beavers strip it, deer rub their antlers on saplings, and a careless string trimmer can girdle a garden tree in a second."},
+        {"type": "text", "text": "If you find a tree with a band of bark gone, look for the swelling just above it, Malpighi's swelling: sugar on its way to roots that will never get it. A tree with a ring cut only partway round survives, because the sap can flow round through the strip that's left. Only a complete ring starves the roots."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Girdling kills by starving the roots; the leaves die only after the roots fail.", "A partial ring doesn't kill; the sap goes round through the uncut bark."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on phloem", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A ring of bark is cut all round a tree's trunk. Why do the leaves stay green for months?", "choices": ["The wood, which carries water up, is uncut", "The leaves make their own water", "The phloem keeps carrying water"], "answer": 0, "why": "Water travels in the xylem, the wood, which the ring didn't cut. The leaves die only when the starved roots stop taking up water."},
+            {"ask": "Why does the bark just above a ring swell?", "choices": ["Sugar coming down in the phloem piles up there", "Water leaks out of the wood", "The tree grows faster there to repair itself"], "answer": 0, "why": "The phloem carries sugar down from the leaves; with the ring cut, it can't get past and accumulates above."},
+            {"ask": "Sap kept flowing from aphid stylets after the aphids' bodies were cut away. What did that show?", "choices": ["Phloem sap is under pressure", "Aphids suck very hard", "Xylem sap is sugary"], "answer": 0, "why": "With no aphid to suck, the sap still came out: it was being pushed by pressure inside the sieve tube."},
+            {"ask": "In Münch's model, what makes water enter the source bulb?", "choices": ["Osmosis: the bulb is full of sugar", "A pump in the bulb", "Evaporation"], "answer": 0, "why": "Sugar inside the membrane draws water in by osmosis, raising the pressure that pushes sap along."},
+            {"ask": "A tulip bulb sends up its first leaves in spring. Which way does phloem sap flow?", "choices": ["Up, from the stored food in the bulb to the growing shoot", "Down, from the leaves to the bulb", "It doesn't flow"], "answer": 0, "why": "The bulb's store is the source and the new shoot is the sink. Later, once the leaves are grown, the flow reverses to refill the bulb."},
+            {"ask": "Which of these would most likely kill a tree?", "choices": ["Voles gnawing the bark off all the way round the base", "A deep cut into the bark on one side", "Pruning a few lower branches"], "answer": 0, "why": "Only a complete ring stops the sugar reaching the roots. A cut on one side lets sap flow round through the rest of the bark."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Malpighi ringed a trunk in the 1670s.** The bark above swelled, the leaves stayed green for months, then the tree died.",
+    "**Water goes up in the xylem; sugar goes down in the phloem, in the bark.**",
+    "**Phloem pipes are living sieve tubes.** Kept alive by companion cells.",
+    "**Phloem sap is under pressure.** Kennedy and Mittler's cut aphid stylets kept oozing it.",
+    "**Münch's pressure flow (1930).** Sugar loaded at a source draws water in by osmosis, and the pressure pushes sap to a sink.",
+    "**Sap flows from source to sink.** Mature leaves in summer, a sprouting bulb or tuber in spring; the direction changes.",
+    "**Girdling kills by starving the roots.** Only a complete ring; the leaves die last."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

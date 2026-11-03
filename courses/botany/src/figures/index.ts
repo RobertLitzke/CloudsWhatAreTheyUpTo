@@ -15,6 +15,8 @@ import { cellFigure, osmosisFigure } from './cells';
 import { columnFigure, pumpStill } from './xylem';
 import { stomaFigure, woodwardStill } from './stomata';
 import { kranzStill, pathwaysFigure } from './cam';
+import { girdleFigure, munchFigure } from './phloem';
+import { barrelStill, knopFigure, potsFigure } from './peas';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -46,4 +48,11 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 8
   kranz: kranzStill,
   pathways: pathwaysFigure,
+  // Lesson 9
+  girdle: girdleFigure,
+  munch: munchFigure,
+  // Lesson 10
+  pots: potsFigure,
+  barrel: barrelStill,
+  knop: knopFigure,
 };
