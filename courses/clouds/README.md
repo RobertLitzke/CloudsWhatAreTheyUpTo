@@ -35,7 +35,7 @@ and uses real photos for testing.
   townsfolk's questions come back as the last forecasts. Each turn offers up
   to three replies that rejoin. Shutting a talk is rude, and you are told so;
   a radio button in the corner brings it back. Heard talks go into the
-  journal's radio log.
+  field guide's radio log.
   1. **The two textures**: what a cloud is, stable and unstable air, cumulus
      from thermals and stratus from a cooling night.
   2. **The low sky**: the three floors, stratocumulus under a lid, why most
@@ -48,8 +48,8 @@ and uses real photos for testing.
   5. **Vertical giants and rare boss clouds**: a sounding that grows
      congestus and cumulonimbus, a storm's life, counting the thunder, and
      the rare lens, mammatus and Kelvin-Helmholtz clouds.
-- The **field journal**: notes the lessons unlock, and a card for each of the
-  ten genera (what it looks like, what made it, what it means).
+- The **field guide**: a card for each of the ten genera (what it looks like,
+  what made it, what it means) and the rare sights, and the glossary.
 - A **photo pipeline** that finds, credits and resizes photos from Wikimedia
   Commons (see below). Until photos are fetched, the check uses drawn
   clouds and says so.
@@ -74,12 +74,12 @@ the same picture on every load, `?imperial` for imperial units, or
 
 | Command | What it does |
 |---|---|
-| `npm test` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, radio talks, photo credits, licence mapping |
-| `npm run build` | Typecheck, then build `dist/` |
-| `npm run preview` | Serve `dist/` on http://localhost:5421 |
-| `npm run icons` | Regenerate the PNG icons from a square of `art/poster.jpg` |
-| `npm run photos:find` | List candidate photos from Commons into a contact sheet to pick from |
-| `npm run photos:fetch` | Download the picked photos, resize them and write their credits |
+| `npm test -w clouds` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, radio talks, photo credits |
+| `npm run build -w clouds` | Typecheck, then build `dist/` |
+| `npm run preview -w clouds` | Serve `dist/` on http://localhost:5421 |
+| `npm run icons -w clouds` | Regenerate the icons (the cel cumulus in `tools/icons.mjs`, written by the root's `tools/lib/icons.mjs`) and `poster.webp` from `art/poster.jpg` |
+| `npm run photos:find -- clouds` | At the root: list candidate photos from Commons into a contact sheet to pick from |
+| `npm run photos -- clouds` | At the root: download the picked photos, resize them and write their credits |
 
 ## Photos
 
@@ -91,18 +91,23 @@ heights, but its photos are copyrighted and are not used. NOAA's photo
 library is public domain and much of it is mirrored on Commons, so it comes
 through the same search.
 
-1. `npm run photos:find` searches the Commons categories in
-   `tools/photos/config.ts` and writes `tools/photos/candidates/index.html`.
-2. Open it, tap the photos that clearly show their cloud (Commons categories
-   are often wrong), and copy the JSON at the bottom into
-   `tools/photos/picks.json`.
-3. `npm run photos:fetch` re-reads each licence, downloads 1280-wide WebP
-   copies into `public/photos/` and writes `src/data/photos.json`.
+1. `npm run photos:find -- clouds` (at the root) searches the Commons
+   categories in `tools/photo-search.json` and writes
+   `tools/candidates/index.html`.
+2. Open it, tap the photos that clearly show their cloud (Commons categories are often wrong), and add the JSON
+   at the bottom to `tools/photo-picks.json` (one entry per photo, with its
+   id; ids are kept for good, as saves remember photos by them).
+3. `npm run photos -- clouds` re-reads each licence, downloads 1024-wide
+   WebP copies into `public/photos/` and writes `src/data/photos.json`.
 4. `npm test` checks every entry has a credit, an accepted licence and a
    source link.
 
-Photos are not inlined into `index.html`. They are served beside it and the
-service worker keeps each one once it has been seen.
+The photo tools live at the repository's root (`tools/photos.mjs`,
+`tools/photos-find.mjs`), one copy for every course.
+
+Photos are not inlined into `index.html`. They are served beside it; the
+site's service worker keeps each one once it has been seen, and Settings
+saves them all for offline.
 
 ## Layout
 
@@ -113,7 +118,7 @@ src/core/     pure TypeScript, no DOM; unit-tested
   sky.ts        angular size, the warm front, night cooling, thunder
   optics.ts     light through an ice prism, the halo
   drops.ts      how fast drops fall and how far they get before evaporating
-  shifts.ts     the five lessons (parts of text and figures), journal
+  lessons.ts    the lessons (parts of text and figures) and the tree
   talk.ts       the radio talks and the townsfolk's questions
   photo-call.ts radio-check.ts  dealing the photo checks
   photos.ts     the photo entry shape and accepted licences
@@ -125,8 +130,7 @@ src/app/      store.ts, asset.ts, photos.ts, radio.ts (Walla Walla on Didactics'
                 checks; kit.ts the palette over Didactics' figure.ts;
                 draw.ts cloud and radar pieces over Didactics' draw.ts;
                 index.ts naming them all
-  views/        home, shift, quiz, settings (Didactics' views in Clouds'
-                words), journal, credits, seed
+  views/        home, lesson, guide, sky, seed (the rest are Didactics' views)
 tools/photos/ find.ts, fetch.ts, commons.ts, config.ts, picks.json
 test/
 ```

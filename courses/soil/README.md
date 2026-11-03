@@ -55,8 +55,8 @@ and run `npm install` at the root, then `npm test` and `npm run build`.
 ## Run
 
 ```bash
-npm install
-npm run dev
+npm install          # at the repository's root
+npm run dev -w soil
 ```
 
 Opens on http://localhost:5440. http://localhost:5440/figures.html shows every
@@ -65,12 +65,12 @@ picture every load, or `?only=<figure id>` for one figure.
 
 | Command | What it does |
 |---|---|
-| `npm test` | Vitest: texture classes and the jar test, lesson and reference content, every figure built, drawings, photo credits, the save |
-| `npm run build` | Typecheck, then build `dist/` |
-| `npm run preview` | Serve `dist/` on http://localhost:5441 |
-| `npm run icons` | Regenerate the PNG icons (drawn in `tools/icons.mjs`) |
-| `npm run photos:find` | List candidate photos from Commons into a contact sheet to pick from |
-| `npm run photos:fetch` | Download the picked photos, resize them and write their credits |
+| `npm test -w soil` | Vitest: texture classes and the jar test, lesson and reference content, every figure built, drawings, photo credits, the save |
+| `npm run build -w soil` | Typecheck, then build `dist/` |
+| `npm run preview -w soil` | Serve `dist/` on http://localhost:5441 |
+| `npm run icons -w soil` | Regenerate the icons (drawn in `tools/icons.mjs`, written by the root's `tools/lib/icons.mjs`) |
+| `npm run photos:find -- soil` | At the root: list candidate photos from Commons into a contact sheet to pick from |
+| `npm run photos -- soil` | At the root: download the picked photos, resize them and write their credits |
 
 ## Photos
 
@@ -78,16 +78,22 @@ Every photo carries its author, licence and source, shown under the photo and
 on the Credits page. Only public domain, CC0, CC BY and CC BY-SA photos are
 accepted. Subjects are listed in `src/core/photos.ts` (`SUBJECTS`); each one
 needs a drawing in `src/app/scene/subjects.ts` and Commons categories in
-`tools/photos/config.ts` (the categories are a first guess and may need
+`tools/photo-search.json` (the categories are a first guess and may need
 adjusting).
 
-1. `npm run photos:find` writes `tools/photos/candidates/index.html`.
-2. Open it, tap the photos that clearly show their subject, and copy the JSON
-   at the bottom into `tools/photos/picks.json`.
-3. `npm run photos:fetch` downloads 1024-wide WebP copies into
-   `public/photos/` and writes `src/data/photos.json`.
+1. `npm run photos:find -- soil` (at the root) searches the Commons
+   categories in `tools/photo-search.json` and writes
+   `tools/candidates/index.html`.
+2. Open it, tap the photos that clearly show their subject, and add the JSON
+   at the bottom to `tools/photo-picks.json` (one entry per photo, with its
+   id; ids are kept for good, as saves remember photos by them).
+3. `npm run photos -- soil` re-reads each licence, downloads 1024-wide
+   WebP copies into `public/photos/` and writes `src/data/photos.json`.
 4. `npm test` checks every entry has a credit, an accepted licence and a
    source link.
+
+The photo tools live at the repository's root (`tools/photos.mjs`,
+`tools/photos-find.mjs`), one copy for every course.
 
 ## Adding a lesson
 

@@ -48,8 +48,8 @@ root; run it with `npm run dev -w electronics`). There is no story or radio ment
 ## Run
 
 ```bash
-npm install
-npm run dev
+npm install          # at the repository's root
+npm run dev -w electronics
 ```
 
 Opens on http://localhost:5450. http://localhost:5450/figures.html shows every
@@ -58,10 +58,10 @@ load, or `?only=<figure id>` for one figure.
 
 | Command | What it does |
 |---|---|
-| `npm test` | Vitest: the solver, lesson and reference content, every figure built, the views, the save |
-| `npm run build` | Typecheck, then build `dist/` |
-| `npm run preview` | Serve `dist/` on http://localhost:5451 |
-| `npm run icons` | Regenerate the PNG icons (drawn in `tools/icons.mjs`) |
+| `npm test -w electronics` | Vitest: the solver, lesson and reference content, every figure built, the views, the save |
+| `npm run build -w electronics` | Typecheck, then build `dist/` |
+| `npm run preview -w electronics` | Serve `dist/` on http://localhost:5451 |
+| `npm run icons -w electronics` | Regenerate the icons (drawn in `tools/icons.mjs`, written by the root's `tools/lib/icons.mjs`) |
 
 ## The circuit engine
 
