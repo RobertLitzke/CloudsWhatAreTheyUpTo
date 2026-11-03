@@ -1,0 +1,88 @@
+{
+  "id": "globe-preview",
+  "n": 1,
+  "code": "Preview",
+  "title": "Light on a ball",
+  "teaches": "A preview of the shared globe: why the Moon has phases, and why 48° N has long summer days",
+  "parts": [
+    {
+      "title": "The Moon's changing face",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Over about four weeks the Moon goes from invisible to a thin evening crescent, to a half, to full, and back. People have offered many explanations, and the one most often heard today is wrong: that the Earth's shadow covers part of the Moon. The Moon is a ball, half of it always in sunlight. What changes through the month is how much of that sunlit half faces us."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "moonPhases",
+          "caption": "On the left, the Earth and the Moon's orbit seen from far above the North Pole, with sunlight coming from the left; distances and sizes are not to scale. On the right, the Moon as it looks from the Earth at that moment, with its dark plains (maria) in place. Drag the Moon round its orbit, or move the slider.",
+          "task": "Put the Moon where it shows a half disc lit on the right",
+          "goal": "quarter",
+          "aspect_ratio": 1.67
+        },
+        {
+          "type": "text",
+          "text": "At first quarter the Moon stands a quarter of the way round its orbit from the Sun, so we look at its day side and its night side edge-on, one half of each. The face itself never turns: the same maria sit in the same places all month, because the Moon turns once on its axis for each trip round the Earth. Only the light moves across it."
+        }
+      ]
+    },
+    {
+      "title": "Long days at 48° N",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At 48° north, near Seattle, a day in late June has about sixteen hours of daylight and a day in late December about eight and a half. The Earth is not closer to the Sun in June: it is closest in early January. The cause is the tilt of the Earth's axis, which keeps pointing the same way in space as the Earth goes round the Sun."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "seasons",
+          "caption": "The Earth seen from beside it, side-on to the sunlight, which comes from the left. The white line is the axis. The line of 48° N is gold where it is day and dashed where it is night: as the Earth turns, a place on that line spends the gold share of the day in sunlight. Move the date, or press Play to run through a year; change the tilt to see what it does.",
+          "task": "Find the date with the longest day at 48° N, at the Earth's real tilt",
+          "goal": "longest",
+          "aspect_ratio": 1.33
+        },
+        {
+          "type": "text",
+          "text": "Around the June solstice the north end of the axis leans toward the Sun, so more than half of each northern circle of latitude lies in daylight, and the Sun climbs high at noon. Six months later the same lean points the north away. Set the tilt to zero and every date looks the same: twelve hours of day, the same noon height, and no seasons at all, even though the distance to the Sun still changes."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Two questions on light and shadow",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does the Moon look like a half disc at first quarter?",
+                "choices": [
+                  "We see its sunlit half and its night half edge-on, half of each",
+                  "The Earth's shadow covers half of it",
+                  "It has turned so that its darker side faces us"
+                ],
+                "answer": 0,
+                "why": "Half the Moon is always lit. A quarter of the way round its orbit from the Sun, the line between its day and night runs straight down the middle of the face we see."
+              },
+              {
+                "ask": "Why are summer days at 48° N long?",
+                "choices": [
+                  "The north end of the Earth's axis leans toward the Sun, so most of each northern circle of latitude lies in daylight",
+                  "The Earth is closest to the Sun in June",
+                  "The Earth turns more slowly in summer"
+                ],
+                "answer": 0,
+                "why": "The axis keeps its direction in space; in June its north end leans sunward. The Earth is in fact closest to the Sun in early January."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Half the Moon is always lit.** Phases show how much of that half faces us, not the Earth's shadow.",
+    "**The Moon keeps one face to us.** It turns once for each trip round the Earth, so the light moves across a face that stays put.",
+    "**Tilt makes seasons.** The axis keeps its direction in space, so each hemisphere leans sunward for half the year.",
+    "**At 48° N the longest day is about sixteen hours.** In June more than half of the circle of latitude is in daylight.",
+    "**Distance is not the cause.** The Earth is closest to the Sun in early January, in the northern winter."
+  ]
+}

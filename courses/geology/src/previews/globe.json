@@ -1,0 +1,96 @@
+{
+  "id": "globe-preview",
+  "n": 1,
+  "code": "Preview",
+  "title": "A globe to cut open",
+  "teaches": "A preview of the shared globe: the continents through time in 3D, and a cross-section under any line you draw",
+  "parts": [
+    {
+      "title": "The whole planet at once",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every map of the world tears the Earth somewhere. Flatten a sphere and Antarctica becomes a smear along the bottom, the Pacific is split down the middle, and continents that once touched across a pole end up at opposite edges of the page. To follow the plates through time it helps to see them on a ball."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "plateGlobe",
+          "caption": "The Earth with the continents where the PALEOMAP plate model puts them at the chosen time. Pale green is continental shelf, flooded today but part of the continent. Red arrows show where each continent travels over the next forty million years, to scale. Drag the globe to turn it; the view follows the land until you do.",
+          "task": "Run time back until the land is gathered into Pangaea",
+          "goal": "pangaea",
+          "aspect_ratio": 1.25
+        },
+        {
+          "type": "text",
+          "text": "The arrows are the point of the globe. On today's Earth they show the Atlantic widening and India still pushing north into Asia. Run time back and every arrow turns to point at the same crowd: about 300 million years ago the continents were pressed together into Pangaea, with one ocean, Panthalassa, round it."
+        },
+        {
+          "type": "text",
+          "text": "Turn on *Cut open* to take a corner out of the planet. The plates that carry the continents are the thin skin at the very top, about 100 km thick on a ball 6,371 km in radius. Everything under them down to the core is mantle: solid rock, hot enough to creep a few centimetres a year, the way ice creeps in a glacier. Only the outer core is liquid."
+        }
+      ]
+    },
+    {
+      "title": "Cut along a line",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A globe shows where the boundaries are but not what happens under them. For that geologists draw a cross-section: slice the Earth along a line and look at the cut face. The next figure draws one under any line you choose, built from what is known at the surface. The heights of the ground and the depth of the sea come from real measurements. Deeper sea floor is older and colder, so its depth gives its age, and its age gives how thick the stiff plate under it has grown."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "cutEarth",
+          "caption": "Today's Earth, the sea floor shaded by depth so the ridges show pale and the trenches dark. Orange lines are spreading ridges, red trenches, rose collisions, grey transform faults. Drag the white handles A and B to move the cut; drag anywhere else to turn the globe. The section under the globe is what lies beneath the line, A on the left.",
+          "task": "Move the cut so it crosses a trench and shows a slab going down",
+          "goal": "trench",
+          "aspect_ratio": 0.82
+        },
+        {
+          "type": "text",
+          "text": "Across a ridge the plate is thinnest at the crest and thickens on both sides as the floor ages and cools. Across a trench the older, colder plate bends down and sinks under the other one as a slab, and where its top reaches about 100 km down, water driven out of it melts the rock above, so a line of volcanoes stands over that point. Cross a trench at a slant and the slab looks shallower than it is, as a ramp does when you look at it from an angle."
+        },
+        {
+          "type": "text",
+          "text": "Turn on *Down to the centre* to draw the same cut as a slice of the whole Earth. At that scale the plates, the slab and the ocean are hard to see at all."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Two questions on the globe",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "Why is the plate under the sea floor thicker far from a spreading ridge than at the ridge itself?",
+                "choices": [
+                  "The floor far from the ridge is older, and has had longer to cool and stiffen from the top down",
+                  "Sediment piles up on the far floor and presses the plate down",
+                  "The ridge melts the plate under it, so it is always thin there"
+                ],
+                "answer": 0,
+                "why": "New floor forms hot at the ridge and moves away as it cools, so the cold, stiff layer under it grows thicker with age; that is also why old floor lies deeper."
+              },
+              {
+                "ask": "Where do the volcanoes stand over a subduction zone?",
+                "choices": [
+                  "Over the point where the top of the sinking slab is about 100 km down",
+                  "Right at the trench, where the plates meet",
+                  "Wherever the sinking plate has melted all the way through"
+                ],
+                "answer": 0,
+                "why": "At about 100 km down, water driven out of the slab lowers the melting point of the hot mantle above it; that melt rises to feed the volcanoes."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A globe tears nothing.** Seen on a ball, the continents' moves through time keep their true shapes and distances.",
+    "**The plates are a thin skin.** About 100 km of stiff rock on a planet 6,371 km in radius; under them the mantle is solid but creeps.",
+    "**Depth tells the sea floor's age.** Older floor is colder, denser and deeper, and the plate under it is thicker.",
+    "**Slabs sink under the higher side.** At a trench the old ocean plate bends down beneath the other plate.",
+    "**Volcanoes stand over 100 km of slab.** Water from the slab melts the mantle above it there."
+  ]
+}
