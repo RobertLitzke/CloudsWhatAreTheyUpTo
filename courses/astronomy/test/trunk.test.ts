@@ -12,6 +12,7 @@ import { BODIES, escapeShare, horizon } from '../src/figures/dark-stars';
 import { cepheidSuns, looks, V1 } from '../src/figures/island';
 import { ageFromRate, HUBBLE_1929, TODAY } from '../src/figures/running';
 import { flicker, period, QUASAR_SIZE, S2 } from '../src/figures/quasars';
+import { covered, glowTemp } from '../src/figures/dark-night';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -183,5 +184,21 @@ describe('trunk lessons', () => {
     guess(s2.node, 'A few million Suns');
     setSlider(s2.node, 0, 4.3);
     await expect(s2.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 22: an ageless sky blazes, ours is dark, and the afterglow cools from 3,000 K to 2.7 K', async () => {
+    expect(covered(13.8e9)).toBeLessThan(1e-10);
+    expect(covered(1e25)).toBeGreaterThan(0.99);
+    expect(glowTemp(380000)).toBeCloseTo(3000, -2);
+    expect(glowTemp(13.8e9)).toBeCloseTo(2.725, 3);
+    const o = FIGURES.olbers(context(), 'dark');
+    guess(o.node, 'As bright as the Sun’s surface, everywhere');
+    setSlider(o.node, 0, 24.5);
+    setSlider(o.node, 0, Math.log10(13.8e9));
+    await expect(o.done).resolves.toBeUndefined();
+    const a = FIGURES.afterglow(context(), 'today');
+    guess(a.node, 'It has cooled into microwaves');
+    setSlider(a.node, 0, Math.log10(13.8e9));
+    await expect(a.done).resolves.toBeUndefined();
   });
 });

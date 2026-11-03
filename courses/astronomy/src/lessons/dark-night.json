@@ -1,0 +1,83 @@
+{
+  "id": "dark-night",
+  "n": 22,
+  "title": "Why is the night sky dark?",
+  "teaches": "Why the darkness of night means the universe had a beginning, how the Big Bang beat the Steady State, and how the afterglow of the hot young universe was found",
+  "parts": [
+    {
+      "title": "A question a child could ask",
+      "blocks": [
+        {"type":"text","text":"Why is it dark at night? Because the Sun has set, obviously. But think about it for a moment longer, as the German doctor and amateur astronomer Heinrich Olbers did in 1823, and it becomes one of the deepest questions in astronomy."},
+        {"type":"text","text":"Suppose the universe goes on for ever, scattered with stars more or less evenly, and has always been like that. Stand in a big enough forest and every direction you look ends on a tree trunk; you can't see out. In an endless universe of stars, every line of sight should end, sooner or later, on the surface of a star. Distant stars look fainter, but there are more of them: twice as far away, each one looks a quarter as bright, but there are four times as many at that distance. The two effects cancel. The whole sky, day and night, should blaze as brightly as the surface of the Sun."},
+        {"type":"text","text":"Kepler had made the same argument in 1610, and Halley after him. Dust doesn't rescue it: dust in front of the stars would soak up their light, heat up, and glow just as brightly itself. Something about the starting assumptions has to be wrong. Either the universe isn't endless, or it hasn't always been here."}
+      ]
+    },
+    {
+      "title": "A poet's answer",
+      "blocks": [
+        {"type":"text","text":"The right answer came first from a poet. In 1848, the year before he died, Edgar Allan Poe published *Eureka*, a long, odd prose poem about the universe. Most of it is fanciful. But in one sentence he suggested that the background of the sky is dark because it is so far away “that no ray from it has yet been able to reach us at all.” Light travels at a finite speed. If the stars have only been shining for a limited time, we can only see out as far as light has had time to come."},
+        {"type":"interactive_diagram","id":"olbers","caption":"A patch of night sky in a universe filled with stars. How bright it looks depends on how far back you can see: a universe that has always existed lets you see out for ever.","task":"Make a prediction, then see out until the sky fills, and come back to our universe's age","goal":"dark","aspect_ratio":1.75},
+        {"type":"text","text":"Lord Kelvin worked out the numbers in 1901: to fill the sky with star surfaces you would have to see out vastly further than any star has been shining. The universe's age is 13.8 billion years (*Everything is running away*), so we see only stars within about that many light years' travel, and they cover a minute fraction of the sky. The expansion helps too, stretching the light of distant stars and dimming it. The dark between the stars is a sign that the universe had a beginning."}
+      ]
+    },
+    {
+      "title": "Big Bang or Steady State?",
+      "blocks": [
+        {"type":"text","text":"By the late 1940s there were two serious pictures of the universe. In one, which grew from Lemaître's ideas and was pushed hardest by the Russian-born physicist George Gamow, the universe began hot and dense and has been expanding and thinning out ever since. In the other, the **Steady State** theory put forward in 1948 by Hermann Bondi, Thomas Gold and Fred Hoyle in Cambridge, the universe has always looked the same: as it expands, new matter quietly appears in the gaps, about one hydrogen atom per cubic metre every few billion years, enough to keep the average the same for ever. No beginning, no end."},
+        {"type":"text","text":"Hoyle, a brilliant broadcaster, gave his rivals' theory its name on BBC radio in 1949. He called it the “Big Bang”. He insisted later that he hadn't meant it rudely. The name stuck."},
+        {"type":"text","text":"Why should the young universe have been hot? For the same reason a bicycle pump gets hot when you squeeze the air in it. Squeeze gas and it heats up. Run the expansion backwards and everything gets squeezed together, so the early universe was not just dense but extremely hot, hot enough to glow, like the gas in a star. In 1948 Gamow's students Ralph Alpher and Robert Herman followed that through. The universe should have been filled with glowing hot gas, and the light from it should still be around us, stretched by the expansion into a faint glow at about five degrees above absolute zero. They published their prediction. Then, for sixteen years, nobody went looking for it.[^ryle]"}
+      ]
+    },
+    {
+      "title": "Pigeons",
+      "blocks": [
+        {"type":"text","text":"In 1964 Arno Penzias and Robert Wilson, two radio astronomers at Bell Telephone Laboratories in New Jersey, were trying to use a big horn-shaped antenna, built for early satellite communication, to measure faint radio waves from our galaxy. They couldn't get rid of a faint hiss. It came from every direction, day and night, all year round, equal to a glow at about three and a half degrees above absolute zero."},
+        {"type":"text","text":"They checked everything. They found a pair of pigeons nesting in the horn, which had coated the inside with what Penzias politely called “a white dielectric material”. They removed the pigeons (twice: the pigeons came back) and cleaned out the droppings. The hiss stayed."},
+        {"type":"text","text":"Thirty miles away at Princeton, Robert Dicke and his group had independently worked out that a hot Big Bang should have left a glow, and were building an instrument to find it. A friend told Penzias about them, Penzias telephoned, and Dicke listened, put the phone down, and turned to his colleagues: “Boys, we've been scooped.” The two groups published side by side in 1965. Penzias and Wilson shared the Nobel Prize in 1978. The Steady State had no natural way to make such a glow, and its supporters gradually gave up.[^sciama]"}
+      ]
+    },
+    {
+      "title": "The afterglow",
+      "blocks": [
+        {"type":"text","text":"Here is what the glow is. For its first few hundred thousand years the universe was so hot that its gas was ionised: electrons and nuclei were separate, and light couldn't travel far without bouncing off a free electron, as in the inside of a star, or a thick fog. About 380,000 years after the start, the universe had cooled to about 3,000 degrees, roughly the surface of a cool red star. The electrons settled into atoms, the fog cleared, and the light that was there at that moment set off in straight lines. It has been travelling ever since."},
+        {"type":"text","text":"As the universe has stretched, about 1,100 times, the light has been stretched with it, from the orange glow of a cool star into microwaves. Its curve should still be exactly the curve of a glowing body, the one from *Why are there no green stars?*, just slid down to a much lower temperature."},
+        {"type":"interactive_diagram","id":"afterglow","caption":"The afterglow of the Big Bang: its glow curve, from 380,000 years after the start to today, against the measurements made by the COBE satellite.","task":"Make a prediction, then age the universe to today","goal":"today","aspect_ratio":1.67},
+        {"type":"text","text":"In 1989 NASA launched the Cosmic Background Explorer, COBE, to measure the afterglow from above the atmosphere. In January 1990 John Mather showed a meeting of astronomers its spectrum after just nine minutes of measurements. The points lay exactly on the curve of a glowing body at 2.725 degrees above absolute zero, so precisely that the error bars were thinner than the line. The audience gave him a standing ovation. It is still the most perfect glow curve ever measured in nature."}
+      ]
+    },
+    {
+      "title": "The night isn't dark",
+      "blocks": [
+        {"type":"text","text":"So Olbers was right that the sky glows in every direction. It does; it just glows in microwaves, not light, because the glow has been stretched by the expansion. If you are old enough to remember a television tuned between channels, about one percent of the snow on the screen was the afterglow of the Big Bang."},
+        {"type":"text","text":"COBE found one more thing. The glow is almost perfectly even, but not quite: some patches are warmer than others by about one part in 100,000. George Smoot's team mapped those tiny ripples, and Mather and Smoot shared the 2006 Nobel Prize. Those ripples are the seeds of every galaxy in the sky, and how such tiny seeds grew into galaxies in the time available is the puzzle of *Unseen mass or a wrong law?*"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on the dark sky and the afterglow", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Stars twice as far away look a quarter as bright. Why doesn't that make the sky of an endless universe dark?","choices":["There are four times as many stars at that distance, so the two cancel","Distant stars are brighter","The inverse square doesn't apply to stars"],"answer":0,"why":"Each shell of stars further out has fainter stars but more of them, in exact proportion. Add enough shells and every line of sight ends on a star."},
+          {"ask":"Why doesn't dust between the stars solve Olbers's puzzle?","choices":["Given forever, the dust would heat up and glow as brightly as the stars","There is no dust in space","Dust only blocks blue light"],"answer":0,"why":"Dust that absorbs starlight warms up until it gives out as much as it takes in."},
+          {"ask":"Why did the young universe have to be hot?","choices":["Squeezed gas heats up, and running the expansion back squeezes everything together","The first stars heated it","It was made of fire"],"answer":0,"why":"Like air in a bicycle pump: compress it and it warms. Everything was squeezed together at the start."},
+          {"ask":"The afterglow left the hot gas at about 3,000 K. Why is it now 2.7 K?","choices":["The universe has stretched about 1,100 times since, stretching the light with it","It has been absorbed by dust","The gas that made it cooled down"],"answer":0,"why":"Stretched light has longer waves, so the same glow curve slides down to a lower temperature: 3,000 K divided by about 1,100."},
+          {"ask":"Why was the afterglow bad news for the Steady State theory?","choices":["A universe that always looked the same had no hot, dense past to leave such a glow","It showed the universe is not expanding","It was too bright"],"answer":0,"why":"The glow is what a hot, dense beginning predicts. The Steady State had no natural way to make an even glow with a perfect glow curve."},
+          {"ask":"How do we know the afterglow comes from a hot, glowing gas, and not from something else?","choices":["COBE found its spectrum is exactly the curve of a glowing body","It comes from every direction","It is in microwaves"],"answer":0,"why":"A perfect glow curve is the signature of matter and light in balance at one temperature, which is what the early universe was."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Olbers's question.** In an endless, ageless universe of stars, every line of sight would end on a star and the sky would blaze like the Sun.",
+    "**The dark sky means a beginning.** Light has had only 13.8 billion years to reach us (Poe guessed it in 1848).",
+    "**Big Bang against Steady State.** A hot, dense start, or a universe that always looks the same; Hoyle named the Big Bang in 1949.",
+    "**The young universe was hot.** Squeezed gas heats up; Alpher and Herman predicted a leftover glow in 1948.",
+    "**Penzias and Wilson heard it in 1965.** A hiss from every direction, not caused by pigeons.",
+    "**The afterglow.** Set free 380,000 years after the start at about 3,000 K, stretched 1,100 times to 2.7 K microwaves.",
+    "**COBE's perfect curve, 1990.** A flawless glow curve, and ripples of one part in 100,000: the seeds of galaxies."
+  ],
+  "journal": [],
+  "footnotes": {
+    "ryle": {"kind":"technical","title":"Counting radio sources","text":"The first evidence against the Steady State came from radio astronomy. In the 1950s and early 1960s Martin Ryle's group at Cambridge counted radio sources of different faintness. In a universe that looks the same at all times, faint (mostly distant) sources should be a fixed proportion of bright ones. Ryle found too many faint ones: the distant universe, seen as it was long ago, had more radio galaxies than today's. It had changed, which the Steady State forbids. Hoyle and Ryle had a long and bitter public argument about it."},
+    "sciama": {"kind":"digression","title":"Changing your mind","text":"Dennis Sciama, Stephen Hawking's research supervisor at Cambridge, had been one of the Steady State's keenest supporters. When the afterglow was found he gave it up, publicly, and said later that it had been a sad day for him, but that the evidence had to win. Hoyle never fully gave up; he spent his later years working on a modified version of the theory."}
+  }
+}
