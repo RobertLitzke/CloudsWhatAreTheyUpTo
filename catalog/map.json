@@ -8,7 +8,8 @@
     "electronics": [110, 560],
     "soil": [470, 650],
     "botany": [260, 840],
-    "ecology": [760, 840]
+    "ecology": [760, 840],
+    "synthesizers": [130, 320]
   },
   "bridges": [
     { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash.", "at": 0.45 },
@@ -16,7 +17,8 @@
     { "id": "old-weather", "title": "Old weather in the rocks", "between": ["clouds", "geology"], "promise": "Fossil dunes, ice-age winds and rain shadows written in stone." },
     { "id": "sky-rocks", "title": "Rocks from the sky", "between": ["geology", "astronomy"], "promise": "Meteorites, craters and where the Moon came from.", "at": 0.55 },
     { "id": "rock-soil", "title": "From rock to soil", "between": ["geology", "soil"], "promise": "Weathering, wind-blown loess and the till the glaciers left." },
-    { "id": "sensor", "title": "How a sensor counts light", "between": ["electronics", "photography"], "promise": "Photodiodes, gain and where noise comes from." }
+    { "id": "sensor", "title": "How a sensor counts light", "between": ["electronics", "photography"], "promise": "Photodiodes, gain and where noise comes from." },
+    { "id": "oscillator", "title": "Building an oscillator", "between": ["electronics", "synthesizers"], "promise": "A 555 timer, a capacitor and a speaker: the synth's first two modules on a breadboard." }
   ],
   "candidates": {
     "salish-sea": { "title": "People of the Salish Sea", "icon": "icons/candidates/salish-sea.svg" },

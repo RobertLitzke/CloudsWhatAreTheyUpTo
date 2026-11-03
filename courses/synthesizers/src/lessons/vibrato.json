@@ -1,0 +1,303 @@
+{
+ "id": "vibrato",
+ "n": 4,
+ "title": "Why singers wobble",
+ "teaches": "The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo",
+ "parts": [
+  {
+   "title": "A wobble you don't hear",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way. Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
+    },
+    {
+     "type": "text",
+     "text": "In the 1930s the psychologist Carl Seashore and his students at the University of Iowa photographed thousands of sung notes as wavy traces on film, and found that good singers' vibratos were remarkably alike: about six cycles a second, about half a semitone deep.[^seashore] At that rate the ear doesn't track the wobble as a melody. It averages it into a pitch in the middle, and hears the movement as life."
+    },
+    {
+     "type": "text",
+     "text": "A synth makes vibrato with a second oscillator too slow to hear as a tone, a **low-frequency oscillator** or **[[LFO]]**. It makes no sound itself. It turns a knob, up and down, over and over."
+    }
+   ]
+  },
+  {
+   "title": "Depth",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Depth** is how far the LFO turns its knob. Here it is wired to pitch. Start at zero and bring it up: first a gentle shimmer, then a singer's vibrato, then a seasick wobble no singer would allow."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A pulse wave with the LFO wired to its pitch.",
+     "task": "Raise Depth to 65 % or more",
+     "goal": "lfo-deep",
+     "options": {
+      "stage": 4,
+      "knobs": [
+       "lfoDepth"
+      ],
+      "start": {
+       "wave": 1,
+       "pw": 0,
+       "cutoff": 4,
+       "res": 1,
+       "sustain": 3,
+       "lfoDest": 0,
+       "lfoRate": 2,
+       "lfoDepth": 0
+      },
+      "riff": 58
+     }
+    }
+   ]
+  },
+  {
+   "title": "Rate",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Rate** is how fast the LFO goes round. On this synth it is counted against the tempo of the riff, from one sweep a bar up to sixteen, so that a wobble stays in time with the music. It restarts with every loop, so a target's wobble and yours always line up in a puzzle."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The same vibrato. Change its rate.",
+     "task": "Try the slowest rate and the fastest",
+     "goal": "lfo-rates",
+     "options": {
+      "stage": 4,
+      "knobs": [
+       "lfoRate"
+      ],
+      "start": {
+       "wave": 1,
+       "pw": 0,
+       "cutoff": 4,
+       "res": 1,
+       "sustain": 3,
+       "lfoDest": 0,
+       "lfoRate": 2,
+       "lfoDepth": 2
+      },
+      "riff": 58
+     }
+    },
+    {
+     "type": "text",
+     "text": "Push an LFO fast enough, into the hundreds of cycles a second, and it stops being heard as a wobble at all. Something strange happens instead, which is lesson 6."
+    }
+   ]
+  },
+  {
+   "title": "Four places to wire it",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Dest** is which knob the LFO turns. **Pitch** gives vibrato. **Cutoff** gives a wah, sweeping the brightness the way a wah-wah pedal or a mouth opening and closing does. **Width** sweeps the pulse width for a slow shimmer. **Level** gives **tremolo**, a pulsing volume."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The LFO's destination switch.",
+     "task": "Listen to all four destinations",
+     "goal": "lfo-dests",
+     "options": {
+      "stage": 4,
+      "knobs": [
+       "lfoDest"
+      ],
+      "start": {
+       "wave": 1,
+       "pw": 0,
+       "cutoff": 4,
+       "res": 1,
+       "sustain": 3,
+       "lfoDest": 0,
+       "lfoRate": 2,
+       "lfoDepth": 3
+      },
+      "riff": 58
+     }
+    },
+    {
+     "type": "text",
+     "text": "Musicians have used the two words loosely for a century. Fender's amplifiers had a “vibrato” channel that wobbled the volume, which is tremolo, while their guitars had a “tremolo arm” that bent the pitch, which is vibrato.[^fender]"
+    }
+   ]
+  },
+  {
+   "title": "A speaker that spins",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "One famous machine does both at once. A **Leslie speaker**, made to go with the Hammond organ, has a horn that spins inside its cabinet. As the horn swings towards you, the sound waves arrive bunched together and the pitch rises; as it swings away they arrive stretched and the pitch falls. This is the **[[Doppler effect]]**, the same rise and fall you hear as an ambulance passes, and here it comes round a few times a second. At the same time the horn points at you, then away, so the volume pulses too."
+    },
+    {
+     "type": "text",
+     "text": "How big is the Doppler wobble? A horn tip moving at about 10 metres a second, against sound at 343, shifts the pitch by about 3 percent each way: roughly half a semitone. That is, by luck or design, the depth of a singer's vibrato.[^leslie]"
+    }
+   ]
+  },
+  {
+   "title": "How fast, how far",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Rate and depth together make most of the classic LFO sounds. A slow, deep sweep on the cutoff is a lazy wah. A fast, deep one is the wobbling bass of dubstep. Drag around the square to find them."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Two knobs as one square: across is the rate, up is the depth, with the LFO on the cutoff.",
+     "task": "Find a fast, deep wah: rate 1/8 or quicker, depth 65 % or more",
+     "goal": "lfo-wah",
+     "options": {
+      "stage": 4,
+      "pad": [
+       "lfoRate",
+       "lfoDepth"
+      ],
+      "start": {
+       "wave": 1,
+       "pw": 0,
+       "cutoff": 4,
+       "res": 1,
+       "sustain": 3,
+       "lfoDest": 1,
+       "lfoRate": 2,
+       "lfoDepth": 2
+      },
+      "riff": 58,
+      "examples": [
+       {
+        "name": "Vibrato",
+        "set": {
+         "lfoDest": 0,
+         "lfoRate": 3,
+         "lfoDepth": 1
+        }
+       },
+       {
+        "name": "Wah",
+        "set": {
+         "lfoDest": 1,
+         "lfoRate": 2,
+         "lfoDepth": 3
+        }
+       },
+       {
+        "name": "Shimmer",
+        "set": {
+         "lfoDest": 2,
+         "lfoRate": 1,
+         "lfoDepth": 3
+        }
+       },
+       {
+        "name": "Tremolo",
+        "set": {
+         "lfoDest": 3,
+         "lfoRate": 4,
+         "lfoDepth": 3
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the LFO",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "A good singer's vibrato swings the pitch about how often?",
+        "choices": [
+         "About six times a second",
+         "About sixty times a second",
+         "Once every few seconds"
+        ],
+        "answer": 0,
+        "why": "Seashore measured about six cycles a second, slow enough to be heard as movement but averaged into one pitch."
+       },
+       {
+        "ask": "What does an LFO do?",
+        "choices": [
+         "Turns another knob up and down, over and over",
+         "Makes a low bass note",
+         "Filters out low pitches"
+        ],
+        "answer": 0,
+        "why": "A low-frequency oscillator is too slow to hear as a tone; it modulates another setting."
+       },
+       {
+        "ask": "An LFO on the volume gives which effect?",
+        "choices": [
+         "Tremolo",
+         "Vibrato",
+         "Wah"
+        ],
+        "answer": 0,
+        "why": "A pulsing level is tremolo; a wobbling pitch is vibrato; a sweeping cutoff is wah."
+       },
+       {
+        "ask": "Why does a Leslie speaker's spinning horn change the pitch?",
+        "choices": [
+         "The Doppler effect, as the horn moves towards and away from you",
+         "The motor slows the organ down",
+         "The horn is a filter"
+        ],
+        "answer": 0,
+        "why": "A moving source bunches its waves ahead of it and stretches them behind, raising and lowering the pitch."
+       },
+       {
+        "ask": "An LFO is wired to the filter cutoff, deep and fairly fast. What do you hear?",
+        "choices": [
+         "A wah that sweeps the brightness",
+         "A pitch wobble",
+         "A pulsing volume"
+        ],
+        "answer": 0,
+        "why": "Moving the cutoff opens and closes the brightness, like a wah pedal."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Singers wobble on purpose**: about six cycles a second, half a semitone deep, heard as one rich pitch.",
+  "**An LFO is an oscillator too slow to hear** that turns another knob for you.",
+  "**Depth is how far; rate is how fast.**",
+  "**Pitch gives vibrato, cutoff gives wah, level gives tremolo.**",
+  "**A Leslie speaker's spinning horn makes vibrato by the Doppler effect**, and tremolo as it points away."
+ ],
+ "footnotes": {
+  "seashore": {
+   "kind": "digression",
+   "title": "Seashore's films",
+   "text": "Seashore's team built a “phonophotograph” that recorded the pitch of a voice as a trace on moving film, with the frequency marked on it, and measured every wiggle by hand. Their 1932 study of vibrato covered the great singers on record as well as students in the lab. Seashore also wrote some of the first tests of musical talent."
+  },
+  "fender": {
+   "kind": "digression",
+   "title": "Vibrato and tremolo, swapped",
+   "text": "The mix-up goes back to the 1950s: Leo Fender called the volume effect in his amps vibrato and the pitch-bending bridge on his Stratocaster a synchronised tremolo. The names stuck, the wrong way round, and guitarists still say “whammy bar” to avoid the argument."
+  },
+  "leslie": {
+   "kind": "technical",
+   "title": "The Doppler shift, worked out",
+   "text": "A source moving towards you at speed v raises the pitch by a factor of about 1 + v/c, where c is the speed of sound. With v = 10 m/s and c = 343 m/s that is 1.029, a rise of about 3 percent, and a semitone is 6 percent. A Leslie's horn turns at roughly 6 to 7 revolutions a second on its fast setting, which is also the rate of a singer's vibrato."
+  }
+ },
+ "journal": []
+}

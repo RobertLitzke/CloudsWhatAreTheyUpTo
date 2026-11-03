@@ -3,9 +3,9 @@
 // where they get checked. Marks are kept in this browser; "Copy notes" gives a
 // list to paste back for fixing in src/core/riffs/.
 
-import '../../src/app/styles/app.css';
-import { el } from '../../src/app/dom';
-import { copyText } from '../../src/app/ui';
+import '../../src/game/styles/app.css';
+import { el } from '../../src/game/dom';
+import { copyText } from '../../src/game/ui';
 import { getEngine, peekEngine } from '../../src/audio/engine';
 import { LATEST_RULES } from '../../src/core/gen';
 import { resolve } from '../../src/core/params';

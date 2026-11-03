@@ -1,0 +1,305 @@
+{
+ "id": "vowels",
+ "n": 2,
+ "title": "The buzz in your throat",
+ "teaches": "The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels",
+ "parts": [
+  {
+   "title": "Ee and ah",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Sing a long “ee” on one comfortable note, then slide to “ah” without changing the note. The pitch stays put. Your throat is making the same buzz at the same rate. And yet the sound changes completely. What changed, if not the buzz?"
+    },
+    {
+     "type": "text",
+     "text": "In 1779 the Imperial Academy in St Petersburg offered a prize to anyone who could explain the vowels and build a machine to make them. Christian Kratzenstein won it with a set of oddly shaped pipes, each blown through a vibrating reed, each sounding one vowel.[^kratzenstein] The reed was the same in all of them. Only the shape of the pipe after it differed. Kratzenstein had found the answer without quite saying it: a vowel isn't made by what buzzes, but by what the buzz passes through."
+    },
+    {
+     "type": "text",
+     "text": "That is the **source-filter** idea. Your vocal folds are the source: they snap open and shut a hundred or two hundred times a second, and make a buzz rich in harmonics, much like a saw wave. Your throat, mouth and lips are the filter. Their shape makes some pitches ring and lets others die away, and each vowel has two or three ringing peaks, called **[[formants]]**, in its own places."
+    }
+   ]
+  },
+  {
+   "title": "A voice from two peaks",
+   "blocks": [
+    {
+     "type": "interactive_diagram",
+     "id": "vowel",
+     "caption": "A buzz on 110 Hz and its harmonics, passed through two resonant peaks as a mouth would. Move the peaks and the same buzz says a different vowel.",
+     "task": "Make an “ee”: the first peak low, the second high",
+     "goal": "ee",
+     "aspect_ratio": 1.8181818181818181
+    },
+    {
+     "type": "text",
+     "text": "The first formant moves mostly with your jaw: open it for “ah” and it rises. The second follows your tongue, high when the tongue is forward for “ee”, low when it is pulled back for “oo”. This is why you can still make out a whisper, which has no pitch at all, and why a parrot, with no lips and a quite different throat, can still be understood: the ear is listening for the peaks, not the buzz."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "A voice is a buzz (the source) through a filter (the mouth).",
+      "Vowels are set by two or three resonant peaks, the formants.",
+      "The pitch of the buzz and the vowel are independent."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Subtractive synthesis",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A classic synthesizer works exactly like a voice. Start with a bright wave, full of harmonics, and take away what you don't want. This is **[[subtractive synthesis]]**, and the part that takes away is the **filter**. The synth's filter is a low-pass: it lets the harmonics below its **cutoff** through and removes those above. High, the sound is bright and open. Low, it is dark and muffled, and the pitch of the note does not change."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A saw wave through the synth's filter. Watch the right-hand side of the spectrum fall away as the cutoff comes down.",
+     "task": "Close the filter to 285 Hz or lower",
+     "goal": "cutoff-low",
+     "options": {
+      "stage": 2,
+      "knobs": [
+       "cutoff"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "res": 0
+      },
+      "riff": 69
+     }
+    },
+    {
+     "type": "text",
+     "text": "A low-pass filter on a synth is far cruder than a mouth: one edge instead of two or three peaks. But the edge can move while a note plays, which a mouth does all the time, and which turns out to be most of what makes a synth sound alive."
+    }
+   ]
+  },
+  {
+   "title": "The whistle at the edge",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A filter can also ring. **Resonance** boosts a narrow band of pitches right at the cutoff, the way a formant boosts a band in the mouth. A little adds a nasal edge, like the peaks of a vowel. A lot makes the filter ring by itself, and you hear a whistle exactly where the cutoff sits."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The same saw, with the cutoff partway down. Turn up the resonance.",
+     "task": "Raise Reso to the top and hear it whistle",
+     "goal": "res-top",
+     "options": {
+      "stage": 2,
+      "knobs": [
+       "res"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 0
+      },
+      "riff": 69
+     }
+    },
+    {
+     "type": "text",
+     "text": "[[Robert Moog]]'s 1960s filter, the **ladder**, was built from a stack of matched transistor pairs and could be pushed into resonance until it sang on its own.[^ladder] Its warm, rubbery sweep became the sound people meant when they said “Moog”, and later filters were judged against it."
+    }
+   ]
+  },
+  {
+   "title": "Picking out harmonics",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "With the resonance high, move the cutoff. The whistling peak slides up and down through the buzz, and wherever it lands on a harmonic, that harmonic leaps out. You can play a tune on one held note this way, climbing the harmonic series. Throat singers in Tuva and Mongolia do the same with their mouths, shaping a formant so sharp that one harmonic rings out above the drone as a second, whistled melody.[^khoomei]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Two knobs as one square: across is the cutoff, up is the resonance. Drag around it.",
+     "task": "Keeping Reso at Q 8 or more, sweep Cutoff through five positions",
+     "goal": "res-sweep",
+     "options": {
+      "stage": 2,
+      "pad": [
+       "cutoff",
+       "res"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 3
+      },
+      "riff": 69
+     }
+    }
+   ]
+  },
+  {
+   "title": "Telling them apart",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Cutoff and resonance both change how bright a sound is, which is why they are easily confused by ear. Cutoff moves the edge up and down. Resonance leaves the edge where it is and sharpens it into a peak. When a sound changes, ask: did it get darker, or did it get a peak? It is the most useful single question in [PatchMatch](#/ear)."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Cutoff and resonance side by side.",
+     "task": "Make it dark and smooth: Cutoff at 500 Hz or lower, Reso at Q 0.7",
+     "goal": "dark-smooth",
+     "options": {
+      "stage": 2,
+      "knobs": [
+       "cutoff",
+       "res"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 2
+      },
+      "riff": 69,
+      "examples": [
+       {
+        "name": "Open",
+        "set": {
+         "cutoff": 7,
+         "res": 0
+        }
+       },
+       {
+        "name": "Dark",
+        "set": {
+         "cutoff": 2,
+         "res": 0
+        }
+       },
+       {
+        "name": "Nasal",
+        "set": {
+         "cutoff": 3,
+         "res": 2
+        }
+       },
+       {
+        "name": "Whistling",
+        "set": {
+         "cutoff": 3,
+         "res": 4
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Six questions on filters and vowels",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "You sing “ee” then “ah” on the same note. What changes?",
+        "choices": [
+         "The shape of the filter your mouth makes",
+         "The pitch of the buzz",
+         "How many times a second your vocal folds open"
+        ],
+        "answer": 0,
+        "why": "The buzz from the vocal folds stays the same; the mouth's resonances, the formants, move."
+       },
+       {
+        "ask": "What are formants?",
+        "choices": [
+         "Resonant peaks of the throat and mouth",
+         "The harmonics of the vocal folds",
+         "Echoes inside the head"
+        ],
+        "answer": 0,
+        "why": "Each vowel has two or three peaks where the vocal tract rings; those are the formants."
+       },
+       {
+        "ask": "What does a low-pass filter do to a saw wave?",
+        "choices": [
+         "Removes the harmonics above the cutoff",
+         "Removes the harmonics below the cutoff",
+         "Changes its pitch"
+        ],
+        "answer": 0,
+        "why": "Low-pass lets the low harmonics pass and takes away the high ones. The pitch is the fundamental, which stays."
+       },
+       {
+        "ask": "Why does a synth usually start from a saw or pulse, not a sine, before the filter?",
+        "choices": [
+         "A filter can only take away; a sine has nothing above the fundamental to remove",
+         "Sines are too loud",
+         "Filters only work on square waves"
+        ],
+        "answer": 0,
+        "why": "Subtractive synthesis needs a rich source. A sine has one harmonic, so a filter has nothing to shape."
+       },
+       {
+        "ask": "You turn the resonance right up and sweep the cutoff. What do you hear?",
+        "choices": [
+         "A whistle that picks out one harmonic after another",
+         "The pitch of the note sliding up and down",
+         "Nothing changes"
+        ],
+        "answer": 0,
+        "why": "A ringing peak at the cutoff boosts whichever harmonic it lands on."
+       },
+       {
+        "ask": "A sound gets duller with no new peak. Which knob most likely moved?",
+        "choices": [
+         "Cutoff, down",
+         "Resonance, up",
+         "Resonance, down"
+        ],
+        "answer": 0,
+        "why": "Cutoff moves the edge and darkens the sound; resonance adds or removes a peak at the edge."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A voice is a buzz through a filter**: the vocal folds make a bright buzz and the mouth shapes it.",
+  "**Vowels are two or three resonant peaks, the formants.** The jaw moves the first, the tongue the second.",
+  "**Kratzenstein's prize pipes (1779)** made vowels from one reed and differently shaped tubes.",
+  "**Subtractive synthesis starts bright and takes away.** The filter does the taking.",
+  "**A low-pass filter removes harmonics above its cutoff.** Lower cutoff, darker sound, same pitch.",
+  "**Resonance boosts a narrow peak at the cutoff**, and at the top it whistles.",
+  "**Cutoff darkens; resonance sharpens.** Ask whether a sound got darker or got a peak."
+ ],
+ "footnotes": {
+  "kratzenstein": {
+   "kind": "digression",
+   "title": "Speaking machines",
+   "text": "Twelve years later, in 1791, Wolfgang von Kempelen (better known for the chess-playing Turk, which hid a human player) published a speaking machine with bellows for lungs, a reed for a voice and a leather mouth worked by hand. A young Alexander Graham Bell saw a copy in Edinburgh and built his own talking head with his brother."
+  },
+  "ladder": {
+   "kind": "digression",
+   "title": "The Moog ladder",
+   "text": "Moog patented the filter in 1969. It takes four stages in a row, each rolling off 6 decibels per octave, for 24 in all: a steeper edge than most rivals'. Feeding some of its output back to its input gives the resonance, and with enough feedback it oscillates as a pure tone."
+  },
+  "khoomei": {
+   "kind": "digression",
+   "title": "Overtone singing",
+   "text": "Tuvan khoomei and Mongolian khoomii hold one low drone and move the tongue and lips to tune a sharp formant onto single harmonics, often between the 6th and the 12th, which are close enough together to play a scale. The effect is so clear that listeners often think two people are singing."
+  }
+ },
+ "journal": []
+}

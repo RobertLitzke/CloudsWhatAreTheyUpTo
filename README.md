@@ -45,9 +45,11 @@ lowercase word or two naming its subject (the catalog's test checks this).
 | `courses/astronomy` | Astronomy: how we found out | `astronomy.save` |
 | `courses/botany` | Botany: how plants work | `botany.save` |
 | `courses/ecology` | Ecology: who lives where, and why | `ecology.save` |
+| `courses/synthesizers` | Synthesizers: how a sound is built (with PatchMatch, the ear-training game, at `#/ear`; its own progress stays under `patchmatch.save`) | `synthesizers.save` |
 
 Dirt, Circuitry and Out of Auto came in from their own repositories
-(RobertLitzke/Dirt, Circuitry, Photography) with their history, by
+(RobertLitzke/Dirt, Circuitry, Photography), and Synthesizers from PatchMatch
+(RobertLitzke/PatchMatch), with their history, by
 `git subtree add`.
 
 Each course keeps its own `localStorage` keys (`<id>.save`, `<id>.course`, …),

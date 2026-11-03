@@ -1,0 +1,37 @@
+/* Design tokens. Cyan is yours and orange is the target, wherever the two are
+   compared. Amber is where a dial is set: its lit dot or its filled arc. */
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300 700;
+  /* Latin only: this file is inlined into the page, so every subset costs. */
+  src: url('../../../../../node_modules/@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2')
+    format('woff2-variations');
+}
+
+/* Scoped to .pm (app.css), so they never touch the course page around a synth. */
+.pm {
+  --bg: #070b1a;
+  --panel: #0c1226;
+  --panel-2: #10182f;
+  --hair: #b8c4d6;
+  --hair-dim: #28324a;
+  --text: #dbe3ef;
+  --muted: #8592a8;
+  --cyan: #9fe8f5;
+  --cyan-dim: #2b5560;
+  --orange: #ff7a1a;
+  --orange-dim: #6b3410;
+  --amber: #ffc999; /* pale orange: a dial's lit dot and fill */
+  --amber-dim: #6b5a4c; /* the same on a knob that is dark or disabled */
+  --good: #8ff0b0;
+
+  --font: 'Space Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Consolas, 'Liberation Mono', monospace;
+
+  --radius: 6px;
+  --knob: 64px;
+  color-scheme: dark;
+}

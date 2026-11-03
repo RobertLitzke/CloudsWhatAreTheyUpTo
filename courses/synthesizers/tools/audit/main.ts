@@ -23,8 +23,8 @@
 // stand-in for listening, not a replacement: it cannot tell a difference that
 // is obvious from one that is merely large.
 
-import '../../src/app/styles/app.css';
-import { el } from '../../src/app/dom';
+import '../../src/game/styles/app.css';
+import { el } from '../../src/game/dom';
 import { riffLoop } from '../../src/audio/engine';
 import { renderLoop, RENDER_RATE } from '../../src/audio/offline';
 import { LATEST_RULES } from '../../src/core/gen';

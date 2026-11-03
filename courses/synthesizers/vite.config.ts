@@ -1,61 +1,34 @@
+import { readdirSync } from 'node:fs';
 import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
-import { viteSingleFile } from 'vite-plugin-singlefile';
+import { lessonApp } from 'didactics/vite';
 import pkg from './package.json';
 
-// The whole app is inlined into dist/index.html (JS, CSS and the font), so the
-// page also runs straight from disk. A service worker cannot be inlined and an
-// installable PWA needs a manifest and icons as real files, so those three
-// kinds of file sit beside it. The service worker precaches exactly one page.
-export default defineConfig({
-  // Relative, so index.html works from file:// and from any sub-path.
-  base: './',
-  // Ports are part of the F:\Programming local-dev port scheme: 5200 + 10 *
-  // index across all web projects, +1 for the preview server (see PROJECTS.md).
-  server: { port: 5400, strictPort: true },
-  preview: { port: 5401, strictPort: true },
-  define: { __APP_VERSION__: JSON.stringify(pkg.version) },
-  build: {
-    target: 'es2022',
-  },
-  plugins: [
-    viteSingleFile(),
-    VitePWA({
-      registerType: 'prompt',
-      injectRegister: null, // registered by hand in main.ts
-      // The glob below already lists the icons. Left on, the plugin lists the
-      // manifest's icons a second time without a revision, workbox refuses the
-      // conflicting entries, and the service worker dies as it starts.
-      includeManifestIcons: false,
-      workbox: {
-        globPatterns: ['index.html', 'icons/*.{png,svg}'],
-        // One service-worker file rather than sw.js plus a workbox chunk.
-        inlineWorkboxRuntime: true,
-        navigateFallback: 'index.html',
-        cleanupOutdatedCaches: true,
-      },
-      manifest: {
-        name: 'PatchMatch',
-        short_name: 'PatchMatch',
-        description: 'Match the synth patch by ear, in as few knob turns as you can.',
-        // Keep in sync with --bg in src/app/styles/tokens.css.
-        theme_color: '#070B1A',
-        background_color: '#070B1A',
-        display: 'standalone',
-        start_url: '.',
-        scope: '.',
-        icons: [
-          { src: 'icons/icon-192.png', sizes: '192x192', type: 'image/png' },
-          { src: 'icons/icon-512.png', sizes: '512x512', type: 'image/png' },
-          {
-            src: 'icons/icon-512-maskable.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'maskable',
-          },
-        ],
-      },
-      devOptions: { enabled: false },
-    }),
-  ],
-});
+// The build is Didactics' (didactics/vite): the page with everything inlined,
+// the same page again as dist/synthesizers.html for Settings' download link,
+// and a service worker entry. audit.html and audition.html (tools/) are
+// PatchMatch's dev-only pages: the dev server serves them, a build leaves them out.
+export default defineConfig(
+  lessonApp({
+    root: __dirname,
+    version: pkg.version,
+    // Ports follow the local-dev port scheme: one block of ten per web project.
+    // 5400 was PatchMatch's own.
+    port: 5400,
+    inSite: true,
+    encyclopedia: { dir: '../../encyclopedia', courses: '..' },
+    oneFile: 'synthesizers.html',
+    // The words in the code, for the course file: everything but the riffs,
+    // whose titles and notes are tunes, not prose (and the site leaves the
+    // copyrighted ones out altogether: .env.production).
+    codeText: ['src/main.ts', 'src/lessons.ts', 'src/audio', 'src/figures', 'src/game', ...readdirSync(`${__dirname}/src/core`).filter((f) => f !== 'riffs').map((f) => `src/core/${f}`)],
+    manifest: {
+      name: 'Synthesizers: how a sound is built',
+      short_name: 'Synthesizers',
+      description: 'Short lessons on how a synthesizer builds a sound, on a live synth you play as you read.',
+      // Keep in sync with --bg in src/styles/tokens.css.
+      theme_color: '#070b1a',
+      id: '.',
+      icons: [{ src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml' }],
+    },
+  }),
+);

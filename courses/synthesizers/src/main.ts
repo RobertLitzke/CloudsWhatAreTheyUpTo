@@ -1,64 +1,59 @@
-import './app/styles/app.css';
-import { registerSW } from 'virtual:pwa-register';
-import { el } from './app/dom';
-import { Router } from './app/router';
-import { toast } from './app/ui';
-import { arcadeView } from './app/views/arcade';
-import { freeplayView } from './app/views/freeplay';
-import { homeView } from './app/views/home';
-import { learnView } from './app/views/learn';
-import { lessonView } from './app/views/lesson';
-import { practiceView, roundView } from './app/views/round';
-import { settingsView } from './app/views/settings';
+import 'didactics/styles/kit.css';
+import './game/styles/app.css';
+import './styles/tokens.css';
+import { courseFiles } from 'didactics/course';
+import { defineCourse } from 'didactics/app';
+import { el } from 'didactics/dom';
+import type { View } from 'didactics/router';
+import encyclopedia from 'virtual:didactics/encyclopedia';
+import { SITE_URL } from './asset';
+import { FIGURES } from './figures';
+import { prose } from './figures/kit';
+import { arcadeView } from './game/views/arcade';
+import { freeplayView } from './game/views/freeplay';
+import { homeView } from './game/views/home';
+import { learnView } from './game/views/learn';
+import { practiceView, roundView } from './game/views/round';
+import { settingsView } from './game/views/settings';
+import { BRANCHES, LESSONS } from './lessons';
 
-const NAV: readonly [string, string][] = [
-  ['/learn', 'Learn'],
-  ['/free', 'Free play'],
-  ['/settings', 'Settings'],
-];
+/** One of PatchMatch's pages, in a .pm box of its own so its styles stay inside it. */
+const pm = (view: View): View => (root, ctx) => {
+  const box = el('div.pm.pm-page');
+  root.replaceChildren(box);
+  return view(box, ctx);
+};
 
-function boot(): void {
-  const app = document.getElementById('app')!;
-  const links = NAV.map(([path, label]) => el('a', { href: `#${path}` }, label));
-  const outlet = el('main');
-  app.replaceChildren(
-    el('header.topbar', {}, el('a.wordmark', { href: '#/home' }, 'Patch', el('b', {}, 'Match')), el('nav', {}, links)),
-    outlet,
-  );
-
-  const markHere = () => {
-    const here = location.hash.replace(/^#/, '');
-    // Lessons and practice belong to Learn.
-    const section = /^\/(lesson|practice)\//.test(here) ? '/learn' : here;
-    links.forEach((a, i) => a.classList.toggle('here', section.startsWith(NAV[i][0])));
-  };
-  window.addEventListener('hashchange', markHere);
-
-  new Router(outlet)
-    .add('/home', homeView)
-    .add('/learn', learnView)
-    .add('/lesson/:stage', lessonView)
-    .add('/practice/:stage', practiceView)
-    .add('/round/:key', roundView)
-    .add('/round/:key/:puzzle', roundView)
-    .add('/free', freeplayView)
-    .add('/arcade', arcadeView)
-    .add('/settings', settingsView)
-    .start('/home');
-  markHere();
-
-  if (import.meta.env.DEV) void import('./app/overflow').then((m) => m.watchOverflow());
-
-  // The page also runs straight from disk, where there is no service worker.
-  if (import.meta.env.PROD && 'serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    const updateSW = registerSW({
-      onNeedRefresh() {
-        // A banner rather than confirm(): a native dialog would land in the
-        // middle of a puzzle. This waits until the player chooses.
-        toast('A new version is ready.', { label: 'Reload', run: () => void updateSW(true) });
-      },
-    });
-  }
-}
-
-boot();
+defineCourse({
+  id: 'synthesizers',
+  title: 'Synthesizers',
+  subtitle: 'How a sound is built',
+  mark: el('img', { src: 'icons/icon.svg', alt: '' }),
+  site: SITE_URL,
+  lessons: LESSONS,
+  branches: BRANCHES,
+  welcome: el('div', {},
+    el('p', {}, 'A synthesizer builds a sound from a few simple parts: something that wobbles, something that takes away, something that shapes each note in time. Each lesson opens on a puzzle from the history of sound (why a clarinet and a flute differ on the same note, how a throat makes vowels, why a bell with its start cut off sounds like a flute) and works it out on a live synth you play as you read. Headphones help.'),
+    el('p', {}, 'Beside the lessons are the ', el('a', { href: '#/lab' }, 'Synth lab'), ', the whole synth to play with a keyboard, and ', el('a', { href: '#/ear' }, 'PatchMatch'), ', a game of matching a sound by ear in as few turns of the knobs as you can.')),
+  figures: FIGURES,
+  prose,
+  // "Lesson 3 of 17": the trunk's whole plan.
+  lesson: { of: () => 17 },
+  pages: [
+    { path: '/lab', label: 'Synth lab', view: pm(freeplayView) },
+    { path: '/ear', label: 'PatchMatch', view: pm(homeView) },
+    { path: '/ear/stages', view: pm(learnView) },
+    { path: '/ear/practice/:stage', view: pm(practiceView) },
+    { path: '/ear/round/:key', view: pm(roundView) },
+    { path: '/ear/round/:key/:puzzle', view: pm(roundView) },
+    { path: '/ear/arcade', view: pm(arcadeView) },
+    { path: '/ear/settings', view: pm(settingsView) },
+  ],
+  menu: ['/home', '/lab', '/ear', '/review', '/encyclopedia', '/settings'],
+  catalog: { href: '../' },
+  encyclopedia: { data: encyclopedia, course: 'synthesizers' },
+  text: {
+    files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),
+    code: () => import('virtual:didactics/code-text').then((m) => m.default),
+  },
+});

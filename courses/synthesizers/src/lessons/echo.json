@@ -1,0 +1,323 @@
+{
+ "id": "echo",
+ "n": 8,
+ "title": "Echoes on purpose",
+ "teaches": "Echo: the speed of sound, slapback, delay times in step with the beat, and repeats",
+ "parts": [
+  {
+   "title": "A clap and a wall",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Clap your hands in a small room and you hear one clap. Do the same facing a cliff or a big building across a square and you hear two: your clap, and a moment later the wall's. The wall answers in both cases. What changes is how long it takes."
+    },
+    {
+     "type": "text",
+     "text": "Sound is slow. It travels about 343 metres a second in air, a kilometre in three seconds, which is why you can count the seconds between lightning and thunder to tell how far away a storm is. In the 1630s the friar Marin Mersenne used exactly this, timing echoes off walls against a pendulum, to make one of the first measurements of the **[[speed of sound]]**.[^mersenne]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "echo",
+     "caption": "You, a wall, and the time the echo takes to come back. Below about 50 milliseconds the ear hears clap and echo as one sound.",
+     "task": "Guess, then move the wall until you hear two claps",
+     "goal": "separate",
+     "aspect_ratio": 1.9047619047619047
+    }
+   ]
+  },
+  {
+   "title": "Slapback",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In the early 1950s recording engineers found a way to make an echo without a wall. A tape recorder records with one head and plays back with another a few centimetres further along the tape, so the playback runs a fraction of a second behind. Feed that delayed copy back into the mix and every note gets an echo. Sam Phillips at Sun Records in Memphis used it on Elvis Presley's first records in 1954: a single quick echo, about a tenth of a second behind, that became known as **slapback**.[^sun] [[Les Paul]] had been building echoes and stacked guitars from tape machines in his garage for years before that."
+    },
+    {
+     "type": "text",
+     "text": "The synth's second pedal is an **echo**. **Mix** sets how loud the copy is against the note."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Short plucked notes into the echo pedal.",
+     "task": "Bring Mix up to 35 % or more",
+     "goal": "echo-mix",
+     "options": {
+      "stage": 8,
+      "knobs": [
+       "echoMix"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "echoTime": 1,
+       "echoRepeats": 0,
+       "echoMix": 0
+      },
+      "riff": 72
+     }
+    }
+   ]
+  },
+  {
+   "title": "Time in step with the beat",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Time** is the gap before the copy. A cliff sets its echo by distance; a musician sets it by the beat. At 120 beats a minute a quarter note lasts half a second, an eighth a quarter of a second, a sixteenth an eighth. So this pedal counts its time in notes, to stay in step with the riff whatever its tempo. A sixteenth is a quick slap right behind the note. An eighth or a quarter lands on the beat."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The echo's time, counted in notes of the riff.",
+     "task": "Listen to all four times",
+     "goal": "echo-times",
+     "options": {
+      "stage": 8,
+      "knobs": [
+       "echoTime"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "echoTime": 1,
+       "echoRepeats": 0,
+       "echoMix": 2
+      },
+      "riff": 72
+     }
+    },
+    {
+     "type": "text",
+     "text": "The **dotted eighth** falls between the beats: three sixteenths after each note. Play eighth notes into it and the echoes land in the gaps, so a plain line comes out as a galloping run of sixteenths. U2's guitarist the Edge built a career on that one setting.[^edge]"
+    }
+   ]
+  },
+  {
+   "title": "Repeats",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Repeats** sends each copy round to be copied again. At its lowest there is a single echo. Turned up, a trail of them fades away behind every note. In a tape echo each pass through the machine loses a little of the top, so the repeats grow quieter and duller, as real echoes do in a canyon, where the air soaks up high pitches more than low ones. This pedal copies that too."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The echo's repeats, with the mix at the halfway mark.",
+     "task": "Raise Repeats to the top",
+     "goal": "echo-repeats",
+     "options": {
+      "stage": 8,
+      "knobs": [
+       "echoRepeats"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "echoTime": 1,
+       "echoRepeats": 0,
+       "echoMix": 2
+      },
+      "riff": 72
+     }
+    },
+    {
+     "type": "text",
+     "text": "Turn the repeats up far enough and each copy comes back as loud as the last, and the echo never dies away: a loop that builds and builds. Tape echo units like the Echoplex of 1961 and Roland's Space Echo of 1974 were played this way as instruments in their own right, by dub reggae producers above all."
+    }
+   ]
+  },
+  {
+   "title": "Louder or longer?",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "More of either Mix or Repeats is “more echo”, so they are easy to confuse. Mix sets how loud the first echo is. Repeats sets how long the trail takes to die away. Echoes show in the gaps between notes; under long held notes they are buried, and a PatchMatch puzzle then asks only for a big change in Repeats."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Two knobs as one square: across is the repeats, up is the mix.",
+     "task": "Find a long, quiet trail: Mix at 15 %, Repeats at 80 %",
+     "goal": "echo-trail",
+     "options": {
+      "stage": 8,
+      "pad": [
+       "echoRepeats",
+       "echoMix"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "echoTime": 1,
+       "echoRepeats": 1,
+       "echoMix": 2
+      },
+      "riff": 72,
+      "examples": [
+       {
+        "name": "Dry",
+        "set": {
+         "echoMix": 0
+        }
+       },
+       {
+        "name": "Slap",
+        "set": {
+         "echoTime": 0,
+         "echoRepeats": 0,
+         "echoMix": 2
+        }
+       },
+       {
+        "name": "Eighths",
+        "set": {
+         "echoTime": 1,
+         "echoRepeats": 1,
+         "echoMix": 2
+        }
+       },
+       {
+        "name": "Gallop",
+        "set": {
+         "echoTime": 2,
+         "echoRepeats": 2,
+         "echoMix": 2
+        }
+       },
+       {
+        "name": "Wash",
+        "set": {
+         "echoTime": 3,
+         "echoRepeats": 3,
+         "echoMix": 3
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Six questions on echo",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "A wall is 34 metres away. About how long until your clap's echo returns?",
+        "choices": [
+         "A fifth of a second",
+         "A tenth of a second",
+         "Two seconds"
+        ],
+        "answer": 0,
+        "why": "The sound goes there and back, 68 metres, at about 343 metres a second: 0.2 s."
+       },
+       {
+        "ask": "Why don't you hear an echo in a small room?",
+        "choices": [
+         "It returns too soon for the ear to hear it apart from the sound",
+         "Small rooms don't reflect sound",
+         "The walls absorb it all"
+        ],
+        "answer": 0,
+        "why": "Under about 50 milliseconds the ear fuses the reflection with the original."
+       },
+       {
+        "ask": "How did tape machines make echo?",
+        "choices": [
+         "The playback head sits after the record head, so playback lags behind",
+         "By recording in a canyon",
+         "By playing the tape backwards"
+        ],
+        "answer": 0,
+        "why": "The gap between the heads is a delay; feeding it back into the mix makes the echo."
+       },
+       {
+        "ask": "At 120 beats a minute, how long is an eighth note?",
+        "choices": [
+         "A quarter of a second",
+         "Half a second",
+         "An eighth of a second"
+        ],
+        "answer": 0,
+        "why": "A beat (quarter note) is 60/120 = 0.5 s; an eighth is half that."
+       },
+       {
+        "ask": "What does turning up Repeats do?",
+        "choices": [
+         "Makes a longer trail of echoes behind each note",
+         "Makes the first echo louder",
+         "Moves the echo later"
+        ],
+        "answer": 0,
+        "why": "Repeats feeds each copy back to be copied again; Mix sets the first echo's level."
+       },
+       {
+        "ask": "Why do the repeats of a tape echo get duller as well as quieter?",
+        "choices": [
+         "Each pass through the tape loses some of the high harmonics",
+         "The tape slows down",
+         "The notes change pitch"
+        ],
+        "answer": 0,
+        "why": "Like air in a canyon, each trip through the machine takes off a little of the top."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**An echo is the same sound arriving later.** Sound travels about 343 metres a second.",
+  "**Under about 50 milliseconds the ear hears one sound**; longer, it hears two.",
+  "**Tape machines made echoes from the gap between their heads.** Sun Records' slapback was one quick echo.",
+  "**Mix sets how loud the echo is; Time sets the gap; Repeats sets how long the trail lasts.**",
+  "**Musicians set echo time in notes of the beat.** A dotted eighth makes eighths gallop.",
+  "**Repeats get duller as well as quieter**, as echoes in air do."
+ ],
+ "footnotes": {
+  "mersenne": {
+   "kind": "digression",
+   "title": "Mersenne's echoes",
+   "text": "Mersenne stood a measured distance from a wall, spoke a word, and moved until the echo came back just as he finished. His answer was too high, partly because judging when a word ends is hard. He is the same Mersenne who heard several pitches in one string (lesson 1) and whose name is on the Mersenne primes."
+  },
+  "sun": {
+   "kind": "digression",
+   "title": "Slapback at Sun",
+   "text": "Sun had two Ampex tape recorders. Phillips recorded on one and fed its slightly delayed playback into the other along with the live sound. The amount of delay depended on the tape speed and the gap between the heads, about 0.1 seconds at 7½ inches a second."
+  },
+  "edge": {
+   "kind": "digression",
+   "title": "The Edge's dotted eighth",
+   "text": "On songs like “Where the Streets Have No Name” (1987) the guitar plays steady eighth notes into a delay set to a dotted eighth with one or two repeats. The echoes interleave with the notes so neatly that it sounds like one impossibly fast player."
+  }
+ },
+ "journal": []
+}

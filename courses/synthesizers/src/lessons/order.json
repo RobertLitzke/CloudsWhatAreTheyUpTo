@@ -1,0 +1,329 @@
+{
+ "id": "order",
+ "n": 9,
+ "title": "Does the order matter?",
+ "teaches": "The signal chain: why filters and echoes can be swapped but drive can't (linearity)",
+ "parts": [
+  {
+   "title": "An argument about pedals",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Guitarists can argue for hours about what order to plug their pedals in. To an outsider it seems like a fuss over nothing. If you turn the treble down and then turn the volume up, you get the same as turning the volume up and then the treble down. Two plus three is three plus two. So why should a drive pedal before an echo sound any different from an echo before a drive?"
+    },
+    {
+     "type": "text",
+     "text": "It does, and the reason is one of the deepest ideas in physics. A note goes through the synth in a line: oscillator, filter, then the pedals, each part working on what the one before it handed on. So far the drive has sat between the filter and the echo, where a pedal usually goes. Move it, and the same knobs make a different sound."
+    }
+   ]
+  },
+  {
+   "title": "Drive, then filter",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Put the drive first and it clips the raw oscillator, ahead of the filter. The filter then takes the fizz off whatever the clipping made, so the sound is thick but tidy. The oscillator always reaches the drive at full level there, so the drive no longer follows the envelope: every note is clipped the same."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The signal chain drawn above its switch. A resonant saw with the drive in the middle.",
+     "task": "Put the drive First",
+     "goal": "chain-first",
+     "options": {
+      "stage": 9,
+      "knobs": [
+       "chain"
+      ],
+      "flow": true,
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 1,
+       "release": 1,
+       "drive": 3,
+       "driveTone": 4,
+       "echoMix": 0,
+       "chain": 1
+      },
+      "riff": 69
+     }
+    }
+   ]
+  },
+  {
+   "title": "Filter, then drive",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In the middle, the drive clips what the filter and the envelope have already shaped. The clipping puts back harmonics the filter took out, so the cutoff can no longer make the sound truly dark, and a resonant peak turns into a snarl. Try closing the filter both ways round."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The chain switch and the cutoff, with the resonance high.",
+     "task": "Close Cutoff to 285 Hz or lower with the drive First, and again with it in the Middle",
+     "goal": "chain-cutoff",
+     "options": {
+      "stage": 9,
+      "knobs": [
+       "chain",
+       "cutoff"
+      ],
+      "flow": true,
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 3,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 1,
+       "release": 1,
+       "drive": 3,
+       "driveTone": 4,
+       "echoMix": 0,
+       "chain": 1
+      },
+      "riff": 69
+     }
+    }
+   ]
+  },
+  {
+   "title": "Echo, then drive",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Last, the drive comes after the echo, and the echoes are clipped along with the note. Quiet echoes are pushed up towards the same ceiling as everything else, so they come out nearly as loud as the note and smear into it. Drive before echo gives clean repeats of a dirty note; echo before drive gives a dirty wash."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The chain switch, with the echo on.",
+     "task": "Compare Middle with Last",
+     "goal": "chain-last",
+     "options": {
+      "stage": 9,
+      "knobs": [
+       "chain"
+      ],
+      "flow": true,
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "drive": 3,
+       "driveTone": 4,
+       "echoTime": 2,
+       "echoRepeats": 1,
+       "echoMix": 2,
+       "chain": 1
+      },
+      "riff": 69
+     }
+    }
+   ]
+  },
+  {
+   "title": "Why some parts can swap",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A filter, an echo and a volume knob have something in common. Whatever goes in, what comes out is made only of scaled and delayed copies of it, added up. Double the input and the output doubles. Feed in two sounds at once and the output is just the two outputs added together. Systems like that are called **[[linear]]**, and for linear systems the order never matters: a filter after an echo is the same as an echo after a filter, exactly, for every sound.[^linear]"
+    },
+    {
+     "type": "text",
+     "text": "Clipping breaks the rule. Double the input to a drive and the output does not double; it hits the ceiling. Two notes together come out with new tones that neither made alone (lesson 7). A non-linear part has to be placed, and everything before it changes what it makes. So the guitarists are right, but only about part of their board: a chain of filters, EQs, volume pedals and delays could be plugged in any order, and only the drives, fuzzes and compressors make the argument worth having."
+    },
+    {
+     "type": "text",
+     "text": "Physicists lean on the same idea everywhere. Sound waves in air, light in glass and ripples on a pond are linear, very nearly, so two of them pass through each other unchanged; that is why you can hear one voice across a noisy room. When waves are pushed so hard that they stop being linear, in a sonic boom or a laser in a crystal, new frequencies appear, just as they do in a fuzz pedal."
+    }
+   ]
+  },
+  {
+   "title": "When the order doesn't matter",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "With the echo off there is nothing between Middle and Last, so they are the same place and a puzzle accepts either. With the drive off the pedal is out of the chain, and the switch goes dark. One more: a drive placed First can't reshape a plain pulse wave, which has only two levels and no tops to flatten."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The drive and the chain switch.",
+     "task": "Turn the chain switch dark",
+     "goal": "chain-dark",
+     "options": {
+      "stage": 9,
+      "knobs": [
+       "drive",
+       "chain"
+      ],
+      "flow": true,
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 1,
+       "sustain": 1,
+       "drive": 3,
+       "driveTone": 4,
+       "echoMix": 0,
+       "chain": 1
+      },
+      "riff": 69
+     }
+    },
+    {
+     "type": "text",
+     "text": "That is the whole synth: oscillators, filter, envelopes, LFO, FM, drive and echo, in a line you can rearrange. Every knob is out on the panel below. The [Synth lab](#/lab) has the same panel with a keyboard to play it, and [PatchMatch](#/ear) will test whether you can hear what each knob does."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Every knob from the lessons on one panel, as a PatchMatch puzzle shows it.",
+     "task": "Put the drive First and listen to the whole patch",
+     "goal": "chain-first",
+     "options": {
+      "stage": 9,
+      "panel": true,
+      "also": [
+       "cutoff",
+       "res",
+       "drive",
+       "driveTone",
+       "echoTime",
+       "echoRepeats",
+       "echoMix"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 2,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 1,
+       "release": 1,
+       "drive": 3,
+       "driveTone": 4,
+       "echoTime": 2,
+       "echoRepeats": 1,
+       "echoMix": 2,
+       "chain": 1
+      },
+      "riff": 69,
+      "examples": [
+       {
+        "name": "Pedalboard",
+        "set": {
+         "chain": 1
+        }
+       },
+       {
+        "name": "Driven filter",
+        "set": {
+         "chain": 0
+        }
+       },
+       {
+        "name": "Smeared echoes",
+        "set": {
+         "chain": 2,
+         "echoMix": 2
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the signal chain",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "Why does the order of a filter and an echo not matter?",
+        "choices": [
+         "Both are linear: their outputs are scaled, delayed copies of the input added up",
+         "They do the same job",
+         "The echo is always quieter"
+        ],
+        "answer": 0,
+        "why": "Linear systems can be applied in any order with the same result."
+       },
+       {
+        "ask": "What makes a drive pedal non-linear?",
+        "choices": [
+         "Doubling its input doesn't double its output",
+         "It has a tone knob",
+         "It is a pedal"
+        ],
+        "answer": 0,
+        "why": "Clipping hits a ceiling, so the output isn't proportional to the input."
+       },
+       {
+        "ask": "The drive comes after the echo. What happens to the echoes?",
+        "choices": [
+         "They are clipped and pushed up nearly as loud as the note",
+         "They vanish",
+         "They become cleaner"
+        ],
+        "answer": 0,
+        "why": "Clipping brings quiet sounds up towards the same ceiling as loud ones."
+       },
+       {
+        "ask": "With the drive in the middle, why can't the filter make the sound truly dark?",
+        "choices": [
+         "The clipping adds back harmonics the filter took out",
+         "The filter is switched off",
+         "The drive raises the pitch"
+        ],
+        "answer": 0,
+        "why": "Anything after the filter that adds harmonics undoes some of its work."
+       },
+       {
+        "ask": "Why can two people talking in one room be heard separately?",
+        "choices": [
+         "Sound in air is linear, so the waves pass through each other unchanged",
+         "Each voice uses a different air",
+         "The room filters one out"
+        ],
+        "answer": 0,
+        "why": "Linear waves add without changing each other; the ear can pick them apart."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A synth is a chain: oscillator, filter, then pedals**, each working on what the one before handed on.",
+  "**Drive before the filter is thick but tidy; after it, clipping puts back what the filter removed.**",
+  "**Drive after the echo clips the echoes too**, smearing them up to the note's level.",
+  "**Filters, echoes and volume are linear**: scaled, delayed copies added up. They can go in any order.",
+  "**Clipping is non-linear**, so where it sits changes the sound.",
+  "**Linear waves pass through each other unchanged**; push them hard enough and new frequencies appear."
+ ],
+ "footnotes": {
+  "linear": {
+   "kind": "technical",
+   "title": "Linear and time-invariant",
+   "text": "Engineers call a part linear if scaling or adding inputs scales or adds the outputs, and time-invariant if it behaves the same today as tomorrow. A part that is both is completely described by how it answers a single click (its impulse response), and any two such parts commute. Filters, echoes and reverbs are, as long as nobody turns a knob while the sound plays; an LFO turning one is the exception that keeps synths interesting."
+  }
+ },
+ "journal": []
+}

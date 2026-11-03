@@ -1,0 +1,634 @@
+{
+  "course": {
+    "line": "How a synthesizer builds a sound: harmonics, filters, envelopes, modulation, FM, drive and echo, and the people who found them.",
+    "text": [
+      "Every sound you hear is a stack of pure tones moving in time. These are the people, ideas and machines the course leans on, and a few numbers worth keeping."
+    ],
+    "people": [
+      "hermann-helmholtz",
+      "joseph-fourier",
+      "pierre-schaeffer",
+      "robert-moog",
+      "john-chowning",
+      "les-paul"
+    ],
+    "ideas": [
+      "harmonic-series",
+      "timbre",
+      "formant",
+      "subtractive-synthesis",
+      "envelope",
+      "lfo",
+      "beats",
+      "equal-temperament",
+      "fm-synthesis",
+      "clipping",
+      "doppler-effect",
+      "speed-of-sound",
+      "linearity"
+    ],
+    "things": [
+      "yamaha-dx7"
+    ],
+    "tables": [
+      {
+        "title": "The harmonic series on A",
+        "columns": [
+          "Harmonic",
+          "Frequency",
+          "Nearest note",
+          "Interval above the one before"
+        ],
+        "rows": [
+          [
+            "1",
+            "110 Hz",
+            "A2",
+            ""
+          ],
+          [
+            "2",
+            "220 Hz",
+            "A3",
+            "Octave"
+          ],
+          [
+            "3",
+            "330 Hz",
+            "E4",
+            "Fifth"
+          ],
+          [
+            "4",
+            "440 Hz",
+            "A4",
+            "Fourth"
+          ],
+          [
+            "5",
+            "550 Hz",
+            "C♯5",
+            "Major third"
+          ],
+          [
+            "6",
+            "660 Hz",
+            "E5",
+            "Minor third"
+          ],
+          [
+            "7",
+            "770 Hz",
+            "G5 (flat)",
+            "A shade under a minor third"
+          ],
+          [
+            "8",
+            "880 Hz",
+            "A5",
+            "A shade over a whole tone"
+          ]
+        ],
+        "note": "Equal-tempered notes are close to these but not equal: E4 on a piano is 329.6 Hz, and the 7th harmonic is a third of a semitone flat of any piano key."
+      },
+      {
+        "title": "Times worth knowing",
+        "columns": [
+          "What",
+          "How long"
+        ],
+        "rows": [
+          [
+            "One cycle of A4 (440 Hz)",
+            "2.3 ms"
+          ],
+          [
+            "The ear fuses an echo with its sound",
+            "under about 50 ms"
+          ],
+          [
+            "Slapback echo",
+            "about 100 ms"
+          ],
+          [
+            "A singer's vibrato, one cycle",
+            "about 170 ms (6 a second)"
+          ],
+          [
+            "A beat at 120 beats a minute",
+            "500 ms"
+          ],
+          [
+            "Sound across a football pitch (100 m)",
+            "290 ms"
+          ]
+        ]
+      }
+    ]
+  },
+  "entries": {
+    "hermann-helmholtz": {
+      "kind": "person",
+      "title": "Hermann von Helmholtz",
+      "also": [
+        "Helmholtz"
+      ],
+      "dates": "1821–1894",
+      "line": "Physicist and physician who showed that a musical note is a stack of pure tones.",
+      "text": [
+        "Helmholtz worked on almost everything: the eye, the speed of nerve signals, the conservation of energy. His 1863 book *On the Sensations of Tone* set out to explain music from physics and physiology together.",
+        "With a set of tuned hollow spheres held to the ear he picked out the harmonics inside a single note, and argued that timbre, the colour of a sound, is simply how loud each harmonic is. He also explained vowels as resonances of the mouth and offered a theory of why some chords sound rough."
+      ],
+      "matters": "Every synthesizer's idea of a sound, a spectrum of harmonics to be shaped, starts with him.",
+      "see": [
+        "harmonic-series",
+        "timbre",
+        "formant"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "timbre",
+          "for": "Hear the harmonics inside a note"
+        }
+      ],
+      "wikipedia": "Hermann_von_Helmholtz"
+    },
+    "joseph-fourier": {
+      "kind": "person",
+      "title": "Joseph Fourier",
+      "also": [
+        "Fourier"
+      ],
+      "dates": "1768–1830",
+      "line": "Mathematician who showed that any repeating shape is a sum of sine waves.",
+      "text": [
+        "Fourier was a revolutionary in his youth, went to Egypt with Napoleon, and governed a French province, all while working on how heat flows through solids. To solve that problem he needed to break any shape into simple waves, and claimed it could always be done.",
+        "The mathematicians of the Paris Academy doubted him for years. He was right, and the method now carries his name: Fourier analysis, in everything from MP3 files to MRI scanners."
+      ],
+      "matters": "It is the mathematics behind a spectrum: the bars on a synth's display are a Fourier analysis of the wave beside them.",
+      "see": [
+        "harmonic-series",
+        "hermann-helmholtz"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "timbre",
+          "for": "Build a square from sines"
+        }
+      ],
+      "wikipedia": "Joseph_Fourier"
+    },
+    "harmonic-series": {
+      "kind": "idea",
+      "title": "Harmonic series",
+      "also": [
+        "harmonics",
+        "overtones"
+      ],
+      "line": "The pure tones at one, two, three and more times a note's pitch, which together make the note.",
+      "text": [
+        "A string or an air column vibrates as a whole, in halves, in thirds and so on, all at once. Each way of vibrating gives a pure tone, a harmonic, at a whole-number multiple of the lowest. A note on 100 Hz has harmonics at 200, 300, 400 Hz and up.",
+        "The first few harmonics are the notes of a bugle call: the octave, the fifth above that, the next octave, a major third. Much of harmony is built on that stack."
+      ],
+      "matters": "It links physics to music: the intervals that sound smoothest are the ratios between the first few harmonics.",
+      "see": [
+        "timbre",
+        "joseph-fourier",
+        "beats"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "timbre"
+        },
+        {
+          "course": "synthesizers",
+          "lesson": "beats",
+          "for": "Hear why fifths sound smooth"
+        }
+      ],
+      "wikipedia": "Harmonic_series_(music)"
+    },
+    "timbre": {
+      "kind": "idea",
+      "title": "Timbre",
+      "also": [
+        "tone colour"
+      ],
+      "line": "The colour of a sound: what tells a clarinet from a flute on the same note.",
+      "text": [
+        "Two notes can match in pitch and loudness and still sound nothing alike. The difference is timbre, and most of it is the mix of harmonics: which ones are strong, which are weak or missing.",
+        "The rest is change over time. How a note starts, the scrape or thump of its first few hundredths of a second, tells the ear as much about the instrument as its steady tone."
+      ],
+      "matters": "A synthesizer is a machine for making timbres: each part of it changes either the mix of harmonics or how it moves.",
+      "see": [
+        "harmonic-series",
+        "envelope",
+        "formant"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "timbre"
+        },
+        {
+          "course": "synthesizers",
+          "lesson": "tape",
+          "for": "Cut the start off a note"
+        }
+      ],
+      "wikipedia": "Timbre"
+    },
+    "formant": {
+      "kind": "idea",
+      "title": "Formant",
+      "also": [
+        "formants"
+      ],
+      "line": "A resonant peak of the throat and mouth; two or three of them make each vowel.",
+      "text": [
+        "The vocal folds make a buzz full of harmonics. The throat, mouth and lips then act as a filter with a few ringing peaks, and the harmonics near a peak come through loudest. Moving the jaw and tongue moves the peaks, and the ear reads their positions as vowels.",
+        "Singers use them too. Opera singers learn to add a formant near 3,000 Hz, which lets a voice cut through a whole orchestra without a microphone."
+      ],
+      "matters": "It is the voice's version of subtractive synthesis, and the reason a filter with resonance can sound like it is talking.",
+      "see": [
+        "subtractive-synthesis",
+        "timbre"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "vowels",
+          "for": "Make vowels from a buzz"
+        }
+      ],
+      "wikipedia": "Formant"
+    },
+    "subtractive-synthesis": {
+      "kind": "idea",
+      "title": "Subtractive synthesis",
+      "line": "Making a sound by starting with a bright wave and filtering harmonics away.",
+      "text": [
+        "An oscillator makes a wave rich in harmonics, a saw or a pulse. A filter takes some of them away, an envelope moves the filter and the volume over each note, and an LFO adds movement. Nearly every analogue synthesizer works this way.",
+        "It is how a voice works too: the vocal folds buzz and the mouth filters."
+      ],
+      "matters": "It is the classic way synths are built and taught, and the plan of the synth in this course.",
+      "see": [
+        "formant",
+        "robert-moog",
+        "envelope"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "vowels"
+        }
+      ],
+      "wikipedia": "Subtractive_synthesis"
+    },
+    "robert-moog": {
+      "kind": "person",
+      "title": "Robert Moog",
+      "also": [
+        "Moog",
+        "Bob Moog"
+      ],
+      "dates": "1934–2005",
+      "line": "Engineer whose modular synthesizers and Minimoog made the synth a musical instrument.",
+      "text": [
+        "Moog sold theremin kits as a student, then in 1964 began building modules (oscillators, filters, envelope generators) that musicians could patch together with cables and play from a keyboard. His transistor ladder filter gave them a warm, resonant sound that rivals copied for decades.",
+        "Wendy Carlos's *Switched-On Bach* (1968), played on a Moog, sold over a million copies. The Minimoog of 1970 put the essential modules in a portable box, and synths left the studio for the stage."
+      ],
+      "matters": "He turned electronic sound from a laboratory curiosity into an instrument players could buy and play.",
+      "see": [
+        "subtractive-synthesis",
+        "envelope"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "vowels",
+          "for": "Hear a resonant filter"
+        }
+      ],
+      "wikipedia": "Robert_Moog"
+    },
+    "pierre-schaeffer": {
+      "kind": "person",
+      "title": "Pierre Schaeffer",
+      "also": [
+        "musique concrète"
+      ],
+      "dates": "1910–1995",
+      "line": "French radio engineer who made music from recorded sounds: musique concrète.",
+      "text": [
+        "Working at French radio after the war, Schaeffer recorded trains, pans and bells and rearranged them on disc and then tape: played backwards, slowed, looped, chopped up. He called the result musique concrète.",
+        "Along the way he found how much of a sound's identity sits in its first instant: a bell with its strike cut off no longer sounds like a bell."
+      ],
+      "matters": "Sampling, looping and editing sound, the everyday tools of modern music, began in his studio.",
+      "see": [
+        "envelope",
+        "timbre"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "tape",
+          "for": "Hear what the start of a note does"
+        }
+      ],
+      "wikipedia": "Pierre_Schaeffer"
+    },
+    "envelope": {
+      "kind": "idea",
+      "title": "Envelope",
+      "also": [
+        "ADSR",
+        "ADSR envelope"
+      ],
+      "line": "How a note's level (or brightness) changes from the moment it starts to after it ends: attack, decay, sustain, release.",
+      "text": [
+        "Attack is how long a note takes to reach full volume; decay, how long it then takes to fall to the sustain level, where it holds while the key is down; release, how long it fades after the key comes up. A piano has a fast attack and no sustain; an organ has full sustain; a bowed string swells in.",
+        "Synths send the same shape to the filter, so notes start bright and darken as they fade, as real instruments do."
+      ],
+      "matters": "Change the envelope and the same harmonics can sound plucked, bowed or blown.",
+      "see": [
+        "timbre",
+        "pierre-schaeffer",
+        "lfo"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "tape",
+          "for": "Shape notes in time"
+        }
+      ],
+      "wikipedia": "Envelope_(music)"
+    },
+    "lfo": {
+      "kind": "idea",
+      "title": "Low-frequency oscillator",
+      "also": [
+        "LFO"
+      ],
+      "line": "An oscillator too slow to hear as a tone, used to turn another setting up and down.",
+      "text": [
+        "An LFO runs at anything from one cycle every few seconds to around twenty a second. Wired to pitch it makes vibrato; to volume, tremolo; to a filter's cutoff, a wah.",
+        "Turn one up into the audio range and it stops sounding like movement and starts making new harmonics: that is FM."
+      ],
+      "matters": "Movement is most of what separates a lively sound from a dead one, and the LFO is the synth's simplest source of it.",
+      "see": [
+        "fm-synthesis",
+        "doppler-effect",
+        "envelope"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "vibrato",
+          "for": "Make vibrato, wah and tremolo"
+        }
+      ],
+      "wikipedia": "Low-frequency_oscillation"
+    },
+    "doppler-effect": {
+      "kind": "idea",
+      "title": "Doppler effect",
+      "line": "The rise in pitch of a sound coming towards you, and the fall as it goes away.",
+      "text": [
+        "A source moving towards you squeezes its waves together, so more arrive each second and the pitch is higher; moving away, it stretches them. The siren of a passing ambulance drops as it goes by.",
+        "Christian Doppler predicted it in 1842, and in 1845 Buys Ballot tested it with trumpeters on a moving train. A Leslie speaker uses it with a spinning horn to make vibrato."
+      ],
+      "matters": "It works for light as well, and is how astronomers measure the speeds of stars and the expansion of the universe.",
+      "see": [
+        "lfo"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "vibrato",
+          "for": "Why a spinning speaker wobbles"
+        }
+      ],
+      "wikipedia": "Doppler_effect"
+    },
+    "beats": {
+      "kind": "idea",
+      "title": "Beats",
+      "also": [
+        "beating"
+      ],
+      "line": "The slow swelling and fading of two tones a little apart in pitch.",
+      "text": [
+        "Two tones at nearly the same frequency drift in and out of step: in step they add, out of step they cancel. The sound swells and fades as many times a second as the difference between the two frequencies.",
+        "Tuners use beats to tune unisons, octaves and fifths, and synths use them on purpose, detuning oscillators to thicken a sound."
+      ],
+      "matters": "Beats are the most sensitive pitch test the ear has, and part of why some chords sound rough.",
+      "see": [
+        "harmonic-series",
+        "equal-temperament"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "beats",
+          "for": "Tune by ear until the beating stops"
+        }
+      ],
+      "wikipedia": "Beat_(acoustics)"
+    },
+    "equal-temperament": {
+      "kind": "idea",
+      "title": "Equal temperament",
+      "line": "Tuning the twelve notes of the octave exactly evenly, so every key sounds alike.",
+      "text": [
+        "Pure fifths (3:2) don't fit into octaves: twelve of them overshoot seven octaves by about a quarter of a semitone. Equal temperament shares that error out, narrowing every fifth by two hundredths of a semitone, so a piano can play in any key.",
+        "The price is that no interval except the octave is pure. Equal-tempered fifths beat about once a second, and thirds beat noticeably."
+      ],
+      "matters": "It is the tuning of almost every keyboard and synth today, and a compromise most listeners never notice.",
+      "see": [
+        "beats",
+        "harmonic-series"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "beats"
+        }
+      ],
+      "wikipedia": "Equal_temperament"
+    },
+    "john-chowning": {
+      "kind": "person",
+      "title": "John Chowning",
+      "also": [
+        "Chowning"
+      ],
+      "dates": "born 1934",
+      "line": "Composer who discovered FM synthesis at Stanford in 1967.",
+      "text": [
+        "Chowning was experimenting with vibrato on a computer and turned its rate up into the hundreds of cycles a second. Instead of a wobble he heard new timbres, brassy or bell-like, from just two oscillators.",
+        "Stanford patented the method and licensed it to Yamaha, whose DX7 made it the sound of the 1980s. Chowning went on to found Stanford's centre for computer music."
+      ],
+      "matters": "One overlooked setting gave the world its first cheap, rich digital synthesis.",
+      "see": [
+        "fm-synthesis",
+        "yamaha-dx7"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "bells",
+          "for": "Turn vibrato into a bell"
+        }
+      ],
+      "wikipedia": "John_Chowning"
+    },
+    "fm-synthesis": {
+      "kind": "idea",
+      "title": "FM synthesis",
+      "also": [
+        "frequency modulation"
+      ],
+      "line": "Making timbres by swinging one oscillator's pitch with another at audio rates.",
+      "text": [
+        "One oscillator (the modulator) wobbles the frequency of another (the carrier) hundreds or thousands of times a second. The ear hears no wobble; it hears sidebands, new tones either side of the carrier, spaced by the modulator's frequency.",
+        "Whole-number ratios between the two keep the sidebands on harmonics, for brass and organ sounds. Other ratios scatter them between harmonics, for bells and metal."
+      ],
+      "matters": "It makes complex sounds from very little, which is why it suited the first affordable digital synths.",
+      "see": [
+        "john-chowning",
+        "yamaha-dx7",
+        "lfo"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "bells"
+        }
+      ],
+      "wikipedia": "Frequency_modulation_synthesis"
+    },
+    "yamaha-dx7": {
+      "kind": "thing",
+      "title": "Yamaha DX7",
+      "also": [
+        "DX7"
+      ],
+      "line": "The 1983 FM synthesizer that sounded like the 1980s.",
+      "text": [
+        "The DX7 had six sine oscillators per voice, arranged by 32 “algorithms” into carriers and modulators, and no filter. It was hard to program and most players used its presets, especially one electric piano that seems to be on half the ballads of the decade.",
+        "At about two thousand dollars it cost far less than the big analogue synths, and Yamaha sold about 200,000."
+      ],
+      "matters": "It made FM, and digital synthesis in general, the sound of a decade's pop music.",
+      "see": [
+        "fm-synthesis",
+        "john-chowning"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "bells"
+        }
+      ],
+      "wikipedia": "Yamaha_DX7"
+    },
+    "clipping": {
+      "kind": "idea",
+      "title": "Clipping",
+      "also": [
+        "distortion",
+        "overdrive"
+      ],
+      "line": "Squashing the tops of a wave flat by pushing it harder than a circuit can follow.",
+      "text": [
+        "A circuit has a ceiling. Drive a wave past it and the peaks are flattened, which makes the wave squarer and adds harmonics. Two notes clipped together also make sum and difference tones.",
+        "To an audio engineer it is distortion, a fault. To a guitarist it is overdrive or fuzz, the sound of rock."
+      ],
+      "matters": "It is the non-linear part of a synth or a pedalboard, the one whose place in the chain changes the sound.",
+      "see": [
+        "linearity",
+        "timbre"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "fuzz",
+          "for": "Clip a sine and watch the harmonics grow"
+        }
+      ],
+      "wikipedia": "Clipping_(audio)"
+    },
+    "les-paul": {
+      "kind": "person",
+      "title": "Les Paul",
+      "dates": "1915–2009",
+      "line": "Guitarist and inventor who made echoes and stacked recordings with tape machines.",
+      "text": [
+        "Les Paul built his own guitars, including one of the first solid-bodied electric guitars, and his own recording tricks. In the late 1940s and 1950s he used tape machines to add echo and to record himself many times over, playing along with his own playback.",
+        "Records like “How High the Moon” (1951), with Mary Ford, were built from a dozen layered parts and drenched in tape echo, years before anyone else worked that way."
+      ],
+      "matters": "Multitrack recording and studio echo, now taken for granted, were his inventions or close to it.",
+      "see": [
+        "speed-of-sound"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "echo",
+          "for": "Make echoes on purpose"
+        }
+      ],
+      "wikipedia": "Les_Paul"
+    },
+    "speed-of-sound": {
+      "kind": "idea",
+      "title": "Speed of sound",
+      "line": "About 343 metres a second in air at room temperature: a kilometre in three seconds.",
+      "text": [
+        "Sound is a wave of pressure handed from molecule to molecule, so it goes faster in warm air and much faster in water (about 1,500 m/s) or steel (about 5,000 m/s).",
+        "Mersenne and Gassendi timed it in the 1630s with echoes and gunfire. Count the seconds between lightning and thunder and divide by three for the storm's distance in kilometres."
+      ],
+      "matters": "It sets how long echoes take, how big a Doppler shift is, and why a concert hall sounds the way it does.",
+      "see": [
+        "doppler-effect",
+        "les-paul"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "echo"
+        }
+      ],
+      "wikipedia": "Speed_of_sound"
+    },
+    "linearity": {
+      "kind": "idea",
+      "title": "Linearity",
+      "also": [
+        "linear",
+        "linear systems"
+      ],
+      "line": "A system is linear if doubling what goes in doubles what comes out, and two inputs give the sum of their two outputs.",
+      "text": [
+        "Filters, echoes, reverbs and volume controls are linear: their output is scaled, delayed copies of the input added up. Linear parts can be swapped in a chain without changing the result.",
+        "Clipping isn't linear, and neither are most things pushed hard enough. Where a system stops being linear, new frequencies appear: in a fuzz pedal, a sonic boom or a laser in a crystal."
+      ],
+      "matters": "It is one of physics' most useful simplifications, and the reason the order of a synth's parts matters only around its non-linear ones.",
+      "see": [
+        "clipping"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "order",
+          "for": "Swap the parts of a signal chain"
+        }
+      ],
+      "wikipedia": "Linear_system"
+    }
+  }
+}

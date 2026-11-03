@@ -1,0 +1,320 @@
+{
+ "id": "beats",
+ "n": 5,
+ "title": "Counting beats",
+ "teaches": "Two oscillators: beating, detune, thickness, and the intervals of music",
+ "parts": [
+  {
+   "title": "How a tuner hears",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Most notes on a piano have two or three strings each, struck together by one hammer. A piano tuner has to get each set exactly in tune with itself. Strange to say, they don't do it by judging the pitch. They listen for something else: a slow swelling and fading in the sound, a wah-wah-wah, which tells them the strings are slightly apart. They turn the tuning pin until it slows, and slows, and stops."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "beats",
+     "caption": "Two pure tones, the first at 440 Hz and the second slightly above it, and the sum the ear hears over one second.",
+     "task": "Guess, then tune the second tone until the beating stops",
+     "goal": "tuned",
+     "aspect_ratio": 1.8181818181818181
+    },
+    {
+     "type": "text",
+     "text": "These are **[[beats]]**. Two tones a few hertz apart drift in and out of step. When their peaks line up they add and the sound swells; half a cycle later one pushes while the other pulls, they cancel, and it fades. The number of swells a second is simply the difference between the two frequencies: 440 and 443 beat three times a second. It is the most precise tool a tuner has, sensitive to a fraction of a hertz."
+    }
+   ]
+  },
+  {
+   "title": "A second oscillator",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A synth with two oscillators can do the same on purpose. The second plays the same wave as the first, and its **Level** sets how much of it you hear."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The synth with a second oscillator, so far off.",
+     "task": "Bring Level up to 55 % or more",
+     "goal": "osc2-up",
+     "options": {
+      "stage": 5,
+      "knobs": [
+       "osc2Level"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 5,
+       "res": 0,
+       "sustain": 4,
+       "release": 2,
+       "osc2Level": 0,
+       "osc2Detune": 2,
+       "osc2Interval": 0
+      },
+      "riff": 58
+     }
+    },
+    {
+     "type": "text",
+     "text": "Exactly in tune, two identical oscillators are simply one oscillator, louder. Everything interesting happens when they are not."
+    }
+   ]
+  },
+  {
+   "title": "Detune",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**Detune** pulls the second oscillator slightly off pitch, measured in **cents**, hundredths of a semitone. The two drift in and out of step, and you hear the beating as a slow swell. More detune beats faster; so do higher notes, because the same number of cents is more hertz higher up."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Both oscillators on, with the second's detune.",
+     "task": "Hear it with no detune at all, and at 40 cents",
+     "goal": "detune-both",
+     "options": {
+      "stage": 5,
+      "knobs": [
+       "osc2Detune"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 5,
+       "res": 0,
+       "sustain": 4,
+       "release": 2,
+       "osc2Level": 3,
+       "osc2Detune": 2,
+       "osc2Interval": 0
+      },
+      "riff": 58
+     }
+    },
+    {
+     "type": "text",
+     "text": "A slight detune makes a sound thicker, the way a section of twelve violins sounds bigger than one violin played louder: no two players are ever quite in tune, and their beating smears into a rich, moving sound called a chorus. Synth designers took the idea as far as it goes in the late 1990s with the **supersaw**, seven saw waves detuned around one note, which became the sound of trance music.[^supersaw]"
+    }
+   ]
+  },
+  {
+   "title": "Intervals",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Move the second oscillator further, by a whole musical interval, and it stops thickening the note and starts making a chord. **Interval** sets it an octave down, in unison, a fifth up or an octave up. An octave is a frequency twice as high. A fifth is one and a half times as high, the ratio 3 to 2, the interval of the first two notes of “Twinkle, Twinkle”."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The second oscillator's interval.",
+     "task": "Listen to all four intervals",
+     "goal": "interval-all",
+     "options": {
+      "stage": 5,
+      "knobs": [
+       "osc2Interval"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 5,
+       "res": 0,
+       "sustain": 4,
+       "release": 2,
+       "osc2Level": 3,
+       "osc2Detune": 0,
+       "osc2Interval": 0
+      },
+      "riff": 58
+     }
+    },
+    {
+     "type": "text",
+     "text": "Why do these ratios sound smooth together? Look at the harmonics. A note on 200 Hz has harmonics at 200, 400, 600, 800. A fifth above, 300 Hz, has 300, 600, 900, 1200. They share 600 and 1200 exactly, so those harmonics can't beat. Tune the fifth slightly off and the shared harmonics split and beat, and the chord sounds sour. On a piano, tuned in [[equal temperament]], every fifth is left a shade narrow on purpose and beats slowly. This is how tuners set fifths, and it is the start of an answer to why some notes sound good together, which a later lesson takes up.[^fifths]"
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Two tones a few hertz apart beat at the difference between them.",
+      "Slight detune thickens a sound; a whole interval makes a chord.",
+      "Simple ratios (2:1, 3:2) share harmonics, which is why they sound smooth."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "When the knobs go dark",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "With Level at Off there is only one oscillator, so Detune and Interval go dark. And in unison with no detune the two are the same tone, only louder, which the filter and the envelope already let you match. There it is Level itself that goes dark: you can't tell how loud the second oscillator is when it is indistinguishable from the first."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Level, Detune and Interval together.",
+     "task": "Turn Level dark without touching it",
+     "goal": "osc2-dark",
+     "options": {
+      "stage": 5,
+      "knobs": [
+       "osc2Interval",
+       "osc2Level",
+       "osc2Detune"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 5,
+       "res": 0,
+       "sustain": 4,
+       "release": 2,
+       "osc2Level": 3,
+       "osc2Detune": 2,
+       "osc2Interval": 0
+      },
+      "riff": 58,
+      "examples": [
+       {
+        "name": "One oscillator",
+        "set": {
+         "osc2Level": 0
+        }
+       },
+       {
+        "name": "Shimmer",
+        "set": {
+         "osc2Level": 3,
+         "osc2Detune": 1,
+         "osc2Interval": 0
+        }
+       },
+       {
+        "name": "Wide chorus",
+        "set": {
+         "osc2Level": 4,
+         "osc2Detune": 4,
+         "osc2Interval": 0
+        }
+       },
+       {
+        "name": "Sub octave",
+        "set": {
+         "osc2Level": 3,
+         "osc2Detune": 0,
+         "osc2Interval": 1
+        }
+       },
+       {
+        "name": "Fifths",
+        "set": {
+         "osc2Level": 3,
+         "osc2Detune": 0,
+         "osc2Interval": 2
+        }
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Six questions on two oscillators",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "Two tones at 440 Hz and 444 Hz play together. How many times a second does the sound swell?",
+        "choices": [
+         "4",
+         "444",
+         "884"
+        ],
+        "answer": 0,
+        "why": "The beat rate is the difference between the frequencies: 444 - 440 = 4."
+       },
+       {
+        "ask": "A tuner hears the beating between two strings slow down. What is happening?",
+        "choices": [
+         "The strings are getting closer in pitch",
+         "The strings are getting further apart",
+         "The hammer is hitting more softly"
+        ],
+        "answer": 0,
+        "why": "Fewer beats a second means a smaller difference in frequency."
+       },
+       {
+        "ask": "Why does detuning a second oscillator slightly make a sound thicker?",
+        "choices": [
+         "The two drift in and out of step, like players never quite in tune",
+         "It doubles the pitch",
+         "It removes the harmonics"
+        ],
+        "answer": 0,
+        "why": "The slow beating between nearly equal tones gives the moving, chorused sound of a section."
+       },
+       {
+        "ask": "A note is at 200 Hz. What is a fifth above it?",
+        "choices": [
+         "300 Hz",
+         "250 Hz",
+         "400 Hz"
+        ],
+        "answer": 0,
+        "why": "A fifth is the ratio 3:2: 200 × 1.5 = 300 Hz."
+       },
+       {
+        "ask": "Why do an octave and a fifth sound smooth?",
+        "choices": [
+         "Their harmonics coincide, so they don't beat",
+         "They are louder",
+         "They have no harmonics"
+        ],
+        "answer": 0,
+        "why": "Simple ratios put many harmonics of the two notes on exactly the same frequencies."
+       },
+       {
+        "ask": "Why does Level go dark when the second oscillator is in unison with no detune?",
+        "choices": [
+         "It is then the same tone as the first, just louder",
+         "The oscillator is switched off",
+         "The filter blocks it"
+        ],
+        "answer": 0,
+        "why": "Identical oscillators can't be told apart, so their balance can't be heard."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Two tones a few hertz apart beat**: the sound swells and fades at the difference between them.",
+  "**Piano tuners listen for beats**, and turn the pin until they stop.",
+  "**A second oscillator, slightly detuned, thickens a sound** like a section of players never quite in tune.",
+  "**Detune is measured in cents**, hundredths of a semitone.",
+  "**Whole intervals make chords**: an octave is 2:1, a fifth 3:2.",
+  "**Simple ratios share harmonics**, so they don't beat; slightly off, they do."
+ ],
+ "footnotes": {
+  "supersaw": {
+   "kind": "digression",
+   "title": "The supersaw",
+   "text": "Roland's JP-8000 of 1996 offered a waveform it called the super saw: seven saws spread around the note with a single knob for how far apart. It was copied by nearly every synth that followed. Its tone is a mass of slow, overlapping beats that never repeat, which is why it sounds huge."
+  },
+  "fifths": {
+   "kind": "technical",
+   "title": "Tuning a fifth by its beats",
+   "text": "On a modern piano the fifths are deliberately a shade narrow, 700 cents instead of the pure 702, so that twelve fifths close up into seven octaves (equal temperament). A to E above it then beat about once a second: the third harmonic of A (1320 Hz) against the second of E (1318.5 Hz). Tuners set each fifth by counting that slow beat."
+  }
+ },
+ "journal": []
+}

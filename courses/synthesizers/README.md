@@ -1,89 +1,60 @@
-# PatchMatch
+# Synthesizers: how a sound is built
 
-A synth ear-training puzzle. A target patch loops a riff; your own patch starts
-a few knob settings away; turn knobs until they match in as few moves as you
-can, then commit to see the puzzle's goal (the number of moves a good ear should
-need) and what was off.
+A course on how a synthesizer builds a sound, on a live synth the reader plays
+as they read. It grew out of **PatchMatch**, a synth ear-training game
+(RobertLitzke/PatchMatch, brought in here with its history), which lives on
+inside the course at `#/ear`.
 
-There are nine stages, from waveforms to pedals and the order they are plugged
-in, each with a lesson, practice and rounds. Besides rounds there is an arcade
-mode (puzzles back to back against a draining meter) and free play.
-
-The game design and the phased plan are in [DESIGN.md](DESIGN.md), including
-what is built so far.
-
-## Run
-
-```bash
-npm install
-```
-
-```bash
-npm run dev
-```
-
-Opens on http://localhost:5400. Two more pages exist on the dev server only:
-
-- http://localhost:5400/audition.html plays every riff, for checking the
-  transcriptions by ear.
-- http://localhost:5400/audit.html measures how different each step of each
-  knob sounds, for tuning the step tables.
-
-On the dev server an orange strip appears across the top if anything on a page
-is wider than the screen, naming the element. The page clips sideways overflow
-instead of scrolling, so this is how a layout slip on one device shows up.
-
-| Command | What it does |
-|---|---|
-| `npm test` | Vitest: generator properties, golden keys, scoring, envelope, riffs, recording, storage, arcade rules |
-| `npm run build` | Typecheck, then build `dist/` |
-| `npm run build:pd` | The same, shipping the 16 public-domain riffs only |
-| `npm run preview` | Serve `dist/` on http://localhost:5401 |
-| `npm run golden` | Re-record `test/golden-keys.json` after an intended generator change |
-| `npm run icons` | Regenerate the PNG icons from `public/icons/icon.svg` |
-
-## The build
-
-`dist/index.html` is the whole app: JavaScript, CSS and the font are inlined, so
-the file also runs straight from disk. Beside it sit the three things that
-cannot be inlined: `sw.js`, `manifest.webmanifest` and `icons/`. There is no
-backend; progress and saved keys live in the browser's `localStorage`, with
-export and import on the Settings page.
-
-`dist/` is committed, so the deployable build is in the repo: copy its
-contents to any static host. Rebuild and commit it after changing the app.
-Serve `index.html` and `sw.js` with `Cache-Control: no-cache` so installed
-copies see updates.
-
-`Dockerfile` builds that and serves it from nginx.
+Each lesson opens on a puzzle from the history of sound and works it out on
+the synth: the first nine are PatchMatch's nine stages (waveforms, filter,
+envelopes, LFO, second oscillator, FM, drive, echo, signal chain), one module
+each. The rest of the plan is in `src/lessons.ts` as `coming` lessons.
 
 ## Layout
 
 ```
-src/core/    pure TypeScript, no DOM or Web Audio; everything here is unit-tested
-  params.ts    the parameter table every other part reads
-  active.ts    which knobs can be heard in a given sound (decides what is scored)
-  loop.ts      turning key presses into a recorded loop
-  gen/         generators by key version; v1.ts holds step tables, bias, goal weights
-  riffs/       notation parser and the riff list (popular.ts, folk.ts)
-  arcade.ts    the arcade run: the level ramp, the signal meter, the points
-  key.ts score.ts round.ts campaign.ts envelope.ts storage.ts rng.ts
-src/audio/   voice.ts (one synth voice from native nodes, with its drive and echo
-             pedals), engine.ts (clock, A/B, live keys, metronome), offline.ts
-             (render a loop to samples)
-src/app/     dom.ts, router.ts, components/ (knob, panel, scope, keys, flow, ...),
-             views/, styles/
-tools/       icons.mjs, audition/ and audit/ (the two dev-only pages)
-test/        includes golden-keys.json
+src/core/      PatchMatch's pure TypeScript, unit-tested: the parameter table
+               (params.ts), generator, keys, scoring, riffs, envelope maths
+src/audio/     the synth engine on Web Audio: voice.ts (one voice from native
+               nodes), engine.ts (clock, A/B, keys), offline.ts (render to
+               samples), claim.ts (one sound at a time on a page), tone.ts
+               (a figure's own held tone)
+src/game/      PatchMatch's pages and components (knob, panel, scope, pad,
+               flow, keys), styled only inside a .pm box (styles/app.css)
+src/figures/   the lesson figures: synth.ts is the live synth (knobs, pad,
+               panel, scope and a looping riff, with goals by name); the rest
+               are drawn SVG figures with a tone of their own
+src/lessons/   one JSON file per written lesson
+tools/         audit/ and audition/ (PatchMatch's dev-only pages), gallery.ts
+               (figures.html), copyedit.json and review-queue.json
+test/          PatchMatch's tests, plus the course's content and figure tests
 ```
+
+Pages beside the lessons: `#/lab` is the Synth lab (PatchMatch's free play:
+every knob, a keyboard, recorded loops), and `#/ear` is PatchMatch itself
+(rounds, practice, arcade, its settings at `#/ear/settings`). PatchMatch's
+progress stays in its own `patchmatch.save`; the course's is `synthesizers.save`.
+
+## Riffs
+
+The site's build ships the public-domain riffs only (`.env.production` sets
+`VITE_RIFFS=pd`), so its round keys carry version `A`. `npm run dev` has
+every riff. Lesson figures use public-domain riffs only (the content test checks).
+
+## Run
+
+From the repository root, `npm install`, then:
+
+| Command | What it does |
+|---|---|
+| `npm run dev -w synthesizers` | Dev server on http://localhost:5400; also `/figures.html` (every figure), `/audition.html` (every riff), `/audit.html` (how different each knob step sounds) |
+| `npm test -w synthesizers` | Vitest: PatchMatch's generator, keys, scoring, riffs and storage, plus the lessons and figures |
+| `npm run build -w synthesizers` | Typecheck, then build `dist/` |
+| `npm run golden -w synthesizers` | Re-record `test/golden-keys.json` after an intended generator change |
 
 ## Keys and the generator
 
 A round key such as `14N-K7QX2M` (version, stage 1 to 9, tier, seed) fully
-determines its twelve puzzles. `test/golden.test.ts` pins a set of keys to the puzzles they
-produce.
-
-Generator v1 is **not frozen yet**: until a key has been shared with anyone, its
-tables may change, followed by `npm run golden`. After that, any change to what
-a key produces goes in a new `gen/v2.ts` under a new version character, and v1
-stays in the bundle.
+determines its twelve puzzles. `test/golden.test.ts` pins a set of keys to the
+puzzles they produce. Generator v1 is not frozen yet; see DESIGN.md, which is
+PatchMatch's game design and still describes the game.

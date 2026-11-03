@@ -63,3 +63,9 @@ export function stageReached(save: SaveData): number {
 export function stageOpen(save: SaveData, stage: number): boolean {
   return save.unlockAll || stage <= stageReached(save);
 }
+
+/** The course lesson (its id, as in src/lessons/) that teaches each stage, stage 1 first. */
+export const STAGE_LESSONS = ['timbre', 'vowels', 'tape', 'vibrato', 'beats', 'bells', 'fuzz', 'echo', 'order'] as const;
+
+/** The address of the course lesson for a stage. */
+export const lessonHref = (stage: number) => `#/lesson/${STAGE_LESSONS[stage - 1] ?? STAGE_LESSONS[0]}`;

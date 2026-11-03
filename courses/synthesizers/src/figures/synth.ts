@@ -1,0 +1,244 @@
+// The live synth in a lesson: PatchMatch's synth (src/audio, src/core) with
+// a scope and a few of its knobs, looping a riff while the reader turns them.
+// One figure is one old PatchMatch lesson part: the lesson's JSON says which
+// knobs, where every knob starts, and the goal.
+//
+//   { "type": "interactive_diagram", "id": "synth", "goal": "wave-all",
+//     "options": { "stage": 1, "knobs": ["wave"], "start": { "wave": 0 } } }
+//
+// Options: `knobs` (controls, in order), `pad` (two knobs as one square:
+// across, then up), `flow` (draw the signal chain), `panel` (the whole panel
+// of the stage's modules, as a puzzle shows it, with `also` naming knobs of
+// earlier stages left live), `examples` (ready-made settings as buttons),
+// `riff` (a riff id; public-domain riffs only, so every build has it), and
+// `start` (knob positions on the step tables, set as the figure opens).
+//
+// Knobs move in the same steps as PatchMatch's puzzles. Goals are tested on
+// the settings now and on every setting visited since the figure opened.
+
+import { el } from 'didactics/dom';
+import { figure, type Options } from 'didactics/figure';
+import { getEngine, peekEngine } from '../audio/engine';
+import { claim, release } from '../audio/claim';
+import { STAGES } from '../core/campaign';
+import { LATEST_RULES } from '../core/gen';
+import { PARAMS, PARAM_IDS, resolve, valueAt, type ParamId, type Patch } from '../core/params';
+import { RIFFS, riffById } from '../core/riffs';
+import { createFlow, type Flow } from '../game/components/flow';
+import type { Knob } from '../game/components/knob';
+import { createPad, type Pad } from '../game/components/pad';
+import { createControl, createPanel, type Panel } from '../game/components/panel';
+import { createScope } from '../game/components/scope';
+import { updateSave } from '../game/store';
+
+type Log = readonly Patch[];
+/** How many different positions of a knob the log has been through. */
+const tried = (log: Log, id: ParamId) => new Set(log.map((p) => p[id])).size;
+const been = (log: Log, id: ParamId, pos: number) => log.some((p) => p[id] === pos);
+
+/** Every goal a lesson can set the synth, by name. */
+export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => boolean>> = {
+  // Stage 1: waveforms
+  'wave-all': (_, log) => tried(log, 'wave') >= 4,
+  'wave-sine': (now) => now.wave === 3,
+  'pw-thin': (now) => now.pw === 4,
+  'pw-dark': (now) => now.wave !== 1,
+  // Stage 2: the filter
+  'cutoff-low': (now) => now.cutoff <= 1,
+  'res-top': (now) => now.res === 4,
+  'res-sweep': (_, log) => new Set(log.filter((p) => p.res >= 3).map((p) => p.cutoff)).size >= 5,
+  'dark-smooth': (now) => now.cutoff <= 2 && now.res === 0,
+  // Stage 3: envelopes
+  'attack-slow': (now) => now.attack >= 3,
+  pluck: (now) => now.sustain === 0 && now.decay <= 1,
+  'release-long': (now) => now.release >= 3,
+  'env-filter': (now) => now.envAmt >= 2,
+  // Stage 4: the LFO
+  'lfo-deep': (now) => now.lfoDepth >= 3,
+  'lfo-rates': (_, log) => been(log, 'lfoRate', 0) && been(log, 'lfoRate', 4),
+  'lfo-dests': (_, log) => tried(log, 'lfoDest') >= 4,
+  'lfo-wah': (now) => now.lfoRate >= 3 && now.lfoDepth >= 3,
+  // Stage 5: the second oscillator
+  'osc2-up': (now) => now.osc2Level >= 3,
+  'detune-both': (_, log) => been(log, 'osc2Detune', 0) && been(log, 'osc2Detune', 4),
+  'interval-all': (_, log) => tried(log, 'osc2Interval') >= 4,
+  'osc2-dark': (now) => now.osc2Level > 0 && now.osc2Detune === 0 && now.osc2Interval === 0,
+  // Stage 6: FM
+  'fm-up': (now) => now.fmAmount >= 3,
+  'fm-ratios': (_, log) => tried(log, 'fmRatio') >= 5,
+  'fm-bell': (now) => now.fmRatio >= 3 && now.fmAmount >= 3,
+  'fm-saw': (now) => now.wave === 0 && now.fmAmount >= 2,
+  // Stage 7: drive
+  'drive-up': (now) => now.drive >= 3,
+  'drive-sustain': (_, log) => been(log, 'drive', 0) && been(log, 'drive', 4),
+  'tone-down': (now) => now.driveTone <= 1,
+  'gritty-dark': (now) => now.cutoff >= 5 && now.driveTone <= 1,
+  // Stage 8: echo
+  'echo-mix': (now) => now.echoMix >= 2,
+  'echo-times': (_, log) => tried(log, 'echoTime') >= 4,
+  'echo-repeats': (now) => now.echoRepeats === 3,
+  'echo-trail': (now) => now.echoMix === 1 && now.echoRepeats === 3,
+  // Stage 9: the chain
+  'chain-first': (now) => now.chain === 0,
+  'chain-cutoff': (_, log) => [0, 1].every((place) => log.some((p) => p.chain === place && p.cutoff <= 1)),
+  'chain-last': (_, log) => been(log, 'chain', 1) && been(log, 'chain', 2),
+  'chain-dark': (now) => now.drive === 0,
+};
+
+export interface SynthOptions extends Options {
+  /** The PatchMatch stage it teaches: its knobs are the panel's, and playing it counts the stage's lesson as read in the game. */
+  stage: number;
+  start?: Partial<Patch>;
+  knobs?: ParamId[];
+  pad?: [ParamId, ParamId];
+  flow?: boolean;
+  panel?: boolean;
+  also?: ParamId[];
+  examples?: { name: string; set: Partial<Patch> }[];
+  riff?: number;
+}
+
+const isParam = (id: unknown): id is ParamId => typeof id === 'string' && (PARAM_IDS as readonly string[]).includes(id);
+
+function problems(o: Options | undefined): string[] {
+  const s = o as SynthOptions | undefined;
+  if (!s) return ['needs options: at least a "stage"'];
+  const out: string[] = [];
+  if (!STAGES[s.stage - 1]) out.push(`stage ${s.stage} is not one of PatchMatch's ${STAGES.length}`);
+  const ids = [...(s.knobs ?? []), ...(s.pad ?? []), ...(s.also ?? []), ...Object.keys(s.start ?? {}), ...(s.examples ?? []).flatMap((e) => Object.keys(e.set))];
+  for (const id of ids) if (!isParam(id)) out.push(`no knob "${id}"`);
+  for (const [id, pos] of Object.entries(s.start ?? {})) {
+    if (isParam(id) && (pos < 0 || pos >= LATEST_RULES.steps[id].length)) out.push(`start: ${id} has no position ${pos}`);
+  }
+  if (!s.knobs?.length && !s.pad && !s.panel) out.push('has nothing to turn: give it "knobs", a "pad" or the "panel"');
+  if (s.riff != null && !riffById(s.riff)?.pd) out.push(`riff ${s.riff} is not one of the public-domain riffs every build has`);
+  return out;
+}
+
+export const synthFigure = figure<SynthOptions>(
+  Object.keys(SYNTH_GOALS),
+  (ctx, t, options) => {
+    const o = options ?? ({ stage: 1 } as SynthOptions);
+    const rules = LATEST_RULES;
+    const riff = riffById(o.riff ?? 69) ?? RIFFS[0];
+    const goal = t.goal ? SYNTH_GOALS[t.goal] : undefined;
+    let patch: Patch = { ...rules.defaults, ...o.start };
+    const log: Patch[] = [patch];
+
+    const clamp = (id: ParamId, pos: number) => Math.min(rules.steps[id].length - 1, Math.max(0, Math.round(pos)));
+    const fmt = (id: ParamId, pos: number) => PARAMS[id].format(valueAt(id, rules.steps[id], pos));
+
+    // --- sound -----------------------------------------------------------------
+    const scope = createScope();
+    let mine = false;
+    const play = el('button.btn.play.btn-primary', { type: 'button', 'aria-label': 'Play' }, '▶') as HTMLButtonElement;
+    const paintPlay = () => {
+      const on = mine && peekEngine()?.playing === true;
+      play.textContent = on ? '■' : '▶';
+      play.setAttribute('aria-label', on ? 'Stop' : 'Play');
+    };
+    const stop = () => {
+      if (!mine) return;
+      mine = false;
+      scope.stop();
+      const engine = peekEngine();
+      if (engine) {
+        engine.onState = null;
+        engine.stop();
+      }
+      release(stop);
+      paintPlay();
+    };
+    const start = () => {
+      const engine = getEngine();
+      if (mine && engine.playing) return;
+      claim(stop);
+      mine = true;
+      engine.onState = () => {
+        if (!engine.playing) stop();
+        paintPlay();
+      };
+      engine.setRiff(riff);
+      engine.setVoices([resolve(patch, rules.steps)]);
+      engine.start();
+      scope.start(engine.analyser);
+      if (o.stage) updateSave((s) => (s.lessons.includes(o.stage) ? s : { ...s, lessons: [...s.lessons, o.stage] }));
+      paintPlay();
+    };
+    play.addEventListener('click', () => (mine && peekEngine()?.playing ? stop() : start()));
+    ctx.closed.addEventListener('abort', stop);
+
+    // --- the controls, all showing the one patch ----------------------------------
+    const knobs: { id: ParamId; knob: Knob }[] = [];
+    const pads: { x: ParamId; y: ParamId; pad: Pad }[] = [];
+    let flow: Flow | null = null;
+    let panel: Panel | null = null;
+    const refresh = () => {
+      const sound = resolve(patch, rules.steps);
+      for (const { id, knob } of knobs) {
+        knob.set(patch[id]);
+        knob.setState({ inactive: !rules.active(id, sound) });
+      }
+      for (const { x, y, pad } of pads) pad.set(patch[x], patch[y]);
+      flow?.set(sound);
+      panel?.update(patch);
+      if (mine) peekEngine()?.setSound(0, sound);
+    };
+    const change = (next: Partial<Patch>) => {
+      const moved = { ...patch };
+      for (const [id, pos] of Object.entries(next) as [ParamId, number][]) moved[id] = clamp(id, pos);
+      patch = moved;
+      log.push(patch);
+      refresh();
+      // Turning something is a request to hear it.
+      start();
+      if (goal?.(patch, log)) t.done();
+    };
+
+    const controls: HTMLElement[] = [];
+    if (o.flow) {
+      flow = createFlow();
+      controls.push(flow.el);
+    }
+    for (const id of o.knobs ?? []) {
+      const knob = createControl(id, rules, false, () => patch[id], (pos) => change({ [id]: pos }));
+      knobs.push({ id, knob });
+      controls.push(knob.el);
+    }
+    if (o.pad) {
+      const [x, y] = o.pad;
+      const pad = createPad({
+        x: { label: PARAMS[x].label, count: rules.steps[x].length, format: (pos) => fmt(x, pos) },
+        y: { label: PARAMS[y].label, count: rules.steps[y].length, format: (pos) => fmt(y, pos) },
+        onPick: (px, py) => change({ [x]: px, [y]: py }),
+      });
+      pads.push({ x, y, pad });
+      controls.push(pad.el);
+    }
+    if (o.panel) {
+      panel = createPanel({
+        rules,
+        patch,
+        enabled: PARAM_IDS.filter((id) => PARAMS[id].stage === o.stage || o.also?.includes(id)),
+        stage: o.stage,
+        continuous: false,
+        onMove: (id, pos) => change({ [id]: pos }),
+      });
+    }
+    const examples = o.examples?.length
+      ? el('div.examples', {}, el('span.caps', {}, 'Try'), o.examples.map((ex) => el('button.btn.btn-small', { type: 'button', onclick: () => change(ex.set) }, ex.name)))
+      : null;
+
+    refresh();
+    return el(
+      'div.synth-fig.pm',
+      {},
+      el('div.synth-head', {}, play, el('p.note', {}, `${riff.title} loops while you turn the knobs.`)),
+      scope.el,
+      controls.length ? el('div.part-controls', {}, controls) : null,
+      examples,
+      panel?.el ?? null,
+    );
+  },
+  { options: problems },
+);
