@@ -3,6 +3,9 @@
 //   E2:2 -:2 G2 A#2:3 | Bb2:8
 //
 // `Pitch:length` with the length in sixteenths (1 if omitted), `-` for a rest,
+// then, for the course's own loops, `@0.5` for how hard the note is struck
+// (velocity, 0 to 1; 1 if omitted) and `~1` for how hard it is leaned on once
+// down (pressure, rising through the note; 0 if omitted),
 // and an optional `|` that must fall on a bar line (a cheap check against
 // miscounting). A note may cross a bar line; just leave the `|` out there.
 
@@ -12,6 +15,10 @@ export interface RiffNote {
   /** Length in sixteenths. */
   len: number;
   midi: number;
+  /** How hard it is struck, 0 to 1. */
+  vel?: number;
+  /** How hard it is leaned on once down, 0 to 1. */
+  press?: number;
 }
 
 const SEMITONE: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
@@ -42,13 +49,19 @@ export function parseNotation(text: string, bar = 16): ParsedNotation {
       if (pos % bar !== 0) throw new Error(`bar line at sixteenth ${pos}, not on a bar of ${bar}`);
       continue;
     }
-    const [name, lenText] = token.split(':');
+    const m = /^([^:@~]+)(?::(\d+))?(?:@([\d.]+))?(?:~([\d.]+))?$/.exec(token);
+    if (!m) throw new Error(`bad token "${token}"`);
+    const [, name, lenText, velText, pressText] = m;
     const len = lenText == null ? 1 : Number(lenText);
     if (!Number.isInteger(len) || len < 1) throw new Error(`bad length in "${token}"`);
     if (name !== '-') {
       const midi = midiOf(name);
       if (midi == null) throw new Error(`bad pitch in "${token}"`);
-      notes.push({ start: pos, len, midi });
+      const note: RiffNote = { start: pos, len, midi };
+      if (velText != null) note.vel = Number(velText);
+      if (pressText != null) note.press = Number(pressText);
+      if (!(note.vel == null || (note.vel >= 0 && note.vel <= 1)) || !(note.press == null || (note.press >= 0 && note.press <= 1))) throw new Error(`velocity or pressure out of 0 to 1 in "${token}"`);
+      notes.push(note);
     }
     pos += len;
   }

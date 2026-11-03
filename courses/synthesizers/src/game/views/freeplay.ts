@@ -265,10 +265,13 @@ export const freeplayView: View = (root) => {
   });
 
   const keys = createKeys({
-    onNote: (midi) => {
+    onNote: (midi, vel) => {
       // Nothing can be sounding before the first key has gone down.
       if (midi == null && !armed) return;
-      arm().key(midi, barSeconds());
+      arm().key(midi, barSeconds(), vel);
+    },
+    onPressure: (p) => {
+      if (armed) arm().pressure(p);
     },
     onKey: (midi, down) => {
       if (!take) return;

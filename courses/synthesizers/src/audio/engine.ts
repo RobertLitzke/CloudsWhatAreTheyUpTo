@@ -15,6 +15,9 @@ import { timedNotes, type Riff, type TimedNote } from '../core/riffs';
 import { midiToHz } from '../core/riffs/notation';
 import { Voice } from './voice';
 
+/** A key's velocity when nothing says how hard it was struck: a computer key, or a held key handed back. */
+export const KEY_VELOCITY = 0.8;
+
 const TICK_MS = 25;
 const HORIZON = 0.12;
 const LEAD_IN = 0.06;
@@ -32,7 +35,7 @@ export interface Loop {
 export function riffLoop(riff: Riff, bpm = riff.bpm): Loop {
   const stretch = riff.bpm / bpm;
   return {
-    notes: timedNotes(riff).map((n) => ({ on: n.on * stretch, off: n.off * stretch, midi: n.midi })),
+    notes: timedNotes(riff).map((n) => ({ ...n, on: n.on * stretch, off: n.off * stretch })),
     duration: riff.length * riff.six * stretch,
     barSeconds: riff.bar * riff.six * stretch,
     sixSeconds: riff.six * stretch,
@@ -185,14 +188,19 @@ export class Engine {
    * A key went down (or, with null, the last one came up) on the audible
    * voice. The keyboard and the loop take turns: a key stops the loop.
    */
-  key(midi: number | null, barSeconds = 2): void {
+  key(midi: number | null, barSeconds = 2, vel = KEY_VELOCITY): void {
     const voice = this.voices[this.selected];
     if (!voice) return;
     if (this.playing) this.stop();
     void this.ctx.resume();
     const t = this.ctx.currentTime;
     if (midi == null) voice.keyUp(t);
-    else voice.keyDown(t, midiToHz(midi), barSeconds);
+    else voice.keyDown(t, midiToHz(midi), barSeconds, vel);
+  }
+
+  /** How hard the held key is leaned on, 0 to 1. */
+  pressure(p: number): void {
+    this.voices[this.selected]?.pressure(this.ctx.currentTime, p);
   }
 
   /** A metronome tick at `t` on the audio clock. */
@@ -288,7 +296,7 @@ export class Engine {
       const next = last ? this.passStart + duration + notes[0].on : this.passStart + notes[this.index + 1].on;
       const off = Math.min(this.passStart + n.off, next);
       const hz = midiToHz(n.midi);
-      for (const v of this.voices) v.note(on, off, next, hz);
+      for (const v of this.voices) v.note(on, off, next, hz, n.vel, n.press);
       this.index = last ? 0 : this.index + 1;
       if (last) this.passStart += duration;
     }

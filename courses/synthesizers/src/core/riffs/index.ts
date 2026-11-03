@@ -36,6 +36,9 @@ export interface TimedNote {
   on: number;
   off: number;
   midi: number;
+  /** How hard it is struck (1 unless the riff says) and leaned on (0 unless it says). */
+  vel?: number;
+  press?: number;
 }
 
 export function timedNotes(riff: Riff): TimedNote[] {
@@ -43,6 +46,8 @@ export function timedNotes(riff: Riff): TimedNote[] {
     on: n.start * riff.six,
     off: (n.start + gateSixteenths(n.len)) * riff.six,
     midi: n.midi,
+    vel: n.vel ?? 1,
+    press: n.press ?? 0,
   }));
 }
 

@@ -17,7 +17,9 @@ export interface Player {
   stop(): void;
   playing(): boolean;
   /** Play one note from a keyboard (null lifts it). The loop stops; the keyboard has the synth until another figure takes it. */
-  key(sound: Sound, midi: number | null): void;
+  key(sound: Sound, midi: number | null, vel?: number): void;
+  /** How hard the held key is leaned on. */
+  pressure(p: number): void;
   /** Has the synth now, from its loop or its keyboard. */
   owns(): boolean;
   /** Change the sound while it is sounding, from either. */
@@ -41,7 +43,10 @@ export function player(closed: AbortSignal, riff: Riff, stage?: number): Player 
     update: (sound) => {
       if (mine) peekEngine()?.setSound(0, sound);
     },
-    key: (sound, midi) => {
+    pressure: (p) => {
+      if (mine) peekEngine()?.pressure(p);
+    },
+    key: (sound, midi, vel) => {
       const engine = getEngine();
       if (!mine) {
         if (midi == null) return;
@@ -55,7 +60,7 @@ export function player(closed: AbortSignal, riff: Riff, stage?: number): Player 
         // Playing the loop: the key stops it, and that is not this player stopping.
         engine.onState = () => p.onChange();
       }
-      engine.key(midi, riff.six * riff.bar);
+      engine.key(midi, riff.six * riff.bar, vel);
       p.onChange();
     },
     stop: () => {

@@ -4,6 +4,11 @@
 //
 // The synth has one voice. Whatever is pressed last sounds; lifting it hands
 // the voice back to a key still held under it.
+//
+// A real key knows how fast it went down (velocity) and how hard it is pushed
+// once down (pressure). Here, where on the key you touch is how hard you
+// strike it: near the far end is soft, near your end hard. Sliding your
+// finger towards you while holding a key leans on it.
 
 import { el } from '../dom';
 
@@ -15,7 +20,9 @@ const HIGHEST_C = 84;
 
 export interface KeysOptions {
   /** The note that should sound now, or null for none. */
-  onNote: (midi: number | null) => void;
+  onNote: (midi: number | null, vel?: number) => void;
+  /** How hard the held key is leaned on, 0 to 1. */
+  onPressure?: (p: number) => void;
   /** Every key going down or coming up, for a recorder. */
   onKey?: (midi: number, down: boolean) => void;
   /** Whether the computer's keys play this strip now. A lesson has several; only the one in use listens. */
@@ -50,10 +57,10 @@ export function createKeys(opts: KeysOptions): Keys {
     for (const [midi, node] of keyEls) node.classList.toggle('down', held.includes(midi));
   };
 
-  const press = (midi: number) => {
+  const press = (midi: number, vel?: number) => {
     held.push(midi);
     opts.onKey?.(midi, true);
-    opts.onNote(midi);
+    opts.onNote(midi, vel);
     paintHeld();
   };
   const release = (midi: number) => {
@@ -110,17 +117,27 @@ export function createKeys(opts: KeysOptions): Keys {
     const node = hit instanceof HTMLElement ? hit.closest<HTMLElement>('.key') : null;
     return node && strip.contains(node) ? Number(node.dataset.midi) : null;
   };
+  /** Where each pointer first touched, and the height of the key it touched, for pressure. */
+  const touched = new Map<number, { y: number; h: number }>();
+  /** How hard a touch at `y` strikes a key: 0.2 at the far end to 1 at the near end. */
+  const velocityAt = (midi: number, y: number) => {
+    const r = keyEls.get(midi)!.getBoundingClientRect();
+    return Math.round(100 * (0.2 + 0.8 * Math.min(1, Math.max(0, (y - r.top) / r.height)))) / 100;
+  };
   strip.addEventListener('pointerdown', (e) => {
     const midi = active ? keyAt(e.clientX, e.clientY) : null;
     if (midi == null) return;
     e.preventDefault();
     strip.setPointerCapture(e.pointerId);
     byPointer.set(e.pointerId, midi);
-    press(midi);
+    touched.set(e.pointerId, { y: e.clientY, h: keyEls.get(midi)!.getBoundingClientRect().height });
+    press(midi, velocityAt(midi, e.clientY));
   });
   strip.addEventListener('pointermove', (e) => {
     const was = byPointer.get(e.pointerId);
     if (was == null) return;
+    const from = touched.get(e.pointerId);
+    if (from && opts.onPressure) opts.onPressure(Math.min(1, Math.max(0, (e.clientY - from.y) / (0.4 * from.h))));
     const midi = keyAt(e.clientX, e.clientY);
     if (midi == null || midi === was) return;
     // Sliding along the strip plays each key it crosses.
@@ -132,6 +149,7 @@ export function createKeys(opts: KeysOptions): Keys {
     const was = byPointer.get(e.pointerId);
     if (was == null) return;
     byPointer.delete(e.pointerId);
+    touched.delete(e.pointerId);
     release(was);
   };
   strip.addEventListener('pointerup', lift);

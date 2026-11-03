@@ -732,13 +732,22 @@ export class Voice {
    * Schedule one note. `off` is the key release and `next` the following note's
    * start; the envelope is cut at `next`, so nothing ever needs cancelling.
    */
-  note(on: number, off: number, next: number, hz: number): void {
+  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0): void {
     const bank = this.bankAt(on);
     this.pitch(bank, on, hz);
     this.aim(on, hz, this.glideTau());
     this.pending.push({ on, hz });
     this.lastHz = hz;
     this.keySrc.offset.setValueAtTime(keyOctaves(hz), on);
+    this.velSrc.offset.setValueAtTime(vel, on);
+    // Pressure: leaned into over most of the note, let go as the key comes up.
+    const p = this.pressSrc.offset;
+    p.setValueAtTime(0, on);
+    if (press > 0) {
+      p.linearRampToValueAtTime(press, on + 0.6 * (off - on));
+      p.setValueAtTime(press, off);
+      p.linearRampToValueAtTime(0, Math.min(off + 0.05, next));
+    }
 
     this.fall(on, next);
     const { events, end } = noteEnvelope(this.level, on, off, next, this.sound);
@@ -805,7 +814,7 @@ export class Voice {
    * here, so the envelope is a chain of exponential approaches, each of which
    * carries on from wherever the level is.
    */
-  keyDown(t: number, hz: number, barSeconds: number): void {
+  keyDown(t: number, hz: number, barSeconds: number, vel = 0.8): void {
     const s = this.sound;
     if (!this.live) {
       this.live = true;
@@ -823,6 +832,7 @@ export class Voice {
     this.pending = [{ on: t, hz }];
     this.lastHz = hz;
     this.keySrc.offset.setValueAtTime(keyOctaves(hz), t);
+    this.velSrc.offset.setValueAtTime(vel, t);
     this.aim(t, hz, this.glideTau());
     this.fall(t, t + 60);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
@@ -832,7 +842,14 @@ export class Voice {
     }
   }
 
+  /** How hard the held key is leaned on, now. */
+  pressure(t: number, p: number): void {
+    this.pressSrc.offset.cancelScheduledValues(t);
+    this.pressSrc.offset.setTargetAtTime(p, t, 0.02);
+  }
+
   keyUp(t: number): void {
+    this.pressure(t, 0);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
       p.cancelScheduledValues(t);
       p.setTargetAtTime(0, t, Math.max(this.sound.release / 3, 0.0005));

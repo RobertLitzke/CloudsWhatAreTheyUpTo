@@ -111,6 +111,8 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'mx-two': (now) => now.mxLfoPitch !== 5 && now.mxLfoCutoff !== 5,
   'mx-negative': (now) => now.mxEnvCutoff < 5,
   'key-track': (now) => now.mxKeyCutoff >= 7,
+  // Lesson 16: velocity and pressure
+  'vel-bright': (now) => now.mxVelCutoff >= 7,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };
@@ -296,13 +298,14 @@ export const synthFigure = figure<SynthOptions>(
       ? createKeys({
           base: typeof o.keys === 'number' ? o.keys : 48,
           typing: () => byHand && sound.owns(),
-          onNote: (midi) => {
+          onNote: (midi, vel) => {
             if (midi != null) {
               byHand = true;
               hearing = 'yours';
             }
-            if (byHand) sound.key(resolve(patch, rules.steps), midi);
+            if (byHand) sound.key(resolve(patch, rules.steps), midi, vel);
           },
+          onPressure: (p) => sound.pressure(p),
         })
       : null;
     if (keys) ctx.closed.addEventListener('abort', () => keys.destroy());

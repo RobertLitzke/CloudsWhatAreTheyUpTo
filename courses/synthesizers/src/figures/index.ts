@@ -8,6 +8,7 @@ import { beatsFigure } from './beats';
 import { checkFigure } from './check';
 import { clipFigure } from './clip';
 import { cycleFigure } from './cycle';
+import { curveFigure } from './curve';
 import { echoFigure } from './echo';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
@@ -40,4 +41,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   sh: shFigure,
   // Lesson 14
   cycle: cycleFigure,
+  // Lesson 16
+  curve: curveFigure,
 };
