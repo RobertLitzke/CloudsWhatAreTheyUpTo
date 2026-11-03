@@ -92,3 +92,84 @@ export const parallaxFigure = figure(['bessel'], (_ctx, t) => {
   });
   return f.node;
 });
+
+// ---- Bradley's aberration: running through starlight --------------------------------------------
+
+/** The Earth's speed round the Sun, km a second. */
+const EARTH_KMS = 29.8;
+/** The tilt Bradley measured, arcseconds. */
+export const BRADLEY = 20.5;
+/** The telescope's tilt, arcseconds, if light is `ratio` times as fast as the Earth. */
+export const tilt = (ratio: number) => (Math.atan(1 / ratio) * 180 * 3600) / Math.PI;
+
+export const aberrationFigure = figure(['speed'], (_ctx, t) => {
+  const H = 260;
+  const f = frame(W, H, 3);
+  const g = svg('g');
+  f.svg.append(g);
+  /** log10 of light's speed over the Earth's. */
+  let lg = 0.3;
+  const paint = () => {
+    const ratio = 10 ** lg;
+    const arcsec = tilt(ratio);
+    const parts: SVGElement[] = [svg('rect', { width: W, height: H, fill: COL.sky })];
+    // Strobe: the telescope at three moments as it moves right, and one packet of light falling straight down through it.
+    const L = 150;
+    const top = 50;
+    const bottom = top + L;
+    const drift = L / ratio; // how far the Earth moves while light falls the tube's length
+    const xl = 150; // where the light falls
+    for (let k = 0; k <= 2; k++) {
+      const moved = (drift * k) / 2;
+      const op = k === 2 ? 1 : 0.35;
+      // The tube at this moment, its top leaning forward into the motion; the light on its axis.
+      parts.push(svg('line', { x1: xl + moved, y1: top, x2: xl - drift + moved, y2: bottom, stroke: '#cfd6ea', 'stroke-width': 12, 'stroke-linecap': 'round', opacity: op * 0.5 }));
+      parts.push(svg('circle', { cx: xl, cy: top + (L * k) / 2, r: 4, fill: COL.light, opacity: op }));
+    }
+    const x0 = xl - drift;
+    parts.push(
+      line(x0 + drift, 20, x0 + drift, bottom + 20, COL.light, 1, { 'stroke-dasharray': '2 4' }),
+      small(xl - 6, 30, 'starlight falls straight down', { fill: COL.light, anchor: 'end' }),
+      svg('path', { d: `M${x0 + drift + 30},${bottom + 26}h50l-6,-4m6,4l-6,4`, fill: 'none', stroke: '#fff', 'stroke-width': 1.5 }),
+      small(x0 + drift + 30, bottom + 42, 'the Earth moves', { fill: '#fff' }),
+    );
+    // The star's little yearly circle, to scale in arcseconds, against Bradley's.
+    const ccx = 320;
+    const ccy = 120;
+    const PER = 2.2; // px per arcsecond
+    const r = Math.min(70, arcsec * PER);
+    parts.push(
+      svg('circle', { cx: ccx, cy: ccy, r: BRADLEY * PER, fill: 'none', stroke: '#fff', 'stroke-width': 1, 'stroke-dasharray': '3 3', opacity: 0.7 }),
+      svg('circle', { cx: ccx, cy: ccy, r, fill: 'none', stroke: COL.light, 'stroke-width': 2 }),
+      svg('circle', { cx: ccx, cy: ccy, r: 2, fill: '#fff' }),
+      ...(arcsec * PER > 70 ? [small(ccx, ccy - 76, `radius ${arcsec >= 3600 ? `${(arcsec / 3600).toFixed(1)}°` : `${Math.round(arcsec)}″`}: off the scale`, { anchor: 'middle', fill: COL.light })] : []),
+      small(ccx, ccy + 88, `dashed: Bradley’s, radius ${BRADLEY}″`, { anchor: 'middle', fill: '#fff' }),
+      small(ccx, 18, 'A star’s path over a year', { anchor: 'middle', fill: '#fff', bold: true }),
+    );
+    redraw(g, ...parts);
+    const kms = ratio * EARTH_KMS;
+    const near = Math.abs(arcsec - BRADLEY) < 0.6;
+    const fmt = (v: number) => (v >= 100 ? Math.round(v).toLocaleString('en-US') : v.toFixed(1));
+    f.readout.textContent = `If light is ${fmt(ratio)} times as fast as the Earth (${fmt(kms)} km a second), the telescope must lean ${arcsec >= 3600 ? `${(arcsec / 3600).toFixed(1)}°` : `${arcsec.toFixed(1)}″`} into the motion, and every star swings round a circle of that radius each year. ${near ? `That matches Bradley. Light from the Sun would take ${Math.round((1.496e8 / kms) / 60)} minutes ${Math.round((1.496e8 / kms) % 60)} seconds to reach us.` : arcsec > BRADLEY ? 'Too slow: the circle is bigger than Bradley’s.' : 'Too fast: the circle is smaller than Bradley’s.'}`;
+    if (near && t.goal === 'speed') t.done();
+  };
+  const s = slider('Speed of light, compared with the Earth', 0.3, 5, 0.005, lg, (v) => `${fmt10(v)} times`, (v) => { lg = v; paint(); }, 'light');
+  f.controls.append(s.node);
+  paint();
+  guessFirst(t, f, {
+    ask: 'Bradley found every star swinging once a year round a little circle, 20.5 seconds of arc from its middle. Roughly how many times faster than the Earth must light be? Guess first.',
+    options: ['About 100 times', 'About 10,000 times', 'About a million times'],
+    answer: 1, reveal: 'done',
+    sliders: [s],
+    after: (guess) => {
+      paint();
+      f.readout.textContent = `You guessed ${['about 100', 'about 10,000', 'about a million'][guess]} times. Set light’s speed until the star’s yearly circle matches Bradley’s.`;
+    },
+  });
+  return f.node;
+});
+
+const fmt10 = (lg: number) => {
+  const v = 10 ** lg;
+  return v >= 100 ? (Math.round(v / 10 ** Math.floor(Math.log10(v) - 1)) * 10 ** Math.floor(Math.log10(v) - 1)).toLocaleString('en-US') : v.toFixed(v < 10 ? 1 : 0);
+};

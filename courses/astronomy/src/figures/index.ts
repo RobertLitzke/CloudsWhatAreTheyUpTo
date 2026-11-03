@@ -10,9 +10,9 @@ import { cannonFigure, lawFigure, moonDropStill } from './falling';
 import { hrFigure, sameColourStill } from './hr';
 import { classesStill, linesFigure } from './hydrogen';
 import { COL } from './kit';
-import { ellipseFigure, retrogradeFigure } from './loops';
+import { ellipseFigure, retrogradeFigure, squeezeFigure } from './loops';
 import { mercuryStill, uranusFigure } from './neptune';
-import { parallaxFigure } from './parallax';
+import { aberrationFigure, parallaxFigure } from './parallax';
 import { photoFigure } from './photo';
 import { flatFigure, halfMoonFigure, shadowFigure } from './shadows';
 import { benchFigure, sunLinesFigure } from './spectra';
@@ -29,6 +29,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 2
   retrograde: retrogradeFigure,
   ellipse: ellipseFigure,
+  squeeze: squeezeFigure,
   // Lesson 3
   'moon-drop': moonDropStill,
   cannon: cannonFigure,
@@ -38,6 +39,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   mercury: mercuryStill,
   // Lesson 5
   parallax: parallaxFigure,
+  aberration: aberrationFigure,
   // Lesson 6
   bench: benchFigure,
   'sun-lines': sunLinesFigure,

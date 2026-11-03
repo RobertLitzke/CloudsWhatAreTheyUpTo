@@ -237,3 +237,105 @@ export const ellipseFigure = figure(['fast-near'], (_ctx, t) => {
   });
   return f.node;
 });
+
+// ---- Kepler's eight minutes: squeezing the circle --------------------------------------------
+
+/** Mars's eccentricity: how far the Sun sits from the middle of the orbit, as a fraction of its radius. */
+const MARS_E = 0.093;
+
+/**
+ * Mars's direction from the Sun, radians from perihelion, at each of `n`
+ * equal steps through its year, for an orbit squeezed to `b` of its width
+ * (1: Kepler's circle) with the Sun MARS_E off centre and the planet obeying
+ * the area rule about the Sun.
+ */
+function marsLongitudes(b: number, n: number): number[] {
+  const out: number[] = [];
+  for (let i = 0; i < n; i++) {
+    const m = (i / n) * TAU;
+    // The area swept from perihelion is b/2 (E - e sin E), out of pi b: Kepler's equation.
+    let ea = m;
+    for (let k = 0; k < 30; k++) ea -= (ea - MARS_E * Math.sin(ea) - m) / (1 - MARS_E * Math.cos(ea));
+    out.push(Math.atan2(b * Math.sin(ea), Math.cos(ea) - MARS_E));
+  }
+  return out;
+}
+const STEPS = 240;
+const TRUE_MARS = marsLongitudes(Math.sqrt(1 - MARS_E * MARS_E), STEPS);
+const wrap = (a: number) => Math.atan2(Math.sin(a), Math.cos(a));
+/** How far the model's Mars is from the true one through the year, arcminutes (positive: model ahead). */
+export const marsMiss = (squeeze: number) => marsLongitudes(1 - squeeze / 100, STEPS).map((l, i) => (wrap(l - TRUE_MARS[i]) * 180 * 60) / Math.PI);
+
+export const squeezeFigure = figure(['ellipse'], (_ctx, t) => {
+  const H = 250;
+  const f = frame(W, H, 3);
+  const g = svg('g');
+  f.svg.append(g);
+  let squeeze = 0;
+  /** The gap between circle and orbit, drawn this many times wider than it is. */
+  const BLOW = 25;
+  const paint = () => {
+    const miss = marsMiss(squeeze);
+    const worst = Math.max(...miss.map(Math.abs));
+    const parts: SVGElement[] = [svg('rect', { width: W, height: H, fill: COL.paper })];
+    // The orbit, with the squeeze exaggerated.
+    const R = 72;
+    const cx = 100;
+    const cy = 112;
+    const circle: P[] = [];
+    const oval: P[] = [];
+    for (let s = 0; s <= 120; s++) {
+      const a = (s / 120) * TAU;
+      circle.push([cx + R * Math.cos(a), cy - R * Math.sin(a)]);
+      oval.push([cx + R * Math.cos(a), cy - R * (1 - (BLOW * squeeze) / 100) * Math.sin(a)]);
+    }
+    parts.push(
+      polyline(circle, COL.orbit, 1, { 'stroke-dasharray': '3 3' }),
+      polyline(oval, COL.planet, 2),
+      svg('circle', { cx: cx + R * MARS_E, cy, r: 5, fill: COL.sun }),
+      small(cx + R * MARS_E, cy + 16, 'Sun', { anchor: 'middle', bold: true }),
+      small(cx, cy + R + 18, `squeeze drawn ${BLOW} times larger`, { anchor: 'middle', soft: true }),
+      small(cx, 22, 'Mars’s orbit', { anchor: 'middle', bold: true }),
+    );
+    // The miss through Mars's year, against Tycho's error.
+    const x0 = 200;
+    const x1 = 388;
+    const y0 = 112;
+    const PER = 5; // px per arcminute
+    const X = (i: number) => x0 + ((x1 - x0) * i) / (STEPS - 1);
+    parts.push(
+      svg('rect', { x: x0, y: y0 - 2 * PER, width: x1 - x0, height: 4 * PER, fill: COL.good, opacity: 0.18 }),
+      line(x0, y0, x1, y0, COL.ink, 0.8),
+      line(x0, y0 - 10 * PER, x0, y0 + 10 * PER, COL.ink, 0.8),
+      small(x0 + 4, y0 - 10 * PER + 4, '+10′', { soft: true }),
+      small(x0 + 4, y0 + 10 * PER + 4, '−10′', { soft: true }),
+      small(x1, y0 - 2 * PER - 4, 'Tycho’s ±2′', { anchor: 'end', fill: COL.good, bold: true }),
+      small((x0 + x1) / 2, 22, 'How far the model misses Mars', { anchor: 'middle', bold: true }),
+      small((x0 + x1) / 2, y0 + 10 * PER + 18, 'one Mars year, from nearest the Sun', { anchor: 'middle', soft: true }),
+      polyline(miss.map((m, i) => [X(i), y0 - Math.max(-11, Math.min(11, m)) * PER] as P), COL.model, 2),
+    );
+    parts.push(note(W / 2, H - 14, squeeze < 0.01 ? 'A circle, with the Sun off centre' : `Squeezed ${squeeze.toFixed(2)}% narrower`, { anchor: 'middle', bold: true }));
+    redraw(g, ...parts);
+    const fits = worst < 1;
+    f.readout.textContent = squeeze < 0.01
+      ? `Kepler's circle, with the Sun off centre and the area rule: it runs ahead of Mars and then behind, missing by up to ${worst.toFixed(1)} minutes of arc between the nearest and farthest points. Tycho was good to about 2.`
+      : fits
+        ? `Squeezed ${squeeze.toFixed(2)}%, the model stays within ${worst.toFixed(1)}′ of Mars all year: this is an ellipse with the Sun at a focus. The sliver between it and the circle is so thin Kepler called it a lunula, a little moon.`
+        : `Squeezed ${squeeze.toFixed(2)}%, the worst miss is ${worst.toFixed(1)} minutes of arc. ${worst > 2 ? 'Still outside Tycho’s error.' : 'Inside Tycho’s error, but it can be closer still.'}${squeeze > 0.6 ? ' Too far: now the model errs the other way.' : ''}`;
+    if (fits && t.goal === 'ellipse') t.done();
+  };
+  const s = slider('Squeeze the circle', 0, 1, 0.01, 0, (v) => `${v.toFixed(2)}%`, (v) => { squeeze = v; paint(); }, 'planet');
+  f.controls.append(s.node);
+  paint();
+  guessFirst(t, f, {
+    ask: 'Kepler’s circle missed Tycho’s Mars by up to 8 minutes of arc. Squeeze the circle into an oval to fix it. How much narrower must it be? Guess first.',
+    options: ['Less than 1 percent', 'About 10 percent', 'About a third'],
+    answer: 0, reveal: 'done',
+    sliders: [s],
+    after: (guess) => {
+      paint();
+      f.readout.textContent = `You guessed ${['less than 1 percent', 'about 10 percent', 'about a third'][guess]}. Squeeze the orbit until the red line stays inside Tycho’s band.`;
+    },
+  });
+  return f.node;
+});

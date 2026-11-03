@@ -3,6 +3,8 @@
 import { describe, expect, it } from 'vitest';
 import { isDiagram } from 'didactics/blocks';
 import { emptyProgress } from 'didactics/progress';
+import { marsMiss } from '../src/figures/loops';
+import { tilt } from '../src/figures/parallax';
 import { FIGURES } from '../src/figures';
 import { NEPTUNE_AT } from '../src/figures/neptune';
 import { WRITTEN } from '../src/lessons';
@@ -59,6 +61,11 @@ describe('figures', () => {
     guess(e.node, 'Nearest the Sun');
     setSlider(e.node, 0, 0.6);
     await expect(e.done).resolves.toBeUndefined();
+    const sq = FIGURES.squeeze(context(), 'ellipse');
+    guess(sq.node, 'Less than 1 percent');
+    expect(Math.max(...marsMiss(0).map(Math.abs))).toBeGreaterThan(7);
+    setSlider(sq.node, 0, 0.43);
+    await expect(sq.done).resolves.toBeUndefined();
   });
 
   it('lesson 3: Newton’s cannon orbits, and only the inverse square closes', async () => {
@@ -85,6 +92,11 @@ describe('figures', () => {
     guess(p.node, 'It halves');
     setSlider(p.node, 0, 11.4);
     await expect(p.done).resolves.toBeUndefined();
+    const ab = FIGURES.aberration(context(), 'speed');
+    guess(ab.node, 'About 10,000 times');
+    setSlider(ab.node, 0, Math.log10(10060));
+    await expect(ab.done).resolves.toBeUndefined();
+    expect(tilt(300000 / 29.8)).toBeCloseTo(20.5, 0);
   });
 
   it('lesson 6: cool gas makes dark lines, and five elements explain the Sun', async () => {
