@@ -8,6 +8,12 @@
 // facts it changed or doubts.
 //
 //   OPENROUTER_API_KEY=… node tools/copyedit.mjs <lesson-id …> [--write]
+//   OPENROUTER_API_KEY=… node tools/copyedit.mjs --queue [--write]
+//
+// --queue edits every lesson waiting in tools/review-queue.json, where new
+// prose is listed when it is written (lesson, date, what changed), so the
+// reviews can be run later as one batch. With --write each lesson that comes
+// back cleanly is taken off the queue.
 //
 // Reports go to tools/copyedit-out/<lesson>.md (not committed). With
 // --write the new words go into src/lessons/<lesson>.json.
@@ -22,9 +28,11 @@ const MODEL = process.env.MODEL ?? 'google/gemini-4-argon';
 const KEY = process.env.OPENROUTER_API_KEY;
 const args = process.argv.slice(2);
 const write = args.includes('--write');
-const ids = args.filter((a) => !a.startsWith('--'));
+const QUEUE = join(ROOT, 'tools/review-queue.json');
+const queued = args.includes('--queue') ? JSON.parse(readFileSync(QUEUE, 'utf8')) : [];
+const ids = [...new Set([...args.filter((a) => !a.startsWith('--')), ...queued.map((q) => q.lesson)])];
 if (!KEY || !ids.length) {
-  console.error('usage: OPENROUTER_API_KEY=… node tools/copyedit.mjs <lesson-id …> [--write]');
+  console.error(KEY ? 'nothing to edit: name lessons, or the queue is empty' : 'usage: OPENROUTER_API_KEY=… node tools/copyedit.mjs <lesson-id …> | --queue [--write]');
   process.exit(1);
 }
 
@@ -74,6 +82,10 @@ function pieces(lesson) {
   });
   lesson.learned.forEach((_, i) => add('learned', () => lesson.learned[i], (v) => (lesson.learned[i] = v)));
   add('next', () => lesson.next, (v) => (lesson.next = v));
+  for (const [id, n] of Object.entries(lesson.footnotes ?? {})) {
+    add(`footnote "${id}" (${n.kind}), title`, () => n.title, (v) => (n.title = v));
+    add(`footnote "${id}" (${n.kind}), text`, () => n.text, (v) => (n.text = v));
+  }
   return out;
 }
 
@@ -126,5 +138,9 @@ for (const id of ids) {
   });
   writeFileSync(join(OUT, `${id}.md`), report.join('\n'));
   if (write) writeFileSync(file, format(lesson));
+  if (write && queued.some((q) => q.lesson === id)) {
+    const rest = JSON.parse(readFileSync(QUEUE, 'utf8')).filter((q) => q.lesson !== id);
+    writeFileSync(QUEUE, `${JSON.stringify(rest, null, 1)}\n`);
+  }
   console.log(`${id}: ${changed} of ${ps.length} pieces changed, ${(reply.facts ?? []).length} fact notes${write ? ', written' : ''} (${d.usage?.total_tokens ?? '?'} tokens)`);
 }

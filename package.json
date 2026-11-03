@@ -12,6 +12,7 @@
   "scripts": {
     "build": "node tools/build-site.mjs",
     "test": "npm test --workspaces --if-present",
-    "preview": "vite preview --config catalog/vite.config.ts"
+    "preview": "vite preview --config catalog/vite.config.ts",
+    "review-queue": "node tools/review-queue.mjs"
   }
 }

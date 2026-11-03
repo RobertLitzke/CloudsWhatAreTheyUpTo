@@ -53,6 +53,12 @@ npm run build               # the whole site into dist/
 npm run preview             # serve dist/ on http://localhost:5411
 ```
 
+New lesson prose waits for its final Gemini copy edit in each course's
+`tools/review-queue.json`. `npm run review-queue` lists what is waiting;
+`OPENROUTER_API_KEY=… npm run review-queue -- --run` edits and writes it all
+in one batch and empties the queues (reports in each course's
+`tools/copyedit-out/`; check their fact notes before committing).
+
 In dev the catalog's links lead to course folders that only exist in a
 build; use `npm run build && npm run preview` to click through the site.
 

@@ -1,0 +1,37 @@
+// The Gemini copy edits waiting across the site. Each course that has a
+// tools/copyedit.mjs keeps a tools/review-queue.json: lessons whose new prose
+// (paragraphs, captions, footnotes) has not yet had the final copy edit, with
+// the date and what was added. Writers append to it; this runs them as one
+// batch.
+//
+//   node tools/review-queue.mjs                              list what is waiting
+//   OPENROUTER_API_KEY=… node tools/review-queue.mjs --run   edit and write every queued lesson
+//
+// Each course's reports land in courses/<course>/tools/copyedit-out/. Read
+// their "Facts" sections before committing: the model's fact changes are
+// sometimes wrong.
+
+import { spawnSync } from 'node:child_process';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const run = process.argv.includes('--run');
+let total = 0;
+for (const course of readdirSync(join(root, 'courses'))) {
+  const dir = join(root, 'courses', course);
+  const queueFile = join(dir, 'tools/review-queue.json');
+  if (!existsSync(queueFile) || !existsSync(join(dir, 'tools/copyedit.mjs'))) continue;
+  const queue = JSON.parse(readFileSync(queueFile, 'utf8'));
+  if (!queue.length) continue;
+  total += queue.length;
+  console.log(`${course}: ${queue.length} lesson${queue.length === 1 ? '' : 's'}`);
+  for (const q of queue) console.log(`  ${q.lesson.padEnd(16)} ${q.added ?? ''}  ${q.what ?? ''}`);
+  if (run) {
+    const r = spawnSync(process.execPath, ['tools/copyedit.mjs', '--queue', '--write'], { cwd: dir, stdio: 'inherit' });
+    if (r.status) process.exitCode = r.status;
+  }
+}
+if (!total) console.log('Nothing waiting for a copy edit.');
+else if (!run) console.log(`\n${total} in all. Run with OPENROUTER_API_KEY=… and --run to edit them.`);
