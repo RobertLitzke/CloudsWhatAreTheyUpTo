@@ -12,12 +12,10 @@ describe('migrate', () => {
     const s = migrate({
       name: 'Rob',
       units: 'metric',
-      journal: ['floors', 'floors', 3],
       shifts: { floors: { done: true, best: 12, of: 8, finishedAt: '2026-10-19' }, bad: 'x' },
     });
     expect(s.name).toBe('Rob');
     expect(s.units).toBe('metric');
-    expect(s.journal).toEqual(['floors']);
     expect(s.lessons.floors).toEqual({ done: true, best: 8, of: 8, finishedAt: '2026-10-19' });
     expect(s.lessons.bad).toBeUndefined();
   });
@@ -57,18 +55,18 @@ describe('migrate', () => {
 describe('finishLesson', () => {
   const now = new Date('2026-10-19T12:00:00Z');
 
-  it('records a first finish with its date and journal entries', () => {
-    const s = finishLesson(emptySave(), 'floors', 6, 8, ['floors', 'roots'], now);
+  it('records a first finish with its date, and drops the journal older saves kept', () => {
+    const s = finishLesson(emptySave(), 'floors', 6, 8, now);
     expect(s.lessons.floors).toEqual({ done: true, best: 6, of: 8, finishedAt: '2026-10-19' });
-    expect(s.journal).toEqual(['floors', 'roots']);
+    expect(migrate({ journal: ['floors'], lessons: s.lessons })).not.toHaveProperty('journal');
   });
 
   it('keeps the better score and the first date', () => {
-    const first = finishLesson(emptySave(), 'floors', 7, 8, [], now);
-    const worse = finishLesson(first, 'floors', 3, 8, [], new Date('2026-10-20T12:00:00Z'));
+    const first = finishLesson(emptySave(), 'floors', 7, 8, now);
+    const worse = finishLesson(first, 'floors', 3, 8, new Date('2026-10-20T12:00:00Z'));
     expect(worse.lessons.floors.best).toBe(7);
     expect(worse.lessons.floors.finishedAt).toBe('2026-10-19');
-    const better = finishLesson(worse, 'floors', 8, 8, [], now);
+    const better = finishLesson(worse, 'floors', 8, 8, now);
     expect(better.lessons.floors.best).toBe(8);
   });
 });

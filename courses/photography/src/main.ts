@@ -9,11 +9,10 @@ import { DECK } from './app/deck';
 import { FIGURES } from './app/figures';
 import { prose } from './app/figures/kit';
 import { makeScene } from './app/scene/field';
-import { store } from './app/store';
+import { empty, store } from './store';
 import { homeView } from './app/views/home';
 import { referenceView } from './app/views/reference';
 import { LESSONS } from './core/lessons';
-import { emptySave } from './core/save';
 
 /** A shutter button with an up arrow, for the update banner: inline, so it shows offline. */
 const SHUTTER =
@@ -21,8 +20,8 @@ const SHUTTER =
   '<path d="M22 29v-14m-5 5 5-5 5 5" fill="none" stroke="#f2efe9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
 // The whole app (Didactics' app.ts). The save stays under "outofauto.save"
-// (app/store.ts) and the edited text under "out-of-auto.course" (course.ts),
-// as before the course joined the site; the files are out-of-auto-save.json,
+// (store.ts) and the edited text under "out-of-auto.course" (course.ts), as
+// before the course joined the site; the files are out-of-auto-save.json,
 // out-of-auto-course.json and out-of-auto.html.
 defineCourse({
   id: 'out-of-auto',
@@ -41,7 +40,8 @@ defineCourse({
     countComing: true,
     hero: (l) => makeScene({ seed: 30 + l.n, time: l.n % 2 ? 'morning' : 'evening' }),
   },
-  save: { store, empty: emptySave },
+  // The save stays under "outofauto.save" (store.ts), as before the course joined the site.
+  save: { store, empty },
   text: COURSE,
   textPieces: LESSON_PIECES,
 
@@ -50,6 +50,7 @@ defineCourse({
   menu: ['/home', '/reference', '/review', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
+  offline: { noun: 'photos' },
   quiz: {
     deck: DECK,
     blurb: 'Flash cards on the ideas in the lessons. Cards you get right come back after longer and longer gaps; cards you miss come back soon.',

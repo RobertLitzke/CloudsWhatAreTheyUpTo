@@ -9,7 +9,7 @@ import { svg } from 'didactics/dom';
 import { label, redraw, small, still } from 'didactics/draw';
 import { COL, figure, frame, guessFirst, player, slider } from './kit';
 import {
-  AHEAD, OLDEST, PALEOMAP_CREDIT, anchor, between, carried, centreAt, drawn, globeView, km, LAND, plateOf,
+  AHEAD, OLDEST, PALEOMAP_CREDIT, anchor, between, carried, centreAt, drawn, globeView, km, land, onPlateModel, plateOf,
   rotationAt, worldClip, worldView, WORLD_ASPECT, xyz, type V3,
 } from './paleomap';
 
@@ -57,104 +57,105 @@ export const iapetusFigure = figure(['iapetus'], (ctx, t) => {
   const W = 400;
   const H = 300;
   const f = frame(W, H, 4);
-  const g = svg('g');
-  const clipId = `iapetus-clip-${Math.random().toString(36).slice(2, 8)}`;
-  f.svg.append(svg('defs', {}, svg('clipPath', { id: clipId }, svg('rect', { x: 0, y: 0, width: W, height: H }))), g);
-  g.setAttribute('clip-path', `url(#${clipId})`);
-  const START = 0;
-  const END = 500;
-  let ma = 0;
-  const paint = () => {
-    const mid = between(anchor('gros_morne', ma), anchor('newfoundland_e', ma), 0.5);
-    const view = globeView(W / 2, H / 2 + 6, 300, mid);
-    const parts: SVGElement[] = [svg('rect', { x: 0, y: 0, width: W, height: H, fill: SEA })];
-    // Lines of latitude, every 15°.
-    for (let lat = -75; lat <= 75; lat += 15) {
-      const pts: V3[] = [];
-      for (let lon = -180; lon <= 180; lon += 3) pts.push(xyz(lon, lat));
-      const ps = pts.map(view.at);
-      let d = '';
-      ps.forEach(([x, y, front], i) => { if (front) d += `${i && ps[i - 1][2] ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`; });
-      parts.push(svg('path', { d, fill: 'none', stroke: lat === 0 ? '#9fb7c6' : '#fff', 'stroke-width': lat === 0 ? 1.2 : 0.8, 'stroke-dasharray': lat === 0 ? '5 3' : '' }));
-      if (lat === 0) {
-        const vis = ps.filter((p) => p[2] && p[0] > 10 && p[0] < W - 60 && p[1] > 20 && p[1] < H - 10);
-        if (vis.length) parts.push(small(vis[vis.length - 1][0], vis[vis.length - 1][1] - 4, 'equator', { soft: true, halo: SEA }));
+  return onPlateModel(t, f, () => {
+    const g = svg('g');
+    const clipId = `iapetus-clip-${Math.random().toString(36).slice(2, 8)}`;
+    f.svg.append(svg('defs', {}, svg('clipPath', { id: clipId }, svg('rect', { x: 0, y: 0, width: W, height: H }))), g);
+    g.setAttribute('clip-path', `url(#${clipId})`);
+    const START = 0;
+    const END = 500;
+    let ma = 0;
+    const paint = () => {
+      const mid = between(anchor('gros_morne', ma), anchor('newfoundland_e', ma), 0.5);
+      const view = globeView(W / 2, H / 2 + 6, 300, mid);
+      const parts: SVGElement[] = [svg('rect', { x: 0, y: 0, width: W, height: H, fill: SEA })];
+      // Lines of latitude, every 15°.
+      for (let lat = -75; lat <= 75; lat += 15) {
+        const pts: V3[] = [];
+        for (let lon = -180; lon <= 180; lon += 3) pts.push(xyz(lon, lat));
+        const ps = pts.map(view.at);
+        let d = '';
+        ps.forEach(([x, y, front], i) => { if (front) d += `${i && ps[i - 1][2] ? 'L' : 'M'}${x.toFixed(1)},${y.toFixed(1)}`; });
+        parts.push(svg('path', { d, fill: 'none', stroke: lat === 0 ? '#9fb7c6' : '#fff', 'stroke-width': lat === 0 ? 1.2 : 0.8, 'stroke-dasharray': lat === 0 ? '5 3' : '' }));
+        if (lat === 0) {
+          const vis = ps.filter((p) => p[2] && p[0] > 10 && p[0] < W - 60 && p[1] > 20 && p[1] < H - 10);
+          if (vis.length) parts.push(small(vis[vis.length - 1][0], vis[vis.length - 1][1] - 4, 'equator', { soft: true, halo: SEA }));
+        }
       }
-    }
-    // Shelf, then land, coloured by the side of Iapetus each piece was on.
-    const groups = new Map<string, { land: V3[][]; shelf: V3[][] }>();
-    const add = (key: string, kind: 'land' | 'shelf', pts: V3[]) => {
-      if (!groups.has(key)) groups.set(key, { land: [], shelf: [] });
-      groups.get(key)![kind].push(pts);
+      // Shelf, then land, coloured by the side of Iapetus each piece was on.
+      const groups = new Map<string, { land: V3[][]; shelf: V3[][] }>();
+      const add = (key: string, kind: 'land' | 'shelf', pts: V3[]) => {
+        if (!groups.has(key)) groups.set(key, { land: [], shelf: [] });
+        groups.get(key)![kind].push(pts);
+      };
+      for (const s of carried(land(), ma)) add(sideOf(s.p) ?? LAND_FILL, 'land', s.pts);
+      for (const [key, v] of groups) {
+        parts.push(svg('path', { d: view.rings(v.land), fill: key, stroke: COL.ink, 'stroke-width': 0.4, 'stroke-opacity': 0.5, 'fill-opacity': key === LAND_FILL ? 0.8 : 0.85 }));
+      }
+      // The trilobites.
+      const mark = (name: string, kind: 'o' | 'p') => {
+        const [x, y, front] = view.at(anchor(name, ma));
+        if (!front) return [];
+        return kind === 'o'
+          ? [svg('circle', { cx: x, cy: y, r: 4.5, fill: '#fff', stroke: COL.ink, 'stroke-width': 1.6 })]
+          : [svg('rect', { x: x - 4, y: y - 4, width: 8, height: 8, fill: COL.ink, stroke: '#fff', 'stroke-width': 1, transform: `rotate(45 ${x} ${y})` })];
+      };
+      for (const n of OLENELLUS) parts.push(...mark(n, 'o'));
+      for (const n of PARADOXIDES) parts.push(...mark(n, 'p'));
+      // Names that move with their land.
+      const name = (where: string, text: string, color: string, dy = 0) => {
+        const [x, y, front] = view.at(anchor(where, ma));
+        return front && x > 30 && x < W - 30 && y > 30 && y < H - 30 ? [small(x, y + dy, text, { bold: true, anchor: 'middle', fill: color, halo: '#fff' })] : [];
+      };
+      parts.push(
+        ...name('laurentia', ma > 300 ? 'Laurentia' : 'North America', COL.ink),
+        ...name('baltica', ma > 300 ? 'Baltica' : 'Europe', COL.ink, 14),
+        ...name('africa', ma > 300 ? 'Gondwana' : 'Africa', COL.ink),
+      );
+      if (ma > 445) {
+        const [x, y, front] = view.at(between(anchor('gros_morne', ma), anchor('newfoundland_e', ma)));
+        if (front) parts.push(label(x, y, 'Iapetus Ocean', { anchor: 'middle', fill: COL.water, bold: true, halo: SEA, attrs: { 'font-style': 'italic' } }));
+      } else if (ma < 170) {
+        const [x, y, front] = view.at(between(anchor('newfoundland_e', ma), anchor('wales', ma)));
+        if (front) parts.push(label(x, y + 30, 'Atlantic', { anchor: 'middle', fill: COL.water, bold: true, halo: SEA, attrs: { 'font-style': 'italic' } }));
+      }
+      // The key.
+      parts.push(
+        svg('rect', { x: 6, y: H - 50, width: 176, height: 44, rx: 4, fill: '#fff', opacity: 0.85 }),
+        svg('circle', { cx: 16, cy: H - 38, r: 4.5, fill: '#fff', stroke: COL.ink, 'stroke-width': 1.6 }),
+        small(26, H - 35, 'Olenellus trilobites', { bold: true }),
+        svg('rect', { x: 12, y: H - 22, width: 8, height: 8, fill: COL.ink, transform: `rotate(45 16 ${H - 18})` }),
+        small(26, H - 15, 'Paradoxides trilobites', { bold: true }),
+        label(W - 8, 18, ma < 0.5 ? 'Today' : `${Math.round(ma)} million years ago`, { anchor: 'end', bold: true, halo: SEA }),
+      );
+      redraw(g, ...parts);
+      const width = km(anchor('gros_morne', ma), anchor('newfoundland_e', ma));
+      const atlantic = km(anchor('newfoundland_e', ma), anchor('wales', ma));
+      f.readout.textContent = ma < 1
+        ? 'Today. Western Newfoundland and northwest Scotland (orange) hold Olenellus trilobites; eastern Newfoundland, Boston, Wales and Sweden (purple) hold Paradoxides. Run the clock back.'
+        : ma < 190
+          ? `${Math.round(ma)} million years ago. The Atlantic narrows as it is run back: Newfoundland is now ${Math.round(atlantic / 100) * 100} km from Wales.`
+          : ma < 425
+            ? `${Math.round(ma)} million years ago. The Atlantic has closed. Newfoundland lies against Ireland and Britain, all one continent, and the two kinds of trilobite sit side by side.`
+            : ma < 445
+              ? `${Math.round(ma)} million years ago. Laurentia, Avalonia and Baltica are colliding. The squeezed rock between them is rising into the Caledonian mountains of Scotland and Norway and the northern Appalachians.`
+              : `${Math.round(ma)} million years ago. An ocean about ${Math.round(width / 100) * 100} km wide, Iapetus, separates the two halves of Newfoundland. Olenellus lives on the shelves of Laurentia, Paradoxides on the far side, near Gondwana and Baltica.`;
+      if (ma >= 490 && t.goal === 'iapetus') t.done();
     };
-    for (const s of carried(LAND, ma)) add(sideOf(s.p) ?? LAND_FILL, 'land', s.pts);
-    for (const [key, v] of groups) {
-      parts.push(svg('path', { d: view.rings(v.land), fill: key, stroke: COL.ink, 'stroke-width': 0.4, 'stroke-opacity': 0.5, 'fill-opacity': key === LAND_FILL ? 0.8 : 0.85 }));
-    }
-    // The trilobites.
-    const mark = (name: string, kind: 'o' | 'p') => {
-      const [x, y, front] = view.at(anchor(name, ma));
-      if (!front) return [];
-      return kind === 'o'
-        ? [svg('circle', { cx: x, cy: y, r: 4.5, fill: '#fff', stroke: COL.ink, 'stroke-width': 1.6 })]
-        : [svg('rect', { x: x - 4, y: y - 4, width: 8, height: 8, fill: COL.ink, stroke: '#fff', 'stroke-width': 1, transform: `rotate(45 ${x} ${y})` })];
-    };
-    for (const n of OLENELLUS) parts.push(...mark(n, 'o'));
-    for (const n of PARADOXIDES) parts.push(...mark(n, 'p'));
-    // Names that move with their land.
-    const name = (where: string, text: string, color: string, dy = 0) => {
-      const [x, y, front] = view.at(anchor(where, ma));
-      return front && x > 30 && x < W - 30 && y > 30 && y < H - 30 ? [small(x, y + dy, text, { bold: true, anchor: 'middle', fill: color, halo: '#fff' })] : [];
-    };
-    parts.push(
-      ...name('laurentia', ma > 300 ? 'Laurentia' : 'North America', COL.ink),
-      ...name('baltica', ma > 300 ? 'Baltica' : 'Europe', COL.ink, 14),
-      ...name('africa', ma > 300 ? 'Gondwana' : 'Africa', COL.ink),
-    );
-    if (ma > 445) {
-      const [x, y, front] = view.at(between(anchor('gros_morne', ma), anchor('newfoundland_e', ma)));
-      if (front) parts.push(label(x, y, 'Iapetus Ocean', { anchor: 'middle', fill: COL.water, bold: true, halo: SEA, attrs: { 'font-style': 'italic' } }));
-    } else if (ma < 170) {
-      const [x, y, front] = view.at(between(anchor('newfoundland_e', ma), anchor('wales', ma)));
-      if (front) parts.push(label(x, y + 30, 'Atlantic', { anchor: 'middle', fill: COL.water, bold: true, halo: SEA, attrs: { 'font-style': 'italic' } }));
-    }
-    // The key.
-    parts.push(
-      svg('rect', { x: 6, y: H - 50, width: 176, height: 44, rx: 4, fill: '#fff', opacity: 0.85 }),
-      svg('circle', { cx: 16, cy: H - 38, r: 4.5, fill: '#fff', stroke: COL.ink, 'stroke-width': 1.6 }),
-      small(26, H - 35, 'Olenellus trilobites', { bold: true }),
-      svg('rect', { x: 12, y: H - 22, width: 8, height: 8, fill: COL.ink, transform: `rotate(45 16 ${H - 18})` }),
-      small(26, H - 15, 'Paradoxides trilobites', { bold: true }),
-      label(W - 8, 18, ma < 0.5 ? 'Today' : `${Math.round(ma)} million years ago`, { anchor: 'end', bold: true, halo: SEA }),
-    );
-    redraw(g, ...parts);
-    const width = km(anchor('gros_morne', ma), anchor('newfoundland_e', ma));
-    const atlantic = km(anchor('newfoundland_e', ma), anchor('wales', ma));
-    f.readout.textContent = ma < 1
-      ? 'Today. Western Newfoundland and northwest Scotland (orange) hold Olenellus trilobites; eastern Newfoundland, Boston, Wales and Sweden (purple) hold Paradoxides. Run the clock back.'
-      : ma < 190
-        ? `${Math.round(ma)} million years ago. The Atlantic narrows as it is run back: Newfoundland is now ${Math.round(atlantic / 100) * 100} km from Wales.`
-        : ma < 425
-          ? `${Math.round(ma)} million years ago. The Atlantic has closed. Newfoundland lies against Ireland and Britain, all one continent, and the two kinds of trilobite sit side by side.`
-          : ma < 445
-            ? `${Math.round(ma)} million years ago. Laurentia, Avalonia and Baltica are colliding. The squeezed rock between them is rising into the Caledonian mountains of Scotland and Norway and the northern Appalachians.`
-            : `${Math.round(ma)} million years ago. An ocean about ${Math.round(width / 100) * 100} km wide, Iapetus, separates the two halves of Newfoundland. Olenellus lives on the shelves of Laurentia, Paradoxides on the far side, near Gondwana and Baltica.`;
-    if (ma >= 490 && t.goal === 'iapetus') t.done();
-  };
-  const ts = slider('Time', START, END, 1, 0, (v) => (v < 1 ? 'today' : `${v} million years ago`), (v) => { ma = v; paint(); }, 'heat');
-  f.controls.append(player(ts, ctx, { seconds: 16 }).node, ts.node);
-  paint();
-  guessFirst(t, f, {
-    ask: 'Western Newfoundland’s trilobites match Scotland’s northwest; eastern Newfoundland’s match Wales. Run the clock back 500 million years. Once the Atlantic has closed, what do you expect next?',
-    options: ['Nothing more changes', 'An older ocean opens', 'The island splits'],
-    answer: 1, reveal: 'done', sliders: [ts],
-    after: () => paint(),
+    const ts = slider('Time', START, END, 1, 0, (v) => (v < 1 ? 'today' : `${v} million years ago`), (v) => { ma = v; paint(); }, 'heat');
+    f.controls.append(player(ts, ctx, { seconds: 16 }).node, ts.node);
+    paint();
+    guessFirst(t, f, {
+      ask: 'Western Newfoundland’s trilobites match Scotland’s northwest; eastern Newfoundland’s match Wales. Run the clock back 500 million years. Once the Atlantic has closed, what do you expect next?',
+      options: ['Nothing more changes', 'An older ocean opens', 'The island splits'],
+      answer: 1, reveal: 'done', sliders: [ts],
+      after: () => paint(),
+    });
+    const credit = document.createElement('p');
+    credit.className = 'map-credit';
+    credit.textContent = PALEOMAP_CREDIT;
+    f.node.append(credit);
   });
-  const credit = document.createElement('p');
-  credit.className = 'map-credit';
-  credit.textContent = PALEOMAP_CREDIT;
-  f.node.append(credit);
-  return f.node;
 });
 
 // ---- A compass needle records latitude ------------------------------------------------------------
@@ -358,115 +359,116 @@ export const supercontinentsFigure = figure(['played'], (ctx, t) => {
   const TL = TOP + MAPH + 12;
   const H = TL + 74;
   const f = frame(W, H, 4);
-  const clipView = worldView(4, TOP, MAPW, 0);
-  const clip = worldClip(f.svg, clipView);
-  const landClipId = `land-clip-${Math.random().toString(36).slice(2, 8)}`;
-  const landClipPath = svg('path', { d: '' });
-  f.svg.append(svg('defs', {}, svg('clipPath', { id: landClipId }, landClipPath)));
-  const map = svg('g', { 'clip-path': clip });
-  const over = svg('g');
-  const line = svg('g');
-  f.svg.append(map, over, line);
-  const START = OLDEST;
-  const span = START + AHEAD;
-  let ma = START;
-  // The timeline's scale.
-  const tx0 = 46;
-  const tx1 = W - 10;
-  const tx = (a: number) => tx0 + ((START - a) / span) * (tx1 - tx0);
-  const rowY = (r: number) => TL + 12 + r * 12;
-  const timeline: SVGElement[] = [
-    small(4, rowY(0) + 3, 'Land', { soft: true }),
-    small(4, rowY(2) + 3, 'Ice', { soft: true }),
-    small(4, rowY(3) + 6, 'Extinctions', { soft: true, attrs: { 'font-size': 8 } }),
-    ...BARS.flatMap((b) => [
-      svg('rect', { x: tx(b.from), y: rowY(b.row) - 4, width: Math.max(2, tx(b.to) - tx(b.from)), height: 8, rx: 2, fill: b.color, opacity: 0.8 }),
-      b.text ? small(tx(b.from) + 3, rowY(b.row) + 3, b.text, { fill: b.row === 2 ? COL.ink : '#fff', bold: true, attrs: { 'font-size': 8 } }) : null,
-    ].filter((x): x is SVGElement => !!x)),
-    ...EXTINCTIONS.map((e) => svg('path', { d: `M${tx(e) - 3},${rowY(3) - 1}l6,6m0,-6l-6,6`, stroke: COL.bad, 'stroke-width': 1.6 })),
-    svg('line', { x1: tx0, y1: rowY(3) + 12, x2: tx1, y2: rowY(3) + 12, stroke: COL.soft, 'stroke-width': 0.8 }),
-    ...[1000, 750, 500, 250, 0].map((a) => small(tx(a), rowY(3) + 22, a === 0 ? 'today' : `${a}`, { anchor: 'middle', soft: true })),
-    svg('rect', { x: tx(0), y: rowY(0) - 6, width: tx1 - tx(0), height: rowY(3) + 6 - rowY(0) + 6, fill: COL.paper, opacity: 0.0, stroke: COL.soft, 'stroke-dasharray': '2 2', 'stroke-width': 0.6 }),
-  ];
-  const paint = () => {
-    const lon0 = centreAt(ma);
-    const view = worldView(4, TOP, MAPW, lon0);
-    const { shelf, land } = drawn(view.rings, ma);
-    landClipPath.setAttribute('d', land);
-    const ice = ICE.filter((i) => ma <= i.from && ma >= i.to);
-    const cap = (lat: number, pole: 90 | -90) => {
-      let d = '';
-      for (let lon = -180; lon <= 180; lon += 10) d += `${d ? 'L' : 'M'}${view.ll(lon, lat).map((n) => n.toFixed(1)).join(',')}`;
-      d += `L${view.ll(180, pole).join(',')}L${view.ll(-180, pole).join(',')}Z`;
-      return d;
+  return onPlateModel(t, f, () => {
+    const clipView = worldView(4, TOP, MAPW, 0);
+    const clip = worldClip(f.svg, clipView);
+    const landClipId = `land-clip-${Math.random().toString(36).slice(2, 8)}`;
+    const landClipPath = svg('path', { d: '' });
+    f.svg.append(svg('defs', {}, svg('clipPath', { id: landClipId }, landClipPath)));
+    const map = svg('g', { 'clip-path': clip });
+    const over = svg('g');
+    const line = svg('g');
+    f.svg.append(map, over, line);
+    const START = OLDEST;
+    const span = START + AHEAD;
+    let ma = START;
+    // The timeline's scale.
+    const tx0 = 46;
+    const tx1 = W - 10;
+    const tx = (a: number) => tx0 + ((START - a) / span) * (tx1 - tx0);
+    const rowY = (r: number) => TL + 12 + r * 12;
+    const timeline: SVGElement[] = [
+      small(4, rowY(0) + 3, 'Land', { soft: true }),
+      small(4, rowY(2) + 3, 'Ice', { soft: true }),
+      small(4, rowY(3) + 6, 'Extinctions', { soft: true, attrs: { 'font-size': 8 } }),
+      ...BARS.flatMap((b) => [
+        svg('rect', { x: tx(b.from), y: rowY(b.row) - 4, width: Math.max(2, tx(b.to) - tx(b.from)), height: 8, rx: 2, fill: b.color, opacity: 0.8 }),
+        b.text ? small(tx(b.from) + 3, rowY(b.row) + 3, b.text, { fill: b.row === 2 ? COL.ink : '#fff', bold: true, attrs: { 'font-size': 8 } }) : null,
+      ].filter((x): x is SVGElement => !!x)),
+      ...EXTINCTIONS.map((e) => svg('path', { d: `M${tx(e) - 3},${rowY(3) - 1}l6,6m0,-6l-6,6`, stroke: COL.bad, 'stroke-width': 1.6 })),
+      svg('line', { x1: tx0, y1: rowY(3) + 12, x2: tx1, y2: rowY(3) + 12, stroke: COL.soft, 'stroke-width': 0.8 }),
+      ...[1000, 750, 500, 250, 0].map((a) => small(tx(a), rowY(3) + 22, a === 0 ? 'today' : `${a}`, { anchor: 'middle', soft: true })),
+      svg('rect', { x: tx(0), y: rowY(0) - 6, width: tx1 - tx(0), height: rowY(3) + 6 - rowY(0) + 6, fill: COL.paper, opacity: 0.0, stroke: COL.soft, 'stroke-dasharray': '2 2', 'stroke-width': 0.6 }),
+    ];
+    const paint = () => {
+      const lon0 = centreAt(ma);
+      const view = worldView(4, TOP, MAPW, lon0);
+      const { shelf, land } = drawn(view.rings, ma);
+      landClipPath.setAttribute('d', land);
+      const ice = ICE.filter((i) => ma <= i.from && ma >= i.to);
+      const cap = (lat: number, pole: 90 | -90) => {
+        let d = '';
+        for (let lon = -180; lon <= 180; lon += 10) d += `${d ? 'L' : 'M'}${view.ll(lon, lat).map((n) => n.toFixed(1)).join(',')}`;
+        d += `L${view.ll(180, pole).join(',')}L${view.ll(-180, pole).join(',')}Z`;
+        return d;
+      };
+      const iceParts: SVGElement[] = [];
+      for (const i of ice) {
+        for (const [lat, pole] of [[i.south, -90], [i.north, 90]] as const) {
+          if (lat === undefined) continue;
+          iceParts.push(svg('path', { d: cap(lat, pole), fill: '#fff', opacity: i.sea ? 0.55 : 0.85, 'clip-path': i.sea ? '' : `url(#${landClipId})` }));
+        }
+      }
+      redraw(map,
+        svg('path', { d: view.outline, fill: SEA }),
+        ...[-60, -30, 30, 60].map((lat) => svg('path', { d: view.parallel(lat), stroke: '#fff', 'stroke-width': 0.8, fill: 'none' })),
+        svg('path', { d: view.parallel(0), stroke: '#9fb7c6', 'stroke-width': 1, 'stroke-dasharray': '5 3', fill: 'none' }),
+        svg('path', { d: shelf, fill: SHELF_FILL }),
+        svg('path', { d: land, fill: LAND_FILL }),
+        ...iceParts,
+        svg('path', { d: land, fill: 'none', stroke: '#8f7853', 'stroke-width': 0.5 }),
+      );
+      // Names.
+      const tags: SVGElement[] = [];
+      for (const tag of TAGS) {
+        if (ma > tag.from || ma < tag.to) continue;
+        const p = tag.at(ma, lon0);
+        if (p === 'off') continue;
+        const [x, y] = Array.isArray(p) && p.length === 2 ? view.ll(p[0], p[1]) : view.at(p as V3);
+        if (x < 8 || x > W - 8 || y < TOP + 4 || y > TOP + MAPH - 2) continue;
+        if (tag.kind === 'event') {
+          tags.push(
+            svg('path', { d: `M${x},${y - 5}l5,8h-10z`, fill: COL.heat, stroke: '#fff', 'stroke-width': 1 }),
+            small(x, y + 14, tag.text, { anchor: 'middle', bold: true, fill: COL.heat, halo: '#fff' }),
+          );
+        } else if (tag.kind === 'sea') {
+          tags.push(small(x, y, tag.text, { anchor: 'middle', bold: true, fill: COL.water, halo: SEA, attrs: { 'font-style': 'italic' } }));
+        } else {
+          tags.push(label(x, y, tag.text, { anchor: 'middle', bold: true, halo: '#fff' }));
+        }
+      }
+      const iceName = ice.length ? ice[ice.length - 1].name : '';
+      redraw(over,
+        svg('path', { d: view.outline, fill: 'none', stroke: COL.soft, 'stroke-width': 0.8 }),
+        ...tags,
+        label(W - 6, 15, ma < -0.5 ? `${Math.round(-ma)} million years ahead` : ma < 0.5 ? 'Today' : `${Math.round(ma)} million years ago`, { anchor: 'end', bold: true }),
+        iceName ? small(6, 15, iceName, { bold: true, fill: COL.water }) : null as unknown as SVGElement,
+      );
+      redraw(line,
+        ...timeline,
+        svg('line', { x1: tx(ma), y1: rowY(0) - 8, x2: tx(ma), y2: rowY(3) + 12, stroke: COL.ink, 'stroke-width': 1.5 }),
+        svg('path', { d: `M${tx(ma) - 4},${rowY(0) - 12}h8l-4,5z`, fill: COL.ink }),
+      );
+      f.readout.textContent = storyAt(ma);
+      if (ma <= 0 && t.goal === 'played') t.done();
     };
-    const iceParts: SVGElement[] = [];
-    for (const i of ice) {
-      for (const [lat, pole] of [[i.south, -90], [i.north, 90]] as const) {
-        if (lat === undefined) continue;
-        iceParts.push(svg('path', { d: cap(lat, pole), fill: '#fff', opacity: i.sea ? 0.55 : 0.85, 'clip-path': i.sea ? '' : `url(#${landClipId})` }));
-      }
-    }
-    redraw(map,
-      svg('path', { d: view.outline, fill: SEA }),
-      ...[-60, -30, 30, 60].map((lat) => svg('path', { d: view.parallel(lat), stroke: '#fff', 'stroke-width': 0.8, fill: 'none' })),
-      svg('path', { d: view.parallel(0), stroke: '#9fb7c6', 'stroke-width': 1, 'stroke-dasharray': '5 3', fill: 'none' }),
-      svg('path', { d: shelf, fill: SHELF_FILL }),
-      svg('path', { d: land, fill: LAND_FILL }),
-      ...iceParts,
-      svg('path', { d: land, fill: 'none', stroke: '#8f7853', 'stroke-width': 0.5 }),
-    );
-    // Names.
-    const tags: SVGElement[] = [];
-    for (const tag of TAGS) {
-      if (ma > tag.from || ma < tag.to) continue;
-      const p = tag.at(ma, lon0);
-      if (p === 'off') continue;
-      const [x, y] = Array.isArray(p) && p.length === 2 ? view.ll(p[0], p[1]) : view.at(p as V3);
-      if (x < 8 || x > W - 8 || y < TOP + 4 || y > TOP + MAPH - 2) continue;
-      if (tag.kind === 'event') {
-        tags.push(
-          svg('path', { d: `M${x},${y - 5}l5,8h-10z`, fill: COL.heat, stroke: '#fff', 'stroke-width': 1 }),
-          small(x, y + 14, tag.text, { anchor: 'middle', bold: true, fill: COL.heat, halo: '#fff' }),
-        );
-      } else if (tag.kind === 'sea') {
-        tags.push(small(x, y, tag.text, { anchor: 'middle', bold: true, fill: COL.water, halo: SEA, attrs: { 'font-style': 'italic' } }));
-      } else {
-        tags.push(label(x, y, tag.text, { anchor: 'middle', bold: true, halo: '#fff' }));
-      }
-    }
-    const iceName = ice.length ? ice[ice.length - 1].name : '';
-    redraw(over,
-      svg('path', { d: view.outline, fill: 'none', stroke: COL.soft, 'stroke-width': 0.8 }),
-      ...tags,
-      label(W - 6, 15, ma < -0.5 ? `${Math.round(-ma)} million years ahead` : ma < 0.5 ? 'Today' : `${Math.round(ma)} million years ago`, { anchor: 'end', bold: true }),
-      iceName ? small(6, 15, iceName, { bold: true, fill: COL.water }) : null as unknown as SVGElement,
-    );
-    redraw(line,
-      ...timeline,
-      svg('line', { x1: tx(ma), y1: rowY(0) - 8, x2: tx(ma), y2: rowY(3) + 12, stroke: COL.ink, 'stroke-width': 1.5 }),
-      svg('path', { d: `M${tx(ma) - 4},${rowY(0) - 12}h8l-4,5z`, fill: COL.ink }),
-    );
-    f.readout.textContent = storyAt(ma);
-    if (ma <= 0 && t.goal === 'played') t.done();
-  };
-  const ts = slider('Time', 0, span, 1, 0, (v) => {
-    const a = START - v;
-    return a < -0.5 ? `${-a} million years ahead` : a < 0.5 ? 'today' : `${a} million years ago`;
-  }, (v) => { ma = START - v; paint(); }, 'heat');
-  f.controls.append(player(ts, ctx, { seconds: 40 }).node, ts.node);
-  paint();
-  guessFirst(t, f, {
-    ask: 'Pangaea broke up about 200 million years ago. What do you expect to find before it?',
-    options: ['No land at all', 'Scattered continents', 'An earlier supercontinent'],
-    answer: 2, reveal: 'lock', sliders: [ts],
-    after: () => paint(),
+    const ts = slider('Time', 0, span, 1, 0, (v) => {
+      const a = START - v;
+      return a < -0.5 ? `${-a} million years ahead` : a < 0.5 ? 'today' : `${a} million years ago`;
+    }, (v) => { ma = START - v; paint(); }, 'heat');
+    f.controls.append(player(ts, ctx, { seconds: 40 }).node, ts.node);
+    paint();
+    guessFirst(t, f, {
+      ask: 'Pangaea broke up about 200 million years ago. What do you expect to find before it?',
+      options: ['No land at all', 'Scattered continents', 'An earlier supercontinent'],
+      answer: 2, reveal: 'lock', sliders: [ts],
+      after: () => paint(),
+    });
+    const credit = document.createElement('p');
+    credit.className = 'map-credit';
+    credit.textContent = `${PALEOMAP_CREDIT}. Ice and named features simplified.`;
+    f.node.append(credit);
   });
-  const credit = document.createElement('p');
-  credit.className = 'map-credit';
-  credit.textContent = `${PALEOMAP_CREDIT}. Ice and named features simplified.`;
-  f.node.append(credit);
-  return f.node;
 });
 
 // ---- The Wilson cycle ---------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { JOURNAL, SHIFTS } from '../src/core/shifts';
+import { LESSONS } from '../src/core/lessons';
 import { allTalks, INTRO, radioFor, transcript, ACK } from '../src/core/talk';
 
 describe('radio talks', () => {
@@ -21,7 +21,7 @@ describe('radio talks', () => {
   });
 
   it('give every lesson an opening, and lines around its check, and nothing in between', () => {
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       const talks = radioFor(s.id).talks;
       expect(talks.map((t) => t.cue), s.id).toEqual(['start', 'check']);
       // The check's talk is not played: it opens and closes the check's own
@@ -48,10 +48,9 @@ describe('radio talks', () => {
 describe('lessons', () => {
   it('tell no story: that is the radio’s job', () => {
     const words = /Anvil Peak|lookout|Juniper|Thunderhead|Walla Walla|Harrow|radio check|trailhead/i;
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       const text = JSON.stringify(s);
       expect(text.match(words)?.[0], s.id).toBeUndefined();
     }
-    expect(JSON.stringify(JOURNAL).match(words)?.[0]).toBeUndefined();
   });
 });

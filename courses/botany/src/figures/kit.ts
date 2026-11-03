@@ -1,8 +1,7 @@
 // The colours that always mean the same thing, in every figure and in the
 // text ([[words|key]]), and the figure kit with them filled in.
 
-import { slider as kitSlider, type Slider } from 'didactics/figure';
-import { prose as kitProse } from 'didactics/lesson';
+import { courseKit } from 'didactics/kit';
 
 export * from 'didactics/figure';
 export * from './plot';
@@ -43,10 +42,8 @@ export const COL = {
 } as const;
 export type ColorKey = keyof typeof COL;
 
-export const slider = (label: string, min: number, max: number, step: number, value: number, show: (v: number) => string, onInput: (v: number) => void, color: ColorKey = 'ink'): Slider =>
-  kitSlider(label, min, max, step, value, show, onInput, COL[color]);
-
-export const prose = (text: string) => kitProse(text, COL);
+/** The slider coloured by a palette key, prose with the palette filled in, and tint for a translucent fill (didactics/kit). */
+export const { slider, prose, tint } = courseKit(COL);
 
 /** A number with thousands separated: 40,000. */
 export const big = (n: number) => Math.round(n).toLocaleString('en-US');

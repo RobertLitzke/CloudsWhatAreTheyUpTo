@@ -1,4 +1,4 @@
-// The valley at first light, a word on what this is, the lesson board (the
+// The ridges through the aperture at the top, a word on what this is, the lesson board (the
 // written lessons open, the rest shown as coming), and the way to the
 // reference page.
 
@@ -7,11 +7,11 @@ import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
 import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS } from '../../core/lessons';
-import { makeScene } from '../scene/field';
-import { getSave } from '../store';
+import { makeBanner } from '../scene/banner';
+import { store } from '../../store';
 
 export const homeView: View = (root) => {
-  const save = getSave();
+  const save = store.get();
   const written = LESSONS.filter(isWritten);
   const nextUp = written.find((l) => !save.lessons[l.id]?.done);
   // A lesson left part way opens where the reader was (Didactics' resume.ts).
@@ -41,7 +41,7 @@ export const homeView: View = (root) => {
       el(
         'section.hero',
         {},
-        makeScene({ seed: 8, h: 320, horizon: 0.66, align: 'xMidYMax' }),
+        makeBanner(),
         el('div.hero-text', {}, el('p.eyebrow', {}, 'Photography · a field workbook'), el('h1', {}, 'Out of Auto'), el('p.subtitle', {}, 'Photographing what is out there, on purpose')),
       ),
       el(

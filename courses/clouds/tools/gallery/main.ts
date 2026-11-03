@@ -11,19 +11,19 @@ import { galleryPage } from 'didactics/gallery';
 import { FIGURES } from '../../src/app/figures';
 import { emptySave } from '../../src/core/save';
 import { isDiagram } from 'didactics/lesson';
-import { SHIFTS, type Forecast } from '../../src/core/shifts';
+import { LESSONS, type Forecast } from '../../src/core/lessons';
 import { forecastPicture } from '../../src/app/figures/quizzes';
 
 const save = emptySave();
 if (location.search.includes('imperial')) save.units = 'imperial';
-document.getElementById('app')!.append(galleryPage({ figures: FIGURES, lessons: SHIFTS, save }).node);
+document.getElementById('app')!.append(galleryPage({ figures: FIGURES, lessons: LESSONS, save }).node);
 
 // ?skies: every forecast question in every lesson, with the sky it shows, the
 // question and the right answer, for checking that the drawings say what the
 // question says.
 if (location.search.includes('skies')) {
   const list = el('article.article');
-  for (const s of SHIFTS) for (const p of s.parts) for (const b of p.blocks) {
+  for (const s of LESSONS) for (const p of s.parts) for (const b of p.blocks) {
     if (!isDiagram(b) || b.id !== 'check') continue;
     const items = (b.options?.items as Forecast[]) ?? [];
     items.forEach((q, k) => list.append(el('figure.fig', { 'data-sky': `${s.id}-${k}` },

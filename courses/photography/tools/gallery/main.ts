@@ -11,7 +11,7 @@ import { el } from 'didactics/dom';
 import { galleryPage } from 'didactics/gallery';
 import { FIGURES } from '../../src/app/figures';
 import { LESSONS } from '../../src/core/lessons';
-import { emptySave } from '../../src/core/save';
+import { empty as emptySave } from '../../src/store';
 
 const save = emptySave();
 if (new URLSearchParams(location.search).has('imperial')) save.units = 'imperial';

@@ -11,7 +11,7 @@ const written = import.meta.glob<PlantLesson>('./lessons/*.json', { eager: true,
 
 /** A lesson not written yet: its place in the tree and what it will answer. */
 export const coming = (id: string, n: number, title: string, teaches: string, more: Partial<PlantLesson> = {}): PlantLesson =>
-  ({ id, n, title, teaches, parts: [], coming: true, summary: [], journal: [], ...more });
+  ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: PlantLesson[] = [
   coming('pale', 11, 'The plant with no green', 'Root fungi, the trade of sugar for phosphorus, and plants that cheat on it'),

@@ -29,7 +29,6 @@ export function migrate(raw: unknown): SaveData {
     out.lessons.fog ??= { ...old };
     out.lessons.heaps ??= { ...old };
     delete out.lessons.textures;
-    if (old.done) out.journal = [...new Set([...out.journal, 'fog', 'rising-air'])];
   }
   // Then the lessons were rebuilt around questions asked of the sky: heaps went
   // into the first lesson, and the two on seeding became one.

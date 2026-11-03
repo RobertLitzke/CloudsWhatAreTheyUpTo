@@ -1,25 +1,18 @@
 @import 'didactics/styles/kit.css';
 @import './tokens.css';
 
-/* What only Clouds has: the home screen, the cloud quizzes and sky drawings,
-   photos, the journal and credits, and cloud seeding. Everything else, from
-   the top bar to the figures and the summary, is Didactics' kit.css. */
+/* What only Clouds has: the home screen's hero, the cloud quizzes and sky
+   drawings, the field guide, and cloud seeding. Everything else, from the top
+   bar to the figures, the lesson cards and the photos, is Didactics' kit.css. */
 
 
-/* ---- Home ------------------------------------------------------------- */
-.hero { position: relative; overflow: hidden; }
-.hero .scene { display: block; width: 100%; height: min(62vh, 520px); }
-.hero-text {
-  position: absolute;
-  inset: 0;
-  padding: 7vh 16px 0;
-  text-align: center;
-  pointer-events: none;
-}
+/* ---- Home: the dusk banner (scene/banner.ts) with the poster lettering
+   over its upper half. */
+.hero-text { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 16px 24%; }
+@media (min-width: 700px) { .hero-text { padding-bottom: 150px; } }
 .hero-text h1 {
   font-size: clamp(3.4rem, 17vw, 7rem);
   letter-spacing: 0.04em;
-  margin: 0;
 }
 .hero-text .subtitle {
   font-size: clamp(1.3rem, 6.4vw, 2.4rem);
@@ -28,40 +21,6 @@
   margin-top: 0.1em;
 }
 .hero .eyebrow { color: var(--text); opacity: 0.85; margin-bottom: 2vh; }
-.letter {
-  background: var(--panel);
-  color: var(--ink);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  margin-top: -40px;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-}
-.shift-card {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  align-items: center;
-  background: var(--bg-2);
-  border-radius: var(--radius);
-  padding: 12px 14px;
-}
-.shift-card.next { box-shadow: inset 0 0 0 2px var(--sun); }
-.shift-card.stand-started.next { box-shadow: inset 4px 0 0 var(--rose), inset 0 0 0 2px var(--sun); }
-.shift-card h3 { margin: 0 0 2px; }
-.shift-card p { margin: 0; color: var(--muted); font-size: 0.9rem; }
-.shift-card .score { color: var(--sun); margin-top: 4px; }
-.tree-rail .shift-card { background: rgba(255, 255, 255, 0.05); }
-.shift-actions { display: flex; flex-direction: column; gap: 6px; align-items: stretch; }
-.shift-actions .btn-ghost { color: var(--text); box-shadow: inset 0 0 0 2px var(--muted); }
-.seeding {
-  margin-top: 24px;
-  padding: 16px 18px;
-  border-radius: var(--radius);
-  background: repeating-linear-gradient(135deg, var(--bg-2) 0 14px, #331c40 14px 28px);
-}
-.seeding h2 { margin-top: 0; }
-.seeding p { color: var(--muted); }
 .radio-log { display: grid; gap: 8px; }
 .sky-strip { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; }
 .sky-strip figure { margin: 0; }
@@ -114,24 +73,14 @@
 .name-plus { align-self: center; font: 600 1.4rem/1 var(--display); color: var(--ink-soft); }
 .name-preview { font: 600 1.4rem/1 var(--display); letter-spacing: 0.06em; margin: 0; text-transform: capitalize; }
 
-.photo { margin: 0; background: #000; }
-.photo img { display: block; width: 100%; height: auto; aspect-ratio: 400 / 260; object-fit: cover; }
-.photo img.mirrored { transform: scaleX(-1); }
-.photo figcaption { background: var(--bg); padding: 4px 16px 22px; }
-.credit { font-size: 0.72rem; color: var(--muted); margin: 0; }
-.credit a { color: var(--muted); }
-.photo.sketch .scene { display: block; width: 100%; height: auto; aspect-ratio: 400 / 260; }
 
-/* ---- Journal and credits ---------------------------------------------- */
-.notes { display: grid; gap: 10px; }
-.note { background: var(--panel); color: var(--ink); border-radius: var(--radius); padding: 14px 16px; }
-.note p { margin: 0; }
+/* ---- Field guide ------------------------------------------------------- */
 .abbr { color: var(--muted); font-weight: 400; margin-left: 10px; font-size: 0.8em; }
-.journal-tabs { display: flex; width: auto; margin: 0 0 14px; overflow-x: auto; scrollbar-width: none; }
-.journal-tabs a { flex: 1; text-align: center; color: var(--muted); padding: 9px 12px; border-radius: 999px; font: 600 0.85rem var(--display); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
-.journal-tabs a.on { background: var(--sun); color: var(--ink); }
-.journal-lede { font-size: 0.92rem; margin: 0 0 6px; }
-.journal-lede .gl-dot { display: inline-block; vertical-align: middle; }
+.guide-tabs { display: flex; width: auto; margin: 0 0 14px; overflow-x: auto; scrollbar-width: none; }
+.guide-tabs a { flex: 1; text-align: center; color: var(--muted); padding: 9px 12px; border-radius: 999px; font: 600 0.85rem var(--display); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.guide-tabs a.on { background: var(--sun); color: var(--ink); }
+.guide-lede { font-size: 0.92rem; margin: 0 0 6px; }
+.guide-lede .gl-dot { display: inline-block; vertical-align: middle; }
 .cloud-floor h2 { font-size: 1rem; margin: 18px 0 8px; }
 .cloud-tiles { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 .cloud-tile {
@@ -163,17 +112,6 @@
 .cloud-facts dt { font: 600 0.72rem/1 var(--display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-top: 12px; }
 .cloud-facts dd { margin: 3px 0 0; }
 .sheet-lesson { display: inline-block; margin-top: 16px; font-weight: 600; text-decoration: none; }
-.note-group h2 { display: flex; align-items: center; gap: 10px; font-size: 1rem; margin: 22px 0 10px; }
-.note-n { font: 600 0.85rem/1 var(--display); width: 24px; height: 24px; flex: none; display: inline-grid; place-items: center; border-radius: 50%; background: var(--sun-deep); color: var(--ink); }
-.note h3 { margin-bottom: 4px; }
-.notes-waiting { margin-top: 18px; font-size: 0.9rem; }
-.credit-list { padding-left: 18px; }
-.note.rare { background: linear-gradient(135deg, var(--panel), #f3d3e3); }
-.note h3 { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
-.fig .photo { background: transparent; }
-.fig .photo figcaption { background: transparent; padding: 4px 14px 0; }
-.fig .photo .credit, .fig .photo .credit a { color: var(--ink-soft); }
-.quiz-card .photo { margin: 0 0 12px; }
 
 /* ---- Cloud seeding: orders from town, and a sky to make them in -------- */
 .seed h1 { margin-top: 4px; }
@@ -220,7 +158,6 @@
 .scene .seed-tag { font: 600 7px var(--display); letter-spacing: 0.06em; fill: #fff; paint-order: stroke; stroke: rgba(23, 20, 42, 0.55); stroke-width: 2px; }
 .scene .seed-sky { transition: opacity 0.5s; }
 .scene .seed-sky.fade { opacity: 0.4; }
-.seeding .btn { margin-top: 4px; }
 .readings { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 0; margin-top: 0; margin-bottom: 0; }
 .readings li { font-size: 0.85rem; font-weight: 600; background: var(--panel); border-radius: 999px; padding: 3px 10px; }
 

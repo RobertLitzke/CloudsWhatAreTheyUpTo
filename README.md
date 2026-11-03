@@ -17,7 +17,16 @@ courses/<folder>/   one course, everything of its own: lessons, quizzes,
                     figures, simulations, photos, styles, tests, tools
   course.json       what the catalog shows: title, department, summary,
                     icon, where its lessons are, its save's key
-tools/build-site.mjs  builds every course into dist/<folder>/, then the catalog
+tools/              what every course shares at the command line:
+  build-site.mjs      builds every course into dist/<folder>/, then the catalog
+  photos.mjs          fetches a course's photos from its tools/photo-picks.json
+  photos-find.mjs     a contact sheet of Commons candidates to pick from
+  restore-photos.mjs  puts parked photo blocks back into lessons
+  copyedit.mjs        the Gemini copy edit, with each course's brief
+  review-queue.mjs    runs the copy edits waiting in every course
+  process-icons.mjs   crops every course's icons from the painted sheets in catalog/icons/
+  lib/                the pieces the tools share (Commons, course folders)
+tsconfig.base.json  the compiler options every workspace extends
 ```
 
 The rule: anything that names a course lives in its folder. Anything two
@@ -33,6 +42,7 @@ lowercase word or two naming its subject (the catalog's test checks this).
 | `courses/electronics` | Circuitry: a circuits workbook (its solver is the workspace `courses/electronics/packages/circuit-kit`) | `circuitry.save` |
 | `courses/photography` | Out of Auto: a field workbook | `outofauto.save` |
 | `courses/geology` | Geology: mysteries in the rocks (its map reliefs are made by `tools/geo/relief.mjs`) | `geology.save` |
+| `courses/astronomy` | Astronomy: how we found out | `astronomy.save` |
 | `courses/botany` | Botany: how plants work | `botany.save` |
 | `courses/ecology` | Ecology: who lives where, and why | `ecology.save` |
 
@@ -53,7 +63,17 @@ npm run dev -w catalog      # the catalog, on http://localhost:5410
 npm test                    # every course's tests and the catalog's
 npm run build               # the whole site into dist/
 npm run preview             # serve dist/ on http://localhost:5411
+npm run photos -- geology   # fetch a course's photos (tools/photo-picks.json)
+npm run copyedit -- geology dunes --write   # the Gemini copy edit of a lesson
 ```
+
+Each course's README has its own commands (`npm run poster -w clouds`, say).
+The root `tools/` holds one copy of each tool the courses share; a course
+keeps in its `tools/` only what is its own: its photo picks
+and search categories, its copy-edit brief (`copyedit.json`), its review
+queue. The dependency on Didactics is pinned once, in the root
+`package.json`, and every workspace extends `tsconfig.base.json`
+(`catalog/test/site.test.ts` holds them to it).
 
 New lesson prose waits for its final Gemini copy edit in each course's
 `tools/review-queue.json`. `npm run review-queue` lists what is waiting;
@@ -73,8 +93,10 @@ build; use `npm run build && npm run preview` to click through the site.
 - `tools/build-site.mjs` runs each course's own build and copies its `dist/`
   into the site's `dist/<folder>/`, leaving out the worker and manifest the
   course writes for itself. The catalog builds last, into `dist/`; its
-  service worker precaches the catalog and every course's page, icons, poster
-  and `photos/`, so the one installed app works offline in every course.
+  service worker precaches the catalog and every course's page, icons and
+  poster, so the one installed app opens offline in every course. Photos,
+  maps and data files are cached as they are read; each course's Settings
+  page saves them all at once from the `offline.json` its build writes.
 - One installed app: the manifest's `id` is still `clouds-app`, so a phone
   that had Clouds installed keeps the same app, now opening on the catalog.
 - The one-file copies (`clouds.html`, `clouds-offline.html`) are still one
@@ -84,8 +106,8 @@ build; use `npm run build && npm run preview` to click through the site.
 ## Adding a course
 
 1. Put it in `courses/<folder>/` with its own `package.json` (a workspace;
-   name it after the folder), depending on the same Didactics commit as the
-   others.
+   name it after the folder, with no Didactics dependency of its own) and a
+   `tsconfig.json` that extends `../../tsconfig.base.json`.
 2. Give it a `course.json` and set `inSite: true` in its `vite.config.ts` and
    `catalog: { href: '../' }` in its `defineCourse` call.
 3. Place it on the catalog's map: add its folder and `[x, y]` to `courses` in

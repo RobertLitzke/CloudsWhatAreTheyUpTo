@@ -8,7 +8,7 @@ import { FIGURES } from '../src/app/figures';
 import { SITUATIONS, score } from '../src/app/figures/recipe';
 import { makeScene } from '../src/app/scene/field';
 import { FIGURE_IDS, LESSONS, type FigureId } from '../src/core/lessons';
-import { emptySave } from '../src/core/save';
+import { empty as emptySave } from '../src/store';
 
 const context = () => ({ save: emptySave(), closed: new AbortController().signal, score: () => {} });
 

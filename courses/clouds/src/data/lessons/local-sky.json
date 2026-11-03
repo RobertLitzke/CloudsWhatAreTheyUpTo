@@ -1,0 +1,405 @@
+{
+  "id": "local-sky",
+  "n": 7,
+  "title": "Local tricks: mountains, winter ice, and rare skies",
+  "teaches": "Why do mountains and winter change the forecast, and what creates lens clouds, breaking waves, and holes in the sky? Rain shadows, standing mountain waves, supercooled water, rime and freezing rain, and how ice crystals make rain.",
+  "parts": [
+    {
+      "title": "East of the mountains",
+      "blocks": [
+        {
+          "type": "key_ideas",
+          "title": "The big ideas of this lesson",
+          "points": [
+            "Air forced over a mountain barrier rains out on the windward climb and descends the leeward slope warmer and much drier: a **rain shadow**. East of the Cascades, storms arrive with their upper cloud decks on schedule but much of their rain wrung out.",
+            "Wind blowing over a ridge into stable air oscillates in **standing mountain waves**, condensing smooth, stationary lens clouds at the wave crests: **lenticularis**. Strong wind shear across a cloud top can curl it into breaking waves: **fluctus**.",
+            "Cloud droplets stay liquid well below 0 °C—all the way down to about −38 °C—because freezing requires a rare ice-forming speck. This **supercooled** water coats fences in feathery **rime** and glazes roads as **freezing rain**.",
+            "Where ice crystals and supercooled droplets coexist, the ice crystals rapidly grow at the droplets’ expense and fall as snow. Even in summer, most mid-latitude rain starts out high in the cloud as snow.",
+            "A circular gap punched in an altocumulus deck with a wispy trail of ice in its centre—a **fallstreak hole**—shows that a passing aircraft triggered freezing in a supercooled cloud layer."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "The physics in the first six lessons works anywhere on Earth. This final lesson looks at how local terrain and winter cold bend the rules—creating rain shadows, mountain wave clouds, winter ice hazards, and the sub-freezing crystal process that quietly produces most of our rain."
+        },
+        {
+          "type": "text",
+          "text": "A Pacific storm heading into eastern Washington first has to climb the Cascades, a mountain barrier roughly two kilometres high with volcanic peaks rising well above that. The rainfall contrast across the range is dramatic: Seattle, on the Puget Sound lowland to the west, receives about 950 millimetres of rain a year; the western Cascade slopes and passes catch 2,000 to 3,000 millimetres; the Columbia Basin, just east of the crest, receives only 150 to 300 millimetres."
+        },
+        {
+          "type": "text",
+          "text": "Lessons 1 and 5 explain why. Moist Pacific air forced up the western slopes cools at the dry rate (10 °C per kilometre) until it hits its dew point and forms cloud. From the cloud base to the crest, condensing water releases latent heat, slowing the cooling to the cloudy rate of about 5 °C per kilometre. As the deep cloud deck rides up the barrier, heavy rain and snow fall out on the windward slopes."
+        },
+        {
+          "type": "text",
+          "text": "Once the air spills over the crest and sinks down the eastern slopes, compression warms it. Because most of its moisture has already rained out on the climb, the cloud evaporates high on the leeward slope, and the clear air warms at the full dry rate of 10 °C per kilometre all the way down into the basin.[^foehn] Having cooled at ~5 °C/km on the way up and warmed at 10 °C/km on the way down, the air arrives on the basin floor (around 500 metres elevation) significantly warmer and far drier than it started."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "rainShadow",
+          "caption": "Moist Pacific air forced over the Cascades into the Columbia Basin (vertical scale exaggerated). Use the sliders to adjust mountain height and incoming humidity.",
+          "task": "Raise the mountains to the real Cascades, about 2 km, until the basin air has less than half the vapour it has room for.",
+          "goal": "shadow"
+        },
+        {
+          "type": "text",
+          "text": "This leeward dry zone is a **rain shadow**, and it changes how an approaching frontal storm looks from the ground. Because high and middle clouds ride well above the two-kilometre ridge crest, the warm front’s upper sequence—cirrus hooks, the 22° cirrostratus halo, and frosted-glass altostratus—arrives right on schedule. Lower down, however, the sunken, dried-out air eats away at the falling precipitation, often reducing a soaking coastal storm to light sprinkles or hanging curtains of **virga**."
+        },
+        {
+          "type": "text",
+          "text": "Cold fronts lose much less of their punch crossing the mountains because they are driven by the density contrast of the cold air mass rather than by moisture alone. Even when a cold front drops minimal rain in the basin, its gusty winds sweep down the lee slopes at full strength—sometimes whipping dry topsoil after autumn harvest into towering walls of blowing dust. Further east, where the land rises again toward the Blue Mountains and the Rockies, fresh upward lift wrings rain and snow back out of the air."
+        }
+      ]
+    },
+    {
+      "title": "Waves in the air",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Mountain barriers and strong upper winds also sculpt two striking cloud formations that belong in every observer's field journal."
+        },
+        {
+          "type": "text",
+          "text": "When a strong wind blows across a mountain ridge into a stable layer of air, the terrain shoves the air upward. Cooling at 10 °C per kilometre inside a stable environment, the lifted air becomes colder and denser than the surrounding sky at the ridge crest, so gravity pulls it sharply down the leeward slope. Gathering speed as it plunges, the air overshoots its equilibrium level at the bottom of the dip."
+        },
+        {
+          "type": "text",
+          "text": "Warming at 10 °C per kilometre as it sinks into higher pressure, the overshooting parcel becomes warmer and more buoyant than the stable air around it and rebounds upward. Just like water streaming over a submerged boulder in a river, the airflow oscillates up and down for tens of kilometres downwind of the ridge in **standing mountain waves**. Wherever the wave crests lift a humid layer of air above its dew point, water vapour condenses into a smooth cloud cap perched right at the top of each wave."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "wave",
+          "caption": "Airflow oscillating in standing waves downwind of a mountain ridge.",
+          "task": "Get the wind and moisture right to make a lens cloud.",
+          "goal": "lens"
+        },
+        {
+          "type": "text",
+          "text": "Because these wave crests usually sit two to six kilometres up, the resulting cloud is **altocumulus lenticularis** (from the Latin for 'lens-shaped'). Unlike ordinary cellular altocumulus, a lenticularis cloud is sculpted smooth by the wind, resembling a porcelain saucer, an almond, or a stack of pancakes hovering motionless near a peak even in a gale.[^ufo] Moist air continuously streams into the upwind edge, cools past its dew point to condense into droplets, and exits the downwind edge, where it sinks, warms, and evaporates back into clear air. The cloud is a visible standing wave while the wind races straight through it."
+        },
+        {
+          "type": "text",
+          "text": "A second, much briefer wave cloud forms when strong vertical **wind shear** develops across the top of a stable cloud layer, with a fast-moving airstream sliding directly over a slower, denser layer of cloudy air beneath it. Just as wind blowing over the ocean raises surface waves, the speed difference across the boundary ripples the top of the cloud. As each wave crest pokes upward into the faster upper current, the fast wind shoves the top of the crest forward ahead of its slower trough below, curling the cloud top over like surf breaking on a beach."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "billow",
+          "caption": "A stable cloud layer sheared between fast, warmer air above and slower, colder air below.",
+          "task": "Guess what a warmer top layer does, then make the waves curl over with it at least 3 °C warmer.",
+          "goal": "curl"
+        },
+        {
+          "type": "text",
+          "text": "These breaking cloud billows are **[[Kelvin–Helmholtz waves]]**, catalogued in the International Cloud Atlas as the supplementary feature **fluctus**.[^kelvin] Because the breaking curls rapidly mix the fast and slow air layers together—erasing the sharp wind shear that created them—a train of *fluctus* waves typically lasts only a minute or two before dissolving. To pilots, they are a textbook visual warning of severe clear-air turbulence."
+        }
+      ]
+    },
+    {
+      "title": "Water that won’t freeze",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Climb into a cloud above the 0 °C freezing level and you might expect every cloud droplet to be frozen solid. Surprisingly, most clouds between 0 °C and −20 °C consist primarily of liquid water droplets."
+        },
+        {
+          "type": "text",
+          "text": "For liquid water to freeze, its jostling molecules have to align into the strict six-sided lattice of an ice crystal. In a pond or a birdbath, water touches millions of rough solid surfaces and suspended impurities that help template the first ice crystals right at 0 °C."
+        },
+        {
+          "type": "text",
+          "text": "A microscopic cloud droplet floating in mid-air, however, touches only the tiny aerosol speck it originally condensed on. Common condensation specks like sea salt or sulphates dissolve in water or have the wrong crystal shape to template ice. Only rare specks whose atomic spacing closely mimics the hexagonal lattice of ice—such as certain clay mineral dusts or airborne bacteria—can coax a droplet to freeze at mild sub-zero temperatures, and those **ice nuclei** make up perhaps one particle in a million. Without one, a pure cloud droplet stays liquid far below 0 °C."
+        },
+        {
+          "type": "diagram",
+          "id": "freezeSeeds",
+          "caption": "Two cloud droplets at −15 °C: one condensed on ordinary sea salt, the other containing a rare ice-nucleating dust speck."
+        },
+        {
+          "type": "text",
+          "text": "Liquid water below 0 °C is called **[[supercooled water]]**. Only when the air temperature plunges below about **−38 °C** (rounded to −40 °C in the diagram) do water molecules slow down enough to lock into an ice lattice spontaneously without needing a template speck."
+        },
+        {
+          "type": "text",
+          "text": "Because of supercooling, the troposphere divides into three thermal zones that shift up and down with the seasons: **pure liquid droplets** warmer than 0 °C, a **mixed-phase zone** between 0 °C and −38 °C where supercooled droplets and scattered ice crystals coexist, and **pure ice crystals** colder than −38 °C (above 8 or 9 kilometres in summer)."
+        },
+        {
+          "type": "text",
+          "text": "In winter, supercooled clouds can rest right on the ground as **freezing fog**. When sub-zero fog fills a valley at −5 °C or −10 °C, the suspended droplets stay liquid in the air but freeze the instant they touch a solid object—coating the windward side of every fence wire, pine needle, and twig in a feathery white crust of **rime** ice."
+        },
+        {
+          "type": "text",
+          "text": "Winter inversions set up an even more dangerous supercooled hazard. When dense, sub-freezing air pools in a valley or basin for days (Lesson 1) while mild Pacific air glides up over the top of it ahead of a warm front (Lesson 4), snowflakes falling from the upper cloud melt completely into rain as they pass through the warm wedge aloft. Dropping into the shallow sub-freezing pool trapped near the ground, the raindrops chill below 0 °C without having time to refreeze in mid-air. The supercooled drops freeze on impact with cold pavement, branches, and power lines as **freezing rain**, encasing the landscape in heavy, clear glaze ice.[^sleet]"
+        }
+      ]
+    },
+    {
+      "title": "How ice makes rain",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "That sub-freezing mixed zone between 0 °C and −38 °C—where a handful of ice crystals float among millions of supercooled droplets—is the engine room that produces most of the world’s rain and snow. Recall from Lesson 1 that air reaches saturation when water molecules return to a droplet's surface just as fast as they escape from it. In a solid ice crystal, water molecules are locked into a rigid hexagonal lattice and bound more tightly to their neighbours than molecules jostling inside a supercooled liquid droplet at the same temperature. Because molecules escape from ice more slowly than from liquid water, a lower concentration of surrounding water vapour is enough to keep an ice crystal in balance. At −12 °C, for example, air that is just saturated with respect to supercooled water holds about **13 percent more water vapour** than air saturated with respect to ice."
+        },
+        {
+          "type": "diagram",
+          "id": "escape",
+          "caption": "At the same sub-freezing temperature, water molecules escape more easily from a supercooled liquid droplet than from a rigid ice lattice."
+        },
+        {
+          "type": "text",
+          "text": "Now drop a single ice crystal into a cloud of supercooled droplets at −12 °C. The abundant liquid droplets keep the surrounding air at liquid saturation—which, to the ice crystal, is 13 percent *supersaturated*. Water vapour molecules rapidly deposit onto the ice crystal, building its six-sided arms outward. As the growing crystal scavenges vapour from the air, the ambient humidity dips slightly below the liquid saturation threshold, forcing the surrounding supercooled droplets to evaporate to replenish the vapour. Without ever touching the droplets, the ice crystal Robbin-Hoods their water through the air: droplets evaporate, and their vapour locks onto the ice.[^bergeron]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "iceGrowth",
+          "caption": "A single ice crystal growing rapidly by scavenging water vapour from evaporating supercooled droplets around it.",
+          "task": "Find a temperature where the crystal grows fast enough to fall.",
+          "goal": "fall"
+        },
+        {
+          "type": "text",
+          "text": "This vapour-scavenging engine runs fastest between **−10 °C and −15 °C**, where the saturation gap between water and ice reaches its peak.[^dendrites] Within 10 to 20 minutes, a single ice crystal grows heavy enough to begin falling through the cloud."
+        },
+        {
+          "type": "text",
+          "text": "As the crystal descends, it sweeps up supercooled droplets that freeze onto it on contact (building pellets of soft hail, or *graupel*) or hooks together with other branched crystals to form **snowflakes**.[^bentley] When those falling snowflakes pass below the 0 °C freezing level into warmer lower air, they melt into full-sized raindrops. Outside the shallow trade-wind clouds of the tropics, **nearly all rain—even in midsummer—starts out high in the cloud as snow**."
+        },
+        {
+          "type": "diagram",
+          "id": "snowToRain",
+          "caption": "Why cloud depth matters in mid-latitudes: reaching the −10 °C to −15 °C zone unlocks rapid ice-crystal growth that melts into rain below."
+        },
+        {
+          "type": "text",
+          "text": "That completes the story of why clouds need vertical depth to rain (Lesson 2). Shallow warm clouds must rely entirely on slow droplet collisions, whereas clouds deep enough to reach the −10 °C to −15 °C level unlock the fast ice-crystal shortcut."
+        }
+      ]
+    },
+    {
+      "title": "Holes in the sky",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Occasionally you can watch this rapid ice-growth process play out across the sky in real time. When a thin middle-level deck of **altocumulus** or high **cirrocumulus** sits at −10 °C to −20 °C, its puffs often consist of pure supercooled liquid droplets with no ice nuclei present. If an airliner climbs or descends through the deck, the rapid pressure drop over its wings and propeller tips cools a narrow ribbon of air below −40 °C, instantaneously freezing a trail of droplets into ice crystals. Over the next 30 minutes, those new ice crystals devour the surrounding supercooled droplets by vapour diffusion and fall out in a wispy central curtain of snow (*virga*), punching an expanding circular or oval gap in the cloud deck called a **fallstreak hole** (or *cavum*). Spotting one is visual proof that the cloud layer was supercooled."
+        },
+        {
+          "type": "diagram",
+          "id": "fallstreak",
+          "caption": "A fallstreak hole (cavum) punched in a supercooled altocumulus deck, with trails of newly formed ice crystals falling from its centre."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Local tricks",
+          "points": [
+            "**In a rain shadow** (leeward of a mountain range): frontal high clouds arrive on schedule, but sinking air evaporates much of the low-level rain into light sprinkles or virga, while cold-front wind gusts come through at full strength.",
+            "**Smooth, stationary lens cloud** (*lenticularis*) over a ridge: marks the crest of a standing mountain wave in stable air—expect severe turbulence downwind for aircraft.",
+            "**Breaking-wave curls** (*fluctus*) along a cloud top: marks strong vertical wind shear across a stable layer, vanishing within a couple of minutes.",
+            "**Feathery rime** on fences means supercooled freezing fog; **clear glaze** on roads and wires means **freezing rain** (rain falling from a warm layer aloft into a sub-freezing surface inversion).",
+            "**Circular hole with a wispy ice trail** (*fallstreak hole / cavum*) in altocumulus: proves the cloud deck was composed of supercooled liquid droplets."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "First identify the cloud genera in these photographs, then apply terrain and sub-freezing cloud physics to forecast the scenarios below."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Real photos to name, then a sky and what the land and the season are doing to it.",
+          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "altocumulus",
+                "stratocumulus",
+                "stratus",
+                "nimbostratus",
+                "altostratus",
+                "cirrostratus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrocumulus",
+                "cirrostratus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus",
+                "cumulonimbus"
+              ],
+              "count": 4
+            },
+            "items": [
+              {
+                "id": "bazaar",
+                "sky": [
+                  {
+                    "genus": "cirrostratus",
+                    "when": "Friday night",
+                    "time": "night",
+                    "sun": "halo"
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "Saturday 9 a.m."
+                  }
+                ],
+                "question": "Last night a 22° halo ringed the moon, and this morning the sky is grey altostratus. Coastal newspapers west of the Cascades warn of a soaking 30 mm rainstorm today. Should your town in the Columbia Basin east of the mountains cancel its outdoor Saturday bazaar?",
+                "options": [
+                  "Yes: a frontal system that drops 30 mm on the coast will drop just as much east of the range",
+                  "Expect light rain or sprinkles at most: the Cascades wring out most of the warm front's moisture, so a simple canopy tent will suffice",
+                  "Not a single drop can fall: clouds never cross a two-kilometre mountain range"
+                ],
+                "answer": 1,
+                "why": "The warm front’s high and middle cloud decks ride easily over the Cascades on schedule, but the air loses most of its moisture on the windward climb and warms and dries descending into the basin's rain shadow, leaving only light rain or virga.",
+                "instruments": [
+                  "Barometer: falling slowly",
+                  "Wind: southeast"
+                ]
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "14:00",
+                    "shape": "lenticular"
+                  },
+                  {
+                    "genus": "altocumulus",
+                    "when": "15:00",
+                    "shape": "lenticular"
+                  }
+                ],
+                "question": "A smooth, almond-shaped white cloud hovers completely stationary above a mountain ridge all afternoon even though winds at ridge level are blowing at 70 km/h. What are you looking at?",
+                "options": [
+                  "The glaciated anvil of a distant thunderstorm stalled over the ridge",
+                  "Valley radiation fog being pushed slowly up the windward slope",
+                  "Altocumulus lenticularis sitting in the crest of a standing mountain wave"
+                ],
+                "answer": 2,
+                "why": "Strong wind blowing across a mountain barrier into stable air sets up standing lee waves. Moisture condenses continuously as air rises into the wave crest and evaporates as it sinks out the downwind edge, keeping the smooth lens cloud stationary in the sky."
+              },
+              {
+                "sky": [
+                  {
+                    "when": "8 a.m.",
+                    "fog": "dense"
+                  },
+                  {
+                    "when": "noon",
+                    "fog": "dense"
+                  }
+                ],
+                "question": "Dense fog has lingered in the valley for three days at −6 °C, coating the windward side of every fence wire and tree branch in a thick, feathery white crust. What is the fog composed of?",
+                "options": [
+                  "Supercooled liquid droplets that remain liquid in the air and freeze instantly on contact with solid surfaces",
+                  "Tiny six-sided ice crystals blowing sideways like drifting snow",
+                  "Invisible water vapour freezing directly onto the cold metal wires as frost"
+                ],
+                "answer": 0,
+                "why": "Without rare ice-nucleating specks, fog droplets remain supercooled liquid well below 0 °C. The moment the wind drives those supercooled droplets against a twig or wire, they freeze on impact, building feathery rime ice into the wind."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "nimbostratus",
+                    "when": "6 a.m.",
+                    "thick": 0.5,
+                    "time": "dawn"
+                  },
+                  {
+                    "genus": "nimbostratus",
+                    "when": "9 a.m.",
+                    "thick": 0.5
+                  }
+                ],
+                "question": "Sub-freezing air (−4 °C) has been trapped in the valley under a strong inversion all week. Now a mild Pacific warm front is gliding overhead, and radar shows steady rain falling from the cloud deck aloft. What is the primary hazard?",
+                "options": [
+                  "Flash flooding, as the warm rain immediately flushes out the cold valley air",
+                  "Freezing rain: raindrops falling into the shallow sub-freezing surface layer will supercool and glaze roads and power lines on impact",
+                  "Dry powder snow, since any rain entering sub-freezing air instantly crystallizes back into snowflakes"
+                ],
+                "answer": 1,
+                "why": "Snowflakes melt completely in the mild frontal air aloft, then fall through the shallow sub-freezing valley inversion below, becoming supercooled raindrops that freeze on contact with cold roads, trees, and wires as dangerous glaze ice (freezing rain)."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "10 a.m.",
+                    "cover": true
+                  },
+                  {
+                    "genus": "altocumulus",
+                    "when": "10:40 a.m.",
+                    "shape": "hole"
+                  }
+                ],
+                "question": "Thirty minutes after a commuter turboprop climbs through a thin, cobbled sheet of altocumulus, a wide circular hole opens in the cloud deck with wispy trails of virga hanging from its centre. What happened?",
+                "options": [
+                  "The altocumulus layer was supercooled liquid; expansion cooling over the plane's wings and propellers froze a streak of ice crystals that grew at the droplets' expense and snowed out",
+                  "The cloud layer was made of ice crystals, and hot exhaust from the aircraft engines melted and evaporated a circular gap",
+                  "Wake turbulence from the aircraft pushed a column of dry upper air downward, punching a clear hole through the cloud"
+                ],
+                "answer": 0,
+                "why": "Aircraft wings and propeller tips cool passing air below −40 °C, nucleating ice crystals inside a supercooled droplet deck. Via the Bergeron process, those crystals rapidly scavenge vapour from surrounding droplets and fall out as snow trails, leaving an expanding fallstreak hole."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Mountains wring out the rain.** Air rains out climbing the windward side, then sinks and warms on the lee side: a dry rain shadow where fronts bring cloud on time but little rain.",
+    "**Wind over a ridge makes standing waves.** In stable air they cap their crests with smooth, stationary lens clouds (lenticularis) and mean turbulence downwind.",
+    "**Shear curls cloud tops into breaking waves.** Fluctus form where the wind changes sharply across a stable layer, and vanish in minutes.",
+    "**Cloud water stays liquid far below freezing.** Freezing needs a rare ice-forming speck, so droplets can stay supercooled down to about −38 °C.",
+    "**Supercooled water makes rime and glaze.** Freezing fog grows feathery rime on fences; rain falling into a shallow sub-freezing layer glazes roads as freezing rain.",
+    "**Ice grows at the droplets’ expense.** Where crystals and supercooled drops mix, the crystals take the vapour and fall as snow; most mid-latitude rain starts as snow high in the cloud.",
+    "**A fallstreak hole proves a cloud was supercooled.** An aircraft set off freezing, and the ice fell out as a wispy trail in a round gap."
+  ],
+  "footnotes": {
+    "foehn": {
+      "kind": "technical",
+      "title": "Foehn and chinook winds",
+      "text": "A warm, dry wind descending the leeward slope of a mountain range goes by local names around the world: **foehn** in the European Alps, **chinook** along the eastern slopes of the Rockies and Cascades, *zonda* in the Argentine Andes, and *berg wind* in South Africa. A winter chinook can raise temperatures by 20 °C in a few hours and strip a foot of snow off the plains in an afternoon—earning its popular nickname 'snow-eater.'"
+    },
+    "ufo": {
+      "kind": "digression",
+      "title": "The original 'flying saucers'",
+      "text": "On 24 June 1947, private pilot Kenneth Arnold reported nine gleaming, saucer-like objects weaving near Mount Rainier in the Washington Cascades—the sighting that coined the phrase *flying saucer*. Ever since, smooth, multi-layered *altocumulus lenticularis* clouds hovering motionless over mountain peaks, especially when lit fiery orange at sunset, have triggered countless UFO reports."
+    },
+    "kelvin": {
+      "kind": "digression",
+      "title": "Kelvin and Helmholtz",
+      "text": "Breaking shear waves are named after Hermann von Helmholtz (1868) and [[William Thomson]], Lord Kelvin (1871), who worked out the fluid dynamics showing why a fast fluid layer sliding over a slower, denser one becomes unstable and rolls up into vortices. The exact same **Kelvin–Helmholtz instability** curls ocean whitecaps, ripples sand dunes, and twists the cloud bands of Jupiter and Saturn."
+    },
+    "sleet": {
+      "kind": "technical",
+      "title": "Sleet (ice pellets) vs. freezing rain",
+      "text": "What happens when snow melts in a warm layer aloft depends on how deep the sub-freezing air layer is at the ground. If the sub-freezing layer near the ground is **shallow** (only a few hundred metres thick), the falling raindrops supercool without freezing in mid-air and freeze on impact as **freezing rain** (glaze). If the sub-freezing layer is **deep**, the falling raindrops have time to refreeze in mid-air before hitting the ground, bouncing off the pavement as translucent **ice pellets** (called *sleet* in North America)."
+    },
+    "bergeron": {
+      "kind": "technical",
+      "title": "The Wegener–Bergeron–Findeisen process",
+      "text": "Ice-crystal growth at the expense of supercooled droplets is called the **Bergeron process**—or in full, the **[[Wegener–Bergeron–Findeisen process]]**. The German geophysicist [[Alfred Wegener]] (famous for continental drift) first pointed out in 1911 that air saturated with respect to liquid water is supersaturated with respect to ice; the Swedish meteorologist [[Tor Bergeron]] proposed in 1933 that this vapour transfer is how most raindrops originate; and Walter Findeisen confirmed it with cloud physics flights in the late 1930s."
+    },
+    "dendrites": {
+      "kind": "digression",
+      "title": "Why −15 °C grows six-pointed stars",
+      "text": "As an ice crystal falls through different temperatures and humidities inside a cloud, its growth habit switches dramatically between flat six-sided plates (0 °C to −3 °C), hollow hexagonal columns and needles (−3 °C to −10 °C), and intricate, fern-like six-pointed stars called **stellar dendrites** (−12 °C to −16 °C). Because the vapour excess over ice peaks right around −14 °C, crystal corners jutting out into the humid air grow fastest, branching into classic lacy snowflakes."
+    },
+    "bentley": {
+      "kind": "digression",
+      "title": "Snowflake Bentley",
+      "text": "Beginning in 1885 on his family farm in Jericho, Vermont, Wilson 'Snowflake' Bentley spent nearly fifty winters catching falling snow crystals on a chilled black board and photographing them through a microscope rigged to a bellows camera. Working in an unheated shed so the crystals wouldn't melt, he captured over 5,000 photomicrographs, popularizing the observation that no two snowflakes share the exact same growth history."
+    }
+  }
+}

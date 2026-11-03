@@ -9,7 +9,7 @@ import glossary from '../../data/glossary.json';
 import { FIGURES } from '../figures';
 import { prose } from '../figures/kit';
 import { picture } from '../picture';
-import { store } from '../store';
+import { store } from '../../store';
 
 export const referenceView = kitReferenceView<ReturnType<typeof store.get>, PictureBlock>({
   sections: REFERENCE,

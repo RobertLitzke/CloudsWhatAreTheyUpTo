@@ -5,7 +5,8 @@ import pkg from './package.json';
 // The build is Didactics' (didactics/vite): the page with everything inlined,
 // the same page again as dist/geology.html for Settings' download link, and
 // a service worker. Photos and the map reliefs sit in dist/photos/ and
-// dist/maps/; the site's service worker keeps them for offline.
+// dist/maps/, the plate model in dist/data/, all listed in offline.json; the
+// site's service worker caches them as read, and Settings saves them all.
 export default defineConfig(
   lessonApp({
     root: __dirname,
@@ -18,7 +19,7 @@ export default defineConfig(
     // The site's encyclopedia, shared by every course (didactics/encyclopedia).
     encyclopedia: { dir: '../../encyclopedia', courses: '..' },
     oneFile: 'geology.html',
-    precache: ['photos/*.webp', 'maps/*.png', 'maps/*.json'],
+    precache: ['photos/*.webp', 'maps/*.png', 'maps/*.json', 'data/*.json'],
     manifest: {
       name: 'Geology: mysteries in the rocks',
       short_name: 'Geology',

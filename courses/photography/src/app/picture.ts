@@ -6,7 +6,7 @@
 import library from '../data/photos.json';
 import { el } from 'didactics/dom';
 import type { Rng } from 'didactics/rng';
-import { credit } from 'didactics/photos';
+import { credit, photoFigure as kitPhotoFigure } from 'didactics/photos';
 import type { Options } from 'didactics/figure';
 import { isSubjectId, mirrorFor, photosOf, renderable, SUBJECTS, type Photo, type SubjectId } from '../core/photos';
 import { asset } from './asset';
@@ -15,14 +15,9 @@ export const PHOTOS: readonly Photo[] = library as Photo[];
 
 export { credit };
 
-/** A photo with its credit. `mirrored` flips the picture, never the credit. */
+/** A photo with its credit (didactics/photos). `mirrored` flips the picture, never the credit. */
 export function photoFigure(p: Photo, alt: string, mirrored = false): HTMLElement {
-  return el(
-    'figure.photo',
-    {},
-    el('img', { src: asset(p.file), alt, width: p.width, height: p.height, decoding: 'async', className: mirrored ? 'mirrored' : undefined }),
-    el('figcaption', {}, credit(p)),
-  );
+  return kitPhotoFigure(p, asset(p.file), { alt, mirrored });
 }
 
 /** A photo of `subject` picked with `rng`, or a note of what is missing. */

@@ -9,12 +9,14 @@ import { FIGURES } from './figures';
 import { prose } from './figures/kit';
 import { BRANCHES, LESSONS } from './lessons';
 import { PHOTOS } from './photos';
+import { makeBanner } from './banner';
 
 defineCourse({
   id: 'geology',
   title: 'Geology',
   subtitle: 'Mysteries in the rocks',
   mark: el('img', { src: 'icons/icon.svg', alt: '' }),
+  hero: makeBanner,
   site: SITE_URL,
   lessons: LESSONS,
   branches: BRANCHES,
@@ -37,6 +39,7 @@ defineCourse({
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photographs, and where the maps’ heights come from.'),
   },
   catalog: { href: '../' },
+  offline: { noun: 'photos and maps' },
   encyclopedia: { data: encyclopedia, course: 'geology' },
   text: {
     files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),

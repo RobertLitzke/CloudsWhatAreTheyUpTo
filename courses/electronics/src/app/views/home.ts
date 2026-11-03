@@ -1,4 +1,4 @@
-// The board at the top, a word on what this is, the lessons by track (the
+// The board banner at the top, a word on what this is, the lessons by track (the
 // core path, then the pedal and solar branches that grow from it; written
 // lessons open, the rest shown as coming), and the way to the reference page.
 
@@ -7,11 +7,11 @@ import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
 import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS, lessonsIn, TRACKS, type Lesson } from '../../core/lessons';
-import { makeBoard } from '../scene/board';
-import { getSave } from '../store';
+import { makeBanner } from '../scene/banner';
+import { store } from '../../store';
 
 export const homeView: View = (root) => {
-  const save = getSave();
+  const save = store.get();
   const written = LESSONS.filter(isWritten);
   const nextUp = written.find((l) => !save.lessons[l.id]?.done);
   // A lesson left part way opens where the reader was (Didactics' resume.ts).
@@ -47,7 +47,7 @@ export const homeView: View = (root) => {
       el(
         'section.hero',
         {},
-        makeBoard({ seed: 7 }),
+        makeBanner(),
         el('div.hero-text', {}, el('p.eyebrow', {}, 'A workbook on circuits'), el('h1', {}, 'Circuitry'), el('p.subtitle', {}, 'What the electricity is actually doing')),
       ),
       el(

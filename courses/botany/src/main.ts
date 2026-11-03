@@ -34,6 +34,7 @@ defineCourse({
     about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photographs.'),
   },
   catalog: { href: '../' },
+  offline: { noun: 'photos' },
   text: {
     files: courseFiles(import.meta.glob('/src/lessons/*.json', { eager: true, import: 'default' })),
     code: () => import('virtual:didactics/code-text').then((m) => m.default),

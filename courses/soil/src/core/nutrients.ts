@@ -57,9 +57,6 @@ export function availability(n: Nutrient, ph: number): number {
   return AVAIL[n][i] * (1 - f) + AVAIL[n][i + 1] * f;
 }
 
-/** The nutrients that are scarce (under half available) at `ph`. */
-export const scarceAt = (ph: number): Nutrient[] => NUTRIENTS.filter((n) => availability(n, ph) < 0.5);
-
 /** The least available nutrient at `ph`. */
 export function leastAt(ph: number): { n: Nutrient; a: number } {
   let best = { n: NUTRIENTS[0] as Nutrient, a: 2 };

@@ -6,17 +6,17 @@ import { describe, expect, it } from 'vitest';
 import { emptyProgress } from 'didactics/progress';
 import { figureCardBlocks, figureCardProblems } from 'didactics/review';
 import { FIGURES } from '../src/app/figures';
-import { SHIFTS } from '../src/core/shifts';
+import { LESSONS } from '../src/core/lessons';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
 describe('figure cards', () => {
   it('are the chosen figures', () => {
-    expect(SHIFTS.flatMap((l) => figureCardBlocks(l, FIGURES).map((b) => b.figure)).sort()).toEqual(['parcel', 'front', 'billow', 'windBalance', 'stormSorter'].sort());
+    expect(LESSONS.flatMap((l) => figureCardBlocks(l, FIGURES).map((b) => b.figure)).sort()).toEqual(['parcel', 'front', 'billow', 'windBalance', 'stormSorter'].sort());
   });
 
   it('build as cards from any seed', () => {
-    expect(figureCardProblems(SHIFTS, FIGURES, emptyProgress('metric'), [1, 2, 3, 4, 5, 6, 7, 8])).toEqual([]);
+    expect(figureCardProblems(LESSONS, FIGURES, emptyProgress('metric'), [1, 2, 3, 4, 5, 6, 7, 8])).toEqual([]);
   });
 });
 

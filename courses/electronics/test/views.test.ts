@@ -5,7 +5,7 @@ import { homeView } from '../src/app/views/home';
 import { lessonView as kitLessonView } from 'didactics/lesson';
 import { FIGURES } from '../src/app/figures';
 import { prose } from '../src/app/figures/kit';
-import { store } from '../src/app/store';
+import { store } from '../src/store';
 import { lessonOptions } from '../src/app/views/lesson';
 import { referenceView } from '../src/app/views/reference';
 import { isWritten, LESSONS, TRACKS } from '../src/core/lessons';

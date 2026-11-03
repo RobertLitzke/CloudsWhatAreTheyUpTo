@@ -1,0 +1,457 @@
+{
+  "id": "ice-realm",
+  "n": 4,
+  "title": "Tomorrow’s weather written high up",
+  "teaches": "It’s sunny today: how do you spot rain 12 to 24 hours before it arrives? Mares’ tails and contrails, the 22° halo of cirrostratus, the frosted-glass sun of altostratus, and a warm front’s countdown from first cirrus to steady rain.",
+  "parts": [
+    {
+      "title": "Mares’ tails",
+      "blocks": [
+        {
+          "type": "key_ideas",
+          "title": "The big ideas of this lesson",
+          "points": [
+            "High ice clouds ride hundreds of kilometres ahead of an approaching storm. **Cirrus** spreading and thickening from the west is often the first sign of rain a day away.",
+            "Aircraft **contrails** test upper-air humidity: short ones that vanish quickly mean dry high air and holding fair weather; long ones that linger and spread mean moist air aloft, often ahead of a front.",
+            "A bright ring 22° around the sun or moon—about a spread hand-span at arm’s length—marks a thin veil of hexagonal ice crystals: **cirrostratus**.",
+            "When the cloud deck thickens until the sun blurs into a dim disc (like looking through frosted glass) and ground shadows vanish, the sheet is **altostratus**. Once the sun disappears completely, it has become **nimbostratus**.",
+            "A warm front’s countdown: invading cirrus, then a cirrostratus halo (rain within 12–24 hours), then frosted-glass altostratus (rain within a few hours), then steady rain."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "This lesson climbs to the high floor. High clouds look delicate and harmless, yet they give the earliest weather warnings visible from the ground: on a bright, sunny morning, the upper sky can already be announcing tomorrow’s rain."
+        },
+        {
+          "type": "text",
+          "text": "Climb six kilometres up and the air stays well below freezing even in midsummer. On a mild 15 °C (59 °F) day in the valley, the temperature sits near −24 °C at six kilometres and plunges below −50 °C near the top of the troposphere. Up here, clouds are built entirely of ice. (Tiny cloud droplets can stay supercooled liquid part of the way up, which matters greatly for rain and snow in Lesson 7, but on the high floor ice rules.)"
+        },
+        {
+          "type": "text",
+          "text": "**Cirrus** clouds are shafts of falling ice crystals. When crystals form[^nucleate] in a moist pocket high aloft, they grow to a tenth of a millimetre or more across—at least ten times wider than typical cloud droplets—and fall at half a metre to a metre per second. As they descend, they pass through layers of air moving at different speeds or directions, a change with altitude called **wind shear**.[^jet-stream] Falling into slower-moving air below, the crystals lag behind the faster-moving source pocket above, drawing each streak of falling ice out into a long, sweeping curve."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "streaks",
+          "caption": "Ice crystals falling from a moist patch high up.",
+          "task": "Add wind shear until the trails curl into hooks.",
+          "goal": "hooks"
+        },
+        {
+          "type": "text",
+          "text": "Those comma-shaped, hooked streaks are called **mares’ tails** (*cirrus uncinus*). The tufted head of the hook marks the generating pocket where ice crystals are actively forming, while the trailing tail traces crystals falling through wind shear and slowly evaporating (sublimating) in drier air below. Because ice crystals are much larger and far sparser than liquid droplets—often fewer than one crystal per cubic centimetre compared to hundreds of droplets in a low cloud—cirrus looks silky and fibrous, letting plenty of blue sky show through."
+        },
+        {
+          "type": "text",
+          "text": "Passing airliners give you a free humidity probe on the high floor. Jet exhaust is warm and loaded with water vapour; mixed into ambient air at −40 °C or colder, that vapour condenses and freezes almost instantly into a bright white **contrail**.[^contrails] What happens next reveals the humidity of the upper sky. **Short contrails** that evaporate right behind the aircraft mean the upper air is dry and fair weather is holding. **Long, persistent contrails** that linger for hours and fan out into fuzzy ribbons mean the upper air is already near saturation—often the very first hint of moist air gliding in ahead of an approaching storm."
+        },
+        {
+          "type": "text",
+          "text": "To read cirrus or contrails as a forecast, watch how they evolve over an hour or two. A few isolated mares’ tails drifting across a deep blue sky mean fair weather. Cirrus that steadily invades from the western horizon, multiplying and weaving together into a milky sheet, is the leading edge of a frontal storm."
+        }
+      ]
+    },
+    {
+      "title": "The 22° halo",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "As thickening cirrus fuses into a continuous high sheet, it often rings the sun or moon with a bright circle. High-altitude ice crystals grow into six-sided columns and plates shaped like tiny hexagonal pencils. Sunlight entering one flat side face and exiting through another angled at 60° to it bends just as it does through a glass prism. No matter how a crystal is tilted, light passing through a 60° ice wedge cannot bend by *less* than about 22°—and across a wide range of tilts, the bend clusters right near 22°. Out of millions of randomly tumbling crystals across the sky, the ones positioned 22° away from the sun from your perspective deflect sunlight straight into your eye, tracing a glowing ring."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "prism",
+          "caption": "Sunlight through one hexagonal ice crystal.",
+          "task": "Turn the crystal until the light is bent the least.",
+          "goal": "min"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "halo",
+          "caption": "Crystals all over the sky, each turned at random. The bright ones are sending light to your eye.",
+          "task": "Add crystals until a ring shows.",
+          "goal": "ring"
+        },
+        {
+          "type": "text",
+          "text": "That ring is the **[[22° halo]]**. Notice that the sky just inside the halo looks distinctly darker than the sky outside it: because no ray passing through the 60° prism can bend by less than 22°, light is swept out of that inner zone. The inner rim of the ring is tinted faintly red because ice bends red light slightly less (minimum ~21.5°) than blue light (~22.4°), placing red on the inside edge while the remaining colours overlap further out and blend into white. On the dome of the sky, a 22° radius is surprisingly wide: stretch your arm out straight and spread your fingers wide, and the span from your thumb tip to your little-finger tip bridges the 22° gap from the sun to the ring.[^sundogs]"
+        },
+        {
+          "type": "text",
+          "text": "Because it takes a continuous sheet of hexagonal ice crystals to draw a full circle around the sun, a halo is the classic signature of **cirrostratus**. Cirrostratus is a thin, milky ice veil that covers much or all of the sky. Even when it whitens the entire sky dome, cirrostratus is thin enough that the sun’s outline stays sharp and objects on the ground still cast crisp shadows."
+        }
+      ]
+    },
+    {
+      "title": "The frosted glass: altostratus",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "As an approaching weather system thickens and lowers into the middle floor, the silky ice veil gives way to **altostratus**: a smooth, featureless grey or bluish-grey sheet of mixed supercooled droplets and ice crystals covering the sky. Altostratus is too dense to let you see the sharp edge of the sun, yet thin enough in its upper parts for the sun to shine through as a fuzzy, watery disc—like looking at a lightbulb through frosted glass."
+        },
+        {
+          "type": "diagram",
+          "id": "sunThrough",
+          "caption": "The sun behind thin, thicker and very thick cloud."
+        },
+        {
+          "type": "text",
+          "text": "Two quick checks separate altostratus from thinner cirrostratus above it. First, under altostratus, **shadows disappear**. Because its dense mix of droplets and ice scatters sunlight in all directions, light reaches the ground evenly from the whole overcast sky rather than in a direct solar beam, washing out ground shadows."
+        },
+        {
+          "type": "text",
+          "text": "Second, altostratus **never shows a 22° halo**. A crisp halo requires sunlight to bend through a single ice crystal on its way to your eye. Inside a deep altostratus deck packed with water droplets, each ray of light bounces from particle to particle dozens of times, scrambling any 22° ring into a diffuse, featureless glow."
+        },
+        {
+          "type": "text",
+          "text": "When the deck thickens further and lowers into the low floor, even that frosted-glass smudge vanishes: the sun is blotted out completely, rain begins to fall, and the cloud has become **nimbostratus**. Watching the sun tracks the lowering sky step by step: a sharp sun with ground shadows and a halo means **cirrostratus**; a fuzzy frosted-glass disc with no shadows and no halo means **altostratus**; no trace of the sun at all means **nimbostratus**."
+        }
+      ]
+    },
+    {
+      "title": "A warm front, from far off",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "What lifts a layer of air gently enough to build a sheet of cloud hundreds of kilometres wide? Usually, a **frontal storm**. In everyday speech, people use the word *storm* for two very different beasts. One is a **thunderstorm** (cumulonimbus): a single convective tower a few kilometres wide, fed by buoyant thermals shooting up on a hot afternoon, which pours for under an hour and moves on (Lesson 5). The other is a **frontal storm** (or extratropical cyclone): a vast weather system a thousand kilometres across that brings a full day of steady, widespread rain or snow."
+        },
+        {
+          "type": "text",
+          "text": "Across the middle latitudes, huge bodies of air called **air masses**[^air-mass]—each hundreds or thousands of kilometres wide—drift across oceans and continents. Warm, humid air masses flow poleward from the subtropics, while cold, dense air masses push equatorward from polar regions. When two different air masses collide, they do not easily mix; instead, the denser cold air hugs the ground as a shallow wedge while the lighter warm air is forced up and over it. The boundary line where these two air masses meet at the ground is called a **[[front]]**.[^bjerknes]"
+        },
+        {
+          "type": "text",
+          "text": "When an advancing mass of warm, moist air catches up to a retreating wedge of denser cold air, the boundary is a **warm front**. Because the warm air is lighter than the cold air ahead of it, it glides smoothly up the back of the cold wedge along a remarkably gentle ramp—rising only about 1 kilometre vertically for every 100 to 150 kilometres horizontally."
+        },
+        {
+          "type": "diagram",
+          "id": "glide",
+          "caption": "A frontal storm seen side-on: warm air gliding up over a wedge of cold air."
+        },
+        {
+          "type": "text",
+          "text": "As that broad slab of warm, moist air glides up the frontal ramp, it expands and cools, condensing into a continuous deck of layered clouds stretching hundreds of kilometres ahead of the surface front. Because the ramp slopes at roughly 1 in 100, its top edge at 9 or 10 kilometres altitude sits nearly 1,000 kilometres out in front of the line where the warm air finally touches the ground. To an observer standing in the cool air ahead of the storm, a warm front arrives top-first: you see its highest ice clouds first, followed by progressively lower and thicker layers as the cold wedge thins overhead. Advancing at a typical speed of 25 to 30 km/h, the leading cirrus hooks appear a full day or more before the surface front arrives."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "front",
+          "caption": "A warm front, moving towards you at about 25 km/h.",
+          "task": "Put its clouds in the order you expect them, then let the front come in until rain is about to arrive.",
+          "goal": "arrive"
+        },
+        {
+          "type": "text",
+          "text": "That geometry explains the classic warm-front sequence: detached **cirrus** hooks spreading from the horizon, fusing into a milky **cirrostratus** veil with a 22° halo, lowering and thickening into **altostratus** that dims the sun to a frosted disc and erases shadows, and finally deepening into dark **nimbostratus**."
+        },
+        {
+          "type": "text",
+          "text": "Steady rain begins well before the surface warm front reaches you—as soon as the lowering cloud deck overhead grows deep enough to link the upper ice-crystal zone with the lower sky, typically 200 to 300 kilometres ahead of the surface boundary. From the moment you spot a 22° halo in thickening cirrostratus, rain usually begins within **12 to 24 hours**; once altostratus has dimmed the sun into a fuzzy disc, rain is only a few hours away."
+        },
+        {
+          "type": "text",
+          "text": "At night, moonlight refracts through hexagonal ice crystals at the exact same 22° angle, giving truth to the proverb *\"ring around the moon, rain soon.\"* A passing sheet of cirrostratus doesn't always have a full rain deck behind it, but if the veil steadily thickens and swallows the stars, rain is on the way."
+        },
+        {
+          "type": "text",
+          "text": "The weather proverb *\"red sky in the morning, shepherd’s warning\"* comes from the same frontal geometry. Across the middle latitudes, weather systems travel generally from west to east. At sunrise, the low eastern sun shines underneath any high cloud deck approaching from the west; if the eastern sky is still clear while cirrus and cirrostratus are spreading in from the west, the underside of that advancing frontal veil lights up brilliant red and orange.[^red-sky]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "The countdown",
+          "points": [
+            "**Cirrus hooks** invading from the west and **persistent contrails** fanning out: upper air is moistening ahead of a system. Rain within 24–36 hours.",
+            "**Milky veil with a 22° halo**, sun still sharp and shadows clear (**cirrostratus**): rain usually within 12–24 hours.",
+            "**Sun reduced to a dim frosted-glass disc**, no shadows and no halo (**altostratus**): rain within a few hours.",
+            "**Sun completely blotted out**, dark base blurred by falling rain (**nimbostratus**): steady rain has arrived."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Look-alikes, in real photos",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Compare these photographs side by side, focusing on the visual clue that separates each pair of look-alike cloud sheets."
+        },
+        {
+          "type": "diagram",
+          "id": "lookAlike",
+          "caption": "Cirrus or cirrostratus?",
+          "options": {
+            "photos": [
+              {
+                "photo": "cirrus-17",
+                "cue": "detached silky filaments, blue sky between"
+              },
+              {
+                "photo": "cirrostratus-12",
+                "cue": "continuous milky veil, 22° halo"
+              }
+            ],
+            "tell": "Cirrus consists of detached filaments and hooks separated by blue sky. Cirrostratus is a continuous ice veil covering the sky—sometimes so thin you only notice it by the milky sky tint or a 22° halo around the sun."
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "lookAlike",
+          "caption": "Cirrostratus or altostratus?",
+          "options": {
+            "photos": [
+              {
+                "photo": "cirrostratus-11",
+                "cue": "sun sharp-edged, ground shadows, halo"
+              },
+              {
+                "photo": "altostratus-17",
+                "cue": "sun blurred like frosted glass, no halo"
+              }
+            ],
+            "tell": "Check the sun and ground shadows. Through cirrostratus, the sun stays bright and sharp, objects cast clear shadows, and a 22° halo often appears. Through altostratus, the sun blurs into a dim disc, shadows vanish, and no halo can form."
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "lookAlike",
+          "caption": "Altostratus or nimbostratus?",
+          "options": {
+            "photos": [
+              {
+                "photo": "altostratus-14",
+                "cue": "sun still visible as a pale glow"
+              },
+              {
+                "photo": "nimbostratus-18",
+                "cue": "sun completely hidden, dark rainy base"
+              }
+            ],
+            "tell": "Altostratus still lets you spot the sun's position as a pale smudge, and its base sits in the middle sky. Nimbostratus is deep enough to blot out the sun completely, with a low, dark base blurred by falling rain."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "First identify the [[cloud genera]] in these photographs, then read the forecast from the changing skies below."
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Real photos to name, then the sky over a few hours. What is it up to?",
+          "options": {
+            "photos": {
+              "mode": "name",
+              "pool": [
+                "cirrus",
+                "cirrostratus",
+                "cirrocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus"
+              ],
+              "known": [
+                "cirrus",
+                "cirrostratus",
+                "cirrocumulus",
+                "altocumulus",
+                "altostratus",
+                "nimbostratus",
+                "stratocumulus",
+                "stratus",
+                "cumulus"
+              ],
+              "count": 4
+            },
+            "items": [
+              {
+                "question": "A warm front is on its way. In what order do its clouds arrive?",
+                "options": [
+                  "Low clouds first, then the higher layers build on top of them",
+                  "High clouds first, then middle, then low, as the front draws near",
+                  "All three floors at once, as the front arrives in a single wall"
+                ],
+                "answer": 1,
+                "why": "The warm air slides up over the cold along a long, gentle slope, so its highest clouds arrive first, far out ahead. The sky then lowers floor by floor, like a lid closing, and each step means the front is that much closer."
+              },
+              {
+                "id": "binder",
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "Monday 08:00"
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "14:00",
+                    "sun": "halo"
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "20:00",
+                    "time": "dusk"
+                  }
+                ],
+                "question": "Morning mares’ tails thickened into a milky veil with a 22° halo by midday; by evening, the halo has vanished and the setting sun is just a dim, watery smudge. When should you expect rain?",
+                "options": [
+                  "Not for several days: high clouds like these usually drift by harmlessly",
+                  "Within the next few hours, as the lowering altostratus deck deepens into nimbostratus",
+                  "In about a week, once the upper ice crystals finish settling to the ground"
+                ],
+                "answer": 1,
+                "why": "The classic sequence from cirrus to cirrostratus (with a halo) to thickening altostratus tracks warm, moist air gliding down a warm-front ramp overhead. Once altostratus dims the sun and erases the halo, steady rain is typically only a few hours away."
+              },
+              {
+                "id": "mail",
+                "sky": [
+                  {
+                    "genus": "altocumulus",
+                    "when": "8 a.m."
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "11 a.m."
+                  },
+                  {
+                    "genus": "altostratus",
+                    "when": "2 p.m.",
+                    "thick": 0.4
+                  }
+                ],
+                "question": "Patches of morning altocumulus have merged into a solid grey overcast. By early afternoon, the sun looks like a pale disc behind frosted glass and trees cast no shadows. What is happening?",
+                "options": [
+                  "An approaching frontal system is lifting the middle sky: expect the deck to lower into steady rain",
+                  "Fair weather: the grey sheet is just lifted fog that will burn off before sunset",
+                  "Isolated afternoon thunderstorms will erupt within the hour from surface heating"
+                ],
+                "answer": 0,
+                "why": "A middle-floor deck thickening into shadowless altostratus shows widespread, steady lifting ahead of an approaching front, which usually lowers into rain-bearing nimbostratus within a few hours."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "09:00",
+                    "x": -0.4,
+                    "contrails": "short"
+                  },
+                  {
+                    "genus": "cirrus",
+                    "when": "13:00",
+                    "x": 0.1
+                  },
+                  {
+                    "genus": "cirrus",
+                    "when": "17:00",
+                    "x": 0.5,
+                    "contrails": "short"
+                  }
+                ],
+                "question": "A few wispy streaks of cirrus have drifted across a deep blue sky all afternoon without multiplying or thickening, and airliner contrails evaporate right behind the planes. What is the outlook?",
+                "options": [
+                  "Steady rain within 12 hours, because any cirrus cloud marks a warm front",
+                  "Evening thunderstorms triggered by falling ice crystals",
+                  "Continued fair weather: the upper air is dry and no frontal sheet is building"
+                ],
+                "answer": 2,
+                "why": "Isolated cirrus wisps that don't thicken or spread—confirmed by rapidly vanishing contrails—indicate dry upper air and settled weather. Only cirrus that invades and thickens into a sheet warns of an approaching storm."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cirrostratus",
+                    "when": "11:00",
+                    "sun": "halo"
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "12:00",
+                    "sun": "halo"
+                  }
+                ],
+                "question": "A milky veil of cirrostratus rings the sun with a bright halo. How wide is the radius of that ring from the sun to the circle?",
+                "options": [
+                  "About the width of a thumb at arm’s length (2°)",
+                  "About a spread hand-span at arm’s length (22°)",
+                  "Halfway from the sun to the horizon (45°)"
+                ],
+                "answer": 1,
+                "why": "Sunlight refracting through the 60° prism faces of hexagonal ice crystals bends by a minimum of 22°, which matches the angle spanned by an outstretched hand from thumb tip to little-finger tip."
+              },
+              {
+                "sky": [
+                  {
+                    "genus": "cirrus",
+                    "when": "7 a.m.",
+                    "time": "dawn",
+                    "contrails": "wide"
+                  },
+                  {
+                    "genus": "cirrostratus",
+                    "when": "10 a.m.",
+                    "sun": "halo"
+                  }
+                ],
+                "question": "At dawn, high clouds in the west glow bright red while airliner contrails fan out into wide ribbons. By 10 a.m., the sky is milky white and the sun wears a wide halo. What is your forecast?",
+                "options": [
+                  "Settled, dry weather: a red sunrise and a solar halo both indicate high pressure",
+                  "A quick midday thunderstorm, since halos form inside rising cumulus towers",
+                  "Steady frontal rain likely within 12 to 24 hours as a warm front approaches from the west"
+                ],
+                "answer": 2,
+                "why": "Spreading contrails show moist upper air, a red sunrise illuminates high frontal clouds advancing from the west, and the 22° halo confirms cirrostratus—all pointing to steady rain within 12 to 24 hours."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**High ice clouds run ahead of storms.** Cirrus spreading and thickening from the west is often the first sign of rain a day or more away; isolated wisps that stay isolated mean fair weather.",
+    "**Contrails measure the moisture aloft.** Short ones that vanish mean dry upper air and settled weather; long ones that linger and spread mean moist air ahead of a system.",
+    "**A 22° halo means a veil of ice.** Six-sided crystals bend sunlight by at least 22°, about a spread hand from the sun: the mark of cirrostratus.",
+    "**The sun shows how thick the cloud is.** Sharp sun and shadows: cirrostratus. A dim frosted-glass disc and no shadows: altostratus. No sun at all: nimbostratus.",
+    "**A warm front arrives from the top down.** Warm air climbs a gentle ramp over cold air, so the clouds come cirrus, cirrostratus, altostratus, then nimbostratus.",
+    "**The sequence is a countdown.** A halo means rain in 12 to 24 hours; a frosted-glass sun means rain within a few hours."
+  ],
+  "footnotes": {
+    "nucleate": {
+      "kind": "technical",
+      "title": "Nucleation",
+      "text": "To **nucleate** is to initiate a new liquid droplet or ice crystal. Near the top of the troposphere, once temperatures drop below about **−38 °C**, microscopic liquid haze droplets freeze spontaneously without needing a solid speck (*homogeneous nucleation*). At slightly milder temperatures between 0 °C and −38 °C, ice forms only where rare mineral dust or biological specks act as templates (*heterogeneous nucleation*), which Lesson 7 explores."
+    },
+    "jet-stream": {
+      "kind": "technical",
+      "title": "Wind shear and the jet stream",
+      "text": "**Wind shear** is any change in wind speed or direction over a short distance (vertical or horizontal). Near the top of the high floor (9–12 km up), mid-latitude winds often peak in fast, narrow rivers of air called **jet streams** blowing at 150 to 300 km/h. Ice crystals falling out of a fast jet-stream layer into slower air below get drawn out into long, dramatic mares' tails."
+    },
+    "contrails": {
+      "kind": "digression",
+      "title": "Contrail science",
+      "text": "Jet fuel is a hydrocarbon, so burning every kilogram of fuel produces roughly 1.25 kilograms of water vapour plus soot specks. At cruising altitudes around 10–11 km (−45 °C to −55 °C), that humid exhaust plume saturates instantly, condenses onto soot particles, and freezes into a **condensation trail** (*contrail*). When the ambient air is already ice-supersaturated, persistent contrails can spread into artificial cirrus decks (*contrail cirrus*) that trap outgoing infrared heat."
+    },
+    "sundogs": {
+      "kind": "digression",
+      "title": "Sun dogs (parhelia)",
+      "text": "When hexagonal ice crystals grow as flat, six-sided plates rather than columns, air drag makes them flutter downward horizontally like falling leaves. Because their prism faces stay vertical, they bend sunlight primarily left and right rather than in a full circle, creating two brilliant, rainbow-tinted spots flanking the sun at roughly 22°—known as **sun dogs** or *parhelia* (Greek for 'beside the sun'). They appear clearest when the sun is low."
+    },
+    "air-mass": {
+      "kind": "technical",
+      "title": "Air masses",
+      "text": "An **air mass** is a vast volume of air—often thousands of kilometres wide—with fairly uniform temperature and humidity throughout each layer. It acquires its properties by sitting over a uniform surface region for days or weeks: cold and dry over snow-covered continents (*continental polar*), or warm and humid over tropical oceans (*maritime tropical*)."
+    },
+    "bjerknes": {
+      "kind": "digression",
+      "title": "Why we call them 'fronts'",
+      "text": "During the First World War, cut off from international weather telegrams, the Norwegian physicist Vilhelm Bjerknes and his son Jacob set up a dense network of surface weather stations across Norway. Watching warm and cold air masses advance, retreat, and clash along sharp boundaries reminded them of the competing armies along the Western Front—so they coined **warm front**, **cold front**, and **polar front** in 1918–1919."
+    },
+    "red-sky": {
+      "kind": "digression",
+      "title": "A two-thousand-year-old forecast",
+      "text": "Air molecules scatter short blue wavelengths of sunlight much more strongly than long red wavelengths. At sunrise or sunset, sunlight travels through a long path of lower atmosphere that strips away the blue light and leaves a red beam. In the mid-latitudes where weather moves west to east, a red morning sky means the low eastern sun is shining through clear air behind you to light up high frontal clouds advancing from the west; a red evening sky means the western sky is clearing as the sun sets. The rule appears in Matthew 16:2–3 and in Aristotle's *Meteorologica*."
+    }
+  }
+}

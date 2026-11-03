@@ -8,9 +8,9 @@ import { reachable, START, STEPS } from '../src/core/diagnosis';
 import { LESSONS } from '../src/core/lessons';
 import { DWELLERS, EATS, starves } from '../src/core/life';
 import { drained } from '../src/core/pots';
-import { availability, cec, leastAt, NUTRIENTS } from '../src/core/nutrients';
+import { availability, cec, leastAt, LOOSE, NUTRIENTS, PARKED } from '../src/core/nutrients';
 import { project } from '../src/core/seasons';
-import { mixOf } from '../src/core/soil';
+import { mixOf, PARTICLES, SIZES } from '../src/core/soil';
 import { slaked, stability } from '../src/core/structure';
 import { available, hydraulics, storm } from '../src/core/water';
 
@@ -158,5 +158,14 @@ describe('raised beds and pots', () => {
     expect(drained('peat', 30).air).toBeGreaterThan(drained('peat', 10).air);
     expect(drained('bark', 15).air).toBeGreaterThan(drained('peat', 15).air);
     expect(drained('peat', 20, 5).air).toBeLessThan(drained('peat', 20).air);
+  });
+});
+
+describe('the tables the text quotes', () => {
+  it('has USDA size classes that meet edge to edge, and parked nutrients that are never loose', () => {
+    expect(SIZES.clay.maxMm).toBe(SIZES.silt.minMm);
+    expect(SIZES.silt.maxMm).toBe(SIZES.sand.minMm);
+    for (const p of PARTICLES) expect(SIZES[p].feel.length).toBeGreaterThan(0);
+    expect(PARKED.filter((n) => (LOOSE as readonly string[]).includes(n))).toEqual([]);
   });
 });

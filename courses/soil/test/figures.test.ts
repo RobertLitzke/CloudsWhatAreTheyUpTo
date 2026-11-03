@@ -7,7 +7,7 @@ import { drawSubject } from '../src/app/scene/subjects';
 import { makeGarden } from '../src/app/scene/garden';
 import { LESSONS, type FigureId } from '../src/core/lessons';
 import { SUBJECTS, type SubjectId } from '../src/core/photos';
-import { emptySave } from '../src/core/save';
+import { empty as emptySave } from '../src/store';
 
 describe('figures', () => {
   for (const units of ['imperial', 'metric'] as const) {

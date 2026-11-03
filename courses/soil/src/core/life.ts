@@ -82,7 +82,6 @@ export const EATS: readonly [Dweller, Dweller][] = [
   ['birds', 'arthropods'],
 ];
 
-export const eatenBy = (d: Dweller): Dweller[] => EATS.filter(([, b]) => b === d).map(([a]) => a);
 export const eats = (d: Dweller): Dweller[] => EATS.filter(([a]) => a === d).map(([, b]) => b);
 
 /** Everything that starves, directly or down the chain, when `gone` is taken out. */

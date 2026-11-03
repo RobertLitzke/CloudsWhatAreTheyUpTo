@@ -5,7 +5,7 @@
 
 import { svg } from 'didactics/dom';
 import { label, line, note, redraw } from 'didactics/draw';
-import { P950, apertureLabel, exposureValue, isoFor, pixelNoise, shutterLabel } from '../../core/camera';
+import { P950, apertureLabel, exposureValue, pixelNoise, shutterLabel } from '../../core/camera';
 import { shoot } from '../../core/shot';
 import { photoOptions, shotPhoto, type PhotoOptions } from '../picture';
 import { COL, apertureSlider, figure, frame, isoSlider, shutterSlider, slider, tint } from './kit';
@@ -174,5 +174,3 @@ function mulberry(seed: number): () => number {
 /** Roughly normal, from three uniforms: enough for a drawing. */
 const gaussish = (rng: () => number) => rng() + rng() + rng() - 1.5;
 
-/** What ISO the camera would pick by itself, for the text to quote. */
-export const autoIso = (ev: number, n: number, t: number) => Math.round(isoFor(ev, n, t));

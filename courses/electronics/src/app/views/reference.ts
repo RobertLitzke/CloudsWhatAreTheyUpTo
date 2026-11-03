@@ -7,14 +7,13 @@ import { glossaryFromFile, glossaryFromLessons, mergeGlossary, type GlossaryFile
 import { referenceView as kitReferenceView } from 'didactics/reference';
 import { LESSONS } from '../../core/lessons';
 import { REFERENCE, type SymbolsBlock } from '../../core/reference';
-import type { SaveData } from '../../core/save';
 import glossary from '../../data/glossary.json';
 import { symbolDrawing } from '../circuit/symbols';
 import { FIGURES } from '../figures';
 import { prose } from '../figures/kit';
-import { store } from '../store';
+import { store } from '../../store';
 
-export const referenceView = kitReferenceView<SaveData, SymbolsBlock>({
+export const referenceView = kitReferenceView<ReturnType<typeof store.get>, SymbolsBlock>({
   sections: REFERENCE,
   store,
   prose: (t) => prose(t),
