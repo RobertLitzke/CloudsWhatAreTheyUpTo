@@ -296,7 +296,7 @@ export class Engine {
       const next = last ? this.passStart + duration + notes[0].on : this.passStart + notes[this.index + 1].on;
       const off = Math.min(this.passStart + n.off, next);
       const hz = midiToHz(n.midi);
-      for (const v of this.voices) v.note(on, off, next, hz, n.vel, n.press);
+      for (const v of this.voices) v.note(on, off, next, hz, n.vel, n.press, n.legato);
       this.index = last ? 0 : this.index + 1;
       if (last) this.passStart += duration;
     }

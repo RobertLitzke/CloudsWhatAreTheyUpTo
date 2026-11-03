@@ -39,12 +39,17 @@ export interface TimedNote {
   /** How hard it is struck (1 unless the riff says) and leaned on (0 unless it says). */
   vel?: number;
   press?: number;
+  /** The note before was held into this one: play it legato. */
+  legato?: boolean;
 }
 
 export function timedNotes(riff: Riff): TimedNote[] {
-  return riff.notes.map((n) => ({
+  const count = riff.notes.length;
+  return riff.notes.map((n, i) => ({
     on: n.start * riff.six,
-    off: (n.start + gateSixteenths(n.len)) * riff.six,
+    // A slurred note is held right up to the next.
+    off: (n.start + (n.slur ? n.len : gateSixteenths(n.len))) * riff.six,
+    legato: riff.notes[(i + count - 1) % count].slur === true,
     midi: n.midi,
     vel: n.vel ?? 1,
     press: n.press ?? 0,

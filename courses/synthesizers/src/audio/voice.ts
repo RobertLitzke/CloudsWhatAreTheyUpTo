@@ -46,7 +46,7 @@
 // are then the same signal from that loop start on. This is the oscillators'
 // version of restarting the LFO with the loop.
 
-import { noteEnvelope, type EnvEvent } from '../core/envelope';
+import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
 import { CHAIN, ENV2_DEST, ENV2_MODE, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
 
@@ -300,6 +300,8 @@ export class Voice {
   private level = 0;
   /** Played from the keyboard: a free-running LFO is going. */
   private live = false;
+  /** A key is down on the keyboard, so the next is played over it. */
+  private keyHeld = false;
 
   constructor(
     private readonly ctx: BaseAudioContext,
@@ -732,10 +734,12 @@ export class Voice {
    * Schedule one note. `off` is the key release and `next` the following note's
    * start; the envelope is cut at `next`, so nothing ever needs cancelling.
    */
-  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0): void {
+  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false): void {
     const bank = this.bankAt(on);
-    this.pitch(bank, on, hz);
-    this.aim(on, hz, this.glideTau());
+    const slide = legato && Math.round(this.sound.legato) === 1;
+    const glides = this.glides(slide);
+    this.pitch(bank, on, hz, glides);
+    this.aim(on, hz, glides ? this.glideTau() : 0.002);
     this.pending.push({ on, hz });
     this.lastHz = hz;
     this.keySrc.offset.setValueAtTime(keyOctaves(hz), on);
@@ -749,8 +753,8 @@ export class Voice {
       p.linearRampToValueAtTime(0, Math.min(off + 0.05, next));
     }
 
-    this.fall(on, next);
-    const { events, end } = noteEnvelope(this.level, on, off, next, this.sound);
+    if (!slide) this.fall(on, next);
+    const { events, end } = (slide ? legatoEnvelope : noteEnvelope)(this.level, on, off, next, this.sound);
     this.level = end;
     this.play(this.amp.gain, events);
     this.play(this.envSrc.offset, events);
@@ -791,10 +795,18 @@ export class Voice {
     return this.sound.glide > 0 ? this.sound.glide / 3 : 0.002;
   }
 
+  /**
+   * Does a note glide? In Retrig mode every note does, if there is any glide;
+   * in Legato mode only a note played over a held one (`slide`).
+   */
+  private glides(slide: boolean): boolean {
+    return this.sound.glide > 0 && (Math.round(this.sound.legato) === 0 || slide);
+  }
+
   /** Move the oscillators to a note's pitch at `t`: at once, or gliding from the last note's. */
-  private pitch(bank: Bank, t: number, hz: number): void {
+  private pitch(bank: Bank, t: number, hz: number, glide: boolean): void {
     for (const o of [...bank.o1, ...bank.o2]) {
-      if (this.sound.glide > 0) {
+      if (glide) {
         o.frequency.setValueAtTime(this.lastHz, t);
         o.frequency.setTargetAtTime(hz, t, this.glideTau());
       } else o.frequency.setValueAtTime(hz, t);
@@ -823,17 +835,22 @@ export class Voice {
       this.startLfo(t, null);
       if (Math.round(s.env2Mode) === ENV2_MODE.run) this.env2Cycles(t, t + 120);
     }
+    // A key pressed while another is held is played legato, if the mode says so.
+    const slide = this.keyHeld && Math.round(s.legato) === 1;
+    this.keyHeld = true;
+    const glides = this.glides(slide);
     const bank = this.bankAt(t);
     for (const o of [...bank.o1, ...bank.o2]) {
       o.frequency.cancelScheduledValues(t);
-      if (s.glide > 0) o.frequency.setTargetAtTime(hz, t, this.glideTau());
+      if (glides) o.frequency.setTargetAtTime(hz, t, this.glideTau());
       else o.frequency.setValueAtTime(hz, t);
     }
     this.pending = [{ on: t, hz }];
     this.lastHz = hz;
     this.keySrc.offset.setValueAtTime(keyOctaves(hz), t);
     this.velSrc.offset.setValueAtTime(vel, t);
-    this.aim(t, hz, this.glideTau());
+    this.aim(t, hz, glides ? this.glideTau() : 0.002);
+    if (slide) return;
     this.fall(t, t + 60);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
       p.cancelScheduledValues(t);
@@ -849,6 +866,7 @@ export class Voice {
   }
 
   keyUp(t: number): void {
+    this.keyHeld = false;
     this.pressure(t, 0);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
       p.cancelScheduledValues(t);
@@ -866,6 +884,7 @@ export class Voice {
     this.pending = [];
     this.level = 0;
     this.live = false;
+    this.keyHeld = false;
   }
 
   setAudible(on: boolean, t: number): void {

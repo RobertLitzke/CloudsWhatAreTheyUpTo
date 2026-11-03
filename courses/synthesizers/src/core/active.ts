@@ -95,6 +95,7 @@ export function isLive(id: ParamId, s: Sound): boolean {
     case 'fmRatio':
       return s.fmAmount > 0;
     case 'noise':
+    case 'legato':
     case 'glide':
     case 'oscLevel':
     case 'env2Amt':
@@ -178,6 +179,7 @@ export function isActive(id: ParamId, s: Sound): boolean {
       return s.echoMix > 0;
     // The course's knobs: no generator version draws them yet.
     case 'noise':
+    case 'legato':
     case 'glide':
     case 'oscLevel':
     case 'env2Amt':

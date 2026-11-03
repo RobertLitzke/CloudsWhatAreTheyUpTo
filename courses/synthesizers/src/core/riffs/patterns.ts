@@ -18,4 +18,8 @@ export const PATTERNS: readonly RiffSource[] = [
     notes: 'A2:2@0.1 A2:2@0.25 A2:2@0.4 A2:2@0.55 A2:2@0.7 A2:2@0.85 A2:4@1' },
   { id: 106, title: 'Leaning in', artist: 'Two held notes, pressed harder as they go on', group: 'folk', pd: true, bpm: 90, sure: 3, fixed: true,
     notes: 'A3:16@0.5~1 | E3:16@1~1' },
+  { id: 107, title: 'Sliding bass', artist: 'A bass line with two notes held into the next', group: 'folk', pd: true, bpm: 112, sure: 3, fixed: true,
+    notes: 'A1:2 A1:2 C2:2_ D2:2 A1:2 G1:2_ A1:4' },
+  { id: 108, title: 'Singing lead', artist: 'A slow line with leaps', group: 'folk', pd: true, bpm: 84, sure: 3, fixed: true,
+    notes: 'E4:4 A4:4_ B4:4 E5:4 | D5:6 B4:2_ A4:8' },
 ];

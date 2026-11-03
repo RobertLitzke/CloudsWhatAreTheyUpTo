@@ -21,7 +21,7 @@ export async function renderLoop(sound: Sound, loop: Loop, passes = 1): Promise<
     notes.forEach((n, i) => {
       const last = i + 1 === notes.length;
       const next = start + (last ? duration + notes[0].on : notes[i + 1].on);
-      voice.note(start + n.on, Math.min(start + n.off, next), next, midiToHz(n.midi), n.vel, n.press);
+      voice.note(start + n.on, Math.min(start + n.off, next), next, midiToHz(n.midi), n.vel, n.press, n.legato);
     });
   }
   return (await ctx.startRendering()).getChannelData(0);

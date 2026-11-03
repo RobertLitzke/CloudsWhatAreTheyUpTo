@@ -113,6 +113,8 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'key-track': (now) => now.mxKeyCutoff >= 7,
   // Lesson 16: velocity and pressure
   'vel-bright': (now) => now.mxVelCutoff >= 7,
+  // Lesson 17: glide and legato
+  'glide-slow': (now) => now.glide >= 3,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };

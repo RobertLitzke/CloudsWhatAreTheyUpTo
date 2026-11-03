@@ -70,6 +70,31 @@ export function noteEnvelope(
   return { events, end: approach(level, 0, tau, next - release) };
 }
 
+/**
+ * A legato note's envelope: the key went down while the last was still held,
+ * so nothing starts again. The level carries on towards the sustain from
+ * wherever it was, and releases as usual.
+ */
+export function legatoEnvelope(
+  v0: number,
+  on: number,
+  off: number,
+  next: number,
+  adsr: Adsr,
+): { events: EnvEvent[]; end: number } {
+  const release = Math.min(off, next);
+  const tau = Math.max(adsr.decay / TIME_CONSTANTS, 0.0005);
+  const events: EnvEvent[] = [
+    { kind: 'set', t: on, v: v0 },
+    { kind: 'target', t: on, v: adsr.sustain, tau },
+  ];
+  const level = approach(v0, adsr.sustain, tau, release - on);
+  if (release >= next) return { events, end: level };
+  const rtau = adsr.release / TIME_CONSTANTS;
+  events.push({ kind: 'target', t: release, v: 0, tau: rtau });
+  return { events, end: approach(level, 0, rtau, next - release) };
+}
+
 /** The level an event list produces at time `t`. For tests and drawing. */
 export function levelAt(events: readonly EnvEvent[], t: number): number {
   let value = 0;

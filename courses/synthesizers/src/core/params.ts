@@ -75,6 +75,8 @@ export const PARAM_IDS = [
   'mxPressCutoff',
   'mxPressLevel',
   'mxPressLfo',
+  // Lesson 17: whether a note played over a held one starts again.
+  'legato',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -507,6 +509,20 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'wrong',
     high: 'wrong',
   },
+  legato: {
+    id: 'legato',
+    label: 'Mode',
+    full: 'Voice mode',
+    module: 'voice',
+    category: 'shape',
+    kind: 'selector',
+    options: ['Retrig', 'Legato'],
+    interp: 'lin',
+    stage: 17,
+    format: (v) => ['Every note starts again, and glides', 'Only overlapping notes glide, without starting again'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
   glide: {
     id: 'glide',
     label: 'Glide',
@@ -655,7 +671,7 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'env2', label: 'Envelope 2', stage: 12, params: ['env2Mode', 'env2Dest', 'env2Rise', 'env2Fall', 'env2Amt'] },
   { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
   { id: 'matrix', label: 'Matrix', stage: 15, params: MATRIX_IDS },
-  { id: 'voice', label: 'Voice', stage: 17, params: ['glide'] },
+  { id: 'voice', label: 'Voice', stage: 17, params: ['legato', 'glide'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },
   { id: 'echo', label: 'Echo', stage: 8, params: ['echoTime', 'echoRepeats', 'echoMix'] },
   { id: 'chain', label: 'Chain', stage: 9, params: ['chain'] },

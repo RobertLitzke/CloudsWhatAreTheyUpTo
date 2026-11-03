@@ -67,6 +67,7 @@ export const STEPS: StepTable = {
   env2Rise: [0, 0.03, 0.1, 0.3, 1], // seconds
   env2Mode: [0, 1, 2], // once a note, looping, running free
   env2Dest: [0, 1], // pitch, cutoff
+  legato: [0, 1], // retrigger every note; legato for overlapping notes
   // The matrix: each cell's middle position is no route. Pitch in semitones,
   // cutoff in octaves; level and LFO amount as how much of it the source
   // takes over (see the voice).
@@ -134,6 +135,7 @@ export const DEFAULTS: Patch = {
   env2Rise: 0,
   env2Mode: 0,
   env2Dest: 0,
+  legato: 0,
   mxEnvPitch: OFF(PITCH_ROUTE),
   mxEnvCutoff: OFF(CUTOFF_ROUTE),
   mxEnvLevel: OFF(SHARE_ROUTE),
@@ -433,6 +435,7 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   env2Rise: 0,
   env2Mode: 0,
   env2Dest: 0,
+  legato: 0,
   mxEnvPitch: 0,
   mxEnvCutoff: 0,
   mxEnvLevel: 0,
