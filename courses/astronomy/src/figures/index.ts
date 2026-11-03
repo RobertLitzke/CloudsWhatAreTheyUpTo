@@ -21,6 +21,7 @@ import { bestPathFigure, eclipseStill, gpsFigure, ringStill } from './bending';
 import { dwarfFigure, twoPerRungStill } from './dead-stars';
 import { bellChartStill, spinFigure } from './pulsars';
 import { onionFigure, originsFigure } from './star-stuff';
+import { sameOrbitStill, squashFigure, tippingStill } from './dark-stars';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -87,4 +88,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 17
   onion: onionFigure,
   origins: originsFigure,
+  // Lesson 18
+  squash: squashFigure,
+  'same-orbit': sameOrbitStill,
+  'tipping-cones': tippingStill,
 };

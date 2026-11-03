@@ -8,6 +8,7 @@ import { arcGain, heightGain, realPeak, speedLoss } from '../src/figures/bending
 import { dwarfRadius, electronSpeed, teaspoon } from '../src/figures/dead-stars';
 import { breakup, CRAB, DWARF, NEUTRON } from '../src/figures/pulsars';
 import { cell, madeBy, SOURCES, stagesBegun } from '../src/figures/star-stuff';
+import { BODIES, escapeShare, horizon } from '../src/figures/dark-stars';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -129,5 +130,15 @@ describe('trunk lessons', () => {
     guess(p.node, 'Neutron stars colliding');
     for (const s of SOURCES) click(p.node, s.name);
     await expect(p.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 18: the Earth in a marble and the Sun in 6 km are black holes', async () => {
+    expect(horizon(BODIES[0].kg) * 1000).toBeCloseTo(8.9, 0);
+    expect(horizon(BODIES[1].kg) / 1000).toBeCloseTo(2.95, 1);
+    expect(escapeShare(BODIES[0].kg, BODIES[0].m) * 299792.458).toBeCloseTo(11.2, 0);
+    const q = FIGURES.squash(context(), 'horizon');
+    guess(q.node, 'The size of a marble');
+    setSlider(q.node, 0, Math.log10(0.008));
+    await expect(q.done).resolves.toBeUndefined();
   });
 });
