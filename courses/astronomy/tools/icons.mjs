@@ -1,14 +1,9 @@
 // The app icon: a gold star with one tilted orbit and a small blue planet on
 // it, on the night-blue ground, drawn as SVG, and the PNGs the manifest and
 // phones need, made from it.
-//   npm run icons -w astronomy
+//   npm run icons -w astronomy    (the files, via tools/lib/icons.mjs at the root)
 
-import { writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
-
-const out = join(dirname(fileURLToPath(import.meta.url)), '../public/icons');
+import { writeIcons } from '../../../tools/lib/icons.mjs';
 
 /** `pad` shrinks the drawing for the maskable icon; `round` is the corner radius. */
 function icon(pad = 0, round = 22) {
@@ -22,11 +17,4 @@ function icon(pad = 0, round = 22) {
     + `<circle cx="${at(81)}" cy="${at(38)}" r="${5 * s}" fill="#4f9fb8"/></g></svg>`;
 }
 
-writeFileSync(join(out, 'icon.svg'), icon());
-const png = (svg, size, file) => sharp(Buffer.from(svg), { density: 72 * (size / 100) }).resize(size, size).png().toFile(join(out, file));
-await png(icon(), 192, 'icon-192.png');
-await png(icon(), 512, 'icon-512.png');
-await png(icon(10, 0), 512, 'icon-512-maskable.png');
-await png(icon(0, 0), 180, 'apple-touch-icon.png');
-await png(icon(), 32, 'favicon-32.png');
-console.log('icons written');
+await writeIcons(new URL('../public/icons/', import.meta.url), ({ pad, round }) => icon(pad * 100, round ? 22 : 0));

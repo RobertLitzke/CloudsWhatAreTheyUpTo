@@ -1,46 +1,71 @@
-// The final copy edit and fact check of a lesson by a second model on
-// OpenRouter (default Gemini Argon). Every piece of prose in the lesson JSON
-// (teaches, paragraphs, key ideas, captions, tasks, quiz questions, choices
-// and explanations, learned, next) goes in one request, numbered. What comes
-// back is checked before it is used: markup (**bold**, *italic*) must
-// survive, and nothing may grow by more than a quarter. A piece that fails
-// keeps its old words and is listed in the report, with the model's notes on
-// facts it changed or doubts.
+// The final copy edit and fact check of a course's lessons by a second model
+// on OpenRouter (default Gemini Argon). Every piece of prose in a lesson's
+// JSON (teaches, part titles, paragraphs, key ideas, captions, tasks, quiz
+// questions, choices and explanations, summary or learned points, next,
+// footnotes) goes in one request, numbered. What comes back is checked before
+// it is used: markup (**bold**, *italic*, [[links]]) must survive, and
+// nothing may grow by more than a quarter. A piece that fails keeps its old
+// words and is listed in the report, with the model's notes on facts it
+// changed or doubts.
 //
-//   OPENROUTER_API_KEY=… node tools/copyedit.mjs <lesson-id …> [--write]
-//   OPENROUTER_API_KEY=… node tools/copyedit.mjs --queue [--write]
+//   OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> <lesson-id …> [--write]
+//   OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> --queue [--write]
 //
-// --queue edits every lesson waiting in tools/review-queue.json, where new
-// prose is listed when it is written (lesson, date, what changed), so the
-// reviews can be run later as one batch. With --write each lesson that comes
-// back cleanly is taken off the queue.
+// A course takes part by keeping courses/<course>/tools/copyedit.json, the
+// part of the brief that is its own: { "course": "an illustrated online
+// geology course", "intro": "what its lessons are like", "voice": optional,
+// "spellings": ["metres", "sulphur"] }. The rules every course shares are
+// below. Its lessons are read from the folder course.json names.
 //
-// Reports go to tools/copyedit-out/<lesson>.md (not committed). With
-// --write the new words go into src/lessons/<lesson>.json.
+// --queue edits every lesson waiting in courses/<course>/tools/review-queue.json,
+// where new prose is listed when it is written (lesson, date, what changed),
+// so the reviews can be run later as one batch (tools/review-queue.mjs runs
+// every course's). With --write each lesson that comes back cleanly is taken
+// off the queue.
+//
+// Reports go to courses/<course>/tools/copyedit-out/<lesson>.md (not
+// committed). With --write the new words go into the lesson's file, in the
+// layout it had (didactics/course formatJson).
 
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { formatJson } from 'didactics/course';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = join(ROOT, 'tools/copyedit-out');
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const MODEL = process.env.MODEL ?? 'google/gemini-4-argon';
 const KEY = process.env.OPENROUTER_API_KEY;
 const args = process.argv.slice(2);
 const write = args.includes('--write');
-const QUEUE = join(ROOT, 'tools/review-queue.json');
-const queued = args.includes('--queue') ? JSON.parse(readFileSync(QUEUE, 'utf8')) : [];
-const ids = [...new Set([...args.filter((a) => !a.startsWith('--')), ...queued.map((q) => q.lesson)])];
+const [course, ...rest] = args.filter((a) => !a.startsWith('--'));
+const usage = 'usage: OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> <lesson-id …> | --queue [--write]';
+
+const dir = course && join(root, 'courses', course);
+if (!course || !existsSync(join(dir, 'course.json'))) {
+  console.error(course ? `no course "${course}" in courses/` : usage);
+  process.exit(1);
+}
+const briefFile = join(dir, 'tools/copyedit.json');
+if (!existsSync(briefFile)) {
+  console.error(`${course} has no tools/copyedit.json: write one ({ course, intro, voice?, spellings }) for it to take the copy edit`);
+  process.exit(1);
+}
+const OUT = join(dir, 'tools/copyedit-out');
+const QUEUE = join(dir, 'tools/review-queue.json');
+const LESSONS = join(dir, JSON.parse(readFileSync(join(dir, 'course.json'), 'utf8')).lessons);
+const queued = args.includes('--queue') && existsSync(QUEUE) ? JSON.parse(readFileSync(QUEUE, 'utf8')) : [];
+const ids = [...new Set([...rest, ...queued.map((q) => q.lesson)])];
 if (!KEY || !ids.length) {
-  console.error(KEY ? 'nothing to edit: name lessons, or the queue is empty' : 'usage: OPENROUTER_API_KEY=… node tools/copyedit.mjs <lesson-id …> | --queue [--write]');
+  console.error(KEY ? 'nothing to edit: name lessons, or the queue is empty' : usage);
   process.exit(1);
 }
 
-const BRIEF = `You are the final copy editor and fact checker for an illustrated online geology course. Readers are smart high schoolers and curious adults: don't talk down to them, and don't swing academic (say "underwater", not "subaqueous"). Each lesson opens on a field or history mystery and follows the evidence.
-
+const own = JSON.parse(readFileSync(briefFile, 'utf8'));
+const BRIEF = `You are the final copy editor and fact checker for ${own.course}. Readers are smart high schoolers and curious adults: don't talk down to them, and don't swing academic (say "underwater", not "subaqueous"). ${own.intro}
+${own.voice ? `\n${own.voice}\n` : ''}
 You get one lesson as numbered pieces of prose, each with a note of where it sits. For each piece:
 1. Fix factual errors: names, dates, numbers, places, who did what, and the science. Correct them in the text. Do not add new facts or examples beyond a correction.
-2. Copy edit: clear, concrete, natural sentences in British-leaning spelling as the source uses ("metres", "sulphur", "crystallised"). Keep the meaning, the order of ideas and the paragraph's role. Pieces that are already good can come back unchanged.
+2. Copy edit: clear, concrete, natural sentences in British-leaning spelling as the source uses (${(own.spellings ?? ['metres', 'colour', 'recognised']).map((w) => `"${w}"`).join(', ')}). Keep the meaning, the order of ideas and the paragraph's role. Pieces that are already good can come back unchanged.
 3. Keep markup exactly: **bold** and *italic* spans stay, around the same words, and so do [[links]] to the encyclopedia (keep the words inside the brackets, and anything after a |, as they are).
 4. Keep the length: the same or shorter, never more than a quarter longer.
 5. Quiz pieces: the choice marked (correct) must stay correct and the others wrong.
@@ -59,27 +84,29 @@ Include every piece, same numbers.`;
 /** Every prose string in the lesson, with a path to put it back. */
 function pieces(lesson) {
   const out = [];
-  const add = (where, get, set) => out.push({ where, text: get(), set });
+  const add = (where, get, set) => typeof get() === 'string' && out.push({ where, text: get(), set });
+  const list = (where, arr) => (arr ?? []).forEach((_, i) => add(where, () => arr[i], (v) => (arr[i] = v)));
   add('teaches', () => lesson.teaches, (v) => (lesson.teaches = v));
   lesson.parts.forEach((p, i) => {
     add(`part ${i + 1} title`, () => p.title, (v) => (p.title = v));
     p.blocks.forEach((b, j) => {
       const at = `part ${i + 1} "${p.title}", block ${j + 1}`;
       if (b.type === 'text') add(`${at}, paragraph`, () => b.text, (v) => (b.text = v));
-      if (b.type === 'key_ideas') b.points.forEach((_, k) => add(`${at}, key idea`, () => b.points[k], (v) => (b.points[k] = v)));
+      if (b.type === 'key_ideas') list(`${at}, key idea`, b.points);
       if (b.type === 'diagram' || b.type === 'interactive_diagram') {
-        add(`${at}, caption of ${b.id === 'photo' ? `photo "${b.options.photo}"` : `figure "${b.id}"`}`, () => b.caption, (v) => (b.caption = v));
-        if (b.task) add(`${at}, task for the reader`, () => b.task, (v) => (b.task = v));
+        add(`${at}, caption of ${b.id === 'photo' ? `photo "${b.options?.photo}"` : `figure "${b.id}"`}`, () => b.caption, (v) => (b.caption = v));
+        add(`${at}, task for the reader`, () => b.task, (v) => (b.task = v));
       }
-      if (b.type === 'quiz') b.options.items.forEach((q, k) => {
+      if (b.type === 'quiz') (b.options?.items ?? []).forEach((q, k) => {
         add(`quiz ${k + 1}, question`, () => q.ask, (v) => (q.ask = v));
         q.choices.forEach((_, c) => add(`quiz ${k + 1}, choice ${c + 1}${c === q.answer ? ' (correct)' : ' (wrong)'}`, () => q.choices[c], (v) => (q.choices[c] = v)));
         add(`quiz ${k + 1}, explanation`, () => q.why, (v) => (q.why = v));
       });
     });
   });
-  (lesson.summary ?? []).forEach((_, i) => add('summary point', () => lesson.summary[i], (v) => (lesson.summary[i] = v)));
-  if (typeof lesson.next === 'string') add('next', () => lesson.next, (v) => (lesson.next = v));
+  list('summary point', lesson.summary);
+  list('learned', lesson.learned);
+  add('next', () => lesson.next, (v) => (lesson.next = v));
   for (const [id, n] of Object.entries(lesson.footnotes ?? {})) {
     add(`footnote "${id}" (${n.kind}), title`, () => n.title, (v) => (n.title = v));
     add(`footnote "${id}" (${n.kind}), text`, () => n.text, (v) => (n.text = v));
@@ -98,22 +125,12 @@ function problem(before, after) {
   return null;
 }
 
-/** The lesson as JSON in the files' hand layout: one block to a line, one quiz question to a line. */
-function format(lesson) {
-  const one = (v) => JSON.stringify(v);
-  const block = (b) => b.type === 'quiz'
-    ? `{"type": "quiz", "id": ${one(b.id)}, "caption": ${one(b.caption)}, "task": ${one(b.task)}, "options": {"items": [\n${b.options.items.map((q) => `          ${one(q)}`).join(',\n')}\n        ]}}`
-    : one(b);
-  const parts = lesson.parts.map((p) => `    {\n      "title": ${one(p.title)},\n      "blocks": [\n${p.blocks.map((b) => `        ${block(b)}`).join(',\n')}\n      ]\n    }`).join(',\n');
-  const head = Object.entries(lesson).filter(([k]) => k !== 'parts' && !['learned', 'summary', 'next', 'journal', 'footnotes'].includes(k)).map(([k, v]) => `  ${one(k)}: ${one(v)}`);
-  const tail = [...(lesson.learned ? [`  "learned": [\n${lesson.learned.map((l) => `    ${one(l)}`).join(',\n')}\n  ]`] : []), ...(lesson.summary ? [`  "summary": [\n${lesson.summary.map((l) => `    ${one(l)}`).join(',\n')}\n  ]`] : []), ...(lesson.next !== undefined ? [`  "next": ${one(lesson.next)}`] : []), `  "journal": ${one(lesson.journal ?? [])}`, `  "footnotes": ${one(lesson.footnotes ?? {})}`];
-  return `{\n${[...head, `  "parts": [\n${parts}\n  ]`, ...tail].join(',\n')}\n}\n`;
-}
-
 mkdirSync(OUT, { recursive: true });
 for (const id of ids) {
-  const file = join(ROOT, 'src/lessons', `${id}.json`);
-  const lesson = JSON.parse(readFileSync(file, 'utf8'));
+  const file = join(LESSONS, `${id}.json`);
+  if (!existsSync(file)) { console.error(`${id}: no such lesson in ${LESSONS}`); process.exitCode = 1; continue; }
+  const source = readFileSync(file, 'utf8');
+  const lesson = JSON.parse(source);
   const ps = pieces(lesson);
   const prompt = `Lesson: "${lesson.title}"\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
   const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -124,7 +141,7 @@ for (const id of ids) {
   const d = await r.json();
   const raw = d.choices?.[0]?.message?.content ?? '';
   let reply;
-  try { reply = JSON.parse(raw.replace(/^```json\s*|```\s*$/g, '')); } catch { console.error(`${id}: no JSON back`, raw.slice(0, 400), d.error ?? ''); continue; }
+  try { reply = JSON.parse(raw.replace(/^```json\s*|```\s*$/g, '')); } catch { console.error(`${id}: no JSON back`, raw.slice(0, 400), d.error ?? ''); process.exitCode = 1; continue; }
   const report = [`# ${lesson.title}`, '', '## Facts', ...(reply.facts ?? []).map((f) => `- ${f}`), '', '## Changes', ''];
   let changed = 0;
   ps.forEach((p, i) => {
@@ -135,10 +152,10 @@ for (const id of ids) {
     if (!bad) { p.set(after); changed++; }
   });
   writeFileSync(join(OUT, `${id}.md`), report.join('\n'));
-  if (write) writeFileSync(file, format(lesson));
+  if (write) writeFileSync(file, formatJson(lesson, source));
   if (write && queued.some((q) => q.lesson === id)) {
-    const rest = JSON.parse(readFileSync(QUEUE, 'utf8')).filter((q) => q.lesson !== id);
-    writeFileSync(QUEUE, `${JSON.stringify(rest, null, 1)}\n`);
+    const left = JSON.parse(readFileSync(QUEUE, 'utf8')).filter((q) => q.lesson !== id);
+    writeFileSync(QUEUE, `${JSON.stringify(left, null, 1)}\n`);
   }
   console.log(`${id}: ${changed} of ${ps.length} pieces changed, ${(reply.facts ?? []).length} fact notes${write ? ', written' : ''} (${d.usage?.total_tokens ?? '?'} tokens)`);
 }

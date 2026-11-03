@@ -1,23 +1,30 @@
-// Puts parked photos back into their lessons. Lessons written without their
-// photos keep each missing photo block in tools/pending-photos.json, with the
-// lesson, the part, the start of the paragraph it followed and, often, a
-// `search` hint for Wikimedia Commons. Once a photo is fetched (add a pick to
-// tools/photo-picks.json and run `npm run photos -w geology`), this script
-// moves its block back where it was and drops it from the queue. Quiz
-// questions that show a photo are parked whole (`quiz_item`) and go back at
-// the end of their lesson's check.
-//   node tools/restore-photos.mjs          restore every photo that now exists
-//   node tools/restore-photos.mjs --list   list what is still waiting, with hints
+// Puts parked photos back into a course's lessons. Lessons written without
+// their photos keep each missing photo block in
+// courses/<course>/tools/pending-photos.json, with the lesson, the part, the
+// start of the paragraph it followed and, often, a `search` hint for Wikimedia
+// Commons. Once a photo is fetched (add a pick to tools/photo-picks.json and
+// run `npm run photos -- <course>`), this moves its block back where it was
+// and drops it from the queue. Quiz questions that show a photo are parked
+// whole (`quiz_item`) and go back at the end of their lesson's check. Lesson
+// files keep their layout (didactics/course formatJson).
+//
+//   npm run restore-photos -- <course>          restore every photo that now exists
+//   npm run restore-photos -- <course> --list   list what is still waiting, with hints
 
 import { readFileSync, writeFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+import { formatJson } from 'didactics/course';
+import { courseArg, readJson } from './lib/course.mjs';
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const pendingFile = join(root, 'tools/pending-photos.json');
-const pending = JSON.parse(readFileSync(pendingFile, 'utf8'));
+const { name, dir, lessons } = courseArg('usage: npm run restore-photos -- <course> [--list]');
+const pendingFile = join(dir, 'tools/pending-photos.json');
+const pending = readJson(pendingFile, null);
+if (!pending) {
+  console.error(`${name} has no tools/pending-photos.json: nothing is parked`);
+  process.exit(1);
+}
 const photoOf = (e) => (e.quiz_item ? e.quiz_item.photo : e.block.options.photo);
-const have = new Set(JSON.parse(readFileSync(join(root, 'src/data/photos.json'), 'utf8')).map((p) => p.id));
+const have = new Set(readJson(join(dir, 'src/data/photos.json'), []).map((p) => p.id));
 
 if (process.argv.includes('--list')) {
   for (const e of pending) {
@@ -36,20 +43,27 @@ const likeness = (text, after) => {
 };
 
 const left = [];
+/** Lessons changed, by file: the parsed lesson and the text it came from. */
 const touched = new Map();
+const open = (file) => {
+  if (!touched.has(file)) {
+    const source = readFileSync(file, 'utf8');
+    touched.set(file, { lesson: JSON.parse(source), source });
+  }
+  return touched.get(file).lesson;
+};
 for (const e of pending) {
   const id = photoOf(e);
   if (!have.has(id)) {
     left.push(e);
     continue;
   }
-  const file = join(root, 'src/lessons', `${e.lesson}.json`);
-  const lesson = touched.get(file) ?? JSON.parse(readFileSync(file, 'utf8'));
+  const file = join(lessons, `${e.lesson}.json`);
+  const lesson = open(file);
   const part = lesson.parts.find((p) => p.title === e.part) ?? lesson.parts[0];
   if (e.quiz_item) {
     const quiz = lesson.parts.flatMap((p) => p.blocks).find((b) => b.type === 'quiz');
     if (quiz && !quiz.options.items.some((q) => q.ask === e.quiz_item.ask)) quiz.options.items.push(e.quiz_item);
-    touched.set(file, lesson);
     console.log(`restored quiz photo ${id} in ${e.lesson}`);
     continue;
   }
@@ -63,9 +77,8 @@ for (const e of pending) {
   });
   if (at < 0) at = part.blocks.findIndex((b) => b.type === 'text');
   part.blocks.splice(at + 1, 0, e.block);
-  touched.set(file, lesson);
   console.log(`restored ${id} in ${e.lesson} (${e.part})`);
 }
-for (const [file, lesson] of touched) writeFileSync(file, `${JSON.stringify(lesson, null, 1)}\n`);
+for (const [file, { lesson, source }] of touched) writeFileSync(file, formatJson(lesson, source));
 writeFileSync(pendingFile, `${JSON.stringify(left, null, 1)}\n`);
 console.log(`${pending.length - left.length} restored, ${left.length} still waiting`);

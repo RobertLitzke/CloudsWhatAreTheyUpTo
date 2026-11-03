@@ -17,10 +17,9 @@ import { writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import sharp from 'sharp';
+import { writeIcons } from '../../../tools/lib/icons.mjs';
 
-const here = path.dirname(fileURLToPath(import.meta.url));
-const root = path.join(here, '..');
-const iconsDir = path.join(root, 'public', 'icons');
+const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 /** The cumulus as plain shapes (no <g>), so it can also sit in a <clipPath>. */
 function cloud(fill, dx = 0, dy = 0) {
@@ -56,20 +55,6 @@ function icon({ corner = 0, scale = 1 } = {}) {
     `</g></svg>`;
 }
 
-async function png(svg, size, out) {
-  const buf = await sharp(Buffer.from(svg), { density: (72 * size * 4) / 512 })
-    .resize(size, size)
-    .png({ compressionLevel: 9, palette: true, quality: 90, effort: 10 })
-    .toBuffer();
-  await writeFile(path.join(iconsDir, out), buf);
-  return `${out} (${size}x${size}, ${(buf.length / 1024).toFixed(1)} kB)`;
-}
-
-async function svgFile(svg, out) {
-  await writeFile(path.join(iconsDir, out), svg);
-  return `${out} (${(svg.length / 1024).toFixed(1)} kB)`;
-}
-
 /** The loading screen fills a phone, so 900 wide is plenty even at 2x. */
 async function poster() {
   const webp = await sharp(path.join(root, 'art', 'poster.jpg'))
@@ -80,13 +65,4 @@ async function poster() {
   return `poster.webp (900 wide, ${(webp.length / 1024).toFixed(1)} kB)`;
 }
 
-const tile = icon({ corner: 112 });
-const results = await Promise.all([
-  poster(),
-  svgFile(tile, 'icon.svg'),
-  png(tile, 192, 'icon-192.png'),
-  png(tile, 512, 'icon-512.png'),
-  png(icon({ scale: 0.8 }), 512, 'icon-512-maskable.png'),
-  png(icon(), 180, 'apple-touch-icon.png'),
-]);
-for (const line of results) console.log('wrote', line);
+await writeIcons(new URL('../public/icons/', import.meta.url), ({ pad, round }) => icon({ corner: round ? 112 : 0, scale: 1 - 2 * pad }), { viewBox: 512, extra: [poster] });

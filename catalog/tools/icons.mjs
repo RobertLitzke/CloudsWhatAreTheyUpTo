@@ -2,13 +2,7 @@
 // public/icons/icon.svg, and renders the PNGs the manifest and iOS want.
 // Run with `npm run icons -w catalog`.
 
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import sharp from 'sharp';
-
-const out = resolve(dirname(fileURLToPath(import.meta.url)), '../public/icons');
-mkdirSync(out, { recursive: true });
+import { writeIcons } from '../../tools/lib/icons.mjs';
 
 const PAPER = '#f4f1e8';
 const INK = '#1f1d1a';
@@ -27,10 +21,5 @@ const book = `
 const svg = (round) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="${round}" fill="${PAPER}"/>${book}</svg>`;
 
-writeFileSync(resolve(out, 'icon.svg'), svg(96));
-const png = (s, size, name) => sharp(Buffer.from(s)).resize(size, size).png().toFile(resolve(out, name));
-await png(svg(96), 192, 'icon-192.png');
-await png(svg(96), 512, 'icon-512.png');
-await png(svg(0), 512, 'icon-512-maskable.png');
-await png(svg(0), 180, 'apple-touch-icon.png');
-console.log('Wrote', out);
+// The book sits inside the middle 70% already, so the maskable icon needs no extra padding.
+await writeIcons(new URL('../public/icons/', import.meta.url), ({ round }) => svg(round ? 96 : 0), { viewBox: 512 });
