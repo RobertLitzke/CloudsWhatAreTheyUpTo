@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "middle-sky",
   "n": 3,
   "title": "Sorting the sky in 30 seconds",
@@ -424,28 +423,6 @@
     "**Shading gives the height away.** Altocumulus lumps have grey bellies; cirrocumulus grains are pure white.",
     "**In photos, leave the hand down.** Judge by edges, shading, the half-degree sun and landmarks on the ground instead."
   ],
-  "journal": {
-    "floors": {
-      "title": "The three floors",
-      "text": "Low floor (ground to ~2,000 m): liquid water droplets with crisp edges. Middle floor (~2,000 to 7,000 m): supercooled droplets and ice crystals. High floor (above ~5,000 m): ice crystals with soft, silky, fibrous edges. Because the atmosphere cools by ~6.5 °C per kilometre on average, these floors reflect temperature zones. Towering cumulonimbus clouds span all three floors."
-    },
-    "roots": {
-      "title": "Name roots",
-      "text": "Cumulus means heap, stratus means layer, cirrus means curl of hair, and nimbus means rain-bearing. The prefix cirro- marks the high floor, alto- marks the middle floor, and low-floor clouds take no prefix. Combined, these roots form the ten main cloud genera in the International Cloud Atlas."
-    },
-    "hand-trick": {
-      "title": "The hand trick",
-      "text": "At arm’s length, a closed fist spans ~10° of sky, three fingers ~5°, a thumb ~2°, and a little-finger nail ~1°. High overhead, cellular lumps wider than three fingers are stratocumulus (low), between a fingernail and three fingers are altocumulus (middle), and smaller than a fingernail are cirrocumulus (high). Grey undersides confirm stratocumulus or altocumulus; cirrocumulus is pure white. Use your hand only on the real sky, never on photographs."
-    },
-    "altocumulus": {
-      "title": "Altocumulus",
-      "text": "Middle-floor patches, pads, or rolls with shaded grey undersides, spanning between a fingernail and three fingers at arm’s length. They form when a middle-level cloud sheet cools radiatively at its top and overturns into convection cells."
-    },
-    "cirrocumulus": {
-      "title": "Cirrocumulus",
-      "text": "A thin, high-floor layer of tiny, unshaded white grains or ripples (a mackerel sky), each smaller than a little-finger nail at arm’s length. Cirrocumulus is short-lived because its supercooled droplets rapidly freeze into fibrous cirrus."
-    }
-  },
   "footnotes": {
     "troposphere": {
       "kind": "technical",

@@ -1,5 +1,5 @@
 // Clouds as flat, cel-shaded vector: the look of the simplified drawings (the
-// genus drawings on the home screen, lesson headers, journal and quizzes, and
+// genus drawings on the home screen, lesson headers, the field guide and quizzes, and
 // the simplified figures). Every lobe is a ball in three hard-edged tones
 // (shade, mid, light), each tone the lobe's own shape moved towards the sun
 // and clipped to it, so every lobe gets a crescent of shadow on its far side.

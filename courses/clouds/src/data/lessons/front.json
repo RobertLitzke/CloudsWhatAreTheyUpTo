@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "front",
   "n": 6,
   "title": "Wind shifts, cold fronts, and radar",
@@ -586,24 +585,6 @@
     "**With your back to the wind, low pressure is on your left.** If high clouds cross from your left to your right the weather is getting worse; from right to left, better.",
     "**Radar sees rain, not cloud.** A broad green shield is a warm front’s steady rain, a thin red line a cold front’s squalls, magenta a hailstorm, and a bright band the melting level."
   ],
-  "journal": {
-    "lows": {
-      "title": "A storm’s anatomy",
-      "text": "Mid-latitude storms are low-pressure systems (cyclones) 1,000+ km across where surface winds spiral anticlockwise inward (Northern Hemisphere), drawing warm, moist air north on the eastern flank and cold, dry air south on the western flank. Drifting eastward at ~30 km/h, a low sweeps a warm front, a warm sector, and a cold front across the landscape in order."
-    },
-    "barometer": {
-      "title": "The barometer",
-      "text": "A barometer measures the weight of the atmosphere overhead (~10 tonnes per square metre, balancing 760 mm / 29.92 inches of mercury, or 1013 hPa at sea level). The pressure trend is what forecasts the weather: a steady drop of ~1 hPa every 3 hours signals an approaching low; a drop faster than 1 hPa/hour warns of a strong storm; and a brisk rise follows the cold front."
-    },
-    "cold-front": {
-      "title": "A cold front",
-      "text": "At a cold front, dense cold air wedges beneath warm-sector air along a steep, blunt nose (~1 in 30 to 1 in 50), shoving moist air rapidly upward to trigger a narrow line of towering cumulus and cumulonimbus. Passage brings a gust front, a brief heavy downpour or thunderstorm, an abrupt wind shift to the west or northwest, plunging temperatures, and a sharply rising barometer."
-    },
-    "crossed-winds": {
-      "title": "Reading the wind",
-      "text": "In the Northern Hemisphere, stand with your back to the surface wind and low pressure lies to your left (Buys Ballot’s law). A backing wind with a falling barometer warns of worsening weather; a veering wind with a rising barometer signals clearing. With your back to the surface wind, high clouds crossing from left to right mean a low is approaching; from right to left, departing."
-    }
-  },
   "footnotes": {
     "coriolis": {
       "kind": "technical",

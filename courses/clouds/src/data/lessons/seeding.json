@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "seeding",
   "n": 8,
   "title": "The rainmakers, 1946",
@@ -479,36 +478,6 @@
     "**What it reliably does is modest.** It clears supercooled fog and adds roughly 5 to 15% snow to suitable winter mountain clouds; there is no proven effect on drought, hail or hurricanes.",
     "**Only a randomized trial can show it worked.** Natural storms vary so much that seeded and unseeded storms must be chosen at random and compared over many winters."
   ],
-  "journal": {
-    "supercooled": {
-      "title": "Clouds waiting for ice",
-      "text": "Most clouds between 0 °C and −20 °C consist of supercooled liquid droplets because natural ice nuclei active at those temperatures are scarce—roughly 1 per 250 litres at −10 °C compared to 100,000 droplets per litre. Once ice crystals appear, they grow rapidly at the droplets' expense via the Bergeron process and fall as snow. Cloud seeding works by supplying those missing ice crystals."
-    },
-    "dry-ice": {
-      "title": "Dry ice",
-      "text": "Solid carbon dioxide at −78.5 °C. Dropped from an aircraft into a supercooled cloud, a falling pellet chills a narrow wake below −40 °C, spontaneously freezing hundreds of billions of tiny ice crystals per gram without needing template specks. It works in any cloud colder than 0 °C. Discovered by Vincent Schaefer in July 1946 and first tested over Mount Greylock, Massachusetts, on 13 November 1946."
-    },
-    "silver-iodide": {
-      "title": "Silver iodide",
-      "text": "A hexagonal crystal (AgI) whose atomic spacing (0.459 nm) matches the lattice of ice (0.452 nm) to within 1.5%, acting as a synthetic template for freezing. Active below about −5 °C (and most effective below −10 °C), a single gram burned into smoke yields ~10^15 ice-nucleating specks that can be carried into mountain clouds by updraughts from ground generators. Discovered by Bernard Vonnegut in November 1946."
-    },
-    "overseeding": {
-      "title": "Seeding a layer",
-      "text": "Seeded ice crystals share a cloud's finite supply of liquid water. Too few crystals (< 1/litre) produce only light flurries; an optimal dose (~10–1,000/litre, or ~1 lb of dry ice per mile flown) rapidly converts the droplets into snowflakes that fall out and punch a hole; too many crystals (thousands/litre) divide the water so thinly that no crystal grows heavy enough to fall, leaving a persistent ice veil (overseeding)."
-    },
-    "seeding-window": {
-      "title": "The seeding window",
-      "text": "Glaciogenic seeding requires supercooled liquid water and a deficit of natural ice. Above 0 °C, ice melts immediately; from 0 °C to −5 °C, only thermal-shock agents (dry ice or expanding propane) work; from −5 °C to −25 °C, both dry ice and silver iodide work effectively; colder than −25 °C, abundant natural dust nuclei already freeze the cloud, and below −38 °C droplets freeze spontaneously."
-    },
-    "seeding-works": {
-      "title": "Where seeding works",
-      "text": "Seeding reliably clears supercooled winter fog (< 0 °C) over airport runways within 30–45 minutes. In winter orographic clouds over mountain barriers, silver iodide seeding can boost snowfall by roughly 5–15% in suitable storms (−5 °C to −20 °C with supercooled liquid present and humid sub-cloud air). Randomized trials have found no clear evidence that seeding tames hailstorms or weakens hurricanes."
-    },
-    "fair-trial": {
-      "title": "A fair trial",
-      "text": "Because natural precipitation varies by hundreds of percent from storm to storm, operational claims based on hand-picked storms suffer from severe selection bias. Measuring a 5–15% seeding effect requires a randomized controlled trial across many winters, using a coin toss to decide which eligible storms are seeded and comparing target gauges against an unseeded upwind control basin."
-    }
-  },
   "footnotes": {
     "deposition": {
       "kind": "technical",

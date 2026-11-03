@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "hurricane",
   "n": 14,
   "title": "Why does a hurricane need a warm sea?",
@@ -268,24 +267,6 @@
     "**Shear tears hurricanes apart.** Cold water, dry air and land starve them of fuel.",
     "**The storm surge is the deadliest part.** Sea piled against the coast kills more than the wind, and rises highest over a wide, shallow shelf."
   ],
-  "journal": {
-    "trade-winds": {
-      "title": "Trade winds",
-      "text": "The steady winds from the north-east north of the equator, and the south-east south of it: air that sank around 30° flowing back towards the rising air at the equator, turned by the Earth."
-    },
-    "hurricane": {
-      "title": "Hurricane",
-      "text": "A tropical storm with winds over 119 km/h, fed by a sea warmer than about 26 °C: air spirals in, picks up heat and vapour, and rises in a ring of storms round a calm eye. Called a typhoon in the western Pacific and a cyclone in the Indian Ocean."
-    },
-    "eye": {
-      "title": "The eye",
-      "text": "The calm, often clear centre of a hurricane, 20 to 60 km across, where air sinks. Round it, the eyewall has the strongest winds; past it, the wind returns from the opposite direction."
-    },
-    "storm-surge": {
-      "title": "Storm surge",
-      "text": "The sea piled up against the coast by a hurricane’s wind, rising several metres in an hour or two. It is highest over a wide, shallow sea floor."
-    }
-  },
   "footnotes": {
     "names": {
       "kind": "technical",

@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "wind",
   "n": 9,
   "title": "Why does wind blow in a circle around a storm?",
@@ -263,24 +262,6 @@
     "**Temperature contrast drives the jet stream.** Cold air is denser than warm, so the push toward the pole grows with height, peaking 9 to 12 km up.",
     "**The jet stream steers storms.** It carries them east, and shifts south in winter and north in summer."
   ],
-  "journal": {
-    "pressure-push": {
-      "title": "Air slides downhill",
-      "text": "Horizontal differences in atmospheric pressure push air straight across the isobars from high pressure toward low pressure (the pressure-gradient force). Closely packed isobars indicate a steep pressure gradient and strong winds."
-    },
-    "earth-turn": {
-      "title": "The ground turns underneath",
-      "text": "Because the Earth rotates beneath moving air, winds travelling over long distances deflect to the right of their path in the Northern Hemisphere and to the left in the Southern Hemisphere (the Coriolis effect). The horizontal deflection is strongest at the poles, vanishes at the equator, and is far too weak over short times to affect draining sinks."
-    },
-    "geostrophic": {
-      "title": "Round the low",
-      "text": "A kilometre or more above the ground, free of surface drag, the pressure push and Coriolis deflection balance when the wind blows parallel to the isobars with low pressure on its left in the Northern Hemisphere (the geostrophic wind). Near the ground, friction slows the wind so it leaks inward across the isobars into lows (fueling rising air and clouds) and spirals outward from highs (driving sinking air and clear skies)."
-    },
-    "jet": {
-      "title": "The jet stream",
-      "text": "Because cold polar air is denser and shallower than warm tropical air, upper-level pressure is much lower over the poles than over the tropics. The resulting poleward push, deflected eastward by the Coriolis effect, creates the mid-latitude westerlies and peaks at 9–12 km altitude in the jet stream (150–300 km/h), which steers surface lows and shifts south in winter and north in summer."
-    }
-  },
   "footnotes": {
     "map": {
       "kind": "digression",

@@ -3,20 +3,20 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { compose, genus, type Body, type Prefix } from '../src/core/clouds';
 import { photoFile, problems, type Photo } from '../src/core/photos';
-import { BRANCHES, FIGURE_IDS, JOURNAL, SHIFTS, TREE_LESSONS, type Block, type Forecast, type PhotoCalls, type Shift } from '../src/core/shifts';
+import { BRANCHES, FIGURE_IDS, LESSONS, TREE_LESSONS, type Block, type CloudLesson, type Forecast, type PhotoCalls } from '../src/core/lessons';
 import { GLOSSARY } from '../src/core/glossary';
 import { footnoteProblems } from 'didactics/footnote';
 import { glossaryProblems } from 'didactics/glossary';
 import { BLOCK_TYPES, isDiagram, lessonTexts } from 'didactics/lesson';
 import { treeProblems } from 'didactics/tree';
 
-const blocks = (s: Shift): Block[] => s.parts.flatMap((p) => p.blocks);
+const blocks = (s: CloudLesson): Block[] => s.parts.flatMap((p) => p.blocks);
 import library from '../src/data/photos.json';
 
-describe('shifts', () => {
+describe('lessons', () => {
   it('have unique ids and numbers in order', () => {
-    expect(new Set(SHIFTS.map((s) => s.id)).size).toBe(SHIFTS.length);
-    SHIFTS.forEach((s, i) => expect(s.n).toBe(i + 1));
+    expect(new Set(LESSONS.map((s) => s.id)).size).toBe(LESSONS.length);
+    LESSONS.forEach((s, i) => expect(s.n).toBe(i + 1));
   });
 
   it('fit the tree on the home page: every branch forks off the trunk, and every lock names a lesson', () => {
@@ -26,25 +26,21 @@ describe('shifts', () => {
   });
 
   it('mark every footnote they have, and only those', () => {
-    expect(SHIFTS.flatMap((s) => footnoteProblems(s.id, s.footnotes, lessonTexts(s)))).toEqual([]);
+    expect(LESSONS.flatMap((s) => footnoteProblems(s.id, s.footnotes, lessonTexts(s)))).toEqual([]);
   });
 
   it('keep footnotes few: no more than one for every three paragraphs', () => {
-    for (const s of SHIFTS) expect(Object.keys(s.footnotes ?? {}).length, s.id).toBeLessThanOrEqual(lessonTexts(s).length / 3);
+    for (const s of LESSONS) expect(Object.keys(s.footnotes ?? {}).length, s.id).toBeLessThanOrEqual(lessonTexts(s).length / 3);
   });
 
   it('have a glossary with every term defined, once, linked to a real lesson', () => {
-    expect(glossaryProblems(GLOSSARY, SHIFTS)).toEqual([]);
+    expect(glossaryProblems(GLOSSARY, LESSONS)).toEqual([]);
     expect(GLOSSARY.length).toBeGreaterThan(80);
     for (const g of ['Cirrus', 'Dew point', 'Dry adiabatic lapse rate', 'Condensation nuclei']) expect(GLOSSARY.map((e) => e.term)).toContain(g);
   });
 
-  it('only unlock journal entries that exist', () => {
-    for (const s of SHIFTS) for (const j of s.journal) expect(JOURNAL[j], j).toBeDefined();
-  });
-
   it('use only known figures, and end with one check', () => {
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       expect(s.parts.length, s.id).toBeGreaterThan(1);
       for (const b of blocks(s)) if (isDiagram(b)) expect(FIGURE_IDS, b.id).toContain(b.id);
       const check = s.parts.at(-1)!.blocks.filter((b) => isDiagram(b)).map((b) => b.id);
@@ -53,13 +49,13 @@ describe('shifts', () => {
   });
 
   it('introduce each genus once, all ten in all', () => {
-    const met = SHIFTS.flatMap((s) => s.clouds);
+    const met = LESSONS.flatMap((s) => s.clouds);
     expect(new Set(met).size).toBe(met.length);
     expect(met.length).toBe(10);
   });
 
   it('give name puzzles whose clue floor matches the answer', () => {
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       for (const b of blocks(s)) {
         if (!isDiagram(b) || b.id !== 'names') continue;
         for (const t of b.options!.targets as { clue: string; prefix: Prefix; body: Body }[]) {
@@ -71,7 +67,7 @@ describe('shifts', () => {
   });
 
   it('ask forecasts with an answer among the options', () => {
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       for (const b of blocks(s)) {
         if (!isDiagram(b) || b.id !== 'check') continue;
         for (const q of b.options!.items as Forecast[]) {
@@ -88,7 +84,7 @@ describe('shifts', () => {
     const photos = library as Photo[];
     const met: string[] = [];
     const shown = new Set<string>();
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       met.push(...s.clouds);
       for (const b of blocks(s)) {
         if (!isDiagram(b) || b.id !== 'lookAlike') continue;
@@ -108,12 +104,12 @@ describe('shifts', () => {
       // A lesson that meets new clouds shows them in photos before its check.
       if (s.clouds.length) expect(blocks(s).some((b) => isDiagram(b) && b.id === 'lookAlike'), s.id).toBe(true);
     }
-    for (const g of SHIFTS.flatMap((s) => s.clouds)) for (const c of genus(g).confused) expect(shown, `${g} and ${c}`).toContain([g, c].sort().join('|'));
+    for (const g of LESSONS.flatMap((s) => s.clouds)) for (const c of genus(g).confused) expect(shown, `${g} and ${c}`).toContain([g, c].sort().join('|'));
   });
 
   it('keep the shape the shift files promise', () => {
     const colours = ['ink', 'soft', 'parcel', 'env', 'dew', 'ice', 'sun', 'rain', 'warm', 'cold'];
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       for (const p of s.parts) {
         expect(p.title, s.id).toBeTruthy();
         for (const b of p.blocks) {
@@ -135,7 +131,7 @@ describe('shifts', () => {
 
   it('only quiz names the player has met by then', () => {
     const met = new Set<string>();
-    for (const s of SHIFTS) {
+    for (const s of LESSONS) {
       for (const g of s.clouds) met.add(g);
       for (const b of blocks(s)) {
         const photos = isDiagram(b) && b.id === 'check' ? (b.options?.photos as PhotoCalls | undefined) : undefined;
@@ -152,7 +148,7 @@ describe('shifts', () => {
   });
 
   it('only use goals on figures that take them', () => {
-    for (const s of SHIFTS) for (const b of blocks(s)) if (isDiagram(b) && b.goal) expect(b.task, `${s.id} ${b.id}`).toBeTruthy();
+    for (const s of LESSONS) for (const b of blocks(s)) if (isDiagram(b) && b.goal) expect(b.task, `${s.id} ${b.id}`).toBeTruthy();
   });
 });
 
@@ -170,7 +166,7 @@ describe('photo library', () => {
 
   it('names every photo a lesson asks for by an id it has', () => {
     const ids = new Set((library as Photo[]).map((p) => p.id));
-    const named = JSON.stringify(SHIFTS).match(/"photo":"[^"]*"/g) ?? [];
+    const named = JSON.stringify(LESSONS).match(/"photo":"[^"]*"/g) ?? [];
     expect(named.length).toBeGreaterThan(0);
     for (const m of named) expect(ids.has(m.slice(9, -1)), m).toBe(true);
   });

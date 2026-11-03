@@ -8,18 +8,17 @@ import { makeRng } from 'didactics/rng';
 import { genus } from './core/clouds';
 import { mirrorFor } from './core/photos';
 import { buildDeck } from './core/quiz';
-import { SHIFTS } from './core/shifts';
+import { LESSONS } from './core/lessons';
 import { asset, SITE_URL } from './app/asset';
-import { lessonPieces } from './app/course-pieces';
 import { FIGURES } from './app/figures';
 import { prose } from './app/figures/kit';
 import { photoFigure, PHOTOS } from './app/photos';
 import { store } from './app/store';
 import { emptySave } from './core/save';
 import { homeView } from './app/views/home';
-import { journalView } from './app/views/journal';
+import { guideView, journalRedirect } from './app/views/guide';
 import { seedView } from './app/views/seed';
-import { shiftOptions } from './app/views/shift';
+import { lessonOptions } from './app/views/lesson';
 import { skyView } from './app/views/sky';
 
 /** A little peach cloud with an up arrow, for the update banner: drawn inline so it shows offline. */
@@ -29,7 +28,7 @@ const CLOUD =
 
 // The app is Didactics' (didactics/app): the top bar and its menu, the lesson
 // player, the quiz, Credits, Settings, the update banner. What is Clouds' own
-// is passed in: the home page, the sky lab, the seeding game and the journal.
+// is passed in: the home page, the sky lab, the seeding game and the field guide.
 defineCourse({
   id: 'clouds',
   title: 'Clouds',
@@ -38,24 +37,33 @@ defineCourse({
   splash: { src: asset('poster.webp'), alt: 'Clouds: What are they up to?' },
   update: { title: 'New forecast in', text: 'A fresh version of Clouds is ready.', icon: CLOUD },
 
-  lessons: SHIFTS,
+  lessons: LESSONS,
   figures: FIGURES,
   prose,
-  lessonPath: '/shift',
-  lesson: shiftOptions,
+  lesson: lessonOptions,
   save: { store, empty: emptySave },
   text: COURSE,
-  textPieces: lessonPieces(),
+  // A lesson's downloadable piece: its file, its radio talk, and the words in
+  // the code of its figures and the src/core model of the same name.
+  textPieces: {
+    modules: import.meta.glob('/src/app/figures/*.ts', { eager: true }),
+    files: (l) => [`src/data/lessons/${l.id}.json`, `src/data/radio/${l.id}.json`],
+    alongside: (file) => [file.replace('src/app/figures/', 'src/core/')],
+  },
 
   home: homeView,
   pages: [
     { path: '/sky', label: 'Sky lab', view: skyView },
     { path: '/seed', view: seedView },
-    { path: '/journal', label: 'Journal', view: journalView },
-    { path: '/journal/:tab', view: journalView },
+    { path: '/guide', label: 'Field guide', view: guideView },
+    { path: '/guide/:tab', view: guideView },
+    // Addresses from before 2026-11: lessons were "shifts", the guide the journal.
+    { path: '/shift/:id', view: (_root, nav) => nav.replace(`/lesson/${nav.params.id}`) },
+    { path: '/journal', view: journalRedirect },
+    { path: '/journal/:tab', view: journalRedirect },
   ],
   // The pages sit in a menu under the current page's name, so more can join without crowding the bar.
-  menu: ['/home', '/sky', '/review', '/journal', '/settings'],
+  menu: ['/home', '/sky', '/review', '/guide', '/settings'],
   // The site's catalog of every course, one folder up.
   catalog: { href: '../' },
   encyclopedia: { data: encyclopedia, course: 'clouds' },
@@ -78,7 +86,7 @@ defineCourse({
     ],
   },
   // Before 2026-10-26 each photo was kept in a cache of its own once seen.
-  offline: { folder: 'photos/', total: PHOTOS.length, noun: 'photos', retire: ['photos'] },
+  offline: { noun: 'photos', retire: ['photos'] },
   settings: {
     units: { label: 'Heights in', imperial: 'Feet', metric: 'Metres' },
     radio: { blurb: 'With the radio on, an old hand at Walla Walla opens each lesson on a typed slip, and puts the questions at the end to you over the air. Off, the lessons are a plain workbook ending in a check.' },

@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "coast",
   "n": 10,
   "title": "Why does the Pacific coast almost never thunder?",
@@ -298,24 +297,6 @@
     "**Thunderstorms need bubbles that stay warm past freezing.** Over a cold sea and under a warm lid, they stall at a few hundred metres; a warm sea like Florida’s fuels storms almost daily.",
     "**The coast’s rare thunder comes in autumn and winter.** Behind cold fronts, frigid air over the milder sea brings showers, graupel and the occasional lightning."
   ],
-  "journal": {
-    "upwelling": {
-      "title": "Upwelling",
-      "text": "When summer north winds blow down the Pacific coast, the Earth's rotation (Ekman transport) deflects the surface water 90° to the right—westward, away from the shore. Cold water (8–10 °C) rises from 50–100 metres depth to replace it along the beach, often making the surf colder in July than in April and chilling moist ocean air into sea fog."
-    },
-    "pacific-high": {
-      "title": "The Pacific High",
-      "text": "A vast semi-permanent subtropical high-pressure system over the eastern North Pacific in summer. Its clockwise outflow drives the coastal north winds, while its sinking air warms by compression to clamp a strong temperature inversion 300 to 800 metres above the sea-chilled marine layer."
-    },
-    "marine-layer": {
-      "title": "The marine layer",
-      "text": "A shallow layer of cool, humid air (300–800 m deep) trapped between the cold coastal ocean and the warm subsidence inversion of the Pacific High, usually topped by a flat deck of stratus or stratocumulus. Hot inland valleys draw it onshore via the sea breeze, and daytime sun erodes it from its inland edge."
-    },
-    "coast-thunder": {
-      "title": "Thunder on the coast",
-      "text": "Summer thunderstorms are virtually absent along the Pacific coast because cool ocean water at the bottom and warm sinking air aloft prevent clouds from growing past a few hundred metres. The coast's few thunderstorms arrive mainly in autumn and winter behind cold fronts, when frigid Gulf of Alaska air aloft passes over 10–11 °C ocean water."
-    }
-  },
   "footnotes": {
     "ekman": {
       "kind": "technical",

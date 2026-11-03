@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "tornado",
   "n": 13,
   "title": "How does a tornado form?",
@@ -278,24 +277,6 @@
     "**Tornadoes are rated by their damage.** EF0 to EF5, mostly weak, about 1,200 a year in the United States.",
     "**Not every whirl is a tornado.** Scud, shelf clouds, gustnadoes, dust devils and fair-weather waterspouts are other things."
   ],
-  "journal": {
-    "mesocyclone": {
-      "title": "Mesocyclone",
-      "text": "The rotating updraft of a supercell, a few kilometres across, formed when the updraft swallows end on the spin rolled into the air by wind that grows and turns with height."
-    },
-    "tornado": {
-      "title": "Tornado",
-      "text": "A column of spinning air reaching from a storm’s cloud to the ground, made when spin is stretched and squeezed thin: half as wide, twice as fast. Rated EF0 to EF5 by the damage it does."
-    },
-    "wall-cloud": {
-      "title": "Wall cloud",
-      "text": "A lowered piece of a supercell’s rain-free base, under the rotating updraft at the back of the storm, sometimes visibly turning. Tornadoes form under it."
-    },
-    "hook-echo": {
-      "title": "Hook echo",
-      "text": "A curl of rain on the radar at a supercell’s south-west corner, wrapped round the rotating updraft. A tornado, if there is one, is near its tip."
-    }
-  },
   "footnotes": {
     "meso": {
       "kind": "technical",

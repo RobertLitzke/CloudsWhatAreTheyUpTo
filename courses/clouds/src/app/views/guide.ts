@@ -1,11 +1,12 @@
-// The field journal, in four tabs. Clouds: the ten kinds and the rare sights,
+// The field guide, in three tabs. Clouds: the ten kinds and the rare sights,
 // as photos to tap for their card. Glossary: every term the lessons use, A to
-// Z (core/glossary.ts). Notes: what each finished lesson wrote in. And, with
-// the radio on, the transcripts of every talk heard.
+// Z (core/glossary.ts). And, with the radio on, the transcripts of every talk
+// heard. (Until 2026-11 this was the journal, with a Notes tab of lines each
+// finished lesson unlocked; the lesson summaries say the same now.)
 
 import { GENERA, floorInfo, genus, type Genus, type GenusId } from '../../core/clouds';
 import { GLOSSARY, lessonOf } from '../../core/glossary';
-import { JOURNAL, SHIFTS, lessonName, shiftById } from '../../core/shifts';
+import { lessonName, lessonById } from '../../core/lessons';
 import { FEATURES, photoFile, photosOf, photosOfFeature, type FeatureId, type Photo } from '../../core/photos';
 import { el, svg, type Child } from 'didactics/dom';
 import { glossaryView } from 'didactics/glossary';
@@ -20,7 +21,7 @@ import { getSave } from '../store';
 import { allTalks, STATIONS, transcript } from '../../core/talk';
 
 type Save = ReturnType<typeof getSave>;
-type Tab = 'clouds' | 'glossary' | 'notes' | 'radio';
+type Tab = 'clouds' | 'glossary' | 'radio';
 
 const FLOORS: readonly { floor: Genus['floor']; title: string }[] = [
   { floor: 'low', title: 'Low floor' },
@@ -29,39 +30,51 @@ const FLOORS: readonly { floor: Genus['floor']; title: string }[] = [
   { floor: 'tower', title: 'All three floors' },
 ];
 
-/** The rare sights and the lesson whose notes they are. */
-const RARE: readonly { id: FeatureId; name: string; sub: string }[] = [
-  { id: 'lenticularis', name: 'Lens cloud', sub: 'Lenticularis' },
-  { id: 'fluctus', name: 'Breaking waves', sub: 'Fluctus' },
-  { id: 'mammatus', name: 'Mammatus', sub: 'Under an anvil' },
+/** The rare sights: their card, and the lesson that points them out. */
+const RARE: readonly { id: FeatureId; name: string; sub: string; title: string; text: string; lesson: string }[] = [
+  {
+    id: 'lenticularis', name: 'Lens cloud', sub: 'Lenticularis', title: 'Lens cloud (lenticularis)', lesson: 'local-sky',
+    text: 'A smooth, almond- or lens-shaped cloud hovering motionless in the crest of a standing mountain wave downwind of a ridge. Moist air condenses as it rises into the wave crest and evaporates as it sinks out the downwind edge, keeping the cloud stationary while strong winds blow right through it.',
+  },
+  {
+    id: 'fluctus', name: 'Breaking waves', sub: 'Fluctus', title: 'Kelvin-Helmholtz waves (fluctus)', lesson: 'local-sky',
+    text: 'Trains of curling, breaking-surf billows along the top of a cloud layer (Kelvin–Helmholtz waves), formed where a fast airstream slides over a slower, denser cloud layer below. They dissolve within a minute or two as they mix the layers together, serving as a visual warning of strong wind shear and turbulence.',
+  },
+  {
+    id: 'mammatus', name: 'Mammatus', sub: 'Under an anvil', title: 'Mammatus', lesson: 'giants',
+    text: 'Smooth, rounded pouches hanging beneath a thunderstorm anvil, formed where pockets of ice- and droplet-laden air sink into drier air below. Evaporating particles chill the sinking pockets so they warm at only ~5 °C/km on the way down, staying colder and denser than their surroundings in upside-down convection. Though dramatic when lit by low sun, mammatus pouches themselves are harmless.',
+  },
 ];
-const lessonWithNote = (id: string) => SHIFTS.find((s) => s.journal.includes(id));
 
-export const journalView: View = (root, nav) => {
+export const guideView: View = (root, nav) => {
   const save = getSave();
   const radio = save.talk && allTalks().some((t) => save.heard[t.id]);
-  const tabs: [Tab, string][] = [['clouds', 'Clouds'], ['glossary', 'Glossary'], ['notes', 'Notes'], ...(radio ? [['radio', 'Radio'] as [Tab, string]] : [])];
+  const tabs: [Tab, string][] = [['clouds', 'Clouds'], ['glossary', 'Glossary'], ...(radio ? [['radio', 'Radio'] as [Tab, string]] : [])];
   const tab = (tabs.find(([t]) => t === nav.params.tab)?.[0] ?? 'clouds') as Tab;
 
   const body =
-    tab === 'glossary' ? glossaryTab(save)
-    : tab === 'notes' ? notesTab(save)
+    tab === 'glossary' ? glossaryTab()
     : tab === 'radio' ? radioTab(save)
-    : cloudsTab(save);
+    : cloudsTab();
 
   root.append(
-    el('div.page.journal', {},
-      el('h1', {}, 'Field journal'),
-      el('nav.seg.journal-tabs', { 'aria-label': 'Journal sections' },
-        tabs.map(([t, label]) => el('a', { href: t === 'clouds' ? '#/journal' : `#/journal/${t}`, className: t === tab ? 'on' : undefined, 'aria-current': t === tab ? 'page' : undefined }, label))),
+    el('div.page.guide', {},
+      el('h1', {}, 'Field guide'),
+      el('nav.seg.guide-tabs', { 'aria-label': 'Field guide sections' },
+        tabs.map(([t, label]) => el('a', { href: t === 'clouds' ? '#/guide' : `#/guide/${t}`, className: t === tab ? 'on' : undefined, 'aria-current': t === tab ? 'page' : undefined }, label))),
       body,
     ),
   );
 };
 
+/** The old journal's addresses open the guide. */
+export const journalRedirect: View = (_root, nav) => {
+  nav.replace(nav.params.tab ? `/guide/${nav.params.tab}` : '/guide');
+};
+
 // ---- Clouds ---------------------------------------------------------------
 
-function cloudsTab(save: Save): HTMLElement {
+function cloudsTab(): HTMLElement {
   const tile = (name: string, sub: string, photo: Photo | undefined, art: () => Child, open: () => void) =>
     el('button.cloud-tile', { type: 'button', onclick: open },
       photo ? el('img', { src: asset(photoFile(photo)), alt: '', loading: 'lazy', decoding: 'async' }) : el('div.tile-art', {}, art()),
@@ -69,12 +82,12 @@ function cloudsTab(save: Save): HTMLElement {
       el('span.tile-sub', {}, sub));
 
   return el('div', {},
-    el('p.muted.journal-lede', {}, 'The ten kinds of cloud, by the floor they live on, and a few rare sights. Tap one for its card.'),
+    el('p.muted.guide-lede', {}, 'The ten kinds of cloud, by the floor they live on, and a few rare sights. Tap one for its card.'),
     FLOORS.map(({ floor, title }) => {
       const here = GENERA.filter((g) => g.floor === floor);
       return el('section.cloud-floor', {},
         el('h2', {}, title),
-        el('div.cloud-tiles', {}, here.map((g) => tile(g.name, g.abbr, photosOf(PHOTOS, g.id)[0], () => cloudArt(g.id), () => openCloud(g.id, save)))));
+        el('div.cloud-tiles', {}, here.map((g) => tile(g.name, g.abbr, photosOf(PHOTOS, g.id)[0], () => cloudArt(g.id), () => openCloud(g.id)))));
     }),
     el('section.cloud-floor', {},
       el('h2', {}, 'Rare sights'),
@@ -89,15 +102,14 @@ function cloudArt(id: GenusId): SVGElement {
 
 /** A link to the lesson that teaches something. */
 function lessonLink(id: string | undefined): HTMLElement | null {
-  const s = id ? shiftById(id) : undefined;
+  const s = id ? lessonById(id) : undefined;
   if (!s) return null;
-  return el('a.sheet-lesson', { href: `#/shift/${s.id}` }, `${lessonName(s)}: ${s.title} ›`);
+  return el('a.sheet-lesson', { href: `#/lesson/${s.id}` }, `${lessonName(s)}: ${s.title} ›`);
 }
 
-function openCloud(id: GenusId, save: Save): void {
+function openCloud(id: GenusId): void {
   const g = genus(id);
   const photo = photosOf(PHOTOS, id)[0];
-  const note = save.journal.includes(id) ? JOURNAL[id] : undefined;
   sheet(g.name,
     photo ? photoFigure(photo, g.name) : el('div.sheet-art', {}, cloudArt(id)),
     el('div.sheet-text', {},
@@ -107,39 +119,37 @@ function openCloud(id: GenusId, save: Save): void {
         el('dt', {}, 'Looks like'), el('dd', {}, g.look),
         el('dt', {}, 'Made by'), el('dd', {}, g.made),
         el('dt', {}, 'Means'), el('dd', {}, g.means),
-        el('dt', {}, 'Often taken for'), el('dd', {}, g.confused.map((c) => genus(c).name).join(', ')),
-        note ? [el('dt', {}, 'Your notes'), el('dd', {}, note.text)] : null),
+        el('dt', {}, 'Often taken for'), el('dd', {}, g.confused.map((c) => genus(c).name).join(', '))),
       lessonLink(lessonOf(id)?.id),
     ),
   );
 }
 
 function openRare(id: FeatureId): void {
-  const n = JOURNAL[id];
+  const r = RARE.find((x) => x.id === id);
   const photo = photosOfFeature(PHOTOS, id)[0];
-  const lesson = lessonWithNote(id);
-  sheet(n?.title ?? id,
-    photo ? photoFigure(photo, n?.title ?? id) : null,
+  sheet(r?.title ?? id,
+    photo ? photoFigure(photo, r?.title ?? id) : null,
     el('div.sheet-text', {},
       el('p.sheet-floor', {}, 'Rare sight'),
-      el('h2', {}, n?.title ?? id),
-      n ? el('p', {}, n.text) : null,
-      lessonLink(lesson?.id),
+      el('h2', {}, r?.title ?? id),
+      r ? el('p', {}, r.text) : null,
+      lessonLink(r?.lesson),
     ),
   );
 }
 
 // ---- Glossary -------------------------------------------------------------
 
-function glossaryTab(save: Save): HTMLElement {
+function glossaryTab(): HTMLElement {
   const clouds = new Set<string>(GENERA.map((g) => g.id));
   const rare = new Set<string>(FEATURES);
   const entries = GLOSSARY.map((e) =>
-    clouds.has(e.id) ? { ...e, open: () => openCloud(e.id as GenusId, save) }
+    clouds.has(e.id) ? { ...e, open: () => openCloud(e.id as GenusId) }
     : rare.has(e.id) ? { ...e, open: () => openRare(e.id as FeatureId) }
     : e);
   return el('div', {},
-    el('p.muted.journal-lede', {},
+    el('p.muted.guide-lede', {},
       'Every term the lessons use. ',
       el('span.gl-dot.fn-technical', { 'aria-hidden': 'true' }),
       ' marks a technical note from a lesson; a name with an arrow opens its card.'),
@@ -147,33 +157,10 @@ function glossaryTab(save: Save): HTMLElement {
       entries,
       prose,
       lesson: (id) => {
-        const s = shiftById(id);
-        return s && { href: `#/shift/${s.id}`, label: lessonName(s) };
+        const s = lessonById(id);
+        return s && { href: `#/lesson/${s.id}`, label: lessonName(s) };
       },
     }),
-  );
-}
-
-// ---- Notes ----------------------------------------------------------------
-
-function notesTab(save: Save): HTMLElement {
-  // A cloud's notes are on its card, under Clouds.
-  const onCards = new Set<string>([...GENERA.map((g) => g.id), ...FEATURES]);
-  const groups = SHIFTS.map((s) => ({ s, notes: s.journal.filter((id) => !onCards.has(id)) }));
-  const open = groups.filter((g) => g.notes.some((id) => save.journal.includes(id)));
-  const waiting = groups.reduce((sum, g) => sum + g.notes.filter((id) => !save.journal.includes(id)).length, 0);
-  return el('div', {},
-    el('p.muted.journal-lede', {}, 'What each lesson added to the journal when you finished it. The clouds’ own notes are on their cards.'),
-    open.length
-      ? open.map(({ s, notes }) =>
-          el('section.note-group', {},
-            el('h2', {}, el('span.note-n', {}, s.code ?? String(s.n)), s.title),
-            el('div.notes', {}, notes.filter((id) => save.journal.includes(id)).map((id) => {
-              const n = JOURNAL[id];
-              return el('article.note', { className: n.rare ? 'note rare' : 'note' }, el('h3', {}, n.title, n.rare ? el('span.tag', {}, 'Rare') : null), el('p', {}, n.text));
-            }))))
-      : el('p.muted', {}, 'Nothing written yet. Finish a lesson and its notes land here.'),
-    waiting ? el('p.muted.notes-waiting', {}, `${waiting} more ${waiting === 1 ? 'page' : 'pages'} to come as you finish lessons.`) : null,
   );
 }
 

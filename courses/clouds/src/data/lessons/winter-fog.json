@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "winter-fog",
   "n": 15,
   "title": "Why does a valley stay grey for weeks in winter?",
@@ -286,28 +285,6 @@
     "**Fog below freezing is still liquid.** Its droplets freeze where they hit, growing rime toward the wind; hoar frost grows from vapour on clear, still nights.",
     "**A warm layer aloft turns snow to ice.** Snow melts in it, then lands as freezing rain over a shallow cold layer or refreezes into sleet over a deep one."
   ],
-  "journal": {
-    "cold-pool": {
-      "title": "Cold pool",
-      "text": "Cold air collected in a valley or basin under a lid of milder air, deepening on calm winter nights. In midwinter it can keep a basin grey and cold for weeks, until a strong wind stirs it away."
-    },
-    "advection-fog": {
-      "title": "Advection fog",
-      "text": "Fog made by damp air blown over a surface colder than its dew point: sea fog on a cold coast, or fog over melting snow. It comes and goes with the wind, at any hour."
-    },
-    "steam-fog": {
-      "title": "Steam fog",
-      "text": "Wisps rising off water much warmer than the very cold air over it: the water evaporates faster than the air can hold, and the vapour condenses at once. Sea smoke, in the Arctic."
-    },
-    "rime": {
-      "title": "Rime",
-      "text": "Ice built up by supercooled fog droplets freezing where they hit, in feathers that grow into the wind."
-    },
-    "freezing-rain": {
-      "title": "Freezing rain",
-      "text": "Rain that falls through a shallow layer of freezing air at the ground and freezes on whatever it touches, glazing roads, branches and wires in clear ice."
-    }
-  },
   "footnotes": {
     "tule": {
       "kind": "digression",

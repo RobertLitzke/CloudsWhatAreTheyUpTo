@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "giants",
   "n": 5,
   "title": "Afternoon ambush: reading storm towers",
@@ -456,21 +455,6 @@
     "**A sudden cool gust is the warning.** The gust front, the storm’s cold downdraught spreading out, arrives 5 to 15 minutes before the rain and lightning.",
     "**Count the thunder and follow the 30–30 rule.** Seconds from flash to bang ÷ 3 gives kilometres (÷ 5 for miles); under 30 seconds, go indoors and wait 30 minutes after the last thunder."
   ],
-  "journal": {
-    "cumulonimbus": {
-      "title": "Cumulonimbus",
-      "text": "A towering convective cloud that climbs all the way to the tropopause (10–12 km up), where its frozen top flattens and spreads into a fibrous ice anvil. Driven by latent heat released inside strong updraughts, a single cell grows, matures, and dissipates in about an hour, bringing heavy downpours, hail, a cool gust front, and lightning."
-    },
-    "lightning": {
-      "title": "Counting the thunder",
-      "text": "Collisions between rising ice crystals and falling soft hail (graupel) separate electric charge inside a thunderstorm until a massive spark discharges as lightning, superheating the air channel to ~30,000 °C and launching the shock wave we hear as thunder. Sound travels ~1 km every 3 seconds (1 mile every 5 seconds). The 30–30 rule: if flash-to-bang is under 30 seconds (< 10 km), get indoors and wait 30 minutes after the last thunder."
-    },
-    "mammatus": {
-      "title": "Mammatus",
-      "rare": true,
-      "text": "Smooth, rounded pouches hanging beneath a thunderstorm anvil, formed where pockets of ice- and droplet-laden air sink into drier air below. Evaporating particles chill the sinking pockets so they warm at only ~5 °C/km on the way down, staying colder and denser than their surroundings in upside-down convection. Though dramatic when lit by low sun, mammatus pouches themselves are harmless."
-    }
-  },
   "footnotes": {
     "moist-rate": {
       "kind": "technical",

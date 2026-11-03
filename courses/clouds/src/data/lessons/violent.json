@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "violent",
   "n": 12,
   "title": "What makes a storm violent?",
@@ -292,28 +291,6 @@
     "**Strong shear and plenty of fuel make supercells.** Their leaning, rotating updrafts keep the rain out of the way and last for hours.",
     "**Hail grows coat by coat in the updraft.** It falls when it gets too heavy to hold up: twice the updraft holds a stone four times as wide, and golf balls need about 30 m/s."
   ],
-  "journal": {
-    "storm-fuel": {
-      "title": "Storm fuel (CAPE)",
-      "text": "The energy a rising bubble gains while it is warmer than the air around it: the area between the two lines on the temperature-height chart. Damp air near the ground and cold air aloft make the most."
-    },
-    "cap": {
-      "title": "The cap",
-      "text": "A warm, dry layer a kilometre or two up that holds bubbles down. A middling cap saves the fuel up through the day for a few violent storms late in the afternoon."
-    },
-    "wind-shear": {
-      "title": "Wind shear",
-      "text": "The change of the wind with height. It leans a storm’s updraft away from its rain, so it lasts for hours instead of choking within one, and can set it turning."
-    },
-    "supercell": {
-      "title": "Supercell",
-      "text": "A long-lived thunderstorm with a rotating updraft, grown in a great deal of fuel and strong wind shear. It brings the largest hail and the strongest tornadoes."
-    },
-    "hail": {
-      "title": "Hail",
-      "text": "Ice that grows coat by coat as the updraft carries it up through supercooled water again and again, until it is too heavy to hold. Golf-ball hail needs an updraft of about 30 metres a second."
-    }
-  },
   "footnotes": {
     "cape": {
       "kind": "technical",

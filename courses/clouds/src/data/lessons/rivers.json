@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal’s glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "rivers",
   "n": 11,
   "title": "Where does a week of winter rain come from?",
@@ -274,24 +273,6 @@
     "**The snow level decides what the mountains keep.** Below it, rain runs off at once; above it, snow is stored for summer. Warm rain on fresh snow brings the worst floods.",
     "**Behind a cold front, showers.** Northwest winds split around the Olympics and meet over Puget Sound in a convergence zone: a narrow band of heavy showers between clear skies."
   ],
-  "journal": {
-    "storm-track": {
-      "title": "The storm track",
-      "text": "The path along which the upper-level jet stream steers mid-latitude lows. In summer, the Pacific storm track retreats north toward Alaska while the North Pacific High blocks the West Coast; in autumn and winter, the jet stream strengthens and shifts south, steering storms directly into the Pacific Northwest."
-    },
-    "atmospheric-river": {
-      "title": "Atmospheric river",
-      "text": "A long (2,000+ km), narrow (300–500 km) corridor of concentrated water vapour in the lowest 2–3 km of the atmosphere, drawn poleward from the subtropics just ahead of a cold front. Rated from Category 1 to 5, strong atmospheric rivers (such as the Pineapple Express from near Hawaii) drive the West Coast's heaviest mountain rains and floods."
-    },
-    "snow-level": {
-      "title": "The snow level",
-      "text": "The altitude above which precipitation falls and accumulates as snow, sitting roughly 200–300 m below the 0 °C freezing level. Cold Gulf of Alaska storms keep the snow level low (600–1,000 m), storing water as snowpack; warm atmospheric rivers push it high (2,000–2,500 m), turning watersheds into rapid rain runoff and triggering rain-on-snow floods."
-    },
-    "convergence-zone": {
-      "title": "Convergence zone",
-      "text": "When post-frontal northwest winds split around the Olympic Mountains—one branch flowing down the Strait of Juan de Fuca and the other around the south flank of the range—the two streams collide over Puget Sound (often near Everett and north Seattle), forcing air upward into a narrow band of heavy showers, graupel, or snow."
-    }
-  },
   "footnotes": {
     "seattle": {
       "kind": "digression",

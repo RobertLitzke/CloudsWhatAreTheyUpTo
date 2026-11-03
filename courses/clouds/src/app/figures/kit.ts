@@ -6,9 +6,7 @@
 // air is orange, the air around it violet, the dew point teal, ice blue, and
 // sunlight gold.
 
-import { slider as kitSlider, type Slider } from 'didactics/figure';
-import type { FootnoteSet } from 'didactics/footnote';
-import { prose as kitProse } from 'didactics/lesson';
+import { courseKit } from 'didactics/kit';
 
 export {
   animate, choices, figure, frame, lock, lockIn, placeable, quiz, showVerdict, startRng, tellCard, textBox, verdict,
@@ -67,18 +65,7 @@ export function radarColor(d: number): string | null {
   return RADAR[Math.min(RADAR.length - 1, Math.floor((d - 5) / 5))];
 }
 
-/** A colour at the given opacity, for a translucent fill. */
-export function tint(hex: string, alpha: number): string {
-  const n = parseInt(hex.slice(1), 16);
-  return `rgba(${n >> 16}, ${(n >> 8) & 255}, ${n & 255}, ${alpha})`;
-}
-
 export type ColorKey = keyof typeof COL;
 
-/** A labelled slider whose thumb wears one of the palette's colours. */
-export function slider(label: string, min: number, max: number, step: number, value: number, show: (v: number) => string, onInput: (v: number) => void, color: ColorKey = 'ink'): Slider {
-  return kitSlider(label, min, max, step, value, show, onInput, COL[color]);
-}
-
-/** A paragraph of lesson text: **bold**, *italic*, and [[words|key]] in the colour COL[key]. */
-export const prose = (text: string, notes?: FootnoteSet): HTMLElement => kitProse(text, COL, notes);
+/** The slider coloured by a palette key, prose with the palette filled in, and tint for a translucent fill (didactics/kit). */
+export const { slider, prose, tint } = courseKit(COL);

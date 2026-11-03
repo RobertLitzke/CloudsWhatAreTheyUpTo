@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "ice-realm",
   "n": 4,
   "title": "Tomorrow’s weather written high up",
@@ -418,28 +417,6 @@
     "**A warm front arrives from the top down.** Warm air climbs a gentle ramp over cold air, so the clouds come cirrus, cirrostratus, altostratus, then nimbostratus.",
     "**The sequence is a countdown.** A halo means rain in 12 to 24 hours; a frosted-glass sun means rain within a few hours."
   ],
-  "journal": {
-    "cirrus": {
-      "title": "Cirrus",
-      "text": "Detached, silky white filaments and hooked streaks (mares’ tails) on the high floor, formed by ice crystals falling through wind shear and sublimating in drier air below. Isolated cirrus that stays sparse indicates fair weather, whereas cirrus invading and thickening from the west warns of an approaching front—especially when accompanied by long, spreading contrails."
-    },
-    "cirrostratus": {
-      "title": "Cirrostratus",
-      "text": "A thin, milky veil of ice crystals covering much or all of the high sky. The sun’s outline stays sharp, ground shadows remain clear, and the veil frequently produces a 22° halo around the sun or moon. Thickening cirrostratus ahead of a warm front typically signals steady rain within 12 to 24 hours."
-    },
-    "halo": {
-      "title": "The 22° halo",
-      "text": "Sunlight entering one side face of a hexagonal ice crystal and exiting two faces over passes through a 60° prism, bending by at least 22°. Millions of randomly tumbling crystals in cirrostratus concentrate light near that minimum angle, drawing a bright ring of 22° radius (about a spread hand-span at arm’s length) with a faintly reddish inner rim."
-    },
-    "altostratus": {
-      "title": "Altostratus",
-      "text": "A featureless grey or bluish-grey sheet of mixed supercooled droplets and ice crystals on the middle floor. It blurs the sun into a dim, watery disc (like frosted glass), erases ground shadows, and scrambles any optical halo. Thickening altostratus ahead of a warm front usually brings steady rain within a few hours."
-    },
-    "warm-front": {
-      "title": "A warm front coming",
-      "text": "Where advancing warm, moist air glides up over a retreating wedge of denser cold air along a gentle ~1-in-100 slope, lifting produces a vast cloud deck extending up to 1,000 km ahead of the surface front. An observer sees the highest clouds first: cirrus hooks, then cirrostratus with a 22° halo, then shadowless altostratus, and finally soaking nimbostratus 12 to 24 hours after the halo."
-    }
-  },
   "footnotes": {
     "nucleate": {
       "kind": "technical",

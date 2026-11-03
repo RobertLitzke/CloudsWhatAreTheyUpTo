@@ -5,12 +5,11 @@
 // illustrated article in the manner of an interactive explainer: paragraphs
 // and live figures to play with. A lesson comes in parts; the next part opens
 // once the figures in this one have had their small task done. The last part
-// is a check, and the lesson ends with its summary. (In the code a lesson is still
-// called a shift, from an earlier story.)
+// is a check, and the lesson ends with its summary.
 //
 // The lessons tell no story; the story is in the radio talks, core/talk.ts.
 //
-// Each lesson's words are in a JSON file in data/shifts, one per lesson.
+// Each lesson's words are in a JSON file in data/lessons, one per lesson.
 //
 // The lesson format and the view that reads it are Didactics' lesson.ts.
 // Text takes a little markup (see app/figures/kit.ts prose): **bold**,
@@ -23,22 +22,22 @@ import type { Footnotes } from 'didactics/footnote';
 import type { Block as KitBlock, Lesson, Part as KitPart } from 'didactics/lesson';
 import { lessonCodes, type TreeBranch } from 'didactics/tree';
 import type { GenusId } from './clouds';
-import fog from '../data/shifts/fog.json';
-import lowSky from '../data/shifts/low-sky.json';
-import middleSky from '../data/shifts/middle-sky.json';
-import iceRealm from '../data/shifts/ice-realm.json';
-import giants from '../data/shifts/giants.json';
-import front from '../data/shifts/front.json';
-import localSky from '../data/shifts/local-sky.json';
-import seeding from '../data/shifts/seeding.json';
-import wind from '../data/shifts/wind.json';
-import coast from '../data/shifts/coast.json';
-import rivers from '../data/shifts/rivers.json';
-import violent from '../data/shifts/violent.json';
-import tornado from '../data/shifts/tornado.json';
-import hurricane from '../data/shifts/hurricane.json';
-import winterFog from '../data/shifts/winter-fog.json';
-import eastWind from '../data/shifts/east-wind.json';
+import fog from '../data/lessons/fog.json';
+import lowSky from '../data/lessons/low-sky.json';
+import middleSky from '../data/lessons/middle-sky.json';
+import iceRealm from '../data/lessons/ice-realm.json';
+import giants from '../data/lessons/giants.json';
+import front from '../data/lessons/front.json';
+import localSky from '../data/lessons/local-sky.json';
+import seeding from '../data/lessons/seeding.json';
+import wind from '../data/lessons/wind.json';
+import coast from '../data/lessons/coast.json';
+import rivers from '../data/lessons/rivers.json';
+import violent from '../data/lessons/violent.json';
+import tornado from '../data/lessons/tornado.json';
+import hurricane from '../data/lessons/hurricane.json';
+import winterFog from '../data/lessons/winter-fog.json';
+import eastWind from '../data/lessons/east-wind.json';
 
 export const FIGURE_IDS = [
   'jar', 'parcel', 'freezing', 'iceGrowth', 'thermals', 'sounding', 'nudge', 'night', 'spread', 'drops', 'sunThrough', 'hand', 'shadow',
@@ -154,8 +153,8 @@ export interface Profile {
 }
 
 /** A lesson (Didactics' Lesson shape, which its JSON file holds), with what only Clouds adds. */
-export interface Shift extends Lesson<FigureId> {
-  /** The clouds this shift introduces. */
+export interface CloudLesson extends Lesson<FigureId> {
+  /** The clouds this lesson introduces. */
   clouds: GenusId[];
   /** The clouds drawn over the fields at the top of the lesson: the ones it introduces, or the ones it is about. */
   sky: GenusId[];
@@ -170,23 +169,22 @@ export interface Shift extends Lesson<FigureId> {
 }
 
 /**
- * A shift whose words live in a JSON file in data/shifts, so they can be edited
- * outside the code. The file holds everything but the clouds the shift
- * introduces; its journal entries are merged into JOURNAL below. The content
- * tests check the files' shape, since JSON has no types of its own.
+ * A lesson whose words live in a JSON file in data/lessons, so they can be
+ * edited outside the code. The file holds everything but the clouds the
+ * lesson introduces. The content tests check the files' shape, since JSON has
+ * no types of its own.
  */
-interface ShiftFile {
+interface LessonFile {
   id: string;
   n: number;
   title: string;
   teaches: string;
   parts: unknown[];
   summary: string[];
-  journal: Record<string, { title: string; text: string; rare?: boolean }>;
   footnotes?: Record<string, { kind: string; title: string; text: string; glossary?: boolean | string }>;
 }
-type Place = Pick<Shift, 'branch' | 'needs' | 'betterAfter'>;
-function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; book?: Shift['book'] } & Place = {}): Shift {
+type Place = Pick<CloudLesson, 'branch' | 'needs' | 'betterAfter'>;
+function fromJson(file: LessonFile, clouds: GenusId[], more: { sky?: GenusId[]; book?: CloudLesson['book'] } & Place = {}): CloudLesson {
   return {
     id: file.id,
     n: file.n,
@@ -197,7 +195,6 @@ function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; b
     teaches: file.teaches,
     parts: file.parts as Part[],
     summary: file.summary,
-    journal: Object.keys(file.journal),
     footnotes: (file.footnotes ?? {}) as Footnotes,
     ...(more.branch ? { branch: more.branch } : {}),
     ...(more.needs ? { needs: more.needs } : {}),
@@ -205,7 +202,7 @@ function fromJson(file: ShiftFile, clouds: GenusId[], more: { sky?: GenusId[]; b
   };
 }
 
-export const SHIFTS: readonly Shift[] = [
+export const LESSONS: readonly CloudLesson[] = [
   // -------------------------------------------------------------------------
   // The trunk. Lessons 3 and 4 can be taken in either order.
   fromJson(fog, ['stratus', 'cumulus']),
@@ -259,33 +256,13 @@ export const COMING: readonly ComingLesson[] = [
 ];
 
 /** Every lesson the home page's tree shows, written or coming, in the order the tree lists them. */
-export const TREE_LESSONS: readonly (Shift | ComingLesson)[] = [...SHIFTS, ...COMING];
+export const TREE_LESSONS: readonly (CloudLesson | ComingLesson)[] = [...LESSONS, ...COMING];
 
 for (const [id, code] of lessonCodes(TREE_LESSONS, BRANCHES)) TREE_LESSONS.find((l) => l.id === id)!.code = code;
 
 /** How the app names a lesson: "Lesson 5", "Lesson P2". */
 export const lessonName = (l: { n: number; code?: string }) => `Lesson ${l.code ?? l.n}`;
 
-export function shiftById(id: string): Shift | undefined {
-  return SHIFTS.find((s) => s.id === id);
+export function lessonById(id: string): CloudLesson | undefined {
+  return LESSONS.find((s) => s.id === id);
 }
-
-/** Journal entries and what they say. Shifts unlock them by id. Rare ones are the clouds to stay up for. */
-export const JOURNAL: Record<string, { title: string; text: string; rare?: boolean }> = {
-  ...fog.journal,
-  ...lowSky.journal,
-  ...middleSky.journal,
-  ...iceRealm.journal,
-  ...giants.journal,
-  ...front.journal,
-  ...localSky.journal,
-  ...seeding.journal,
-  ...wind.journal,
-  ...coast.journal,
-  ...rivers.journal,
-  ...violent.journal,
-  ...tornado.journal,
-  ...hurricane.journal,
-  ...winterFog.journal,
-  ...eastWind.journal,
-};

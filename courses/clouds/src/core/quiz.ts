@@ -116,4 +116,3 @@ export function buildDeck(photos: readonly Photo[], rng: Rng): Card[] {
   return cards;
 }
 
-export { deal, GAPS_DAYS, review, tally, type CardState, type Tally } from 'didactics/quiz';

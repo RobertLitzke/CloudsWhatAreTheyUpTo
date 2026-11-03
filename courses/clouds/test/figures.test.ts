@@ -7,10 +7,10 @@ import { FIGURES } from '../src/app/figures';
 import type { FigureContext } from '../src/app/figures/kit';
 import { emptySave } from '../src/core/save';
 import { diagramType, isDiagram, lessonProblems, type DiagramBlock } from 'didactics/lesson';
-import { FIGURE_IDS, SHIFTS, type FigureId } from '../src/core/shifts';
+import { FIGURE_IDS, LESSONS, type FigureId } from '../src/core/lessons';
 
 type FigureBlock = DiagramBlock<FigureId>;
-const uses: { shift: string; block: FigureBlock }[] = SHIFTS.flatMap((s) =>
+const uses: { shift: string; block: FigureBlock }[] = LESSONS.flatMap((s) =>
   s.parts.flatMap((p) => p.blocks.filter((b): b is FigureBlock => isDiagram(b)).map((block) => ({ shift: s.id, block }))),
 );
 
@@ -26,7 +26,7 @@ beforeAll(() => {
 
 describe('lesson tasks', () => {
   it('name each callout by its type and a figure that exists', () => {
-    expect(lessonProblems(SHIFTS, FIGURES)).toEqual([]);
+    expect(lessonProblems(LESSONS, FIGURES)).toEqual([]);
     for (const { shift, block } of uses) expect(block.type, `${shift}: ${block.id}`).toBe(diagramType(FIGURES[block.id]));
   });
 

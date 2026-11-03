@@ -262,11 +262,6 @@ function setup(w: number, h: number): WebGL2RenderingContext | null {
   return gl;
 }
 
-/** Can this device ray-march clouds? */
-export function canMarch(): boolean {
-  return setup(1, 1) !== null;
-}
-
 /**
  * Draws the clouds, farthest first, onto the shared WebGL canvas and returns
  * it, or null when there is no WebGL2. The canvas is reused by the next call,

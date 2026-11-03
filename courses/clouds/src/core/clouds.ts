@@ -184,20 +184,6 @@ export { feet } from 'didactics/units';
 export type Prefix = 'cirro' | 'alto' | 'none';
 export type Body = 'cumulus' | 'stratus';
 
-export interface Root {
-  word: string;
-  latin: string;
-  meaning: string;
-}
-
-export const ROOTS: readonly Root[] = [
-  { word: 'cirrus', latin: 'cirrus', meaning: 'a curl or lock of hair' },
-  { word: 'cumulus', latin: 'cumulus', meaning: 'a heap or pile' },
-  { word: 'stratus', latin: 'stratus', meaning: 'spread out, a layer' },
-  { word: 'nimbus', latin: 'nimbus', meaning: 'a rain cloud' },
-  { word: 'alto', latin: 'altus', meaning: 'high, though here it marks the middle floor' },
-];
-
 /**
  * Six of the ten names are a floor and a shape put together. Cirrus,
  * nimbostratus, stratocumulus and cumulonimbus break the pattern, and the

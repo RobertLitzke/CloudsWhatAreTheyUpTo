@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "fog",
   "n": 1,
   "title": "Morning fog and afternoon puffs",
@@ -446,28 +445,6 @@
     "**The dew-point gap sets the cloud base.** About 125 m up for every °C between the temperature and dew point at the ground (220 ft per °F): low bases on humid days, high on dry ones.",
     "**Fair-weather cumulus are thermals made visible.** Small flat-based heaps that stay small through the afternoon mean fair weather, and they fade at sunset."
   ],
-  "journal": {
-    "what-is-a-cloud": {
-      "title": "What a cloud is",
-      "text": "A cloud is a visible mist of tiny liquid droplets or ice crystals, roughly 0.01 mm wide, formed around microscopic specks of dust, smoke, or salt. Clouds form when air cools to its dew point—the temperature below which excess water vapour condenses into liquid. More water vapour in the air means a higher dew point."
-    },
-    "fog": {
-      "title": "Fog",
-      "text": "A cloud resting on the ground. Overnight fog forms on clear, calm, damp nights when the ground radiates heat to space and chills the lowest air layer to its dew point under a stable temperature inversion. Cold air drains into low hollows, so valleys fog in first. Cloudy skies or brisk winds prevent it; morning sunlight clears it from the bottom up."
-    },
-    "stratus": {
-      "title": "Stratus",
-      "text": "A low, uniform, featureless grey cloud layer that often hides the hills—essentially fog lifted above the ground. It forms when a stable layer of moist air cools gently from below, either as lifting morning fog or when mild air drifts over cold land or water. It brings light drizzle at most and usually clears by midday."
-    },
-    "rising-air": {
-      "title": "Rising air",
-      "text": "As a parcel of air rises into lower pressure, it expands and cools by about 10 °C per kilometre (5.4 °F per 1,000 feet), while its dew point drops by about 2 °C per kilometre. Because the gap between them closes by 8 °C per kilometre, cumulus cloud bases form about 125 metres up for every 1 °C of gap at the ground (220 feet per 1 °F)."
-    },
-    "cumulus": {
-      "title": "Cumulus",
-      "text": "Separate, flat-bottomed cloud heaps with bright, rounded tops built by warm thermals rising from sun-heated ground. Small heaps that stay small indicate fair weather and fade at sunset, whereas heaps that tower upward by midday can grow into afternoon showers."
-    }
-  },
   "footnotes": {
     "saturation": {
       "kind": "technical",

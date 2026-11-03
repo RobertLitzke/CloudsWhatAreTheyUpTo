@@ -1,5 +1,4 @@
 {
-  "_howTo": "Edit any \"text\", \"caption\" and \"task\" freely. Each block has a \"type\": \"text\", \"key_ideas\", or a callout for a drawing by \"id\": \"interactive_diagram\" (a live figure), \"diagram\" (a still) or \"quiz\". Keep a callout's \"id\", \"goal\" and \"options\" as they are (they wire it to the code); a callout with an id that has no code yet shows a box saying the diagram goes there, \"aspect_ratio\" (width / height) wide. You can add, remove or reorder blocks, and add or rename parts. Markup in text: **bold**, *italic*, [[words|colour]] to tie words to a figure colour (parcel = orange rising air, env = violet surrounding air, dew = teal dew point), and [^id] for a footnote. A footnote marker goes straight after the word or sentence it belongs to, with no space, and shows as a small raised number that opens a popup. Its note lives in \"footnotes\" at the end of the file under the same id, with a \"kind\" (\"technical\" for a term or detail, coloured teal, which also goes into the journal's glossary; \"digression\" for a side trip, coloured rose), a \"title\" and a \"text\". Add \"glossary\": false to keep a technical note out of the glossary, or a term (\"glossary\": \"Radiosonde\") to list it under that name. Numbers count up through the lesson by themselves. The lessons tell no story: the radio talks and the locals asking forecast questions (by forecast \"id\") are in data/radio. \"summary\" is the lesson's main points, five to ten, shown in a box after the check and at the top when the lesson is opened again.",
   "id": "local-sky",
   "n": 7,
   "title": "Local tricks: mountains, winter ice, and rare skies",
@@ -366,35 +365,6 @@
     "**Ice grows at the droplets’ expense.** Where crystals and supercooled drops mix, the crystals take the vapour and fall as snow; most mid-latitude rain starts as snow high in the cloud.",
     "**A fallstreak hole proves a cloud was supercooled.** An aircraft set off freezing, and the ice fell out as a wispy trail in a round gap."
   ],
-  "journal": {
-    "rain-shadow": {
-      "title": "The rain shadow",
-      "text": "Moist air forced up a mountain barrier cools to saturation and loses much of its water as rain and snow on the windward slopes (cooling at the ~5 °C/km moist rate). Descending the leeward side without clouds, it warms at the full 10 °C/km dry rate, arriving in the leeward basin much warmer and drier. Across the Cascades, annual precipitation drops from 2,000–3,000 mm on the western slopes to 150–300 mm in the Columbia Basin, reducing many warm fronts to light sprinkles or virga."
-    },
-    "lenticularis": {
-      "title": "Lens cloud (lenticularis)",
-      "rare": true,
-      "text": "A smooth, almond- or lens-shaped cloud hovering motionless in the crest of a standing mountain wave downwind of a ridge. Moist air condenses as it rises into the wave crest and evaporates as it sinks out the downwind edge, keeping the cloud stationary while strong winds blow right through it."
-    },
-    "fluctus": {
-      "title": "Kelvin-Helmholtz waves (fluctus)",
-      "rare": true,
-      "text": "Trains of curling, breaking-surf billows along the top of a cloud layer (Kelvin–Helmholtz waves), formed where a fast airstream slides over a slower, denser cloud layer below. They dissolve within a minute or two as they mix the layers together, serving as a visual warning of strong wind shear and turbulence."
-    },
-    "ice": {
-      "title": "The ice realm",
-      "text": "Because freezing above −38 °C requires rare ice-nucleating specks whose atomic lattice matches hexagonal ice, cloud droplets between 0 °C and −38 °C usually remain supercooled liquid. Supercooled valley fog deposits feathery white rime on windward objects, while rain falling from a warm layer aloft into a shallow sub-freezing surface layer freezes on impact as freezing rain."
-    },
-    "ice-rain": {
-      "title": "How ice makes rain",
-      "text": "At sub-freezing temperatures, water molecules escape more slowly from rigid ice crystals than from supercooled droplets, making the saturation vapour limit lower over ice than over liquid water. In a mixed cloud (fastest between −10 °C and −15 °C), ice crystals grow rapidly as surrounding droplets evaporate and their vapour deposits onto the ice (the Bergeron process). The heavy crystals fall as snow and melt below the 0 °C level into raindrops."
-    },
-    "fallstreak": {
-      "title": "Fallstreak holes",
-      "text": "A circular or oval gap punched in a supercooled altocumulus or cirrocumulus layer, with wispy trails of falling ice crystals hanging from its centre (officially called cavum). When an aircraft climbs or descends through the supercooled layer, expansion cooling over its wings or propellers freezes a ribbon of droplets into ice crystals, which rapidly consume the surrounding droplets via the Bergeron process and snow out.",
-      "rare": true
-    }
-  },
   "footnotes": {
     "foehn": {
       "kind": "technical",
