@@ -1,0 +1,77 @@
+{
+  "id": "clusters",
+  "n": 12,
+  "title": "Clusters as clocks",
+  "teaches": "How a star's mass decides how long it lives, what happens when its core runs out of hydrogen, and how a cluster of stars tells its own age",
+  "parts": [
+    {
+      "title": "Two families",
+      "blocks": [
+        {"type":"text","text":"On a winter evening, look up past Orion's shoulder and a little to the right and you will see a small, tight, misty dipper of stars. The Greeks called them the Seven Sisters; the Japanese call them Subaru, and put them on their cars. They are the **Pleiades**, and most people with good eyes count six. A telescope shows more than a thousand."},
+        {"type":"text","text":"Stars packed that close are not a chance alignment. They were born together, from one cloud of gas, at about the same time, and they are all about the same distance from us. That makes a cluster a gift: a family photograph in which everyone has the same birthday and stands the same distance from the camera. Any difference between two of its stars is a difference in the stars, not in their age or their distance."},
+        {"type":"text","text":"Plot the Pleiades on the Hertzsprung–Russell diagram from *Giants and dwarfs* and they fall neatly along the main sequence, all the way up to brilliant blue-white stars at the top left. Now do the same for **M67**, a cluster in Cancer too faint to see without binoculars. Its main sequence stops short, at about the Sun's colour. Above that point there are no hot blue stars at all. Instead a separate branch curls off to the upper right: a sprinkling of red giants."},
+        {"type":"text","text":"Two families, the same physics, two different pictures. Remember Henry Norris Russell's reading of his diagram: stars, he thought, are born as red giants and shrink down the main sequence as they age. By that story M67, with its giants, should be the young one. It is the other way round, and the reason is the most important fact about a star."}
+      ]
+    },
+    {
+      "title": "Big spenders",
+      "blocks": [
+        {"type":"text","text":"A star on the main sequence is burning hydrogen into helium in its core, as the Sun does. A heavier star has more hydrogen to burn. You might expect it to last longer. It lasts far less long, because it burns its fuel ruinously fast."},
+        {"type":"text","text":"Here is why. A heavier star presses harder on its own middle, so to hold itself up its core must be hotter. Fusion is extraordinarily sensitive to temperature (that steepness is what made the Sun a thermostat in *What makes the Sun shine?*), so a hotter core burns very much faster. And a bigger, hotter star leaks its light out faster too, which the burning must keep up with. The upshot is that a star of ten Suns has ten times the fuel but shines several thousand times as brightly. It runs out in about 30 million years. The Sun gets about ten billion. A star of a fifth of a Sun sips so slowly it will shine for trillions of years, far longer than the universe has existed, so not one of them has yet died."},
+        {"type":"text","text":"Roughly: double the mass and the life is five or six times shorter. That one fact, mass sets lifetime, is what turns a cluster into a clock."},
+        {"type":"key_ideas","title":"Hold on to","points":["Heavier stars have more fuel but burn it so much faster that they live far shorter lives: ten Suns, about 30 million years; the Sun, about 10 billion."]}
+      ]
+    },
+    {
+      "title": "The turnoff",
+      "blocks": [
+        {"type":"text","text":"Picture a cluster on the day its stars are born: a whole main sequence, from a few heavy blue stars at the top to hosts of small red ones at the bottom. Now let time run. The heaviest run out of core hydrogen first and leave the main sequence. Then the next heaviest, and the next. The main sequence burns down from the top like a candle, and the point where it now stops, the **turnoff**, tells you how long the candle has been lit. The stars just at the turnoff are the ones whose lives are exactly as long as the cluster is old."},
+        {"type":"interactive_diagram","id":"clusters","caption":"A few hundred stars born together, on the Hertzsprung–Russell diagram (light against temperature, hot on the left), each dot in its own colour. The dashed box marks where the real cluster's main sequence ends.","task":"Make a prediction, then age the cluster to match the Pleiades, and then M67","goal":"both","aspect_ratio":1.6},
+        {"type":"text","text":"The Pleiades come out at around a hundred million years: young enough that stars of five or six Suns are still on the main sequence, so young that the dinosaurs were alive when they were born. M67 is around four billion years old, nearly as old as the Sun, and its turnoff sits at stars only a little heavier than the Sun. Astronomers have found stars in M67 that are near-twins of the Sun, which is a little like finding a family of strangers who share your birthday and your face."},
+        {"type":"text","text":"Clusters come in two kinds, and the clock reads both. **Open clusters** like the Pleiades and M67 are loose groups of hundreds or thousands of stars in the disc of our galaxy; most are young and drift apart within a few hundred million years. **Globular clusters** are dense balls of a hundred thousand or a million stars, swarming round the galaxy like bees round a hive. Their turnoffs sit below the Sun's mass, at stars that live longer than the Sun does. They are among the oldest things in the galaxy, twelve or thirteen billion years old."}
+      ]
+    },
+    {
+      "title": "What leaving means",
+      "blocks": [
+        {"type":"text","text":"What happens to a star that runs out of hydrogen in its core? The core is now helium, which won't fuse at the core's present temperature, so nothing makes up the heat it leaks. It does what Kelvin's Sun did: it shrinks, and shrinking heats it. Hydrogen just outside the core gets hot enough to burn in a shell, faster than the core ever did, and the extra heat pushes the outer layers out. The star swells enormously and its surface, now far from the fire, cools to red. It has become a **red giant**."},
+        {"type":"text","text":"When the shrinking core reaches about a hundred million degrees, helium starts to fuse into carbon and oxygen, and the star settles down for a while, smaller and yellower. When the helium in the core runs out in turn, it swells again. A star like the Sun ends by puffing its outer layers gently into space, a glowing shell that William Herschel, seeing a small round disc in his telescope, called a **planetary nebula**, though it has nothing to do with planets. What is left is the exposed core: hot, faint, about the size of the Earth. A white dwarf. Heavier stars end much more violently, which is a story for *Star stuff*."},
+        {"type":"diagram","id":"sun-life","caption":"The Sun's future on the Hertzsprung–Russell diagram, roughly. About ten billion years on the main sequence, then a red giant, helium burning, a second swelling, and a white dwarf."},
+        {"type":"text","text":"The Sun is about halfway through its time on the main sequence, slowly brightening as it goes. In about five billion years it will swell into a red giant more than a hundred times its present width, swallowing Mercury and Venus. Whether the Earth is swallowed too is close, and depends on how much mass the Sun loses on the way; either way, the oceans will have boiled long before. Then it will shed its outer layers and spend the rest of time as a white dwarf, slowly cooling."},
+        {"type":"text","text":"Betelgeuse, a supergiant of perhaps fifteen to twenty Suns, is near the end. In the winter of 2019 to 2020 it suddenly faded to under half its usual brightness, and newspapers asked whether it was about to explode. It wasn't: a burst from its surface had made a cloud of dust that briefly hid part of it. It will explode one day, most likely in the next hundred thousand years, which in astronomy counts as soon and in newspapers does not."}
+      ]
+    },
+    {
+      "title": "Reading it the right way round",
+      "blocks": [
+        {"type":"text","text":"Russell had the right diagram and the story backwards, and he was not foolish to. From a single photograph of a crowd you cannot tell whether children grow into adults or adults into children. What settles it is knowing how the people work inside. For stars that needed nuclear physics: Hans Bethe's fusion reactions of 1938, and then calculations of what a star's insides do as the fuel changes."},
+        {"type":"text","text":"In 1952 Allan Sandage, a young astronomer at Mount Wilson, and Martin Schwarzschild at Princeton showed that a star whose core runs out of hydrogen must swell and move off to the right of the diagram: the giants are old stars, not newborn ones. In the same years Sandage, Halton Arp and William Baum used the great 200-inch telescope at Palomar to measure the faint stars of globular clusters, and found their turnoffs exactly where an old cluster's should be. The crowd photograph could at last be read the right way round. The giants were the elders."},
+        {"type":"text","text":"The clock had a sting in it. By the 1990s, careful work put the oldest globular clusters at fifteen billion years or more, while the expansion of the universe, measured another way, suggested the universe was younger than that. Stars cannot be older than the universe they live in. Something was wrong, and the answer, when it came, turned out to be one of the great surprises of modern astronomy. It is in *The speeding universe*."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on stellar lifetimes and cluster clocks", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"A star has ten times the Sun's mass, so ten times the fuel. How does its life compare with the Sun's?","choices":["Hundreds of times shorter","Ten times longer","About the same"],"answer":0,"why":"Its hotter core burns thousands of times faster, which far outweighs the extra fuel: about 30 million years against the Sun's ten billion."},
+          {"ask":"Cluster A's main sequence reaches up to blue stars of eight Suns. Cluster B's stops at stars of two Suns. Which is older?","choices":["Cluster B","Cluster A","They could be the same age"],"answer":0,"why":"The main sequence burns down from the top. B has already lost its stars of two to eight Suns, so it has been around longer."},
+          {"ask":"Why are clusters, rather than single stars, used to measure ages?","choices":["Their stars share a birthday and a distance, so differences between them come from mass alone","Clusters are closer to us than single stars","Clusters contain only one kind of star"],"answer":0,"why":"A cluster is a family born together at one distance. Line up its stars by mass and the turnoff shows which ones have had time to run out of fuel."},
+          {"ask":"What happens to a Sun-like star's core when its hydrogen runs out?","choices":["It shrinks and heats up, and hydrogen burns in a shell around it","It cools and the star goes out","It explodes at once"],"answer":0,"why":"With nothing replacing the heat it leaks, the helium core contracts and heats, as Kelvin's shrinking Sun would. Hydrogen around it burns fiercely and the outer layers swell into a red giant."},
+          {"ask":"Russell thought red giants were young stars. What showed they are old?","choices":["Calculations of a star's insides, using nuclear physics, and the turnoffs of clusters","Measuring the giants' distances","Seeing a red giant being born"],"answer":0,"why":"In 1952 Sandage and Schwarzschild showed a star swells into a giant when its core hydrogen runs out, and cluster diagrams showed giants appear only once the heavier stars have left the main sequence."},
+          {"ask":"A star of a fifth of the Sun's mass was born with the first generation of stars. What is it doing now?","choices":["Still quietly burning hydrogen on the main sequence","It is a red giant","It became a white dwarf long ago"],"answer":0,"why":"Small stars burn so slowly that they live for trillions of years, far longer than the universe's age, so none has yet left the main sequence."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**A cluster is a family born together.** Its stars share an age and a distance, so their differences come from mass.",
+    "**Mass sets a star's lifetime.** Heavier stars burn far faster: ten Suns last about 30 million years, the Sun about ten billion, a fifth of a Sun trillions.",
+    "**The main sequence burns down from the top.** The turnoff, where a cluster's main sequence ends, gives its age: about 100 million years for the Pleiades, about four billion for M67.",
+    "**Open and globular clusters.** Open clusters are loose and mostly young; globular clusters are dense, ancient balls of up to a million stars.",
+    "**Out of core hydrogen, a star becomes a red giant.** Its core shrinks and heats, hydrogen burns in a shell, and the outer layers swell and cool.",
+    "**The Sun will end as a white dwarf.** In about five billion years it will become a red giant, then shed its outer layers.",
+    "**Russell read his diagram backwards.** Nuclear physics and cluster diagrams in the 1950s showed that giants are old stars, not young ones."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

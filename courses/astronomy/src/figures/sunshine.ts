@@ -1,4 +1,4 @@
-// Lesson 10, What makes the Sun shine?: how long the Sun lasts on each fuel
+// Lesson 11, What makes the Sun shine?: how long the Sun lasts on each fuel
 // against the age of the Earth, and why a star's core is a thermostat.
 
 import { svg } from 'didactics/dom';

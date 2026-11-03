@@ -1,4 +1,4 @@
-// Lesson 9, Giants and dwarfs: the nearby stars on Hertzsprung and Russell's
+// Lesson 10, Giants and dwarfs: the nearby stars on Hertzsprung and Russell's
 // diagram of brightness against temperature, with a test star whose size and
 // temperature the reader sets; and two stars of one colour and two sizes.
 

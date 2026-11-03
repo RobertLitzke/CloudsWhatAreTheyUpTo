@@ -1,4 +1,4 @@
-// Lesson 8, Mostly hydrogen: how strong each kind of line is in a star's
+// Lesson 9, Mostly hydrogen: how strong each kind of line is in a star's
 // spectrum depends on temperature (Saha's ionisation and Boltzmann's
 // excitation), not on how much of the element there is.
 

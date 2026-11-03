@@ -5,6 +5,7 @@ import { charts } from 'didactics/charts';
 import type { FigureFactory } from 'didactics/figure';
 import { asset } from '../asset';
 import { checkFigure } from './check';
+import { clustersFigure, sunLifeStill } from './clusters';
 import { glowFigure, starColoursStill } from './colour';
 import { cannonFigure, lawFigure, moonDropStill } from './falling';
 import { hrFigure, sameColourStill } from './hr';
@@ -15,6 +16,7 @@ import { mercuryStill, uranusFigure } from './neptune';
 import { aberrationFigure, parallaxFigure } from './parallax';
 import { photoFigure } from './photo';
 import { flatFigure, halfMoonFigure, shadowFigure } from './shadows';
+import { balmerStill, rungsFigure, stringsStill } from './ladder';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
 
@@ -47,12 +49,19 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   glow: glowFigure,
   'star-colours': starColoursStill,
   // Lesson 8
+  'balmer-lines': balmerStill,
+  rungs: rungsFigure,
+  strings: stringsStill,
+  // Lesson 9
   lines: linesFigure,
   classes: classesStill,
-  // Lesson 9
+  // Lesson 10
   hr: hrFigure,
   'same-colour': sameColourStill,
-  // Lesson 10
+  // Lesson 11
   fuel: fuelFigure,
   thermostat: thermostatFigure,
+  // Lesson 12
+  clusters: clustersFigure,
+  'sun-life': sunLifeStill,
 };
