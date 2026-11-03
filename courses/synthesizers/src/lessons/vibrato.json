@@ -9,7 +9,48 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way. Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
+     "text": "**The sound.** A synth note is dead straight: the same pitch from start to end, every time. That is what makes a cheap synth sound cheap. Below is that straight tone, and the same tone made to sing, the way a voice or a violin does. You will make the second from the first."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A pulse wave held straight, and the same wave singing",
+     "options": {
+      "stage": 4,
+      "riff": 58,
+      "start": {
+       "wave": 1,
+       "pw": 0,
+       "cutoff": 4,
+       "res": 1,
+       "sustain": 3,
+       "lfoDest": 0,
+       "lfoRate": 4,
+       "lfoDepth": 0
+      },
+      "sounds": [
+       {
+        "name": "Straight",
+        "set": {}
+       },
+       {
+        "name": "Singing",
+        "set": {
+         "lfoDepth": 1
+        }
+       },
+       {
+        "name": "Too far",
+        "set": {
+         "lfoDepth": 4
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "What is the singer doing? Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way. Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
     },
     {
      "type": "text",
@@ -205,6 +246,49 @@
         }
        }
       ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "Making it sing",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now the singing tone from the start. Three questions, one for each knob. What is moving, the pitch, the brightness or the volume? How fast: a slow sway, or the quick shimmer Seashore measured, about six times a second? How far: a gentle half semitone, or a seasick swing? On this riff's tempo the quickest rate, a sixteenth note, is about seven a second."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The LFO, wired somewhere it shouldn't be, with the singing tone to match.",
+     "task": "Make the tone sing like the target",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "Singing",
+       "set": {
+        "lfoDest": 0,
+        "lfoRate": 4,
+        "lfoDepth": 1
+       }
+      },
+      "stage": 4,
+      "knobs": [
+       "lfoDest",
+       "lfoRate",
+       "lfoDepth"
+      ],
+      "start": {
+       "wave": 1,
+       "pw": 0,
+       "cutoff": 4,
+       "res": 1,
+       "sustain": 3,
+       "lfoDest": 3,
+       "lfoRate": 1,
+       "lfoDepth": 0
+      },
+      "riff": 58
      }
     }
    ]

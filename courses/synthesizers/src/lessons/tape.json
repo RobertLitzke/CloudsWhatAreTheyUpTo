@@ -9,7 +9,7 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In 1948 the radio engineer [[Pierre Schaeffer]] was working in a studio of French radio in Paris, recording sounds onto lacquer discs and playing them back in every way the machines allowed: backwards, faster, slower, in loops. One day he recorded a struck bell and played it back with the first moment, the clang of the hammer, cut away. What was left no longer sounded like a bell. It sounded like an oboe, or a flute: a smooth, held tone.[^cloche]"
+     "text": "**The mystery.** In 1948 the radio engineer [[Pierre Schaeffer]] was working in a studio of French radio in Paris, recording sounds onto lacquer discs and playing them back in every way the machines allowed: backwards, faster, slower, in loops. One day he recorded a struck bell and played it back with the first moment, the clang of the hammer, cut away. What was left no longer sounded like a bell. It sounded like an oboe, or a flute: a smooth, held tone.[^cloche]"
     },
     {
      "type": "text",
@@ -17,7 +17,53 @@
     },
     {
      "type": "text",
-     "text": "A synth shapes every note in time with an **[[envelope]]**: four settings that describe how the note starts, how it settles, how long it holds and how it ends."
+     "text": "The synth can play the same trick. Below are three notes with exactly the same harmonics: the same wave through the same filter. Only their shape in time differs. One is an organ, one a bowed string, one a plucked harp."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "The same oscillator and filter, three instruments",
+     "options": {
+      "stage": 3,
+      "riff": 72,
+      "start": {
+       "wave": 0,
+       "cutoff": 2,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 4,
+       "release": 0,
+       "envAmt": 0
+      },
+      "sounds": [
+       {
+        "name": "Organ",
+        "set": {}
+       },
+       {
+        "name": "Bowed",
+        "set": {
+         "attack": 3,
+         "sustain": 4,
+         "release": 3
+        }
+       },
+       {
+        "name": "Plucked harp",
+        "set": {
+         "decay": 2,
+         "sustain": 0,
+         "release": 2,
+         "envAmt": 3
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "A synth shapes every note in time with an **[[envelope]]**: four settings that describe how the note starts, how it settles, how long it holds and how it ends. By the end of the lesson you will turn the organ into the harp."
     }
    ]
   },
@@ -210,6 +256,53 @@
     {
      "type": "text",
      "text": "This one connection, an envelope sweeping a resonant filter, is behind most of the classic synth sounds: the “bwow” of a synth brass section, the squelch of a bass line, the plink of a synth harp."
+    }
+   ]
+  },
+  {
+   "title": "Organ into harp",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Back to the three instruments from the start. The organ holds every note at full volume and full brightness until the key comes up. The harp is struck: it starts bright and dies away, darkening as it goes, whether the key is held or not. Which knobs say “dies away even while held”, and how fast? Which one says “starts bright”?"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The organ's envelope, with the harp to match.",
+     "task": "Turn the organ into the harp",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The harp",
+       "set": {
+        "decay": 2,
+        "sustain": 0,
+        "envAmt": 3
+       }
+      },
+      "stage": 3,
+      "knobs": [
+       "envAmt",
+       "decay",
+       "sustain"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 2,
+       "res": 1,
+       "attack": 0,
+       "decay": 0,
+       "sustain": 4,
+       "release": 2,
+       "envAmt": 0
+      },
+      "riff": 72
+     }
+    },
+    {
+     "type": "text",
+     "text": "Nothing about the oscillator moved. Schaeffer's razor and these three knobs do the same thing: they change a sound's shape in time, and the ear changes its mind about what made it."
     }
    ]
   },

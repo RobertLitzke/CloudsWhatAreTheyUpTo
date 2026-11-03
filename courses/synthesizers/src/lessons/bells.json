@@ -9,7 +9,43 @@
    "blocks": [
     {
      "type": "text",
-     "text": "In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a program that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a Leslie, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
+     "text": "**The sound.** A bell is one of the hardest sounds to make with a filter. Start from a bright saw, take harmonics away, and whatever you do it sounds like a note, never a clang. Yet here is a bell from the synth, made from nothing but two sine waves."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A sine wave struck like a bell, and the same sine with a second one hidden inside it",
+     "options": {
+      "stage": 6,
+      "riff": 72,
+      "start": {
+       "wave": 3,
+       "cutoff": 7,
+       "res": 0,
+       "attack": 0,
+       "decay": 4,
+       "sustain": 0,
+       "release": 3,
+       "fmAmount": 0,
+       "fmRatio": 3
+      },
+      "sounds": [
+       {
+        "name": "A plain sine",
+        "set": {}
+       },
+       {
+        "name": "A bell",
+        "set": {
+         "fmAmount": 3
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "It was found by accident. In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a program that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a Leslie, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
     },
     {
      "type": "text",
@@ -236,6 +272,52 @@
        }
       ]
      }
+    }
+   ]
+  },
+  {
+   "title": "Ringing the bell",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Back to the bell from the start. Its envelope is already set: struck, no sustain, a long ring. What is left is the FM. Does it clang, or does it sound like a note? A clang means a ratio that puts sidebands between the harmonics. How bright is the strike? That is the amount."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Two sines, struck like a bell, with the FM off.",
+     "task": "Ring the bell",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The bell",
+       "set": {
+        "fmRatio": 3,
+        "fmAmount": 3
+       }
+      },
+      "stage": 6,
+      "pad": [
+       "fmRatio",
+       "fmAmount"
+      ],
+      "start": {
+       "wave": 3,
+       "cutoff": 7,
+       "res": 0,
+       "attack": 0,
+       "decay": 4,
+       "sustain": 0,
+       "release": 3,
+       "fmAmount": 0,
+       "fmRatio": 1
+      },
+      "riff": 72
+     }
+    },
+    {
+     "type": "text",
+     "text": "A real bell's partials start bright and the high ones die first. Send the envelope to the FM amount as well, as the DX7 does, and the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
     }
    ]
   },

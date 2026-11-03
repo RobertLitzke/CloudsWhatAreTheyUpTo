@@ -10,16 +10,16 @@
 // across, then up), `flow` (draw the signal chain), `panel` (the whole panel
 // of the stage's modules, as a puzzle shows it, with `also` naming knobs of
 // earlier stages left live), `examples` (ready-made settings as buttons),
-// `riff` (a riff id; public-domain riffs only, so every build has it), and
-// `start` (knob positions on the step tables, set as the figure opens).
+// `riff` (a riff id; public-domain riffs only, so every build has it),
+// `start` (knob positions on the step tables, set as the figure opens) and
+// `target` (a sound to make, with a button to hear it; the goal "match" is
+// done when the knobs reach it, as in a PatchMatch puzzle).
 //
 // Knobs move in the same steps as PatchMatch's puzzles. Goals are tested on
 // the settings now and on every setting visited since the figure opened.
 
 import { el } from 'didactics/dom';
 import { figure, type Options } from 'didactics/figure';
-import { getEngine, peekEngine } from '../audio/engine';
-import { claim, release } from '../audio/claim';
 import { STAGES } from '../core/campaign';
 import { LATEST_RULES } from '../core/gen';
 import { PARAMS, PARAM_IDS, resolve, valueAt, type ParamId, type Patch } from '../core/params';
@@ -28,8 +28,7 @@ import { createFlow, type Flow } from '../game/components/flow';
 import type { Knob } from '../game/components/knob';
 import { createPad, type Pad } from '../game/components/pad';
 import { createControl, createPanel, type Panel } from '../game/components/panel';
-import { createScope } from '../game/components/scope';
-import { updateSave } from '../game/store';
+import { player } from './player';
 
 type Log = readonly Patch[];
 /** How many different positions of a knob the log has been through. */
@@ -83,7 +82,16 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'chain-cutoff': (_, log) => [0, 1].every((place) => log.some((p) => p.chain === place && p.cutoff <= 1)),
   'chain-last': (_, log) => been(log, 'chain', 1) && been(log, 'chain', 2),
   'chain-dark': (now) => now.drive === 0,
+  // Any stage: the reader's patch matches the figure's target on every knob the target sets.
+  match: () => false,
 };
+
+/** The test for a figure's goal: by name, or for "match" against the figure's own target. */
+export function goalFor(name: string, o: SynthOptions): ((now: Patch, log: Log) => boolean) | undefined {
+  if (name !== 'match') return SYNTH_GOALS[name];
+  const want = Object.entries(o.target?.set ?? {}) as [ParamId, number][];
+  return (now) => want.length > 0 && want.every(([id, pos]) => now[id] === pos);
+}
 
 export interface SynthOptions extends Options {
   /** The PatchMatch stage it teaches: its knobs are the panel's, and playing it counts the stage's lesson as read in the game. */
@@ -96,6 +104,8 @@ export interface SynthOptions extends Options {
   also?: ParamId[];
   examples?: { name: string; set: Partial<Patch> }[];
   riff?: number;
+  /** The sound to make: a name for its button, and the knob positions it sets on top of `start`. With goal "match", reaching them is the task. */
+  target?: { name: string; set: Partial<Patch> };
 }
 
 const isParam = (id: unknown): id is ParamId => typeof id === 'string' && (PARAM_IDS as readonly string[]).includes(id);
@@ -105,12 +115,20 @@ function problems(o: Options | undefined): string[] {
   if (!s) return ['needs options: at least a "stage"'];
   const out: string[] = [];
   if (!STAGES[s.stage - 1]) out.push(`stage ${s.stage} is not one of PatchMatch's ${STAGES.length}`);
-  const ids = [...(s.knobs ?? []), ...(s.pad ?? []), ...(s.also ?? []), ...Object.keys(s.start ?? {}), ...(s.examples ?? []).flatMap((e) => Object.keys(e.set))];
+  const ids = [...(s.knobs ?? []), ...(s.pad ?? []), ...(s.also ?? []), ...Object.keys(s.start ?? {}), ...(s.examples ?? []).flatMap((e) => Object.keys(e.set)), ...Object.keys(s.target?.set ?? {})];
   for (const id of ids) if (!isParam(id)) out.push(`no knob "${id}"`);
   for (const [id, pos] of Object.entries(s.start ?? {})) {
     if (isParam(id) && (pos < 0 || pos >= LATEST_RULES.steps[id].length)) out.push(`start: ${id} has no position ${pos}`);
   }
   if (!s.knobs?.length && !s.pad && !s.panel) out.push('has nothing to turn: give it "knobs", a "pad" or the "panel"');
+  if (s.target) {
+    const turnable = new Set<string>([...(s.knobs ?? []), ...(s.pad ?? []), ...(s.panel ? PARAM_IDS.filter((id) => PARAMS[id].stage === s.stage || s.also?.includes(id)) : [])]);
+    for (const [id, pos] of Object.entries(s.target.set)) {
+      if (!turnable.has(id)) out.push(`target: "${id}" is not one of the figure's controls`);
+      if (isParam(id) && (pos < 0 || pos >= LATEST_RULES.steps[id].length)) out.push(`target: ${id} has no position ${pos}`);
+    }
+    if (Object.entries(s.target.set).every(([id, pos]) => ({ ...LATEST_RULES.defaults, ...s.start })[id as ParamId] === pos)) out.push('target: the figure already starts on it');
+  }
   if (s.riff != null && !riffById(s.riff)?.pd) out.push(`riff ${s.riff} is not one of the public-domain riffs every build has`);
   return out;
 }
@@ -121,52 +139,45 @@ export const synthFigure = figure<SynthOptions>(
     const o = options ?? ({ stage: 1 } as SynthOptions);
     const rules = LATEST_RULES;
     const riff = riffById(o.riff ?? 69) ?? RIFFS[0];
-    const goal = t.goal ? SYNTH_GOALS[t.goal] : undefined;
+    const goal = t.goal ? goalFor(t.goal, o) : undefined;
     let patch: Patch = { ...rules.defaults, ...o.start };
     const log: Patch[] = [patch];
 
     const clamp = (id: ParamId, pos: number) => Math.min(rules.steps[id].length - 1, Math.max(0, Math.round(pos)));
     const fmt = (id: ParamId, pos: number) => PARAMS[id].format(valueAt(id, rules.steps[id], pos));
 
-    // --- sound -----------------------------------------------------------------
-    const scope = createScope();
-    let mine = false;
+    // --- sound: yours, or the target's -----------------------------------------
+    const target = o.target ? { ...patch, ...o.target.set } : null;
+    const sound = player(ctx.closed, riff, o.stage);
+    let hearing: 'yours' | 'target' = 'yours';
     const play = el('button.btn.play.btn-primary', { type: 'button', 'aria-label': 'Play' }, '▶') as HTMLButtonElement;
+    const hear = target
+      ? (el('button.btn.btn-small.hear', { type: 'button' }) as HTMLButtonElement)
+      : null;
     const paintPlay = () => {
-      const on = mine && peekEngine()?.playing === true;
-      play.textContent = on ? '■' : '▶';
-      play.setAttribute('aria-label', on ? 'Stop' : 'Play');
-    };
-    const stop = () => {
-      if (!mine) return;
-      mine = false;
-      scope.stop();
-      const engine = peekEngine();
-      if (engine) {
-        engine.onState = null;
-        engine.stop();
+      const on = sound.playing();
+      play.textContent = on && hearing === 'yours' ? '■' : '▶';
+      play.setAttribute('aria-label', on && hearing === 'yours' ? 'Stop' : 'Play yours');
+      if (hear) {
+        const onTarget = on && hearing === 'target';
+        hear.textContent = onTarget ? `■ ${o.target!.name}` : `▶ ${o.target!.name}`;
+        hear.classList.toggle('on', onTarget);
       }
-      release(stop);
-      paintPlay();
     };
+    sound.onChange = paintPlay;
     const start = () => {
-      const engine = getEngine();
-      if (mine && engine.playing) return;
-      claim(stop);
-      mine = true;
-      engine.onState = () => {
-        if (!engine.playing) stop();
-        paintPlay();
-      };
-      engine.setRiff(riff);
-      engine.setVoices([resolve(patch, rules.steps)]);
-      engine.start();
-      scope.start(engine.analyser);
-      if (o.stage) updateSave((s) => (s.lessons.includes(o.stage) ? s : { ...s, lessons: [...s.lessons, o.stage] }));
+      hearing = 'yours';
+      sound.play(resolve(patch, rules.steps));
       paintPlay();
     };
-    play.addEventListener('click', () => (mine && peekEngine()?.playing ? stop() : start()));
-    ctx.closed.addEventListener('abort', stop);
+    play.addEventListener('click', () => (sound.playing() && hearing === 'yours' ? sound.stop() : start()));
+    hear?.addEventListener('click', () => {
+      if (sound.playing() && hearing === 'target') return sound.stop();
+      hearing = 'target';
+      sound.play(resolve(target!, rules.steps));
+      paintPlay();
+    });
+    const scope = sound.scope;
 
     // --- the controls, all showing the one patch ----------------------------------
     const knobs: { id: ParamId; knob: Knob }[] = [];
@@ -182,7 +193,6 @@ export const synthFigure = figure<SynthOptions>(
       for (const { x, y, pad } of pads) pad.set(patch[x], patch[y]);
       flow?.set(sound);
       panel?.update(patch);
-      if (mine) peekEngine()?.setSound(0, sound);
     };
     const change = (next: Partial<Patch>) => {
       const moved = { ...patch };
@@ -193,6 +203,7 @@ export const synthFigure = figure<SynthOptions>(
       // Turning something is a request to hear it.
       start();
       if (goal?.(patch, log)) t.done();
+      if (matched) matched.hidden = !goal?.(patch, log);
     };
 
     const controls: HTMLElement[] = [];
@@ -229,15 +240,18 @@ export const synthFigure = figure<SynthOptions>(
       ? el('div.examples', {}, el('span.caps', {}, 'Try'), o.examples.map((ex) => el('button.btn.btn-small', { type: 'button', onclick: () => change(ex.set) }, ex.name)))
       : null;
 
+    const matched = target && t.goal === 'match' ? (el('p.matched', { hidden: true }, `That's it: ${o.target!.name.toLowerCase()}.`) as HTMLElement) : null;
     refresh();
+    paintPlay();
     return el(
       'div.synth-fig.pm',
       {},
-      el('div.synth-head', {}, play, el('p.note', {}, `${riff.title} loops while you turn the knobs.`)),
+      el('div.synth-head', {}, play, hear, el('p.note', {}, target ? `▶ plays yours, the other button the sound you're after. ${riff.title} loops on both.` : `${riff.title} loops while you turn the knobs.`)),
       scope.el,
       controls.length ? el('div.part-controls', {}, controls) : null,
       examples,
       panel?.el ?? null,
+      matched,
     );
   },
   { options: problems },

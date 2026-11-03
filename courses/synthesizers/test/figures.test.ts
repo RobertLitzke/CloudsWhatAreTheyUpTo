@@ -10,7 +10,7 @@ import { WRITTEN } from '../src/lessons';
 import { STAGE_LESSONS, STAGES } from '../src/core/campaign';
 import { LATEST_RULES } from '../src/core/gen';
 import type { ParamId, Patch } from '../src/core/params';
-import { SYNTH_GOALS, type SynthOptions } from '../src/figures/synth';
+import { goalFor, type SynthOptions } from '../src/figures/synth';
 import { partials, sumAt } from '../src/figures/harmonics';
 import { nearestVowel } from '../src/figures/vowel';
 import { beatEnvelope } from '../src/figures/beats';
@@ -49,27 +49,36 @@ describe('the synth figure', () => {
   const synthBlocks = blocks.filter(({ b }) => b.id === 'synth');
   it.each(synthBlocks.map(({ lesson, b }) => [`${lesson}: ${'goal' in b ? b.goal : ''}`, b] as const))('%s can be met', (_, b) => {
     const o = b.options as unknown as SynthOptions;
-    const goal = SYNTH_GOALS[(b as { goal: string }).goal];
+    const name = (b as { goal: string }).goal;
+    const goal = goalFor(name, o);
     expect(goal).toBeTruthy();
     const ids: ParamId[] = [...(o.knobs ?? []), ...(o.pad ?? [])];
-    if (o.panel) ids.push('chain', 'drive', 'cutoff');
+    if (o.panel) ids.push('chain', 'drive', 'cutoff', ...(o.also ?? []));
     const start: Patch = { ...LATEST_RULES.defaults, ...o.start };
+    if (name === 'match') {
+      // A sound to make: not where it starts, and every knob it sets is one the reader can turn.
+      expect(goal!(start, [start])).toBe(false);
+      for (const id of Object.keys(o.target!.set)) expect(ids, id).toContain(id);
+      const there = { ...start, ...o.target!.set };
+      expect(goal!(there, [start, there])).toBe(true);
+      return;
+    }
     const log: Patch[] = [start];
     let now = start;
-    let met = goal(now, log);
+    let met = goal!(now, log);
     // Visit every position of every control, then every pair, in order.
     for (const id of ids) {
       for (let p = 0; p < LATEST_RULES.steps[id].length && !met; p++) {
         now = { ...now, [id]: p };
         log.push(now);
-        met = goal(now, log);
+        met = goal!(now, log);
       }
     }
     for (const a of ids) for (const c of ids) {
       for (let p = 0; p < LATEST_RULES.steps[a].length && !met; p++) for (let q = 0; q < LATEST_RULES.steps[c].length && !met; q++) {
         now = { ...now, [a]: p, [c]: q };
         log.push(now);
-        met = goal(now, log);
+        met = goal!(now, log);
       }
     }
     expect(met).toBe(true);

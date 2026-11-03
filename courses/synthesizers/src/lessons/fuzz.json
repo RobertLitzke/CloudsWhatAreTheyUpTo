@@ -9,6 +9,43 @@
    "blocks": [
     {
      "type": "text",
+     "text": "**The sound.** Here is a clean, plucked synth line, and the same line as a fuzz guitar: thick, buzzing, every note hanging on. You will make the second from the first. The story of how anyone came to want it begins with a broken amplifier."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A plucked saw, clean and fuzzed",
+     "options": {
+      "stage": 7,
+      "riff": 69,
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 0,
+       "attack": 0,
+       "decay": 3,
+       "sustain": 1,
+       "release": 1,
+       "drive": 0,
+       "driveTone": 4
+      },
+      "sounds": [
+       {
+        "name": "Clean",
+        "set": {}
+       },
+       {
+        "name": "Fuzz",
+        "set": {
+         "drive": 3,
+         "driveTone": 1
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
      "text": "In March 1951 a young band from Mississippi drove to Memphis to record at Sam Phillips's little studio. On the way, the story goes, the guitar amplifier fell off the car roof onto the road, and its speaker cone split. There was no time to fix it. Phillips stuffed paper into the tear and recorded anyway, and the guitar on “Rocket 88” came out fat and fuzzy, buzzing in a way no amplifier was meant to.[^rocket88] It was a hit."
     },
     {
@@ -215,6 +252,48 @@
         }
        }
       ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "The fuzz guitar",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now the fuzz from the start of the lesson. Does each note hang on, or die as fast as the clean one? That says how hard the drive is pushed. Is the fizz on top sharp, like a wasp, or rounded off, like a speaker stuffed with paper? That is the tone."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The clean pluck and the drive pedal, with the fuzz to match.",
+     "task": "Make the clean line into the fuzz",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The fuzz",
+       "set": {
+        "drive": 3,
+        "driveTone": 1
+       }
+      },
+      "stage": 7,
+      "knobs": [
+       "drive",
+       "driveTone"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 0,
+       "attack": 0,
+       "decay": 3,
+       "sustain": 1,
+       "release": 1,
+       "drive": 0,
+       "driveTone": 4
+      },
+      "riff": 69
      }
     }
    ]

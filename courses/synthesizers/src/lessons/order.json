@@ -9,11 +9,57 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Guitarists can argue for hours about what order to plug their pedals in. To an outsider it seems like a fuss over nothing. If you turn the treble down and then turn the volume up, you get the same as turning the volume up and then the treble down. Two plus three is three plus two. So why should a drive pedal before an echo sound any different from an echo before a drive?"
+     "text": "**The mystery.** Guitarists can argue for hours about what order to plug their pedals in. To an outsider it seems like a fuss over nothing. If you turn the treble down and then turn the volume up, you get the same as turning the volume up and then the treble down. Two plus three is three plus two. So why should a drive pedal before an echo sound any different from an echo before a drive?"
     },
     {
      "type": "text",
-     "text": "It does, and the reason is one of the deepest ideas in physics. A note goes through the synth in a line: oscillator, filter, then the pedals, each part working on what the one before it handed on. So far the drive has sat between the filter and the echo, where a pedal usually goes. Move it, and the same knobs make a different sound."
+     "text": "It does, and the reason is one of the deepest ideas in physics. A note goes through the synth in a line: oscillator, filter, then the pedals, each part working on what the one before it handed on. So far the drive has sat between the filter and the echo, where a pedal usually goes. Move it, and the same knobs make a different sound. Listen: every knob below is set the same in all three, and only the drive's place in the line differs."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "One patch, every knob the same, with the drive in three places",
+     "options": {
+      "stage": 9,
+      "riff": 69,
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 2,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 1,
+       "release": 1,
+       "drive": 3,
+       "driveTone": 4,
+       "echoTime": 2,
+       "echoRepeats": 1,
+       "echoMix": 2,
+       "chain": 1
+      },
+      "sounds": [
+       {
+        "name": "Drive in the middle",
+        "set": {}
+       },
+       {
+        "name": "Drive first",
+        "set": {
+         "chain": 0
+        }
+       },
+       {
+        "name": "Drive last",
+        "set": {
+         "chain": 2
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Three different sounds from the same settings. Why? By the end of the lesson you will be able to say which parts of a chain can be swapped without changing a thing, and which can't, and you will hear where a drive sits."
     }
    ]
   },
@@ -183,15 +229,22 @@
     },
     {
      "type": "text",
-     "text": "That is the whole synth: oscillators, filter, envelopes, LFO, FM, drive and echo, in a line you can rearrange. Every knob is out on the panel below. The [Synth lab](#/lab) has the same panel with a keyboard to play it, and [PatchMatch](#/ear) will test whether you can hear what each knob does."
+     "text": "That is the whole synth: oscillators, filter, envelopes, LFO, FM, drive and echo, in a line you can rearrange. One last puzzle, on the full panel as [PatchMatch](#/ear) shows it. The sound below is a dirty wash: the echoes come back nearly as loud as the notes and smear into them. Where must the drive be for that to happen? And how long is the trail? The [Synth lab](#/lab) has the same panel with a keyboard to play it."
     },
     {
      "type": "interactive_diagram",
      "id": "synth",
-     "caption": "Every knob from the lessons on one panel, as a PatchMatch puzzle shows it.",
-     "task": "Put the drive First and listen to the whole patch",
-     "goal": "chain-first",
+     "caption": "Every knob from the lessons on one panel, as a PatchMatch puzzle shows it, with a sound to match.",
+     "task": "Match the smeared wash: where is the drive, and how long is the trail?",
+     "goal": "match",
      "options": {
+      "target": {
+       "name": "The wash",
+       "set": {
+        "chain": 2,
+        "echoRepeats": 2
+       }
+      },
       "stage": 9,
       "panel": true,
       "also": [
@@ -218,28 +271,7 @@
        "echoMix": 2,
        "chain": 1
       },
-      "riff": 69,
-      "examples": [
-       {
-        "name": "Pedalboard",
-        "set": {
-         "chain": 1
-        }
-       },
-       {
-        "name": "Driven filter",
-        "set": {
-         "chain": 0
-        }
-       },
-       {
-        "name": "Smeared echoes",
-        "set": {
-         "chain": 2,
-         "echoMix": 2
-        }
-       }
-      ]
+      "riff": 69
      }
     }
    ]

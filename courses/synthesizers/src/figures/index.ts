@@ -11,6 +11,7 @@ import { echoFigure } from './echo';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
 import { sidebandsFigure } from './sidebands';
+import { soundFigure } from './sound';
 import { synthFigure } from './synth';
 import { vowelFigure } from './vowel';
 
@@ -19,6 +20,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   check: checkFigure,
   // The live synth, in every lesson.
   synth: synthFigure,
+  // The sound a lesson is after, to listen to before there is anything to turn.
+  sound: soundFigure,
   // Lesson 1
   harmonics: harmonicsFigure,
   // Lesson 2

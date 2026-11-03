@@ -9,7 +9,43 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Most notes on a piano have two or three strings each, struck together by one hammer. A piano tuner has to get each set exactly in tune with itself. Strange to say, they don't do it by judging the pitch. They listen for something else: a slow swelling and fading in the sound, a wah-wah-wah, which tells them the strings are slightly apart. They turn the tuning pin until it slows, and slows, and stops."
+     "text": "**The sound.** One oscillator sounds like one thin instrument. The string pads of 1970s records, the huge leads of 1990s dance music, sound like a whole section playing at once. Here is the thin version and the big one."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "One saw, and a sound like a section of them",
+     "options": {
+      "stage": 5,
+      "riff": 58,
+      "start": {
+       "wave": 0,
+       "cutoff": 5,
+       "res": 0,
+       "sustain": 4,
+       "release": 2,
+       "osc2Level": 0,
+       "osc2Detune": 0,
+       "osc2Interval": 0
+      },
+      "sounds": [
+       {
+        "name": "One saw",
+        "set": {}
+       },
+       {
+        "name": "A section",
+        "set": {
+         "osc2Level": 4,
+         "osc2Detune": 3
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The secret is in a sound piano tuners spend their lives trying to get rid of. Most notes on a piano have two or three strings each, struck together by one hammer. A piano tuner has to get each set exactly in tune with itself. Strange to say, they don't do it by judging the pitch. They listen for something else: a slow swelling and fading in the sound, a wah-wah-wah, which tells them the strings are slightly apart. They turn the tuning pin until it slows, and slows, and stops."
     },
     {
      "type": "interactive_diagram",
@@ -217,6 +253,53 @@
        }
       ]
      }
+    }
+   ]
+  },
+  {
+   "title": "From one to a section",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Back to the big sound from the start. Is it a chord, or one note made thick? One note: the pitch is the same as the thin saw's. So the second oscillator plays in unison. Does it swell slowly or shimmer quickly? That is the detune. And how loud is the second one against the first: a hint, or an equal partner?"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Both oscillators, the second set a fifth up and switched off, with the section to match.",
+     "task": "Make the thin saw into the section",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The section",
+       "set": {
+        "osc2Level": 4,
+        "osc2Detune": 3,
+        "osc2Interval": 0
+       }
+      },
+      "stage": 5,
+      "knobs": [
+       "osc2Level",
+       "osc2Detune",
+       "osc2Interval"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 5,
+       "res": 0,
+       "sustain": 4,
+       "release": 2,
+       "osc2Level": 0,
+       "osc2Detune": 0,
+       "osc2Interval": 2
+      },
+      "riff": 58
+     }
+    },
+    {
+     "type": "text",
+     "text": "String machines of the 1970s, like the ARP Solina, did this with a chorus circuit that copied the sound and wobbled the copy's pitch, so the beating never settled. The supersaw does it with seven oscillators. The idea is the same as the tuner's beats, used the other way: not to find where two strings agree, but to keep them from ever agreeing."
     }
    ]
   },

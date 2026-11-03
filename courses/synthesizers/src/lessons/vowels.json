@@ -9,7 +9,38 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Sing a long “ee” on one comfortable note, then slide to “ah” without changing the note. The pitch stays put. Your throat is making the same buzz at the same rate. And yet the sound changes completely. What changed, if not the buzz?"
+     "text": "**The sound.** Listen to old synth records and you keep hearing a voice that isn't there: a buzz that seems to say “ow” or “yow”, a bass that talks. Here is the raw buzz of the synth, and the same buzz made to sing. Nothing about the oscillator is different. Something after it is."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A saw wave, and the same saw sounding like a voice",
+     "options": {
+      "stage": 2,
+      "riff": 69,
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "res": 0
+      },
+      "sounds": [
+       {
+        "name": "Raw buzz",
+        "set": {}
+       },
+       {
+        "name": "A voice",
+        "set": {
+         "cutoff": 2,
+         "res": 3
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The clue is in your own throat. Sing a long “ee” on one comfortable note, then slide to “ah” without changing the note. The pitch stays put. Your throat is making the same buzz at the same rate. And yet the sound changes completely. What changed, if not the buzz?"
     },
     {
      "type": "text",
@@ -200,6 +231,46 @@
    ]
   },
   {
+   "title": "Making it talk",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now the voice from the start of the lesson. Listen to it against the raw buzz and ask the question from the last section. Is it darker? Much: most of the top has gone. Has it got a peak? Yes, a hollow, ringing one, like a formant. So the cutoff comes down and the resonance comes up. How far each goes is for your ear to decide."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The saw and its filter, with the voice to match.",
+     "task": "Make the buzz sing like the voice",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The voice",
+       "set": {
+        "cutoff": 2,
+        "res": 3
+       }
+      },
+      "stage": 2,
+      "knobs": [
+       "cutoff",
+       "res"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "res": 0
+      },
+      "riff": 69
+     }
+    },
+    {
+     "type": "text",
+     "text": "A single resonant low-pass gives one formant, so it can only suggest a vowel, an “aw” or an “oo”. Two or three peaks moving together, as in the figure earlier, make speech. Machines that do this to a real voice, the **talk box** and the **vocoder**, put a singer's mouth on a guitar or a synth.[^vocoder]"
+    }
+   ]
+  },
+  {
    "title": "Check",
    "blocks": [
     {
@@ -294,6 +365,11 @@
    "kind": "digression",
    "title": "The Moog ladder",
    "text": "Moog patented the filter in 1969. It takes four stages in a row, each rolling off 6 decibels per octave, for 24 in all: a steeper edge than most rivals'. Feeding some of its output back to its input gives the resonance, and with enough feedback it oscillates as a pure tone."
+  },
+  "vocoder": {
+   "kind": "digression",
+   "title": "Talk boxes and vocoders",
+   "text": "A talk box pipes a guitar's sound up a plastic tube into the player's mouth, which shapes it into vowels for a microphone: Peter Frampton's “Show Me the Way” (1975). A vocoder, invented at Bell Labs in 1938 to squeeze speech down telephone lines, measures a voice's formants band by band and imposes them on a synth; Wendy Carlos used one for A Clockwork Orange in 1971."
   },
   "khoomei": {
    "kind": "digression",

@@ -9,7 +9,53 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Clap your hands in a small room and you hear one clap. Do the same facing a cliff or a big building across a square and you hear two: your clap, and a moment later the wall's. The wall answers in both cases. What changes is how long it takes."
+     "text": "**The sound.** Here is a plain line of plucked notes, then the same notes with two echoes behind them: a quick slap that makes the line sound like a 1950s record, and a galloping run of echoes that makes it sound like a stadium. Same notes in, three sounds out. By the end of the lesson you will set the gallop by ear."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "Plucked notes dry, with a slapback, and galloping",
+     "options": {
+      "stage": 8,
+      "riff": 72,
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "echoTime": 1,
+       "echoRepeats": 0,
+       "echoMix": 0
+      },
+      "sounds": [
+       {
+        "name": "Dry",
+        "set": {}
+       },
+       {
+        "name": "Slapback",
+        "set": {
+         "echoTime": 0,
+         "echoMix": 2
+        }
+       },
+       {
+        "name": "Gallop",
+        "set": {
+         "echoTime": 2,
+         "echoRepeats": 2,
+         "echoMix": 2
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Every echo starts with a wall. Clap your hands in a small room and you hear one clap. Do the same facing a cliff or a big building across a square and you hear two: your clap, and a moment later the wall's. The wall answers in both cases. What changes is how long it takes."
     },
     {
      "type": "text",
@@ -214,6 +260,51 @@
         }
        }
       ]
+     }
+    }
+   ]
+  },
+  {
+   "title": "The gallop",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now the gallop from the start. Do the echoes land on the beat, or between the notes? How many come back before they fade? And are they nearly as loud as the notes, or a shadow behind them? Those are the three knobs: time, repeats and mix."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The echo pedal, switched off, with the gallop to match.",
+     "task": "Set the echo to gallop",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The gallop",
+       "set": {
+        "echoTime": 2,
+        "echoRepeats": 2,
+        "echoMix": 2
+       }
+      },
+      "stage": 8,
+      "knobs": [
+       "echoTime",
+       "echoRepeats",
+       "echoMix"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 0,
+       "decay": 2,
+       "sustain": 0,
+       "release": 1,
+       "echoTime": 1,
+       "echoRepeats": 0,
+       "echoMix": 0
+      },
+      "riff": 72
      }
     }
    ]

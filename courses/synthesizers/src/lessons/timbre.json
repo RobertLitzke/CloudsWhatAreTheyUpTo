@@ -9,7 +9,44 @@
    "blocks": [
     {
      "type": "text",
-     "text": "Play the A above middle C on a clarinet, then on a flute. The pitch is the same: both make the air shake 440 times a second. Play them equally loud. Anyone can still tell which is which, with their eyes shut, from a single held note. So what is different? Pitch and loudness are only two numbers, and the two instruments agree on both. Whatever is left over has a name, **[[timbre]]**, and for most of history nobody could say what it was."
+     "text": "**The mystery.** Play the A above middle C on a clarinet, then on a flute. The pitch is the same: both make the air shake 440 times a second. Play them equally loud. Anyone can still tell which is which, with their eyes shut, from a single held note. So what is different? Pitch and loudness are only two numbers, and the two instruments agree on both. Whatever is left over has a name, **[[timbre]]**, and for most of history nobody could say what it was."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "One oscillator playing the same riff three ways: the same notes, equally loud",
+     "options": {
+      "stage": 1,
+      "riff": 69,
+      "start": {
+       "wave": 0,
+       "pw": 0
+      },
+      "sounds": [
+       {
+        "name": "Bright buzz",
+        "set": {
+         "wave": 0
+        }
+       },
+       {
+        "name": "Hollow, like a clarinet",
+        "set": {
+         "wave": 1
+        }
+       },
+       {
+        "name": "Soft, like a flute",
+        "set": {
+         "wave": 2
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "A synthesizer has the same puzzle in miniature. Its oscillator can play the riff above as a bright buzz, a hollow woodwind or a soft one, and nothing changes but one switch. What is that switch changing? By the end of the lesson you will know, and you will find a fourth woodwind by ear."
     },
     {
      "type": "text",
@@ -217,6 +254,45 @@
       ],
       "spacing": "even"
      }
+    }
+   ]
+  },
+  {
+   "title": "A reed by ear",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Here is the puzzle turned round. The sound below is one of the synth's waves, and if it is a pulse, one of its widths. It is reedy and nasal, more oboe than clarinet. Listen to it, then listen to yours, and work out what must be in it: are the low harmonics strong or thin? Is it hollow, or does it have every harmonic like the saw?"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The oscillator again, with a woodwind to match. The left button plays yours, the right one the sound you are after.",
+     "task": "Match the reed by ear",
+     "goal": "match",
+     "options": {
+      "target": {
+       "name": "The reed",
+       "set": {
+        "wave": 1,
+        "pw": 3
+       }
+      },
+      "stage": 1,
+      "knobs": [
+       "wave",
+       "pw"
+      ],
+      "start": {
+       "wave": 0,
+       "pw": 0
+      },
+      "riff": 69
+     }
+    },
+    {
+     "type": "text",
+     "text": "That is all there is to the first stage of [PatchMatch](#/ear): hear a sound, guess what it is made of, turn the knobs until yours and the target can't be told apart. Every later lesson adds a knob and a new way to change the harmonics."
     }
    ]
   },
