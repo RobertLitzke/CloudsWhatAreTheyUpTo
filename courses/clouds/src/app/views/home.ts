@@ -6,8 +6,9 @@
 import { BRANCHES, TREE_LESSONS, lessonName } from '../../core/shifts';
 import { el } from 'didactics/dom';
 import { passed, skipLesson } from 'didactics/progress';
-import { resumeFor } from 'didactics/resume';
+import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
+import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { nextLesson, treeView, type TreeNode } from 'didactics/tree';
 import { placeCloud } from '../scene/drawn';
 import { makeScene } from '../scene/landscape';
@@ -33,73 +34,74 @@ export const homeView: View = (root, nav) => {
   const nextUp = nextLesson(TREE_LESSONS, save) as Exclude<Item, { coming: true }> | undefined;
   const trained = passed(save, 'local-sky');
   /** Started, left part way, and still there to pick up. */
-  const started = (s: Item) => !('coming' in s) && !save.lessons[s.id]?.done && resumeFor(save.resume, s.id, s) !== undefined;
+  const started = (s: Item) => !('coming' in s) && lessonStatus(save, s) === 'started';
   const names = (ls: readonly Item[]) => ls.map(lessonName).join(' and ');
 
   const card = ({ lesson: s, state, missing, wanting }: TreeNode<Item>) => {
     const rec = save.lessons[s.id];
-    const go = rec?.done ? 'Again' : started(s) ? 'Continue' : 'Start';
+    const standing = 'coming' in s ? 'new' : lessonStatus(save, s);
     const status = state === 'done' && rec ? `${save.talk ? 'Radio check' : 'Check'}: ${rec.best} of ${rec.of}`
       : state === 'skipped' ? 'Skipped'
         : state === 'coming' ? 'Coming'
           : state === 'locked' && missing.length ? `After ${names(missing)}`
-            : state === 'soft' ? `Better after ${names(wanting)}`
-              : null;
+            : started(s) ? progressLine(save, s)
+              : state === 'soft' ? `Better after ${names(wanting)}`
+                : null;
     const open = state !== 'locked' && state !== 'coming';
-    return el('div.shift-card', { className: `shift-card ${state === 'next' ? 'next' : ''}` },
+    return el('div.shift-card', { className: `shift-card stand-${standing}${state === 'next' ? ' next' : ''}` },
       el('div', {}, el('h3', {}, s.title), el('p', {}, s.teaches), status ? el('p.score', {}, status) : null),
       open ? el('div.shift-actions', {},
-        el('a.btn', { href: `#/shift/${s.id}` }, go),
+        lessonGo(`#/shift/${s.id}`, standing),
         state === 'next' ? el('button.btn.btn-ghost.btn-small', { type: 'button', onclick: () => { updateSave((v) => skipLesson(v, s.id)); nav.replace('/home'); } }, 'Skip') : null,
       ) : null,
     );
   };
 
-  root.append(
+  const page = el(
+    'div.home',
+    {},
     el(
-      'div.home',
+      'section.hero',
+      {},
+      scene.root,
+      el(
+        'div.hero-text',
+        {},
+        el('p.eyebrow', {}, save.talk ? `Harrow, Adams County, Washington · ${trained ? 1946 : 1931}` : 'A cloud workbook'),
+        el('h1.poster-type', {}, 'Clouds'),
+        el('p.subtitle.poster-type', {}, 'What are they up to?'),
+      ),
+    ),
+    el(
+      'section.page',
       {},
       el(
-        'section.hero',
+        'div.letter',
         {},
-        scene.root,
-        el(
-          'div.hero-text',
-          {},
-          el('p.eyebrow', {}, save.talk ? `Harrow, Adams County, Washington · ${trained ? 1946 : 1931}` : 'A cloud workbook'),
-          el('h1.poster-type', {}, 'Clouds'),
-          el('p.subtitle.poster-type', {}, 'What are they up to?'),
-        ),
+        save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
+        ...(save.talk
+          ? [
+              el('p', {}, 'It is 1931, and you are the new weather forecaster in Harrow, a wheat town in the dry hills of eastern Washington.'),
+              el('p', {}, 'An old hand at Walla Walla, a few counties over, will come on the radio as you start each lesson, and quiz you at the end.'),
+            ]
+          : [el('p', {}, 'Short lessons on what a cloud is made of, how to name every kind, and what each one says about the weather to come. Branches fork off the main line for weather further afield, and the last lesson is on cloud seeding.')]),
       ),
+      nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, started(nextUp) ? `Continue ${lessonName(nextUp).toLowerCase()}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `${lessonName(nextUp)}: ${nextUp.title}`) : null,
+      el('h2', {}, 'Lessons'),
+      treeView({ lessons: TREE_LESSONS, branches: BRANCHES, save, card, remember: 'clouds.tree' }),
+      // Open from the start: the natural skies can be made as soon as their
+      // clouds are met; the seeding orders wait on the cloud-seeding lesson.
       el(
-        'section.page',
-        {},
-        el(
-          'div.letter',
-          {},
-          save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
-          ...(save.talk
-            ? [
-                el('p', {}, 'It is 1931, and you are the new weather forecaster in Harrow, a wheat town in the dry hills of eastern Washington.'),
-                el('p', {}, 'An old hand at Walla Walla, a few counties over, will come on the radio as you start each lesson, and quiz you at the end.'),
-              ]
-            : [el('p', {}, 'Short lessons on what a cloud is made of, how to name every kind, and what each one says about the weather to come. Branches fork off the main line for weather further afield, and the last lesson is on cloud seeding.')]),
-        ),
-        nextUp ? el('a.btn.btn-big', { href: `#/shift/${nextUp.id}` }, started(nextUp) ? `Continue ${lessonName(nextUp).toLowerCase()}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `${lessonName(nextUp)}: ${nextUp.title}`) : null,
-        el('h2', {}, 'Lessons'),
-        treeView({ lessons: TREE_LESSONS, branches: BRANCHES, save, card, remember: 'clouds.tree' }),
-        // Open from the start: the natural skies can be made as soon as their
-        // clouds are met; the seeding orders wait on the cloud-seeding lesson.
-        el(
-          'div.seeding',
-          { className: 'seeding open' },
-          el('h2', {}, 'The forecast desk: make the sky'),
-          el('p', {}, 'Set the heat, the moisture and what lifts the air, and make the skies on the list. The orders marked Seed are for after the cloud-seeding lesson.'),
-          el('a.btn', { href: '#/seed' }, 'Take the orders'),
-        ),
+        'div.seeding',
+        { className: 'seeding open' },
+        el('h2', {}, 'The forecast desk: make the sky'),
+        el('p', {}, 'Set the heat, the moisture and what lifts the air, and make the skies on the list. The orders marked Seed are for after the cloud-seeding lesson.'),
+        el('a.btn', { href: '#/seed' }, 'Take the orders'),
       ),
     ),
   );
+  root.append(page);
+  const forget = keepPlace(page, 'clouds.home-place');
 
   // The opening talk, once, after the poster has had its moment. Turning the
   // radio off in it redraws the page without the story.
@@ -113,6 +115,7 @@ export const homeView: View = (root, nav) => {
     }, 1800);
   }
   return () => {
+    forget();
     clearTimeout(timer);
     clearRadio();
   };

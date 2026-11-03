@@ -3,8 +3,9 @@
 // lessons open, the rest shown as coming), and the way to the reference page.
 
 import { el } from 'didactics/dom';
-import { resumeFor } from 'didactics/resume';
+import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
+import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS, lessonsIn, TRACKS, type Lesson } from '../../core/lessons';
 import { makeBoard } from '../scene/board';
 import { getSave } from '../store';
@@ -14,17 +15,18 @@ export const homeView: View = (root) => {
   const written = LESSONS.filter(isWritten);
   const nextUp = written.find((l) => !save.lessons[l.id]?.done);
   // A lesson left part way opens where the reader was (Didactics' resume.ts).
-  const leftPartWay = (l: Lesson) => !save.lessons[l.id]?.done && resumeFor(save.resume, l.id, l) !== undefined;
+  const leftPartWay = (l: Lesson) => lessonStatus(save, l) === 'started';
 
   const card = (l: Lesson) => {
     const rec = save.lessons[l.id];
     const open = isWritten(l);
+    const standing = open ? lessonStatus(save, l) : 'new';
     return el(
       'li.lesson-card',
-      { className: `lesson-card ${rec?.done ? 'done' : open ? 'open' : 'soon'}` },
+      { className: `lesson-card ${rec?.done ? 'done' : open ? 'open' : 'soon'} stand-${standing}`, dataset: { lesson: l.id } },
       el('span.lesson-n', {}, String(l.n)),
-      el('div', {}, el('h3', {}, l.title), el('p', {}, l.teaches), rec?.done ? el('p.score', {}, `Check: ${rec.best} of ${rec.of}`) : null),
-      open ? el('a.btn', { href: `#/lesson/${l.id}` }, rec?.done ? 'Again' : leftPartWay(l) ? 'Continue' : 'Start') : el('span.tag', {}, 'Coming'),
+      el('div', {}, el('h3', {}, l.title), el('p', {}, l.teaches), rec?.done ? el('p.score', {}, `Check: ${rec.best} of ${rec.of}`) : standing === 'started' ? el('p.score', {}, progressLine(save, l)) : null),
+      open ? lessonGo(`#/lesson/${l.id}`, standing) : el('span.tag', {}, 'Coming'),
     );
   };
 
@@ -70,4 +72,5 @@ export const homeView: View = (root) => {
       ),
     ),
   );
+  return keepPlace(root, 'electronics.home-place');
 };
