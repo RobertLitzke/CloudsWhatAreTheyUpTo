@@ -28,12 +28,25 @@ export interface CourseInfo {
   theme?: { bg: string; panel?: string; text: string; accent: string; good?: string; bad?: string; display?: string };
 }
 
+/** What the catalog needs of one lesson: to name it, link to it and say which part the reader is on. */
+export interface LessonInfo {
+  /** Its id, as in its save and its address (#/lesson/<id>). */
+  id: string;
+  /** Its number; a branch lesson's is in the hundreds. */
+  n: number;
+  title: string;
+  /** How many parts it has. */
+  parts: number;
+}
+
 /** A course as the catalog page gets it. */
 export interface CatalogEntry extends Omit<CourseInfo, 'lessons' | 'icon'> {
   /** The course's folder, and its address on the site. */
   folder: string;
   /** How many lessons it has. */
   lessonCount: number;
+  /** Its written lessons, by number, for Continue and for where it begins. */
+  lessonList: LessonInfo[];
   /** The icon as a data URI, so the page carries it inline. */
   icon: string;
 }
@@ -60,6 +73,13 @@ function dataUri(file: string): string {
   return `data:${type};base64,${readFileSync(file).toString('base64')}`;
 }
 
+/** One lesson file as the catalog needs it, or nothing if it is not a written lesson. */
+function lessonInfo(file: string): LessonInfo[] {
+  const l = JSON.parse(readFileSync(file, 'utf8')) as { id?: unknown; n?: unknown; title?: unknown; parts?: unknown; coming?: unknown };
+  if (typeof l.id !== 'string' || typeof l.title !== 'string' || l.coming || !Array.isArray(l.parts) || !l.parts.length) return [];
+  return [{ id: l.id, n: typeof l.n === 'number' ? l.n : 0, title: l.title, parts: l.parts.length }];
+}
+
 /** Every course under `coursesDir`, in catalog order. Throws on a malformed course.json. */
 export function readCatalog(coursesDir: string): CatalogEntry[] {
   const entries: CatalogEntry[] = [];
@@ -70,10 +90,12 @@ export function readCatalog(coursesDir: string): CatalogEntry[] {
     const problems = infoProblems(folder, info);
     if (problems.length) throw new Error(problems.join('\n'));
     const { lessons, icon, ...rest } = info;
+    const files = readdirSync(join(coursesDir, folder, lessons)).filter((f) => f.endsWith('.json'));
     entries.push({
       ...rest,
       folder,
-      lessonCount: readdirSync(join(coursesDir, folder, lessons)).filter((f) => f.endsWith('.json')).length,
+      lessonCount: files.length,
+      lessonList: files.flatMap((f) => lessonInfo(join(coursesDir, folder, lessons, f))).sort((a, b) => a.n - b.n),
       icon: dataUri(join(coursesDir, folder, icon)),
     });
   }
@@ -85,6 +107,17 @@ export interface CatalogMap {
   /** Each course's place, by folder: x across 0-1000, y down 0-700. */
   courses: Record<string, [number, number]>;
   bridges: Bridge[];
+  /** The front page's shelves, top to bottom: every course but a bridge's own sits on one. */
+  shelves?: Shelf[];
+}
+
+/** A row of the front page: a few courses that belong together. */
+export interface Shelf {
+  title: string;
+  /** A few words under the title. */
+  note?: string;
+  /** Its courses, by folder, left to right. */
+  courses: string[];
 }
 
 /** A short course that joins two courses, drawn on the line between them. */
@@ -120,13 +153,26 @@ export function mapProblems(map: CatalogMap, folders: readonly string[]): string
     if (b.folder !== undefined && !folders.includes(b.folder)) out.push(`catalog/map.json: bridge "${b.id}" names courses/${b.folder}, which has no course.json`);
     if (b.at !== undefined && !(b.at > 0 && b.at < 1)) out.push(`catalog/map.json: bridge "${b.id}" has "at" outside 0 to 1`);
   }
+  if (map.shelves) {
+    const shelved = new Map<string, string>();
+    for (const s of map.shelves) {
+      if (!s.title?.trim() || !Array.isArray(s.courses) || !s.courses.length) out.push(`catalog/map.json: a shelf needs a title and courses`);
+      for (const f of s.courses ?? []) {
+        if (!folders.includes(f)) out.push(`catalog/map.json: shelf "${s.title}" holds ${f}, which has no course`);
+        if (shelved.has(f)) out.push(`catalog/map.json: ${f} is on two shelves, "${shelved.get(f)}" and "${s.title}"`);
+        shelved.set(f, s.title);
+      }
+    }
+    const bridgeFolders = new Set((map.bridges ?? []).flatMap((b) => (b.folder ? [b.folder] : [])));
+    for (const f of folders) if (!shelved.has(f) && !bridgeFolders.has(f)) out.push(`catalog/map.json: ${f} is on no shelf`);
+  }
   return out;
 }
 
 /** The map, checked against the courses there are. Throws on a mistake in it. */
 export function readMap(file: string, courses: readonly CatalogEntry[]): CatalogMap {
-  const { courses: places, bridges } = JSON.parse(readFileSync(file, 'utf8')) as CatalogMap;
-  const map = { courses: places, bridges };
+  const { courses: places, bridges, shelves } = JSON.parse(readFileSync(file, 'utf8')) as CatalogMap;
+  const map = { courses: places, bridges, shelves };
   const problems = mapProblems(map, courses.map((c) => c.folder));
   if (problems.length) throw new Error(problems.join('\n'));
   return map;

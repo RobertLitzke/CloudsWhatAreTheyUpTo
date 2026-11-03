@@ -1,8 +1,9 @@
-// The catalog: every course on the site, first as a map with the short bridge
-// courses that join two courses drawn on the lines between them, then listed
-// by department the way a printed college catalog lists them, each with its
-// icon, a short summary and a link that opens it. Each course keeps its own
-// look once opened; this page stays plain paper and ink.
+// The catalog's map page (#map): every course on the site, first as a map
+// with the short bridge courses that join two courses drawn on the lines
+// between them, then listed by department the way a printed college catalog
+// lists them, each with its icon, a short summary and a link that opens it.
+// The front page, the shelves, is home.ts. Each course keeps its own look
+// once opened; these pages stay plain paper and ink.
 
 import { el } from 'didactics/dom';
 import { dayCounts, migrateCollection } from 'didactics/srs';
@@ -236,8 +237,7 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
 
   return el(
     'section.map-section',
-    { id: 'map', 'aria-label': 'Map of the courses' },
-    el('h2', {}, 'The map'),
+    { 'aria-label': 'Map of the courses' },
     el(
       'div.map-wrap',
       {},
@@ -252,7 +252,7 @@ function mapSection(courses: readonly CatalogEntry[], map: CatalogMap, read: Rea
   );
 }
 
-export function catalogPage(courses: readonly CatalogEntry[], read: Read, map: CatalogMap = EMPTY_MAP): HTMLElement {
+export function mapPage(courses: readonly CatalogEntry[], read: Read, map: CatalogMap = EMPTY_MAP): HTMLElement {
   const bridgeFolders = new Set(map.bridges.flatMap((b) => (b.folder ? [b.folder] : [])));
   const main = courses.filter((c) => !bridgeFolders.has(c.folder));
   const byFolder = new Map(courses.map((c) => [c.folder, c]));
@@ -264,8 +264,8 @@ export function catalogPage(courses: readonly CatalogEntry[], read: Read, map: C
     el(
       'header.masthead',
       {},
-      el('p.running', {}, el('span', {}, 'Course Catalog'), el('span', {}, 'Self-paced workbooks')),
-      el('h1', {}, 'Courses'),
+      el('p.running', {}, el('a', { href: '#' }, '← The shelves'), el('span', {}, 'Course Catalog')),
+      el('h1', {}, 'The map'),
       el(
         'p.lede',
         {},
@@ -291,7 +291,7 @@ export function catalogPage(courses: readonly CatalogEntry[], read: Read, map: C
         ? el('section.department.bridges', { id: 'bridges' }, el('h2', {}, 'Bridges'), map.bridges.map((b) => bridgeEntry(b, byFolder, read)))
         : null,
     ),
-    el('footer.colophon', {}, el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.')),
+    el('footer.colophon', {}, el('p', {}, el('a', { href: '#' }, '← Back to the shelves'))),
   );
 }
 

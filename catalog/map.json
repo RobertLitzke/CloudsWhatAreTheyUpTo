@@ -1,5 +1,5 @@
 {
-  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-950. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists.",
+  "$comment": "The catalog's map. `courses`: where each course sits, x across 0-1000 and y down 0-950. `bridges`: short courses that join two courses, drawn on the line between them. A bridge with no `folder` is in preparation; give it the folder of its course (courses/<folder>) once written. `at` (0-1, default 0.5) moves its card along the line from the first course to the second. `candidates`: courses not yet written, with the icon already made for each (catalog/icons/candidates/, from catalog/icons/icons.json); the page does not draw them yet. Move one to `courses` when its course exists. `shelves`: the front page's rows, top to bottom, each a title, a few words and its courses left to right; every course but a bridge's own sits on one.",
   "courses": {
     "photography": [150, 80],
     "astronomy": [870, 80],
@@ -11,6 +11,11 @@
     "ecology": [760, 840],
     "synthesizers": [130, 320]
   },
+  "shelves": [
+    { "title": "Sky and Earth", "note": "Weather, rocks and the stars", "courses": ["clouds", "geology", "astronomy"] },
+    { "title": "Living things", "note": "Plants, soil and who eats whom", "courses": ["botany", "ecology", "soil"] },
+    { "title": "Making things", "note": "Circuits, sound and pictures", "courses": ["electronics", "synthesizers", "photography"] }
+  ],
   "bridges": [
     { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash.", "at": 0.45 },
     { "id": "sky-photos", "title": "Photographing the sky", "between": ["clouds", "photography"], "promise": "Exposing for clouds, polarisers, the light near sunset, time lapses." },

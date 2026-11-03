@@ -6,17 +6,21 @@ import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { infoProblems, mapProblems, readCatalog, readMap, type CatalogEntry, type CatalogMap } from '../registry';
-import { catalogPage, standing } from '../src/page';
+import { begun, homePage, places } from '../src/home';
+import { mapPage as catalogPage, standing } from '../src/page';
 
 const courses = resolve(__dirname, '../../courses');
 
 describe('the courses on the site', () => {
   const all = readCatalog(courses);
 
-  it('reads every course folder with a course.json, with its lessons counted and its icon', () => {
+  it('reads every course folder with a course.json, with its lessons counted and listed by number, and its icon', () => {
     expect(all.map((c) => c.folder)).toContain('clouds');
     for (const c of all) {
       expect(c.lessonCount).toBeGreaterThan(0);
+      expect(c.lessonList.length, c.folder).toBeGreaterThan(0);
+      expect(c.lessonList[0].n, c.folder).toBe(1);
+      expect(c.lessonList.every((l) => l.id && l.title && l.parts > 0)).toBe(true);
       expect(c.icon).toMatch(/^data:image\//);
     }
   });
@@ -44,10 +48,12 @@ describe('the courses on the site', () => {
 });
 
 const entry = (over: Partial<CatalogEntry> = {}): CatalogEntry => ({
-  folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: 'data:image/svg+xml,%3Csvg%2F%3E', ...over,
+  folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: 'data:image/svg+xml,%3Csvg%2F%3E',
+  lessonList: [{ id: 'grit', n: 1, title: 'Grit', parts: 3 }, { id: 'water', n: 2, title: 'Water', parts: 5 }, { id: 'worms', n: 3, title: 'Worms', parts: 4 }, { id: 'side', n: 101, title: 'Side trip', parts: 2 }],
+  ...over,
 });
 
-describe('the catalog page', () => {
+describe('the map page\'s listing', () => {
   it('lists each course under its department with its icon, summary and a link into its folder', () => {
     const page = catalogPage([entry(), entry({ folder: 'electronics', title: 'Electronics', department: 'Engineering', save: 'e.save' })], () => null);
     expect([...page.querySelectorAll('.department h2')].map((h) => h.textContent)).toEqual(['Earth Sciences', 'Engineering']);
@@ -109,5 +115,66 @@ describe('the map', () => {
     // The panel starts on a course and its bridge's line is lit.
     expect(page.querySelector('.map-panel h3')!.textContent).toBe('Soil');
     expect(page.querySelectorAll('line.lit').length).toBe(1);
+  });
+});
+
+describe('the shelves', () => {
+  const electronics = entry({ folder: 'electronics', title: 'Electronics', save: 'e.save', lessonList: [{ id: 'volts', n: 1, title: 'Volts', parts: 6 }] });
+  const map: CatalogMap = {
+    courses: { soil: [100, 100], electronics: [800, 400] },
+    bridges: [{ id: 'mud', title: 'Muddy circuits', promise: 'Soil sensors.', between: ['soil', 'electronics'] }],
+    shelves: [{ title: 'Things', note: 'All of them', courses: ['electronics', 'soil'] }],
+  };
+  const saves = (s: Record<string, object>) => (key: string) => (s[key] ? JSON.stringify(s[key]) : null);
+
+  it('puts every course on one shelf, and refuses a course on none or on two', () => {
+    const real = readMap(resolve(__dirname, '../map.json'), readCatalog(courses));
+    expect(real.shelves!.length).toBeGreaterThan(1);
+    const shelf = (courses: string[]) => ({ ...map, shelves: [{ title: 'A', courses }, { title: 'B', courses: ['soil'] }] });
+    expect(mapProblems(shelf(['soil', 'electronics']), ['soil', 'electronics']).join('\n')).toMatch(/soil is on two shelves/);
+    expect(mapProblems(shelf([]), ['soil', 'electronics']).join('\n')).toMatch(/electronics is on no shelf/);
+  });
+
+  it('welcomes a new reader with a first lesson to open, and shows each book with where it begins', () => {
+    const page = homePage([entry(), electronics], () => null, map, { pick: () => 0, installed: true });
+    expect(page.querySelector('.welcome a.btn')!.getAttribute('href')).toBe('./electronics/#/lesson/volts');
+    expect(page.querySelector('.desk')).toBeNull();
+    expect([...page.querySelectorAll('.shelf:not(.bridges) .cover b')].map((b) => b.textContent)).toEqual(['Electronics', 'Soil']);
+    expect(page.querySelector('.cover .begins')!.textContent).toBe('Begins: “Volts”');
+    expect(page.querySelector('.bridges .cover')!.getAttribute('href')).toBe('#bridge-mud');
+  });
+
+  it('offers the install hint until the reader says not now, and not once installed', () => {
+    expect(homePage([entry()], () => null, map, { installed: false }).querySelector('.install')).not.toBeNull();
+    expect(homePage([entry()], (k) => (k === 'catalog.install' ? 'no' : null), map, { installed: false }).querySelector('.install')).toBeNull();
+    expect(homePage([entry()], () => null, map, { installed: true }).querySelector('.install')).toBeNull();
+  });
+
+  it('continues the lesson the reader was last in, at its part, across courses', () => {
+    const read = saves({
+      'soil.save': { lessons: { grit: { done: true, finishedAt: '2026-11-01T10:00:00Z' } }, resume: { grit: { part: 0 }, water: { part: 2, seen: Date.parse('2026-11-01T09:00:00Z') } } },
+      'e.save': { lessons: {}, resume: { volts: { part: 4, seen: Date.parse('2026-11-03T10:00:00Z') } } },
+    });
+    expect(begun([entry(), electronics], read)).toBe(true);
+    const [first, second] = places([entry(), electronics], read);
+    expect([first.course.folder, first.lesson.id, first.part]).toEqual(['electronics', 'volts', 4]);
+    // Soil's finished lesson counts as when the reader was last there.
+    expect([second.course.folder, second.lesson.id, second.part]).toEqual(['soil', 'water', 2]);
+    const page = homePage([entry(), electronics], read, map, { now: Date.parse('2026-11-04T22:00:00Z') });
+    const main = page.querySelector('.desk-main')!;
+    expect(main.querySelector('a.btn')!.getAttribute('href')).toBe('./electronics/#/lesson/volts');
+    expect(main.textContent).toMatch(/Where you left off · yesterday/);
+    expect(main.textContent).toMatch(/part 5 of 6/);
+    expect(page.querySelector('.desk-also')!.textContent).toMatch(/Under way: Water/);
+    expect(page.querySelector('.welcome')).toBeNull();
+    // The book under way has a ribbon.
+    expect(page.querySelectorAll('.ribbon').length).toBe(2);
+  });
+
+  it('offers the next trunk lesson when nothing is under way', () => {
+    const read = saves({ 'soil.save': { lessons: { grit: { done: true }, water: { done: true } } } });
+    const [p] = places([entry()], read);
+    expect([p.lesson.id, p.part]).toEqual(['worms', null]);
+    expect(homePage([entry()], read, map).querySelector('.desk-main a.btn')!.textContent).toBe('Start');
   });
 });

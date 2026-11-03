@@ -3,7 +3,8 @@ import './catalog.css';
 import courses, { map } from 'virtual:courses';
 import { allCoursesReview } from 'didactics/review-all';
 import { el } from 'didactics/dom';
-import { catalogPage } from './page';
+import { homePage } from './home';
+import { mapPage } from './page';
 
 const read = (key: string) => {
   try {
@@ -12,22 +13,45 @@ const read = (key: string) => {
     return null;
   }
 };
-// The catalog, or at #review the review of every course's cards together.
-const root = document.getElementById('catalog')!;
-const show = () => {
-  if (location.hash === '#review') {
-    root.replaceChildren(el('div.catalog', {}, allCoursesReview({
-      courses: courses.map((c) => ({ key: c.folder, title: c.title, save: c.save, href: `./${c.folder}/`, icon: c.icon, theme: c.theme })),
-      back: { href: '#', label: '← The catalog' },
-    })));
-    window.scrollTo(0, 0);
-  } else {
-    root.replaceChildren(catalogPage(courses, read, map));
+const write = (key: string, value: string) => {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // Private browsing: the hint comes back next time.
   }
 };
-window.addEventListener('hashchange', () => {
-  // A department's or bridge's anchor scrolls the catalog; only #review and back swap the page.
-  if (location.hash === '#review' || !root.querySelector('.masthead') || location.hash === '' || location.hash === '#') show();
+// The shelves at the front; #review, the review of every course's cards
+// together; #map, the map and full listing, which any other anchor (a
+// department, a bridge) is a place on.
+const root = document.getElementById('catalog')!;
+type View = 'home' | 'review' | 'map';
+const viewOf = (hash: string): View => (hash === '#review' ? 'review' : hash === '' || hash === '#' ? 'home' : 'map');
+let shown: View | null = null;
+const show = () => {
+  const view = viewOf(location.hash);
+  if (view === shown) return;
+  shown = view;
+  if (view === 'review') {
+    root.replaceChildren(el('div.catalog', {}, allCoursesReview({
+      courses: courses.map((c) => ({ key: c.folder, title: c.title, save: c.save, href: `./${c.folder}/`, icon: c.icon, theme: c.theme })),
+      back: { href: '#', label: '← The shelves' },
+    })));
+  } else if (view === 'map') {
+    root.replaceChildren(mapPage(courses, read, map));
+  } else {
+    root.replaceChildren(homePage(courses, read, map, { write }));
+  }
+  const anchor = location.hash.length > 1 && location.hash !== '#map' ? document.getElementById(location.hash.slice(1)) : null;
+  if (anchor) anchor.scrollIntoView();
+  else window.scrollTo(0, 0);
+};
+window.addEventListener('hashchange', show);
+// Coming back to the page (from a course, by Back) shows the desk as it is now.
+window.addEventListener('pageshow', (e) => {
+  if (e.persisted) {
+    shown = null;
+    show();
+  }
 });
 show();
 

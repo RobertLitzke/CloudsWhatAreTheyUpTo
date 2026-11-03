@@ -188,3 +188,142 @@ a { color: var(--link); }
   .listing .department > h2 { break-after: avoid; }
   .listing .course { break-inside: avoid; }
 }
+
+/* ---------- The front page (home.ts): courses as books on shelves ---------- */
+.catalog.home { max-width: 1180px; padding-top: 0; }
+.home .ico { display: block; flex: none; width: 56px; height: 56px; border-radius: 12px; }
+.caps { margin: 0; font: 600 0.72rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--head); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; white-space: nowrap; cursor: pointer;
+  font: 700 1.15rem/1 var(--serif); font-variation-settings: 'SOFT' 100; text-decoration: none;
+  background: var(--link); color: #fff7ea; border: 2px solid var(--ink); border-radius: 10px;
+  padding: 12px 18px; box-shadow: 3px 3px 0 var(--ink);
+}
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.btn.small { font-size: 1rem; padding: 9px 14px; }
+.btn.ghost { background: transparent; color: var(--ink); box-shadow: none; border-width: 1.5px; font-size: 1rem; padding: 8px 14px; }
+.btn.ghost:active { transform: none; background: rgba(58, 36, 24, 0.08); }
+.btn.gold { background: #d9a441; color: var(--ink); border-color: var(--paper); box-shadow: 3px 3px 0 #000; }
+
+.home-head { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 6px 18px; padding: 22px 0 4px; }
+html { overflow-x: clip; }
+.home::before { content: ''; display: block; height: 10px; margin: 0 calc(50% - 50vw); background: linear-gradient(#c0522a 0 3px, #d9a441 3px 6px, #2f7f78 6px 9px, #3a2418 9px 10px, transparent 10px); }
+.home-head h1 { margin: 0; font-size: 2.7rem; line-height: 1; font-weight: 900; font-variation-settings: 'SOFT' 100; color: var(--link); }
+.home-tag { margin: 0 0 4px; font-style: italic; color: var(--soft); }
+.home-tools { margin-left: auto; display: flex; gap: 10px; }
+
+/* A new reader: the welcome, then the install hint. */
+.welcome {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; margin-top: 18px;
+  background: var(--ink); color: var(--paper); border-radius: 14px; padding: 18px 22px;
+}
+.welcome-mark { width: 60px; height: 60px; border-radius: 12px; }
+.welcome h2 { margin: 0; font-size: 1.55rem; line-height: 1.15; color: #f6c27a; font-variation-settings: 'SOFT' 100; }
+.welcome p { margin: 4px 0 0; font-size: 0.98rem; }
+.welcome .facts { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-top: 10px; font: 0.85rem var(--sans); opacity: 0.9; }
+.welcome .facts span::before { content: '●'; margin-right: 6px; font-size: 0.7em; vertical-align: 0.15em; }
+
+.install {
+  display: flex; gap: 12px; align-items: center; max-width: 640px; margin: 12px 0 0; padding: 10px 14px;
+  background: #fbf3e4; border: 1.5px solid var(--ink); border-radius: 12px; box-shadow: 3px 3px 0 var(--ink); font-size: 0.95rem;
+}
+.install p { margin: 0; }
+.install .install-how { margin-top: 4px; font: 0.85rem/1.4 var(--sans); color: var(--soft); }
+.phone-ico { position: relative; flex: none; width: 20px; height: 32px; border: 2px solid var(--ink); border-radius: 5px; }
+.phone-ico::after { content: ''; position: absolute; left: 4px; right: 4px; top: 7px; height: 10px; background: #d9a441; border-radius: 2px; }
+.install .btn { margin-left: auto; }
+.install-x { flex: none; border: 0; background: none; color: var(--soft); font: 0.95rem var(--sans); cursor: pointer; padding: 6px; }
+
+/* A returning reader: the desk. */
+.desk { display: grid; grid-template-columns: 1.7fr 1fr 1fr; gap: 16px; margin-top: 18px; }
+.desk-card {
+  display: flex; gap: 14px; align-items: center; min-width: 0; padding: 16px;
+  background: #fbf3e4; border: 1.5px solid var(--rule); border-radius: 14px;
+}
+.desk-main { border-color: var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+.desk-main .ico { width: 64px; height: 64px; border-radius: 14px; }
+.desk-text { min-width: 0; flex: 1; }
+.desk-card h3 { margin: 2px 0 0; font-size: 1.1rem; line-height: 1.2; font-variation-settings: 'SOFT' 100; }
+.desk-card h3 a { color: var(--ink); text-decoration: none; }
+.desk-main .desk-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; }
+.desk-meta { margin: 4px 0 0; font: 0.82rem/1.35 var(--sans); color: var(--soft); }
+.ticks { display: inline-flex; gap: 3px; }
+.ticks i { width: 14px; height: 6px; border-radius: 3px; background: #e3d3b8; }
+.ticks i.d { background: var(--head); }
+.ticks i.n { background: #c56a6a; }
+.desk-review { background: var(--head); border-color: var(--ink); color: #f7efdf; }
+.desk-review h3 a, .desk-review .desk-meta { color: #f7efdf; }
+.desk-review .btn.ghost { color: #f7efdf; border-color: #f7efdf; }
+.cards-stack { position: relative; flex: none; width: 42px; height: 50px; }
+.cards-stack i { position: absolute; inset: 0; border: 2px solid #f3e7d2; border-radius: 6px; background: var(--head); font-style: normal; }
+.cards-stack i:nth-child(1) { transform: rotate(-8deg) translate(-4px, 2px); }
+.cards-stack i:nth-child(2) { transform: rotate(5deg) translate(3px, 0); }
+.cards-stack i:nth-child(3) { background: #f3e7d2; color: var(--head); font: 900 1.15rem/46px var(--serif); text-align: center; }
+
+/* The shelves. Each book's cover is in its course's own colours (course.json theme). */
+.shelf { margin-top: 30px; }
+.shelf-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 12px; margin-bottom: 12px; }
+.shelf-head h2 { margin: 0; font-size: 1.4rem; font-variation-settings: 'SOFT' 100; }
+.shelf-head p { margin: 0; font-style: italic; font-size: 0.95rem; color: var(--soft); }
+.shelf-row {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
+  padding-bottom: 14px; border-bottom: 10px solid #8a5a3a; box-shadow: 0 12px 0 -4px #6b432b;
+}
+.cover {
+  position: relative; display: flex; flex-direction: column; min-height: 230px; overflow: hidden;
+  padding: 18px 16px 14px 24px; border: 2px solid #2a1a10; border-radius: 10px 14px 14px 10px;
+  background: var(--bg, #2a2420); color: var(--t, #f1e7d4); text-decoration: none;
+  box-shadow: inset 8px 0 0 rgba(0, 0, 0, 0.28), 3px 3px 0 #2a1a10;
+  transition: transform 0.15s;
+}
+.cover:hover { transform: translateY(-4px); }
+.cover:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+.cover .ico { width: 78px; height: 78px; border-radius: 14px; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3); }
+.cover-text { display: flex; flex-direction: column; margin-top: 14px; }
+.cover-text b { font: 700 1.35rem/1.1 var(--d, var(--serif)); }
+.cover-text i { margin-top: 3px; font-size: 0.92rem; opacity: 0.8; }
+.cover-foot { display: grid; gap: 6px; margin-top: auto; padding-top: 14px; font: 0.8rem/1.3 var(--sans); }
+.cover .begins { font: italic 0.88rem/1.3 var(--serif); opacity: 0.85; }
+.cover .bar { display: block; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, 0.16); overflow: hidden; }
+.cover .bar i { display: block; height: 100%; background: var(--a, #e0a458); }
+.ribbon { position: absolute; top: -2px; right: 18px; width: 22px; height: 44px; background: var(--a, #e0a458); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%); }
+
+.bridges .shelf-row { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.cover.bridge { min-height: 140px; padding: 14px; background: #2f7f78; color: #f7efdf; }
+.bridge-text { display: flex; flex-direction: column; flex: 1; }
+.cover.bridge b { margin-top: 10px; font: 700 1.05rem/1.2 var(--serif); }
+.cover.coming { background: repeating-linear-gradient(135deg, #efe2c9 0 10px, #eadbbf 10px 20px); color: var(--soft); border-style: dashed; box-shadow: none; }
+.cover.coming b { color: var(--ink); }
+.cover .pair { display: flex; gap: 4px; }
+.cover .pair img { width: 34px; height: 34px; border-radius: 8px; }
+.shelf-more { margin: 12px 0 0; font: 0.9rem var(--sans); }
+.home .colophon { margin-top: 40px; }
+
+/* A phone: the desk stacks, and the books lie down, one to a row, so nothing scrolls sideways. */
+@media (max-width: 720px) {
+  .desk { grid-template-columns: 1fr; gap: 10px; }
+  .shelf-row { grid-template-columns: 1fr; gap: 10px; }
+  .cover { display: grid; grid-template-columns: auto 1fr; gap: 2px 14px; align-items: center; min-height: 0; padding: 12px 14px 12px 20px; }
+  .cover:hover { transform: none; }
+  .cover .ico { grid-row: span 2; width: 58px; height: 58px; }
+  .cover-text { margin-top: 0; }
+  .cover-text b { font-size: 1.15rem; }
+  .cover-foot { margin-top: 2px; padding-top: 0; }
+  .cover .begins { display: none; }
+  .cover .bar { max-width: 160px; }
+  .ribbon { right: 12px; height: 34px; width: 16px; }
+  .bridges .shelf-row { grid-template-columns: 1fr; gap: 8px; }
+  .cover.bridge { display: flex; flex-direction: row; align-items: center; gap: 12px; min-height: 0; padding: 10px 12px; }
+  .cover.bridge b { margin-top: 0; font-size: 1rem; }
+  .cover.bridge .cover-foot { padding-top: 2px; }
+  .welcome { grid-template-columns: 1fr; padding: 16px; gap: 10px; }
+  .welcome-mark { display: none; }
+  .home-head h1 { font-size: 2.1rem; }
+  .home-tag { display: none; }
+  .desk-card { padding: 12px 14px; }
+  .desk-main { flex-wrap: wrap; }
+  .desk-main .desk-text { flex-basis: calc(100% - 62px); }
+  .desk-main > .btn { width: 100%; }
+  .desk-also .ico, .desk-main .ico { width: 48px; height: 48px; border-radius: 11px; }
+}
