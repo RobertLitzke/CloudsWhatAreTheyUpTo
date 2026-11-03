@@ -2,7 +2,7 @@ import { resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import { viteSingleFile } from 'vite-plugin-singlefile';
-import { readCatalog } from './registry';
+import { readCatalog, readMap } from './registry';
 
 // The catalog page, built last, into the root of the site's dist/ after every
 // course has been built into its own folder there (tools/build-site.mjs). Its
@@ -12,7 +12,7 @@ import { readCatalog } from './registry';
 
 const courses = resolve(__dirname, '../courses');
 
-/** Serves `virtual:courses`: every course's course.json, read when the page is built. */
+/** Serves `virtual:courses`: every course's course.json and the catalog's map, read when the page is built. */
 function coursesModule(): Plugin {
   const id = '\0virtual:courses';
   return {
@@ -20,7 +20,9 @@ function coursesModule(): Plugin {
     resolveId: (source) => (source === 'virtual:courses' ? id : null),
     load(source) {
       if (source !== id) return null;
-      return `export default ${JSON.stringify(readCatalog(courses))};`;
+      const all = readCatalog(courses);
+      const map = readMap(resolve(__dirname, 'map.json'), all);
+      return `export default ${JSON.stringify(all)};\nexport const map = ${JSON.stringify(map)};`;
     },
   };
 }

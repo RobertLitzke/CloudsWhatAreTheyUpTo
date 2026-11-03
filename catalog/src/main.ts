@@ -1,6 +1,6 @@
 import 'didactics/styles/review-all.css';
 import './catalog.css';
-import courses from 'virtual:courses';
+import courses, { map } from 'virtual:courses';
 import { allCoursesReview } from 'didactics/review-all';
 import { el } from 'didactics/dom';
 import { catalogPage } from './page';
@@ -22,11 +22,11 @@ const show = () => {
     })));
     window.scrollTo(0, 0);
   } else {
-    root.replaceChildren(catalogPage(courses, read));
+    root.replaceChildren(catalogPage(courses, read, map));
   }
 };
 window.addEventListener('hashchange', () => {
-  // A department's anchor scrolls the catalog; only #review and back swap the page.
+  // A department's or bridge's anchor scrolls the catalog; only #review and back swap the page.
   if (location.hash === '#review' || !root.querySelector('.masthead') || location.hash === '' || location.hash === '#') show();
 });
 show();

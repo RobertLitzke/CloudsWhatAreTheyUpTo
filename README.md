@@ -80,7 +80,18 @@ build; use `npm run build && npm run preview` to click through the site.
    others.
 2. Give it a `course.json` and set `inSite: true` in its `vite.config.ts` and
    `catalog: { href: '../' }` in its `defineCourse` call.
-3. `npm install` at the root, then `npm test` and `npm run build`.
+3. Place it on the catalog's map: add its folder and `[x, y]` to `courses` in
+   `catalog/map.json` (the catalog's tests fail for a course left off).
+4. `npm install` at the root, then `npm test` and `npm run build`.
+
+## Bridges
+
+A bridge is a short course joining two courses, drawn on the map on the line
+between them. Each is listed under `bridges` in `catalog/map.json` with a
+title, a one-sentence promise and the two course folders it joins. Until it
+has a `folder` it shows as in preparation; once written as a course in
+`courses/<folder>/` (steps above, minus the map place), set its `folder` and
+it opens like any other course, with its own save and review cards.
 
 ## Deploy
 

@@ -5,7 +5,7 @@ import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { infoProblems, readCatalog, type CatalogEntry } from '../registry';
+import { infoProblems, mapProblems, readCatalog, readMap, type CatalogEntry, type CatalogMap } from '../registry';
 import { catalogPage, standing } from '../src/page';
 
 const courses = resolve(__dirname, '../../courses');
@@ -67,5 +67,47 @@ describe('the catalog page', () => {
     expect(standing(entry({ lessonCount: 1 }), save({ lessons: { a: { done: true } } }))).toBe('all completed');
     const page = catalogPage([entry()], save({ lessons: { a: { done: true } } }));
     expect(page.querySelector('.course-open')!.textContent).toBe('Continue the course');
+  });
+});
+
+describe('the map', () => {
+  const all = readCatalog(courses);
+
+  it('places every course, and its bridges join courses that are on it', () => {
+    const map = readMap(resolve(__dirname, '../map.json'), all);
+    for (const c of all) expect(map.courses[c.folder], c.folder).toBeDefined();
+    expect(map.bridges.length).toBeGreaterThan(0);
+  });
+
+  it('refuses a bridge to a course not on the map, a place off the map, or a folder with no course', () => {
+    const bad: CatalogMap = {
+      courses: { soil: [100, 100], clouds: [2000, 100] },
+      bridges: [
+        { id: 'a', title: 'A', promise: 'P', between: ['soil', 'geology'] },
+        { id: 'b', title: 'B', promise: 'P', between: ['soil', 'clouds'], folder: 'nowhere' },
+      ],
+    };
+    const problems = mapProblems(bad, ['soil', 'clouds']).join('\n');
+    expect(problems).toMatch(/clouds's place/);
+    expect(problems).toMatch(/joins geology, which is not on the map/);
+    expect(problems).toMatch(/courses\/nowhere/);
+  });
+
+  it('draws each course and bridge, and lists the bridges after the departments', () => {
+    const map: CatalogMap = {
+      courses: { soil: [100, 100], electronics: [800, 400] },
+      bridges: [{ id: 'mud', title: 'Muddy circuits', promise: 'Soil sensors.', between: ['soil', 'electronics'] }],
+    };
+    const page = catalogPage([entry(), entry({ folder: 'electronics', title: 'Electronics', department: 'Engineering', save: 'e.save' })], () => null, map);
+    expect(page.querySelectorAll('.map-course').length).toBe(2);
+    const bridge = page.querySelector('.map-bridge')!;
+    expect(bridge.tagName).toBe('BUTTON');
+    expect(bridge.classList.contains('coming')).toBe(true);
+    expect(page.querySelectorAll('line.edge.coming').length).toBe(1);
+    expect(page.querySelector('#bridges .course h3')!.textContent).toMatch(/Muddy circuits.*between Soil and Electronics/);
+    expect(page.querySelector('#course-soil .course-bridges')!.textContent).toBe('Bridges: Muddy circuits (with Electronics)');
+    // The panel starts on a course and its bridge's line is lit.
+    expect(page.querySelector('.map-panel h3')!.textContent).toBe('Soil');
+    expect(page.querySelectorAll('line.lit').length).toBe(1);
   });
 });

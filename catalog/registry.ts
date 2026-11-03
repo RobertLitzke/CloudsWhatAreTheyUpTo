@@ -5,6 +5,7 @@
 
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { MAP_HEIGHT, MAP_WIDTH } from './src/map-size';
 
 /** What a course says about itself, in its course.json. */
 export interface CourseInfo {
@@ -77,4 +78,56 @@ export function readCatalog(coursesDir: string): CatalogEntry[] {
     });
   }
   return entries.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
+}
+
+/** The catalog's map (catalog/map.json): where each course sits, and the bridges between them. */
+export interface CatalogMap {
+  /** Each course's place, by folder: x across 0-1000, y down 0-700. */
+  courses: Record<string, [number, number]>;
+  bridges: Bridge[];
+}
+
+/** A short course that joins two courses, drawn on the line between them. */
+export interface Bridge {
+  id: string;
+  title: string;
+  /** The two courses it joins, by folder. */
+  between: [string, string];
+  /** A sentence on what it covers. */
+  promise: string;
+  /** Its own course's folder, once written; until then it is in preparation. */
+  folder?: string;
+  /** Where its card sits along the line, from the first course (0) to the second (1). */
+  at?: number;
+}
+
+
+/** The problems with the map, as sentences; none when it is fine. */
+export function mapProblems(map: CatalogMap, folders: readonly string[]): string[] {
+  const out: string[] = [];
+  const placed = new Set(Object.keys(map.courses ?? {}));
+  for (const [f, xy] of Object.entries(map.courses ?? {})) {
+    if (!folders.includes(f)) out.push(`catalog/map.json: no course in courses/${f}`);
+    if (!Array.isArray(xy) || xy.length !== 2 || !(xy[0] >= 0 && xy[0] <= MAP_WIDTH && xy[1] >= 0 && xy[1] <= MAP_HEIGHT)) out.push(`catalog/map.json: ${f}'s place should be [x, y] inside ${MAP_WIDTH} by ${MAP_HEIGHT}`);
+  }
+  const ids = new Set<string>();
+  for (const b of map.bridges ?? []) {
+    if (ids.has(b.id)) out.push(`catalog/map.json: two bridges are called "${b.id}"`);
+    ids.add(b.id);
+    if (!b.title?.trim() || !b.promise?.trim()) out.push(`catalog/map.json: bridge "${b.id}" needs a title and a promise`);
+    if (!Array.isArray(b.between) || b.between.length !== 2 || b.between[0] === b.between[1]) out.push(`catalog/map.json: bridge "${b.id}" joins two different courses`);
+    else for (const f of b.between) if (!placed.has(f)) out.push(`catalog/map.json: bridge "${b.id}" joins ${f}, which is not on the map`);
+    if (b.folder !== undefined && !folders.includes(b.folder)) out.push(`catalog/map.json: bridge "${b.id}" names courses/${b.folder}, which has no course.json`);
+    if (b.at !== undefined && !(b.at > 0 && b.at < 1)) out.push(`catalog/map.json: bridge "${b.id}" has "at" outside 0 to 1`);
+  }
+  return out;
+}
+
+/** The map, checked against the courses there are. Throws on a mistake in it. */
+export function readMap(file: string, courses: readonly CatalogEntry[]): CatalogMap {
+  const { courses: places, bridges } = JSON.parse(readFileSync(file, 'utf8')) as CatalogMap;
+  const map = { courses: places, bridges };
+  const problems = mapProblems(map, courses.map((c) => c.folder));
+  if (problems.length) throw new Error(problems.join('\n'));
+  return map;
 }

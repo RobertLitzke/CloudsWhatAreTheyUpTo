@@ -78,3 +78,84 @@ a { color: var(--link); }
 .review-all .ra-btn { font-family: var(--sans); }
 .review-all .ra-courses th, .review-all .ra-courses td { border-bottom-color: var(--rule); }
 .review-all .ra-courses thead th { border-bottom: 1px solid var(--ink); }
+
+/* Each course's bridges, and the bridges' own entries: the two courses' icons overlapped. */
+.course-bridges { margin: 0 0 8px; font: 0.85rem/1.45 var(--sans); color: var(--soft); }
+.course-bridges .label { color: var(--ink); font-weight: 600; }
+.bridge-pair { display: flex; padding-top: 6px; }
+.bridge-pair img { width: 40px; height: 40px; border-radius: 9px; box-shadow: 0 0 0 2px var(--paper); }
+.bridge-pair img + img { margin-left: -16px; margin-top: 18px; }
+@media (max-width: 480px) {
+  .bridge-pair img { width: 28px; height: 28px; border-radius: 7px; }
+  .bridge-pair img + img { margin-left: -8px; margin-top: 14px; }
+}
+.course.coming h3 { color: var(--soft); }
+
+/* The map: courses where map.json puts them, with bridges on the lines between.
+   On a phone it is a small overview of icons with a dot for each bridge, and
+   the entries below say the rest. */
+.map-section { margin-top: 26px; }
+.map-section h2 {
+  margin: 0; padding-bottom: 6px; border-bottom: 1px solid var(--ink);
+  font: 600 0.8rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase;
+}
+.map { position: relative; aspect-ratio: 1000 / 700; margin: 30px 26px 40px; }
+.map svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.edge { stroke: var(--rule); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.edge.coming { stroke-dasharray: 3 5; }
+.edge.lit { stroke: var(--ink); }
+.map-node {
+  position: absolute; transform: translate(-50%, -50%); display: block;
+  color: var(--ink); text-decoration: none; text-align: center;
+}
+.map-course img { display: block; width: 44px; height: 44px; margin: 0 auto 2px; border-radius: 10px; box-shadow: 0 0 0 3px var(--paper); }
+.map-course .map-title { display: block; font: 600 0.72rem/1.15 var(--sans); background: var(--paper); }
+.map-course .map-meta, .map-course .map-bar { display: none; }
+.map-bridge {
+  width: 13px; height: 13px; padding: 0; border-radius: 50%; overflow: hidden;
+  border: 2px solid var(--ink); background: var(--paper); font: inherit; cursor: pointer;
+}
+.map-bridge.coming { border-style: dashed; border-color: var(--soft); }
+.map-bridge > span { display: none; }
+.map-legend { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; font: 0.75rem/1.3 var(--sans); color: var(--soft); }
+.map-legend span::before { content: ''; display: inline-block; width: 20px; border-top: 2px solid var(--ink); vertical-align: middle; margin-right: 6px; }
+.map-legend .coming::before { border-top: 2px dashed var(--soft); }
+.map-panel { display: none; }
+
+@media (min-width: 960px) {
+  .catalog { max-width: 1180px; padding: 24px 32px 56px; }
+  .masthead .lede { max-width: 46em; }
+  .map-wrap { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 28px; }
+  .map { margin: 44px 64px 34px; }
+  .map-course { width: 150px; }
+  .map-course img { width: 64px; height: 64px; border-radius: 14px; box-shadow: 0 0 0 4px var(--paper); }
+  .map-course.picked img { box-shadow: 0 0 0 4px var(--paper), 0 0 0 6px var(--link); }
+  .map-course .map-title { font: bold 1.05rem/1.2 var(--serif); width: max-content; margin: 2px auto 0; padding: 0 4px; }
+  .map-course .map-meta { display: block; width: max-content; margin: 0 auto; padding: 0 4px; font: 0.72rem/1.3 var(--sans); color: var(--soft); background: var(--paper); }
+  .map-course .map-bar { display: block; width: 80px; height: 4px; margin: 4px auto 0; background: #ddd6c6; }
+  .map-course .map-bar i { display: block; height: 100%; background: var(--ink); }
+  .map-bridge {
+    width: auto; height: auto; max-width: 150px; overflow: visible; border-radius: 0;
+    border-width: 1px; padding: 5px 9px 6px; font-size: 0.85rem; line-height: 1.2;
+  }
+  .map-bridge > span { display: block; }
+  .map-bridge .map-kind { margin-bottom: 3px; font: 600 0.58rem/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); }
+  .map-bridge.coming { color: var(--soft); }
+  .map-bridge.picked { border: 2px solid var(--link); padding: 4px 8px 5px; color: var(--ink); }
+  .map-bridge.far { color: #9a948a; border-color: var(--rule); }
+  .map-node:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+  .map-panel { display: block; margin-top: 22px; padding-left: 24px; border-left: 1px solid var(--rule); }
+  .panel-kind { margin: 0; font: 600 0.7rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+  .map-panel h3 { margin: 6px 0 0; font-size: 1.5rem; line-height: 1.2; }
+  .map-panel h3 a { color: var(--ink); text-decoration: none; }
+  .panel-sub { margin: 0 0 8px; font-style: italic; color: var(--soft); }
+  .panel-summary { margin: 6px 0; }
+  .panel-note { margin: 10px 0; font-style: italic; color: var(--soft); }
+  .map-panel h4 { margin: 20px 0 4px; font: 600 0.7rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); }
+  .map-panel ul { list-style: none; margin: 0; padding: 0; }
+  .map-panel li { padding: 7px 0; border-top: 1px solid var(--rule); font-size: 0.95rem; line-height: 1.3; }
+  .map-panel li small { display: block; font: 0.75rem/1.35 var(--sans); color: var(--soft); }
+  .listing { columns: 2; column-gap: 48px; }
+  .listing .department > h2 { break-after: avoid; }
+  .listing .course { break-inside: avoid; }
+}
