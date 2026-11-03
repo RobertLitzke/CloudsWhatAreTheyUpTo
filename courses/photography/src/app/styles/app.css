@@ -17,15 +17,14 @@ h2 { font-weight: 600; letter-spacing: 0.02em; text-transform: none; font-size: 
   text-shadow: none;
   transform: none;
 }
-.btn, .tag, .eyebrow, .seg button, .fig-slider span, .navmenu summary, .navmenu nav a, .count, .field > span,
+.tag, .eyebrow, .seg button, .fig-slider span, .navmenu summary, .navmenu nav a, .count, .field > span,
 .key-ideas .key-title, .update-text strong, .part-n {
   font-family: var(--font);
   font-weight: 800;
 }
-.btn { letter-spacing: 0.06em; }
 .btn:hover { background: #f0b85f; }
 .btn-ghost:hover { background: rgba(43, 36, 24, 0.08); }
-.wordmark { font-family: var(--display); text-transform: none; letter-spacing: 0.01em; font-size: 1.5rem; font-weight: 700; }
+.wordmark { font-size: 1.5rem; }
 .wordmark { flex-shrink: 0; }
 .wordmark-words { line-height: 1.05; }
 .wordmark span { font-family: var(--font); font-weight: 800; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; }

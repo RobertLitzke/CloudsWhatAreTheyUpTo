@@ -2,20 +2,21 @@
   "$comment": "Which icon comes from where. `sheets`: the source images, under catalog/icons/. `icons`: one entry per icon; `sheet` names a sheet and `box` is [x, y, width, height] in that sheet's pixels (or `file` names an image that is the icon alone). `to` is the folder whose public/icons/ gets the full set (a course's folder, or `catalog`); an entry with no `to` is a candidate course and goes to catalog/icons/candidates/. Run `npm run icons` after changing anything here; tools/process-icons.mjs explains the outputs.",
   "sheets": {
     "course-icons": { "file": "sources/course-icons.jpg", "note": "Gemini, 2026-11-03: Clouds, Geology, Dirt, Circuitry (unused), Out of Auto, Astronomy, Botany, Ecology, Overall course" },
-    "more-course-icons": { "file": "sources/more-course-icons.jpg", "note": "Gemini, 2026-11-03: Circuitry, People of the Salish Sea, Music Theory, Fungi, PNW Forests, Overall course (unused)" }
+    "more-course-icons": { "file": "sources/more-course-icons.jpg", "note": "Gemini, 2026-11-03: Circuitry, People of the Salish Sea, Music Theory, Fungi, PNW Forests, Overall course (unused)" },
+    "course-icons-2": { "file": "sources/course-icons-2.jpg", "note": "Gemini, 2026-11-03, revisions: Geology, Circuitry, Astronomy, Ecology, Music Theory are used; the others on it are not" }
   },
   "icons": {
     "clouds": { "sheet": "course-icons", "box": [113, 350, 466, 466], "to": "courses/clouds" },
-    "geology": { "sheet": "course-icons", "box": [662, 350, 466, 466], "to": "courses/geology" },
+    "geology": { "sheet": "course-icons-2", "box": [660, 346, 469, 469], "to": "courses/geology" },
     "soil": { "sheet": "course-icons", "box": [1212, 350, 466, 466], "to": "courses/soil" },
-    "electronics": { "sheet": "more-course-icons", "box": [219, 289, 548, 548], "to": "courses/electronics" },
+    "electronics": { "sheet": "course-icons-2", "box": [107, 1015, 470, 468], "to": "courses/electronics" },
     "photography": { "sheet": "course-icons", "box": [662, 1016, 466, 466], "to": "courses/photography" },
-    "astronomy": { "sheet": "course-icons", "box": [1212, 1016, 466, 466], "to": "courses/astronomy" },
+    "astronomy": { "sheet": "course-icons-2", "box": [1211, 1015, 470, 468], "to": "courses/astronomy" },
     "catalog": { "sheet": "course-icons", "box": [1212, 1687, 466, 466], "to": "catalog" },
     "botany": { "sheet": "course-icons", "box": [113, 1687, 466, 466] },
-    "ecology": { "sheet": "course-icons", "box": [662, 1687, 466, 466] },
+    "ecology": { "sheet": "course-icons-2", "box": [660, 1688, 469, 469] },
     "salish-sea": { "sheet": "more-course-icons", "box": [990, 289, 548, 548] },
-    "music-theory": { "sheet": "more-course-icons", "box": [1762, 289, 548, 548] },
+    "music-theory": { "sheet": "course-icons-2", "box": [1211, 1688, 470, 469] },
     "fungi": { "sheet": "more-course-icons", "box": [219, 1014, 548, 548] },
     "pnw-forests": { "sheet": "more-course-icons", "box": [990, 1014, 548, 548] },
     "electronics-alt": { "sheet": "course-icons", "box": [113, 1016, 466, 466] },
