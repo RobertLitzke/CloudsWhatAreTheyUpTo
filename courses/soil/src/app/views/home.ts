@@ -1,4 +1,4 @@
-// The garden in the morning, a word on what this is, the lesson board (the
+// The soil profile banner at the top, a word on what this is, the lesson board (the
 // written lessons open, the rest shown as coming), and the way to the
 // reference page.
 
@@ -7,7 +7,7 @@ import { keepPlace } from 'didactics/place';
 import type { View } from 'didactics/router';
 import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS } from '../../core/lessons';
-import { makeGarden } from '../scene/garden';
+import { makeBanner } from '../scene/banner';
 import { store } from '../../store';
 
 export const homeView: View = (root) => {
@@ -41,7 +41,7 @@ export const homeView: View = (root) => {
       el(
         'section.hero',
         {},
-        makeGarden({ seed: 8, h: 320, ground: 0.6, align: 'xMidYMax', span: [100, 300] }),
+        makeBanner(),
         el('div.hero-text', {}, el('p.eyebrow', {}, 'A gardener’s workbook'), el('h1', {}, 'Dirt'), el('p.subtitle', {}, 'What is going on under your garden')),
       ),
       el(

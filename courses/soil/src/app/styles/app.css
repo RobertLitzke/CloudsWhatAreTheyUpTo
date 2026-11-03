@@ -13,7 +13,10 @@
 .fig-task { background: #eef0d6; }
 .update-icon { background: linear-gradient(160deg, var(--good), #2f5a2a); }
 
-/* ---- Home ------------------------------------------------------------- */
-.hero-text h1 { color: #24361f; }
-.hero-text .subtitle { color: #3b4f2f; }
-.hero .eyebrow { color: #4d6a3a; }
+/* ---- Home: the soil profile (scene/banner.ts) with the title over its
+   upper half, in the heading face with a hard shadow like the buttons. */
+.hero-text { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 16px 24%; }
+.hero-text h1 { font: 900 clamp(3.4rem, 10vw, 7rem)/0.95 var(--head); font-variation-settings: var(--head-settings); color: var(--title); text-shadow: 4px 4px 0 #2b1a14; }
+.hero-text .subtitle { margin: 12px 0 0; font: italic 500 clamp(1.1rem, 2.6vw, 1.7rem)/1.25 var(--head); font-variation-settings: var(--head-settings); color: var(--title); text-shadow: 2px 2px 0 #2b1a14; max-width: 24em; }
+.hero .eyebrow { color: var(--title); margin-bottom: 14px; }
+@media (min-width: 700px) { .hero-text { padding-bottom: 150px; } }
