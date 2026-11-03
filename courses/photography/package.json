@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "icons": "node --experimental-strip-types tools/icons.mjs",
     "photos:find": "vite-node tools/photos/find.ts --",
     "photos:fetch": "vite-node tools/photos/fetch.ts --",
     "photos:import": "vite-node tools/photos/import.ts --"

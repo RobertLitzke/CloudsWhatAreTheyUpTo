@@ -77,7 +77,7 @@ the same picture on every load, `?imperial` for imperial units, or
 | `npm test` | Vitest: cloud facts, air physics, the save file, every figure built once (happy-dom), dealing the photo check, lesson content, radio talks, photo credits, licence mapping |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5421 |
-| `npm run icons` | Regenerate the PNG icons from a square of `art/poster.jpg` |
+| `npm run poster` | Regenerate `public/poster.webp` from `art/poster.jpg` (icons come from `npm run icons` at the repo root) |
 | `npm run photos:find` | List candidate photos from Commons into a contact sheet to pick from |
 | `npm run photos:fetch` | Download the picked photos, resize them and write their credits |
 

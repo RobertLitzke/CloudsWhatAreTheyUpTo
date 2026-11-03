@@ -9,7 +9,6 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "icons": "node tools/icons.mjs",
     "photos": "node tools/photos.mjs"
   },
   "dependencies": {

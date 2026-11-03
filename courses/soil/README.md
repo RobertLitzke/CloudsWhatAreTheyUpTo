@@ -68,7 +68,6 @@ picture every load, or `?only=<figure id>` for one figure.
 | `npm test` | Vitest: texture classes and the jar test, lesson and reference content, every figure built, drawings, photo credits, the save |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5441 |
-| `npm run icons` | Regenerate the PNG icons (drawn in `tools/icons.mjs`) |
 | `npm run photos:find` | List candidate photos from Commons into a contact sheet to pick from |
 | `npm run photos:fetch` | Download the picked photos, resize them and write their credits |
 
@@ -148,7 +147,7 @@ src/app/      store.ts, asset.ts, picture.ts (photo or drawing)
   scene/        garden.ts, jar.ts, subjects.ts (drawn stand-ins for photos)
   figures/      kit.ts (palette), one file per lesson, check.ts, index.ts
   views/        home, lesson, reference, quiz, settings, credits
-tools/        photos/, gallery/, rewrite/, icons.mjs
+tools/        photos/, gallery/, rewrite/
 ```
 
 ## Deploy

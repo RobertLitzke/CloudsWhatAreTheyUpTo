@@ -93,7 +93,6 @@ photo has been drawn, for screenshots.
 | `npm test` | Vitest: the optics and exposure arithmetic, lesson and reference content, every figure built, the save, photo credits |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5461 |
-| `npm run icons` | Regenerate the PNG icons from `src/app/mark.ts` |
 | `npm run photos:find` | List candidate photographs from Commons into a contact sheet to pick from |
 | `npm run photos:fetch` | Download the picked photographs, resize them, make depth maps and write their credits |
 | `npm run photos:import -- <folder>` | Bring in photographs from a folder on this machine: your own, or a set from elsewhere |
@@ -186,7 +185,7 @@ src/app/      store.ts, asset.ts, picture.ts, mark.ts (the aperture icon)
                 focus.ts, motion.ts, light.ts, zoom.ts, colour.ts, check.ts, index.ts
   scene/        field.ts, the drawn valley at the top of each page
   views/        home, lesson, reference, quiz, settings, credits
-tools/        photos/ (find, fetch, import, depth), gallery/, icons.mjs
+tools/        photos/ (find, fetch, import, depth), gallery/
 ```
 
 ## Deploy
