@@ -123,10 +123,16 @@ export const PERCHED: Stage = {
   subjectTall: 0.17,
   framing: 0.3,
   planes: [
-    { id: 'hills', behind: 4000, width: 2400, height: 900, bottom: -260, backdrop: true },
-    { id: 'trees', behind: 80, width: 240, height: 15, bottom: -6, tile: 40 },
-    { id: 'bushes', behind: 8, width: 60, height: 3, bottom: -2.2, tile: 4, movable: true },
-    { id: 'bird', behind: 0, width: 1.2, height: 0.6, bottom: -0.3 },
+    // Rob's pictures (2752 px wide): hills, a stand of pines, a bush, and a
+    // western bluebird on a dead tree. Real widths from what is in them: the
+    // bird is 17 cm beak to tail, a leaf of the bush about 4 cm, a pine about
+    // 25 m. The bird is left of its picture's middle, hence x. The trees
+    // stand 500 m off on lower ground, so a short zoom sees over them to the
+    // hills; the hills are a backdrop, placed for the view, not measured.
+    { id: 'hills', behind: 4000, width: 1200, height: 670, bottom: -389, backdrop: true },
+    { id: 'trees', behind: 500, width: 600, height: 44.5, bottom: -19.6, tile: 60 },
+    { id: 'bushes', behind: 8, width: 60, height: 2.56, bottom: -2.33, x: -1.8, tile: 3, movable: true },
+    { id: 'bird', behind: 0, width: 1.164, height: 0.65, bottom: -0.306, x: 0.195 },
   ],
 };
 

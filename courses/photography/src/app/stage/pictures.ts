@@ -13,7 +13,7 @@ import type { Picture } from './render';
  * Empty until the pictures are made; every other plane is drawn.
  */
 export const REAL: Record<string, readonly string[]> = {
-  perched: [],
+  perched: ['hills', 'trees', 'bushes', 'bird'],
 };
 
 const cache = new Map<string, Promise<{ pictures: Map<string, Picture>; planes: Plane[] }>>();

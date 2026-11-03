@@ -16,7 +16,7 @@ export default defineConfig(
     // (tools/build-site.mjs at the repo's root) writes the one service worker.
     inSite: true,
     oneFile: 'out-of-auto.html',
-    precache: ['photos/*.webp'],
+    precache: ['photos/*.webp', 'stage/**/*.webp'],
     manifest: {
       name: 'Out of Auto: a photography workbook',
       short_name: 'Out of Auto',

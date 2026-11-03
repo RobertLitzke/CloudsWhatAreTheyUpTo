@@ -17,7 +17,7 @@ describe('the stage', () => {
     for (const eq of [200, 600, 2000]) {
       const bird = at(eq).get('bird');
       // The bird is subjectTall of the plane's height; the frame is sensor h/w frame widths tall.
-      const share = ((bird.top - bird.bottom) * (PERCHED.subjectTall / 0.6)) / (P950.sensor.h / P950.sensor.w);
+      const share = ((bird.top - bird.bottom) * (PERCHED.subjectTall / bird.plane.height)) / (P950.sensor.h / P950.sensor.w);
       expect(share).toBeCloseTo(PERCHED.framing, 2);
     }
   });
