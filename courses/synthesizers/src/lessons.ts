@@ -2,7 +2,8 @@
 // Written lessons are JSON in src/lessons/; the rest are listed here as
 // "coming", so the home page shows the whole plan. The first nine are
 // PatchMatch's nine stages, one module of the synth each (STAGE_LESSONS in
-// core/campaign.ts ties a stage to its lesson).
+// core/campaign.ts ties a stage to its lesson). The plan for the rest (lessons
+// 10-23 and the branches) is the doc "Synthesizers: plan for lessons 10 onward".
 
 import type { Lesson } from 'didactics/lesson';
 import { lessonCodes, type TreeBranch, type TreeLesson } from 'didactics/tree';
@@ -16,33 +17,36 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: SynthLesson[] = [
-  coming('noise', 10, 'The drum machine with no drums', 'Noise, filtered noise and a snare built from nothing; how the TR-808 faked a kit'),
-  coming('organ', 11, 'Organs by telephone', 'Additive synthesis: the Telharmonium, Hammond drawbars and building a sound from sines'),
-  coming('twelve', 12, 'Why twelve notes?', 'Octaves, fifths and the comma that never closes; equal temperament'),
-  coming('chords', 13, 'Why some notes clash', 'Consonance as shared harmonics and beating: Helmholtz’s roughness'),
-  coming('pluck', 14, 'A string from a delay line', 'Physical modelling: Karplus and Strong’s plucked string, and what a string really does'),
-  coming('samples', 15, 'Wagon wheels and aliasing', 'Sampling, Nyquist and why a digital synth needs a filter at both ends'),
-  coming('vocoder', 16, 'The talking synth', 'Homer Dudley’s vocoder: the voice’s filter laid over another sound'),
-  coming('rooms', 17, 'Sabine’s lecture hall', 'Reverb: how a room answers, and the plates and springs that fake one'),
+  coming('silent', 10, 'The silent key', 'Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound'),
+  coming('noise', 11, 'Wind from nothing', 'Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice'),
+  coming('drums', 12, 'A drum with no drum', 'An envelope sent to pitch instead of volume: a kick and a snare built from nothing'),
+  coming('random', 13, 'The computer that burbles', 'LFO shapes, sample-and-hold, smooth random, tempo sync and retrigger'),
+  coming('cycle', 14, 'The envelope that wouldn’t stop', 'A second envelope that loops: rise, fall, hold, curve, and one-shot or looping modes'),
+  coming('matrix', 15, 'The invisible patch cord', 'The modulation matrix: sources, destinations, amounts that go both ways, key tracking'),
+  coming('pressure', 16, 'Leaning on a note', 'Velocity, pressure and the touch strip, and where each one is routed'),
+  coming('glide', 17, 'The slide', 'Mono, legato, glide and retrigger: notes that slide into each other'),
+  coming('voices', 18, 'Four fingers, one filter', 'Paraphonic and unison voices, voice stealing, and chords from one key'),
+  coming('arp', 19, 'One hand, many notes', 'The arpeggiator: modes, octave range, rate, swing and hold'),
+  coming('sequencer', 20, 'The bass line nobody played', 'The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303'),
+  coming('lanes', 21, 'Knobs that remember', 'Recorded knob moves in a sequence, and controlled randomness'),
+  coming('macros', 22, 'Same knob, different job', 'Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw'),
+  coming('blank', 23, 'The blank patch', 'Five sounds built from a blank patch, saved and recalled; what this course leaves out'),
 ];
 
 const BRANCH_COMING: SynthLesson[] = [
-  coming('aether', 101, 'Playing the air', 'The theremin and the ondes Martenot: the first electronic instruments', { branch: 'history', needs: ['vibrato'] }),
-  coming('coasts', 102, 'East coast, west coast', 'Moog’s keyboard and Buchla’s touch plates: two ideas of what a synth is for', { branch: 'history', needs: ['tape'] }),
-  coming('bach', 103, 'Switched-On Bach', 'Wendy Carlos, the Minimoog and the synth leaving the studio', { branch: 'history', needs: ['coasts'] }),
-  coming('dx7', 104, 'The DX7 everywhere', 'FM goes to market in 1983, and the sound of the decade', { branch: 'history', needs: ['bells'] }),
-  coming('radiophonic', 201, 'The Doctor Who theme', 'Delia Derbyshire and the BBC Radiophonic Workshop: tape, oscillators and a razor blade', { branch: 'music', needs: ['tape'] }),
-  coming('autobahn', 202, 'Autobahn', 'Kraftwerk and the drum machine: music made entirely of circuits', { branch: 'music', needs: ['noise'] }),
-  coming('acid', 203, 'The bass line nobody wanted', 'The TB-303, a resonant filter swept by hand, and acid house', { branch: 'music', needs: ['vowels', 'tape'] }),
-  coming('scales', 301, 'Modes on one keyboard', 'Scales and modes: the same white keys from a different starting note', { branch: 'theory', needs: ['twelve'] }),
-  coming('sequencer', 302, 'Sixteen steps', 'Rhythm, the step sequencer and the arpeggiator', { branch: 'theory', needs: ['twelve'] }),
+  coming('tables', 101, 'Stepping through tables', 'Wavetables: a stack of waves scanned by an envelope or LFO', { branch: 'engines', needs: ['macros'] }),
+  coming('organ', 102, 'Organs by telephone', 'Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines', { branch: 'engines', needs: ['macros'] }),
+  coming('pluck', 103, 'A string from a delay line', 'Physical models: Karplus and Strong’s plucked string, and struck bars and bells', { branch: 'engines', needs: ['macros'] }),
+  coming('vocoder', 104, 'The talking synth', 'Formants, speech engines and Homer Dudley’s vocoder', { branch: 'engines', needs: ['macros'] }),
+  coming('samples', 105, 'Wagon wheels and aliasing', 'Sampling, Nyquist and why a recording played faster turns into a chipmunk', { branch: 'engines', needs: ['macros'] }),
+  coming('grains', 106, 'Crumbs of sound', 'Granular synthesis: grain size, density and position', { branch: 'engines', needs: ['samples'] }),
+  coming('rooms', 201, 'Sabine’s lecture hall', 'Reverb: how a room answers, and the plates and springs that fake one', { branch: 'studio', needs: ['echo'] }),
 ];
 
-/** The branches: synth history, synths in music, and music theory. */
+/** The branches: the other kinds of oscillator, and the studio around the synth. */
 export const BRANCHES: TreeBranch[] = [
-  { id: 'history', title: 'Synth history', promise: 'Theremins, Moog and Buchla, Switched-On Bach and the DX7', from: 'vibrato', color: 'var(--violet)', prefix: 'H' },
-  { id: 'music', title: 'Synths in music', promise: 'Doctor Who, Kraftwerk and acid house', from: 'tape', color: 'var(--rose)', prefix: 'M' },
-  { id: 'theory', title: 'Music theory', promise: 'Scales, modes, rhythm and sequencers', from: 'twelve', color: 'var(--leaf)', prefix: 'T' },
+  { id: 'engines', title: 'Other oscillators', promise: 'Wavetables, organs, plucked strings, talking synths, samples and grains', from: 'macros', color: 'var(--violet)', prefix: 'O' },
+  { id: 'studio', title: 'Around the synth', promise: 'Reverb, and how a room answers a sound', from: 'echo', color: 'var(--rose)', prefix: 'S' },
 ];
 
 const all = [...Object.values(written), ...TRUNK_COMING, ...BRANCH_COMING].sort((a, b) => a.n - b.n);
