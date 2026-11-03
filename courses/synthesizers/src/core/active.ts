@@ -11,7 +11,17 @@
 // parameter is scored regardless: a knob left wrong is wrong whether or not it
 // was audible when the player committed.
 
-import { CHAIN, LFO_DEST, WAVE, type ParamId, type Sound } from './params';
+import { CHAIN, LFO_DEST, MATRIX_IDS, WAVE, cellOf, type ModSource, type ParamId, type Sound } from './params';
+
+/** Is a source of the modulation matrix routed anywhere? */
+export function routed(s: Sound, src: ModSource): boolean {
+  return MATRIX_IDS.some((id) => s[id] !== 0 && cellOf(id)!.src === src);
+}
+
+/** Is envelope 2 heard: by its own amount, or through the matrix? */
+const env2Used = (s: Sound) => s.env2Amt > 0 || routed(s, 'Env2');
+/** Is the LFO heard: on its own destination, or through the matrix? */
+const lfoUsed = (s: Sound) => (s.lfoDepth > 0 && lfoDestEffective(s)) || routed(s, 'Lfo');
 
 /**
  * Nothing above the fundamental: a sine that FM has not touched. The filter
@@ -78,7 +88,7 @@ export function isLive(id: ParamId, s: Sound): boolean {
       // live while the depth is up, or it could not be chosen away again.
       return s.lfoDepth > 0;
     case 'lfoRate':
-      return s.lfoDepth > 0 && lfoDestEffective(s);
+      return lfoUsed(s);
     case 'osc2Detune':
     case 'osc2Interval':
       return s.osc2Level > 0;
@@ -92,12 +102,16 @@ export function isLive(id: ParamId, s: Sound): boolean {
     case 'env2Fall':
     case 'env2Rise':
     case 'env2Mode':
+      return env2Used(s);
     case 'env2Dest':
       return s.env2Amt > 0;
     case 'filterMode':
       return !pure(s);
     case 'lfoShape':
-      return s.lfoDepth > 0 && lfoDestEffective(s);
+      return lfoUsed(s);
+    default:
+      // A matrix cell: a route can always be made.
+      return true;
   }
 }
 
@@ -171,11 +185,15 @@ export function isActive(id: ParamId, s: Sound): boolean {
     case 'env2Fall':
     case 'env2Rise':
     case 'env2Mode':
+      return env2Used(s);
     case 'env2Dest':
       return s.env2Amt > 0;
     case 'filterMode':
       return !pure(s);
     case 'lfoShape':
-      return s.lfoDepth > 0 && lfoDestEffective(s);
+      return lfoUsed(s);
+    default:
+      // A matrix cell: a route can always be made.
+      return true;
   }
 }

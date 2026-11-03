@@ -50,6 +50,31 @@ export const PARAM_IDS = [
   'env2Rise',
   'env2Mode',
   'env2Dest',
+  // The modulation matrix (lessons 15 and 16): one amount per source and
+  // destination, source first. The LFO has no route to its own amount.
+  'mxEnvPitch',
+  'mxEnvCutoff',
+  'mxEnvLevel',
+  'mxEnvLfo',
+  'mxEnv2Pitch',
+  'mxEnv2Cutoff',
+  'mxEnv2Level',
+  'mxEnv2Lfo',
+  'mxLfoPitch',
+  'mxLfoCutoff',
+  'mxLfoLevel',
+  'mxKeyPitch',
+  'mxKeyCutoff',
+  'mxKeyLevel',
+  'mxKeyLfo',
+  'mxVelPitch',
+  'mxVelCutoff',
+  'mxVelLevel',
+  'mxVelLfo',
+  'mxPressPitch',
+  'mxPressCutoff',
+  'mxPressLevel',
+  'mxPressLfo',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -57,7 +82,7 @@ export type Patch = Record<ParamId, number>;
 export type Sound = Record<ParamId, number>;
 export type StepTable = Record<ParamId, readonly number[]>;
 
-export type ModuleId = 'osc' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'voice' | 'drive' | 'echo' | 'chain';
+export type ModuleId = 'osc' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'drive' | 'echo' | 'chain';
 export type Category = 'tone' | 'brightness' | 'shape' | 'movement' | 'thickness' | 'metal' | 'grit' | 'space' | 'order';
 
 export const WAVE = { saw: 0, pulse: 1, triangle: 2, sine: 3 } as const;
@@ -70,6 +95,36 @@ export const LFO_SHAPE = { sine: 0, triangle: 1, saw: 2, square: 3, sh: 4 } as c
 export const ENV2_MODE = { env: 0, loop: 1, run: 2 } as const;
 /** Where envelope 2 goes. Position 0 is pitch, where it began (lesson 12). */
 export const ENV2_DEST = { pitch: 0, cutoff: 1 } as const;
+/** The modulation matrix's rows: what moves. Velocity and pressure join at lesson 16. */
+export const MOD_SOURCES = [
+  { id: 'Env', label: 'Env', full: 'Envelope', stage: 15 },
+  { id: 'Env2', label: 'Env 2', full: 'Envelope 2', stage: 15 },
+  { id: 'Lfo', label: 'LFO', full: 'LFO', stage: 15 },
+  { id: 'Key', label: 'Key', full: 'Key', stage: 15 },
+  { id: 'Vel', label: 'Velocity', full: 'Velocity', stage: 16 },
+  { id: 'Press', label: 'Pressure', full: 'Pressure', stage: 16 },
+] as const;
+/** The matrix's columns: what is moved. */
+export const MOD_DESTS = [
+  { id: 'Pitch', label: 'Pitch' },
+  { id: 'Cutoff', label: 'Cutoff' },
+  { id: 'Level', label: 'Level' },
+  { id: 'Lfo', label: 'LFO amt', full: 'LFO amount' },
+] as const;
+export type ModSource = (typeof MOD_SOURCES)[number]['id'];
+export type ModDest = (typeof MOD_DESTS)[number]['id'];
+/** The matrix cell for a source and destination, if there is one. */
+export function cellId(src: ModSource, dest: ModDest): ParamId | null {
+  const id = `mx${src}${dest}`;
+  return (PARAM_IDS as readonly string[]).includes(id) ? (id as ParamId) : null;
+}
+/** A matrix cell's source and destination. */
+export function cellOf(id: ParamId): { src: ModSource; dest: ModDest } | null {
+  const m = /^mx(Env2|Env|Lfo|Key|Vel|Press)(Pitch|Cutoff|Level|Lfo)$/.exec(id);
+  return m ? { src: m[1] as ModSource, dest: m[2] as ModDest } : null;
+}
+export const MATRIX_IDS = PARAM_IDS.filter((id): id is MatrixId => id.startsWith('mx'));
+
 /** The last stage PatchMatch's game has; knobs past it are the course's own. */
 export const GAME_STAGES = 9;
 /**
@@ -546,7 +601,43 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'quick',
     high: 'slow',
   },
+  ...matrixSpecs(),
 };
+
+export type MatrixId = Extract<ParamId, `mx${string}`>;
+
+function matrixSpecs(): Record<MatrixId, ParamSpec> {
+  const signed = (x: string, v: number) => (v === 0 ? 'Off' : `${v > 0 ? '+' : '−'}${x}`);
+  const num = (v: number) => String(Math.abs(v) < 1 ? Math.abs(v) : Math.round(Math.abs(v)));
+  const formats: Record<ModDest, (v: number) => string> = {
+    Pitch: (v) => signed(`${num(v)} st`, v),
+    Cutoff: (v) => signed(`${num(v)} oct`, v),
+    Level: (v) => signed(pct(Math.abs(v)), v),
+    Lfo: (v) => signed(pct(Math.abs(v)), v),
+  };
+  const out = {} as Record<MatrixId, ParamSpec>;
+  for (const src of MOD_SOURCES) {
+    for (const dest of MOD_DESTS) {
+      const id = cellId(src.id, dest.id);
+      if (!id) continue;
+      const full = `${src.full} → ${'full' in dest ? dest.full : dest.label}`;
+      out[id as MatrixId] = {
+        id,
+        label: 'Amount',
+        full,
+        module: 'matrix',
+        category: 'movement',
+        kind: 'knob',
+        interp: 'lin',
+        stage: src.stage,
+        format: formats[dest.id],
+        low: 'low',
+        high: 'high',
+      };
+    }
+  }
+  return out;
+}
 
 /**
  * In signal order, the pedals last. `stage` is where the module joins the
@@ -563,6 +654,7 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'env', label: 'Envelope', stage: 1, params: ['attack', 'decay', 'sustain', 'release'] },
   { id: 'env2', label: 'Envelope 2', stage: 12, params: ['env2Mode', 'env2Dest', 'env2Rise', 'env2Fall', 'env2Amt'] },
   { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
+  { id: 'matrix', label: 'Matrix', stage: 15, params: MATRIX_IDS },
   { id: 'voice', label: 'Voice', stage: 17, params: ['glide'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },
   { id: 'echo', label: 'Echo', stage: 8, params: ['echoTime', 'echoRepeats', 'echoMix'] },

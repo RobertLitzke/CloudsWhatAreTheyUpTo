@@ -17,7 +17,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: SynthLesson[] = [
-  coming('matrix', 15, 'The invisible patch cord', 'The modulation matrix: sources, destinations, amounts that go both ways, key tracking'),
   coming('pressure', 16, 'Leaning on a note', 'Velocity, pressure and the touch strip, and where each one is routed'),
   coming('glide', 17, 'The slide', 'Mono, legato, glide and retrigger: notes that slide into each other'),
   coming('voices', 18, 'Four fingers, one filter', 'Paraphonic and unison voices, voice stealing, and chords from one key'),

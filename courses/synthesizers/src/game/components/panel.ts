@@ -6,6 +6,7 @@ import { GAME_STAGES, MODULES, PARAMS, resolve, valueAt, type ModuleId, type Par
 import { el } from '../dom';
 import { createFlow, type Flow } from './flow';
 import { createKnob, createSelector, type Knob } from './knob';
+import { createMatrix } from './matrix';
 
 export interface PanelOptions {
   rules: Rules;
@@ -74,7 +75,7 @@ function sidewaysRows(present: readonly ModuleId[]): ModuleId[][] {
       ? [
           ['osc', 'osc2', 'fm', 'mixer'],
           ['filter', 'env', 'env2', 'voice', 'chain'],
-          ['lfo', 'drive', 'echo'],
+          ['lfo', 'matrix', 'drive', 'echo'],
         ]
       : [
           ['osc', 'osc2', 'filter'],
@@ -98,7 +99,15 @@ export function createPanel(opts: PanelOptions): Panel {
   const flow: Flow | null = shown.some((mod) => mod.id === 'chain') ? createFlow() : null;
   const sections = new Map<ModuleId, HTMLElement>();
   shown.forEach((mod, order) => {
-    const controls = mod.params.filter(onPanel).map((id) => {
+    const matrix =
+      mod.id === 'matrix'
+        ? createMatrix({ rules, cells: mod.params.filter(onPanel), continuous: opts.continuous, current: (id) => patch[id], onMove: opts.onMove })
+        : null;
+    for (const [id, cell] of matrix?.cells ?? []) {
+      cell.setState({ locked: !opts.enabled.includes(id) });
+      knobs.set(id, cell);
+    }
+    const controls = matrix ? [matrix.el] : mod.params.filter(onPanel).map((id) => {
       const knob = createControl(id, rules, opts.continuous, () => patch[id], (pos) => opts.onMove(id, pos));
       knob.setState({ locked: !opts.enabled.includes(id) });
       knobs.set(id, knob);
@@ -117,16 +126,20 @@ export function createPanel(opts: PanelOptions): Panel {
     sections.set(mod.id, section);
   });
 
+  /** The matrix is about as wide as four knobs and its amount knob. */
   const width = (id: ModuleId) =>
-    MODULES.find((mod) => mod.id === id)!.params.filter(onPanel).reduce((sum, p) => sum + (PARAMS[p].kind === 'selector' ? SELECTOR_WIDTH : 1), 0);
-  const rows = sidewaysRows(shown.map((mod) => mod.id));
+    id === 'matrix' ? 5 : MODULES.find((mod) => mod.id === id)!.params.filter(onPanel).reduce((sum, p) => sum + (PARAMS[p].kind === 'selector' ? SELECTOR_WIDTH : 1), 0);
+  // The course's modules (the Synth lab, the later lessons) are too many to
+  // fit one sideways screen: that panel wraps and scrolls like any other.
+  const course = shown.some((mod) => mod.stage > GAME_STAGES);
+  const rows = course ? [] : sidewaysRows(shown.map((mod) => mod.id));
   const root = el(
-    'div.panel',
+    `div.panel${course ? '.course' : ''}`,
     {},
-    rows.map((row) => el('div.panel-row', {}, row.map((id) => sections.get(id)!))),
+    course ? [...sections.values()] : rows.map((row) => el('div.panel-row', {}, row.map((id) => sections.get(id)!))),
   );
   root.style.setProperty('--rows', String(rows.length));
-  root.style.setProperty('--per-row', Math.max(...rows.map((row) => row.reduce((sum, id) => sum + width(id), 0))).toFixed(1));
+  if (rows.length) root.style.setProperty('--per-row', Math.max(...rows.map((row) => row.reduce((sum, id) => sum + width(id), 0))).toFixed(1));
 
   const render = () => {
     const sound = resolve(patch, rules.steps);

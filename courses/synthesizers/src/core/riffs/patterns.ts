@@ -12,4 +12,6 @@ export const PATTERNS: readonly RiffSource[] = [
     notes: '-:4 E3:4 -:4 E3:4' },
   { id: 103, title: 'Long notes', artist: 'Two held notes', group: 'folk', pd: true, bpm: 90, sure: 3, fixed: true,
     notes: 'A3:16 | E3:16' },
+  { id: 104, title: 'Three octaves', artist: 'One note, low to high', group: 'folk', pd: true, bpm: 100, sure: 3, fixed: true,
+    notes: 'A1:4 A2:4 A3:4 A4:4' },
 ];

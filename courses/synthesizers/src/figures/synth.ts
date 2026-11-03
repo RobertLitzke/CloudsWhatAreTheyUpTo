@@ -15,7 +15,8 @@
 // `target` (a sound to make, with a button to hear it; the goal "match" is
 // done when the knobs reach it, as in a PatchMatch puzzle), `keys` (a keyboard
 // to play notes by hand; a number is its lowest C as a MIDI note) and `strip`
-// (lesson 10's signal strip: how far the sound gets).
+// (lesson 10's signal strip: how far the sound gets) and `matrix` (the
+// modulation matrix, with the rows its stage has reached).
 //
 // `stage` is a PatchMatch stage (1-9) or one of the course's later lessons
 // (10 on), whose knobs the game never draws.
@@ -26,13 +27,14 @@
 import { el } from 'didactics/dom';
 import { figure, type Options } from 'didactics/figure';
 import { LATEST_RULES } from '../core/gen';
-import { LAST_STAGE, PARAMS, PARAM_IDS, resolve, valueAt, type ParamId, type Patch } from '../core/params';
+import { LAST_STAGE, MATRIX_IDS, PARAMS, PARAM_IDS, resolve, valueAt, type ParamId, type Patch } from '../core/params';
 import { reach } from '../core/reach';
 import { RIFFS, riffById } from '../core/riffs';
 import { createFlow, type Flow } from '../game/components/flow';
 import type { Knob } from '../game/components/knob';
 import { createPad, type Pad } from '../game/components/pad';
 import { createKeys } from '../game/components/keys';
+import { createMatrix } from '../game/components/matrix';
 import { createControl, createPanel, type Panel } from '../game/components/panel';
 import { player } from './player';
 import { createStrip, type Strip } from './strip';
@@ -105,6 +107,10 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   // Lesson 14: the cycling envelope
   'env2-rise': (now) => now.env2Rise >= 3,
   'env2-modes': (_, log) => tried(log, 'env2Mode') >= 3,
+  // Lesson 15: the modulation matrix
+  'mx-two': (now) => now.mxLfoPitch !== 5 && now.mxLfoCutoff !== 5,
+  'mx-negative': (now) => now.mxEnvCutoff < 5,
+  'key-track': (now) => now.mxKeyCutoff >= 7,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };
@@ -132,6 +138,7 @@ export interface SynthOptions extends Options {
   /** A keyboard under the knobs; a number is its lowest C (MIDI, 48 is C3). */
   keys?: boolean | number;
   strip?: boolean;
+  matrix?: boolean;
 }
 
 const isParam = (id: unknown): id is ParamId => typeof id === 'string' && (PARAM_IDS as readonly string[]).includes(id);
@@ -141,14 +148,15 @@ function problems(o: Options | undefined): string[] {
   if (!s) return ['needs options: at least a "stage"'];
   const out: string[] = [];
   if (!Number.isInteger(s.stage) || s.stage < 1 || s.stage > LAST_STAGE) out.push(`stage ${s.stage} is not a stage of the synth (1 to ${LAST_STAGE})`);
+  const matrixCells = s.matrix ? MATRIX_IDS.filter((id) => PARAMS[id].stage <= s.stage) : [];
   const ids = [...(s.knobs ?? []), ...(s.pad ?? []), ...(s.also ?? []), ...Object.keys(s.start ?? {}), ...(s.examples ?? []).flatMap((e) => Object.keys(e.set)), ...Object.keys(s.target?.set ?? {})];
   for (const id of ids) if (!isParam(id)) out.push(`no knob "${id}"`);
   for (const [id, pos] of Object.entries(s.start ?? {})) {
     if (isParam(id) && (pos < 0 || pos >= LATEST_RULES.steps[id].length)) out.push(`start: ${id} has no position ${pos}`);
   }
-  if (!s.knobs?.length && !s.pad && !s.panel) out.push('has nothing to turn: give it "knobs", a "pad" or the "panel"');
+  if (!s.knobs?.length && !s.pad && !s.panel && !s.matrix) out.push('has nothing to turn: give it "knobs", a "pad", the "matrix" or the "panel"');
   if (s.target) {
-    const turnable = new Set<string>([...(s.knobs ?? []), ...(s.pad ?? []), ...(s.panel ? PARAM_IDS.filter((id) => PARAMS[id].stage === s.stage || s.also?.includes(id)) : [])]);
+    const turnable = new Set<string>([...matrixCells, ...(s.knobs ?? []), ...(s.pad ?? []), ...(s.panel ? PARAM_IDS.filter((id) => PARAMS[id].stage === s.stage || s.also?.includes(id)) : [])]);
     for (const [id, pos] of Object.entries(s.target.set)) {
       if (!turnable.has(id)) out.push(`target: "${id}" is not one of the figure's controls`);
       if (isParam(id) && (pos < 0 || pos >= LATEST_RULES.steps[id].length)) out.push(`target: ${id} has no position ${pos}`);
@@ -248,6 +256,17 @@ export const synthFigure = figure<SynthOptions>(
       const knob = createControl(id, rules, false, () => patch[id], (pos) => change({ [id]: pos }));
       knobs.push({ id, knob });
       controls.push(knob.el);
+    }
+    if (o.matrix) {
+      const m = createMatrix({
+        rules,
+        cells: MATRIX_IDS.filter((id) => PARAMS[id].stage <= o.stage),
+        continuous: false,
+        current: (id) => patch[id],
+        onMove: (id, pos) => change({ [id]: pos }),
+      });
+      for (const [id, knob] of m.cells) knobs.push({ id, knob });
+      controls.push(m.el);
     }
     if (o.pad) {
       const [x, y] = o.pad;

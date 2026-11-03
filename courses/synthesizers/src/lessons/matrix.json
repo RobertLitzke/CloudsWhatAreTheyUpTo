@@ -1,0 +1,349 @@
+{
+ "id": "matrix",
+ "n": 15,
+ "title": "The invisible patch cord",
+ "teaches": "The modulation matrix: sources, destinations, amounts that go both ways, key tracking",
+ "parts": [
+  {
+   "title": "One LFO, two jobs",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The mystery.** In lesson 4 the LFO had a switch called Dest, and it pointed the LFO at one thing: pitch, or the cutoff, or the width, or the level. Listen to the second sound here. The pitch wobbles and the brightness wobbles with it, from the same LFO, at the same speed. A switch can only point one way. So what is this synth doing?"
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "One LFO through the Dest switch, then through the matrix to two places",
+     "options": {
+      "stage": 15,
+      "riff": 103,
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 2,
+       "sustain": 4,
+       "release": 2,
+       "lfoRate": 2
+      },
+      "sounds": [
+       {
+        "name": "Dest: pitch",
+        "set": {
+         "lfoDest": 0,
+         "lfoDepth": 2
+        }
+       },
+       {
+        "name": "Pitch and cutoff",
+        "set": {
+         "mxLfoPitch": 6,
+         "mxLfoCutoff": 8
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The Dest switch was a simplification. Inside a synth, anything that moves (an envelope, an LFO, the key you press) is a **source**, and anything that can be moved (pitch, cutoff, loudness) is a **destination**. Lesson 4's switch let one source reach one destination. A **modulation matrix** lets any source reach any destination, as many at a time as you like, each by its own amount."
+    }
+   ]
+  },
+  {
+   "title": "A grid of patch cords",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The first synthesizers had no switch at all. Each module had sockets, and the player joined them with **patch cords**, cables from an output to an input. An LFO's output could be plugged into the oscillator's pitch input and, with a second cable, into the filter's cutoff input. That is why a synth's setting is still called a **patch**. The [[EMS VCS3]], a small British synth of 1969, put its connections on a board of pins instead: sources along the rows, destinations along the columns, and a pin pushed into the hole where a row met a column joined them.[^pins]"
+    },
+    {
+     "type": "text",
+     "text": "A matrix on a modern synth is that pinboard, with a number in each hole instead of a pin. The rows are sources, the columns destinations, and each square says how much. Tap a square below to pick it, then turn the **Amount** knob. A dot means no connection."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The matrix: sources down the side, destinations across the top. The LFO is idle until a square sends it somewhere.",
+     "task": "Send the LFO to pitch and to cutoff at once",
+     "goal": "mx-two",
+     "options": {
+      "stage": 15,
+      "knobs": [],
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 2,
+       "sustain": 4,
+       "release": 2,
+       "lfoRate": 2,
+       "lfoDepth": 0
+      },
+      "riff": 103,
+      "matrix": true,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "Pitch is counted in semitones and the cutoff in octaves, as before. A third of a semitone of LFO on pitch is a gentle vibrato; a whole octave on the cutoff is a strong wah. Notice that the LFO's own Depth knob is still at zero. The matrix takes the LFO as it comes out of the LFO, before the depth, so the two ways of using it add up."
+    }
+   ]
+  },
+  {
+   "title": "Amounts that go both ways",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Each square can go **negative**. A positive amount moves the destination the same way as the source: the envelope rises, the cutoff rises. A negative amount moves it the opposite way: the envelope rises, the cutoff falls. The note below starts bright and darkens as it dies, the shape from lesson 3, with the envelope sent to the cutoff by +1 octave. Take that square below zero."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A pluck, with the envelope sent to the cutoff. Take the amount below zero.",
+     "task": "Make the envelope close the filter instead of opening it",
+     "goal": "mx-negative",
+     "options": {
+      "stage": 15,
+      "knobs": [],
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 2,
+       "sustain": 0,
+       "decay": 3,
+       "release": 2,
+       "mxEnvCutoff": 8
+      },
+      "riff": 104,
+      "matrix": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "Upside down, the note starts dark and opens as it fades, a backwards pluck that sounds like a tape played in reverse. A negative amount on pitch makes each note swoop up into place instead of down. Negative routes look like a curiosity, but they are how a lot of the subtler patches work: one source pushing two things in opposite directions, so that as a sound gets brighter it also gets a little quieter, and the overall level seems steady."
+    }
+   ]
+  },
+  {
+   "title": "The key as a source",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Not every source moves on its own. **Key** is the note you are playing, counted in octaves above or below middle C. Sent to the cutoff, it makes the filter follow the keyboard. Here is why that matters. This loop plays the same note in four octaves, through a filter set to 900 Hz. The low A has dozens of harmonics under the cutoff and fizzes. The high A has two, and sounds like a whistle. They don't sound like the same instrument."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "One note in four octaves, through a fixed filter. Make the filter follow the key.",
+     "task": "Send the key to the cutoff by half an octave or more",
+     "goal": "key-track",
+     "options": {
+      "stage": 15,
+      "knobs": [],
+      "start": {
+       "wave": 0,
+       "cutoff": 3,
+       "res": 1,
+       "sustain": 4,
+       "release": 1
+      },
+      "riff": 104,
+      "matrix": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "At +1 octave, every octave up the keyboard moves the cutoff up an octave too, so every note keeps the same harmonics under the filter and the same tone. That is called **full key tracking**, and acoustic instruments mostly behave that way. At +0.5, high notes still get a little darker, which suits a bass. Many synths have a knob for nothing else, labelled **Key track** or **KBD**.[^tracking]"
+    }
+   ]
+  },
+  {
+   "title": "Turning a route up and down",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Two columns are different. **Level** is how loud the note is, and **LFO amt** is how strong the LFO is, everywhere it goes. A route to either one takes over part of it: at +50 %, half the level is fixed and half follows the source; at +100 %, all of it follows. A negative route works the other way and pulls it down as the source goes up."
+    },
+    {
+     "type": "text",
+     "text": "The LFO amount is the useful one, because it lets one source control another. A violinist or a singer holding a long note usually starts it straight, then lets the vibrato in. Listen to the difference."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "Vibrato from the start of each note, and vibrato that comes in late",
+     "options": {
+      "stage": 15,
+      "riff": 103,
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 1,
+       "sustain": 4,
+       "release": 3,
+       "lfoDest": 0,
+       "lfoDepth": 2,
+       "lfoRate": 4,
+       "env2Fall": 0
+      },
+      "sounds": [
+       {
+        "name": "From the start",
+        "set": {}
+       },
+       {
+        "name": "Late",
+        "set": {
+         "mxEnv2Lfo": 0,
+         "env2Fall": 4
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The late vibrato uses envelope 2, once a note, but the envelope never touches the pitch directly. Its own amount knob is at zero. Instead, it goes to the LFO's amount at −100 %. Envelope 2 jumps to the top at each note, which pulls the LFO all the way down: no vibrato. As envelope 2 falls away, the LFO comes back. The Fall knob sets how long the note stays straight."
+    }
+   ]
+  },
+  {
+   "title": "The late vibrato",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now make it. The LFO is already on pitch, a third of a semitone deep, six times a second, and envelope 2 is falling in a hundredth of a second, so fast it does nothing you'd hear. Route envelope 2 to the LFO's amount, upside down, and give it a slow fall."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "Vibrato on from the first instant. Hold it back at the start of each note.",
+     "task": "Make the late vibrato",
+     "goal": "match",
+     "options": {
+      "stage": 15,
+      "knobs": [
+       "env2Fall"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 4,
+       "res": 1,
+       "attack": 1,
+       "sustain": 4,
+       "release": 3,
+       "lfoDest": 0,
+       "lfoDepth": 2,
+       "lfoRate": 4,
+       "env2Fall": 0
+      },
+      "riff": 103,
+      "matrix": true,
+      "keys": 48,
+      "target": {
+       "name": "Late vibrato",
+       "set": {
+        "mxEnv2Lfo": 0,
+        "env2Fall": 4
+       }
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "The same route with a positive amount gives the opposite, a vibrato that is strongest at the start and settles. With the envelope's Loop mode, the vibrato swells and fades over and over. A matrix with six sources and four destinations has twenty-odd squares, and most good patches use only two or three of them. When you meet an unfamiliar synth, find its matrix (often a grid on a small screen, with a cursor and one knob), then ask what each source is and what it can reach. Some synths add columns you choose yourself, so a route can reach any knob on the panel."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the matrix",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What does a modulation matrix let you do that lesson 4's Dest switch did not?",
+        "choices": [
+         "Send one source to several destinations at once, each by its own amount",
+         "Make the LFO faster",
+         "Choose the LFO's shape"
+        ],
+        "answer": 0,
+        "why": "A switch points one source at one destination; a matrix has a square for every pair."
+       },
+       {
+        "ask": "The envelope goes to the cutoff at a negative amount. What happens as a note starts?",
+        "choices": [
+         "The filter closes as the envelope rises, then opens as it falls",
+         "The filter opens further than before",
+         "Nothing: negative amounts are off"
+        ],
+        "answer": 0,
+        "why": "Negative routes move the destination the opposite way from the source."
+       },
+       {
+        "ask": "A high note sounds thin and a low one fizzy through the same filter. Which route fixes that?",
+        "choices": [
+         "Key to cutoff, about +1 octave",
+         "LFO to pitch",
+         "Envelope to level"
+        ],
+        "answer": 0,
+        "why": "Key tracking moves the cutoff with the note, so each note keeps the same harmonics under it."
+       },
+       {
+        "ask": "Envelope 2 goes to the LFO's amount at −100 %. What does the LFO do at the start of a note?",
+        "choices": [
+         "Almost nothing, then more as the envelope falls",
+         "Its most, then less",
+         "It speeds up"
+        ],
+        "answer": 0,
+        "why": "At the top of envelope 2, a full negative route pulls the LFO's amount to zero."
+       },
+       {
+        "ask": "Where does the word 'patch' come from?",
+        "choices": [
+         "The patch cords that joined modules on early synths",
+         "A patch of noise",
+         "A small fix to the software"
+        ],
+        "answer": 0,
+        "why": "Setting up a sound meant patching modules together with cables."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Sources move things, destinations get moved**: envelopes, LFOs and the key are sources; pitch, cutoff and level are destinations.",
+  "**A modulation matrix** has a square for every source and destination, each with its own amount.",
+  "**One source can go to several places at once**, such as an LFO on pitch and on cutoff together.",
+  "**Amounts can be negative**, moving the destination the opposite way from the source.",
+  "**Key to cutoff at +1 octave is full key tracking**: every note keeps the same tone up the keyboard.",
+  "**A route to the LFO's amount lets one source control another**, as in a vibrato that comes in late.",
+  "**The matrix is the patch cord made invisible**: early synths joined modules with cables, hence 'patch'.",
+  "**On an unfamiliar synth, find the matrix** and ask what each source is and what it can reach."
+ ],
+ "footnotes": {
+  "pins": {
+   "kind": "digression",
+   "title": "The pinboard",
+   "text": "The EMS VCS3, made in London from 1969, had no patch cords. Its connections were a square board of holes, sixteen rows of sources by sixteen columns of destinations, and the player pushed a small pin into a hole to make a connection. Pins with resistors inside came in different colours, and joined their row and column more or less strongly: an early version of an amount. The VCS3 turns up on records by Pink Floyd, Hawkwind and the BBC Radiophonic Workshop."
+  },
+  "tracking": {
+   "kind": "technical",
+   "title": "Tracking the whistle",
+   "text": "Full key tracking matters most with the resonance high. A resonant filter adds a peak at the cutoff, and at full tracking the peak moves up an octave for every octave of the key, so it stays in the same place among the harmonics and plays in tune with the note. Turned all the way up, so the filter whistles on its own, a filter with full tracking can be played as a sine-wave oscillator. The Minimoog had two switches for this, each adding part of the key to the cutoff."
+  }
+ },
+ "journal": []
+}

@@ -9,7 +9,7 @@ import { FIGURES } from '../src/figures';
 import { WRITTEN } from '../src/lessons';
 import { STAGE_LESSONS, STAGES } from '../src/core/campaign';
 import { LATEST_RULES } from '../src/core/gen';
-import type { ParamId, Patch } from '../src/core/params';
+import { MATRIX_IDS, PARAMS, type ParamId, type Patch } from '../src/core/params';
 import { goalFor, type SynthOptions } from '../src/figures/synth';
 import { partials, sumAt } from '../src/figures/harmonics';
 import { nearestVowel } from '../src/figures/vowel';
@@ -54,6 +54,7 @@ describe('the synth figure', () => {
     expect(goal).toBeTruthy();
     const ids: ParamId[] = [...(o.knobs ?? []), ...(o.pad ?? [])];
     if (o.panel) ids.push('chain', 'drive', 'cutoff', ...(o.also ?? []));
+    if (o.matrix) ids.push(...MATRIX_IDS.filter((id) => PARAMS[id].stage <= o.stage));
     const start: Patch = { ...LATEST_RULES.defaults, ...o.start };
     if (name === 'match') {
       // A sound to make: not where it starts, and every knob it sets is one the reader can turn.

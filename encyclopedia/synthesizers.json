@@ -30,7 +30,8 @@
     ],
     "things": [
       "yamaha-dx7",
-      "roland-tr-808"
+      "roland-tr-808",
+      "ems-vcs3"
     ],
     "tables": [
       {
@@ -684,6 +685,32 @@
         }
       ],
       "wikipedia": "Roland_TR-808"
+    },
+    "ems-vcs3": {
+      "kind": "thing",
+      "title": "EMS VCS3",
+      "also": [
+        "VCS3",
+        "Putney"
+      ],
+      "dates": "1969",
+      "line": "A small British synthesizer whose connections were made with pins in a grid instead of patch cords.",
+      "text": [
+        "Electronic Music Studios in London built the VCS3 to be a modular synthesizer that fitted on a table. Its sixteen-by-sixteen pinboard put sources on the rows and destinations on the columns; a pin in a hole joined them.",
+        "It was used by Pink Floyd, Hawkwind, Brian Eno with Roxy Music and the BBC Radiophonic Workshop."
+      ],
+      "matters": "Its pinboard is the ancestor of the modulation matrix on modern synths: a grid with sources down the side and destinations across the top.",
+      "see": [
+        "robert-moog"
+      ],
+      "learn": [
+        {
+          "course": "synthesizers",
+          "lesson": "matrix",
+          "for": "Route sources to destinations through a matrix"
+        }
+      ],
+      "wikipedia": "EMS_VCS_3"
     }
   }
 }

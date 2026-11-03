@@ -9,6 +9,7 @@
 //   FM:    a sine at a ratio of the note ─ amount ─▶ the frequency of osc 1
 //   noise: a looping buffer of white noise ─ level ─┘ (joins at the mix)
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
+//   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
 // (1), (2) and (3) are the three places the drive pedal can be plugged in:
 // ahead of the filter, after the synth, or after the echo. There is a drive at
@@ -26,6 +27,12 @@
 // becomes an all-pass (flat, so it changes nothing you hear) and the second
 // takes the mode: low-pass, band-pass or high-pass.
 //
+// The matrix is a gain per route from a source signal to what it moves. Pitch
+// and cutoff routes add cents. Level and LFO amount are gains, and a route to
+// one takes over as much of it as its amount says: at +50 % the gain is half
+// fixed and half the source, so a source at zero halves it; at −50 % the
+// source pulls the gain down by up to half. Unrouted, both gains stay at 1.
+//
 // The LFO is an oscillator for the four smooth shapes and, for sample and hold,
 // a looping buffer of held random levels read one level per cycle. Its levels
 // come from a fixed seed, so two voices hold the same levels.
@@ -40,7 +47,7 @@
 // version of restarting the LFO with the loop.
 
 import { noteEnvelope, type EnvEvent } from '../core/envelope';
-import { CHAIN, ENV2_DEST, ENV2_MODE, FILTER_MODE, LFO_DEST, LFO_SHAPE, WAVE, type Sound } from '../core/params';
+import { CHAIN, ENV2_DEST, ENV2_MODE, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
 
 /** Rough loudness matching between waves. */
@@ -88,6 +95,11 @@ function driveMakeup(gain: number): number {
     power += y * y;
   }
   return DRIVE_REFERENCE / Math.SQRT2 / Math.sqrt(power / n);
+}
+
+/** The key source: octaves above (or below) middle C. */
+function keyOctaves(hz: number): number {
+  return Math.log2(hz / 261.63);
 }
 
 type Setter = (param: AudioParam, value: number) => void;
@@ -267,6 +279,16 @@ export class Voice {
   private readonly env2Pitch: GainNode;
   private readonly env2Cut: GainNode;
   private readonly noiseSrc: AudioBufferSourceNode;
+  /** The matrix's own sources: the key (octaves from middle C), velocity (0 to 1, 1 by default) and pressure (0 to 1). */
+  private readonly keySrc: ConstantSourceNode;
+  private readonly velSrc: ConstantSourceNode;
+  private readonly pressSrc: ConstantSourceNode;
+  /** Where pitch routes arrive (cents, to every oscillator) and cutoff routes (cents, to both filters). */
+  private readonly pitchMod: GainNode;
+  private readonly cutMod: GainNode;
+  /** After the tremolo: the gain level routes move. */
+  private readonly levelMod: GainNode;
+  private readonly routes = new Map<MatrixId, GainNode>();
 
   private lfos: Lfo[] = [];
   private barSeconds = 2;
@@ -344,6 +366,7 @@ export class Voice {
 
     this.amp = gain(0);
     this.trem = gain(1);
+    this.levelMod = gain(1);
     this.makeup = gain(1);
     this.out = gain(0);
     this.drives = [new Drive(ctx), new Drive(ctx), new Drive(ctx)];
@@ -352,7 +375,7 @@ export class Voice {
     const middle = this.drives[CHAIN.middle];
     const last = this.drives[CHAIN.last];
     this.mix.connect(first.input);
-    first.output.connect(this.f1).connect(this.f2).connect(this.amp).connect(this.trem).connect(this.makeup).connect(middle.input);
+    first.output.connect(this.f1).connect(this.f2).connect(this.amp).connect(this.trem).connect(this.levelMod).connect(this.makeup).connect(middle.input);
     middle.output.connect(this.echo.input);
     this.echo.output.connect(last.input);
     last.output.connect(this.out).connect(dest);
@@ -381,6 +404,39 @@ export class Voice {
     this.lfoPw.connect(this.delay.delayTime);
     this.lfoPw2.connect(this.delay2.delayTime);
     this.lfoLevel.connect(this.trem.gain);
+
+    // The matrix: every route exists, at zero until its amount comes up.
+    const constant = (value: number) => {
+      const c = ctx.createConstantSource();
+      c.offset.value = value;
+      c.start(startAt);
+      return c;
+    };
+    this.keySrc = constant(0);
+    this.velSrc = constant(1);
+    this.pressSrc = constant(0);
+    this.pitchMod = gain(1);
+    this.cutMod = gain(1);
+    this.cutMod.connect(this.f1.detune);
+    this.cutMod.connect(this.f2.detune);
+    const sources: Record<ModSource, AudioNode> = {
+      Env: this.envSrc,
+      Env2: this.env2Src,
+      Lfo: this.lfoBus,
+      Key: this.keySrc,
+      Vel: this.velSrc,
+      Press: this.pressSrc,
+    };
+    for (const id of MATRIX_IDS) {
+      const { src, dest } = cellOf(id)!;
+      const route = gain(0);
+      sources[src].connect(route);
+      if (dest === 'Pitch') route.connect(this.pitchMod);
+      else if (dest === 'Cutoff') route.connect(this.cutMod);
+      else if (dest === 'Level') route.connect(this.levelMod.gain);
+      else route.connect(this.lfoBus.gain);
+      this.routes.set(id, route);
+    }
 
     this.banks.push(this.makeBank(startAt, 1));
     this.apply(startAt, true);
@@ -412,6 +468,7 @@ export class Voice {
       fades.push(g);
       this.lfoPitch.connect(o.detune);
       this.env2Pitch.connect(o.detune);
+      this.pitchMod.connect(o.detune);
     };
     o1.forEach((o, i) => {
       wire(o, this.in1[i]);
@@ -424,6 +481,7 @@ export class Voice {
     // Vibrato moves the modulator too, so the ratio holds.
     this.lfoPitch.connect(mod.detune);
     this.env2Pitch.connect(mod.detune);
+    this.pitchMod.connect(mod.detune);
     return { o1, o2, mod, modGain, fades, from: t };
   }
 
@@ -434,6 +492,7 @@ export class Voice {
         o.disconnect();
         this.lfoPitch.disconnect(o.detune);
         this.env2Pitch.disconnect(o.detune);
+        this.pitchMod.disconnect(o.detune);
       }
       for (const g of bank.fades) g.disconnect();
       bank.modGain.disconnect();
@@ -551,6 +610,19 @@ export class Voice {
     set(this.makeup.gain, bandMakeup / (1 + 0.05 * Math.max(0, s.res - 0.7)));
     set(this.envToFilter.gain, s.envAmt * 1200);
 
+    // The matrix. A positive route to a gain takes its share of the gain's fixed part.
+    let levelShare = 0;
+    let lfoShare = 0;
+    for (const [id, route] of this.routes) {
+      const v = s[id];
+      const { dest } = cellOf(id)!;
+      set(route.gain, dest === 'Pitch' ? v * 100 : dest === 'Cutoff' ? v * 1200 : v);
+      if (dest === 'Level') levelShare += Math.max(0, v);
+      if (dest === 'Lfo') lfoShare += Math.max(0, v);
+    }
+    set(this.levelMod.gain, Math.max(0, 1 - levelShare));
+    set(this.lfoBus.gain, Math.max(0, 1 - lfoShare));
+
     const place = Math.round(s.chain);
     this.drives.forEach((drive, i) => drive.set(i === place ? s.drive : 0, s.driveTone, set));
     this.echo.set(s.echoMix, s.echoRepeats, s.echoTime * this.sixSeconds, set);
@@ -666,6 +738,7 @@ export class Voice {
     this.aim(on, hz, this.glideTau());
     this.pending.push({ on, hz });
     this.lastHz = hz;
+    this.keySrc.offset.setValueAtTime(keyOctaves(hz), on);
 
     this.fall(on, next);
     const { events, end } = noteEnvelope(this.level, on, off, next, this.sound);
@@ -749,6 +822,7 @@ export class Voice {
     }
     this.pending = [{ on: t, hz }];
     this.lastHz = hz;
+    this.keySrc.offset.setValueAtTime(keyOctaves(hz), t);
     this.aim(t, hz, this.glideTau());
     this.fall(t, t + 60);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
@@ -796,6 +870,10 @@ export class Voice {
       this.noiseSrc.disconnect();
       this.env2Src.stop();
       this.env2Src.disconnect();
+      for (const c of [this.keySrc, this.velSrc, this.pressSrc]) {
+        c.stop();
+        c.disconnect();
+      }
       this.echo.dispose();
       this.out.disconnect();
     }, 140);

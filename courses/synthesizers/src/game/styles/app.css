@@ -1055,6 +1055,103 @@ h3.module-title {
   box-shadow: none;
 }
 
+/* The modulation matrix: a grid of squares, and the picked square's Amount knob beside it. */
+.matrix {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.mx-grid {
+  display: grid;
+  gap: 3px;
+}
+
+.mx-row {
+  display: grid;
+  grid-template-columns: 62px repeat(4, minmax(48px, 1fr));
+  gap: 3px;
+  align-items: center;
+}
+
+.mx-dest,
+.mx-src {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.mx-dest {
+  text-align: center;
+}
+
+.mx-cell,
+.mx-none {
+  height: 28px;
+  border-radius: 4px;
+}
+
+.mx-none {
+  background: repeating-linear-gradient(135deg, transparent 0 4px, var(--hair-dim) 4px 5px);
+  opacity: 0.4;
+}
+
+.mx-cell {
+  font: inherit;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--hair-dim);
+  cursor: pointer;
+  padding: 0 2px;
+  white-space: nowrap;
+}
+
+.mx-cell.pos {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.mx-cell.neg {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.mx-cell.picked {
+  outline: 2px solid var(--cyan);
+  outline-offset: 1px;
+}
+
+.mx-cell.ghost {
+  box-shadow: inset 0 0 0 2px var(--orange);
+}
+
+.mx-cell.locked {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.mx-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: var(--knob);
+}
+
+.mx-picked {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  text-align: center;
+  max-width: 110px;
+}
+
 /* The signal chain, drawn: boxes in the order a note meets them. */
 .flow {
   display: inline-flex;
@@ -2061,6 +2158,22 @@ h3.module-title {
 
   .module-chain .flow {
     display: none;
+  }
+
+  /* The course's whole synth does not fit one screen: let it wrap and scroll. */
+  .deck .panel.course {
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 0;
+  }
+
+  .panel.course .module {
+    --knob: 52px;
+    --opt: 20px;
+  }
+
+  .panel.course .module-controls {
+    flex-wrap: wrap;
   }
 
   /* Lessons: the words on the left, the control on the right, so a part is

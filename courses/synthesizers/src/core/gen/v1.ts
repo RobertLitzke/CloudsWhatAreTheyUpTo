@@ -25,6 +25,12 @@ import type { Riff } from '../riffs';
 import { Rng, hash2 } from '../rng';
 import type { Puzzle, Rules } from './types';
 
+const PITCH_ROUTE = [-12, -7, -2, -1, -0.3, 0, 0.3, 1, 2, 7, 12];
+const CUTOFF_ROUTE = [-4, -2, -1, -0.5, -0.25, 0, 0.25, 0.5, 1, 2, 4];
+const SHARE_ROUTE = [-1, -0.5, -0.25, 0, 0.25, 0.5, 1];
+/** The middle of a route's steps: no route. */
+const OFF = (steps: readonly number[]) => steps.indexOf(0);
+
 export const STEPS: StepTable = {
   wave: [0, 1, 2, 3], // saw, pulse, triangle, sine
   pw: [0.5, 0.4, 0.3, 0.2, 0.1],
@@ -61,6 +67,32 @@ export const STEPS: StepTable = {
   env2Rise: [0, 0.03, 0.1, 0.3, 1], // seconds
   env2Mode: [0, 1, 2], // once a note, looping, running free
   env2Dest: [0, 1], // pitch, cutoff
+  // The matrix: each cell's middle position is no route. Pitch in semitones,
+  // cutoff in octaves; level and LFO amount as how much of it the source
+  // takes over (see the voice).
+  mxEnvPitch: PITCH_ROUTE,
+  mxEnvCutoff: CUTOFF_ROUTE,
+  mxEnvLevel: SHARE_ROUTE,
+  mxEnvLfo: SHARE_ROUTE,
+  mxEnv2Pitch: PITCH_ROUTE,
+  mxEnv2Cutoff: CUTOFF_ROUTE,
+  mxEnv2Level: SHARE_ROUTE,
+  mxEnv2Lfo: SHARE_ROUTE,
+  mxLfoPitch: PITCH_ROUTE,
+  mxLfoCutoff: CUTOFF_ROUTE,
+  mxLfoLevel: SHARE_ROUTE,
+  mxKeyPitch: PITCH_ROUTE,
+  mxKeyCutoff: CUTOFF_ROUTE,
+  mxKeyLevel: SHARE_ROUTE,
+  mxKeyLfo: SHARE_ROUTE,
+  mxVelPitch: PITCH_ROUTE,
+  mxVelCutoff: CUTOFF_ROUTE,
+  mxVelLevel: SHARE_ROUTE,
+  mxVelLfo: SHARE_ROUTE,
+  mxPressPitch: PITCH_ROUTE,
+  mxPressCutoff: CUTOFF_ROUTE,
+  mxPressLevel: SHARE_ROUTE,
+  mxPressLfo: SHARE_ROUTE,
 };
 
 /** An open, organ-like saw: what a locked module sits at. */
@@ -102,6 +134,29 @@ export const DEFAULTS: Patch = {
   env2Rise: 0,
   env2Mode: 0,
   env2Dest: 0,
+  mxEnvPitch: OFF(PITCH_ROUTE),
+  mxEnvCutoff: OFF(CUTOFF_ROUTE),
+  mxEnvLevel: OFF(SHARE_ROUTE),
+  mxEnvLfo: OFF(SHARE_ROUTE),
+  mxEnv2Pitch: OFF(PITCH_ROUTE),
+  mxEnv2Cutoff: OFF(CUTOFF_ROUTE),
+  mxEnv2Level: OFF(SHARE_ROUTE),
+  mxEnv2Lfo: OFF(SHARE_ROUTE),
+  mxLfoPitch: OFF(PITCH_ROUTE),
+  mxLfoCutoff: OFF(CUTOFF_ROUTE),
+  mxLfoLevel: OFF(SHARE_ROUTE),
+  mxKeyPitch: OFF(PITCH_ROUTE),
+  mxKeyCutoff: OFF(CUTOFF_ROUTE),
+  mxKeyLevel: OFF(SHARE_ROUTE),
+  mxKeyLfo: OFF(SHARE_ROUTE),
+  mxVelPitch: OFF(PITCH_ROUTE),
+  mxVelCutoff: OFF(CUTOFF_ROUTE),
+  mxVelLevel: OFF(SHARE_ROUTE),
+  mxVelLfo: OFF(SHARE_ROUTE),
+  mxPressPitch: OFF(PITCH_ROUTE),
+  mxPressCutoff: OFF(CUTOFF_ROUTE),
+  mxPressLevel: OFF(SHARE_ROUTE),
+  mxPressLfo: OFF(SHARE_ROUTE),
 };
 
 export const RULES: Rules = { steps: STEPS, defaults: DEFAULTS, active: isActive, alike: soundsAlike };
@@ -378,6 +433,29 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   env2Rise: 0,
   env2Mode: 0,
   env2Dest: 0,
+  mxEnvPitch: 0,
+  mxEnvCutoff: 0,
+  mxEnvLevel: 0,
+  mxEnvLfo: 0,
+  mxEnv2Pitch: 0,
+  mxEnv2Cutoff: 0,
+  mxEnv2Level: 0,
+  mxEnv2Lfo: 0,
+  mxLfoPitch: 0,
+  mxLfoCutoff: 0,
+  mxLfoLevel: 0,
+  mxKeyPitch: 0,
+  mxKeyCutoff: 0,
+  mxKeyLevel: 0,
+  mxKeyLfo: 0,
+  mxVelPitch: 0,
+  mxVelCutoff: 0,
+  mxVelLevel: 0,
+  mxVelLfo: 0,
+  mxPressPitch: 0,
+  mxPressCutoff: 0,
+  mxPressLevel: 0,
+  mxPressLfo: 0,
 };
 const GOAL_SUBTLE = 30; // a difference of a single step
 const GOAL_CONFUSABLE = 75; // both halves of a confusable pair differ
