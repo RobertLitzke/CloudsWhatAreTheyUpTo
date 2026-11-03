@@ -90,7 +90,10 @@ build; use `npm run build && npm run preview` to click through the site.
    `catalog: { href: '../' }` in its `defineCourse` call.
 3. Place it on the catalog's map: add its folder and `[x, y]` to `courses` in
    `catalog/map.json` (the catalog's tests fail for a course left off).
-4. `npm install` at the root, then `npm test` and `npm run build`.
+4. Give it an icon: add it to `catalog/icons/icons.json` (a crop box on one of
+   the painted sheets, or its own image) and run `npm run icons`, which writes
+   its `public/icons/` set; see `catalog/icons/README.md`.
+5. `npm install` at the root, then `npm test` and `npm run build`.
 
 ## Bridges
 

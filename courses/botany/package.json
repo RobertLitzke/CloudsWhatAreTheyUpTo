@@ -9,11 +9,10 @@
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "icons": "node tools/icons.mjs",
     "photos": "node tools/photos.mjs"
   },
   "dependencies": {
-    "didactics": "github:RobertLitzke/Didactics#51bee7523b75b414ee82d049192807ca33b00345"
+    "didactics": "github:RobertLitzke/Didactics#5232c5348e8c731dcd752d213011a2dc11143194"
   },
   "devDependencies": {
     "@fontsource-variable/fraunces": "^5.2.0",

@@ -139,11 +139,11 @@ function drawSide(
   const R = 386;
   const Y = 34;
   const lo = 1;
-  const hi = 400;
+  const hi = 1000;
   const x = (m: number) => L + ((R - L) * Math.log(Math.min(hi, Math.max(lo, m)) / lo)) / Math.log(hi / lo);
   const bird = o.stand;
   const bushes = o.stand + o.behind;
-  const trees = o.stand + 80;
+  const trees = o.stand + (PERCHED.planes.find((p) => p.id === 'trees')?.behind ?? 80);
   const far = isFinite(o.far) ? o.far : hi;
   redraw(
     g,

@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "icons": "node tools/icons.mjs",
     "photos:find": "node --experimental-strip-types tools/photos/find.ts",
     "photos:fetch": "node --experimental-strip-types tools/photos/fetch.ts"
   },
@@ -27,6 +26,6 @@
     "vitest": "^3.0.0"
   },
   "dependencies": {
-    "didactics": "github:RobertLitzke/Didactics#51bee7523b75b414ee82d049192807ca33b00345"
+    "didactics": "github:RobertLitzke/Didactics#5232c5348e8c731dcd752d213011a2dc11143194"
   }
 }

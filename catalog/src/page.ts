@@ -269,7 +269,6 @@ export function catalogPage(courses: readonly CatalogEntry[], read: Read, map: C
       el(
         'p.lede',
         {},
-        'Each course is a workbook of short illustrated lessons with live diagrams to try, a check at the end of each lesson, and flash cards for review. ',
         map.bridges.length ? 'Where two courses meet, a short bridge course takes what both teach and goes somewhere neither goes alone. ' : '',
         'Take them in any order, on a phone or a computer, online or off. Your place in each is kept on this device.',
       ),

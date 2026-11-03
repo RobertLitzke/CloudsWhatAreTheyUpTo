@@ -61,7 +61,6 @@ load, or `?only=<figure id>` for one figure.
 | `npm test` | Vitest: the solver, lesson and reference content, every figure built, the views, the save |
 | `npm run build` | Typecheck, then build `dist/` |
 | `npm run preview` | Serve `dist/` on http://localhost:5451 |
-| `npm run icons` | Regenerate the PNG icons (drawn in `tools/icons.mjs`) |
 
 ## The circuit engine
 
@@ -127,7 +126,7 @@ src/app/      store.ts, asset.ts
   scene/        board.ts (the home page's board)
   figures/      kit.ts (palette), one file per lesson, check.ts, index.ts
   views/        home, lesson, reference, quiz, settings, credits
-tools/        gallery/, icons.mjs
+tools/        gallery/
 ```
 
 ## Deploy

@@ -2,15 +2,6 @@
    cream mounting paper, and the accents are the colours of petals, pollen,
    new leaves and bark. */
 
-@font-face {
-  font-family: 'Fraunces';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 100 900;
-  /* Latin only: this file is inlined into the page, so every subset costs. */
-  src: url('@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2') format('woff2-variations');
-}
-
 :root {
   --bg: #1b2a1c; /* keep in sync with theme_color in vite.config.ts and index.html */
   --bg-2: #2a3d2a;
