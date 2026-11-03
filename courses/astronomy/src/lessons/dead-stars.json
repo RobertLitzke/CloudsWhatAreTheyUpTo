@@ -1,0 +1,72 @@
+{
+  "id": "dead-stars",
+  "n": 15,
+  "title": "Stars that shouldn't exist",
+  "teaches": "What holds up a dead star that has no fuel left, why a heavier white dwarf is smaller, and why no white dwarf can weigh more than about 1.4 Suns",
+  "parts": [
+    {
+      "title": "The Pup",
+      "blocks": [
+        {"type":"text","text":"Sirius, the brightest star in the night sky, does not move straight. In 1844 the German astronomer Friedrich Bessel, who had measured the first distance to a star a few years before, noticed that over decades Sirius drifts across the sky in a gentle wavy line, as if something were swinging it round. A star can't swing itself. Bessel concluded that Sirius has a partner too faint to see, the two of them circling each other every fifty years."},
+        {"type":"text","text":"In 1862 Alvan Graham Clark, son of a famous Boston telescope maker, was testing a new lens on Sirius and saw a faint speck beside it, exactly where Bessel's partner should be. It was named Sirius B, and nicknamed the Pup (Sirius is the Dog Star). From the wobble, the Pup had about the mass of the Sun. From its faintness, it gave out about one four-hundredth of the Sun's light. A heavy, dim star: presumably cool and red, nearing the end of its life."},
+        {"type":"text","text":"Then in 1914 Walter Adams at Mount Wilson managed to get the Pup's spectrum, no easy job next to the glare of Sirius. It was white: hot, hotter than the Sun. Remember from *Giants and dwarfs* what that means. A hot surface gives out a great deal of light from every square metre, so a hot star that gives out so little light in total must have very few square metres. The Pup had the mass of the Sun packed into a ball about the size of the Earth. A teaspoon of it would weigh as much as a lorry."},
+        {"type":"text","text":"Arthur Eddington, the most famous astronomer in Britain, put the general reaction this way: the Pup's message, decoded, was “I am composed of material 3,000 times denser than anything you have ever come across.” And the reply most astronomers made in 1914 was “Shut up. Don't talk nonsense.” But it was true, and more of these **white dwarfs** turned up. They were stars that shouldn't exist."}
+      ]
+    },
+    {
+      "title": "What holds it up?",
+      "blocks": [
+        {"type":"text","text":"An ordinary star holds itself up with heat. Its hot gas pushes outwards, gravity pulls in, and as *What makes the Sun shine?* showed, the two stay balanced as long as fusion keeps the middle hot. A white dwarf has no fusion going on at all. It is the exposed core of a dead star, slowly cooling. Eddington worried about this: when it cooled, surely gravity would crush it further. What could possibly stop it?"},
+        {"type":"text","text":"The answer came from the new physics of atoms. In 1925 the Austrian physicist Wolfgang Pauli found the rule behind the ladders of *A schoolteacher's number puzzle*: no two electrons can be in exactly the same state. Each rung of the ladder has room for two electrons and no more. That's why atoms aren't all piled up on their bottom rungs, and why chemistry is interesting."},
+        {"type":"text","text":"In a white dwarf the atoms are crushed together and the electrons roam freely, but the rule still holds. Confine electrons in a smaller space and their rungs spread apart, just as a shorter string plays higher notes. Every electron needs a rung of its own (well, half of one), so squeezing the star forces electrons up onto higher, faster rungs. Fast electrons push. And they keep pushing even when the star is stone cold, because it is not heat that keeps them moving but the lack of room."},
+        {"type":"diagram","id":"two-per-rung","caption":"The same eight electrons in a roomy box and a squeezed one. Squeezing spreads the rungs apart, and since no rung takes more than two electrons, the top ones end up moving much faster."},
+        {"type":"key_ideas","title":"Hold on to","points":["No two electrons can share a state, so squeezing electrons into less room forces them to move faster, and they push back, hot or cold. That push holds up a white dwarf."]}
+      ]
+    },
+    {
+      "title": "Heavier is smaller",
+      "blocks": [
+        {"type":"text","text":"Ralph Fowler at Cambridge worked this out in 1926, and it solved Eddington's worry: a white dwarf can cool for ever without collapsing. But it has a strange consequence. Add mass to a heap of sand and the heap grows. Add mass to a white dwarf and its extra gravity squeezes the electrons into less room, they push harder, and the star settles down smaller than before."},
+        {"type":"interactive_diagram","id":"dwarf","caption":"A cold white dwarf next to the Earth, drawn to the same scale, and how fast its fastest electrons move.","task":"Make a prediction, then add mass until something gives","goal":"limit","aspect_ratio":1.67}
+      ]
+    },
+    {
+      "title": "A nineteen-year-old on a ship",
+      "blocks": [
+        {"type":"text","text":"In the summer of 1930, Subrahmanyan Chandrasekhar, nineteen years old, sailed from India to England to study at Cambridge with Fowler. He had Fowler's paper with him and worked on it during the voyage. He noticed something Fowler had left out. In a heavy white dwarf the electrons are squeezed so hard that they move at a good fraction of the speed of light, and nothing can go faster than light (*Muons that live too long*). As they get close to it, squeezing them harder hardly speeds them up. Their push stops stiffening."},
+        {"type":"text","text":"Gravity has no such limit. So above a certain mass, gravity always wins, and no white dwarf can exist at all. Chandrasekhar's figure, as it came out in later work, was about 1.4 times the mass of the Sun. It is now called the **Chandrasekhar limit**."},
+        {"type":"text","text":"Eddington did not like it. At a meeting of the Royal Astronomical Society in January 1935, straight after Chandrasekhar presented his results, Eddington got up and ridiculed them: “I think there should be a law of Nature to prevent a star from behaving in this absurd way!” The leading physicists privately agreed Chandrasekhar was right, but few said so publicly, and Eddington's authority held the idea back for years. Chandrasekhar moved to Chicago, worked on other things, and stayed friends with Eddington. He received the Nobel Prize in 1983, more than fifty years after the voyage. NASA's X-ray telescope is named after him."}
+      ]
+    },
+    {
+      "title": "Beyond the limit",
+      "blocks": [
+        {"type":"text","text":"What happens to a dead core heavier than the limit? It collapses, and something even stranger is left behind: either a star made almost entirely of neutrons, which is *Little green men*, or something from which not even light escapes, which is *Dark stars*. Which one depends on how heavy it is. Eddington's “absurd” behaviour is just what nature does."},
+        {"type":"text","text":"The limit has a use, too. A white dwarf with a close partner star can steal gas from it, growing heavier and heavier. When it gets near the limit its middle heats up so much that carbon catches fire all at once, and the whole white dwarf blows itself apart. Because they all go off at about the same mass, these explosions all reach about the same peak brightness. A light whose true brightness you know is a measuring stick for distance: measure how bright it looks and you know how far away it is. Exploding white dwarfs can be seen across most of the universe, and in *The speeding universe* they deliver one of the biggest surprises in astronomy."},
+        {"type":"text","text":"As for the Sun, it is safely under the limit. In about eight billion years it will be a white dwarf of a little over half its present mass, about the size of the Earth, cooling slowly for longer than the universe has existed so far."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on white dwarfs", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Sirius B is hot, yet gives out very little light. What does that tell you?","choices":["It is very small","It is very far away","It is cooling fast"],"answer":0,"why":"A hot surface shines brightly per square metre, so little light in total means very few square metres. Sirius B is about the size of the Earth, with the Sun's mass."},
+          {"ask":"What holds up a white dwarf, which has no fusion going on?","choices":["Electrons squeezed into too little room, forced to move fast","Heat left over from when it was a star","Its spin"],"answer":0,"why":"No two electrons can share a state, so crowding them forces them onto fast, high rungs, and they push back even when the star is cold."},
+          {"ask":"White dwarf A has 0.6 Suns of mass; B has 1.2 Suns. Which is bigger?","choices":["A, the lighter one","B, the heavier one","They are the same size"],"answer":0,"why":"Extra mass squeezes the electrons harder and the star settles smaller. A white dwarf of 1.2 Suns is less than half the width of one of 0.6."},
+          {"ask":"Why can't a white dwarf be heavier than about 1.4 Suns?","choices":["Its electrons can't go faster than light, so their push stops stiffening and gravity wins","It would catch fire and become a normal star again","Stars heavier than that have no electrons"],"answer":0,"why":"Chandrasekhar's point: near light's speed, squeezing the electrons harder hardly speeds them up, but gravity keeps growing."},
+          {"ask":"Why are exploding white dwarfs useful for measuring distances?","choices":["They all explode at about the same mass, so they reach about the same brightness","They are always at the same distance","They are the closest stars to us"],"answer":0,"why":"Each one blows up as it nears the Chandrasekhar limit, so its true brightness is known; how bright it looks then tells you how far away it is."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Sirius B was a puzzle.** The Sun's mass, hot, yet faint: so about the size of the Earth, with a teaspoon weighing tonnes.",
+    "**White dwarfs are dead stars' cores.** No fusion; they cool slowly for ever.",
+    "**Squeezed electrons push back.** No two electrons can share a state, so crowding them makes them move fast, even when cold.",
+    "**Heavier white dwarfs are smaller.** More mass squeezes them harder.",
+    "**The Chandrasekhar limit, about 1.4 Suns.** Electrons near light's speed can't push harder, so above it gravity wins. Eddington mocked it in 1935; it was right.",
+    "**Exploding white dwarfs are standard brightnesses.** They go off near the limit, so they can measure distances across the universe."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

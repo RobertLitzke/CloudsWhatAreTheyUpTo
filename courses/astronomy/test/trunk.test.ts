@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { emptyProgress } from 'didactics/progress';
 import { FIGURES } from '../src/figures';
 import { arcGain, heightGain, realPeak, speedLoss } from '../src/figures/bending';
+import { dwarfRadius, electronSpeed, teaspoon } from '../src/figures/dead-stars';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -88,5 +89,18 @@ describe('trunk lessons', () => {
     setSlider(g.node, 0, 20200);
     setSlider(g.node, 1, 3.87);
     await expect(g.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 15: a white dwarf of the Sun’s mass is Earth-sized, heavier is smaller, and 1.44 Suns is the end', async () => {
+    expect(dwarfRadius(1)).toBeGreaterThan(0.7);
+    expect(dwarfRadius(1)).toBeLessThan(1);
+    expect(dwarfRadius(1.2)).toBeLessThan(dwarfRadius(0.6) / 2);
+    expect(teaspoon(1)).toBeGreaterThan(5);
+    expect(electronSpeed(1.42)).toBeGreaterThan(0.95);
+    expect(dwarfRadius(1.45)).toBe(0);
+    const d = FIGURES.dwarf(context(), 'limit');
+    guess(d.node, 'It gets smaller');
+    setSlider(d.node, 0, 1.5);
+    await expect(d.done).resolves.toBeUndefined();
   });
 });
