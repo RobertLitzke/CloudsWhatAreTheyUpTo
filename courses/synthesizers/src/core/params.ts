@@ -77,6 +77,10 @@ export const PARAM_IDS = [
   'mxPressLfo',
   // Lesson 17: whether a note played over a held one starts again.
   'legato',
+  // Lesson 18: more than one pitch through the one filter.
+  'voiceMode',
+  'chord',
+  'spread',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -97,6 +101,13 @@ export const LFO_SHAPE = { sine: 0, triangle: 1, saw: 2, square: 3, sh: 4 } as c
 export const ENV2_MODE = { env: 0, loop: 1, run: 2 } as const;
 /** Where envelope 2 goes. Position 0 is pitch, where it began (lesson 12). */
 export const ENV2_DEST = { pitch: 0, cutoff: 1 } as const;
+/** How many notes the voice sounds: one; up to four through the one filter; or one note doubled four times, detuned. */
+export const VOICE_MODE = { mono: 0, para: 1, unison: 2 } as const;
+/** The chord one key plays, as semitones above it, by the chord knob's position. */
+export const CHORDS: readonly (readonly number[])[] = [[], [12], [7], [3, 7], [4, 7], [5, 7]];
+/** Pitches beyond the played one that a voice can sound at once. */
+export const EXTRA_PITCHES = 3;
+
 /** The modulation matrix's rows: what moves. Velocity and pressure join at lesson 16. */
 export const MOD_SOURCES = [
   { id: 'Env', label: 'Env', full: 'Envelope', stage: 15 },
@@ -509,10 +520,50 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'wrong',
     high: 'wrong',
   },
+  voiceMode: {
+    id: 'voiceMode',
+    label: 'Voices',
+    full: 'Voice mode',
+    module: 'voice',
+    category: 'thickness',
+    kind: 'selector',
+    options: ['Mono', 'Para', 'Unison'],
+    interp: 'lin',
+    stage: 18,
+    format: (v) => ['Mono: one note', 'Paraphonic: up to four notes, one filter', 'Unison: one note, four times, detuned'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  chord: {
+    id: 'chord',
+    label: 'Chord',
+    module: 'voice',
+    category: 'thickness',
+    kind: 'selector',
+    options: ['Off', 'Oct', '5th', 'Min', 'Maj', 'Sus4'],
+    interp: 'lin',
+    stage: 18,
+    format: (v) => ['Off', 'Octave', 'Fifth', 'Minor', 'Major', 'Suspended fourth'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  spread: {
+    id: 'spread',
+    label: 'Spread',
+    full: 'Unison spread',
+    module: 'voice',
+    category: 'thickness',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 18,
+    format: (c) => `${Math.round(c)} ct`,
+    low: 'narrow',
+    high: 'wide',
+  },
   legato: {
     id: 'legato',
     label: 'Mode',
-    full: 'Voice mode',
+    full: 'Legato mode',
     module: 'voice',
     category: 'shape',
     kind: 'selector',
@@ -671,7 +722,7 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'env2', label: 'Envelope 2', stage: 12, params: ['env2Mode', 'env2Dest', 'env2Rise', 'env2Fall', 'env2Amt'] },
   { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
   { id: 'matrix', label: 'Matrix', stage: 15, params: MATRIX_IDS },
-  { id: 'voice', label: 'Voice', stage: 17, params: ['legato', 'glide'] },
+  { id: 'voice', label: 'Voice', stage: 17, params: ['voiceMode', 'legato', 'glide', 'chord', 'spread'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },
   { id: 'echo', label: 'Echo', stage: 8, params: ['echoTime', 'echoRepeats', 'echoMix'] },
   { id: 'chain', label: 'Chain', stage: 9, params: ['chain'] },

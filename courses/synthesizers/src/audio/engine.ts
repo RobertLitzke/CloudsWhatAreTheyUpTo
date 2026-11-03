@@ -10,7 +10,7 @@
 // Free play adds two things that are not on the clock: notes played from a
 // keyboard as they happen, and a metronome for recording.
 
-import type { Sound } from '../core/params';
+import { EXTRA_PITCHES, type Sound } from '../core/params';
 import { timedNotes, type Riff, type TimedNote } from '../core/riffs';
 import { midiToHz } from '../core/riffs/notation';
 import { Voice } from './voice';
@@ -198,6 +198,17 @@ export class Engine {
     else voice.keyDown(t, midiToHz(midi), barSeconds, vel);
   }
 
+  /**
+   * Every key held, oldest first. A paraphonic voice sounds the newest four:
+   * a fifth key steals the oldest one's place.
+   */
+  hold(held: readonly number[]): void {
+    const voice = this.voices[this.selected];
+    if (!voice || held.length === 0) return;
+    const top = held[held.length - 1];
+    voice.hold(this.ctx.currentTime, held.slice(-1 - EXTRA_PITCHES, -1).map((m) => m - top));
+  }
+
   /** How hard the held key is leaned on, 0 to 1. */
   pressure(p: number): void {
     this.voices[this.selected]?.pressure(this.ctx.currentTime, p);
@@ -296,7 +307,7 @@ export class Engine {
       const next = last ? this.passStart + duration + notes[0].on : this.passStart + notes[this.index + 1].on;
       const off = Math.min(this.passStart + n.off, next);
       const hz = midiToHz(n.midi);
-      for (const v of this.voices) v.note(on, off, next, hz, n.vel, n.press, n.legato);
+      for (const v of this.voices) v.note(on, off, next, hz, n.vel, n.press, n.legato, n.chord);
       this.index = last ? 0 : this.index + 1;
       if (last) this.passStart += duration;
     }

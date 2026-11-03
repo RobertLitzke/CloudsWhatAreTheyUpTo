@@ -17,7 +17,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: SynthLesson[] = [
-  coming('voices', 18, 'Four fingers, one filter', 'Paraphonic and unison voices, voice stealing, and chords from one key'),
   coming('arp', 19, 'One hand, many notes', 'The arpeggiator: modes, octave range, rate, swing and hold'),
   coming('sequencer', 20, 'The bass line nobody played', 'The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303'),
   coming('lanes', 21, 'Knobs that remember', 'Recorded knob moves in a sequence, and controlled randomness'),

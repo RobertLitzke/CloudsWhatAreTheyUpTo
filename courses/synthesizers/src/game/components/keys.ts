@@ -23,6 +23,8 @@ export interface KeysOptions {
   onNote: (midi: number | null, vel?: number) => void;
   /** How hard the held key is leaned on, 0 to 1. */
   onPressure?: (p: number) => void;
+  /** Every key held now, oldest first, after each change: for a paraphonic voice. */
+  onHeld?: (held: readonly number[]) => void;
   /** Every key going down or coming up, for a recorder. */
   onKey?: (midi: number, down: boolean) => void;
   /** Whether the computer's keys play this strip now. A lesson has several; only the one in use listens. */
@@ -61,6 +63,7 @@ export function createKeys(opts: KeysOptions): Keys {
     held.push(midi);
     opts.onKey?.(midi, true);
     opts.onNote(midi, vel);
+    opts.onHeld?.(held);
     paintHeld();
   };
   const release = (midi: number) => {
@@ -70,6 +73,7 @@ export function createKeys(opts: KeysOptions): Keys {
     held.splice(i, 1);
     opts.onKey?.(midi, false);
     if (wasTop) opts.onNote(held.length > 0 ? held[held.length - 1] : null);
+    opts.onHeld?.(held);
     paintHeld();
   };
   const releaseAll = () => {

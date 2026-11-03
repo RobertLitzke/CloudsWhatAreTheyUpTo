@@ -41,6 +41,8 @@ export interface TimedNote {
   press?: number;
   /** The note before was held into this one: play it legato. */
   legato?: boolean;
+  /** A chord's other notes, in semitones from this one. */
+  chord?: number[];
 }
 
 export function timedNotes(riff: Riff): TimedNote[] {
@@ -50,6 +52,7 @@ export function timedNotes(riff: Riff): TimedNote[] {
     // A slurred note is held right up to the next.
     off: (n.start + (n.slur ? n.len : gateSixteenths(n.len))) * riff.six,
     legato: riff.notes[(i + count - 1) % count].slur === true,
+    chord: n.chord,
     midi: n.midi,
     vel: n.vel ?? 1,
     press: n.press ?? 0,

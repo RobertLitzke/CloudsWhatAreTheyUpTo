@@ -8,6 +8,9 @@
 //   osc 2: the same again, a chosen interval and detune away ─ level ─┘
 //   FM:    a sine at a ratio of the note ─ amount ─▶ the frequency of osc 1
 //   noise: a looping buffer of white noise ─ level ─┘ (joins at the mix)
+//   extra pitches: up to three more saw/triangle/sine sets, for a chord or a
+//          unison stack, joining oscillator 1 ahead of the wave select (so all
+//          share the one filter and envelope: paraphonic)
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -47,7 +50,7 @@
 // version of restarting the LFO with the loop.
 
 import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
-import { CHAIN, ENV2_DEST, ENV2_MODE, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
+import { CHAIN, CHORDS, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
 
 /** Rough loudness matching between waves. */
@@ -95,6 +98,11 @@ function driveMakeup(gain: number): number {
     power += y * y;
   }
   return DRIVE_REFERENCE / Math.SQRT2 / Math.sqrt(power / n);
+}
+
+/** The frequency ratio of an interval in cents. */
+function cents(c: number): number {
+  return Math.pow(2, c / 1200);
 }
 
 /** The key source: octaves above (or below) middle C. */
@@ -231,6 +239,8 @@ class Echo {
 interface Bank {
   /** Saw, triangle, sine. */
   o1: OscillatorNode[];
+  /** The extra pitches, each a saw, triangle and sine; empty when the sound has none. */
+  x: OscillatorNode[][];
   o2: OscillatorNode[];
   mod: OscillatorNode;
   /** Modulator into oscillator 1's frequency: the deviation, in Hz. */
@@ -289,6 +299,14 @@ export class Voice {
   /** After the tremolo: the gain level routes move. */
   private readonly levelMod: GainNode;
   private readonly routes = new Map<MatrixId, GainNode>();
+  /** Each extra pitch's way in, per wave: switched on for as many as are sounding. */
+  private readonly slotIn: GainNode[][];
+  /** Levels a stack of pitches back down to about one oscillator's loudness. */
+  private readonly stack: GainNode;
+  /** The extra pitches now, in cents from the played note. */
+  private offsets: number[] = [];
+  /** Keys held under the sounding one, in semitones from it (paraphonic keyboard). */
+  private heldUnder: number[] = [];
 
   private lfos: Lfo[] = [];
   private barSeconds = 2;
@@ -346,6 +364,12 @@ export class Voice {
     this.f1.type = this.f2.type = 'lowpass';
     this.f1.Q.value = qToDb(Math.SQRT1_2);
     this.mix = gain(1);
+    this.stack = gain(1);
+    this.slotIn = Array.from({ length: EXTRA_PITCHES }, () => this.in1.map((to) => {
+      const g = gain(0);
+      g.connect(to);
+      return g;
+    }));
     for (const g of this.waveGains) g.connect(this.mix);
     for (const g of this.wave2Gains) g.connect(this.level2);
     this.level2.connect(this.mix);
@@ -376,7 +400,7 @@ export class Voice {
     const first = this.drives[CHAIN.first];
     const middle = this.drives[CHAIN.middle];
     const last = this.drives[CHAIN.last];
-    this.mix.connect(first.input);
+    this.mix.connect(this.stack).connect(first.input);
     first.output.connect(this.f1).connect(this.f2).connect(this.amp).connect(this.trem).connect(this.levelMod).connect(this.makeup).connect(middle.input);
     middle.output.connect(this.echo.input);
     this.echo.output.connect(last.input);
@@ -480,15 +504,22 @@ export class Voice {
       wire(o, this.in2[i]);
       o.detune.value = s.osc2Interval + s.osc2Detune;
     });
+    const x = this.stacked()
+      ? this.slotIn.map((ins, k) => types.map((type, i) => {
+          const o = osc(type, this.lastHz * cents(this.offsets[k] ?? 0));
+          wire(o, ins[i]);
+          return o;
+        }))
+      : [];
     // Vibrato moves the modulator too, so the ratio holds.
     this.lfoPitch.connect(mod.detune);
     this.env2Pitch.connect(mod.detune);
     this.pitchMod.connect(mod.detune);
-    return { o1, o2, mod, modGain, fades, from: t };
+    return { o1, x, o2, mod, modGain, fades, from: t };
   }
 
   private dropBank(bank: Bank, at: number): void {
-    const all = [...bank.o1, ...bank.o2, bank.mod];
+    const all = [...bank.o1, ...bank.x.flat(), ...bank.o2, bank.mod];
     bank.mod.onended = () => {
       for (const o of all) {
         o.disconnect();
@@ -511,7 +542,34 @@ export class Voice {
 
   /** Is the phase between oscillators part of this sound? */
   private layered(): boolean {
-    return this.sound.osc2Level > 0 || this.sound.fmAmount > 0;
+    return this.sound.osc2Level > 0 || this.sound.fmAmount > 0 || this.stacked();
+  }
+
+  /** Can this sound play more than one pitch: a chord, paraphony or unison? */
+  private stacked(): boolean {
+    const s = this.sound;
+    return Math.round(s.voiceMode) !== VOICE_MODE.mono || Math.round(s.chord) !== 0;
+  }
+
+  /**
+   * The extra pitches for a note, in cents from it: a unison stack, or a chord
+   * (the riff's own, if paraphonic, or the chord knob's), at most three.
+   */
+  private extras(chord: readonly number[] = []): number[] {
+    const s = this.sound;
+    const mode = Math.round(s.voiceMode);
+    if (mode === VOICE_MODE.unison) return [-s.spread, s.spread, -0.4 * s.spread];
+    const semis = [...(mode === VOICE_MODE.para ? chord : []), ...(CHORDS[Math.round(s.chord)] ?? [])];
+    return [...new Set(semis)].filter((x) => x !== 0).slice(0, EXTRA_PITCHES).map((x) => x * 100);
+  }
+
+  /** Switch on the extra pitches in `offsets` at `t`, and level the stack. */
+  private setExtras(t: number, offsets: number[]): void {
+    this.offsets = offsets;
+    this.slotIn.forEach((ins, k) => {
+      for (const g of ins) g.gain.setValueAtTime(k < offsets.length ? 1 : 0, t);
+    });
+    this.stack.gain.setValueAtTime(1 / Math.sqrt(1 + offsets.length), t);
   }
 
   /** Hand over to a fresh bank at `t`, every phase at zero. */
@@ -579,6 +637,9 @@ export class Voice {
         p.setTargetAtTime(v, t, SMOOTH);
       }
     };
+
+    // A sound that has just begun to stack pitches needs oscillators for them.
+    if (!immediate && this.stacked() && this.banks[this.banks.length - 1].x.length === 0) this.renew(t);
 
     const wave = Math.round(s.wave);
     this.waveGains.forEach((g, i) => set(g.gain, i === wave ? WAVE_GAIN[i] * s.oscLevel : 0));
@@ -734,8 +795,9 @@ export class Voice {
    * Schedule one note. `off` is the key release and `next` the following note's
    * start; the envelope is cut at `next`, so nothing ever needs cancelling.
    */
-  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false): void {
+  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false, chord?: readonly number[]): void {
     const bank = this.bankAt(on);
+    this.setExtras(on, this.extras(chord));
     const slide = legato && Math.round(this.sound.legato) === 1;
     const glides = this.glides(slide);
     this.pitch(bank, on, hz, glides);
@@ -805,12 +867,17 @@ export class Voice {
 
   /** Move the oscillators to a note's pitch at `t`: at once, or gliding from the last note's. */
   private pitch(bank: Bank, t: number, hz: number, glide: boolean): void {
-    for (const o of [...bank.o1, ...bank.o2]) {
+    const go = (o: OscillatorNode, from: number, to: number) => {
       if (glide) {
-        o.frequency.setValueAtTime(this.lastHz, t);
-        o.frequency.setTargetAtTime(hz, t, this.glideTau());
-      } else o.frequency.setValueAtTime(hz, t);
-    }
+        o.frequency.setValueAtTime(from, t);
+        o.frequency.setTargetAtTime(to, t, this.glideTau());
+      } else o.frequency.setValueAtTime(to, t);
+    };
+    for (const o of [...bank.o1, ...bank.o2]) go(o, this.lastHz, hz);
+    bank.x.forEach((set, k) => {
+      const c = cents(this.offsets[k] ?? 0);
+      for (const o of set) go(o, this.lastHz * c, hz * c);
+    });
   }
 
   private play(param: AudioParam, events: readonly EnvEvent[]): void {
@@ -840,11 +907,16 @@ export class Voice {
     this.keyHeld = true;
     const glides = this.glides(slide);
     const bank = this.bankAt(t);
-    for (const o of [...bank.o1, ...bank.o2]) {
+    this.setExtras(t, this.keyExtras());
+    const to = (o: OscillatorNode, f: number) => {
       o.frequency.cancelScheduledValues(t);
-      if (glides) o.frequency.setTargetAtTime(hz, t, this.glideTau());
-      else o.frequency.setValueAtTime(hz, t);
-    }
+      if (glides) o.frequency.setTargetAtTime(f, t, this.glideTau());
+      else o.frequency.setValueAtTime(f, t);
+    };
+    for (const o of [...bank.o1, ...bank.o2]) to(o, hz);
+    bank.x.forEach((set, k) => {
+      for (const o of set) to(o, hz * cents(this.offsets[k] ?? 0));
+    });
     this.pending = [{ on: t, hz }];
     this.lastHz = hz;
     this.keySrc.offset.setValueAtTime(keyOctaves(hz), t);
@@ -857,6 +929,28 @@ export class Voice {
       p.setTargetAtTime(1, t, Math.max(s.attack / 3, 0.0005));
       p.setTargetAtTime(s.sustain, t + s.attack, Math.max(s.decay / 3, 0.0005));
     }
+  }
+
+  /** The extra pitches from the keyboard: the keys held under this one if paraphonic, and the chord knob's. */
+  private keyExtras(): number[] {
+    return this.extras(this.heldUnder);
+  }
+
+  /**
+   * Which other keys are held, in semitones from the sounding one. A
+   * paraphonic voice sounds them too, through the one filter.
+   */
+  hold(t: number, under: readonly number[]): void {
+    this.heldUnder = [...under];
+    if (!this.keyHeld) return;
+    this.setExtras(t, this.keyExtras());
+    const bank = this.bankAt(t);
+    bank.x.forEach((set, k) => {
+      for (const o of set) {
+        o.frequency.cancelScheduledValues(t);
+        o.frequency.setValueAtTime(this.lastHz * cents(this.offsets[k] ?? 0), t);
+      }
+    });
   }
 
   /** How hard the held key is leaned on, now. */

@@ -22,4 +22,6 @@ export const PATTERNS: readonly RiffSource[] = [
     notes: 'A1:2 A1:2 C2:2_ D2:2 A1:2 G1:2_ A1:4' },
   { id: 108, title: 'Singing lead', artist: 'A slow line with leaps', group: 'folk', pd: true, bpm: 84, sure: 3, fixed: true,
     notes: 'E4:4 A4:4_ B4:4 E5:4 | D5:6 B4:2_ A4:8' },
+  { id: 109, title: 'Four chords', artist: 'Three-note chords, a bar each', group: 'folk', pd: true, bpm: 90, sure: 3, fixed: true,
+    notes: 'A2+C3+E3:16 | F2+A2+C3:16 | C3+E3+G3:16 | G2+B2+D3:16' },
 ];

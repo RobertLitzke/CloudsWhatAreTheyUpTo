@@ -6,7 +6,9 @@
 // then, for the course's own loops, `@0.5` for how hard the note is struck
 // (velocity, 0 to 1; 1 if omitted), `~1` for how hard it is leaned on once
 // down (pressure, rising through the note; 0 if omitted) and a closing `_`
-// for a note held until the next one starts, which is then played legato,
+// for a note held until the next one starts, which is then played legato.
+// `A3+C4+E4:16` is a chord: a monophonic synth plays its first note, a
+// paraphonic one all of them,
 // and an optional `|` that must fall on a bar line (a cheap check against
 // miscounting). A note may cross a bar line; just leave the `|` out there.
 
@@ -22,6 +24,8 @@ export interface RiffNote {
   press?: number;
   /** Held until the next note starts, so the next is played legato. */
   slur?: boolean;
+  /** A chord: the other notes, as semitones above (or below) `midi`. */
+  chord?: number[];
 }
 
 const SEMITONE: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
@@ -58,9 +62,11 @@ export function parseNotation(text: string, bar = 16): ParsedNotation {
     const len = lenText == null ? 1 : Number(lenText);
     if (!Number.isInteger(len) || len < 1) throw new Error(`bad length in "${token}"`);
     if (name !== '-') {
-      const midi = midiOf(name);
-      if (midi == null) throw new Error(`bad pitch in "${token}"`);
+      const pitches = name.split('+').map(midiOf);
+      if (pitches.some((p) => p == null)) throw new Error(`bad pitch in "${token}"`);
+      const midi = pitches[0]!;
       const note: RiffNote = { start: pos, len, midi };
+      if (pitches.length > 1) note.chord = pitches.slice(1).map((p) => p! - midi);
       if (velText != null) note.vel = Number(velText);
       if (pressText != null) note.press = Number(pressText);
       if (slur) note.slur = true;

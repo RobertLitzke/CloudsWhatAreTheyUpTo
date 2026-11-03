@@ -273,6 +273,9 @@ export const freeplayView: View = (root) => {
     onPressure: (p) => {
       if (armed) arm().pressure(p);
     },
+    onHeld: (held) => {
+      if (armed) arm().hold(held);
+    },
     onKey: (midi, down) => {
       if (!take) return;
       // The click was heard a little after the clock said, and the key follows the click.

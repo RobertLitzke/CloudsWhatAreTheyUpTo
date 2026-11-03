@@ -20,6 +20,8 @@ export interface Player {
   key(sound: Sound, midi: number | null, vel?: number): void;
   /** How hard the held key is leaned on. */
   pressure(p: number): void;
+  /** Every key held, for a paraphonic voice. */
+  hold(held: readonly number[]): void;
   /** Has the synth now, from its loop or its keyboard. */
   owns(): boolean;
   /** Change the sound while it is sounding, from either. */
@@ -45,6 +47,9 @@ export function player(closed: AbortSignal, riff: Riff, stage?: number): Player 
     },
     pressure: (p) => {
       if (mine) peekEngine()?.pressure(p);
+    },
+    hold: (held) => {
+      if (mine) peekEngine()?.hold(held);
     },
     key: (sound, midi, vel) => {
       const engine = getEngine();

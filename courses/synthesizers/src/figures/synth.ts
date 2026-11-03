@@ -115,6 +115,10 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'vel-bright': (now) => now.mxVelCutoff >= 7,
   // Lesson 17: glide and legato
   'glide-slow': (now) => now.glide >= 3,
+  // Lesson 18: more than one pitch
+  'para-on': (now) => now.voiceMode === 1,
+  'unison-wide': (now) => now.voiceMode === 2 && now.spread >= 3,
+  'chords-all': (_, log) => tried(log, 'chord') >= 4,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };
@@ -308,6 +312,9 @@ export const synthFigure = figure<SynthOptions>(
             if (byHand) sound.key(resolve(patch, rules.steps), midi, vel);
           },
           onPressure: (p) => sound.pressure(p),
+          onHeld: (held) => {
+            if (byHand) sound.hold(held);
+          },
         })
       : null;
     if (keys) ctx.closed.addEventListener('abort', () => keys.destroy());
