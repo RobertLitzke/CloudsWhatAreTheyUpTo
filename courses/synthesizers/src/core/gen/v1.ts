@@ -49,6 +49,12 @@ export const STEPS: StepTable = {
   echoRepeats: [0, 0.35, 0.6, 0.8], // how much of each repeat goes round again
   echoMix: [0, 0.15, 0.35, 0.8], // level of the first repeat against the note: about 7 dB a step
   chain: [0, 1, 2], // the drive first, in the middle, or last
+  // The course's knobs. No stage this version generates unlocks them, so they
+  // stay at their defaults in every puzzle and are no part of what a key means.
+  noise: [0, 0.15, 0.3, 0.55, 1],
+  filterMode: [0, 1, 2, 3], // low-pass 24 dB, low-pass 12 dB, band-pass, high-pass
+  lfoShape: [0, 1, 2, 3, 4], // sine, triangle, saw, square, sample and hold
+  glide: [0, 0.03, 0.08, 0.2, 0.5], // seconds
 };
 
 /** An open, organ-like saw: what a locked module sits at. */
@@ -80,6 +86,10 @@ export const DEFAULTS: Patch = {
   echoRepeats: 1,
   echoMix: 0,
   chain: 1,
+  noise: 0,
+  filterMode: 0,
+  lfoShape: 0,
+  glide: 0,
 };
 
 export const RULES: Rules = { steps: STEPS, defaults: DEFAULTS, active: isActive, alike: soundsAlike };
@@ -345,6 +355,11 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   driveTone: 50,
   echoRepeats: 50,
   chain: 60,
+  // Never drawn by this version.
+  noise: 0,
+  filterMode: 0,
+  lfoShape: 0,
+  glide: 0,
 };
 const GOAL_SUBTLE = 30; // a difference of a single step
 const GOAL_CONFUSABLE = 75; // both halves of a confusable pair differ

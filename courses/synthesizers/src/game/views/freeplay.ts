@@ -4,9 +4,9 @@
 // bench for the engine and the knob ranges.
 
 import { getEngine, peekEngine, riffLoop, type Engine, type Loop } from '../../audio/engine';
-import { LATEST_RULES, MAX_STAGE } from '../../core/gen';
+import { LATEST_RULES } from '../../core/gen';
 import { loopSeconds, recordLoop, sixteenthSeconds, SIXTEENTHS_PER_BAR, type KeyEvent, type UserLoop } from '../../core/loop';
-import { PARAM_IDS, resolve, type Patch } from '../../core/params';
+import { LAST_STAGE, PARAM_IDS, resolve, type Patch } from '../../core/params';
 import { RIFFS, riffById, type Riff, type RiffGroup } from '../../core/riffs';
 import { deleteLoop, deletePatch, saveLoop, savePatch } from '../../core/storage';
 import { createKeys } from '../components/keys';
@@ -185,7 +185,7 @@ export const freeplayView: View = (root) => {
     rules,
     patch,
     enabled: PARAM_IDS,
-    stage: MAX_STAGE,
+    stage: LAST_STAGE,
     continuous: true,
     onMove: (id, pos) => setPatch({ ...patch, [id]: pos }),
   });

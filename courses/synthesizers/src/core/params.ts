@@ -37,6 +37,13 @@ export const PARAM_IDS = [
   'echoRepeats',
   'echoMix',
   'chain',
+  // The course's own knobs, beyond PatchMatch's nine stages (lessons 10 on).
+  // The game's generator never draws them; at their defaults the synth sounds
+  // exactly as it did before they existed.
+  'noise',
+  'filterMode',
+  'lfoShape',
+  'glide',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -44,11 +51,17 @@ export type Patch = Record<ParamId, number>;
 export type Sound = Record<ParamId, number>;
 export type StepTable = Record<ParamId, readonly number[]>;
 
-export type ModuleId = 'osc' | 'osc2' | 'fm' | 'filter' | 'env' | 'lfo' | 'drive' | 'echo' | 'chain';
+export type ModuleId = 'osc' | 'osc2' | 'fm' | 'noise' | 'filter' | 'env' | 'lfo' | 'voice' | 'drive' | 'echo' | 'chain';
 export type Category = 'tone' | 'brightness' | 'shape' | 'movement' | 'thickness' | 'metal' | 'grit' | 'space' | 'order';
 
 export const WAVE = { saw: 0, pulse: 1, triangle: 2, sine: 3 } as const;
 export const LFO_DEST = { pitch: 0, cutoff: 1, pw: 2, level: 3 } as const;
+/** The filter's response. Position 0 is the 24 dB low-pass the synth always had. */
+export const FILTER_MODE = { lp24: 0, lp12: 1, bp: 2, hp: 3 } as const;
+/** The LFO's shape. Position 0 is the sine the synth always had; S&H is a new random level each cycle. */
+export const LFO_SHAPE = { sine: 0, triangle: 1, saw: 2, square: 3, sh: 4 } as const;
+/** The last stage PatchMatch's game has; knobs past it are the course's own. */
+export const GAME_STAGES = 9;
 /**
  * Where the drive pedal sits among the three things a note passes through
  * after the oscillators: the filter (with the envelope's level), the drive and
@@ -388,20 +401,77 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'wrong',
     high: 'wrong',
   },
+  noise: {
+    id: 'noise',
+    label: 'Level',
+    full: 'Noise level',
+    module: 'noise',
+    category: 'tone',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 11,
+    format: (x) => (x === 0 ? 'Off' : pct(x)),
+    low: 'quiet',
+    high: 'loud',
+  },
+  filterMode: {
+    id: 'filterMode',
+    label: 'Mode',
+    full: 'Filter mode',
+    module: 'filter',
+    category: 'brightness',
+    kind: 'selector',
+    options: ['LP 24', 'LP 12', 'BP', 'HP'],
+    interp: 'lin',
+    stage: 11,
+    format: (v) => ['Low-pass 24 dB', 'Low-pass 12 dB', 'Band-pass', 'High-pass'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  lfoShape: {
+    id: 'lfoShape',
+    label: 'Shape',
+    full: 'LFO shape',
+    module: 'lfo',
+    category: 'movement',
+    kind: 'selector',
+    options: ['Sine', 'Tri', 'Saw', 'Square', 'S&H'],
+    interp: 'lin',
+    stage: 13,
+    format: (v) => ['Sine', 'Triangle', 'Saw', 'Square', 'Sample and hold'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  glide: {
+    id: 'glide',
+    label: 'Glide',
+    module: 'voice',
+    category: 'shape',
+    kind: 'knob',
+    interp: 'log',
+    stage: 17,
+    // The value is the time to get most of the way to the new pitch.
+    format: (s) => (s === 0 ? 'Off' : ms(s)),
+    low: 'quick',
+    high: 'slow',
+  },
 };
 
 /**
  * In signal order, the pedals last. `stage` is where the module joins the
  * panel: the four base modules are always shown (unlit until their stage), the
- * rest only once the player has reached them.
+ * rest only once the player has reached them. A knob past the game's stages
+ * (GAME_STAGES) is left off the panel until the panel's stage reaches it.
  */
 export const MODULES: readonly { id: ModuleId; label: string; stage: number; params: readonly ParamId[] }[] = [
   { id: 'osc', label: 'Oscillator', stage: 1, params: ['wave', 'pw'] },
   { id: 'osc2', label: 'Osc 2', stage: 5, params: ['osc2Interval', 'osc2Level', 'osc2Detune'] },
   { id: 'fm', label: 'FM', stage: 6, params: ['fmRatio', 'fmAmount'] },
-  { id: 'filter', label: 'Filter', stage: 1, params: ['cutoff', 'res', 'envAmt'] },
+  { id: 'noise', label: 'Noise', stage: 11, params: ['noise'] },
+  { id: 'filter', label: 'Filter', stage: 1, params: ['filterMode', 'cutoff', 'res', 'envAmt'] },
   { id: 'env', label: 'Envelope', stage: 1, params: ['attack', 'decay', 'sustain', 'release'] },
-  { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoDest', 'lfoRate', 'lfoDepth'] },
+  { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
+  { id: 'voice', label: 'Voice', stage: 17, params: ['glide'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },
   { id: 'echo', label: 'Echo', stage: 8, params: ['echoTime', 'echoRepeats', 'echoMix'] },
   { id: 'chain', label: 'Chain', stage: 9, params: ['chain'] },
@@ -451,3 +521,6 @@ export function unlockedAt(stage: number): ParamId[] {
 export function patchesEqual(a: Patch, b: Patch): boolean {
   return PARAM_IDS.every((id) => a[id] === b[id]);
 }
+
+/** The stage of the last knob: a panel at this stage shows every knob there is (the Synth lab). */
+export const LAST_STAGE = Math.max(...PARAM_IDS.map((id) => PARAMS[id].stage));

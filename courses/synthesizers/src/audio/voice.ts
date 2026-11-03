@@ -7,6 +7,7 @@
 //         sine ─┘                              ┘               ├─ (1) ─ LP ─ LP ─ amp ─ trem ─ (2) ─ echo ─ (3) ─ out
 //   osc 2: the same again, a chosen interval and detune away ─ level ─┘
 //   FM:    a sine at a ratio of the note ─ amount ─▶ the frequency of osc 1
+//   noise: a looping buffer of white noise ─ level ─┘ (joins at the mix)
 //
 // (1), (2) and (3) are the three places the drive pedal can be plugged in:
 // ahead of the filter, after the synth, or after the echo. There is a drive at
@@ -19,7 +20,14 @@
 // an AudioParam the LFO can reach.
 //
 // Filter modulation goes into `detune` (cents), not `frequency`, so an envelope
-// amount of two octaves is two octaves at any cutoff.
+// amount of two octaves is two octaves at any cutoff. The filter is two biquads:
+// two low-passes in series for the 24 dB low-pass; for the 12 dB modes the first
+// becomes an all-pass (flat, so it changes nothing you hear) and the second
+// takes the mode: low-pass, band-pass or high-pass.
+//
+// The LFO is an oscillator for the four smooth shapes and, for sample and hold,
+// a looping buffer of held random levels read one level per cycle. Its levels
+// come from a fixed seed, so two voices hold the same levels.
 //
 // The oscillators live in a "bank". With one oscillator its phase cannot be
 // heard, and the bank made with the voice lasts for the voice's life. With two
@@ -31,7 +39,8 @@
 // version of restarting the LFO with the loop.
 
 import { noteEnvelope, type EnvEvent } from '../core/envelope';
-import { CHAIN, LFO_DEST, WAVE, type Sound } from '../core/params';
+import { CHAIN, FILTER_MODE, LFO_DEST, LFO_SHAPE, WAVE, type Sound } from '../core/params';
+import { Rng } from '../core/rng';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
@@ -81,6 +90,48 @@ function driveMakeup(gain: number): number {
 }
 
 type Setter = (param: AudioParam, value: number) => void;
+
+/** Seconds of white noise, looped. Long enough that the loop is not heard as a rhythm. */
+const NOISE_SECONDS = 2;
+/** Full noise level, against the saw's 0.8: about as loud as a saw. */
+const NOISE_GAIN = 0.8;
+const noiseBuffers = new WeakMap<BaseAudioContext, AudioBuffer>();
+function noiseBuffer(ctx: BaseAudioContext): AudioBuffer {
+  let buf = noiseBuffers.get(ctx);
+  if (!buf) {
+    buf = ctx.createBuffer(1, Math.round(ctx.sampleRate * NOISE_SECONDS), ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    const rng = new Rng(0x6e6f6973);
+    for (let i = 0; i < data.length; i++) data[i] = rng.next() * 2 - 1;
+    noiseBuffers.set(ctx, buf);
+  }
+  return buf;
+}
+
+/** Sample and hold: this many held levels in one loop of its buffer, and this many samples per level. */
+const SH_LEVELS = 64;
+const SH_SAMPLES = 128;
+const shBuffers = new WeakMap<BaseAudioContext, AudioBuffer>();
+function shBuffer(ctx: BaseAudioContext): AudioBuffer {
+  let buf = shBuffers.get(ctx);
+  if (!buf) {
+    buf = ctx.createBuffer(1, SH_LEVELS * SH_SAMPLES, ctx.sampleRate);
+    const data = buf.getChannelData(0);
+    const rng = new Rng(0x73682121);
+    for (let k = 0; k < SH_LEVELS; k++) data.fill(rng.next() * 2 - 1, k * SH_SAMPLES, (k + 1) * SH_SAMPLES);
+    shBuffers.set(ctx, buf);
+  }
+  return buf;
+}
+
+const LFO_TYPES: OscillatorType[] = ['sine', 'triangle', 'sawtooth', 'square'];
+
+/** An LFO source: an oscillator, or the sample-and-hold buffer. */
+interface Lfo {
+  node: OscillatorNode | AudioBufferSourceNode;
+  sh: boolean;
+  stopAt: number | null;
+}
 
 /**
  * A drive pedal: gain into a soft clipper, then a tone control. Bypassed, the
@@ -209,7 +260,10 @@ export class Voice {
   private readonly lfoPw2: GainNode;
   private readonly lfoLevel: GainNode;
 
-  private lfos: OscillatorNode[] = [];
+  private readonly noiseLevel: GainNode;
+  private readonly noiseSrc: AudioBufferSourceNode;
+
+  private lfos: Lfo[] = [];
   private barSeconds = 2;
   private sixSeconds = 0.125;
   /** Notes already scheduled, so a knob can re-aim what depends on their pitch. */
@@ -266,6 +320,14 @@ export class Voice {
     for (const g of this.waveGains) g.connect(this.mix);
     for (const g of this.wave2Gains) g.connect(this.level2);
     this.level2.connect(this.mix);
+
+    // Noise runs all the time, like the oscillators; its level is the switch.
+    this.noiseSrc = ctx.createBufferSource();
+    this.noiseSrc.buffer = noiseBuffer(ctx);
+    this.noiseSrc.loop = true;
+    this.noiseLevel = gain(0);
+    this.noiseSrc.connect(this.noiseLevel).connect(this.mix);
+    this.noiseSrc.start(startAt);
 
     this.amp = gain(0);
     this.trem = gain(1);
@@ -445,9 +507,17 @@ export class Voice {
     set(this.level2.gain, s.osc2Level);
     for (const bank of this.banks) for (const o of bank.o2) set(o.detune, s.osc2Interval + s.osc2Detune);
 
+    const mode = Math.round(s.filterMode);
+    const f2Type: BiquadFilterType = mode === FILTER_MODE.bp ? 'bandpass' : mode === FILTER_MODE.hp ? 'highpass' : 'lowpass';
+    const f1Type: BiquadFilterType = mode === FILTER_MODE.lp24 ? 'lowpass' : 'allpass';
+    if (this.f1.type !== f1Type) this.f1.type = f1Type;
+    if (this.f2.type !== f2Type) this.f2.type = f2Type;
     set(this.f1.frequency, s.cutoff);
     set(this.f2.frequency, s.cutoff);
-    set(this.f2.Q, qToDb(Math.max(0.5, s.res)));
+    // Low- and high-pass take Q in decibels; band-pass takes it as it is, and
+    // at Q 0.7 a band-pass is too wide to hear as one, so its floor is higher.
+    set(this.f2.Q, mode === FILTER_MODE.bp ? Math.max(1, s.res) : qToDb(Math.max(0.5, s.res)));
+    set(this.noiseLevel.gain, s.noise * NOISE_GAIN);
     // Two oscillators are loud, and so is a high resonance on an open filter;
     // take some back. Two detuned oscillators add as powers. The oscillators
     // are levelled where they meet, so a drive ahead of the filter is pushed
@@ -466,7 +536,14 @@ export class Voice {
     const trem = dest === LFO_DEST.level ? tremolo(s.lfoDepth) : 0;
     set(this.lfoLevel.gain, trem);
     set(this.trem.gain, 1 - trem);
-    for (const lfo of this.lfos) lfo.frequency.setValueAtTime(s.lfoRate / this.barSeconds, t);
+    const sh = Math.round(s.lfoShape) === LFO_SHAPE.sh;
+    for (const lfo of [...this.lfos]) {
+      if (lfo.sh !== sh) {
+        // Between an oscillator and the held levels: swap the source over.
+        this.stopLfo(lfo, t);
+        this.startLfo(t, lfo.stopAt);
+      } else this.rateLfo(lfo, t);
+    }
 
     // The pitch-dependent settings: re-aim now, and again for each note that
     // has already been scheduled.
@@ -485,17 +562,53 @@ export class Voice {
   }
 
   private startLfo(t: number, stopAt: number | null): void {
-    const lfo = this.ctx.createOscillator();
-    lfo.type = 'sine';
-    lfo.frequency.value = this.sound.lfoRate / this.barSeconds;
-    lfo.connect(this.lfoBus);
-    lfo.start(t);
-    if (stopAt != null) lfo.stop(stopAt);
-    lfo.onended = () => {
-      lfo.disconnect();
+    const s = this.sound;
+    const shape = Math.round(s.lfoShape);
+    let node: OscillatorNode | AudioBufferSourceNode;
+    if (shape === LFO_SHAPE.sh) {
+      const src = this.ctx.createBufferSource();
+      src.buffer = shBuffer(this.ctx);
+      src.loop = true;
+      node = src;
+    } else {
+      const osc = this.ctx.createOscillator();
+      osc.type = LFO_TYPES[shape] ?? 'sine';
+      node = osc;
+    }
+    const lfo: Lfo = { node, sh: shape === LFO_SHAPE.sh, stopAt };
+    this.rateLfo(lfo, t, true);
+    node.connect(this.lfoBus);
+    node.start(t);
+    if (stopAt != null && stopAt > t) node.stop(stopAt);
+    node.onended = () => {
+      node.disconnect();
       this.lfos = this.lfos.filter((o) => o !== lfo);
     };
     this.lfos.push(lfo);
+  }
+
+  /** Set an LFO's speed, and its shape if it is an oscillator. */
+  private rateLfo(lfo: Lfo, t: number, first = false): void {
+    const hz = this.sound.lfoRate / this.barSeconds;
+    if (lfo.node instanceof AudioBufferSourceNode) {
+      // One held level per cycle.
+      const rate = (hz * SH_SAMPLES) / this.ctx.sampleRate;
+      if (first) lfo.node.playbackRate.value = rate;
+      else lfo.node.playbackRate.setValueAtTime(rate, t);
+    } else {
+      const type = LFO_TYPES[Math.round(this.sound.lfoShape)] ?? 'sine';
+      if (lfo.node.type !== type) lfo.node.type = type;
+      if (first) lfo.node.frequency.value = hz;
+      else lfo.node.frequency.setValueAtTime(hz, t);
+    }
+  }
+
+  private stopLfo(lfo: Lfo, t: number): void {
+    try {
+      lfo.node.stop(t);
+    } catch {
+      // Not started yet, or already stopped: either way it is going away.
+    }
   }
 
   /** The echo counts its gap in sixteenths, so it follows the tempo. */
@@ -523,8 +636,8 @@ export class Voice {
    */
   note(on: number, off: number, next: number, hz: number): void {
     const bank = this.bankAt(on);
-    for (const o of [...bank.o1, ...bank.o2]) o.frequency.setValueAtTime(hz, on);
-    this.aim(on, hz, 0.002);
+    this.pitch(bank, on, hz);
+    this.aim(on, hz, this.glideTau());
     this.pending.push({ on, hz });
     this.lastHz = hz;
 
@@ -532,6 +645,21 @@ export class Voice {
     this.level = end;
     this.play(this.amp.gain, events);
     this.play(this.envSrc.offset, events);
+  }
+
+  /** The time constant a glide approaches the new pitch with; a tiny one is no glide. */
+  private glideTau(): number {
+    return this.sound.glide > 0 ? this.sound.glide / 3 : 0.002;
+  }
+
+  /** Move the oscillators to a note's pitch at `t`: at once, or gliding from the last note's. */
+  private pitch(bank: Bank, t: number, hz: number): void {
+    for (const o of [...bank.o1, ...bank.o2]) {
+      if (this.sound.glide > 0) {
+        o.frequency.setValueAtTime(this.lastHz, t);
+        o.frequency.setTargetAtTime(hz, t, this.glideTau());
+      } else o.frequency.setValueAtTime(hz, t);
+    }
   }
 
   private play(param: AudioParam, events: readonly EnvEvent[]): void {
@@ -558,11 +686,12 @@ export class Voice {
     const bank = this.bankAt(t);
     for (const o of [...bank.o1, ...bank.o2]) {
       o.frequency.cancelScheduledValues(t);
-      o.frequency.setValueAtTime(hz, t);
+      if (s.glide > 0) o.frequency.setTargetAtTime(hz, t, this.glideTau());
+      else o.frequency.setValueAtTime(hz, t);
     }
     this.pending = [{ on: t, hz }];
     this.lastHz = hz;
-    this.aim(t, hz, 0.002);
+    this.aim(t, hz, this.glideTau());
     for (const p of [this.amp.gain, this.envSrc.offset]) {
       p.cancelScheduledValues(t);
       p.setTargetAtTime(1, t, Math.max(s.attack / 3, 0.0005));
@@ -583,13 +712,7 @@ export class Voice {
       p.cancelScheduledValues(t);
       p.setTargetAtTime(0, t, 0.01);
     }
-    for (const lfo of this.lfos) {
-      try {
-        lfo.stop(t);
-      } catch {
-        // Not started yet, or already stopped: either way it is going away.
-      }
-    }
+    for (const lfo of this.lfos) this.stopLfo(lfo, t);
     this.pending = [];
     this.level = 0;
     this.live = false;
@@ -610,6 +733,8 @@ export class Voice {
     setTimeout(() => {
       this.envSrc.stop();
       this.envSrc.disconnect();
+      this.noiseSrc.stop();
+      this.noiseSrc.disconnect();
       this.echo.dispose();
       this.out.disconnect();
     }, 140);

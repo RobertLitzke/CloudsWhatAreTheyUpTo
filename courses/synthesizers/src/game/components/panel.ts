@@ -2,7 +2,7 @@
 
 import { isLive } from '../../core/active';
 import type { Rules } from '../../core/gen';
-import { MODULES, PARAMS, resolve, valueAt, type ModuleId, type ParamId, type Patch } from '../../core/params';
+import { GAME_STAGES, MODULES, PARAMS, resolve, valueAt, type ModuleId, type ParamId, type Patch } from '../../core/params';
 import { el } from '../dom';
 import { createFlow, type Flow } from './flow';
 import { createKnob, createSelector, type Knob } from './knob';
@@ -72,8 +72,8 @@ function sidewaysRows(present: readonly ModuleId[]): ModuleId[][] {
   const rows: ModuleId[][] =
     has('fm') || has('drive')
       ? [
-          ['osc', 'osc2', 'fm'],
-          ['filter', 'env', 'chain'],
+          ['osc', 'osc2', 'fm', 'noise'],
+          ['filter', 'env', 'voice', 'chain'],
           ['lfo', 'drive', 'echo'],
         ]
       : [
@@ -92,11 +92,13 @@ export function createPanel(opts: PanelOptions): Panel {
   const knobs = new Map<ParamId, Knob>();
 
   const shown = MODULES.filter((mod) => mod.stage <= opts.stage);
+  /** The game's panel shows its own knobs locked until their stage; the course's knobs only once the panel reaches them. */
+  const onPanel = (id: ParamId) => PARAMS[id].stage <= Math.max(opts.stage, GAME_STAGES);
   /** The chain module also draws the order it sets. */
   const flow: Flow | null = shown.some((mod) => mod.id === 'chain') ? createFlow() : null;
   const sections = new Map<ModuleId, HTMLElement>();
   shown.forEach((mod, order) => {
-    const controls = mod.params.map((id) => {
+    const controls = mod.params.filter(onPanel).map((id) => {
       const knob = createControl(id, rules, opts.continuous, () => patch[id], (pos) => opts.onMove(id, pos));
       knob.setState({ locked: !opts.enabled.includes(id) });
       knobs.set(id, knob);
@@ -116,7 +118,7 @@ export function createPanel(opts: PanelOptions): Panel {
   });
 
   const width = (id: ModuleId) =>
-    MODULES.find((mod) => mod.id === id)!.params.reduce((sum, p) => sum + (PARAMS[p].kind === 'selector' ? SELECTOR_WIDTH : 1), 0);
+    MODULES.find((mod) => mod.id === id)!.params.filter(onPanel).reduce((sum, p) => sum + (PARAMS[p].kind === 'selector' ? SELECTOR_WIDTH : 1), 0);
   const rows = sidewaysRows(shown.map((mod) => mod.id));
   const root = el(
     'div.panel',

@@ -123,6 +123,10 @@ const CONTEXTS: Record<ParamId, { name: string; set: Partial<Patch> }[]> = {
     { name: 'saw at 900 Hz, drive 16 dB, echo 20 %', set: { drive: 2, cutoff: 3, echoMix: 1 } },
     { name: 'saw pluck at 900 Hz, drive 16 dB, echo 35 %', set: { drive: 2, cutoff: 3, echoMix: 2, sustain: 0, decay: 2 } },
   ],
+  noise: [{ name: 'saw', set: {} }, { name: 'sine', set: { wave: 3 } }],
+  filterMode: [{ name: 'saw at 900 Hz', set: { cutoff: 3 } }, { name: 'saw at 900 Hz, Q 4', set: { cutoff: 3, res: 2 } }],
+  lfoShape: [{ name: 'cutoff, depth 35 %', set: { lfoDest: 1, lfoDepth: 2, cutoff: 3 } }],
+  glide: [{ name: 'saw', set: {} }],
 };
 
 // --- the measure ------------------------------------------------------------------

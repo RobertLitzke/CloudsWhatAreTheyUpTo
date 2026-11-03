@@ -18,7 +18,7 @@ import { CHAIN, LFO_DEST, WAVE, type ParamId, type Sound } from './params';
  * has no harmonics to remove from it.
  */
 function pure(s: Sound): boolean {
-  return s.wave === WAVE.sine && s.fmAmount === 0;
+  return s.wave === WAVE.sine && s.fmAmount === 0 && s.noise === 0;
 }
 
 /** Does the LFO's destination do anything in this sound? */
@@ -84,6 +84,13 @@ export function isLive(id: ParamId, s: Sound): boolean {
       return s.osc2Level > 0;
     case 'fmRatio':
       return s.fmAmount > 0;
+    case 'noise':
+    case 'glide':
+      return true;
+    case 'filterMode':
+      return !pure(s);
+    case 'lfoShape':
+      return s.lfoDepth > 0 && lfoDestEffective(s);
   }
 }
 
@@ -148,5 +155,13 @@ export function isActive(id: ParamId, s: Sound): boolean {
     case 'echoTime':
     case 'echoRepeats':
       return s.echoMix > 0;
+    // The course's knobs: no generator version draws them yet.
+    case 'noise':
+    case 'glide':
+      return true;
+    case 'filterMode':
+      return !pure(s);
+    case 'lfoShape':
+      return s.lfoDepth > 0 && lfoDestEffective(s);
   }
 }
