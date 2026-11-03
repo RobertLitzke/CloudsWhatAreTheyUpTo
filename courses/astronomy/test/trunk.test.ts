@@ -7,6 +7,7 @@ import { FIGURES } from '../src/figures';
 import { arcGain, heightGain, realPeak, speedLoss } from '../src/figures/bending';
 import { dwarfRadius, electronSpeed, teaspoon } from '../src/figures/dead-stars';
 import { breakup, CRAB, DWARF, NEUTRON } from '../src/figures/pulsars';
+import { cell, madeBy, SOURCES, stagesBegun } from '../src/figures/star-stuff';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -112,5 +113,21 @@ describe('trunk lessons', () => {
     guess(s.node, 'No, it would fly apart');
     setSlider(s.node, 0, Math.log10(CRAB));
     await expect(s.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 17: the onion burns down to iron, and every natural element has a source', async () => {
+    expect(stagesBegun(5e6)).toBe(1);
+    expect(stagesBegun(1 / 1000)).toBe(6);
+    expect(cell(26)).toEqual([7, 3]);
+    expect(cell(79)).toEqual([10, 5]);
+    expect(madeBy(79, SOURCES.map((s) => s.key === 'N'))).toBe('N');
+    const o = FIGURES.onion(context(), 'collapse');
+    guess(o.node, 'About a day');
+    setSlider(o.node, 0, 7.5);
+    await expect(o.done).resolves.toBeUndefined();
+    const p = FIGURES.origins(context(), 'all');
+    guess(p.node, 'Neutron stars colliding');
+    for (const s of SOURCES) click(p.node, s.name);
+    await expect(p.done).resolves.toBeUndefined();
   });
 });

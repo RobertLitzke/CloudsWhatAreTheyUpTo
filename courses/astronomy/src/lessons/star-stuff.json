@@ -1,0 +1,81 @@
+{
+  "id": "star-stuff",
+  "n": 17,
+  "title": "Star stuff",
+  "teaches": "How stars build the elements, why fusion stops at iron, how heavy stars explode, and where the carbon, calcium and gold around you were made",
+  "parts": [
+    {
+      "title": "A new star",
+      "blocks": [
+        {"type":"text","text":"On the evening of 11 November 1572, Tycho Brahe, the nobleman with the metal nose from *Planets that loop backwards*, was walking home from his laboratory when he noticed a star in Cassiopeia where no star should be. It was brighter than Venus. He didn't trust his own eyes and called his servants out to look. They saw it too."},
+        {"type":"text","text":"This mattered more than it sounds. Since Aristotle, everyone had agreed that the heavens beyond the Moon were perfect and unchanging; anything new in the sky, like a comet, must be close by, in the air. Tycho measured the new star carefully against its neighbours, night after night, and found it didn't shift at all, as something near the Earth would. It was far beyond the Moon. The unchanging heavens had changed. The star stayed visible for sixteen months, then faded away, and Tycho's little book about it made his name."},
+        {"type":"text","text":"Tycho's new star was what we now call a **supernova**: a star blowing itself apart, for a few weeks outshining a whole galaxy of a hundred billion stars. Tycho's was the white-dwarf kind from *Stars that shouldn't exist*. Another blazed up in 1604 and Kepler watched that one. There hasn't been one visible to the naked eye in our galaxy since."}
+      ]
+    },
+    {
+      "title": "The recipe problem",
+      "blocks": [
+        {"type":"text","text":"Here is a puzzle that took most of the twentieth century to solve. The universe began hot and dense, in what is called the Big Bang (its story is told in *Everything is running away* and *Why is the night sky dark?*). In its first few minutes it made atoms' nuclei, but almost only the two simplest: about three quarters hydrogen and one quarter helium by weight, with a pinch of lithium."},
+        {"type":"text","text":"Yet the Earth is mostly iron, oxygen, silicon and magnesium. You are mostly oxygen, carbon and hydrogen, with calcium in your bones and iron in your blood. Somebody must have made the rest. Spectra like those in *Mostly hydrogen* showed that the oldest stars have hardly any heavy elements at all, and younger stars have more. The heavy elements had been made over time, inside stars."}
+      ]
+    },
+    {
+      "title": "Down to the bottom of the valley",
+      "blocks": [
+        {"type":"text","text":"In *What makes the Sun shine?* Francis Aston weighed atoms and found a helium nucleus weighs less than the four hydrogen nuclei that go into it; the missing mass is the Sun's energy. Weigh every kind of nucleus and divide by the number of particles in it, and the weights fall steeply from hydrogen to helium, keep falling more gently through carbon and oxygen, and reach their lowest at iron. After iron they rise again, slowly, all the way to uranium."},
+        {"type":"text","text":"Think of it as a valley with iron at the bottom. Fusing light nuclei into heavier ones rolls downhill from the light side, and every step gives out energy: that's how stars shine. Splitting very heavy nuclei rolls downhill from the other side: that's how nuclear power stations work. But nothing rolls downhill out of iron. Fusing iron into something heavier takes energy instead of giving it."},
+        {"type":"text","text":"A star like the Sun gets as far as carbon and oxygen and stops, because it isn't heavy enough to squeeze its core hot enough for the next step. A star of more than about eight Suns keeps going. When its core runs out of helium it shrinks, heats up and starts burning carbon; when that runs out, neon; then oxygen; then silicon, making iron. Each older fuel goes on burning in a shell around the newer fire, so the star ends up layered like an onion. And each new fuel gives less energy than the last and has to burn hotter, so each stage is far shorter than the one before."},
+        {"type":"interactive_diagram","id":"onion","caption":"The last years of a star of about twenty Suns: what its core is burning, with older fuels burning on in shells around it, and how long each stage lasts.","task":"Make a prediction, then run the clock down to the end","goal":"collapse","aspect_ratio":1.67},
+        {"type":"text","text":"The end is a matter of seconds. The iron core, about the mass of the Sun and with no fuel to hold it up, passes Chandrasekhar's limit and falls in on itself at a quarter of the speed of light. In under a second it is a ball of neutrons twenty kilometres across, the neutron star of *Little green men*. The infalling layers hit it and rebound; a flood of neutrinos from the new neutron star helps drive them back out; and the rest of the star is blasted into space. In that blast, and in the star's onion layers, are oxygen, magnesium, silicon, calcium and much of the iron, flung out to mix with the gas that will make the next stars."},
+        {"type":"key_ideas","title":"Hold on to","points":["Fusion gives energy only up to iron. Heavy stars build up layers of heavier and heavier elements, each burning faster, until an iron core collapses and the star explodes as a supernova, scattering what it made."]}
+      ]
+    },
+    {
+      "title": "Hoyle's rung",
+      "blocks": [
+        {"type":"text","text":"There was a gap in this story, right at the start. To make carbon, three helium nuclei must stick together. Two helium nuclei make beryllium-8, which falls apart again in about a ten-millionth of a billionth of a second. Catching a third helium in that time is so unlikely that, on the physics known in 1950, stars should make almost no carbon at all. But carbon is common. You are made of it."},
+        {"type":"text","text":"The British astronomer Fred Hoyle, visiting Caltech in 1953, argued that the carbon nucleus must have a rung on its energy ladder (the same kind of ladder as hydrogen's in *A schoolteacher's number puzzle*, but for a nucleus) at exactly the energy that beryllium plus helium arrive with in a hot star. Then the third helium would be caught easily, like a ball dropped on a step of just the right height. He even said where: at about 7.7 million electronvolts. The physicists in the laboratory were sceptical, but Ward Whaling's group agreed to look. Within weeks they had found it, at 7.65."},
+        {"type":"text","text":"Four years later, Margaret and Geoffrey Burbidge, William Fowler and Hoyle published a long paper, known ever since by their initials as B²FH, laying out how stars make nearly every element, step by step. Fowler, who ran the laboratory measurements, shared the 1983 Nobel Prize, in the same year as Chandrasekhar."}
+      ]
+    },
+    {
+      "title": "Caught in the act",
+      "blocks": [
+        {"type":"text","text":"On 23 February 1987, a star blew up in the Large Magellanic Cloud, a small galaxy next to ours, 168,000 light years away: the nearest supernova seen since Kepler's. A few hours before anyone saw the light, giant underground tanks of water in Japan, the United States and Russia, built to look for other things, recorded a burst of two dozen neutrinos within thirteen seconds. Those few particles, out of an estimated ten billion trillion trillion trillion trillion that the collapsing core gave out, were the core's own announcement that it had become a neutron star. It is the same trick that proved the Sun's fusion in *What makes the Sun shine?*"},
+        {"type":"text","text":"Heavy stars make the elements up to iron, and some heavier ones. But the very heaviest, like gold, platinum and uranium, need a sudden flood of neutrons, far more than most stars can supply. On 17 August 2017, detectors in the United States and Italy felt the ripples in space from two neutron stars spiralling together and merging, 130 million light years away. Telescopes all over the world turned to the spot and watched the wreckage glow and fade over days, with the colours of freshly made heavy elements in its light: a quantity of gold and platinum estimated at many times the mass of the Earth. How much of the universe's gold comes from mergers like this, and how much from rare kinds of exploding star, is still argued about."},
+        {"type":"interactive_diagram","id":"origins","caption":"The periodic table, coloured by where each element was mostly made (simplified from Jennifer Johnson's chart). Gold is outlined.","task":"Make a prediction, then switch on every source of elements","goal":"all","aspect_ratio":1.6}
+      ]
+    },
+    {
+      "title": "Star stuff",
+      "blocks": [
+        {"type":"text","text":"Put it together. The hydrogen in your water and your fat was made in the first few minutes of the universe and has never been inside a star. The carbon in your genes and the nitrogen in your proteins were made mostly by ordinary stars, a little heavier than the Sun, and puffed gently into space as they died. The oxygen you breathe and the calcium in your bones were made in the onion layers of heavy stars and blown out when they exploded. Much of the iron in your blood came from exploding white dwarfs. A gold ring may be made of the wreckage of two dead stars colliding."},
+        {"type":"text","text":"Carl Sagan put it in four words in 1973, and made them famous on television in *Cosmos* in 1980: “We are made of star-stuff.” The idea was B²FH's and Hoyle's, and all the people who measured the rungs and the reactions. The phrase was Sagan's, and it is exactly right."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on where the elements come from", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Why did Tycho's new star of 1572 shock people?","choices":["It didn't shift against the stars, so it was far beyond the Moon, where nothing was supposed to change","It was the first star ever seen in daylight","It was in the wrong constellation"],"answer":0,"why":"Comets and other changes were thought to be in the air, close by. Tycho showed the new star was among the stars, so the heavens could change."},
+          {"ask":"A heavy star has an iron core. Why can't it burn the iron to keep going?","choices":["Fusing iron takes energy instead of giving it out","Iron is too rare","Iron has already used up its electrons"],"answer":0,"why":"Iron sits at the bottom of the valley of nuclear weights. Fusion only gives energy on the way down to it."},
+          {"ask":"Why does each burning stage of a heavy star last much less time than the one before?","choices":["Each fuel gives less energy and must burn hotter, so it is used up faster","The star is running out of hydrogen","The star gets bigger and cooler"],"answer":0,"why":"Hydrogen lasts millions of years, carbon a thousand, silicon about a day."},
+          {"ask":"What did Hoyle predict about carbon in 1953?","choices":["Its nucleus must have an energy rung that lets three heliums stick together easily","That carbon is made in the Big Bang","That carbon can't exist in stars"],"answer":0,"why":"Without such a rung, stars would make almost no carbon. Whaling's group found it at 7.65 million electronvolts."},
+          {"ask":"The oldest stars in the galaxy have almost no iron in them. Why?","choices":["They formed before many stars had exploded and spread iron around","Iron sinks to their centres","They have burned all their iron"],"answer":0,"why":"The Big Bang made almost only hydrogen and helium. Heavy elements built up over generations of stars, so the first stars had very little."},
+          {"ask":"Where was most of the calcium in your bones made?","choices":["In heavy stars that exploded","In the Big Bang","In the Sun"],"answer":0,"why":"Calcium is built in the layers of heavy stars and blown out in supernovae. The Big Bang made almost nothing but hydrogen and helium, and the Sun makes only helium."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Tycho's new star, 1572.** A supernova, a star exploding, far beyond the Moon: the heavens could change.",
+    "**The Big Bang made almost only hydrogen and helium.** Everything heavier was made later, in stars.",
+    "**Fusion pays only up to iron.** Iron is the bottom of the valley; heavier elements give energy by splitting.",
+    "**Heavy stars burn in layers, each stage faster.** Hydrogen for millions of years, silicon for a day; then the iron core collapses and the star explodes.",
+    "**Hoyle's rung.** He predicted the energy level in carbon that lets stars make it; it was found in 1953. B²FH (1957) laid out how stars make the elements.",
+    "**Caught in the act.** Neutrinos from supernova 1987A; heavy elements glowing in the 2017 neutron-star merger.",
+    "**We are made of star-stuff.** Our hydrogen is from the Big Bang; our carbon, oxygen, calcium and iron were made in stars."
+  ],
+  "journal": [],
+  "footnotes": {}
+}
