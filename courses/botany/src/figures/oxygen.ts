@@ -30,8 +30,8 @@ export const labelFigure = figure(['traced'], (_ctx, t) => {
     ];
     const inW = which === 'water';
     redraw(g,
-      ...box(14, 30, 120, inW ? 'water, heavy oxygen' : 'carbon dioxide', 'CO₂', !inW, COL.co2),
-      ...box(14, 110, 120, inW ? 'water, heavy oxygen' : 'water', 'H₂O', inW, COL.water),
+      ...box(14, 30, 120, inW ? 'carbon dioxide' : 'carbon dioxide, heavy O', 'CO₂', !inW, COL.co2),
+      ...box(14, 110, 120, inW ? 'water, heavy O' : 'water', 'H₂O', inW, COL.water),
       svg('path', { d: 'M140,98 L180,98', stroke: COL.ink, 'stroke-width': 2 }),
       svg('polygon', { points: '180,92 192,98 180,104', fill: COL.ink }),
       small(166, 88, 'light', { anchor: 'middle', fill: COL.light, bold: true }),
@@ -110,7 +110,7 @@ export const lollipopFigure = figure(['first'], (_ctx, t) => {
       svg('circle', { cx: 340, cy: 172, r: 3, fill: COL.ink }),
       small(340, 194, 'start', { anchor: 'middle', soft: true }),
       line(330, 186, 70, 186, COL.soft, 1), small(70, 198, 'solvent 1', { soft: true }),
-      line(356, 170, 356, 30, COL.soft, 1), small(362, 30, 'solvent 2', { soft: true }),
+      line(356, 170, 356, 30, COL.soft, 1), small(352, 22, 'solvent 2', { soft: true }),
       ...SPOTS.flatMap((s) => {
         const v = share[s.id];
         return [
@@ -118,7 +118,7 @@ export const lollipopFigure = figure(['first'], (_ctx, t) => {
           small(s.x, s.y + s.r + 10, s.name, { anchor: 'middle', fill: v > 0.05 ? COL.ink : COL.soft }),
         ];
       }),
-      label(60, 16, `Algae killed after ${seconds} second${seconds === 1 ? '' : 's'}: the paper's dark spots`, { bold: true, size: 'small' }),
+      label(60, 14, `Algae killed after ${seconds} second${seconds === 1 ? '' : 's'}: the paper's dark spots`, { bold: true, size: 'small' }),
     );
     const top = SPOTS.reduce((a, b) => (share[a.id] > share[b.id] ? a : b));
     f.readout.textContent = share.pga > 0.7

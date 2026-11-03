@@ -1,0 +1,88 @@
+{
+  "id": "cells",
+  "n": 5,
+  "title": "Boxes full of water",
+  "teaches": "What plant cells are, how water moves into them by osmosis, and how its pressure holds a soft plant up",
+  "parts": [
+    {
+      "title": "Empty boxes",
+      "blocks": [
+        {"type": "text", "text": "In 1665 Robert Hooke, curator of experiments to the new Royal Society in London, published *Micrographia*, a book of drawings of things seen through his microscope: a flea, the point of a needle, frost, and a thin slice of cork. The cork, he wrote, was “all perforated and porous, much like a Honey-comb”, made of tiny empty boxes with walls between them. He called them **cells**, after the small rooms of monks, and worked out that a cubic inch of cork held more than twelve hundred million of them."},
+        {"type": "text", "text": "Cork is bark, and its cells are dead: what Hooke saw were their walls, with air where the living contents had been. A living plant cell is very different. The wall is still there, a stiff box made largely of cellulose. But inside it, pressed against the wall, is a living cell: a thin bag of membrane, a layer of jelly-like cytoplasm with the chloroplasts in it, and in the middle a big sac of watery sap called the **vacuole**, often taking up most of the space. A plant is built from billions of these water-filled boxes."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Hooke (1665) named **cells** from the empty walls he saw in cork.", "A living plant cell is a stiff wall around a living bag of cytoplasm, with a big watery **vacuole** in the middle."]}
+      ]
+    },
+    {
+      "title": "Crisp lettuce",
+      "blocks": [
+        {"type": "text", "text": "Leave a lettuce leaf out on a warm day and it goes limp. Drop it into a bowl of cold water and within half an hour it is crisp again. A soft plant like lettuce, a spinach leaf or a young stem has no wood and no bones. Something in the water makes it stiff."},
+        {"type": "text", "text": "Think of a balloon inside a cardboard box. Blow the balloon up and it presses against the box from inside, and the box, which was floppy, becomes firm. That is a plant cell. The living bag, full of sap, pushes outward against the wall; the wall pushes back. The pressure is called **turgor**. When a leaf loses more water than it takes in, the bags shrink, the pressure drops and the cells go slack together. That is wilting."},
+        {"type": "text", "text": "Water gets into the cell by itself, with no pump. To see how, we need to look at how molecules move."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The living cell presses out against its wall like a balloon in a box: that pressure is **turgor**.", "Turgor holds soft leaves and stems up; losing it is wilting."]}
+      ]
+    },
+    {
+      "title": "Diffusion and osmosis",
+      "blocks": [
+        {"type": "text", "text": "The molecules of a liquid are never still. They jostle and wander at random, each moving a tiny distance before bumping into a neighbour and setting off another way. Put a drop of ink in water and, without any stirring, the colour slowly spreads out until it is even everywhere. Nothing pushes it. Wandering at random, molecules simply tend to end up wherever there are fewer of them, because more of them wander out of a crowded place than wander in. That spreading is **diffusion**."},
+        {"type": "text", "text": "Now put a barrier in the way: a membrane with holes big enough for water molecules but too small for sugar. Water molecules wander through it both ways. But on the side with sugar dissolved in it, the water is diluted: each drop holds fewer water molecules, because sugar molecules take up some of the room, so fewer water molecules arrive at the holes to cross back. More water crosses into the sugar side than out of it. This one-way trickle of water through a membrane is **osmosis**."},
+        {"type": "interactive_diagram", "id": "osmosis", "caption": "A U-tube with a membrane at the bottom that lets water through but not sugar. A model.", "task": "Guess, then let water flow until the sugar side has risen", "goal": "rise", "aspect_ratio": 1.82},
+        {"type": "text", "text": "The water keeps flowing into the sugar side until something pushes back. In the tube it's the weight of the extra water, standing higher on that side. In a cell, it's the wall. In 1877 the German botanist Wilhelm Pfeffer built a pot whose wall was a membrane of this kind and measured the pressure that sugar solutions could build behind it. It was startlingly high, and the numbers he got were used a few years later by the Dutch chemist Jacobus van 't Hoff to work out the law of how dissolved substances behave, for which he won the first Nobel Prize in Chemistry."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["**Diffusion**: molecules wandering at random spread from where they're crowded to where they're sparse.", "**Osmosis**: water crosses a membrane toward the side with more dissolved stuff.", "It flows until something pushes back: the weight of water, or a cell wall."]}
+      ]
+    },
+    {
+      "title": "De Vries's shrinking cells",
+      "blocks": [
+        {"type": "text", "text": "A cell's sap is full of dissolved sugars, salts and acids. Its membrane lets water through freely but holds most of those back. So when a cell sits in fresh water, water flows in by osmosis, the living part swells against the wall, and turgor builds. In a lettuce leaf it is typically half a megapascal or more, several times the pressure in a car tyre."},
+        {"type": "interactive_diagram", "id": "cell", "caption": "A plant cell in water of different saltiness. A model with the pressures of a real leaf cell.", "task": "Make the water outside saltier than the sap", "goal": "plasmolysed", "aspect_ratio": 1.82},
+        {"type": "text", "text": "In 1884 the Dutch botanist Hugo de Vries reversed it. He put thin slices of plant tissue in salt and sugar solutions of different strengths and watched the cells under a microscope. In a strong solution, water flowed out of the cells; the living part shrank and pulled away from the wall into a crumpled ball, leaving a gap. He called it **plasmolysis**. By finding the strength at which the cells only just started to pull away, he could measure how much was dissolved in their sap, and he gave chemistry a word that has stuck: solutions that leave a cell unchanged are **isotonic**."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["In fresh water, water flows into a cell and builds turgor of around half a megapascal or more.", "In water saltier than the sap, water flows out and the living part pulls away from the wall: **plasmolysis** (de Vries, 1884)."]}
+      ]
+    },
+    {
+      "title": "Salt, pickles and roads",
+      "blocks": [
+        {"type": "text", "text": "Osmosis explains some everyday things. Sprinkle salt on sliced cucumber and in a few minutes it sits in a puddle: water has been pulled out of its cells. Pickling and salting use it to preserve food, because bacteria are made of cells too and shrivel in strong brine or syrup."},
+        {"type": "text", "text": "Roads salted in winter often have a strip of dead or stunted plants along their edges in spring. The salt washes into the soil, and the soil water becomes saltier. Roots can only take up water by osmosis, so the saltier the soil, the harder it is for them to draw any in. A plant in salty soil can wilt with its roots in wet ground. The same thing ruins irrigated farmland in dry climates, where water evaporates and leaves its salts behind year after year."},
+        {"type": "text", "text": "Plants that live in salt marshes and on seashores get round it by filling their own cells with even more dissolved stuff, so that water still flows inward. Some, like glasswort, taste salty for exactly that reason."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Salt and sugar preserve food by pulling water out of cells by osmosis.", "Salty soil makes it hard for roots to take up water, so plants can wilt in wet ground."]}
+      ]
+    },
+    {
+      "title": "A body made of pressure",
+      "blocks": [
+        {"type": "text", "text": "Turgor does more than keep lettuce crisp. Most of a soft plant's shape is held up by it: a tulip stem, a young bean shoot, the blade of a leaf held out flat to the light. Plants also grow by it. A young cell loosens its wall in one direction, and turgor stretches it that way, so the cell gets longer. Roots push through hard soil and shoots through tarmac with the same pressure."},
+        {"type": "text", "text": "Some plants even move by it. The leaves of the sensitive plant, *Mimosa*, fold when touched because cells at the base of each leaflet suddenly lose water and go limp. The pores on a leaf open and close the same way, as lesson 7 will show. And trees, which need to stand for centuries, add a second, permanent kind of support: thick walls stiffened with lignin, which is wood. But every living cell inside a tree is still a box full of water under pressure."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Turgor holds up soft plant parts, drives cells to grow, and powers some movements.", "Wood adds lasting support, but living cells everywhere in a plant run on turgor."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on cells and water", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A wilted lettuce leaf is put in a bowl of water and goes crisp. What happened?", "choices": ["Water flowed into its cells by osmosis and restored their pressure", "The cold water froze the cell walls stiff", "The leaf grew new wood"], "answer": 0, "why": "The sap is saltier than tap water, so water flows into the cells, swelling them against their walls."},
+            {"ask": "A membrane lets water through but not sugar. Pure water is on one side, sugar water on the other. Which way does water mainly move?", "choices": ["Into the sugar water", "Into the pure water", "It doesn't move"], "answer": 0, "why": "Water crosses both ways, but the sugar side has fewer water molecules in each drop to cross back, so the net flow is into it."},
+            {"ask": "Cells are put in water saltier than their sap. What will you see under the microscope?", "choices": ["The living part shrinks and pulls away from the wall", "The cells burst", "Nothing changes"], "answer": 0, "why": "Water flows out of the cell into the saltier water. The wall keeps its shape but the living part shrinks: plasmolysis."},
+            {"ask": "Why do plants along a salted road often die in spring?", "choices": ["Salty soil water makes it hard for roots to take in water", "Salt is a poison that dissolves leaves", "The salt keeps the soil frozen"], "answer": 0, "why": "Roots take in water by osmosis. When soil water is saltier, less water flows in, and the plant can wilt even in wet soil."},
+            {"ask": "Why doesn't a plant cell burst in fresh water, the way an animal cell might?", "choices": ["Its stiff wall pushes back and stops more water coming in", "Its membrane lets no water in", "Its sap is pure water"], "answer": 0, "why": "As the cell swells, the wall pushes back until it balances the inflow. That balance is turgor."},
+            {"ask": "Typical turgor in a leaf cell is about 0.6 megapascals; a car tyre is about 0.2. How many times the tyre's pressure is that?", "choices": ["About three", "About ten", "About the same"], "answer": 0, "why": "0.6 divided by 0.2 is 3. A soft leaf is held up by pressures higher than a tyre's."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Hooke named cells from the empty walls in cork (1665).** A living plant cell is a stiff wall around a living bag with a big watery vacuole.",
+    "**Turgor is the cell pressing against its wall, like a balloon in a box.** It keeps soft parts stiff; losing it is wilting.",
+    "**Diffusion: molecules wandering at random spread out.** Nothing needs to push them.",
+    "**Osmosis: water crosses a membrane toward the side with more dissolved stuff.** It flows until something pushes back.",
+    "**In fresh water, cells take in water and build half a megapascal or more.** Several times a car tyre.",
+    "**In saltier water, cells lose water and pull away from their walls.** De Vries called it plasmolysis (1884).",
+    "**Salt pulls water out of cells.** That is how pickling works, and why salted roadsides and salty fields kill plants."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

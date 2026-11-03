@@ -1,0 +1,81 @@
+{
+  "id": "xylem",
+  "n": 6,
+  "title": "Higher than a pump can lift",
+  "teaches": "How trees lift water a hundred metres by pulling it, under tension, through dead pipes",
+  "parts": [
+    {
+      "title": "The ten-metre limit",
+      "blocks": [
+        {"type": "text", "text": "In his last book, *Two New Sciences*, published in 1638, Galileo told a story about the pump makers of Florence. Asked to raise water from a deep cistern with a suction pump, they found that however well they built it, the water would rise only about eighteen *braccia*, roughly ten metres, and no higher. Above that, the pipe stayed empty. Galileo thought the column of water broke under its own weight, like a rope that is too long."},
+        {"type": "text", "text": "A few years later his student Evangelista Torricelli found the real reason. A suction pump doesn't pull water up. It removes the air from the top of the pipe, and the weight of the atmosphere pressing on the water outside pushes the water up into the empty space. The atmosphere can push hard enough to hold up a column of water about ten metres tall, and that is the limit: suck as hard as you like, and above ten metres you get nothing but a near-vacuum."},
+        {"type": "diagram", "id": "pump", "caption": "A suction pump can lift water about ten metres; a coast redwood lifts it more than a hundred.", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Yet the tallest living tree, a coast redwood in northern California named Hyperion, is about 116 metres tall, and water climbs from its roots to its highest needles every day. The tallest Douglas fir, in Oregon, is nearly 100 metres. A tree has no pump at all. How does water get to the top?"},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["A suction pump only lowers the pressure above the water; the air pushes it up, and can push it only about ten metres.", "Trees lift water more than a hundred metres with no pump."]}
+      ]
+    },
+    {
+      "title": "Pulling, not pushing",
+      "blocks": [
+        {"type": "text", "text": "The first guess was that roots push the water up. They do push a little: cut a grapevine in spring and the stump “bleeds” sap under pressure, which Stephen Hales measured in 1727. But that push is weak, it happens mostly in spring, and many trees show none at all. It couldn't come close to lifting water a hundred metres."},
+        {"type": "text", "text": "The next guess was that the living cells of the wood pump it up step by step. In 1891 the German botanist Eduard Strasburger tested that. He cut the trunks of trees up to twenty metres tall, stood the cut ends in poisons such as picric acid that killed every living cell they reached, and found the poisoned trees still drew the poison and coloured dyes up to their tops. Living cells weren't needed. Whatever lifts the water works through dead pipes."},
+        {"type": "text", "text": "Those pipes are the **xylem**: long chains of dead, hollow cells with thick, woody walls, joined end to end into tubes thinner than a hair, running from the root tips to every leaf. In 1894 two Irish scientists, the botanist Henry Dixon and the physicist John Joly, proposed how they work. Water evaporates from the wet walls of cells inside each leaf, out through the leaf's pores. As each molecule leaves, it tugs on the ones behind it. Because water molecules cling to each other strongly, the tug passes all the way down an unbroken thread of water, through the xylem, to the roots and the soil. The Sun's heat does the work; the water is pulled from the top."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Root pressure is too weak; Strasburger (1891) showed living cells aren't needed to lift water.", "The **xylem** is a set of dead pipes from roots to leaves.", "Dixon and Joly (1894): evaporation from the leaves pulls an unbroken thread of water up the pipes."]}
+      ]
+    },
+    {
+      "title": "Below zero",
+      "blocks": [
+        {"type": "text", "text": "Here is the strange part. A suction pump fails at ten metres because the water's pressure at the top falls to zero, and you can't push something with less than nothing. A tree's water goes further because it isn't pushed at all. It is pulled, and its pressure goes *below* zero. It is under **tension**, stretched like a rope, held together by the attraction between its molecules."},
+        {"type": "text", "text": "Water can only do this if it's pure and has no bubbles in it, in very thin tubes with no air anywhere. Then it can stand astonishing tension. In 1965 Per Scholander and his colleagues found a simple way to measure it. They cut a twig, sealed it in a steel chamber with its cut end poking out, and raised the air pressure in the chamber until sap just appeared at the cut. The pressure needed equalled the tension the sap had been under. In a tall tree on a dry day it is two megapascals below zero or more, about twenty times as hard as a perfect suction pump could ever pull. Desert shrubs reach five or ten."},
+        {"type": "interactive_diagram", "id": "column", "caption": "The pull in a tree's leaves, made of three parts: dry soil holding on to its water, the weight of the column, and the drag of pulling it through narrow pipes. A model with realistic sizes.", "task": "Guess, then push the tree until its pipes start to break", "goal": "embolism", "aspect_ratio": 1.67},
+        {"type": "text", "text": "Every metre of height adds about a hundredth of a megapascal just to hold the water up. Pulling water through the narrow pipes adds more, and so does dry soil, which holds on to its own water. Dry air makes leaves lose water faster and pull harder. A tree can cut the pull by closing the pores on its leaves, but then it stops taking in carbon dioxide too, which is the trade lesson 7 is about."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Water in the xylem is under **tension**: pressure below zero, stretched and held together by its molecules' attraction.", "Scholander's pressure chamber (1965) measured it: two megapascals or more in a tall tree on a dry day.", "Height, drag in the pipes, dry soil and dry air all add to the pull."]}
+      ]
+    },
+    {
+      "title": "Clicks in a drying stem",
+      "blocks": [
+        {"type": "text", "text": "A stretched rope can snap, and so can a stretched thread of water. If the tension gets too great, a tiny bubble of air is pulled in through a pit in the pipe wall, and the water in that pipe springs apart. The pipe fills with air and stops carrying water. This is called **cavitation**, and an air-filled pipe is said to be embolised."},
+        {"type": "text", "text": "In 1966 John Milburn and R. P. C. Johnson, at the University of Glasgow, put a sensitive microphone against the stem of a castor-oil plant as it dried out, and heard it: a series of faint clicks, each one, they argued, a water column snapping. The clicks grew faster as the plant dried. Plant physiologists now count them with ultrasonic sensors to see how close a tree is to failing."},
+        {"type": "text", "text": "In a bad drought enough pipes embolise that leaves and branches die of thirst even though there is still water in the soil. Many of the forest die-offs seen in recent hot droughts, from the pines of the American Southwest to the trees of eastern Australia, are thought to have been caused largely this way. Trees protect themselves by building pipes with smaller pits, which resist bubbles but carry water more slowly, and by shutting their pores before the tension gets dangerous."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Too much tension pulls air into a pipe and the water column snaps: **cavitation**.", "Milburn and Johnson (1966) heard it as clicks in a drying stem.", "In drought, broken pipes can kill branches and whole trees."]}
+      ]
+    },
+    {
+      "title": "How tall can a tree grow?",
+      "blocks": [
+        {"type": "text", "text": "If height adds to the pull, there should be a height at which the top of a tree can't get enough water. In 2004 George Koch and his colleagues climbed the five tallest coast redwoods, at heights over 110 metres, and measured the tension and the leaves at different heights. Toward the top, the leaves were smaller and thicker, the tension higher, and the trees grew more slowly. Working out where growth would stop altogether, they estimated that a redwood can't grow much past 122 to 130 metres, even in perfect conditions. The tallest trees ever reliably measured are close to that limit."},
+        {"type": "text", "text": "So the tallest trees on Earth are tall because their foggy, wet coast keeps the pull low, and no taller because of the thread of water inside them. Every tree is held up by its wood but supplied by a rope of water, hundreds of thousands of fine strands of it, stretched from the soil to the sky and pulled by the Sun."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Water's tension limits tree height: Koch and colleagues (2004) estimated about 122 to 130 metres for redwoods.", "A tree is supplied by threads of water pulled from the top by evaporation, powered by the Sun."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on lifting water", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Why can't a suction pump at the top of a pipe lift water more than about 10 metres?", "choices": ["The air outside can push the water up only that far", "The water gets too heavy for the pump", "Water boils at the top of the pipe"], "answer": 0, "why": "Suction only lowers the pressure above the water. The atmosphere's weight pushes it up, and can hold up only about 10 metres of water."},
+            {"ask": "How does water get to the top of a 100-metre tree?", "choices": ["It is pulled up by evaporation from the leaves, as a stretched, unbroken thread", "Roots pump it up under pressure", "Living cells in the trunk pass it upward"], "answer": 0, "why": "Evaporation pulls on the water in the leaves, and because water molecules hold together, the pull reaches down the pipes to the roots."},
+            {"ask": "Strasburger poisoned the wood of tall trees and they still drew water up. What did that show?", "choices": ["Living cells aren't needed to lift the water", "Poison helps water move", "Roots do the lifting"], "answer": 0, "why": "With the living cells dead, water still rose. The pipes are dead, and the force comes from elsewhere."},
+            {"ask": "The soil dries out and the air is hot and dry. What happens to the tension in a tree's xylem?", "choices": ["It rises", "It falls", "It stays the same"], "answer": 0, "why": "Dry soil holds on to its water and dry air makes leaves lose water faster; both add to the pull."},
+            {"ask": "What is cavitation?", "choices": ["A water column snapping when an air bubble is pulled into a stretched pipe", "Water freezing in the pipes", "Roots taking up air"], "answer": 0, "why": "Under too much tension, air is pulled in and the water springs apart, leaving the pipe filled with air."},
+            {"ask": "About how much extra tension does lifting water 60 metres need, for gravity alone?", "choices": ["About 0.6 megapascals", "About 6 megapascals", "About 0.06 megapascals"], "answer": 0, "why": "About 0.01 megapascals per metre, so 60 metres needs about 0.6."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A suction pump can lift water only about 10 metres.** It lowers the pressure; the air pushes the water up.",
+    "**Trees lift water over 100 metres with no pump.** Root pressure is too weak, and Strasburger showed living cells aren't needed.",
+    "**Evaporation from the leaves pulls the water up through dead pipes, the xylem** (Dixon and Joly, 1894).",
+    "**The water is under tension: pressure below zero.** It holds together because its molecules attract each other.",
+    "**Height, narrow pipes, dry soil and dry air all add to the pull.** Two megapascals or more in a tall tree on a dry day.",
+    "**Too much tension snaps the water: cavitation.** Milburn and Johnson heard it as clicks; in drought it kills branches and trees.",
+    "**Water's tension limits how tall trees grow.** About 122 to 130 metres for a redwood."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

@@ -10,6 +10,11 @@ import { photoFigure } from './photo';
 import { bellJarFigure, logStill, tubFigure } from './willow';
 import { lightFigure, mintFigure } from './air';
 import { autumnFigure, engelmannFigure, leafFigure } from './green';
+import { labelFigure, lollipopFigure } from './oxygen';
+import { cellFigure, osmosisFigure } from './cells';
+import { columnFigure, pumpStill } from './xylem';
+import { stomaFigure, woodwardStill } from './stomata';
+import { kranzStill, pathwaysFigure } from './cam';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -26,4 +31,19 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   engelmann: engelmannFigure,
   leaf: leafFigure,
   autumn: autumnFigure,
+  // Lesson 4
+  label: labelFigure,
+  lollipop: lollipopFigure,
+  // Lesson 5
+  osmosis: osmosisFigure,
+  cell: cellFigure,
+  // Lesson 6
+  pump: pumpStill,
+  column: columnFigure,
+  // Lesson 7
+  woodward: woodwardStill,
+  stoma: stomaFigure,
+  // Lesson 8
+  kranz: kranzStill,
+  pathways: pathwaysFigure,
 };
