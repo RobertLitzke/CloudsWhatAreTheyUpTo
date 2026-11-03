@@ -165,6 +165,18 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the ghosts figure is done when a long exposure empties the street', async () => {
+    const fig = FIGURES.ghosts(context(), 'vanish');
+    setLogSlider(fig.node, 0, 300, 1 / 250, 900);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the f-number figure is done after a few steps along the series', async () => {
+    const fig = FIGURES.fNumber(context(), 'halve');
+    for (const v of [1, 2, 3]) setSlider(fig.node, 0, v);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

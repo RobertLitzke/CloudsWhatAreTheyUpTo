@@ -28,6 +28,7 @@ import colour from '../data/lessons/colour.json';
 import seeing from '../data/lessons/seeing.json';
 import birds from '../data/lessons/birds.json';
 import after from '../data/lessons/after.json';
+import history from '../data/lessons/history.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -41,7 +42,7 @@ export const FIGURE_IDS = [
   // Colour.
   'kelvin', 'whiteBalance', 'sun', 'polariser',
   // The pieces every lesson has.
-  'recipe', 'headroom', 'photo', 'challenge', 'check',
+  'recipe', 'headroom', 'ghosts', 'fNumber', 'photo', 'challenge', 'check',
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 
@@ -66,19 +67,8 @@ export const LESSONS: readonly Lesson[] = [
   seeing as Lesson,
   birds as Lesson,
   after as Lesson,
-  planned(12, 'history', 'How the camera got here', 'The long story behind the dials: the dark room, the silver, the film, the chip', [
-    'The camera obscura, and the problem of keeping the picture',
-    'Silver halides: the chemistry that made photography possible',
-    'Why film speed became ISO, and why f-numbers are such strange numbers',
-    'The charge-coupled device, the sensor in your hand, and what is still film-shaped about it',
-    'A few photographers worth knowing, and what each one was after',
-  ]),
+  history as Lesson,
 ];
-
-/** A lesson that is planned but not written: its title, its promise, and what it will cover. */
-function planned(n: number, id: string, title: string, teaches: string, covers: string[]): Lesson {
-  return { id, n, title, teaches, parts: [], summary: covers, journal: [] };
-}
 
 export const isWritten = (l: Lesson): boolean => l.parts.length > 0;
 

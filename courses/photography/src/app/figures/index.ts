@@ -15,6 +15,7 @@ import { diffractionFigure, hyperfocalFigure } from './sharpness';
 import { shakeDiagram, shutterFigure, silkWaterFigure } from './motion';
 import { duskFigure, poolingFigure } from './noise';
 import { panFigure } from './pan';
+import { fNumberFigure, ghostsFigure } from './history';
 import { photoDiagram } from './photo';
 import { recipeFigure } from './recipe';
 import { lightFigure, stepAsideFigure } from './seeing';
@@ -52,6 +53,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   polariser: polariserFigure,
   recipe: recipeFigure,
   headroom: headroomFigure,
+  ghosts: ghostsFigure,
+  fNumber: fNumberFigure,
   photo: photoDiagram,
   challenge: challengeDiagram,
   check: checkFigure,

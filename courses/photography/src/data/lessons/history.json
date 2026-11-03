@@ -1,0 +1,222 @@
+{
+ "id": "history",
+ "n": 12,
+ "title": "How the camera got here",
+ "teaches": "The long story behind the dials: the dark room, the silver, the film and the chip, and why the numbers on the camera are the numbers they are",
+ "parts": [
+  {
+   "title": "An empty boulevard",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The challenge.** In 1838 Louis Daguerre pointed his camera out of a window at the Boulevard du Temple in Paris, one of the busiest streets in Europe, full of carriages, vendors and people walking. His picture shows the trees, the buildings and the cobbles in fine detail, and the street is empty. Almost empty: near the bottom corner a man stands with one foot raised, having his boots shined, and a dim shape bent over beside him is the bootblack. They are probably the first people ever photographed, and nobody posed them.[^daguerre-exposure]"
+    },
+    {
+     "type": "text",
+     "text": "Where did everyone else go? Everything in this course has the answer in it. Daguerre's plate needed minutes of light where the P950 needs a thousandth of a second, and that one difference explains the empty street. This last lesson follows the long road from his plate to the camera in your hand, and why the numbers on its dials are the strange numbers they are."
+    }
+   ]
+  },
+  {
+   "title": "Where the people went",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A photograph adds up all the light that arrives while the shutter is open. Someone walking along a street spends only a fraction of a second in any one place. In a hundredth of a second that is all the time there is, and they come out solid. In several minutes, they spend a third of a second at each spot along their path and the rest of the time somewhere else, so each spot records the street for nearly all of the exposure and the walker for almost none. They leave a trace too faint to see. The man having his boots shined stood still for minutes."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "ghosts",
+     "caption": "A boulevard in 1838, with people walking and one man standing still",
+     "task": "Lengthen the exposure to a minute or more and watch the street empty",
+     "goal": "vanish"
+    },
+    {
+     "type": "text",
+     "text": "The same effect is used on purpose today. A long exposure of a busy square on a tripod, with a dark grey filter to cut the light, empties it of people. The creek in the lesson Shutter speed, and everything that moves turned to silk for the same reason: the water was never in one place long enough to register as anything but a smooth average."
+    }
+   ]
+  },
+  {
+   "title": "A dark room with a hole",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The camera is far older than photography. Light coming through a small hole into a dark room projects an upside-down picture of the outside world onto the far wall. People noticed this in antiquity, and around the year 1020 the scholar Ibn al-Haytham explained it in his Book of Optics: light travels in straight lines, so each point outside sends its light through the hole to one point inside. The Latin for dark room, **camera obscura**, gave the camera its name."
+    },
+    {
+     "type": "text",
+     "text": "By the 1500s a lens had replaced the hole, making the picture brighter and sharper, and by the 1700s artists carried camera obscuras as boxes, tracing the image onto paper. All the optics were there: the lens, the dark box, the focusing. What nobody could do was keep the picture. It vanished the moment the light did."
+    }
+   ]
+  },
+  {
+   "title": "Silver",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1717 the German scientist Johann Heinrich Schulze noticed that silver salts darken in light. That is the chemistry every film photograph ever taken depends on. Light knocks electrons loose in tiny crystals of silver halide, and a few atoms of metallic silver form; a developer then grows those few atoms into a visible grain of black silver.[^silver-grain] The early difficulty was speed: a little light made a little change, and it took a very long time to make a picture."
+    },
+    {
+     "type": "text",
+     "text": "Nicéphore Niépce made the first surviving photograph from nature in 1826 or 1827, a view of rooftops from his window, on a plate coated with a kind of asphalt that hardens in light. The exposure was at least eight hours. Daguerre, his partner, found that a silver plate made sensitive with iodine needed only minutes, and that mercury vapour could bring out an image that was there but still invisible; his **daguerreotype** was announced in 1839. In England, William Henry Fox Talbot made paper negatives from which any number of positive prints could be made, the idea that film photography used for the next 150 years."
+    },
+    {
+     "type": "text",
+     "text": "Each new process was faster. Wet collodion plates in the 1850s needed seconds; dry gelatin plates in the late 1870s, a fraction of a second, fast enough for Eadweard Muybridge to stop a galloping horse in 1878. In 1888 George Eastman's Kodak sold a camera loaded with a roll of film for a hundred pictures, with the slogan \"You press the button, we do the rest.\" The empty boulevard had become a snapshot in fifty years."
+    }
+   ]
+  },
+  {
+   "title": "Why f-numbers are such strange numbers",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Photographers in the nineteenth century needed a way to say how much light a lens let through that did not depend on which lens it was. The answer was to divide the lens's focal length by the width of its opening. A 50 mm lens with a 25 mm opening is f/2; a 400 mm lens with a 200 mm opening is also f/2, and both make the same brightness on the film, because the longer lens spreads its light over a bigger image."
+    },
+    {
+     "type": "text",
+     "text": "The light a hole lets through goes with its area, and area goes with the width squared. To halve the light, the width has to shrink by the square root of two, about 1.41. So the series of whole stops is the powers of √2, rounded: 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16. Each is about 1.4 times the last, and every second one doubles."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "fNumber",
+     "caption": "The opening of a 50 mm lens at each whole stop",
+     "task": "Step along the series and watch the hole halve its area each time",
+     "goal": "halve"
+    },
+    {
+     "type": "text",
+     "text": "ISO has a history too. Film manufacturers rated how fast their film was, on rival scales: the German DIN and the American ASA. In the 1970s and 80s the international standards body merged them, and ASA's numbers, where doubling the number means twice as sensitive, became ISO. Digital cameras kept the number, defined so that ISO 400 on a sensor gives about the same brightness as ISO 400 film, even though, as in the lesson on ISO, it now means amplification rather than chemistry."
+    }
+   ]
+  },
+  {
+   "title": "From film to the chip",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "In 1969 Willard Boyle and George Smith at Bell Labs invented the charge-coupled device, a chip that could collect the electrons light knocks loose and read them out one by one, which won them a Nobel Prize forty years later. In 1975 Steven Sasson at Kodak built the first digital camera around one: 10,000 pixels, black and white, taking 23 seconds to record each picture to a cassette tape. Thirty years later digital cameras had largely replaced film, and the sensor in the P950, a CMOS chip of 16 million pixels, is a descendant of that idea."
+    },
+    {
+     "type": "text",
+     "text": "A good deal of the camera is still film-shaped. The ISO scale comes from film boxes. The \"equivalent\" focal lengths, 24 to 2000 mm, refer to a 36 × 24 mm frame of 35 mm film. The shutter sound many cameras play is a recording of a mechanism they no longer need. And the basic bargain is unchanged since Daguerre: the light that arrives while the shutter is open, through a hole of some size, onto something sensitive to it, is all a photograph can ever be made of."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Long exposures erase anything that moves: it spends too little of the exposure in any one spot to register.",
+      "The camera obscura is ancient; photography began when people learned to keep its picture, using silver.",
+      "Each new process was faster: hours, then minutes, seconds, fractions of a second.",
+      "The f-number is focal length divided by the opening's width; whole stops are powers of √2, each halving the light.",
+      "ISO, equivalent focal lengths and the 3:2 frame are all inherited from film."
+     ]
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "How the camera got here",
+     "task": "Answer each question",
+     "options": {
+      "items": [
+       {
+        "question": "Why is Daguerre's 1838 boulevard almost empty?",
+        "options": [
+         "The exposure was minutes long, and walkers never stayed in one place",
+         "It was taken very early on a Sunday morning",
+         "The people were removed from the plate afterwards",
+         "Early plates could not record the colour of clothes"
+        ],
+        "answer": 0,
+        "why": "Someone walking spends a fraction of a second in each spot, a tiny share of a minutes-long exposure, so they leave no visible trace. The man having his boots shined stood still long enough to be recorded."
+       },
+       {
+        "question": "What does f/4 mean on a 100 mm lens?",
+        "options": [
+         "The opening is 25 mm across",
+         "The opening is 4 mm across",
+         "The lens lets in a quarter of the light",
+         "The lens is four times longer than wide"
+        ],
+        "answer": 0,
+        "why": "The f-number is the focal length divided by the opening's width: 100 ÷ 4 = 25 mm."
+       },
+       {
+        "question": "Why does going from f/4 to f/5.6 halve the light, rather than f/4 to f/8?",
+        "options": [
+         "Light goes with the hole's area, which goes with its width squared",
+         "f/5.6 is a special setting on every lens",
+         "Lenses lose light in their glass at f/5.6",
+         "Halving the width halves the light"
+        ],
+        "answer": 0,
+        "why": "Shrinking the width by √2 (from 25 mm to about 18 mm on a 100 mm lens) halves the area. Halving the width, f/4 to f/8, would cut the area, and the light, to a quarter."
+       },
+       {
+        "question": "What did Talbot's process allow that the daguerreotype did not?",
+        "options": [
+         "Many prints from one negative",
+         "Pictures in colour",
+         "Exposures of a fraction of a second",
+         "Pictures without a lens"
+        ],
+        "answer": 0,
+        "why": "A daguerreotype was a single unique plate. Talbot's paper negative could be printed again and again, the basis of film photography for 150 years."
+       },
+       {
+        "question": "Which of these is inherited from 35 mm film?",
+        "options": [
+         "The equivalent focal lengths, such as 24 to 2000 mm",
+         "The P950's 4608-pixel width",
+         "Auto white balance",
+         "The electronic viewfinder"
+        ],
+        "answer": 0,
+        "why": "Equivalent focal lengths describe the view on a 36 × 24 mm film frame, which is why the P950's 4.3 to 357 mm lens is sold as 24 to 2000 mm."
+       },
+       {
+        "question": "What did the first digital camera, in 1975, record its pictures onto?",
+        "options": [
+         "A cassette tape",
+         "A memory card",
+         "A floppy disk",
+         "Photographic film"
+        ],
+        "answer": 0,
+        "why": "Steven Sasson's prototype at Kodak took 23 seconds to write each 10,000-pixel black-and-white picture to a cassette tape."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Long exposures erase what moves.** Daguerre's boulevard is empty because walkers spent too little of the minutes-long exposure in any one spot.",
+  "**The camera came first.** The camera obscura is ancient; photography began when silver salts made its picture last.",
+  "**History is a race for speed.** Hours for Niépce, minutes for Daguerre, seconds with collodion, a fraction of a second with gelatin.",
+  "**Talbot's negative made copies possible.** One negative, many prints: the basis of film photography.",
+  "**The f-number is focal length over opening.** Whole stops are powers of √2, each halving the light.",
+  "**ISO came from film boxes.** It merged the ASA and DIN scales, and now means amplification rather than chemistry.",
+  "**The chip is fifty years old.** The CCD of 1969, the first digital camera in 1975, and a camera still shaped by film."
+ ],
+ "journal": [],
+ "footnotes": {
+  "daguerre-exposure": {
+   "kind": "digression",
+   "title": "How long was it?",
+   "text": "Nobody recorded the exposure of the Boulevard du Temple pictures. Estimates run from about four minutes to more than ten, depending on the light and on how sensitive Daguerre's plates were that spring. Either way it was a few hundred thousand times longer than a bird photograph at 1/1000 s."
+  },
+  "silver-grain": {
+   "kind": "technical",
+   "title": "The latent image",
+   "text": "A crystal of silver bromide that has absorbed a few photons holds a tiny cluster of silver atoms, too small to see: the latent image. A developer then reduces the whole crystal to metallic silver, but only crystals that already hold such a cluster are reduced quickly, which amplifies the effect of the light by a factor of millions. Finding developers, Daguerre's mercury and Talbot's gallic acid, is what made exposures short."
+  }
+ }
+}
