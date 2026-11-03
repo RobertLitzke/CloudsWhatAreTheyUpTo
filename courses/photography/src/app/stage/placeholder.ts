@@ -7,7 +7,7 @@
 import { makeRng, type Rng } from 'didactics/rng';
 
 /** Pixels across each stand-in, by plane id. Its height follows the plane's proportions. */
-const WIDTH: Record<string, number> = { hills: 2048, trees: 2048, bushes: 2048, bird: 2048 };
+const WIDTH: Record<string, number> = { hills: 2048, trees: 2048, bushes: 2048, bird: 2048, sky: 1024, moon: 1024, ridge: 2048, pine: 1024 };
 
 /** A stand-in picture for plane `id`, `aspect` (height over width) as the plane is; null without a 2D canvas. */
 export function placeholder(id: string, aspect: number): HTMLCanvasElement | null {
@@ -225,5 +225,112 @@ const DRAW: Record<string, Painter> = {
       g.stroke();
     }
     g.restore();
+  },
+
+  sky(g, w, h) {
+    // Dusk: deep blue overhead to peach at the horizon, which is a little
+    // under halfway up the picture (the plane reaches below the ridge).
+    const sky = g.createLinearGradient(0, 0, 0, h);
+    sky.addColorStop(0, '#26335e');
+    sky.addColorStop(0.35, '#5a5f8f');
+    sky.addColorStop(0.52, '#c58ea0');
+    sky.addColorStop(0.58, '#f0bd98');
+    sky.addColorStop(1, '#f6d3ad');
+    g.fillStyle = sky;
+    g.fillRect(0, 0, w, h);
+  },
+
+  moon(g, w, h, rng) {
+    // The full moon: a pale disc, the dark seas where they are, small craters.
+    const r = Math.min(w, h) * 0.495;
+    const cx = w / 2;
+    const cy = h / 2;
+    g.save();
+    g.beginPath();
+    g.arc(cx, cy, r, 0, Math.PI * 2);
+    g.clip();
+    g.fillStyle = '#f3ecd9';
+    g.fillRect(0, 0, w, h);
+    g.fillStyle = 'rgba(150,146,140,0.4)';
+    g.filter = `blur(${Math.round(r * 0.04)}px)`;
+    for (const [x, y, rx, ry] of [[-0.25, -0.35, 0.28, 0.2], [0.1, -0.15, 0.22, 0.17], [0.32, -0.3, 0.14, 0.12], [-0.42, 0.05, 0.2, 0.3], [0.05, 0.18, 0.16, 0.12], [0.35, 0.05, 0.1, 0.16], [-0.12, 0.32, 0.12, 0.08]]) {
+      g.beginPath();
+      g.ellipse(cx + x * r, cy + y * r, rx * r, ry * r, rng(), 0, Math.PI * 2);
+      g.fill();
+    }
+    for (let i = 0; i < 40; i++) {
+      const a = rng() * Math.PI * 2;
+      const d = Math.sqrt(rng()) * r;
+      const cr = r * (0.008 + rng() * 0.03);
+      g.strokeStyle = 'rgba(120,114,104,0.22)';
+      g.lineWidth = Math.max(1, cr * 0.3);
+      g.beginPath();
+      g.arc(cx + Math.cos(a) * d, cy + Math.sin(a) * d, cr, 0, Math.PI * 2);
+      g.stroke();
+    }
+    g.filter = 'none';
+    // Tycho, bright and rayed, low in the southern highlands.
+    g.fillStyle = '#ffffff';
+    g.beginPath();
+    g.arc(cx - 0.05 * r, cy + 0.6 * r, r * 0.035, 0, Math.PI * 2);
+    g.fill();
+    g.restore();
+  },
+
+  ridge(g, w, h, rng) {
+    // A bare grassy ridge, its crest along the top edge with a gentle swell,
+    // the slope below in dusk shade. One copy covers 80 m; the plane repeats it.
+    const crest = (x: number) => h * (0.02 + 0.03 * (1 - Math.cos((x / w) * Math.PI * 2)));
+    g.fillStyle = '#3b3a42';
+    g.beginPath();
+    g.moveTo(0, h);
+    for (let x = 0; x <= w; x += 8) g.lineTo(x, crest(x));
+    g.lineTo(w, h);
+    g.fill();
+    g.strokeStyle = 'rgba(160,140,120,0.35)';
+    g.lineWidth = 2;
+    for (let i = 0; i < 900; i++) {
+      const x = rng() * w;
+      const y = crest(x) + 2;
+      g.beginPath();
+      g.moveTo(x, y + 6);
+      g.lineTo(x + (rng() - 0.5) * 6, y - 4 - rng() * 10);
+      g.stroke();
+    }
+  },
+
+  pine(g, w, h, rng) {
+    // A lone ponderosa pine, dark against the dusk: a straight trunk with
+    // clumps of needles on short branches, an open, rounded crown.
+    const cx = w / 2;
+    g.fillStyle = '#4a3328';
+    g.beginPath();
+    g.moveTo(cx - w * 0.035, h);
+    g.lineTo(cx - w * 0.012, h * 0.05);
+    g.lineTo(cx + w * 0.012, h * 0.05);
+    g.lineTo(cx + w * 0.035, h);
+    g.fill();
+    g.strokeStyle = '#3a2a22';
+    for (let k = 0; k < 16; k++) {
+      const y = h * (0.1 + 0.045 * k);
+      const side = k % 2 ? 1 : -1;
+      const reach = w * (0.18 + 0.22 * Math.sin((k / 16) * Math.PI)) * (0.7 + rng() * 0.5);
+      g.lineWidth = 6;
+      g.beginPath();
+      g.moveTo(cx, y + h * 0.02);
+      g.quadraticCurveTo(cx + side * reach * 0.5, y, cx + side * reach, y - h * 0.015);
+      g.stroke();
+      for (let c = 0; c < 4; c++) {
+        const t = 0.4 + c * 0.2;
+        g.fillStyle = ['#1f2a26', '#26332c', '#2c3a31'][Math.floor(rng() * 3)];
+        g.beginPath();
+        g.ellipse(cx + side * reach * t, y - h * 0.01 - rng() * h * 0.01, w * (0.07 + rng() * 0.05), h * (0.018 + rng() * 0.01), (rng() - 0.5) * 0.4, 0, Math.PI * 2);
+        g.fill();
+      }
+    }
+    g.fillStyle = '#1f2a26';
+    g.beginPath();
+    g.ellipse(cx, h * 0.07, w * 0.08, h * 0.05, 0, 0, Math.PI * 2);
+    g.fill();
   },
 };

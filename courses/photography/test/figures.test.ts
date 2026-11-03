@@ -100,6 +100,18 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the compression figure is done when the moon fills half the frame behind the pine', async () => {
+    const fig = FIGURES.compression(context(), 'moon-big');
+    setLogSlider(fig.node, 0, 1800, 24, 2000);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the crop figure is done at a shorter zoom that still fills a screen', async () => {
+    const fig = FIGURES.crop(context(), 'screen');
+    setLogSlider(fig.node, 0, 900, 200, 2000);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.

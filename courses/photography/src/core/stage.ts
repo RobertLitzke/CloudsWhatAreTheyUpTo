@@ -138,3 +138,28 @@ export const PERCHED: Stage = {
 
 /** The range the "bushes behind the bird" slider runs over, metres. */
 export const BEHIND_RANGE = { min: 1, max: 40 } as const;
+
+/** The moon: 3,474 km across, 384,400 km away. */
+const MOON = { width: 3.474e6, distance: 3.844e8 };
+
+/**
+ * A full moon rising behind a lone pine on a ridge. The pine is the subject
+ * (18 m tall, kept at a fifth of the frame's height), standing on the crest,
+ * which sits in the lower part of the frame. The moon is fixed in the sky, a
+ * twentieth of a degree above the camera's axis and half a degree across;
+ * stepping back and zooming in keeps the pine the same size while the moon
+ * grows, until at 2000 mm it fills most of the frame behind the tree. The
+ * crest and the pine are lengths at the pine's distance, so they keep their
+ * place in the frame; the moon is an angle, so it keeps its place in the sky.
+ */
+export const MOONRISE: Stage = {
+  id: 'moonrise',
+  subjectTall: 18,
+  framing: 0.22,
+  planes: [
+    { id: 'sky', behind: 1e9, width: 2e9, height: 1.4e9, bottom: -6e8, backdrop: true },
+    { id: 'moon', behind: MOON.distance, width: MOON.width, height: MOON.width, bottom: 4.03e5 - MOON.width / 2 },
+    { id: 'ridge', behind: 0.5, width: 4000, height: 40, bottom: -64.5, tile: 80 },
+    { id: 'pine', behind: 0, width: 10, height: 18.3, bottom: -24.8 },
+  ],
+};

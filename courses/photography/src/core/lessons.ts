@@ -22,6 +22,7 @@ import light from '../data/lessons/light.json';
 import aperture from '../data/lessons/aperture.json';
 import shutter from '../data/lessons/shutter.json';
 import iso from '../data/lessons/iso.json';
+import lens from '../data/lessons/lens.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -31,7 +32,7 @@ export const FIGURE_IDS = [
   // Light and the sensor.
   'stops', 'iso', 'photons', 'meter', 'modes', 'pooling', 'dusk',
   // The lens.
-  'zoom', 'angle', 'longEnd',
+  'zoom', 'angle', 'longEnd', 'compression', 'crop',
   // Colour.
   'kelvin', 'whiteBalance',
   // The pieces every lesson has.
@@ -54,13 +55,7 @@ export const LESSONS: readonly Lesson[] = [
   aperture as Lesson,
   shutter as Lesson,
   iso as Lesson,
-  planned(6, 'lens', 'The lens: 24 mm to 2000 mm', 'What focal length actually changes, what the long end costs, and how to get the most out of an 83× zoom', [
-    'Angle of view, and what "equivalent" means on a small sensor',
-    'Reach: how big a bird gets at 2000 mm, and when cropping beats zooming',
-    'The widest aperture closing as you zoom, and the shutter you can still afford',
-    'Compression: why a far hill looks huge behind a near bird',
-    'Heat haze, atmosphere and the real limit on a long lens',
-  ]),
+  lens as Lesson,
   planned(7, 'focus', 'Focus: telling the camera what you meant', 'Autofocus modes, focus areas, and getting the bird instead of the branch in front of it', [
     'Single and continuous autofocus, and which to use for what',
     'Focus areas: spot, centre, subject tracking, and the P950\'s bird option',

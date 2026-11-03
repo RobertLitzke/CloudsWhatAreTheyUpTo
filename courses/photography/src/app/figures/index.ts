@@ -7,6 +7,7 @@ import { kelvinDiagram, whiteBalanceFigure } from './colour';
 import { apertureFigure, coneFigure } from './focus';
 import type { FigureFactory } from './kit';
 import { isoFigure, photonsDiagram, stopsFigure } from './light';
+import { compressionFigure, cropFigure } from './lens';
 import { meterFigure, modesFigure } from './meter';
 import { diffractionFigure, hyperfocalFigure } from './sharpness';
 import { shakeDiagram, shutterFigure, silkWaterFigure } from './motion';
@@ -35,6 +36,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   zoom: zoomFigure,
   angle: angleDiagram,
   longEnd: longEndDiagram,
+  compression: compressionFigure,
+  crop: cropFigure,
   kelvin: kelvinDiagram,
   whiteBalance: whiteBalanceFigure,
   photo: photoDiagram,
