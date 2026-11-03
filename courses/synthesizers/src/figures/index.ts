@@ -7,9 +7,11 @@ import { asset } from '../asset';
 import { beatsFigure } from './beats';
 import { checkFigure } from './check';
 import { clipFigure } from './clip';
+import { cycleFigure } from './cycle';
 import { echoFigure } from './echo';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
+import { shFigure } from './sh';
 import { sidebandsFigure } from './sidebands';
 import { soundFigure } from './sound';
 import { synthFigure } from './synth';
@@ -34,4 +36,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   clip: clipFigure,
   // Lesson 8
   echo: echoFigure,
+  // Lesson 13
+  sh: shFigure,
+  // Lesson 14
+  cycle: cycleFigure,
 };

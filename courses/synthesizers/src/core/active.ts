@@ -90,6 +90,9 @@ export function isLive(id: ParamId, s: Sound): boolean {
     case 'env2Amt':
       return true;
     case 'env2Fall':
+    case 'env2Rise':
+    case 'env2Mode':
+    case 'env2Dest':
       return s.env2Amt > 0;
     case 'filterMode':
       return !pure(s);
@@ -166,6 +169,9 @@ export function isActive(id: ParamId, s: Sound): boolean {
     case 'env2Amt':
       return true;
     case 'env2Fall':
+    case 'env2Rise':
+    case 'env2Mode':
+    case 'env2Dest':
       return s.env2Amt > 0;
     case 'filterMode':
       return !pure(s);

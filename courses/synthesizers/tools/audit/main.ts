@@ -129,6 +129,9 @@ const CONTEXTS: Record<ParamId, { name: string; set: Partial<Patch> }[]> = {
   glide: [{ name: 'saw', set: {} }],
   oscLevel: [{ name: 'saw', set: {} }],
   env2Amt: [{ name: 'sine pluck', set: { wave: 3, sustain: 0, decay: 2 } }],
+  env2Rise: [{ name: 'saw, to cutoff, +24 st', set: { env2Amt: 3, env2Dest: 1, cutoff: 3 } }],
+  env2Mode: [{ name: 'saw, to cutoff, +24 st', set: { env2Amt: 3, env2Dest: 1, cutoff: 3, env2Rise: 2, env2Fall: 2 } }],
+  env2Dest: [{ name: 'saw, +24 st', set: { env2Amt: 3, cutoff: 3 } }],
   env2Fall: [{ name: 'sine pluck, +24 st', set: { wave: 3, sustain: 0, decay: 2, env2Amt: 3 } }],
 };
 

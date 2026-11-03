@@ -56,13 +56,13 @@
     },
     {
      "type": "text",
-     "text": "A synth can copy this with an envelope. Lesson 3 sent an envelope to the amplifier and the filter, so that each note's loudness and brightness had a shape in time. Nothing says an envelope must stay there. A second envelope can be sent to the oscillators' pitch, so that every note starts some way above its own pitch and falls back. Here it is a simple one: it jumps up at each note and falls back at a rate you set. Its **Pitch** knob sets how far above the note it starts."
+     "text": "A synth can copy this with an envelope. Lesson 3 sent an envelope to the amplifier and the filter, so that each note's loudness and brightness had a shape in time. Nothing says an envelope must stay there. A second envelope can be sent to the oscillators' pitch, so that every note starts some way above its own pitch and falls back. Here it is a simple one: it jumps up at each note and falls back at a rate you set. Its **Amount** knob sets how far above the note it starts, in semitones."
     },
     {
      "type": "interactive_diagram",
      "id": "synth",
      "caption": "A low sine, plucked. Envelope 2 on its pitch: raise how far each note starts above itself.",
-     "task": "Raise Envelope 2's pitch to +24 semitones or more",
+     "task": "Raise Envelope 2's amount to +24 semitones or more",
      "goal": "env2-up",
      "options": {
       "stage": 12,

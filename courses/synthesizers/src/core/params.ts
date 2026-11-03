@@ -47,6 +47,9 @@ export const PARAM_IDS = [
   'oscLevel',
   'env2Amt',
   'env2Fall',
+  'env2Rise',
+  'env2Mode',
+  'env2Dest',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -63,6 +66,10 @@ export const LFO_DEST = { pitch: 0, cutoff: 1, pw: 2, level: 3 } as const;
 export const FILTER_MODE = { lp24: 0, lp12: 1, bp: 2, hp: 3 } as const;
 /** The LFO's shape. Position 0 is the sine the synth always had; S&H is a new random level each cycle. */
 export const LFO_SHAPE = { sine: 0, triangle: 1, saw: 2, square: 3, sh: 4 } as const;
+/** Envelope 2's modes: once per note; looping, restarted by each note; or running free of the notes. */
+export const ENV2_MODE = { env: 0, loop: 1, run: 2 } as const;
+/** Where envelope 2 goes. Position 0 is pitch, where it began (lesson 12). */
+export const ENV2_DEST = { pitch: 0, cutoff: 1 } as const;
 /** The last stage PatchMatch's game has; knobs past it are the course's own. */
 export const GAME_STAGES = 9;
 /**
@@ -458,6 +465,47 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'quick',
     high: 'slow',
   },
+  env2Rise: {
+    id: 'env2Rise',
+    label: 'Rise',
+    full: 'Envelope 2 rise',
+    module: 'env2',
+    category: 'shape',
+    kind: 'knob',
+    interp: 'log',
+    stage: 14,
+    format: ms,
+    low: 'quick',
+    high: 'slow',
+  },
+  env2Mode: {
+    id: 'env2Mode',
+    label: 'Mode',
+    full: 'Envelope 2 mode',
+    module: 'env2',
+    category: 'shape',
+    kind: 'selector',
+    options: ['Env', 'Loop', 'Run'],
+    interp: 'lin',
+    stage: 14,
+    format: (v) => ['Once a note', 'Looping from each note', 'Running free'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  env2Dest: {
+    id: 'env2Dest',
+    label: 'To',
+    full: 'Envelope 2 destination',
+    module: 'env2',
+    category: 'shape',
+    kind: 'selector',
+    options: ['Pitch', 'Cutoff'],
+    interp: 'lin',
+    stage: 14,
+    format: (v) => ['Pitch', 'Cutoff'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
   oscLevel: {
     id: 'oscLevel',
     label: 'Osc',
@@ -473,14 +521,14 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
   },
   env2Amt: {
     id: 'env2Amt',
-    label: 'Pitch',
-    full: 'Envelope 2 to pitch',
+    label: 'Amount',
+    full: 'Envelope 2 amount',
     module: 'env2',
     category: 'shape',
     kind: 'knob',
     interp: 'lin',
     stage: 12,
-    // The value is how far above the note each note starts, in semitones.
+    // The value is how far it moves its destination at the top, in semitones (of pitch, or of cutoff).
     format: (st) => (st === 0 ? 'Off' : `+${Math.round(st)} st`),
     low: 'little',
     high: 'much',
@@ -513,7 +561,7 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'mixer', label: 'Mixer', stage: 10, params: ['oscLevel', 'noise'] },
   { id: 'filter', label: 'Filter', stage: 1, params: ['filterMode', 'cutoff', 'res', 'envAmt'] },
   { id: 'env', label: 'Envelope', stage: 1, params: ['attack', 'decay', 'sustain', 'release'] },
-  { id: 'env2', label: 'Envelope 2', stage: 12, params: ['env2Amt', 'env2Fall'] },
+  { id: 'env2', label: 'Envelope 2', stage: 12, params: ['env2Mode', 'env2Dest', 'env2Rise', 'env2Fall', 'env2Amt'] },
   { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
   { id: 'voice', label: 'Voice', stage: 17, params: ['glide'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },

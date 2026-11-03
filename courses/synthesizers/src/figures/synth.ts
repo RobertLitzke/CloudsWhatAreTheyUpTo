@@ -100,6 +100,11 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   // Lesson 12: envelope 2 on pitch
   'env2-up': (now) => now.env2Amt >= 3,
   'env2-falls': (_, log) => been(log, 'env2Fall', 0) && been(log, 'env2Fall', 4),
+  // Lesson 13: LFO shapes and sample and hold
+  'shapes-all': (_, log) => tried(log, 'lfoShape') >= 5,
+  // Lesson 14: the cycling envelope
+  'env2-rise': (now) => now.env2Rise >= 3,
+  'env2-modes': (_, log) => tried(log, 'env2Mode') >= 3,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };

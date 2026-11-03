@@ -17,8 +17,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: SynthLesson[] = [
-  coming('random', 13, 'The computer that burbles', 'LFO shapes, sample-and-hold, smooth random, tempo sync and retrigger'),
-  coming('cycle', 14, 'The envelope that wouldn’t stop', 'A second envelope that loops: rise, fall, hold, curve, and one-shot or looping modes'),
   coming('matrix', 15, 'The invisible patch cord', 'The modulation matrix: sources, destinations, amounts that go both ways, key tracking'),
   coming('pressure', 16, 'Leaning on a note', 'Velocity, pressure and the touch strip, and where each one is routed'),
   coming('glide', 17, 'The slide', 'Mono, legato, glide and retrigger: notes that slide into each other'),

@@ -58,6 +58,9 @@ export const STEPS: StepTable = {
   oscLevel: [0, 0.25, 0.5, 0.75, 1],
   env2Amt: [0, 7, 12, 24, 36], // semitones above the note that each note starts at
   env2Fall: [0.01, 0.03, 0.08, 0.2, 0.5], // seconds: the time constant of the fall back to the note
+  env2Rise: [0, 0.03, 0.1, 0.3, 1], // seconds
+  env2Mode: [0, 1, 2], // once a note, looping, running free
+  env2Dest: [0, 1], // pitch, cutoff
 };
 
 /** An open, organ-like saw: what a locked module sits at. */
@@ -96,6 +99,9 @@ export const DEFAULTS: Patch = {
   oscLevel: 4,
   env2Amt: 0,
   env2Fall: 2,
+  env2Rise: 0,
+  env2Mode: 0,
+  env2Dest: 0,
 };
 
 export const RULES: Rules = { steps: STEPS, defaults: DEFAULTS, active: isActive, alike: soundsAlike };
@@ -369,6 +375,9 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   oscLevel: 0,
   env2Amt: 0,
   env2Fall: 0,
+  env2Rise: 0,
+  env2Mode: 0,
+  env2Dest: 0,
 };
 const GOAL_SUBTLE = 30; // a difference of a single step
 const GOAL_CONFUSABLE = 75; // both halves of a confusable pair differ
