@@ -10,6 +10,7 @@ import { isoFigure, photonsDiagram, stopsFigure } from './light';
 import { meterFigure, modesFigure } from './meter';
 import { diffractionFigure, hyperfocalFigure } from './sharpness';
 import { shakeDiagram, shutterFigure, silkWaterFigure } from './motion';
+import { duskFigure, poolingFigure } from './noise';
 import { panFigure } from './pan';
 import { photoDiagram } from './photo';
 import { angleDiagram, closeUpFigure, longEndDiagram, zoomFigure } from './zoom';
@@ -29,6 +30,8 @@ export const FIGURES: Record<FigureId, FigureFactory> = {
   photons: photonsDiagram,
   meter: meterFigure,
   modes: modesFigure,
+  pooling: poolingFigure,
+  dusk: duskFigure,
   zoom: zoomFigure,
   angle: angleDiagram,
   longEnd: longEndDiagram,

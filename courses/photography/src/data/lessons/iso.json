@@ -1,0 +1,270 @@
+{
+ "id": "iso",
+ "n": 5,
+ "title": "ISO, noise, and the light you do not have",
+ "teaches": "Why grain is a counting problem, when to raise ISO without hesitating, and where this small-sensor camera runs out of light",
+ "parts": [
+  {
+   "title": "The heron at dusk",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The challenge.** Half an hour after sunset a black-crowned night heron stands on a stone ledge above dark water, three and a half metres away, hunched and perfectly still. This is the hour night herons come out, and the hour the light goes.[^night-heron] The camera, left in a bird mode, keeps the shutter quick at 1/250 s in case the bird moves, raises the ISO to its ceiling of 6400, and still comes up two stops short: the left-hand picture, dark and gritty. What you wanted is the right-hand one, the grey back and the red eye clean."
+    },
+    {
+     "type": "diagram",
+     "id": "challenge",
+     "caption": "A night heron 30 minutes after sunset, at 105 mm",
+     "options": {
+      "photo": "low-light-01",
+      "panels": [
+       {
+        "label": "What the camera gave",
+        "eqFocal": 105,
+        "shutter": 0.004,
+        "iso": 6400
+       },
+       {
+        "label": "What you wanted",
+        "eqFocal": 105,
+        "shutter": 0.0667,
+        "iso": 1600
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Both pictures were taken in the same light through the same lens, wide open. The difference is where the missing light was found. To see why one answer works and the other does not, it helps to know what grain is, and that means counting."
+    }
+   ]
+  },
+  {
+   "title": "Light comes in grains",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Light arrives as **photons**, separate packets of energy, and each pixel of the sensor is a little bucket that counts how many land in it while the shutter is open. A pixel in bright sun catches thousands. The trouble is that photons arrive at random, like raindrops on a pavement: two side-by-side squares of pavement in the same shower never catch exactly the same number of drops. If a pixel expects 100 photons, it might get 92 or 109. The spread is about the square root of the count, so 100 photons are out by about 10, which is ten per cent."
+    },
+    {
+     "type": "text",
+     "text": "That randomness is **shot noise**, and it is most of the grain you will ever see. The important thing about it is how it changes with the count. A pixel that expects 10,000 photons is out by about 100, only one per cent, and nobody can see a one per cent wobble. A pixel that expects 25 is out by 5, twenty per cent, and the picture looks like sand. Grain is what too small a count looks like."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "photons",
+     "caption": "A patch of the P950's sensor at a mid-grey, the photons it catches, and the picture they make",
+     "task": "Raise the ISO to 1600 or more and watch the count fall",
+     "goal": "count"
+    }
+   ]
+  },
+  {
+   "title": "What ISO actually does",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Here is the surprise: raising the [[ISO|sensor]] does not make the sensor catch more light. The sensor is exactly as sensitive at ISO 6400 as at ISO 100. What ISO changes is the amplification afterwards, how much the camera multiplies each pixel's count before it calls the result a brightness. At ISO 100 a mid-grey is about 800 photons; at ISO 1600 the camera calls 50 photons mid-grey and multiplies them by sixteen. The count is sixteen times smaller, so its error is four times bigger in proportion, and multiplying makes the error as visible as the grey.[^read-noise]"
+    },
+    {
+     "type": "text",
+     "text": "So the grain is set by how much light reached the sensor, and ISO is how the camera brightens a picture made from too little. That changes the question. You never choose between \"ISO 6400\" and \"a clean picture\". You choose how to spend the light there is: on a short shutter, on a wide aperture, or neither, and the ISO just follows. If the light is the same, a sharp grainy picture is better than a smooth blurred one, every time; grain can be softened afterwards, and blur cannot be undone."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "iso",
+     "caption": "The night heron at 105 mm, wide open, with the shutter set by the ISO",
+     "options": {
+      "photo": "low-light-01"
+     },
+     "task": "Find an ISO that is clean enough and still lets you hold the camera",
+     "goal": "enough-light"
+    },
+    {
+     "type": "text",
+     "text": "In the figure the aperture is wide open and the light is fixed, so each step up in ISO is a step shorter on the shutter. Turn the ISO down and the picture gets cleaner until the shutter is too slow to hold. Turn the light slider down too and the room to work in closes up from both sides."
+    }
+   ]
+  },
+  {
+   "title": "Shrinking cleans it",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "There is a second reason grain is less of a disaster than it looks on the back of the camera. Each photo from the P950 is 4608 pixels across, and you will almost never see it that big. A phone shows it about 750 dots wide, so every dot on the screen is the average of about 36 pixels. Their errors are random, some high and some low, and when 36 of them are averaged most cancel: the noise falls by the square root of 36, six times."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "pooling",
+     "caption": "The heron at ISO 400 to 6400, seen pixel for pixel, at half size, and whole on a phone",
+     "options": {
+      "photo": "low-light-01"
+     },
+     "task": "Set ISO 3200 or higher, then see the whole picture on a phone",
+     "goal": "phone"
+    },
+    {
+     "type": "text",
+     "text": "This is why a picture can look awful zoomed to 100 per cent and fine on a screen or a postcard-sized print. Judge grain at the size the picture will be seen. It is also why cropping hard into a high-ISO picture hurts twice: you lose resolution and you throw away the averaging that was hiding the noise."
+    }
+   ]
+  },
+  {
+   "title": "A small sensor at dusk",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The P950's sensor is about six millimetres by four and a half, roughly the size of a fingernail. A full-frame camera's is 36 by 24 millimetres, about thirty times the area. Framed the same way at the same f-number, the big sensor catches thirty times the photons, about five stops more light, and so at a given ISO its picture is that much cleaner. The 83× zoom is only possible because the sensor is small; the price is paid at dusk."
+    },
+    {
+     "type": "text",
+     "text": "Dusk is a clock, and a fast one. From sunset to the end of twilight the light falls by about a stop every four minutes, so a shot that needs ISO 400 at sunset needs 6400 sixteen minutes later.[^dusk-light] At the long end the lens is f/5.9 at best, so the window closes even sooner."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "dusk",
+     "caption": "A bird on a post at 1000 mm, wide open at f/5.9, as the light falls after sunset",
+     "task": "Take a clean shot at least 15 minutes after sunset",
+     "goal": "late"
+    },
+    {
+     "type": "text",
+     "text": "For a still bird, the shutter is where the minutes are bought back: at 1000 mm a braced camera with the stabiliser on holds about 1/60 s. For a moving bird there is nothing to buy them with, so plan around the clock instead. Get there before sunset, take the moving shots first while there is light, and leave the still subjects, a heron on a log or an owl on a fence post, for the last ten minutes. Zooming out helps too, since the lens opens wider at the short end; walking closer helps most of all."
+    }
+   ]
+  },
+  {
+   "title": "Noise reduction",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Every camera smooths its JPEGs before saving them, more so at high ISO. Noise reduction works by averaging each pixel with its neighbours where the picture looks flat, and leaving it alone where there is an edge. The trouble is that fine feather detail looks a lot like noise, so heavy noise reduction turns feathers into watercolour: smooth, waxy and slightly smeared. The P950's menu lets you turn it down."
+    },
+    {
+     "type": "text",
+     "text": "If you shoot RAW (see the lesson After the shutter), noise reduction is done later on a computer, where you can choose how much and look closely while you do. Modern denoising software is very good at telling feathers from grain. Either way, the order of importance holds: first get enough light, by getting closer, going out earlier, opening up or slowing down; then let the ISO be whatever it has to be; then reduce the noise gently."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Grain is the randomness of counting photons: a count of N is out by about √N, so small counts are rough.",
+      "ISO amplifies what the sensor caught; it does not catch more light. The grain is set by the light.",
+      "A sharp, grainy picture beats a smooth, blurred one. Spend the light on sharpness and let the ISO follow.",
+      "Grain fades when the picture is shown smaller, since neighbouring pixels average out.",
+      "After sunset the light falls about a stop every four minutes, and a small sensor runs out first."
+     ]
+    },
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "ISO and noise",
+     "task": "Answer each question",
+     "options": {
+      "items": [
+       {
+        "question": "What does raising the ISO change inside the camera?",
+        "options": [
+         "How much each pixel's count is amplified",
+         "How many photons each pixel catches",
+         "How long the sensor collects light",
+         "How wide the aperture opens"
+        ],
+        "answer": 0,
+        "why": "The sensor's sensitivity is fixed. ISO sets how much the camera multiplies the count afterwards, so a higher ISO makes a brighter picture from less light, along with its errors."
+       },
+       {
+        "question": "One pixel catches about 400 photons and another about 25. Roughly how noisy is each, as a share of its count?",
+        "options": [
+         "5% and 20%",
+         "20% and 5%",
+         "Both about 10%",
+         "Both under 1%"
+        ],
+        "answer": 0,
+        "why": "The error is about the square root of the count: 20 out of 400 is 5%, and 5 out of 25 is 20%. Smaller counts are rougher."
+       },
+       {
+        "question": "At dusk a perched owl needs ISO 6400 at 1/250 s. It is sitting still. What is the better move?",
+        "options": [
+         "Brace the camera and slow to 1/30 s, which brings the ISO down to 800",
+         "Keep 1/250 s and fix the grain later",
+         "Switch to a narrower aperture for more depth",
+         "Zoom in further to fill the frame"
+        ],
+        "answer": 0,
+        "why": "A still subject does not need a fast shutter. Three stops slower on the shutter buys three stops lower on the ISO, as long as the camera is steady. A narrower aperture or a longer zoom would make things darker."
+       },
+       {
+        "question": "A picture taken at ISO 3200 looks gritty on the camera's screen zoomed to 100%. Will it look as grainy as a small print?",
+        "options": [
+         "No; shrinking averages neighbouring pixels and hides much of the noise",
+         "Yes; grain is the same at every size",
+         "Only if it is printed on glossy paper",
+         "No; prints never show grain"
+        ],
+        "answer": 0,
+        "why": "Each dot of a small print or a phone screen pools dozens of pixels, and their random errors largely cancel. Judge grain at the size the picture will be seen."
+       },
+       {
+        "question": "Why does a full-frame camera have less noise than the P950 at the same ISO and framing?",
+        "options": [
+         "Its sensor is about 30 times larger and catches more photons",
+         "Its sensor amplifies the signal less",
+         "It uses a different kind of light",
+         "Its lens has no glass elements"
+        ],
+        "answer": 0,
+        "why": "At the same framing and f-number, a sensor with thirty times the area collects thirty times the light, about five stops, so each part of the picture is counted from far more photons."
+       },
+       {
+        "question": "Heavy in-camera noise reduction on a picture of a sparrow will most likely...",
+        "options": [
+         "Make its feathers look smooth and waxy",
+         "Make the background more grainy",
+         "Darken the whole picture",
+         "Sharpen the sparrow's outline"
+        ],
+        "answer": 0,
+        "why": "Noise reduction averages away fine detail it takes for noise, and feather texture is exactly that kind of detail. Turn it down, or shoot RAW and do it gently later."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Grain is a counting problem.** Photons arrive at random, so a pixel's count of N is out by about the square root of N.",
+  "**ISO amplifies; it does not gather.** The sensor catches the same light at every ISO, and the grain is set by how much light that is.",
+  "**Spend the light on sharpness first.** A sharp, grainy picture beats a smooth, blurred one; let the ISO be what it has to be.",
+  "**A still subject lets you slow the shutter.** Braced, with the stabiliser on, every stop slower is a stop less ISO.",
+  "**Shrinking a picture cleans it.** On a phone each dot averages about 36 pixels, which cuts the noise six times.",
+  "**The small sensor runs out first.** It catches about five stops less light than full frame at the same framing.",
+  "**Dusk is a clock.** The light falls about a stop every four minutes after sunset; take the moving shots first.",
+  "**Noise reduction costs detail.** Heavy smoothing turns feathers to wax; go gently, or do it later from RAW."
+ ],
+ "journal": [],
+ "footnotes": {
+  "night-heron": {
+   "kind": "digression",
+   "title": "The heron that works nights",
+   "text": "Black-crowned night herons rest in trees through the day and fish at dusk and through the night, standing still at the water's edge. Their large red eyes have a high proportion of rods, the cells that work in dim light, which suits a bird that hunts when cameras are struggling."
+  },
+  "read-noise": {
+   "kind": "technical",
+   "title": "The other noise",
+   "text": "Besides shot noise there is read noise, a few electrons of error added by the electronics each time a pixel is read out. It hardly matters in daylight, where counts are in the thousands, but it shows in the deepest shadows at high ISO, as speckle and sometimes faint banding. On modern sensors it is small enough that shot noise is nearly the whole story."
+  },
+  "dusk-light": {
+   "kind": "technical",
+   "title": "How fast dusk falls",
+   "text": "On a clear evening the light on open ground falls from a few hundred lux at sunset to a few lux by the end of civil twilight, when the sun is six degrees below the horizon, about thirty minutes later at mid-latitudes. That is about seven stops in half an hour. Cloud, latitude and season stretch or squeeze the clock, so treat the four-minute stop as a rule of thumb."
+  }
+ }
+}

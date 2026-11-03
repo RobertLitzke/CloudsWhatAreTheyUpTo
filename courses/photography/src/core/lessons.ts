@@ -21,6 +21,7 @@ import tour from '../data/lessons/tour.json';
 import light from '../data/lessons/light.json';
 import aperture from '../data/lessons/aperture.json';
 import shutter from '../data/lessons/shutter.json';
+import iso from '../data/lessons/iso.json';
 
 export const FIGURE_IDS = [
   // Focus and the aperture.
@@ -28,7 +29,7 @@ export const FIGURE_IDS = [
   // Time and movement.
   'shutter', 'shake', 'silkWater', 'pan',
   // Light and the sensor.
-  'stops', 'iso', 'photons', 'meter', 'modes',
+  'stops', 'iso', 'photons', 'meter', 'modes', 'pooling', 'dusk',
   // The lens.
   'zoom', 'angle', 'longEnd',
   // Colour.
@@ -52,13 +53,7 @@ export const LESSONS: readonly Lesson[] = [
   light as Lesson,
   aperture as Lesson,
   shutter as Lesson,
-  planned(5, 'iso', 'ISO, noise, and the light you do not have', 'Why grain is a counting problem, when to raise ISO without hesitating, and where this camera runs out', [
-    'Photons as a count, and why the count is rough when it is small',
-    'What ISO really changes, and what it does not',
-    'Reading noise, shot noise, and why shrinking a picture cleans it up',
-    'The small sensor\'s real limit, and planning a dawn outing around it',
-    'Noise reduction in the camera and afterwards, and what it costs in feather detail',
-  ]),
+  iso as Lesson,
   planned(6, 'lens', 'The lens: 24 mm to 2000 mm', 'What focal length actually changes, what the long end costs, and how to get the most out of an 83× zoom', [
     'Angle of view, and what "equivalent" means on a small sensor',
     'Reach: how big a bird gets at 2000 mm, and when cropping beats zooming',

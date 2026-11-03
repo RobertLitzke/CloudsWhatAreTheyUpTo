@@ -85,6 +85,21 @@ describe('figures', () => {
     await expect(fig.done).resolves.toBeUndefined();
   });
 
+  it('the pooling figure is done when a high-ISO picture is seen whole on a phone', async () => {
+    const fig = FIGURES.pooling(context(), 'phone');
+    const buttons = fig.node.querySelectorAll('button');
+    (buttons[buttons.length - 1] as HTMLButtonElement).click();
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
+  it('the dusk figure is done with a clean, steady shot well after sunset', async () => {
+    const fig = FIGURES.dusk(context(), 'late');
+    setSlider(fig.node, 0, 16);
+    // The shutter steps run 1/2000 s to 1/8 s; 1/60 s is the 16th.
+    setSlider(fig.node, 1, 15);
+    await expect(fig.done).resolves.toBeUndefined();
+  });
+
   it('the stops figure wants the exposure put back by hand', async () => {
     const stops = FIGURES.stops(context(), 'trade');
     // It starts a stop bright; a stop faster on the shutter puts it back.
