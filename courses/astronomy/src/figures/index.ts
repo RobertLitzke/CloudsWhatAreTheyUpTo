@@ -28,6 +28,7 @@ import { flickerFigure, s2Figure } from './quasars';
 import { afterglowFigure, olbersFigure } from './dark-night';
 import { bulletStill, cfaStill, ripplesFigure, rotationFigure } from './missing-mass';
 import { historyStill, supernovaFigure } from './speeding';
+import { convergeFigure } from './beginning';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -118,4 +119,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 24
   supernovae: supernovaFigure,
   history: historyStill,
+  // Lesson 25
+  converge: convergeFigure,
 };

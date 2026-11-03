@@ -15,6 +15,7 @@ import { flicker, period, QUASAR_SIZE, S2 } from '../src/figures/quasars';
 import { covered, glowTemp } from '../src/figures/dark-night';
 import { ripplesToday, seenSpeed, totalSpeed } from '../src/figures/missing-mass';
 import { brightnessVsCoasting, history } from '../src/figures/speeding';
+import { sizeAt } from '../src/figures/beginning';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -230,5 +231,15 @@ describe('trunk lessons', () => {
     guess(s.node, 'The expansion is speeding up');
     setSlider(s.node, 0, 0.7);
     await expect(s.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 25: the paths of galaxies meet at the start', async () => {
+    expect(sizeAt(13.8)).toBeCloseTo(1, 5);
+    expect(sizeAt(0)).toBe(0);
+    expect(sizeAt(0.00038)).toBeLessThan(0.002);
+    const c = FIGURES.converge(context(), 'start');
+    guess(c.node, 'They shrink to nothing at one moment');
+    setSlider(c.node, 0, 0);
+    await expect(c.done).resolves.toBeUndefined();
   });
 });
