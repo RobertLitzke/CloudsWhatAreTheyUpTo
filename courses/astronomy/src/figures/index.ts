@@ -19,6 +19,7 @@ import { flatFigure, halfMoonFigure, shadowFigure } from './shadows';
 import { balmerStill, rungsFigure, stringsStill } from './ladder';
 import { bestPathFigure, eclipseStill, gpsFigure, ringStill } from './bending';
 import { dwarfFigure, twoPerRungStill } from './dead-stars';
+import { bellChartStill, spinFigure } from './pulsars';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -79,4 +80,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 15
   dwarf: dwarfFigure,
   'two-per-rung': twoPerRungStill,
+  // Lesson 16
+  'bell-chart': bellChartStill,
+  spin: spinFigure,
 };

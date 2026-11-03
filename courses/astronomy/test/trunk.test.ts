@@ -6,6 +6,7 @@ import { emptyProgress } from 'didactics/progress';
 import { FIGURES } from '../src/figures';
 import { arcGain, heightGain, realPeak, speedLoss } from '../src/figures/bending';
 import { dwarfRadius, electronSpeed, teaspoon } from '../src/figures/dead-stars';
+import { breakup, CRAB, DWARF, NEUTRON } from '../src/figures/pulsars';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -102,5 +103,14 @@ describe('trunk lessons', () => {
     guess(d.node, 'It gets smaller');
     setSlider(d.node, 0, 1.5);
     await expect(d.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 16: a white dwarf can’t spin like the Crab pulsar, a neutron star can', async () => {
+    expect(breakup(DWARF.suns, DWARF.km)).toBeLessThan(1 / 1.337);
+    expect(breakup(NEUTRON.suns, NEUTRON.km)).toBeGreaterThan(1000);
+    const s = FIGURES.spin(context(), 'crab');
+    guess(s.node, 'No, it would fly apart');
+    setSlider(s.node, 0, Math.log10(CRAB));
+    await expect(s.done).resolves.toBeUndefined();
   });
 });

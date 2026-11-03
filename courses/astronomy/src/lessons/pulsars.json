@@ -1,0 +1,73 @@
+{
+  "id": "pulsars",
+  "n": 16,
+  "title": "Little green men",
+  "teaches": "How a graduate student found a clock in the sky, how she and her colleagues ruled out aliens, and why it had to be a spinning star made of neutrons",
+  "parts": [
+    {
+      "title": "A bit of scruff",
+      "blocks": [
+        {"type":"text","text":"In 1967 Jocelyn Bell was a graduate student at Cambridge, and her telescope was a field. She and a handful of others had spent two years hammering in more than a thousand wooden posts and stringing 190 kilometres of wire and cable between them, covering an area the size of fifty-seven tennis courts. It was a radio telescope, built to study how distant radio sources twinkle, and its output came out as a wavering ink line on rolls of chart paper, about thirty metres of it every day. Bell's job was to read it, by eye."},
+        {"type":"text","text":"In August she noticed something odd: a little patch of what she called “scruff”, a few millimetres of untidy wiggles in more than a hundred metres of chart, that didn't look like twinkling and didn't look like interference from cars or radios. It came back. And it came back four minutes earlier each day, which was the clue that mattered. The stars rise four minutes earlier each day, because a day by the stars is four minutes shorter than a day by the Sun. Whatever the scruff was, it kept time with the stars, not with anything on Earth."},
+        {"type":"text","text":"In November she set the recorder to run fast when the source was due. On 28 November the scruff came out as a row of sharp pulses, one every 1.337 seconds, as regular as a clock."},
+        {"type":"diagram","id":"bell-chart","caption":"Bell's chart, redrawn. The slow survey showed a smudge; run fast, it was a row of pulses."}
+      ]
+    },
+    {
+      "title": "Ruling out the little green men",
+      "blocks": [
+        {"type":"text","text":"Nothing natural was known to tick like that. Bell's supervisor, Antony Hewish, at first assumed it was something man-made; then, half joking, the group labelled the source LGM-1, for Little Green Men. Nobody seriously believed it was aliens, but nobody could prove it wasn't, and they did not want to announce the discovery of extraterrestrial intelligence and be wrong. So they did, in miniature, what the search for extraterrestrial intelligence (SETI) still has to do with any strange signal: they tried to rule out everything else."},
+        {"type":"text","text":"First, how far away was it? Radio waves of different frequencies travel at very slightly different speeds through the thin gas between the stars, so a sharp pulse arrives smeared, the low notes trailing behind the high. The amount of smear gave a distance of a few hundred light years: well outside the solar system, inside our galaxy. Second, a transmitter on a planet would be going round its sun, and that motion should show up as a Doppler shift, the pulses bunching up and spreading out over the planet's year. There was none, beyond the Earth's own motion."},
+        {"type":"text","text":"The decider came just before Christmas. Bell, working late to finish the chart analysis before going home to get engaged, found a second bit of scruff in a completely different part of the sky. Run fast, it pulsed every 1.2 seconds. Two lots of little green men, far apart, both signalling at us on the same odd frequency in the same odd way, was too much to swallow. It was a new kind of star. The paper came out in February 1968, and a newspaper science writer named them **pulsars**."}
+      ]
+    },
+    {
+      "title": "What could tick that fast?",
+      "blocks": [
+        {"type":"text","text":"A star that flashes once every second or so must be either throbbing or spinning, and either way it must be small. Normal stars throb over days. A white dwarf could perhaps manage seconds. Then, later in 1968, astronomers found a pulsar in the Crab Nebula flashing thirty times a second, and that settled it."},
+        {"type":"text","text":"A spinning body has a speed limit. Spin it fast enough and the stuff at its equator, moving round in a circle, needs more pull to hold it in than gravity can give, and it flies off. The bigger the body, the lower the limit."},
+        {"type":"interactive_diagram","id":"spin","caption":"A white dwarf and a neutron star spun at the same rate. The yellow lines are the beams that sweep round.","task":"Make a prediction, then spin both up to the Crab pulsar's thirty turns a second","goal":"crab","aspect_ratio":1.75},
+        {"type":"text","text":"So pulsars are smaller than white dwarfs: much smaller. In 1932 the British physicist James Chadwick had found the **neutron**, the particle with no electric charge that sits in an atom's nucleus alongside the protons. Only two years later Walter Baade and Fritz Zwicky at Caltech suggested that when a big star's core collapses past Chandrasekhar's limit (*Stars that shouldn't exist*), its electrons are crushed into its protons, turning them into neutrons. Neutrons obey the same no-sharing rule as electrons, so a ball of them can hold itself up, but because they are so much heavier they can be packed far more tightly. A star of 1.4 Suns ends up about twenty kilometres across: the size of a city. A teaspoon of it weighs a few billion tonnes, about as much as a mountain."},
+        {"type":"key_ideas","title":"Hold on to","points":["Pulsars are neutron stars: collapsed cores of more than a Sun's mass, about 20 km across, spinning up to hundreds of times a second.","A big body spinning that fast would fly apart, so the speed of the flashes proved how small the star must be."]}
+      ]
+    },
+    {
+      "title": "The guest star",
+      "blocks": [
+        {"type":"text","text":"In the summer of 1054, Chinese court astronomers recorded a “guest star” in the constellation we call Taurus, bright enough to see in daylight for more than three weeks. At the same spot today is the Crab Nebula, a tangled cloud of glowing gas about eleven light years across and still expanding at over a thousand kilometres a second. Run its expansion backwards and it started from a point about nine hundred years ago. The guest star was a star exploding, and the Crab pulsar is what was left of its core."},
+        {"type":"text","text":"Why does a spinning star flash? A neutron star keeps the magnetic field of the star it came from, squeezed with it into a much smaller space and so made enormously stronger. Particles streaming out along the magnetic poles make two beams of radio waves, and when the magnetic poles don't line up with the spin axis, the beams sweep round the sky like a lighthouse's. We see a flash each time one sweeps over the Earth."},
+        {"type":"text","text":"The Crab pulsar is also slowing down, by a tiny amount each day. Work out how much energy that loss of spin releases and it matches what the whole nebula gives out in light. The cloud glows because a city-sized star in its middle is braking."}
+      ]
+    },
+    {
+      "title": "The prize",
+      "blocks": [
+        {"type":"text","text":"In 1974 the Nobel Prize in Physics went to Antony Hewish, for his part in the discovery of pulsars, and to Martin Ryle, who had pioneered the Cambridge radio telescopes. Jocelyn Bell, by then Jocelyn Bell Burnell, was not included. Fred Hoyle and others said publicly that she should have been. She herself was gracious about it, saying that prizes for students would demean them, though many people noticed the field was ready to give credit to supervisors and not to young women."},
+        {"type":"text","text":"Forty-four years later, in 2018, she was given the Breakthrough Prize in Fundamental Physics, worth three million dollars. She gave all of it away, to fund graduate students in physics from groups that are under-represented in the subject: women, refugees and ethnic minorities. Pulsars, meanwhile, became some of the most precise clocks in the universe, and one in orbit round another neutron star would go on to give the first evidence that gravity sends out waves, which is a story for the branch on black holes and gravitational waves."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on pulsars", "task": "Select the best answer for each question", "options": {"items": [
+          {"ask":"Bell's scruff came back four minutes earlier each day. Why did that matter?","choices":["It kept time with the stars, so it came from space, not from Earth","It meant the source was getting closer","It showed the source was a planet"],"answer":0,"why":"The stars rise four minutes earlier each day. Interference from cars or radios follows our clocks, not the stars."},
+          {"ask":"A transmitter on an alien planet would orbit its sun. What would that have shown?","choices":["A slow rise and fall in the pulse rate over the planet's year, a Doppler shift","Pulses getting brighter every year","Nothing different at all"],"answer":0,"why":"A moving source's pulses bunch up as it approaches and spread out as it recedes. No such orbital shift was seen."},
+          {"ask":"A new pulsar flashes 600 times a second. What can you say about it?","choices":["It must be very small and dense, a neutron star","It must be a white dwarf","It must be very far away"],"answer":0,"why":"Only something tiny and very dense can spin that fast without flying apart. A white dwarf breaks up at well under one turn a second."},
+          {"ask":"Where do neutron stars come from?","choices":["The collapsed cores of heavy stars, crushed past the white dwarf limit","Gas clouds made of neutrons","White dwarfs that cooled down"],"answer":0,"why":"A core heavier than Chandrasekhar's limit collapses; its electrons are squeezed into its protons, making neutrons."},
+          {"ask":"Why does the Crab Nebula still glow, nearly a thousand years after the explosion?","choices":["The spinning pulsar inside is slowing, and its lost spin powers the glow","Fusion is still going on in the cloud","It reflects the light of nearby stars"],"answer":0,"why":"The energy the Crab pulsar loses as it slows matches the light the whole nebula gives out."}
+        ]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**A clock in the sky.** In 1967 Jocelyn Bell found radio pulses every 1.337 seconds, keeping time with the stars.",
+    "**Not little green men.** The pulses came from hundreds of light years away, showed no orbital Doppler shift, and a second source turned up elsewhere.",
+    "**Fast flashes mean a small star.** A white dwarf spinning 30 times a second would fly apart.",
+    "**Pulsars are spinning neutron stars.** Collapsed cores of more than a Sun's mass, about 20 km across; a teaspoon weighs as much as a mountain.",
+    "**Lighthouse beams.** Beams along the magnetic poles sweep round; we see a flash each time one passes us.",
+    "**The Crab pulsar is the core of the 1054 guest star.** Its slowing spin powers the nebula's glow.",
+    "**Credit.** The 1974 Nobel went to Hewish and Ryle; Bell Burnell gave her 2018 Breakthrough Prize to fund students."
+  ],
+  "journal": [],
+  "footnotes": {}
+}
