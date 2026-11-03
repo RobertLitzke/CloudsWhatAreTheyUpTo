@@ -13,6 +13,7 @@ import { cepheidSuns, looks, V1 } from '../src/figures/island';
 import { ageFromRate, HUBBLE_1929, TODAY } from '../src/figures/running';
 import { flicker, period, QUASAR_SIZE, S2 } from '../src/figures/quasars';
 import { covered, glowTemp } from '../src/figures/dark-night';
+import { ripplesToday, seenSpeed, totalSpeed } from '../src/figures/missing-mass';
 import { lifetime, starAt } from '../src/figures/clusters';
 import { balmerLine, band, fallNm } from '../src/figures/ladder';
 import { SEA, slowing, survivors } from '../src/figures/muons';
@@ -200,5 +201,20 @@ describe('trunk lessons', () => {
     guess(a.node, 'It has cooled into microwaves');
     setSlider(a.node, 0, Math.log10(13.8e9));
     await expect(a.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 23: seen mass gives a falling curve, a halo flattens it, and ripples need dark matter', async () => {
+    expect(seenSpeed(100)).toBeLessThan(seenSpeed(13) * 0.6);
+    expect(Math.abs(totalSpeed(100, 1) - totalSpeed(20, 1))).toBeLessThan(30);
+    expect(ripplesToday(0)).toBeCloseTo(0.011, 3);
+    expect(ripplesToday(0.84)).toBeGreaterThan(1);
+    const r = FIGURES.rotation(context(), 'flat');
+    guess(r.node, 'About as fast as the inner ones');
+    setSlider(r.node, 0, 1);
+    await expect(r.done).resolves.toBeUndefined();
+    const p = FIGURES.ripples(context(), 'galaxies');
+    guess(p.node, 'No: they would be only about 1% denser today');
+    setSlider(p.node, 0, 0.84);
+    await expect(p.done).resolves.toBeUndefined();
   });
 });

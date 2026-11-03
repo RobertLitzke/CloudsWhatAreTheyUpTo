@@ -26,6 +26,7 @@ import { cepheidFigure, shapleyStill } from './island';
 import { ageFigure, expansionFigure } from './running';
 import { flickerFigure, s2Figure } from './quasars';
 import { afterglowFigure, olbersFigure } from './dark-night';
+import { bulletStill, cfaStill, ripplesFigure, rotationFigure } from './missing-mass';
 import { lightClockFigure, lightConeStill, muonRainFigure } from './muons';
 import { benchFigure, sunLinesFigure } from './spectra';
 import { fuelFigure, thermostatFigure } from './sunshine';
@@ -108,4 +109,9 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 22
   olbers: olbersFigure,
   afterglow: afterglowFigure,
+  // Lesson 23
+  rotation: rotationFigure,
+  bullet: bulletStill,
+  cfa: cfaStill,
+  ripples: ripplesFigure,
 };
