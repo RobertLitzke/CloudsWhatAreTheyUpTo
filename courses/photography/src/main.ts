@@ -26,12 +26,12 @@ const SHUTTER =
 // out-of-auto-course.json and out-of-auto.html.
 defineCourse({
   id: 'out-of-auto',
-  title: 'Out of Auto',
+  title: 'Photography: Out of Auto',
   subtitle: 'A field workbook',
   // The course's icon (catalog/icons, `npm run icons` at the root) as the header's logo mark.
   mark: el('img', { src: 'icons/icon.svg', alt: '' }),
   site: SITE_URL,
-  update: { title: 'New version', text: 'A fresh version of Out of Auto is ready.', icon: SHUTTER },
+  update: { title: 'New version', text: 'A fresh version of Photography: Out of Auto is ready.', icon: SHUTTER },
 
   lessons: LESSONS,
   figures: FIGURES,

@@ -18,7 +18,7 @@ export default defineConfig(
     oneFile: 'out-of-auto.html',
     precache: ['photos/*.webp', 'stage/**/*.webp'],
     manifest: {
-      name: 'Out of Auto: a photography workbook',
+      name: 'Photography: Out of Auto',
       short_name: 'Out of Auto',
       description: 'Short illustrated lessons on photography for nature with a long zoom: exposure, focus, movement, grain, reach and colour.',
       // Keep in sync with --bg in src/app/styles/tokens.css.

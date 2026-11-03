@@ -1,4 +1,4 @@
-# Out of Auto
+# Photography: Out of Auto
 
 A photography workbook for someone who owns a long zoom and leaves it on
 automatic. Short illustrated lessons, in the manner of Bartosz Ciechanowski's
