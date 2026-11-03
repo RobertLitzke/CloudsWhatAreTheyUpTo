@@ -1,97 +1,354 @@
 {
-  "id": "supercontinents",
-  "n": 13,
-  "title": "The ocean before the Atlantic",
-  "teaches": "How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today",
-  "parts": [
+ "id": "supercontinents",
+ "n": 13,
+ "title": "The ocean before the Atlantic",
+ "teaches": "How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today",
+ "parts": [
+  {
+   "title": "Two kinds of trilobite",
+   "blocks": [
     {
-      "title": "Two kinds of trilobite",
-      "blocks": [
-        {"type": "text", "text": "Newfoundland holds a puzzle that took geologists the better part of a century to solve. Its rocks from the Cambrian period, laid down on shallow sea floors more than 500 million years ago, are full of **trilobites**, the armoured, many-legged sea animals that left some of the most common fossils of that age. Different trilobites lived in different places, the way different crabs live off Maine and off Spain today, so a fossil collection says something about where a rock formed."},
-        {"type": "text", "text": "In western Newfoundland, the Cambrian rocks hold *Olenellus* and its relatives, the same animals found across the rest of North America and in Greenland, and also in the far northwest of Scotland. On the Avalon Peninsula in the east of the island, rocks of much the same age hold a quite different set dominated by *Paradoxides*, a large, spiny trilobite. *Paradoxides* turns up again in Wales, in Sweden and Norway, and in a quarry at Braintree, just south of Boston, but not in western Newfoundland, a few hundred kilometres away. Early palaeontologists called the two sets of animals, or **faunas**, the Pacific and the Atlantic, because the first is found right across North America to its Pacific side and the second around the North Atlantic. They could not explain why the line between them ran through the middle of an island instead of along an ocean."},
-        {"type": "text", "text": "Lesson 9 matched fossils across an ocean to show the continents had once touched. Here the fossils make the opposite point: two sets of fossils now lying a few hundred kilometres apart on the same island were left by animals once kept apart by something they could not cross."},
-        {"type": "interactive_diagram", "id": "iapetus", "caption": "The North Atlantic region on the globe, run back through time with the PALEOMAP plate model. Land that moved with North America 490 to 430 million years ago is orange; Avalonia (eastern Newfoundland, southern Britain, around Boston) is purple; Baltica (Scandinavia) is lilac. Circles mark Olenellus trilobites, diamonds Paradoxides.", "task": "Run the clock back to 490 million years ago", "goal": "iapetus", "aspect_ratio": 1.33},
-        {"type": "text", "text": "In 1966 the Canadian geophysicist J. Tuzo Wilson, who had proposed the hotspot idea of lesson 12 three years earlier, published a short paper in *Nature* with a title that put his answer as a question: \"Did the Atlantic close and then re-open?\" He argued that an earlier ocean had separated the two faunas. It closed, the continents on either side collided and welded together, and much later a new ocean, the Atlantic, opened close to the old join but not exactly along it. When it did, a sliver of the European side stayed stuck to North America, and a sliver of the American side stayed with Europe. That is why eastern Newfoundland and the Boston area, part of a strip of crust geologists now call **Avalonia** after the Avalon Peninsula, carry European trilobites, and why the northwest corner of Scotland carries American ones."},
-        {"type": "text", "text": "The lost ocean was later named **Iapetus**,[^iapetus] and its traces are not only fossils. Where it closed, slices of its floor were shoved up onto the edge of North America. In Gros Morne National Park in western Newfoundland, the barren orange hills of the Tablelands are mantle rock from beneath that ocean floor, now standing on land."},
-        {"type": "diagram", "id": "photo", "caption": "The Tablelands in Gros Morne National Park, western Newfoundland: rock from under the floor of the Iapetus Ocean, pushed up onto North America as the ocean closed.", "options": {"photo": "tablelands", "aspect": 1.33}},
-        {"type": "text", "text": "The collisions that closed Iapetus also raised a mountain chain, the Caledonides, which today runs from the northern Appalachians through Newfoundland, Ireland and Scotland into Norway. Earlier lessons have already crossed it. Barrow's zones of garnet and kyanite (lesson 5) were cooked into the Scottish Highlands as an island arc rammed into the edge of Laurentia, the ancient core of North America. And the steeply tilted greywackes at Siccar Point (lesson 7) began as muddy sand on the floor of Iapetus, hardened into the dark sandstone called greywacke and, folded upright as the ocean closed."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Cambrian trilobites in western Newfoundland and northwest Scotland belong to the North American fauna, while those in eastern Newfoundland, Wales and Scandinavia belong to a different one.", "Tuzo Wilson explained the pattern in 1966: an older ocean, Iapetus, separated the two faunas, then closed, and the Atlantic later opened along a slightly different line.", "Iapetus left behind ocean-floor rock pushed onto land, as in Newfoundland's Tablelands, and a mountain chain, the Caledonides, from the Appalachians to Norway."]}
-      ]
+     "type": "text",
+     "text": "Newfoundland holds a puzzle that took geologists the better part of a century to solve. Its rocks from the Cambrian period, laid down on shallow sea floors more than 500 million years ago, are full of **trilobites**, the armoured, many-legged sea animals that left some of the most common fossils of that age. Different trilobites lived in different places, the way different crabs live off Maine and off Spain today, so a fossil collection says something about where a rock formed."
     },
     {
-      "title": "A compass for the past",
-      "blocks": [
-        {"type": "text", "text": "Fitting continents back together across an ocean is most reliable when that ocean's floor survives to record how it opened, and in the main ocean basins no floor older than about 200 million years remains; the rest has gone down trenches (lesson 10). To put a continent where it stood half a billion years ago, geologists needed a measurement that the continent itself carries. They found one in its magnetism."},
-        {"type": "text", "text": "Lesson 10 showed that cooling lava locks in the direction of the Earth's magnetic field, and lesson 12 used one consequence of that to track the Hawaiian plume. The field does not lie flat everywhere. Its lines leave the Earth near the south geographic pole, arc over the equator, where they run level with the ground, and plunge back in near the north pole. A compass needle free to tilt (a **dip needle**) points level at the equator, straight down at the magnetic north pole, straight up at the south, and at angles in between that depend on latitude. (The north end of a needle points down in the northern hemisphere and up in the southern.) For a field shaped like the Earth's, the rule is simple: the tangent of the dip angle is twice the tangent of the latitude.[^dip] A rock that froze its magnetism in therefore records how far from the equator it formed."},
-        {"type": "text", "text": "In the 1950s physicists in Britain began measuring these frozen needles in old rocks, partly to test whether the Earth's field had always looked as it does now. A group at Imperial College in London sampled the Deccan Traps of western India, a stack of lava flows more than a kilometre thick that poured out about 66 million years ago. India lies around 19° N, where a needle dips about 35° into the ground. In the lavas, after averaging many flows, the frozen magnetism dips 47° and its north end points up, out of the ground. It did not match India's latitude at all."},
-        {"type": "interactive_diagram", "id": "dip", "caption": "The Earth's magnetic field, drawn as a single bar magnet along the spin axis, with a dip needle at a chosen latitude (left). Right: the needle at that latitude (red) beside the direction frozen into the Deccan lavas (purple), relative to the ground.", "task": "Find the latitude where the Deccan lavas cooled", "goal": "deccan", "aspect_ratio": 1.6},
-        {"type": "text", "text": "The Deccan lavas formed about 28° south of the equator, as far south as Brisbane is today, and India has since travelled more than 5,000 kilometres north. Lava flows elsewhere told similar stories: rocks of the same age on different continents pointed to magnetic poles in different places, which made no sense if the continents had stayed still. If they had moved, the poles could be brought back together. Plotting where each continent's rocks put the pole, age by age, draws a line across the map, a **polar wander path**. In 1956 Keith Runcorn showed that Europe's path and North America's ran side by side but some distance apart, and that closing the Atlantic made the two paths one. A decade before the seafloor stripes of lesson 10 settled the matter, the frozen compasses had already revived Wegener's idea in the minds of many who worked with them."},
-        {"type": "text", "text": "The magnetic method has one blind spot. The field looks the same all the way around the Earth at a given latitude, so a rock records how far it was from the pole but not its longitude. Reconstructions fix longitude in other ways: by fitting the edges of continents that split apart (lesson 9), by matching mountain belts and rock provinces, by the spreading record of oceans that still exist, and by hotspot tracks such as the one in lesson 12. The further back in time, the fewer of these there are, and the more the maps rely on judgement."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["The dip of the magnetic field depends on latitude: level at the equator, vertical at the magnetic poles.", "The dip frozen into an ancient rock gives the latitude where it formed; the Deccan lavas show that India lay near 28° S about 66 million years ago.", "Ancient magnetism records latitude but not longitude, which must be pinned down by fits, matching geology and hotspot tracks."]}
-      ]
+     "type": "text",
+     "text": "In western Newfoundland, the Cambrian rocks hold *Olenellus* and its relatives, the same animals found across the rest of North America and in Greenland, and also in the far northwest of Scotland. On the Avalon Peninsula in the east of the island, rocks of much the same age hold a quite different set dominated by *Paradoxides*, a large, spiny trilobite. *Paradoxides* turns up again in Wales, in Sweden and Norway, and in a quarry at Braintree, just south of Boston, but not in western Newfoundland, a few hundred kilometres away. Early palaeontologists called the two sets of animals, or **faunas**, the Pacific and the Atlantic, because the first is found right across North America to its Pacific side and the second around the North Atlantic. They could not explain why the line between them ran through the middle of an island instead of along an ocean."
     },
     {
-      "title": "A billion years of continents",
-      "blocks": [
-        {"type": "text", "text": "Put all these methods together and the continents can be followed back much further than Pangaea. The map below is one such reconstruction, the PALEOMAP model of the American geologist Christopher Scotese. It carries today's coastlines and continental shelves back through time, piece by piece; the outlines of ancient coasts were different, and some of the pieces had not yet formed. Before 200 million years ago, the longitudes in it are the modeller's best placement, chosen to keep the matching rocks together, so the map is kept centred on the land; the outlines and named features are simplified."},
-        {"type": "interactive_diagram", "id": "supercontinents", "caption": "The continents from a billion years ago to today and 50 million years ahead, from the PALEOMAP plate model. Today's land is brown and continental shelf pale; white marks ice. Under the map: when the supercontinents existed, when ice sheets spread, and the five great mass extinctions (crosses).", "task": "Play a billion years through to today", "goal": "played", "aspect_ratio": 1.33},
-        {"type": "text", "text": "Pangaea, it turns out, was the latest of several supercontinents, not the first. About a billion years ago most of the land was gathered into **Rodinia** (from the Russian *rodina*, \"homeland\"), a name coined in 1990, with North America near its middle. The Grenville mountains, the deeply eroded roots of the collision that completed it, run beneath eastern North America from Labrador to Texas. How the other pieces were arranged around it is still argued over, because there is no ocean floor of that age and few reliable magnetic readings."},
-        {"type": "text", "text": "Rodinia broke apart from about 750 million years ago. Its southern pieces reassembled within 200 million years as **Gondwana**, the southern landmass of lesson 9, while Laurentia, Baltica, Siberia and Avalonia went their own ways across oceans such as Iapetus. Then the oceans between them closed one after another. Iapetus shut first, raising the Caledonides; the Rheic Ocean, which had opened as Avalonia split away from Gondwana, shut by about 320 million years ago; and the collisions that followed built **Pangaea**, the supercontinent Wegener had pieced together by fitting today's continents back into one. Its breakup from about 200 million years ago is the one recorded in today's ocean floors."},
-        {"type": "text", "text": "So supercontinents seem to assemble and break up on a rough cycle: Nuna, Rodinia and Pangaea came together some 500 to 700 million years apart. Before Rodinia there was a supercontinent geologists call **Nuna** or Columbia, about 1.8 to 1.5 billion years ago, and perhaps one or more earlier still.[^nuna] Most of the Earth's land has been gathered together and scattered several times over."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Pangaea, assembled by about 320 million years ago and split from 200 million years ago, was the most recent supercontinent, not the first.", "Rodinia gathered most of the land about a billion years ago and broke up after 750 million years ago; Gondwana assembled from its southern pieces.", "Supercontinents form and break up on a rough cycle, Nuna, Rodinia and Pangaea coming together some 500 to 700 million years apart."]}
-      ]
+     "type": "diagram",
+     "id": "photo",
+     "caption": "A Paradoxides trilobite from the Cambrian of Bohemia. Its kind lived on the far side of Iapetus from North America.",
+     "options": {
+      "photo": "paradoxides",
+      "aspect": 0.75
+     }
     },
     {
-      "title": "Why oceans open and close",
-      "blocks": [
-        {"type": "text", "text": "Wilson saw that the history of Iapetus and the Atlantic was one turn of a cycle, and that each stage of it can be seen somewhere on the Earth today. Geologists now call it the **Wilson cycle**."},
-        {"type": "diagram", "id": "wilson", "caption": "The Wilson cycle, from a continent splitting to a collision that welds it back together, each stage with a place where it is happening now. Not to scale."},
-        {"type": "text", "text": "An ocean starts as a rift in a continent, where the crust is stretched and thinned and blocks drop down along faults, as in the East African Rift today. If the stretching continues, the crust splits through, the sea floods in and basalt from the mantle starts building new ocean floor, as in the Red Sea. A ridge keeps adding floor to both sides, and the ocean widens like the Atlantic, with continents riding away on its flanks."},
-        {"type": "text", "text": "Ocean floor grows colder, thicker and denser as it ages. Eventually, at the edge of an old ocean, it begins to sink beneath the neighbouring plate, opening a trench (lesson 11). Once the floor is being swallowed faster than the ridge makes it, the ocean shrinks. Nearly all ocean floor goes down trenches in the end, which is why none is older than about 200 million years in the main ocean basins. The continents on either side, though, are less dense than the mantle and too buoyant to be dragged down (lesson 5). When the last of the ocean between them disappears, they collide, crumple and thicken into a mountain range such as the Himalaya, which began rising when India hit Asia about 50 million years ago. The line where the two meet, often marked by squeezed scraps of ocean floor, is called a **suture**."},
-        {"type": "text", "text": "Why a supercontinent eventually breaks apart is less certain. Two effects probably work together. A large continent acts like a lid, slowing the escape of heat from the mantle beneath it, so the mantle there gradually warms. And the ocean floor sinking at trenches all around its edges pulls the plates away from its middle, while plumes rising from deep in the mantle may help to split it."},
-        {"type": "text", "text": "Where the next supercontinent forms depends on which ocean closes. If the Atlantic, the youngest ocean, stops widening and shrinks back, the continents could reunite much where Pangaea stood. If the Pacific, which is shrinking now, keeps closing, the Americas will meet Asia on the far side of the globe. Computer models of both futures put the next supercontinent 200 to 300 million years away.[^future]"},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["The Wilson cycle: a continent rifts, a new ocean widens at a ridge, its old floor eventually sinks at trenches, and the ocean closes in a continental collision.", "Continental crust is too buoyant to sink, so a closed ocean leaves a mountain belt and a suture, often with scraps of ocean floor.", "Supercontinents probably break up as heat builds beneath them and the sinking ocean floor at their edges pulls them apart."]}
-      ]
+     "type": "text",
+     "text": "Lesson 9 matched fossils across an ocean to show the continents had once touched. Here the fossils make the opposite point: two sets of fossils now lying a few hundred kilometres apart on the same island were left by animals once kept apart by something they could not cross."
     },
     {
-      "title": "Continents, climate and life",
-      "blocks": [
-        {"type": "text", "text": "Rearranging the continents changes the rest of the planet too. One of the clearest effects is on sea level. In lesson 10, new ocean floor is hot and swollen at the ridge and cools and subsides as it moves away. When ridges spread quickly, more of the sea floor is young and high, and the ocean basins have less room for the same water. The excess spills onto the continents. Today's ridges spread at about 3 cm a year on average."},
-        {"type": "interactive_diagram", "id": "sea-level", "caption": "Left: the ocean floor across one side of an ocean, from the ridge to its far edge, deepening with age. Right: the edge of a continent, with heights exaggerated tenfold more than on the left. The water in the sea stays the same; what changes is the space the ocean basin offers it.", "task": "Find the spreading rate that floods the continent to the Cretaceous shore", "goal": "flooded", "aspect_ratio": 1.6},
-        {"type": "text", "text": "In the Cretaceous period, between about 145 and 66 million years ago, while Pangaea's pieces were moving apart and new ridges were spreading fast, sea level stood something like 100 to 250 metres higher than today. A shallow sea ran from the Gulf of Mexico to the Arctic across the middle of North America, and the chalk of the White Cliffs of Dover settled on a sea floor over much of Europe; the period is named after it, from *creta*, Latin for chalk. When continents gather into a supercontinent, the reverse tends to happen. There are fewer young ridges, collisions crumple and shorten the continental shelves, and the shallow seas around the land shrink."},
-        {"type": "text", "text": "Climate follows the continents as well. A large ice sheet needs land near a pole to build up on. Apart from the two **Snowball Earth** glaciations, between 717 and 635 million years ago, when ice seems to have reached the sea even at the equator, the long ice ages of the last billion years all came when there was land near a pole. Gondwana drifted across the South Pole twice: about 445 million years ago, when a short, sharp glaciation coincided with the first of the five great mass extinctions, and again from about 340 to 260 million years ago, when the ice left the scratched pavements of lesson 9. Antarctica has carried an ice sheet since about 34 million years ago, when Australia and South America pulled away from it and an ocean current began to circle it unbroken, though a long fall in carbon dioxide mattered at least as much. And Pangaea itself, stretching from pole to pole, had an interior so far from any sea that much of it was desert."},
-        {"type": "text", "text": "Of the five great mass extinctions (445, 372, 252, 201 and 66 million years ago, the crosses in the timeline), two coincided with events in the life of a supercontinent, and the first with Gondwana's ice. At the end of the Permian, 252 million years ago, the Siberian Traps erupted millions of cubic kilometres of basalt through the edge of Pangaea, releasing enough carbon dioxide and sulphur to warm the planet, acidify the oceans and strip them of oxygen; most species in the sea died out. Fifty million years later, the rift that opened the central Atlantic flooded basalt across four of today's continents, and the end-Triassic extinction followed; the end-Permian was the worst of all five. These **flood basalts**, vast outpourings of lava from long cracks, are not caused by the arrangement of the continents alone, but they mark the moments when the mantle broke through the plates on the largest scale."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Fast spreading makes more young, shallow ocean floor, so the sea rises onto the continents, as it did in the Cretaceous.", "Long ice ages need land near a pole: Gondwana over the South Pole, and Antarctica in the last 34 million years.", "The end-Permian and end-Triassic mass extinctions coincided with huge flood basalts, erupted as Pangaea stood complete and as it began to split."]}
-      ]
+     "type": "interactive_diagram",
+     "id": "iapetus",
+     "caption": "The North Atlantic region on the globe, run back through time with the PALEOMAP plate model. Land that moved with North America 490 to 430 million years ago is orange; Avalonia (eastern Newfoundland, southern Britain, around Boston) is purple; Baltica (Scandinavia) is lilac. Circles mark Olenellus trilobites, diamonds Paradoxides.",
+     "task": "Run the clock back to 490 million years ago",
+     "goal": "iapetus",
+     "aspect_ratio": 1.33
     },
     {
-      "title": "Check",
-      "blocks": [
-        {"type": "quiz", "id": "check", "caption": "Five questions on the supercontinent cycle", "task": "Select the best answer for each question", "options": {"items": [
-          {"ask": "Western Newfoundland's Cambrian trilobites match those of northwest Scotland, while eastern Newfoundland's match those of Wales. What did Tuzo Wilson conclude?", "choices": ["An older ocean separated the two faunas; it closed, and the Atlantic later opened along a slightly different line", "The two faunas lived at different depths in the same sea, so they never met", "The Atlantic opened through Newfoundland, splitting a single fauna in two"], "answer": 0, "why": "The two faunas were kept apart by the Iapetus Ocean. When the Atlantic opened, it did not follow the old join exactly, so pieces of each shore were left stuck to the other."},
-          {"ask": "Why does a compass needle that is free to tilt record latitude?", "choices": ["The Earth's field lines run level at the equator and steepen toward the magnetic poles, so their dip depends on latitude", "The field grows stronger with longitude, so the needle tilts further east of Greenwich", "The needle tilts with the curve of the ground, which is steeper toward the poles"], "answer": 0, "why": "The dip angle obeys tan(dip) = 2 tan(latitude) for the Earth's field, so a lava that froze in a dip of 47° upward formed about 28° south of the equator."},
-          {"ask": "Why are reconstructions of the continents 700 million years ago much less certain than those of 100 million years ago?", "choices": ["No ocean floor that old survives, and ancient magnetism gives latitude but not longitude", "Radioactive dating does not work on rocks that old", "The magnetic field did not exist until 500 million years ago"], "answer": 0, "why": "For the last 200 million years the age of the sea floor records how the oceans opened. Before that, geologists have only the continents themselves: their magnetism, which says nothing about longitude, and matching rocks and mountain belts."},
-          {"ask": "In the Wilson cycle, what happens when the last of an ocean between two continents is swallowed at a trench?", "choices": ["The continents collide and crumple into a mountain range, because continental crust is too buoyant to sink", "One continent follows the ocean floor down into the mantle and disappears", "The trench jumps to the middle of the ocean and a new ridge forms there"], "answer": 0, "why": "Continental crust is less dense than the mantle, so it piles up instead of sinking. The Himalaya, rising since India hit Asia about 50 million years ago, is the example happening now."},
-          {"ask": "Why did sea level stand 100 to 250 m higher in the Cretaceous?", "choices": ["Fast-spreading ridges made a larger share of the sea floor young, hot and high, so the ocean basins had less room for the same water", "Melting ice sheets added that much water to the oceans", "The continents sank as Pangaea broke apart"], "answer": 0, "why": "Young ocean floor stands high and subsides as it ages. More young floor means shallower basins, and the same water spills onto the continents."}
-        ]}}
-      ]
+     "type": "text",
+     "text": "In 1966 the Canadian geophysicist J. Tuzo Wilson, who had proposed the hotspot idea of lesson 12 three years earlier, published a short paper in *Nature* with a title that put his answer as a question: \"Did the Atlantic close and then re-open?\" He argued that an earlier ocean had separated the two faunas. It closed, the continents on either side collided and welded together, and much later a new ocean, the Atlantic, opened close to the old join but not exactly along it. When it did, a sliver of the European side stayed stuck to North America, and a sliver of the American side stayed with Europe. That is why eastern Newfoundland and the Boston area, part of a strip of crust geologists now call **Avalonia** after the Avalon Peninsula, carry European trilobites, and why the northwest corner of Scotland carries American ones."
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "J. Tuzo Wilson in 1992. In 1966 he asked whether the Atlantic had closed and then reopened.",
+     "options": {
+      "photo": "tuzo-wilson",
+      "aspect": 0.8
+     }
+    },
+    {
+     "type": "text",
+     "text": "The lost ocean was later named **Iapetus**,[^iapetus] and its traces are not only fossils. Where it closed, slices of its floor were shoved up onto the edge of North America. In Gros Morne National Park in western Newfoundland, the barren orange hills of the Tablelands are mantle rock from beneath that ocean floor, now standing on land."
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "The Tablelands in Gros Morne National Park, western Newfoundland: rock from under the floor of the Iapetus Ocean, pushed up onto North America as the ocean closed.",
+     "options": {
+      "photo": "tablelands",
+      "aspect": 1.33
+     }
+    },
+    {
+     "type": "text",
+     "text": "The collisions that closed Iapetus also raised a mountain chain, the Caledonides, which today runs from the northern Appalachians through Newfoundland, Ireland and Scotland into Norway. Earlier lessons have already crossed it. Barrow's zones of garnet and kyanite (lesson 5) were cooked into the Scottish Highlands as an island arc rammed into the edge of Laurentia, the ancient core of North America. And the steeply tilted greywackes at Siccar Point (lesson 7) began as muddy sand on the floor of Iapetus, hardened into the dark sandstone called greywacke and, folded upright as the ocean closed."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Cambrian trilobites in western Newfoundland and northwest Scotland belong to the North American fauna, while those in eastern Newfoundland, Wales and Scandinavia belong to a different one.",
+      "Tuzo Wilson explained the pattern in 1966: an older ocean, Iapetus, separated the two faunas, then closed, and the Atlantic later opened along a slightly different line.",
+      "Iapetus left behind ocean-floor rock pushed onto land, as in Newfoundland's Tablelands, and a mountain chain, the Caledonides, from the Appalachians to Norway."
+     ]
     }
-  ],
-  "summary": [
-    "**An ocean closed before the Atlantic opened.** Trilobites split between western and eastern Newfoundland show that Iapetus once separated the two halves.",
-    "**The Atlantic opened off the old join.** Slivers of each shore stayed with the other, as in eastern Newfoundland, Boston and northwest Scotland.",
-    "**Frozen magnetism records latitude.** The dip of the field depends on latitude, so the Deccan lavas, dipping 47° upward, show India near 28° S 66 million years ago.",
-    "**Longitude is not recorded.** It comes from fitting continents, matching rocks and hotspot tracks, so older maps are less certain.",
-    "**Supercontinents come and go.** Nuna, Rodinia and Pangaea gathered most of the land, some 500 to 700 million years apart; Gondwana, the southern half, outlasted Pangaea.",
-    "**The Wilson cycle.** A rift becomes a widening ocean; its old floor sinks at trenches; the ocean closes in a collision that leaves mountains and a suture.",
-    "**Plates set sea level and climate.** Fast ridges flood the continents, as in the Cretaceous, and long ice ages need land near a pole.",
-    "**Great extinctions marked the supercontinent's life.** Flood basalts erupted as Pangaea stood complete and as it split, at the end of the Permian and the Triassic."
-  ],
-  "journal": [],
-  "footnotes": {
-    "iapetus": {"kind": "digression", "title": "Why Iapetus", "text": "The British geologists Brian Harland and Rex Gayer named the ocean in 1972. In Greek myth, Iapetus was the Titan who fathered Atlas, and the Atlantic is named after Atlas, so the older ocean took the name of the younger one's father."},
-    "dip": {"kind": "technical", "title": "Dip and latitude", "text": "For a field like a bar magnet's lined up with the Earth's axis, the tangent of the dip angle is twice the tangent of the latitude. The real field is lumpier and its pole wanders, but averaged over a few thousand years it lines up with the spin axis, so palaeomagnetists average many lava flows. Many of the Deccan flows erupted while the field was reversed (lesson 10); their magnetism points the opposite way, and is turned round before it is averaged in."},
-    "nuna": {"kind": "digression", "title": "Older supercontinents", "text": "The further back, the less is known. Nuna, also called Columbia, assembled about 1.8 billion years ago from pieces that included the cores of North America, Baltica and Siberia. Some geologists argue for an even earlier gathering, Kenorland or a set of smaller 'supercratons', around 2.7 to 2.5 billion years ago. Some also argue that Gondwana and Laurentia briefly joined about 600 million years ago into a supercontinent called Pannotia; others doubt it ever existed."},
-    "future": {"kind": "digression", "title": "Supercontinents to come", "text": "Several have been named. Pangaea Proxima, proposed by Christopher Scotese, closes the Atlantic and reunites the continents roughly where Pangaea stood. Novopangaea closes the Pacific instead. Amasia would gather the continents around the North Pole as the Americas meet Asia across the Arctic. Aurica closes both the Atlantic and the Pacific. All are extrapolations of today's motions, with guesses about where new trenches will start."}
+   ]
+  },
+  {
+   "title": "A compass for the past",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Fitting continents back together across an ocean is most reliable when that ocean's floor survives to record how it opened, and in the main ocean basins no floor older than about 200 million years remains; the rest has gone down trenches (lesson 10). To put a continent where it stood half a billion years ago, geologists needed a measurement that the continent itself carries. They found one in its magnetism."
+    },
+    {
+     "type": "text",
+     "text": "Lesson 10 showed that cooling lava locks in the direction of the Earth's magnetic field, and lesson 12 used one consequence of that to track the Hawaiian plume. The field does not lie flat everywhere. Its lines leave the Earth near the south geographic pole, arc over the equator, where they run level with the ground, and plunge back in near the north pole. A compass needle free to tilt (a **dip needle**) points level at the equator, straight down at the magnetic north pole, straight up at the south, and at angles in between that depend on latitude. (The north end of a needle points down in the northern hemisphere and up in the southern.) For a field shaped like the Earth's, the rule is simple: the tangent of the dip angle is twice the tangent of the latitude.[^dip] A rock that froze its magnetism in therefore records how far from the equator it formed."
+    },
+    {
+     "type": "text",
+     "text": "In the 1950s physicists in Britain began measuring these frozen needles in old rocks, partly to test whether the Earth's field had always looked as it does now. A group at Imperial College in London sampled the Deccan Traps of western India, a stack of lava flows more than a kilometre thick that poured out about 66 million years ago. India lies around 19° N, where a needle dips about 35° into the ground. In the lavas, after averaging many flows, the frozen magnetism dips 47° and its north end points up, out of the ground. It did not match India's latitude at all."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "dip",
+     "caption": "The Earth's magnetic field, drawn as a single bar magnet along the spin axis, with a dip needle at a chosen latitude (left). Right: the needle at that latitude (red) beside the direction frozen into the Deccan lavas (purple), relative to the ground.",
+     "task": "Find the latitude where the Deccan lavas cooled",
+     "goal": "deccan",
+     "aspect_ratio": 1.6
+    },
+    {
+     "type": "text",
+     "text": "The Deccan lavas formed about 28° south of the equator, as far south as Brisbane is today, and India has since travelled more than 5,000 kilometres north. Lava flows elsewhere told similar stories: rocks of the same age on different continents pointed to magnetic poles in different places, which made no sense if the continents had stayed still. If they had moved, the poles could be brought back together. Plotting where each continent's rocks put the pole, age by age, draws a line across the map, a **polar wander path**. In 1956 Keith Runcorn showed that Europe's path and North America's ran side by side but some distance apart, and that closing the Atlantic made the two paths one. A decade before the seafloor stripes of lesson 10 settled the matter, the frozen compasses had already revived Wegener's idea in the minds of many who worked with them."
+    },
+    {
+     "type": "text",
+     "text": "The magnetic method has one blind spot. The field looks the same all the way around the Earth at a given latitude, so a rock records how far it was from the pole but not its longitude. Reconstructions fix longitude in other ways: by fitting the edges of continents that split apart (lesson 9), by matching mountain belts and rock provinces, by the spreading record of oceans that still exist, and by hotspot tracks such as the one in lesson 12. The further back in time, the fewer of these there are, and the more the maps rely on judgement."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "The dip of the magnetic field depends on latitude: level at the equator, vertical at the magnetic poles.",
+      "The dip frozen into an ancient rock gives the latitude where it formed; the Deccan lavas show that India lay near 28° S about 66 million years ago.",
+      "Ancient magnetism records latitude but not longitude, which must be pinned down by fits, matching geology and hotspot tracks."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "A billion years of continents",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Put all these methods together and the continents can be followed back much further than Pangaea. The map below is one such reconstruction, the PALEOMAP model of the American geologist Christopher Scotese. It carries today's coastlines and continental shelves back through time, piece by piece; the outlines of ancient coasts were different, and some of the pieces had not yet formed. Before 200 million years ago, the longitudes in it are the modeller's best placement, chosen to keep the matching rocks together, so the map is kept centred on the land; the outlines and named features are simplified."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "supercontinents",
+     "caption": "The continents from a billion years ago to today and 50 million years ahead, from the PALEOMAP plate model. Today's land is brown and continental shelf pale; white marks ice. Under the map: when the supercontinents existed, when ice sheets spread, and the five great mass extinctions (crosses).",
+     "task": "Play a billion years through to today",
+     "goal": "played",
+     "aspect_ratio": 1.33
+    },
+    {
+     "type": "text",
+     "text": "Pangaea, it turns out, was the latest of several supercontinents, not the first. About a billion years ago most of the land was gathered into **Rodinia** (from the Russian *rodina*, \"homeland\"), a name coined in 1990, with North America near its middle. The Grenville mountains, the deeply eroded roots of the collision that completed it, run beneath eastern North America from Labrador to Texas. How the other pieces were arranged around it is still argued over, because there is no ocean floor of that age and few reliable magnetic readings."
+    },
+    {
+     "type": "text",
+     "text": "Rodinia broke apart from about 750 million years ago. Its southern pieces reassembled within 200 million years as **Gondwana**, the southern landmass of lesson 9, while Laurentia, Baltica, Siberia and Avalonia went their own ways across oceans such as Iapetus. Then the oceans between them closed one after another. Iapetus shut first, raising the Caledonides; the Rheic Ocean, which had opened as Avalonia split away from Gondwana, shut by about 320 million years ago; and the collisions that followed built **Pangaea**, the supercontinent Wegener had pieced together by fitting today's continents back into one. Its breakup from about 200 million years ago is the one recorded in today's ocean floors."
+    },
+    {
+     "type": "text",
+     "text": "So supercontinents seem to assemble and break up on a rough cycle: Nuna, Rodinia and Pangaea came together some 500 to 700 million years apart. Before Rodinia there was a supercontinent geologists call **Nuna** or Columbia, about 1.8 to 1.5 billion years ago, and perhaps one or more earlier still.[^nuna] Most of the Earth's land has been gathered together and scattered several times over."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Pangaea, assembled by about 320 million years ago and split from 200 million years ago, was the most recent supercontinent, not the first.",
+      "Rodinia gathered most of the land about a billion years ago and broke up after 750 million years ago; Gondwana assembled from its southern pieces.",
+      "Supercontinents form and break up on a rough cycle, Nuna, Rodinia and Pangaea coming together some 500 to 700 million years apart."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Why oceans open and close",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Wilson saw that the history of Iapetus and the Atlantic was one turn of a cycle, and that each stage of it can be seen somewhere on the Earth today. Geologists now call it the **Wilson cycle**."
+    },
+    {
+     "type": "diagram",
+     "id": "wilson",
+     "caption": "The Wilson cycle, from a continent splitting to a collision that welds it back together, each stage with a place where it is happening now. Not to scale."
+    },
+    {
+     "type": "text",
+     "text": "An ocean starts as a rift in a continent, where the crust is stretched and thinned and blocks drop down along faults, as in the East African Rift today. If the stretching continues, the crust splits through, the sea floods in and basalt from the mantle starts building new ocean floor, as in the Red Sea. A ridge keeps adding floor to both sides, and the ocean widens like the Atlantic, with continents riding away on its flanks."
+    },
+    {
+     "type": "text",
+     "text": "Ocean floor grows colder, thicker and denser as it ages. Eventually, at the edge of an old ocean, it begins to sink beneath the neighbouring plate, opening a trench (lesson 11). Once the floor is being swallowed faster than the ridge makes it, the ocean shrinks. Nearly all ocean floor goes down trenches in the end, which is why none is older than about 200 million years in the main ocean basins. The continents on either side, though, are less dense than the mantle and too buoyant to be dragged down (lesson 5). When the last of the ocean between them disappears, they collide, crumple and thicken into a mountain range such as the Himalaya, which began rising when India hit Asia about 50 million years ago. The line where the two meet, often marked by squeezed scraps of ocean floor, is called a **suture**."
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "The Himalaya from the International Space Station. The range has been rising since India met Asia about 50 million years ago.",
+     "options": {
+      "photo": "himalaya",
+      "aspect": 1.5
+     }
+    },
+    {
+     "type": "text",
+     "text": "Why a supercontinent eventually breaks apart is less certain. Two effects probably work together. A large continent acts like a lid, slowing the escape of heat from the mantle beneath it, so the mantle there gradually warms. And the ocean floor sinking at trenches all around its edges pulls the plates away from its middle, while plumes rising from deep in the mantle may help to split it."
+    },
+    {
+     "type": "text",
+     "text": "Where the next supercontinent forms depends on which ocean closes. If the Atlantic, the youngest ocean, stops widening and shrinks back, the continents could reunite much where Pangaea stood. If the Pacific, which is shrinking now, keeps closing, the Americas will meet Asia on the far side of the globe. Computer models of both futures put the next supercontinent 200 to 300 million years away.[^future]"
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "The Wilson cycle: a continent rifts, a new ocean widens at a ridge, its old floor eventually sinks at trenches, and the ocean closes in a continental collision.",
+      "Continental crust is too buoyant to sink, so a closed ocean leaves a mountain belt and a suture, often with scraps of ocean floor.",
+      "Supercontinents probably break up as heat builds beneath them and the sinking ocean floor at their edges pulls them apart."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Continents, climate and life",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Rearranging the continents changes the rest of the planet too. One of the clearest effects is on sea level. In lesson 10, new ocean floor is hot and swollen at the ridge and cools and subsides as it moves away. When ridges spread quickly, more of the sea floor is young and high, and the ocean basins have less room for the same water. The excess spills onto the continents. Today's ridges spread at about 3 cm a year on average."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "sea-level",
+     "caption": "Left: the ocean floor across one side of an ocean, from the ridge to its far edge, deepening with age. Right: the edge of a continent, with heights exaggerated tenfold more than on the left. The water in the sea stays the same; what changes is the space the ocean basin offers it.",
+     "task": "Find the spreading rate that floods the continent to the Cretaceous shore",
+     "goal": "flooded",
+     "aspect_ratio": 1.6
+    },
+    {
+     "type": "text",
+     "text": "In the Cretaceous period, between about 145 and 66 million years ago, while Pangaea's pieces were moving apart and new ridges were spreading fast, sea level stood something like 100 to 250 metres higher than today. A shallow sea ran from the Gulf of Mexico to the Arctic across the middle of North America, and the chalk of the White Cliffs of Dover settled on a sea floor over much of Europe; the period is named after it, from *creta*, Latin for chalk. When continents gather into a supercontinent, the reverse tends to happen. There are fewer young ridges, collisions crumple and shorten the continental shelves, and the shallow seas around the land shrink."
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "The White Cliffs of Dover: chalk built from the shells of microscopic algae on a Cretaceous sea floor.",
+     "options": {
+      "photo": "dover-chalk",
+      "aspect": 1.5
+     }
+    },
+    {
+     "type": "text",
+     "text": "Climate follows the continents as well. A large ice sheet needs land near a pole to build up on. Apart from the two **Snowball Earth** glaciations, between 717 and 635 million years ago, when ice seems to have reached the sea even at the equator, the long ice ages of the last billion years all came when there was land near a pole. Gondwana drifted across the South Pole twice: about 445 million years ago, when a short, sharp glaciation coincided with the first of the five great mass extinctions, and again from about 340 to 260 million years ago, when the ice left the scratched pavements of lesson 9. Antarctica has carried an ice sheet since about 34 million years ago, when Australia and South America pulled away from it and an ocean current began to circle it unbroken, though a long fall in carbon dioxide mattered at least as much. And Pangaea itself, stretching from pole to pole, had an interior so far from any sea that much of it was desert."
+    },
+    {
+     "type": "text",
+     "text": "Of the five great mass extinctions (445, 372, 252, 201 and 66 million years ago, the crosses in the timeline), two coincided with events in the life of a supercontinent, and the first with Gondwana's ice. At the end of the Permian, 252 million years ago, the Siberian Traps erupted millions of cubic kilometres of basalt through the edge of Pangaea, releasing enough carbon dioxide and sulphur to warm the planet, acidify the oceans and strip them of oxygen; most species in the sea died out. Fifty million years later, the rift that opened the central Atlantic flooded basalt across four of today's continents, and the end-Triassic extinction followed; the end-Permian was the worst of all five. These **flood basalts**, vast outpourings of lava from long cracks, are not caused by the arrangement of the continents alone, but they mark the moments when the mantle broke through the plates on the largest scale."
+    },
+    {
+     "type": "key_ideas",
+     "title": "Hold on to",
+     "points": [
+      "Fast spreading makes more young, shallow ocean floor, so the sea rises onto the continents, as it did in the Cretaceous.",
+      "Long ice ages need land near a pole: Gondwana over the South Pole, and Antarctica in the last 34 million years.",
+      "The end-Permian and end-Triassic mass extinctions coincided with huge flood basalts, erupted as Pangaea stood complete and as it began to split."
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on the supercontinent cycle",
+     "task": "Select the best answer for each question",
+     "options": {
+      "items": [
+       {
+        "ask": "Western Newfoundland's Cambrian trilobites match those of northwest Scotland, while eastern Newfoundland's match those of Wales. What did Tuzo Wilson conclude?",
+        "choices": [
+         "An older ocean separated the two faunas; it closed, and the Atlantic later opened along a slightly different line",
+         "The two faunas lived at different depths in the same sea, so they never met",
+         "The Atlantic opened through Newfoundland, splitting a single fauna in two"
+        ],
+        "answer": 0,
+        "why": "The two faunas were kept apart by the Iapetus Ocean. When the Atlantic opened, it did not follow the old join exactly, so pieces of each shore were left stuck to the other."
+       },
+       {
+        "ask": "Why does a compass needle that is free to tilt record latitude?",
+        "choices": [
+         "The Earth's field lines run level at the equator and steepen toward the magnetic poles, so their dip depends on latitude",
+         "The field grows stronger with longitude, so the needle tilts further east of Greenwich",
+         "The needle tilts with the curve of the ground, which is steeper toward the poles"
+        ],
+        "answer": 0,
+        "why": "The dip angle obeys tan(dip) = 2 tan(latitude) for the Earth's field, so a lava that froze in a dip of 47° upward formed about 28° south of the equator."
+       },
+       {
+        "ask": "Why are reconstructions of the continents 700 million years ago much less certain than those of 100 million years ago?",
+        "choices": [
+         "No ocean floor that old survives, and ancient magnetism gives latitude but not longitude",
+         "Radioactive dating does not work on rocks that old",
+         "The magnetic field did not exist until 500 million years ago"
+        ],
+        "answer": 0,
+        "why": "For the last 200 million years the age of the sea floor records how the oceans opened. Before that, geologists have only the continents themselves: their magnetism, which says nothing about longitude, and matching rocks and mountain belts."
+       },
+       {
+        "ask": "In the Wilson cycle, what happens when the last of an ocean between two continents is swallowed at a trench?",
+        "choices": [
+         "The continents collide and crumple into a mountain range, because continental crust is too buoyant to sink",
+         "One continent follows the ocean floor down into the mantle and disappears",
+         "The trench jumps to the middle of the ocean and a new ridge forms there"
+        ],
+        "answer": 0,
+        "why": "Continental crust is less dense than the mantle, so it piles up instead of sinking. The Himalaya, rising since India hit Asia about 50 million years ago, is the example happening now."
+       },
+       {
+        "ask": "Why did sea level stand 100 to 250 m higher in the Cretaceous?",
+        "choices": [
+         "Fast-spreading ridges made a larger share of the sea floor young, hot and high, so the ocean basins had less room for the same water",
+         "Melting ice sheets added that much water to the oceans",
+         "The continents sank as Pangaea broke apart"
+        ],
+        "answer": 0,
+        "why": "Young ocean floor stands high and subsides as it ages. More young floor means shallower basins, and the same water spills onto the continents."
+       }
+      ]
+     }
+    }
+   ]
   }
+ ],
+ "summary": [
+  "**An ocean closed before the Atlantic opened.** Trilobites split between western and eastern Newfoundland show that Iapetus once separated the two halves.",
+  "**The Atlantic opened off the old join.** Slivers of each shore stayed with the other, as in eastern Newfoundland, Boston and northwest Scotland.",
+  "**Frozen magnetism records latitude.** The dip of the field depends on latitude, so the Deccan lavas, dipping 47° upward, show India near 28° S 66 million years ago.",
+  "**Longitude is not recorded.** It comes from fitting continents, matching rocks and hotspot tracks, so older maps are less certain.",
+  "**Supercontinents come and go.** Nuna, Rodinia and Pangaea gathered most of the land, some 500 to 700 million years apart; Gondwana, the southern half, outlasted Pangaea.",
+  "**The Wilson cycle.** A rift becomes a widening ocean; its old floor sinks at trenches; the ocean closes in a collision that leaves mountains and a suture.",
+  "**Plates set sea level and climate.** Fast ridges flood the continents, as in the Cretaceous, and long ice ages need land near a pole.",
+  "**Great extinctions marked the supercontinent's life.** Flood basalts erupted as Pangaea stood complete and as it split, at the end of the Permian and the Triassic."
+ ],
+ "journal": [],
+ "footnotes": {
+  "iapetus": {
+   "kind": "digression",
+   "title": "Why Iapetus",
+   "text": "The British geologists Brian Harland and Rex Gayer named the ocean in 1972. In Greek myth, Iapetus was the Titan who fathered Atlas, and the Atlantic is named after Atlas, so the older ocean took the name of the younger one's father."
+  },
+  "dip": {
+   "kind": "technical",
+   "title": "Dip and latitude",
+   "text": "For a field like a bar magnet's lined up with the Earth's axis, the tangent of the dip angle is twice the tangent of the latitude. The real field is lumpier and its pole wanders, but averaged over a few thousand years it lines up with the spin axis, so palaeomagnetists average many lava flows. Many of the Deccan flows erupted while the field was reversed (lesson 10); their magnetism points the opposite way, and is turned round before it is averaged in."
+  },
+  "nuna": {
+   "kind": "digression",
+   "title": "Older supercontinents",
+   "text": "The further back, the less is known. Nuna, also called Columbia, assembled about 1.8 billion years ago from pieces that included the cores of North America, Baltica and Siberia. Some geologists argue for an even earlier gathering, Kenorland or a set of smaller 'supercratons', around 2.7 to 2.5 billion years ago. Some also argue that Gondwana and Laurentia briefly joined about 600 million years ago into a supercontinent called Pannotia; others doubt it ever existed."
+  },
+  "future": {
+   "kind": "digression",
+   "title": "Supercontinents to come",
+   "text": "Several have been named. Pangaea Proxima, proposed by Christopher Scotese, closes the Atlantic and reunites the continents roughly where Pangaea stood. Novopangaea closes the Pacific instead. Amasia would gather the continents around the North Pole as the Americas meet Asia across the Arctic. Aurica closes both the Atlantic and the Pacific. All are extrapolations of today's motions, with guesses about where new trenches will start."
+  }
+ }
 }
