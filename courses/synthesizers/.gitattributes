@@ -1,0 +1,6 @@
+# Keep line endings as written, on every platform: the golden-key fixture is
+# compared byte for byte, and the Docker build runs on Linux.
+* text=auto eol=lf
+*.png binary
+# The committed build: collapsed in diffs, rebuilt with `npm run build`.
+dist/** linguist-generated=true

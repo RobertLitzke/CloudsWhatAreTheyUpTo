@@ -1,0 +1,27 @@
+{
+  "name": "patchmatch",
+  "version": "0.1.0",
+  "description": "PatchMatch — a synth ear-training puzzle: match the patch by ear in as few knob moves as you can.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "build:pd": "tsc --noEmit && vite build --mode pd",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "golden": "vitest run test/golden.test.ts -u",
+    "icons": "node tools/icons.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/space-grotesk": "^5.2.0",
+    "@types/node": "^20.19.43",
+    "sharp": "^0.34.1",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.0.0"
+  }
+}
