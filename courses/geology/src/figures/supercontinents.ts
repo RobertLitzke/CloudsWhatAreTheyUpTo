@@ -479,7 +479,7 @@ export const wilsonStill = () => {
   const PH = 118;
   const C = '#d9c39a';
   const OC = '#4a4a5a';
-  const MANTLE = '#f0e3cf';
+  const MANTLE = COL.mantle;
   const panel = (i: number, title: string, where: string, draw: (x: number, y: number) => SVGElement[]) => {
     const x = 6 + (i % 3) * (PW + 8);
     const y = 6 + Math.floor(i / 3) * (PH + 30);

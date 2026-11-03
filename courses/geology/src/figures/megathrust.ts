@@ -56,7 +56,6 @@ export const megathrustFigure = figure(['wave'], (ctx, t) => {
     const parts: (SVGElement | null)[] = [svg('rect', { width: W, height: H, fill: '#e6eef3' })];
     // The ocean plate, sinking under the continent.
     parts.push(svg('polygon', { points: `0,${yOf(-5000) + 4} ${30 * KMX},${yOf(-5000) + 4} ${W},${H - 10} ${W},${H} 0,${H}`, fill: '#5d5f6e' }));
-    parts.push(small(8, H - 14, 'ocean plate, sinking', { fill: COL.paper, bold: true }));
     // The sea, with the tsunami on it after the quake.
     const waveAt = (km: number) => {
       if (!quaked || minutes === 0) return 0;
@@ -82,8 +81,13 @@ export const megathrustFigure = figure(['wave'], (ctx, t) => {
     parts.push(small(W - 8, H - 30, 'continent', { anchor: 'end', bold: true, fill: COL.paper }));
     parts.push(line(14 * KMX, yOf(-5000) - 6, 60 * KMX, yOf(-3800), COL.heat, 2.5));
     parts.push(small(4, yOf(-5000) - 10, 'trench', { soft: true }));
-    parts.push(svg('path', { d: `M${20 * KMX},${yOf(-5000)} Q${150 * KMX},${yOf(-4000) + 16} ${300 * KMX},${H - 30}`, fill: 'none', stroke: COL.heat, 'stroke-width': 2, 'stroke-dasharray': quaked ? '0' : '5 4' }));
-    parts.push(small(150 * KMX, yOf(-4000) + 36, quaked ? 'the fault slipped' : 'locked: the plates are stuck here', { anchor: 'middle', fill: COL.heat, bold: true }));
+    // The ocean plate again, over the continent's lower edge: the continent ends at the fault, and the plate is under it.
+    const [ex, ey, cx, cy] = [300 * KMX, H - 30, 150 * KMX, yOf(-4000) + 16];
+    const endY = ey + ((ey - cy) / (ex - cx)) * (W - ex);
+    parts.push(svg('path', { d: `M0,${yOf(-5000) + 4} L${20 * KMX},${yOf(-5000)} Q${cx},${cy} ${ex},${ey} L${W},${endY} L${W},${H} L0,${H} Z`, fill: '#5d5f6e' }));
+    parts.push(small(8, H - 14, 'ocean plate, sinking', { fill: COL.paper, bold: true }));
+    parts.push(svg('path', { d: `M${20 * KMX},${yOf(-5000)} Q${cx},${cy} ${ex},${ey} L${W},${endY}`, fill: 'none', stroke: COL.heat, 'stroke-width': 2, 'stroke-dasharray': quaked ? '0' : '5 4' }));
+    parts.push(small(140 * KMX, yOf(-4000) + 12, quaked ? 'the fault slipped' : 'locked: the plates are stuck here', { anchor: 'middle', fill: COL.heat, bold: true }));
     // The places and how far each has moved.
     for (const p of PLACES) {
       const x = p.km * KMX;

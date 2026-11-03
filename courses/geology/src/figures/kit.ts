@@ -28,6 +28,14 @@ export const COL = {
   rose: '#a8448f',
   good: '#3f8f5a',
   bad: '#c0392b',
+  /** Hot, slowly flowing mantle under the plates (asthenosphere): the same fill in every cross-section. */
+  mantle: '#ecc4aa',
+  /** Stiff mantle rock that is part of a plate, under its crust. */
+  lid: '#7d8aa3',
+  /** Ocean crust (basalt). */
+  oceanCrust: '#3b3a48',
+  /** Continental crust. */
+  landCrust: '#cdb07f',
 } as const;
 export type ColorKey = keyof typeof COL;
 

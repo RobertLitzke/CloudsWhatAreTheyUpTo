@@ -284,6 +284,8 @@ export const accreteFigure = figure(['accreted'], (ctx, t) => {
     const at = x >= TRENCH - (kind === 2 ? 40 : 0);
     const parts: (SVGElement | null)[] = [
       svg('rect', { width: W, height: 240, fill: '#f3efe6' }),
+      svg('rect', { x: 0, y: TOP, width: W, height: 240 - TOP, fill: COL.mantle }),
+      small(8, 226, 'mantle', { fill: '#8a4f36', bold: true }),
       svg('rect', { x: 0, y: SEA, width: TRENCH + 10, height: TOP - SEA, fill: '#a9c8dc' }),
       // the plate, flat then diving
       svg('polygon', { points: `0,${TOP} ${TRENCH},${TOP} 400,${slabY(400)} 400,${slabY(400) + 22} ${TRENCH},${TOP + 22} 0,${TOP + 22}`, fill: '#4f4a5e' }),
