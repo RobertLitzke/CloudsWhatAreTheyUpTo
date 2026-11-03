@@ -35,74 +35,103 @@ export const CHAIN: Volcano[] = [
   { name: 'Detroit', lon: 167.7, lat: 51.0, age: 79 },
 ];
 
-/** Kilometres east and north of Kīlauea, on a flat sheet (good enough for a sketch). */
+/** Kilometres east and north of Kīlauea on a sinusoidal sheet (east-west distances shrunk by the cosine of each point's own latitude). */
 function kmXY(lon: number, lat: number): P {
   const l = lon > 0 ? lon - 360 : lon;
-  return [(l - CHAIN[0].lon) * 111.2 * Math.cos((32 * Math.PI) / 180), (lat - CHAIN[0].lat) * 111.2];
+  return [(l - CHAIN[0].lon) * 111.2 * Math.cos((lat * Math.PI) / 180), (lat - CHAIN[0].lat) * 111.2];
 }
-const distance = (v: Volcano) => Math.hypot(...kmXY(v.lon, v.lat));
+/** Great-circle kilometres between two volcanoes. */
+function gc(a: Volcano, b: Volcano): number {
+  const r = Math.PI / 180;
+  const h = Math.sin(((b.lat - a.lat) * r) / 2) ** 2 + Math.cos(a.lat * r) * Math.cos(b.lat * r) * Math.sin(((b.lon - a.lon) * r) / 2) ** 2;
+  return 2 * 6371 * Math.asin(Math.sqrt(h));
+}
+/** Each volcano's distance from Kīlauea, measured along the chain (round the bend, not across it). */
+export const ALONG: number[] = CHAIN.reduce<number[]>((acc, v, i) => [...acc, i === 0 ? 0 : acc[i - 1] + gc(CHAIN[i - 1], v)], []);
+const distance = (v: Volcano) => ALONG[CHAIN.indexOf(v)];
 
-/** The bend, million years ago, and the plate's direction of travel before and after it (degrees clockwise from north). */
+/** The point `km` along the chain from Kīlauea, on the sheet; past Detroit it carries on in the same direction. */
+function alongChain(km: number): P {
+  const pts = CHAIN.map((v) => kmXY(v.lon, v.lat));
+  let i = 1;
+  while (i < CHAIN.length - 1 && ALONG[i] < km) i++;
+  const f = (km - ALONG[i - 1]) / (ALONG[i] - ALONG[i - 1]);
+  return [pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * f, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * f];
+}
+
+/** The bend, million years ago. */
 const BEND = 47;
-const AFTER_BEND = 292; // toward the west-northwest: the Hawaiian chain
-const BEFORE_BEND = 345; // toward the north-northwest: the Emperor chain
-
-/** Where a volcano made `age` million years ago now lies, for a plate moving `cm` a year. */
-function modelAt(age: number, cm: number): P {
-  const kmPerMyr = cm * 10;
-  const leg = (az: number, km: number): P => [Math.sin((az * Math.PI) / 180) * km, Math.cos((az * Math.PI) / 180) * km];
-  if (age <= BEND) return leg(AFTER_BEND, kmPerMyr * age);
-  const [x, y] = leg(AFTER_BEND, kmPerMyr * BEND);
-  const [x2, y2] = leg(BEFORE_BEND, kmPerMyr * (age - BEND));
-  return [x + x2, y + y2];
-}
 
 export const plumeFigure = figure(['speed'], (_ctx, t) => {
-  const f = frame(W, 250, 3);
+  const H = 340;
+  const f = frame(W, H, 3);
   const g = svg('g');
   f.svg.append(g);
+  f.svg.setAttribute('aria-label', 'Top: the Hawaiian-Emperor chain seen from above, Kīlauea over the plume at the bottom right, the chain running west-northwest to Midway and then bending north to Detroit Seamount. Circles are dated volcanoes; red dots are where volcanoes of each age would be if the plate moved at the chosen speed, with a thin line joining each dated volcano to the red dot of its own age. Bottom: age against distance along the chain.');
   let cm = 3;
+  const MAP_H = 214;
   // Plan view: Kīlauea at the bottom right; 1 px = 20 km.
   const MX = (x: number) => 372 + x / 20;
-  const MY = (y: number) => 205 - y / 20;
-  // The age-distance plot along the Hawaiian chain.
-  const PX = (km: number) => 34 + (km / 2600) * 150;
-  const PY = (age: number) => 236 - (age / 30) * 90;
+  const MY = (y: number) => 200 - y / 20;
+  // Age against distance along the chain, in its own panel below.
+  const MAX_KM = 6000;
+  const MAX_AGE = 80;
+  const PX = (km: number) => 40 + (km / MAX_KM) * 344;
+  const PY = (age: number) => H - 26 - (age / MAX_AGE) * 82;
   const paint = () => {
-    const parts: SVGElement[] = [svg('rect', { width: W, height: 250, fill: '#dfeaf0' })];
+    const parts: SVGElement[] = [
+      svg('rect', { width: W, height: MAP_H, fill: '#dfeaf0' }),
+      svg('rect', { y: MAP_H, width: W, height: H - MAP_H, fill: COL.paper }),
+      small(6, 14, 'Seen from above', { bold: true, soft: true }),
+      line(6, MAP_H - 10, 6 + 1000 / 20, MAP_H - 10, COL.ink, 1.2),
+      small(6, MAP_H - 14, '1,000 km', { soft: true }),
+    ];
     // The plume, fixed.
-    parts.push(svg('circle', { cx: MX(0), cy: MY(0), r: 9, fill: COL.heat, opacity: 0.35 }), small(MX(0) - 10, MY(0) - 10, 'plume', { anchor: 'middle', fill: COL.heat, bold: true }));
+    parts.push(svg('circle', { cx: MX(0), cy: MY(0), r: 9, fill: COL.heat, opacity: 0.3 }));
+    const kmPerMyr = cm * 10;
+    const modelPt = (age: number) => alongChain(kmPerMyr * age);
+    // Each dated volcano joined to the model's volcano of the same age: the joins shrink to nothing when the speed is right.
+    for (const v of CHAIN.slice(1)) {
+      const [x, y] = kmXY(v.lon, v.lat);
+      const [mx, my] = modelPt(v.age);
+      parts.push(line(MX(x), MY(y), MX(mx), MY(my), COL.heat, 0.9, { opacity: 0.55 }));
+    }
     // The model: a volcano every 2 million years, carried off by the plate.
-    const track: P[] = [];
-    for (let a = 0; a <= 80; a += 2) track.push(modelAt(a, cm));
-    parts.push(svg('polyline', { points: track.map(([x, y]) => `${MX(x)},${MY(y)}`).join(' '), fill: 'none', stroke: COL.heat, 'stroke-width': 1, opacity: 0.5 }));
-    for (const [x, y] of track) parts.push(svg('circle', { cx: MX(x), cy: MY(y), r: 2.2, fill: COL.heat }));
+    for (let a = 2; a <= 80; a += 2) {
+      const [x, y] = modelPt(a);
+      if (MX(x) > -4 && MY(y) > -4) parts.push(svg('circle', { cx: MX(x), cy: MY(y), r: a % 10 === 0 ? 2.8 : 1.8, fill: COL.heat }));
+    }
     // The real volcanoes.
     for (const v of CHAIN) {
       const [x, y] = kmXY(v.lon, v.lat);
       parts.push(svg('circle', { cx: MX(x), cy: MY(y), r: 3.5, fill: 'none', stroke: COL.ink, 'stroke-width': 1.3 }));
-      if (['Kīlauea', 'Midway', 'Kōko', 'Detroit'].includes(v.name)) {
-        const k = v.name === 'Kīlauea';
-        parts.push(small(MX(x) + (k ? 0 : 6), MY(y) + (k ? 30 : 3), `${v.name}, ${v.age} Myr`, { bold: true, anchor: k ? 'end' : undefined, halo: '#dfeaf0' }));
-      }
     }
-    // Age against distance, Hawaiian chain only.
+    const tag = (name: string, text: string, dx: number, dy: number, anchor?: 'end' | 'middle') => {
+      const v = CHAIN.find((c) => c.name === name)!;
+      const [x, y] = kmXY(v.lon, v.lat);
+      parts.push(small(MX(x) + dx, MY(y) + dy, text, { bold: true, anchor, halo: '#dfeaf0' }));
+    };
+    tag('Detroit', 'Detroit, 79 Myr', 7, 3);
+    tag('Kōko', 'Kōko, 48 Myr: the bend', 7, 3);
+    tag('Midway', 'Midway, 27.7 Myr', 0, 14, 'middle');
+    tag('Kīlauea', 'Kīlauea, over the plume', 0, 16, 'end');
+    // Age against distance.
     parts.push(
-      svg('rect', { x: PX(0), y: PY(30), width: PX(2600) - PX(0), height: PY(0) - PY(30), fill: COL.paper, opacity: 0.85 }),
-      line(PX(0), PY(0), PX(2600), PY(0), COL.ink, 0.8), line(PX(0), PY(0), PX(0), PY(30), COL.ink, 0.8),
-      small(PX(2600), PY(0) - 3, 'km from Kīlauea', { anchor: 'end', soft: true }),
-      small(PX(0) + 5, PY(30) + 9, 'age, million years', { soft: true }),
-      small(PX(0) - 3, PY(30) + 3, '30', { anchor: 'end', soft: true }),
-      small(PX(0) - 3, PY(0) + 3, '0', { anchor: 'end', soft: true }),
+      line(PX(0), PY(0), PX(MAX_KM), PY(0), COL.ink, 0.8), line(PX(0), PY(0), PX(0), PY(MAX_AGE), COL.ink, 0.8),
+      small(PX(MAX_KM), PY(0) - 4, 'distance along the chain', { anchor: 'end', soft: true }),
+      small(PX(0) + 5, PY(MAX_AGE) + 4, 'age, million years', { soft: true }),
     );
-    for (const v of CHAIN.filter((c) => c.age < 30)) parts.push(svg('circle', { cx: PX(distance(v)), cy: PY(v.age), r: 2.6, fill: 'none', stroke: COL.ink, 'stroke-width': 1.2 }));
-    const endKm = Math.min(2600, cm * 10 * 30);
-    parts.push(line(PX(0), PY(0), PX(endKm), PY(endKm / (cm * 10)), COL.heat, 1.8));
-    parts.push(label(PX(2600) - 4, PY(30) + 22, `${cm.toFixed(1)} cm a year`, { size: 'note', anchor: 'end', bold: true, fill: COL.heat }));
+    for (const km of [0, 2000, 4000]) parts.push(small(PX(km), PY(0) + 14, km ? `${km.toLocaleString('en-US')} km` : '0', { ...(km ? { anchor: 'middle' as const } : {}), soft: true }));
+    for (const age of [0, 40, 80]) parts.push(small(PX(0) - 4, PY(age) + 3, `${age}`, { anchor: 'end', soft: true }));
+    parts.push(line(PX(0), PY(BEND), PX(MAX_KM), PY(BEND), COL.soft, 0.6, { 'stroke-dasharray': '2 3' }), small(PX(MAX_KM), PY(BEND) - 3, 'the bend', { anchor: 'end', soft: true }));
+    for (const v of CHAIN) parts.push(svg('circle', { cx: PX(distance(v)), cy: PY(v.age), r: 2.8, fill: 'none', stroke: COL.ink, 'stroke-width': 1.2 }));
+    const endKm = Math.min(MAX_KM, kmPerMyr * MAX_AGE);
+    parts.push(line(PX(0), PY(0), PX(endKm), PY(endKm / kmPerMyr), COL.heat, 1.8));
+    parts.push(label(PX(0) + 8, PY(MAX_AGE) + 22, `${cm.toFixed(1)} cm a year`, { size: 'note', bold: true, fill: COL.heat }));
     redraw(g, ...parts);
     const kauai = distance(CHAIN[5]);
     const ok = cm >= 8 && cm <= 10.5;
-    f.readout.textContent = `At ${cm.toFixed(1)} cm a year, a volcano built over the plume is carried ${Math.round(cm * 10)} km in a million years; Kauaʻi, ${Math.round(kauai / 10) * 10} km away, would be ${(kauai / (cm * 10)).toFixed(1)} million years old (measured: 5.1). ${ok ? 'The model now runs through the dated islands as far as Midway, and with the turn 47 million years ago, on up the Emperor chain.' : cm < 8 ? 'Too slow: the model’s islands are too old for their distance.' : 'Too fast: the model’s islands are too young for their distance.'}`;
+    f.readout.textContent = `At ${cm.toFixed(1)} cm a year, a volcano built over the plume is carried ${Math.round(cm * 10)} km in a million years; Kauaʻi, ${Math.round(kauai / 10) * 10} km away, would be ${(kauai / (cm * 10)).toFixed(1)} million years old (measured: 5.1). ${ok ? 'The red dots now sit on the dated volcanoes as far as Midway. Past the bend they overshoot: the Emperor seamounts are closer together than this speed predicts, because before 47 million years ago the plume itself was drifting south (see below).' : cm < 8 ? 'Too slow: each red dot falls short of the volcano of its age, so the model’s islands are too old for their distance.' : 'Too fast: each red dot runs past the volcano of its age, so the model’s islands are too young for their distance.'}`;
     if (ok && t.goal === 'speed') t.done();
   };
   const sp = slider('Plate speed', 1, 20, 0.1, cm, (v) => `${v.toFixed(1)} cm a year`, (v) => { cm = v; paint(); }, 'heat');

@@ -96,7 +96,7 @@ export const slabFigure = figure(['close'], (_ctx, t) => {
   const f = frame(W, H, 3);
   const g = svg('g');
   f.svg.append(g);
-  f.svg.setAttribute('aria-label', 'A cross-section of a subduction zone. On the left the sea lies over an ocean plate: thin dark ocean crust over stiff mantle rock, about 90 km thick in all. At the trench the plate bends down and sinks as a slab through the hot mantle, carrying earthquakes with it. On the right the continent rises out of the sea; its crust is about 35 km thick, with stiff mantle under it, and hot mantle fills the wedge between it and the slab. Where the slab is 100 km down, melt rises to the volcanoes.');
+  f.svg.setAttribute('aria-label', 'A cross-section of a subduction zone. On the left the sea lies over an ocean plate: thin dark ocean crust over stiff mantle rock, about 90 km thick in all. At the trench the plate bends down and sinks as a slab through the hot mantle, carrying earthquakes with it. On the right the continent rises out of the sea; its crust is about 35 km thick, with stiff mantle under it, and hot solid mantle fills the wedge between it and the slab. Where the slab is 100 km down, melt rises to the volcanoes.');
   let dip = 30;
   const paint = () => {
     const top = slabTop(dip);
@@ -160,7 +160,7 @@ export const slabFigure = figure(['close'], (_ctx, t) => {
       small((KM_X(0) + ax) / 2, 17, `${Math.round(arc)} km`, { anchor: 'middle', bold: true }),
       small(3, SEA_Y - 4, 'sea', { fill: COL.water, bold: true }),
       small(3, ELEV_Y(-5) + 20, 'ocean plate', { fill: COL.paper, bold: true }),
-      small(3, ELEV_Y(-5) + OCEAN_PLATE * PX + 40, 'hot mantle', { fill: '#8a4f36', bold: true }),
+      small(3, ELEV_Y(-5) + OCEAN_PLATE * PX + 40, 'hot solid mantle', { fill: '#8a4f36', bold: true }),
       small(3, H - 5, `heights and sea depths ×${EXAG}`, { fill: '#8a4f36' }),
       small(W - 4, ELEV_Y(0.3) + 14, 'continental crust', { anchor: 'end', bold: true }),
       small(W - 4, ELEV_Y(0.3) + (LAND_CRUST + 22) * PX, 'stiff mantle', { anchor: 'end', bold: true, fill: COL.paper }),
