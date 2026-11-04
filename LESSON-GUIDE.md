@@ -1,14 +1,41 @@
-# Writing courses and lessons
+# The lesson guide
 
-How lessons for this site get planned, written, checked and finished. It
-collects what Rob has asked for across the courses so far. Read it before
-outlining a course or writing a lesson; the course's own README and
-`didactics/README.md` (the lesson format, figures, footnotes, encyclopedia)
-cover the mechanics.
+How lessons for this site get planned, written, checked and finished. This
+file is the one copy: Rob edits it directly (on GitHub: open
+`LESSON-GUIDE.md` and use the pencil icon), and every thread reads it before
+writing, expanding or reworking a lesson. "Use the lesson guide" means this
+file. Pull `main` before reading it, since Rob may have changed it. The
+course's own README and `didactics/README.md` cover the mechanics (lesson
+format, figures, footnotes, encyclopedia).
 
-The status of every lesson is in [status.md](status.md), made by
+The status of every lesson is in [docs/status.md](docs/status.md), made by
 `npm run status`. Update it when you finish a step (see the end of this
 guide).
+
+## The short version
+
+1. Write for a smart high schooler or curious adult: define each term once,
+   no talking down, no academic fog.
+2. Open on a mystery, an everyday question or a target (a picture, a sound),
+   then follow it, with real people, places and dates where there is history.
+3. No template. Only two things are fixed: a quiz at the end, and a summary
+   of 5 to 10 points (`**Bold lead.** One sentence.`) shown on reopen.
+4. About six parts on average; misconception, estimate and outdoor boxes only
+   when they fit. Vary the figures.
+5. No AI tropes: no dashes as punctuation, no "not just X, it's Y", no
+   triplets, no rhetorical questions, no aphoristic closers, none of the
+   banned words below.
+6. An interactive figure must show cause and effect, or be a still. Add a
+   still wherever the text describes something unseen.
+7. One fixed-height text box per figure; guess first when a figure turns on
+   one threshold; a colour means the same thing everywhere.
+8. Footnotes sparingly (about four); link terms to the encyclopedia with
+   `[[term]]`.
+9. Photos only from the allowed free sources, licence recorded; never fetch
+   from the cloud, park them for Rob's PC.
+10. Every lesson goes: draft, student read-through, Gemini queue, check
+    Gemini's fact notes, thorough fact check, photos. Record each step and
+    run `npm run status`.
 
 ## Who reads these
 

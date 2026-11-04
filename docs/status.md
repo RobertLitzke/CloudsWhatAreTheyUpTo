@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-04. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [lesson-guide.md](lesson-guide.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-04. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [LESSON-GUIDE.md](../LESSON-GUIDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
@@ -14,7 +14,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 10 | 27 | 0 | 10 | 10 | 10 | 0 |
 | [Botany](#botany) | 10 | 23 | 0 | 10 | 10 | 10 | 0 |
-| [Synthesizers](#synthesizers) | 29 | 1 | 29 | 29 | 29 | 0 | 0 |
+| [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -345,7 +345,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
 | O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
 | O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Granular synthesis: grain size, density and position. |
-| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | planned, listed as coming |  | Reverb: how a room answers, and the plates and springs that fake one. |
+| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Gemini (queued 2026-11-04); Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
 
 ## Encyclopedia
 
