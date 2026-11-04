@@ -18,7 +18,9 @@
 // The rest is kept by hand in tools/lesson-status.json (see its $comment):
 // fact checks, read-throughs the queue doesn't mention, images that are
 // stand-ins, lessons planned in an outline but not yet in lessons.ts, and a
-// plainer one-line summary where a lesson's `teaches` is long.
+// plainer one-line summary where a lesson's `teaches` is long. A course that
+// is only an outline so far (no folder) is listed there with a title and its
+// planned lessons.
 //
 // tools/build-site.mjs also calls this, so the live site carries the table at
 // /status.html, current with whatever was last deployed.
@@ -175,6 +177,29 @@ export function collect() {
     lessons.sort((a, b) => order(a) - order(b));
     courses.push({ folder, title: course.title, order: course.order ?? 99, note: m.note ?? '', lessons });
   }
+  // Courses planned in an outline with no folder yet: a title and planned lessons in tools/lesson-status.json.
+  for (const [folder, m] of Object.entries(meta.courses ?? {})) {
+    if (folders.includes(folder)) continue;
+    if (!m.title || !m.planned?.length) {
+      warnings.push(`${folder}: tools/lesson-status.json has a course with no folder, so it needs a title and planned lessons`);
+      continue;
+    }
+    for (const id of Object.keys(m.lessons ?? {})) if (!m.planned.some((l) => l.id === id)) warnings.push(`${folder}: tools/lesson-status.json names a lesson "${id}" the course doesn't have`);
+    const lessons = [...m.planned]
+      .sort((a, b) => a.n - b.n)
+      .map((l) => ({
+        id: l.id,
+        code: l.code ?? String(l.n),
+        title: l.title,
+        branch: l.branch ?? '',
+        about: sentence(m.lessons?.[l.id]?.about ?? l.teaches ?? ''),
+        note: m.lessons?.[l.id]?.note ?? '',
+        waiting: [],
+        status: 'planned',
+        where: 'outline only',
+      }));
+    courses.push({ folder, title: m.title, order: m.order ?? 99, note: m.note ?? '', outlineOnly: true, lessons });
+  }
   courses.sort((a, b) => a.order - b.order || a.title.localeCompare(b.title));
 
   const map = readJson(join(root, 'catalog/map.json'), {});
@@ -221,7 +246,7 @@ export function toMarkdown(data, when = new Date()) {
   out.push('');
   for (const c of data.courses) {
     out.push(`## ${c.title} <a id="${c.folder}"></a>`, '');
-    out.push(`\`courses/${c.folder}\`${c.note ? `. ${c.note}` : ''}`, '');
+    out.push(`${c.outlineOnly ? `No course folder yet (\`courses/${c.folder}\` when built)` : `\`courses/${c.folder}\``}${c.note ? `. ${c.note}` : ''}`, '');
     out.push('| Code | Lesson | Branch | Status | Also waiting on | What it covers |', '| --- | --- | --- | --- | --- | --- |');
     for (const l of c.lessons) {
       const note = l.note ? ` *${md(l.note)}*` : '';

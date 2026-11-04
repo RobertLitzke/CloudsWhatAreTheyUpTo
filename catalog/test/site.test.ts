@@ -93,6 +93,6 @@ describe('the status table', () => {
     const data = collect();
     expect(data.warnings).toEqual([]);
     const courses = readdirSync(join(root, 'courses')).filter((c) => existsSync(join(root, 'courses', c, 'course.json')));
-    expect(data.courses.map((c: { folder: string }) => c.folder).sort()).toEqual(courses.sort());
+    expect(data.courses.filter((c: { outlineOnly?: boolean }) => !c.outlineOnly).map((c: { folder: string }) => c.folder).sort()).toEqual(courses.sort());
   });
 });

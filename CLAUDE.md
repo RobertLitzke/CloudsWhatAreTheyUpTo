@@ -41,7 +41,9 @@ When a thread finishes work on a lesson:
 - Fetched photos: restore the parked blocks; for a stand-in, remove its
   `images` note.
 - Planned new lessons: add them as `coming(...)` in `lessons.ts`, or under
-  `planned` for an outline that isn't in code yet.
+  `planned` for an outline that isn't in code yet. A whole new course that is still
+  only an outline goes in as a course key with a `title`, an `order` and its
+  `planned` lessons (see `finance`).
 
 Then run `npm run status` and commit `docs/status.md` and
 `docs/status.html` with the change. The script warns about a lesson id in
