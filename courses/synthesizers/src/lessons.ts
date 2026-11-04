@@ -20,7 +20,6 @@ const TRUNK_COMING: SynthLesson[] = [
 ];
 
 const BRANCH_COMING: SynthLesson[] = [
-  coming('rooms', 201, 'Sabine’s lecture hall', 'Reverb: how a room answers, and the plates and springs that fake one', { branch: 'studio', needs: ['echo'] }),
 ];
 
 /** The branches: the other kinds of oscillator, and the studio around the synth. */

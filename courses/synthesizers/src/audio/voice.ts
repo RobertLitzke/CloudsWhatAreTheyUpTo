@@ -1,6 +1,7 @@
 // One monophonic synth voice, built from native Web Audio nodes on any
 // BaseAudioContext (so the same code can render offline for the audit page).
 //
+//   (the echo is followed by the reverb: a convolver with a made-up room, plate or spring)
 //   osc 1: saw ─┬──────────────────────────────┐
 //               ├─ pulse = saw − delayed saw ──┤
 //          tri ─┼──────────────────────────────┼─ wave select ─┐
@@ -70,6 +71,7 @@ import { Rng } from '../core/rng';
 import { additiveAmps, TABLE_FRAMES, TABLE_LAST } from '../core/tables';
 import { workletsReady } from './worklets';
 import { grainSettings, scheduleGrains } from './grains';
+import { impulse } from '../core/reverb';
 import { formantsAt, mouth } from '../core/vowels';
 import { SAMPLE_HZ, SAMPLE_RATE, SAMPLE_SECONDS, sampleData } from '../core/sample';
 
@@ -303,6 +305,50 @@ class Echo {
   }
 }
 
+const impulses = new WeakMap<BaseAudioContext, Map<string, AudioBuffer>>();
+function impulseBuffer(ctx: BaseAudioContext, type: number, seconds: number): AudioBuffer {
+  let byKey = impulses.get(ctx);
+  if (!byKey) impulses.set(ctx, (byKey = new Map()));
+  const key = `${type}:${seconds}`;
+  let b = byKey.get(key);
+  if (!b) {
+    const data = impulse(type, seconds, ctx.sampleRate);
+    b = ctx.createBuffer(1, data.length, ctx.sampleRate);
+    b.getChannelData(0).set(data);
+    byKey.set(key, b);
+  }
+  return b;
+}
+
+/** The reverb: the dry sound, plus the sound convolved with an impulse response. Off, the convolver is left empty. */
+class Reverb {
+  readonly input: GainNode;
+  readonly output: GainNode;
+  private readonly wet: GainNode;
+  private readonly conv: ConvolverNode;
+  private key = '';
+
+  constructor(private readonly ctx: BaseAudioContext) {
+    this.input = ctx.createGain();
+    this.output = ctx.createGain();
+    this.wet = ctx.createGain();
+    this.wet.gain.value = 0;
+    this.conv = ctx.createConvolver();
+    this.conv.normalize = false;
+    this.input.connect(this.output);
+    this.input.connect(this.conv).connect(this.wet).connect(this.output);
+  }
+
+  set(mix: number, type: number, seconds: number, set: Setter): void {
+    set(this.wet.gain, mix);
+    const key = `${Math.round(type)}:${seconds}`;
+    if (mix > 0 && key !== this.key) {
+      this.key = key;
+      this.conv.buffer = impulseBuffer(this.ctx, Math.round(type), seconds);
+    }
+  }
+}
+
 interface Bank {
   /** Saw, triangle, sine, and the morph engine's square an octave down. */
   o1: OscillatorNode[];
@@ -371,6 +417,7 @@ export class Voice {
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
   private readonly drives: Drive[];
   private readonly echo: Echo;
+  private readonly reverb: Reverb;
   private readonly f1: BiquadFilterNode;
   private readonly f2: BiquadFilterNode;
   private readonly amp: GainNode;
@@ -573,13 +620,15 @@ export class Voice {
     this.out = gain(0);
     this.drives = [new Drive(ctx), new Drive(ctx), new Drive(ctx)];
     this.echo = new Echo(ctx);
+    this.reverb = new Reverb(ctx);
     const first = this.drives[CHAIN.first];
     const middle = this.drives[CHAIN.middle];
     const last = this.drives[CHAIN.last];
     this.mix.connect(this.stack).connect(first.input);
     first.output.connect(this.f1).connect(this.f2).connect(this.amp).connect(this.trem).connect(this.levelMod).connect(this.makeup).connect(middle.input);
     middle.output.connect(this.echo.input);
-    this.echo.output.connect(last.input);
+    this.echo.output.connect(this.reverb.input);
+    this.reverb.output.connect(last.input);
     last.output.connect(this.out).connect(dest);
 
     // The filter follows the same envelope as the amp, scaled by the amount.
@@ -1065,6 +1114,7 @@ export class Voice {
     const place = Math.round(s.chain);
     this.drives.forEach((drive, i) => drive.set(i === place ? s.drive : 0, s.driveTone, set));
     this.echo.set(s.echoMix, s.echoRepeats, s.echoTime * this.sixSeconds, set);
+    this.reverb.set(s.reverbMix ?? 0, s.reverbType ?? 0, s.reverbSize ?? 1.5, set);
 
     const dest = Math.round(s.lfoDest);
     set(this.lfoPitch.gain, dest === LFO_DEST.pitch ? s.lfoDepth * LFO_PITCH_CENTS : 0);

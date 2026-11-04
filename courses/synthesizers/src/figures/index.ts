@@ -17,6 +17,7 @@ import { grainsFigure } from './grains';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
 import { rollFigure } from './roll';
+import { roomFigure } from './room';
 import { seqFigure } from './seq';
 import { shFigure } from './sh';
 import { slideFigure } from './slide';
@@ -73,4 +74,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   alias: aliasFigure,
   // Branch lesson O6
   grains: grainsFigure,
+  // Branch lesson S1
+  room: roomFigure,
 };

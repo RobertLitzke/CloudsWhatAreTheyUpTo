@@ -79,6 +79,9 @@ export const STEPS: StepTable = {
   engineWave: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
   engineTimbre: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
   engineShape: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+  reverbType: [0, 1, 2], // room, plate, spring
+  reverbSize: [0.4, 0.8, 1.5, 3, 6], // seconds to die away by 60 dB
+  reverbMix: [0, 0.25, 0.5, 1, 2], // the reverb against the dry sound, by energy
   // The matrix: each cell's middle position is no route. Pitch in semitones,
   // cutoff in octaves; level and LFO amount as how much of it the source
   // takes over (see the voice).
@@ -158,6 +161,9 @@ export const DEFAULTS: Patch = {
   engineWave: 0,
   engineTimbre: 0,
   engineShape: 0,
+  reverbType: 0,
+  reverbSize: 2,
+  reverbMix: 0,
   mxEnvPitch: OFF(PITCH_ROUTE),
   mxEnvCutoff: OFF(CUTOFF_ROUTE),
   mxEnvLevel: OFF(SHARE_ROUTE),
@@ -469,6 +475,9 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   engineWave: 0,
   engineTimbre: 0,
   engineShape: 0,
+  reverbType: 0,
+  reverbSize: 0,
+  reverbMix: 0,
   mxEnvPitch: 0,
   mxEnvCutoff: 0,
   mxEnvLevel: 0,

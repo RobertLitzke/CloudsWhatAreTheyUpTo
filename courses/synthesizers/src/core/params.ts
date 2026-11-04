@@ -91,6 +91,10 @@ export const PARAM_IDS = [
   'engineWave',
   'engineTimbre',
   'engineShape',
+  // Branch lesson S1: reverb.
+  'reverbType',
+  'reverbSize',
+  'reverbMix',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -98,7 +102,7 @@ export type Patch = Record<ParamId, number>;
 export type Sound = Record<ParamId, number>;
 export type StepTable = Record<ParamId, readonly number[]>;
 
-export type ModuleId = 'osc' | 'engine' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'arp' | 'drive' | 'echo' | 'chain';
+export type ModuleId = 'osc' | 'engine' | 'reverb' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'arp' | 'drive' | 'echo' | 'chain';
 export type Category = 'tone' | 'brightness' | 'shape' | 'movement' | 'thickness' | 'metal' | 'grit' | 'space' | 'order';
 
 export const WAVE = { saw: 0, pulse: 1, triangle: 2, sine: 3 } as const;
@@ -605,6 +609,46 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'low',
     high: 'high',
   },
+  reverbType: {
+    id: 'reverbType',
+    label: 'Type',
+    full: 'Reverb type',
+    module: 'reverb',
+    category: 'space',
+    kind: 'selector',
+    options: ['Room', 'Plate', 'Spring'],
+    interp: 'lin',
+    stage: 23,
+    format: (v) => ['Room', 'Plate', 'Spring'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  reverbSize: {
+    id: 'reverbSize',
+    label: 'Size',
+    full: 'Reverb time',
+    module: 'reverb',
+    category: 'space',
+    kind: 'knob',
+    interp: 'log',
+    stage: 23,
+    format: (s) => `${s < 1 ? s.toFixed(1) : s.toFixed(s < 3 ? 1 : 0)} s`,
+    low: 'short',
+    high: 'long',
+  },
+  reverbMix: {
+    id: 'reverbMix',
+    label: 'Mix',
+    full: 'Reverb mix',
+    module: 'reverb',
+    category: 'space',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 23,
+    format: (x) => (x === 0 ? 'Off' : pct(x)),
+    low: 'dry',
+    high: 'wet',
+  },
   arpMode: {
     id: 'arpMode',
     label: 'Arp',
@@ -868,6 +912,7 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },
   { id: 'echo', label: 'Echo', stage: 8, params: ['echoTime', 'echoRepeats', 'echoMix'] },
   { id: 'chain', label: 'Chain', stage: 9, params: ['chain'] },
+  { id: 'reverb', label: 'Reverb', stage: 23, params: ['reverbType', 'reverbSize', 'reverbMix'] },
 ];
 
 export const CATEGORIES: Record<Category, string> = {

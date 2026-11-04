@@ -1,0 +1,279 @@
+{
+ "id": "rooms",
+ "n": 201,
+ "branch": "studio",
+ "needs": [
+  "echo"
+ ],
+ "title": "Sabine’s lecture hall",
+ "teaches": "Reverb: how a room answers, and the plates and springs that fake one",
+ "parts": [
+  {
+   "title": "Where a sound is",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The sound.** The same plucked line three times. The first is dry: the synth on its own, as if in an open field. The second is in a small room. The third is bathed in a long, smooth shimmer that seems to come from a big hall. No room was involved in any of them. You'll set up the third at the end."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A plucked line: dry, in a small room, and on a big plate",
+     "options": {
+      "stage": 23,
+      "riff": 112,
+      "start": {
+       "cutoff": 5,
+       "sustain": 0,
+       "decay": 1,
+       "release": 1
+      },
+      "sounds": [
+       {
+        "name": "Dry",
+        "set": {}
+       },
+       {
+        "name": "Small room",
+        "set": {
+         "reverbType": 0,
+         "reverbSize": 0,
+         "reverbMix": 2
+        }
+       },
+       {
+        "name": "Big plate",
+        "set": {
+         "reverbType": 1,
+         "reverbSize": 3,
+         "reverbMix": 2
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "What you hear in the second and third is **reverb**, short for reverberation: the sound reflecting off walls, floor and ceiling, thousands of times, arriving later and later and quieter and quieter. Every sound you have ever heard indoors came with some. A synth's sound has none at all, which is why nearly every recording adds it."
+    }
+   ]
+  },
+  {
+   "title": "The lecture hall nobody could hear in",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The mystery.** In 1895 Harvard opened a new lecture hall in its Fogg Art Museum, and it was a disaster. A lecturer's words hung in the air and ran into the next ones, and students couldn't follow. The university asked a young physics instructor, Wallace Sabine, to fix it. Nobody then knew why one room was clear and another was a blur, or how to tell which a room would be before it was built."
+    },
+    {
+     "type": "text",
+     "text": "Sabine spent his nights measuring. He sounded an organ pipe and timed with a stopwatch how long the sound took to die away to nothing. Then his assistants carried in seat cushions from the theatre next door, a few at a time, and he timed it again. Each cushion took a fixed amount off the time. After years of this he had a law. The time a sound takes to die away by 60 decibels, the **reverberation time**, is proportional to the room's volume divided by how much its surfaces soak up.[^law]"
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "room",
+     "caption": "Sabine’s law: a room’s size and its surfaces give its reverberation time. Clap to hear the room.",
+     "task": "Find a room under 0.6 s and one over 2.5 s",
+     "goal": "room-sabine",
+     "aspect_ratio": 1.65
+    },
+    {
+     "type": "text",
+     "text": "Big rooms ring longer, because a sound travels further between bounces and so loses less each second. Soft surfaces cut it short, because each bounce off a cushion or a person loses much more than a bounce off plaster. Boston's Symphony Hall, which opened in 1900, was designed with Sabine's law and is still counted among the best concert halls in the world."
+    }
+   ]
+  },
+  {
+   "title": "What reverb is made of",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Listen closely to a clap in a room and it comes in three parts. First, the clap itself, straight to your ears. Then, after a short gap, a few distinct **early reflections** from the nearest walls; their timing tells your ears how big the room is. Then the **tail**: so many reflections so close together that they blur into a hiss that fades away, darkening as it goes, because air and walls soak up high frequencies fastest."
+    },
+    {
+     "type": "text",
+     "text": "A reverb on a synth copies all three. On this one, **Type** chooses what is being copied, **Size** sets the reverberation time, and **Mix** sets how loud the reverb is against the dry sound. A little mix places a sound in a room, and a lot pushes it far away, to the back of a hall."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The dry pluck. Put it in a room.",
+     "task": "Turn Mix to 50 % or more",
+     "goal": "reverb-on",
+     "options": {
+      "stage": 23,
+      "knobs": [
+       "reverbType",
+       "reverbSize",
+       "reverbMix"
+      ],
+      "start": {
+       "cutoff": 5,
+       "sustain": 0,
+       "decay": 1,
+       "release": 1
+      },
+      "riff": 112,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "Reverb and echo (lesson 8) are the same thing at different speeds. An echo is one reflection, late enough to hear separately. A reverb is thousands of them, too close together to tell apart."
+    }
+   ]
+  },
+  {
+   "title": "Plates and springs",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Recording studios needed reverb before they could afford the rooms. Some built **echo chambers**: a bare room with a loudspeaker at one end and a microphone at the other. In 1957 a German company, EMT, sold a cheaper answer: a **plate**, a thin steel sheet about two metres long, hung in a frame. A speaker driver shook it and pickups listened to it ringing. A plate's reverb is dense and bright from the very start, with no early reflections. It suits voices and drums, and it is on a great many records of the 1960s and 1970s."
+    },
+    {
+     "type": "text",
+     "text": "Cheaper still was the **spring**: a coiled spring with a driver at one end and a pickup at the other, small enough to fit in a guitar amplifier. A sound runs along the spring and back, high frequencies faster than low ones, so every reflection arrives as a little falling \"boing\". Kick a spring reverb and it crashes. That twang is the sound of surf guitar and of dub reggae, where producers played the spring like an instrument."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A room reverb. Change it to a spring.",
+     "task": "Choose the spring, with Mix at 50 % or more",
+     "goal": "reverb-spring",
+     "options": {
+      "stage": 23,
+      "knobs": [
+       "reverbType",
+       "reverbSize",
+       "reverbMix"
+      ],
+      "start": {
+       "cutoff": 5,
+       "sustain": 0,
+       "decay": 1,
+       "release": 1,
+       "reverbMix": 2
+      },
+      "riff": 112,
+      "keys": 48
+     }
+    }
+   ]
+  },
+  {
+   "title": "The big plate",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now set up the opening's third sound from the dry pluck: the type, how long it rings, and how much of it there is."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The dry pluck. Make the big plate.",
+     "task": "Make the big plate",
+     "goal": "match",
+     "options": {
+      "stage": 23,
+      "knobs": [
+       "reverbType",
+       "reverbSize",
+       "reverbMix"
+      ],
+      "start": {
+       "cutoff": 5,
+       "sustain": 0,
+       "decay": 1,
+       "release": 1
+      },
+      "riff": 112,
+      "keys": 48,
+      "target": {
+       "name": "Big plate",
+       "set": {
+        "reverbType": 1,
+        "reverbSize": 3,
+        "reverbMix": 2
+       }
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "A digital reverb like this one doesn't bounce anything. It takes the room's answer to a single click, its **impulse response**, and adds up a copy of it for every sample of the sound, a calculation called **convolution**. Record the answer of a real cathedral to a starting pistol, and any sound can be played in that cathedral."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on reverb",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What is reverb?",
+        "choices": [
+         "Thousands of reflections arriving later and quieter, blurring into a tail",
+         "A single late repeat",
+         "A filter that darkens a sound"
+        ],
+        "answer": 0,
+        "why": "One late reflection is an echo; thousands are reverb."
+       },
+       {
+        "ask": "By Sabine's law, what makes the reverberation time longer?",
+        "choices": [
+         "A bigger room with harder surfaces",
+         "A smaller room",
+         "More cushions and curtains"
+        ],
+        "answer": 0,
+        "why": "Time grows with the volume and shrinks with the absorption."
+       },
+       {
+        "ask": "What do the early reflections tell your ears?",
+        "choices": [
+         "How big the room is",
+         "What pitch the note is",
+         "How loud the singer is"
+        ],
+        "answer": 0,
+        "why": "Their timing gives away the distance to the nearest walls."
+       },
+       {
+        "ask": "What gives spring reverb its twang?",
+        "choices": [
+         "High frequencies run along the spring faster than low ones",
+         "The spring is out of tune",
+         "It has no tail"
+        ],
+        "answer": 0,
+        "why": "So each reflection arrives as a little falling chirp."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Reverb is a room’s reflections**: thousands of them, arriving later and quieter, blurring into a tail.",
+  "**Sabine (1895-1900)**: reverberation time grows with a room’s volume and shrinks with what its surfaces soak up.",
+  "**A reverb has three parts**: the sound, a few early reflections, and a darkening tail.",
+  "**Size sets how long it rings; Mix how far away the sound seems.**",
+  "**Plates** (EMT, 1957) are dense and bright at once; **springs** twang, as on surf guitar and dub.",
+  "**Digital reverb convolves the sound with an impulse response**, a room’s answer to one click."
+ ],
+ "footnotes": {
+  "law": {
+   "kind": "technical",
+   "title": "Sabine’s formula",
+   "text": "In metric units, the time in seconds is 0.161 times the volume in cubic metres, divided by the absorption, measured in square metres of open window. An open window absorbs everything that reaches it, so a square metre of it counts as 1. A square metre of plaster counts as about 0.03 and a person as about 0.4. Sabine worked in feet and in cushions, then converted to windows."
+  }
+ },
+ "journal": []
+}

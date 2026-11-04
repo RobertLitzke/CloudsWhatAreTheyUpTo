@@ -76,6 +76,11 @@ export function isLive(id: ParamId, s: Sound): boolean {
       return s.engine === 0 && s.wave === WAVE.pulse;
     case 'engine':
       return true;
+    case 'reverbMix':
+      return true;
+    case 'reverbType':
+    case 'reverbSize':
+      return s.reverbMix > 0;
     case 'engineWave':
     case 'engineTimbre':
     case 'engineShape':
@@ -152,6 +157,11 @@ export function isActive(id: ParamId, s: Sound): boolean {
       return s.engine === 0 && s.wave === WAVE.pulse;
     case 'engine':
       return true;
+    case 'reverbMix':
+      return true;
+    case 'reverbType':
+    case 'reverbSize':
+      return s.reverbMix > 0;
     case 'engineWave':
     case 'engineTimbre':
     case 'engineShape':
