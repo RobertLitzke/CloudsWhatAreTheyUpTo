@@ -71,3 +71,15 @@
 .synth-fig .strip-say { margin: 0; font-size: 14px; color: var(--muted); text-align: center; }
 .synth-fig .keys-wrap { position: static; border-top: 0; padding: 0; background: transparent; }
 .synth-fig .keys { height: 84px; }
+
+/* Lesson 20's step sequencer: notes in cyan, accents amber, slides orange. */
+.seq-fig .seq-grid { display: block; width: 100%; height: auto; margin: 8px 0; touch-action: manipulation; }
+.seq-fig .seq-label { font-size: 8px; fill: var(--muted); letter-spacing: 0.06em; }
+.seq-fig .seq-cell { fill: transparent; stroke: var(--hair-dim); stroke-width: 0.5; cursor: pointer; }
+.seq-fig .seq-cell.beat { fill: rgba(255, 255, 255, 0.04); }
+.seq-fig .seq-cell.on { fill: var(--cyan); stroke: var(--cyan); }
+.seq-fig .seq-cell.on.tied { opacity: 0.55; }
+.seq-fig .seq-flag { fill: transparent; stroke: var(--hair-dim); stroke-width: 0.6; cursor: pointer; }
+.seq-fig .seq-flag.accent.on { fill: var(--amber); stroke: var(--amber); }
+.seq-fig .seq-flag.slide.on { fill: var(--orange); stroke: var(--orange); }
+.seq-fig .seq-flag.tie.on { fill: var(--muted); stroke: var(--muted); }

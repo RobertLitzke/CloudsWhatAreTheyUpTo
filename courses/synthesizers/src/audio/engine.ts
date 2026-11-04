@@ -128,6 +128,25 @@ export class Engine {
     this.useLoop(loop);
   }
 
+  /**
+   * Change the notes of a playing loop of the same length without starting it
+   * again: the next note played is the new loop's first note at or after the
+   * old one's place. For a sequencer being edited as it plays.
+   */
+  swapLoop(loop: Loop): void {
+    const old = this.loop;
+    if (!this.playing || !old || loop.notes.length === 0 || Math.abs(loop.duration - old.duration) > 1e-6) return this.setLoop(loop);
+    this.riff = null;
+    const at = old.notes[this.index]?.on ?? 0;
+    const i = loop.notes.findIndex((n) => n.on >= at - 1e-6);
+    this.loop = loop;
+    if (i >= 0) this.index = i;
+    else {
+      this.index = 0;
+      this.passStart += loop.duration;
+    }
+  }
+
   private useLoop(loop: Loop): void {
     this.loop = loop;
     if (this.playing) this.restart();

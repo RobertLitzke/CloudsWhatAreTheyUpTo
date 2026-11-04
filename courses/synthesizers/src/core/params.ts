@@ -837,5 +837,8 @@ export function patchesEqual(a: Patch, b: Patch): boolean {
   return PARAM_IDS.every((id) => a[id] === b[id]);
 }
 
+/** The trunk's last lesson. A lesson's synth figure may name any stage up to it; knobs past LAST_STAGE do not exist yet. */
+export const TRUNK_LESSONS = 23;
+
 /** The stage of the last knob: a panel at this stage shows every knob there is (the Synth lab). */
 export const LAST_STAGE = Math.max(...PARAM_IDS.map((id) => PARAMS[id].stage));

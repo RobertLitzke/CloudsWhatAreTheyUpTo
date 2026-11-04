@@ -27,7 +27,7 @@
 import { el } from 'didactics/dom';
 import { figure, type Options } from 'didactics/figure';
 import { LATEST_RULES } from '../core/gen';
-import { LAST_STAGE, MATRIX_IDS, PARAMS, PARAM_IDS, resolve, valueAt, type ParamId, type Patch } from '../core/params';
+import { LAST_STAGE, MATRIX_IDS, TRUNK_LESSONS, PARAMS, PARAM_IDS, resolve, valueAt, type ParamId, type Patch } from '../core/params';
 import { reach } from '../core/reach';
 import { RIFFS, riffById } from '../core/riffs';
 import { createFlow, type Flow } from '../game/components/flow';
@@ -122,6 +122,8 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   // Lesson 19: the arpeggiator
   'arp-on': (now) => now.arpMode > 0,
   'arp-hold': (now) => now.arpMode > 0 && now.arpHold === 1,
+  // Lesson 20: the step sequencer
+  squelch: (now) => now.res >= 3 && now.envAmt >= 2,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };
@@ -158,7 +160,7 @@ function problems(o: Options | undefined): string[] {
   const s = o as SynthOptions | undefined;
   if (!s) return ['needs options: at least a "stage"'];
   const out: string[] = [];
-  if (!Number.isInteger(s.stage) || s.stage < 1 || s.stage > LAST_STAGE) out.push(`stage ${s.stage} is not a stage of the synth (1 to ${LAST_STAGE})`);
+  if (!Number.isInteger(s.stage) || s.stage < 1 || s.stage > Math.max(LAST_STAGE, TRUNK_LESSONS)) out.push(`stage ${s.stage} is not a lesson of the synth (1 to ${TRUNK_LESSONS})`);
   const matrixCells = s.matrix ? MATRIX_IDS.filter((id) => PARAMS[id].stage <= s.stage) : [];
   const ids = [...(s.knobs ?? []), ...(s.pad ?? []), ...(s.also ?? []), ...Object.keys(s.start ?? {}), ...(s.examples ?? []).flatMap((e) => Object.keys(e.set)), ...Object.keys(s.target?.set ?? {})];
   for (const id of ids) if (!isParam(id)) out.push(`no knob "${id}"`);

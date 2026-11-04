@@ -2,7 +2,7 @@
 // scope showing it, and the page's one-sound-at-a-time rule (audio/claim).
 // The live synth and the sound figure both play through this.
 
-import { getEngine, peekEngine } from '../audio/engine';
+import { getEngine, peekEngine, type Loop } from '../audio/engine';
 import { GAME_STAGES } from '../core/params';
 import { claim, release } from '../audio/claim';
 import type { Sound } from '../core/params';
@@ -26,6 +26,8 @@ export interface Player {
   owns(): boolean;
   /** Change the sound while it is sounding, from either. */
   update(sound: Sound): void;
+  /** Play this loop instead of the riff from now on (a sequencer's notes), switching over in place if playing. */
+  setLoop(loop: Loop): void;
   /** Called whenever it starts or stops, to repaint buttons. */
   onChange: () => void;
 }
@@ -34,6 +36,7 @@ export interface Player {
 export function player(closed: AbortSignal, riff: Riff, stage?: number): Player {
   const scope = createScope();
   let mine = false;
+  let custom: Loop | null = null;
   const read = () => {
     if (stage && stage <= GAME_STAGES) updateSave((s) => (s.lessons.includes(stage) ? s : { ...s, lessons: [...s.lessons, stage] }));
   };
@@ -81,6 +84,11 @@ export function player(closed: AbortSignal, riff: Riff, stage?: number): Player 
       release(p.stop);
       p.onChange();
     },
+    setLoop: (loop) => {
+      custom = loop;
+      const engine = peekEngine();
+      if (mine && engine?.playing) engine.swapLoop(loop);
+    },
     play: (sound) => {
       const engine = getEngine();
       if (mine && engine.playing) {
@@ -93,7 +101,8 @@ export function player(closed: AbortSignal, riff: Riff, stage?: number): Player 
         if (!engine.playing) p.stop();
         p.onChange();
       };
-      engine.setRiff(riff);
+      if (custom) engine.setLoop(custom);
+      else engine.setRiff(riff);
       engine.setVoices([sound]);
       engine.start();
       scope.start(engine.analyser);
