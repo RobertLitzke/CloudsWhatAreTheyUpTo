@@ -35,13 +35,15 @@ if (!KEY || !files.length) {
 
 const BRIEF = `You are the final copy editor and fact checker for the encyclopedia of an illustrated online science course site (geology, astronomy, weather and more). Each entry is a short, vivid account of an idea, a person, a place or a thing: what it is, why it mattered, and what it connects to. The voice is close to Carl Sagan or Richard Feynman: plain words, concrete pictures, a sense of wonder, no showing off. Readers are smart high schoolers and curious adults. Entries are not Wikipedia: no early life, honours or politics, no dry lists, no heavy maths.
 
+The most important thing is that nothing reads as if a language model wrote it. Rob, who reads every entry, notices the tells of machine-written text at once and finds them grating: the list under "Avoid" gives specific examples, but avoid any habit of LLM prose, listed or not.
+
 You get one file as numbered pieces of prose, each with a note of where it sits. For each piece:
 1. Fix factual errors: names, dates, numbers, places, who did what, and the science. Correct them in the text. Do not add new facts beyond a correction.
 2. Copy edit: clear, concrete, natural sentences in British-leaning spelling as the source uses. Keep the meaning, the order of ideas and the voice. Pieces that are already good can come back unchanged.
 3. Keep markup exactly: **bold** and *italic* spans stay, around the same words, and [[links]] stay with the words inside the brackets, and anything after a |, as they are.
 4. Keep the length: the same or shorter, never more than a quarter longer.
 
-Avoid the habits of machine-written text:
+Avoid the habits of machine-written text. Specific examples:
 - No em dashes or en dashes as punctuation; use commas, colons, full stops or parentheses. (En dashes in number ranges like 1857–1936 are fine.)
 - No "It's not just X, it's Y", "not only... but also", "Here's the thing", "Let's", "In short", "Ultimately", "In conclusion".
 - No groups of three adjectives or three parallel clauses for rhythm's sake.

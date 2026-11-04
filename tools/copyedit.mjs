@@ -3,10 +3,15 @@
 // JSON (teaches, part titles, paragraphs, key ideas, captions, tasks, quiz
 // questions, choices and explanations, summary or learned points, next,
 // footnotes) goes in one request, numbered. What comes back is checked before
-// it is used: markup (**bold**, *italic*, [[links]]) must survive, and
-// nothing may grow by more than a quarter. A piece that fails keeps its old
-// words and is listed in the report, with the model's notes on facts it
-// changed or doubts.
+// it is used: markup (**bold**, *italic*, [[links]] with the same words,
+// [^footnote] markers) must survive, and nothing may grow by more than a
+// quarter. A piece that fails keeps its old words and is listed in the
+// report, with the model's notes on facts it changed or doubts.
+//
+// The editor may add footnotes (an anecdote off the main line, or a term the
+// text needn't stop to define): it returns each note and puts its marker in
+// a paragraph or caption. A note goes in only if it is whole and new and an
+// accepted piece marks it; the report lists every one added or dropped.
 //
 //   OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> <lesson-id …> [--write]
 //   OPENROUTER_API_KEY=… node tools/copyedit.mjs <course> --queue [--write]
@@ -64,38 +69,41 @@ if (!KEY || !ids.length) {
 const own = JSON.parse(readFileSync(briefFile, 'utf8'));
 const BRIEF = `You are the final copy editor and fact checker for ${own.course}. Readers are smart high schoolers and curious adults: don't talk down to them, and don't swing academic (say "underwater", not "subaqueous"). ${own.intro}
 ${own.voice ? `\n${own.voice}\n` : ''}
+The most important thing is that nothing reads as if a language model wrote it. Rob, who reads every lesson, notices the tells of machine-written text at once and finds them grating: the list under "Avoid" gives specific examples, but avoid any habit of LLM prose, listed or not.
+
 You get one lesson as numbered pieces of prose, each with a note of where it sits. For each piece:
-1. Fix factual errors: names, dates, numbers, places, who did what, and the science. Correct them in the text. Do not add new facts or examples beyond a correction.
+1. Fix factual errors: names, dates, numbers, places, who did what, and the science. Correct them in the text. Do not add new facts or examples beyond a correction, except in a new footnote (rule 6).
 2. Copy edit: clear, concrete, natural sentences in British-leaning spelling as the source uses (${(own.spellings ?? ['metres', 'colour', 'recognised']).map((w) => `"${w}"`).join(', ')}). Keep the meaning, the order of ideas and the paragraph's role. Pieces that are already good can come back unchanged.
-3. Keep markup exactly: **bold** and *italic* spans stay, around the same words, and so do [[links]] to the encyclopedia (keep the words inside the brackets, and anything after a |, as they are).
+3. Keep markup exactly: **bold** and *italic* spans stay, around the same words, and so do [[links]] to the encyclopedia (keep the words inside the brackets, and anything after a |, as they are), and footnote markers like [^id] (same id, after the same words).
 4. Keep the length: the same or shorter, never more than a quarter longer.
 5. Quiz pieces: the choice marked (correct) must stay correct and the others wrong.
+6. Footnotes: you may add new ones. A footnote holds either an interesting anecdote off the main line (kind "digression": a person, an episode, a surprising detail) or an important term or detail that the main text doesn't need to stop and define (kind "technical"). If a paragraph halts to define a term the reader can follow without, you may move the definition into a new technical footnote. To add one, put a marker [^new-id] in the piece's text straight after the word or sentence it belongs to, with no space before it, and list the note under "footnotes" in your reply. Use a short lowercase id with hyphens that the lesson doesn't use yet. Add one only where it earns its place: lessons carry about four to six, and the count already in this lesson is given with it. Notes follow the same rules as the pieces. Never add a marker to a quiz piece, a title or a summary point.
 
-Avoid the habits of machine-written text:
+Avoid the habits of machine-written text. Specific examples:
 - No em dashes or en dashes as punctuation; use commas, colons, full stops or parentheses. (En dashes in number ranges like 1857–1936 are fine.)
 - No "It's not just X, it's Y", "not only... but also", "Here's the thing", "Let's", "Imagine", "In short", "Ultimately", "In conclusion".
 - No groups of three adjectives or three parallel clauses for rhythm's sake.
 - No "delve", "tapestry", "crucial", "vital", "key" as an adjective, "fascinating", "remarkable", "incredible", "journey", "unlock", "harness", "robust", "seamless", "landscape" (as a metaphor), "realm", "testament".
-- No exclamation marks (except inside a quotation), no rhetorical questions that the next sentence answers, no sign-off summaries, no sentence that only announces what the next will say.
+- No exclamation marks (except inside a quotation), no rhetorical questions that the next sentence answers, no sign-off summaries or one-line aphorisms closing a paragraph, no sentence that only announces what the next will say.
 
 Reply with JSON only:
-{"pieces": [{"n": 1, "text": "..."}, ...], "facts": ["one line per factual change you made or doubt you have, naming the piece number"]}
-Include every piece, same numbers.`;
+{"pieces": [{"n": 1, "text": "..."}, ...], "footnotes": [{"id": "new-id", "kind": "technical" or "digression", "title": "...", "text": "..."}], "facts": ["one line per factual change you made or doubt you have, naming the piece number"]}
+Include every piece, same numbers. "footnotes" lists only the notes you add (an empty list if none).`;
 
 /** Every prose string in the lesson, with a path to put it back. */
 function pieces(lesson) {
   const out = [];
-  const add = (where, get, set) => typeof get() === 'string' && out.push({ where, text: get(), set });
+  const add = (where, get, set, mark = false) => typeof get() === 'string' && out.push({ where, text: get(), set, mark });
   const list = (where, arr) => (arr ?? []).forEach((_, i) => add(where, () => arr[i], (v) => (arr[i] = v)));
   add('teaches', () => lesson.teaches, (v) => (lesson.teaches = v));
   lesson.parts.forEach((p, i) => {
     add(`part ${i + 1} title`, () => p.title, (v) => (p.title = v));
     p.blocks.forEach((b, j) => {
       const at = `part ${i + 1} "${p.title}", block ${j + 1}`;
-      if (b.type === 'text') add(`${at}, paragraph`, () => b.text, (v) => (b.text = v));
+      if (b.type === 'text') add(`${at}, paragraph`, () => b.text, (v) => (b.text = v), true);
       if (b.type === 'key_ideas') list(`${at}, key idea`, b.points);
       if (b.type === 'diagram' || b.type === 'interactive_diagram') {
-        add(`${at}, caption of ${b.id === 'photo' ? `photo "${b.options?.photo}"` : `figure "${b.id}"`}`, () => b.caption, (v) => (b.caption = v));
+        add(`${at}, caption of ${b.id === 'photo' ? `photo "${b.options?.photo}"` : `figure "${b.id}"`}`, () => b.caption, (v) => (b.caption = v), true);
         add(`${at}, task for the reader`, () => b.task, (v) => (b.task = v));
       }
       if (b.type === 'quiz') (b.options?.items ?? []).forEach((q, k) => {
@@ -116,15 +124,31 @@ function pieces(lesson) {
 }
 
 const MARKUP = /\*\*.+?\*\*|\*[^*]+?\*|\[\[.+?\]\]/g;
-function problem(before, after) {
+const MARK = /\[\^([\w-]+)\]/g;
+const marks = (t) => [...t.matchAll(MARK)].map((m) => m[1]);
+/** Why an edited piece can't be used, or null. `added` is the ids of the new footnotes it may mark. */
+function problem(before, after, added = new Set(), canMark = false) {
   if (typeof after !== 'string' || !after.trim()) return 'empty';
-  const m0 = (before.match(MARKUP) ?? []).length;
-  const m1 = (after.match(MARKUP) ?? []).length;
-  if (m0 !== m1) return `markup changed (${m0} spans to ${m1})`;
-  if (after.length > before.length * 1.25 + 25) return `grew from ${before.length} to ${after.length} characters`;
+  const m0 = before.match(MARKUP) ?? [];
+  const m1 = after.match(MARKUP) ?? [];
+  if (m0.length !== m1.length) return `markup changed (${m0.length} spans to ${m1.length})`;
+  const links = (xs) => xs.filter((x) => x.startsWith('[[')).join(' ');
+  if (links(m0) !== links(m1)) return 'a link changed';
+  const f0 = marks(before);
+  const f1 = marks(after);
+  const lost = f0.filter((id) => !f1.includes(id));
+  if (lost.length) return `footnote marker lost (${lost.join(', ')})`;
+  const extra = f1.filter((id) => !f0.includes(id));
+  if (extra.some((id) => !canMark || !added.has(id))) return `marks a footnote it can't (${extra.join(', ')})`;
+  // A new marker and a definition moved into its note are not growth.
+  const len = (t) => t.replace(MARK, '').length;
+  if (len(after) > len(before) * 1.25 + 25) return `grew from ${before.length} to ${after.length} characters`;
   if (/—/.test(after) && !/—/.test(before)) return 'uses an em dash';
   return null;
 }
+
+/** Every footnote id the lesson's prose marks. */
+const lessonMarks = (lesson) => pieces(lesson).flatMap((p) => marks(p.text));
 
 mkdirSync(OUT, { recursive: true });
 for (const id of ids) {
@@ -136,7 +160,8 @@ for (const id of ids) {
   // A queue entry may carry reviewers' notes: specific fixes the editor should make in this lesson.
   const notes = queued.filter((q) => q.lesson === id).flatMap((q) => q.notes ?? []);
   const ask = notes.length ? `Reviewers' notes for this lesson. Make these changes where they fall, within the rules above (same pieces, same markup, length limit):\n${notes.map((n) => `- ${n}`).join('\n')}\n\n` : '';
-  const prompt = `${ask}Lesson: "${lesson.title}"\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
+  const noteCount = Object.keys(lesson.footnotes ?? {}).length;
+  const prompt = `${ask}Lesson: "${lesson.title}" (${noteCount} footnote${noteCount === 1 ? '' : 's'} now)\n\n${ps.map((p, i) => `[${i + 1}] (${p.where})\n${p.text}`).join('\n\n')}`;
   const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
     method: 'POST',
     headers: { Authorization: `Bearer ${KEY}`, 'Content-Type': 'application/json' },
@@ -147,19 +172,45 @@ for (const id of ids) {
   let reply;
   try { reply = JSON.parse(raw.replace(/^```json\s*|```\s*$/g, '')); } catch { console.error(`${id}: no JSON back`, raw.slice(0, 400), d.error ?? ''); process.exitCode = 1; continue; }
   const report = [`# ${lesson.title}`, '', '## Facts', ...(reply.facts ?? []).map((f) => `- ${f}`), '', '## Changes', ''];
+  // New footnotes: each must be whole, new and clean before a piece may mark it.
+  const notes0 = lesson.footnotes ?? {};
+  const offered = new Map();
+  const noteReport = [];
+  for (const n of Array.isArray(reply.footnotes) ? reply.footnotes : []) {
+    const why = typeof n?.id !== 'string' || !/^[a-z0-9]+(-[a-z0-9]+)*$/.test(n.id) ? 'bad id'
+      : notes0[n.id] || offered.has(n.id) ? 'id already used'
+      : n.kind !== 'technical' && n.kind !== 'digression' ? `kind "${n.kind}"`
+      : typeof n.title !== 'string' || !n.title.trim() || typeof n.text !== 'string' || !n.text.trim() ? 'needs a title and text'
+      : marks(n.text).length ? 'has a marker inside it'
+      : /—/.test(n.text + n.title) ? 'uses an em dash'
+      : null;
+    if (why) noteReport.push(`### [^${n?.id}] ${n?.kind ?? ''} "${n?.title ?? ''}" (DROPPED: ${why})`, '', `${n?.text ?? ''}`, '');
+    else offered.set(n.id, { kind: n.kind, title: n.title.trim(), text: n.text.trim() });
+  }
+  const ids0 = new Set(offered.keys());
   let changed = 0;
   ps.forEach((p, i) => {
     const after = reply.pieces?.find((x) => x.n === i + 1)?.text;
     if (after === undefined || after === p.text) return;
-    const bad = problem(p.text, after);
+    const bad = problem(p.text, after, ids0, p.mark);
     report.push(`### [${i + 1}] ${p.where}${bad ? ` (KEPT: ${bad})` : ''}`, '', `- ${p.text}`, `+ ${after}`, '');
     if (!bad) { p.set(after); changed++; }
   });
+  // Only notes an accepted piece now marks go in.
+  const marked = new Set(lessonMarks(lesson));
+  let addedNotes = 0;
+  for (const [nid, n] of offered) {
+    if (!marked.has(nid)) { noteReport.push(`### [^${nid}] ${n.kind} "${n.title}" (DROPPED: no accepted piece marks it)`, '', n.text, ''); continue; }
+    lesson.footnotes = { ...(lesson.footnotes ?? {}), [nid]: n };
+    noteReport.push(`### [^${nid}] ${n.kind} "${n.title}" (added)`, '', n.text, '');
+    addedNotes++;
+  }
+  if (noteReport.length) report.push('## New footnotes', '', ...noteReport);
   writeFileSync(join(OUT, `${id}.md`), report.join('\n'));
   if (write) writeFileSync(file, formatJson(lesson, source));
   if (write && queued.some((q) => q.lesson === id)) {
     const left = JSON.parse(readFileSync(QUEUE, 'utf8')).filter((q) => q.lesson !== id);
     writeFileSync(QUEUE, `${JSON.stringify(left, null, 1)}\n`);
   }
-  console.log(`${id}: ${changed} of ${ps.length} pieces changed, ${(reply.facts ?? []).length} fact notes${write ? ', written' : ''} (${d.usage?.total_tokens ?? '?'} tokens)`);
+  console.log(`${id}: ${changed} of ${ps.length} pieces changed, ${addedNotes} footnotes added, ${(reply.facts ?? []).length} fact notes${write ? ', written' : ''} (${d.usage?.total_tokens ?? '?'} tokens)`);
 }
