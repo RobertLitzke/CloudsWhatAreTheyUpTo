@@ -16,6 +16,12 @@ import { tubeFigure, warblerStill } from './gause';
 import { droughtFigure, heritFigure } from './finches';
 import { cycleFigure, fishingFigure } from './lynx';
 import { delayFigure, islandFigure } from './reindeer';
+import { flowFigure, keelingFigure } from './breathes';
+import { ncycleFigure, weirFigure } from './hubbard';
+import { alderFigure, glacierFigure } from './glacier';
+import { gapsFigure, whittakerFigure } from './gaps';
+import { bouldersFigure, fireFigure } from './fires';
+import { controlFigure, curtainFigure, oxygenFigure } from './curtain';
 import { bathtubFigure, brakeFigure, darwinFigure, recaptureFigure } from './elephants';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
@@ -54,4 +60,23 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 10
   pyramid: pyramidFigure,
   standing: standingFigure,
+  // Lesson 11
+  keeling: keelingFigure,
+  flow: flowFigure,
+  // Lesson 12
+  weir: weirFigure,
+  ncycle: ncycleFigure,
+  // Lesson 13
+  curtain: curtainFigure,
+  oxygen: oxygenFigure,
+  control: controlFigure,
+  // Lesson 14
+  glacier: glacierFigure,
+  alder: alderFigure,
+  // Lesson 15
+  whittaker: whittakerFigure,
+  gaps: gapsFigure,
+  // Lesson 16
+  boulders: bouldersFigure,
+  fire: fireFigure,
 };

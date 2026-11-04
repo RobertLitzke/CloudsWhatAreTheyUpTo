@@ -1,0 +1,169 @@
+{
+  "id": "gaps",
+  "n": 15,
+  "title": "Is a forest an organism?",
+  "teaches": "Clements, Gleason and a forest grown gap by gap",
+  "parts": [
+    {
+      "title": "Clements’s climax",
+      "blocks": [
+        {"type": "text", "text": "Frederic Clements grew up on the prairies of Nebraska and became the most influential American ecologist of the early twentieth century. In 1916 he published *Plant Succession*, a book of more than five hundred pages that took the order Cowles had seen on the dunes and made it a law. Every patch of bare ground, Clements wrote, passes through a fixed series of stages, each preparing the way for the next, until it reaches a final, stable community suited to its climate: the **climax**[^climax]. On the prairie the climax was grassland; in the eastern United States, broadleaved forest."},
+        {"type": "text", "text": "He went further. A plant community, in Clements's view, was a kind of organism. It was born on bare ground, grew through youth to maturity, and if damaged by fire or felling, healed itself back toward the climax, as a body heals a wound. The species in it belonged together, the way the organs of a body do, and a community had boundaries, like a body's skin. Ecologists for decades learned to name and map communities as units: this hillside is oak-hickory forest; above that line, beech-maple."},
+        {"type": "text", "text": "The idea was powerful because it made sense of what people saw. Forests do regrow after fire. Similar places do carry similar plants. The trouble was in the details, and one man pointed them out early."}
+      ]
+    },
+    {
+      "title": "Gleason’s reply",
+      "blocks": [
+        {"type": "text", "text": "In 1926 Henry Gleason, a botanist at the New York Botanical Garden, published a short paper with a dry title, “The individualistic concept of the plant association”. Gleason argued that a community is not a unit at all. Each species grows where its seeds happen to land and where it can survive the conditions it meets there. Two species are found together because they tolerate the same conditions and reached the same place, not because they belong together. Move along a slope or across a state, and the species drop out and come in one at a time, at different points, with no shared edges."},
+        {"type": "text", "text": "Gleason's paper was mostly ignored. Clements's view filled the textbooks, and Gleason, discouraged, turned to classifying plants instead. It took about thirty years, and somebody counting trees, to bring his idea back."}
+      ]
+    },
+    {
+      "title": "Whittaker’s mountain",
+      "blocks": [
+        {"type": "text", "text": "In the late 1940s a graduate student named Robert Whittaker spent several summers in the Great Smoky Mountains of Tennessee and North Carolina, a range with forest from the valleys at 300 metres to the summits at over 2,000. He sampled hundreds of sites, counting every tree, and recorded each site's height and how damp or dry it was. If Clements was right, the counts should fall into a few distinct communities, with a sudden change in many species at once where one community met the next."},
+        {"type": "interactive_diagram", "id": "whittaker", "caption": "Seven trees of the Smokies' moist slopes, by height above sea level, simplified from Whittaker's 1956 counts; beside them, the same slope as Clements's view would divide it.", "task": "Compare the two views", "goal": "compare", "aspect_ratio": 1.69},
+        {"type": "text", "text": "They didn't. When Whittaker plotted each species' share of the trees against height, every species made its own hump: rising, peaking and falling at its own place, with its own spread. The humps overlapped every which way. There were no lines where whole groups of species stopped together. A forest that looked like a distinct type from a road was a point along a smooth slope of change. Whittaker published the work in 1956, and similar studies in the forests of Wisconsin by John Curtis came to the same conclusion. Gleason had been right[^names]."}
+      ]
+    },
+    {
+      "title": "Gaps",
+      "blocks": [
+        {"type": "text", "text": "If a forest isn't an organism, how does it keep its character for centuries? The answer is in how it renews itself. A mature forest is mostly a closed canopy of old trees, with deep shade beneath. Now and then a tree dies, of age, disease or wind, and falls, opening a hole in the canopy: a **gap**. Light pours in, and a race starts to fill it."},
+        {"type": "text", "text": "Who wins depends on the size of the gap and on what is already waiting. Some trees, such as beech, sugar maple and hemlock, are **shade-tolerant**: their seedlings can survive for decades on the forest floor in deep shade, growing a few centimetres a year, until a gap opens above them. Then they shoot up. Others, like most birches, aspens and cherries, are **pioneers**: their seedlings die within a year or two in shade, but they grow fast in full sun, and their small seeds blow in from far away. One old tree falling makes a small gap, still shaded around its edges, and the beech and maple saplings already beneath it fill it. A storm that flattens a whole stretch of forest makes a large gap in full sun, and the pioneers take it."},
+        {"type": "text", "text": "The British ecologist Alex Watt described this in 1947 as a forest made of patches at different stages, each cycling on its own: gap, pioneers, mature trees, old trees, death, gap again. The forest as a whole looks steady because its patches are out of step with each other. Seen at the scale of a single tree, it never stops changing[^watt]."},
+        {"type": "key_ideas", "title": "An estimate", "points": ["A sugar maple sapling in deep shade might grow 2 centimetres a year and survive half a century or more; a birch seedling in the same shade dies within a couple of years. If a canopy tree falls somewhere in a stand once in about two hundred years, the maple has a fair chance of seeing a gap open above it before it dies, and the birch almost none, unless it arrives after the gap opens."]}
+      ]
+    },
+    {
+      "title": "A forest in a computer",
+      "blocks": [
+        {"type": "text", "text": "In 1972 Daniel Botkin, James Janak and James Wallis turned gap dynamics into a computer program. They took the trees of Hubbard Brook, the forest of lesson 12, and wrote down for each species how fast it grew in sun and in shade, how long it lived, and how likely its seedlings were to survive. Then the program grew a small plot one tree at a time, year by year, letting trees die at random and seedlings compete for each gap. Called JABOWA, after its authors' names, it produced forests with realistic mixtures of species, out of nothing but rules for individual trees."},
+        {"type": "interactive_diagram", "id": "gaps", "caption": "A strip of forest, forty plots wide, each holding one tree. Trees die of age and chance, and storms flatten stretches now and then; each gap goes to one of three species depending on its light. The lines below count the plots each species holds. A model in the spirit of JABOWA.", "task": "Guess, then play past the second storm", "goal": "storm", "aspect_ratio": 1.53},
+        {"type": "text", "text": "Try the switch that makes every species equally shade-tolerant. The pattern goes: storms no longer bring a flush of birch, and the forest becomes a random mixture drifting with chance. The forest's order, pioneers after big disturbances and shade-tolerant trees in between, comes entirely from the species' different abilities. Nothing in the program knows what the forest as a whole should look like."}
+      ]
+    },
+    {
+      "title": "A windstorm in your woods",
+      "blocks": [
+        {"type": "text", "text": "Gaps are easy to see. In any mature wood, look for a fallen tree with a patch of sky above it. In a small gap, look at what is growing toward the light: usually saplings of the same shade-tolerant trees that stand around it, which were waiting beneath. In a larger opening, made by a windstorm or a logging cut, look for fast pioneers: in western Washington, red alder and bitter cherry; in the East, birch, aspen and pin cherry. The Pacific Northwest's own gap story, with Douglas fir as the pioneer that needs a big disturbance and western hemlock as the patient tree beneath, belongs to the forest course."}
+      ]
+    },
+    {
+      "title": "Patterns without a plan",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Ecologists today mostly side with Gleason about how communities are put together: species respond to conditions one by one, and the mixture at any place depends on where seeds came from, what disturbance last struck, and chance. Clements was right that the same climate tends to produce similar vegetation, and that forests recover after fire. He was wrong that this is because the forest is an organism with a goal. The recovery is the sum of individual trees, each doing what its species does, in the light it finds."
+        },
+        {
+          "type": "text",
+          "text": "The result is order without a plan, a pattern that appears from simple rules followed by many individuals. The next lesson looks at the disturbances that make gaps, and why a moderate amount of them can keep more kinds of living things alive than none at all."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on how forests are put together",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What would Clements's view predict for tree species along a mountainside?",
+                "choices": [
+                  "Groups of species stopping together at sharp boundaries between communities",
+                  "Each species peaking and fading at its own height",
+                  "The same species at every height"
+                ],
+                "answer": 0,
+                "why": "If communities were units, whole sets of species would share edges. Whittaker found no such edges."
+              },
+              {
+                "ask": "What did Whittaker find when he plotted each tree species against height in the Great Smoky Mountains?",
+                "choices": [
+                  "Each species rose and fell at its own height, overlapping the others",
+                  "Three distinct communities with sharp edges between them",
+                  "The number of species grew steadily with height"
+                ],
+                "answer": 0,
+                "why": "Each species responded on its own, as Gleason had argued. The humps overlapped with no shared boundaries."
+              },
+              {
+                "ask": "A single old beech dies and falls in a shady forest. What most likely fills its gap?",
+                "choices": [
+                  "Shade-tolerant saplings already waiting beneath",
+                  "Birch seedlings blown in from afar",
+                  "Nothing, until the next storm"
+                ],
+                "answer": 0,
+                "why": "A small gap stays partly shaded. Beech and maple saplings that have survived for years beneath the canopy grow up into it."
+              },
+              {
+                "ask": "A storm flattens several hectares. Why do birch and other pioneers take much of the opening?",
+                "choices": [
+                  "They grow fast in full sun and their light seeds arrive quickly",
+                  "They can wait longest in shade",
+                  "Storms kill shade-tolerant seedlings only"
+                ],
+                "answer": 0,
+                "why": "A big gap is in full sun, where fast-growing, light-seeded pioneers outrun the shade-tolerant saplings."
+              },
+              {
+                "ask": "In the gap model, what happens when every species is made equally shade-tolerant?",
+                "choices": [
+                  "The forest drifts at random, with no flush of pioneers after storms",
+                  "Birch takes over the whole forest",
+                  "Beech takes over the whole forest"
+                ],
+                "answer": 0,
+                "why": "The order comes from the species' differences. Remove them, and which species fills a gap is just the luck of the seed."
+              },
+              {
+                "ask": "How does the gap model answer the question “is a forest an organism”?",
+                "choices": [
+                  "No: forest-wide patterns arise from many trees each following its own rules",
+                  "Yes: the forest steers itself toward its climax",
+                  "Yes: the trees cooperate to fill each gap"
+                ],
+                "answer": 0,
+                "why": "The program has rules only for individual trees, yet it produces realistic forests. No goal for the whole forest is needed."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Clements saw communities as organisms.** In 1916 he described succession marching through fixed stages to a stable climax, with communities as units with edges.",
+    "**Gleason saw species acting one by one.** In 1926 he argued that each species grows wherever it arrives and can survive.",
+    "**Whittaker's counts backed Gleason.** Along the Smokies' slopes each species rose and fell on its own, with no shared boundaries.",
+    "**A forest renews itself gap by gap.** When a tree falls, the light it lets in starts a race to fill the hole.",
+    "**Gap size picks the winner.** Shade-tolerant saplings fill small gaps; fast pioneers take big ones in full sun.",
+    "**Forest patterns emerge from individual trees.** The JABOWA model grew realistic forests from rules for single trees, with no goal for the whole.",
+    "**Order without a plan.** A forest's steady look comes from many patches out of step with each other."
+  ],
+  "journal": [],
+  "footnotes": {
+    "names": {
+      "kind": "digression",
+      "title": "Why the names survive",
+      "text": "Ecologists still name communities, such as oak-hickory forest or sagebrush steppe, and maps of them are useful. Since Whittaker, the names are understood as labels for points along a continuous change, chosen for convenience, rather than as natural units."
+    },
+    "watt": {
+      "kind": "technical",
+      "title": "Watt's patches",
+      "text": "Alex Watt's 1947 paper “Pattern and process in the plant community” used heather moors, beechwoods and grasslands to show the same thing: a community seen from above is a mosaic of patches each at its own stage of a cycle."
+    },
+    "climax": {
+      "kind": "digression",
+      "title": "Clements on the prairie",
+      "text": "Clements's ideas shaped American land management for decades. After the Dust Bowl of the 1930s, he and his colleagues argued that the shortgrass prairie was the climax that the plough had wrongly destroyed, which helped make the case for returning some of the worst land to grass."
+    }
+  }
+}

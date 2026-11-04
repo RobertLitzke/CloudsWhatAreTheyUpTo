@@ -14,12 +14,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: EcoLesson[] = [
-  coming('breathes', 11, 'The planet breathes', 'Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows'),
-  coming('hubbard', 12, 'The forest that was cut on purpose', 'Hubbard Brook, and how living plants hold a watershed’s nitrogen'),
-  coming('curtain', 13, 'A curtain across a lake', 'Lake 226 and the nutrient that runs short'),
-  coming('glacier-bay', 14, 'Walking back in time', 'Glacier Bay and how new ground fills with life'),
-  coming('gaps', 15, 'Is a forest an organism?', 'Clements, Gleason and a forest grown gap by gap'),
-  coming('fires', 16, 'Boulders and fires', 'Why some disturbance keeps more kinds alive'),
   coming('humboldt', 17, 'Humboldt’s mountain', 'Chimborazo, climate zones and why they move'),
   coming('islands', 18, 'Islands that refilled', 'Mangrove islets, arrivals, losses and the species-area rule'),
   coming('half', 19, 'Half the Earth?', 'Habitat loss, extinction debt and how much to protect'),

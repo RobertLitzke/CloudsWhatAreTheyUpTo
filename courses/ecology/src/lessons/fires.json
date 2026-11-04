@@ -1,0 +1,109 @@
+{
+  "id": "fires",
+  "n": 16,
+  "title": "Boulders and fires",
+  "teaches": "Why some disturbance keeps more kinds alive",
+  "parts": [
+    {
+      "title": "Sousa’s boulders",
+      "blocks": [
+        {"type": "text", "text": "Along the coast near Santa Barbara, California, the low shore is a field of loose boulders sitting on flat rock, sunk in the tide twice a day. In the 1970s a graduate student from Berkeley, Wayne Sousa, spent several years on one such field, studying the seaweeds that grew on the boulders. He noticed that what grew on a boulder depended on its size."},
+        {"type": "text", "text": "The smallest boulders were flipped over by almost every winter storm, scraping off whatever had grown on top and burying it underneath. They carried almost nothing but one fast-growing green seaweed, sea lettuce, which can settle and cover bare rock within weeks. The biggest boulders were too heavy for the waves to move. They were blanketed by one tough red seaweed, *Gigartina*, which grows slowly but, once established, crowds everything else out. The boulders in between, flipped now and then, every year or two, carried the most kinds of seaweed: sea lettuce, Gigartina, and several other red seaweeds besides."},
+        {"type": "text", "text": "Sousa tested the idea that it was the flipping, not the size, that mattered. He bolted some small boulders to the rock so they couldn't turn over, and over the following years they filled with red seaweeds and finally Gigartina, like big boulders. He scraped big boulders clean, and they were taken by sea lettuce first, like small ones."}
+      ]
+    },
+    {
+      "title": "Too little, too much",
+      "blocks": [
+        {"type": "text", "text": "Sousa's seaweeds trade one ability for another. Sea lettuce arrives first on bare rock and grows fast, but is overgrown by almost anything else. Gigartina takes years to arrive and grow, but nothing can push it out. The red seaweeds in between are each a little slower to arrive and a little better at holding on than the one before. Lesson 7's mussels and Paine's sea stars showed the same thing on rock: left alone, the best competitor takes all the space."},
+        {"type": "text", "text": "Now add disturbance. A boulder that is never flipped ends up with Gigartina alone. A boulder flipped every few months never gets past sea lettuce. A boulder flipped every year or two spends time at each stage, and across a field of such boulders, some recently cleared and some not, every stage is present at once."},
+        {"type": "interactive_diagram", "id": "boulders", "caption": "A boulder field. Storms flip boulders at random; after each flip the seaweeds come back in order, fast colonisers first, the best competitor last. Each boulder shows the kinds on it; the curve gives the average for each rate of flipping. A model after Sousa's field.", "task": "Guess, then try rare, middling and frequent flipping", "goal": "hump", "aspect_ratio": 1.69},
+        {"type": "text", "text": "In 1978 Joseph Connell[^connell] gathered results like Sousa's from coral reefs and tropical rainforests and named the pattern: the **intermediate disturbance hypothesis**. Diversity peaks where disturbance is frequent enough to stop the best competitor taking over, but not so frequent that only the fastest colonisers survive. Disturbance, in other words, isn't only damage. It is also what resets space and gives the weaker competitors a chance."}
+      ]
+    },
+    {
+      "title": "When the hump doesn’t appear",
+      "blocks": [
+        {"type": "text", "text": "The hump became one of the best-known ideas in ecology. It also became one of the most argued over. When ecologists gathered many studies, the hump appeared in only some of them. In others, diversity rose steadily with disturbance, or fell, or did nothing. In 2013 Jeremy Fox reviewed the theory and the evidence, and argued that the intermediate disturbance hypothesis should be dropped as a general rule[^fox]."},
+        {"type": "text", "text": "The figure shows one reason. The hump depends on an assumption: that the species that colonise fastest are the worst competitors, and the best competitors colonise slowest. Remove that trade-off, and let the best competitor also arrive first, and the hump disappears. It takes every boulder that isn't flipped constantly, at every rate of disturbance. Where species make the trade-off, as Sousa's seaweeds do, disturbance can keep more of them alive. Where they don't, it needn't."}
+      ]
+    },
+    {
+      "title": "Fire",
+      "blocks": [
+        {"type": "text", "text": "On land the great disturbance is fire. Many forests and grasslands burned regularly long before people managed them, set alight by lightning, and their plants are built for it. Ponderosa pine has bark several centimetres thick that shrugs off a ground fire. Lodgepole pine keeps some of its cones sealed with resin for years, until the heat of a fire opens them and drops the seed onto fresh ash[^cones]. Prairie grasses keep their growing points below ground and sprout again within weeks."},
+        {"type": "text", "text": "Before about 1900, the dry ponderosa pine forests of the American West burned every few years to every few decades. The fires were mostly low, creeping through the grass and needles on the ground and killing small trees, but rarely the old ones. Early photographs show open, park-like stands of big pines with grass beneath. Then, after huge fires in Idaho and Montana in 1910 killed dozens of firefighters, the United States Forest Service set out to put out every fire it could, and for most of the century it mostly succeeded."},
+        {"type": "interactive_diagram", "id": "fire", "caption": "Two centuries of a dry pine forest. Dead needles, branches and young trees build up as fuel; lightning starts a fire in about one year in eight, and a fire clears the fuel. From year 100, fires can be put out unless the fuel is too heavy to stop them. A model.", "task": "Play two centuries with fires put out from year 100", "goal": "suppress", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Putting fires out didn't remove fire from these forests. It postponed it. Fuel built up on the ground, and thickets of young trees grew up beneath the old ones, forming ladders that a fire could climb into the crowns. When a fire eventually escaped, in a dry, windy summer, it met decades of fuel and burned hot enough to kill the old trees too. Many of the large, severe fires of recent decades in the West are in forests like these."},
+        {
+          "type": "key_ideas",
+          "title": "An estimate",
+          "points": [
+            "If fuel builds at a steady rate, a fire after 60 years of suppression meets four times the fuel of one after 15. Heat released grows faster than that, since heavy fuel dries out more and lets flames reach the crowns, so the damage can be many times greater."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Yellowstone, 1988",
+      "blocks": [
+        {"type": "text", "text": "In 1972 Yellowstone National Park began letting most lightning fires burn. For sixteen years they stayed small. In the summer of 1988, after an unusually dry year, with strong winds, about fifty fires started in and around the park, many of them from lightning, and they joined. Some 25,000 firefighters could not stop them. By the time snow fell in September, fire had passed through about a third of the park."},
+        {"type": "text", "text": "Many people expected a wasteland. Ecologists who went in the next spring found something else. The fires had burned in a patchwork: some stands killed outright, some only scorched, some skipped entirely. Lodgepole pine seedlings came up by the hundreds of thousands per hectare in places where the sealed cones had opened. Aspen sprouted from roots. Within a few years the burned slopes were green with young trees and wildflowers, and today they carry dense young forests. Lodgepole pine in Yellowstone's high country is a forest that has always been reset by large fires every century or two. The 1988 fires were not unnatural; the decades of small fires before them had been the unusual part."}
+      ]
+    },
+    {
+      "title": "Living with disturbance",
+      "blocks": [
+        {"type": "text", "text": "Disturbance is part of how most living communities work. Storms flip boulders, trees fall and open gaps, rivers flood and move their banks, fires sweep through forests. What matters is the **disturbance regime**: how often, how large and how severe the disturbances are, and whether the species living there are built for it. Change the regime, by putting out every fire or by bringing in a plant that burns more often, as branch lesson S2 shows in eastern Washington, and the community changes with it."},
+        {"type": "text", "text": "Forest managers in the West now set some fires on purpose, called prescribed burns, and thin out the young trees, to bring the dry pine forests closer to the regime they grew up with. It is slow, expensive work, and the fuel of a century can't be removed in a few years."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on disturbance",
+          "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "On Sousa's shore, why did middling boulders hold the most kinds of seaweed?", "choices": ["They were flipped often enough to stop Gigartina taking over, but not so often that only sea lettuce survived", "They were in the deepest water", "They were the roughest to grip"], "answer": 0, "why": "Disturbance at a middling rate leaves boulders at every stage, so fast colonisers and good competitors are both present."},
+            {"ask": "Sousa bolted small boulders down so storms couldn't flip them. What happened to them?", "choices": ["They filled with red seaweeds and finally Gigartina, like big boulders", "They stayed covered in sea lettuce", "They became bare"], "answer": 0, "why": "Without flipping, succession ran its course and the best competitor took over. Size mattered only through disturbance."},
+            {"ask": "What assumption does the hump of species against disturbance depend on?", "choices": ["The fastest colonisers are the worst competitors, and the reverse", "Every species colonises at the same speed", "Disturbance kills the best competitor first"], "answer": 0, "why": "Without that trade-off, the best competitor arrives first and holds the space at every rate of disturbance."},
+            {"ask": "A dry pine forest that used to burn every ten years has had every fire put out for eighty years. What is the danger?", "choices": ["Fuel and young trees have built up, so the next fire may burn hot into the crowns", "The trees will have forgotten how to survive fire", "The forest will turn into grassland"], "answer": 0, "why": "Suppression postpones fire and lets fuel accumulate. When a fire escapes, it is far more severe."},
+            {"ask": "Why did lodgepole pine come back so thickly after Yellowstone's 1988 fires?", "choices": ["Many of its cones stay sealed until a fire's heat opens them and drops seed on fresh ground", "Its seeds were planted by the park service", "It grows only on ash"], "answer": 0, "why": "Lodgepole's sealed cones store years of seed for exactly this. Large fires every century or two are normal there."},
+            {"ask": "Which statement best fits the evidence on disturbance and diversity?", "choices": ["A middling level of disturbance raises diversity in some places, but not as a general rule", "More disturbance always means fewer species", "Disturbance never affects diversity"], "answer": 0, "why": "The hump appears where species trade colonising for competing, as on Sousa's boulders, and not everywhere."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Disturbance resets space.** Storms, falling trees, floods and fires clear ground for new arrivals.",
+    "**Too little disturbance, and the best competitor takes over.** Sousa's unmoved boulders ended with Gigartina alone.",
+    "**Too much, and only the fastest colonisers survive.** Boulders flipped every storm held little but sea lettuce.",
+    "**A middling amount can keep the most kinds.** Connell called it the intermediate disturbance hypothesis.",
+    "**The hump depends on a trade-off.** It appears only where fast colonisers are poor competitors; ecologists now doubt it as a general rule.",
+    "**Putting out every fire postpones fire.** Fuel builds up until a fire escapes and burns far hotter.",
+    "**Many plants are built for fire.** Thick bark, sealed cones and buried buds let them survive or return.",
+    "**What counts is the regime.** How often, how large and how severe disturbances are shapes what lives there."
+  ],
+  "journal": [],
+  "footnotes": {
+    "fox": {
+      "kind": "digression",
+      "title": "The argument over the hump",
+      "text": "Fox's review, “The intermediate disturbance hypothesis should be abandoned”, set off a lively exchange. Its defenders replied that the idea was never meant to hold everywhere, only where the trade-off between colonising and competing holds, which is close to what Fox had said."
+    },
+    "cones": {
+      "kind": "technical",
+      "title": "Sealed cones",
+      "text": "Botanists call cones that open only with heat serotinous. In Yellowstone the share of lodgepole trees with such cones varies from stand to stand, highest where fires have been frequent. Jack pine in Canada and several Californian cypresses and pines do the same."
+    },
+    "connell": {
+      "kind": "digression",
+      "title": "Reefs and rainforests",
+      "text": "Connell had spent years on Australian coral reefs and in Queensland rainforest. He noticed that the richest patches of reef were not the calmest ones but those hit by occasional storms, and that the richest rainforest was where trees fell often enough to keep any one species from dominating."
+    }
+  }
+}

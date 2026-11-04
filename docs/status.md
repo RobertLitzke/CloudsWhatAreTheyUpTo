@@ -12,7 +12,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 10 | 27 | 0 | 10 | 10 | 10 | 0 |
+| [Ecology](#ecology) | 16 | 21 | 3 | 16 | 16 | 16 | 0 |
 | [Botany](#botany) | 16 | 17 | 0 | 16 | 16 | 16 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
@@ -229,7 +229,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-16 were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
+`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and the branches are being written (4 Nov), each read by a Haiku student. No photos (parked in tools/pending-photos.json) or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -243,12 +243,12 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 8 | Why is the world green? (`green`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How a predator can protect plants it never eats, and why food chains flip in alternation. |
 | 9 | The ants that guard a tree (`acacia`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What a mutualism is, what each partner pays, and how cheaters threaten it. |
 | 10 | Why big fierce animals are rare (`pyramid`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How energy passes up a food chain, why most of it ends as heat, and why that keeps chains short and top predators few. |
-| 11 | The planet breathes (`breathes`) |  | planned, listed as coming |  | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
-| 12 | The forest that was cut on purpose (`hubbard`) |  | planned, listed as coming |  | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
-| 13 | A curtain across a lake (`curtain`) |  | planned, listed as coming |  | Lake 226 and the nutrient that runs short. |
-| 14 | Walking back in time (`glacier-bay`) |  | planned, listed as coming |  | Glacier Bay and how new ground fills with life. |
-| 15 | Is a forest an organism? (`gaps`) |  | planned, listed as coming |  | Clements, Gleason and a forest grown gap by gap. |
-| 16 | Boulders and fires (`fires`) |  | planned, listed as coming |  | Why some disturbance keeps more kinds alive. |
+| 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
+| 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
+| 13 | A curtain across a lake (`curtain`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
+| 14 | Walking back in time (`glacier-bay`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
+| 15 | Is a forest an organism? (`gaps`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Clements, Gleason and a forest grown gap by gap. |
+| 16 | Boulders and fires (`fires`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Why some disturbance keeps more kinds alive. |
 | 17 | Humboldt’s mountain (`humboldt`) |  | planned, listed as coming |  | Chimborazo, climate zones and why they move. |
 | 18 | Islands that refilled (`islands`) |  | planned, listed as coming |  | Mangrove islets, arrivals, losses and the species-area rule. |
 | 19 | Half the Earth? (`half`) |  | planned, listed as coming |  | Habitat loss, extinction debt and how much to protect. |

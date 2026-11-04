@@ -1,0 +1,118 @@
+{
+  "id": "breathes",
+  "n": 11,
+  "title": "The planet breathes",
+  "teaches": "Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows",
+  "parts": [
+    {
+      "title": "A machine on a volcano",
+      "blocks": [
+        {"type": "text", "text": "In 1955 Charles David Keeling, a young chemist at the California Institute of Technology, built himself an instrument for measuring the carbon dioxide in air and took it camping. He was meant to be studying how carbon dioxide moves between water and limestone, and he needed to know how much was in the air to start with. The textbooks gave values all over the place. Keeling sampled in the redwood forests of Big Sur, in the mountains and on the beaches, every few hours through the day and night, and found something the textbooks had missed: in clean afternoon air, wherever he went (by afternoon the sun has stirred the air and breezes have carried off the breath of nearby plants and soil), the carbon dioxide came out at almost exactly the same level, about 310 parts per million[^ppm]."},
+        {"type": "text", "text": "That steadiness was what interested Roger Revelle at the Scripps Institution of Oceanography, who suspected that the carbon dioxide from burning coal and oil might be building up in the air, and wanted a baseline to measure it against. Revelle hired Keeling in 1956. For the International Geophysical Year of 1957–58, Keeling set up analysers at the South Pole and on Mauna Loa in Hawaii, a volcano whose weather station stood 3,400 metres up, above the island's forests and towns, in air that had crossed thousands of kilometres of open Pacific."},
+        {"type": "text", "text": "The first reading at Mauna Loa, in March 1958, was 313 parts per million. Over the next two years the readings climbed in the spring, fell through the summer, and climbed again. By the end of the second year the level was higher than at the same time the year before. Keeling kept the measurements going for the rest of his life, through several attempts to cut the money for them[^funding], and his son Ralph runs the Scripps part of the work today. The line they drew is called the **Keeling curve**."}
+      ]
+    },
+    {
+      "title": "The sawtooth",
+      "blocks": [
+        {"type": "text", "text": "Keeling's record has two things going on at once. The first is a rise. Each year's average is higher than the year before's: from about 316 parts per million in 1959 to about 425 in 2024, and the climb has been getting steeper, from under one part per million a year at the start to about two and a half in the 2010s and more than three in the last few years. The second is a wave that repeats every year, highest in May and lowest at the end of September or the start of October, about six or seven parts per million from top to bottom."},
+        {"type": "interactive_diagram", "id": "keeling", "caption": "Carbon dioxide at three of the stations that took up Keeling's work. A smooth version of each record: the yearly means and a typical yearly wave. Dots are NOAA's yearly means for Mauna Loa.", "task": "Look at one year's wave at each station, then find the biggest", "goal": "barrow", "aspect_ratio": 1.67},
+        {"type": "text", "text": "The rise is the carbon from burning coal, oil and gas, and from clearing forests, adding to the air faster than the sea and the land can take it up[^fossil]. That part of the story belongs to a course on climate. This lesson is about the wave, because the wave is the living world, measured from a mountaintop. Keeling saw it in his first year and guessed what it was: the forests and fields of the Northern Hemisphere drawing carbon dioxide out of the air as they grow in summer, and giving it back as leaves fall and rot in autumn and winter."}
+      ]
+    },
+    {
+      "title": "Stock and flow again",
+      "blocks": [
+        {"type": "text", "text": "A puzzle hides in the timing. Northern plants are greenest and growing fastest in June and July. If the carbon dioxide in the air simply followed the plants, it should be lowest then. It isn't. The lowest point comes two or three months later, at the end of September, when the leaves are already turning."},
+        {"type": "text", "text": "Lesson 2's bathtub gives the answer. The carbon dioxide in the air is a stock, like the water in a tub. Two flows change it. One goes in: living things breathe out carbon dioxide, and the bacteria and fungi rotting last year's leaves and wood give off more, all year round. The other goes out: plants take carbon dioxide in to build sugar and wood, mostly in the northern summer. A stock falls whenever the outflow is bigger than the inflow, however small the difference, and it stops falling only when the two are equal."},
+        {"type": "interactive_diagram", "id": "flow", "caption": "The northern land's two flows of carbon through a year, and the carbon dioxide they leave in the air. Release from rot and breathing runs all year and peaks in the warmth; uptake by growing plants is a summer hump. A model.", "task": "Guess, then find the month the carbon dioxide is lowest", "goal": "lowest", "aspect_ratio": 1.53},
+        {"type": "text", "text": "So the carbon dioxide falls all through June, July and August, while growth outpaces rot, and reaches bottom when the two flows cross, as growth slows in early autumn. It is highest at the other crossing, in May, when the spring growth finally overtakes the winter's rot. The level of a stock tells you nothing directly about how fast it is filling or draining; only the gap between the flows does."},
+        {
+          "type": "text",
+          "text": "Since the 1960s the wave has been getting bigger, especially in the far north, where the summer drawdown is now around half as big again as it was[^bigger]. The figure's “Strength of the northern summer” slider shows one reason ecologists think so: a stronger summer in the north, with more growth and more rot, makes a bigger swing, and an earlier spring moves the whole wave earlier."
+        }
+      ]
+    },
+    {
+      "title": "Barrow and the South Pole",
+      "blocks": [
+        {"type": "text", "text": "If the wave is the northern forests breathing, it should be biggest near them. NOAA's station at Barrow, on the Arctic coast of Alaska (the town is now called Utqiaġvik), has measured carbon dioxide since 1973. Its wave is about two and a half times the size of Mauna Loa's, around 15 to 18 parts per million from top to bottom, with the lowest point in August. Air at Barrow has blown in over the great belt of conifer forest and tundra that runs across Alaska, Canada and Siberia."},
+        {"type": "text", "text": "At the South Pole the wave almost vanishes, to about one part per million, and what is left runs roughly six months out of step with the north. The Southern Hemisphere is mostly ocean. It has far less land, and so far fewer plants to swing the air with the seasons, and its seasons are the other way round. The yearly rise, though, shows up at every station, a little later at the South Pole than in the north, because most of the extra carbon dioxide is released in the north and takes a year or so to mix across the equator."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["The yearly wave is biggest over the northern forests and almost gone at the South Pole.", "The yearly rise is everywhere: the air mixes around the world in a year or two."]}
+      ]
+    },
+    {
+      "title": "Where a tree’s carbon comes from",
+      "blocks": [
+        {"type": "text", "text": "A tree that takes carbon out of the air builds it into its body. That still surprises people. The common belief is that a plant's bulk comes from the soil, and it was the belief of the Flemish chemist Jan Baptist van Helmont until, in the 1600s, he grew a willow in a tub of weighed soil for five years. The willow put on about 74 kilograms; the soil lost about 60 grams. Van Helmont credited the water he had added. The Botany course follows that tub, and the two centuries it took to find the rest of the answer: most of a plant's dry weight is carbon, oxygen and hydrogen, the carbon and much of the oxygen taken from the carbon dioxide in the air, the hydrogen from water."},
+        {"type": "text", "text": "In a leaf, the energy of sunlight joins carbon dioxide and water into sugar, and oxygen is given off. That is **photosynthesis**. In every living cell, plant or animal, the reverse happens too: sugar is burned with oxygen to release the energy, and carbon dioxide and water come out. That is **respiration**. A tree's dry wood is about half carbon by weight. Some of it stays locked up for centuries, in heartwood or in peat. The rest goes back to the air when the leaves are eaten, when the roots and the fallen wood rot, or when the forest burns."},
+        {"type": "key_ideas", "title": "Outside", "points": ["Weigh a pot of dry potting soil, plant a bean or a sunflower in it, and grow it for a season. At the end, pull the plant, dry the soil again and reweigh it. The plant will weigh many times more than the soil has lost."]}
+      ]
+    },
+    {
+      "title": "Stores and flows",
+      "blocks": [
+        {"type": "text", "text": "The carbon cycle can be drawn as a few large stores of carbon with flows between them. The air holds about 870 billion tonnes of carbon, as carbon dioxide. Living plants hold about half as much, and the soil, with its humus and roots and dead matter, about twice as much as the air. The ocean holds by far the most, mostly dissolved deep down. Coal, oil and gas are carbon taken out of the cycle by ancient plants and plankton and buried[^rocks]."},
+        {"type": "diagram", "id": "scale", "caption": "The main stores of carbon, in billions of tonnes of carbon, after the IPCC's 2021 report, on a ratio scale: equal distances along the bar mean equal multiples, so the deep ocean's long bar is about forty times the air's.", "options": {"title": "Carbon held in each store", "unit": "billion tonnes", "log": true, "items": [{"label": "The deep ocean", "value": 37000, "color": "sea"}, {"label": "Soils", "value": 1700, "color": "soil"}, {"label": "Frozen soils of the far north", "value": 1400, "color": "soil"}, {"label": "Coal, oil and gas still underground", "value": 1000, "color": "ink"}, {"label": "The surface ocean", "value": 900, "color": "water"}, {"label": "The air", "value": 870, "color": "heat", "bold": true}, {"label": "Living plants", "value": 450, "color": "plant"}]}},
+        {"type": "text", "text": "Between the stores run flows. Each year land plants take about 120 billion tonnes of carbon out of the air, and breathing and rot put nearly the same amount back. The ocean swaps about 80 billion tonnes with the air each way. Against those, the 10 billion tonnes a year that people add from fossil fuels looks small, but it is a flow in only one direction. About half of it stays in the air, and the rest is taken up by the ocean and by plants, which grow a little faster in the richer air."},
+        {"type": "key_ideas", "title": "An estimate", "points": ["One part per million of carbon dioxide in the whole atmosphere is about 2.1 billion tonnes of carbon. The air at Mauna Loa loses about 6 parts per million between May and late September, so if the whole atmosphere fell as much, the summer drawdown (the fall while plants outpace rot) would take something like 13 billion tonnes of carbon out of the air in four months. The air over the northern forests swings more than Mauna Loa's and the southern air less, so treat it as a rough figure. It is a little more than a year of fossil fuel burning, taken in by northern plants in a summer and given back by spring."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the carbon cycle",
+          "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Northern plants grow fastest in June and July, but the carbon dioxide over Mauna Loa is lowest at the end of September. Why?", "choices": ["The air keeps losing carbon dioxide while uptake exceeds release, which lasts into autumn", "It takes the northern air about three months to reach Hawaii", "The ocean takes up most of the carbon dioxide in late summer"], "answer": 0, "why": "The carbon dioxide is a stock. It falls whenever uptake is bigger than release and stops falling when they become equal, which happens as growth slows in early autumn."},
+            {"ask": "Why is the yearly swing in carbon dioxide at Barrow, Alaska, much bigger than at the South Pole?", "choices": ["Barrow's air has crossed the northern forests; the south is mostly ocean", "Cold Arctic water takes up carbon dioxide in summer", "The South Pole is too high for plants' carbon dioxide to reach"], "answer": 0, "why": "The wave is made by land plants growing and rotting with the seasons. The north has most of the world's land and forest."},
+            {"ask": "Where does most of the carbon in a tree's wood come from?", "choices": ["Carbon dioxide taken from the air", "Minerals drawn up from the soil", "Rotting matter absorbed by the roots"], "answer": 0, "why": "Photosynthesis builds sugar from carbon dioxide and water. Van Helmont's willow gained about 74 kilograms while its soil lost about 60 grams."},
+            {"ask": "Each year land plants take about 120 billion tonnes of carbon from the air, and people add about 10. Why does the smaller flow matter so much?", "choices": ["Rot and breathing return almost all the plants' carbon; the people's flow goes one way", "Plants can't take up carbon dioxide that came from fossil fuels", "Fossil carbon dioxide stays in the air longer than other carbon dioxide"], "answer": 0, "why": "A stock changes by inflow minus outflow. Two big flows that nearly cancel change it little; a small flow with nothing to balance it changes it every year."},
+            {"ask": "What would happen to Mauna Loa's yearly wave if northern springs came earlier and summers grew more strongly?", "choices": ["The wave would grow, and its peak and trough would come earlier", "The wave would shrink, as plants took up more carbon all year", "The wave would stay the same; only the yearly rise would change"], "answer": 0, "why": "More growth and more rot make a bigger swing; earlier uptake moves both crossing points of the flows earlier in the year."},
+            {"ask": "Keeling's first measurements in the 1950s found nearly the same level of carbon dioxide in clean afternoon air everywhere. Why did that matter?", "choices": ["One clean station could then stand for the whole atmosphere and track a slow rise", "It showed that forests have no effect on the air's carbon dioxide", "It meant the level was fixed and would never change"], "answer": 0, "why": "Because the air is well mixed, one clean site like Mauna Loa gives a baseline for the planet."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Keeling measured the air on Mauna Loa from 1958.** His record shows a steady rise from about 316 to about 425 parts per million, with a wave every year on top.",
+    "**The yearly wave is the northern land breathing.** Growing plants draw carbon dioxide down in summer; rot and breathing give it back through autumn and winter.",
+    "**Carbon dioxide is lowest when the flows cross, not when leaves are greenest.** A stock falls while outflow beats inflow and bottoms out when they are equal, at the end of September.",
+    "**The wave is biggest over the northern forests.** Barrow's is about two and a half times Mauna Loa's; at the South Pole it almost disappears.",
+    "**A plant's mass comes mostly from the air.** Photosynthesis builds sugar from carbon dioxide and water; respiration burns it back.",
+    "**The carbon cycle is stores joined by flows.** Plants and the sea each swap far more carbon with the air every year than fossil fuels add, but those swaps nearly cancel.",
+    "**A small one-way flow changes a stock every year.** About half of the carbon people add stays in the air; the rest goes into the sea and plants."
+  ],
+  "journal": [],
+  "footnotes": {
+    "ppm": {
+      "kind": "technical",
+      "title": "Parts per million",
+      "text": "Of every million molecules of dry air, about 310 were carbon dioxide in the 1950s and about 425 are now. Nitrogen and oxygen make up all but about one percent of the rest."
+    },
+    "funding": {
+      "kind": "digression",
+      "title": "Keeping the record going",
+      "text": "The money for Mauna Loa ran short in 1964 and there is a gap of a few months in the record. Keeling spent much of his career persuading one funding agency or another that a measurement that never changes its method is worth more each year it continues."
+    },
+    "fossil": {
+      "kind": "technical",
+      "title": "How we know it’s fossil carbon",
+      "text": "Coal, oil and gas were made from plants, which take up a little less of the heavier carbon-13 than the air holds, and they are so old that their carbon-14 has decayed away. As the carbon dioxide in the air has risen, its share of both has fallen just as burning fossil carbon would make it. Ralph Keeling's measurements show the oxygen in the air falling in step too, as burning uses it."
+    },
+    "bigger": {
+      "kind": "digression",
+      "title": "A growing wave",
+      "text": "Comparing aircraft samples from the 1950s and 60s with recent ones, Heather Graven and colleagues found in 2013 that the summer drawdown north of about 45° had grown by roughly half. Longer growing seasons, richer air and northern forests spreading all probably play a part."
+    },
+    "rocks": {
+      "kind": "digression",
+      "title": "The slow cycle",
+      "text": "Over millions of years carbon also moves through rock. Rain carries carbon dioxide into the ground, where it slowly dissolves rock and ends up in seashells and limestone on the ocean floor, and volcanoes return it to the air. That cycle is far too slow to soak up what people add in a century. The Geology course has the rocks."
+    }
+  }
+}

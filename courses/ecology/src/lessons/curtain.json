@@ -1,0 +1,110 @@
+{
+  "id": "curtain",
+  "n": 13,
+  "title": "A curtain across a lake",
+  "teaches": "Lake 226 and the nutrient that runs short",
+  "parts": [
+    {
+      "title": "The detergent argument",
+      "blocks": [
+        {"type": "text", "text": "In the 1960s lakes across North America and Europe were turning green. Lake Erie, the shallowest of the Great Lakes, grew mats of algae that washed up rotting on its beaches, and newspapers called it dead. Smaller lakes near towns and farms went the same way: clear water became soupy, and summer brought scums of blue-green algae that smelled and sometimes poisoned dogs that drank it. Something was feeding the algae. The question was which thing."},
+        {"type": "text", "text": "One suspect was in every kitchen. Since the late 1940s, washing powders had been made with phosphates, which soften hard water and help detergent lift dirt. Laundry water went down the drain, through the sewage works, which removed little of the phosphate, and into rivers and lakes. Many limnologists, the scientists of lakes, thought the phosphate was what the algae had been waiting for."},
+        {"type": "text", "text": "The detergent industry disagreed, and it had arguments. Algae's bodies hold about a hundred atoms of carbon for every atom of phosphorus[^redfield], so they need far more carbon. Sewage also brings rotting matter, which bacteria break down into carbon dioxide. Scientists working for the industry argued that carbon was what ran short in a lake, and that taking phosphate out of soap would do nothing. Experiments in bottles of lake water gave mixed answers, partly because a sealed bottle cuts the water off from the air, which a real lake never is."}
+      ]
+    },
+    {
+      "title": "A curtain and a photograph",
+      "blocks": [
+        {"type": "text", "text": "In 1968 the Canadian government set aside 58 small lakes in the forest of north-western Ontario, far from towns and farms, as the Experimental Lakes Area[^ela], where scientists would be allowed to do to whole lakes what others did to bottles. One of its first scientists, and soon its leader, was David Schindler, then in his late twenties. His view was that a lake's chemistry depends on its air, its watershed and its living things together, and that only an experiment on a whole lake could settle what a lake would do."},
+        {"type": "text", "text": "Lake 226 is shaped like an hourglass: two basins of about the same size, joined by a narrow neck. In 1973 Schindler's team stretched a curtain of plastic sheeting across the neck, from the surface to the bottom, so the two halves could no longer mix. Through that summer and for years after, they added sugar, as a source of carbon, and nitrate to both basins. To the north-east basin they also added phosphate."},
+        {"type": "interactive_diagram", "id": "curtain", "caption": "Lake 226, split by a curtain. Each basin grows algae up to the supply of whichever nutrient runs out first. Choose what goes into each side. A model.", "task": "Guess, then play a summer with phosphorus on one side only", "goal": "bloom", "aspect_ratio": 1.69},
+        {"type": "text", "text": "By late summer the north-east basin was a bright, opaque green. The south-west basin, with as much carbon and nitrogen but no added phosphate, looked as it always had. The team photographed it from the air, and the picture of one lake in two colours, divided by a straight line, went round the world. Schindler later wrote that the photograph did more to change policy than any number of scientific papers. Canada had already begun limiting phosphate in laundry detergent; the limits were tightened, and many American states and countries in Europe followed."}
+      ]
+    },
+    {
+      "title": "What runs short",
+      "blocks": [
+        {"type": "text", "text": "Lake 226 showed in one picture an old rule of farming. In the 1840s the German chemist Justus von Liebig popularised the idea that a crop grows only as much as its scarcest nutrient allows, however much of the others it has. Adding more of anything else does nothing; adding the one that runs short makes the crop grow until something else runs short instead. That scarcest thing is the **limiting nutrient**. The Soil course draws it as a barrel with staves of different lengths, which holds water only up to its shortest stave."},
+        {"type": "text", "text": "Why phosphorus, in most lakes? Because the other two have ways in that phosphorus lacks. Carbon dioxide dissolves into a lake from the air across its whole surface, and when algae use it up faster, more dissolves in. Nitrogen can be fixed from the air by blue-green algae (despite the name these are bacteria, called cyanobacteria, like the fixers of lesson 12), which do well exactly when nitrogen is short and phosphorus is plentiful. Phosphorus has no gas. In nature it comes only from rock, slowly, dissolved in water running in from the land, and in a lake it is quickly taken up and buried in the mud. Sewage and farm runoff are the shortcut people added."},
+        {"type": "text", "text": "Schindler's team tested the nitrogen side too. Next door, Lake 227 had been fed both nitrogen and phosphorus since 1969 and had turned green. From 1990 they stopped the nitrogen and kept adding phosphorus. The lake stayed green: blue-green algae that fix their own nitrogen took over and made up the shortfall from the air[^l227]. Cutting nitrogen alone doesn't cure a lake. Cutting phosphorus, in this lake and many others since, does."},
+        {"type": "key_ideas", "title": "An estimate", "points": ["Dry algae are roughly one percent phosphorus by weight, so each gram of phosphorus can grow about a hundred grams of dry algae if nothing else runs short. A cupful of old-style washing powder, about 100 grams, held several grams of phosphorus, up to about 10: enough for up to a kilogram of dry algae from one load of washing."]}
+      ]
+    },
+    {
+      "title": "What a bloom does to a lake",
+      "blocks": [
+        {"type": "text", "text": "Green water is the visible part. The harm comes later, and deeper. In summer the sun warms a lake's top few metres, and warm water is lighter than cold, so the lake sorts itself into two layers: a warm, sunlit top layer floating on a cold, dark bottom layer, with a sharp change in temperature between them. The two layers hardly mix all summer. The deep water gets no new oxygen from the air and none from algae, since there is too little light down there to grow by."},
+        {"type": "text", "text": "Algae live only days. As they die they sink into the deep layer, where bacteria rot them, using oxygen as they go. A clear lake sends little down and its deep water stays well oxygenated through the summer. A green lake sends a steady rain of dead algae, and the bacteria can use up the deep oxygen before autumn. Fish that need cold, oxygen-rich water, like lake trout, are squeezed between a top layer too warm for them and a bottom layer too short of oxygen. In autumn the surface cools, the layers mix again, and the oxygen returns, too late for any fish that died."},
+        {"type": "interactive_diagram", "id": "oxygen", "caption": "A lake through one summer. Warm water floats on cold from late May until the autumn mixing; dead algae sinking into the deep layer use up its oxygen. A model.", "task": "Find about the most phosphorus the lake can take and still keep its trout", "goal": "limit", "aspect_ratio": 1.6},
+        {"type": "text", "text": "The same thing happens at sea, on a larger scale. Every summer the Mississippi carries fertiliser from the farms of the Midwest into the Gulf of Mexico, and an area of the Gulf the size of a small American state loses the oxygen in its bottom water. It is called the dead zone. In the sea, though, the nutrient that usually runs short is nitrogen rather than phosphorus[^sea]."}
+      ]
+    },
+    {
+      "title": "Top down or bottom up?",
+      "blocks": [
+        {"type": "text", "text": "Lesson 8 showed a lake's algae controlled from the top: add pike, and the small fish thin, the water fleas thrive and the algae are grazed down. Lake 226 shows algae controlled from the bottom, by what they have to grow on. Both are true, and in the 1980s Stephen Carpenter and James Kitchell showed how they fit together, by stocking and removing fish in small lakes on the border of Wisconsin and Michigan and measuring everything below."},
+        {"type": "interactive_diagram", "id": "control", "caption": "Lesson 8's food chain set in a lake, with nutrients fed in at the bottom. Three levels, or four with bass. A model at its balance.", "task": "Add nutrients to a lake of three levels, then of four", "goal": "both", "aspect_ratio": 1.82},
+        {"type": "text", "text": "In the model, the nutrients set how much life the lake can hold, but the top of the chain decides which levels get it. With three levels, extra nutrients go into algae and small fish while the water fleas stay as they were, held down by the fish. Add bass and the extra goes to the water fleas and the bass instead, and the algae hardly change. Real lakes are messier, but Carpenter and Kitchell found the same pattern: the same load of phosphorus made a green lake or a clearer one depending on which fish were in it."}
+      ]
+    },
+    {
+      "title": "Lakes, sea and gardens",
+      "blocks": [
+        {"type": "text", "text": "The cure for a green lake is to stop the phosphorus. Lake Erie recovered through the 1970s and 80s after Canada and the United States agreed in 1972 to limit what sewage works and detergents put in. (It has since turned green again, this time mostly from farm runoff.) Seattle's Lake Washington is one of the clearest examples of all, and the story of how the city saved it is lesson W3, in the branch on salmon and Lake Washington."},
+        {"type": "text", "text": "Which nutrient runs short depends on the place. Lakes are usually short of phosphorus and coastal seas of nitrogen. Parts of the open ocean far from land, like the seas around Antarctica, are short of iron, which arrives as dust blown off the continents. Old, deeply weathered tropical soils are short of phosphorus, which has long since been washed out of them. A garden's needs are written on every bag of fertiliser as three numbers, for nitrogen, phosphorus and potassium, the three that most often run short for plants."},
+        {"type": "key_ideas", "title": "Outside", "points": ["Fill three clear jars with pond water and stand them in a sunny window. Leave one as it is, add a pinch of garden fertiliser to the second, and a pinch of bone meal, which is mostly phosphate, to the third. Check which turns green first over the next week or two."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on limiting nutrients",
+          "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Both halves of Lake 226 got carbon and nitrogen; only one got phosphorus as well. What happened?", "choices": ["Only the half with phosphorus bloomed", "Both halves bloomed, since both got carbon", "Both bloomed, but the half with phosphorus later"], "answer": 0, "why": "Phosphorus was the nutrient in short supply. Adding carbon and nitrogen to a lake already short of phosphorus did nothing."},
+            {"ask": "Why is phosphorus, rather than carbon or nitrogen, usually the nutrient that runs short in a lake?", "choices": ["Carbon and nitrogen can come in from the air; phosphorus has no gas", "Algae need more phosphorus than carbon or nitrogen", "Bacteria in the mud break phosphorus down"], "answer": 0, "why": "Carbon and nitrogen can be topped up from the air. Phosphorus arrives only slowly, in water from the land."},
+            {"ask": "Lake 227 kept getting phosphorus but its nitrogen additions were stopped. What happened?", "choices": ["It stayed green, as nitrogen-fixing algae took over", "It cleared within a few years", "It bloomed only in the wettest years"], "answer": 0, "why": "Blue-green algae fixed the missing nitrogen from the air, so cutting nitrogen alone didn't stop the bloom."},
+            {"ask": "Why can a summer bloom kill fish in the deep water of a lake?", "choices": ["Rot in the unmixed deep layer uses up its oxygen until autumn", "The bloom shades the deep water, so it grows too cold", "Algae in the deep water breathe its oxygen at night"], "answer": 0, "why": "In summer the warm top layer floats on the cold deep layer and they don't mix. Rot in the deep layer uses up its oxygen."},
+            {"ask": "A lake has algae, water fleas and small fish. Nutrients are added. Which levels gain?", "choices": ["The algae and the small fish; the fleas stay held down", "The water fleas and the small fish; the algae stay grazed down", "All three levels, in proportion"], "answer": 0, "why": "The top predator holds the level below it in check, so extra food flows to the levels it doesn't control: the algae and the top."},
+            {"ask": "A gardener adds more nitrogen fertiliser to a bed that already has plenty of nitrogen but is short of phosphorus. What should happen?", "choices": ["Little or nothing, since phosphorus limits growth", "The plants grow faster, though less than with phosphorus", "The plants grow faster for a season, then slow down"], "answer": 0, "why": "Growth is set by whatever runs short. Adding something else does nothing until the limiting nutrient is supplied."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Lake 226 settled the detergent argument.** Carbon and nitrogen went into both halves, phosphorus into one, and only that half bloomed.",
+    "**Growth is set by whatever runs short.** That is the limiting nutrient; adding anything else does nothing.",
+    "**Lakes are usually short of phosphorus.** Carbon and nitrogen can come in from the air; phosphorus has no gas form.",
+    "**Cutting nitrogen alone doesn't cure a lake.** In Lake 227, blue-green algae fixed nitrogen from the air and kept it green.",
+    "**A bloom can starve the deep water of oxygen.** In summer the layers don't mix, and rotting algae use up the deep oxygen.",
+    "**Nutrients set how much a lake can grow; the top of the food chain sets where it goes.** Bottom-up and top-down control work together.",
+    "**What runs short depends on the place.** Lakes usually lack phosphorus, coastal seas nitrogen, and parts of the open ocean iron."
+  ],
+  "journal": [],
+  "footnotes": {
+    "redfield": {
+      "kind": "technical",
+      "title": "The Redfield ratio",
+      "text": "In 1934 the oceanographer Alfred Redfield found that ocean plankton hold carbon, nitrogen and phosphorus in nearly fixed proportions, about 106 to 16 to 1 by number of atoms, and that seawater's dissolved nitrogen and phosphorus come in about the same 16 to 1. Lake algae vary more, but the ratio is a useful yardstick for which nutrient is short."
+    },
+    "l227": {
+      "kind": "digression",
+      "title": "Lake 227",
+      "text": "The nitrogen experiment at Lake 227 ran for decades. Schindler and colleagues published its results in 2008, as an argument against the idea that cutting nitrogen as well as phosphorus is needed to cure lakes. Other scientists still argue that in some lakes both matter."
+    },
+    "sea": {
+      "kind": "technical",
+      "title": "Why the sea runs short of nitrogen",
+      "text": "In the sea, bacteria in oxygen-poor water and mud turn a great deal of nitrate back into nitrogen gas, and nitrogen fixers are held back by a shortage of iron and other trace metals. So nitrogen, not phosphorus, is usually what limits growth along coasts."
+    },
+    "ela": {
+      "kind": "digression",
+      "title": "The lakes under threat",
+      "text": "In 2012 the Canadian government announced it would close the Experimental Lakes Area to save money. After protests from scientists, the Ontario government and a research institute took it over, and the experiments go on."
+    }
+  }
+}
