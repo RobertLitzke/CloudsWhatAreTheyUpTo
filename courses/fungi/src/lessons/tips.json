@@ -1,0 +1,73 @@
+{
+  "id": "tips",
+  "n": 3,
+  "title": "Eating from the outside",
+  "teaches": "How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food",
+  "summary": [
+    "**A hypha grows only at its very tip.** New wall is laid down there while it is still soft, and hardens behind.",
+    "**Water pressure drives the tip forward.** The hypha is full of dissolved sugars and salts, so water flows in and pushes on the soft end.",
+    "**Enzymes go out at the tip.** They cut the food into molecules small enough to pass through the wall, which the hypha absorbs.",
+    "**Each food needs its own enzymes.** Starch, cellulose and lignin are cut by different ones, and very few fungi can break lignin.",
+    "**Hyphae branch and fuse into a network.** Fluid streams through it, so food found at one edge can feed growth at another.",
+    "**A mycelium searches, then commits.** It sends threads out everywhere, thickens the ones that reach food into cords, and lets the rest die back."
+  ],
+  "parts": [
+    {
+      "title": "A loaf goes grey",
+      "blocks": [
+        {"type": "text", "text": "Leave a slice of bread in a closed bag in a warm kitchen and within a few days a spot of grey or blue-green fuzz appears on it. A day later the spot is a patch; a few days more and the whole slice is furred, and the bread underneath has gone soft and sour. Nothing visible landed on it. Nothing ate it from the edges the way a mouse would. The mould grew into the bread and the bread disappeared from the inside."},
+        {"type": "text", "text": "The spot started from a single spore, one of the thousands that float in any room's air. What happened next is the same thing every fungus does, whether it is a mould on bread, a mycelium under a lawn or the threads in a rotting log. This lesson follows a single hypha as it grows and feeds, and then a whole mycelium as it searches for food."}
+      ]
+    },
+    {
+      "title": "Growing at the tip",
+      "blocks": [
+        {"type": "text", "text": "A hypha is a tube with a wall of chitin, filled with living cell contents, and it grows in only one place: the last few thousandths of a millimetre of its tip. Everything behind the tip has stopped growing. Its wall has hardened and will not stretch again. This is unlike almost anything in a plant or an animal, which grow throughout a tissue."},
+        {"type": "text", "text": "Two things make tip growth work. The first is pressure. A hypha is full of dissolved sugars and salts, more concentrated than the water around it, so water flows in, as it does into a plant cell (Botany's lesson 5 follows the same osmosis). The flow presses outward on the wall everywhere. Behind the tip the hard wall holds; at the tip the wall is new and soft, so the tip is where it gives."},
+        {"type": "text", "text": "The second is a supply line. Under a microscope, the tip of a growing hypha holds a dense cluster of tiny bubbles, the **Spitzenkörper**, German for tip body.[^spitz] Each bubble carries wall material and enzymes from deeper in the hypha. They gather at the tip and fuse with its membrane, laying down new wall exactly where it is needed and releasing enzymes outside. When the cluster moves to one side, the hypha turns that way. A fast mould can extend its hyphae by a few millimetres an hour.[^speed]"}
+      ]
+    },
+    {
+      "title": "Digesting outside",
+      "blocks": [
+        {"type": "text", "text": "A hypha's wall lets water and small molecules through, but nothing large. Bread is mostly starch, a giant molecule of thousands of glucose units; a leaf is mostly cellulose, another chain of glucose; wood is cellulose wrapped and glued in lignin. None of these can pass a cell wall. So the hypha sends its digestion out ahead of itself. The enzymes released at the tip break starch and cellulose into single sugars, and the hypha takes them in."},
+        {"type": "text", "text": "Each food needs its own enzymes. Starch cutters do nothing to cellulose, and cellulose cutters cannot reach cellulose that is wrapped in lignin. A fungus can eat only what it has enzymes for, which is why different fungi grow on bread, on leaves and on logs."},
+        {"type": "interactive_diagram", "id": "digest", "caption": "A hyphal tip growing into its food, with the enzymes it releases. Choose the food and switch the enzymes on and off. A model.", "task": "Find which enzymes let the tip grow into wood", "goal": "wood", "aspect_ratio": 2.1},
+        {"type": "text", "text": "Lignin is the hard case. It is a tangled, irregular molecule with no repeating unit for an enzyme to fit, and only a few groups of fungi can break it, with enzymes that attack it chemically rather than cutting it neatly. Lesson 8 is about them and about what the world was like before they existed. For now the point is that a fungus lives inside its food and turns it into soup a little ahead of itself, all the time."}
+      ]
+    },
+    {
+      "title": "Branches and fusions",
+      "blocks": [
+        {"type": "text", "text": "A single hypha would eat a single line through its food. A mycelium covers ground by branching: a short way behind the tip, a new tip starts to bulge from the side wall and grows off on its own. Branches branch again, and the mycelium fills space in a widening fan."},
+        {"type": "text", "text": "Hyphae also fuse. Where two hyphae of the same mycelium meet, they can join walls and open into each other, turning a fan of separate tubes into a connected network. Most fungal hyphae are divided by cross walls every so often, but the walls have pores, so the cell contents can stream from one compartment into the next. Food absorbed at one edge of a mycelium can therefore travel through the network to feed growth at another edge. The mycelium is one body, even though it is made of threads."}
+      ]
+    },
+    {
+      "title": "A mycelium searching",
+      "blocks": [
+        {"type": "text", "text": "In a forest, food comes in pieces: a fallen twig here, a dead root there, separated by soil with little worth eating. A fungus that lives on such scraps has a problem an animal would recognise. It has to spend food it already has to find the next meal, without knowing where that meal is."},
+        {"type": "text", "text": "Lynne Boddy and her colleagues at Cardiff University have watched this in the laboratory for decades. Their method is simple. A small block of wood that a fungus has already colonised is set on a tray of soil, and fresh blocks are placed around it. Photographed every day or two, the mycelium first sends threads out in every direction, a fan of searchers. When a thread touches a fresh block, the colony changes. The threads that connect the old block to the new one thicken into **cords**, bundles of hyphae that carry water and food like pipes. The searching threads that found nothing stop growing and fade. In a few weeks the fan has become a few thick roads between food."},
+        {"type": "interactive_diagram", "id": "forage", "caption": "A mycelium spreading from a colonised wood block over a tray of soil toward fresh blocks. The mycelium grower, a model with three rules: grow and branch while there is food to spend, thicken the threads that reach food, and let threads that lead nowhere die back.", "task": "Run the days until both blocks are found", "goal": "found", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Nothing in the mycelium plans this. Each tip grows where it can, and the colony moves food toward where food is coming in. The result is still a kind of decision: to stop searching an area and to invest in a connection. When a colony finds a large block, it may even withdraw from smaller ones, taking back what it can and abandoning the rest.[^slime] The cords on a forest floor, the black bootlaces of the honey fungus under bark, the white strands under a log, are the roads such decisions leave behind."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on how a hypha grows and eats", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Where does a fungal hypha grow longer?", "choices": ["Only at its tip", "Evenly along its whole length", "Only where it branches"], "answer": 0, "why": "New wall is laid down at the tip while it is soft. Behind the tip the wall has hardened and no longer stretches."},
+          {"ask": "What pushes the tip of a hypha forward?", "choices": ["Water flowing in under osmosis presses on the soft new wall", "Muscle-like fibres pull the tip along", "The tip is pushed by the spore it grew from"], "answer": 0, "why": "The hypha's contents are more concentrated than the water outside, so water flows in. The pressure pushes everywhere, but only the soft tip gives way."},
+          {"ask": "Why does a hypha release enzymes rather than taking food in whole?", "choices": ["Large molecules like starch and cellulose cannot pass its wall", "It has no way to sense where food is", "Enzymes are waste it must get rid of"], "answer": 0, "why": "The wall lets only small molecules through. Enzymes outside cut starch, cellulose and other large molecules into sugars small enough to absorb."},
+          {"ask": "A fungus grows well on bread but not at all on wood. What is the most likely reason?", "choices": ["It lacks the enzymes to break open the lignin around wood's cellulose", "Wood is too dry for any fungus", "Bread contains spores and wood does not"], "answer": 0, "why": "Each food needs its own enzymes. Wood's cellulose is sealed in lignin, and only a few fungi have enzymes that can break it."},
+          {"ask": "In Boddy's trays, what happens once a searching mycelium reaches a fresh block of wood?", "choices": ["The threads joining it to the colony thicken into cords, and the other threads die back", "Every thread stops growing at once", "The mycelium leaves its first block and moves entirely to the new one"], "answer": 0, "why": "The colony invests in the connection to food, building cords that carry water and nutrients, and stops paying for searches that found nothing."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "spitz": {"kind": "technical", "title": "The Spitzenkörper", "text": "It was first seen in 1924 by Heinrich Brunswik, in stained hyphae, and only accepted as a living structure once it was filmed in growing hyphae decades later. It acts as a distribution centre: bubbles arrive from behind and leave from it toward the tip's surface."},
+    "speed": {"kind": "technical", "title": "How fast?", "text": "The red bread mould *Neurospora crassa*, one of the fastest, extends its leading hyphae by a few millimetres an hour at room temperature. Most fungi are slower. Even so, a fast mould can cover a Petri dish in a day or two."},
+    "slime": {"kind": "digression", "title": "The slime mould and the Tokyo railway", "text": "A different organism, the slime mould *Physarum*, does something similar with a single sprawling cell. In 2010 Atsushi Tero and colleagues set oat flakes on a map in the positions of the cities around Tokyo, and the slime mould's network of tubes came out much like the region's railway. Slime moulds are not fungi (lesson 2), but they face the same problem and arrive at a similar answer."}
+  }
+}

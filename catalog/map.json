@@ -10,11 +10,12 @@
     "botany": [260, 840],
     "ecology": [760, 840],
     "synthesizers": [130, 320],
-    "finance": [910, 640]
+    "finance": [910, 640],
+    "fungi": [510, 890]
   },
   "shelves": [
     { "title": "Sky and Earth", "note": "Weather, rocks and the stars", "courses": ["clouds", "geology", "astronomy"] },
-    { "title": "Living things", "note": "Plants, soil and who eats whom", "courses": ["botany", "ecology", "soil"] },
+    { "title": "Living things", "note": "Plants, soil and who eats whom", "courses": ["botany", "ecology", "fungi", "soil"] },
     { "title": "Making things", "note": "Circuits, sound and pictures", "courses": ["electronics", "synthesizers", "photography"] },
     { "title": "Money", "note": "Saving, spending and tax", "courses": ["finance"] }
   ],
@@ -30,7 +31,6 @@
   "candidates": {
     "salish-sea": { "title": "People of the Salish Sea", "icon": "icons/candidates/salish-sea.svg" },
     "music-theory": { "title": "Music Theory", "icon": "icons/candidates/music-theory.svg" },
-    "fungi": { "title": "Fungi", "icon": "icons/candidates/fungi.svg" },
     "pnw-forests": { "title": "PNW Forests", "icon": "icons/candidates/pnw-forests.svg" }
   }
 }

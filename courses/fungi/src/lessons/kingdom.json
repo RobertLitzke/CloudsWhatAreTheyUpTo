@@ -1,0 +1,74 @@
+{
+  "id": "kingdom",
+  "n": 2,
+  "title": "Closer to us than to plants",
+  "teaches": "Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals",
+  "summary": [
+    "**Fungi are not plants.** They have no chlorophyll and make no food; they live on food made by something else.",
+    "**Linnaeus filed them with the plants in 1753.** They stand still and grow from the ground, which was enough at the time.",
+    "**Whittaker gave them a kingdom of their own in 1969.** Plants make their food, animals swallow it, and fungi digest it outside themselves and absorb it.",
+    "**Fungal walls are made of chitin.** The same tough sugar chain as an insect's shell, not the cellulose of plant walls.",
+    "**Fungi and animals are each other's closest relatives.** Baldauf and Palmer showed it from several proteins in 1993, and genomes have confirmed it.",
+    "**Some old 'fungi' were not fungi.** Water moulds are kin of brown seaweeds, and slime moulds of amoebas.",
+    "**Being close kin has a cost.** Fungal cells work so like ours that drugs which kill fungi tend to harm us, which makes fungal infections hard to treat."
+  ],
+  "parts": [
+    {
+      "title": "Not a plant",
+      "blocks": [
+        {"type": "text", "text": "A mushroom comes up out of the ground on a stalk and stays where it is. Bracket fungi grow on trees like shelves. Moulds spread over bread and fruit like a fuzzy lawn. Until well into the twentieth century, fungi were taught in botany classes, stored in herbaria between the mosses and the ferns, and named under the same rules as plants. They are still named under those rules today.[^code]"},
+        {"type": "text", "text": "Yet a fungus does none of the things that make a plant a plant. It has no leaves and no green. It cannot make sugar from light. It does not even take in food the way a plant takes in carbon dioxide and water: it lives on food that something else made, like an animal. The question this lesson follows is what fungi actually are, and the answer, which took until the 1990s to settle, is that they are our relatives more than they are the oak's."}
+      ]
+    },
+    {
+      "title": "The plants that hide their weddings",
+      "blocks": [
+        {"type": "text", "text": "In 1753 the Swedish botanist Carl Linnaeus published *Species Plantarum*, the book that began the two-part names still in use, like *Amanita muscaria* and *Quercus robur*. He sorted the plants by their flowers, counting stamens and styles. Anything that had no visible flowers went into one last class, the **Cryptogamia**, Greek for hidden marriage: ferns, mosses, seaweeds, and fungi. In Linnaeus's scheme there were two kingdoms of living things, animals and plants, and the rule for telling them apart was roughly whether they moved. Fungi did not move, so they were plants."},
+        {"type": "text", "text": "For a hundred years after Linnaeus, the study of fungi was a corner of botany. Its students saw early that fungi were odd. They never had chlorophyll. They grew best on dead or living things, never on bare ground in the sun. Their spores were nothing like seeds. But a botanist's tools were a lens and a microscope, and under those tools a fungus looked more like a plant than like anything else."}
+      ]
+    },
+    {
+      "title": "Three ways to eat",
+      "blocks": [
+        {"type": "text", "text": "In 1969 the American ecologist Robert Whittaker proposed sorting life into five kingdoms. Bacteria were one, and single-celled creatures with a nucleus another. The three kingdoms of large living things he split by how they get their food. **Plants** make it, from light, water and carbon dioxide. **Animals** swallow it and digest it inside a gut. **Fungi** do something else again: they pour digestive enzymes out into their food, let it dissolve outside their bodies, and absorb the small molecules that result through their walls."},
+        {"type": "text", "text": "That way of eating explains the shape of a fungus. Something that absorbs its food through its surface needs a great deal of surface. A mycelium, a net of tubes a few thousandths of a millimetre wide threading through its food, is about as much surface as a body can have for its bulk. The next lesson looks at how such a tube grows and eats."},
+        {"type": "diagram", "id": "cells", "caption": "A plant cell, an animal cell and a short piece of a fungal hypha, with the features that set them apart. Not to scale: the hypha is far thinner than either cell is wide."},
+        {"type": "text", "text": "The chemistry tells the same story. A plant's cell walls are cellulose, long chains of glucose. A fungus's walls are mostly **chitin**, chains of a glucose with nitrogen attached, the same material that stiffens a beetle's wing cases and a crab's shell.[^chitin] Plants store spare sugar as starch; fungi store it as glycogen, as our livers and muscles do. And the fatty molecule that stiffens a fungus's cell membrane, ergosterol, is a close cousin of the cholesterol in ours, where plants use a different set of sterols."}
+      ]
+    },
+    {
+      "title": "Closer to us",
+      "blocks": [
+        {"type": "text", "text": "Five kingdoms sorted by diet was a better scheme than two sorted by movement, but a diet is a way of life, and unrelated things can share one. The question of who is related to whom could only be settled by comparing the molecules every living thing inherits: its proteins and, later, its genes. Two related lineages have more similar versions of the same protein, because they have had less time to change apart."},
+        {"type": "text", "text": "In 1993 Sandra Baldauf and Jeffrey Palmer, at Indiana University, compared four proteins that every cell with a nucleus makes, among them the actin and tubulin that form its internal scaffolding. Their result, in a paper whose title was its conclusion, was that animals and fungi are each other's closest relatives. Plants had branched off earlier. Each protein, analysed separately, gave the same answer, which is what made it convincing."},
+        {"type": "interactive_diagram", "id": "relatives", "caption": "Where fungi sit among living things: sorted by looks, as Linnaeus did, and by shared genes and proteins, as since 1993. Only a few branches are shown, and branch lengths mean nothing.", "task": "Guess, then compare the two sortings", "goal": "genes", "aspect_ratio": 1.87},
+        {"type": "text", "text": "There was a hint of this all along. The simplest fungi, the chytrids of water and wet soil, make spores that swim with a single tail at the back, as an animal's sperm does. Plants that have swimming cells push them with tails at the front. Biologists now group animals and fungi, with a few single-celled relatives, as the **opisthokonts**, Greek for rear tail.[^tail] The two lineages split more than a billion years ago, by most estimates, which makes the relationship distant. But a mushroom is a closer cousin of a horse than of the oak it grows under."},
+        {"type": "text", "text": "The same comparisons threw some old members out. The water moulds, which look and grow very like fungi and include the blight of the Irish potato famine, turned out to be relatives of brown seaweeds and diatoms. Their walls are cellulose, not chitin. The slime moulds, which crawl as blobs and then put up spore stalks, sit near the amoebas. Each had arrived at a fungus-like way of life on its own."}
+      ]
+    },
+    {
+      "title": "Why it matters that we are kin",
+      "blocks": [
+        {"type": "text", "text": "Closeness has one practical consequence. A drug kills a germ by hitting something the germ has and we lack. Bacteria are distant enough that there are many such targets, which is why there are dozens of kinds of antibiotic. Fungal cells, though, run on much the same machinery as ours: the same kinds of ribosomes, the same scaffolding, much the same way of copying DNA. There are few targets a drug can hit in a fungus without hitting us too."},
+        {"type": "text", "text": "The two big targets that remain are the differences this lesson met. Several antifungal drugs attack ergosterol or stop the fungus making it, and newer ones stop it building its wall. Most of the time, though, fungi are not attacking anyone. This course follows what they do instead: rot the dead, feed living roots, live as lichens, and fill the soil with threads."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on what a fungus is", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "How does a fungus get its food?", "choices": ["It releases enzymes into its food and absorbs what dissolves", "It makes sugar from light with a pigment other than chlorophyll", "It swallows small pieces of food and digests them inside"], "answer": 0, "why": "Fungi digest outside their bodies. Enzymes leave the hyphae, break the food down, and the small molecules that result are absorbed through the walls."},
+          {"ask": "What are a fungus's cell walls mostly made of?", "choices": ["Chitin, as in an insect's shell", "Cellulose, as in a plant's", "Nothing: fungal cells have no walls"], "answer": 0, "why": "Fungal walls are mostly chitin, a chain of a nitrogen-carrying sugar. Plants use cellulose, and animal cells have no walls at all."},
+          {"ask": "Which evidence best shows that fungi are closer to animals than to plants?", "choices": ["Several proteins and genes compared across many species", "Fungi and animals both lack chlorophyll", "Fungi and animals both eat food made by others"], "answer": 0, "why": "Lacking chlorophyll or eating others' food are ways of life that unrelated things can share. Inherited molecules record ancestry, and several proteins, each compared separately, gave the same tree."},
+          {"ask": "Why was it a surprise that water moulds are not fungi?", "choices": ["They look and live like fungi, threads absorbing food, yet are kin of brown seaweeds", "They make mushrooms just like true fungi", "They have chitin walls like true fungi"], "answer": 0, "why": "Water moulds grow as absorbing threads, so they were filed with fungi. Their genes, and their cellulose walls, put them with brown seaweeds and diatoms."},
+          {"ask": "Why are infections by fungi harder to treat than infections by bacteria?", "choices": ["Fungal cells work much like ours, so few drugs harm the fungus and not us", "Fungi are too large for drugs to enter", "Fungi have no metabolism for a drug to block"], "answer": 0, "why": "A drug needs a target the germ has and we lack. Fungi are our relatives, so such targets are few: mainly ergosterol in their membranes and the building of their walls."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "code": {"kind": "technical", "title": "Named as plants", "text": "Fungal names still follow the International Code of Nomenclature for algae, fungi, and plants, a descendant of the botanists' rules. Animals have a separate code. It is a leftover of history, not a claim about relationships."},
+    "chitin": {"kind": "technical", "title": "Chitin", "text": "Chitin is a long chain of N-acetylglucosamine, a glucose with a nitrogen-carrying group attached. It is tough and does not dissolve in water. In fungi it is woven with other sugars into a wall that can hold the pressure of the cell pushing against it."},
+    "tail": {"kind": "technical", "title": "Opisthokonts", "text": "The name was proposed by Thomas Cavalier-Smith in 1987. Most fungi have lost the swimming cell altogether, but chytrids keep it, which is one reason they are thought to resemble the earliest fungi."}
+  }
+}

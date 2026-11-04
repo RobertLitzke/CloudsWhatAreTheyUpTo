@@ -1,0 +1,71 @@
+{
+  "id": "yeast",
+  "n": 7,
+  "title": "The yeast that wastes its sugar",
+  "teaches": "Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen",
+  "summary": [
+    "**A yeast is a fungus that lives as single cells.** Baker's and brewer's yeast is a sac fungus that grows by budding.",
+    "**Pasteur showed fermentation is done by living yeast.** Through the late 1850s he answered chemists who called it a purely chemical decay.",
+    "**Buchner showed the work is done by enzymes.** In 1897 juice pressed from crushed yeast, with no living cells, still fermented sugar.",
+    "**Burning sugar with oxygen yields far more energy than fermenting it.** About fifteen times as much usable energy per sugar molecule.",
+    "**Yet baker's yeast ferments even when it has oxygen.** Given plenty of sugar, it takes sugar fast, makes alcohol, and wastes most of the energy.",
+    "**The alcohol is a weapon and a store.** It poisons competing microbes, and once the sugar is gone the yeast burns the alcohol itself.",
+    "**Yeast's cells work much like ours.** Many human genes can stand in for their yeast versions, which makes yeast a standard organism for studying cells."
+  ],
+  "parts": [
+    {
+      "title": "A fungus you can't see",
+      "blocks": [
+        {"type": "text", "text": "Not every fungus makes threads. A **yeast** is a fungus that lives as separate single cells, each about five thousandths of a millimetre across. Yeasts live on the skins of fruit, in flower nectar, on leaves, in soil and in the guts of insects. The most famous, *Saccharomyces cerevisiae*, Latin for sugar fungus of beer, is the yeast of bread, beer and wine. It is a sac fungus, a cousin of the morel."},
+        {"type": "text", "text": "It grows by **budding**. A small bulge appears on the side of the cell, swells, receives a copy of the nucleus and pinches off as a new cell. Each budding leaves a ring-shaped scar on the mother cell, and a cell can bud only twenty or thirty times before it stops."},
+        {"type": "diagram", "id": "budding", "caption": "A yeast cell budding. Each bud leaves a scar, so the scars on a cell count its daughters."}
+      ]
+    },
+    {
+      "title": "Alive or chemical?",
+      "blocks": [
+        {"type": "text", "text": "People had made bread, beer and wine for thousands of years without knowing that anything was alive in them. Antonie van Leeuwenhoek saw small globules in fermenting beer through his microscope in 1680, but did not take them for living things. In the 1830s three investigators working separately, Charles Cagniard de la Tour in France and Theodor Schwann and Friedrich Kützing in Germany, saw the globules bud and argued that yeast was a living organism and that fermentation was its doing."},
+        {"type": "text", "text": "The leading chemists disagreed, Justus von Liebig most forcefully. To them fermentation was a chemical decay, and yeast at most a by-product. The argument was settled by Louis Pasteur, who was asked in the 1850s to find out why some batches of beetroot alcohol in Lille went sour. Through a series of experiments from 1857 to the early 1860s he showed that each kind of fermentation was carried out by a particular kind of living microbe, that alcohol was made by yeast, and that the souring was the work of bacteria that had got in."}
+      ]
+    },
+    {
+      "title": "Buchner's juice",
+      "blocks": [
+        {"type": "text", "text": "Pasteur believed fermentation needed a living cell. In 1897 the German chemist Eduard Buchner, with his brother Hans, ground yeast with sand, squeezed out the juice through a cloth, and filtered it until no living cell was left. To keep the juice from spoiling they added a lot of sugar, and it began to bubble. The cell-free juice was fermenting sugar into alcohol and carbon dioxide on its own."},
+        {"type": "text", "text": "The work, then, was done not by life itself but by molecules the cell made: enzymes. Buchner was given the Nobel Prize in chemistry in 1907, and his juice is often taken as the start of biochemistry. Over the next forty years chemists took fermentation apart into a chain of about a dozen steps, each with its own enzyme, the same chain that breaks down sugar in our own muscles.[^chain]"}
+      ]
+    },
+    {
+      "title": "Wasting sugar on purpose",
+      "blocks": [
+        {"type": "text", "text": "A cell can get energy from sugar in two ways. **Fermentation** splits a sugar molecule into two of alcohol and two of carbon dioxide and needs no oxygen. **Respiration** uses oxygen to burn the sugar right down to carbon dioxide and water. Respiration yields about fifteen times as much usable energy per sugar molecule; fermentation leaves most of the energy in the alcohol. So a cell that has oxygen should respire, and most cells do."},
+        {"type": "text", "text": "Baker's yeast does not. Give it plenty of sugar and it ferments even in a flask bubbling with air, throwing away most of the energy in each molecule. In return it can take in sugar far faster. In a ripe fruit full of sugar, and of other microbes eating the same sugar, speed matters. The alcohol the yeast leaves behind does it another service: it poisons most bacteria and many other fungi at levels the yeast tolerates."},
+        {"type": "interactive_diagram", "id": "flask", "caption": "Yeast and a sugar-eating bacterium sharing a flask of sugar, with the yeast either fermenting or burning its sugar fully. Cell numbers and amounts are on a shared scale of 0 to 100. A model.", "task": "Try both ways, then run the fermenter to the end", "goal": "ferment", "aspect_ratio": 1.82},
+        {"type": "text", "text": "There is a last step. When the sugar is gone, a yeast with oxygen switches over and burns the alcohol it made, getting back much of the energy it skipped. Biologists sum up the strategy as make, accumulate, consume: take the sugar fast, store it as alcohol where rivals cannot use it, and eat it later. The ability seems to have arisen in the lineage of baker's yeast at about the time flowering plants were evolving sugary fruit.[^when]"}
+      ]
+    },
+    {
+      "title": "A cell like ours",
+      "blocks": [
+        {"type": "text", "text": "Lesson 2 said fungal cells work much like ours. Yeast is the cleanest proof. Its genome, of about six thousand genes, was the first of any organism with a nucleus to be read in full, in 1996. When geneticists replace yeast genes with their human counterparts, a large share of them work: a 2015 study found that nearly half of the essential yeast genes it tested could be swapped for the human version and the yeast lived."},
+        {"type": "text", "text": "That is why so much of what is known about how cells divide, copy their DNA, fold proteins and age was first worked out in yeast. The bud scars of the first part were how biologists first counted a single cell's age. A sugar fungus from a beer vat turned out to be a model of a human cell."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on yeast", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "How does a yeast cell usually reproduce?", "choices": ["A bud swells on its side and pinches off as a new cell", "It splits exactly in half, like a bacterium", "It grows a thread that breaks into pieces"], "answer": 0, "why": "Baker's yeast buds: a bulge grows, gets a copy of the nucleus and separates, leaving a scar on the mother cell."},
+          {"ask": "What did Buchner's cell-free yeast juice show?", "choices": ["Fermentation is carried out by enzymes, which work without a living cell", "Yeast is not alive", "Fermentation needs oxygen"], "answer": 0, "why": "Juice with no living cells still turned sugar into alcohol. The work is done by enzymes the cell makes, which can act outside it."},
+          {"ask": "Why is fermenting sugar wasteful compared with respiring it?", "choices": ["Most of the sugar's energy is left in the alcohol", "Fermentation uses up oxygen the cell needs", "Fermentation destroys the yeast's enzymes"], "answer": 0, "why": "Respiration burns sugar right down to carbon dioxide and water and yields about fifteen times as much usable energy. Fermentation stops at alcohol."},
+          {"ask": "What does baker's yeast gain by fermenting even when oxygen is available?", "choices": ["It takes sugar faster and makes alcohol that poisons competitors", "It makes more energy per sugar molecule", "It avoids needing any enzymes"], "answer": 0, "why": "Fermenting lets yeast take in sugar fast, and the alcohol holds back bacteria and other fungi. Later, with oxygen, it can burn the alcohol itself."},
+          {"ask": "Why is yeast so useful for studying human cells?", "choices": ["Many of its genes do the same jobs as ours, and some human genes can replace them", "Yeast cells are larger than human cells", "Yeast has no nucleus, so it is simpler to study"], "answer": 0, "why": "Fungi and animals are close relatives, so yeast's basic cell machinery is much like ours; in tests, many human genes work in place of the yeast versions."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "chain": {"kind": "technical", "title": "Glycolysis", "text": "The first stretch of the chain, from glucose to a three-carbon acid called pyruvate, is glycolysis, and it is the same in yeast, in bacteria and in us. Yeast then turns pyruvate into alcohol and carbon dioxide; a hard-working muscle short of oxygen turns it into lactic acid instead."},
+    "when": {"kind": "technical", "title": "Dating the habit", "text": "The yeasts that ferment in air descend from an ancestor whose entire genome was doubled, an event dated to roughly 100 million years ago, when flowering plants were spreading. The extra gene copies are thought to have helped yeast handle sugar fast. The timing is an estimate, and the link to fruit is a likely story rather than a proven one."}
+  }
+}

@@ -1,0 +1,44 @@
+// Each diagram id the lessons name, to its code. The charts (timeline, tree,
+// scale, plate) are drawn from a lesson's JSON alone.
+
+import { charts } from 'didactics/charts';
+import type { FigureFactory } from 'didactics/figure';
+import { asset } from '../asset';
+import { checkFigure } from './check';
+import { COL } from './kit';
+import { photoFigure } from './photo';
+import { fruitStill, meadowFigure } from './rings';
+import { cellsStill, relativesFigure } from './kingdom';
+import { digestFigure, forageFigure } from './tips';
+import { fallFigure, gillFigure, launchStill } from './spores';
+import { cycleStill, matingFigure } from './sexes';
+import { makersStill, sortFigure } from './groups';
+import { buddingStill, flaskFigure } from './yeast';
+
+export const FIGURES: Readonly<Record<string, FigureFactory>> = {
+  ...charts({ palette: COL, asset }),
+  photo: photoFigure,
+  check: checkFigure,
+  // Lesson 1
+  meadow: meadowFigure,
+  fruit: fruitStill,
+  // Lesson 2
+  relatives: relativesFigure,
+  cells: cellsStill,
+  // Lesson 3
+  digest: digestFigure,
+  forage: forageFigure,
+  // Lesson 4
+  fall: fallFigure,
+  gills: gillFigure,
+  launch: launchStill,
+  // Lesson 5
+  mating: matingFigure,
+  cycle: cycleStill,
+  // Lesson 6
+  makers: makersStill,
+  sort: sortFigure,
+  // Lesson 7
+  flask: flaskFigure,
+  budding: buddingStill,
+};

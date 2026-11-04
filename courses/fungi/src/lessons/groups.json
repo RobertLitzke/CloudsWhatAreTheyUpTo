@@ -1,0 +1,76 @@
+{
+  "id": "groups",
+  "n": 6,
+  "title": "Sacs and clubs",
+  "teaches": "The main groups of fungi told apart by how they make spores",
+  "summary": [
+    "**Fungi are sorted by how they make spores after mating.** Shape and colour mislead; the spore-making cell does not.",
+    "**Sac fungi make spores inside a sac, usually eight.** Cup fungi, morels, true truffles, yeasts and most moulds are sac fungi, and so are most lichen fungi.",
+    "**Club fungi make spores on the outside of a club-shaped cell, usually four.** Mushrooms, brackets, puffballs, jelly fungi and rusts are club fungi.",
+    "**Sac and club fungi are sister groups.** Together they hold nearly all named fungi.",
+    "**Older lineages branch off earlier.** Pin moulds make balls of spores on stalks, chytrids make spores that swim, and the root fungi of lesson 9 never fruit at all.",
+    "**Similar shapes evolved again and again.** Cap-on-a-stalk mushrooms and underground truffles each arose many times in different lineages."
+  ],
+  "parts": [
+    {
+      "title": "A morel and a mushroom",
+      "blocks": [
+        {"type": "text", "text": "A morel is a cap on a stalk, honeycombed with pits, that comes up in spring under trees and on burned ground. A button mushroom is a cap on a stalk too, with gills underneath. Put them side by side and they look like two versions of one design. A yeast is a single round cell, invisible to the eye. Yet the morel and the yeast are close relatives, and the morel and the button mushroom are not."},
+        {"type": "text", "text": "The way to see it is to look not at the shape of the fungus but at the cell that makes its spores after mating. That cell turns out to come in a few kinds, and each kind marks a great branch of the fungal family tree."}
+      ]
+    },
+    {
+      "title": "Sorting by spores",
+      "blocks": [
+        {"type": "text", "text": "In 1729 the Florentine botanist Pier Antonio Micheli published *Nova Plantarum Genera*, new genera of plants, with careful drawings of hundreds of fungi under his lens. He sowed the spores of moulds on cut melon and quince and showed that each grew into the same mould again, at a time when most naturalists thought moulds arose from rot itself. He named some of them, including *Aspergillus*, for its likeness to the aspergillum, a brush for sprinkling holy water."},
+        {"type": "text", "text": "Over the next century and a half microscopes improved, and mycologists such as the brothers Louis-René and Charles Tulasne in Paris and Anton de Bary in Germany traced the lives of fungi stage by stage. They found that the spores made after mating come from one of a few kinds of cell, and that fungi which share that cell share much else.[^tulasne] The DNA studies of the last thirty years have kept their main divisions."},
+        {"type": "diagram", "id": "makers", "caption": "The four main ways fungi make spores, each drawn hugely enlarged. The first two belong to the sister groups that hold nearly all named fungi."}
+      ]
+    },
+    {
+      "title": "Sac fungi",
+      "blocks": [
+        {"type": "text", "text": "In a **sac fungus** (ascomycete, from the Greek for wineskin) the two parents' nuclei fuse inside a long sac-shaped cell, the **ascus**, and divide into usually eight spores lined up in a row inside it. When they are ripe the sac bursts at its tip and shoots them out. On a cup fungus thousands of sacs fire together, and if you breathe on a ripe one it can answer with a visible puff of spores and a faint hiss."},
+        {"type": "text", "text": "This is the largest group, with roughly two thirds of all named fungi. It includes the cup fungi and morels, the true truffles, the blue and green moulds on fruit and bread, the yeasts used for bread and beer, and the fungi in most lichens. Many sac fungi rarely mate and spread mainly by copies, so for a long time they were known only by their copies."}
+      ]
+    },
+    {
+      "title": "Club fungi",
+      "blocks": [
+        {"type": "text", "text": "In a **club fungus** (basidiomycete, from the Greek for small pedestal) the nuclei fuse in a club-shaped cell, the **basidium**, and the four spores grow on the outside, each on a short prong. This is the cell of lesson 5, lining the gills of a mushroom, from which Buller's drop throws each spore."},
+        {"type": "text", "text": "Club fungi include almost everything people call a mushroom: gilled mushrooms, boletes with tubes, brackets on trees, puffballs, stinkhorns, the jelly fungi that look like orange or brown glue on dead branches, and the coral fungi. They also include most of the fungi partnered with tree roots in lesson 9, and some important parasites of plants, the rusts and smuts. Together, sac fungi and club fungi are sister groups, and between them they hold nearly all named fungi."}
+      ]
+    },
+    {
+      "title": "The older lineages",
+      "blocks": [
+        {"type": "text", "text": "The rest branch off the tree earlier. The **pin moulds** grow fast on bread, fruit and dung and put up stalks topped with a black ball of hundreds of spores. When two strains mate they make a single thick-walled resting spore between them. The **chytrids** live in water and wet soil, on pollen, dead insects and algae, and make spores that swim with a single tail, the trait lesson 2 used to place fungi beside animals. And the **arbuscular fungi**, which live inside the roots of most land plants, never make a fruiting body at all; they appear in lesson 9."},
+        {"type": "interactive_diagram", "id": "sort", "caption": "Six fungi to file by how they make their spores after mating. The clue describes the spore-making cell; the tree on the left keeps your picks.", "task": "File all six", "goal": "sorted", "aspect_ratio": 2},
+        {"type": "text", "text": "The groups are not all the same size or age. The older lineages are small in number of species but ancient, and probably closer to what the first fungi were like: simple threads or single cells in water and soil, long before there were mushrooms."}
+      ]
+    },
+    {
+      "title": "Looks deceive",
+      "blocks": [
+        {"type": "text", "text": "Once fungi could be sorted by their DNA, one surprise was how often the same body shape had arisen independently. A cap on a stalk with gills or pores underneath is a good way to shed spores into the air under cover from rain, and mushrooms of that shape evolved many separate times among the club fungi. Brackets did too. Some lineages lost the cap and went back to a crust, and some closed the cap up into a sealed ball."},
+        {"type": "text", "text": "The underground truffle is the clearest case. A truffle is a fruiting body that never opens and relies on animals to dig it up. True truffles are sac fungi, but there are also false truffles among the club fungi, descended from ordinary mushrooms, and truffle-like fungi have evolved from open-air ancestors dozens of times.[^truffles] Shape is how a fungus solves a problem; the spore-making cell is who it is."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the groups of fungi", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "What feature do mycologists use to tell the main groups of fungi apart?", "choices": ["The kind of cell that makes spores after mating", "The shape and colour of the fruiting body", "Whether the fungus grows on wood or soil"], "answer": 0, "why": "Shapes evolved again and again in unrelated fungi. The spore-making cell, a sac, a club, a ball on a stalk, follows the family tree."},
+          {"ask": "A fungus makes eight spores in a row inside a long cell that shoots them out of its tip. What is it?", "choices": ["A sac fungus", "A club fungus", "A pin mould"], "answer": 0, "why": "An ascus, the sac, usually holds eight spores and fires them out of its tip: the mark of a sac fungus."},
+          {"ask": "Why is a morel closer kin to baker's yeast than to a button mushroom?", "choices": ["The morel and the yeast both make their spores inside sacs", "The morel and the yeast both grow on bread", "Morels and yeasts are both single cells"], "answer": 0, "why": "Despite their shapes, both are sac fungi. The button mushroom makes spores on clubs, so it belongs to the sister group."},
+          {"ask": "Which fungi make spores that swim with a single tail?", "choices": ["Chytrids", "Club fungi", "Pin moulds"], "answer": 0, "why": "Chytrids, of water and wet soil, keep the swimming spore with a rear tail, as animal sperm have. Most other fungi have lost it."},
+          {"ask": "What does the many-times evolution of truffles show?", "choices": ["Similar shapes can arise separately in unrelated fungi", "All truffles descend from one ancestor", "Truffles are older than any other fungi"], "answer": 0, "why": "Underground fruiting bodies arose from open-air ancestors in both sac and club fungi, many separate times. Shape follows way of life, not ancestry."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "tulasne": {"kind": "digression", "title": "The Tulasnes", "text": "The Tulasne brothers' *Selecta Fungorum Carpologia* (1861 to 1865) showed with superb engravings that a single fungus can make several kinds of spore at different stages of its life, so that fungi described as different species were sometimes one. Its plates are in the public domain and are a fine sight."},
+    "truffles": {"kind": "technical", "title": "Why go underground?", "text": "Fruiting below ground protects the spores from drying and frost, which suits dry or cold climates. The cost is that the fungus needs an animal to dig it up, so underground fungi ripen with strong smells. Branch N follows one such deal in the forests of the Pacific Northwest."}
+  }
+}
