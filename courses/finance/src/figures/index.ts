@@ -22,6 +22,7 @@ import { claimFigure, formulaFigure } from './social-security';
 import { capstoneFigure } from './capstone';
 import { ptTaxFigure, twoCountriesFigure } from './portugal';
 import { waEstateFigure, waGainsFigure } from './washington';
+import { heirsFigure, locationFigure } from './taxable';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -70,4 +71,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Branch W
   'wa-gains': waGainsFigure,
   'wa-estate': waEstateFigure,
+  // Branch T
+  location: locationFigure,
+  heirs: heirsFigure,
 };

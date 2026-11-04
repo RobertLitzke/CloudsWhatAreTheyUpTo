@@ -164,4 +164,15 @@ describe('figures', () => {
     expect(e.node.textContent).toContain('$390,000 less');
     await expect(e.done).resolves.toBeUndefined();
   });
+  it('branch T: location and heirs', async () => {
+    const l = FIGURES.location(context(), 'location');
+    guess(l.node, 'About $250,000');
+    click(l.node, '12% bracket');
+    await expect(l.done).resolves.toBeUndefined();
+
+    const h = FIGURES.heirs(context(), 'heirs');
+    click(h.node, '12%');
+    expect(h.node.textContent).toContain('$880k');
+    await expect(h.done).resolves.toBeUndefined();
+  });
 });

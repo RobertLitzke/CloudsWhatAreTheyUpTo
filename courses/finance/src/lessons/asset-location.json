@@ -1,0 +1,71 @@
+{
+  "id": "asset-location",
+  "n": 301,
+  "branch": "taxable",
+  "needs": ["filling-brackets"],
+  "title": "Where to hold what",
+  "teaches": "Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth",
+  "parts": [
+    {
+      "title": "One portfolio, three tax wrappers",
+      "blocks": [
+        { "type": "text", "text": "Lesson 6 chose a mix of shares and bonds for the whole portfolio. Lesson 8 split money into accounts by how they're taxed. Most households end up with both: a target of, say, 60 percent shares, spread across a 401(k), a Roth IRA and a brokerage account. The mix says how much of each to own. Asset location decides where each piece sits." },
+        { "type": "text", "text": "The answer comes from how each investment produces its return. Bonds pay interest, taxed every year as ordinary income at the household's full rate. Broad share index funds pay modest dividends, mostly taxed at the lower qualified rate, and produce the rest of their return as growth that isn't taxed until it is sold, and not at all if it is held until death or given away." }
+      ]
+    },
+    {
+      "title": "The usual answer",
+      "blocks": [
+        { "type": "text", "text": "**Taxable accounts suit broad share funds.** Their growth is taxed late and at a low rate, often 0 percent for a retiree filling the bottom brackets, and they get the step-up at death. Losses can be harvested, which lesson T2 covers. Foreign share funds belong here too, because the foreign tax they pay can be credited only in a taxable account." },
+        { "type": "text", "text": "**Pre-tax accounts suit bonds.** Interest that would be taxed every year at ordinary rates is sheltered until withdrawal, when it is taxed at ordinary rates anyway. And a pre-tax account is partly the government's: its share is the future tax. Holding the slow-growing assets there keeps that share smaller." },
+        { "type": "text", "text": "**Roth accounts suit the fastest-growing assets.** Everything a Roth earns is the owner's. If one account should hold the small-company fund or the most aggressive shares, it is the Roth." },
+        { "type": "text", "text": "Funds that pay out heavily taxed income, such as real estate investment trusts and actively managed funds with frequent gains, belong in either kind of sheltered account." }
+      ]
+    },
+    {
+      "title": "What it's worth",
+      "blocks": [
+        { "type": "text", "text": "The figure takes a couple with $500,000 in a traditional IRA and $500,000 in a taxable account, half of the million in shares and half in bonds, and compares the two extreme placements over a span of years, after every tax including the tax on the IRA when it comes out." },
+        { "type": "interactive_diagram", "id": "location", "caption": "After-tax wealth from $500,000 in an IRA and $500,000 in a taxable account, with the bonds in the IRA or the shares in the IRA, for four federal brackets.", "task": "Guess, then try two brackets", "goal": "location", "aspect_ratio": 2.27 },
+        { "type": "text", "text": "Over 30 years in the 22 percent bracket the better placement leaves about $250,000 more, close to 6 percent. In the 12 percent bracket the gap grows, because shares in a taxable account then pay no tax at all on their dividends or gains; in the 32 percent bracket it grows again, because the bonds' interest would be taxed so heavily.[^risk]" },
+        { "type": "text", "text": "The gap depends on what bonds pay. When interest rates were near zero, from 2009 to 2021, bonds produced little to shelter and location mattered less. At the 4 to 5 percent yields of 2026 it matters more." }
+      ]
+    },
+    {
+      "title": "In practice",
+      "blocks": [
+        { "type": "text", "text": "Location is applied to new money and to rebalancing, not by selling everything. Selling shares in a taxable account to move them would realise the gains, which usually costs more than the placement saves. Inside the sheltered accounts, on the other hand, trades cost no tax, so rebalancing is best done there: when shares rise, sell shares and buy bonds inside the IRA, and leave the taxable account alone." },
+        { "type": "text", "text": "Two cautions. A household that will soon spend its taxable account in the bridge years of lesson 9 may want bonds there, for stability, whatever their tax. And as the pre-tax account is drawn down or converted to Roth, its bonds have to move somewhere, so the placement drifts over the years and needs revisiting.[^municipal]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Bonds produce ordinary income every year: shelter them in pre-tax accounts.",
+          "Broad share funds are taxed late and lightly: hold them in taxable accounts, and the fastest growers in the Roth.",
+          "For a couple with $1 million split evenly, good placement is worth about $250,000 over 30 years at the 22 percent bracket.",
+          "Change location with new money and rebalancing inside sheltered accounts, not by selling taxable holdings."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on asset location", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "Why do bonds usually belong in a pre-tax account?", "choices": ["Their interest is taxed every year at ordinary rates in a taxable account", "Bonds grow faster than shares", "Bonds can't be held in a taxable account"], "answer": 0, "why": "Sheltering interest defers a tax that would otherwise be charged every year at the full rate." },
+          { "ask": "Which account is the best home for the investment expected to grow fastest?", "choices": ["The Roth", "The traditional IRA", "The taxable account"], "answer": 0, "why": "Everything a Roth earns belongs to its owner; in a pre-tax account part of the growth is the future tax." },
+          { "ask": "Where does a foreign share fund usually belong?", "choices": ["The taxable account, to claim the foreign tax credit", "The Roth, to avoid the foreign tax", "The HSA"], "answer": 0, "why": "Foreign tax withheld from dividends can be credited only on taxable holdings." },
+          { "ask": "A household's taxable account holds bonds with no gain and shares with a large gain. How should it start correcting its location?", "choices": ["Rebalance inside the IRA and direct new money to the right place", "Sell the shares in taxable and buy them in the IRA", "Do nothing: location never matters"], "answer": 0, "why": "Selling the shares would realise the gain. Trades inside sheltered accounts cost no tax." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**The mix and the location are two decisions.** The mix says how much of each asset; the location says which account holds it.",
+    "**Shelter the bonds.** Their interest is ordinary income taxed every year.",
+    "**Hold broad share funds in taxable accounts.** Their growth is taxed late, lightly, or not at all.",
+    "**Put the fastest growers in the Roth.** Every dollar of a Roth's growth is the owner's.",
+    "**It is worth about 6 percent over 30 years.** More in the lowest and highest brackets, and more when bonds pay well.",
+    "**Change it gently.** Use new money and rebalance inside sheltered accounts."
+  ],
+  "footnotes": {
+    "risk": { "kind": "technical", "title": "A fair comparison", "text": "Part of the gap is risk rather than tax. With the shares in the taxable account, the household owns all of their growth; with them in the IRA, a fifth of it belongs to the future tax. Measured after tax, the first placement holds more shares. Studies that adjust for this find the pure tax benefit somewhat smaller, but still positive." },
+    "municipal": { "kind": "digression", "title": "Municipal bonds", "text": "Interest on state and local bonds is free of federal tax, so a household in a high bracket with no room left in sheltered accounts can hold its bonds in taxable as municipal bonds. They yield less, so they pay only in the 32 percent bracket and above. Washington residents have no state income tax to save, which makes them a little less attractive here than in Oregon or California." }
+  }
+}

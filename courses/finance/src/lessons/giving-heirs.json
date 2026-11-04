@@ -1,0 +1,74 @@
+{
+  "id": "giving-heirs",
+  "n": 303,
+  "branch": "taxable",
+  "needs": ["harvesting"],
+  "title": "Giving and heirs",
+  "teaches": "The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half",
+  "parts": [
+    {
+      "title": "The same million, worth different amounts",
+      "blocks": [
+        { "type": "text", "text": "Most plans in this course end with money left over, often a lot of it: lesson 14's typical estate at 95 was several million dollars. Who gets it, and from which account, decides how much tax is paid on it after the owner has stopped caring about their own brackets." },
+        { "type": "text", "text": "Three rules do most of the work. Shares in a taxable account get a new basis at death equal to their value, so the gain built up in a lifetime is never taxed. A pre-tax account carries its income tax with it: the heir pays it on withdrawal, at the heir's rates. And a charity pays no income tax at all, so to a charity every dollar is worth a dollar, whichever account it comes from." },
+        { "type": "interactive_diagram", "id": "heirs", "caption": "What $1 million is worth to an heir after income tax, by the kind of account it was left in, for heirs in different federal brackets.", "task": "Compare an heir in a low bracket with one in a high one", "goal": "heirs", "aspect_ratio": 1.69 }
+      ]
+    },
+    {
+      "title": "The step-up",
+      "blocks": [
+        { "type": "text", "text": "Shares bought for $300,000 and worth $1 million at death pass to the heir with a basis of $1 million. If the heir sells the next day, there is no gain. The $700,000 of growth is never taxed by anyone. The same shares given away during life keep the giver's $300,000 basis, and the heir pays tax on the $700,000 when they sell." },
+        { "type": "text", "text": "So late in life the order of spending flips. Lesson 12 said to draw taxable accounts early. For someone in their eighties with a large untaxed gain, the shares are worth more held until death, and spending should come from pre-tax money or cash instead. The same logic says not to give low-basis shares to children while alive, unless there is a reason that outweighs the lost step-up." },
+        { "type": "text", "text": "Washington, like eight other states, is a community property state. For a married couple, property acquired during the marriage belongs to both, and at the first death both halves get the step-up, not only the half of the spouse who died.[^community]" }
+      ]
+    },
+    {
+      "title": "Heirs and retirement accounts",
+      "blocks": [
+        { "type": "text", "text": "Most heirs other than a spouse must empty an inherited IRA or 401(k) within ten years, adding the withdrawals to their own income. A child inheriting a large traditional IRA in their fifties, at the peak of their earnings, may pay 32 or 35 percent on it. An inherited Roth must also be emptied within ten years, but tax-free.[^tenyear]" },
+        { "type": "text", "text": "This is the last argument of lesson 10. Roth conversions at 12 or 22 percent in the parents' sixties, paying tax the heirs would otherwise pay at 32, move money from the government to the family. When heirs' brackets are expected to be low, it argues the other way." }
+      ]
+    },
+    {
+      "title": "Giving well",
+      "blocks": [
+        { "type": "text", "text": "**Give shares, not cash.** A gift of shares held more than a year is deductible at their full value for someone who itemises, and the gain on them is never taxed. Giving $10,000 of shares with a $3,000 basis, and using the $10,000 of cash that would have been given to buy new shares, raises the household's basis by $7,000 at no cost." },
+        { "type": "text", "text": "**Bunch gifts in a donor-advised fund.** A donor-advised fund takes a large gift now, deductible this year, and pays it out to charities over later years. A couple who give $10,000 a year can put five years' giving into one year, itemise in that year, and take the standard deduction in the other four. From 2026, the first 0.5 percent of income given each year isn't deductible for those who itemise, and those who don't can deduct up to $2,000 of cash gifts as a couple, which makes bunching more useful still.[^2026]" },
+        { "type": "text", "text": "**Give from the IRA after 70 and a half.** A qualified charitable distribution sends money straight from an IRA to a charity, up to about $111,000 per person in 2026. It is never counted as income, which is better than a deduction: it lowers AGI, and with it the tax on Social Security, the Medicare surcharge and the phase-out of the deduction for people over 65. It also counts towards required withdrawals." },
+        { "type": "text", "text": "**Leave pre-tax money to charity.** A will or beneficiary form that leaves the traditional IRA to charity and the Roth and taxable accounts to people gets the most to both. The beneficiary form on each account, not the will, decides where that account goes." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Taxable shares get a new basis at death; in Washington both spouses' halves of community property do.",
+          "Heirs pay income tax on inherited pre-tax accounts within ten years, at their own rates.",
+          "Give appreciated shares rather than cash, and bunch gifts through a donor-advised fund.",
+          "After 70 and a half, give from the IRA directly: it never enters income.",
+          "Leave pre-tax money to charity and Roth and taxable money to people."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Five questions on giving and heirs", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "A mother leaves her son shares bought for $300,000 and worth $1 million. He sells them at once. What gain does he report?", "choices": ["None", "$700,000", "$1 million"], "answer": 0, "why": "The basis steps up to the value at death." },
+          { "ask": "Which $1 million is worth least to a daughter in the 32 percent bracket?", "choices": ["A traditional IRA", "A Roth IRA", "Shares held until death"], "answer": 0, "why": "She pays income tax on every dollar she takes from the traditional IRA." },
+          { "ask": "Why is giving appreciated shares better than giving cash?", "choices": ["The gain on the shares is never taxed and the deduction is the full value", "Charities prefer shares", "Shares are deductible twice"], "answer": 0, "why": "The giver avoids the gain and can rebuy with the cash, raising their basis." },
+          { "ask": "What makes a qualified charitable distribution better than a deduction?", "choices": ["It never enters income, lowering AGI", "It is deductible at double value", "It can be made at any age"], "answer": 0, "why": "Lower AGI reduces the tax on Social Security and Medicare surcharges, even for someone who doesn't itemise." },
+          { "ask": "A couple want to leave money both to charity and to their children. Which split leaves the most in total?", "choices": ["The IRA to charity, the Roth and taxable accounts to the children", "The Roth to charity, the IRA to the children", "Half of each account to each"], "answer": 0, "why": "The charity pays no tax on the IRA; the children inherit the accounts that carry no income tax." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Each account is worth a different amount to an heir.** Pre-tax accounts carry their income tax with them.",
+    "**Taxable shares step up at death.** The lifetime gain is never taxed, so late in life hold them.",
+    "**Community property steps up twice.** In Washington both halves get a new basis at the first death.",
+    "**Inherited IRAs are emptied within ten years.** At the heirs' rates, which can be high.",
+    "**Give shares, bunch gifts, and give from the IRA after 70 and a half.** Each keeps income or gains off the return.",
+    "**Pre-tax to charity, the rest to people.** Beneficiary forms make it happen."
+  ],
+  "footnotes": {
+    "community": { "kind": "technical", "title": "Both halves", "text": "Section 1014(b)(6) of the tax code gives the surviving spouse's half of community property a new basis too. In the other states, only the half that belonged to the spouse who died steps up. Couples who moved from a community property state can keep the status for property bought there." },
+    "tenyear": { "kind": "technical", "title": "Who escapes the ten years", "text": "A spouse can treat the account as their own. Minor children of the owner have until 21 and then ten years; disabled or chronically ill heirs and those less than ten years younger than the owner can stretch withdrawals over their own lives. If the owner had begun required withdrawals, other heirs must also take some each year within the ten." },
+    "2026": { "kind": "digression", "title": "The 2026 changes", "text": "The 2025 budget act added a deduction for cash gifts to charity of up to $1,000, or $2,000 for a couple, for those who take the standard deduction, from 2026. Gifts to donor-advised funds don't qualify for it. For itemisers it added the 0.5 percent floor, and capped the value of deductions at 35 percent for those in the 37 percent bracket." }
+  }
+}

@@ -15,7 +15,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Money That Lasts](#finance) | 20 | 12 | 20 | 0 | 20 | 0 | 0 |
+| [Money That Lasts](#finance) | 23 | 9 | 23 | 0 | 23 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -374,9 +374,9 @@ A lesson's status is the first step it still waits for, in the order: student re
 | W1 | What Washington taxes instead (`wa-taxes`) | Washington | needs student read-through | Fact check | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
 | W2 | Apple Health and Cascade Care (`wa-health`) | Washington | needs student read-through | Fact check | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
 | W3 | WA Cares and the estate tax (`wa-estate`) | Washington | needs student read-through | Fact check | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
-| T1 | Where to hold what (`asset-location`) | Taxable-account craft | planned, listed as coming |  | Which assets belong in which account, and what that is worth. |
-| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | planned, listed as coming |  | Tax-loss harvesting, wash sales, lots, and gains at 0 percent. |
-| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | planned, listed as coming |  | Appreciated shares, donor-advised funds, QCDs and the step-up. |
+| T1 | Where to hold what (`asset-location`) | Taxable-account craft | needs student read-through | Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
+| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | needs student read-through | Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
+| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | needs student read-through | Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
 | E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | planned, listed as coming |  | After-tax 401(k) money into Roth, and the backdoor Roth IRA. |
 | E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | planned, listed as coming |  | Vested shares as wages, the withholding gap, and ESPP sales. |
 | E3 | Options and the AMT (`options`) | Equity pay and big-company plans | planned, listed as coming |  | Incentive and non-qualified options, the AMT, and 83(b). |
