@@ -17,12 +17,6 @@ const TRUNK_COMING: EcoLesson[] = [
 ];
 
 const BRANCH_COMING: EcoLesson[] = [
-  coming('no-trees', 501, 'Why no trees?', 'The shrub-steppe of the dry side', { branch: 'dry', needs: ['humboldt'] }),
-  coming('cheatgrass', 502, 'Cheatgrass and fire', 'An annual grass that changed a fire cycle', { branch: 'dry', needs: ['fires'] }),
-  coming('palouse', 503, 'The prairie under the wheat', 'The Palouse prairie and what is left of it', { branch: 'dry', needs: ['no-trees', 'half'] }),
-  coming('salmon-trees', 601, 'Salmon in the trees', 'Ocean nitrogen carried up rivers by salmon', { branch: 'salmon', needs: ['hubbard'] }),
-  coming('elwha', 602, 'After the dams came down', 'The Elwha River since 2014', { branch: 'salmon', needs: ['salmon-trees'] }),
-  coming('lake-washington', 603, 'The lake Seattle saved', 'Edmondson, sewage and a lake that cleared', { branch: 'salmon', needs: ['curtain'] }),
 ];
 
 /** The branches: three that carry the trunk's ideas further, and three on the Pacific Northwest. */

@@ -36,6 +36,12 @@ import { coastFigure } from './olympic';
 import { snowFigure } from './undersnow';
 import { lupineFigure } from './lupine';
 import { spiritFigure } from './spirit';
+import { transectFigure } from './notrees';
+import { cheatFigure } from './cheatgrass';
+import { palouseFigure } from './palouse';
+import { salmonTreesFigure } from './salmontrees';
+import { elwhaFigure } from './elwha';
+import { lakeWaFigure } from './lakewa';
 import { controlFigure, curtainFigure, oxygenFigure } from './curtain';
 import { bathtubFigure, brakeFigure, darwinFigure, recaptureFigure } from './elephants';
 
@@ -119,4 +125,12 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   snow: snowFigure,
   lupine: lupineFigure,
   spirit: spiritFigure,
+  // Branch S
+  transect: transectFigure,
+  cheat: cheatFigure,
+  palouse: palouseFigure,
+  // Branch W
+  salmon: salmonTreesFigure,
+  elwha: elwhaFigure,
+  lakewa: lakeWaFigure,
 };

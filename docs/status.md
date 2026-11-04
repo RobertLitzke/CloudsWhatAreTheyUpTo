@@ -12,7 +12,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 31 | 6 | 3 | 31 | 31 | 31 | 0 |
+| [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
@@ -229,7 +229,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and the branches are being written (4 Nov), each read by a Haiku student. No photos (parked in tools/pending-photos.json) or encyclopedia links yet.
+`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. No photos (parked in tools/pending-photos.json) or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -261,15 +261,15 @@ A lesson's status is the first step it still waits for, in the order: student re
 | T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Zones of a Salish Sea shore and what sets each edge. |
 | T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Sea star wasting and the urchins that followed. |
 | T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Sea otters on the outer coast of Washington. |
-| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | What lived through the 1980 blast at Mount St Helens. |
-| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | The first plants on the Pumice Plain. |
-| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | A lake that went dead and came back. |
-| S1 | Why no trees? (`no-trees`) | The dry side | planned, listed as coming |  | The shrub-steppe of the dry side. |
-| S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | planned, listed as coming |  | An annual grass that changed a fire cycle. |
-| S3 | The prairie under the wheat (`palouse`) | The dry side | planned, listed as coming |  | The Palouse prairie and what is left of it. |
-| W1 | Salmon in the trees (`salmon-trees`) | Salmon and Lake Washington | planned, listed as coming |  | Ocean nitrogen carried up rivers by salmon. |
-| W2 | After the dams came down (`elwha`) | Salmon and Lake Washington | planned, listed as coming |  | The Elwha River since 2014. |
-| W3 | The lake Seattle saved (`lake-washington`) | Salmon and Lake Washington | planned, listed as coming |  | Edmondson, sewage and a lake that cleared. |
+| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | What lived through the 1980 blast at Mount St Helens. |
+| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The first plants on the Pumice Plain. |
+| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | A lake that went dead and came back. |
+| S1 | Why no trees? (`no-trees`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The shrub-steppe of the dry side. |
+| S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | An annual grass that changed a fire cycle. |
+| S3 | The prairie under the wheat (`palouse`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The Palouse prairie and what is left of it. |
+| W1 | Salmon in the trees (`salmon-trees`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Ocean nitrogen carried up rivers by salmon. |
+| W2 | After the dams came down (`elwha`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The Elwha River since 2014. |
+| W3 | The lake Seattle saved (`lake-washington`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Edmondson, sewage and a lake that cleared. |
 
 ## Botany <a id="botany"></a>
 

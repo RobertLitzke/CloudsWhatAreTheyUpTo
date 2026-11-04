@@ -1,0 +1,78 @@
+{
+  "id": "salmon-trees",
+  "n": 601,
+  "branch": "salmon",
+  "needs": [
+    "hubbard"
+  ],
+  "title": "Salmon in the trees",
+  "teaches": "Ocean nitrogen carried up rivers by salmon",
+  "parts": [
+    {
+      "title": "Fish under the spruce",
+      "blocks": [
+        {"type": "text", "text": "Walk along a salmon stream in coastal Alaska or British Columbia in autumn and you will find fish in the forest. Not in the water, but on the moss under the trees, ten, fifty, a hundred metres from the bank: salmon carcasses, mostly with only the brain, the eggs and the skin over the back eaten. In the 1990s the Canadian biologist Tom Reimchen sat by streams on Haida Gwaii through the autumn nights, watching black bears fish[^reimchen], and counted. A bear would catch a salmon, carry it into the woods, eat the richest parts and go back for another. Reimchen estimated that the bears on one stream carried most of the salmon they caught away from the water."},
+        {"type": "text", "text": "What happens to the rest of each fish? Flies lay eggs on it, and the maggots, beetles, birds and small mammals take their share. What they don't take rots into the soil. A spawning salmon, after several years at sea, is made of the ocean: its body is built of nitrogen, phosphorus and carbon taken from ocean food. Dragged into the forest, it delivers a load of the sea's fertiliser to the trees."}
+      ]
+    },
+    {
+      "title": "A tracer from the sea",
+      "blocks": [
+        {"type": "text", "text": "To follow the salmon's nitrogen, ecologists use a kind of nitrogen atom that is a little heavier than the usual one. Nitrogen-15 makes up less than half a percent of nitrogen everywhere, but the share is higher in the sea's food chains, because ocean food chains are long and each step up concentrates it a little more. So a salmon carries more nitrogen-15 than a plant growing on forest soil, and the extra can be traced. Measure the share of nitrogen-15 in a tree's needles and see where it falls between the value for trees far from any salmon and the value for salmon: if it sits a quarter of the way toward the salmon, about a quarter of the tree's nitrogen came from fish[^isotope]."},
+        {"type": "text", "text": "In 2001 James Helfield and Robert Naiman, of the University of Washington, measured the nitrogen in the needles of Sitka spruce along two streams in southeast Alaska, one with a salmon run and one without. By the salmon stream, about a quarter of the needles' nitrogen came from the sea. And the trees grew faster: spruce by the salmon stream put on wood about three times as fast as spruce by the stream without salmon."}
+      ]
+    },
+    {
+      "title": "Why it matters to a forest",
+      "blocks": [
+        {"type": "text", "text": "Lesson 12 showed that nitrogen is what a northern forest is usually short of, and that the forest holds onto it tightly. Rain brings in a little; bacteria in soil and roots fix some from the air; but most of what a forest has, it recycles. Salmon break the rule: they carry nitrogen uphill, from the sea into the land, against the downhill flow of streams that slowly washes nutrients out to the ocean. Ecologists call a flow like this a **subsidy**, food or nutrients that one ecosystem gets from another."},
+        {"type": "interactive_diagram", "id": "salmon", "caption": "A salmon stream and the forest beside it. Bears carry carcasses into the trees; the ocean nitrogen in them reaches the soil, and the trees grow faster. Change the size of the run, or take the bears away. A model.", "task": "Compare a full salmon run with none", "goal": "ocean", "aspect_ratio": 1.81},
+        {"type": "text", "text": "The forest pays the salmon back. Big trees on the bank shade the stream and keep it cool, which salmon eggs and young need. Their roots hold the banks, and when they fall into the water they make the pools and logjams where young salmon shelter. A stream with salmon grows a forest that makes a better salmon stream[^logs]."}
+      ]
+    },
+    {
+      "title": "Where the salmon are fewer",
+      "blocks": [
+        {"type": "text", "text": "In Washington, salmon runs today are a small fraction of what they were before dams, logging, fishing and the loss of estuaries in the twentieth century. Some biologists estimate that rivers of the Pacific Northwest now receive less than a tenth of the ocean nitrogen and phosphorus they did when the runs were full. Some restoration projects have placed hatchery salmon carcasses along streams, by hand or from trucks, to put back part of the subsidy[^carcass]."},
+        {"type": "key_ideas", "title": "Outside", "points": ["In October or November, visit a salmon stream such as the Cedar River below Landsburg, Kennedy Creek near Olympia, or Issaquah Creek, where chum, coho or sockeye spawn. Look for carcasses along the banks and on gravel bars, and for the birds, from gulls to eagles, that come to them."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on salmon and forests", "task": "Choose the best answer to each", "options": {"items": [{"ask": "How do salmon carcasses end up far from the stream?", "choices": ["Bears carry the fish into the forest to eat", "Gulls drop them while flying inland", "Salmon swim up side streams and die there"], "answer": 0, "why": "Reimchen watched bears carry most of the fish they caught away from the water."}, {"ask": "How can ecologists tell that a tree's nitrogen came from salmon?", "choices": ["Ocean nitrogen carries more of the heavier nitrogen-15", "Salmon nitrogen is a different colour", "Trees near salmon smell of fish"], "answer": 0, "why": "The share of nitrogen-15 in the needles shows how much came from the sea."}, {"ask": "What did Helfield and Naiman find by the salmon stream?", "choices": ["About a quarter of the needles' nitrogen came from the sea, and trees grew about three times as fast", "The trees were stunted by too much nitrogen", "No difference from the stream without salmon"], "answer": 0, "why": "The salmon's ocean nitrogen fertilised the spruce."}, {"ask": "Why does ocean nitrogen matter so much to a northern forest?", "choices": ["Nitrogen is what such forests are usually short of", "The forest has no other source of water", "Salmon carcasses keep the soil moist"], "answer": 0, "why": "Lesson 12: forests hold onto scarce nitrogen tightly. Salmon bring in more."}, {"ask": "In the figure, what happens without bears?", "choices": ["Carcasses stay near the water, so trees further in gain little", "The trees grow faster everywhere", "The salmon stop coming"], "answer": 0, "why": "Bears spread the subsidy into the forest; without them it stays at the bank."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Bears carry salmon into the forest.** Reimchen watched them carry most of their catch away from the water.",
+    "**A salmon is made of the ocean.** Its nitrogen and phosphorus come from years of feeding at sea.",
+    "**Nitrogen-15 traces it.** Ocean nitrogen carries more of the heavier atom, so it shows up in the trees' needles.",
+    "**Spruce by salmon streams grow about three times as fast.** About a quarter of their nitrogen comes from the sea.",
+    "**Salmon carry nutrients uphill.** A subsidy from sea to land, against the flow of the streams.",
+    "**The forest pays the salmon back.** Shade, banks and fallen logs make better streams for salmon."
+  ],
+  "journal": [],
+  "footnotes": {
+    "isotope": {
+      "kind": "technical",
+      "title": "Heavier nitrogen",
+      "text": "Atoms of the same element with different weights are isotopes. At each step up a food chain, animals keep slightly more of the heavier nitrogen-15 and lose more of the lighter nitrogen-14, so animals high in long ocean food chains, like salmon, end up with more of it than land plants."
+    },
+    "logs": {
+      "kind": "digression",
+      "title": "Logjams",
+      "text": "Rivers in the Pacific Northwest once held huge logjams. Settlers cleared many for boats and log drives, which left rivers faster and simpler, with fewer pools. Engineers now build logjams on purpose to give young salmon shelter."
+    },
+    "carcass": {
+      "kind": "technical",
+      "title": "Planting carcasses",
+      "text": "Adding salmon carcasses to streams has raised the growth of young salmon and the insects they eat in several studies. It also risks spreading fish diseases, so carcasses are usually from the same river and checked first."
+    },
+    "reimchen": {
+      "kind": "digression",
+      "title": "Watching at night",
+      "text": "Reimchen and his students watched the bears with night-vision scopes, since bears on Haida Gwaii fish mostly after dark. They also counted the insects and birds that fed on what the bears left."
+    }
+  }
+}

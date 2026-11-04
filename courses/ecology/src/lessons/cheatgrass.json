@@ -1,0 +1,80 @@
+{
+  "id": "cheatgrass",
+  "n": 502,
+  "branch": "dry",
+  "needs": [
+    "fires"
+  ],
+  "title": "Cheatgrass and fire",
+  "teaches": "An annual grass that changed a fire cycle",
+  "parts": [
+    {
+      "title": "A grass in the grain",
+      "blocks": [
+        {"type": "text", "text": "In the 1890s a small grass from the dry lands of Europe and Central Asia began turning up in eastern Washington. It probably came in sacks of grain seed and in the straw packed around goods shipped by rail. It was soft and downy when young, with drooping purple-tinged heads of seed, each seed tipped with a stiff bristle that catches in socks and in animals' fur. Settlers called it **cheatgrass**[^name]."},
+        {"type": "text", "text": "In 1981 the Washington State ecologist Richard Mack traced its spread through old plant collections and records[^mack]. Within about thirty years of its arrival, cheatgrass had spread across the dry interior of the Northwest, from British Columbia to Nevada. Today it covers tens of millions of hectares of the American West, and in much of the Great Basin it is the most common plant there is."}
+      ]
+    },
+    {
+      "title": "Ground that was ready for it",
+      "blocks": [
+        {"type": "text", "text": "Cheatgrass arrived at a good time for it. In the 1880s and 1890s great herds of cattle and sheep were grazing the open range of the dry side. The native bunchgrasses of lesson S1 had not evolved with large herds of grazing animals, and heavy grazing killed many of them, leaving bare ground between the sagebrush. Ploughing opened more. Lesson H2 showed that disturbed ground is where newcomers take hold, and cheatgrass took it."},
+        {"type": "text", "text": "Its way of living suits the dry side's winters. Cheatgrass is an **annual**: each plant lives less than a year, where the native bunchgrasses are **perennials** that live for many years. Its seeds sprout with the autumn rains and grow roots through the winter, when native perennials are dormant. In spring it is ahead of them, using up the soil's water. By early summer it has set seed and died, leaving a carpet of dry straw. In the dry side's long summer, that carpet burns."}
+      ]
+    },
+    {
+      "title": "The fire loop",
+      "blocks": [
+        {"type": "text", "text": "Before cheatgrass, sagebrush steppe burned now and then, every few decades to a century in most places. Fires were patchy, since the bunchgrasses grow in clumps with bare soil between them, and a fire that starts often runs out of fuel. Big sagebrush is killed by fire and doesn't sprout from its roots; it comes back slowly from seed. A few decades between fires gave it time."},
+        {"type": "text", "text": "Cheatgrass fills the gaps between the shrubs with a continuous bed of fine, dry fuel, so a spark from lightning, a train or a car can run for kilometres. After the fire the sagebrush is dead, but cheatgrass seeds in the soil sprout with the autumn rain, and the next year the burned ground is a solid stand of cheatgrass, ready to burn again. Fire favours the grass, and the grass brings more fire. In parts of the Great Basin, fires that came every 30 to 100 years now come every 3 to 5."},
+        {"type": "interactive_diagram", "id": "cheat", "caption": "A century of sagebrush steppe. Lightning may start a fire any summer; it spreads only with enough fine fuel between the shrubs. Fire kills sagebrush, which returns slowly from seed. Let cheatgrass arrive and watch the fires. A model.", "task": "Guess, then let cheatgrass arrive", "goal": "loop", "aspect_ratio": 1.81},
+        {"type": "text", "text": "Ecologists call a change like this a shift in the **disturbance regime**: not one disturbance, but how often and how fiercely they come. Lesson 16 showed a forest where putting fires out made them rarer and worse. Here an invader made them more frequent, and in doing so made the land more suitable for itself."}
+      ]
+    },
+    {
+      "title": "What is lost",
+      "blocks": [
+        {"type": "text", "text": "Sagebrush is not just a shrub; for many animals it is the only home. Greater sage-grouse, ground-nesting birds famous for the strutting dances of the males in spring[^lek], eat almost nothing but sagebrush leaves in winter and nest beneath the shrubs. Pygmy rabbits, sage thrashers and Brewer's sparrows depend on it too. As cheatgrass and fire have turned sagebrush into grassland, sage-grouse have declined across the West, and in Washington they are listed by the state as endangered."},
+        {"type": "text", "text": "Breaking the loop is hard. Land managers cut fuel breaks, spray herbicides that stop cheatgrass seeds sprouting, and sow native bunchgrasses that can compete with it once established. Where enough native perennials survive, they can hold cheatgrass back. Where they don't, the steppe may stay a cheatgrass grassland for a very long time[^restore]."},
+        {"type": "key_ideas", "title": "Outside", "points": ["In late May or June on the dry side, look along roadsides for a short grass with drooping, purple-tinged or straw-coloured heads among the sagebrush. Run your hand up a seed head: the bristles point backward and catch. Notice how much of the ground between the shrubs it fills, compared with clumps of native bunchgrass."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on cheatgrass", "task": "Choose the best answer to each", "options": {"items": [{"ask": "How did cheatgrass probably reach eastern Washington?", "choices": ["In grain seed and packing straw, in the 1890s", "On the feet of migrating birds", "Planted on purpose to feed cattle"], "answer": 0, "why": "It travelled with grain and goods shipped from Europe and Asia."}, {"ask": "Why did heavy grazing help cheatgrass spread?", "choices": ["It killed native bunchgrasses, leaving bare ground", "Cattle spread its seeds in their dung only", "Grazing made the soil richer"], "answer": 0, "why": "Disturbed ground is where newcomers take hold, as in lesson H2."}, {"ask": "Why does cheatgrass make fires more frequent?", "choices": ["It fills the gaps between shrubs with dry fuel by early summer", "It gives off a flammable gas", "It grows taller than the sagebrush"], "answer": 0, "why": "Native bunchgrass leaves bare soil between clumps, which stops fires. Cheatgrass makes a continuous carpet."}, {"ask": "Why does each fire favour cheatgrass over sagebrush?", "choices": ["Sagebrush dies and regrows slowly from seed; cheatgrass is back next spring", "Fire kills cheatgrass seeds but not sagebrush seeds", "Ash is poisonous to sagebrush only"], "answer": 0, "why": "An annual that seeds every year recovers at once; a shrub needs decades."}, {"ask": "Why does the loss of sagebrush threaten sage-grouse?", "choices": ["They eat sagebrush in winter and nest beneath it", "They need fire to breed", "Fires drive their predators into the steppe"], "answer": 0, "why": "Sage-grouse depend on sagebrush for food and shelter all year."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Cheatgrass reached eastern Washington in the 1890s.** It came from Eurasia in grain and packing straw.",
+    "**Overgrazing opened the way.** Native bunchgrasses died under heavy grazing, leaving bare ground.",
+    "**It is an annual that grows through winter.** By early summer it has set seed and dried to straw.",
+    "**It feeds a fire loop.** Continuous dry fuel means more fires; fire kills sagebrush and hands the ground to cheatgrass.",
+    "**In parts of the Great Basin, fires now come every 3 to 5 years.** They once came every 30 to 100.",
+    "**Sage-grouse and other sagebrush animals lose their home.** Breaking the loop is slow and hard."
+  ],
+  "journal": [],
+  "footnotes": {
+    "name": {
+      "kind": "digression",
+      "title": "Why cheat",
+      "text": "Farmers once believed that wheat in a bad year could turn into a weedy grass they called chess or cheat, which appeared in their fields. The name passed to this related brome grass. Its other common name is downy brome."
+    },
+    "restore": {
+      "kind": "technical",
+      "title": "Why natives help",
+      "text": "Established bunchgrasses draw down the soil's water in spring with deep, dense roots, the same water cheatgrass seedlings need. Experiments show that a few healthy perennial bunchgrasses per square metre can keep cheatgrass from taking over after a fire."
+    },
+    "mack": {
+      "kind": "digression",
+      "title": "Reading old herbarium sheets",
+      "text": "Mack's history used dated plant specimens pressed and kept in university collections, the same trick Ratcliffe used with eggs in lesson H1. Each specimen recorded when and where the grass had reached."
+    },
+    "lek": {
+      "kind": "digression",
+      "title": "The dance",
+      "text": "Each spring male sage-grouse gather at dawn on traditional open patches called leks, puff out their white chests and inflate two yellow air sacs that pop as they strut. Females visit and choose among them. Some leks have been used for generations."
+    }
+  }
+}

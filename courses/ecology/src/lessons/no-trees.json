@@ -1,0 +1,86 @@
+{
+  "id": "no-trees",
+  "n": 501,
+  "branch": "dry",
+  "needs": [
+    "humboldt"
+  ],
+  "title": "Why no trees?",
+  "teaches": "The shrub-steppe of the dry side",
+  "parts": [
+    {
+      "title": "Over the pass",
+      "blocks": [
+        {"type": "text", "text": "Drive east from Seattle on Interstate 90 and for the first hour you are in forest: tall Douglas fir, western hemlock and red cedar, hung with moss. Over Snoqualmie Pass the forest goes on, but it changes. The trees stand further apart, pines appear, and the ground between them turns dry and grassy. Past Cle Elum the pines thin out, and somewhere before Ellensburg, about 70 kilometres from the pass, they stop. Beyond is open country of grey-green shrubs and pale grass to the horizon, the **shrub-steppe**."},
+        {"type": "text", "text": "The soil east of the mountains is deep and fertile; the Palouse grows some of the best wheat in the world. Summers are warm and long. Yet almost nowhere east of the forest edge, apart from along rivers, does a tree grow wild. This lesson asks why."}
+      ]
+    },
+    {
+      "title": "The rain stays west",
+      "blocks": [
+        {"type": "text", "text": "The answer is water. Air arriving from the Pacific is forced up over the Cascades, cools, and drops its moisture as rain and snow on the western slopes and the crest: Snoqualmie Pass gets about 250 centimetres a year. Coming down the eastern side, the air warms and dries. Ellensburg, 80 kilometres east of the pass, gets about 23 centimetres, less than a quarter of Seattle's 95 or so. The Clouds course calls this the **rain shadow**[^shadow]."},
+        {"type": "text", "text": "Most of what falls on the dry side falls in winter, as snow and cold rain. Summers are nearly rainless, and by July the topsoil is dust-dry. A plant there has to get through three or four months of drought every year, at the time of year when the sun is strongest."},
+        {"type": "interactive_diagram", "id": "transect", "caption": "A line across Washington from Seattle over Snoqualmie Pass into the Columbia Basin, with the yearly rain and snow along it and the plants that grow with that much. Change the rain everywhere and watch the forest edge move. A model.", "task": "Make the state wetter, then drier, and watch the forest edge", "goal": "edge", "aspect_ratio": 1.82}
+      ]
+    },
+    {
+      "title": "Why a tree needs more water than a grass",
+      "blocks": [
+        {"type": "text", "text": "A tree is a water column. As the Botany course explains, water is pulled up a tree from its roots by the leaves, which lose it to the air through their pores, drawing the whole column up behind them under tension, like a rope. The taller the tree and the drier the air, the harder the pull. When the soil runs dry, the tension rises until air is sucked into the water-carrying tubes and the columns break, and branches die. A tree has to keep its leaves and its tall trunk alive through the whole summer."},
+        {"type": "text", "text": "A bunchgrass doesn't. It grows in spring while the soil still holds winter's water, sets its seed, and lets its leaves dry out in summer while its roots and buds wait at ground level. Sagebrush keeps its leaves but makes them small, grey and hairy, and sends roots both shallow, to catch spring rain, and deep, to reach water held lower down. Below about 40 centimetres of rain a year, in this climate, these ways of living beat a tree's."}
+      ]
+    },
+    {
+      "title": "Daubenmire's frame",
+      "blocks": [
+        {"type": "text", "text": "The ecologist who mapped where each kind of plant stops on the dry side was Rexford Daubenmire, who taught at Washington State in Pullman from 1946. He walked the steppe and the forests of the inland Northwest for thirty years, and found that the plant communities were not a smooth blur from wet to dry. Each was tied to a particular range of climate and soil, and each could be recognised by its plants: a ponderosa pine forest with bitterbrush beneath, a steppe of bluebunch wheatgrass and Idaho fescue, a steppe of big sagebrush and bluebunch wheatgrass, and others. He called the land each could occupy a **habitat type**, and his habitat types are still used to manage forests and rangelands."},
+        {"type": "text", "text": "To measure the plants, Daubenmire used a small rectangular frame, 20 by 50 centimetres, laid on the ground at regular steps along a line. For each kind of plant inside it he estimated how much of the frame its leaves covered, in a few broad classes. It was quick, cheap and repeatable, and ecologists around the world still call it a Daubenmire frame[^frame]. His 1970 book, *Steppe Vegetation of Washington*, was based on thousands of them."},
+        {"type": "key_ideas", "title": "Outside", "points": ["Make a frame 20 by 50 centimetres from sticks or card. On a walk in dry grassland or sagebrush, drop it every twenty steps and estimate what share of it is covered by shrubs, by grass, by bare soil, and by the dark crust of moss and lichen that grows on undisturbed steppe soil. Ten throws make a fair sample."]}
+      ]
+    },
+    {
+      "title": "Harrow's country",
+      "blocks": [
+        {"type": "text", "text": "Where the rain shadow is deepest, around Moses Lake and the Hanford Reach, the steppe is big sagebrush. A little further east, where rain rises again toward the Idaho border, the steppe was mostly grass, and that grassland, on deep wind-blown soil, became the wheat country around Ritzville and the Palouse, where the Clouds course's town of Harrow sits. Farmers there grow wheat without watering it by leaving a field fallow every other year to store two winters' rain in the soil[^fallow]."},
+        {"type": "text", "text": "More than half of Washington's shrub-steppe has been ploughed, irrigated or built on, and much of what remains has been changed by grazing[^crust] and by fire. The next two lessons follow what happened to the rest: a grass from Eurasia that changed how often the steppe burns, and the prairie that disappeared under the wheat."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the dry side", "task": "Choose the best answer to each", "options": {"items": [{"ask": "Why does Ellensburg get so much less rain than Snoqualmie Pass?", "choices": ["Air drops its water rising over the Cascades and dries coming down", "Ellensburg is further from the sea by thousands of kilometres", "Storms from the east bring dry air"], "answer": 0, "why": "The rain shadow. Ellensburg gets about 23 cm a year to the pass's 250."}, {"ask": "Why does a dry summer harm a tree more than a bunchgrass?", "choices": ["The tree must keep leaves and a tall water column alive all summer", "Grass roots go deeper than tree roots", "Trees need more sunlight than grass"], "answer": 0, "why": "A bunchgrass grows in spring and waits out the drought at ground level. A tree can't."}, {"ask": "In the figure, what happens to the forest edge when the state gets wetter?", "choices": ["It moves east, onto what was steppe", "It moves west, toward the pass", "It stays where it is"], "answer": 0, "why": "Forest grows wherever the rain passes about 40 cm a year, so more rain moves that line east."}, {"ask": "What is a Daubenmire frame used for?", "choices": ["Estimating how much ground each plant covers", "Counting the rings of a tree", "Measuring rainfall"], "answer": 0, "why": "A 20 by 50 cm frame dropped along a line; for each plant, the share of the frame covered is estimated."}, {"ask": "What is a habitat type, in Daubenmire's sense?", "choices": ["The land a particular plant community can occupy, set by climate and soil", "Any place an animal lives", "A kind of soil found under forest"], "answer": 0, "why": "Each community is tied to its range of climate and soil, and can be recognised by its plants."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**East of the Cascades, forest gives way to shrub-steppe.** About 70 km east of Snoqualmie Pass, the trees stop.",
+    "**The rain shadow sets it.** The pass gets about 250 cm of rain and snow a year; Ellensburg about 23.",
+    "**Summer drought is what trees can't stand.** A tree must keep a tall water column alive; bunchgrass waits it out.",
+    "**Below about 40 cm a year, grass and sagebrush win.** The forest edge follows that line.",
+    "**Daubenmire mapped the dry side's communities.** His habitat types and his 20 by 50 cm frame are still used.",
+    "**The grassy steppe became wheat country.** More than half of Washington's shrub-steppe is gone."
+  ],
+  "journal": [],
+  "footnotes": {
+    "shadow": {
+      "kind": "technical",
+      "title": "Why falling air dries",
+      "text": "Air sinking down the east slope is squeezed by rising pressure and warms by about 10 °C per kilometre. Warmer air can hold more water vapour, so its relative humidity falls, and clouds evaporate rather than form."
+    },
+    "frame": {
+      "kind": "technical",
+      "title": "Cover classes",
+      "text": "Daubenmire used six classes: up to 5 percent, 5 to 25, 25 to 50, 50 to 75, 75 to 95, and 95 to 100. Taking the middle of each class and averaging over many frames gives a surprisingly good estimate of cover, much faster than counting plants."
+    },
+    "fallow": {
+      "kind": "digression",
+      "title": "Summer fallow",
+      "text": "A fallow field is kept bare of weeds for a year, so the winter's rain and snow soak in and are not used. Next year's wheat then has two winters' water to draw on. The bare fields blow and wash away easily, which is why farmers now often till less or plant cover crops."
+    },
+    "crust": {
+      "kind": "digression",
+      "title": "The living crust",
+      "text": "Between the shrubs of undisturbed steppe, the soil is covered by a dark crust of mosses, lichens and cyanobacteria. It holds the soil against wind, fixes nitrogen and slows evaporation. Hooves and tyres crush it, and it takes decades to grow back."
+    }
+  }
+}

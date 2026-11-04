@@ -15,6 +15,12 @@ import { otters } from '../src/figures/olympic';
 import { cover, CELLS } from '../src/figures/undersnow';
 import { plain } from '../src/figures/lupine';
 import { lake, FISH } from '../src/figures/spirit';
+import { forestEdge } from '../src/figures/notrees';
+import { steppe } from '../src/figures/cheatgrass';
+import { after, now } from '../src/figures/palouse';
+import { fromSea, growth, oceanN } from '../src/figures/salmontrees';
+import { reach } from '../src/figures/elwha';
+import { lakeYears } from '../src/figures/lakewa';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -166,6 +172,64 @@ describe('branch M', () => {
     const f = FIGURES.spirit(context(), 'clear');
     guess(f.node, 'A few years');
     setSlider(f.node, 0, 80);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+});
+
+describe('branch S', () => {
+  it('S1: more rain moves the forest edge east', async () => {
+    expect(forestEdge(1.4)).toBeGreaterThan(forestEdge(1));
+    expect(forestEdge(0.6)).toBeLessThan(forestEdge(1));
+    const f = FIGURES.transect(context(), 'edge');
+    setSlider(f.node, 0, 1.4);
+    setSlider(f.node, 0, 0.6);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('S2: cheatgrass multiplies the fires', async () => {
+    expect(steppe(true).fires.length).toBeGreaterThan(steppe(false).fires.length * 3);
+    const f = FIGURES.cheat(context(), 'loop');
+    guess(f.node, 'Fires come far more often');
+    click(f.node, 'Cheatgrass arrives in year 10');
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('S3: small remnants pay their debt faster', async () => {
+    const owed = (ha: number, y: number) => (now(ha, y) - after(ha)) / (now(ha, 0) - after(ha));
+    expect(owed(1, 50)).toBeLessThan(owed(1000, 50));
+    const f = FIGURES.palouse(context(), 'debt');
+    setSlider(f.node, 0, 100);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+});
+
+describe('branch W', () => {
+  it('W1: bears spread the ocean nitrogen into the forest', async () => {
+    const full = { run: 1, bears: true };
+    expect(fromSea(full, 0)).toBeGreaterThan(0.2);
+    expect(growth(full, 0)).toBeGreaterThan(2.5);
+    expect(oceanN({ run: 1, bears: false }, 100)).toBeLessThan(0.001);
+    expect(oceanN(full, 100)).toBeGreaterThan(0.03);
+    const f = FIGURES.salmon(context(), 'ocean');
+    setSlider(f.node, 0, 0);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('W2: salmon pass Glines Canyon once it is gone', async () => {
+    expect(reach(2010)).toBeLessThan(10);
+    expect(reach(2016)).toBeGreaterThan(21.6);
+    const f = FIGURES.elwha(context(), 'reach');
+    setSlider(f.node, 0, 2016);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('W3: diversion clears the lake, Daphnia clear it further', async () => {
+    const last = (o: { divert: boolean; daphnia: boolean }) => lakeYears(o).clear.at(-1)!;
+    expect(last({ divert: true, daphnia: false })).toBeGreaterThan(last({ divert: false, daphnia: false }) * 2);
+    expect(last({ divert: true, daphnia: true })).toBeGreaterThan(last({ divert: true, daphnia: false }));
+    const f = FIGURES.lakewa(context(), 'clear');
+    click(f.node, 'Divert the sewage, 1963 to 1968');
+    click(f.node, 'Daphnia return, 1976');
     await expect(f.done).resolves.toBeUndefined();
   });
 });
