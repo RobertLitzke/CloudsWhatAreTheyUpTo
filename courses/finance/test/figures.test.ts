@@ -175,4 +175,16 @@ describe('figures', () => {
     expect(h.node.textContent).toContain('$880k');
     await expect(h.done).resolves.toBeUndefined();
   });
+  it('branch E: the withholding gap and the AMT', async () => {
+    const r = FIGURES['rsu-gap'](context(), 'rsu-gap');
+    expect(r.node.textContent).toContain('$18,830 is still owed');
+    setSlider(r.node, 0, 60_000);
+    setSlider(r.node, 1, 20_000);
+    await expect(r.done).resolves.toBeUndefined();
+
+    const a = FIGURES.amt(context(), 'amt');
+    guess(a.node, 'About $18,000');
+    setSlider(a.node, 1, 20_000);
+    await expect(a.done).resolves.toBeUndefined();
+  });
 });

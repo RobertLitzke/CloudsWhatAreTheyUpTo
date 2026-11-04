@@ -23,6 +23,7 @@ import { capstoneFigure } from './capstone';
 import { ptTaxFigure, twoCountriesFigure } from './portugal';
 import { waEstateFigure, waGainsFigure } from './washington';
 import { heirsFigure, locationFigure } from './taxable';
+import { amtFigure, rsuFigure } from './equity';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -74,4 +75,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Branch T
   location: locationFigure,
   heirs: heirsFigure,
+  // Branch E
+  'rsu-gap': rsuFigure,
+  amt: amtFigure,
 };

@@ -255,3 +255,14 @@ export function washingtonEstate(estate: number, rules: Rules = RULES): number {
   });
   return tax;
 }
+
+/** The alternative minimum tax owed on top of the regular tax, for a household whose income is all ordinary, plus an ISO spread (an AMT-only addition). */
+export function amt(ordinary: number, isoSpread: number, status: Status, rules: Rules = RULES): { regular: number; tentative: number; amt: number } {
+  const a = rules.federal.amt;
+  const regular = federalTax({ wages: ordinary }, { status }, rules).total;
+  const amti = ordinary + isoSpread;
+  const exemption = Math.max(0, a.exemption[status] - a.phaseRate * Math.max(0, amti - a.phaseStart[status]));
+  const base = Math.max(0, amti - exemption);
+  const tentative = 0.26 * Math.min(base, a.rate28Above) + 0.28 * Math.max(0, base - a.rate28Above);
+  return { regular, tentative, amt: Math.max(0, tentative - regular) };
+}

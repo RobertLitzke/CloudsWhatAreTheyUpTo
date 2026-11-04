@@ -115,7 +115,15 @@
     },
     "estateExclusion": 15000000,
     "giftExclusion": 19000,
-    "feie": 132900
+    "feie": 132900,
+    "amt": {
+      "$comment": "Rev. Proc. 2025-32 and the 2025 budget act: 2026 exemptions, phase-out from $500,000 / $1,000,000 at 50 cents a dollar; check the 28 percent line",
+      "exemption": {"single": 90100, "joint": 140200},
+      "phaseStart": {"single": 500000, "joint": 1000000},
+      "phaseRate": 0.5,
+      "rate28Above": 244500
+    },
+    "withholding": {"supplemental": 0.22, "over1M": 0.37, "note": "flat federal withholding on bonuses and vesting shares"}
   },
   "accounts": {
     "source": "IRS Notice 2025-67 and Rev. Proc. 2025-19, as summarised by Kiplinger and TaxSlayer; check",
@@ -123,6 +131,9 @@
     "k401CatchUp50": 8000,
     "k401CatchUp60to63": 11250,
     "ira": 7500,
+    "limit415": 72000,
+    "rothIraPhase": {"single": [153000, 168000], "joint": [242000, 252000]},
+    "rothCatchUpWagesAbove": 150000,
     "iraCatchUp50": 1100,
     "hsa": {
       "single": 4400,

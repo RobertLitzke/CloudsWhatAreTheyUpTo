@@ -1,0 +1,71 @@
+{
+  "id": "options",
+  "n": 403,
+  "branch": "equity",
+  "needs": ["rsus-espp"],
+  "title": "Options and the AMT",
+  "teaches": "How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise",
+  "parts": [
+    {
+      "title": "The right to buy",
+      "blocks": [
+        { "type": "text", "text": "A stock option is the right to buy a share at a fixed price, the strike, for some years. Startups and younger companies grant them in place of RSUs. The value is the spread: the share's price above the strike. An option on a share worth $50 with a strike of $10 is worth about $40, and nothing at all if the share falls below $10." },
+        { "type": "text", "text": "There are two kinds, taxed very differently. Non-qualified options, NSOs, are simple. Incentive stock options, ISOs, can be taxed far more lightly, in exchange for a trap." }
+      ]
+    },
+    {
+      "title": "Non-qualified options",
+      "blocks": [
+        { "type": "text", "text": "Exercising an NSO turns the spread into wages that day, taxed at ordinary rates with payroll taxes, exactly like an RSU vesting. The shares' basis is their price at exercise; what happens after is ordinary capital gain or loss. The employer withholds, usually at the same 22 percent that falls short for RSUs." },
+        { "type": "text", "text": "So the decisions are about timing. Exercising in a low-income year, the first year of early retirement for instance, taxes the spread in lower brackets. The cost is the shares' risk meanwhile, and options that expire, typically ten years after grant or months after leaving the company, are worth nothing." }
+      ]
+    },
+    {
+      "title": "Incentive options and the AMT",
+      "blocks": [
+        { "type": "text", "text": "An ISO's spread at exercise isn't income for the regular tax at all. If the shares are then held two years from grant and one year from exercise, the whole profit, spread included, is long-term gain. That turns income which would have been taxed at 35 percent into gains taxed at 15 or 20." },
+        { "type": "text", "text": "The catch is the alternative minimum tax, a second calculation with fewer deductions and a large exemption, $140,200 for a couple in 2026, taxed at 26 and 28 percent. The household pays whichever of the two taxes is larger. An ISO spread counts in the AMT calculation though not in the regular one, so a large exercise can make the AMT the larger." },
+        { "type": "interactive_diagram", "id": "amt", "caption": "A married couple's regular federal tax and alternative minimum tax in a year they exercise incentive stock options and keep the shares, by their wages and the spread at exercise.", "task": "Guess, then find a spread with no AMT", "goal": "amt", "aspect_ratio": 2.27 },
+        { "type": "text", "text": "A couple earning $300,000 can exercise about $30,000 of spread with no AMT. At $100,000 they owe about $18,000 more, in cash, for shares they haven't sold. The AMT paid is not lost: it becomes a credit against regular tax in later years, recovered as the shares are sold or the household's regular tax exceeds its minimum tax.[^credit]" },
+        { "type": "text", "text": "The danger is the share price falling after exercise. In 2000 and 2001 many employees owed AMT on spreads that had vanished by the time the bill came, with shares worth less than the tax. Two defences: exercise each year only as much as stays under the AMT, and sell enough shares in the same year to cover any tax, which turns those shares into an ordinary disqualifying sale." }
+      ]
+    },
+    {
+      "title": "Early exercise and 83(b)",
+      "blocks": [
+        { "type": "text", "text": "Some startups let employees exercise options before they vest, receiving restricted shares that the company can buy back if they leave. Normally the shares would be taxed as they vest, at whatever they are then worth. An 83(b) election, filed with the IRS within 30 days of the exercise, taxes them now instead, on today's spread, which at an early startup is often zero." },
+        { "type": "text", "text": "The election starts the holding period for long-term gains at once and leaves nothing to tax at vesting. The risk is paying the strike, and any tax, for shares that may end up worthless or be forfeited. The 30-day deadline is absolute; a missed election can't be repaired.[^qsbs]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "NSO spreads are wages at exercise; ISO spreads are not, for the regular tax.",
+          "ISO shares held two years from grant and one from exercise turn the whole profit into long-term gain.",
+          "An ISO spread counts for the AMT: a couple on $300,000 can exercise about $30,000 a year without it.",
+          "AMT paid becomes a credit later, but a falling share price can leave a bill larger than the shares.",
+          "An 83(b) election within 30 days of an early exercise taxes the shares now, often at zero."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on options", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "An employee exercises NSOs with a $60,000 spread. How is it taxed?", "choices": ["As $60,000 of wages that year", "As long-term gain when sold", "Not at all until sale"], "answer": 0, "why": "An NSO's spread is ordinary income at exercise." },
+          { "ask": "Why can exercising ISOs and holding the shares raise the year's tax?", "choices": ["The spread counts for the alternative minimum tax", "ISOs are taxed as wages", "The shares pay dividends"], "answer": 0, "why": "The household pays the larger of the regular tax and the AMT, and only the AMT counts the spread." },
+          { "ask": "What happens to AMT paid because of an ISO exercise?", "choices": ["It becomes a credit against regular tax in later years", "It is lost", "It is refunded when the options expire"], "answer": 0, "why": "AMT caused by timing differences such as ISOs builds a credit used in later years." },
+          { "ask": "When must an 83(b) election be filed?", "choices": ["Within 30 days of receiving the shares", "With that year's tax return", "Before the shares vest"], "answer": 0, "why": "The deadline is 30 days and can't be extended." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**An option's value is its spread.** The share price above the strike, and nothing below it.",
+    "**NSOs are wages at exercise.** Exercising in a low-income year lowers the tax.",
+    "**ISOs can turn pay into long-term gain.** Hold two years from grant and one from exercise.",
+    "**The AMT counts the ISO spread.** Exercise in amounts that stay under it, or sell enough to pay it.",
+    "**AMT paid comes back as a credit.** But a falling price can leave a bill larger than the shares.",
+    "**An 83(b) election taxes early-exercised shares now.** Within 30 days, often at a spread of zero."
+  ],
+  "footnotes": {
+    "credit": { "kind": "technical", "title": "The minimum tax credit", "text": "AMT that arises from deferral items, ISOs above all, carries forward without limit as a credit. Each later year the credit can reduce regular tax down to that year's minimum tax. Selling the ISO shares helps, because their AMT basis is higher than their regular basis, so the sale shows a smaller gain for the AMT." },
+    "qsbs": { "kind": "digression", "title": "Qualified small business stock", "text": "Shares of a qualifying US company with under $75 million of gross assets when issued, held long enough, can be sold with most or all of the gain excluded from federal tax, up to $15 million or ten times the basis, under the 2025 budget act's rules. Washington doesn't tax the excluded part either. It is one more reason founders and early employees exercise early." }
+  }
+}

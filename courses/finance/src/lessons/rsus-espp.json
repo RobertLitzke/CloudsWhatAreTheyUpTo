@@ -1,0 +1,70 @@
+{
+  "id": "rsus-espp",
+  "n": 402,
+  "branch": "equity",
+  "needs": ["mega-backdoor"],
+  "title": "RSUs and ESPP",
+  "teaches": "How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed",
+  "parts": [
+    {
+      "title": "Pay in shares",
+      "blocks": [
+        { "type": "text", "text": "At many large companies a large part of pay arrives as shares rather than salary: restricted stock units that vest every quarter, and a plan to buy more shares at a discount. Both are ordinary pay with some tax machinery attached, and both tend to leave employees owning far more of their employer than they meant to." }
+      ]
+    },
+    {
+      "title": "When RSUs vest",
+      "blocks": [
+        { "type": "text", "text": "An RSU is a promise of a share on a future date. Nothing is taxed when it is granted. When it vests, the share's value that day is wages, taxed exactly like salary: income tax at the ordinary brackets, plus Social Security and Medicare taxes. The share's basis is that value, so selling it immediately creates no gain at all." },
+        { "type": "text", "text": "Which makes the choice of what to do at vesting simpler than it looks. Keeping vested shares is economically the same as receiving cash and using it to buy the employer's shares. Most people wouldn't put a year's bonus into one company's stock, least of all the company that also pays their salary. The usual advice, then, is to sell at vest and invest the cash in the plan's mix, keeping any holding of the employer to a share of net worth decided on purpose.[^concentration]" }
+      ]
+    },
+    {
+      "title": "The withholding gap",
+      "blocks": [
+        { "type": "text", "text": "Employers withhold federal tax from vesting shares as supplemental wages, usually at a flat 22 percent, and 37 percent on anything above $1 million in the year. For someone in the 32 or 35 percent bracket, 22 percent is well short of the tax the shares add." },
+        { "type": "interactive_diagram", "id": "rsu-gap", "caption": "The federal income tax a year's vesting shares add on top of a salary, against the 22 percent withheld from them, for a single or married employee.", "task": "Find a salary where 22 percent is enough, and one where it falls short", "goal": "rsu-gap", "aspect_ratio": 2.27 },
+        { "type": "text", "text": "A single person on $250,000 with $150,000 of shares vesting owes about $51,800 on them, with $33,000 withheld: nearly $19,000 is still due. A shortfall that large also brings an underpayment penalty unless the year's withholding and estimated payments reach the safe harbour, 110 percent of the previous year's tax for higher earners. The cure is to raise salary withholding on the W-4, or to pay estimated tax each quarter.[^safeharbour]" },
+        { "type": "text", "text": "Washington adds nothing here: it doesn't tax the vest. If the shares are kept and later sold, any long-term gain counts towards the state's capital gains tax, but only above its $278,000 deduction." }
+      ]
+    },
+    {
+      "title": "ESPP",
+      "blocks": [
+        { "type": "text", "text": "An employee stock purchase plan collects part of each paycheque over an offering period and buys shares at its end, usually at 15 percent below the price. Many plans also look back: the discount applies to the lower of the price at the start of the offering and at the purchase. Up to $25,000 of shares a year, valued at the start price, can be bought this way." },
+        { "type": "text", "text": "A 15 percent discount means paying $85 for $100 of shares, a return of 17.6 percent in a few months, before any rise caught by the lookback. Selling the day of purchase locks it in. The discount is taxed as wages and the sale has almost no further gain." },
+        { "type": "text", "text": "Holding longer can change the tax. If the shares are kept two years from the offering's start and one year from purchase, a qualifying sale, the ordinary income is limited to the discount on the start price and the rest is long-term gain. That saves the difference between the ordinary and the gains rate on part of the profit, a few hundred dollars on a typical year's purchase, in exchange for holding a single stock for a year or more. For most people the risk is not worth it.[^disqualifying]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "RSUs are wages when they vest; the basis is their value that day.",
+          "Holding vested shares is the same as buying the employer's shares with a bonus.",
+          "The 22 percent withheld falls short for anyone in the 32 percent bracket and above: raise withholding or pay estimated tax.",
+          "A 15 percent ESPP discount is a 17.6 percent return; selling at purchase locks it in.",
+          "Holding ESPP shares for the qualifying period saves a little tax for a lot of single-stock risk."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on RSUs and ESPP", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "RSUs worth $40,000 vest and are sold the same day for $40,000. What capital gain is reported?", "choices": ["None: the basis is $40,000", "$40,000", "$6,000, the 15 percent discount"], "answer": 0, "why": "The vest is taxed as wages and sets the basis, so selling at once creates no gain." },
+          { "ask": "Why do many RSU holders owe tax in April?", "choices": ["Withholding at 22 percent is below their marginal rate", "RSUs are taxed twice", "Vesting shares aren't withheld at all"], "answer": 0, "why": "The flat supplemental rate falls short for anyone in the 32 percent bracket or above." },
+          { "ask": "What is keeping vested RSUs equivalent to?", "choices": ["Taking cash and buying the employer's shares with it", "Deferring the tax on them", "A Roth contribution"], "answer": 0, "why": "The tax is due at vest either way, so holding is a fresh decision to own the stock." },
+          { "ask": "A 15 percent ESPP discount, sold at purchase, returns roughly what?", "choices": ["17.6 percent", "15 percent", "Nothing after tax"], "answer": 0, "why": "Paying $85 for $100 is a gain of $15 on $85, before the tax on it as wages." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**RSUs are wages at vest.** Their value that day is taxed like salary and becomes the basis.",
+    "**Holding them is a new purchase.** Keeping vested shares equals buying the employer's stock with a bonus.",
+    "**22 percent withheld is often too little.** In the 32 percent bracket or above, top up withholding or pay estimated tax.",
+    "**An ESPP discount is a quick, high return.** 15 percent off is 17.6 percent, locked in by selling at purchase.",
+    "**Holding ESPP shares saves little.** A qualifying sale moves some income to gains rates, at the cost of single-stock risk."
+  ],
+  "footnotes": {
+    "concentration": { "kind": "digression", "title": "One company", "text": "Single shares are far riskier than the market they belong to: over long periods most individual US shares have returned less than Treasury bills, while a few huge winners carried the index. An employee also has their job tied to the same company, so a bad year can take both at once." },
+    "safeharbour": { "kind": "technical", "title": "The safe harbour", "text": "There is no underpayment penalty if withholding and estimated payments cover 90 percent of this year's tax, or 100 percent of last year's, rising to 110 percent when last year's AGI was above $150,000. Withholding counts as paid evenly through the year whenever it happened, so a large W-4 change in December still helps." },
+    "disqualifying": { "kind": "technical", "title": "A disqualifying sale", "text": "Selling before the qualifying period makes the whole discount at purchase, measured on the purchase-day price, ordinary income. In a qualifying sale the ordinary part is the smaller of the actual gain and the discount on the offering's start price. A qualifying sale after the shares have fallen can therefore report less ordinary income than the discount received." }
+  }
+}

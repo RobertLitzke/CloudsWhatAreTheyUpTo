@@ -15,7 +15,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Money That Lasts](#finance) | 23 | 9 | 23 | 0 | 23 | 0 | 0 |
+| [Money That Lasts](#finance) | 26 | 6 | 26 | 0 | 26 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -377,9 +377,9 @@ A lesson's status is the first step it still waits for, in the order: student re
 | T1 | Where to hold what (`asset-location`) | Taxable-account craft | needs student read-through | Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
 | T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | needs student read-through | Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
 | T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | needs student read-through | Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
-| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | planned, listed as coming |  | After-tax 401(k) money into Roth, and the backdoor Roth IRA. |
-| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | planned, listed as coming |  | Vested shares as wages, the withholding gap, and ESPP sales. |
-| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | planned, listed as coming |  | Incentive and non-qualified options, the AMT, and 83(b). |
+| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | needs student read-through | Fact check | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
+| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | needs student read-through | Fact check | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
+| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | needs student read-through | Fact check | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
 | C1 | Two people, one plan (`filing-status`) | Couples and heirs | planned, listed as coming |  | Marriage penalties and bonuses, unmarried partners, and the survivor. |
 | C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | planned, listed as coming |  | Beneficiary forms, the 10-year rule and spousal rollover. |
 | H1 | Medicare and IRMAA (`medicare`) | Health after 65 | planned, listed as coming |  | Medicare at 65 and the surcharges set two years earlier. |
