@@ -17,7 +17,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: SynthLesson[] = [
-  coming('blank', 23, 'The blank patch', 'Five sounds built from a blank patch, saved and recalled; what this course leaves out'),
 ];
 
 const BRANCH_COMING: SynthLesson[] = [
