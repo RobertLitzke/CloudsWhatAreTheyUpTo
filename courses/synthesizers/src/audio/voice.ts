@@ -18,7 +18,9 @@
 //          crossfades eight single-cycle waves, at a place set by a knob plus
 //          the envelope and the LFO (each frame's level is that place put
 //          through a wave shaper, so the scan runs at audio rate); additive
-//          is one oscillator whose PeriodicWave is rebuilt from the knobs
+//          is one oscillator whose PeriodicWave is rebuilt from the knobs;
+//          pluck is a Karplus-Strong string in an AudioWorklet (worklets.ts),
+//          struck at each note
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -62,6 +64,7 @@ import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
 import { ARP_MODE, CHAIN, CHORDS, ENGINE, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
 import { additiveAmps, TABLE_FRAMES, TABLE_LAST } from '../core/tables';
+import { workletsReady } from './worklets';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
@@ -328,6 +331,9 @@ export class Voice {
   /** The additive oscillator's way in, and the knob settings its wave was last built for. */
   private readonly addIn: GainNode;
   private addKey = '';
+  /** The plucked string, made the first time the pluck engine is chosen (once its worklet has loaded). */
+  private pluck: AudioWorkletNode | null = null;
+  private readonly pluckOut: GainNode;
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -476,6 +482,8 @@ export class Voice {
     this.scanLfo.connect(scan);
     this.addIn = gain(0);
     this.addIn.connect(this.mix);
+    this.pluckOut = gain(0);
+    this.pluckOut.connect(this.mix);
     this.frameIn = TABLE_FRAMES.map((_, i) => {
       const level = gain(0);
       const shaper = ctx.createWaveShaper();
@@ -707,6 +715,39 @@ export class Voice {
     return this.engine() === ENGINE.supersaw ? this.sound.engineTimbre : 1;
   }
 
+  /** The string, if the pluck engine is on and its worklet has loaded. */
+  private ensurePluck(): AudioWorkletNode | null {
+    if (this.pluck || this.engine() !== ENGINE.pluck || !workletsReady(this.ctx)) return this.pluck;
+    const node = new AudioWorkletNode(this.ctx, 'pluck', { numberOfInputs: 0, outputChannelCount: [1] });
+    node.parameters.get('frequency')!.value = this.lastHz;
+    const detune = node.parameters.get('detune')!;
+    this.lfoPitch.connect(detune);
+    this.env2Pitch.connect(detune);
+    this.pitchMod.connect(detune);
+    node.connect(this.pluckOut);
+    this.pluck = node;
+    return node;
+  }
+
+  /** Pluck the string at `t`. */
+  private strike(t: number): void {
+    const p = this.pluck?.parameters.get('strike');
+    if (!p) return;
+    p.setValueAtTime(1, t);
+    p.setValueAtTime(0, t + 0.004);
+  }
+
+  /** Move the string's pitch to `hz` at `t`, at once or gliding. */
+  private pluckPitch(t: number, from: number, hz: number, glide: boolean, cancel = false): void {
+    const f = this.pluck?.parameters.get('frequency');
+    if (!f) return;
+    if (cancel) f.cancelScheduledValues(t);
+    if (glide) {
+      if (!cancel) f.setValueAtTime(from, t);
+      f.setTargetAtTime(hz, t, this.glideTau());
+    } else f.setValueAtTime(hz, t);
+  }
+
   /** The additive engine's wave, from its three knobs. */
   private additiveWave(): PeriodicWave {
     const s = this.sound;
@@ -831,9 +872,17 @@ export class Voice {
     const fold = engine === ENGINE.fold;
     const table = engine === ENGINE.table;
     const additive = engine === ENGINE.additive;
+    const plucked = engine === ENGINE.pluck;
+    const string = this.ensurePluck();
+    set(this.pluckOut.gain, plucked ? s.oscLevel : 0);
+    if (string) {
+      set(string.parameters.get('hardness')!, s.engineWave);
+      set(string.parameters.get('damping')!, s.engineTimbre);
+      set(string.parameters.get('sustain')!, s.engineShape);
+    }
     const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
     const at = 3 * s.engineWave;
-    const weight = (i: number) => (fold || table || additive ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    const weight = (i: number) => (fold || table || additive || plucked ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
     this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
     this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
     set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);
@@ -1044,6 +1093,8 @@ export class Voice {
     const slide = legato && Math.round(this.sound.legato) === 1;
     const glides = this.glides(slide);
     this.pitch(bank, on, hz, glides);
+    this.pluckPitch(on, this.lastHz, hz, glides);
+    if (!slide) this.strike(on);
     this.aim(on, hz, glides ? this.glideTau() : 0.002);
     this.pending.push({ on, hz });
     this.lastHz = hz;
@@ -1161,6 +1212,8 @@ export class Voice {
       else o.frequency.setValueAtTime(f, t);
     };
     for (const o of [...bank.o1, ...bank.tbl, ...bank.o2]) to(o, hz);
+    this.pluckPitch(t, this.lastHz, hz, glides, true);
+    if (!slide) this.strike(t);
     bank.x.forEach((set, k) => {
       for (const o of set) to(o, hz * cents(this.offsets[k] ?? 0));
     });
@@ -1253,6 +1306,8 @@ export class Voice {
         c.stop();
         c.disconnect();
       }
+      this.pluck?.port.postMessage('stop');
+      this.pluck?.disconnect();
       this.echo.dispose();
       this.out.disconnect();
     }, 140);

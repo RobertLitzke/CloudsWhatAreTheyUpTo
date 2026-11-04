@@ -10,6 +10,7 @@
 // Free play adds two things that are not on the clock: notes played from a
 // keyboard as they happen, and a metronome for recording.
 
+import { loadWorklets } from './worklets';
 import { arpPick, arpSequence } from '../core/arp';
 import { EXTRA_PITCHES, type Sound } from '../core/params';
 import { timedNotes, type Riff, type TimedNote } from '../core/riffs';
@@ -67,6 +68,7 @@ export class Engine {
 
   constructor() {
     this.ctx = new AudioContext({ latencyHint: 'interactive' });
+    void loadWorklets(this.ctx);
     this.bus = this.ctx.createGain();
     this.master = this.ctx.createGain();
     this.master.gain.value = 0.4;

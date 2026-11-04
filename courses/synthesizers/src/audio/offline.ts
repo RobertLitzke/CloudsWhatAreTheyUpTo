@@ -5,6 +5,7 @@ import type { Sound } from '../core/params';
 import { midiToHz } from '../core/riffs/notation';
 import type { Loop } from './engine';
 import { Voice } from './voice';
+import { loadWorklets } from './worklets';
 
 export const RENDER_RATE = 44100;
 
@@ -12,6 +13,7 @@ export const RENDER_RATE = 44100;
 export async function renderLoop(sound: Sound, loop: Loop, passes = 1): Promise<Float32Array> {
   const total = loop.duration * passes;
   const ctx = new OfflineAudioContext(1, Math.ceil(total * RENDER_RATE), RENDER_RATE);
+  await loadWorklets(ctx);
   const voice = new Voice(ctx, ctx.destination, sound, 0);
   voice.out.gain.value = 1;
   const { notes, duration } = loop;

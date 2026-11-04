@@ -75,7 +75,7 @@ export const STEPS: StepTable = {
   arpRate: [4, 2, 1, 0.5], // sixteenths per step
   arpOct: [1, 2, 3, 4],
   arpHold: [0, 1],
-  engine: [0, 1, 2, 3, 4, 5], // classic, morph, fold, supersaw, wavetable, additive
+  engine: [0, 1, 2, 3, 4, 5, 6], // classic, morph, fold, supersaw, wavetable, additive, plucked string
   engineWave: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
   engineTimbre: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
   engineShape: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],

@@ -18,6 +18,7 @@ import { rollFigure } from './roll';
 import { seqFigure } from './seq';
 import { shFigure } from './sh';
 import { slideFigure } from './slide';
+import { stringFigure } from './string';
 import { tableFigure } from './table';
 import { sidebandsFigure } from './sidebands';
 import { soundFigure } from './sound';
@@ -61,4 +62,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   table: tableFigure,
   // Branch lesson O2
   drawbars: drawbarsFigure,
+  // Branch lesson O3
+  string: stringFigure,
 };

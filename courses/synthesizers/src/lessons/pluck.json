@@ -1,0 +1,286 @@
+{
+ "id": "pluck",
+ "n": 103,
+ "branch": "engines",
+ "needs": [
+  "macros"
+ ],
+ "title": "A string from a delay line",
+ "teaches": "Physical models: Karplus and Strong’s plucked string, and struck bars and bells",
+ "parts": [
+  {
+   "title": "Not a filter sweep",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The sound.** Two plucks. The first is the usual synth pluck from lesson 4: a saw, with a filter envelope that snaps shut. The second sounds like a string, a guitar or a harp. It is not a recording. It is made from a burst of noise and one trick, and the whole trick fits in a few lines of a program. You'll set it up at the end."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A plucked line: a filtered saw, then a plucked string",
+     "options": {
+      "stage": 22,
+      "riff": 112,
+      "start": {
+       "cutoff": 7,
+       "release": 2
+      },
+      "sounds": [
+       {
+        "name": "Saw pluck",
+        "set": {
+         "cutoff": 2,
+         "envAmt": 3,
+         "decay": 2,
+         "sustain": 0,
+         "release": 2
+        }
+       },
+       {
+        "name": "Plucked string",
+        "set": {
+         "engine": 6,
+         "engineWave": 6,
+         "engineTimbre": 3,
+         "engineShape": 6
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The difference you can hear is in how the sound changes. In the saw pluck one filter closes on all the harmonics together. In a real string each harmonic dies away at its own pace, the high ones fastest, and the string's sound wavers slightly as it settles. The second sound does that because it is a simple model of a string, not a filter on a wave."
+    }
+   ]
+  },
+  {
+   "title": "The mystery of the noise that turns into a note",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The mystery.** In 1983 two Stanford students, Kevin Karplus and Alex Strong, published a way to make a plucked string on a computer too slow for almost anything else. It starts with a burst of random noise, which has no pitch at all, and in a few hundredths of a second the noise turns into a clear, pitched note. How can noise become a note?"
+    },
+    {
+     "type": "text",
+     "text": "The answer is a **delay line**: a short memory that hands back each sample a fixed time after it went in. Make the delay exactly one period of the note you want, a two-hundredth of a second for a note of 200 Hz, and feed what comes out back in. Whatever is in the line now comes round again every period, and anything that repeats every period is a tone at that pitch, however ragged its shape. Fill the line with noise, and that noise repeated is already a note, a buzzy one."
+    },
+    {
+     "type": "text",
+     "text": "Then add one small change on each trip round: average each sample a little with the one before it. Averaging smooths out the sharpest wiggles, which are the highest harmonics, so each trip takes a little more off the top. The noise rounds off into a tone, and the tone gets darker and quieter as it goes."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "string",
+     "caption": "What is in the delay line, trip by trip, and the level of the sound below. Pluck to hear it.",
+     "task": "Move to 40 trips round or more",
+     "goal": "string-settled",
+     "aspect_ratio": 1.6
+    },
+    {
+     "type": "text",
+     "text": "This is a real string, simplified. A plucked string is a wave running to and fro between the bridge and the nut, so it comes back to the same place once a period. Every trip round it loses a little, and loses the high harmonics fastest. A delay line and a gentle filter do the same.[^model]"
+    }
+   ]
+  },
+  {
+   "title": "Pluck, damping and ring",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On a plucked-string engine, **Wave** is how hard the string is plucked. A hard pluck with a pick fills the line with bright noise; a soft pluck with a fingertip fills it with darker noise, and the note starts mellower. **Timbre** is the damping: how much each trip takes off the top. Low damping rings bright like steel; high damping sounds like nylon, or a string muted with the palm. **Shape** is how long the string rings."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A plucked string. Make it ring for a long time.",
+     "task": "Turn Shape to 80 % or more",
+     "goal": "pluck-ring",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "cutoff": 7,
+       "release": 2,
+       "engine": 6,
+       "engineWave": 5,
+       "engineTimbre": 3,
+       "engineShape": 3
+      },
+      "riff": 112,
+      "keys": 48
+     }
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The same string. Damp it, until it thuds.",
+     "task": "Turn Timbre to 70 % or more",
+     "goal": "pluck-dark",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "cutoff": 7,
+       "release": 2,
+       "engine": 6,
+       "engineWave": 5,
+       "engineTimbre": 2,
+       "engineShape": 6
+      },
+      "riff": 112,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "Play low and high notes on the keys. Low notes ring for longer, as on a guitar, because the line is longer, so the sound makes fewer trips round in a second and loses less. Nobody programmed that; it falls out of the model."
+    }
+   ]
+  },
+  {
+   "title": "Bars, bells and blown pipes",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Karplus and Strong's string was the start of **physical modelling**: making a sound by simulating the thing that makes it. A struck bar, like a marimba's, or a bell is modelled differently. It has a set of **modes**, ways it can vibrate, each with its own pitch, often not harmonics of the lowest, and each dying away at its own rate. A **modal** engine strikes a bank of very sharp resonant filters, one per mode, with a short click. Change the modes' pitches and you go from wood to glass to metal."
+    },
+    {
+     "type": "text",
+     "text": "Blown instruments have been modelled too: a delay line for the tube and a model of the reed or lips at one end. Yamaha's VL1 of 1994 was the first commercial synth built on this idea. It could bend and growl like a real saxophone, and it was very hard to play well, because a player had to supply the breath. Today modelled strings, bars and bells are among the engines of many small synths, under three knobs like every other engine.[^modal]"
+    }
+   ]
+  },
+  {
+   "title": "The string",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now make the plucked string from the opening. The synth here plays a plain saw with the classic oscillator, held like an organ note. Pick the engine, then set how hard the string is plucked, how damped it is, and how long it rings."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A plain saw. Make the plucked string.",
+     "task": "Make the plucked string",
+     "goal": "match",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "cutoff": 7,
+       "release": 2
+      },
+      "riff": 112,
+      "keys": 48,
+      "target": {
+       "name": "Plucked string",
+       "set": {
+        "engine": 6,
+        "engineWave": 6,
+        "engineTimbre": 3,
+        "engineShape": 6
+       }
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "The filter and envelope still work as before. The amplifier envelope, at full sustain, simply lets the string ring out by itself. With a short decay instead, it mutes the string as the key is released, like a player's palm."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on the plucked string",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "Why does noise going round a delay line become a note?",
+        "choices": [
+         "Anything that repeats once a period is a tone at that pitch",
+         "The delay line adds a sine",
+         "Noise has a pitch to start with"
+        ],
+        "answer": 0,
+        "why": "Repeating every period is what being a tone at that pitch means, whatever the shape."
+       },
+       {
+        "ask": "What does averaging each sample with the one before it do on every trip?",
+        "choices": [
+         "Smooths away the highest harmonics first",
+         "Raises the pitch",
+         "Makes it louder"
+        ],
+        "answer": 0,
+        "why": "So the sound darkens as it rings, as a real string does."
+       },
+       {
+        "ask": "On a plucked-string engine, what does more damping sound like?",
+        "choices": [
+         "A duller string, like nylon or a palm-muted one",
+         "A longer note",
+         "A higher note"
+        ],
+        "answer": 0,
+        "why": "Damping takes more off the top on every trip."
+       },
+       {
+        "ask": "What does a modal engine model?",
+        "choices": [
+         "A struck object's modes: several pitches, each dying away at its own rate",
+         "A filter sweep",
+         "A delay line with no feedback"
+        ],
+        "answer": 0,
+        "why": "Bars and bells have modes that aren't harmonics of the lowest; a bank of sharp resonances models them."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**Physical modelling makes a sound by simulating what makes it**, instead of shaping a wave.",
+  "**Karplus and Strong (1983)**: noise in a delay line one period long, fed back, becomes a note.",
+  "**Averaging on every trip takes the high harmonics first**, so the note darkens and fades as a string does.",
+  "**The engine’s knobs**: how hard it is plucked, how damped it is, and how long it rings.",
+  "**Low notes ring longer by themselves**, because the model is a model of a string.",
+  "**Modal engines strike a set of sharp resonances** to model bars, bells and glass."
+ ],
+ "footnotes": {
+  "model": {
+   "kind": "technical",
+   "title": "What the model leaves out",
+   "text": "A real string's loss depends on its material, the body of the instrument and the air, and the wave on it isn't quite one shape going round: a pluck near the bridge sounds brighter than one in the middle, because it starts the string in a different shape. Later versions of the model added these. Julius Smith at Stanford generalised the idea into digital waveguides, the basis of most physical modelling since."
+  },
+  "modal": {
+   "kind": "digression",
+   "title": "A synth that needs no samples",
+   "text": "A recording of a guitar note is one note, at one strength, ringing for one length of time. A model makes every note fresh, at any pitch, with any pluck, and costs a few lines of code instead of megabytes of recordings. That is why modelled strings and bells fit in small synths with little memory."
+  }
+ },
+ "journal": []
+}
