@@ -12,6 +12,9 @@ import { orderFigure, windowFigure } from './sequence';
 import { capeFigure, horizonFigure } from './long-retirement';
 import { rulesFigure, rulesTableStill } from './flexible-spending';
 import { glideFigure } from './allocation';
+import { marginalFigure, stackFigure } from './brackets';
+import { bucketsFigure, rateOutStill } from './accounts';
+import { bridgeFigure } from './early-access';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -33,4 +36,12 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'rules-table': rulesTableStill,
   // Lesson 6
   glide: glideFigure,
+  // Lesson 7
+  stack: stackFigure,
+  marginal: marginalFigure,
+  // Lesson 8
+  buckets: bucketsFigure,
+  'rate-out': rateOutStill,
+  // Lesson 9
+  bridge: bridgeFigure,
 };
