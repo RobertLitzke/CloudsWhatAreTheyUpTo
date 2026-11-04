@@ -1,0 +1,31 @@
+/* Design tokens: a ledger. The page is the deep green of an old account book's
+   cloth cover, lessons are on cream ledger paper, and the accents are brass,
+   red ink and the blue of a bank stamp. */
+
+:root {
+  --bg: #17302a; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #234238;
+  --panel: #eef0e6;
+  --panel-2: #dde3d2;
+  --ink: #23262e;
+  --ink-soft: #5d6370;
+  --text: #e9ede4;
+  --muted: #a9b9b0;
+  --sun: #e2b45c;
+  --sun-deep: #d08a3c;
+  --rose: #c75b6a;
+  --teal: #4f9fb8;
+  --violet: #9a86d4; /* branch colours */
+  --leaf: #6fa86a;
+  --ice: #8fb8d8;
+  --ember: #c0603a;
+  --title: #f1dfa2;
+  --paper: #fcfaf3;
+  --good: #2f8a4f;
+  --bad: #b4372f;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.advice-note { margin: 10px 0 0; font-size: 0.82rem; color: var(--ink-soft); line-height: 1.45; }
+.advice-note b { color: var(--ink); font-weight: 600; }

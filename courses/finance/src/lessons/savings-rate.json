@@ -1,0 +1,86 @@
+{
+  "id": "savings-rate",
+  "n": 1,
+  "title": "Why the savings rate beats the return",
+  "teaches": "How the share of income saved sets the years until savings can cover spending, and why income and returns matter less",
+  "parts": [
+    {
+      "title": "A table with no salaries in it",
+      "blocks": [
+        { "type": "text", "text": "In January 2012 a retired software engineer in Longmont, Colorado, writing as Mr. Money Mustache, posted a short table under the title \"The Shockingly Simple Math Behind Early Retirement\". Down one side ran the share of take-home pay a household saves, from 5 percent to 100. Beside each was the number of years until the household could stop working: 66 years at 5 percent, 37 at 20, 17 at 50, 7 at 75.[^mmm]" },
+        { "type": "text", "text": "What the table left out was the household's income. A nurse and a surgeon who each save half of what they bring home would, by the table, reach the same point in the same 17 years. That seems wrong at first, since the surgeon saves several times as many dollars a year. This lesson works out why the table is right, what it assumes, and which of its assumptions matter." },
+        { "type": "text", "text": "The question is narrower than \"when can I retire\". It is: how long until a pile of savings, spent at a rate it can sustain, pays for the life you are living now? People reach that point and keep working, or take a part-time job, or a year off. The arithmetic is the same whatever they do with it, and it is the first number almost every plan in this course depends on." }
+      ]
+    },
+    {
+      "title": "One share sets two things",
+      "blocks": [
+        { "type": "text", "text": "Call take-home pay one unit a year, and say you save a share *s* of it and spend the rest, 1 − *s*. Two separate quantities depend on *s*." },
+        { "type": "text", "text": "The first is how fast the pile grows: *s* units a year, plus whatever the pile earns. The second is how big the pile has to be. If a portfolio can pay out a steady 4 percent of its starting value each year, adjusted for inflation (lesson 2 looks hard at where that number comes from), then it has to be 25 times the yearly spending, because 1 ÷ 0.04 = 25. Spending 1 − *s* a year needs a pile of 25 × (1 − *s*)." },
+        { "type": "text", "text": "Raise *s* and both move in your favour at once. Saving 10 percent, you add 0.1 a year towards a target of 25 × 0.9 = 22.5 years of pay: 225 years of contributions, before any growth. Saving 50 percent, you add 0.5 a year towards 25 × 0.5 = 12.5: just 25 years of contributions before growth, and growth brings it down to about 17. That double effect is why the savings rate is so powerful near the bottom of its range and why every extra point matters less as it rises." },
+        { "type": "text", "text": "Now the income. Double the take-home pay and keep *s* the same, and the household saves twice as many dollars a year but also spends twice as much, so it needs twice the pile. Both sides of the race scale together, and the finish line arrives on the same date. The table's missing column cancels out of the sum." },
+        { "type": "interactive_diagram", "id": "income", "caption": "A household saving part of its take-home pay, at a 5 percent real return. The dashed line is the pile it needs to keep spending the rest at 4 percent a year.", "task": "Change the income by at least $40,000", "goal": "income", "aspect_ratio": 1.74 },
+        { "type": "text", "text": "This explains why the surgeon and the nurse in the table finish together, and also why the surgeon often doesn't in practice. A larger income makes a high savings rate easier to reach, because the first $60,000 of spending covers most of life's needs and the rest is optional. People's spending usually grows with their pay, though, so the rate stays where it was. The income opens the door; the rate decides whether you walk through it." }
+      ]
+    },
+    {
+      "title": "The curve",
+      "blocks": [
+        { "type": "text", "text": "Put the two effects together and you get one curve: years until the savings can cover spending, against the share saved. The figure assumes a 5 percent real return (after inflation) and 4 percent withdrawals, the same assumptions as the 2012 table. Make a guess first, then try the sliders." },
+        { "type": "interactive_diagram", "id": "years", "caption": "Years from nothing until savings can pay for spending, by the share of take-home pay saved. Dashed: the 5 percent and 4 percent case, for comparison.", "task": "Guess, then move the return or the withdrawal rate", "goal": "sooner", "aspect_ratio": 1.67 },
+        { "type": "text", "text": "The curve is steep on the left and flat on the right. Going from 10 to 20 percent cuts about fifteen years; going from 50 to 60 cuts about four. At the left end every point of saving matters a great deal. At the right end the years are already short, and the remaining choices are about how you want to live, not about arithmetic." },
+        { "type": "text", "text": "Now look at what the other two sliders do. Moving the real return from 5 to 6 percent, a large difference over decades, takes a year or two off at a 50 percent savings rate. Moving the withdrawal rate from 4 to 3.5 percent, which lessons 2 and 4 suggest may be wiser for long retirements, adds a couple of years. Both matter, but neither comes close to what ten points of savings rate does, and of the three it is the one you control." }
+      ]
+    },
+    {
+      "title": "Why returns matter less than they seem",
+      "blocks": [
+        { "type": "text", "text": "Investment returns get most of the attention in personal finance, and over a 40-year career they do dominate: someone who saves 10 percent for 40 years ends with a pile that is mostly growth. A high saver is in a different position. Saving half of take-home pay for 17 years at 5 percent real, about two thirds of the final pile is money paid in, and only a third is growth. The shorter the race, the less compounding has time to do, so the more the outcome rests on contributions." },
+        { "type": "text", "text": "That cuts both ways. A bad decade for markets hurts a high saver less than you would expect while they are still saving, because new contributions buy cheaply and make up most of the pile. A bad decade at the end, just as they stop, is another matter, and that is the subject of lesson 3." },
+        { "type": "text", "text": "One more point about the return. The figure uses real returns, after inflation, because the target is measured in today's spending. US shares have returned roughly 6 to 7 percent a year above inflation since 1871, bonds about 2 to 3. A mix of the two, less fees, makes 5 percent a reasonable middle guess for a portfolio held mostly in shares, and 4 percent a cautious one.[^real] Any figure quoting a nominal return of 10 percent and an unadjusted target is quietly assuming that prices never rise." }
+      ]
+    },
+    {
+      "title": "What the table leaves out",
+      "blocks": [
+        { "type": "text", "text": "The 2012 table is a model, and a few of its simplifications are worth knowing before leaning on it." },
+        { "type": "text", "text": "**Take-home pay is the right base, if you count all of it.** Money put into a 401(k) before tax, an employer match and mortgage principal are all saving, though none of them arrives in the bank account. A household whose payslip shows a 15 percent 401(k) deferral and a 5 percent match, and which saves 20 percent of what lands in the bank, is saving well over a third of its real take-home pay." },
+        { "type": "text", "text": "**Spending later is not spending now.** The model assumes you will spend in future what you spend today. Some costs end (the commute, saving itself, a mortgage paid off) and some begin: health insurance before Medicare, which lesson 11 shows can cost a household nothing or $15,000 a year depending on its income, and taxes on withdrawals, which lessons 7 to 12 are about. Children start or leave." },
+        { "type": "text", "text": "**Taxes change the target.** A pile that is mostly in pre-tax accounts is worth less than its face value, because withdrawals are taxed. A pile in Roth and taxable accounts is worth more. Part two of the course shows how much that moves the finish line, and how much of it is under your control." },
+        { "type": "text", "text": "**The 4 percent is borrowed.** It comes from a study of 30-year retirements. Someone who stops work at 45 needs the money to last 50 years, and lesson 4 shows that the rate history supports over that span is nearer 3.25 to 3.5 percent. At 3.5 percent the target is about 29 times spending, not 25." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "The share of take-home pay saved sets both how fast the pile grows and how big it must be.",
+          "Income cancels out: double the pay at the same savings rate and the date doesn't move.",
+          "Each point of savings rate matters most at low rates; returns matter less for a short, high-saving race."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Six questions on the savings rate", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "Two households both save 40 percent of take-home pay. One takes home $60,000, the other $180,000. Using the same return and withdrawal rate, which can stop needing a salary sooner?", "choices": ["Neither: they get there at the same time", "The $180,000 household, because it saves three times as many dollars", "The $60,000 household, because it needs a smaller pile"], "answer": 0, "why": "The larger household saves three times as much but spends three times as much, so it needs a pile three times as big. Both sides scale together and the date is the same." },
+          { "ask": "At a 4 percent withdrawal rate, how big a pile does a household spending $60,000 a year need?", "choices": ["$1.5 million", "$2.4 million", "$600,000"], "answer": 0, "why": "At 4 percent the pile must be 25 times the yearly spending: 25 × $60,000 = $1.5 million." },
+          { "ask": "Which change shortens the time to enough savings the most for a household now saving 15 percent?", "choices": ["Raising the savings rate to 25 percent", "Raising the real return from 5 to 6 percent", "Lowering investment fees from 0.5 to 0.1 percent"], "answer": 0, "why": "At a low savings rate the curve is steep: ten more points of saving cut well over a decade, while a point of return or a few tenths of a point in fees take off a few years at most." },
+          { "ask": "Why does a household saving half its pay for 17 years end up with a pile that is mostly its own contributions?", "choices": ["Compounding needs time, and 17 years isn't long enough for growth to dominate", "Because markets return less to large savers", "Because contributions to retirement accounts are taxed"], "answer": 0, "why": "Over 17 years at 5 percent real, growth adds a lot but less than the money paid in. Over a 40-year career at a low savings rate, growth is most of the pile." },
+          { "ask": "A guide says \"assume a 10 percent return\" and sets a target in today's dollars. What is wrong?", "choices": ["10 percent is a nominal return; with a target in today's dollars it should be a real return, after inflation", "Nothing, 10 percent is the long-run real return on US shares", "Returns should never be assumed"], "answer": 0, "why": "US shares have returned about 10 percent a year before inflation and roughly 6 to 7 percent after it. Mixing a nominal return with a target in today's money overstates growth." },
+          { "ask": "Which of these counts as saving when working out a savings rate on full take-home pay?", "choices": ["401(k) deferrals, the employer match and mortgage principal", "Only what is left in the bank account at the end of the month", "Only money put into a taxable brokerage account"], "answer": 0, "why": "Money diverted before it reaches the bank still builds wealth. Leaving it out makes the savings rate look lower than it is." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**The savings rate does two jobs.** It sets how fast savings grow and, through what is left to spend, how large they must become.",
+    "**The target is spending times 25 at 4 percent.** At a 3.5 percent withdrawal rate, better suited to very long retirements, it is about 29 times.",
+    "**Income cancels out.** At the same savings rate, a higher income raises the pile needed as much as it raises the saving, so the date stays put.",
+    "**The curve is steep, then flat.** From 10 to 20 percent saved cuts about fifteen years; from 50 to 60 about four.",
+    "**Returns matter less in a short race.** A high saver's pile is mostly contributions, so a point of return moves the date by a year or two.",
+    "**Use real numbers throughout.** Returns after inflation, targets in today's dollars.",
+    "**Count every kind of saving.** 401(k) deferrals, an employer match and mortgage principal are all part of the rate.",
+    "**The model's gaps matter later.** Health insurance, taxes on withdrawals and the length of retirement all move the target, and the rest of the course is about them."
+  ],
+  "footnotes": {
+    "mmm": { "kind": "digression", "title": "Mr. Money Mustache", "text": "Pete Adeney stopped working full time in 2005, at 30, after about ten years as a software engineer, and began the blog in 2011. His table assumed a 5 percent real return and a 4 percent withdrawal rate, and counted from nothing saved. The blog made the idea popular, but the arithmetic is older: retirement planners had used versions of it for decades." },
+    "real": { "kind": "technical", "title": "Real return", "text": "A return after inflation. If a portfolio earns 7 percent in a year when prices rise 3 percent, it can buy about 3.9 percent more than before: (1.07 ÷ 1.03) − 1. The course works in real returns and today's dollars throughout, so a spending of $40,000 means the same groceries in any year." }
+  }
+}

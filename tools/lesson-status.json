@@ -90,40 +90,9 @@
       "note": "Lessons are built on the live synth; 28 photos of instruments and people (17 lessons) are queued for Rob's PC in tools/photo-picks.json and parked in pending-photos.json (4 Nov). No student read-through yet for any lesson."
     },
     "finance": {
-      "title": "Retiring Early, Taxed Lightly (working title)",
-      "order": 20,
-      "note": "Outline only, not yet approved: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg (4 Nov 2026). US federal rules, 2026 tax year, Washington in its own branch. Every lesson will carry a not-personal-advice note and the year of the tax rules it uses.",
-      "planned": [
-          {"id": "savings-rate", "n": 1, "title": "Why the savings rate beats the return", "teaches": "Years to financial independence depend mostly on the share of income saved; returns and retirement spending shift it less than expected"},
-          {"id": "four-percent", "n": 2, "title": "Where 4 percent came from", "teaches": "Bengen's 1994 rule and the Trinity study, tested on every 30-year start since 1871, and what a success rate measures"},
-          {"id": "sequence", "n": 3, "title": "The same average, a different order", "teaches": "Sequence-of-returns risk: why early crashes do the damage and the 1966 retiree is the US worst case"},
-          {"id": "long-retirement", "n": 4, "title": "A 50-year retirement is a different problem", "teaches": "Safe rates for 40 to 60 years, starting valuations (CAPE) and the spread of ending balances"},
-          {"id": "flexible-spending", "n": 5, "title": "Spending rules that bend", "teaches": "Guardrails, variable percentage withdrawal and floor-and-upside rules, trading steady income against failure risk"},
-          {"id": "allocation", "n": 6, "title": "Stocks, bonds and the glide path", "teaches": "Bonds in a withdrawal portfolio, the bond tent, rising equity glide paths and the Japan warning"},
-          {"id": "brackets", "n": 7, "title": "How a federal return actually stacks", "teaches": "Ordinary income, then qualified dividends and long-term gains stacked on top at 0, 15 or 20 percent; NIIT; marginal against effective rates"},
-          {"id": "accounts", "n": 8, "title": "Four buckets and the rate you pay going in and out", "teaches": "Pre-tax, Roth, HSA and taxable compared by the tax rate in against the rate out; why traditional often wins for early retirees"},
-          {"id": "early-access", "n": 9, "title": "Reaching the money before 59 and a half", "teaches": "Roth conversion ladder, contribution basis, 72(t), rule of 55, 457(b), HSA receipts and a taxable bridge"},
-          {"id": "filling-brackets", "n": 10, "title": "Filling the low brackets on purpose", "teaches": "Roth conversions and 0 percent gain harvesting in the gap years, and how conversions push gains into 15 percent"},
-          {"id": "aca", "n": 11, "title": "Health insurance before 65", "teaches": "ACA premium credits as a tax on MAGI: the credit slope, the 400 percent cliff, cost-sharing reductions, the Medicaid floor"},
-          {"id": "withdrawal-order", "n": 12, "title": "Which account to spend first", "teaches": "Textbook order against bracket-aware blends, RMDs, the Social Security tax torpedo and lifetime tax"},
-          {"id": "social-security", "n": 13, "title": "Social Security for someone who stops working at 45", "teaches": "The 35-year average and bend points, claiming at 62 against 70, spousal and survivor benefits, taxation"},
-          {"id": "capstone", "n": 14, "title": "Build the plan", "teaches": "A whole plan for a sample household, stress-tested against 1966, 2000 and 2008"},
-          {"id": "coast-fi", "n": 101, "code": "P1", "title": "Coast, barista and part-time", "teaches": "How a little earned income raises the safe rate, and when saving can stop", "branch": "Other shapes of retirement"},
-          {"id": "housing", "n": 102, "code": "P2", "title": "The house", "teaches": "Paying off the mortgage against investing, the house in the FI number, the sale exclusion, downsizing", "branch": "Other shapes of retirement"},
-          {"id": "mega-backdoor", "n": 201, "code": "E1", "title": "The mega backdoor and the pro-rata rule", "teaches": "After-tax 401(k) converted to Roth, the backdoor Roth IRA and the pro-rata rule", "branch": "Equity pay and big-company plans"},
-          {"id": "rsus-espp", "n": 202, "code": "E2", "title": "RSUs and ESPP", "teaches": "Vested shares as wages, the withholding gap, qualifying and disqualifying ESPP sales", "branch": "Equity pay and big-company plans"},
-          {"id": "options", "n": 203, "code": "E3", "title": "Options and the AMT", "teaches": "Incentive and non-qualified options, AMT on exercise, 83(b) elections", "branch": "Equity pay and big-company plans"},
-          {"id": "filing-status", "n": 301, "code": "C1", "title": "Two people, one plan", "teaches": "Marriage penalties and bonuses, unmarried partners and the ACA, the survivor's single brackets", "branch": "Couples and heirs"},
-          {"id": "beneficiaries", "n": 302, "code": "C2", "title": "Beneficiaries and inherited accounts", "teaches": "Beneficiary forms, the 10-year rule for inherited IRAs, spousal rollover", "branch": "Couples and heirs"},
-          {"id": "asset-location", "n": 401, "code": "T1", "title": "Where to hold what", "teaches": "Which assets belong in which bucket and what asset location is worth", "branch": "Taxable-account craft"},
-          {"id": "harvesting", "n": 402, "code": "T2", "title": "Harvesting losses and gains", "teaches": "Tax-loss harvesting, wash sales including IRA buys, specific lots, 0 percent gain harvesting", "branch": "Taxable-account craft"},
-          {"id": "giving-heirs", "n": 403, "code": "T3", "title": "Giving and heirs", "teaches": "Donating appreciated shares, donor-advised fund bunching, QCDs, step-up in basis", "branch": "Taxable-account craft"},
-          {"id": "wa-taxes", "n": 501, "code": "W1", "title": "What Washington taxes instead", "teaches": "Washington's capital gains tax, sales tax, and what they mean for harvesting and moving states", "branch": "Washington"},
-          {"id": "wa-health", "n": 502, "code": "W2", "title": "Apple Health and Cascade Care", "teaches": "The Medicaid floor below 138 percent of poverty, Cascade Care savings, estate recovery", "branch": "Washington"},
-          {"id": "wa-estate", "n": 503, "code": "W3", "title": "WA Cares and the estate tax", "teaches": "The long-term care payroll premium and benefit, and Washington's estate tax", "branch": "Washington"},
-          {"id": "medicare", "n": 601, "code": "H1", "title": "Medicare and IRMAA", "teaches": "Medicare at 65 and income surcharges set two years earlier", "branch": "Health after 65"},
-          {"id": "long-term-care", "n": 602, "code": "H2", "title": "Long-term care", "teaches": "Care costs, insurance against self-funding, Medicaid's look-back", "branch": "Health after 65"}
-      ]
+      "student": "pending",
+      "facts": "pending",
+      "note": "Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. Being written from 4 Nov 2026; every 2026 number marked 'check' in src/data/rules-2026.json needs the fact check against irs.gov, ssa.gov and the Portuguese tables."
     }
   },
   "notStarted": []

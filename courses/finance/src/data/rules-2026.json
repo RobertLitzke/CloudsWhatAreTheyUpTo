@@ -1,0 +1,73 @@
+{
+  "$comment": "Every dollar figure the course's figures use for one tax year. A new year is a new file (rules-2027.json) with the same shape, switched on in src/engine/rules.ts. Sources are listed per section; numbers marked 'check' were taken from secondary summaries because the IRS, SSA and CMS sites could not be reached from the build machine, and are to be confirmed in the fact check.",
+  "year": 2026,
+  "federal": {
+    "source": "IRS Rev. Proc. 2025-32 (Oct 2025), as summarised by the Journal of Accountancy and CPA Practice Advisor, 9-10 Oct 2025",
+    "brackets": {
+      "single": [[0, 0.10], [12400, 0.12], [50400, 0.22], [105700, 0.24], [201775, 0.32], [256225, 0.35], [640600, 0.37]],
+      "joint": [[0, 0.10], [24800, 0.12], [100800, 0.22], [211400, 0.24], [403550, 0.32], [512450, 0.35], [768700, 0.37]]
+    },
+    "standardDeduction": { "single": 16100, "joint": 32200 },
+    "extra65": { "single": 2050, "joint": 1650, "note": "check: additional standard deduction per person 65 or older" },
+    "seniorDeduction": { "amount": 6000, "phaseStart": { "single": 75000, "joint": 150000 }, "phaseRate": 0.06, "years": "2025 to 2028", "note": "the 2025 budget act's deduction for each person 65 or older" },
+    "gains": {
+      "zeroTop": { "single": 49450, "joint": 98900 },
+      "fifteenTop": { "single": 545500, "joint": 613700 }
+    },
+    "niit": { "rate": 0.038, "threshold": { "single": 200000, "joint": 250000 }, "note": "not indexed" },
+    "socialSecurityTaxation": { "base": { "single": 25000, "joint": 32000 }, "adjusted": { "single": 34000, "joint": 44000 }, "note": "not indexed since 1984 and 1993" },
+    "estateExclusion": 15000000,
+    "giftExclusion": 19000
+  },
+  "accounts": {
+    "source": "IRS Notice 2025-67 and Rev. Proc. 2025-19, as summarised by Kiplinger and TaxSlayer; check",
+    "k401": 24500,
+    "k401CatchUp50": 8000,
+    "k401CatchUp60to63": 11250,
+    "ira": 7500,
+    "iraCatchUp50": 1100,
+    "hsa": { "single": 4400, "family": 8750, "catchUp55": 1000 },
+    "rmdAge": { "bornBefore1960": 73, "born1960OrLater": 75 },
+    "earlyPenalty": 0.10
+  },
+  "aca": {
+    "source": "IRS Rev. Proc. 2025-25 applicable percentages and the 2025 HHS poverty guidelines (used for 2026 coverage), as summarised by healthinsurance.org and The Finance Buff; the enhanced credits of 2021-2025 expired, so the 400% cliff is back; check",
+    "povertyLine": { "1": 15650, "2": 21150, "3": 26650, "4": 32150 },
+    "applicable": [[1.00, 0.021], [1.33, 0.0314], [1.50, 0.0419], [2.00, 0.066], [2.50, 0.0844], [3.00, 0.0996], [4.00, 0.0996]],
+    "cliff": 4.00,
+    "medicaidBelow": 1.38,
+    "sampleBenchmark": { "couple45": 15600, "single45": 7800, "note": "a sample second-lowest silver premium for a 45-year-old in King County, a year; illustrative only" }
+  },
+  "socialSecurity": {
+    "source": "SSA 2026 COLA fact sheet (Oct 2025) and bend points, as summarised by Finance Wonk and Financialist; check bend points",
+    "bendPoints": [1286, 7749],
+    "factors": [0.90, 0.32, 0.15],
+    "taxableMax": 184500,
+    "fullRetirementAge": 67,
+    "earningsTest": 24480,
+    "cola": 0.028
+  },
+  "medicare": {
+    "source": "CMS 2026 Part B premium and IRMAA tables, as summarised by Kiplinger and irmaacalcs.com; check",
+    "partB": 202.90,
+    "irmaa": {
+      "lookbackYears": 2,
+      "single": [[109000, 81.20, 14.50], [137000, 202.90, 37.50], [171000, 324.60, 60.40], [205000, 446.30, 83.30], [500000, 487.00, 91.00]],
+      "joint": [[218000, 81.20, 14.50], [274000, 202.90, 37.50], [342000, 324.60, 60.40], [410000, 446.30, 83.30], [750000, 487.00, 91.00]],
+      "note": "each row: MAGI above which the tier starts, then the monthly Part B and Part D surcharge per person"
+    }
+  },
+  "washington": {
+    "source": "Washington Department of Revenue, as summarised by Fulcrum and Brickley Wealth; check the 2026 deduction",
+    "capitalGains": { "rate": 0.07, "topRate": 0.099, "topAbove": 1000000, "deduction": 278000, "deductionYear": 2025 },
+    "estate": { "exclusion": 3000000, "topRate": 0.35, "portable": false },
+    "waCares": { "premium": 0.0058, "lifetimeBenefit": 36500 }
+  },
+  "portugal": {
+    "source": "Portuguese State Budget 2026 (OE 2026) as summarised by taxclara.pt and jurisdb.org; check against Article 68 CIRS",
+    "brackets": [[0, 0.125], [8342, 0.157], [12587, 0.212], [17838, 0.241], [23089, 0.311], [29397, 0.349], [43090, 0.431], [46566, 0.446], [86634, 0.48]],
+    "investmentFlat": 0.28,
+    "currency": "EUR",
+    "note": "the first and last thresholds and the rates are as the sources give them; the middle thresholds are the 2025 ones raised by the budget's 3.51 percent, which reproduces both ends; check. Rates are marginal on taxable income after the specific deduction"
+  }
+}

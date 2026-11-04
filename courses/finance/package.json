@@ -1,0 +1,23 @@
+{
+  "name": "finance",
+  "version": "0.1.0",
+  "description": "Money That Lasts: saving, spending and paying less tax. How a portfolio is built, spent and taxed over a lifetime, with live models run on 150 years of US market history and the 2026 tax rules.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "returns": "node tools/returns.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "happy-dom": "^20.14.6",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5",
+    "vite-plugin-pwa": "^1.0.0",
+    "vite-plugin-singlefile": "^2.3.0",
+    "vitest": "^3.0.0"
+  }
+}

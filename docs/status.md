@@ -15,7 +15,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
+| [Money That Lasts](#finance) | 2 | 30 | 2 | 0 | 2 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -348,41 +348,44 @@ A lesson's status is the first step it still waits for, in the order: student re
 | O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Granular synthesis: grain size, density and position. |
 | S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Gemini (queued 2026-11-04); Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
 
-## Retiring Early, Taxed Lightly (working title) <a id="finance"></a>
+## Money That Lasts <a id="finance"></a>
 
-No course folder yet (`courses/finance` when built). Outline only, not yet approved: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg (4 Nov 2026). US federal rules, 2026 tax year, Washington in its own branch. Every lesson will carry a not-personal-advice note and the year of the tax rules it uses.
+`courses/finance`. Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. Being written from 4 Nov 2026; every 2026 number marked 'check' in src/data/rules-2026.json needs the fact check against irs.gov, ssa.gov and the Portuguese tables.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why the savings rate beats the return (`savings-rate`) |  | planned, outline only |  | Years to financial independence depend mostly on the share of income saved; returns and retirement spending shift it less than expected. |
-| 2 | Where 4 percent came from (`four-percent`) |  | planned, outline only |  | Bengen's 1994 rule and the Trinity study, tested on every 30-year start since 1871, and what a success rate measures. |
-| 3 | The same average, a different order (`sequence`) |  | planned, outline only |  | Sequence-of-returns risk: why early crashes do the damage and the 1966 retiree is the US worst case. |
-| 4 | A 50-year retirement is a different problem (`long-retirement`) |  | planned, outline only |  | Safe rates for 40 to 60 years, starting valuations (CAPE) and the spread of ending balances. |
-| 5 | Spending rules that bend (`flexible-spending`) |  | planned, outline only |  | Guardrails, variable percentage withdrawal and floor-and-upside rules, trading steady income against failure risk. |
-| 6 | Stocks, bonds and the glide path (`allocation`) |  | planned, outline only |  | Bonds in a withdrawal portfolio, the bond tent, rising equity glide paths and the Japan warning. |
-| 7 | How a federal return actually stacks (`brackets`) |  | planned, outline only |  | Ordinary income, then qualified dividends and long-term gains stacked on top at 0, 15 or 20 percent; NIIT; marginal against effective rates. |
-| 8 | Four buckets and the rate you pay going in and out (`accounts`) |  | planned, outline only |  | Pre-tax, Roth, HSA and taxable compared by the tax rate in against the rate out; why traditional often wins for early retirees. |
-| 9 | Reaching the money before 59 and a half (`early-access`) |  | planned, outline only |  | Roth conversion ladder, contribution basis, 72(t), rule of 55, 457(b), HSA receipts and a taxable bridge. |
-| 10 | Filling the low brackets on purpose (`filling-brackets`) |  | planned, outline only |  | Roth conversions and 0 percent gain harvesting in the gap years, and how conversions push gains into 15 percent. |
-| 11 | Health insurance before 65 (`aca`) |  | planned, outline only |  | ACA premium credits as a tax on MAGI: the credit slope, the 400 percent cliff, cost-sharing reductions, the Medicaid floor. |
-| 12 | Which account to spend first (`withdrawal-order`) |  | planned, outline only |  | Textbook order against bracket-aware blends, RMDs, the Social Security tax torpedo and lifetime tax. |
-| 13 | Social Security for someone who stops working at 45 (`social-security`) |  | planned, outline only |  | The 35-year average and bend points, claiming at 62 against 70, spousal and survivor benefits, taxation. |
-| 14 | Build the plan (`capstone`) |  | planned, outline only |  | A whole plan for a sample household, stress-tested against 1966, 2000 and 2008. |
-| P1 | Coast, barista and part-time (`coast-fi`) | Other shapes of retirement | planned, outline only |  | How a little earned income raises the safe rate, and when saving can stop. |
-| P2 | The house (`housing`) | Other shapes of retirement | planned, outline only |  | Paying off the mortgage against investing, the house in the FI number, the sale exclusion, downsizing. |
-| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | planned, outline only |  | After-tax 401(k) converted to Roth, the backdoor Roth IRA and the pro-rata rule. |
-| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | planned, outline only |  | Vested shares as wages, the withholding gap, qualifying and disqualifying ESPP sales. |
-| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | planned, outline only |  | Incentive and non-qualified options, AMT on exercise, 83(b) elections. |
-| C1 | Two people, one plan (`filing-status`) | Couples and heirs | planned, outline only |  | Marriage penalties and bonuses, unmarried partners and the ACA, the survivor's single brackets. |
-| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | planned, outline only |  | Beneficiary forms, the 10-year rule for inherited IRAs, spousal rollover. |
-| T1 | Where to hold what (`asset-location`) | Taxable-account craft | planned, outline only |  | Which assets belong in which bucket and what asset location is worth. |
-| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | planned, outline only |  | Tax-loss harvesting, wash sales including IRA buys, specific lots, 0 percent gain harvesting. |
-| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | planned, outline only |  | Donating appreciated shares, donor-advised fund bunching, QCDs, step-up in basis. |
-| W1 | What Washington taxes instead (`wa-taxes`) | Washington | planned, outline only |  | Washington's capital gains tax, sales tax, and what they mean for harvesting and moving states. |
-| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | planned, outline only |  | The Medicaid floor below 138 percent of poverty, Cascade Care savings, estate recovery. |
-| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | planned, outline only |  | The long-term care payroll premium and benefit, and Washington's estate tax. |
-| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | planned, outline only |  | Medicare at 65 and income surcharges set two years earlier. |
-| H2 | Long-term care (`long-term-care`) | Health after 65 | planned, outline only |  | Care costs, insurance against self-funding, Medicaid's look-back. |
+| 1 | Why the savings rate beats the return (`savings-rate`) |  | needs student read-through | Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
+| 2 | Where 4 percent came from (`four-percent`) |  | needs student read-through | Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
+| 3 | The same average, a different order (`sequence`) |  | planned, listed as coming |  | Sequence-of-returns risk, and why 1966 is the worst US start. |
+| 4 | A fifty-year retirement (`long-retirement`) |  | planned, listed as coming |  | Safe rates for long horizons, starting valuations and the spread of outcomes. |
+| 5 | Spending rules that bend (`flexible-spending`) |  | planned, listed as coming |  | Guardrails, variable withdrawals and floors, and what each trades away. |
+| 6 | Stocks, bonds and the glide path (`allocation`) |  | planned, listed as coming |  | What bonds do in a portfolio you are spending, the bond tent, and Japan. |
+| 7 | How a federal return stacks (`brackets`) |  | planned, listed as coming |  | Ordinary income, gains on top at 0, 15 or 20 percent, and marginal against average rates. |
+| 8 | Four buckets (`accounts`) |  | planned, listed as coming |  | Pre-tax, Roth, HSA and taxable, compared by the tax rate in and the rate out. |
+| 9 | Money before 59 and a half (`early-access`) |  | planned, listed as coming |  | Conversion ladders, Roth basis, 72(t), the rule of 55 and a taxable bridge. |
+| 10 | Filling the low brackets (`filling-brackets`) |  | planned, listed as coming |  | Roth conversions and 0 percent gains in low-income years, and how they collide. |
+| 11 | Health insurance before 65 (`aca`) |  | planned, listed as coming |  | ACA premium credits as a tax on income, and the 400 percent cliff. |
+| 12 | Which account to spend first (`withdrawal-order`) |  | planned, listed as coming |  | Withdrawal order, RMDs and the Social Security tax torpedo over a lifetime. |
+| 13 | Social Security, worked out (`social-security`) |  | planned, listed as coming |  | The 35-year average, bend points, claiming age and survivors. |
+| 14 | Build the plan (`capstone`) |  | planned, listed as coming |  | A whole plan for one household, stress-tested against history. |
+| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | planned, listed as coming |  | When Portugal taxes you, how its income tax is built, and what replaced NHR. |
+| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | planned, listed as coming |  | The US-Portugal treaty, foreign tax credits, and each US account abroad. |
+| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | planned, listed as coming |  | The national health service, Medicare abroad, property tax and inheritance. |
+| W1 | What Washington taxes instead (`wa-taxes`) | Washington | planned, listed as coming |  | The state’s tax on long-term gains, its sales tax, and moving states. |
+| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | planned, listed as coming |  | The Medicaid floor, state premium help and estate recovery. |
+| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | planned, listed as coming |  | The long-term care premium and benefit, and the state’s estate tax. |
+| T1 | Where to hold what (`asset-location`) | Taxable-account craft | planned, listed as coming |  | Which assets belong in which account, and what that is worth. |
+| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | planned, listed as coming |  | Tax-loss harvesting, wash sales, lots, and gains at 0 percent. |
+| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | planned, listed as coming |  | Appreciated shares, donor-advised funds, QCDs and the step-up. |
+| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | planned, listed as coming |  | After-tax 401(k) money into Roth, and the backdoor Roth IRA. |
+| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | planned, listed as coming |  | Vested shares as wages, the withholding gap, and ESPP sales. |
+| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | planned, listed as coming |  | Incentive and non-qualified options, the AMT, and 83(b). |
+| C1 | Two people, one plan (`filing-status`) | Couples and heirs | planned, listed as coming |  | Marriage penalties and bonuses, unmarried partners, and the survivor. |
+| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | planned, listed as coming |  | Beneficiary forms, the 10-year rule and spousal rollover. |
+| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | planned, listed as coming |  | Medicare at 65 and the surcharges set two years earlier. |
+| H2 | Long-term care (`long-term-care`) | Health after 65 | planned, listed as coming |  | What care costs, insurance against self-funding, and Medicaid. |
+| S1 | Coast, part-time and partial (`coast`) | Other shapes | planned, listed as coming |  | How a little earned income raises a safe spending rate. |
+| S2 | The house (`housing`) | Other shapes | planned, listed as coming |  | Paying off the mortgage against investing, and the sale exclusion. |
 
 ## Encyclopedia
 

@@ -9,12 +9,14 @@
     "soil": [470, 650],
     "botany": [260, 840],
     "ecology": [760, 840],
-    "synthesizers": [130, 320]
+    "synthesizers": [130, 320],
+    "finance": [910, 640]
   },
   "shelves": [
     { "title": "Sky and Earth", "note": "Weather, rocks and the stars", "courses": ["clouds", "geology", "astronomy"] },
     { "title": "Living things", "note": "Plants, soil and who eats whom", "courses": ["botany", "ecology", "soil"] },
-    { "title": "Making things", "note": "Circuits, sound and pictures", "courses": ["electronics", "synthesizers", "photography"] }
+    { "title": "Making things", "note": "Circuits, sound and pictures", "courses": ["electronics", "synthesizers", "photography"] },
+    { "title": "Money", "note": "Saving, spending and tax", "courses": ["finance"] }
   ],
   "bridges": [
     { "id": "sky-light", "title": "Light in the sky", "between": ["clouds", "astronomy"], "promise": "Blue sky, red sunsets, twinkling stars, halos and the green flash.", "at": 0.45 },
