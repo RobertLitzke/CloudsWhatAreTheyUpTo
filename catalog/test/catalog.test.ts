@@ -10,6 +10,7 @@ import { begun, homePage, places } from '../src/home';
 import { mapPage as catalogPage, standing } from '../src/page';
 
 const courses = resolve(__dirname, '../../courses');
+const BETA = { version: '0.1', stage: 'beta', date: '2026-11-04' } as const;
 
 describe('the courses on the site', () => {
   const all = readCatalog(courses);
@@ -35,20 +36,28 @@ describe('the courses on the site', () => {
     expect(infoProblems('soil', { title: 'Soil' }).join('\n')).toMatch(/"summary" should be words/);
   });
 
+  it('gives every course a version and a stage, a beta 0.x and a released course 1.0 or more', () => {
+    for (const c of all) expect(c.release.stage === 'beta' ? /^0\.\d+$/ : /^[1-9]\d*\.\d+$/, c.folder).toSatisfy((re: RegExp) => re.test(c.release.version));
+    const info = { title: 'x', department: 'x', summary: 'x', lessons: 'x', icon: 'x', save: 'x', order: 1 };
+    expect(infoProblems('soil', info).join('\n')).toMatch(/"release" should be/);
+    expect(infoProblems('soil', { ...info, release: { version: '1.0', stage: 'beta', date: '2026-11-04' } }).join('\n')).toMatch(/a beta is 0.x/);
+    expect(infoProblems('soil', { ...info, release: BETA })).toEqual([]);
+  });
+
   it('lists courses by their order', () => {
     const dir = mkdtempSync(join(tmpdir(), 'catalog-'));
     for (const [folder, order] of [['zebra', 1], ['apple', 2]] as const) {
       mkdirSync(join(dir, folder, 'lessons'), { recursive: true });
       writeFileSync(join(dir, folder, 'lessons', 'one.json'), '{}');
       writeFileSync(join(dir, folder, 'icon.svg'), '<svg/>');
-      writeFileSync(join(dir, folder, 'course.json'), JSON.stringify({ title: folder, department: 'D', order, summary: 'S', lessons: 'lessons', icon: 'icon.svg', save: `${folder}.save` }));
+      writeFileSync(join(dir, folder, 'course.json'), JSON.stringify({ title: folder, department: 'D', order, summary: 'S', lessons: 'lessons', icon: 'icon.svg', save: `${folder}.save`, release: BETA }));
     }
     expect(readCatalog(dir).map((c) => c.folder)).toEqual(['zebra', 'apple']);
   });
 });
 
 const entry = (over: Partial<CatalogEntry> = {}): CatalogEntry => ({
-  folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: 'data:image/svg+xml,%3Csvg%2F%3E',
+  folder: 'soil', title: 'Soil', department: 'Earth Sciences', order: 1, summary: 'About soil.', save: 'soil.save', lessonCount: 4, icon: 'data:image/svg+xml,%3Csvg%2F%3E', release: BETA,
   lessonList: [{ id: 'grit', n: 1, title: 'Grit', parts: 3 }, { id: 'water', n: 2, title: 'Water', parts: 5 }, { id: 'worms', n: 3, title: 'Worms', parts: 4 }, { id: 'side', n: 101, title: 'Side trip', parts: 2 }],
   ...over,
 });

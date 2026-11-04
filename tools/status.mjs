@@ -35,10 +35,10 @@ const read = (file) => (existsSync(file) ? readFileSync(file, 'utf8') : '');
 
 /** The steps a lesson goes through after it is written, in order. */
 export const STEPS = [
-  { key: 'student', label: 'needs student read-through', short: 'Student read-through' },
-  { key: 'gemini', label: 'awaiting Gemini review', short: 'Gemini' },
-  { key: 'facts', label: 'awaiting fact check', short: 'Fact check' },
-  { key: 'images', label: 'awaiting photos/images', short: 'Photos' },
+  { key: 'student', label: 'needs student read-through', short: 'Student read-through', gap: 'to read through' },
+  { key: 'gemini', label: 'awaiting Gemini review', short: 'Gemini', gap: 'to copy-edit' },
+  { key: 'facts', label: 'awaiting fact check', short: 'Fact check', gap: 'to fact-check' },
+  { key: 'images', label: 'awaiting photos/images', short: 'Photos', gap: 'awaiting photos' },
 ];
 
 const STR = String.raw`'((?:[^'\\]|\\.)*)'`;
@@ -175,7 +175,7 @@ export function collect() {
     // Trunk first, then each branch in the order the tree lists them.
     const order = (r) => (r.branch ? 1 + tree.findIndex((b) => b.title === r.branch || b.id === r.branch) : 0);
     lessons.sort((a, b) => order(a) - order(b));
-    courses.push({ folder, title: course.title, order: course.order ?? 99, note: m.note ?? '', lessons });
+    courses.push({ folder, title: course.title, order: course.order ?? 99, note: m.note ?? '', release: course.release, lessons });
   }
   // Courses planned in an outline with no folder yet: a title and planned lessons in tools/lesson-status.json.
   for (const [folder, m] of Object.entries(meta.courses ?? {})) {
@@ -227,8 +227,31 @@ function counts(c) {
     done: w.filter((l) => l.status === 'done').length,
   };
 }
+/**
+ * What stands between a course and its release, as short phrases; none when
+ * it meets the bar. The bar: every planned lesson written, and every written
+ * lesson through the student read-through, the Gemini copy edit, the fact
+ * check and its photos. Meeting it does not release a course: Rob does, with
+ * npm run release -- <course> --release (tools/release.mjs).
+ */
+export function releaseGaps(c) {
+  const n = counts(c);
+  const gaps = [];
+  if (n.planned) gaps.push(`${n.planned} lesson${n.planned > 1 ? 's' : ''} to write`);
+  for (const s of STEPS) if (n[s.key]) gaps.push(`${n[s.key]} ${s.gap}`);
+  return gaps;
+}
+const versionText = (c) => (c.release ? `${c.release.version} ${c.release.stage}` : c.outlineOnly ? 'outline' : '');
+const readyText = (c) => {
+  if (c.outlineOnly) return '';
+  const gaps = releaseGaps(c);
+  if (c.release?.stage === 'released') return gaps.length ? `released; still to do: ${gaps.join(', ')}` : 'released';
+  return gaps.length ? `no: ${gaps.join(', ')}` : 'yes, for Rob to release';
+};
+
 const HEAD = { written: 'Written', planned: 'Planned', student: 'Need read-through', gemini: 'Awaiting Gemini', facts: 'Awaiting fact check', images: 'Awaiting photos', done: 'Done' };
 
+const RELEASE_TEXT = 'A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.';
 const md = (s) => String(s ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
 const waitingText = (l) => l.waiting.slice(1).map((w) => STEPS.find((s) => s.key === w.step).short + (w.why ? ` (${w.why})` : '')).join('; ');
 const statusText = (l) => (l.waiting[0]?.why ? `${l.status} (${l.waiting[0].why})` : l.status);
@@ -238,15 +261,19 @@ export function toMarkdown(data, when = new Date()) {
   out.push('# Course status', '');
   out.push(`Made by \`npm run status\` on ${when.toISOString().slice(0, 10)}. Don't edit this file: change the lessons, the review queues or \`tools/lesson-status.json\` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).`, '');
   out.push('A lesson\'s status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.', '');
-  out.push('| Course | ' + COLS.map((k) => HEAD[k]).join(' | ') + ' |', '| --- |' + COLS.map(() => ' ---: |').join(''));
+  out.push('| Course | Version | ' + COLS.map((k) => HEAD[k]).join(' | ') + ' |', '| --- | --- |' + COLS.map(() => ' ---: |').join(''));
   for (const c of data.courses) {
     const n = counts(c);
-    out.push(`| [${md(c.title)}](#${c.folder}) | ` + COLS.map((k) => n[k]).join(' | ') + ' |');
+    out.push(`| [${md(c.title)}](#${c.folder}) | ${md(versionText(c))} | ` + COLS.map((k) => n[k]).join(' | ') + ' |');
   }
+  out.push('');
+  out.push(RELEASE_TEXT, '');
+  out.push('| Course | Version | Since | Ready to release? |', '| --- | --- | --- | --- |');
+  for (const c of data.courses) if (!c.outlineOnly) out.push(`| ${md(c.title)} | ${md(versionText(c))} | ${md(c.release?.date)} | ${md(readyText(c))} |`);
   out.push('');
   for (const c of data.courses) {
     out.push(`## ${c.title} <a id="${c.folder}"></a>`, '');
-    out.push(`${c.outlineOnly ? `No course folder yet (\`courses/${c.folder}\` when built)` : `\`courses/${c.folder}\``}${c.note ? `. ${c.note}` : ''}`, '');
+    out.push(`${c.outlineOnly ? `No course folder yet (\`courses/${c.folder}\` when built)` : `\`courses/${c.folder}\``}${c.release ? `, version ${c.release.version} (${c.release.stage}, ${c.release.date})` : ''}${c.note ? `. ${c.note}` : ''}`, '');
     out.push('| Code | Lesson | Branch | Status | Also waiting on | What it covers |', '| --- | --- | --- | --- | --- | --- |');
     for (const l of c.lessons) {
       const note = l.note ? ` *${md(l.note)}*` : '';
@@ -281,7 +308,7 @@ export function toHtml(data, when = new Date()) {
   const overview = data.courses
     .map((c) => {
       const n = counts(c);
-      return `<tr><td><a href="#${c.folder}">${esc(c.title)}</a></td>${COLS.map((k) => `<td class="num">${n[k]}</td>`).join('')}</tr>`;
+      return `<tr><td><a href="#${c.folder}">${esc(c.title)}</a></td><td>${c.release ? `<span class="pill ${c.release.stage === 'released' ? 'done' : 'planned'}">${esc(versionText(c))}</span>` : esc(versionText(c))}</td>${COLS.map((k) => `<td class="num">${n[k]}</td>`).join('')}</tr>`;
     })
     .join('\n');
   return `<!doctype html>
@@ -317,14 +344,19 @@ a { color: inherit; text-decoration-color: var(--soft); }
 <body><main>
 <h1>Course status</h1>
 <p class="lede">Every lesson of every course and where it stands. Made by <code>npm run status</code> on ${when.toISOString().slice(0, 10)}. A status is the first step a lesson still waits for: student read-through, Gemini copy edit, fact check, photos.</p>
-<div class="wrap"><table><thead><tr><th>Course</th>${COLS.map((k) => `<th>${HEAD[k]}</th>`).join('')}</tr></thead><tbody>
+<div class="wrap"><table><thead><tr><th>Course</th><th>Version</th>${COLS.map((k) => `<th>${HEAD[k]}</th>`).join('')}</tr></thead><tbody>
 ${overview}
+</tbody></table></div>
+<h2>Releases</h2>
+<p class="sub">${inline(RELEASE_TEXT.replace(/`([^`]+)`/g, '$1'))}</p>
+<div class="wrap"><table><thead><tr><th>Course</th><th>Version</th><th>Since</th><th>Ready to release?</th></tr></thead><tbody>
+${data.courses.filter((c) => !c.outlineOnly).map((c) => `<tr><td><a href="#${c.folder}">${esc(c.title)}</a></td><td>${esc(versionText(c))}</td><td>${esc(c.release?.date)}</td><td>${esc(readyText(c))}</td></tr>`).join('\n')}
 </tbody></table></div>
 <div class="filters" role="group" aria-label="Show">
 <button aria-pressed="true" data-f="">All</button><button aria-pressed="false" data-f="planned">Planned</button>${STEPS.map((s) => `<button aria-pressed="false" data-f="${s.key}">${esc(s.short)}</button>`).join('')}<button aria-pressed="false" data-f="done">Done</button>
 </div>
 ${data.courses
-  .map((c) => `<section><h2 id="${c.folder}">${esc(c.title)}</h2>${c.note ? `<p class="sub">${inline(c.note)}</p>` : ''}
+  .map((c) => `<section><h2 id="${c.folder}">${esc(c.title)}${c.release ? ` <span class="pill ${c.release.stage === 'released' ? 'done' : 'planned'}">${esc(versionText(c))}</span>` : ''}</h2>${c.note ? `<p class="sub">${inline(c.note)}</p>` : ''}
 <div class="wrap"><table><thead><tr><th>Code</th><th>Lesson</th><th>Status</th><th>What it covers</th></tr></thead><tbody>
 ${rows(c)}
 </tbody></table></div></section>`)

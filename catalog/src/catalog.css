@@ -327,3 +327,17 @@ html { overflow-x: clip; }
   .desk-main > .btn { width: 100%; }
   .desk-also .ico, .desk-main .ico { width: 48px; height: 48px; border-radius: 11px; }
 }
+
+/* A course in beta (course.json `release`): a small stamp on its cover and
+   its listing, and a line in the colophon on what beta means. */
+.beta {
+  display: inline-block; align-self: flex-start; padding: 2px 7px 1px; border: 1.5px solid currentColor; border-radius: 4px;
+  font: 700 0.68rem/1.2 var(--sans); letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.85;
+}
+.cover-text .beta { margin-top: 8px; }
+.beta-note { max-width: 62ch; }
+.beta-note .beta { margin-right: 4px; vertical-align: 1px; }
+.course-version { white-space: nowrap; }
+@media (max-width: 720px) {
+  .cover-text .beta { margin-top: 4px; }
+}

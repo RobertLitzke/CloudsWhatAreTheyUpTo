@@ -26,6 +26,35 @@ export interface CourseInfo {
   save: string;
   /** Its colours (from its tokens.css), for its cards in the review of all courses. */
   theme?: { bg: string; panel?: string; text: string; accent: string; good?: string; bad?: string; display?: string };
+  /**
+   * Its version and stage: "beta" while it is being written and checked
+   * (0.x), "released" once Rob blesses it (1.0 and up). Changed only by
+   * `npm run release` (tools/release.mjs), never on every edit.
+   */
+  release: Release;
+}
+
+/** A course's release, as didactics/release's CourseRelease. */
+export interface Release {
+  version: string;
+  stage: 'beta' | 'released';
+  date: string;
+  note?: string;
+  history?: Omit<Release, 'history'>[];
+}
+
+const VERSION = /^\d+\.\d+$/;
+
+/** The problems with a course's release, as sentences. */
+function releaseProblems(where: string, r: unknown): string[] {
+  if (typeof r !== 'object' || r === null) return [`${where}: "release" should be { version, stage, date } (npm run release)`];
+  const o = r as Record<string, unknown>;
+  const out: string[] = [];
+  if (typeof o.version !== 'string' || !VERSION.test(o.version)) out.push(`${where}: the release's "version" should be two numbers, such as "0.3"`);
+  if (o.stage !== 'beta' && o.stage !== 'released') out.push(`${where}: the release's "stage" should be "beta" or "released"`);
+  else if (typeof o.version === 'string' && (o.stage === 'beta') !== o.version.startsWith('0.')) out.push(`${where}: a beta is 0.x and a released course 1.0 or more`);
+  if (typeof o.date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(o.date)) out.push(`${where}: the release's "date" should be YYYY-MM-DD`);
+  return out;
 }
 
 /** What the catalog needs of one lesson: to name it, link to it and say which part the reader is on. */
@@ -63,6 +92,7 @@ export function infoProblems(folder: string, info: unknown): string[] {
     if (typeof o[k] !== 'string' || !(o[k] as string).trim()) out.push(`courses/${folder}/course.json: "${k}" should be words`);
   }
   if (typeof o.order !== 'number') out.push(`courses/${folder}/course.json: "order" should be a number`);
+  out.push(...releaseProblems(`courses/${folder}/course.json`, o.release));
   return out;
 }
 

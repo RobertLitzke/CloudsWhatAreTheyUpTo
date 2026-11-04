@@ -13,6 +13,8 @@ import { homeView } from './app/views/home';
 import { lessonOptions } from './app/views/lesson';
 import { referenceView } from './app/views/reference';
 import { LESSONS } from './core/lessons';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 /** A lit LED on a board, for the update banner: drawn inline so it shows offline. */
 const LED =
@@ -27,6 +29,7 @@ const LED =
 // Circuitry's own is passed in: the home page with its tracks, the reference
 // page (symbols and glossary included) and Credits.
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'circuitry',
   title: 'Circuitry',
   subtitle: 'A circuits workbook',

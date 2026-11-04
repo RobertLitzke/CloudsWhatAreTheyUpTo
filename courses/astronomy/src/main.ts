@@ -14,6 +14,8 @@ import { makeBanner } from './banner';
 import { GLOBE_PREVIEW } from './figures/globe-preview';
 import globePreview from './previews/globe.json';
 import type { AstroLesson } from './lessons';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 // Previews of figures not yet in any lesson, reached only by link
 // (#/preview/globe-preview), with a save of their own so nothing done there
@@ -21,6 +23,7 @@ import type { AstroLesson } from './lessons';
 const preview = courseStore('astronomy-preview', { units: 'metric', fixedUnits: true });
 
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'astronomy',
   title: 'Astronomy',
   subtitle: 'How we found out',

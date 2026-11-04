@@ -8,6 +8,8 @@ import { RULES_YEAR } from './engine/rules';
 import { FIGURES } from './figures';
 import { prose } from './figures/kit';
 import { BRANCHES, LESSONS } from './lessons';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 /** The line under every lesson's title: the rules year, and what the course is not. */
 const adviceNote = () =>
@@ -16,6 +18,7 @@ const adviceNote = () =>
     'This is education about how the rules work, not advice for anyone’s situation. Rules and limits change every year; check a real plan against the current ones, or with a fee-only planner or a CPA.');
 
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'finance',
   title: 'Money That Lasts',
   subtitle: 'Saving, spending and paying less tax',

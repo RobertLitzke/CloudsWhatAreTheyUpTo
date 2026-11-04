@@ -17,6 +17,8 @@ import { practiceView, roundView } from './game/views/round';
 import { settingsView } from './game/views/settings';
 import { BRANCHES, LESSONS } from './lessons';
 import { PHOTOS } from './photos';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 /** One of PatchMatch's pages, in a .pm box of its own so its styles stay inside it. */
 const pm = (view: View): View => (root, ctx) => {
@@ -26,6 +28,7 @@ const pm = (view: View): View => (root, ctx) => {
 };
 
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'synthesizers',
   title: 'Synthesizers',
   subtitle: 'How a sound is built',

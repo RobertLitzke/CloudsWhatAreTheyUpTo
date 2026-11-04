@@ -9,6 +9,8 @@ import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS } from '../../core/lessons';
 import { makeBanner } from '../scene/banner';
 import { store } from '../../store';
+import { releaseSlip, type CourseRelease } from 'didactics/release';
+import course from '../../../course.json';
 
 export const homeView: View = (root) => {
   const save = store.get();
@@ -53,6 +55,7 @@ export const homeView: View = (root) => {
           save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
           el('p', {}, `${LESSONS.length} short lessons on the ground your plants grow in: what it is made of, how it holds water and air, what lives in it, and how to feed it and build it up year on year. Each one has drawings to play with and a few questions at the end.`),
         ),
+        releaseSlip(course.release as CourseRelease),
         nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, leftPartWay(nextUp) ? `Continue lesson ${nextUp.n}: ${nextUp.title}` : save.lessons[nextUp.id] || nextUp.n > 1 ? `Lesson ${nextUp.n}: ${nextUp.title}` : 'Start the first lesson') : null,
         el('h2', {}, 'Lessons'),
         board,

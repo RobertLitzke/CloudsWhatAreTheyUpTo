@@ -52,6 +52,12 @@ export function standing(entry: CatalogEntry, read: Read): string | null {
 
 const lessonsLine = (n: number) => `${n} ${n === 1 ? 'lesson' : 'lessons'}`;
 const href = (folder: string) => `./${folder}/`;
+/** "Beta · version 0.3" or "Version 1.0". */
+export const versionLine = (c: CatalogEntry) => (c.release.stage === 'beta' ? `Beta · version ${c.release.version}` : `Version ${c.release.version}`);
+
+/** What beta means, where the catalog lists a course in beta. */
+export const BETA_NOTE = 'A course marked Beta is still being written and checked: its lessons may be added to, reworded or reordered, and some facts and pictures have not been checked yet. Your progress is kept through every change.';
+
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z]+/g, '-').replace(/^-|-$/g, '');
 const EMPTY_MAP: CatalogMap = { courses: {}, bridges: [] };
 
@@ -71,7 +77,7 @@ function courseEntry(c: CatalogEntry, read: Read, bridges: readonly Bridge[], ti
       {},
       el('h3', {}, el('a', { href: href(c.folder) }, c.title), c.subtitle ? el('span.course-subtitle', {}, c.subtitle) : null),
       el('p.course-summary', {}, c.summary),
-      el('p.course-meta', {}, el('span', {}, lessonsLine(c.lessonCount)), status ? el('span.course-standing', {}, status) : null),
+      el('p.course-meta', {}, el('span', {}, lessonsLine(c.lessonCount)), el('span.course-version', {}, versionLine(c)), status ? el('span.course-standing', {}, status) : null),
       mine.length
         ? el(
             'p.course-bridges',

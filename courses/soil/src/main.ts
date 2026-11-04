@@ -15,6 +15,8 @@ import { makeGarden } from './app/scene/garden';
 import { empty, store } from './store';
 import { homeView } from './app/views/home';
 import { referenceView } from './app/views/reference';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 /** A sprout with an up arrow, for the update banner: drawn inline so it shows offline. */
 const SPROUT =
@@ -26,6 +28,7 @@ const SPROUT =
 // edited text "dirt.course", and the files dirt-save.json, dirt-course.json
 // and dirt.html.
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'dirt',
   title: 'Dirt',
   subtitle: 'A soil workbook',

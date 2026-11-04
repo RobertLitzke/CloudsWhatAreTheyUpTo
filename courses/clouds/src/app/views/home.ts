@@ -14,6 +14,8 @@ import { makeBanner } from '../scene/banner';
 import { getSave, updateSave } from '../store';
 import { INTRO } from '../../core/talk';
 import { clearRadio, playTalk } from '../radio';
+import { releaseSlip, type CourseRelease } from 'didactics/release';
+import course from '../../../course.json';
 
 export const homeView: View = (root, nav) => {
   const save = getSave();
@@ -76,6 +78,7 @@ export const homeView: View = (root, nav) => {
             ]
           : [el('p', {}, 'Short lessons on what a cloud is made of, how to name every kind, and what each one says about the weather to come. Branches fork off the main line for weather further afield, and the last lesson is on cloud seeding.')]),
       ),
+      releaseSlip(course.release as CourseRelease),
       nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, started(nextUp) ? `Continue ${lessonName(nextUp).toLowerCase()}: ${nextUp.title}` : nextUp.n === 1 && !save.lessons[nextUp.id] ? 'Start the first lesson' : `${lessonName(nextUp)}: ${nextUp.title}`) : null,
       el('h2', {}, 'Lessons'),
       treeView({ lessons: TREE_LESSONS, branches: BRANCHES, save, card, remember: 'clouds.tree' }),

@@ -13,6 +13,8 @@ import { empty, store } from './store';
 import { homeView } from './app/views/home';
 import { referenceView } from './app/views/reference';
 import { LESSONS } from './core/lessons';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 /** A shutter button with an up arrow, for the update banner: inline, so it shows offline. */
 const SHUTTER =
@@ -24,6 +26,7 @@ const SHUTTER =
 // before the course joined the site; the files are out-of-auto-save.json,
 // out-of-auto-course.json and out-of-auto.html.
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'out-of-auto',
   title: 'Photography',
   subtitle: 'Out of Auto',

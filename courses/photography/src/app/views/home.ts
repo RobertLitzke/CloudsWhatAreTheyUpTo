@@ -9,6 +9,8 @@ import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS } from '../../core/lessons';
 import { makeBanner } from '../scene/banner';
 import { store } from '../../store';
+import { releaseSlip, type CourseRelease } from 'didactics/release';
+import course from '../../../course.json';
 
 export const homeView: View = (root) => {
   const save = store.get();
@@ -53,6 +55,7 @@ export const homeView: View = (root) => {
           save.name ? el('p', {}, `Welcome back, ${save.name}.`) : null,
           el('p', {}, `${LESSONS.length} short lessons on what a camera is deciding for you and how to take each decision back: light and exposure, what stays sharp, movement, grain, reach, focus and colour. Written for nature photography with a long zoom, with figures that work on real photographs rather than diagrams of them.`),
         ),
+        releaseSlip(course.release as CourseRelease),
         nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, leftPartWay(nextUp) ? `Continue lesson ${nextUp.n}: ${nextUp.title}` : save.lessons[nextUp.id] || nextUp.n > 1 ? `Lesson ${nextUp.n}: ${nextUp.title}` : 'Start the first lesson') : null,
         el('h2', {}, 'Lessons'),
         board,

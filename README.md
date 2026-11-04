@@ -16,7 +16,8 @@ catalog/            the site's front page: the course catalog, and the one
 courses/<folder>/   one course, everything of its own: lessons, quizzes,
                     figures, simulations, photos, styles, tests, tools
   course.json       what the catalog shows: title, department, summary,
-                    icon, where its lessons are, its save's key
+                    icon, where its lessons are, its save's key, and its
+                    release (version, beta or released)
 tools/              what every course shares at the command line:
   build-site.mjs      builds every course into dist/<folder>/, then the catalog
   photos.mjs          fetches a course's photos from its tools/photo-picks.json
@@ -25,6 +26,7 @@ tools/              what every course shares at the command line:
   copyedit.mjs        the Gemini copy edit, with each course's brief
   review-queue.mjs    runs the copy edits waiting in every course
   status.mjs          the lesson status table (docs/status.md), with tools/lesson-status.json
+  release.mjs         a course's version: npm run release -- <course> "What changed" (CLAUDE.md)
   process-icons.mjs   crops every course's icons from the painted sheets in catalog/icons/
   lib/                the pieces the tools share (Commons, course folders)
 tsconfig.base.json  the compiler options every workspace extends

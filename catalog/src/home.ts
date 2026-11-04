@@ -11,7 +11,7 @@
 import { el } from 'didactics/dom';
 import type { Bridge, CatalogEntry, CatalogMap, LessonInfo } from '../registry';
 import { installSlip } from './install';
-import { dueEverywhere, progress } from './page';
+import { BETA_NOTE, dueEverywhere, progress } from './page';
 
 type Read = (key: string) => string | null;
 
@@ -167,11 +167,11 @@ function cover(c: CatalogEntry, read: Read, under: boolean): HTMLElement {
       href: `./${c.folder}/`,
       // Custom properties need a style string: el() assigns style objects by property name.
       style: t ? `--bg:${t.bg};--a:${t.accent};--t:${t.text};${t.display ? `--d:${t.display}` : ''}` : '',
-      title: c.summary,
+      title: c.release.stage === 'beta' ? `${c.summary}\n\nBeta, version ${c.release.version}: still being written and checked.` : c.summary,
     },
     under ? el('span.ribbon', { 'aria-label': 'Under way' }) : null,
     icon(c),
-    el('span.cover-text', {}, el('b', {}, c.title), c.subtitle ? el('i', {}, c.subtitle) : null),
+    el('span.cover-text', {}, el('b', {}, c.title), c.subtitle ? el('i', {}, c.subtitle) : null, c.release.stage === 'beta' ? el('span.beta', {}, 'Beta') : null),
     el(
       'span.cover-foot',
       {},
@@ -253,6 +253,11 @@ export function homePage(courses: readonly CatalogEntry[], read: Read, map: Cata
           el('p.shelf-more', {}, el('a', { href: '#map' }, 'See them all on the map →')),
         )
       : null,
-    el('footer.colophon', {}, el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.')),
+    el(
+      'footer.colophon',
+      {},
+      courses.some((c) => c.release.stage === 'beta') ? el('p.beta-note', {}, el('span.beta', {}, 'Beta'), ' ', BETA_NOTE) : null,
+      el('p', {}, 'Each course keeps its own colours, progress and settings. The menu in any course leads back here under All courses.'),
+    ),
   );
 }

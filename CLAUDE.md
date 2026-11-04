@@ -49,6 +49,26 @@ Then run `npm run status` and commit `docs/status.md` and
 `docs/status.html` with the change. The script warns about a lesson id in
 `tools/lesson-status.json` that no course has.
 
+## Course versions and beta
+
+Each course's version and stage are in its `course.json` under `release`
+(`version`, `stage`, `date`, `note`, `history`). A course is in beta (0.x)
+while it is being written and checked, and released (1.0 and up) only when
+Rob says so. Beta courses get a Beta stamp on the catalog shelves, a slip on
+the course home saying what beta means, and every course shows its version
+in Settings under About (Didactics `release`).
+
+- Don't bump the version with every change. Bump it with
+  `npm run release -- <course> "What changed"` when Rob asks, or when a
+  thread finishes a sizeable batch (new lessons or branches, a review pass);
+  the note shows in Settings, so write it for a reader.
+- `npm run release` lists every course and what stands between each beta and
+  release. The bar for asking Rob: every planned lesson written, and every
+  lesson through the read-through, Gemini, fact check and photos. Only Rob
+  releases a course (`--release`, 0.x to 1.0); `--major` is for 2.0 and on.
+- Progress is keyed by lesson id, so a version never touches a save.
+- Then `npm run status` (the table shows versions and the bar) and commit.
+
 ## Elsewhere
 
 - Layout, commands and how the site fits together: [README.md](README.md).

@@ -20,6 +20,8 @@ import { guideView, journalRedirect } from './app/views/guide';
 import { seedView } from './app/views/seed';
 import { lessonOptions } from './app/views/lesson';
 import { skyView } from './app/views/sky';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 /** A little peach cloud with an up arrow, for the update banner: drawn inline so it shows offline. */
 const CLOUD =
@@ -30,6 +32,7 @@ const CLOUD =
 // player, the quiz, Credits, Settings, the update banner. What is Clouds' own
 // is passed in: the home page, the sky lab, the seeding game and the field guide.
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'clouds',
   title: 'Clouds',
   subtitle: 'What are they up to?',

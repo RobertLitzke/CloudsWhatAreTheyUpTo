@@ -9,6 +9,8 @@ import { lessonGo, lessonStatus, progressLine } from 'didactics/status';
 import { isWritten, LESSONS, lessonsIn, TRACKS, type Lesson } from '../../core/lessons';
 import { makeBanner } from '../scene/banner';
 import { store } from '../../store';
+import { releaseSlip, type CourseRelease } from 'didactics/release';
+import course from '../../../course.json';
 
 export const homeView: View = (root) => {
   const save = store.get();
@@ -60,6 +62,7 @@ export const homeView: View = (root) => {
           el('p', {}, 'Short lessons for anyone who can solder and wants to design: what voltage and current really are, how parts shape them, and how to find out why a board doesn’t work. Every circuit is live. The wires are coloured by their voltage and the dots move with the current, so you can watch what a change does.'),
           el('p', {}, 'Start with the core path. Two branches grow from it, guitar pedals and off-grid solar, each leaning on what the core teaches.'),
         ),
+        releaseSlip(course.release as CourseRelease),
         nextUp ? el('a.btn.btn-big', { href: `#/lesson/${nextUp.id}` }, save.lessons[nextUp.id] || leftPartWay(nextUp) ? `Lesson ${nextUp.n}: ${nextUp.title}` : 'Start the first lesson') : null,
         tracks,
         el(
