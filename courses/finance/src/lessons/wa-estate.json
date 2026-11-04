@@ -1,0 +1,73 @@
+{
+  "id": "wa-estate",
+  "n": 203,
+  "branch": "washington",
+  "needs": ["wa-taxes"],
+  "title": "WA Cares and the estate tax",
+  "teaches": "Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses",
+  "parts": [
+    {
+      "title": "Two state programmes at the end of life",
+      "blocks": [
+        { "type": "text", "text": "Two Washington rules apply to almost every household that works in the state and saves well, and both are easy to miss: a payroll premium for long-term care that comes off every paycheque, and an estate tax that starts at one fifth of the federal threshold." }
+      ]
+    },
+    {
+      "title": "WA Cares",
+      "blocks": [
+        { "type": "text", "text": "Since July 2023, employees in Washington pay 0.58 percent of their wages, with no upper limit, into WA Cares, a state fund for long-term care. Someone earning $150,000 pays $870 a year. From July 2026 the fund pays benefits: up to $36,500 over a lifetime, raised with inflation, for someone who needs help with at least three daily activities such as bathing, dressing or eating. It pays for care at home, in a facility, or to a family member trained as a carer." },
+        { "type": "text", "text": "To qualify a person must have paid for ten years without a gap of five or more, or for three of the last six years. Those born before 1968 earn a tenth of the benefit for each year they paid. The early retiree is the case the rules weren't drawn for: someone who stops work at 50 in 2027 has paid for four years, so they are covered only while three of the last six years remain, which runs out a few years later.[^vesting]" },
+        { "type": "text", "text": "The benefit is modest beside the costs in lesson H2, about three months in a Washington nursing home. It is best thought of as a first layer: it pays for help at home early on, before savings, insurance or Medicaid take over. A 2025 law lets people who leave Washington keep their eligibility by choosing to stay in the programme, under rules that start in 2026.[^portable]" }
+      ]
+    },
+    {
+      "title": "The estate tax",
+      "blocks": [
+        { "type": "text", "text": "Federal estate tax starts at $15 million per person in 2026 and passes between spouses, so a couple has $30 million. Washington's starts at $3 million per person, and the unused part of one spouse's exclusion doesn't pass to the other. Above $3 million it takes 10 percent of the first $1 million, rising by steps to 20 percent above $9 million." },
+        { "type": "text", "text": "The rates moved twice in a year. For deaths from July 2025 to June 2026 the top rate was 35 percent; a law signed in March 2026 brought it back to 20 percent for deaths from July 2026.[^rates]" },
+        { "type": "text", "text": "Everything counts: the house, retirement accounts at full value with no allowance for the income tax heirs will pay on them, life insurance the person owned, and their share of joint property. A Seattle couple with a paid-off house and well-funded 401(k)s can pass $3 million without thinking of themselves as rich." },
+        { "type": "interactive_diagram", "id": "wa-estate", "caption": "Washington estate tax on a couple's estate after both deaths, leaving everything to the survivor or placing one exclusion in a trust at the first death, for deaths from July 2026, without growth.", "task": "Guess, then compare the two plans", "goal": "wa-estate", "aspect_ratio": 2.27 }
+      ]
+    },
+    {
+      "title": "Using both exclusions",
+      "blocks": [
+        { "type": "text", "text": "The simplest will, everything to my spouse and then to the children, wastes one exclusion. Nothing is taxed at the first death, because gifts to a spouse are exempt, but the survivor's estate then holds everything and has only one $3 million exclusion. For a $6 million couple, that costs the children $390,000." },
+        { "type": "text", "text": "The usual fix is a trust created at the first death, holding up to $3 million for the survivor's benefit but outside their estate. The survivor can have its income and, within limits, its principal; at the second death it passes to the heirs untaxed. A will can also leave the choice open, letting the survivor disclaim part of the inheritance into such a trust once the numbers are known." },
+        { "type": "text", "text": "Three other routes reduce the estate itself. Washington has no gift tax, so gifts during life leave the estate, within the federal annual exclusion of $19,000 per recipient or the much larger lifetime one. Gifts to charity at death are deducted in full. And retirement accounts left to charity, which would pay no income tax on them, are the cheapest assets to give, as branch T shows." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "WA Cares takes 0.58 percent of wages and pays up to $36,500 of long-term care from July 2026, with eligibility after ten years or three of the last six.",
+          "An early retiree can lose WA Cares eligibility a few years after stopping work if they haven't paid for ten.",
+          "Washington's estate tax starts at $3 million a person and isn't portable between spouses; rates run from 10 to 20 percent.",
+          "Leaving everything to the survivor wastes an exclusion; a trust at the first death keeps both.",
+          "The house and retirement accounts count in full, so many ordinary savers cross $3 million."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Five questions on WA Cares and the estate tax", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "How much does WA Cares pay at most over a lifetime, starting July 2026?", "choices": ["$36,500, raised with inflation", "Unlimited care after ten years", "$36,500 a year"], "answer": 0, "why": "It is a lifetime total, enough for a first layer of care rather than all of it." },
+          { "ask": "Someone paid into WA Cares for four years and stopped work at 50. What happens to their eligibility?", "choices": ["It lasts only while three of the last six years are paid", "It is permanent", "They get 40 percent of the benefit for life"], "answer": 0, "why": "Permanent eligibility needs ten years; the partial benefit by years paid is for people born before 1968." },
+          { "ask": "A widower dies in 2027 with a $5 million estate. Can his executor use his late wife's unused Washington exclusion?", "choices": ["No, Washington's exclusion isn't portable", "Yes, the estate has $6 million exempt", "Only for the house"], "answer": 0, "why": "Unlike the federal exclusion, Washington's can't pass from one spouse to the other." },
+          { "ask": "What does a trust at the first death achieve for a Washington couple?", "choices": ["It uses the first spouse's exclusion", "It avoids federal income tax on IRAs", "It removes the house from property tax"], "answer": 0, "why": "Up to $3 million goes into the trust, outside the survivor's estate, so both exclusions are used." },
+          { "ask": "Which assets count towards a Washington estate?", "choices": ["The house, retirement accounts and owned life insurance, all in full", "Only cash and brokerage accounts", "Only assets above the federal threshold"], "answer": 0, "why": "The estate includes everything owned at death, with retirement accounts at full value." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**WA Cares is a payroll premium for care.** 0.58 percent of wages, for up to $36,500 of help from July 2026.",
+    "**Eligibility needs ten years or recent work.** An early retiree who stops sooner can lose it within a few years.",
+    "**Washington's estate tax starts at $3 million.** A fifth of the federal threshold, at 10 to 20 percent from July 2026.",
+    "**It isn't portable between spouses.** Leaving everything to the survivor wastes one exclusion.",
+    "**A trust at the first death keeps both.** A disclaimer can leave the choice to the survivor.",
+    "**Everything counts in full.** House, retirement accounts and owned life insurance all go in."
+  ],
+  "footnotes": {
+    "vesting": { "kind": "technical", "title": "The three ways to qualify", "text": "The ten years need at least 500 hours of work in each. The three-of-six test is checked when care is needed. People born before 1968 who pay for at least one year earn 10 percent of the benefit for each year paid, without needing ten." },
+    "portable": { "kind": "digression", "title": "Leaving the state", "text": "As first passed, WA Cares paid only to people living in Washington. The 2025 change lets someone who moves away elect to continue, and to draw benefits elsewhere, if they have qualified. The details of how and what continuing costs are still being written into rules." },
+    "rates": { "kind": "digression", "title": "Two schedules in one year", "text": "The 2025 law raised the exclusion from $2.193 million to $3 million and the top rate from 20 to 35 percent. The 2026 law kept the higher exclusion and restored rates of 10 to 20 percent. An estate is taxed on the schedule in force on the date of death." }
+  }
+}

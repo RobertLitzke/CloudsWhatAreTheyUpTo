@@ -1,0 +1,75 @@
+{
+  "id": "wa-taxes",
+  "n": 201,
+  "branch": "washington",
+  "needs": ["brackets"],
+  "title": "What Washington taxes instead",
+  "teaches": "Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states",
+  "parts": [
+    {
+      "title": "A state with no income tax",
+      "blocks": [
+        { "type": "text", "text": "Washington is one of the few states with no general income tax, and for a retiree that silence covers most of the trunk. IRA withdrawals, Roth conversions, Social Security, pensions, interest and dividends: the state taxes none of them. Every figure in lessons 7 to 14 counted federal tax alone for that reason." },
+        { "type": "text", "text": "The state collects its money in other ways. The sales tax is 6.5 percent at state level plus local rates, over 10 percent in Seattle, and it falls heavily on spending, which is what a retiree's income mostly becomes. Property tax, set county by county, runs at roughly 1 percent of a home's assessed value a year. Businesses pay a tax on gross receipts.[^bo] And since 2022 there has been one tax that looks like an income tax: a tax on long-term capital gains." },
+        { "type": "text", "text": "Someone who itemises on their federal return can deduct state sales tax in place of the state income tax they don't pay, within the federal cap on state and local taxes, which rose to $40,400 in 2026 and shrinks for incomes above about $500,000. Most retirees take the standard deduction instead, so this rarely matters." }
+      ]
+    },
+    {
+      "title": "The tax on gains",
+      "blocks": [
+        { "type": "text", "text": "Washington's capital gains tax is 7 percent of a year's long-term gains on shares, bonds and funds above a standard deduction, $278,000 in 2025 and raised each year with inflation. A further 2.9 percent, 9.9 in all, applies to gains more than $1 million above the deduction. The deduction is per household: a married couple shares one, whether they file together or apart." },
+        { "type": "text", "text": "Much is outside it. Gains on real estate are exempt, so the sale of a house or a rental pays nothing. Gains inside IRAs, 401(k)s and Roth accounts are never counted, and withdrawals from them are income, not gains. Short-term gains are out too, as are qualifying family businesses, farms and timber.[^excluded]" },
+        { "type": "interactive_diagram", "id": "wa-gains", "caption": "The federal and Washington tax on a year's long-term gains on shares, for a couple with no other income, under the 2025 Washington deduction.", "task": "Guess, then try a gain below the deduction and one above it", "goal": "wa-gains", "aspect_ratio": 2.27 },
+        { "type": "text", "text": "For most retirees the deduction is high enough that the tax never applies. Lesson 10's gain harvesting fills the federal 0 percent band, about $100,000 of gains for a couple, far below Washington's line. The tax bites when one year holds a very large gain: a concentrated stock position sold at once, or a business. Spreading such a sale across several years uses the deduction several times, as long as the price risk of waiting is acceptable." }
+      ]
+    },
+    {
+      "title": "The tax on incomes above $1 million",
+      "blocks": [
+        { "type": "text", "text": "In March 2026 the legislature passed a tax of 9.9 percent on household income above $1 million, starting in 2028. It begins from federal adjusted gross income, so IRA withdrawals, Roth conversions, wages and investment income all count; gains on real estate don't, and the capital gains tax already paid is credited against it. A married couple shares one $1 million deduction." },
+        { "type": "text", "text": "Its future was still being decided in November 2026: a lawsuit challenges it under the state constitution, and Initiative 645, on the ballot on 3 November, would repeal it and forbid any state income tax.[^uniformity]" },
+        { "type": "text", "text": "Few households reach $1 million of income in a year, but a retiree can create one. Converting a whole pre-tax balance to Roth in a single year, or a large one-time sale, could cross the line. If the tax stands, the trunk's habit of spreading conversions and sales over many years gains one more reason." }
+      ]
+    },
+    {
+      "title": "Moving in, moving out",
+      "blocks": [
+        { "type": "text", "text": "Because Washington taxes so little of a retiree's income, moving is mostly a question of what the next state taxes. Oregon's income tax reaches 8.75 percent at modest incomes and 9.9 above $250,000 for a couple, Idaho's is a flat 5.3 percent, and California's climbs to 13.3. A couple planning $100,000 a year of Roth conversions in their sixties adds roughly $5,000 a year of state tax by retiring in Idaho, and $8,000 or more across the river in Oregon." },
+        { "type": "text", "text": "Leaving a high-tax state for Washington works the other way, and the old state may object. Residence for state tax is a matter of domicile: where your home is, where you vote and hold a driving licence, where you spend your days.[^domicile] The safe order is to move first, become plainly a Washington resident, and then make the large conversion or sale." },
+        { "type": "text", "text": "Washington's gains tax follows the same logic in reverse. It reaches residents only, so a household that moves away before a large sale escapes it. Shares are taxed where their owner lives, not where the company is." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Washington doesn't tax wages, pensions, IRA withdrawals, conversions, Social Security, interest or dividends.",
+          "Long-term gains on shares above $278,000 a household a year (2025) pay 7 percent, and 9.9 percent above about $1.3 million; real estate and retirement accounts are exempt.",
+          "A 9.9 percent tax on household income above $1 million is due from 2028 unless the courts or the voters stop it.",
+          "Moving to a state with an income tax makes every conversion and withdrawal dearer; moving to Washington, do the large sales and conversions after the move."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Five questions on Washington's taxes", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "A Washington couple converts $80,000 from a traditional IRA to a Roth. What state tax do they owe on it?", "choices": ["None", "7 percent above the deduction", "9.9 percent"], "answer": 0, "why": "A conversion is ordinary income, and Washington has no tax on ordinary income below the coming $1 million line." },
+          { "ask": "Which sale can Washington's capital gains tax reach?", "choices": ["Shares sold with a large long-term gain", "A rental house sold at a gain", "Funds sold inside an IRA"], "answer": 0, "why": "Real estate is exempt, and gains inside retirement accounts are never counted." },
+          { "ask": "A married couple each realise $200,000 of long-term gains in 2025. Do they owe Washington's tax?", "choices": ["Yes, on about $122,000", "No, each has a $278,000 deduction", "Yes, on the whole $400,000"], "answer": 0, "why": "A couple shares one deduction, so $400,000 less $278,000 is taxed at 7 percent." },
+          { "ask": "From 2028, what would the tax on incomes above $1 million mean for a retiree?", "choices": ["A very large single-year conversion or sale could pay 9.9 percent", "Social Security becomes taxable in the state", "The capital gains tax is abolished"], "answer": 0, "why": "The tax starts from federal AGI, so conversions and withdrawals count, with one $1 million deduction per household." },
+          { "ask": "A Californian plans to move to Washington and then convert $500,000 to Roth. What order is safer?", "choices": ["Move and establish domicile first, then convert", "Convert first, then move", "It makes no difference"], "answer": 0, "why": "California taxes its residents' conversions. A conversion after becoming a Washington resident pays no state tax." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Washington taxes spending and property, not income.** Pensions, withdrawals, conversions and dividends all escape state tax.",
+    "**Long-term gains on shares are the exception.** 7 percent above a household deduction of $278,000 in 2025, and 9.9 above about $1.3 million.",
+    "**Houses and retirement accounts are exempt from it.** Most retirees never reach the deduction.",
+    "**A tax on incomes above $1 million is due from 2028.** If it survives the courts and the voters, large single-year conversions become dearer.",
+    "**Moving states changes the trunk's arithmetic.** Elsewhere, every conversion and withdrawal pays state tax as well.",
+    "**Make big moves after becoming a Washington resident.** Domicile, not a mailing address, decides which state taxes you."
+  ],
+  "footnotes": {
+    "bo": { "kind": "technical", "title": "The B&O tax", "text": "The business and occupation tax is a percentage of a business's gross receipts, not its profit, at rates that depend on the activity. A retiree who consults or sells a little work may owe it above a small-business threshold." },
+    "excluded": { "kind": "technical", "title": "Other exemptions", "text": "The law also excludes gains on livestock, timber, commercial fishing privileges and goodwill on the sale of some auto dealerships, and deducts qualifying family-owned small businesses. Gifts to charity above a threshold can be deducted from taxable gains, up to a limit." },
+    "uniformity": { "kind": "digression", "title": "Why Washington had no income tax", "text": "The state's supreme court ruled in the 1930s that income is property, and the constitution requires property to be taxed uniformly, so a graduated income tax was unconstitutional. The capital gains tax survived in 2023 because the court called it an excise on sales, not a tax on income. The new tax will test the old ruling directly." },
+    "domicile": { "kind": "technical", "title": "Domicile", "text": "A person can have several homes but only one domicile, the place they intend to return to. States weigh where the main home is, where family and possessions are, voting, car registration, doctors and the days spent. California in particular audits people who leave just before a large gain." }
+  }
+}

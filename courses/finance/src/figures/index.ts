@@ -21,6 +21,7 @@ import { orderOfWithdrawalFigure, torpedoFigure } from './withdrawal-order';
 import { claimFigure, formulaFigure } from './social-security';
 import { capstoneFigure } from './capstone';
 import { ptTaxFigure, twoCountriesFigure } from './portugal';
+import { waEstateFigure, waGainsFigure } from './washington';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -66,4 +67,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Branch P
   'pt-tax': ptTaxFigure,
   'two-countries': twoCountriesFigure,
+  // Branch W
+  'wa-gains': waGainsFigure,
+  'wa-estate': waEstateFigure,
 };

@@ -269,9 +269,17 @@
       "deductionYear": 2025
     },
     "estate": {
+      "$comment": "For deaths from 1 July 2026 (SB 6347, chapter 209, Laws of 2026): rates on the taxable estate above the exclusion; check whether the exclusion is indexed",
       "exclusion": 3000000,
-      "topRate": 0.35,
+      "brackets": [[0, 0.10], [1000000, 0.14], [2000000, 0.15], [3000000, 0.16], [4000000, 0.18], [6000000, 0.19], [7000000, 0.195], [9000000, 0.20]],
+      "topRate": 0.20,
       "portable": false
+    },
+    "millionaires": {
+      "$comment": "Enacted March 2026 from 2028, 9.9 percent of income above a $1 million deduction per household; faced repeal by Initiative 645 on 3 November 2026 and a constitutional challenge; check",
+      "rate": 0.099,
+      "deduction": 1000000,
+      "from": 2028
     },
     "waCares": {
       "premium": 0.0058,

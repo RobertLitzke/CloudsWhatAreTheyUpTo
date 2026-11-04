@@ -243,3 +243,15 @@ export function portugalPensionTax(pension: number, joint: boolean, rules: Rules
   return people * (portugalTax(each, rules) + portugalSolidarity(each, rules));
 }
 
+
+/** Washington's estate tax, for deaths from July 2026, on an estate after debts and deductions. */
+export function washingtonEstate(estate: number, rules: Rules = RULES): number {
+  const e = rules.washington.estate;
+  const taxable = Math.max(0, estate - e.exclusion);
+  let tax = 0;
+  e.brackets.forEach(([lo, rate], i) => {
+    const hi = i + 1 < e.brackets.length ? e.brackets[i + 1][0] : Infinity;
+    tax += rate * Math.max(0, Math.min(taxable, hi) - lo);
+  });
+  return tax;
+}

@@ -151,4 +151,17 @@ describe('figures', () => {
     setSlider(two.node, 1, 100_000);
     await expect(two.done).resolves.toBeUndefined();
   });
+  it('branch W: Washington gains and estate', async () => {
+    const g = FIGURES['wa-gains'](context(), 'wa-gains');
+    guess(g.node, 'About $8,500');
+    expect(g.node.textContent).toContain('$8,540');
+    setSlider(g.node, 0, 100_000);
+    await expect(g.done).resolves.toBeUndefined();
+
+    const e = FIGURES['wa-estate'](context(), 'wa-estate');
+    guess(e.node, 'About $390,000');
+    click(e.node, 'Trust at first death');
+    expect(e.node.textContent).toContain('$390,000 less');
+    await expect(e.done).resolves.toBeUndefined();
+  });
 });
