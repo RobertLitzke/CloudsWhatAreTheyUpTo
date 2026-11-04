@@ -53,6 +53,15 @@
      "text": "In 1863 the German physicist [[Hermann von Helmholtz]] took the question apart with a box of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches two, three, four and more times higher. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
     },
     {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "Brass Helmholtz resonators of 1870, in the Hunterian Museum in Glasgow. The wide mouth faces the sound and the small nipple goes in the ear; each one’s size sets the one pitch it answers.",
+     "options": {
+      "photo": "helmholtz-resonator",
+      "aspect": 1.5
+     }
+    },
+    {
      "type": "interactive_diagram",
      "id": "synth",
      "caption": "The synth plays a riff on one oscillator. On the left of the display is the wave, on the right its harmonics, low to high.",
@@ -72,6 +81,16 @@
     {
      "type": "text",
      "text": "A synthesizer starts where Helmholtz finished. Its oscillator makes a wave of a fixed shape, and the shape decides the stack of harmonics before anything else touches the sound. A **saw** is bright and buzzy. A **pulse** is hollow, like a clarinet. A **triangle** is soft and flute-like. A **sine** is a bare, pure tone: one sphere, and nothing else."
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "Hermann von Helmholtz in 1884, two decades after his book on the sensations of tone.",
+     "options": {
+      "photo": "helmholtz",
+      "aspect": 0.8,
+      "position": "50% 20%"
+     }
     }
    ]
   },

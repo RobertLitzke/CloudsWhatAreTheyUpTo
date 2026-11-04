@@ -48,6 +48,16 @@
      "text": "It was found by accident. In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a program that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a Leslie, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
     },
     {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "John Chowning, who found FM synthesis at Stanford in 1967.",
+     "options": {
+      "photo": "chowning",
+      "aspect": 0.8,
+      "position": "50% 25%"
+     }
+    },
+    {
      "type": "text",
      "text": "He had found **[[FM synthesis]]**: frequency modulation at audio rates. One oscillator, the **modulator**, swings the pitch of another, the **carrier**, so fast that the ear hears new harmonics instead of a wobble. It took two oscillators to make sounds that subtractive synthesis needed dozens of parts to fake, and nobody had noticed because nobody had thought to turn vibrato up that far."
     },
@@ -171,6 +181,15 @@
     {
      "type": "text",
      "text": "Stanford patented Chowning's discovery and licensed it to Yamaha in 1975. In 1983 Yamaha put it in the **[[DX7]]**, a keyboard with six sine oscillators per voice and no filter at all. It cost about a fifth of the big analogue synths and sounded like nothing else: glassy electric pianos, punchy basses, bells. It became one of the best-selling synthesizers ever made, and for a few years its preset electric piano was on what feels like every pop ballad.[^royalties]"
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "A Yamaha DX7. Its sounds were edited one number at a time with buttons and a single slider, and many owners never went past the factory sounds.",
+     "options": {
+      "photo": "dx7",
+      "aspect": 1.5
+     }
     },
     {
      "type": "diagram",

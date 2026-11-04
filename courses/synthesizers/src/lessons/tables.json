@@ -83,6 +83,15 @@
      "text": "Wavetables came from memory chips. In the late 1970s, in Hamburg, Wolfgang Palm realised that a digital oscillator didn't need a circuit for each wave. It could read its wave from memory, so memory could hold many waves, and the synth could move between them. His PPG Wave synths of the early 1980s did exactly that, and the analogue filter that followed gave them a sound of their own.[^steps] Tables are now standard on synths of every kind, and many let you draw or load your own."
     },
     {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "A PPG Wave 2.2, Palm's wavetable synthesizer of 1982.",
+     "options": {
+      "photo": "ppg-wave",
+      "aspect": 1.5
+     }
+    },
+    {
      "type": "text",
      "text": "On a table engine of this kind, Wave is the place in the table. The other two knobs set how far two of the synth's movers scan it. **Shape** is how far the envelope pushes the place up the table as each note starts, and **Timbre** is how far the LFO swings it back and forth."
     }

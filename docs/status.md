@@ -12,9 +12,9 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
+| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 37 | 37 | 16 | 0 |
 | [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
-| [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
+| [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 0 | 0 |
 | [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
 | [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 25 | 25 | 24 | 0 |
 
@@ -28,9 +28,9 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to copy-edit, 12 to fact-check, 4 awaiting photos |
 | Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to copy-edit, 25 to fact-check, 15 awaiting photos |
-| Ecology | 0.1 beta | 2026-11-04 | no: 37 to copy-edit, 37 to fact-check, 37 awaiting photos |
+| Ecology | 0.1 beta | 2026-11-04 | no: 37 to copy-edit, 37 to fact-check, 16 awaiting photos |
 | Botany | 0.1 beta | 2026-11-04 | no: 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
-| Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check, 17 awaiting photos |
+| Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check |
 | Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to copy-edit, 32 to fact-check |
 | Fungi | 0.2 beta | 2026-11-04 | no: 25 to copy-edit, 25 to fact-check, 24 awaiting photos |
 
@@ -246,7 +246,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. No photos (parked in tools/pending-photos.json) or encyclopedia links yet.
+`courses/ecology`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. 22 of 26 parked photos fetched and restored 4 Nov; Hubbard Brook weir, Lake 226, the Muir Glacier pair and a BDFFP fragment are still parked in tools/pending-photos.json (no free photo found). No encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -260,33 +260,33 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 8 | Why is the world green? (`green`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How a predator can protect plants it never eats, and why food chains flip in alternation. |
 | 9 | The ants that guard a tree (`acacia`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What a mutualism is, what each partner pays, and how cheaters threaten it. |
 | 10 | Why big fierce animals are rare (`pyramid`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How energy passes up a food chain, why most of it ends as heat, and why that keeps chains short and top predators few. |
-| 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
+| 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
 | 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
 | 13 | A curtain across a lake (`curtain`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
 | 14 | Walking back in time (`glacier-bay`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
-| 15 | Is a forest an organism? (`gaps`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Clements, Gleason and a forest grown gap by gap. |
-| 16 | Boulders and fires (`fires`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (2 photos parked in pending-photos.json) | Why some disturbance keeps more kinds alive. |
-| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Chimborazo, climate zones and why they move. |
-| 18 | Islands that refilled (`islands`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Mangrove islets, arrivals, losses and the species-area rule. |
+| 15 | Is a forest an organism? (`gaps`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Clements, Gleason and a forest grown gap by gap. |
+| 16 | Boulders and fires (`fires`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Why some disturbance keeps more kinds alive. |
+| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Chimborazo, climate zones and why they move. |
+| 18 | Islands that refilled (`islands`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Mangrove islets, arrivals, losses and the species-area rule. |
 | 19 | Half the Earth? (`half`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
-| H1 | Eggs that broke (`eggs`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Peregrines, DDT and poisons that build up the food chain. |
-| H2 | Arrivals (`arrivals`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Species carried to new places, and the few that take over. |
+| H1 | Eggs that broke (`eggs`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check | Peregrines, DDT and poisons that build up the food chain. |
+| H2 | Arrivals (`arrivals`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check | Species carried to new places, and the few that take over. |
 | H3 | The cod that didn’t come back (`cod`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Harvesting a stock, and a fishery that collapsed. |
-| N1 | Trails that fade (`trails`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | How ants find the shortest path with no one in charge. |
+| N1 | Trails that fade (`trails`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check | How ants find the shortest path with no one in charge. |
 | N2 | Why work for someone else’s children? (`kin`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Hamilton’s rule and the sterile workers. |
-| N3 | Farmers in the forest (`farmers`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Leafcutter ants and their fungus gardens. |
-| T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Zones of a Salish Sea shore and what sets each edge. |
-| T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Sea star wasting and the urchins that followed. |
-| T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Sea otters on the outer coast of Washington. |
-| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | What lived through the 1980 blast at Mount St Helens. |
-| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The first plants on the Pumice Plain. |
-| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | A lake that went dead and came back. |
-| S1 | Why no trees? (`no-trees`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The shrub-steppe of the dry side. |
-| S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | An annual grass that changed a fire cycle. |
-| S3 | The prairie under the wheat (`palouse`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The Palouse prairie and what is left of it. |
-| W1 | Salmon in the trees (`salmon-trees`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Ocean nitrogen carried up rivers by salmon. |
-| W2 | After the dams came down (`elwha`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | The Elwha River since 2014. |
-| W3 | The lake Seattle saved (`lake-washington`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Edmondson, sewage and a lake that cleared. |
+| N3 | Farmers in the forest (`farmers`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check | Leafcutter ants and their fungus gardens. |
+| T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check | Zones of a Salish Sea shore and what sets each edge. |
+| T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check | Sea star wasting and the urchins that followed. |
+| T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check | Sea otters on the outer coast of Washington. |
+| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check | What lived through the 1980 blast at Mount St Helens. |
+| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check | The first plants on the Pumice Plain. |
+| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check | A lake that went dead and came back. |
+| S1 | Why no trees? (`no-trees`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check | The shrub-steppe of the dry side. |
+| S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check | An annual grass that changed a fire cycle. |
+| S3 | The prairie under the wheat (`palouse`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check | The Palouse prairie and what is left of it. |
+| W1 | Salmon in the trees (`salmon-trees`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check | Ocean nitrogen carried up rivers by salmon. |
+| W2 | After the dams came down (`elwha`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check | The Elwha River since 2014. |
+| W3 | The lake Seattle saved (`lake-washington`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check | Edmondson, sewage and a lake that cleared. |
 
 ## Botany <a id="botany"></a>
 
@@ -330,39 +330,39 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Synthesizers <a id="synthesizers"></a>
 
-`courses/synthesizers`, version 0.1 (beta, 2026-11-04). Lessons are built on the live synth; 28 photos of instruments and people (17 lessons) are queued for Rob's PC in tools/photo-picks.json and parked in pending-photos.json (4 Nov). No student read-through yet for any lesson.
+`courses/synthesizers`, version 0.1 (beta, 2026-11-04). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. No student read-through yet for any lesson.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
-| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
-| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
-| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (1 photo parked in pending-photos.json) | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
+| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
+| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
+| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
+| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
 | 5 | Counting beats (`beats`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
-| 6 | The accidental bell (`bells`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
+| 6 | The accidental bell (`bells`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
 | 7 | The torn speaker (`fuzz`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
-| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
+| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
 | 9 | Does the order matter? (`order`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
 | 10 | The silent key (`silent`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
 | 11 | Wind from nothing (`noise`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
-| 12 | A drum with no drum (`drums`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (1 photo parked in pending-photos.json) | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
+| 12 | A drum with no drum (`drums`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
 | 13 | The computer that burbles (`random`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
 | 14 | The envelope that wouldn't stop (`cycle`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
-| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
-| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | Velocity, pressure and the touch strip, and where each one is routed. |
+| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
+| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
 | 17 | The slide (`glide`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
-| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (1 photo parked in pending-photos.json) | Paraphonic and unison voices, voice stealing, and chords from one key. |
+| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
 | 19 | One hand, many notes (`arp`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
-| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
+| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
 | 21 | Knobs that remember (`lanes`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Recorded knob moves in a sequence, and controlled randomness. |
-| 22 | Same knob, different job (`macros`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
+| 22 | Same knob, different job (`macros`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
 | 23 | The blank patch (`blank`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
-| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Wavetables: a stack of waves scanned by an envelope or LFO. |
-| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
+| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
+| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
 | O3 | A string from a delay line (`pluck`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
-| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Formants, speech engines and Homer Dudley’s vocoder. |
-| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
-| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Granular synthesis: grain size, density and position. |
+| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
+| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
+| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Granular synthesis: grain size, density and position. |
 | S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Gemini (queued 2026-11-04); Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
 
 ## Money That Lasts <a id="finance"></a>

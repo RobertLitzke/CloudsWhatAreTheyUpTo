@@ -58,8 +58,26 @@
      "text": "The first synthesizers had no switch at all. Each module had sockets, and the player joined them with **patch cords**, cables from an output to an input. An LFO's output could be plugged into the oscillator's pitch input and, with a second cable, into the filter's cutoff input. That is why a synth's setting is still called a **patch**. The [[EMS VCS3]], a small British synth of 1969, put its connections on a board of pins instead: sources along the rows, destinations along the columns, and a pin pushed into the hole where a row met a column joined them.[^pins]"
     },
     {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "A Moog modular synthesizer of 1973, its modules joined by patch cords.",
+     "options": {
+      "photo": "moog-modular",
+      "aspect": 1.5
+     }
+    },
+    {
      "type": "text",
      "text": "A matrix on a modern synth is that pinboard, with a number in each hole instead of a pin. The rows are sources, the columns destinations, and each square says how much. Tap a square below to pick it, then turn the **Amount** knob. A dot means no connection."
+    },
+    {
+     "type": "diagram",
+     "id": "photo",
+     "caption": "The pin matrix of an EMS VCS3, in the Musical Instrument Museum in Berlin. Each pin joins one row to one column.",
+     "options": {
+      "photo": "vcs3-pins",
+      "aspect": 1
+     }
     },
     {
      "type": "interactive_diagram",
