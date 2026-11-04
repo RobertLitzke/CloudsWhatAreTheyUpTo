@@ -1,0 +1,86 @@
+{
+  "id": "aca",
+  "n": 11,
+  "title": "Health insurance before 65",
+  "teaches": "How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare",
+  "parts": [
+    {
+      "title": "A price that depends on your income",
+      "blocks": [
+        { "type": "text", "text": "Anyone who stops working before 65 loses employer health insurance and isn't yet old enough for Medicare. For most, the answer is a plan bought on the marketplace set up by the Affordable Care Act, at HealthCare.gov or a state's own exchange, which in Washington is Washington Healthplanfinder." },
+        { "type": "text", "text": "The sticker prices are high, and they rise with age: a plan for a 60-year-old can cost nearly three times as much as the same plan for a 21-year-old. A couple around 60 can easily face $20,000 to $30,000 a year for a mid-range plan. What they actually pay, though, depends on their income, through a premium tax credit that can cover most of the price. For someone living on savings, income is partly a choice, which makes this one of the largest numbers in an early-retirement plan that can be steered." },
+        { "type": "text", "text": "Everything in this lesson is for 2026. The rules changed at the start of the year, when a temporary expansion of the credits that ran from 2021 to 2025 ended, and Congress may change them again.[^enhanced] Check the current year's rules before planning." }
+      ]
+    },
+    {
+      "title": "How the credit is worked out",
+      "blocks": [
+        { "type": "text", "text": "The marketplace picks a benchmark plan for you, the second-cheapest silver plan where you live, at your ages. It then sets how much of your income you are expected to pay towards it: in 2026, from 2.1 percent of income for a household just above the poverty line to 9.96 percent for one between three and four times it. The credit is the difference. Buy the benchmark and you pay the expected amount; buy a cheaper plan and you pay less, a dearer one, more." },
+        { "type": "text", "text": "The poverty line used for 2026 coverage is $15,650 for one person and $21,150 for two. A couple with $60,000 of income is at 284 percent of it and is expected to pay about 9.5 percent, $5,678; if their benchmark costs $24,000, the credit is $18,322." },
+        { "type": "text", "text": "Make a guess before moving the sliders." },
+        { "type": "interactive_diagram", "id": "aca", "caption": "A couple's cost for the benchmark plan as their income rises, in 2026. Below: the federal income tax plus the extra premium on the next $1,000 of income. Shaded: below 138 percent of the poverty line, where Washington and other expansion states offer Medicaid instead.", "task": "Guess, then cross the 400 percent line and come back", "goal": "aca", "aspect_ratio": 1.53 },
+        { "type": "text", "text": "Inside the credit range the premium works like a second income tax. Each extra dollar of income raises the expected payment, so the next $1,000 costs the federal tax on it plus up to about $180 of lost credit. Between about 200 and 300 percent of the poverty line, a couple in the 12 percent bracket pays 25 to 30 percent on the next dollar, counting both." }
+      ]
+    },
+    {
+      "title": "The cliff",
+      "blocks": [
+        { "type": "text", "text": "Above 400 percent of the poverty line, $84,600 for a couple in 2026, there is no credit at all. Not a smaller one: none. The couple in the guess goes from paying $8,400 to paying the full $24,000 when their income rises by $1,000. That last $1,000 of income costs them more than $15,000." },
+        { "type": "text", "text": "The cliff hurts most for older couples, whose benchmark plans cost most, and in expensive areas. A couple of 63 in a costly county may face a benchmark of $30,000 or more, so a dollar over the line costs over $20,000. For a 40-year-old single person the benchmark might be $6,000 and the cliff a few hundred dollars, sometimes nothing." },
+        { "type": "text", "text": "At the bottom there is a second edge. In the 40 states and Washington, D.C., that expanded Medicaid, income below 138 percent of the poverty line ($29,187 for a couple) qualifies for Medicaid instead of a marketplace plan, and no credit is available. In the states that didn't, income below 100 percent gets neither.[^medicaid] Branch W looks at Washington's Medicaid, Apple Health, and what it means for a retiree with savings." }
+      ]
+    },
+    {
+      "title": "What counts as income here",
+      "blocks": [
+        { "type": "text", "text": "The income the marketplace uses is modified adjusted gross income, MAGI: the AGI on the tax return, plus Social Security not taxed, tax-exempt interest and foreign income excluded from tax. It counts wages, interest, dividends, capital gains, pension income, withdrawals from pre-tax accounts and Roth conversions." },
+        { "type": "text", "text": "It doesn't count money that isn't income: the basis of shares sold, cash in the bank, Roth contributions withdrawn, HSA money spent on health care, or a loan. So two couples who spend the same $80,000 can show very different MAGI. One sells $80,000 of shares with $60,000 of basis and draws on cash: MAGI $20,000, Medicaid range. Another takes $80,000 from an IRA: MAGI $80,000, near the cliff." },
+        { "type": "text", "text": "The credit is paid in advance, based on the income you predict when you enrol, and settled on the tax return the following spring.[^reconcile] Income that comes out higher than predicted means paying some or all of the credit back. A December Roth conversion that crosses the cliff by accident costs the whole year's credit." }
+      ]
+    },
+    {
+      "title": "Planning the years to 65",
+      "blocks": [
+        { "type": "text", "text": "This sets up a tension with lesson 10. Roth conversions in the early years fill the low brackets cheaply, but before 65 each converted dollar also raises the premium. At 25 to 30 percent combined, a conversion in the credit range can cost more than the money will ever pay in tax later. Across the cliff it can cost far more." },
+        { "type": "text", "text": "A common plan for the years from stopping work to 65:" },
+        { "type": "text", "text": "**Choose a MAGI target each year.** Often just under the cliff, sometimes lower if the extra credit outweighs what a conversion saves. Above 400 percent, if the household's income would be far over the line anyway, the cliff stops mattering and conversions are judged on tax alone." },
+        { "type": "text", "text": "**Fund spending from money that isn't income.** Cash, the basis in a taxable account, Roth contributions and seasoned conversions all buy groceries without raising MAGI. A taxable account with a high basis is especially useful here." },
+        { "type": "text", "text": "**Convert more from 65.** Once Medicare starts, the premium credit no longer matters, and the years from 65 to Social Security or to required withdrawals become the main conversion window, minding the Medicare surcharge in lesson 12, which looks back two years: income at 63 sets the premium at 65." },
+        { "type": "text", "text": "**Watch the year of stopping work.** A year with nine months of salary is a poor year for low MAGI. Coverage often starts in January of the first full year without wages, after COBRA from the old employer covers the gap." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "The ACA premium credit fills the gap between a benchmark plan's price and a set share of income, 2.1 to 9.96 percent in 2026.",
+          "In the credit range, each extra dollar of income costs tax plus lost credit, often 25 to 30 percent together.",
+          "Above 400 percent of the poverty line, $84,600 for a couple, the credit stops entirely.",
+          "Basis, cash, Roth contributions and HSA spending don't count as income, so spending and MAGI can differ widely."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Six questions on health insurance before 65", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "What is the benchmark plan used to work out the premium tax credit?", "choices": ["The second-cheapest silver plan where you live, at your ages", "The cheapest bronze plan in the state", "Whatever plan you choose"], "answer": 0, "why": "The credit is the benchmark's price minus your expected contribution, whatever plan you then buy." },
+          { "ask": "A couple's income rises from $84,000 to $85,000 in 2026, crossing 400 percent of the poverty line. What happens to their credit?", "choices": ["It stops entirely", "It falls by about $100", "Nothing changes until 500 percent"], "answer": 0, "why": "In 2026 there is no credit above 400 percent of the poverty line, so the household pays the full price." },
+          { "ask": "Which of these raises MAGI for the marketplace?", "choices": ["A Roth conversion", "Withdrawing Roth contributions", "Spending cash from a savings account"], "answer": 0, "why": "A conversion is ordinary income. Roth contributions and cash are money already taxed and are not income." },
+          { "ask": "A couple sells $80,000 of shares with a $60,000 basis. How much does the sale add to MAGI?", "choices": ["$20,000", "$80,000", "Nothing"], "answer": 0, "why": "Only the gain is income. The basis comes back without adding to MAGI." },
+          { "ask": "Inside the credit range, why can the next $1,000 of income cost 25 to 30 percent?", "choices": ["Income tax plus a smaller credit as the expected contribution rises", "A 30 percent surtax on retirees", "Marketplace plans charge by income"], "answer": 0, "why": "The expected contribution rises with income, so the credit falls; that loss stacks on the income tax." },
+          { "ask": "Why is the year from 65 often a better time for large Roth conversions than the years before?", "choices": ["The premium credit no longer depends on income", "Conversions are tax-free after 65", "The standard deduction doubles at 65"], "answer": 0, "why": "With Medicare, the marketplace credit is gone, so conversions are judged on income tax, and on the Medicare surcharge two years later." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Health premiums before 65 depend on income.** The credit is the benchmark price less a set share of income.",
+    "**In 2026 that share runs from 2.1 to 9.96 percent.** After the temporary expansion of 2021 to 2025 ended.",
+    "**The credit is a second income tax.** In the credit range the next dollar can cost 25 to 30 percent with federal tax.",
+    "**Above 400 percent of the poverty line, nothing.** $84,600 for a couple; a dollar over can cost $15,000 or more.",
+    "**MAGI isn't spending.** Basis, cash, Roth contributions and HSA spending pay bills without raising it.",
+    "**Plan a MAGI target each year to 65.** Convert less before Medicare and more after it.",
+    "**The credit is settled at tax time.** Income above the estimate means paying credit back."
+  ],
+  "footnotes": {
+    "enhanced": { "kind": "digression", "title": "2021 to 2025", "text": "The American Rescue Plan of 2021 lowered the expected contributions, to nothing below 150 percent of the poverty line, and capped them at 8.5 percent of income with no upper limit, removing the cliff. The Inflation Reduction Act extended this through 2025. When it ended, the 2026 premiums of many households above 400 percent of the poverty line more than doubled. Whether it returns is a political question; check the year you plan for." },
+    "medicaid": { "kind": "technical", "title": "Expansion", "text": "The Affordable Care Act let states extend Medicaid to adults under 138 percent of the poverty line, with the federal government paying most of the cost. Washington did so in 2014. In the ten states that have not, adults under 100 percent of the poverty line usually qualify for neither Medicaid nor a marketplace credit." },
+    "reconcile": { "kind": "technical", "title": "Settling up", "text": "The marketplace pays the credit to the insurer each month based on your estimate; Form 8962 on the tax return compares it with what your actual income allowed. Under the budget act of July 2025, from 2026 there is no cap on how much of an over-paid credit must be repaid. Check the year's rules." }
+  }
+}

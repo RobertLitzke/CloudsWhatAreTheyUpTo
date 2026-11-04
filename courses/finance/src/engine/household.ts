@@ -170,7 +170,9 @@ export function runHousehold(h: Household, strategy: Strategy, rules: Rules = RU
       const plannedPretax = Math.min(a.pretax, planned);
       let pretaxSpent = Math.min(plannedPretax, Math.max(0, left));
       if (!over59 && strategy.kind !== 'pretax-first') pretaxSpent = 0; // under 60, planned pre-tax money is converted, not spent
-      converted = plannedPretax - pretaxSpent;
+      // A required withdrawal can't be converted: what isn't spent of it is taken anyway (and saved).
+      const rmdLeft = Math.max(0, Math.min(plannedPretax, rmd) - pretaxSpent);
+      converted = plannedPretax - pretaxSpent - rmdLeft;
       left -= pretaxSpent;
       // ...then the rest in the strategy's order.
       const taxableBefore = a.taxable;
@@ -189,7 +191,7 @@ export function runHousehold(h: Household, strategy: Strategy, rules: Rules = RU
       short = left > 1;
       fromTaxable = tk;
       gainsRealised = tk * gainShare;
-      fromPretax = pretaxSpent + pk;
+      fromPretax = pretaxSpent + pk + rmdLeft;
       fromRoth = rk;
       penalty = over59 ? 0 : (rules.accounts.earlyPenalty * pk);
       const pretaxIncome = fromPretax + converted;

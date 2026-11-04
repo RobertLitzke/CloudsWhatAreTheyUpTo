@@ -15,6 +15,8 @@ import { glideFigure } from './allocation';
 import { marginalFigure, stackFigure } from './brackets';
 import { bucketsFigure, rateOutStill } from './accounts';
 import { bridgeFigure } from './early-access';
+import { fillFigure, lifetimeStill } from './filling';
+import { acaFigure } from './aca';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -44,4 +46,9 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   'rate-out': rateOutStill,
   // Lesson 9
   bridge: bridgeFigure,
+  // Lesson 10
+  fill: fillFigure,
+  lifetime: lifetimeStill,
+  // Lesson 11
+  aca: acaFigure,
 };
