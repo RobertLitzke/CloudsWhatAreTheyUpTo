@@ -94,6 +94,7 @@ export function isLive(id: ParamId, s: Sound): boolean {
       return s.osc2Level > 0;
     case 'fmRatio':
       return s.fmAmount > 0;
+    case 'arpMode':
     case 'voiceMode':
     case 'chord':
     case 'noise':
@@ -104,6 +105,10 @@ export function isLive(id: ParamId, s: Sound): boolean {
       return true;
     case 'spread':
       return s.voiceMode === 2;
+    case 'arpRate':
+    case 'arpOct':
+    case 'arpHold':
+      return s.arpMode > 0;
     case 'env2Fall':
     case 'env2Rise':
     case 'env2Mode':
@@ -182,6 +187,7 @@ export function isActive(id: ParamId, s: Sound): boolean {
     case 'echoRepeats':
       return s.echoMix > 0;
     // The course's knobs: no generator version draws them yet.
+    case 'arpMode':
     case 'voiceMode':
     case 'chord':
     case 'noise':
@@ -192,6 +198,10 @@ export function isActive(id: ParamId, s: Sound): boolean {
       return true;
     case 'spread':
       return s.voiceMode === 2;
+    case 'arpRate':
+    case 'arpOct':
+    case 'arpHold':
+      return s.arpMode > 0;
     case 'env2Fall':
     case 'env2Rise':
     case 'env2Mode':

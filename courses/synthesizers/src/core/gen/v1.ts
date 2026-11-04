@@ -71,6 +71,10 @@ export const STEPS: StepTable = {
   voiceMode: [0, 1, 2], // mono, paraphonic, unison
   chord: [0, 1, 2, 3, 4, 5], // off, octave, fifth, minor, major, sus4 (CHORDS)
   spread: [0, 8, 15, 30, 60], // cents either side, in unison
+  arpMode: [0, 1, 2, 3, 4], // off, up, down, order, random
+  arpRate: [4, 2, 1, 0.5], // sixteenths per step
+  arpOct: [1, 2, 3, 4],
+  arpHold: [0, 1],
   // The matrix: each cell's middle position is no route. Pitch in semitones,
   // cutoff in octaves; level and LFO amount as how much of it the source
   // takes over (see the voice).
@@ -142,6 +146,10 @@ export const DEFAULTS: Patch = {
   voiceMode: 0,
   chord: 0,
   spread: 2,
+  arpMode: 0,
+  arpRate: 2,
+  arpOct: 0,
+  arpHold: 0,
   mxEnvPitch: OFF(PITCH_ROUTE),
   mxEnvCutoff: OFF(CUTOFF_ROUTE),
   mxEnvLevel: OFF(SHARE_ROUTE),
@@ -445,6 +453,10 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   voiceMode: 0,
   chord: 0,
   spread: 0,
+  arpMode: 0,
+  arpRate: 0,
+  arpOct: 0,
+  arpHold: 0,
   mxEnvPitch: 0,
   mxEnvCutoff: 0,
   mxEnvLevel: 0,

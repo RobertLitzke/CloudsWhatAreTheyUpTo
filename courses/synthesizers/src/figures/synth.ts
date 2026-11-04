@@ -119,6 +119,9 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'para-on': (now) => now.voiceMode === 1,
   'unison-wide': (now) => now.voiceMode === 2 && now.spread >= 3,
   'chords-all': (_, log) => tried(log, 'chord') >= 4,
+  // Lesson 19: the arpeggiator
+  'arp-on': (now) => now.arpMode > 0,
+  'arp-hold': (now) => now.arpMode > 0 && now.arpHold === 1,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.
   match: () => false,
 };

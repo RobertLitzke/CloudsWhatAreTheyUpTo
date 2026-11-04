@@ -10,6 +10,7 @@
 // Free play adds two things that are not on the clock: notes played from a
 // keyboard as they happen, and a metronome for recording.
 
+import { arpPick, arpSequence } from '../core/arp';
 import { EXTRA_PITCHES, type Sound } from '../core/params';
 import { timedNotes, type Riff, type TimedNote } from '../core/riffs';
 import { midiToHz } from '../core/riffs/notation';
@@ -171,6 +172,9 @@ export class Engine {
   }
 
   stop(): void {
+    // Whatever the arpeggiator was playing from the keys stops too.
+    this.arpKeys = [];
+    this.arpStop();
     if (this.timer == null) return;
     clearInterval(this.timer);
     this.timer = null;
@@ -194,6 +198,10 @@ export class Engine {
     if (this.playing) this.stop();
     void this.ctx.resume();
     const t = this.ctx.currentTime;
+    this.arpBar = barSeconds;
+    this.arpVel = vel;
+    // With the arpeggiator on, the held keys (see hold) are its notes, and it plays them.
+    if (voice.arpOn()) return;
     if (midi == null) voice.keyUp(t);
     else voice.keyDown(t, midiToHz(midi), barSeconds, vel);
   }
@@ -204,7 +212,12 @@ export class Engine {
    */
   hold(held: readonly number[]): void {
     const voice = this.voices[this.selected];
-    if (!voice || held.length === 0) return;
+    if (!voice) return;
+    if (voice.arpOn()) {
+      this.arpHold(voice, held);
+      return;
+    }
+    if (held.length === 0) return;
     const top = held[held.length - 1];
     voice.hold(this.ctx.currentTime, held.slice(-1 - EXTRA_PITCHES, -1).map((m) => m - top));
   }
@@ -212,6 +225,57 @@ export class Engine {
   /** How hard the held key is leaned on, 0 to 1. */
   pressure(p: number): void {
     this.voices[this.selected]?.pressure(this.ctx.currentTime, p);
+  }
+
+  // --- the arpeggiator on the keyboard ----------------------------------------------
+
+  private arpKeys: number[] = [];
+  private arpTimer: ReturnType<typeof setInterval> | null = null;
+  private arpNext = 0;
+  private arpIndex = 0;
+  private arpBar = 2;
+  private arpVel = KEY_VELOCITY;
+  /** All keys were up last time: with Hold on, the next key starts a new chord. */
+  private arpLifted = true;
+
+  /** The keys the arpeggiator plays: those held, or with Hold on, the last chord held. */
+  private arpHold(voice: Voice, held: readonly number[]): void {
+    const latch = Math.round(voice.sound.arpHold) === 1;
+    if (held.length > 0) {
+      this.arpKeys = latch && !this.arpLifted ? [...new Set([...this.arpKeys, ...held])] : [...held];
+      this.arpLifted = false;
+    } else {
+      this.arpLifted = true;
+      if (!latch) this.arpKeys = [];
+    }
+    if (this.arpKeys.length > 0 && this.arpTimer == null) {
+      voice.wake(this.ctx.currentTime, this.arpBar);
+      this.arpNext = this.ctx.currentTime + 0.02;
+      this.arpIndex = 0;
+      this.arpTimer = setInterval(() => this.arpTick(), TICK_MS);
+      this.arpTick();
+    }
+    if (this.arpKeys.length === 0) this.arpStop();
+  }
+
+  private arpTick(): void {
+    const voice = this.voices[this.selected];
+    if (!voice || !voice.arpOn() || this.arpKeys.length === 0 || this.playing) return this.arpStop();
+    const s = voice.sound;
+    const mode = Math.round(s.arpMode);
+    const seq = arpSequence(this.arpKeys, mode, s.arpOct);
+    const step = (this.arpBar / 16) * s.arpRate;
+    while (this.arpNext < this.ctx.currentTime + 0.1) {
+      const t = this.arpNext;
+      voice.step(t, t + step / 2, t + step, midiToHz(arpPick(seq, mode, this.arpIndex, 7)), this.arpVel);
+      this.arpIndex++;
+      this.arpNext += step;
+    }
+  }
+
+  private arpStop(): void {
+    if (this.arpTimer != null) clearInterval(this.arpTimer);
+    this.arpTimer = null;
   }
 
   /** A metronome tick at `t` on the audio clock. */

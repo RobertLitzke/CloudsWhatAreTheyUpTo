@@ -49,8 +49,9 @@
 // are then the same signal from that loop start on. This is the oscillators'
 // version of restarting the LFO with the loop.
 
+import { arpPick, arpSequence } from '../core/arp';
 import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
-import { CHAIN, CHORDS, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
+import { ARP_MODE, CHAIN, CHORDS, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
 
 /** Rough loudness matching between waves. */
@@ -324,7 +325,7 @@ export class Voice {
   constructor(
     private readonly ctx: BaseAudioContext,
     dest: AudioNode,
-    private sound: Sound,
+    public sound: Sound,
     startAt: number,
   ) {
     const gain = (value: number) => {
@@ -559,6 +560,8 @@ export class Voice {
     const s = this.sound;
     const mode = Math.round(s.voiceMode);
     if (mode === VOICE_MODE.unison) return [-s.spread, s.spread, -0.4 * s.spread];
+    // The arpeggiator plays a chord's notes one at a time instead.
+    if (this.arpOn()) return [];
     const semis = [...(mode === VOICE_MODE.para ? chord : []), ...(CHORDS[Math.round(s.chord)] ?? [])];
     return [...new Set(semis)].filter((x) => x !== 0).slice(0, EXTRA_PITCHES).map((x) => x * 100);
   }
@@ -795,7 +798,38 @@ export class Voice {
    * Schedule one note. `off` is the key release and `next` the following note's
    * start; the envelope is cut at `next`, so nothing ever needs cancelling.
    */
+  /** Is the arpeggiator on? */
+  arpOn(): boolean {
+    return Math.round(this.sound.arpMode) !== ARP_MODE.off;
+  }
+
   note(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false, chord?: readonly number[]): void {
+    if (this.arpOn()) {
+      this.arpeggiate(on, off, next, hz, vel, chord ?? []);
+      return;
+    }
+    this.step(on, off, next, hz, vel, press, legato, chord);
+  }
+
+  /**
+   * A held note (or chord, with the chord knob's notes) as the arpeggiator
+   * plays it: one note per step for as long as it is held, each half a step long.
+   */
+  private arpeggiate(on: number, off: number, next: number, hz: number, vel: number, chord: readonly number[]): void {
+    const s = this.sound;
+    const mode = Math.round(s.arpMode);
+    const seq = arpSequence([0, ...chord, ...(CHORDS[Math.round(s.chord)] ?? [])], mode, s.arpOct);
+    const step = this.sixSeconds * s.arpRate;
+    const seed = Math.round(on * 1000);
+    for (let i = 0, t = on; t < off - 1e-4; i++, t += step) {
+      const end = Math.min(t + step, next);
+      const last = t + step >= off - 1e-4;
+      this.step(t, Math.min(t + step / 2, off), last ? next : end, hz * Math.pow(2, arpPick(seq, mode, i, seed) / 12), vel);
+    }
+  }
+
+  /** One note, as written: what the arpeggiator plays at each of its steps. */
+  step(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false, chord?: readonly number[]): void {
     const bank = this.bankAt(on);
     this.setExtras(on, this.extras(chord));
     const slide = legato && Math.round(this.sound.legato) === 1;
@@ -893,15 +927,19 @@ export class Voice {
    * here, so the envelope is a chain of exponential approaches, each of which
    * carries on from wherever the level is.
    */
+  /** The keyboard is in use from `t`: set the free-running LFO (and envelope 2, running free) going. */
+  wake(t: number, barSeconds: number): void {
+    if (this.live) return;
+    this.live = true;
+    this.barSeconds = barSeconds;
+    this.setTempo(t, barSeconds / 16);
+    this.startLfo(t, null);
+    if (Math.round(this.sound.env2Mode) === ENV2_MODE.run) this.env2Cycles(t, t + 120);
+  }
+
   keyDown(t: number, hz: number, barSeconds: number, vel = 0.8): void {
     const s = this.sound;
-    if (!this.live) {
-      this.live = true;
-      this.barSeconds = barSeconds;
-      this.setTempo(t, barSeconds / 16);
-      this.startLfo(t, null);
-      if (Math.round(s.env2Mode) === ENV2_MODE.run) this.env2Cycles(t, t + 120);
-    }
+    this.wake(t, barSeconds);
     // A key pressed while another is held is played legato, if the mode says so.
     const slide = this.keyHeld && Math.round(s.legato) === 1;
     this.keyHeld = true;

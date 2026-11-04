@@ -81,6 +81,11 @@ export const PARAM_IDS = [
   'voiceMode',
   'chord',
   'spread',
+  // Lesson 19: the arpeggiator.
+  'arpMode',
+  'arpRate',
+  'arpOct',
+  'arpHold',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -88,7 +93,7 @@ export type Patch = Record<ParamId, number>;
 export type Sound = Record<ParamId, number>;
 export type StepTable = Record<ParamId, readonly number[]>;
 
-export type ModuleId = 'osc' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'drive' | 'echo' | 'chain';
+export type ModuleId = 'osc' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'arp' | 'drive' | 'echo' | 'chain';
 export type Category = 'tone' | 'brightness' | 'shape' | 'movement' | 'thickness' | 'metal' | 'grit' | 'space' | 'order';
 
 export const WAVE = { saw: 0, pulse: 1, triangle: 2, sine: 3 } as const;
@@ -107,6 +112,9 @@ export const VOICE_MODE = { mono: 0, para: 1, unison: 2 } as const;
 export const CHORDS: readonly (readonly number[])[] = [[], [12], [7], [3, 7], [4, 7], [5, 7]];
 /** Pitches beyond the played one that a voice can sound at once. */
 export const EXTRA_PITCHES = 3;
+
+/** The arpeggiator's orders. Off plays the notes as they are. */
+export const ARP_MODE = { off: 0, up: 1, down: 2, order: 3, random: 4 } as const;
 
 /** The modulation matrix's rows: what moves. Velocity and pressure join at lesson 16. */
 export const MOD_SOURCES = [
@@ -520,6 +528,61 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'wrong',
     high: 'wrong',
   },
+  arpMode: {
+    id: 'arpMode',
+    label: 'Arp',
+    full: 'Arpeggiator',
+    module: 'arp',
+    category: 'order',
+    kind: 'selector',
+    options: ['Off', 'Up', 'Down', 'Order', 'Rand'],
+    interp: 'lin',
+    stage: 19,
+    format: (v) => ['Off', 'Up', 'Down', 'In the order played', 'Random'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  arpRate: {
+    id: 'arpRate',
+    label: 'Rate',
+    full: 'Arpeggiator rate',
+    module: 'arp',
+    category: 'order',
+    kind: 'knob',
+    interp: 'log',
+    stage: 19,
+    // The value is sixteenths per step.
+    format: (n) => ({ 4: '1/4', 2: '1/8', 1: '1/16', 0.5: '1/32' })[n] ?? `${n} /16`,
+    low: 'slow',
+    high: 'fast',
+  },
+  arpOct: {
+    id: 'arpOct',
+    label: 'Octaves',
+    full: 'Arpeggiator octaves',
+    module: 'arp',
+    category: 'order',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 19,
+    format: (n) => `${Math.round(n)}`,
+    low: 'few',
+    high: 'many',
+  },
+  arpHold: {
+    id: 'arpHold',
+    label: 'Hold',
+    full: 'Arpeggiator hold',
+    module: 'arp',
+    category: 'order',
+    kind: 'selector',
+    options: ['Off', 'On'],
+    interp: 'lin',
+    stage: 19,
+    format: (v) => ['Off', 'On: keeps playing after the keys come up'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
   voiceMode: {
     id: 'voiceMode',
     label: 'Voices',
@@ -723,6 +786,7 @@ export const MODULES: readonly { id: ModuleId; label: string; stage: number; par
   { id: 'lfo', label: 'LFO', stage: 1, params: ['lfoShape', 'lfoDest', 'lfoRate', 'lfoDepth'] },
   { id: 'matrix', label: 'Matrix', stage: 15, params: MATRIX_IDS },
   { id: 'voice', label: 'Voice', stage: 17, params: ['voiceMode', 'legato', 'glide', 'chord', 'spread'] },
+  { id: 'arp', label: 'Arp', stage: 19, params: ['arpMode', 'arpHold', 'arpRate', 'arpOct'] },
   { id: 'drive', label: 'Drive', stage: 7, params: ['drive', 'driveTone'] },
   { id: 'echo', label: 'Echo', stage: 8, params: ['echoTime', 'echoRepeats', 'echoMix'] },
   { id: 'chain', label: 'Chain', stage: 9, params: ['chain'] },

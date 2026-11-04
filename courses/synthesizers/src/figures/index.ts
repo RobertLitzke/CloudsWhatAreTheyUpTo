@@ -12,6 +12,7 @@ import { curveFigure } from './curve';
 import { echoFigure } from './echo';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
+import { rollFigure } from './roll';
 import { shFigure } from './sh';
 import { slideFigure } from './slide';
 import { sidebandsFigure } from './sidebands';
@@ -46,4 +47,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   curve: curveFigure,
   // Lesson 17
   slide: slideFigure,
+  // Lesson 19
+  roll: rollFigure,
 };
