@@ -16,7 +16,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Money That Lasts](#finance) | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 5 | 16 | 5 | 0 | 5 | 0 | 0 |
+| [Fungi](#fungi) | 7 | 14 | 7 | 0 | 7 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -399,8 +399,8 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 3 | Eating from the outside (`tips`) |  | needs student read-through | Fact check | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
 | 4 | Seven trillion spores (`spores`) |  | needs student read-through | Fact check | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
 | 5 | Twenty thousand sexes (`sexes`) |  | needs student read-through | Fact check | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
-| 6 | Sacs and clubs (`groups`) |  | planned, listed as coming |  | The main groups of fungi told apart by how they make spores. |
-| 7 | The yeast that wastes its sugar (`yeast`) |  | planned, listed as coming |  | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
+| 6 | Sacs and clubs (`groups`) |  | needs student read-through | Fact check | The main groups of fungi told apart by how they make spores. |
+| 7 | The yeast that wastes its sugar (`yeast`) |  | needs student read-through | Fact check | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
 | 8 | The gap in the coal (`rot`) |  | planned, listed as coming |  | White and brown rot, lignin, and whether wood-rotting fungi ended the age of coal. |
 | 9 | Do trees share through fungi? (`network`) |  | planned, listed as coming |  | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
 | 10 | A lichen is two (or three) (`lichens`) |  | planned, listed as coming |  | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
