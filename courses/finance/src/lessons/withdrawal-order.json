@@ -1,0 +1,83 @@
+{
+  "id": "withdrawal-order",
+  "n": 12,
+  "title": "Which account to spend first",
+  "teaches": "Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets",
+  "parts": [
+    {
+      "title": "The textbook order",
+      "blocks": [
+        { "type": "text", "text": "The standard advice on which account to spend first goes: taxable accounts first, then pre-tax, then Roth. The reasoning is that money in a 401(k) or Roth grows untaxed, so it should be left to grow as long as possible, and the taxable account, which pays tax on its dividends every year, should go first." },
+        { "type": "text", "text": "Each step of that sounds right, and lesson 10 showed what it can cost: a decade of empty low brackets, followed by required withdrawals that fill higher ones. This lesson runs whole retirements under several orders and adds the remaining pieces that make the next dollar dearer late in life: Social Security, Medicare and widowhood." }
+      ]
+    },
+    {
+      "title": "Five orders, one couple",
+      "blocks": [
+        { "type": "text", "text": "The figure runs lesson 10's couple from 60 to 95. They spend the same $80,000 a year whatever the order; the only differences are which account each dollar comes from and what that does to tax and health premiums. The figure counts what's left at 95 after the income tax their heirs would owe on the remaining pre-tax money, at 24 percent. Guess first." },
+        { "type": "interactive_diagram", "id": "withdraw", "caption": "Each bar is one year: federal income tax, plus the ACA premium before 65 and Medicare's income surcharge after. The couple starts with $600,000 taxable, $200,000 Roth and the pre-tax amount on the slider, spends $80,000 a year and claims $50,000 of Social Security at 67.", "task": "Guess, then compare four of the orders", "goal": "withdraw", "aspect_ratio": 1.67 },
+        { "type": "text", "text": "Taxable first gives the near-empty years, then a wall of tax from 75. Pre-tax first draws about $90,000 a year from the 401(k) until 65, taxed at 10 and 12 percent, which fills the low brackets with spending instead of conversions. It also leaves the taxable account untouched, and lesson T3 explains why that matters: at death its gains are forgiven. For this couple it leaves the most, about $1.1 million more than the textbook order." },
+        { "type": "text", "text": "Filling to the top of 12 percent every year pays the least tax and does almost as well. Keeping income under the ACA cliff until 65 and filling afterwards beats both on taxes and premiums together. Filling to 22 percent overpays. With a larger pre-tax balance, try $2.5 million, the order changes: conversions beyond spending start to pay, and filling to 12 or 22 percent comes out ahead." },
+        { "type": "text", "text": "The general lesson is not that one order is right. It is that the order matters by hundreds of thousands of dollars, that the textbook order is usually the worst of the reasonable ones for people with large pre-tax savings, and that the best plan fills each year's low brackets with something." }
+      ]
+    },
+    {
+      "title": "Required withdrawals",
+      "blocks": [
+        { "type": "text", "text": "Pre-tax money can't stay sheltered forever. From 73, for people born from 1951 to 1959, or 75 for those born in 1960 or later, the owner must withdraw a share each year: the previous year-end balance divided by a figure from the IRS's table, 24.6 at 75 and 12.2 at 90. That is about 4 percent at 75, rising to over 8 percent at 90.[^rmd]" },
+        { "type": "text", "text": "On a large balance, these required withdrawals can exceed what the household spends, so they arrive as taxable income whether needed or not. In the textbook order, this couple's first one at 75 is about $88,000, on top of $50,000 of Social Security, and the tax keeps rising to the end, since the withdrawals grow as a share each year." },
+        { "type": "text", "text": "Roth accounts have no required withdrawals for the owner. Heirs other than a spouse must empty an inherited IRA within ten years, under the SECURE Act of 2019, so a large pre-tax balance left to children in their fifties lands in their own peak tax years." }
+      ]
+    },
+    {
+      "title": "The Social Security torpedo",
+      "blocks": [
+        { "type": "text", "text": "Social Security benefits are taxed by a formula from 1983. Take other income and add half the benefits; call that provisional income. Below $32,000 for a couple ($25,000 single), none of the benefits are taxed. Above it, each extra dollar of other income makes 50 cents of benefits taxable, and above $44,000 ($34,000 single), 85 cents, until 85 percent of the benefits are taxable.[^thresholds]" },
+        { "type": "text", "text": "So in that range, a dollar of IRA withdrawal adds up to $1.85 of taxable income. In the 12 percent bracket it costs 22 percent; in the 22 percent bracket, 41. Planners call it the tax torpedo." },
+        { "type": "interactive_diagram", "id": "torpedo", "caption": "Federal tax on the next $1,000 of other income for a couple over 65, with and without Social Security, under 2026 rules (including the temporary deduction for people over 65).", "task": "Find where Social Security raises the rate", "goal": "torpedo", "aspect_ratio": 1.82 },
+        { "type": "text", "text": "The torpedo is one more reason to convert before Social Security starts. Pre-tax money converted in the sixties isn't there to trigger it later; Roth withdrawals don't count towards provisional income at all." }
+      ]
+    },
+    {
+      "title": "Medicare's surcharge and the widow's brackets",
+      "blocks": [
+        { "type": "text", "text": "From 65 the ACA credit no longer matters, but Medicare has its own income test. The standard Part B premium in 2026 is $202.90 a month. Above $218,000 of MAGI for a couple ($109,000 single), each person pays a surcharge, the income-related monthly adjustment amount, IRMAA, on Parts B and D: $1,148 a year each at the first tier, rising in five steps to about $6,900 each at the top. Each tier is a cliff; a dollar over the line costs the whole step for both people." },
+        { "type": "text", "text": "IRMAA looks back two years: 2026 premiums depend on 2024 income. So a large conversion at 63 raises Medicare premiums at 65. A household whose income fell because work stopped can ask Social Security to use the newer year.[^ssa44]" },
+        { "type": "text", "text": "The last piece is the survivor. In the years after a spouse dies, the survivor files as single, with brackets and standard deduction half the size, while required withdrawals from the combined pre-tax accounts carry on much the same and one Social Security benefit stops. The same income that kept a couple in the 12 percent bracket can put a widow or widower in 22 or 24 percent, and over IRMAA's single threshold. Converting while both are alive spreads the tax over two sets of brackets instead of one." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "The textbook order, taxable then pre-tax then Roth, often leaves the low brackets empty and pays later at higher rates.",
+          "Spending pre-tax money or converting it fills the low brackets; which works best depends on the size of the pre-tax balance.",
+          "Social Security taxation can make the next dollar cost 22 or 41 percent inside the 12 and 22 percent brackets.",
+          "Medicare's surcharge uses income from two years before, and a survivor filing single faces half-size brackets."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Six questions on withdrawal order", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "What does the textbook order recommend spending first?", "choices": ["The taxable account", "Roth accounts", "Pre-tax accounts"], "answer": 0, "why": "Taxable first, then pre-tax, then Roth, so the sheltered accounts grow longest. It can waste low brackets early on." },
+          { "ask": "At 75, the IRS table's figure is 24.6. A pre-tax balance of $2 million at the end of the previous year requires about what withdrawal?", "choices": ["$81,000", "$24,600", "$200,000"], "answer": 0, "why": "$2,000,000 ÷ 24.6 is about $81,300, whether the household needs it or not." },
+          { "ask": "In the Social Security torpedo range, why can a dollar of IRA withdrawal in the 12 percent bracket cost 22 percent?", "choices": ["It adds a dollar of income and makes 85 cents of benefits taxable", "Social Security is taxed at 22 percent", "IRA withdrawals carry a surcharge after 65"], "answer": 0, "why": "$1.85 of taxable income at 12 percent is about 22 cents." },
+          { "ask": "Which year's income sets a couple's Medicare surcharge in 2026?", "choices": ["2024", "2026", "2025"], "answer": 0, "why": "IRMAA uses the tax return from two years before." },
+          { "ask": "Why does a surviving spouse often pay more tax on the same withdrawals?", "choices": ["They file as single, with brackets and deduction half the size", "Inherited IRAs are taxed at 37 percent", "Social Security doubles after a death"], "answer": 0, "why": "After the year of death, a survivor without dependants files single, while much of the couple's income continues." },
+          { "ask": "How long does a non-spouse heir usually have to empty an inherited IRA?", "choices": ["Ten years", "Their whole life", "One year"], "answer": 0, "why": "The SECURE Act of 2019 ended most lifetime stretch payouts for heirs other than a spouse." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Order matters by hundreds of thousands.** The same spending from different accounts can change what's left at 95 by more than $1 million.",
+    "**The textbook order often costs most.** Taxable first leaves the low brackets empty and the pre-tax balance growing.",
+    "**Fill the low brackets with something.** Spending pre-tax money, conversions or both.",
+    "**Required withdrawals start at 73 or 75.** About 4 percent of the balance at 75, rising each year.",
+    "**Social Security can raise the next dollar's rate.** In the torpedo range, 22 percent in the 12 percent bracket and 41 in the 22.",
+    "**Medicare's surcharge looks back two years.** Each tier is a cliff for both spouses.",
+    "**Survivors file single.** Converting while both spouses are alive uses two sets of brackets."
+  ],
+  "footnotes": {
+    "rmd": { "kind": "technical", "title": "The table", "text": "The Uniform Lifetime Table assumes a beneficiary ten years younger than the owner, so its divisors are longer than a single life expectancy. An owner whose spouse is more than ten years younger and the sole beneficiary uses a different table, with smaller withdrawals." },
+    "thresholds": { "kind": "digression", "title": "Never indexed", "text": "The $25,000 and $32,000 thresholds date from 1983 and the second tier from 1993. Neither has ever been raised for inflation, so a share of benefits that Congress meant to tax only for well-off retirees now reaches most middle-income ones. The temporary deduction of up to $6,000 for each person over 65, for 2025 to 2028, softens the effect but doesn't change the formula." },
+    "ssa44": { "kind": "technical", "title": "Form SSA-44", "text": "Social Security accepts a request to base IRMAA on a more recent year after a life-changing event: stopping or reducing work, marriage, divorce, a spouse's death, or the loss of a pension. A one-off Roth conversion is not such an event." }
+  }
+}

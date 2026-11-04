@@ -17,6 +17,9 @@ import { bucketsFigure, rateOutStill } from './accounts';
 import { bridgeFigure } from './early-access';
 import { fillFigure, lifetimeStill } from './filling';
 import { acaFigure } from './aca';
+import { orderOfWithdrawalFigure, torpedoFigure } from './withdrawal-order';
+import { claimFigure, formulaFigure } from './social-security';
+import { capstoneFigure } from './capstone';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -51,4 +54,12 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   lifetime: lifetimeStill,
   // Lesson 11
   aca: acaFigure,
+  // Lesson 12
+  withdraw: orderOfWithdrawalFigure,
+  torpedo: torpedoFigure,
+  // Lesson 13
+  formula: formulaFigure,
+  claim: claimFigure,
+  // Lesson 14
+  capstone: capstoneFigure,
 };

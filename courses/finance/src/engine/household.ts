@@ -161,10 +161,15 @@ export function runHousehold(h: Household, strategy: Strategy, rules: Rules = RU
     let penalty = 0;
     let magi = 0;
     let short = false;
+    // The ACA strategy can overshoot its line (paying the conversion's tax realises gains);
+    // if it does, trim the conversion and go again.
+    let trim = 0;
+    for (let attempt = 0; attempt < 4; attempt++) {
+    need = h.spending;
     for (let k = 0; k < 8; k++) {
       const spendNeed = need;
       // Under 65 the ACA strategy keeps MAGI (with the gains realised last time round) under its line.
-      if (strategy.kind === 'aca') planned = age < 65 ? Math.max(rmd, Math.min(acaFill, strategy.magi - dividends - ss - gainsRealised)) : acaFill;
+      if (strategy.kind === 'aca') planned = age < 65 ? Math.max(rmd, Math.min(acaFill, strategy.magi - dividends - ss - gainsRealised - trim)) : acaFill;
       let left = spendNeed - ss - dividends;
       // Pre-tax drawn as planned (and spent first, the excess converted)...
       const plannedPretax = Math.min(a.pretax, planned);
@@ -208,6 +213,12 @@ export function runHousehold(h: Household, strategy: Strategy, rules: Rules = RU
       }
       need = h.spending + tax + health + penalty;
       if (Math.abs(need - spendNeed) < 1) break;
+    }
+    if (strategy.kind === 'aca' && age < 65 && magi > strategy.magi && planned > rmd) {
+      trim += magi - strategy.magi + 250;
+      continue;
+    }
+    break;
     }
     magiHistory[t] = magi;
     if (short && shortAt < 0) shortAt = age;

@@ -15,7 +15,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Money That Lasts](#finance) | 6 | 26 | 6 | 0 | 6 | 0 | 0 |
+| [Money That Lasts](#finance) | 14 | 18 | 14 | 0 | 14 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -360,14 +360,14 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 4 | A fifty-year retirement (`long-retirement`) |  | needs student read-through | Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
 | 5 | Spending rules that bend (`flexible-spending`) |  | needs student read-through | Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
 | 6 | Stocks, bonds and the glide path (`allocation`) |  | needs student read-through | Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
-| 7 | How a federal return stacks (`brackets`) |  | planned, listed as coming |  | Ordinary income, gains on top at 0, 15 or 20 percent, and marginal against average rates. |
-| 8 | Four buckets (`accounts`) |  | planned, listed as coming |  | Pre-tax, Roth, HSA and taxable, compared by the tax rate in and the rate out. |
-| 9 | Money before 59 and a half (`early-access`) |  | planned, listed as coming |  | Conversion ladders, Roth basis, 72(t), the rule of 55 and a taxable bridge. |
-| 10 | Filling the low brackets (`filling-brackets`) |  | planned, listed as coming |  | Roth conversions and 0 percent gains in low-income years, and how they collide. |
-| 11 | Health insurance before 65 (`aca`) |  | planned, listed as coming |  | ACA premium credits as a tax on income, and the 400 percent cliff. |
-| 12 | Which account to spend first (`withdrawal-order`) |  | planned, listed as coming |  | Withdrawal order, RMDs and the Social Security tax torpedo over a lifetime. |
-| 13 | Social Security, worked out (`social-security`) |  | planned, listed as coming |  | The 35-year average, bend points, claiming age and survivors. |
-| 14 | Build the plan (`capstone`) |  | planned, listed as coming |  | A whole plan for one household, stress-tested against history. |
+| 7 | How a federal return stacks (`brackets`) |  | needs student read-through | Fact check | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
+| 8 | Four buckets (`accounts`) |  | needs student read-through | Fact check | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
+| 9 | Money before 59 and a half (`early-access`) |  | needs student read-through | Fact check | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
+| 10 | Filling the low brackets (`filling-brackets`) |  | needs student read-through | Fact check | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
+| 11 | Health insurance before 65 (`aca`) |  | needs student read-through | Fact check | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
+| 12 | Which account to spend first (`withdrawal-order`) |  | needs student read-through | Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
+| 13 | Social Security, worked out (`social-security`) |  | needs student read-through | Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
+| 14 | Build the plan (`capstone`) |  | needs student read-through | Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
 | P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | planned, listed as coming |  | When Portugal taxes you, how its income tax is built, and what replaced NHR. |
 | P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | planned, listed as coming |  | The US-Portugal treaty, foreign tax credits, and each US account abroad. |
 | P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | planned, listed as coming |  | The national health service, Medicare abroad, property tax and inheritance. |

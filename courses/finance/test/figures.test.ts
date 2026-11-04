@@ -73,4 +73,71 @@ describe('figures', () => {
     setSlider(gl.node, 1, 0.3);
     await expect(gl.done).resolves.toBeUndefined();
   });
+
+  it('lessons 7 to 14: guesses, then the tasks', { timeout: 30_000 }, async () => {
+    const st = FIGURES.stack(context(), 'stack');
+    guess(st.node, 'Nothing');
+    expect(st.node.textContent).toContain('Federal tax $0');
+    setSlider(st.node, 0, 60_000);
+    setSlider(st.node, 1, 60_000);
+    expect(st.node.textContent).toContain('$2,840');
+    await expect(st.done).resolves.toBeUndefined();
+
+    const mg = FIGURES.marginal(context(), 'marginal');
+    setSlider(mg.node, 1, 60_000);
+    setSlider(mg.node, 0, 100_000);
+    expect(mg.node.textContent).toContain('$270');
+    await expect(mg.done).resolves.toBeUndefined();
+
+    const bk = FIGURES.buckets(context(), 'buckets');
+    guess(bk.node, 'Pre-tax, by about an eighth');
+    setSlider(bk.node, 1, 0.22);
+    expect(bk.node.textContent).toContain('Equal rates, equal results');
+    setSlider(bk.node, 1, 0);
+    await expect(bk.done).resolves.toBeUndefined();
+
+    const br = FIGURES.bridge(context(), 'bridge');
+    guess(br.node, 'Five');
+    setSlider(br.node, 2, 300_000);
+    setSlider(br.node, 2, 0);
+    await expect(br.done).resolves.toBeUndefined();
+
+    const fl = FIGURES.fill(context(), 'fill');
+    guess(fl.node, 'About $9,000');
+    expect(fl.node.textContent).toContain('$8,975');
+    setSlider(fl.node, 1, 0);
+    setSlider(fl.node, 1, 100_000);
+    await expect(fl.done).resolves.toBeUndefined();
+
+    const ac = FIGURES.aca(context(), 'aca');
+    guess(ac.node, 'It rises by about $16,000');
+    setSlider(ac.node, 0, 90_000);
+    setSlider(ac.node, 0, 60_000);
+    await expect(ac.done).resolves.toBeUndefined();
+
+    const wd = FIGURES.withdraw(context(), 'withdraw');
+    guess(wd.node, 'Pre-tax accounts first');
+    for (const c of ['Pre-tax first', 'Fill 12%', 'Fill 22%']) click(wd.node, c);
+    await expect(wd.done).resolves.toBeUndefined();
+
+    const tp = FIGURES.torpedo(context(), 'torpedo');
+    await expect(tp.done).resolves.toBeUndefined();
+
+    const fo = FIGURES.formula(context(), 'formula');
+    guess(fo.node, 'About a quarter lower');
+    expect(fo.node.textContent).toContain('23% less');
+    setSlider(fo.node, 1, 35);
+    setSlider(fo.node, 1, 12);
+    await expect(fo.done).resolves.toBeUndefined();
+
+    const cl = FIGURES.claim(context(), 'claim');
+    setSlider(cl.node, 1, 62);
+    setSlider(cl.node, 1, 70);
+    expect(cl.node.textContent).toContain('past about 80');
+    await expect(cl.done).resolves.toBeUndefined();
+
+    const cap = FIGURES.capstone(context(), 'capstone');
+    setSlider(cap.node, 1, 70_000);
+    await expect(cap.done).resolves.toBeUndefined();
+  });
 });
