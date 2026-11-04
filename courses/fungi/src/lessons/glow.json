@@ -1,0 +1,74 @@
+{
+  "id": "glow",
+  "n": 12,
+  "title": "Foxfire",
+  "teaches": "Fungi that glow in the dark: how the light is made, and the experiment that asked what it is for",
+  "summary": [
+    "**About a hundred kinds of fungus glow.** All give the same green light, from mushrooms, from threads in rotting wood, or both.",
+    "**Foxfire is the glow of rotting wood.** People have noticed it since ancient times and used it as a dim lamp.",
+    "**Boyle showed in the 1660s that the glow needs air.** In his air pump, shining wood faded as the air was drawn out and returned when it was let back.",
+    "**The light comes from a chemical cycle.** Fungal enzymes turn a common chemical into luciferin, which gives off light when it reacts with oxygen, and then recycle it.",
+    "**The chemistry was worked out only after 2015.** Since then the genes have been moved into plants to make them glow.",
+    "**In one Brazilian mushroom the glow follows a daily clock.** It is brightest at night, even in constant darkness.",
+    "**Lit fake mushrooms caught more insects than dark ones.** Oliveira and colleagues argued in 2015 that the glow draws insects that may carry spores.",
+    "**Why the threads in wood glow is still unknown.** The light may serve no purpose there at all."
+  ],
+  "parts": [
+    {
+      "title": "Wood that shines",
+      "blocks": [
+        {"type": "text", "text": "On a damp night in a forest, with no moon and no torch, a rotting stump can be seen faintly glowing, a soft green-white like the face of an old watch. Lumberjacks and charcoal burners knew it, and called it **foxfire**, a name of uncertain origin. Aristotle wrote of dead wood that shone in the dark, and so did Pliny the Elder. Pieces of glowing wood were used to mark paths, and soldiers in the First World War are said to have stuck them on their helmets to follow each other in the trenches."},
+        {"type": "text", "text": "The light comes from fungi. The threads of some wood-rotting fungi glow as they grow through the wood, most famously those of the honey fungus, and a few kinds also have glowing mushrooms: bracket fungi on logs, small bonnets in tropical forests, and the orange jack-o'-lantern of oak stumps, whose gills shine. About a hundred kinds are known to glow, out of more than a hundred thousand named fungi, and they are scattered across a few groups of club fungi. All of them give the same green light."}
+      ]
+    },
+    {
+      "title": "A light for a submarine",
+      "blocks": [
+        {"type": "text", "text": "In 1775, during the American War of Independence, a Yale student named David Bushnell built a one-man submarine, a wooden egg he called the *Turtle*, to fix explosives to the hulls of British warships. Under water the pilot had to read a compass and a depth gauge in the dark, and a candle would have used up his air in minutes. Bushnell marked the needles with foxfire."},
+        {"type": "text", "text": "The trouble was the cold. As autumn came on the foxfire dimmed and failed, and the project's backers wrote to Benjamin Franklin for advice on another light. None was found, and the *Turtle*'s one attack, on HMS *Eagle* in New York harbour in 1776, failed for other reasons.[^turtle] But the failure says something about the light: it is made by something alive, which slows in the cold as living things do."}
+      ]
+    },
+    {
+      "title": "Light needs air",
+      "blocks": [
+        {"type": "text", "text": "In the 1660s Robert Boyle, who had built one of the first vacuum pumps, put a piece of shining wood in its glass chamber and drew out the air. The glow faded until it was almost gone. When he let the air back in, the glow returned. The light needed something in the air, though no one yet knew about oxygen. Boyle also noticed that it gave off no heat that he could feel, and so it came to be called cold light."},
+        {"type": "text", "text": "Fireflies, glow-worms and many sea creatures make cold light too, and by the twentieth century the general recipe was clear. An organism makes a molecule, called a **luciferin**, and an enzyme, a **luciferase**, that makes it react with oxygen. The reaction leaves the molecule in an excited state, and as it settles it gives off the energy as light instead of heat. Each group of glowing organisms has its own luciferin. Fireflies' was identified in the 1960s. The fungal one resisted for decades longer."}
+      ]
+    },
+    {
+      "title": "The fungal cycle",
+      "blocks": [
+        {"type": "text", "text": "In 2015 a group of Russian and Brazilian chemists working with glowing mushrooms identified the fungal luciferin, and by 2018 they had found the whole chain of enzymes that makes it. It starts from caffeic acid, a chemical found in many plants and fungi. One enzyme turns it into hispidin, another adds oxygen to make the luciferin, and the luciferase makes that react with oxygen to give off green light. A fourth enzyme then breaks the spent luciferin back down to caffeic acid, so the cycle can turn again.[^genes]"},
+        {"type": "diagram", "id": "luciferin", "caption": "The cycle that makes fungal light. Each arrow is one enzyme, and the genes for all four sit side by side in the glowing fungi's DNA."},
+        {"type": "text", "text": "The genes for all four enzymes sit together, so they can be moved as a set. In 2020 the same group put them into tobacco plants, which then glowed green from root to flower, all their lives, brightest in young leaves and flowers. Because caffeic acid is common in plants, the plants needed nothing else added."}
+      ]
+    },
+    {
+      "title": "A lamp to draw insects?",
+      "blocks": [
+        {"type": "text", "text": "Making light costs a fungus energy, so it is natural to ask what it gets for it. One old guess was that the light attracts insects, which then carry spores away, as bees carry pollen. Another was that it serves no purpose, a side effect of chemistry that does something else, such as mopping up harmful forms of oxygen."},
+        {"type": "text", "text": "In 2015 Anderson Oliveira, Cassius Stevani and their colleagues tested the first idea in Brazil, on *Neonothopanus gardneri*, a large mushroom that grows at the base of young palm trees and glows bright green. First they showed that its glow follows a daily clock: it is brightest at night, and keeps the same rhythm when the fungus is kept in constant darkness, so the fungus is not simply reacting to light. Glowing only when it can be seen suggests the glow might be meant to be seen."},
+        {"type": "text", "text": "Then they made fake mushrooms of clear plastic, some lit from inside with a green light matching the fungus's colour and some left dark, coated them with sticky glue and set them out in the forest overnight. The lit decoys caught many more insects: beetles, flies, ants, wasps and others. Insects crawling and flying over a mushroom's gills would pick up spores, and the dense forest floor where the fungus grows has little wind to carry spores away."},
+        {"type": "interactive_diagram", "id": "decoys", "caption": "A model of the decoy experiment: one lit and one dark decoy, insects counted each night. The counts are made up to match the kind of difference found.", "task": "Count until chance is ruled out", "goal": "nights", "aspect_ratio": 2.1},
+        {"type": "text", "text": "The experiment showed that insects are drawn to the light. It did not show that the insects carry the fungus's spores anywhere useful, and that step has yet to be tested. For the glowing threads of wood-rotting fungi, deep in a log where no insect could see them, the light is still a puzzle.[^why]"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on glowing fungi", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "What is foxfire?", "choices": ["The glow of wood with certain fungi growing in it", "Light reflected by wet bark", "A spark from rotting wood catching fire"], "answer": 0, "why": "The threads of some wood-rotting fungi give off a faint green light as they grow through the wood."},
+          {"ask": "What did Boyle's air pump show about the glow?", "choices": ["It needs something in the air, and fades when the air is removed", "It works better in a vacuum", "It is a kind of heat"], "answer": 0, "why": "The glow faded as the air was pumped out and returned when it was let in. The reaction needs oxygen."},
+          {"ask": "Why did the Turtle's foxfire fail in autumn?", "choices": ["The light comes from living fungi, which slow down in the cold", "The submarine leaked salt water on it", "Foxfire only glows in sunlight"], "answer": 0, "why": "The glow is made by the living fungus's enzymes, and like most life it slows when cold."},
+          {"ask": "What does the luciferase enzyme do?", "choices": ["Makes luciferin react with oxygen, giving off light", "Turns light into sugar", "Breaks down wood"], "answer": 0, "why": "Luciferin plus oxygen, with the luciferase, gives a molecule that sheds its extra energy as green light."},
+          {"ask": "Why did Oliveira and colleagues need many nights of decoy counts?", "choices": ["A few nights could differ by chance, so only many could show a real difference", "Insects only come out on the last night", "The lights took weeks to warm up"], "answer": 0, "why": "On any one night a passing insect or a gust can decide the count. Only a steady lead over many nights rules out chance."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "turtle": {"kind": "digression", "title": "The Turtle's attack", "text": "The pilot, Sergeant Ezra Lee, reached HMS *Eagle* but could not drive the screw that was to fix the charge into her hull, perhaps because it struck an iron fitting. He was spotted on his way back, released the charge, which exploded harmlessly, and escaped."},
+    "genes": {"kind": "technical", "title": "Who found it", "text": "The fungal luciferin is 3-hydroxyhispidin. It was identified by groups led by Ilia Yampolsky in Moscow and Cassius Stevani in São Paulo, and the full pathway was published in 2018. The same cycle runs in every glowing fungus tested, which suggests it arose once in an early ancestor and was lost in most of its descendants."},
+    "why": {"kind": "technical", "title": "Other ideas", "text": "Glowing threads may scare off animals that eat fungi, or attract the predators of those animals, or the chemistry may protect the fungus in a way that has nothing to do with light. Each idea has some support and none has been shown."}
+  }
+}

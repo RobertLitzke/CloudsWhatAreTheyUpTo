@@ -18,6 +18,8 @@ import { flask } from '../src/figures/yeast';
 import { buried, rotted } from '../src/figures/rot';
 import { meanRange, transfer } from '../src/figures/network';
 import { lichenDay } from '../src/figures/lichens';
+import { BACTERIA, colony, zone } from '../src/figures/mould';
+import { clearWin, decoys } from '../src/figures/glow';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -174,6 +176,27 @@ describe('figures', () => {
     const f = FIGURES.day(context(), 'timing');
     guess(f.node, 'It loses');
     setSlider(f.node, 0, 7);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 11: a clear ring for Staphylococcus, none for E. coli', async () => {
+    expect(zone(4, BACTERIA[0].stop)).toBeGreaterThan(colony(4) + 5);
+    expect(zone(7, BACTERIA[1].stop)).toBe(0);
+    const f = FIGURES.zone(context(), 'clear');
+    guess(f.node, 'A clear ring with no bacteria');
+    setSlider(f.node, 0, 5);
+    click(f.node, 'E. coli');
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 12: a few nights are chance, many show the lit decoy wins', async () => {
+    const few = decoys(3);
+    const many = decoys(20);
+    expect(clearWin(few.litNights, few.darkNights)).toBe(false);
+    expect(clearWin(many.litNights, many.darkNights)).toBe(true);
+    const f = FIGURES.decoys(context(), 'nights');
+    guess(f.node, 'Yes');
+    setSlider(f.node, 0, 16);
     await expect(f.done).resolves.toBeUndefined();
   });
 });

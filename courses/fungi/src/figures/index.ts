@@ -17,6 +17,8 @@ import { buddingStill, flaskFigure } from './yeast';
 import { coalFigure, rotsFigure } from './rot';
 import { rootsStill, transferFigure } from './network';
 import { dayFigure, layersStill } from './lichens';
+import { zoneFigure } from './mould';
+import { cycleLightStill, decoyFigure } from './glow';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -53,4 +55,9 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 10
   layers: layersStill,
   day: dayFigure,
+  // Lesson 11
+  zone: zoneFigure,
+  // Lesson 12
+  luciferin: cycleLightStill,
+  decoys: decoyFigure,
 };
