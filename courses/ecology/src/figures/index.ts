@@ -21,6 +21,9 @@ import { ncycleFigure, weirFigure } from './hubbard';
 import { alderFigure, glacierFigure } from './glacier';
 import { gapsFigure, whittakerFigure } from './gaps';
 import { bouldersFigure, fireFigure } from './fires';
+import { biomesFigure, mountainFigure } from './humboldt';
+import { areaFigure, islandFigure as refillFigure } from './islands';
+import { fragmentFigure, halfFigure } from './half';
 import { controlFigure, curtainFigure, oxygenFigure } from './curtain';
 import { bathtubFigure, brakeFigure, darwinFigure, recaptureFigure } from './elephants';
 
@@ -79,4 +82,13 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 16
   boulders: bouldersFigure,
   fire: fireFigure,
+  // Lesson 17
+  mountain: mountainFigure,
+  biomes: biomesFigure,
+  // Lesson 18
+  refill: refillFigure,
+  area: areaFigure,
+  // Lesson 19
+  fragment: fragmentFigure,
+  half: halfFigure,
 };

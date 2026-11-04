@@ -14,9 +14,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: EcoLesson[] = [
-  coming('humboldt', 17, 'Humboldt’s mountain', 'Chimborazo, climate zones and why they move'),
-  coming('islands', 18, 'Islands that refilled', 'Mangrove islets, arrivals, losses and the species-area rule'),
-  coming('half', 19, 'Half the Earth?', 'Habitat loss, extinction debt and how much to protect'),
 ];
 
 const BRANCH_COMING: EcoLesson[] = [

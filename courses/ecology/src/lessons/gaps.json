@@ -33,7 +33,7 @@
         {"type": "text", "text": "If a forest isn't an organism, how does it keep its character for centuries? The answer is in how it renews itself. A mature forest is mostly a closed canopy of old trees, with deep shade beneath. Now and then a tree dies, of age, disease or wind, and falls, opening a hole in the canopy: a **gap**. Light pours in, and a race starts to fill it."},
         {"type": "text", "text": "Who wins depends on the size of the gap and on what is already waiting. Some trees, such as beech, sugar maple and hemlock, are **shade-tolerant**: their seedlings can survive for decades on the forest floor in deep shade, growing a few centimetres a year, until a gap opens above them. Then they shoot up. Others, like most birches, aspens and cherries, are **pioneers**: their seedlings die within a year or two in shade, but they grow fast in full sun, and their small seeds blow in from far away. One old tree falling makes a small gap, still shaded around its edges, and the beech and maple saplings already beneath it fill it. A storm that flattens a whole stretch of forest makes a large gap in full sun, and the pioneers take it."},
         {"type": "text", "text": "The British ecologist Alex Watt described this in 1947 as a forest made of patches at different stages, each cycling on its own: gap, pioneers, mature trees, old trees, death, gap again. The forest as a whole looks steady because its patches are out of step with each other. Seen at the scale of a single tree, it never stops changing[^watt]."},
-        {"type": "key_ideas", "title": "An estimate", "points": ["A sugar maple sapling in deep shade might grow 2 centimetres a year and survive half a century or more; a birch seedling in the same shade dies within a couple of years. If a canopy tree falls somewhere in a stand once in about two hundred years, the maple has a fair chance of seeing a gap open above it before it dies, and the birch almost none, unless it arrives after the gap opens."]}
+        {"type": "key_ideas", "title": "An estimate", "points": ["A sugar maple sapling in deep shade might grow 2 centimetres a year and survive half a century or more; a birch seedling in the same shade dies within a couple of years. If each canopy tree lives about two hundred years, the patch of canopy above any one sapling opens about once in two hundred years, so a sapling that can wait fifty has roughly a one-in-four chance of seeing its gap; a birch seedling that can wait two years has about one chance in a hundred. Birch does better by arriving after the gap opens."]}
       ]
     },
     {
@@ -41,13 +41,13 @@
       "blocks": [
         {"type": "text", "text": "In 1972 Daniel Botkin, James Janak and James Wallis turned gap dynamics into a computer program. They took the trees of Hubbard Brook, the forest of lesson 12, and wrote down for each species how fast it grew in sun and in shade, how long it lived, and how likely its seedlings were to survive. Then the program grew a small plot one tree at a time, year by year, letting trees die at random and seedlings compete for each gap. Called JABOWA, after its authors' names, it produced forests with realistic mixtures of species, out of nothing but rules for individual trees."},
         {"type": "interactive_diagram", "id": "gaps", "caption": "A strip of forest, forty plots wide, each holding one tree. Trees die of age and chance, and storms flatten stretches now and then; each gap goes to one of three species depending on its light. The lines below count the plots each species holds. A model in the spirit of JABOWA.", "task": "Guess, then play past the second storm", "goal": "storm", "aspect_ratio": 1.53},
-        {"type": "text", "text": "Try the switch that makes every species equally shade-tolerant. The pattern goes: storms no longer bring a flush of birch, and the forest becomes a random mixture drifting with chance. The forest's order, pioneers after big disturbances and shade-tolerant trees in between, comes entirely from the species' different abilities. Nothing in the program knows what the forest as a whole should look like."}
+        {"type": "text", "text": "Try the switch that makes every species equally shade-tolerant. The pattern disappears: storms no longer bring a flush of birch, and the forest becomes a random mixture drifting with chance. The forest's order, pioneers after big disturbances and shade-tolerant trees in between, comes, in the model, entirely from the species' different abilities. Nothing in the program knows what the forest as a whole should look like."}
       ]
     },
     {
       "title": "A windstorm in your woods",
       "blocks": [
-        {"type": "text", "text": "Gaps are easy to see. In any mature wood, look for a fallen tree with a patch of sky above it. In a small gap, look at what is growing toward the light: usually saplings of the same shade-tolerant trees that stand around it, which were waiting beneath. In a larger opening, made by a windstorm or a logging cut, look for fast pioneers: in western Washington, red alder and bitter cherry; in the East, birch, aspen and pin cherry. The Pacific Northwest's own gap story, with Douglas fir as the pioneer that needs a big disturbance and western hemlock as the patient tree beneath, belongs to the forest course."}
+        {"type": "text", "text": "Gaps are easy to see. In any mature wood, look for a fallen tree with a patch of sky above it. In a small gap, look at what is growing toward the light: usually saplings of the same shade-tolerant trees that stand around it, which were waiting beneath. In a larger opening, made by a windstorm or a logging cut, look for fast pioneers: in western Washington, red alder and bitter cherry; in the East, birch, aspen and pin cherry. The Pacific Northwest's own gap story, with Douglas fir as the pioneer that needs a big disturbance and western hemlock as the patient tree beneath, belongs to a later course on Northwest forests."}
       ]
     },
     {
@@ -76,9 +76,9 @@
               {
                 "ask": "What would Clements's view predict for tree species along a mountainside?",
                 "choices": [
-                  "Groups of species stopping together at sharp boundaries between communities",
+                  "Groups of species ending together at sharp boundaries",
                   "Each species peaking and fading at its own height",
-                  "The same species at every height"
+                  "Species spread evenly over all heights"
                 ],
                 "answer": 0,
                 "why": "If communities were units, whole sets of species would share edges. Whittaker found no such edges."
@@ -88,7 +88,7 @@
                 "choices": [
                   "Each species rose and fell at its own height, overlapping the others",
                   "Three distinct communities with sharp edges between them",
-                  "The number of species grew steadily with height"
+                  "Two communities, split where the clouds sit"
                 ],
                 "answer": 0,
                 "why": "Each species responded on its own, as Gleason had argued. The humps overlapped with no shared boundaries."
@@ -97,8 +97,8 @@
                 "ask": "A single old beech dies and falls in a shady forest. What most likely fills its gap?",
                 "choices": [
                   "Shade-tolerant saplings already waiting beneath",
-                  "Birch seedlings blown in from afar",
-                  "Nothing, until the next storm"
+                  "Birch seedlings blown in on the wind",
+                  "Seedlings from the dead beech's own seed"
                 ],
                 "answer": 0,
                 "why": "A small gap stays partly shaded. Beech and maple saplings that have survived for years beneath the canopy grow up into it."
@@ -107,8 +107,8 @@
                 "ask": "A storm flattens several hectares. Why do birch and other pioneers take much of the opening?",
                 "choices": [
                   "They grow fast in full sun and their light seeds arrive quickly",
-                  "They can wait longest in shade",
-                  "Storms kill shade-tolerant seedlings only"
+                  "Their seedlings can wait longest in shade",
+                  "Their roots resist being blown over"
                 ],
                 "answer": 0,
                 "why": "A big gap is in full sun, where fast-growing, light-seeded pioneers outrun the shade-tolerant saplings."
@@ -116,9 +116,9 @@
               {
                 "ask": "In the gap model, what happens when every species is made equally shade-tolerant?",
                 "choices": [
-                  "The forest drifts at random, with no flush of pioneers after storms",
-                  "Birch takes over the whole forest",
-                  "Beech takes over the whole forest"
+                  "The mixture drifts at random, with no flush of pioneers after storms",
+                  "Birch slowly takes over the whole strip",
+                  "Beech slowly takes over the whole strip"
                 ],
                 "answer": 0,
                 "why": "The order comes from the species' differences. Remove them, and which species fills a gap is just the luck of the seed."
@@ -126,9 +126,9 @@
               {
                 "ask": "How does the gap model answer the question “is a forest an organism”?",
                 "choices": [
-                  "No: forest-wide patterns arise from many trees each following its own rules",
-                  "Yes: the forest steers itself toward its climax",
-                  "Yes: the trees cooperate to fill each gap"
+                  "Forest-wide patterns arise from trees each following its own rules",
+                  "The forest as a whole steers toward its climax",
+                  "Neighbouring trees cooperate to fill each gap"
                 ],
                 "answer": 0,
                 "why": "The program has rules only for individual trees, yet it produces realistic forests. No goal for the whole forest is needed."

@@ -1,0 +1,98 @@
+{
+  "id": "half",
+  "n": 19,
+  "title": "Half the Earth?",
+  "teaches": "Habitat loss, extinction debt and how much to protect",
+  "parts": [
+    {
+      "title": "Squares in the forest",
+      "blocks": [
+        {"type": "text", "text": "In the 1970s cattle ranches were being cut out of the Amazon rainforest north of Manaus, in Brazil. Brazilian law at the time required landowners in the Amazon to leave half of their land as forest. The American biologist Thomas Lovejoy, working with Brazil's National Institute for Amazon Research, saw an opportunity. In 1979 he persuaded the ranchers to leave their required forest not wherever they liked, but in squares of set sizes, 1, 10 and 100 hectares, laid out so scientists could count what lived in each square before the forest around it was cut, and keep counting afterwards[^bdffp]."},
+        {"type": "text", "text": "It became the longest-running experiment on broken-up forest anywhere, and it answered a question the last lesson raised. When a forest is cut down to scattered patches, the patches become islands. MacArthur and Wilson's arithmetic says a small island holds fewer species than a large one. But how quickly do the patches lose the extra species they start with? And which ones go?"}
+      ]
+    },
+    {
+      "title": "The slow vanishing",
+      "blocks": [
+        {"type": "text", "text": "The answer was: slowly, and then for a long time. Right after the cut, the squares held nearly all the species they had held as part of the unbroken forest. Then they began to lose them. Birds of the dark forest floor, which follow army ant swarms or need large territories, went first. Monkeys that range over hundreds of hectares left the small squares. Over the next years and decades, more and more species disappeared from the squares, the small ones fastest."},
+        {"type": "interactive_diagram", "id": "fragment", "caption": "A forest square of 1, 10 or 100 hectares, cut off from the forest around it. A strip along its edge becomes too bright, dry and windy for forest-interior birds; the rest is the core. The line shows the kinds of forest bird left, year by year; the dashed line is where it will settle. A model.", "task": "Guess, then play thirty years", "goal": "debt", "aspect_ratio": 1.69},
+        {"type": "text", "text": "Ecologists call the lag an **extinction debt**: species that are doomed by habitat already lost but haven't yet died out. A patch can look rich today because it is still paying off the debt, and the losses keep coming long after the bulldozers have left[^debt]. In 2003 the Brazilian ecologist Gonçalo Ferraz and colleagues used two decades of bird counts from the squares to estimate how fast. Small squares lost half of the bird species they would eventually lose within roughly a decade or two. Larger fragments lost species more slowly, though far from in proportion to their size, so the lag buys time to reconnect a fragment, but not much."}
+      ]
+    },
+    {
+      "title": "Running the curve backward",
+      "blocks": [
+        {"type": "text", "text": "The species-area rule can be run in reverse. If ten times the area holds about twice the species, then cutting a forest to a tenth of its area should, in the long run, leave about half its species. Cut it to half its area, and about four-fifths should survive."},
+        {"type": "interactive_diagram", "id": "half", "caption": "The species-area rule run backward: the share of species kept in the long run against the share of the land left as habitat, with Darlington's z of 0.3. Switch to see how much the answer depends on how species are spread across the land. A model.", "task": "Find the share kept if half the land is left", "goal": "half", "aspect_ratio": 1.82},
+        {"type": "text", "text": "The rule is a rough tool, and ecologists argue about how rough. In 2011 Fangliang He and Stephen Hubbell pointed out that running the curve backward assumes something about how each species is spread over the land. A species is lost only when all of its range is lost. If most species are spread widely across a region, cutting part of it loses few of them; if many live only in small patches, as in tropical mountains and islands, cutting the wrong part loses many at once. Real landscapes lie between, so honest predictions come with a wide range. What no one disputes is the direction: less habitat, fewer species, and the losses arrive late."}
+      ]
+    },
+    {
+      "title": "Edges and corridors",
+      "blocks": [
+        {"type": "text", "text": "Lovejoy's squares showed a second problem. Forest near an edge isn't like forest inside. Hot, dry air blows in from the cleared land; wind topples big trees; light lets in vines and weedy plants. Researchers at the squares measured changes like these reaching 100 metres or more into the forest. A square of 1 hectare is 100 metres across, so all of it is edge. A 100-hectare square, a kilometre across, keeps a core."},
+        {"type": "text", "text": "Shape and connection matter as well as size. A long thin reserve is mostly edge; a round one of the same area is mostly core. Patches joined by strips of habitat, called **corridors**, let animals move between them, so a species that dies out in one patch can come back from the next, the way insects reached Simberloff's islets from the shore. The figure's edge slider shows how fast the core shrinks as the edge eats in."},
+        {"type": "key_ideas", "title": "An estimate", "points": ["A square forest of 100 hectares is 1,000 metres on a side. With 100 metres of edge all round, the core is 800 by 800 metres, 64 hectares: about two-thirds of the square. A 10-hectare square is about 316 metres on a side; take 100 metres off each side and the core is 116 by 116 metres, about 1.3 hectares, less than a seventh of it."]}
+      ]
+    },
+    {
+      "title": "How much is enough?",
+      "blocks": [
+        {"type": "text", "text": "In 2016, near the end of his life, E. O. Wilson proposed in his book *Half-Earth* that people set aside half of the planet's land and sea for nature. His argument came straight from the species-area rule: keep half the habitat and, in the long run, perhaps four-fifths of species survive; keep a tenth, as was roughly the share protected at the time, and only around half might."},
+        {"type": "text", "text": "Not everyone agreed. Critics pointed out that half the land is home to billions of people and much of the world's farmland, and that where the protected land lies matters more than how much of it there is: half the Earth chosen badly could miss the tropical mountains and islands where most of the threatened species live. In 2022 nearly two hundred countries agreed on a nearer target, to protect 30 percent of land and sea by 2030. Whether that is enough, and where it should be, are questions that the arithmetic of this lesson informs but doesn't settle[^sloss]."}
+      ]
+    },
+    {
+      "title": "What the course adds up to",
+      "blocks": [
+        {"type": "text", "text": "Much of this course has been leading to the question of what to protect. Small populations die out by chance, as lessons 2 and 3 showed, which is why small patches lose species first. Losing one predator, like Paine's sea stars or Estes's otters, can change a whole shore or kelp forest, so the first species to go may take others with them. A forest cut bare leaks its nitrogen, as Hubbard Brook showed, and a forest grows back only where seeds can reach it, as Glacier Bay and the gaps showed. The Botany course, read alongside, follows what the plants themselves need. The branches that follow take these ideas to particular places, several of them in Washington."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on losing species",
+          "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Right after the forest around Lovejoy's squares was cut, how many bird species did the squares hold?", "choices": ["Nearly all they had held before, and then they slowly lost them", "Only the species the square's size predicts", "More than before, as birds fled into them"], "answer": 0, "why": "The losses came over years and decades: an extinction debt being paid off."},
+            {"ask": "What is an extinction debt?", "choices": ["Losses still to come from habitat already cut", "Species lost before anyone recorded them", "The cost of buying land for new reserves"], "answer": 0, "why": "The losses lag behind the cutting, so a fragment can look rich while its species are still going."},
+            {"ask": "With the species-area rule (ten times the area, twice the species), roughly what share of species survive in the long run if a tenth of a forest is kept?", "choices": ["About half", "About a tenth", "About nine-tenths"], "answer": 0, "why": "A tenth of the area is one tenfold step down, which halves the species."},
+            {"ask": "Why does a 1-hectare forest square lose its forest-interior birds even though its trees still stand?", "choices": ["Edge effects reach 100 m or more, so the whole square is edge", "Its trees die within a few years of the cut", "Cattle from the pasture graze right through it"], "answer": 0, "why": "A 1-hectare square is 100 m across. Heat, wind and light from the cleared land reach right through it."},
+            {"ask": "Why did He and Hubbell argue that running the species-area rule backward can overstate losses?", "choices": ["A species is lost only when all of its range is lost, and many species are spread widely", "The rule only works on islands", "Species move faster than the rule allows"], "answer": 0, "why": "If a species also lives in the habitat left, cutting part of its range doesn't kill it off. How much the rule overstates depends on how species are spread."},
+            {"ask": "Why do corridors between forest patches help keep species?", "choices": ["Animals can move between patches, so a lost species can return", "They add a great deal of area to each patch", "They shade out the weeds along the edges"], "answer": 0, "why": "Like islands near a mainland, connected patches get more arrivals, which offsets losses."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Lovejoy's forest squares showed how patches lose species.** Brazilian ranchers left 1, 10 and 100 hectare squares, counted before and after the cutting.",
+    "**Losses come late.** A cut patch keeps most of its species at first and loses them over years and decades: an extinction debt.",
+    "**Small patches are mostly edge.** Heat, wind and light from cleared land reach 100 metres or more in.",
+    "**The species-area rule can be run backward.** Keep half the habitat and about four-fifths of species might survive; keep a tenth, about half.",
+    "**How species are spread changes the answer.** A species dies out only when all of its range goes, so predictions carry wide uncertainty.",
+    "**Size, shape and connection all matter.** Round reserves keep more core; corridors let species come back.",
+    "**How much to protect is a choice the arithmetic informs.** Wilson argued for half the Earth; countries agreed in 2022 on 30 percent by 2030."
+  ],
+  "journal": [],
+  "footnotes": {
+    "debt": {
+      "kind": "technical",
+      "title": "Who coined it",
+      "text": "David Tilman, Robert May and colleagues gave the extinction debt its name in a 1994 paper, showing with a model that the species most at risk from habitat loss are often the best competitors, which are slow to die out because they are long-lived."
+    },
+    "sloss": {
+      "kind": "digression",
+      "title": "Single large or several small?",
+      "text": "In the 1970s ecologists argued over whether one large reserve or several small ones of the same total area would keep more species, an argument known as SLOSS. The answer turned out to depend on the species and the place: several small reserves can hold more kinds between them, while species that need big territories survive only in large ones."
+    },
+    "bdffp": {
+      "kind": "digression",
+      "title": "The squares today",
+      "text": "Lovejoy's project, the Biological Dynamics of Forest Fragments Project, is still running more than forty years later. Some of the squares are now surrounded by regrowing forest as ranches were abandoned, and some lost species have come back across the young trees."
+    }
+  }
+}

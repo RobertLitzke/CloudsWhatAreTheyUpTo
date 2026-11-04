@@ -12,7 +12,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 16 | 21 | 3 | 16 | 16 | 16 | 0 |
+| [Ecology](#ecology) | 19 | 18 | 0 | 19 | 19 | 19 | 0 |
 | [Botany](#botany) | 16 | 17 | 0 | 16 | 16 | 16 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
@@ -246,12 +246,12 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
 | 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
 | 13 | A curtain across a lake (`curtain`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
-| 14 | Walking back in time (`glacier-bay`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
-| 15 | Is a forest an organism? (`gaps`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Clements, Gleason and a forest grown gap by gap. |
-| 16 | Boulders and fires (`fires`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Why some disturbance keeps more kinds alive. |
-| 17 | Humboldt’s mountain (`humboldt`) |  | planned, listed as coming |  | Chimborazo, climate zones and why they move. |
-| 18 | Islands that refilled (`islands`) |  | planned, listed as coming |  | Mangrove islets, arrivals, losses and the species-area rule. |
-| 19 | Half the Earth? (`half`) |  | planned, listed as coming |  | Habitat loss, extinction debt and how much to protect. |
+| 14 | Walking back in time (`glacier-bay`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
+| 15 | Is a forest an organism? (`gaps`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Clements, Gleason and a forest grown gap by gap. |
+| 16 | Boulders and fires (`fires`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (2 photos parked in pending-photos.json) | Why some disturbance keeps more kinds alive. |
+| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Chimborazo, climate zones and why they move. |
+| 18 | Islands that refilled (`islands`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Mangrove islets, arrivals, losses and the species-area rule. |
+| 19 | Half the Earth? (`half`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
 | H1 | Eggs that broke (`eggs`) | People in the web | planned, listed as coming |  | Peregrines, DDT and poisons that build up the food chain. |
 | H2 | Arrivals (`arrivals`) | People in the web | planned, listed as coming |  | Species carried to new places, and the few that take over. |
 | H3 | The cod that didn’t come back (`cod`) | People in the web | planned, listed as coming |  | Harvesting a stock, and a fishery that collapsed. |
