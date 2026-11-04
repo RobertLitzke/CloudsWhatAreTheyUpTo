@@ -26,6 +26,12 @@ import { logFigure, territoriesStill } from './log';
 import { barkFigure } from './bark';
 import { datingFigure } from './lichenometry';
 import { canopyFigure } from './canopy';
+import { flushFigure } from './flush';
+import { pumiceFigure } from './pumice';
+import { trufflesFigure } from './truffles';
+import { printsStill, sporeSizeFigure } from './sporeprint';
+import { barcodeFigure } from './barcode';
+import { howManyFigure } from './howmany';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -83,4 +89,12 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   city: barkFigure,
   dating: datingFigure,
   canopy: canopyFigure,
+  // Branch N
+  flush: flushFigure,
+  pumice: pumiceFigure,
+  truffles: trufflesFigure,
+  prints: printsStill,
+  measure: sporeSizeFigure,
+  reads: barcodeFigure,
+  tally: howManyFigure,
 };

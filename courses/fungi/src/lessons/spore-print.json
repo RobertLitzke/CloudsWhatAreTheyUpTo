@@ -1,0 +1,162 @@
+{
+  "id": "spore-print",
+  "n": 301,
+  "branch": "closely",
+  "needs": [
+    "groups"
+  ],
+  "title": "A spore print and a microscope",
+  "teaches": "How mycologists examine a fungus: spore prints, gills and spores under the microscope, and why they measure many spores",
+  "summary": [
+    "**A spore print shows the colour of the spores.** Left gills-down on paper overnight, a cap drops a pattern of its spores, white, pink, brown, purple or black.",
+    "**Print colour sorts mushrooms into large groups.** Two mushrooms that look alike but leave different prints belong to different families.",
+    "**Spores are a few thousandths of a millimetre long.** Under a microscope their size, shape and wall ornament set species apart.",
+    "**Chemical tests add more.** In Melzer's iodine solution, the spores of some groups turn blue-black and others do not.",
+    "**Single spores vary, so mycologists measure many.** Twenty or thirty spores pin down a mean that one spore cannot.",
+    "**Beatrix Potter studied spores this way.** She grew spores under her microscope and drew them in the 1890s."
+  ],
+  "parts": [
+    {
+      "title": "A print overnight",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The simplest tool in mycology costs nothing. Cut the stem from a mushroom, set the cap gills-down on a sheet of paper, cover it with a bowl to keep the air still, and leave it overnight. In the morning, lift the cap. On the paper is a print of the gills, drawn in a fine dust of spores: lesson 4's millions of spores, fallen straight down from between the gills and landed side by side."
+        },
+        {
+          "type": "text",
+          "text": "A single spore is too small to see, but together they show their colour. White prints are common, and show up best on dark paper, so mycologists often lay the cap half on white and half on black. Other prints are pink, rusty brown, chocolate, purple-brown or black. A bolete, with pores in place of gills, leaves a print of dots in olive or brown.[^print]"
+        },
+        {
+          "type": "diagram",
+          "id": "prints",
+          "caption": "Spore prints in four colours: gills print as lines, pores as dots. White spores show only on dark paper."
+        }
+      ]
+    },
+    {
+      "title": "What the colour tells",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 6 showed that body shape can mislead, since the same form of cap and stem has arisen in many separate families. Spore colour is more faithful. The pigment sits in the spore wall, and whole families share it: the rusty brown of the webcaps, the pink of the shield caps, the purple-brown of the field mushroom's family. Two mushrooms of the same size and shape that leave a white print and a pink print are not close relatives at all."
+        },
+        {
+          "type": "text",
+          "text": "A spore print is the first step, not the last. It sorts a mushroom into a large group, and a field guide or a key then asks for more: how the gills join the stem, whether the cap is slimy or dry, whether the flesh changes colour when cut. Many genera hold hundreds of species, and to go further mycologists need a microscope."
+        }
+      ]
+    },
+    {
+      "title": "Under the lens",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A spore is typically between about 4 and 15 micrometres long, a few thousandths of a millimetre, and a microscope at a few hundred times magnification shows it clearly. Spores may be round, oval, almond-shaped or angular; smooth, warty, spiny or ridged; thin-walled or thick, with or without a small pore at one end where they germinate. Mycologists measure their length and width against a scale ruled into the eyepiece, and quote the ratio of the two as well."
+        },
+        {
+          "type": "text",
+          "text": "Chemistry helps too. In 1924 the Czech mycologist Václav Melzer published a solution of iodine that turns the spores of some groups blue-black, and the warts on others, while leaving the rest pale or reddish brown. A drop of it on a slide is still one of the commonest tests in mycology. The gills hold other clues: sterile cells on the gill edges, called cystidia, come in distinctive shapes, flasks, clubs and harpoons, that can separate species otherwise very hard to tell apart.[^melzer]"
+        }
+      ]
+    },
+    {
+      "title": "Measure many",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Spores from one mushroom are not all the same size. Measured one by one, they vary, perhaps by a fifth either way, and two closely related species can overlap so much that any single spore could belong to either. What differs is the average. So the rule in mycology is to measure many spores, usually twenty or more, and give the range and the mean."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "measure",
+          "caption": "Spores measured one by one from an unknown mushroom, against two lookalike species. The grey bar shows how far off the measured mean could still be. A model.",
+          "task": "Measure enough spores to decide",
+          "goal": "measured",
+          "aspect_ratio": 2.0
+        },
+        {
+          "type": "text",
+          "text": "The grey bar is the reason. The more spores measured, the closer the mean is to the true mean of the species, and the narrower the range in which it could still lie. One spore tells you almost nothing; twenty narrow the mean to within a fraction of a micrometre, enough to rule a lookalike out."
+        }
+      ]
+    },
+    {
+      "title": "A naturalist at the microscope",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the 1890s, before her books for children, Beatrix Potter spent years drawing fungi in Scotland and the Lake District, hundreds of careful watercolours. She also set spores to germinate on glass slides under her microscope and drew them sprouting. In 1897 a paper of hers on the germination of mushroom spores was read at the Linnean Society of London by a mycologist from Kew, since women could not then attend its meetings. Her drawings are accurate enough that mycologists still consult them.[^potter]"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on spore prints and spores",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "How do you make a spore print?",
+                "choices": [
+                  "Leave a cap gills-down on paper overnight, covered",
+                  "Squash the mushroom on paper",
+                  "Photograph the gills under a microscope"
+                ],
+                "answer": 0,
+                "why": "Spores fall from between the gills onto the paper below."
+              },
+              {
+                "ask": "Why is spore colour more useful than cap shape for sorting mushrooms?",
+                "choices": [
+                  "Whole families share a spore colour, while cap shape has arisen in many families",
+                  "Spore colour changes with the weather",
+                  "Cap shape is never useful"
+                ],
+                "answer": 0,
+                "why": "The pigment in the spore wall runs through families; the cap-and-stem shape does not."
+              },
+              {
+                "ask": "Why do mycologists measure twenty or more spores?",
+                "choices": [
+                  "Single spores vary, and only the mean of many separates close species",
+                  "Spores shrink as they are measured",
+                  "The rules require exactly twenty"
+                ],
+                "answer": 0,
+                "why": "Single spores of two species can overlap; the mean of many does not."
+              },
+              {
+                "ask": "What does Melzer's solution do?",
+                "choices": [
+                  "Turns the spores of some groups blue-black",
+                  "Makes spores germinate",
+                  "Dissolves the gills"
+                ],
+                "answer": 0,
+                "why": "The iodine stains some spore walls or warts blue-black and leaves others pale."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "print": {
+      "kind": "technical",
+      "title": "Slow prints",
+      "text": "A fresh, healthy cap usually gives a print in a few hours. Old, dried or very young mushrooms may give none. Some mycologists cover the cap with a glass and put a drop of water on top to keep it from drying out."
+    },
+    "melzer": {
+      "kind": "technical",
+      "title": "Amyloid",
+      "text": "Spores that turn blue-black in Melzer's solution are called amyloid, because the colour is like that of iodine on starch, though the walls hold no starch. The brittlegills and milkcaps have amyloid warts on their spores, which show up as a dark net of ridges."
+    },
+    "potter": {"kind": "digression", "title": "Where the paintings are", "text": "Most of Potter's paintings of fungi are kept at the Armitt Museum in Ambleside, in the Lake District, which she left them to in her will."}
+  }
+}

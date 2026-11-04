@@ -1,0 +1,162 @@
+{
+  "id": "truffles",
+  "n": 203,
+  "branch": "northwest",
+  "needs": [
+    "network"
+  ],
+  "title": "The squirrel, the truffle and the owl",
+  "teaches": "Underground truffles, the flying squirrels that dig them up and spread their spores, and the owls that eat the squirrels",
+  "summary": [
+    "**Many root fungi fruit underground, as truffles.** The Northwest forests hold hundreds of kinds, most of them partners of conifers.",
+    "**The truffle shape arose many times over.** Mushrooms in many separate families gave up the cap and stem and closed up underground.",
+    "**A truffle cannot drop its spores into the wind.** When ripe it gives off a strong smell, and animals dig it up and eat it.",
+    "**The spores pass through the animal alive.** They are left in droppings across the forest, often near the roots of other trees.",
+    "**Northern flying squirrels live largely on truffles.** In deep snow they turn to a hair-like lichen in the trees, which they also use for nests.",
+    "**Spotted owls in Washington and northern Oregon eat mainly flying squirrels.** Tree, fungus, squirrel and owl are linked in one chain.",
+    "**Range matters for spreading.** An animal that travels far carries spores farther, to gaps and young trees."
+  ],
+  "parts": [
+    {
+      "title": "Digging at night",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the 1970s Chris Maser, a mammal biologist in Oregon, was examining the stomachs of small mammals from the conifer forests of the Cascades and the Coast Range. Many of them were full of something he could not name: pale, finely chopped tissue, packed with spores. He took it to James Trappe, a mycologist at the Forest Service lab in Corvallis, who knew at once what it was. The squirrels, voles and chipmunks were eating truffles, a great many of them, and some species ate little else.[^maser]"
+        },
+        {
+          "type": "text",
+          "text": "A **truffle**, in the broad sense mycologists use, is any fungus whose fruiting body forms underground and stays closed: a lump, often the size of a marble or a walnut, with the spores sealed inside. The famous European truffles are only a few of them. The Northwest forests hold hundreds of kinds, and most are the fruit of sheath fungi, the root partners of Douglas-fir, hemlock and pine from lesson 9."
+        }
+      ]
+    },
+    {
+      "title": "A mushroom that closed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "DNA shows that truffles are not one family. Some of the commonest truffles under Northwest conifers are close relatives of the boletes, mushrooms with a sponge of pores under the cap; others are related to the cup fungi, and others again to ordinary gilled mushrooms. In each family, at different times, some species gave up the stem, stopped opening their cap and sank underground. The truffle shape has arisen dozens of times over."
+        },
+        {
+          "type": "text",
+          "text": "Life underground protects the fruit from drying out in a dry summer, and from frost. But it costs the fungus the thing lesson 4 showed spores depend on: falling into moving air. A truffle sealed in the soil cannot shoot or drop its spores anywhere. It needs a carrier."
+        }
+      ]
+    },
+    {
+      "title": "Follow the smell",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When a truffle ripens, it starts to smell. Different kinds smell of garlic, fruit, cheese or petrol, and the scents carry up through the soil to an animal snuffling over the forest floor at night. The animal digs, eats the truffle, and moves on. The spores have thick walls and pass through its gut alive. A day later they come out in its droppings, some distance away, often near the roots of another tree, where they can start a new partnership."
+        },
+        {
+          "type": "text",
+          "text": "Experiments in which spores from squirrel droppings were given to tree seedlings in pots have found that some of them form root partnerships, so the droppings do work as a way of spreading the fungus. How far the spores go depends on the animal. The western red-backed vole eats mainly truffles but keeps to a small patch around its burrow. The northern flying squirrel glides from tree to tree and covers far more ground in a night.[^squirrel]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "truffles",
+          "caption": "A patch of old forest at night, with a gap where trees blew down. Purple dots are droppings carrying truffle spores. A model, not a survey.",
+          "task": "Compare the squirrel and the vole over several weeks",
+          "goal": "spread",
+          "aspect_ratio": 1.9
+        }
+      ]
+    },
+    {
+      "title": "Lichen in winter",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Truffles are hard to find once the ground is frozen or buried in snow. Then the northern flying squirrel turns to the trees. Hanging from the branches of old conifers is a dark, tangled lichen, horsehair lichen, which looks like a mat of brown hair. The squirrels eat it through the winter, and they pack their nests with it. It is a poor food, low in protein, but it carries them to spring. Horsehair lichen grows best in old trees, and it builds up slowly over decades, so a young plantation has little of it."
+        }
+      ]
+    },
+    {
+      "title": "The owl at the top",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The northern spotted owl hunts at night in old conifer forest from British Columbia to northern California. In Washington and northern Oregon its main prey is the northern flying squirrel; farther south, woodrats matter more. A pair of owls needs a large area of forest to find enough squirrels, often a few thousand hectares in Washington. In 1990 the owl was listed as threatened under the US Endangered Species Act, mainly because of the logging of old forest, and arguments over it changed how the national forests of the Northwest are managed."
+        },
+        {
+          "type": "text",
+          "text": "Laid out end to end, the chain runs: the tree feeds sugar to the fungus at its roots; the fungus makes truffles; the squirrel eats the truffles and spreads the fungus to other trees; and the owl eats the squirrel. Take out the old trees and the chain weakens at several links at once: the squirrels lose the hollow trunks they nest in and the lichen they live on in winter. Owls today face another problem too, the barred owl, a larger relative from the east that has spread into their forests and competes for the same food.[^barred]"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on truffles and squirrels",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is a truffle, in the broad sense mycologists use?",
+                "choices": [
+                  "A fruiting body that forms underground and stays closed",
+                  "Any fungus that is good to eat",
+                  "The mycelium of a root fungus"
+                ],
+                "answer": 0,
+                "why": "Truffles are closed fruiting bodies below ground, and they come from many separate families."
+              },
+              {
+                "ask": "How do a truffle's spores get to new places?",
+                "choices": [
+                  "Animals smell it, eat it and leave the spores in their droppings",
+                  "It bursts and throws them into the air",
+                  "Roots carry them"
+                ],
+                "answer": 0,
+                "why": "The ripe truffle smells, animals dig it up, and the spores pass through them alive."
+              },
+              {
+                "ask": "What does the northern flying squirrel eat when snow covers the ground?",
+                "choices": [
+                  "Horsehair lichen from the trees",
+                  "Spotted owl eggs",
+                  "Nothing; it sleeps until spring"
+                ],
+                "answer": 0,
+                "why": "It eats the dark hair-like lichen that hangs in old conifers, and nests in it too."
+              },
+              {
+                "ask": "In the figure, why does the squirrel spread spores into the gap while the vole does not?",
+                "choices": [
+                  "The squirrel ranges much farther from its nest",
+                  "The vole does not eat truffles",
+                  "The vole's droppings hold no spores"
+                ],
+                "answer": 0,
+                "why": "Both eat truffles, but the vole stays close to its burrow."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "maser": {
+      "kind": "digression",
+      "title": "Maser and Trappe",
+      "text": "Maser, Trappe and the zoologist Ronald Nussbaum published their findings in 1978, linking small mammals, truffles and the root fungi of the forest. Trappe went on to name and describe a large share of the truffles of the world."
+    },
+    "squirrel": {
+      "kind": "technical",
+      "title": "Which flying squirrel",
+      "text": "In 2017 a study of their DNA split the flying squirrels of the Pacific coast, from southern British Columbia to California, into a separate species, Humboldt's flying squirrel. Older work in the Northwest calls them all northern flying squirrels, and their habits are much the same."
+    },
+    "barred": {
+      "kind": "digression",
+      "title": "Barred owls",
+      "text": "Barred owls reached the Northwest during the twentieth century, spreading across the forests of Canada. They eat a wider range of prey, take over spotted owl territories and sometimes breed with them. Wildlife agencies have trialled removing barred owls from some spotted owl areas, which remains contested."
+    }
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "id": "pumice",
+  "n": 202,
+  "branch": "northwest",
+  "needs": [
+    "network"
+  ],
+  "title": "Gophers on the pumice",
+  "teaches": "How root fungi came back to the bare pumice of Mount St Helens after 1980, carried by gophers, wind and elk, and why plants waited for them",
+  "summary": [
+    "**The 1980 eruption left ground with no living soil.** North of the crater, hot pumice buried the old forest floor metres deep.",
+    "**Most plants cannot live on raw pumice alone.** They need root fungi to gather phosphorus and water from it, and the pumice had none.",
+    "**Lupines came first because they need no fungus.** Bacteria in their roots fix nitrogen, and the lupine roots do without a fungal partner.",
+    "**Pocket gophers survived under the snow and the ground.** Their digging brought old soil, with its fungi, up through the pumice.",
+    "**One day of gophers changed a plot for years.** In Michael Allen's enclosures, plants took hold around the mounds and spread, while plots without gophers stayed almost bare.",
+    "**Wind and elk carried spores too.** Spores came in on the wind and in elk dung, more slowly and more patchily than the gophers brought them.",
+    "**Recovery runs at the pace of the fungi.** Seeds arrive easily; the partners in the soil are the slow part."
+  ],
+  "parts": [
+    {
+      "title": "A grey plain",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On the morning of 18 May 1980, the north side of Mount St Helens slid away and the volcano blew sideways. The blast flattened forest for hundreds of square kilometres, and in the hours after it, flows of hot pumice poured down from the crater and spread across the valley below. When they cooled, they left the **Pumice Plain**: a grey, gently sloping waste, in places tens of metres deep, with the old forest soil buried far beneath it."
+        },
+        {
+          "type": "text",
+          "text": "Ecologists went in as soon as it was safe, because here was a rare chance: ground with no plants, no seeds and no living soil, where they could watch life come back from the start. Seeds blew in within the first year. Most of the seedlings that sprouted from them died."
+        }
+      ]
+    },
+    {
+      "title": "What the seedlings lacked",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Fresh pumice is not short of minerals. What it lacks is everything that soil adds: rotted leaves, stored water, nitrogen, and the living threads that reach through it. Lesson 9 showed that most land plants rely on root fungi to gather phosphorus and water, and on raw pumice, where those are scarce and scattered, a seedling without its fungus soon starves or dries out. Seeds can blow a long way. The spores of arbuscular fungi, the kind most herbs and grasses depend on, are large and form underground, so they travel badly.[^spores]"
+        },
+        {
+          "type": "text",
+          "text": "The first plant to spread on the Pumice Plain was a small lupine, the prairie lupine, with purple flowers. Lupines are among the few plants that manage without root fungi: bacteria in nodules on their roots fix nitrogen from the air, and their roots take up what else they need on their own. Patches of lupine grew, died back and grew again, and as they died they began to add nitrogen and rotted leaves to the pumice. But for years they grew almost alone."
+        }
+      ]
+    },
+    {
+      "title": "The gophers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Some animals survived the eruption underground. Northern pocket gophers, small burrowing rodents, were in their tunnels beneath the snow on the slopes that May morning, and many lived. Gophers dig all the time, and on the edges of the blast zone they went on doing it, pushing up mounds of old soil through the fresh ash and pumice. Each mound was a small heap of the old forest floor, roots, spores and threads of fungi included."
+        },
+        {
+          "type": "text",
+          "text": "Michael Allen, a young mycologist, and the ecologist James MacMahon of Utah State University wondered whether those mounds were where the fungi were coming back. In 1982 they built small fenced plots out on the bare pumice and, in some of them, let gophers dig for a single day before taking them out again. The gophers left a few mounds and went. Nothing else was added."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "pumice",
+          "caption": "Two plots of pumice, one with a day of gopher digging and one without, in the years after. A model of the experiment, not its counts.",
+          "task": "Run the years and compare the plots",
+          "goal": "years",
+          "aspect_ratio": 2.0
+        }
+      ]
+    },
+    {
+      "title": "Six years later",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When Allen went back, the difference was plain. Around the gopher mounds, plants had found root fungi in the old soil and survived, and the fungi had spread from root to root as new seedlings grew beside them. By his account, six years on, the gopher plots held tens of thousands of plants, while the plots without gophers were still almost bare.[^count] A single day of digging had brought up the one thing the pumice lacked."
+        },
+        {
+          "type": "text",
+          "text": "The gophers were not the only carriers. Allen and others caught spores of root fungi blowing in on the wind, though few of them, and found them in the dung of elk, which wandered back onto the blast zone within a few years, browsing on old soil and plants elsewhere and leaving spores where they went. Ants and beetles may have carried some too. Each brought spores to a few spots, and from each spot, the fungi spread outward with the plants."
+        }
+      ]
+    },
+    {
+      "title": "The slow part",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Forty years on, much of the Pumice Plain is green with lupine, grasses, willows by the streams and young trees, though large areas are still thin and open. The lesson ecologists took from it is that a plant community does not come back at the speed of its seeds. It comes back at the speed of its partners in the soil, and anything that carries them, a gopher, an elk or a gardener moving a spadeful of old earth, speeds it up."
+        },
+        {
+          "type": "text",
+          "text": "The idea is now used on purpose. People restoring mine waste, burned land and eroded slopes sometimes add a little soil from a healthy site nearby, for its fungi as much as its seeds, and some sell spores of root fungi in packets. Whether the bought fungi suit a given place is often unclear, and a handful of local soil may do as well.[^inoculum]"
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on the pumice",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why did most seedlings die on the fresh pumice?",
+                "choices": [
+                  "They had no root fungi to gather phosphorus and water",
+                  "The pumice was still hot",
+                  "There was too much nitrogen"
+                ],
+                "answer": 0,
+                "why": "Most plants depend on root fungi, and the pumice had none."
+              },
+              {
+                "ask": "Why could lupines grow there first?",
+                "choices": [
+                  "They need no root fungus, and bacteria in their roots fix nitrogen",
+                  "They grow from spores",
+                  "Gophers planted them"
+                ],
+                "answer": 0,
+                "why": "Lupines are among the few plants that do without root fungi, and their bacteria supply nitrogen."
+              },
+              {
+                "ask": "What did one day of gopher digging do?",
+                "choices": [
+                  "Brought up old soil with fungi, so plants could take hold around the mounds",
+                  "Killed the plants in the plot",
+                  "Made no difference"
+                ],
+                "answer": 0,
+                "why": "The mounds carried spores and threads of root fungi up through the pumice."
+              },
+              {
+                "ask": "Which of these also carried spores of root fungi onto the blast zone?",
+                "choices": [
+                  "Elk, in their dung",
+                  "Rain",
+                  "The lupines"
+                ],
+                "answer": 0,
+                "why": "Elk wandered in from outside and left spores in their dung."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "spores": {
+      "kind": "technical",
+      "title": "Big spores",
+      "text": "Spores of arbuscular fungi are among the largest of any fungus, often a tenth to half a millimetre across, big enough to see as grains under a hand lens. They form in the soil or inside roots, not on a fruiting body held up in the air, so wind lifts few of them."
+    },
+    "count": {
+      "kind": "digression",
+      "title": "How many plants",
+      "text": "The often quoted figure is about forty thousand plants in the gopher plots after six years. It comes from Allen's later accounts of the work, and the published papers describe the plots and the fungi more than the exact counts, so take the number as a rough one."
+    },
+    "inoculum": {
+      "kind": "technical",
+      "title": "Spores in a packet",
+      "text": "Studies of bought fungal inoculants have found that some contain few living spores, or fungi that do not suit the plants or soil they are sold for. Local soil carries the fungi that already live with local plants."
+    }
+  }
+}

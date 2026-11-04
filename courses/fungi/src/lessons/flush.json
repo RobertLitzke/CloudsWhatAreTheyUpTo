@@ -1,0 +1,61 @@
+{
+  "id": "flush",
+  "n": 201,
+  "branch": "northwest",
+  "needs": ["spores"],
+  "title": "The autumn flush",
+  "teaches": "Why Northwest mushrooms come up after the first soaking autumn rain and stop with hard frost, and how fruiting seasons are shifting",
+  "summary": [
+    "**Northwest summers are dry and its mushrooms wait.** The mycelium lives on through the drought, but fruiting needs water.",
+    "**A mushroom is built mostly of water.** It forms as a tiny knot of threads and then swells with water in a day or two.",
+    "**The first soaking autumn rain sets the season going.** Mushrooms appear one to two weeks after the soil is wet through.",
+    "**Cold ends it.** Mushrooms freeze and rot after hard frost, so a late first rain means a short season.",
+    "**Most of the autumn mushrooms of the Northwest forests are root fungi.** They fruit when the trees still send them sugar.",
+    "**Records show seasons changing.** In southern England, half a century of notes showed the fruiting season had grown much longer."
+  ],
+  "parts": [
+    {
+      "title": "Nothing all summer",
+      "blocks": [
+        {"type": "text", "text": "The forests west of the Cascades are among the wettest in North America, but almost all of that rain falls between October and May. July and August are dry, sometimes for weeks without a drop, and the forest floor dries to dust under the needles. Walk through a Douglas-fir forest in August and there are almost no mushrooms."},
+        {"type": "text", "text": "Then, some time in late September or October, the first big Pacific storm comes in and soaks the ground. A week or two later the forest floor is crowded with mushrooms: brown and orange, white and violet, chanterelles under the firs, boletes, coral fungi, tiny bonnets on the needles. Mycologists call it the **flush**. It goes on through October and November, and then a hard frost ends most of it in a night."}
+      ]
+    },
+    {
+      "title": "Built of water",
+      "blocks": [
+        {"type": "text", "text": "The mycelium has been in the soil all summer, alive and feeding where it could. What it waits for is water to build its fruit. A mushroom is about nine-tenths water. It begins as a tiny knot of threads, a pin no bigger than a grain of rice, in which the cap, gills and stem are already laid out. Then the cells swell with water, and the whole mushroom can expand to full size in a day or two. That is why mushrooms seem to appear overnight."},
+        {"type": "text", "text": "Expansion needs a large amount of water in a short time, and the soil must stay wet long enough for the pins to form first. A light shower that wets the needles and dries in a day does nothing. A soaking that wets the soil through, with more rain over the following days, sets the flush going."},
+        {"type": "interactive_diagram", "id": "flush", "caption": "A model Northwest autumn: soil water, temperature and mushrooms, from September to December. The temperature line is drawn on its own scale.", "task": "Try a late first rain and an early frost", "goal": "season", "aspect_ratio": 1.82}
+      ]
+    },
+    {
+      "title": "Partners of the trees",
+      "blocks": [
+        {"type": "text", "text": "Most of the mushrooms in a Northwest conifer forest in autumn are the fruit of root fungi, the sheath fungi of lesson 9. Their food comes from the trees, as sugar passed down to the roots. A tree has sugar to spare late in the growing season, once its new shoots are built, and the fungi fruit when water arrives to go with it. Decomposers on logs and needles fruit with them, but in many forests the root fungi make most of the show."},
+        {"type": "text", "text": "Not every fungus follows the autumn. Some fruit in spring after snowmelt, among them the morels that come up on burned ground the year after a forest fire, and a few, like the velvet shank of broadleaf woods, fruit in the middle of winter and survive freezing. But the great flush is in autumn."}
+      ]
+    },
+    {
+      "title": "Seasons on the move",
+      "blocks": [
+        {"type": "text", "text": "Because fruiting is set by rain and temperature, it should shift as the climate does. One of the clearest records came from an amateur. From 1950 Edward Gange, an amateur mycologist, noted every mushroom he found around Salisbury in southern England, more than fifty thousand records over half a century. In 2007 his son Alan Gange, an ecologist, and colleagues analysed them. The average fruiting season had more than doubled in length, from about five weeks in the 1950s to about eleven by the early 2000s, as first fruiting came earlier and last fruiting later in milder autumns."},
+        {"type": "text", "text": "Records from Norway and Switzerland have also shown seasons shifting later into the autumn. No one has a long record like Gange's for the Northwest, but the same logic holds there: a late first rain shortens the season, a mild, wet autumn lengthens it, and an early frost cuts it off.[^records]"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Four questions on the autumn flush", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Why are there almost no mushrooms in a Northwest forest in August?", "choices": ["The soil is too dry for mushrooms to form and swell", "The fungi die every summer", "It is too warm for spores to fall"], "answer": 0, "why": "The mycelium lives through summer, but a mushroom is mostly water and needs wet soil to form."},
+          {"ask": "Why do mushrooms seem to appear overnight?", "choices": ["They are already formed as tiny pins and then swell with water", "They grow from spores in one night", "They are pushed up by worms"], "answer": 0, "why": "The cap, gills and stem are laid out in a small pin, which expands as its cells fill with water."},
+          {"ask": "In the model, what does a late first soaking rain do to the season?", "choices": ["Shortens it, since frost comes soon after the mushrooms start", "Lengthens it", "Has no effect"], "answer": 0, "why": "Mushrooms need one to two weeks of wet soil. If that comes late, the cold ends the season soon after."},
+          {"ask": "What did Gange's records from Salisbury show?", "choices": ["The fruiting season had grown much longer since the 1950s", "Fewer kinds of mushroom were fruiting", "Mushrooms had stopped fruiting in autumn"], "answer": 0, "why": "Over half a century, first fruiting came earlier and last fruiting later, more than doubling the season."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "records": {"kind": "technical", "title": "Records from amateurs", "text": "Many of the longest records of fungi come from amateur naturalists and mushroom societies. Today sites such as iNaturalist and Mushroom Observer collect millions of dated, mapped observations, which researchers use in the same way to track when and where fungi fruit."}
+  }
+}

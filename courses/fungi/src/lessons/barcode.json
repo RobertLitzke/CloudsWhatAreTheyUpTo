@@ -1,0 +1,152 @@
+{
+  "id": "barcode",
+  "n": 302,
+  "branch": "closely",
+  "needs": [
+    "spore-print"
+  ],
+  "title": "Names written in DNA",
+  "teaches": "Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen",
+  "summary": [
+    "**A barcode is a short stretch of DNA that differs between species.** For fungi it is the ITS region, a spacer between genes, a few hundred letters long.",
+    "**The spacer changes fast and the genes beside it slowly.** The slow genes let one recipe copy the barcode from almost any fungus.",
+    "**A barcode is matched against named specimens.** Reference collections link sequences to dried specimens kept in herbaria.",
+    "**Soil can be sequenced without seeing a fungus.** A spoonful yields thousands of reads, grouped into kinds by how alike they are.",
+    "**The grouping rule changes the count.** About 97 per cent alike is the usual rule of thumb; stricter or looser rules split or lump.",
+    "**Most kinds found in soil have no name.** One whole class of soil fungi was known only from its DNA for years before anyone grew it."
+  ],
+  "parts": [
+    {
+      "title": "Soil Clone Group I",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "From the early 2000s, mycologists who copied fungal DNA straight out of soil kept finding a group of sequences that matched nothing. It turned up in pine forest in Sweden, tundra in Alaska and forest soils across North America, often among the commonest fungi in the sample. No one had seen the fungus it came from. For want of a name, they called it **Soil Clone Group I**."
+        },
+        {
+          "type": "text",
+          "text": "In 2011 Anna Rosling and colleagues at the Swedish University of Agricultural Sciences reported that they had finally grown one: a fungus isolated from the roots of pine seedlings years before, kept in a collection, and never recognised. It grew as plain threads with no fruiting body, which is why no one had noticed it in the field. They named a new class, the Archaeorhizomycetes, ancient root fungi, with this single species as its first named member. DNA from soil suggests the class holds hundreds of kinds, almost none of them named."
+        }
+      ]
+    },
+    {
+      "title": "A barcode",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every cell carries genes for its ribosomes, the machines that build proteins, and between those genes lie short spacers. The genes change slowly over evolution, because ribosomes must keep working. The spacers do nothing that needs a precise sequence, so they change fast, fast enough that closely related species usually differ in them. One of these regions, the **internal transcribed spacer**, or ITS, a few hundred letters of DNA long, was chosen in 2012 as the official barcode for fungi.[^its]"
+        },
+        {
+          "type": "text",
+          "text": "The arrangement suits copying. Short stretches of the slow genes on either side are almost the same in all fungi, so one pair of matching starters, called primers, will copy the spacer between them from nearly any fungus in a sample. The copy is then read letter by letter and compared with a database. Several large reference collections link barcodes to named specimens, many of them dried mushrooms in herbarium drawers, some collected over a century ago."
+        }
+      ]
+    },
+    {
+      "title": "Reading a spoonful",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Barcoding a mushroom tells you what it is. Barcoding soil tells you what is there, seen or not. Modern machines read the barcodes of every fungus in a sample at once, tens of thousands of reads from a spoonful of earth. The reads must then be sorted into kinds. Reads from one species are not all identical: individuals differ a little, and reading machines make occasional errors. So the reads are grouped by how alike they are, and each group is treated as roughly one species."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "reads",
+          "caption": "Reads from a soil sample, laid out so that distance stands for difference in the barcode. Reads that are alike enough join one group. A model sample of sixteen kinds.",
+          "task": "Try a strict rule and a loose one",
+          "goal": "groups",
+          "aspect_ratio": 2.0
+        }
+      ]
+    },
+    {
+      "title": "Where to draw the line",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Set the rule too strict and every species shatters into many groups, one for each small variant and error. Set it too loose and close relatives merge into one. For fungal ITS, a rule of about 97 per cent alike is the usual compromise, and it works fairly well, though not everywhere: some genera have nearly identical barcodes across several species, and some single species vary more than that.[^limits]"
+        },
+        {
+          "type": "text",
+          "text": "When soil surveys are matched against reference collections, many groups fit no named species. A large survey of soils from around the world, published in 2014, found tens of thousands of groups, and a great share of them could be placed only roughly, to a family or an order, or not at all. They are real fungi, living in the soil, known only as a string of letters."
+        }
+      ]
+    },
+    {
+      "title": "Specimens still matter",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "DNA has not replaced the spore print or the microscope. A barcode can say that two samples are the same and that neither matches anything named, but a name still needs a specimen: a fruiting body or a culture, described, drawn and kept, so that others can check it. One effort to close the gap gives each unnamed soil group a stable code, so surveys in different countries can recognise the same fungus long before it has a name."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on DNA barcodes",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is the barcode most used for fungi?",
+                "choices": [
+                  "The ITS region, a spacer between ribosome genes",
+                  "The whole genome",
+                  "The colour of the spore print"
+                ],
+                "answer": 0,
+                "why": "ITS changes fast enough to separate most species, and was chosen as the fungal barcode in 2012."
+              },
+              {
+                "ask": "Why can one recipe copy the barcode from almost any fungus?",
+                "choices": [
+                  "The slow-changing genes beside it are nearly the same in all fungi",
+                  "All fungi have identical barcodes",
+                  "The spacer is the same length in every species"
+                ],
+                "answer": 0,
+                "why": "Primers bind to the conserved genes on either side of the spacer."
+              },
+              {
+                "ask": "In the figure, what happens when reads must be almost identical to join a group?",
+                "choices": [
+                  "Each kind splits into many groups",
+                  "All the reads join one group",
+                  "The number of groups matches the truth exactly"
+                ],
+                "answer": 0,
+                "why": "Small differences within a species and reading errors split each kind."
+              },
+              {
+                "ask": "What was Soil Clone Group I?",
+                "choices": [
+                  "A class of fungi known from soil DNA for years before one was grown",
+                  "A machine for reading DNA",
+                  "A kind of lichen"
+                ],
+                "answer": 0,
+                "why": "It was named the Archaeorhizomycetes in 2011, when a living one was identified."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "its": {
+      "kind": "technical",
+      "title": "Why ITS",
+      "text": "In 2012 a large group of mycologists, led by Conrad Schoch, compared several candidate regions across hundreds of species and found that ITS told species apart most often and was the easiest to copy. For some groups, a second region from another gene is used as well."
+    },
+    "limits": {
+      "kind": "technical",
+      "title": "Not every species",
+      "text": "Some of the commonest moulds, in Penicillium and Aspergillus, and some lichen-forming fungi have ITS barcodes too alike to separate close species, and need other genes. The 97 per cent rule is a convention, not a law of nature."
+    }
+  }
+}

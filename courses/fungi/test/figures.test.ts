@@ -27,6 +27,12 @@ import { stages, woodLeft } from '../src/figures/log';
 import { cover } from '../src/figures/bark';
 import { ageFrom, largest } from '../src/figures/lichenometry';
 import { lichenMass } from '../src/figures/canopy';
+import { autumn } from '../src/figures/flush';
+import { plants } from '../src/figures/pumice';
+import { spread } from '../src/figures/truffles';
+import { measured, verdict } from '../src/figures/sporeprint';
+import { tally } from '../src/figures/barcode';
+import { estimate, yearsLeft } from '../src/figures/howmany';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -267,5 +273,51 @@ describe('figures', () => {
     click(c.node, 'Old trees left standing when cut');
     setSlider(c.node, 0, 100);
     await expect(c.done).resolves.toBeUndefined();
+  });
+
+  it('branch N: rain starts the flush, gophers bring fungi, squirrels carry spores far', async () => {
+    const days = (a: { mushrooms: number[] }) => a.mushrooms.filter((m) => m > 0.05).length;
+    expect(days(autumn(60, false))).toBeLessThan(days(autumn(30, false)));
+    expect(days(autumn(30, true))).toBeLessThan(days(autumn(30, false)));
+    expect(plants(6, true).fungal).toBeGreaterThan(plants(6, false).fungal);
+    expect(plants(6, false).fungal).toBe(0);
+    expect(spread(20, 0).partnered.some(Boolean)).toBe(true);
+    expect(spread(20, 1).partnered.some(Boolean)).toBe(false);
+    const fl = FIGURES.flush(context(), 'season');
+    guess(fl.node, 'About a week or two later');
+    setSlider(fl.node, 0, 70);
+    click(fl.node, 'Early hard frost');
+    await expect(fl.done).resolves.toBeUndefined();
+    const pu = FIGURES.pumice(context(), 'years');
+    guess(pu.node, 'No root fungi in the pumice');
+    setSlider(pu.node, 0, 8);
+    await expect(pu.done).resolves.toBeUndefined();
+    const tr = FIGURES.truffles(context(), 'spread');
+    guess(tr.node, 'Animals eat it and leave the spores in droppings');
+    setSlider(tr.node, 0, 20);
+    click(tr.node, 'Red-backed vole');
+    await expect(tr.done).resolves.toBeUndefined();
+  });
+
+  it('branch M: many spores decide, the grouping rule sets the count, most kinds are unnamed', async () => {
+    expect(verdict(measured(1))).toBeNull();
+    expect(verdict(measured(30))).toBe(1);
+    expect(tally(100).groups).toBeGreaterThan(30);
+    expect(tally(97).groups).toBe(16);
+    expect(tally(89).groups).toBeLessThan(10);
+    expect(estimate(6)).toBeGreaterThan(2_000_000);
+    expect(yearsLeft(estimate(6), 2500)).toBeGreaterThan(500);
+    const m = FIGURES.measure(context(), 'measured');
+    guess(m.node, 'Twenty or more');
+    setSlider(m.node, 0, 25);
+    await expect(m.done).resolves.toBeUndefined();
+    const r = FIGURES.reads(context(), 'groups');
+    setSlider(r.node, 0, 100);
+    setSlider(r.node, 0, 90);
+    await expect(r.done).resolves.toBeUndefined();
+    const h = FIGURES.tally(context(), 'estimate');
+    guess(h.node, 'About 150,000');
+    setSlider(h.node, 1, 7000);
+    await expect(h.done).resolves.toBeUndefined();
   });
 });

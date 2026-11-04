@@ -1,0 +1,148 @@
+{
+  "id": "how-many",
+  "n": 303,
+  "branch": "closely",
+  "needs": [
+    "barcode"
+  ],
+  "title": "How many kinds of fungi?",
+  "teaches": "About 150,000 kinds named against 2 to 4 million estimated, how that estimate is made, and where the unnamed fungi are",
+  "summary": [
+    "**About 150,000 kinds of fungi have been named.** It has taken two and a half centuries.",
+    "**The total is estimated, not counted.** One method scales up the ratio of fungi to plants in a well-studied country.",
+    "**Britain has about six kinds of fungi for every plant.** Applied to the world's plants, that suggests well over a million kinds.",
+    "**The best recent estimate is 2.2 to 3.8 million.** Soil DNA suggests that may be low.",
+    "**At today's pace, naming the rest would take centuries.** A few thousand new kinds are named each year.",
+    "**The unnamed fungi are mostly small and hidden.** They live in soil, inside leaves, on insects and in the tropics, and many are already in collections."
+  ],
+  "parts": [
+    {
+      "title": "A count and a guess",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The world's fungi have been named one at a time since Linnaeus, each with a description and a specimen kept in a herbarium. The total stands at about 150,000 kinds, and grows by a few thousand a year. That is fewer than the named beetles. Yet almost every mycologist believes that most fungi are still unnamed, and the question is by how much."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "tally",
+          "caption": "The kinds of fungi named so far, against an estimate from the ratio of fungi to plants, and how long naming the rest would take.",
+          "task": "Try a higher naming rate",
+          "goal": "estimate",
+          "aspect_ratio": 2.1
+        }
+      ]
+    },
+    {
+      "title": "Six to one",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1991 David Hawksworth, a lichen expert who in 1970 had drawn up a scale for reading sulphur in the air from lichens, made the first careful estimate. Britain is unusually well studied: generations of amateurs and professionals have recorded its fungi for two hundred years. There, the known kinds of fungi outnumber the kinds of flowering plants and ferns by about six to one. If the world had the same ratio, it would hold about 1.5 million kinds of fungi, ten times the number then named.[^ratio]"
+        },
+        {
+          "type": "text",
+          "text": "The method has obvious weak spots. The tropics have far more plants than Britain, and may have a different ratio. Many fungi live on insects or in soil and have no link to any one plant. In 2017 Hawksworth and Robert Lücking revised the figure using several lines of evidence and put it at between 2.2 and 3.8 million. By that estimate, about one kind in twenty has a name."
+        }
+      ]
+    },
+    {
+      "title": "What the soil says",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The DNA surveys of the last lesson give another route. If a spoonful of forest soil holds hundreds of kinds, and soils a few kilometres apart share only some of them, the total across the world must be very large. Estimates built this way have come out higher, five million or more, though they depend on the grouping rules of the last lesson, which can split one species into several groups. The figures disagree, but none of them comes anywhere near the number already named."
+        }
+      ]
+    },
+    {
+      "title": "Where they hide",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The unnamed fungi are not mushrooms on a woodland path. Most are small or invisible. Inside the leaves of nearly every plant live fungi called endophytes, which do no visible harm; a single tropical tree can host dozens, many found nowhere else. Tiny fungi grow on the bodies of beetles and flies, each kind often tied to one kind of insect. Others live in the guts of animals, in lakes and in the deep sea, and many in soil grow only as threads and never fruit."
+        },
+        {
+          "type": "text",
+          "text": "Some are already in hand. Herbarium drawers hold specimens collected decades ago that no one has had time to study, and Hawksworth and Lücking argued that a large share of the new species of the coming decades will be found there rather than in the field. Others are being found by amateurs. Naturalists posting photographs and specimens to sites such as iNaturalist, and community projects that barcode the mushrooms they collect, now add records of fungi faster than professionals alone could.[^amateurs]"
+        }
+      ]
+    },
+    {
+      "title": "Why it matters",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A name is how knowledge is kept. Without one, a fungus that feeds the roots of a rare orchid, or makes an antibiotic, or rots a particular kind of wood, cannot be recorded, protected or looked up. Almost no fungi are on lists of threatened species, mainly because so few have been studied enough to assess. At a few thousand a year, naming the rest would take centuries, and some will disappear with their habitats first. The course has followed the fungi that are known; most of the kingdom is still to be met."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on counting fungi",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "About how many kinds of fungi have been named?",
+                "choices": [
+                  "About 150,000",
+                  "About 15,000",
+                  "About 3 million"
+                ],
+                "answer": 0,
+                "why": "Around 150,000, against estimates of millions."
+              },
+              {
+                "ask": "How did Hawksworth make his 1991 estimate?",
+                "choices": [
+                  "He scaled up Britain's ratio of fungi to plants to the world's plants",
+                  "He counted every fungus in a forest",
+                  "He sequenced soil from every continent"
+                ],
+                "answer": 0,
+                "why": "Britain has about six fungi for each plant, so the world might too."
+              },
+              {
+                "ask": "Why might the ratio method give too low an answer?",
+                "choices": [
+                  "Many fungi live in soil or on insects, with no tie to one plant",
+                  "Britain has too many plants",
+                  "Fungi are easier to see than plants"
+                ],
+                "answer": 0,
+                "why": "Fungi not tied to plants are left out, and the tropics may differ."
+              },
+              {
+                "ask": "In the figure, what does a faster naming rate do?",
+                "choices": [
+                  "Shortens the time to name the rest, though it is still centuries",
+                  "Raises the estimate of how many kinds there are",
+                  "Lowers the number already named"
+                ],
+                "answer": 0,
+                "why": "Even at several thousand a year, naming millions takes hundreds of years."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "ratio": {
+      "kind": "technical",
+      "title": "The British numbers",
+      "text": "Around 1990 Britain and Ireland had about 12,000 recorded kinds of fungi, lichens included, and about 2,000 native flowering plants and ferns. Hawksworth multiplied the world's then estimated 270,000 kinds of plant by six."
+    },
+    "amateurs": {
+      "kind": "digression",
+      "title": "Barcodes from amateurs",
+      "text": "In North America, mushroom societies have sent tens of thousands of dried specimens for DNA barcoding through community projects, and some of them have turned out to be species new to science."
+    }
+  }
+}

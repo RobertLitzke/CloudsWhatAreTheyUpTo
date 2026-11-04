@@ -16,7 +16,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.1 beta | 19 | 5 | 7 | 19 | 19 | 19 | 0 |
+| [Fungi](#fungi) | 0.1 beta | 25 | 0 | 9 | 25 | 25 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -32,7 +32,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Botany | 0.1 beta | 2026-11-04 | no: 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
 | Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check, 17 awaiting photos |
 | Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to copy-edit, 32 to fact-check |
-| Fungi | 0.1 beta | 2026-11-04 | no: 5 lessons to write, 7 to read through, 19 to copy-edit, 19 to fact-check, 19 awaiting photos |
+| Fungi | 0.1 beta | 2026-11-04 | no: 9 to read through, 25 to copy-edit, 25 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -422,18 +422,19 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 10 | A lichen is two (or three) (`lichens`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
 | 11 | The spoiled plate (`mould`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why moulds make antibiotics, how penicillin was found and made into a medicine, and what fungi's other chemicals do. |
 | 12 | Foxfire (`glow`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Fungi that glow in the dark: how the light is made, and the experiment that asked what it is for. |
-| 13 | Fungi that hunt (`hunters`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence. |
-| 14 | How big is one fungus? (`individual`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | What counts as one fungus, and how genetic markers revealed single fungi covering whole forests. |
-| 15 | The trunk with no tree (`prototaxites`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for 165 years. |
-| 16 | A log's afterlife (`log`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way. |
+| 13 | Fungi that hunt (`hunters`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence. |
+| 14 | How big is one fungus? (`individual`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | What counts as one fungus, and how genetic markers revealed single fungi covering whole forests. |
+| 15 | The trunk with no tree (`prototaxites`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for 165 years. |
+| 16 | A log's afterlife (`log`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way. |
 | L1 | The lichens that left the city (`bark`) | More lichens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How lichens vanished from smoky cities, how they were used to map sulphur in the air, and how they came back once the smoke ended. |
 | L2 | Dating a moraine by its lichens (`lichenometry`) | More lichens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers. |
 | L3 | Gardens in the canopy (`canopy`) | More lichens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | The nitrogen-fixing lichens high in old Douglas-firs, what they add to the forest, and why young forests lack them. |
-| N1 | The autumn flush (`flush`) | Northwest fungi | planned, listed as coming |  | Why Northwest mushrooms come up after the first soaking autumn rain and stop with hard frost. |
-| N2 | The squirrel, the truffle and the owl (`truffles`) | Northwest fungi | planned, listed as coming |  | Underground truffles, the flying squirrels that spread them and the owls that eat the squirrels. |
-| M1 | A spore print and a microscope (`spore-print`) | Looking closely | planned, listed as coming |  | How mycologists examine a fungus: spore prints, gills and spores under the microscope. |
-| M2 | Names written in DNA (`barcode`) | Looking closely | planned, listed as coming |  | Naming fungi by a DNA barcode and finding unseen groups in soil. |
-| M3 | How many kinds of fungi? (`how-many`) | Looking closely | planned, listed as coming |  | About 150,000 named and 2 to 4 million estimated, and how that estimate is made. |
+| N1 | The autumn flush (`flush`) | Northwest fungi | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | Why Northwest mushrooms come up after the first soaking autumn rain and stop with hard frost, and how fruiting seasons are shifting. |
+| N2 | Gophers on the pumice (`pumice`) | Northwest fungi | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How root fungi came back to the bare pumice of Mount St Helens after 1980, carried by gophers, wind and elk, and why plants waited for them. |
+| N3 | The squirrel, the truffle and the owl (`truffles`) | Northwest fungi | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | Underground truffles, the flying squirrels that dig them up and spread their spores, and the owls that eat the squirrels. |
+| M1 | A spore print and a microscope (`spore-print`) | Looking closely | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How mycologists examine a fungus: spore prints, gills and spores under the microscope, and why they measure many spores. |
+| M2 | Names written in DNA (`barcode`) | Looking closely | needs student read-through | Gemini (queued 2026-11-04); Fact check | Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen. |
+| M3 | How many kinds of fungi? (`how-many`) | Looking closely | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | About 150,000 kinds named against 2 to 4 million estimated, how that estimate is made, and where the unnamed fungi are. |
 
 ## Encyclopedia
 
