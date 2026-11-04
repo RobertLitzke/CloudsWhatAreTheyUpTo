@@ -1,0 +1,84 @@
+{
+  "id": "trails",
+  "n": 201,
+  "branch": "ants",
+  "needs": [
+    "acacia"
+  ],
+  "title": "Trails that fade",
+  "teaches": "How ants find the shortest path with no one in charge",
+  "parts": [
+    {
+      "title": "One gland at a time",
+      "blocks": [
+        {"type": "text", "text": "Anyone who has left honey on a kitchen counter has seen ants arrive in a line. In 1958 and 1959 a young Harvard biologist, Edward O. Wilson[^wilson], set out to find how fire ants made those lines. He knew from watching them that a worker coming home from food dragged the tip of her abdomen along the ground. Something was being laid down. The question was what, and from where."},
+        {"type": "text", "text": "An ant's abdomen holds several small glands. Wilson dissected workers under a microscope, took out each gland in turn, crushed it on the end of a sharpened stick, and drew a line with it across a glass plate leading away from the nest. Most glands did nothing. When he drew with the contents of one, a tiny sac called **Dufour's gland**, workers poured out of the nest and ran along his line to the end, as if food were there. The trail was a chemical message, one of the first **pheromones** to be found[^pheromone]."}
+      ]
+    },
+    {
+      "title": "A message that evaporates",
+      "blocks": [
+        {"type": "text", "text": "Wilson noticed something else. His lines stopped working within about two minutes. The chemical evaporated, and the ants lost interest. At first that looks like a flaw. A trail that lasted would save the ants the work of marking it again."},
+        {"type": "text", "text": "But a fading trail carries information that a lasting one can't. A trail stays strong only while ants keep walking it, and ants keep walking it only while they find food at the end. When the food runs out, returning workers stop marking, the trail fades within minutes, and the colony stops sending workers to an empty place. A big find draws more and more ants, each adding to the trail; a small one draws a few, and fades. The trail's strength is a running count of how good the food is, kept by the whole colony and by no single ant."}
+      ]
+    },
+    {
+      "title": "The double bridge",
+      "blocks": [
+        {"type": "text", "text": "Fire ants are not the only ants that lay trails. In 1989 Simon Goss, Jean-Louis Deneubourg and colleagues at the Free University of Brussels put a colony of Argentine ants on one side of a bridge and food on the other. The bridge split into two branches, one twice as long as the other. Within a few minutes most of the ants were using the short branch."},
+        {"type": "text", "text": "No ant measured the branches. At first ants took either branch at random. Those on the short branch got to the food and back sooner, marking it on the way, so the short branch gained trail faster. The next ants were drawn slightly more to the short side, and each one that went made it more attractive still. A small difference was magnified by **positive feedback** until nearly the whole colony chose it."},
+        {"type": "text", "text": "Then the researchers tried it the other way. They gave the colony only the long branch for half an hour, and then opened the short one. Most of the ants stayed on the long branch. The trail they had already built was so strong that few ants tried the new route, and the few that did couldn't build a rival trail fast enough."},
+        {"type": "interactive_diagram", "id": "trail", "caption": "A colony with a long path to food; a path half as long opens at minute 15. Each ant picks a path drawn by its trail, a few at random, and marks the path it uses. Change how fast the trail fades. A model.", "task": "Guess, then find a fade rate at which the colony switches", "goal": "switch", "aspect_ratio": 1.81},
+        {
+          "type": "text",
+          "text": "Evaporation is what lets the colony change its mind. If the old trail fades, the ants that wander onto the new path can build a trail that competes, and the shorter path, walked more often, wins. If a trail fades too fast, there is no trail to follow at all, and the ants spread out at random. A useful trail lasts just long enough."
+        }
+      ]
+    },
+    {
+      "title": "No one in charge",
+      "blocks": [
+        {"type": "text", "text": "The queen does not direct any of this. She lays eggs. Each worker follows a few simple rules: follow a strong trail, mark when you find food, sometimes wander. Out of thousands of such choices comes a colony that finds short paths, sends more workers to richer food, and drops a trail when the food is gone. Biologists call behaviour that arises this way, from many individuals following local rules with no plan, **self-organisation**."},
+        {"type": "text", "text": "The same idea has been borrowed by engineers. In the early 1990s the Italian computer scientist Marco Dorigo wrote programs in which simulated ants lay simulated trails across a map, with evaporation, to find short routes for problems like a delivery driver's round[^dorigo]. Ant trails have also been studied for what they say about traffic: on a busy trail, ants rarely jam[^traffic]."},
+        {"type": "key_ideas", "title": "Outside", "points": ["Put a drop of honey or jam near an ant line outdoors and watch the trail form. Once it is busy, wipe a finger firmly across it. Watch the ants arriving at the gap: they stop, wave their antennae and search until one crosses and the trail is marked again."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on ant trails", "task": "Choose the best answer to each", "options": {"items": [{"ask": "How did Wilson find where the trail chemical came from?", "choices": ["He drew lines with the contents of each gland in turn", "He watched which part of the ant touched the ground", "He froze ants in the act of marking"], "answer": 0, "why": "Only the line drawn with Dufour's gland made workers follow it."}, {"ask": "Why is it useful for a trail to fade in a couple of minutes?", "choices": ["It stays strong only while ants keep finding food at the end", "It saves the chemical for the next trail", "It stops other colonies from following it"], "answer": 0, "why": "When the food runs out, marking stops and the trail disappears, so the colony stops wasting trips."}, {"ask": "In the double bridge, how did the colony come to use the short branch?", "choices": ["Ants on it returned sooner and marked it faster, drawing more ants", "The short branch smelled more strongly of food", "The first ant to arrive happened to take it"], "answer": 0, "why": "Positive feedback magnified a small head start. No ant compared the lengths."}, {"ask": "When the short branch was opened only after half an hour, what did most ants do?", "choices": ["Kept to the long branch, whose trail was already strong", "Switched at once to the short branch", "Split evenly between the two"], "answer": 0, "why": "Few ants tried the new route, so its trail never caught up. Faster evaporation would let it."}, {"ask": "What is self-organisation?", "choices": ["Order arising from many individuals following simple local rules", "A colony organised by its queen", "Ants each learning the whole map"], "answer": 0, "why": "The colony behaves as if it had a plan, but no one holds the plan."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Wilson found the fire ants' trail chemical in 1959.** Lines drawn with Dufour's gland made workers follow them.",
+    "**The trail fades in about two minutes.** It stays only while ants keep finding food and marking it.",
+    "**A colony finds the shorter path by positive feedback.** Ants on a short branch return sooner and mark it more.",
+    "**A strong old trail can trap a colony.** Evaporation is what lets it switch to a better path.",
+    "**No one is in charge.** Simple rules followed by thousands of workers add up to a colony that seems to decide.",
+    "**Engineers borrowed the idea.** Simulated ants with fading trails solve routing problems."
+  ],
+  "journal": [],
+  "footnotes": {
+    "pheromone": {
+      "kind": "technical",
+      "title": "Pheromones",
+      "text": "The word was coined in 1959 by Peter Karlson and Martin Lüscher for chemicals that carry a message between animals of the same species. The first to be identified chemically was the sex attractant of the silk moth, the same year. Ants use different pheromones for trails, alarm and recognising nestmates."
+    },
+    "dorigo": {
+      "kind": "digression",
+      "title": "Ant colony optimisation",
+      "text": "In Dorigo's programs, each simulated ant builds a route, shorter routes get more trail, and trail evaporates each round. Over many rounds the colony settles on a short route. The method is used for problems such as scheduling and routing packets through networks."
+    },
+    "traffic": {
+      "kind": "digression",
+      "title": "Ants rarely jam",
+      "text": "A 2019 study of Argentine ants found that even at high densities their traffic kept flowing at a steady speed, unlike cars. Ants don't overtake or brake hard, and on a crowded trail some simply turn back."
+    },
+    "wilson": {
+      "kind": "digression",
+      "title": "Wilson and fire ants",
+      "text": "Wilson grew up in Alabama, where at thirteen he found what may have been one of the first colonies of the fire ant from South America that had arrived through the port of Mobile. Years later he studied its spread for the state."
+    }
+  }
+}

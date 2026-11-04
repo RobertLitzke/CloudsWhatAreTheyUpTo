@@ -1,0 +1,79 @@
+{
+  "id": "lupine",
+  "n": 402,
+  "branch": "helens",
+  "needs": [
+    "under-snow"
+  ],
+  "title": "Lupine on the pumice",
+  "teaches": "The first plants on the Pumice Plain",
+  "parts": [
+    {
+      "title": "The plain with nothing on it",
+      "blocks": [
+        {"type": "text", "text": "Directly north of Mount St Helens' crater lies the Pumice Plain, about 15 square kilometres of grey ground built in 1980 by flows of hot pumice and ash, tens of metres deep in places. Nothing survived there. No roots, no buried seeds, no gophers: the flows were hot enough to char wood. It was the one place on the mountain where life really had to start from nothing, and ecologists watched it closely."},
+        {"type": "text", "text": "Pumice is a hard place to grow. It holds little water, it heats up in summer sun, it shifts in the wind, and above all it holds almost no nitrogen. Seeds of fireweed and other wind-blown plants landed there by the million in the first years, and nearly all of them died[^fireweed]. Then, in 1981, the ecologists found a few plants that had made it: prairie lupines, low silvery plants with blue-purple flowers, growing alone on the bare plain."}
+      ]
+    },
+    {
+      "title": "A plant that makes its own nitrogen",
+      "blocks": [
+        {"type": "text", "text": "The lupine's advantage was the same as the mountain alder's in lesson 14. Its roots carry bacteria that take nitrogen from the air and turn it into a form the plant can use. A lupine doesn't need nitrogen in the ground; it brings its own. When its leaves fall and the plant dies, that nitrogen enriches the pumice around it."},
+        {"type": "text", "text": "The lupines spread. A plant dropped its heavy seeds close by, and the seedlings grew into patches, then the patches into carpets. In the late 1980s the ecologist Roger del Moral, of the University of Washington, mapped and measured the plant life on the plain each year in permanent plots. He found that as the lupine patches grew and died back, other plants, such as grasses, pearly everlasting and later young trees, settled more often on the enriched ground they left behind[^delmoral]."}
+      ]
+    },
+    {
+      "title": "Caterpillars at the edge",
+      "blocks": [
+        {"type": "text", "text": "Then the lupines started to crash. In the early 1990s John Bishop, a young ecologist working with del Moral, noticed that whole patches were turning brown. The cause was caterpillars of several kinds of moth, which had flown onto the plain and found a feast. One rolled the leaves together, another bored into the stems, another ate the roots."},
+        {"type": "text", "text": "Bishop and the mathematical ecologist William Fagan found something surprising about where the damage fell. The caterpillars hit hardest at the edges of the lupine's advance, the young, scattered plants at the front, rather than in the dense old centres of the patches. That slowed the lupine's spread across the plain far more than the same amount of damage spread evenly would have. A few plant-eaters at the front could hold back the march of a whole plant population[^front]."},
+        {"type": "interactive_diagram", "id": "lupine", "caption": "The Pumice Plain from three lupine plants in 1981. Lupine spreads to bare pumice next to it; caterpillars kill lupine mostly at the patch edges; dead lupine leaves nitrogen where other plants can settle. A model.", "task": "Play thirty years with no caterpillars and with many", "goal": "edge", "aspect_ratio": 1.69},
+        {"type": "text", "text": "In the model, as on the plain, the caterpillars do two things at once. They slow the lupine's spread, keeping more of the plain bare for longer. But by killing lupine, they also release its nitrogen sooner, opening ground for other plants. Plant-eaters don't simply hold succession back; they change its path."}
+      ]
+    },
+    {
+      "title": "Forty years on",
+      "blocks": [
+        {"type": "text", "text": "Today parts of the Pumice Plain are green with lupine, grasses, shrubs and willow thickets along the streams, and young Douglas fir, noble fir and lodgepole pine are scattered across it. Other parts are still almost bare. The plain has become one of the longest records anywhere of life arriving on new ground, and it shows how much depends on chance: which seeds arrive, in which year, and which insects find them[^chance]."},
+        {"type": "key_ideas", "title": "An estimate", "points": ["If each lupine patch grows outward by about half a metre a year, a patch started in 1981 would be about 40 metres across by 2021. Fifteen square kilometres is about 15,000,000 square metres; even a thousand such patches would cover only about a tenth of it. The plain fills from many scattered starts, not from one."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the Pumice Plain", "task": "Choose the best answer to each", "options": {"items": [{"ask": "Why was the Pumice Plain different from the rest of the blast zone?", "choices": ["Hot flows buried it deep, and nothing survived", "It was never touched by the eruption", "It was under snow during the blast"], "answer": 0, "why": "Elsewhere snow and soil sheltered survivors. On the plain life had to arrive from outside."}, {"ask": "Why could prairie lupine grow on bare pumice when most plants failed?", "choices": ["Bacteria in its roots supply nitrogen from the air", "Its roots reach water far below", "Its seeds are carried by the wind for many kilometres"], "answer": 0, "why": "Pumice holds almost no nitrogen. The lupine brings its own, like lesson 14's alder."}, {"ask": "Where did the caterpillars do the most harm to the lupine?", "choices": ["At the advancing edge of the patches", "In the dense old centres", "Evenly across the plain"], "answer": 0, "why": "Damage at the front slowed the lupine's spread far more than the same damage spread evenly."}, {"ask": "How did the lupine help other plants?", "choices": ["Its dead leaves and plants enriched the pumice with nitrogen", "It shaded them from the sun", "It kept caterpillars off them"], "answer": 0, "why": "Other plants settled more often on ground where lupine had grown."}, {"ask": "What did the caterpillars do to succession on the plain, in the model?", "choices": ["Slowed the lupine's spread but opened enriched ground sooner", "Stopped succession altogether", "Had no effect, since lupine regrew"], "answer": 0, "why": "Plant-eaters change succession's path, not just its speed."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Nothing survived on the Pumice Plain.** Hot flows buried it tens of metres deep in 1980.",
+    "**Prairie lupine came first, in 1981.** Bacteria in its roots supply the nitrogen that pumice lacks.",
+    "**Other plants followed on enriched ground.** Lupine's dead leaves fed the pumice with nitrogen.",
+    "**Caterpillars hit the advancing edge.** Damage at the front slowed the lupine's spread most.",
+    "**Plant-eaters change succession's path.** They held the lupine back and opened ground for others sooner.",
+    "**Forty years on, the plain is patchy.** Chance in which seeds and insects arrive still shows."
+  ],
+  "journal": [],
+  "footnotes": {
+    "delmoral": {
+      "kind": "technical",
+      "title": "Permanent plots",
+      "text": "Del Moral's plots were marked squares visited and recorded the same way each year, so that a change in one could be followed plant by plant. Records like these, kept for decades, are the only way to see succession happen rather than infer it."
+    },
+    "front": {
+      "kind": "technical",
+      "title": "Why the front matters",
+      "text": "A spreading population grows fastest at its front, where there is open ground. Killing a plant there removes a source of the next year's spread; killing one in a crowded centre removes a plant that had little room to spread anyway."
+    },
+    "chance": {
+      "kind": "digression",
+      "title": "Elk and willows",
+      "text": "Willows came to the plain's streams in the 1990s, probably as seeds on the wind. Elk browse them heavily, and fenced plots show how much taller they would grow without the elk."
+    },
+    "fireweed": {
+      "kind": "digression",
+      "title": "Seeds that failed",
+      "text": "Fireweed seeds, each on a tuft of silky hairs, drifted onto the plain in huge numbers from the first summer. Most germinated after rain and died within weeks as the pumice dried out. Wind brings plenty of seeds; it doesn't make the ground fit for them."
+    }
+  }
+}

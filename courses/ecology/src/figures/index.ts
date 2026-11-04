@@ -24,6 +24,18 @@ import { bouldersFigure, fireFigure } from './fires';
 import { biomesFigure, mountainFigure } from './humboldt';
 import { areaFigure, islandFigure as refillFigure } from './islands';
 import { fragmentFigure, halfFigure } from './half';
+import { magnifyFigure } from './eggs';
+import { releaseFigure } from './arrivals';
+import { codFigure } from './cod';
+import { trailFigure } from './trails';
+import { kinFigure } from './kin';
+import { gardenFigure } from './farmers';
+import { tideFigure } from './stripes';
+import { meltedFigure } from './melted';
+import { coastFigure } from './olympic';
+import { snowFigure } from './undersnow';
+import { lupineFigure } from './lupine';
+import { spiritFigure } from './spirit';
 import { controlFigure, curtainFigure, oxygenFigure } from './curtain';
 import { bathtubFigure, brakeFigure, darwinFigure, recaptureFigure } from './elephants';
 
@@ -91,4 +103,20 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 19
   fragment: fragmentFigure,
   half: halfFigure,
+  // Branch H
+  magnify: magnifyFigure,
+  release: releaseFigure,
+  cod: codFigure,
+  // Branch N
+  trail: trailFigure,
+  kin: kinFigure,
+  garden: gardenFigure,
+  // Branch T
+  tide: tideFigure,
+  melted: meltedFigure,
+  coast: coastFigure,
+  // Branch M
+  snow: snowFigure,
+  lupine: lupineFigure,
+  spirit: spiritFigure,
 };

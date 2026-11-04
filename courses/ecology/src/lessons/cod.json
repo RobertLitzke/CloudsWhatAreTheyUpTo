@@ -1,0 +1,87 @@
+{
+  "id": "cod",
+  "n": 103,
+  "branch": "people",
+  "needs": [
+    "lynx"
+  ],
+  "title": "The cod that didn’t come back",
+  "teaches": "Harvesting a stock, and a fishery that collapsed",
+  "parts": [
+    {
+      "title": "2 July 1992",
+      "blocks": [
+        {"type": "text", "text": "On 2 July 1992 Canada's fisheries minister, John Crosbie, stood up in a hotel in St John's, Newfoundland, and closed the northern cod fishery. For nearly five hundred years, since John Cabot's sailors reported cod so thick off Newfoundland that they could be scooped up in baskets, European and then Canadian boats had fished the shelf and the Grand Banks. Whole towns lived on it. Overnight about 30,000 people lost their work, the largest single layoff in Canadian history."},
+        {"type": "text", "text": "The closing was meant to be for two years, to let the cod recover. They didn't. Thirty years later the northern cod were still a small fraction of what they had been in the 1960s. This lesson asks how a fish that had stood five centuries of fishing could be wiped out in a few decades, and why it stayed down."}
+      ]
+    },
+    {
+      "title": "The most a stock can give",
+      "blocks": [
+        {"type": "text", "text": "Lesson 2's logistic curve says how a population grows: slowly when it is small, fastest at half its ceiling, then slower again as it fills up. A fishery lives on that growth. If the boats take each year exactly what the fish add, the stock stays the same size. The most they can take, year after year, is the growth at the curve's steepest point, at half the unfished stock. Fisheries scientists call it the **maximum sustainable yield**, and from the 1950s it became the target that governments set catches by[^msy]."},
+        {"type": "text", "text": "There are two simple ways to fish a stock at that level. One is to set a **fixed catch**: a quota of so many tonnes a year. The other is to set a **fixed share**: so many boats and days at sea, so that the catch is a set fraction of whatever fish there are. In a steady world both give the same catch. The difference shows when the sea has a bad year."},
+        {"type": "interactive_diagram", "id": "cod", "caption": "A fish stock that grows by lesson 2's logistic rule, fished each year by a fixed catch or a fixed share. In year 15 the young fish fail and half the stock is lost. A model.", "task": "Guess, then find a rule that survives the bad year", "goal": "share", "aspect_ratio": 1.81},
+        {"type": "text", "text": "A fixed catch takes the same tonnage from fewer fish, so after a bad year it takes a larger share of what's left, which slows the regrowth, which raises the share again. Below a certain size the stock can't grow fast enough to pay the quota, and it slides to nothing, slowly at first. A fixed share takes less when fish are few, which lets the stock rebuild. Fishing close to the maximum with a fixed catch is fishing on a knife edge[^sardine]."}
+      ]
+    },
+    {
+      "title": "How the cod went",
+      "blocks": [
+        {"type": "text", "text": "The northern cod were hit twice. In the 1960s factory trawlers from Europe and the Soviet Union, ships that could freeze their catch at sea, came to fish the spawning schools, and the catch rose to about 800,000 tonnes in 1968, several times what it had been. The stock fell steeply. In 1977 Canada extended its control of the sea to 200 nautical miles from shore and pushed the foreign fleets out, intending to rebuild the stock and fish it carefully."},
+        {"type": "text", "text": "Canadian scientists set quotas each year from their best estimate of the stock, and the estimates were too high. Much of the evidence came from the trawlers' own catches: how many tonnes they caught for each hour of fishing. But cod gather in dense schools, and as their numbers fell the remaining fish crowded together where the trawlers found them, so the catch per hour held up while the stock collapsed[^hyper]. Inshore fishermen in small boats said through the 1980s that their catches were failing. The quotas stayed high, the stock fell, and in the cold years around 1990 the young fish did badly. By 1992 the spawning stock was a tiny fraction of its old size."}
+      ]
+    },
+    {
+      "title": "Why they didn't come back",
+      "blocks": [
+        {"type": "text", "text": "A stock fished down hard does not always grow back when fishing stops. Big cod used to eat smaller fish, including species whose own diet includes cod eggs and young cod. With few big cod left, those smaller fish flourished and ate the eggs and young of the cod that remained, so the cod could not get a start. Grey seals, whose numbers grew in those years, eat cod as well, though how much they hold the cod back is argued over. Shrimp and snow crab boomed, and the Newfoundland fishing fleet turned to them."},
+        {"type": "text", "text": "The cod grew back slowly through the 2000s and 2010s. In 2024 Canada reopened a small commercial fishery after a new assessment judged the stock out of danger, though still far below its size in the 1960s. For twenty years ecologists held up the cod as an example of a population that, once pushed down far enough, settles at a new and lower level and stays there. Its slow return since shows that such a state can last decades without being permanent."}
+      ]
+    },
+    {
+      "title": "Shifting baselines",
+      "blocks": [
+        {"type": "text", "text": "In 1995 the fisheries scientist Daniel Pauly, of the University of British Columbia in Vancouver, named a problem behind collapses like this one. Each generation of scientists, he wrote, takes the stock as it was at the start of their careers as the natural state, and measures losses from there. Over several generations the idea of normal slides down without anyone noticing. He called it the **shifting baseline syndrome**[^keywest]."},
+        {"type": "text", "text": "The cure is old records: ships' logs, fish-market ledgers, photographs and museum specimens, which show what the sea held before anyone alive remembers. Lesson 11's Keeling and lesson 17's Humboldt made the same point on land and in the air: a long record is what lets a slow change be seen."},
+        {"type": "key_ideas", "title": "An estimate", "points": ["A stock whose unfished size is 100 and which grows at 40 percent a year when small can give at most 40 × 100 ÷ 4 = 10 a year, taken at a stock of 50. A quota of 9, just under the maximum, holds steady at about 66. Halve the stock to 33 in a bad year and it grows only about 9 a year, a little less than the quota. Below about 34 the quota takes more than the stock adds each year, so it shrinks, grows less, and shrinks faster."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on fishing a stock", "task": "Choose the best answer to each", "options": {"items": [{"ask": "At what size does a logistic population give the largest catch it can sustain?", "choices": ["At about half its unfished size", "At its full unfished size", "At about a tenth of its unfished size"], "answer": 0, "why": "Growth is fastest at the curve's steepest point, halfway to the ceiling."}, {"ask": "Why does a fixed catch drive a stock down after a bad year?", "choices": ["It takes a larger share of fewer fish, slowing the regrowth", "Boats fish harder when fish are scarce", "Bad years always come in runs"], "answer": 0, "why": "The same tonnage from a smaller stock is a bigger bite. If growth falls below the quota, the stock keeps shrinking."}, {"ask": "Why did the trawlers' catch per hour mislead the scientists?", "choices": ["Cod crowded into dense schools as they declined, so catches held up", "The trawlers reported false figures", "Cod moved to deeper water out of reach"], "answer": 0, "why": "The fish left were easy to find in schools, so each hour's catch stayed high while the stock fell."}, {"ask": "Why might cod not recover even after fishing stops?", "choices": ["Smaller fish that big cod once ate now eat young cod", "Cod need fishing to keep their numbers healthy", "The water became too warm everywhere"], "answer": 0, "why": "With few big cod, their prey and rivals flourish and eat cod eggs and young, holding the stock down."}, {"ask": "What is a shifting baseline?", "choices": ["Each generation takes the depleted state it first saw as normal", "A change in where fish spawn", "A quota that changes from year to year"], "answer": 0, "why": "Pauly's point: without old records, losses before your own time become invisible."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Canada closed the northern cod fishery in 1992.** About 30,000 people lost their work, and the cod stayed low for two decades before slowly coming back.",
+    "**A stock gives the most at half its unfished size.** That is the maximum sustainable yield, from lesson 2's logistic curve.",
+    "**A fixed catch is fragile; a fixed share forgives.** After a bad year a fixed quota takes a growing share of fewer fish.",
+    "**Estimates from the trawlers' catches were too high.** Cod crowded into schools as they declined, so catches per hour held up.",
+    "**A collapsed stock can stay down.** Predators of young cod flourished once the big cod were gone.",
+    "**Baselines shift.** Pauly warned that each generation takes the depleted sea it first saw as normal."
+  ],
+  "journal": [],
+  "footnotes": {
+    "msy": {
+      "kind": "technical",
+      "title": "Where the idea came from",
+      "text": "The American fisheries scientist Milner Schaefer worked out the maximum sustainable yield for Pacific tuna in 1954, using the logistic curve. It became the stated aim of fisheries treaties. Its weakness is that real stocks don't follow a smooth curve, and a target at the very top leaves no room for a bad year or a wrong estimate."
+    },
+    "hyper": {
+      "kind": "technical",
+      "title": "Catch per hour",
+      "text": "Fisheries scientists call the trap hyperstability: a measure of abundance that stays flat while the true numbers fall. It is worst for fish that school and for fleets with sonar, which find the schools wherever they go."
+    },
+    "keywest": {
+      "kind": "digression",
+      "title": "The fish in the photographs",
+      "text": "In 2009 the American historian of the sea Loren McClenachan studied photographs of anglers' trophy fish taken on charter boats in Key West, Florida, from the 1950s to 2007. The fish in the photographs shrank from about 20 kilograms on average to about 2, while the anglers smiled just as broadly."
+    },
+    "sardine": {
+      "kind": "digression",
+      "title": "Cannery Row",
+      "text": "The Pacific sardine fishery off California, the setting of John Steinbeck's novel Cannery Row, collapsed in the late 1940s after landing hundreds of thousands of tonnes a year. A change in ocean conditions and heavy fishing together brought it down, and the canneries of Monterey closed."
+    }
+  }
+}

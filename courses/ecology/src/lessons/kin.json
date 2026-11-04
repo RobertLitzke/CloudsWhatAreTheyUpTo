@@ -1,0 +1,86 @@
+{
+  "id": "kin",
+  "n": 202,
+  "branch": "ants",
+  "needs": [
+    "trails"
+  ],
+  "title": "Why work for someone else’s children?",
+  "teaches": "Hamilton’s rule and the sterile workers",
+  "parts": [
+    {
+      "title": "Darwin's special difficulty",
+      "blocks": [
+        {"type": "text", "text": "In *On the Origin of Species*, in 1859, Charles Darwin stopped to face a problem that he said at first seemed fatal to his whole theory. Natural selection, as lesson 5 showed on Daphne Major, favours whatever helps an animal leave more young. Yet in an ant colony almost every individual is a worker that never breeds at all. The workers forage, fight, nurse and build for their whole lives, and leave no offspring. How could selection produce an animal whose defining trait is having no young?"},
+        {"type": "text", "text": "Darwin's own answer was that selection could act on the family as well as the individual, the way a breeder keeps a good line of cattle by breeding from the relatives of a fine animal that has been eaten. It was a good guess, but he had no way to make it precise, since no one in 1859 knew how traits were inherited."}
+      ]
+    },
+    {
+      "title": "Hamilton's rule",
+      "blocks": [
+        {"type": "text", "text": "A century later a quiet London graduate student, William Hamilton[^hamilton], made it precise. In 1964 he published two long papers arguing that natural selection should be thought of from the gene's side. A gene can get copies of itself into the next generation in two ways: through the young of the animal carrying it, or through the young of relatives, who carry copies of the same gene by common descent."},
+        {"type": "text", "text": "So a gene that makes its bearer help relatives can spread, if the help is big enough and the relatives close enough. Hamilton's condition is now called **Hamilton's rule**. It has three numbers. C is the cost to the helper, counted in young it doesn't have. B is the benefit to the relative, counted in extra young the relative raises. And r is the **relatedness**, the chance that the relative carries the same gene by descent. A helping gene spreads when r × B is greater than C. For a brother or sister r is a half, for a cousin an eighth. Selection of this kind is called **kin selection**[^haldane]."},
+        {"type": "interactive_diagram", "id": "kin", "caption": "A gene that makes its bearer give up some young of its own to help a relative raise more, starting in 5% of the population. Choose the relative and the costs. A model.", "task": "Find how much a worker must help a cousin for the gene to spread", "goal": "cousin", "aspect_ratio": 1.9},
+        {"type": "key_ideas", "title": "An estimate", "points": ["A worker who gives up one young of her own to help her mother raise three more brothers and sisters: r × B = ½ × 3 = 1.5, more than the cost of 1, so a gene for that help spreads. To help a cousin, with r of ⅛, she would have to add more than eight cousins for each young she gave up."]}
+      ]
+    },
+    {
+      "title": "Three-quarter sisters",
+      "blocks": [
+        {"type": "text", "text": "Hamilton saw something special about ants, bees and wasps. In these insects, females hatch from fertilised eggs and have two sets of genes, one from each parent, while males hatch from unfertilised eggs and have only their mother's single set. A father passes his whole set to every daughter. So two sisters with the same father share all of their father's genes and, on average, half of their mother's: a relatedness of three-quarters, more than the half they would share with their own daughters."},
+        {"type": "text", "text": "If a worker ant shares more genes with a sister than with a daughter, then raising sisters is, for her genes, a better deal than raising daughters. Hamilton suggested that this was why the colonies of ants, bees and wasps, made of sterile sisters raising more sisters for their mother, had evolved many times in this group of insects and rarely elsewhere."}
+      ]
+    },
+    {
+      "title": "Termites and mole rats",
+      "blocks": [
+        {"type": "text", "text": "The three-quarters idea turned out to be only part of the story. Termites live in colonies of sterile workers too, but both their males and females have two sets of genes, so their sisters share a half. In 1981 the South African zoologist Jennifer Jarvis described the naked mole rat, a nearly hairless rodent of East Africa that lives underground in colonies with a single breeding queen and dozens of workers that never breed[^molerat]. Hamilton's rule still applies to them, since their colonies are close families, but the special three-quarters is not needed."},
+        {"type": "text", "text": "Many ant colonies also complicate the arithmetic. Where a queen mates with several males, her daughters are often half-sisters, sharing only a quarter, and colonies with several queens are less related still. In 2008 William Hughes and colleagues traced the family tree of ants, bees and wasps and found that the species in which colonies first evolved had queens that mated only once. Close family came first; the many matings came later, once colonies could no longer go back."}
+      ]
+    },
+    {
+      "title": "An argument",
+      "blocks": [
+        {"type": "text", "text": "In 2010 Martin Nowak, Corina Tarnita and E. O. Wilson, by then the most famous ant biologist alive, published a paper in *Nature* arguing that kin selection was unnecessary. Colonies, they said, could be explained by ordinary selection acting on the colony as a unit, and Hamilton's rule was a special case that rarely held in real populations."},
+        {"type": "text", "text": "The reply was fierce. The next year 137 biologists signed a response in the same journal, arguing that the paper misunderstood kin selection and that the rule had been tested and confirmed in many animals. Most evolutionary biologists still use Hamilton's rule, and most agree that close relatedness was what let colonies of sterile workers evolve, while also agreeing that ecology mattered: a defensible nest and food worth sharing made helping pay[^nest]. The argument showed that even well-tested ideas get challenged, and that the challenge itself sharpens what everyone means."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on helping relatives", "task": "Choose the best answer to each", "options": {"items": [{"ask": "What problem did sterile worker ants pose for Darwin?", "choices": ["Selection favours leaving young, yet workers leave none", "Workers were too small to survive alone", "Ants seemed older than the Earth"], "answer": 0, "why": "A trait for not breeding seemed impossible to pass on by natural selection."}, {"ask": "In Hamilton's rule, rB > C, what is r?", "choices": ["The chance a relative carries the same gene by descent", "The rate at which the colony grows", "The number of relatives helped"], "answer": 0, "why": "Relatedness weights the benefit by how likely it is to pass on copies of the helping gene."}, {"ask": "A worker gives up one young to add four cousins (r = ⅛). Does a gene for this spread?", "choices": ["No: ⅛ × 4 = ½, less than the cost of 1", "Yes: four is more than one", "Yes: any help to relatives spreads"], "answer": 0, "why": "She would need to add more than eight cousins for each young she gave up."}, {"ask": "Why are ant sisters with the same father related by three-quarters?", "choices": ["Their father has one set of genes and gives all of it to each daughter", "Their mother gives them identical genes", "They are all clones of the queen"], "answer": 0, "why": "Males hatch from unfertilised eggs. Sisters share all their father's genes and half their mother's on average."}, {"ask": "Why do termites and naked mole rats show that three-quarter sisters aren't the whole story?", "choices": ["They live in colonies with sterile workers without the three-quarter sisters", "They have no relatives in the colony", "They prove that kin selection is wrong"], "answer": 0, "why": "Close families still favour helping, but the special three-quarters isn't required."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Sterile workers puzzled Darwin.** Selection favours leaving young, yet most ants never breed.",
+    "**Hamilton answered in 1964.** A gene for helping spreads if r × B, the help weighted by relatedness, beats the cost C.",
+    "**Relatedness sets the price.** A brother or sister shares a half, a cousin an eighth, so cousins must gain far more.",
+    "**Ant sisters with one father share three-quarters.** Hamilton thought this explained why colonies evolved so often in ants, bees and wasps.",
+    "**Termites and naked mole rats show it isn't the whole story.** Close families matter more than the three-quarters.",
+    "**The idea was challenged in 2010.** Most biologists still use Hamilton's rule, alongside the ecology that makes helping pay."
+  ],
+  "journal": [],
+  "footnotes": {
+    "haldane": {
+      "kind": "digression",
+      "title": "Two brothers or eight cousins",
+      "text": "The British biologist J. B. S. Haldane is said to have remarked in a pub, years before Hamilton, that he would lay down his life for two brothers or eight cousins. The story may be improved in the telling, but the arithmetic is Hamilton's rule."
+    },
+    "molerat": {
+      "kind": "digression",
+      "title": "The naked mole rat",
+      "text": "Naked mole rats dig tunnels kilometres long to reach the roots and tubers they eat. They can live more than thirty years, far longer than other rodents their size, and they survive many minutes with no oxygen at all."
+    },
+    "nest": {
+      "kind": "technical",
+      "title": "Ecology as well as genes",
+      "text": "Animals that live in colonies with sterile workers nearly all share a valuable nest that has to be guarded and food that is brought back to it, from wood eaten by termites to underground tubers for mole rats. Where young animals can't easily set up on their own, staying to help can pay even when relatedness is modest."
+    },
+    "hamilton": {
+      "kind": "digression",
+      "title": "Hamilton",
+      "text": "Hamilton's ideas were so unusual that few of the people around him followed them, and he worked largely alone. He died in 2000 after catching malaria in the Congo, where he had gone to collect evidence on the origin of HIV."
+    }
+  }
+}

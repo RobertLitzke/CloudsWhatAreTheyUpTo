@@ -12,7 +12,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 19 | 18 | 0 | 19 | 19 | 19 | 0 |
+| [Ecology](#ecology) | 31 | 6 | 3 | 31 | 31 | 31 | 0 |
 | [Botany](#botany) | 21 | 12 | 0 | 21 | 21 | 21 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
@@ -252,18 +252,18 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Chimborazo, climate zones and why they move. |
 | 18 | Islands that refilled (`islands`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Mangrove islets, arrivals, losses and the species-area rule. |
 | 19 | Half the Earth? (`half`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
-| H1 | Eggs that broke (`eggs`) | People in the web | planned, listed as coming |  | Peregrines, DDT and poisons that build up the food chain. |
-| H2 | Arrivals (`arrivals`) | People in the web | planned, listed as coming |  | Species carried to new places, and the few that take over. |
-| H3 | The cod that didn’t come back (`cod`) | People in the web | planned, listed as coming |  | Harvesting a stock, and a fishery that collapsed. |
-| N1 | Trails that fade (`trails`) | Ants and other societies | planned, listed as coming |  | How ants find the shortest path with no one in charge. |
-| N2 | Why work for someone else’s children? (`kin`) | Ants and other societies | planned, listed as coming |  | Hamilton’s rule and the sterile workers. |
-| N3 | Farmers in the forest (`farmers`) | Ants and other societies | planned, listed as coming |  | Leafcutter ants and their fungus gardens. |
-| T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | planned, listed as coming |  | Zones of a Salish Sea shore and what sets each edge. |
-| T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | planned, listed as coming |  | Sea star wasting and the urchins that followed. |
-| T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | planned, listed as coming |  | Sea otters on the outer coast of Washington. |
-| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | planned, listed as coming |  | What lived through the 1980 blast at Mount St Helens. |
-| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | planned, listed as coming |  | The first plants on the Pumice Plain. |
-| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | planned, listed as coming |  | A lake that went dead and came back. |
+| H1 | Eggs that broke (`eggs`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Peregrines, DDT and poisons that build up the food chain. |
+| H2 | Arrivals (`arrivals`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Species carried to new places, and the few that take over. |
+| H3 | The cod that didn’t come back (`cod`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Harvesting a stock, and a fishery that collapsed. |
+| N1 | Trails that fade (`trails`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | How ants find the shortest path with no one in charge. |
+| N2 | Why work for someone else’s children? (`kin`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Hamilton’s rule and the sterile workers. |
+| N3 | Farmers in the forest (`farmers`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Leafcutter ants and their fungus gardens. |
+| T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Zones of a Salish Sea shore and what sets each edge. |
+| T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Sea star wasting and the urchins that followed. |
+| T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Sea otters on the outer coast of Washington. |
+| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | What lived through the 1980 blast at Mount St Helens. |
+| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | The first plants on the Pumice Plain. |
+| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | A lake that went dead and came back. |
 | S1 | Why no trees? (`no-trees`) | The dry side | planned, listed as coming |  | The shrub-steppe of the dry side. |
 | S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | planned, listed as coming |  | An annual grass that changed a fire cycle. |
 | S3 | The prairie under the wheat (`palouse`) | The dry side | planned, listed as coming |  | The Palouse prairie and what is left of it. |

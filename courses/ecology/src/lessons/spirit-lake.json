@@ -1,0 +1,80 @@
+{
+  "id": "spirit-lake",
+  "n": 403,
+  "branch": "helens",
+  "needs": [
+    "under-snow",
+    "curtain"
+  ],
+  "title": "Spirit Lake",
+  "teaches": "A lake that went dead and came back",
+  "parts": [
+    {
+      "title": "A lake thrown up a mountainside",
+      "blocks": [
+        {"type": "text", "text": "Before 1980 Spirit Lake, at the north foot of Mount St Helens, was a cold, clear mountain lake ringed by old forest, with summer camps and a lodge on its shore[^outlet]. On 18 May the landslide that opened the eruption slammed into it. The lake water surged up the slopes on the far side, as high as 260 metres, tearing the forest from the hillsides, and then poured back into the basin carrying the trees with it. The landslide had filled the old lake bed, so the water settled about 60 metres higher than before, over a floor of rock and ash."},
+        {"type": "text", "text": "What came back was not a mountain lake. It was a warm, grey-brown soup of ash and shredded forest: soil, bark, needles, leaves and drowned animals, and on its surface a raft of hundreds of thousands of floating logs. Within weeks the water stank of rotten eggs. Scientists who sampled it that summer found almost no oxygen at all."}
+      ]
+    },
+    {
+      "title": "Bacteria take over",
+      "blocks": [
+        {"type": "text", "text": "Lesson 13 described what happens in a lake fed too much phosphorus: algae bloom, die, sink, and bacteria feeding on them use up the oxygen in the deep water. Spirit Lake got the same ending without the algae. The dead matter arrived all at once, already dead, and bacteria multiplied on it to numbers the microbiologists had never seen in a lake. As they fed, they used the oxygen faster than the air could put it back, and the whole lake went **anoxic**, without oxygen, top to bottom."},
+        {"type": "text", "text": "In water without oxygen, different microbes take over: ones that breathe sulphate and give off hydrogen sulphide, the rotten-egg gas; ones that make methane; ones that live on iron and manganese leached from the ash. Among the bacteria found in the lake was *Legionella*, which causes a dangerous pneumonia, and the lake was closed to people[^legionella]. For a while Spirit Lake was a natural experiment in what a lake becomes when everything that breathes oxygen is gone."}
+      ]
+    },
+    {
+      "title": "The lake recovers",
+      "blocks": [
+        {"type": "text", "text": "It did not last. The bacteria were eating a store of dead matter that was not being refilled, apart from what the logs kept leaching. As the store ran down, the bacteria used less oxygen, and oxygen from the air, stirred in by wind and by the lake's turnover in spring and autumn[^anoxic], began to win. Within a few years there was oxygen again through most of the water. Algae returned, and the tiny animals that graze them, and the water cleared."},
+        {"type": "interactive_diagram", "id": "spirit", "caption": "Oxygen in Spirit Lake after the eruption. Bacteria feeding on dead matter use oxygen; the air puts it back; the logs keep leaching more dead matter for a few years. Change how much dead matter the blast dumped in. A model.", "task": "Guess, then play the decade after the blast", "goal": "clear", "aspect_ratio": 1.81},
+        {"type": "text", "text": "By the mid-1980s the lake was clear and cold enough to look like a mountain lake again, though a lake with no fish, since none had survived. In the early 1990s rainbow trout turned up, probably released by someone without permission. With plenty of food and no anglers, since the lake stayed closed, they grew unusually large and fat[^trout]."}
+      ]
+    },
+    {
+      "title": "The log raft",
+      "blocks": [
+        {"type": "text", "text": "The logs are still there. More than forty years later a raft of them floats on Spirit Lake, drifting from shore to shore with the wind, covering a large part of its surface on some days and almost none on others. Waterlogged trunks have sunk and stand upright on the bottom like a drowned forest. The raft shades the water beneath it, gives insects and birds a floating home, and slowly leaches more dead matter into the lake."},
+        {"type": "text", "text": "The landslide also blocked the lake's old outlet. With no way out, the water rose year after year, and engineers feared it would break through the loose debris and flood the valley below. In 1985 the Army Corps of Engineers finished a tunnel more than 2 kilometres long through a ridge, which still drains the lake today. Spirit Lake is a lake whose level people control, inside a monument meant to be left to nature."},
+        {"type": "key_ideas", "title": "Outside", "points": ["From the Windy Ridge viewpoint on the east side of the monument, look down on Spirit Lake and find the log raft. Note which side of the lake it is on, and check again later in the day or on another visit: it moves with the wind."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on Spirit Lake", "task": "Choose the best answer to each", "options": {"items": [{"ask": "Why did Spirit Lake lose its oxygen in 1980?", "choices": ["Bacteria feeding on the dead forest dumped into it used the oxygen up", "Volcanic gas bubbled up through the lake bed", "Ash on the surface stopped air reaching the water"], "answer": 0, "why": "Like lesson 13's lakes, but with the dead matter arriving all at once instead of growing as algae."}, {"ask": "What smell did the anoxic lake give off, and why?", "choices": ["Rotten eggs, from microbes that breathe sulphate", "Smoke, from the still-smouldering logs", "Vinegar, from fermenting leaves"], "answer": 0, "why": "Without oxygen, sulphate-breathing microbes make hydrogen sulphide."}, {"ask": "Why did the oxygen come back within a few years?", "choices": ["The store of dead matter ran down, so bacteria used less oxygen", "Engineers pumped air into the lake", "The logs soaked up the bacteria"], "answer": 0, "why": "Nothing was refilling the store but the logs' leaching, so the air's supply of oxygen won."}, {"ask": "In the model, what does dumping more dead matter in do?", "choices": ["Keeps the lake without oxygen for longer", "Stops the lake from ever recovering", "Makes no difference to how long it takes"], "answer": 0, "why": "More food for bacteria means more oxygen used, for longer, but the store still runs down."}, {"ask": "Why was a tunnel built from Spirit Lake?", "choices": ["The landslide blocked its outlet, and rising water threatened a flood", "To let fish swim in from the river below", "To drain the dead water and refill the lake"], "answer": 0, "why": "With no outlet, the lake was rising behind loose debris that could have given way."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**The 1980 landslide threw Spirit Lake up the mountainside.** It settled about 60 metres higher, full of shredded forest and logs.",
+    "**Bacteria used up all its oxygen.** Feeding on the dead matter, they turned the lake anoxic, top to bottom.",
+    "**Microbes that need no oxygen took over.** The water smelled of rotten eggs.",
+    "**The lake recovered within a few years.** As the dead matter ran down, the air's oxygen won.",
+    "**A raft of logs still floats on it.** It drifts with the wind and keeps leaching into the water.",
+    "**People control its level.** A tunnel finished in 1985 drains the lake, whose old outlet the landslide blocked."
+  ],
+  "journal": [],
+  "footnotes": {
+    "legionella": {
+      "kind": "technical",
+      "title": "Legionella",
+      "text": "Legionella bacteria live naturally in warm water and multiply in it, inside single-celled organisms. People catch Legionnaires' disease by breathing in fine droplets of contaminated water, not by drinking it. The warm, rich water of Spirit Lake in 1980 suited them."
+    },
+    "trout": {
+      "kind": "digression",
+      "title": "The trout",
+      "text": "Biologists who netted the trout found them growing far faster than trout in nearby lakes, feeding on insects that thrive among the floating logs. The lake has stayed closed to fishing, and the fish are studied as part of its recovery."
+    },
+    "outlet": {
+      "kind": "digression",
+      "title": "Harry Truman's lake",
+      "text": "Harry R. Truman, who ran the lodge on the lake's shore and refused to leave before the eruption, became famous in the weeks before it. He and his lodge lie under the landslide debris, beneath the raised lake."
+    },
+    "anoxic": {
+      "kind": "technical",
+      "title": "Turnover",
+      "text": "In spring and autumn the water at the top and bottom of a temperate lake reaches the same temperature, and wind can mix the whole lake. That turnover carries oxygen from the surface down to the deep water, which is why it mattered so much to Spirit Lake's recovery."
+    }
+  }
+}

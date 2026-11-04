@@ -17,18 +17,6 @@ const TRUNK_COMING: EcoLesson[] = [
 ];
 
 const BRANCH_COMING: EcoLesson[] = [
-  coming('eggs', 101, 'Eggs that broke', 'Peregrines, DDT and poisons that build up the food chain', { branch: 'people', needs: ['pyramid'] }),
-  coming('arrivals', 102, 'Arrivals', 'Species carried to new places, and the few that take over', { branch: 'people', needs: ['seastar'] }),
-  coming('cod', 103, 'The cod that didn’t come back', 'Harvesting a stock, and a fishery that collapsed', { branch: 'people', needs: ['lynx'] }),
-  coming('trails', 201, 'Trails that fade', 'How ants find the shortest path with no one in charge', { branch: 'ants', needs: ['acacia'] }),
-  coming('kin', 202, 'Why work for someone else’s children?', 'Hamilton’s rule and the sterile workers', { branch: 'ants', needs: ['trails'] }),
-  coming('farmers', 203, 'Farmers in the forest', 'Leafcutter ants and their fungus gardens', { branch: 'ants', needs: ['trails'] }),
-  coming('stripes', 301, 'Stripes on the rocks', 'Zones of a Salish Sea shore and what sets each edge', { branch: 'tidepools', needs: ['seastar'] }),
-  coming('melted', 302, 'The year the sea stars melted', 'Sea star wasting and the urchins that followed', { branch: 'tidepools', needs: ['stripes'] }),
-  coming('otters', 303, 'The otters came back', 'Sea otters on the outer coast of Washington', { branch: 'tidepools', needs: ['green'] }),
-  coming('under-snow', 401, 'Survivors under the snow', 'What lived through the 1980 blast at Mount St Helens', { branch: 'helens', needs: ['glacier-bay'] }),
-  coming('lupine', 402, 'Lupine on the pumice', 'The first plants on the Pumice Plain', { branch: 'helens', needs: ['under-snow'] }),
-  coming('spirit-lake', 403, 'Spirit Lake', 'A lake that went dead and came back', { branch: 'helens', needs: ['under-snow', 'curtain'] }),
   coming('no-trees', 501, 'Why no trees?', 'The shrub-steppe of the dry side', { branch: 'dry', needs: ['humboldt'] }),
   coming('cheatgrass', 502, 'Cheatgrass and fire', 'An annual grass that changed a fire cycle', { branch: 'dry', needs: ['fires'] }),
   coming('palouse', 503, 'The prairie under the wheat', 'The Palouse prairie and what is left of it', { branch: 'dry', needs: ['no-trees', 'half'] }),

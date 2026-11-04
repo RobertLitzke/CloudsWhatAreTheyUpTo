@@ -1,0 +1,79 @@
+{
+  "id": "stripes",
+  "n": 301,
+  "branch": "tidepools",
+  "needs": [
+    "seastar"
+  ],
+  "title": "Stripes on the rocks",
+  "teaches": "Zones of a Salish Sea shore and what sets each edge",
+  "parts": [
+    {
+      "title": "Between Pacific tides",
+      "blocks": [
+        {"type": "text", "text": "In 1939 a marine biologist who ran a small specimen business on Cannery Row in Monterey, Ed Ricketts, published a guide to the seashore with the writer Jack Calvin. Earlier guides listed animals by their family trees: all the snails together, all the crabs together. *Between Pacific Tides* did something new. It sorted the animals by where on the shore they lived, by height and by how hard the waves hit, from the **splash zone** at the top, wet only by spray and the highest tides, to the lowest rocks bared by the year's lowest tides, because, Ricketts wrote, that is how anyone standing on the rocks meets them[^ricketts]."},
+        {"type": "text", "text": "Go to Rosario Beach, by Deception Pass, or to Salt Creek, west of Port Angeles[^pools], at a low tide, and you will see why the idea worked. The rocks are striped. At the top is a band of black, which looks like spilled tar and is a lichen[^lichen]. Below it comes a pale band of acorn barnacles, then a dark band of mussels hung with olive rockweed, then pink crusts, red seaweeds, purple and orange sea stars and green anemones, and at the very bottom, bared only for an hour or two, the brown ribbons of kelp and the bright green blades of surfgrass. The edges between the bands are sharp, often to within a few centimetres."}
+      ]
+    },
+    {
+      "title": "Two tides a day, and not the same",
+      "blocks": [
+        {"type": "text", "text": "What sets each band is how long it spends out of the water, and that depends on the tides. On most coasts of the world there are two high tides and two low tides a day. In the Pacific Northwest the two are very unequal: a high high tide and a lower one, a low low tide and a higher one. These are called **mixed tides**. They come from several rhythms added together, set by the pull of the Moon and the Sun as the Earth turns, some that repeat about twice a day and some about once a day. When the rhythms line up, the lows are very low; when they cancel, the tide barely moves[^rhythms]."},
+        {"type": "text", "text": "The timing matters to the animals as much as the height. Here the lowest tides of the year fall around the middle of the day in late spring and summer, and in the middle of the night in winter. In June the lowest shore is bared for hours under a hot sun, and an animal living there has to survive drying out; in December it is bared on cold nights, and has to survive frost."},
+        {"type": "interactive_diagram", "id": "tide", "caption": "A month of mixed tides like those at Port Townsend, built from five tidal rhythms, beside a rock banded as a sheltered Salish Sea shore is, roughly. Move the marker up and down the rock. A model.", "task": "Visit four bands and see how long each spends dry", "goal": "zones", "aspect_ratio": 1.69}
+      ]
+    },
+    {
+      "title": "What sets the top of each band",
+      "blocks": [
+        {"type": "text", "text": "A shore animal is a sea animal, and nearly all of them feed only when the water covers them. Out of the water, a barnacle shuts its plates and a mussel its shell, holding a little seawater inside, and waits. The higher up the rock, the longer the wait and the hotter and drier it gets. Each kind can last only so long, and that sets the top edge of its band. Acorn barnacles can stand being dry for most of the day; mussels for less; sea stars and anemones for only a few hours."},
+        {"type": "text", "text": "Lesson 7 showed what usually sets the bottom edge: other animals. Joseph Connell's barnacles in Scotland could have lived lower on the rock, but a bigger barnacle crowded them out. Robert Paine's mussels could have lived lower, but sea stars ate them. On this coast the same rule holds: the top of a band is where its owners dry out; the bottom is where something else takes over or eats them."}
+      ]
+    },
+    {
+      "title": "Waves and shelter",
+      "blocks": [
+        {"type": "text", "text": "The bands are not at the same height everywhere. On the open coast, waves throw spray high up the rocks and keep them wet, so every band sits higher than on a sheltered shore inside the Salish Sea. Ricketts and Calvin sorted their guide by wave exposure as well as height, and a visitor who walks from a sheltered cove to a wave-beaten point on the same beach can watch the barnacle band climb."},
+        {"type": "text", "text": "Shade and slope matter too. A north-facing rock dries more slowly than a south-facing one; a crack holds water; a tide pool is a piece of the lower shore carried up the rock, where animals of the lower bands can live far above their usual height."},
+        {"type": "key_ideas", "title": "Outside", "points": ["Check a tide table for a low tide below zero, which in summer will fall around midday. At the shore, sketch the bands on one rock and estimate the height of each edge against your own height. Walk gently: step on bare rock, not on animals or seaweed, and put back any rock you turn over the way you found it."]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on shore zones", "task": "Choose the best answer to each", "options": {"items": [{"ask": "How did Ricketts and Calvin sort the animals in Between Pacific Tides?", "choices": ["By height on the shore and wave exposure", "By their family trees", "By size, from largest to smallest"], "answer": 0, "why": "They arranged the book by height on the shore and by wave exposure, the way a visitor meets the animals."}, {"ask": "What are mixed tides?", "choices": ["Two highs and two lows a day, of unequal heights", "Tides that come only once a day", "Tides mixed with river water"], "answer": 0, "why": "Rhythms that repeat about twice a day and about once a day add together, so one low is much lower than the other."}, {"ask": "What usually sets the top edge of a band?", "choices": ["How long its owners can survive out of water", "Predators coming down from above", "How far up their larvae can swim"], "answer": 0, "why": "Higher up the rock means longer, hotter and drier spells. Each kind can stand only so much."}, {"ask": "Why are the lowest summer tides here hard on the animals bared by them?", "choices": ["They come around midday, under a hot sun", "They come at night, in frost", "They last for several days"], "answer": 0, "why": "In winter the lowest tides fall at night instead, bringing cold rather than heat."}, {"ask": "Why do the bands sit higher on a wave-beaten point than in a sheltered cove?", "choices": ["Spray keeps the higher rock wet", "The tides are higher on points", "Predators avoid the waves"], "answer": 0, "why": "Animals can live higher where waves keep them from drying out."}]}}
+      ]
+    }
+  ],
+  "summary": [
+    "**Ricketts and Calvin sorted the shore by height in 1939.** Between Pacific Tides arranged animals the way a visitor meets them.",
+    "**A Salish Sea shore is striped.** Black lichen, barnacles, mussels and rockweed, then sea stars and red algae, then kelp and surfgrass.",
+    "**The tides here are mixed.** Two unequal highs and lows a day, from rhythms of about half a day and a day.",
+    "**The lowest tides come at midday in summer and at night in winter.** The lower shore faces heat in one season and frost in the other.",
+    "**Drying sets the top of each band; neighbours set the bottom.** Lesson 7's crowding and predation at a place you can walk to.",
+    "**Spray and shade move the bands.** They sit higher on wave-beaten points than in sheltered coves."
+  ],
+  "journal": [],
+  "footnotes": {
+    "ricketts": {
+      "kind": "digression",
+      "title": "Doc",
+      "text": "Ricketts was a close friend of John Steinbeck, who drew the character Doc in Cannery Row from him. In 1940 they sailed together to collect animals in the Gulf of California. Ricketts died in 1948 when a train hit his car near his laboratory."
+    },
+    "lichen": {
+      "kind": "technical",
+      "title": "The black band",
+      "text": "The tar-like crust at the top of many shores is a lichen, a fungus and an alga living together, in the genus Verrucaria. It lives where only spray and the highest tides reach. Tiny periwinkle snails graze on it."
+    },
+    "rhythms": {
+      "kind": "technical",
+      "title": "Why two rhythms",
+      "text": "The Moon raises two bulges of water on opposite sides of the Earth, so most places pass under a bulge twice a day. Because the Moon's path is tilted to the equator, the two bulges a place passes through are often unequal, which adds a once-a-day rhythm. The Sun does the same, more weakly. In the North Pacific the once-a-day rhythms are unusually strong."
+    },
+    "pools": {
+      "kind": "digression",
+      "title": "Marine reserves",
+      "text": "Some of the best tide pools in Washington, including Salt Creek's Tongue Point, are marine reserves where nothing may be collected. Ranger and volunteer guides often lead walks at the lowest summer tides."
+    }
+  }
+}
