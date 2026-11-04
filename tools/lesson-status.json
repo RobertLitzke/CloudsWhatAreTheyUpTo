@@ -93,6 +93,38 @@
       "student": "pending",
       "facts": "pending",
       "note": "Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026, no student read-through yet. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, and Portugal's treatment of Social Security and Roth IRAs."
+    },
+    "fungi": {
+      "title": "Fungi (working title)",
+      "order": 11,
+      "note": "Outline only, not yet approved: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (4 Nov 2026). How fungi work and their kinds, lichens included; not about edible fungi or foraging. 16 trunk lessons and branches L, N, M.",
+      "planned": [
+        {"id": "rings", "n": 1, "title": "The ring in the meadow", "teaches": "A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries"},
+        {"id": "kingdom", "n": 2, "title": "Closer to us than to plants", "teaches": "Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals"},
+        {"id": "tips", "n": 3, "title": "Eating from the outside", "teaches": "How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food"},
+        {"id": "spores", "n": 4, "title": "Seven trillion spores", "teaches": "How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans"},
+        {"id": "sexes", "n": 5, "title": "Twenty thousand sexes", "teaches": "Mating types, fused threads and the two-nucleus stage of a mushroom's life"},
+        {"id": "groups", "n": 6, "title": "Sacs and clubs", "teaches": "The main groups of fungi told apart by how they make spores"},
+        {"id": "yeast", "n": 7, "title": "The yeast that wastes its sugar", "teaches": "Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen"},
+        {"id": "rot", "n": 8, "title": "The gap in the coal", "teaches": "White and brown rot, lignin, and whether wood-rotting fungi ended the age of coal"},
+        {"id": "network", "n": 9, "title": "Do trees share through fungi?", "teaches": "The two kinds of root fungi and what the evidence shows about carbon passing between trees"},
+        {"id": "lichens", "n": 10, "title": "A lichen is two (or three)", "teaches": "A fungus farming algae, and how drying out and waking lets lichens live on bare rock"},
+        {"id": "mould", "n": 11, "title": "The mould on Fleming's plate", "teaches": "Fungal chemical weapons, penicillin, and resistance"},
+        {"id": "blight", "n": 12, "title": "Four billion chestnuts", "teaches": "How fungal plant diseases spread, imported blights, two-host rusts, and the water mould of the Irish famine"},
+        {"id": "animals", "n": 13, "title": "The frogs that went quiet", "teaches": "The chytrid killing frogs, white-nose syndrome in bats, and the fungus that steers ants"},
+        {"id": "individual", "n": 14, "title": "The largest living thing?", "teaches": "Telling one fungus from another with mating tests and DNA; Michigan's humongous Armillaria"},
+        {"id": "prototaxites", "n": 15, "title": "A trunk with no leaves", "teaches": "How a Devonian fossil eight metres tall is weighed as fungus or not, and fungi with the first land plants"},
+        {"id": "log", "n": 16, "title": "A log's hundred years", "teaches": "Which fungi arrive in a fallen log and in what order, and what they leave behind"},
+        {"id": "bark", "n": 101, "code": "L1", "title": "The lichens that left the city", "teaches": "Lichens as a gauge of sulphur in the air, and their return since coal smoke ended", "branch": "More lichens"},
+        {"id": "lichenometry", "n": 102, "code": "L2", "title": "Dating a moraine by its lichens", "teaches": "Using the slow steady growth of crust lichens to date bare rock", "branch": "More lichens"},
+        {"id": "canopy", "n": 103, "code": "L3", "title": "Gardens in the canopy", "teaches": "Nitrogen-fixing lichens high in old Douglas-firs and what they add to the forest", "branch": "More lichens"},
+        {"id": "humongous", "n": 201, "code": "N1", "title": "The fungus under the Blue Mountains", "teaches": "The giant Armillaria of the Malheur forest and root disease in dry Northwest forests", "branch": "Northwest fungi"},
+        {"id": "pumice", "n": 202, "code": "N2", "title": "Gophers on the pumice", "teaches": "How pocket gophers brought root fungi back to Mount St Helens' pumice plain", "branch": "Northwest fungi"},
+        {"id": "truffles", "n": 203, "code": "N3", "title": "The squirrel, the truffle and the owl", "teaches": "Underground truffles, the flying squirrels that spread them and the owls that eat the squirrels", "branch": "Northwest fungi"},
+        {"id": "spore-print", "n": 301, "code": "M1", "title": "A spore print and a microscope", "teaches": "How mycologists examine a fungus: spore prints, gills and spores under the microscope", "branch": "Looking closely"},
+        {"id": "barcode", "n": 302, "code": "M2", "title": "Names written in DNA", "teaches": "Naming fungi by a DNA barcode and finding unseen groups in soil", "branch": "Looking closely"},
+        {"id": "how-many", "n": 303, "code": "M3", "title": "How many kinds of fungi?", "teaches": "About 150,000 named and 2 to 4 million estimated, and how that estimate is made", "branch": "Looking closely"}
+      ]
     }
   },
   "notStarted": []

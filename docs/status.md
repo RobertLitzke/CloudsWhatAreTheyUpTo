@@ -16,6 +16,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Money That Lasts](#finance) | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
+| [Fungi (working title)](#fungi) | 0 | 25 | 0 | 0 | 0 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -386,6 +387,38 @@ A lesson's status is the first step it still waits for, in the order: student re
 | H2 | Long-term care (`long-term-care`) | Health after 65 | needs student read-through | Gemini (queued 2026-11-04); Fact check | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
 | S1 | Coast, part-time and partial (`coast`) | Other shapes | needs student read-through | Gemini (queued 2026-11-04); Fact check | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
 | S2 | The house (`housing`) | Other shapes | needs student read-through | Gemini (queued 2026-11-04); Fact check | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
+
+## Fungi (working title) <a id="fungi"></a>
+
+No course folder yet (`courses/fungi` when built). Outline only, not yet approved: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (4 Nov 2026). How fungi work and their kinds, lichens included; not about edible fungi or foraging. 16 trunk lessons and branches L, N, M.
+
+| Code | Lesson | Branch | Status | Also waiting on | What it covers |
+| --- | --- | --- | --- | --- | --- |
+| 1 | The ring in the meadow (`rings`) |  | planned, outline only |  | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
+| 2 | Closer to us than to plants (`kingdom`) |  | planned, outline only |  | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
+| 3 | Eating from the outside (`tips`) |  | planned, outline only |  | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
+| 4 | Seven trillion spores (`spores`) |  | planned, outline only |  | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
+| 5 | Twenty thousand sexes (`sexes`) |  | planned, outline only |  | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
+| 6 | Sacs and clubs (`groups`) |  | planned, outline only |  | The main groups of fungi told apart by how they make spores. |
+| 7 | The yeast that wastes its sugar (`yeast`) |  | planned, outline only |  | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
+| 8 | The gap in the coal (`rot`) |  | planned, outline only |  | White and brown rot, lignin, and whether wood-rotting fungi ended the age of coal. |
+| 9 | Do trees share through fungi? (`network`) |  | planned, outline only |  | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
+| 10 | A lichen is two (or three) (`lichens`) |  | planned, outline only |  | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
+| 11 | The mould on Fleming's plate (`mould`) |  | planned, outline only |  | Fungal chemical weapons, penicillin, and resistance. |
+| 12 | Four billion chestnuts (`blight`) |  | planned, outline only |  | How fungal plant diseases spread, imported blights, two-host rusts, and the water mould of the Irish famine. |
+| 13 | The frogs that went quiet (`animals`) |  | planned, outline only |  | The chytrid killing frogs, white-nose syndrome in bats, and the fungus that steers ants. |
+| 14 | The largest living thing? (`individual`) |  | planned, outline only |  | Telling one fungus from another with mating tests and DNA; Michigan's humongous Armillaria. |
+| 15 | A trunk with no leaves (`prototaxites`) |  | planned, outline only |  | How a Devonian fossil eight metres tall is weighed as fungus or not, and fungi with the first land plants. |
+| 16 | A log's hundred years (`log`) |  | planned, outline only |  | Which fungi arrive in a fallen log and in what order, and what they leave behind. |
+| L1 | The lichens that left the city (`bark`) | More lichens | planned, outline only |  | Lichens as a gauge of sulphur in the air, and their return since coal smoke ended. |
+| L2 | Dating a moraine by its lichens (`lichenometry`) | More lichens | planned, outline only |  | Using the slow steady growth of crust lichens to date bare rock. |
+| L3 | Gardens in the canopy (`canopy`) | More lichens | planned, outline only |  | Nitrogen-fixing lichens high in old Douglas-firs and what they add to the forest. |
+| N1 | The fungus under the Blue Mountains (`humongous`) | Northwest fungi | planned, outline only |  | The giant Armillaria of the Malheur forest and root disease in dry Northwest forests. |
+| N2 | Gophers on the pumice (`pumice`) | Northwest fungi | planned, outline only |  | How pocket gophers brought root fungi back to Mount St Helens' pumice plain. |
+| N3 | The squirrel, the truffle and the owl (`truffles`) | Northwest fungi | planned, outline only |  | Underground truffles, the flying squirrels that spread them and the owls that eat the squirrels. |
+| M1 | A spore print and a microscope (`spore-print`) | Looking closely | planned, outline only |  | How mycologists examine a fungus: spore prints, gills and spores under the microscope. |
+| M2 | Names written in DNA (`barcode`) | Looking closely | planned, outline only |  | Naming fungi by a DNA barcode and finding unseen groups in soil. |
+| M3 | How many kinds of fungi? (`how-many`) | Looking closely | planned, outline only |  | About 150,000 named and 2 to 4 million estimated, and how that estimate is made. |
 
 ## Encyclopedia
 
