@@ -16,7 +16,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.1 beta | 25 | 0 | 0 | 25 | 25 | 24 | 0 |
+| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 25 | 25 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -32,7 +32,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Botany | 0.1 beta | 2026-11-04 | no: 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
 | Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check, 17 awaiting photos |
 | Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to copy-edit, 32 to fact-check |
-| Fungi | 0.1 beta | 2026-11-04 | no: 25 to copy-edit, 25 to fact-check, 24 awaiting photos |
+| Fungi | 0.2 beta | 2026-11-04 | no: 25 to copy-edit, 25 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -406,7 +406,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Fungi <a id="fungi"></a>
 
-`courses/fungi`, version 0.1 (beta, 2026-11-04). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).
+`courses/fungi`, version 0.2 (beta, 2026-11-04). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
