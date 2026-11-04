@@ -1,0 +1,74 @@
+{
+  "id": "log",
+  "n": 16,
+  "title": "A log's afterlife",
+  "teaches": "How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way",
+  "summary": [
+    "**A fallen log is rotted by a succession of fungi.** Different fungi take over at different stages, over years to centuries.",
+    "**The first fungi were already inside the living tree.** They wait in the sapwood and wake as the wood dries.",
+    "**Then spores land and the first wood-rotters move in.** Each takes a territory of its own inside the log.",
+    "**Fungi fight for wood.** Where two meet they wall each other off with dark lines, and stronger invaders take over weaker ones.",
+    "**Late in decay, soil fungi and tree roots move in.** The soft wood holds water and becomes a seedbed: a nurse log.",
+    "**Conifer logs last far longer than oaks, and logs off the ground last longer still.** Dry wood barely rots.",
+    "**Harmon's experiment will run for two hundred years.** Since 1985, 530 logs in an Oregon forest have been weighed and sampled as they rot.",
+    "**Dead wood is a habitat.** A large share of forest species, from beetles to birds, need it."
+  ],
+  "parts": [
+    {
+      "title": "Storm damage",
+      "blocks": [
+        {"type": "text", "text": "When an old oak comes down in a storm, it lies across the forest floor as a great store of food: hundreds of kilograms of cellulose and lignin that almost nothing but fungi can eat. Lesson 8 showed how a fungus rots wood. This lesson follows a whole log, from the day it falls to the day it is soil, and that turns out to be the work of many fungi, one after another, over decades."},
+        {"type": "text", "text": "Ecologists call such a sequence a **succession**, the word they use for the way bare ground passes from weeds to shrubs to forest. Inside a log there is a succession of fungi. Each group changes the wood in ways that suit the next, and each is pushed out in turn."}
+      ]
+    },
+    {
+      "title": "Already inside",
+      "blocks": [
+        {"type": "text", "text": "The first surprise is that the rot often begins before the tree falls. In the 1980s and 1990s the British mycologist Lynne Boddy and her colleagues cut small pieces of wood from healthy branches and trunks, sterilised the surface, and kept them in damp dishes. Fungi grew out of most of them. They had been living quietly inside the sapwood all along, as tiny patches of thread that did no harm while the wood was wet and alive."},
+        {"type": "text", "text": "When a branch dies or a tree falls, the wood begins to dry, and these latent fungi wake. They have a head start on every spore that will land on the log later. They take the easy sugars first, and some of them, black crusts and charcoal-like knobs on dead beech and ash, go on to rot the wood themselves.[^latent]"},
+        {"type": "interactive_diagram", "id": "afterlife", "caption": "The groups of fungi most active in a fallen log, year by year, and the share of its wood left. A model; real logs vary widely.", "task": "Follow an oak and a Douglas-fir for at least 40 years", "goal": "decades", "aspect_ratio": 1.65}
+      ]
+    },
+    {
+      "title": "A war in the wood",
+      "blocks": [
+        {"type": "text", "text": "Within a year or two spores land on the bark and on broken ends, and the first true wood-rotters grow in: brackets like the turkey tail, crusts, and the mycelia of mushrooms. Each colonises a part of the log and holds it. Cut a log at this stage and its cross-section is a map of territories, each in its own shade, separated by thin black lines."},
+        {"type": "diagram", "id": "territories", "caption": "A cross-section of a rotting log, with the territories of several fungi."},
+        {"type": "text", "text": "The lines are walls. Where two fungi meet they fight, with chemicals that kill or stop the other's threads, and each lays down a dark barrier of pigmented, hardened threads to keep the other out, the same lines that make spalted wood beautiful. Boddy's group has staged thousands of such fights in the laboratory, pairing blocks of wood colonised by different fungi. Some fungi win almost every fight and some almost always lose, but much depends on conditions: a fungus that wins in a wet, warm block may lose in a dry, cool one.[^combat]"},
+        {"type": "text", "text": "Over the years stronger fungi take ground from the first colonists. Some reach the log from the soil along cords, like the honey fungus of lesson 14, and spread from it to the next log. The wood softens, the bark slips off, and the log begins to sag."}
+      ]
+    },
+    {
+      "title": "Becoming soil",
+      "blocks": [
+        {"type": "text", "text": "By the late stages the log is soft enough to push a finger into, wet as a sponge, and riddled with the tunnels of beetles and ants. Soil fungi spread through it, and so do the root fungi of lesson 9, and the roots of living trees with them. In the wet forests of the Pacific Northwest, hemlock and spruce seedlings sprout on such logs in great numbers, lifted above the moss and the competition of the forest floor. The log becomes a **nurse log**. Decades later, when it has rotted away, a row of trees stands in a straight line on stilt-like roots, tracing where it lay."},
+        {"type": "text", "text": "How long it all takes depends on the wood and the place. An oak log in a damp English wood may be mostly gone in fifty years. A Douglas-fir log in Oregon can take two or three centuries, its resin and its size slowing the fungi down. A log held off the ground, propped on others or still standing as a dead tree, stays drier and rots far more slowly, as lesson 8's swamps showed from the other side: fungi need water and air together."},
+        {"type": "text", "text": "To measure this properly, Mark Harmon and his colleagues at Oregon State University laid out 530 freshly cut logs of four kinds of conifer in a forest in the Oregon Cascades in 1985, and began sampling them. The experiment is designed to run for two hundred years, long after everyone who started it has died. Its results so far show that logs of the same kind, lying side by side, can rot at very different speeds, and point to which fungi get into them first as one reason.[^harmon]"}
+      ]
+    },
+    {
+      "title": "What the log gives",
+      "blocks": [
+        {"type": "text", "text": "A rotting log is one of the richest places in a forest. Beetles, flies, mites, woodlice, salamanders, mosses, liverworts and lichens live on and in it, and birds feed on what they find there. In European forests, roughly a fifth to a quarter of all forest species need dead wood at some stage of their lives. Many of them depend on a particular stage of rot, and therefore on a particular fungus having been there first."},
+        {"type": "text", "text": "This course began with a ring of mushrooms on a lawn, a fungus moving outward because it had eaten the dead matter behind it. A log is the same story at the scale of a forest. Fungi are the reason the carbon a tree took from the air goes back to it, the reason fallen wood becomes soil, and much of the reason the floor of a forest is full of life. Most of that work happens out of sight, in threads in the dark."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on a log's afterlife", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Where do the first fungi in a freshly fallen log usually come from?", "choices": ["They were already living inside the healthy tree", "They are carried in by beetles years later", "They grow up from the soil underneath"], "answer": 0, "why": "Latent fungi live quietly in sapwood and wake as the wood dries, ahead of any spore that lands later."},
+          {"ask": "What are the dark lines inside a rotting log?", "choices": ["Walls fungi build where their territories meet", "Annual growth rings", "Tunnels made by beetles"], "answer": 0, "why": "Where two fungi meet, each lays down a barrier of dark, hardened threads to keep the other out."},
+          {"ask": "Why does a log propped off the ground rot more slowly?", "choices": ["It stays drier, and fungi need water to grow", "It gets less light", "Fungi cannot climb"], "answer": 0, "why": "Off the ground the wood dries out between rains. Fungi need both water and air, so dry wood barely rots."},
+          {"ask": "What is a nurse log?", "choices": ["A rotting log that young trees grow on", "A log kept for study", "A log that heals itself"], "answer": 0, "why": "Late in decay a log is soft and wet, and seedlings rooted on it are lifted above the moss. A line of trees can mark where it lay."},
+          {"ask": "What did the early results of Harmon's long experiment show?", "choices": ["Logs of the same kind side by side can rot at very different speeds", "All logs of a kind rot at the same speed", "Conifer logs never rot"], "answer": 0, "why": "Logs of one kind differ widely, and which fungi get in first seems to be one reason."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "latent": {"kind": "technical", "title": "Latent fungi", "text": "Such fungi are called latent or endophytic, living inside a plant without harming it. In living sapwood the water and lack of air keep them in check. Among them are *Daldinia*, whose black knobs on dead ash are called King Alfred's cakes, and *Hypoxylon*, whose crusts on beech look like spilt tar."},
+    "combat": {"kind": "digression", "title": "Ranking the fighters", "text": "Boddy's experiments found no simple ladder in which every fungus beats all those below it. Sometimes A beats B, B beats C and C beats A, as in rock, paper, scissors, which helps several fungi to live side by side in one forest."},
+    "harmon": {"kind": "technical", "title": "The long experiment", "text": "The logs, of Douglas-fir, western hemlock, Pacific silver fir and western redcedar, lie in the H. J. Andrews Experimental Forest. A few are cut apart every so often to see what is inside. Redcedar, rich in chemicals that hold back fungi, rots slowest."}
+  }
+}

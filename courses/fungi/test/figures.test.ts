@@ -23,6 +23,7 @@ import { clearWin, decoys } from '../src/figures/glow';
 import { fruiting } from '../src/figures/hunters';
 import { groups } from '../src/figures/individual';
 import { standing } from '../src/figures/prototaxites';
+import { stages, woodLeft } from '../src/figures/log';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -227,6 +228,20 @@ describe('figures', () => {
     expect(standing([true, true, true, false])).toEqual([false, false, true, true]);
     const f = FIGURES.clues(context(), 'clues');
     for (const c of ['1. Tubes, not wood', '2. Grew on land', '3. Carbon varies', '4. No chitin traces']) click(f.node, c);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 16: latent fungi first, soil fungi last; firs and propped logs rot slower', async () => {
+    const s0 = stages(0, 1);
+    expect(s0.pioneers).toBeGreaterThan(s0.late);
+    const s80 = stages(0, 80);
+    expect(s80.late).toBeGreaterThan(s80.pioneers);
+    expect(woodLeft(1, 40)).toBeGreaterThan(woodLeft(0, 40));
+    expect(woodLeft(0, 40, false)).toBeGreaterThan(woodLeft(0, 40, true));
+    const f = FIGURES.afterlife(context(), 'decades');
+    guess(f.node, 'Fungi already living inside the tree');
+    setSlider(f.node, 0, 50);
+    click(f.node, 'Douglas-fir');
     await expect(f.done).resolves.toBeUndefined();
   });
 });

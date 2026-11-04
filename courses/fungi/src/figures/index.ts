@@ -22,6 +22,7 @@ import { cycleLightStill, decoyFigure } from './glow';
 import { antFigure, trapsStill } from './hunters';
 import { mapFigure, pairingStill } from './individual';
 import { cluesFigure, scaleStill } from './prototaxites';
+import { logFigure, territoriesStill } from './log';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -72,4 +73,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 15
   tallest: scaleStill,
   clues: cluesFigure,
+  // Lesson 16
+  afterlife: logFigure,
+  territories: territoriesStill,
 };
