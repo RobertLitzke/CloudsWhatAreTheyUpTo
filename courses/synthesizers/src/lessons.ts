@@ -20,7 +20,6 @@ const TRUNK_COMING: SynthLesson[] = [
 ];
 
 const BRANCH_COMING: SynthLesson[] = [
-  coming('organ', 102, 'Organs by telephone', 'Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines', { branch: 'engines', needs: ['macros'] }),
   coming('pluck', 103, 'A string from a delay line', 'Physical models: Karplus and Strong’s plucked string, and struck bars and bells', { branch: 'engines', needs: ['macros'] }),
   coming('vocoder', 104, 'The talking synth', 'Formants, speech engines and Homer Dudley’s vocoder', { branch: 'engines', needs: ['macros'] }),
   coming('samples', 105, 'Wagon wheels and aliasing', 'Sampling, Nyquist and why a recording played faster turns into a chipmunk', { branch: 'engines', needs: ['macros'] }),

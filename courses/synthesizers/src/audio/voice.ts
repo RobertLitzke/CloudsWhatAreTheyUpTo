@@ -17,7 +17,8 @@
 //          to six extra saws, detuned, using the extra pitches; table
 //          crossfades eight single-cycle waves, at a place set by a knob plus
 //          the envelope and the LFO (each frame's level is that place put
-//          through a wave shaper, so the scan runs at audio rate)
+//          through a wave shaper, so the scan runs at audio rate); additive
+//          is one oscillator whose PeriodicWave is rebuilt from the knobs
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -60,7 +61,7 @@ import { arpPick, arpSequence } from '../core/arp';
 import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
 import { ARP_MODE, CHAIN, CHORDS, ENGINE, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
-import { TABLE_FRAMES, TABLE_LAST } from '../core/tables';
+import { additiveAmps, TABLE_FRAMES, TABLE_LAST } from '../core/tables';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
@@ -284,7 +285,7 @@ class Echo {
 interface Bank {
   /** Saw, triangle, sine, and the morph engine's square an octave down. */
   o1: OscillatorNode[];
-  /** The wavetable's frames; empty unless the table engine is on. */
+  /** The wavetable's frames, or the additive engine's one oscillator; empty for the other engines. */
   tbl: OscillatorNode[];
   /** The extra pitches, each a saw, triangle and sine; empty when the sound has none. */
   x: OscillatorNode[][];
@@ -324,6 +325,9 @@ export class Voice {
   private readonly scanEnv: GainNode;
   private readonly scanLfo: GainNode;
   private readonly tableOut: GainNode;
+  /** The additive oscillator's way in, and the knob settings its wave was last built for. */
+  private readonly addIn: GainNode;
+  private addKey = '';
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -470,6 +474,8 @@ export class Voice {
     this.scanEnv.connect(scan);
     this.scanLfo = gain(0);
     this.scanLfo.connect(scan);
+    this.addIn = gain(0);
+    this.addIn.connect(this.mix);
     this.frameIn = TABLE_FRAMES.map((_, i) => {
       const level = gain(0);
       const shaper = ctx.createWaveShaper();
@@ -626,16 +632,19 @@ export class Voice {
           return o;
         }))
       : [];
+    const engineOsc = (wave: PeriodicWave, to: GainNode) => {
+      const o = ctx.createOscillator();
+      o.setPeriodicWave(wave);
+      o.frequency.value = this.lastHz;
+      o.start(t);
+      wire(o, to);
+      return o;
+    };
     const tbl = this.engine() === ENGINE.table
-      ? tableWavesFor(ctx).map((wave, i) => {
-          const o = ctx.createOscillator();
-          o.setPeriodicWave(wave);
-          o.frequency.value = this.lastHz;
-          o.start(t);
-          wire(o, this.frameIn[i]);
-          return o;
-        })
-      : [];
+      ? tableWavesFor(ctx).map((wave, i) => engineOsc(wave, this.frameIn[i]))
+      : this.engine() === ENGINE.additive
+        ? [engineOsc(this.additiveWave(), this.addIn)]
+        : [];
     // Vibrato moves the modulator too, so the ratio holds.
     this.lfoPitch.connect(mod.detune);
     this.env2Pitch.connect(mod.detune);
@@ -696,6 +705,17 @@ export class Voice {
   /** How loud each extra pitch is: the supersaw's Timbre sets its outer saws; anything else is at full. */
   private sideLevel(): number {
     return this.engine() === ENGINE.supersaw ? this.sound.engineTimbre : 1;
+  }
+
+  /** The additive engine's wave, from its three knobs. */
+  private additiveWave(): PeriodicWave {
+    const s = this.sound;
+    this.addKey = `${s.engineWave}:${s.engineTimbre}:${s.engineShape}`;
+    const amps = additiveAmps(s.engineWave, s.engineTimbre, s.engineShape);
+    const real = new Float32Array(amps.length + 1);
+    const imag = new Float32Array(amps.length + 1);
+    amps.forEach((a, i) => (imag[i + 1] = a));
+    return this.ctx.createPeriodicWave(real, imag, { disableNormalization: true });
   }
 
   /** The pulse width now: the width knob, or the morph engine's Timbre. */
@@ -797,7 +817,12 @@ export class Voice {
 
     // A sound that has just begun to stack pitches needs oscillators for them.
     const newest = this.banks[this.banks.length - 1];
-    if (!immediate && ((this.stacked() && newest.x.length < this.slots()) || (this.engine() === ENGINE.table && newest.tbl.length === 0))) this.renew(t);
+    const engineOscs = this.engine() === ENGINE.table ? TABLE_FRAMES.length : this.engine() === ENGINE.additive ? 1 : 0;
+    if (!immediate && ((this.stacked() && newest.x.length < this.slots()) || (engineOscs > 0 && newest.tbl.length !== engineOscs))) this.renew(t);
+    else if (this.engine() === ENGINE.additive && this.addKey !== `${s.engineWave}:${s.engineTimbre}:${s.engineShape}`) {
+      const wave = this.additiveWave();
+      for (const bank of this.banks) bank.tbl[0]?.setPeriodicWave(wave);
+    }
 
     // The wave select, as the engine has it: one wave (classic, supersaw's
     // saws), a blend of two neighbours (morph), or none (fold).
@@ -805,9 +830,10 @@ export class Voice {
     const morph = engine === ENGINE.morph;
     const fold = engine === ENGINE.fold;
     const table = engine === ENGINE.table;
+    const additive = engine === ENGINE.additive;
     const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
     const at = 3 * s.engineWave;
-    const weight = (i: number) => (fold || table ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    const weight = (i: number) => (fold || table || additive ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
     this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
     this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
     set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);
@@ -818,6 +844,7 @@ export class Voice {
     // Folding makes the wave fuller and louder; turn it down as the push goes up.
     set(this.foldOut.gain, fold ? 0.85 * (1 - 0.5 * Math.sqrt(s.engineWave)) * s.oscLevel : 0);
     set(this.tableOut.gain, table ? s.oscLevel : 0);
+    set(this.addIn.gain, additive ? s.oscLevel : 0);
     set(this.scanAt.offset, TABLE_LAST * s.engineWave);
     set(this.scanEnv.gain, table ? TABLE_LAST * s.engineShape : 0);
     set(this.scanLfo.gain, table ? (TABLE_LAST / 2) * s.engineTimbre : 0);

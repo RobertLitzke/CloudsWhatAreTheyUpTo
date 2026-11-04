@@ -9,6 +9,7 @@ import { checkFigure } from './check';
 import { clipFigure } from './clip';
 import { cycleFigure } from './cycle';
 import { curveFigure } from './curve';
+import { drawbarsFigure } from './drawbars';
 import { echoFigure } from './echo';
 import { enginesFigure } from './engines';
 import { harmonicsFigure } from './harmonics';
@@ -58,4 +59,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   engines: enginesFigure,
   // Branch lesson O1
   table: tableFigure,
+  // Branch lesson O2
+  drawbars: drawbarsFigure,
 };

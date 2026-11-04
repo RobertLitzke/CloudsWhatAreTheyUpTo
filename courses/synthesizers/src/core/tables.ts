@@ -34,3 +34,20 @@ export function frameAt(frame: number, x: number): number {
   amps.forEach((a, i) => (y += a * Math.sin(2 * Math.PI * (i + 1) * x)));
   return y;
 }
+
+/**
+ * The additive engine (branch lesson O2): a sum of sines, one per harmonic,
+ * set by three knobs. Wave is the brightness (how slowly the harmonics fall
+ * away), Timbre the even harmonics' level against the odd ones, and Shape how
+ * many harmonics there are, from the fundamental alone to 32. At zero, all
+ * three give a sine.
+ */
+export function additiveAmps(wave: number, timbre: number, shape: number): number[] {
+  const top = Math.round(1 + 31 * shape * shape);
+  const tilt = 3 - 2.6 * wave;
+  return even(Array.from({ length: H }, (_, i) => {
+    const n = i + 1;
+    if (n > top) return 0;
+    return Math.pow(n, -tilt) * (n % 2 ? 1 : timbre);
+  }));
+}
