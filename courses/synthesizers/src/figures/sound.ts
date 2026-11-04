@@ -11,13 +11,15 @@ import type { FigureContext, FigureFactory, FigureHandle, Options } from 'didact
 import { LATEST_RULES } from '../core/gen';
 import { PARAM_IDS, resolve, type ParamId, type Patch } from '../core/params';
 import { RIFFS, riffById } from '../core/riffs';
+import { riffLoop } from '../audio/engine';
 import { player } from './player';
 
 export interface SoundOptions extends Options {
   stage: number;
   riff?: number;
   start?: Partial<Patch>;
-  sounds: { name: string; set: Partial<Patch> }[];
+  /** Each sound may loop its own riff instead of the figure's. */
+  sounds: { name: string; set: Partial<Patch>; riff?: number }[];
 }
 
 const isParam = (id: string): id is ParamId => (PARAM_IDS as readonly string[]).includes(id);
@@ -32,7 +34,7 @@ function problems(o: Options | undefined): string[] {
       else if (pos < 0 || pos >= LATEST_RULES.steps[id].length) out.push(`${id} has no position ${pos}`);
     }
   }
-  if (s.riff != null && !riffById(s.riff)?.pd) out.push(`riff ${s.riff} is not one of the public-domain riffs every build has`);
+  for (const r of [s.riff, ...s.sounds.map((x) => x.riff)]) if (r != null && !riffById(r)?.pd) out.push(`riff ${r} is not one of the public-domain riffs every build has`);
   return out;
 }
 
@@ -48,7 +50,9 @@ const make = (ctx: FigureContext, _goal?: string, options?: Options): FigureHand
       type: 'button',
       onclick: () => {
         if (sound.playing() && on === i) return sound.stop();
+        if (sound.playing() && on !== i && (s.riff ?? riff.id) !== (o.sounds[on]?.riff ?? riff.id)) sound.stop();
         on = i;
+        sound.setLoop(riffLoop(riffById(s.riff ?? riff.id) ?? riff));
         sound.play(resolve({ ...rules.defaults, ...o.start, ...s.set }, rules.steps));
         paint();
       },

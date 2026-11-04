@@ -43,6 +43,8 @@ export interface TimedNote {
   legato?: boolean;
   /** A chord's other notes, in semitones from this one. */
   chord?: number[];
+  /** The cutoff lane, in octaves. */
+  lane?: number;
 }
 
 export function timedNotes(riff: Riff): TimedNote[] {
@@ -53,6 +55,7 @@ export function timedNotes(riff: Riff): TimedNote[] {
     off: (n.start + (n.slur ? n.len : gateSixteenths(n.len))) * riff.six,
     legato: riff.notes[(i + count - 1) % count].slur === true,
     chord: n.chord,
+    lane: n.lane,
     midi: n.midi,
     vel: n.vel ?? 1,
     press: n.press ?? 0,

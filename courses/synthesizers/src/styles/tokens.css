@@ -83,3 +83,6 @@
 .seq-fig .seq-flag.accent.on { fill: var(--amber); stroke: var(--amber); }
 .seq-fig .seq-flag.slide.on { fill: var(--orange); stroke: var(--orange); }
 .seq-fig .seq-flag.tie.on { fill: var(--muted); stroke: var(--muted); }
+.seq-fig .seq-lane-bg { fill: rgba(255, 255, 255, 0.03); stroke: var(--hair-dim); stroke-width: 0.5; cursor: ns-resize; }
+.seq-fig .seq-lane-mid { stroke: var(--hair-dim); stroke-width: 0.5; }
+.seq-fig .seq-lane-bar { fill: var(--amber); opacity: 0.85; pointer-events: none; }

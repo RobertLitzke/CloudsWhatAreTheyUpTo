@@ -294,6 +294,8 @@ export class Voice {
   private readonly keySrc: ConstantSourceNode;
   private readonly velSrc: ConstantSourceNode;
   private readonly pressSrc: ConstantSourceNode;
+  /** A sequence's recorded cutoff lane, in octaves, stepped note by note. */
+  private readonly laneSrc: ConstantSourceNode;
   /** Where pitch routes arrive (cents, to every oscillator) and cutoff routes (cents, to both filters). */
   private readonly pitchMod: GainNode;
   private readonly cutMod: GainNode;
@@ -442,10 +444,14 @@ export class Voice {
     this.keySrc = constant(0);
     this.velSrc = constant(1);
     this.pressSrc = constant(0);
+    this.laneSrc = constant(0);
+    const laneCut = gain(1200);
+    this.laneSrc.connect(laneCut);
     this.pitchMod = gain(1);
     this.cutMod = gain(1);
     this.cutMod.connect(this.f1.detune);
     this.cutMod.connect(this.f2.detune);
+    laneCut.connect(this.cutMod);
     const sources: Record<ModSource, AudioNode> = {
       Env: this.envSrc,
       Env2: this.env2Src,
@@ -803,7 +809,8 @@ export class Voice {
     return Math.round(this.sound.arpMode) !== ARP_MODE.off;
   }
 
-  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false, chord?: readonly number[]): void {
+  note(on: number, off: number, next: number, hz: number, vel = 1, press = 0, legato = false, chord?: readonly number[], lane = 0): void {
+    this.laneSrc.offset.setValueAtTime(lane, on);
     if (this.arpOn()) {
       this.arpeggiate(on, off, next, hz, vel, chord ?? []);
       return;
@@ -1013,6 +1020,8 @@ export class Voice {
       p.setTargetAtTime(0, t, 0.01);
     }
     for (const lfo of this.lfos) this.stopLfo(lfo, t);
+    this.laneSrc.offset.cancelScheduledValues(t);
+    this.laneSrc.offset.setValueAtTime(0, t);
     this.pending = [];
     this.level = 0;
     this.live = false;
@@ -1038,7 +1047,7 @@ export class Voice {
       this.noiseSrc.disconnect();
       this.env2Src.stop();
       this.env2Src.disconnect();
-      for (const c of [this.keySrc, this.velSrc, this.pressSrc]) {
+      for (const c of [this.keySrc, this.velSrc, this.pressSrc, this.laneSrc]) {
         c.stop();
         c.disconnect();
       }

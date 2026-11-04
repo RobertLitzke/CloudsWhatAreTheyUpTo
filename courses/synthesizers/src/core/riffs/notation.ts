@@ -7,6 +7,7 @@
 // (velocity, 0 to 1; 1 if omitted), `~1` for how hard it is leaned on once
 // down (pressure, rising through the note; 0 if omitted) and a closing `_`
 // for a note held until the next one starts, which is then played legato.
+// `^1.5` moves the cutoff for that note, in octaves (a recorded knob lane).
 // `A3+C4+E4:16` is a chord: a monophonic synth plays its first note, a
 // paraphonic one all of them,
 // and an optional `|` that must fall on a bar line (a cheap check against
@@ -26,6 +27,8 @@ export interface RiffNote {
   slur?: boolean;
   /** A chord: the other notes, as semitones above (or below) `midi`. */
   chord?: number[];
+  /** The cutoff lane's value on this note, in octaves. */
+  lane?: number;
 }
 
 const SEMITONE: Record<string, number> = { C: 0, D: 2, E: 4, F: 5, G: 7, A: 9, B: 11 };
@@ -56,9 +59,9 @@ export function parseNotation(text: string, bar = 16): ParsedNotation {
       if (pos % bar !== 0) throw new Error(`bar line at sixteenth ${pos}, not on a bar of ${bar}`);
       continue;
     }
-    const m = /^([^:@~_]+)(?::(\d+))?(?:@([\d.]+))?(?:~([\d.]+))?(_)?$/.exec(token);
+    const m = /^([^:@~_^]+)(?::(\d+))?(?:@([\d.]+))?(?:~([\d.]+))?(?:\^(-?[\d.]+))?(_)?$/.exec(token);
     if (!m) throw new Error(`bad token "${token}"`);
-    const [, name, lenText, velText, pressText, slur] = m;
+    const [, name, lenText, velText, pressText, laneText, slur] = m;
     const len = lenText == null ? 1 : Number(lenText);
     if (!Number.isInteger(len) || len < 1) throw new Error(`bad length in "${token}"`);
     if (name !== '-') {
@@ -70,6 +73,7 @@ export function parseNotation(text: string, bar = 16): ParsedNotation {
       if (velText != null) note.vel = Number(velText);
       if (pressText != null) note.press = Number(pressText);
       if (slur) note.slur = true;
+      if (laneText != null) note.lane = Number(laneText);
       if (!(note.vel == null || (note.vel >= 0 && note.vel <= 1)) || !(note.press == null || (note.press >= 0 && note.press <= 1))) throw new Error(`velocity or pressure out of 0 to 1 in "${token}"`);
       notes.push(note);
     }

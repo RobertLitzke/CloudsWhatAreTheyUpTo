@@ -1,0 +1,251 @@
+{
+ "id": "lanes",
+ "n": 21,
+ "title": "Knobs that remember",
+ "teaches": "Recorded knob moves in a sequence, and controlled randomness",
+ "parts": [
+  {
+   "title": "A hand on the knob",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The sound.** At the end of the last lesson you turned the cutoff by hand while the acid line played. Here is the line twice. In the first, the knobs stay put. In the second, the filter climbs through the bar, step by step, and snaps shut at the end, the same way every time round. Nobody's hand is on the knob."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "The acid line with the knobs still, then with a cutoff move recorded into the sequence",
+     "options": {
+      "stage": 21,
+      "riff": 110,
+      "start": {
+       "wave": 0,
+       "cutoff": 1,
+       "res": 4,
+       "envAmt": 3,
+       "decay": 1,
+       "sustain": 0,
+       "release": 1,
+       "legato": 1,
+       "glide": 1,
+       "mxVelCutoff": 8,
+       "mxVelLevel": 5
+      },
+      "sounds": [
+       {
+        "name": "Still",
+        "set": {}
+       },
+       {
+        "name": "Recorded",
+        "set": {},
+        "riff": 111
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The second sequence remembers a knob as well as notes. Alongside the pitch, accent and slide of each step, it stores a value for the cutoff, and as it plays it turns the cutoff to that value at each step. Synths call this **modulation lanes**, **motion recording**, **automation** or **parameter locks**, and it is how a sixteen-step pattern stops sounding like a loop."
+    }
+   ]
+  },
+  {
+   "title": "A lane",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "A **lane** is a row of values, one per step, for one knob. The sequencer below has a lane for the cutoff under its steps: each bar is how far that step moves the cutoff, up to two octaves either way. Drag across the lane to draw a shape, and hear the filter follow it."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "seq",
+     "caption": "The sequencer with a cutoff lane. Draw on the lane below the steps.",
+     "task": "Move the cutoff on four steps or more",
+     "goal": "lane-made",
+     "options": {
+      "start": {
+       "wave": 0,
+       "cutoff": 1,
+       "res": 4,
+       "envAmt": 2,
+       "decay": 1,
+       "sustain": 0,
+       "release": 1
+      },
+      "knobs": [
+       "cutoff",
+       "res"
+      ],
+      "lane": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "On a real synth a lane is usually recorded rather than drawn. Put the sequencer into record, turn a knob while the pattern plays, and the sequencer keeps each step's value. Most synths that have lanes give a sequence about four, each for any knob you choose: the cutoff on one, the resonance on another, the wave or the LFO's rate on a third. Some step from value to value; others glide, so a recorded sweep stays smooth."
+    }
+   ]
+  },
+  {
+   "title": "Spice and dice",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The other way to stop a loop sounding like a loop is to let it change itself, a little. Some sequencers have a pair of controls for this. **Dice** works out a new set of small changes to the pattern: a note dropped here, an octave jump there, an accent moved. **Spice** sets how many of those changes are heard, from none to all of them. Turn Spice up, then roll the Dice until you like what you hear."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "seq",
+     "caption": "The sequencer with Spice and Dice. Add some spice and roll.",
+     "task": "Roll the dice twice with some spice",
+     "goal": "dice-rolled",
+     "options": {
+      "start": {
+       "wave": 0,
+       "cutoff": 1,
+       "res": 4,
+       "envAmt": 2,
+       "decay": 1,
+       "sustain": 0,
+       "release": 1
+      },
+      "knobs": [
+       "cutoff",
+       "res"
+      ],
+      "dice": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "This is randomness on a leash. Sample and hold (lesson 13) gave a new random value at every tick, forever. A dice roll stays put until you roll again, so a variation you like can be kept, and Spice can bring it in a little at a time. It is a quick way to find variations of a pattern that you would never have written."
+    }
+   ]
+  },
+  {
+   "title": "Patterns that change",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Lanes and spice are two halves of one idea: the pattern carries more than notes. Many sequencers add more. A **probability** on each step says how often it plays at all. A **condition** plays it only every second or fourth time round. A step can be **ratcheted** into a quick burst of repeats. Each turns a fixed bar into something that develops over many."
+    },
+    {
+     "type": "text",
+     "text": "On an unfamiliar synth, the sequencer's lanes are often hidden behind a Record button and a knob turned while it plays; the dice and spice behind a pair of buttons or a shifted function. If a pattern seems to change the sound by itself, a lane is the likely reason. Clearing a lane is usually as easy as recording it."
+    }
+   ]
+  },
+  {
+   "title": "The climb",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now make the climb from the start of the lesson. Draw the cutoff lane rising through the bar: lowest on the first beat, higher on each beat after, and at least an octave up by the last. Play it and listen to the filter open as the bar goes on."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "seq",
+     "caption": "The sequencer with an empty cutoff lane. Make the filter climb through the bar.",
+     "task": "Draw the climb",
+     "goal": "lane-rise",
+     "options": {
+      "start": {
+       "wave": 0,
+       "cutoff": 1,
+       "res": 4,
+       "envAmt": 2,
+       "decay": 1,
+       "sustain": 0,
+       "release": 1
+      },
+      "knobs": [
+       "cutoff",
+       "res"
+      ],
+      "lane": true
+     }
+    },
+    {
+     "type": "text",
+     "text": "Try other shapes: a climb that drops back halfway, a single step that leaps up, or a lane that alternates high and low for a gated, stuttering sound. With a lane on the cutoff and an accent pattern, one sixteen-step bass line can carry a whole track."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Five questions on lanes and dice",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What does a modulation lane store?",
+        "choices": [
+         "A value for one knob on each step",
+         "A second melody",
+         "The tempo of the sequence"
+        ],
+        "answer": 0,
+        "why": "A lane is a row of values, one per step, that turns a knob as the pattern plays."
+       },
+       {
+        "ask": "How is a lane usually recorded on a synth?",
+        "choices": [
+         "Turn the knob while the sequencer plays in record",
+         "Type a list of numbers",
+         "Copy it from another synth"
+        ],
+        "answer": 0,
+        "why": "Motion recording keeps what the knob was doing at each step."
+       },
+       {
+        "ask": "What does Spice set?",
+        "choices": [
+         "How many of the dice's changes are heard",
+         "The tempo",
+         "The resonance"
+        ],
+        "answer": 0,
+        "why": "Spice is the amount of the variation the dice worked out."
+       },
+       {
+        "ask": "How is a dice roll different from sample and hold?",
+        "choices": [
+         "It stays the same until you roll again",
+         "It changes at every step, forever",
+         "It only changes the pitch"
+        ],
+        "answer": 0,
+        "why": "A roll can be kept; sample and hold never repeats."
+       },
+       {
+        "ask": "A pattern changes its sound by itself, the same way every bar. What is the likely cause?",
+        "choices": [
+         "A modulation lane",
+         "The arpeggiator's Random mode",
+         "Too much spice"
+        ],
+        "answer": 0,
+        "why": "A lane repeats exactly with the pattern; spice and random modes vary."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A sequence can remember knobs as well as notes**: modulation lanes, motion recording, automation, parameter locks.",
+  "**A lane is one value per step for one knob**, played back as the pattern plays.",
+  "**Lanes are usually recorded** by turning a knob while the sequencer records; about four per sequence is common.",
+  "**Dice works out a new set of variations**: dropped notes, octave jumps, moved accents.",
+  "**Spice sets how much of the variation is heard**, from none to all.",
+  "**A dice roll stays until you roll again**, unlike sample and hold's endless randomness.",
+  "**Probability, conditions and ratchets** are other ways a step can change from bar to bar."
+ ],
+ "footnotes": {},
+ "journal": []
+}
