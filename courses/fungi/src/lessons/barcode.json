@@ -11,9 +11,9 @@
     "**A barcode is a short stretch of DNA that differs between species.** For fungi it is the ITS region, a spacer between genes, a few hundred letters long.",
     "**The spacer changes fast and the genes beside it slowly.** The slow genes let one recipe copy the barcode from almost any fungus.",
     "**A barcode is matched against named specimens.** Reference collections link sequences to dried specimens kept in herbaria.",
-    "**Soil can be sequenced without seeing a fungus.** A spoonful yields thousands of reads, grouped into kinds by how alike they are.",
+    "**Soil can be sequenced without seeing a fungus.** A spoonful yields tens of thousands of reads, grouped into kinds by how alike they are.",
     "**The grouping rule changes the count.** About 97 per cent alike is the usual rule of thumb; stricter or looser rules split or lump.",
-    "**Most kinds found in soil have no name.** One whole class of soil fungi was known only from its DNA for years before anyone grew it."
+    "**Most kinds found in soil have no name.** One whole class of soil fungi was known only from its DNA until 2011, when a culture kept for years was recognised as one of them."
   ],
   "parts": [
     {
@@ -21,7 +21,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From the early 2000s, mycologists who copied fungal DNA straight out of soil kept finding a group of sequences that matched nothing. It turned up in pine forest in Sweden, tundra in Alaska and forest soils across North America, often among the commonest fungi in the sample. No one had seen the fungus it came from. For want of a name, they called it **Soil Clone Group I**."
+          "text": "From the early 2000s, mycologists who copied fungal DNA straight out of soil kept finding a group of sequences that matched nothing. It turned up in pine forest in Sweden, tundra in Alaska and forest soils across North America, often among the commonest fungi in the sample. No one knew which fungus it came from. For want of a name, they called it **Soil Clone Group I**."
         },
         {
           "type": "text",
@@ -34,11 +34,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Every cell carries genes for its ribosomes, the machines that build proteins, and between those genes lie short spacers. The genes change slowly over evolution, because ribosomes must keep working. The spacers do nothing that needs a precise sequence, so they change fast, fast enough that closely related species usually differ in them. One of these regions, the **internal transcribed spacer**, or ITS, a few hundred letters of DNA long, was chosen in 2012 as the official barcode for fungi.[^its]"
+          "text": "Every cell carries genes for its ribosomes, the machines that build proteins, and between those genes lie short spacers. The genes change slowly over evolution, because ribosomes must keep working. The spacers do nothing that needs a precise sequence, so they change fast, fast enough that closely related species usually differ in them. One of these regions, the **internal transcribed spacer**, or ITS, a few hundred letters of DNA long, was proposed in 2012 by a large group of mycologists as the standard barcode for fungi, and is now used almost everywhere.[^its]"
         },
         {
           "type": "text",
-          "text": "The arrangement suits copying. Short stretches of the slow genes on either side are almost the same in all fungi, so one pair of matching starters, called primers, will copy the spacer between them from nearly any fungus in a sample. The copy is then read letter by letter and compared with a database. Several large reference collections link barcodes to named specimens, many of them dried mushrooms in herbarium drawers, some collected over a century ago."
+          "text": "The arrangement suits copying. Short stretches of the slow genes on either side are almost the same in all fungi, conserved, as biologists say, so one pair of matching starters, called primers, will copy the spacer between them from nearly any fungus in a sample. The copy is then read letter by letter and compared with a database. Several large reference collections link barcodes to named specimens, many of them dried mushrooms in herbarium drawers, museum collections of dried specimens, some collected over a century ago."
         }
       ]
     },
@@ -47,7 +47,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Barcoding a mushroom tells you what it is. Barcoding soil tells you what is there, seen or not. Modern machines read the barcodes of every fungus in a sample at once, tens of thousands of reads from a spoonful of earth. The reads must then be sorted into kinds. Reads from one species are not all identical: individuals differ a little, and reading machines make occasional errors. So the reads are grouped by how alike they are, and each group is treated as roughly one species."
+          "text": "Barcoding a mushroom tells you what it is. Barcoding soil tells you what is there, seen or not. Modern machines read the barcodes of every fungus in a sample at once, tens of thousands of reads from a spoonful of earth, each read one barcode spelled out by the machine. The reads must then be sorted into kinds. Reads from one species are not all identical: individuals differ a little, and reading machines make occasional errors. So the reads are grouped by how alike they are, and each group is treated as roughly one species."
         },
         {
           "type": "interactive_diagram",
@@ -77,7 +77,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "DNA has not replaced the spore print or the microscope. A barcode can say that two samples are the same and that neither matches anything named, but a name still needs a specimen: a fruiting body or a culture, described, drawn and kept, so that others can check it. One effort to close the gap gives each unnamed soil group a stable code, so surveys in different countries can recognise the same fungus long before it has a name."
+          "text": "DNA has not replaced the spore print or the microscope. A barcode can say that two samples are the same and that neither matches anything named, but a name still needs a specimen: a fruiting body or a culture, described, drawn and kept, so that others can check it. One effort to close the gap, the UNITE database run from the University of Tartu in Estonia, gives each unnamed group a stable code, so surveys in different countries can recognise the same fungus long before it has a name."
         }
       ]
     },
@@ -99,7 +99,7 @@
                   "The colour of the spore print"
                 ],
                 "answer": 0,
-                "why": "ITS changes fast enough to separate most species, and was chosen as the fungal barcode in 2012."
+                "why": "ITS changes fast enough to separate most species, and was proposed as the fungal barcode in 2012."
               },
               {
                 "ask": "Why can one recipe copy the barcode from almost any fungus?",
@@ -124,7 +124,7 @@
               {
                 "ask": "What was Soil Clone Group I?",
                 "choices": [
-                  "A class of fungi known from soil DNA for years before one was grown",
+                  "A group of unnamed soil DNA sequences, later shown to be a whole class of fungi",
                   "A machine for reading DNA",
                   "A kind of lichen"
                 ],
