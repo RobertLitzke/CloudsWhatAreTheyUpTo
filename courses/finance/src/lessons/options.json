@@ -10,7 +10,7 @@
       "title": "The right to buy",
       "blocks": [
         { "type": "text", "text": "A stock option is the right to buy a share at a fixed price, the strike, for some years. Startups and younger companies grant them in place of RSUs. The value is the spread: the share's price above the strike. An option on a share worth $50 with a strike of $10 is worth about $40, and nothing at all if the share falls below $10." },
-        { "type": "text", "text": "There are two kinds, taxed very differently. Non-qualified options, NSOs, are simple. Incentive stock options, ISOs, can be taxed far more lightly, in exchange for a trap." }
+        { "type": "text", "text": "There are two kinds, taxed very differently. Non-qualified options, NSOs, are simple. Incentive stock options, ISOs, can be taxed far more lightly, in exchange for a trap.[^iso-limit]" }
       ]
     },
     {
@@ -66,6 +66,11 @@
   ],
   "footnotes": {
     "credit": { "kind": "technical", "title": "The minimum tax credit", "text": "AMT that arises from deferral items, ISOs above all, carries forward without limit as a credit. Each later year the credit can reduce regular tax down to that year's minimum tax. Selling the ISO shares helps, because their AMT basis is higher than their regular basis, so the sale shows a smaller gain for the AMT." },
-    "qsbs": { "kind": "digression", "title": "Qualified small business stock", "text": "Shares of a qualifying US company with under $75 million of gross assets when issued, held long enough, can be sold with most or all of the gain excluded from federal tax, up to $15 million or ten times the basis, under the 2025 budget act's rules. Washington doesn't tax the excluded part either. It is one more reason founders and early employees exercise early." }
+    "qsbs": { "kind": "digression", "title": "Qualified small business stock", "text": "Shares of a qualifying US company with under $75 million of gross assets when issued, held long enough, can be sold with most or all of the gain excluded from federal tax, up to $15 million or ten times the basis, under the 2025 budget act's rules. Washington doesn't tax the excluded part either. It is one more reason founders and early employees exercise early." },
+    "iso-limit": {
+      "kind": "technical",
+      "title": "The $100,000 ISO limit",
+      "text": "Only employees can receive ISOs, and at most $100,000 of shares (valued at the grant price) can become exercisable for the first time in any calendar year. Any grant above that ceiling is treated as an NSO. And once an employee leaves the company, ISOs keep their tax treatment for only three months; after that they become NSOs even if the grant agreement lets them stay open longer."
+    }
   }
 }

@@ -10,7 +10,7 @@
       "title": "Roth room for high earners",
       "blocks": [
         { "type": "text", "text": "Lesson 8 compared the four buckets by the tax rate going in and the rate coming out. For someone earning well at a large company, the comparison often favours Roth money, especially if they plan to stop work early and convert in low brackets: Roth balances need no conversion ladder and add nothing to income later." },
-        { "type": "text", "text": "The direct routes are limited. A Roth IRA can't be funded directly once a couple's income passes $252,000 in 2026, or $168,000 for a single person.[^phase] The Roth side of a 401(k) has no income limit but shares the $24,500 employee limit with pre-tax deferrals. Two indirect routes add more: the backdoor Roth IRA and, where the plan allows it, the mega backdoor." },
+        { "type": "text", "text": "The direct routes are limited. A Roth IRA can't be funded directly once a couple's income passes $252,000 in 2026, or $168,000 for a single person.[^phase] The Roth side of a 401(k) has no income limit, but shares the $24,500 employee limit with pre-tax deferrals. Two indirect routes add more: the backdoor Roth IRA and, where the plan allows it, the mega backdoor." },
         { "type": "diagram", "id": "scale", "caption": "The most one person under 50 can put into Roth accounts in 2026 by each route, with an employer contributing $12,000 to their 401(k). The mega backdoor's room depends on the employer's contribution and on the plan.", "options": { "title": "Roth room a year, 2026", "unit": "dollars", "items": [
           { "label": "Roth 401(k) deferrals", "value": 24500, "says": "$24,500", "color": "roth" },
           { "label": "Backdoor Roth IRA", "value": 7500, "says": "$7,500", "color": "roth" },
@@ -22,7 +22,7 @@
     {
       "title": "The backdoor Roth IRA",
       "blocks": [
-        { "type": "text", "text": "Anyone with earnings can contribute to a traditional IRA, $7,500 in 2026, whatever their income. Above the income limits the contribution isn't deductible, so it goes in as after-tax money. Converting a traditional IRA to Roth has no income limit at all. So the backdoor is two steps: contribute $7,500 to a traditional IRA without deducting it, then convert it to Roth. Since the money was already taxed, the conversion is taxed only on any growth in between, usually a few dollars." },
+        { "type": "text", "text": "Anyone with earnings can contribute to a traditional IRA ($7,500 in 2026), whatever their income. Above the income limits the contribution isn't deductible, so it goes in as after-tax money. Converting a traditional IRA to Roth has no income limit at all.[^rera] So the backdoor is two steps: contribute $7,500 to a traditional IRA without deducting it, then convert it to Roth. Since the money was already taxed, the conversion is taxed only on any growth in between, usually a few dollars." },
         { "type": "text", "text": "Both steps are reported on Form 8606, which records the after-tax basis. Congress's own explanation of the 2017 tax law described the two steps as allowed, so the backdoor is no longer considered a risky reading of the rules." }
       ]
     },
@@ -39,13 +39,13 @@
       "blocks": [
         { "type": "text", "text": "A 401(k) has a second, larger limit: $72,000 in 2026 for everything going into one person's account, employee and employer together, catch-ups aside. Some plans let employees fill the gap between their own deferrals plus the employer's money and that $72,000 with after-tax contributions. Someone deferring $24,500 whose employer adds $12,000 has $35,500 of after-tax room." },
         { "type": "text", "text": "After-tax money in a 401(k) is a poor investment left alone: its growth is taxed as ordinary income when withdrawn. The mega backdoor works only when the plan also lets it be moved to Roth soon after it goes in, either by converting it inside the plan or by withdrawing it to a Roth IRA while still employed. Some plans do this automatically every day. Then only the small growth before conversion is taxed." },
-        { "type": "text", "text": "Whether a plan offers both features is in its summary plan description. Many large technology employers in Washington do; most small companies don't, because after-tax contributions make the plan's non-discrimination tests harder to pass." }
+        { "type": "text", "text": "Whether a plan offers both features is in its summary plan description. Many large technology employers in Washington do; most small companies don't, because after-tax contributions make the plan's non-discrimination tests harder to pass.[^acp]" }
       ]
     },
     {
       "title": "A 2026 change for catch-ups",
       "blocks": [
-        { "type": "text", "text": "From 2026, anyone 50 or older whose wages from the employer were above $150,000 in the previous year must make their 401(k) catch-up contributions as Roth money: $8,000 a year, or $11,250 from 60 to 63. For most high earners near the end of a career this nudges a little more into Roth whether they want it or not, which the early retirement plans of the trunk would usually have chosen anyway." },
+        { "type": "text", "text": "From 2026, anyone 50 or older whose Social Security wages from the employer were above $150,000 in the previous year must make their 401(k) catch-up contributions as Roth money: $8,000 a year, or $11,250 from 60 to 63. For most high earners near the end of a career this nudges a little more into Roth whether they want it or not, which the early retirement plans of the trunk would usually have chosen anyway." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Above the Roth IRA income limits, contribute to a traditional IRA without deducting it and convert: the backdoor.",
           "Any pre-tax money in traditional, SEP or SIMPLE IRAs on 31 December makes most of the conversion taxable; roll it into a 401(k) first.",
@@ -75,6 +75,16 @@
   ],
   "footnotes": {
     "phase": { "kind": "technical", "title": "The phase-out", "text": "Direct Roth IRA contributions shrink between $242,000 and $252,000 of MAGI for a couple in 2026, and between $153,000 and $168,000 for a single person. Within that range a partial contribution is allowed." },
-    "spouse": { "kind": "technical", "title": "One pot each", "text": "The pro-rata rule aggregates IRAs by person, not by household. Inherited IRAs and Roth IRAs are excluded. The balance that matters is the one on 31 December of the year of the conversion, so a rollover into a 401(k) in December still rescues a conversion made in March." }
+    "spouse": { "kind": "technical", "title": "One pot each", "text": "The pro-rata rule aggregates IRAs by person, not by household. Inherited IRAs and Roth IRAs are excluded. The balance that matters is the one on 31 December of the year of the conversion, so a rollover into a 401(k) in December still rescues a conversion made in March." },
+    "rera": {
+      "kind": "digression",
+      "title": "How the backdoor opened",
+      "text": "Until 2010, Roth conversions were closed to anyone with modified adjusted gross income above $100,000. A 2006 tax act removed that cap starting in 2010 to pull conversion tax revenue into the ten-year budget window, accidentally opening the backdoor for high earners."
+    },
+    "acp": {
+      "kind": "technical",
+      "title": "Non-discrimination tests",
+      "text": "To keep its tax-favoured status, a 401(k) must show that highly paid employees don't use the plan much more than everyone else. A generous employer match lets a plan skip the test on regular deferrals, but voluntary after-tax contributions are tested separately under the Actual Contribution Percentage test, which has no simple opt-out."
+    }
   }
 }

@@ -7,8 +7,8 @@
     {
       "title": "Light that looks wasted",
       "blocks": [
-        {"type": "text", "text": "Sunlight is a mixture of colours, from violet through blue, green, yellow and orange to red, and it carries a lot of energy in every one of them. A leaf looks green because green light comes back off it to your eye, while more of the red and blue are kept. So a leaf seems to be turning away the very light it gets most of. If you were designing a solar panel, you'd make it black."},
-        {"type": "text", "text": "The green comes from **chlorophyll**, the pigment that captures light for photosynthesis. Dissolve chlorophyll out of a leaf (alcohol does it) and shine light through the solution, and you find it absorbs blue and red strongly and lets most green through. That much was known by the 1870s. What wasn't known was whether the light a leaf absorbs is the light it uses to make sugar, or whether other colours count too."},
+        {"type": "text", "text": "Sunlight is a mixture of colours, from violet through blue, green, yellow and orange to red, and it carries a lot of energy in every one of them. A leaf looks green because green light comes back off it to your eye, while more of the red and blue are kept. So a leaf seems to be turning away the very light the sun gives most of. If you were designing a solar panel, you'd make it black."},
+        {"type": "text", "text": "The green comes from **chlorophyll**, the pigment that captures light for photosynthesis. Dissolve chlorophyll out of a leaf (alcohol does it) and shine light through the solution, and you find it absorbs blue and red strongly and lets most green through.[^chlorophyll-types] That much was known by the 1870s. What wasn't known was whether the light a leaf absorbs is the light it uses to make sugar, or whether other colours count too."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**Chlorophyll** is the pigment that captures light for photosynthesis.", "Chlorophyll in solution absorbs blue and red strongly and lets most green through."]}
       ]
     },
@@ -17,7 +17,7 @@
       "blocks": [
         {"type": "text", "text": "Theodor Engelmann, a physiologist at Utrecht in the Netherlands, found an elegant way to ask a single cell which light it used. He had noticed that some bacteria swim toward oxygen and gather wherever there is most of it. In 1882 he put a strand of a green alga, *Cladophora*, on a microscope slide in water full of these bacteria. Then he fitted his microscope with a small prism so that a tiny rainbow fell along the strand, each part of the alga lit by a different colour."},
         {"type": "interactive_diagram", "id": "engelmann", "caption": "Engelmann's slide: a rainbow spread along an alga, with bacteria that swim toward oxygen. A model of what he saw.", "task": "Guess, then try a red seaweed", "goal": "red", "aspect_ratio": 2},
-        {"type": "text", "text": "Within minutes the bacteria had crowded into two clumps: one where the red light fell on the strand, and a bigger one under the blue. Under the green there were few. The alga gave off the most oxygen, and so made the most sugar, in the colours its chlorophyll absorbs. With no instruments beyond a microscope and a prism, Engelmann had drawn the **action spectrum** of photosynthesis: how well each colour of light drives it."},
+        {"type": "text", "text": "Within minutes the bacteria had crowded into two clumps: a big one where the red light fell on the strand, and a smaller one under the blue.[^sun-vs-gas] Under the green there were few. The alga gave off the most oxygen, and so made the most sugar, in the colours its chlorophyll absorbs. With no instruments beyond a microscope and a prism, Engelmann had drawn the **action spectrum** of photosynthesis: how well each colour of light drives it."},
         {"type": "text", "text": "He repeated it with algae of other colours, and the bacteria moved. Red seaweeds, which carry an extra pigment called phycoerythrin, made the most oxygen under green light, which that pigment absorbs. The colour of an alga tells you which light it uses: it uses the light it doesn't reflect."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Engelmann (1882) used oxygen-seeking bacteria to show where an alga made most oxygen along a spectrum.", "Green algae made most under red and blue light; red seaweeds, with an extra pigment, under green.", "This is the **action spectrum**: how well each colour drives photosynthesis."]}
       ]
@@ -28,7 +28,7 @@
         {"type": "text", "text": "There's a twist. A real leaf isn't a tube of chlorophyll solution. Measure how much green light a leaf absorbs, and the answer is not a small amount but most of it: somewhere between 70 and 90 percent, depending on the leaf. A leaf looks green only because it sends back slightly more green than red or blue. It still keeps the majority."},
         {"type": "text", "text": "The reason is the leaf's structure. A leaf is several layers of cells with air spaces between them, and every time light crosses from a cell wall into air or back, some of it is bent or bounced. Light inside a leaf zigzags, travelling three or four times farther than the leaf is thick. Weakly absorbed green light gets many more chances to be caught on that long path. Red and blue are taken almost entirely by the top layers of cells; green gets past them and is used deeper inside the leaf, where the red and blue have run out."},
         {"type": "interactive_diagram", "id": "leaf", "caption": "Red, green and blue light entering a leaf. Chlorophyll takes a fixed share of each colour per layer of cells. A model.", "task": "Make the leaf absorb at least three-quarters of the green", "goal": "green", "aspect_ratio": 1.82},
-        {"type": "text", "text": "So the puzzle shrinks, though it doesn't vanish. Leaves do use green light, just less efficiently than red and blue. Why plants never evolved a black pigment that took everything is still argued. It may be that chlorophyll, once it evolved in the first photosynthetic bacteria, was simply good enough to keep; it may be that absorbing everything would overload the leaf in full sun. Nobody knows for certain."},
+        {"type": "text", "text": "So the puzzle shrinks, though it doesn't vanish. Leaves do use green light, just less efficiently than red and blue. Why plants never evolved a black pigment that took everything is still argued. It may be that chlorophyll, once it evolved in early photosynthetic bacteria, was simply good enough to keep; it may be that absorbing everything would overload the leaf in full sun. Nobody knows for certain."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["A real leaf absorbs 70 to 90 percent of green light.", "Light bounces between cells and air spaces, so its path is several times the leaf's thickness, giving green many chances to be caught.", "Leaves look green because they send back slightly more green than other colours, not because they waste it."]}
       ]
     },
@@ -44,40 +44,53 @@
       "title": "Autumn",
       "blocks": [
         {"type": "text", "text": "A green leaf holds other pigments too. The most common are **carotenoids**, the yellow and orange pigments of carrots and egg yolks, which help capture blue light and protect the leaf from too much sun. All summer they are there, hidden by the chlorophyll."},
-        {"type": "text", "text": "In autumn a deciduous tree takes its leaves apart before dropping them. Chlorophyll holds a lot of nitrogen, which is precious, so the tree breaks it down and moves the nitrogen into its twigs and roots for next spring. As the green goes, the yellow that was there all along shows through. That is the gold of a birch, an aspen or a bigleaf maple."},
+        {"type": "text", "text": "In autumn a deciduous tree takes its leaves apart before dropping them. The leaf's photosynthetic machinery (its chlorophyll and the proteins that hold it) contains a lot of nitrogen, which is precious, so the tree breaks it down and moves the nitrogen into its twigs and roots for next spring. As the green goes, the yellow that was there all along shows through. That is the gold of a birch, an aspen or a bigleaf maple."},
         {"type": "interactive_diagram", "id": "autumn", "caption": "A maple leaf through autumn. Chlorophyll goes; the yellow stays; red is made new, if the weather allows. A model.", "task": "Find weather that turns the leaf red", "goal": "red", "aspect_ratio": 2},
-        {"type": "text", "text": "Red is different. The red pigments, **anthocyanins**, are made new in autumn, from sugar. Sunny days make plenty of sugar, and cool nights slow the sugar's journey out of the leaf to the rest of the tree (lesson 9 follows that journey), so more of it stays behind to be made into red, so a run of bright days and chilly but not freezing nights gives the reddest autumns. A warm, cloudy autumn is dull; an early hard frost kills leaves before they colour. Why a tree spends sugar on making red pigment in a leaf it is about to drop is still debated. The leading idea is that it works as a sunscreen, protecting the leaf's machinery while the nitrogen is moved out."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Yellow **carotenoids** are in leaves all summer, hidden by chlorophyll.", "In autumn trees break down chlorophyll to save its nitrogen, and the yellow shows.", "Red **anthocyanins** are made new from sugar; sunny days and cool nights make the brightest reds."]}
+        {"type": "text", "text": "Red is different. The red pigments, **anthocyanins**, are made new in autumn, from sugar. Sunny days make plenty of sugar, and cool nights slow the sugar's movement out of the leaf to the rest of the tree (lesson 9 follows that route). More stays behind to be made into red, so a run of bright days and chilly but not freezing nights gives the reddest autumns. A warm, cloudy autumn is dull; an early hard frost kills leaves before they colour. Why a tree spends sugar on making red pigment in a leaf it is about to drop is still debated. The leading idea is that it works as a sunscreen, protecting the leaf's cells from bright light in the cold while the nitrogen is moved out."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Yellow **carotenoids** are in leaves all summer, hidden by chlorophyll.", "In autumn trees break down chlorophyll to save nitrogen, and the yellow shows.", "Red **anthocyanins** are made new from sugar; sunny days and cool nights make the brightest reds."]}
       ]
     },
     {
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on leaf colour", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on leaf colour",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "In Engelmann's experiment, where did the bacteria crowd along the green alga?", "choices": ["Under the red and blue light", "Under the green light", "Evenly all along it"], "answer": 0, "why": "The bacteria gathered where most oxygen was being made, which is where chlorophyll absorbs most: red and blue."},
             {"ask": "A leaf looks green. Which statement is true?", "choices": ["It still absorbs most of the green light that falls on it", "It uses no green light at all", "It absorbs green light best of all colours"], "answer": 0, "why": "A leaf absorbs 70 to 90 percent of green; it looks green because it sends back a little more green than red or blue."},
             {"ask": "Why does a leaf absorb much more green light than a tube of chlorophyll solution?", "choices": ["Light bounces between its cells and air spaces, travelling a longer path", "Leaves have a special green-absorbing pigment", "Leaves are thicker than test tubes"], "answer": 0, "why": "Each crossing of a cell wall and air space bends or bounces light, so it travels several times the leaf's thickness."},
             {"ask": "Engelmann tried a red seaweed. Under which light did it make most oxygen?", "choices": ["Green", "Red", "Violet"], "answer": 0, "why": "Red seaweeds have phycoerythrin, which absorbs green. They look red because they send back red light."},
             {"ask": "October is warm and cloudy. What kind of autumn colours would you expect?", "choices": ["Mostly yellow, with little red", "Brilliant reds", "Leaves that stay green"], "answer": 0, "why": "Yellow carotenoids show as chlorophyll goes in any weather, but red anthocyanins need sugar from sunny days and cool nights to keep it in the leaf."},
-            {"ask": "Why do trees break down chlorophyll before dropping their leaves?", "choices": ["To recover its nitrogen for next year", "To make the leaves lighter so they fall", "Because cold destroys it directly"], "answer": 0, "why": "Chlorophyll contains a lot of nitrogen. The tree moves it into twigs and roots rather than losing it with the leaf."}
+            {"ask": "Why do trees break down chlorophyll before dropping their leaves?", "choices": ["To recover nitrogen for next year", "To make the leaves lighter so they fall", "Because cold destroys it directly"], "answer": 0, "why": "Chlorophyll and the proteins that hold it contain a lot of nitrogen. The tree moves it into twigs and roots rather than losing it with the leaf."}
           ]}
         }
       ]
     }
   ],
   "summary": [
-    "**Chlorophyll absorbs red and blue strongly and lets most green through, in solution.**",
+    "**Chlorophyll in solution absorbs red and blue strongly and lets most green through.**",
     "**Engelmann (1882) used bacteria that swim toward oxygen.** Along a spectrum they crowded under the red and blue light, where the alga made most oxygen.",
     "**Red seaweeds made most oxygen under green.** Their extra pigment absorbs it; a plant uses the light it doesn't reflect.",
     "**A real leaf absorbs 70 to 90 percent of green.** Light bouncing inside it travels several times the leaf's thickness.",
     "**Leaves look green because they send back a little more green, not because they waste it.**",
-    "**Autumn yellow was there all along.** Trees break down chlorophyll to save its nitrogen, uncovering the carotenoids.",
+    "**Autumn yellow was there all along.** Trees break down chlorophyll as they recover nitrogen, uncovering the carotenoids.",
     "**Autumn red is made new from sugar.** Sunny days and cool nights give the brightest reds."
   ],
   "journal": [],
   "footnotes": {
-    "depth": {"kind": "digression", "title": "Colour and depth", "text": "Engelmann's idea is called complementary chromatic adaptation: a seaweed's colour complements the light at its depth. Some single-celled cyanobacteria really do change their pigments with the colour of the light they grow in, switching between red-absorbing and green-absorbing forms within days. For whole seaweeds the pattern on the shore is much looser, and in the 1970s and 1980s divers found red, brown and green seaweeds mixed at most depths."}
+    "depth": {"kind": "digression", "title": "Colour and depth", "text": "Engelmann's idea is called complementary chromatic adaptation: a seaweed's colour complements the light at its depth. Some single-celled cyanobacteria really do change their pigments with the colour of the light they grow in, switching between red-absorbing and green-absorbing forms within days. For whole seaweeds the pattern on the shore is much looser, and in the 1970s and 1980s divers found red, brown and green seaweeds mixed at most depths."},
+    "chlorophyll-types": {
+      "kind": "technical",
+      "title": "Two chlorophylls",
+      "text": "Leaves actually have two slightly different versions, called chlorophyll *a* and chlorophyll *b*. Their absorption peaks sit at slightly different wavelengths of blue and red, so together they catch a wider band of both colours than either could alone."
+    },
+    "sun-vs-gas": {
+      "kind": "digression",
+      "title": "Sunlight vs gaslight",
+      "text": "Engelmann tried both sunlight and Vienna gaslight. Because a gas flame gives off huge amounts of red light and very little blue, the blue clump of bacteria nearly vanished under gaslight, while in sunlight the red clump was still the larger of the two, and a glass prism crowding the red wavelengths together made that peak taller still."
+    }
   }
 }

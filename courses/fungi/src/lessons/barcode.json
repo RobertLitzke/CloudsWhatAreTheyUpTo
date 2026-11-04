@@ -21,11 +21,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "From the early 2000s, mycologists who copied fungal DNA straight out of soil kept finding a group of sequences that matched nothing. It turned up in pine forest in Sweden, tundra in Alaska and forest soils across North America, often among the commonest fungi in the sample. No one knew which fungus it came from. For want of a name, they called it **Soil Clone Group I**."
+          "text": "From the early 2000s, mycologists who copied fungal DNA straight out of soil kept finding a group of sequences that matched nothing. It turned up in pine forest in Sweden, tundra in Colorado and forest soils across North America, often among the commonest fungi in the sample. No one knew which fungus it came from. For want of a name, they called it **Soil Clone Group I**."
         },
         {
           "type": "text",
-          "text": "In 2011 Anna Rosling and colleagues at the Swedish University of Agricultural Sciences reported that they had finally grown one: a fungus isolated from the roots of pine seedlings years before, kept in a collection, and never recognised. It grew as plain threads with no fruiting body, which is why no one had noticed it in the field. They named a new class, the Archaeorhizomycetes, ancient root fungi, with this single species as its first named member. DNA from soil suggests the class holds hundreds of kinds, almost none of them named."
+          "text": "In 2011 Anna Rosling and colleagues at the Swedish University of Agricultural Sciences reported that they had finally grown one: a fungus isolated from the roots of pine seedlings years before, kept in a collection, and never recognised. It grew as plain threads with no fruiting body, which is why no one had noticed it in the field. They named a new class, the Archaeorhizomycetes (\"ancient root fungi\"), with this single species as its first named member.[^finlay] DNA from soil suggests the class holds hundreds of kinds, almost none of them named."
         }
       ]
     },
@@ -38,7 +38,7 @@
         },
         {
           "type": "text",
-          "text": "The arrangement suits copying. Short stretches of the slow genes on either side are almost the same in all fungi, conserved, as biologists say, so one pair of matching starters, called primers, will copy the spacer between them from nearly any fungus in a sample. The copy is then read letter by letter and compared with a database. Several large reference collections link barcodes to named specimens, many of them dried mushrooms in herbarium drawers, museum collections of dried specimens, some collected over a century ago."
+          "text": "The arrangement suits copying. Short stretches of the slow genes on either side are almost the same in all fungi, so one pair of matching starters, called primers, will copy the spacer between them from nearly any fungus in a sample.[^primers] The copy is then read letter by letter and compared with a database. Several large reference collections link barcodes to named specimens, many of them dried mushrooms in herbarium drawers, some collected over a century ago."
         }
       ]
     },
@@ -47,7 +47,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Barcoding a mushroom tells you what it is. Barcoding soil tells you what is there, seen or not. Modern machines read the barcodes of every fungus in a sample at once, tens of thousands of reads from a spoonful of earth, each read one barcode spelled out by the machine. The reads must then be sorted into kinds. Reads from one species are not all identical: individuals differ a little, and reading machines make occasional errors. So the reads are grouped by how alike they are, and each group is treated as roughly one species."
+          "text": "Barcoding a mushroom tells you what it is. Barcoding soil tells you what is there, seen or not. Modern machines read the barcodes of every fungus in a sample at once, yielding tens of thousands of reads (each one a barcode spelled out by the machine) from a spoonful of earth. The reads must then be sorted into kinds. Reads from one species are not all identical: individuals differ a little, and reading machines make occasional errors. So the reads are grouped by how alike they are, and each group is treated as roughly one species."
         },
         {
           "type": "interactive_diagram",
@@ -55,7 +55,7 @@
           "caption": "Reads from a soil sample, laid out so that distance stands for difference in the barcode. Reads that are alike enough join one group. A model sample of sixteen kinds.",
           "task": "Try a strict rule and a loose one",
           "goal": "groups",
-          "aspect_ratio": 2.0
+          "aspect_ratio": 2
         }
       ]
     },
@@ -77,7 +77,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "DNA has not replaced the spore print or the microscope. A barcode can say that two samples are the same and that neither matches anything named, but a name still needs a specimen: a fruiting body or a culture, described, drawn and kept, so that others can check it. One effort to close the gap, the UNITE database run from the University of Tartu in Estonia, gives each unnamed group a stable code, so surveys in different countries can recognise the same fungus long before it has a name."
+          "text": "DNA has not replaced the spore print or the microscope. A barcode can say that two samples are the same and that neither matches anything named, but a name still needs a specimen: a fruiting body or a culture, described, illustrated and kept, so that others can check it. One effort to close the gap, the UNITE database run from the University of Tartu in Estonia, gives each unnamed group a stable code, so surveys in different countries can recognise the same fungus long before it has a name."
         }
       ]
     },
@@ -147,6 +147,16 @@
       "kind": "technical",
       "title": "Not every species",
       "text": "Some of the commonest moulds, in Penicillium and Aspergillus, and some lichen-forming fungi have ITS barcodes too alike to separate close species, and need other genes. The 97 per cent rule is a convention, not a law of nature."
+    },
+    "finlay": {
+      "kind": "digression",
+      "title": "The first species",
+      "text": "They named it *Archaeorhizomyces finlayi*, after Roger Finlay, a colleague at Uppsala in whose lab the cultures from Scots pine roots had been isolated and kept."
+    },
+    "primers": {
+      "kind": "technical",
+      "title": "Conserved regions and primers",
+      "text": "Biologists call a stretch of DNA that changes very little across many species *conserved*. A primer is a short, made-to-order strand of DNA that binds to a matching conserved stretch and gives the copying enzyme a starting point."
     }
   }
 }

@@ -1,284 +1,284 @@
 {
- "id": "sequencer",
- "n": 20,
- "title": "The bass line nobody played",
- "teaches": "The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303",
- "parts": [
-  {
-   "title": "Typed in",
-   "blocks": [
+  "id": "sequencer",
+  "n": 20,
+  "title": "The bass line nobody played",
+  "teaches": "The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The mystery.** Listen to this bass line. It never speeds up or slows down, never fumbles a note, and some of its notes bark louder and brighter while others slide into the next like a voice. It could play all night without tiring. No one played it. It was typed into the synth one step at a time, and the synth plays it back, over and over."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "A sixteen-step bass line, flat, then with its accents and slides",
-     "options": {
-      "stage": 20,
-      "riff": 110,
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "envAmt": 0,
-       "decay": 2,
-       "sustain": 0,
-       "release": 1
-      },
-      "sounds": [
-       {
-        "name": "Flat",
-        "set": {}
-       },
-       {
-        "name": "Accents and slides",
-        "set": {
-         "legato": 1,
-         "glide": 1,
-         "mxVelCutoff": 8,
-         "mxVelLevel": 5,
-         "cutoff": 1,
-         "res": 4,
-         "envAmt": 3,
-         "decay": 1
+      "title": "Typed in",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The mystery.** Listen to this bass line. It never speeds up or slows down, never fumbles a note, and some of its notes bark louder and brighter while others slide into the next like a voice. It could play all night without tiring. No one played it. It was typed into the synth one step at a time, and the synth plays it back, over and over."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "A sixteen-step bass line, flat, then with its accents and slides",
+          "options": {
+            "stage": 20,
+            "riff": 110,
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "envAmt": 0,
+              "decay": 2,
+              "sustain": 0,
+              "release": 1
+            },
+            "sounds": [
+              {
+                "name": "Flat",
+                "set": {}
+              },
+              {
+                "name": "Accents and slides",
+                "set": {
+                  "legato": 1,
+                  "glide": 1,
+                  "mxVelCutoff": 8,
+                  "mxVelLevel": 5,
+                  "cutoff": 1,
+                  "res": 4,
+                  "envAmt": 3,
+                  "decay": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The machine that does this is a **step sequencer**. Its idea is very simple, and it changed popular music twice: once in 1977, when a sequenced synth bass ran under a disco record from start to finish,[^moroder] and again in the mid-1980s, when a failed little bass machine became the sound of acid house."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Giorgio Moroder, who produced Donna Summer's “I Feel Love” with Pete Bellotte in 1977.",
+          "options": {
+            "photo": "moroder",
+            "aspect": 0.8,
+            "position": "50% 20%"
+          }
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The machine that does this is a **step sequencer**. Its idea is very simple, and it changed popular music twice: once in 1977, when a sequenced synth bass ran under a disco record from start to finish,[^moroder] and again in the mid-1980s, when a failed little bass machine became the sound of acid house."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Giorgio Moroder, who produced Donna Summer's “I Feel Love” with Pete Bellotte in 1977.",
-     "options": {
-      "photo": "moroder",
-      "aspect": 0.8,
-      "position": "50% 20%"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Sixteen steps",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A bar is cut into sixteen equal **steps**, sixteenth notes at the tempo. Each step holds a note or a **rest**, and the sequencer plays them in order, then loops. That's all a step sequencer is. Unlike the arpeggiator, which plays whatever you hold, a sequencer plays a pattern you wrote, and needs no hands at all once it is going."
-    },
-    {
-     "type": "text",
-     "text": "Each step can carry a little more than a pitch. An **accent** makes it struck harder: through the synth's velocity routes (lesson 16), louder and brighter. A **slide** holds the note into the next step, which glides to its pitch without a new pluck (lesson 17's legato). A **tie** makes a step carry on the note before it, for a note two or more steps long. Below is a sequencer with sixteen steps over two octaves of a bass line's notes. Change the pattern while it plays."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "seq",
-     "caption": "A sixteen-step sequencer playing the synth. Tap squares for notes; mark accents and slides below.",
-     "task": "Make a pattern of six notes or more, with an accent and a slide",
-     "goal": "seq-made",
-     "options": {
-      "start": {
-       "wave": 0,
-       "cutoff": 2,
-       "res": 3,
-       "envAmt": 2,
-       "decay": 1,
-       "sustain": 0,
-       "release": 1
-      },
-      "knobs": [
-       "cutoff",
-       "res",
-       "envAmt",
-       "decay"
+      "title": "Sixteen steps",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A bar is cut into sixteen equal **steps**, sixteenth notes at the tempo. Each step holds a note or a **rest**, and the sequencer plays them in order, then loops. That's all a step sequencer is. Unlike the arpeggiator, which plays whatever you hold, a sequencer plays a pattern you wrote, and needs no hands at all once it is going."
+        },
+        {
+          "type": "text",
+          "text": "Each step can carry a little more than a pitch. An **accent** strikes it harder: through the synth's velocity routes (lesson 16), it sounds louder and brighter. A **slide** holds the note into the next step, which glides to its pitch without a new pluck (lesson 17's legato). A **tie** makes a step carry on the note before it, for a note two or more steps long. Below is a sequencer with sixteen steps over two octaves of a bass line's notes. Change the pattern while it plays."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "seq",
+          "caption": "A sixteen-step sequencer playing the synth. Tap squares for notes; mark accents and slides below.",
+          "task": "Make a pattern of six notes or more, with an accent and a slide",
+          "goal": "seq-made",
+          "options": {
+            "start": {
+              "wave": 0,
+              "cutoff": 2,
+              "res": 3,
+              "envAmt": 2,
+              "decay": 1,
+              "sustain": 0,
+              "release": 1
+            },
+            "knobs": [
+              "cutoff",
+              "res",
+              "envAmt",
+              "decay"
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The **Feel** buttons add **swing**: every second step is pushed a little late, so the pattern lopes instead of ticking evenly, the way a drummer plays a shuffle. A third of a step is a gentle swing; half a step is heavy. Swing is one of the settings that makes a sequence sound played rather than typed."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The **Feel** buttons add **swing**: every second step is pushed a little late, so the pattern lopes instead of ticking evenly, the way a drummer plays a shuffle. A third of a step is a gentle swing; half a step is heavy. Swing is one of the settings that makes a sequence sound played rather than typed."
-    }
-   ]
-  },
-  {
-   "title": "The machine that failed",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1981 Roland made a small silver box called the TB-303 Bass Line, meant to give guitarists a bass player to practise with. It had one oscillator, a resonant filter, one envelope, and a sixteen-step sequencer with an accent and a slide on every step. It sounded nothing like a bass guitar, and it was hard to program. Roland stopped making it after about three years.[^acid]"
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A Roland TB-303 Bass Line. Its little keyboard enters the notes of a pattern one at a time.",
-     "options": {
-      "photo": "tb-303",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "Cheap in second-hand shops, it was picked up by young producers in Chicago, who turned its resonance up, left the sequencer running and twisted the cutoff and envelope knobs by hand while it played. The accents bit, the slides squelched, and the result was named acid house. The 303's accent-and-slide sequencer is now copied on many synths, and the sound is still called acid."
-    }
-   ]
-  },
-  {
-   "title": "More steps, more sequences",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Sixteen steps is a bar. Most synths' sequencers hold more: thirty-two or sixty-four steps, for a pattern several bars long, and two or more sequences per patch to switch between. Steps are usually entered in one of two ways. **Step entry** walks through the steps one at a time while you press the note for each, adding rests and ties with buttons. **Real-time recording** plays along with the sequencer running and records what you play, snapped to the nearest step."
-    },
-    {
-     "type": "text",
-     "text": "A sequence usually belongs to the patch, so loading a sound can load a pattern with it, which is why a synth will sometimes start playing a line by itself when you press Play. It is worth finding the sequencer's **Play**, **Record** and **Hold** or **Latch** buttons early on an unfamiliar synth, along with the tempo."
-    }
-   ]
-  },
-  {
-   "title": "Acid",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now make the acid sound. The sequence below is the one from the start of the lesson, with its accents and slides already in. The synth is plain and dull. Close the cutoff, turn the resonance right up, send plenty of envelope to the filter and shorten its decay, so every note squelches and the accented ones bite."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A sequenced bass line on a dull patch. Make it squelch.",
-     "task": "Make the acid line",
-     "goal": "match",
-     "options": {
-      "stage": 20,
-      "knobs": [
-       "cutoff",
-       "res",
-       "envAmt",
-       "decay"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "envAmt": 0,
-       "decay": 2,
-       "sustain": 0,
-       "release": 1,
-       "legato": 1,
-       "glide": 1,
-       "mxVelCutoff": 8,
-       "mxVelLevel": 5
-      },
-      "riff": 110,
-      "keys": 36,
-      "target": {
-       "name": "Acid",
-       "set": {
-        "cutoff": 1,
-        "res": 4,
-        "envAmt": 3,
-        "decay": 1
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Once it is there, try what the Chicago producers did: turn the cutoff and the envelope amount slowly up and down while the loop plays. The pattern never changes, and the music does. That is the subject of the next lesson: knobs that move by themselves, as part of the sequence."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on the sequencer",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does a step sequencer play?",
-        "choices": [
-         "A pattern of notes and rests entered step by step, looped",
-         "Whatever keys are held, one at a time",
-         "A recording of a performance"
-        ],
-        "answer": 0,
-        "why": "The steps are written in advance and played in order, then looped."
-       },
-       {
-        "ask": "What does an accent on a step do?",
-        "choices": [
-         "Plays it harder, so louder and brighter through the velocity routes",
-         "Makes it slide into the next",
-         "Makes it longer"
-        ],
-        "answer": 0,
-        "why": "An accent is a higher velocity."
-       },
-       {
-        "ask": "What does a slide on a step do?",
-        "choices": [
-         "Holds it into the next step, which glides without a new pluck",
-         "Swings it late",
-         "Repeats it"
-        ],
-        "answer": 0,
-        "why": "A slide is a legato note: the next note glides to its pitch."
-       },
-       {
-        "ask": "What is swing?",
-        "choices": [
-         "Every second step pushed a little late",
-         "Every note slightly out of tune",
-         "Steps played in a random order"
-        ],
-        "answer": 0,
-        "why": "Swing makes a pattern lope like a shuffle."
-       },
-       {
-        "ask": "What was the TB-303 meant for?",
-        "choices": [
-         "A bass player for guitarists to practise with",
-         "Acid house",
-         "Film soundtracks"
-        ],
-        "answer": 0,
-        "why": "It failed at that, and became the sound of acid house instead."
-       }
+      "title": "The machine that failed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1981 Roland made a small silver box called the TB-303 Bass Line, meant to give guitarists a bass player to practise with. It had one oscillator, a resonant filter, one envelope, and a sixteen-step sequencer with an accent and a slide on every step. It sounded nothing like a bass guitar, and it was hard to program. Roland stopped making it after about two years.[^acid]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Roland TB-303 Bass Line. Its little keyboard enters the notes of a pattern one at a time.",
+          "options": {
+            "photo": "tb-303",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Cheap in second-hand shops, it was picked up by young producers in Chicago, who turned its resonance up, left the sequencer running and twisted the cutoff and envelope knobs by hand while it played. The accents bit and the slides squelched, and the result was named acid house. The 303's accent-and-slide sequencer is now copied on many synths, and the sound is still called acid."
+        }
       ]
-     }
+    },
+    {
+      "title": "More steps, more sequences",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Sixteen steps is a bar. Most synths' sequencers hold more: thirty-two or sixty-four steps, for a pattern several bars long, and two or more sequences per patch to switch between. Steps are usually entered in one of two ways. **Step entry** walks through the steps one at a time while you press the note for each, adding rests and ties with buttons. **Real-time recording** plays along with the sequencer running and records what you play, snapped to the nearest step."
+        },
+        {
+          "type": "text",
+          "text": "A sequence usually belongs to the patch, so loading a sound can load a pattern with it, which is why a synth will sometimes start playing a line by itself when you press Play. It is worth finding the sequencer's **Play**, **Record** and **Hold** or **Latch** buttons early on an unfamiliar synth, along with the tempo."
+        }
+      ]
+    },
+    {
+      "title": "Acid",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now make the acid sound. The sequence below is the one from the start of the lesson, with its accents and slides already in. The synth is plain and dull. Close the cutoff, turn the resonance right up, send plenty of envelope to the filter and shorten its decay, so every note squelches and the accented ones bite."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A sequenced bass line on a dull patch. Make it squelch.",
+          "task": "Make the acid line",
+          "goal": "match",
+          "options": {
+            "stage": 20,
+            "knobs": [
+              "cutoff",
+              "res",
+              "envAmt",
+              "decay"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "envAmt": 0,
+              "decay": 2,
+              "sustain": 0,
+              "release": 1,
+              "legato": 1,
+              "glide": 1,
+              "mxVelCutoff": 8,
+              "mxVelLevel": 5
+            },
+            "riff": 110,
+            "keys": 36,
+            "target": {
+              "name": "Acid",
+              "set": {
+                "cutoff": 1,
+                "res": 4,
+                "envAmt": 3,
+                "decay": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Once it is there, try what the Chicago producers did: turn the cutoff and the envelope amount slowly up and down while the loop plays. The pattern stays the same while the sound shifts beneath it. The next lesson looks at knobs that move by themselves, as part of the sequence."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the sequencer",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does a step sequencer play?",
+                "choices": [
+                  "A pattern of notes and rests entered step by step, looped",
+                  "Whatever keys are held, one at a time",
+                  "A recording of a performance"
+                ],
+                "answer": 0,
+                "why": "The steps are written in advance and played in order, then looped."
+              },
+              {
+                "ask": "What does an accent on a step do?",
+                "choices": [
+                  "Plays it harder, so louder and brighter through the velocity routes",
+                  "Makes it slide into the next",
+                  "Makes it longer"
+                ],
+                "answer": 0,
+                "why": "An accent is a higher velocity."
+              },
+              {
+                "ask": "What does a slide on a step do?",
+                "choices": [
+                  "Holds it into the next step, which glides without a new pluck",
+                  "Swings it late",
+                  "Repeats it"
+                ],
+                "answer": 0,
+                "why": "A slide is a legato note: the next note glides to its pitch."
+              },
+              {
+                "ask": "What is swing?",
+                "choices": [
+                  "Every second step pushed a little late",
+                  "Every note slightly out of tune",
+                  "Steps played in a random order"
+                ],
+                "answer": 0,
+                "why": "Swing makes a pattern lope like a shuffle."
+              },
+              {
+                "ask": "What was the TB-303 meant for?",
+                "choices": [
+                  "A bass player for guitarists to practise with",
+                  "Acid house",
+                  "Film soundtracks"
+                ],
+                "answer": 0,
+                "why": "It failed at that, and became the sound of acid house instead."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**A step sequencer plays a pattern of steps**: each a note or a rest, sixteen to a bar, looped.",
-  "**An accent strikes a step harder**: louder and brighter through the velocity routes.",
-  "**A slide holds a step into the next**, which glides without a new pluck.",
-  "**A tie lengthens a note** across the following step.",
-  "**Swing pushes every second step late**, so the pattern lopes.",
-  "**Acid is a 303-style sequence with high resonance**, its cutoff and envelope turned by hand as it plays.",
-  "**On a strange synth, find Play, Record, Hold and the tempo**: a sequence often loads with the patch."
- ],
- "footnotes": {
-  "moroder": {
-   "kind": "digression",
-   "title": "I Feel Love",
-   "text": "Giorgio Moroder and Pete Bellotte's production of Donna Summer's 'I Feel Love', in 1977, had almost every part played by a Moog modular synthesizer under a sequencer, the bass line running in a steady pattern for the whole record. Brian Eno is said to have told David Bowie that it would change the sound of club music for the next fifteen years, and it did."
+  ],
+  "summary": [
+    "**A step sequencer plays a pattern of steps**: each a note or a rest, sixteen to a bar, looped.",
+    "**An accent strikes a step harder**: louder and brighter through the velocity routes.",
+    "**A slide holds a step into the next**, which glides without a new pluck.",
+    "**A tie lengthens a note** across the following step.",
+    "**Swing pushes every second step late**, so the pattern lopes.",
+    "**Acid is a 303-style sequence with high resonance**, its cutoff and envelope turned by hand as it plays.",
+    "**On a strange synth, find Play, Record, Hold and the tempo**: a sequence often loads with the patch."
+  ],
+  "footnotes": {
+    "moroder": {
+      "kind": "digression",
+      "title": "I Feel Love",
+      "text": "Giorgio Moroder and Pete Bellotte's production of Donna Summer's 'I Feel Love', in 1977, had almost every part played by a Moog modular synthesizer under a sequencer, the bass line running in a steady pattern for the whole record. Brian Eno is said to have told David Bowie that it would change the sound of club music for the next fifteen years, and it did."
+    },
+    "acid": {
+      "kind": "digression",
+      "title": "The 303",
+      "text": "Roland built the TB-303 from late 1981 to 1983, making around ten thousand of them. Its sequencer had no screen, and programming it meant entering pitches and timings separately, so patterns often came out stranger than intended. Phuture's 'Acid Tracks', recorded in Chicago in 1985 and released in 1987, is usually named as the first acid house record."
+    }
   },
-  "acid": {
-   "kind": "digression",
-   "title": "The 303",
-   "text": "Roland built the TB-303 from 1981 to 1984, around ten thousand of them. Its sequencer had no screen, and programming it meant entering pitches and timings separately, so patterns often came out stranger than intended. Phuture's 'Acid Tracks', made in Chicago in the mid-1980s, is usually named as the first acid house record."
-  }
- },
- "journal": []
+  "journal": []
 }

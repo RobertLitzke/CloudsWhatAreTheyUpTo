@@ -10,13 +10,13 @@
       "title": "A system anyone could use",
       "blocks": [
         {"type": "text", "text": "By the early 1700s European botanists knew several thousand kinds of plant, and had no agreed way to sort them or even to name them. A plant's name was a short Latin description, and a description grew longer as more look-alikes were found. One small ground cherry was *Physalis annua ramosissima, ramis angulosis glabris, foliis dentato-serratis*: the yearly, much-branched physalis, with smooth angled branches and toothed leaves. Two botanists describing the same plant could write different phrases, and a reader could not tell whether they meant the same thing."},
-        {"type": "text", "text": "In 1735 a 28-year-old Swede, Carl Linnaeus, published *Systema Naturae*, a few large sheets that sorted every plant into one of 24 classes. His method needed only a flower and the ability to count. Look at the stamens (lesson 18's pollen-makers): how many are there, are they separate or fused together, are some longer than others? That gave the class. Then count the styles, the stalks that rise from the flower's central egg-holding parts, the carpels, to get the order within it. Class 24 was for the plants with no flowers to count, the ferns, mosses, seaweeds and fungi.[^lewd]"}
+        {"type": "text", "text": "In 1735 a 28-year-old Swede, Carl Linnaeus, published *Systema Naturae*, a few large sheets that sorted every plant into one of 24 classes. His method needed only a flower and the ability to count. The class came from the stamens (lesson 18's pollen-makers): how many there were, whether they stood separate or fused together, and whether some were longer than others. Counting the styles, the stalks that rise from the flower's central egg-holding carpels, gave the order within the class. Class 24 was for the plants with no flowers to count, the ferns, mosses, seaweeds and fungi.[^lewd]"}
       ]
     },
     {
       "title": "What the counts grouped",
       "blocks": [
-        {"type": "text", "text": "Students could now place a plant they had never seen in minutes, and they did, all over the world: Linnaeus sent his students on ships to collect, and several died doing it. But Linnaeus knew the classes were artificial. Some held together plants that really are related: his class of four long and two short stamens is the mustard family, and his class of two long and two short is mostly the mints and snapdragons. Others threw together plants with nothing else in common, and split up plants that clearly belonged together."},
+        {"type": "text", "text": "Students could now place a plant they had never seen in minutes, and they did, all over the world: Linnaeus sent his students on ships to collect, and several died doing it.[^apostles] But Linnaeus knew the classes were artificial. Some held together plants that really are related: his class of four long and two short stamens is the mustard family, and his class of two long and two short is mostly the mints and snapdragons. Others threw together plants with nothing else in common, and split up plants that clearly belonged together."},
         {"type": "interactive_diagram", "id": "sort", "caption": "Eight flowers sorted by Linnaeus's count of stamens, and by family. Drawn simply.", "task": "Guess, then sort them both ways", "goal": "both", "aspect_ratio": 1.6},
         {"type": "text", "text": "A family is a group that shares more than one feature: the shape of the flower and fruit, how the leaves are arranged, the chemistry, and, as lesson 21 showed, the DNA. Linnaeus spent the rest of his life collecting fragments of such a natural system, and his successors in France, the Jussieu family, built one by 1789. The stamen counts were dropped within a century."}
       ]
@@ -24,8 +24,8 @@
     {
       "title": "Two words",
       "blocks": [
-        {"type": "text", "text": "What lasted was a shortcut. In *Species Plantarum*, in 1753, Linnaeus listed about 6,000 kinds of plant, each with its long descriptive name. In the margin beside each he added a single word, which with the name of the genus made a two-word label for everyday use. The ground cherry became *Physalis angulata*. He meant it as a convenience. It became the rule: every species of living thing now has a two-word name. For plants the count starts in 1753, and a plant name published earlier doesn't count; animal names count from 1758, the edition of *Systema Naturae* where Linnaeus did the same for animals."},
-        {"type": "text", "text": "The first word is the **genus**, a group of close relatives, written with a capital. The second, the specific name, starts with a lower-case letter, and the two together, in italics, name the **species**: *Quercus garryana*, the Oregon white oak. Genera are grouped into families, whose names end in *-aceae*, built from one of their genera: *Rosaceae*, the rose family, from *Rosa*."}
+        {"type": "text", "text": "What lasted was a shortcut. In *Species Plantarum*, in 1753, Linnaeus listed about 6,000 kinds of plant, each with its long descriptive name. In the margin beside each he added a single word, which with the name of the genus made a two-word label for everyday use. The ground cherry became *Physalis angulata*. He meant it as a convenience, but it became the rule: every species of living thing now has a two-word name. For plants the count starts in 1753, and a plant name published earlier doesn't count; animal names count from 1758, the edition of *Systema Naturae* where Linnaeus did the same for animals."},
+        {"type": "text", "text": "The first word is the **genus**, a group of close relatives, written with a capital. The second, the specific name, starts with a lower-case letter, and the two together, in italics, name the **species**: *Quercus garryana*, the Oregon white oak. Genera are grouped into families, whose names end in *-aceae*, built from one of their genera: *Rosaceae*, the rose family, from *Rosa*.[^old-families]"}
       ]
     },
     {
@@ -38,7 +38,7 @@
     {
       "title": "Why names change",
       "blocks": [
-        {"type": "text", "text": "Gardeners complain that botanists keep renaming plants. There are two main reasons. First, with a few agreed exceptions, the oldest name wins: if someone finds that a plant was named earlier, by someone else, the earlier name takes over. Second, when DNA shows that a species belongs in a different genus, it moves, taking its specific name with it, and when it shows that a family is really two, the family splits. The lily family has been divided into several, and the snapdragons have moved into the plantain family, which looks nothing like them. Each change is a correction of the record of who is related to whom."},
+        {"type": "text", "text": "Gardeners complain that botanists keep renaming plants, for two main reasons. First, with a few agreed exceptions, the oldest name wins: if someone finds that a plant was named earlier by someone else, the earlier name takes over. Second, when DNA shows that a species belongs in a different genus, it moves, taking its specific name with it, and when it shows that a family is really two, the family splits. The lily family has been divided into several, and the snapdragons have moved into the plantain family, which looks nothing like them. Each change corrects the record of who is related to whom."},
         {"type": "text", "text": "Next time you buy a plant, read its label's Latin name and work out what each word says. Then look up its family."}
       ]
     },
@@ -46,7 +46,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Five questions on names and classes", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on names and classes",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "How did Linnaeus's 1735 system place a plant in a class?", "choices": ["By counting its stamens and noting whether they were joined or of unequal length", "By the colour of its petals", "By the shape of its leaves"], "answer": 0, "why": "The class came from the stamens, the order within it from the number of styles. Anyone with a flower could do it."},
             {"ask": "Why was the stamen system dropped?", "choices": ["It grouped some unrelated plants together and split up related ones", "Too many plants had the same number of stamens to tell apart", "It worked only for European plants"], "answer": 0, "why": "Linnaeus himself called it artificial. A family is marked by many features shared together, not by one count."},
@@ -68,6 +71,16 @@
   ],
   "journal": [],
   "footnotes": {
-    "lewd": {"kind": "digression", "title": "Loathsome harlotry", "text": "Linnaeus described stamens and carpels as husbands and wives sharing a bridal bed, and his classes by how many husbands each wife had. The botanist Johann Siegesbeck called it loathsome harlotry, unfit for students. Linnaeus named a small, sticky, unpleasant weed *Sigesbeckia* after him."}
+    "lewd": {"kind": "digression", "title": "Loathsome harlotry", "text": "Linnaeus described stamens and carpels as husbands and wives sharing a bridal bed, and his classes by how many husbands each wife had. The botanist Johann Siegesbeck called it loathsome harlotry, unfit for students. Linnaeus named a small, sticky, unpleasant weed *Sigesbeckia* after him."},
+    "apostles": {
+      "kind": "digression",
+      "title": "Linnaeus's apostles",
+      "text": "Linnaeus called the seventeen students he sent abroad his apostles. Daniel Solander sailed with Captain Cook on the *Endeavour*; Pehr Forsskål died of malaria in Yemen at 31; Christopher Tärnström died of fever on an island off Vietnam before he had sent home a single specimen."
+    },
+    "old-families": {
+      "kind": "technical",
+      "title": "Eight old family names",
+      "text": "Eight well-known families are still allowed to keep older descriptive names beside their *-aceae* ones: among them the daisies, Compositae (or Asteraceae), the grasses, Gramineae (Poaceae), the peas, Leguminosae (Fabaceae), and the carrots, Umbelliferae (Apiaceae)."
+    }
   }
 }

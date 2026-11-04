@@ -11,8 +11,8 @@
     {
       "title": "The plain with nothing on it",
       "blocks": [
-        { "type": "text", "text": "Directly north of Mount St Helens' crater lies the Pumice Plain, about 15 square kilometres of grey ground built in 1980 by flows of hot pumice and ash, tens of metres deep in places. Nothing survived there. No roots, no buried seeds, no gophers: the flows were hot enough to char wood. It was the one place on the mountain where life really had to start from nothing, and ecologists watched it closely." },
-        { "type": "text", "text": "Pumice is a hard place to grow. It holds little water, it heats up in summer sun, it shifts in the wind, and above all it holds almost no nitrogen. Seeds of fireweed and other wind-blown plants landed there by the million in the first years, and nearly all the seedlings died as the pumice dried out around them[^fireweed]. The few that lived grew slowly for want of nitrogen. Then, in 1981, the ecologists found a few plants that had made it: prairie lupines, low silvery plants with blue-purple flowers, growing alone on the bare plain." },
+        { "type": "text", "text": "Directly north of Mount St Helens' crater lies the Pumice Plain, about 15 square kilometres of grey ground built in 1980 by a vast landslide and flows of hot pumice and ash, tens of metres deep in places. Nothing survived there. No roots, no buried seeds, no gophers: the flows were hot enough to char wood. It was the one place on the mountain where life really had to start from nothing, and ecologists watched it closely." },
+        { "type": "text", "text": "Pumice is a hard place to grow. It holds little water, heats up in the summer sun, shifts in the wind, and above all holds almost no nitrogen. Seeds of fireweed and other wind-blown plants landed there by the million in the first years, and nearly all the seedlings died as the pumice dried out around them[^fireweed]. The few that lived grew slowly for want of nitrogen. Then, in 1981, the ecologcologist Charlie Crisafulli found a single plant that had made it: a prairie lupine, a low silvery plant with blue-purple flowers, growing alone on the bare plain." },
         {
           "type": "diagram",
           "id": "photo",
@@ -28,7 +28,7 @@
       "title": "A plant that makes its own nitrogen",
       "blocks": [
         { "type": "text", "text": "The lupine's advantage was the same as the mountain alder's in lesson 14. Its roots carry bacteria that take nitrogen from the air and turn it into a form the plant can use. A lupine doesn't need nitrogen in the ground; it brings its own. When its leaves fall and the plant dies, that nitrogen enriches the pumice around it." },
-        { "type": "text", "text": "The lupines spread. A plant dropped its heavy seeds close by, and the seedlings grew into patches, then the patches into carpets. In the late 1980s the ecologist Roger del Moral, of the University of Washington, mapped and measured the plant life on the plain each year in permanent plots. He found that as the lupine patches grew and died back, other plants, such as grasses, pearly everlasting and later young trees, settled more often on the enriched ground they left behind[^delmoral]." }
+        { "type": "text", "text": "The lupines spread. A plant dropped its heavy seeds close by, and the seedlings grew into patches, then the patches into carpets. From the 1980s onward, the ecologist Roger del Moral, of the University of Washington, mapped and measured the plant life on the plain each year in permanent plots. He and his colleagues found that as the lupine patches grew and died back, other plants, such as grasses, pearly everlasting and later young trees, settled more often on the enriched ground they left behind[^delmoral]." }
       ]
     },
     {
@@ -36,15 +36,15 @@
       "blocks": [
         { "type": "text", "text": "Then the lupines started to crash. In the early 1990s John Bishop, a young ecologist working with del Moral, noticed that whole patches were turning brown. The cause was caterpillars of several kinds of moth, which had flown onto the plain and found a feast. One rolled the leaves together, another bored into the stems, another ate the roots." },
         { "type": "text", "text": "Bishop and the mathematical ecologist William Fagan found something surprising about where the damage fell. The caterpillars hit hardest at the edges of the lupine's advance, the young, scattered plants at the front, rather than in the dense old centres of the patches. That slowed the lupine's spread across the plain far more than the same amount of damage spread evenly would have. A few plant-eaters at the front could hold back the march of a whole plant population[^front]." },
-        { "type": "interactive_diagram", "id": "lupine", "caption": "The Pumice Plain from three lupine plants in 1981. Lupine spreads to bare pumice next to it; caterpillars kill lupine mostly at the patch edges; dead lupine leaves nitrogen where other plants can settle. A model.", "task": "Play thirty years with no caterpillars and with many", "goal": "edge", "aspect_ratio": 1.69 },
-        { "type": "text", "text": "In the model, as on the plain, the caterpillars do two things at once. They slow the lupine's spread, keeping more of the plain bare for longer. But by killing lupine, they also release its nitrogen sooner, opening ground for other plants. Plant-eaters don't simply hold back succession, the order in which plants replace one another on new ground; they change its path." }
+        { "type": "interactive_diagram", "id": "lupine", "caption": "The Pumice Plain from a first lupine plant in 1981. Lupine spreads to bare pumice next to it; caterpillars kill lupine mostly at the patch edges; dead lupine leaves nitrogen where other plants can settle. A model.", "task": "Play thirty years with no caterpillars and with many", "goal": "edge", "aspect_ratio": 1.69 },
+        { "type": "text", "text": "In the model, as on the plain, the caterpillars do two things at once. They slow the lupine's spread, keeping more of the plain bare for longer. Yet by killing lupine, they also release its nitrogen sooner, opening ground for other plants. Plant-eaters don't simply hold back succession[^succession]; they change its path." }
       ]
     },
     {
       "title": "Forty years on, around 2021",
       "blocks": [
         { "type": "text", "text": "Today parts of the Pumice Plain are green with lupine, grasses, shrubs and willow thickets along the streams, and young Douglas fir, noble fir and lodgepole pine are scattered across it. Other parts are still almost bare. The plain has become one of the longest records anywhere of life arriving on new ground, and it shows how much depends on chance: which seeds arrive, in which year, and which insects find them[^chance]." },
-        { "type": "key_ideas", "title": "An estimate", "points": ["If each lupine patch grows outward by about half a metre a year on every side, a patch started in 1981 would be about 40 metres across by 2021, covering about 1,250 square metres. Fifteen square kilometres is about 15,000,000 square metres; even a thousand such patches would cover less than a tenth of it. The plain fills from many scattered starts, not from one."] }
+        { "type": "key_ideas", "title": "An estimate", "points": ["If each lupine patch grows outward by about half a metre a year on every side, a patch started in 1981 would be about 40 metres across by 2021, covering about 1,250 square metres. Fifteen square kilometres is 15,000,000 square metres; even a thousand such patches would cover less than a tenth of it. The plain fills from many scattered starts, not from one."] }
       ]
     },
     {
@@ -77,12 +77,17 @@
     "chance": {
       "kind": "digression",
       "title": "Elk and willows",
-      "text": "Willows came to the plain's streams in the 1990s, probably as seeds on the wind. Elk browse them heavily, and fenced plots show how much taller they would grow without the elk."
+      "text": "Willows came to the plain's streams in the 1980s and 1990s, carried as seeds on the wind. Elk browse them heavily, and fenced plots show how much taller they would grow without the elk."
     },
     "fireweed": {
       "kind": "digression",
       "title": "Seeds that failed",
       "text": "Fireweed seeds, each on a tuft of silky hairs, drifted onto the plain in huge numbers from the first summer. Most germinated after rain and died within weeks as the pumice dried out. Wind brings plenty of seeds; it doesn't make the ground fit for them."
+    },
+    "succession": {
+      "kind": "technical",
+      "title": "Succession",
+      "text": "Succession is the order in which plants and animals replace one another on new or disturbed ground over time."
     }
   }
 }

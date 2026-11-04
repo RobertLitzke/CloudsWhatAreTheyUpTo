@@ -7,8 +7,8 @@
     {
       "title": "Tents over mangroves",
       "blocks": [
-        { "type": "text", "text": "In the shallow water of Florida Bay, off the Florida Keys, stand tiny islands made of nothing but a single clump of red mangrove: a tangle of arching roots and leaves, a dozen metres or so across, rising straight out of the sea. Each is a whole world for the insects, spiders, mites and other small animals that live in its branches. In 1966 E. O. Wilson[^wilson] of Harvard and his graduate student Daniel Simberloff picked out several of them, at distances from about 2 metres to about half a kilometre from the larger mangrove forest along the shore." },
-        { "type": "text", "text": "First they counted everything that lived on each islet, climbing through the branches with collecting jars, finding between about twenty and forty kinds on each. Then they hired a pest-control company to put up scaffolding over each islet, cover it with a tent, and fill the tent with poison gas, the way a house is fumigated for termites. Every insect and spider died, while the mangroves, which the gas barely harmed, stood unhurt. Then Simberloff went back, month after month, to see what came." },
+        { "type": "text", "text": "In the shallow water of Florida Bay, off the Florida Keys, stand tiny islands made of nothing but a single clump of red mangrove: a tangle of arching roots and leaves, a dozen metres or so across, rising straight out of the sea. Each is a whole world for the insects, spiders, mites and other small animals that live in its branches. In 1966 E. O. Wilson[^wilson] of Harvard and his graduate student Daniel Simberloff picked out several of them, at distances from about 2 metres to about half a kilometre from the larger mangrove islands along the shore." },
+        { "type": "text", "text": "First they counted everything that lived on each islet, climbing through the branches with collecting jars and finding between about twenty and forty kinds on each. Then they hired a pest-control company to put up scaffolding over each islet, cover it with a tent, and fill the tent with poison gas[^fumigation], the way a house is fumigated for termites. Every insect and spider died, while the mangroves, which the gas barely harmed, stood unhurt. Then Simberloff went back, month after month, to see what came." },
         {
           "type": "diagram",
           "id": "photo",
@@ -30,7 +30,7 @@
     {
       "title": "Arrivals and losses",
       "blocks": [
-        { "type": "text", "text": "This was exactly what Wilson and the mathematical ecologist Robert MacArthur had predicted a few years before, in a theory they set out in a 1963 paper and a 1967 book, *The Theory of Island Biogeography*. Their idea was that the number of species on an island is a balance between two flows. Species arrive from the mainland, and species on the island die out. The rate of arrival falls as the island fills up, because more and more of the arrivals are kinds already there. The rate of loss rises as the island fills, because there are more species to lose and less room for each. Where the two rates meet, the number holds steady." },
+        { "type": "text", "text": "This was what Wilson and the mathematical ecologist Robert MacArthur had predicted a few years before, in a theory they set out in a 1963 paper and a 1967 book, *The Theory of Island Biogeography*. Their idea was that the number of species on an island is a balance between two flows. Species arrive from the mainland, and species on the island die out. The rate of arrival falls as the island fills up, because more and more of the arrivals are kinds already there. The rate of loss rises as the island fills, because there are more species to lose and less room for each. Where the two rates meet, the number holds steady." },
         { "type": "text", "text": "Two things set where they meet. Distance: a far island gets fewer arrivals. Size: a small island holds smaller populations, which die out more easily by chance, a bad year or a disease. So a big island near the mainland holds the most species, and a small one far out the fewest. It is lesson 2's bathtub again: arrivals are the tap, losses the drain, and species the water." },
         { "type": "interactive_diagram", "id": "refill", "caption": "An island emptied of insects, refilling. Each absent kind may arrive in any year, more likely on a near island; each present kind may die out, more likely on a small one. The dashed line is where arrivals balance losses. A model.", "task": "Guess, then move the island at least 400 metres out and play 30 years", "goal": "farther", "aspect_ratio": 1.6 },
         { "type": "text", "text": "Simberloff and Wilson's islets did what the model does. The count rose to its old level and wobbled there, the farthest islet more slowly and to fewer, and the list kept turning over[^krakatoa]." }
@@ -39,14 +39,14 @@
     {
       "title": "Wallace’s line",
       "blocks": [
-        { "type": "text", "text": "Distance alone does not explain every island. In 1859 Alfred Russel Wallace, the naturalist who had worked out natural selection independently of Darwin, described a strange boundary in the islands of what is now Indonesia. Bali and Lombok are about 35 kilometres apart, with the same climate and similar forests. But the birds and mammals of Bali are Asian, like those of Java and Borneo, while Lombok's begin to look Australian: cockatoos and honeyeaters, and farther east, marsupials." },
+        { "type": "text", "text": "Distance alone does not explain every island. In 1859 Alfred Russel Wallace, the naturalist who had worked out natural selection independently of Darwin, described a strange boundary in the islands of what is now Indonesia. Bali and Lombok are about 35 kilometres apart, with the same climate and similar forests. But the birds and mammals of Bali are Asian, like those of Java and Borneo, while Lombok's begin to look Australian: cockatoos and honeyeaters, and farther east, marsupials[^wallace-line]." },
         { "type": "text", "text": "The explanation is the sea floor. During the ice ages, so much water was locked in ice sheets that sea level fell by over a hundred metres, and Bali, Java, Sumatra and Borneo were joined to Asia by dry land. The channel between Bali and Lombok is deep and never dried out. Animals that walk could cross the land bridges but not the strait. The line Wallace drew follows the edge of the old continental shelf. An island's history, and the barriers its colonists had to cross, matter as much as its distance on today's map." }
       ]
     },
     {
       "title": "Area and species",
       "blocks": [
-        { "type": "text", "text": "Bigger islands hold more species, and in a strikingly regular way. In 1957 the American entomologist Philip Darlington counted the kinds of amphibians and reptiles on the islands of the West Indies, from tiny Redonda to Cuba, and found a simple rule: every tenfold increase in area roughly doubles the number of species. Ecologists write it as S = cA^z, where S is the number of species, A the area, c a number that depends on the kind of animal and the region, and z a number that sets how steeply species climb with area. Darlington's rule is z of about 0.3, since 10 to the power 0.3 is about 2." },
+        { "type": "text", "text": "Bigger islands hold more species, and in a regular way. In 1957 the American entomologist Philip Darlington counted the kinds of amphibians and reptiles on the islands of the West Indies, from tiny Redonda to Cuba, and found a simple rule: every tenfold increase in area roughly doubles the number of species. Ecologists write it as S = cA^z, where S is the number of species, A the area, c a number that depends on the kind of animal and the region, and z a number that sets how steeply species climb with area. Darlington's rule is z of about 0.3, since 10 to the power 0.3 is about 2." },
         { "type": "interactive_diagram", "id": "area", "caption": "Kinds of amphibians and reptiles on seven islands of the West Indies against their area, both on scales where each step is ten times the last, from Darlington's counts as MacArthur and Wilson reprinted them. Tilt the line S = cA^z to fit.", "task": "Fit the line to the islands", "goal": "fit", "aspect_ratio": 1.69 },
         { "type": "text", "text": "The **species-area rule** holds widely: for birds on islands, for plants on mountaintops, for fish in lakes, for insects in patches of forest, though the value of z varies, from about 0.15 for areas within one stretch of mainland to 0.35 or so for true islands[^z]." },
         { "type": "key_ideas", "title": "An estimate", "points": ["If ten times the area holds twice the species, then a hundredth of the area holds a half of a half: a quarter of the species. Cuba holds about 80 kinds of amphibians and reptiles in Darlington's table; an island a hundredth its size, about 1,100 km², should hold about 20. Montserrat, about a tenth of that again at 102 km², should hold about 10 and holds 9."] }
@@ -102,6 +102,16 @@
       "kind": "digression",
       "title": "E. O. Wilson",
       "text": "Wilson, who died in 2021, began as an ant specialist (branch N, on ants, follows his work on their trails) and went on to found island biogeography with MacArthur, sociobiology, and much of the modern argument for protecting biodiversity, the subject of the next lesson."
+    },
+    "fumigation": {
+      "kind": "digression",
+      "title": "Fumigating an island",
+      "text": "The gas was methyl bromide. On the first islet they tried, the pest-control crew used too much and burned the mangrove leaves; on the rest they learned to keep the dose high enough to kill the insects in the bark and low enough to spare the trees."
+    },
+    "wallace-line": {
+      "kind": "digression",
+      "title": "Wallace's line",
+      "text": "Thomas Henry Huxley coined the name \"Wallace's line\" in 1868. The transition zone between the Asian and Australian faunas, from Lombok east to New Guinea, is still called Wallacea."
     }
   }
 }

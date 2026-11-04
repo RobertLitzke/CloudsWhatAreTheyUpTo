@@ -25,29 +25,29 @@
       "title": "Alive or chemical?",
       "blocks": [
         {"type": "text", "text": "People had made bread, beer and wine for thousands of years without knowing that anything was alive in them. Antonie van Leeuwenhoek saw small globules in fermenting beer through his microscope in 1680, but did not take them for living things. In the 1830s three investigators working separately, Charles Cagniard de la Tour in France and Theodor Schwann and Friedrich Kützing in Germany, saw the globules bud and argued that yeast was a living organism and that fermentation was its doing."},
-        {"type": "text", "text": "The leading chemists disagreed, Justus von Liebig most forcefully. To them fermentation was a chemical decay, and yeast at most a by-product. The argument was settled by Louis Pasteur, who was asked in the 1850s to find out why some batches of beetroot alcohol in Lille went sour. Through a series of experiments from 1857 to the early 1860s he showed that each kind of fermentation was carried out by a particular kind of living microbe, that alcohol was made by yeast, and that the souring was the work of bacteria that had got in."}
+        {"type": "text", "text": "The leading chemists disagreed, Justus von Liebig most forcefully.[^liebig] To them fermentation was a chemical decay, and yeast at most a by-product. The argument was settled by Louis Pasteur, who was asked in 1856 to find out why some vats of beetroot alcohol in Lille went sour. Through experiments from 1857 to the early 1860s he showed that each kind of fermentation was carried out by a particular kind of living microbe: alcohol was made by yeast, and the souring was the work of bacteria that had got in."}
       ]
     },
     {
       "title": "Buchner's juice",
       "blocks": [
-        {"type": "text", "text": "Pasteur believed fermentation needed a living cell. In 1897 the German chemist Eduard Buchner, with his brother Hans, ground yeast with sand, squeezed out the juice through a cloth, and filtered it until no living cell was left. To keep the juice from spoiling they added a lot of sugar, as cooks do in jam, where so much sugar stops microbes growing. Instead the juice began to bubble. The cell-free juice was fermenting sugar into alcohol and carbon dioxide on its own."},
-        {"type": "text", "text": "The work, then, was done not by life itself but by molecules the cell made: enzymes. Buchner was given the Nobel Prize in chemistry in 1907, and his juice is often taken as the start of biochemistry. Over the next forty years chemists took fermentation apart into a chain of about a dozen steps, each with its own enzyme, the same chain that breaks down sugar in our own muscles.[^chain]"}
+        {"type": "text", "text": "Pasteur believed fermentation needed a living cell. In 1897 the German chemist Eduard Buchner, encouraged by his brother Hans, ground yeast with sand and fine earth, squeezed out the juice through a cloth, and left no living cell behind. To keep the juice from spoiling, as cooks preserve jam, he added a lot of sugar. Instead the juice began to bubble. The cell-free juice was fermenting sugar into alcohol and carbon dioxide on its own."},
+        {"type": "text", "text": "The work, then, was done not by life itself but by molecules the cell made: enzymes.[^enzyme] Buchner was given the Nobel Prize in chemistry in 1907, and his juice is often taken as the start of biochemistry. Over the next forty years chemists took fermentation apart into a chain of a dozen steps, each with its own enzyme, the same chain that breaks down sugar in our own muscles.[^chain]"}
       ]
     },
     {
       "title": "Wasting sugar on purpose",
       "blocks": [
-        {"type": "text", "text": "A cell can get energy from sugar in two ways. **Fermentation** splits a sugar molecule into two of alcohol and two of carbon dioxide and needs no oxygen. **Respiration** uses oxygen to burn the sugar right down to carbon dioxide and water. Respiration yields about fifteen times as much usable energy per sugar molecule, counted in ATP, the molecule cells use to carry energy: about thirty against two; fermentation leaves most of the energy in the alcohol. So a cell that has oxygen should respire, and most cells do."},
-        {"type": "text", "text": "Baker's yeast does not. Give it plenty of sugar and it ferments even in a flask bubbling with air, throwing away most of the energy in each molecule. In return it can take in sugar far faster. In a ripe fruit full of sugar, and of other microbes eating the same sugar, speed matters. The alcohol the yeast leaves behind does it another service: it poisons most bacteria and many other fungi at levels the yeast tolerates."},
+        {"type": "text", "text": "A cell can get energy from sugar in two ways. **Fermentation** splits a sugar molecule into two of alcohol and two of carbon dioxide and needs no oxygen. **Respiration** uses oxygen to burn the sugar right down to carbon dioxide and water. Respiration yields about fifteen times as much usable energy per sugar molecule, counted in ATP, the molecule cells use to carry energy: about thirty against two. Fermentation leaves most of the energy in the alcohol, so a cell that has oxygen should respire, and most cells do."},
+        {"type": "text", "text": "Baker's yeast does not. Give it plenty of sugar and it ferments even in a flask bubbling with air, throwing away most of the energy in each molecule.[^crabtree] In return it can take in sugar far faster. In a ripe fruit full of sugar, and of other microbes eating the same sugar, speed matters. The alcohol the yeast leaves behind does it another service: it poisons most bacteria and many other fungi at levels the yeast tolerates."},
         {"type": "interactive_diagram", "id": "flask", "caption": "Yeast and a sugar-eating bacterium sharing a flask of sugar, with the yeast either fermenting or burning its sugar fully. Cell numbers and amounts are on a shared scale of 0 to 100. A model.", "task": "Try both ways, then run the fermenter to the end", "goal": "ferment", "aspect_ratio": 1.82},
-        {"type": "text", "text": "There is a last step. When the sugar is gone, a yeast with oxygen switches over and burns the alcohol it made, getting back much of the energy it skipped. Biologists sum up the strategy as make, accumulate, consume: make alcohol from the sugar fast, let it build up in the fruit, where it poisons most rivals, and consume it later. The ability seems to have arisen in the lineage of baker's yeast at about the time flowering plants were evolving sugary fruit.[^when]"}
+        {"type": "text", "text": "When the sugar is gone, a yeast with oxygen switches over and burns the alcohol it made, getting back much of the energy it skipped. Biologists sum up the strategy as make, accumulate, consume: make alcohol from the sugar fast, let it build up in the fruit, where it poisons most rivals, and consume it later. The ability seems to have arisen in the lineage of baker's yeast at about the time flowering plants were evolving sugary fruit.[^when]"}
       ]
     },
     {
       "title": "A cell like ours",
       "blocks": [
-        {"type": "text", "text": "Lesson 2 said fungal cells work much like ours. Yeast is the cleanest proof. Its genome, its full set of genes, about six thousand of them, was the first of any organism with a nucleus to be read in full, in 1996. When geneticists replace yeast genes with their human counterparts, many work: a 2015 study found that nearly half of the essential yeast genes it tested, those a yeast cannot live without, could be swapped for the human version and the yeast lived."},
+        {"type": "text", "text": "Lesson 2 said fungal cells work much like ours. Yeast is the cleanest proof. Its genome, about six thousand genes, was the first of any organism with a nucleus to be read in full, in 1996. When geneticists replace yeast genes with their human counterparts, many work: a 2015 study found that nearly half of the essential yeast genes it tested, those a yeast cannot live without, could be swapped for the human version and the yeast lived."},
         {"type": "text", "text": "That is why so much of what is known about how cells divide, copy their DNA, fold proteins and age was first worked out in yeast. The bud scars of the first section were how biologists first counted a single cell's age. A sugar fungus from a beer vat turned out to be a model for much of what goes on in a human cell."}
       ]
     },
@@ -66,6 +66,21 @@
   ],
   "footnotes": {
     "chain": {"kind": "technical", "title": "Glycolysis", "text": "The first stretch of the chain, from glucose to a three-carbon acid called pyruvate, is glycolysis, and it is the same in yeast, in bacteria and in us. Yeast then turns pyruvate into alcohol and carbon dioxide; a hard-working muscle short of oxygen turns it into lactic acid instead."},
-    "when": {"kind": "technical", "title": "Dating the habit", "text": "The yeasts that ferment in air descend from an ancestor whose entire genome was doubled, an event dated to roughly 100 million years ago, when flowering plants were spreading. The extra gene copies are thought to have helped yeast handle sugar fast. The timing is an estimate, and the link to fruit is a likely story rather than a proven one."}
+    "when": {"kind": "technical", "title": "Dating the habit", "text": "The yeasts that ferment in air descend from an ancestor whose entire genome was doubled, an event dated to roughly 100 million years ago, when flowering plants were spreading. The extra gene copies are thought to have helped yeast handle sugar fast. The timing is an estimate, and the link to fruit is a likely story rather than a proven one."},
+    "liebig": {
+      "kind": "digression",
+      "title": "The chemists' mockery",
+      "text": "In 1839 Liebig and his colleague Friedrich Wöhler published an anonymous spoof in their own chemistry journal, describing yeast under a fictional microscope as tiny distillation flasks shaped like animals that swallowed sugar and excreted alcohol from a bladder and carbon dioxide from their genitals."
+    },
+    "enzyme": {
+      "kind": "technical",
+      "title": "The word \"enzyme\"",
+      "text": "Wilhelm Kühne coined *enzyme* in 1877 from the Greek *en zyme*, meaning \"in yeast\". Buchner called the active stuff in his juice *zymase*, thinking it was a single substance; later work showed it was a whole set of enzymes acting in turn."
+    },
+    "crabtree": {
+      "kind": "technical",
+      "title": "The Crabtree effect",
+      "text": "Fermenting sugar even when oxygen is plentiful is called the Crabtree effect, after the English biochemist Herbert Grace Crabtree, who described a similar habit in tumour cells in 1929."
+    }
   }
 }

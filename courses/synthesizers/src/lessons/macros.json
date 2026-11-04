@@ -1,401 +1,401 @@
 {
- "id": "macros",
- "n": 22,
- "title": "Same knob, different job",
- "teaches": "Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw",
- "parts": [
-  {
-   "title": "One switch",
-   "blocks": [
+  "id": "macros",
+  "n": 22,
+  "title": "Same knob, different job",
+  "teaches": "Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** Here are four sounds from the same synth playing the same line. Between them, nobody touched a knob. Three knobs, called Wave, Timbre and Shape, sit at the same three places every time. Only one switch moved. Listen to how different the four are, and in particular to the last one, the wide, shimmering one. By the end of the lesson you'll set it up from a plain saw."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "One line, four engines, the same three knob settings",
-     "options": {
-      "stage": 22,
-      "riff": 108,
-      "start": {
-       "wave": 0,
-       "cutoff": 5,
-       "res": 1,
-       "attack": 1,
-       "decay": 3,
-       "sustain": 3,
-       "release": 3
-      },
-      "sounds": [
-       {
-        "name": "Classic saw",
-        "set": {}
-       },
-       {
-        "name": "Morph",
-        "set": {
-         "engine": 1,
-         "engineWave": 4,
-         "engineTimbre": 7,
-         "engineShape": 10
+      "title": "One switch",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** Here are four sounds from the same synth playing the same line. Between them, nobody touched a knob. Three knobs, called Wave, Timbre and Shape, sit at the same three places every time. Only one switch moved. Listen to how different the four are, and in particular to the last one, the wide, shimmering one. By the end of the lesson you'll set it up from a plain saw."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "One line, four engines, the same three knob settings",
+          "options": {
+            "stage": 22,
+            "riff": 108,
+            "start": {
+              "wave": 0,
+              "cutoff": 5,
+              "res": 1,
+              "attack": 1,
+              "decay": 3,
+              "sustain": 3,
+              "release": 3
+            },
+            "sounds": [
+              {
+                "name": "Classic saw",
+                "set": {}
+              },
+              {
+                "name": "Morph",
+                "set": {
+                  "engine": 1,
+                  "engineWave": 4,
+                  "engineTimbre": 7,
+                  "engineShape": 10
+                }
+              },
+              {
+                "name": "Fold",
+                "set": {
+                  "engine": 2,
+                  "engineWave": 4,
+                  "engineTimbre": 7,
+                  "engineShape": 10
+                }
+              },
+              {
+                "name": "Supersaw",
+                "set": {
+                  "engine": 3,
+                  "engineWave": 4,
+                  "engineTimbre": 7,
+                  "engineShape": 10
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The switch picks the **engine**: the way the oscillator makes its wave. A great many modern synths work this way. Their oscillator is a small computer program, not a circuit, so it can be any of a dozen kinds of oscillator. A panel can't carry a dozen sets of knobs, so it carries three, and the engine decides what each one does.[^names]"
         }
-       },
-       {
-        "name": "Fold",
-        "set": {
-         "engine": 2,
-         "engineWave": 4,
-         "engineTimbre": 7,
-         "engineShape": 10
-        }
-       },
-       {
-        "name": "Supersaw",
-        "set": {
-         "engine": 3,
-         "engineWave": 4,
-         "engineTimbre": 7,
-         "engineShape": 10
-        }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The switch picks the **engine**: the way the oscillator makes its wave. A great many modern synths work this way. Their oscillator is a small computer program, not a circuit, so it can be any of a dozen kinds of oscillator. A panel can't carry a dozen sets of knobs, so it carries three, and the engine decides what each one does.[^names]"
-    }
-   ]
-  },
-  {
-   "title": "Three knobs, many jobs",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "By convention, the first knob makes the biggest change, the second a change of colour, and the third something extra. On this synth they are called **Wave**, **Timbre** and **Shape**. They are **macro** knobs: each one moves several things inside the engine at once, and you hear one change. The figure shows three engines. Each knob keeps its place when you switch engines, so you can hear the same settings do different jobs."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "engines",
-     "caption": "Two cycles of the wave and its harmonics, for three engines and the same three knobs. Play it to hear it.",
-     "task": "Turn a knob up in each of the three engines",
-     "goal": "engines-tried",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "text",
-     "text": "The readout under the figure says what each knob does in the engine that's on. That habit carries over to any synth with engines: when you pick a new engine, turn each of the three knobs all the way and back, and listen to what it does. That takes about ten seconds, and it is quicker than looking it up."
-    }
-   ]
-  },
-  {
-   "title": "Morph",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The simplest engine is the oscillator you already know, with one change. In the classic oscillator, the wave switch jumps from saw to pulse to triangle to sine. In **Morph**, the Wave knob slides between them, so between saw and square there is a wave that is partly both. Because the waves start together, a blend of two is a real wave in between, with harmonics in between too.[^morph]"
-    },
-    {
-     "type": "text",
-     "text": "Timbre sets the width of the pulse, as the Width knob did in lesson 3, and is heard only while the pulse is in the blend. Shape adds a square wave an octave below the note, a **sub-oscillator**. A sub adds weight underneath without changing the colour on top, which is why it's on almost every bass synth."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The morph engine at its first position: a saw. Slide it all the way to the other end.",
-     "task": "Turn Wave to 90 % or more",
-     "goal": "morph-sine",
-     "options": {
-      "stage": 22,
-      "knobs": [
-       "engine",
-       "engineWave",
-       "engineTimbre",
-       "engineShape"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 5,
-       "res": 1,
-       "attack": 1,
-       "decay": 3,
-       "sustain": 3,
-       "release": 3,
-       "engine": 1
-      },
-      "riff": 108,
-      "keys": 48
-     }
-    },
-    {
-     "type": "text",
-     "text": "Listen on the way past. A wave that is partly saw and partly square is buzzy, but less so than a saw. Between triangle and sine, the last few harmonics fade one at a time. Morphing is gentle, and its jobs are much like the classic oscillator's jobs. The next engine is not like that at all."
-    }
-   ]
-  },
-  {
-   "title": "Fold",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**The mystery.** In the 1960s two people built the first portable synthesizers, about three thousand miles apart, and never agreed on how a sound should be made. In New York, [[Robert Moog]] started with a bright wave and took harmonics away with a filter. That is the subtractive synth this course has been about. In California, [[Don Buchla]] mostly started with a plain wave and added harmonics to it. One of his ways of adding them was to fold the wave."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Don Buchla in 2006. He built his first modular synthesizer in the mid-1960s for the San Francisco Tape Music Center.",
-     "options": {
-      "photo": "don-buchla",
-      "aspect": 0.8,
-      "position": "50% 20%"
-     }
-    },
-    {
-     "type": "text",
-     "text": "**Folding** works like this. Push a sine harder and harder into a circuit. When the wave would rise past the top, the circuit sends it back down, as if it had hit a mirror. A little push folds the tips over, which adds a few harmonics. A big push folds the wave many times, and it is full of harmonics. Turning the push up and down sweeps the colour much as a filter does, but it sounds hollower, almost vocal, because harmonics come and go in an uneven order.[^folding]"
-    },
-    {
-     "type": "text",
-     "text": "In the **Fold** engine, Wave is the push. Timbre is the **symmetry**: it lifts the wave before the fold, so the top folds sooner than the bottom, and even harmonics come in. Shape changes what is folded, from a sine to a triangle, which has sharper tips, so it folds sooner."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The fold engine with nothing folded: a sine. Push it until the tips fold back over each other.",
-     "task": "Turn Wave to 50 % or more",
-     "goal": "fold-deep",
-     "options": {
-      "stage": 22,
-      "knobs": [
-       "engine",
-       "engineWave",
-       "engineTimbre",
-       "engineShape"
-      ],
-      "start": {
-       "wave": 3,
-       "cutoff": 6,
-       "res": 0,
-       "decay": 2,
-       "sustain": 0,
-       "release": 2,
-       "engine": 2
-      },
-      "riff": 112,
-      "keys": 48
-     }
-    },
-    {
-     "type": "text",
-     "text": "A filter can only take away what the oscillator gives it, but a folder makes new harmonics. Here they still go through this synth's filter, which smooths the very highest ones. Buchla's instruments mostly had no filter of that kind at all.[^lpg]"
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A Buchla 100 series modular synthesizer at New York University.",
-     "options": {
-      "photo": "buchla-100",
-      "aspect": 1.5
-     }
-    }
-   ]
-  },
-  {
-   "title": "Supersaw",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1996 Roland put an engine on a synth called the JP-8000 that it called the Super Saw. It is seven saws, one on the note and six around it, each tuned a little away from it. Within a few years it was the sound of trance music, and it has never quite gone away.[^super] It is lesson 18's unison taken further, inside one oscillator."
-    },
-    {
-     "type": "text",
-     "text": "In the **Supersaw** engine, Wave is the **detune**: how far the outer saws are tuned from the middle one. Timbre is how loud the six outer saws are, against the middle one. Shape is how many of them there are: two, four or six. Each saw's harmonics are slightly out of step with the others, so every harmonic turns into a little cluster that shimmers, and the clusters are wider the higher the harmonic."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A single saw: the supersaw with its outer saws silent. Spread them out and bring them up.",
-     "task": "Turn Wave and Timbre both to 50 % or more",
-     "goal": "super-wide",
-     "options": {
-      "stage": 22,
-      "knobs": [
-       "engine",
-       "engineWave",
-       "engineTimbre",
-       "engineShape"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 5,
-       "res": 1,
-       "attack": 1,
-       "decay": 3,
-       "sustain": 3,
-       "release": 3,
-       "engine": 3
-      },
-      "riff": 103,
-      "keys": 48
-     }
-    },
-    {
-     "type": "text",
-     "text": "Too little detune sounds like a saw that wobbles slowly. Too much sounds out of tune. Between them is a wide band where it just sounds big. Notice that the sound gets wider but no louder. The engine turns its saws down as it adds them, so the total stays about the same."
-    }
-   ]
-  },
-  {
-   "title": "The wall of saws",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now make the last of the opening's four sounds. This is the synth with the classic oscillator, playing a plain saw. Choose the engine, then find the three knob settings by ear. Remember that in the opening the three knobs were in the same places for every engine."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A plain saw. Make the wide, shimmering lead from the start of the lesson.",
-     "task": "Make the supersaw lead",
-     "goal": "match",
-     "options": {
-      "stage": 22,
-      "knobs": [
-       "engine",
-       "engineWave",
-       "engineTimbre",
-       "engineShape"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 5,
-       "res": 1,
-       "attack": 1,
-       "decay": 3,
-       "sustain": 3,
-       "release": 3
-      },
-      "riff": 108,
-      "keys": 48,
-      "target": {
-       "name": "Supersaw lead",
-       "set": {
-        "engine": 3,
-        "engineWave": 4,
-        "engineTimbre": 7,
-        "engineShape": 10
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "The real hardware has far more engines than this, often a dozen or more. Some of them are the subject of the Other oscillators branch: wavetables, organs, plucked strings, talking synths, samples and grains. Each one puts three knobs in front of you and gives them three new jobs."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on engines",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "Why do many digital synths have three knobs whose meaning changes with the engine?",
-        "choices": [
-         "A panel can't carry a full set of knobs for each of a dozen engines",
-         "The knobs are cheaper",
-         "Each engine only has three settings"
-        ],
-        "answer": 0,
-        "why": "One set of macro knobs serves every engine; the engine says what each knob moves."
-       },
-       {
-        "ask": "In a morph engine, what is halfway between a saw and a square?",
-        "choices": [
-         "A wave that is partly both, with harmonics in between",
-         "Silence",
-         "A sine"
-        ],
-        "answer": 0,
-        "why": "The waves start together, so blending two gives a wave in between."
-       },
-       {
-        "ask": "What does a wavefolder do to a wave pushed past the top?",
-        "choices": [
-         "Sends it back down, which adds harmonics",
-         "Cuts it off flat",
-         "Turns it down"
-        ],
-        "answer": 0,
-        "why": "A clipper flattens the top (lesson 7); a folder reflects it, and folds it again the harder it's pushed."
-       },
-       {
-        "ask": "A subtractive synth starts with a bright wave and filters it. What did a Buchla synth mostly do instead?",
-        "choices": [
-         "Start with a plain wave and add harmonics, by folding it",
-         "Start with noise",
-         "Use no oscillators"
-        ],
-        "answer": 0,
-        "why": "East Coast takes away; West Coast adds."
-       },
-       {
-        "ask": "What does the supersaw's detune knob do?",
-        "choices": [
-         "Tunes the outer saws further from the middle one",
-         "Adds more saws",
-         "Changes the note"
-        ],
-        "answer": 0,
-        "why": "Wave sets the detune; Shape sets how many saws, and Timbre how loud the outer ones are."
-       }
+      "title": "Three knobs, many jobs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "By convention, the first knob makes the biggest change, the second a change of colour, and the third something extra. On this synth they are called **Wave**, **Timbre** and **Shape**. They are **macro** knobs: each one moves several things inside the engine at once, and you hear one change. The figure shows three engines. Each knob keeps its place when you switch engines, so you can hear the same settings do different jobs."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "engines",
+          "caption": "Two cycles of the wave and its harmonics, for three engines and the same three knobs. Play it to hear it.",
+          "task": "Turn a knob up in each of the three engines",
+          "goal": "engines-tried",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "The readout under the figure says what each knob does in the engine that's on. That habit carries over to any synth with engines: when you pick a new engine, turn each of the three knobs all the way and back, and listen to what it does. That takes about ten seconds, and it is quicker than looking it up."
+        }
       ]
-     }
+    },
+    {
+      "title": "Morph",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The simplest engine is the oscillator you already know, with one change. In the classic oscillator, the wave switch jumps from saw to pulse to triangle to sine. In **Morph**, the Wave knob slides between them, so between saw and square there is a wave that is partly both. Because the waves start together, a blend of two is a real wave in between, with harmonics in between too.[^morph]"
+        },
+        {
+          "type": "text",
+          "text": "Timbre sets the width of the pulse, as the Width knob did in lesson 3, and is heard only while the pulse is in the blend. Shape adds a square wave an octave below the note, a **sub-oscillator**. A sub adds weight underneath without changing the colour on top, which is why it's on almost every bass synth."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The morph engine at its first position: a saw. Slide it all the way to the other end.",
+          "task": "Turn Wave to 90 % or more",
+          "goal": "morph-sine",
+          "options": {
+            "stage": 22,
+            "knobs": [
+              "engine",
+              "engineWave",
+              "engineTimbre",
+              "engineShape"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 5,
+              "res": 1,
+              "attack": 1,
+              "decay": 3,
+              "sustain": 3,
+              "release": 3,
+              "engine": 1
+            },
+            "riff": 108,
+            "keys": 48
+          }
+        },
+        {
+          "type": "text",
+          "text": "Listen on the way past. A wave that is partly saw and partly square is buzzy, but less so than a saw. Between triangle and sine, the last few harmonics fade one at a time. Morphing is gentle, and its jobs are much like the classic oscillator's jobs. The next engine is not like that at all."
+        }
+      ]
+    },
+    {
+      "title": "Fold",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The mystery.** In the 1960s two people built the first modular synthesizers, on opposite coasts of the United States, and never agreed on how a sound should be made. In New York, [[Robert Moog]] started with a bright wave and took harmonics away with a filter. That is the subtractive synth this course has been about. In California, [[Don Buchla]] mostly started with a plain wave and added harmonics to it. One of his ways of adding them was to fold the wave."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Don Buchla in 2006. He built his first modular synthesizer in the mid-1960s for the San Francisco Tape Music Center.",
+          "options": {
+            "photo": "don-buchla",
+            "aspect": 0.8,
+            "position": "50% 20%"
+          }
+        },
+        {
+          "type": "text",
+          "text": "**Folding** works like this. Push a sine harder and harder into a circuit. When the wave would rise past the top, the circuit sends it back down, as if it had hit a mirror. A little push folds the tips over, which adds a few harmonics. A big push folds the wave many times, and it is full of harmonics. Turning the push up and down sweeps the colour much as a filter does, but it sounds hollower, almost vocal, because harmonics come and go in an uneven order.[^folding]"
+        },
+        {
+          "type": "text",
+          "text": "In the **Fold** engine, Wave is the push. Timbre is the **symmetry**: it lifts the wave before the fold, so the top folds sooner than the bottom, and even harmonics come in. Shape changes what is folded, from a sine to a triangle, which has sharper tips, so it folds sooner."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The fold engine with nothing folded: a sine. Push it until the tips fold back over each other.",
+          "task": "Turn Wave to 50 % or more",
+          "goal": "fold-deep",
+          "options": {
+            "stage": 22,
+            "knobs": [
+              "engine",
+              "engineWave",
+              "engineTimbre",
+              "engineShape"
+            ],
+            "start": {
+              "wave": 3,
+              "cutoff": 6,
+              "res": 0,
+              "decay": 2,
+              "sustain": 0,
+              "release": 2,
+              "engine": 2
+            },
+            "riff": 112,
+            "keys": 48
+          }
+        },
+        {
+          "type": "text",
+          "text": "A filter can only take away what the oscillator gives it, but a folder makes new harmonics. Here they still go through this synth's filter, which smooths the very highest ones. Buchla's instruments mostly had no filter of that kind at all.[^lpg]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Buchla 100 series modular synthesizer at New York University.",
+          "options": {
+            "photo": "buchla-100",
+            "aspect": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "title": "Supersaw",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1996 Roland put an engine on a synth called the JP-8000 that it called the Super Saw. It is seven saws, one on the note and six around it, each tuned a little away from it. Within a few years it was the sound of trance music, and it has never quite gone away.[^super] It is lesson 18's unison taken further, inside one oscillator."
+        },
+        {
+          "type": "text",
+          "text": "In the **Supersaw** engine, Wave is the **detune**: how far the outer saws are tuned from the middle one. Timbre is how loud the six outer saws are, against the middle one. Shape is how many of them there are: two, four or six. Each saw's harmonics are slightly out of step with the others, so every harmonic turns into a little cluster that shimmers, and the clusters are wider the higher the harmonic."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A single saw: the supersaw with its outer saws silent. Spread them out and bring them up.",
+          "task": "Turn Wave and Timbre both to 50 % or more",
+          "goal": "super-wide",
+          "options": {
+            "stage": 22,
+            "knobs": [
+              "engine",
+              "engineWave",
+              "engineTimbre",
+              "engineShape"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 5,
+              "res": 1,
+              "attack": 1,
+              "decay": 3,
+              "sustain": 3,
+              "release": 3,
+              "engine": 3
+            },
+            "riff": 103,
+            "keys": 48
+          }
+        },
+        {
+          "type": "text",
+          "text": "Too little detune sounds like a saw that wobbles slowly. Too much sounds out of tune. Between them is a wide band where it just sounds big. Notice that the sound gets wider but no louder. The engine turns its saws down as it adds them, so the total stays about the same."
+        }
+      ]
+    },
+    {
+      "title": "The wall of saws",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now make the last of the opening's four sounds. This is the synth with the classic oscillator, playing a plain saw. Choose the engine, then find the three knob settings by ear. Remember that in the opening the three knobs were in the same places for every engine."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A plain saw. Make the wide, shimmering lead from the start of the lesson.",
+          "task": "Make the supersaw lead",
+          "goal": "match",
+          "options": {
+            "stage": 22,
+            "knobs": [
+              "engine",
+              "engineWave",
+              "engineTimbre",
+              "engineShape"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 5,
+              "res": 1,
+              "attack": 1,
+              "decay": 3,
+              "sustain": 3,
+              "release": 3
+            },
+            "riff": 108,
+            "keys": 48,
+            "target": {
+              "name": "Supersaw lead",
+              "set": {
+                "engine": 3,
+                "engineWave": 4,
+                "engineTimbre": 7,
+                "engineShape": 10
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "The real hardware has far more engines than this, often a dozen or more. Some of them are the subject of the Other oscillators branch: wavetables, organs, plucked strings, talking synths, samples and grains. Each one puts three knobs in front of you and gives them three new jobs."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on engines",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why do many digital synths have three knobs whose meaning changes with the engine?",
+                "choices": [
+                  "A panel can't carry a full set of knobs for each of a dozen engines",
+                  "The knobs are cheaper",
+                  "Each engine only has three settings"
+                ],
+                "answer": 0,
+                "why": "One set of macro knobs serves every engine; the engine says what each knob moves."
+              },
+              {
+                "ask": "In a morph engine, what is halfway between a saw and a square?",
+                "choices": [
+                  "A wave that is partly both, with harmonics in between",
+                  "Silence",
+                  "A sine"
+                ],
+                "answer": 0,
+                "why": "The waves start together, so blending two gives a wave in between."
+              },
+              {
+                "ask": "What does a wavefolder do to a wave pushed past the top?",
+                "choices": [
+                  "Sends it back down, which adds harmonics",
+                  "Cuts it off flat",
+                  "Turns it down"
+                ],
+                "answer": 0,
+                "why": "A clipper flattens the top (lesson 7); a folder reflects it, and folds it again the harder it's pushed."
+              },
+              {
+                "ask": "A subtractive synth starts with a bright wave and filters it. What did a Buchla synth mostly do instead?",
+                "choices": [
+                  "Start with a plain wave and add harmonics, by folding it",
+                  "Start with noise",
+                  "Use no oscillators"
+                ],
+                "answer": 0,
+                "why": "East Coast takes away; West Coast adds."
+              },
+              {
+                "ask": "What does the supersaw's detune knob do?",
+                "choices": [
+                  "Tunes the outer saws further from the middle one",
+                  "Adds more saws",
+                  "Changes the note"
+                ],
+                "answer": 0,
+                "why": "Wave sets the detune; Shape sets how many saws, and Timbre how loud the outer ones are."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**An engine is the way a digital oscillator makes its wave**; a switch picks it.",
-  "**Three macro knobs (Wave, Timbre, Shape) serve every engine**, and the engine gives each one its job.",
-  "**With a new engine, turn each knob all the way and back**: the quickest way to learn what it does.",
-  "**Morph slides between saw, square, triangle and sine**; its Shape adds a sub-oscillator an octave down.",
-  "**A wavefolder sends a wave back down when it passes the top**, adding harmonics the harder it is pushed.",
-  "**Moog took harmonics away with a filter; Buchla mostly added them**: the East and West Coast of synthesis.",
-  "**A supersaw is seven saws, slightly detuned**: every harmonic becomes a shimmering cluster."
- ],
- "footnotes": {
-  "names": {
-   "kind": "digression",
-   "title": "What the knobs are called",
-   "text": "Every maker names these knobs differently. Some call them Wave, Timbre and Shape; others Harmonics, Timbre and Morph, or simply A, B and C, or Parameter 1 and 2. The idea is the same: a few knobs whose jobs are printed on a screen, or in the manual, instead of on the panel. The first knob is nearly always the biggest change."
+  ],
+  "summary": [
+    "**An engine is the way a digital oscillator makes its wave**; a switch picks it.",
+    "**Three macro knobs (Wave, Timbre, Shape) serve every engine**, and the engine gives each one its job.",
+    "**With a new engine, turn each knob all the way and back**: the quickest way to learn what it does.",
+    "**Morph slides between saw, square, triangle and sine**; its Shape adds a sub-oscillator an octave down.",
+    "**A wavefolder sends a wave back down when it passes the top**, adding harmonics the harder it is pushed.",
+    "**Moog took harmonics away with a filter; Buchla mostly added them**: the East and West Coast of synthesis.",
+    "**A supersaw is seven saws, slightly detuned**: every harmonic becomes a shimmering cluster."
+  ],
+  "footnotes": {
+    "names": {
+      "kind": "digression",
+      "title": "What the knobs are called",
+      "text": "Every maker names these knobs differently. Some call them Wave, Timbre and Shape; others Harmonics, Timbre and Morph, or simply A, B and C, or Parameter 1 and 2. The idea is the same: a few knobs whose jobs are printed on a screen, or in the manual, instead of on the panel. The first knob is nearly always the biggest change."
+    },
+    "morph": {
+      "kind": "technical",
+      "title": "Why the blend is a real wave",
+      "text": "A saw and a square made by the same oscillator start each cycle together, so their harmonics line up: the second harmonic of one sits on the second of the other, and so on. Blending them blends each harmonic's size, which gives a wave whose spectrum is between the two. Two oscillators that drifted apart would beat instead (lesson 5). Digital morphing also works between drawn waves that start together, which is what a wavetable is (branch lesson O1)."
+    },
+    "folding": {
+      "kind": "technical",
+      "title": "Folding and clipping",
+      "text": "A clipper (lesson 7) flattens a wave that passes the top. A folder turns it back down instead, so a wave pushed to twice the height reaches the top, comes down, and goes up again in the same cycle. That adds harmonics much faster than clipping does, and some of them can be higher than the computer can hold at its sample rate. Those come back as false notes, called aliasing (branch lesson O5). A digital folder works at several times the sample rate inside, to keep them down."
+    },
+    "lpg": {
+      "kind": "digression",
+      "title": "The low-pass gate",
+      "text": "In place of a filter and an amplifier, Buchla's instruments often had a low-pass gate: one circuit that closes the sound off and darkens it at the same time, with a slow, rounded fall. Its classic part was a vactrol, a small lamp shining on a light-sensitive resistor, and the lamp's slow fading gave the gate its soft decay. A struck low-pass gate on a folded sine gives the bongo-like pluck of a great deal of West Coast music."
+    },
+    "super": {
+      "kind": "digression",
+      "title": "The Super Saw",
+      "text": "Roland's JP-8000 of 1996 was a digital synth made to sound like an analogue one, with a panel of knobs. Its Super Saw was meant as one sound among many. Trance producers at the end of the 1990s piled it into big chords, and it became the most recognisable synth sound of that decade's dance music. Many synths since have an engine of the same kind, under names like supersaw, hypersaw or SawX."
+    }
   },
-  "morph": {
-   "kind": "technical",
-   "title": "Why the blend is a real wave",
-   "text": "A saw and a square made by the same oscillator start each cycle together, so their harmonics line up: the second harmonic of one sits on the second of the other, and so on. Blending them blends each harmonic's size, which gives a wave whose spectrum is between the two. Two oscillators that drifted apart would beat instead (lesson 5). Digital morphing also works between drawn waves that start together, which is what a wavetable is (branch lesson O1)."
-  },
-  "folding": {
-   "kind": "technical",
-   "title": "Folding and clipping",
-   "text": "A clipper (lesson 7) flattens a wave that passes the top. A folder turns it back down instead, so a wave pushed to twice the height reaches the top, comes down, and goes up again in the same cycle. That adds harmonics much faster than clipping does, and some of them can be higher than the computer can hold at its sample rate. Those come back as false notes, called aliasing (branch lesson O5). A digital folder works at several times the sample rate inside, to keep them down."
-  },
-  "lpg": {
-   "kind": "digression",
-   "title": "The low-pass gate",
-   "text": "In place of a filter and an amplifier, Buchla's instruments often had a low-pass gate: one circuit that closes the sound off and darkens it at the same time, with a slow, rounded fall. Its classic part was a vactrol, a small lamp shining on a light-sensitive resistor, and the lamp's slow fading gave the gate its soft decay. A struck low-pass gate on a folded sine gives the bongo-like pluck of a great deal of West Coast music."
-  },
-  "super": {
-   "kind": "digression",
-   "title": "The Super Saw",
-   "text": "Roland's JP-8000 of 1996 was a digital synth made to sound like an analogue one, with a panel of knobs. Its Super Saw was meant as one sound among many. Trance producers at the end of the 1990s piled it into big chords, and it became the most recognisable synth sound of that decade's dance music. Many synths since have an engine of the same kind, under names like supersaw, hypersaw or SawX."
-  }
- },
- "journal": []
+  "journal": []
 }

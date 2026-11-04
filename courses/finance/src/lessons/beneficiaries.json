@@ -25,7 +25,7 @@
       "title": "Everyone else: ten years",
       "blocks": [
         { "type": "text", "text": "Since 2020, most other heirs must empty an inherited IRA or 401(k) by the end of the tenth year after the death. If the owner had already begun required withdrawals, the heir must also take a withdrawal each year in between; if not, they can take any amounts in any years, as long as the account is empty by year ten.[^edb]" },
-        { "type": "text", "text": "The freedom over timing is worth a lot. An heir earning $150,000 who takes a $1 million IRA in one lump pays most of it at 35 and 37 percent. Spread evenly over ten years, the same money is taxed mostly at 24. An heir who retires during the ten years can do better still, taking most of it in the years with no salary." },
+        { "type": "text", "text": "The freedom over timing is worth a lot. An heir earning $150,000 who takes a $1 million IRA in one lump pays most of it at 35 and 37 percent. Spread evenly over ten years, the same money is taxed mostly at 24 and 32 percent. An heir who retires during the ten years can do better still, taking most of it in the years with no salary." },
         { "type": "diagram", "id": "scale", "caption": "Federal tax a single heir pays on a $1 million inherited traditional IRA, by how it is withdrawn within the ten years, ignoring growth. 2026 rules.", "options": { "title": "Tax on inheriting a $1 million IRA", "unit": "dollars", "items": [
           { "label": "All in one year, earning $150,000", "value": 350800, "says": "$350,800", "color": "bad" },
           { "label": "A tenth a year, earning $150,000", "value": 265700, "says": "$265,700", "color": "tax" },
@@ -38,7 +38,7 @@
     {
       "title": "Trusts as beneficiaries",
       "blocks": [
-        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money: for a young heir, a spendthrift, or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust, or the account may have to be emptied within five years. A trust that keeps the withdrawals rather than paying them out pays the top 37 percent rate above about $16,000 of income, so these trusts are written with care." },
+        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money: for a young heir, a spendthrift, or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust,[^see-through] or the account may have to be emptied within five years. A trust that keeps the withdrawals rather than paying them out pays the top 37 percent rate above about $16,000 of income, so these trusts are written with care." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Beneficiary forms, not the will, decide where retirement accounts go: name a contingent and review them after every change in the family.",
           "A surviving spouse can roll an IRA into their own, or keep it inherited to draw without penalty before 59 and a half.",
@@ -70,6 +70,11 @@
   ],
   "footnotes": {
     "egelhoff": { "kind": "digression", "title": "Egelhoff", "text": "David Egelhoff of Washington died soon after his divorce, with his ex-wife still named on his employer's life insurance and pension. Washington law said the divorce revoked her designation; in 2001 the Supreme Court held that federal pension law overrode the state statute, and she kept the money. The lesson is to change the forms, not rely on the law." },
-    "edb": { "kind": "technical", "title": "Eligible designated beneficiaries", "text": "Some heirs can still stretch withdrawals over their own life expectancy: a surviving spouse, a minor child of the owner until 21, a disabled or chronically ill heir, and anyone less than ten years younger than the owner. Final IRS rules issued in 2024 confirmed the yearly withdrawals within the ten years when the owner had started theirs." }
+    "edb": { "kind": "technical", "title": "Eligible designated beneficiaries", "text": "Some heirs can still stretch withdrawals over their own life expectancy: a surviving spouse, a minor child of the owner until 21, a disabled or chronically ill heir, and anyone not more than ten years younger than the owner. Final IRS rules issued in 2024 confirmed the yearly withdrawals within the ten years when the owner had started theirs." },
+    "see-through": {
+      "kind": "technical",
+      "title": "See-through trusts",
+      "text": "Under IRS rules, a trust itself is not a person, so an IRA left to a plain trust loses the ten-year rule. A see-through trust qualifies because it is valid under state law, becomes irrevocable at death, has identifiable human beneficiaries, and gives the IRA custodian its paperwork on time. The IRS then looks through the trust to the people behind it."
+    }
   }
 }

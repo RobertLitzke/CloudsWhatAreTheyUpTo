@@ -77,7 +77,7 @@ You get one lesson as numbered pieces of prose, each with a note of where it sit
 3. Keep markup exactly: **bold** and *italic* spans stay, around the same words, and so do [[links]] to the encyclopedia (keep the words inside the brackets, and anything after a |, as they are), and footnote markers like [^id] (same id, after the same words).
 4. Keep the length: the same or shorter, never more than a quarter longer.
 5. Quiz pieces: the choice marked (correct) must stay correct and the others wrong.
-6. Footnotes: you may add new ones. A footnote holds either an interesting anecdote off the main line (kind "digression": a person, an episode, a surprising detail) or an important term or detail that the main text doesn't need to stop and define (kind "technical"). If a paragraph halts to define a term the reader can follow without, you may move the definition into a new technical footnote. To add one, put a marker [^new-id] in the piece's text straight after the word or sentence it belongs to, with no space before it, and list the note under "footnotes" in your reply. Use a short lowercase id with hyphens that the lesson doesn't use yet. Add one only where it earns its place: lessons carry about four to six, and the count already in this lesson is given with it. Notes follow the same rules as the pieces. Never add a marker to a quiz piece, a title or a summary point.
+6. Footnotes: you may add new ones. A footnote holds either an interesting anecdote off the main line (kind "digression": a person, an episode, a surprising detail) or an important term or detail that the main text doesn't need to stop and define (kind "technical"). If a paragraph halts to define a term the reader can follow without, you may move the definition into a new technical footnote. To add one, put a marker [^new-id] in the piece's text straight after the word or sentence it belongs to, with no space before it, and list the note under "footnotes" in your reply. Use a short lowercase id with hyphens that the lesson doesn't use yet. Add one only where it earns its place: lessons carry about four to six, and the count already in this lesson is given with it. Notes follow the same rules as the pieces, with no [[links]]. Never add a marker to a quiz piece, a title or a summary point.
 
 Avoid the habits of machine-written text. Specific examples:
 - No em dashes or en dashes as punctuation; use commas, colons, full stops or parentheses. (En dashes in number ranges like 1857–1936 are fine.)
@@ -188,7 +188,8 @@ for (const id of ids) {
       : /—/.test(n.text + n.title) ? 'uses an em dash'
       : null;
     if (why) noteReport.push(`### [^${n?.id}] ${n?.kind ?? ''} "${n?.title ?? ''}" (DROPPED: ${why})`, '', `${n?.text ?? ''}`, '');
-    else offered.set(n.id, { kind: n.kind, title: n.title.trim(), text: n.text.trim() });
+    // A new note may not name an entry the encyclopedia lacks, so its [[links]] go back to plain words.
+    else offered.set(n.id, { kind: n.kind, title: n.title.trim(), text: n.text.trim().replace(/\[\[([^\]|]+)(\|[^\]]*)?\]\]/g, '$1') });
   }
   const ids0 = new Set(offered.keys());
   let changed = 0;

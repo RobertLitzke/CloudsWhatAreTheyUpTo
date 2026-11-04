@@ -9,7 +9,7 @@
     {
       "title": "Between full-time and nothing",
       "blocks": [
-        { "type": "text", "text": "The trunk treated the end of work as a single date: a salary one year, a portfolio the next. Many people do something in between: a shorter week, consulting, seasonal work, a job that pays less and matters more. Even small amounts of pay in those years change the arithmetic of lessons 2 to 5 a great deal, because they arrive exactly when a portfolio is most fragile." }
+        { "type": "text", "text": "The trunk treated the end of work as a single date: a salary one year, a portfolio the next. Many people do something in between: a shorter week, consulting, seasonal work, a job that pays less and matters more. Even small amounts of pay in those years change the arithmetic of lessons 2 to 5 a great deal, because they arrive right when a portfolio is most fragile." }
       ]
     },
     {
@@ -23,15 +23,15 @@
     {
       "title": "The coast number",
       "blocks": [
-        { "type": "text", "text": "A related idea runs the other way. Someone who has saved enough that, left alone to grow, the portfolio will reach their target by a chosen age can stop saving now. They need to earn only their spending until then. At a real return of 5 percent, money roughly doubles in 14 years, so $560,000 at 40 becomes about $1.5 million at 60." },
+        { "type": "text", "text": "A related idea runs the other way. Someone who has saved enough that, left alone to grow, the portfolio will reach their target by a chosen age can stop saving now. They need to earn only their spending until then. At a real return of 5 percent, money roughly doubles in 14 years, so $565,000 at 40 becomes about $1.5 million at 60." },
         { "type": "text", "text": "Reaching this coast number changes the kind of work that is possible: a job that covers spending but saves nothing is enough. It rests on an assumed return, though, and lesson 2's history says that twenty-year real returns on a 60/40 portfolio have ranged from slightly below zero to nearly 10 percent a year. A coast plan is safer with a margin, or with a willingness to save again after a weak decade.[^coast]" }
       ]
     },
     {
       "title": "Pay, tax and credits",
       "blocks": [
-        { "type": "text", "text": "Part-time pay brings tax effects of its own. It is earned income, which allows IRA or Roth IRA contributions of up to $7,500 a year in 2026, a useful way to move a little more into Roth. It pays Social Security tax, and if it replaces a zero year in the 35-year average of lesson 13 it raises the benefit slightly." },
-        { "type": "text", "text": "It also adds to MAGI. Before 65, pay counts against the ACA cliff and leaves less room for conversions. A pre-tax 401(k) or SEP-IRA at the part-time job brings MAGI back down: self-employed consultants can put about a fifth of their net earnings into a SEP. And from 63 it counts towards IRMAA." },
+        { "type": "text", "text": "Part-time pay brings tax effects of its own. It is earned income, which allows IRA or Roth IRA contributions of up to $7,500 a year in 2026 ($8,600 from age 50), a useful way to move a little more into Roth. It pays Social Security tax, and if it replaces a zero year in the 35-year average of lesson 13 it raises the benefit slightly." },
+        { "type": "text", "text": "It also adds to MAGI. Before 65, pay counts against the ACA cliff and leaves less room for conversions. A pre-tax 401(k) or SEP-IRA at the part-time job brings MAGI back down: self-employed consultants can put about a fifth of their net earnings into a SEP.[^sep-math] And from 63 it counts towards IRMAA." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Pay in the first years after leaving full-time work protects the portfolio when sequence risk is highest.",
           "$20,000 a year for ten years raised the spending $1 million sustained for 45 years from $32,700 to $39,600.",
@@ -60,6 +60,11 @@
     "**Part-time pay is earned income.** It allows IRA contributions and counts against the ACA and IRMAA lines."
   ],
   "footnotes": {
-    "coast": { "kind": "digression", "title": "Where the name comes from", "text": "Coasting is one of several labels from the early retirement community, along with lean, fat and barista versions of financial independence. The arithmetic behind all of them is lesson 1's: the share of income saved, the return, and the spending the portfolio has to support." }
+    "coast": { "kind": "digression", "title": "Where the name comes from", "text": "Coasting is one of several labels from the early retirement community, along with lean, fat and barista versions of financial independence. The arithmetic behind all of them is lesson 1's: the share of income saved, the return, and the spending the portfolio has to support." },
+    "sep-math": {
+      "kind": "technical",
+      "title": "Why a fifth, not a quarter",
+      "text": "The statutory SEP limit is 25 percent of compensation, up to $72,000 in 2026. For a sole proprietor, the IRS defines compensation as net profit minus the deduction for half of self-employment tax and minus the SEP contribution itself. Dividing 0.25 by 1.25 turns the 25 percent rule into 20 percent of the adjusted profit, or about 18.6 percent of raw net profit."
+    }
   }
 }

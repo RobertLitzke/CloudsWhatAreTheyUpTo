@@ -4,47 +4,151 @@
     "text": [
       "Every rock is a message from a time no one saw. Geology is the art of reading those messages, and its great surprise is how much time there turned out to be. These are the people and ideas the course leans on most, and the numbers worth keeping close."
     ],
-    "people": ["nicolas-steno", "james-hutton", "william-smith", "charles-lyell", "louis-agassiz", "lord-kelvin", "arthur-holmes", "alfred-wegener", "inge-lehmann", "harry-hess", "milutin-milankovic", "clair-patterson", "j-harlen-bretz"],
-    "ideas": ["superposition", "deep-time", "unconformity", "rock-cycle", "radiometric-dating", "plate-tectonics", "seafloor-spreading", "ice-age", "earths-core"],
-    "things": ["siccar-point", "glacial-lake-missoula", "channeled-scablands"],
+    "people": [
+      "nicolas-steno",
+      "james-hutton",
+      "william-smith",
+      "charles-lyell",
+      "louis-agassiz",
+      "lord-kelvin",
+      "arthur-holmes",
+      "alfred-wegener",
+      "inge-lehmann",
+      "harry-hess",
+      "milutin-milankovic",
+      "clair-patterson",
+      "j-harlen-bretz"
+    ],
+    "ideas": [
+      "superposition",
+      "deep-time",
+      "unconformity",
+      "rock-cycle",
+      "radiometric-dating",
+      "plate-tectonics",
+      "seafloor-spreading",
+      "ice-age",
+      "earths-core"
+    ],
+    "things": [
+      "siccar-point",
+      "glacial-lake-missoula",
+      "channeled-scablands"
+    ],
     "tables": [
       {
         "title": "The Earth's history in four eras",
-        "columns": ["Era", "Began", "What happened"],
+        "columns": [
+          "Era",
+          "Began",
+          "What happened"
+        ],
         "rows": [
-          ["Precambrian", "4,567 million years ago", "The Earth forms, oceans gather, life starts as single cells, and the air fills with oxygen. Nearly nine-tenths of all time."],
-          ["Paleozoic", "539 million years ago", "Shells, fish, forests and the first land animals. Ends in the largest extinction of all."],
-          ["Mesozoic", "252 million years ago", "Dinosaurs. Pangaea splits and the Atlantic opens. Ends with an asteroid."],
-          ["Cenozoic", "66 million years ago", "Mammals, the Himalaya, the Cascades, and the ice ages."]
+          [
+            "Precambrian",
+            "4,567 million years ago",
+            "The Earth forms, oceans gather, life starts as single cells, and the air fills with oxygen. Nearly nine-tenths of all time."
+          ],
+          [
+            "Paleozoic",
+            "539 million years ago",
+            "Shells, fish, forests and the first land animals. Ends in the largest extinction of all."
+          ],
+          [
+            "Mesozoic",
+            "252 million years ago",
+            "Dinosaurs. Pangaea splits and the Atlantic opens. Ends with an asteroid."
+          ],
+          [
+            "Cenozoic",
+            "66 million years ago",
+            "Mammals, the Himalaya, the Cascades, and the ice ages."
+          ]
         ]
       },
       {
         "title": "The three rock families",
-        "columns": ["Family", "Made by", "For example"],
+        "columns": [
+          "Family",
+          "Made by",
+          "For example"
+        ],
         "rows": [
-          ["Igneous", "Molten rock cooling, fast at the surface or slowly underground", "Basalt, granite, obsidian"],
-          ["Sedimentary", "Grains, shells or salts laid down in layers and hardened", "Sandstone, shale, limestone"],
-          ["Metamorphic", "Heat and pressure remaking a rock without melting it", "Slate, schist, marble"]
+          [
+            "Igneous",
+            "Molten rock cooling, fast at the surface or slowly underground",
+            "Basalt, granite, obsidian"
+          ],
+          [
+            "Sedimentary",
+            "Grains, shells or salts laid down in layers and hardened",
+            "Sandstone, shale, limestone"
+          ],
+          [
+            "Metamorphic",
+            "Heat and pressure remaking a rock without melting it",
+            "Slate, schist, marble"
+          ]
         ]
       },
       {
         "title": "Inside the Earth",
-        "columns": ["Layer", "Depth", "What it is"],
+        "columns": [
+          "Layer",
+          "Depth",
+          "What it is"
+        ],
         "rows": [
-          ["Crust", "0 to 5–70 km", "Solid rock: thin basalt under the oceans, thick granite-like rock under the continents"],
-          ["Mantle", "to 2,890 km", "Hot solid rock that creeps slowly, centimetres a year"],
-          ["Outer core", "to 5,150 km", "Liquid iron and nickel, whose churning makes the magnetic field"],
-          ["Inner core", "to 6,371 km (the centre)", "Solid iron, about as hot as the Sun's surface, kept solid by pressure"]
+          [
+            "Crust",
+            "0 to 5–70 km",
+            "Solid rock: thin basalt under the oceans, thick granite-like rock under the continents"
+          ],
+          [
+            "Mantle",
+            "to 2,890 km",
+            "Hot solid rock that creeps slowly, centimetres a year"
+          ],
+          [
+            "Outer core",
+            "to 5,150 km",
+            "Liquid iron and nickel, whose churning makes the magnetic field"
+          ],
+          [
+            "Inner core",
+            "to 6,371 km (the centre)",
+            "Solid iron, about as hot as the Sun's surface, kept solid by pressure"
+          ]
         ]
       },
       {
         "title": "Clocks in the rocks",
-        "columns": ["Atom", "Turns into", "Half-life"],
+        "columns": [
+          "Atom",
+          "Turns into",
+          "Half-life"
+        ],
         "rows": [
-          ["Uranium-238", "Lead-206", "4.47 billion years"],
-          ["Uranium-235", "Lead-207", "704 million years"],
-          ["Potassium-40", "Argon-40", "1.25 billion years"],
-          ["Carbon-14", "Nitrogen-14", "5,730 years (only for things that lived)"]
+          [
+            "Uranium-238",
+            "Lead-206",
+            "4.47 billion years"
+          ],
+          [
+            "Uranium-235",
+            "Lead-207",
+            "704 million years"
+          ],
+          [
+            "Potassium-40",
+            "Argon-40",
+            "1.25 billion years"
+          ],
+          [
+            "Carbon-14",
+            "Nitrogen-14",
+            "5,730 years (only for things that lived)"
+          ]
         ]
       }
     ]
@@ -53,7 +157,10 @@
     "nicolas-steno": {
       "kind": "person",
       "title": "Nicolas Steno",
-      "also": ["Niels Stensen", "Steno"],
+      "also": [
+        "Niels Stensen",
+        "Steno"
+      ],
       "dates": "1638–1686",
       "line": "Danish anatomist who saw that rock layers are pages, and that the bottom page was written first.",
       "text": [
@@ -61,22 +168,48 @@
         "Follow that thought and the hills become a stack of old sea floors, each laid flat on the one before. That gave him the rules every geologist still starts with: [[superposition]]; layers are laid down level; and a layer carries on sideways until it thins out or meets something in its way."
       ],
       "matters": "Steno turned a pile of rock into a sequence of events. Once the bottom layer is the oldest, a cliff becomes a history book you can read from the ground up.",
-      "see": ["superposition", "william-smith", "james-hutton"],
-      "learn": [{ "course": "geology", "lesson": "steno", "for": "Read the order of the layers yourself" }],
+      "see": [
+        "superposition",
+        "william-smith",
+        "james-hutton"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "steno",
+          "for": "Read the order of the layers yourself"
+        }
+      ],
       "wikipedia": "Nicolas_Steno"
     },
     "superposition": {
       "kind": "idea",
       "title": "Superposition",
-      "also": ["law of superposition", "principle of superposition"],
+      "also": [
+        "law of superposition",
+        "principle of superposition"
+      ],
       "line": "In a pile of layers that hasn't been turned over, the lowest was laid down first.",
       "text": [
         "It sounds too obvious to be a law. Throw newspapers on a pile every morning for a year, and January is on the bottom. But [[Nicolas Steno]] was the first to say it out loud about rock, in 1669, and everything else in geology is built on top of it.",
         "The catch is in \"hasn't been turned over\". Mountains fold layers, and sometimes flip them upside down. So geologists check which way is up, from ripples, mud cracks and the way grains settle, before trusting the order."
       ],
       "matters": "It gives the first kind of geological time: not how many years, but what came before what. [[William Smith]]'s fossil order, and every timeline in this course, rests on it.",
-      "see": ["nicolas-steno", "unconformity", "deep-time"],
-      "learn": [{ "course": "geology", "lesson": "steno" }, { "course": "geology", "lesson": "smith" }],
+      "see": [
+        "nicolas-steno",
+        "unconformity",
+        "deep-time"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "steno"
+        },
+        {
+          "course": "geology",
+          "lesson": "smith"
+        }
+      ],
       "wikipedia": "Law_of_superposition"
     },
     "william-smith": {
@@ -88,15 +221,26 @@
         "Smith was a blacksmith's son who learned surveying, and in the 1790s he was walking the cuts of a new coal canal near Bath. He saw that each bed of rock held its own set of fossils, always in the same order, so a few shells in a ditch could tell him which layer he stood on, even miles from the last place it showed at the surface.",
         "With that trick he walked England and Wales for fifteen years. In 1815 he published a map eight feet tall, each layer coloured, the oldest in the west, the youngest Chalk in the east. Others copied it without credit, and for years almost no one knew whose idea it had been."
       ],
-      "matters": "Matching layers by their fossils let geologists line up rocks across whole continents. It was the start of the geologic timescale, and the fossil order was later a key exhibit for evolution.",
-      "see": ["superposition", "nicolas-steno"],
-      "learn": [{ "course": "geology", "lesson": "smith", "for": "Make a map from fossils in quarries" }],
+      "matters": "Matching layers by their fossils let geologists line up rocks across whole continents. It was the start of the geologic timescale, and the fossil order was later a central exhibit for evolution.",
+      "see": [
+        "superposition",
+        "nicolas-steno"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "smith",
+          "for": "Make a map from fossils in quarries"
+        }
+      ],
       "wikipedia": "William_Smith_(geologist)"
     },
     "james-hutton": {
       "kind": "person",
       "title": "James Hutton",
-      "also": ["Hutton"],
+      "also": [
+        "Hutton"
+      ],
       "dates": "1726–1797",
       "line": "Edinburgh farmer and doctor who read [[deep time]] in the rocks.",
       "text": [
@@ -104,43 +248,92 @@
         "In 1788 he took a boat to [[Siccar Point]] and found the cycle frozen in one cliff: upright grey beds, worn flat, with red sandstone lying across their tops. His friend John Playfair said the mind seemed to grow giddy by looking so far into the abyss of time. Hutton's own verdict: \"no vestige of a beginning, no prospect of an end.\""
       ],
       "matters": "Hutton gave geology its time. If slow, ordinary processes built the landscape, the Earth had to be unimaginably old. Darwin needed that time, and so did everything after.",
-      "see": ["deep-time", "unconformity", "rock-cycle", "charles-lyell", "siccar-point"],
+      "see": [
+        "deep-time",
+        "unconformity",
+        "rock-cycle",
+        "charles-lyell",
+        "siccar-point"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "basalt", "for": "Meet him over a rock that was once molten" },
-        { "course": "geology", "lesson": "siccar", "for": "Stand at Siccar Point and read the gap" }
+        {
+          "course": "geology",
+          "lesson": "basalt",
+          "for": "Meet him over a rock that was once molten"
+        },
+        {
+          "course": "geology",
+          "lesson": "siccar",
+          "for": "Stand at Siccar Point and read the gap"
+        }
       ],
       "wikipedia": "James_Hutton"
     },
     "deep-time": {
       "kind": "idea",
       "title": "Deep time",
-      "also": ["geologic time", "geological time", "the age of the Earth"],
+      "also": [
+        "geologic time",
+        "geological time",
+        "the age of the Earth"
+      ],
       "line": "The Earth is about 4.55 billion years old, so old that ordinary slow change can do almost anything.",
       "text": [
         "Here is a way to feel it. Squeeze the Earth's whole history into one year. The oldest rocks we have show up in mid-February. Life with shells appears in mid-November. Dinosaurs arrive on December 13th and are gone by the 26th. All of recorded history fits in the last half-minute before midnight on New Year's Eve.",
         "[[James Hutton]] guessed the scale from rock; [[Lord Kelvin]]'s physics seemed to cut it down to tens of millions of years; then radioactivity gave the clocks that settled it, and [[Clair Patterson]] read the final number from meteorites in 1956."
       ],
       "matters": "Without deep time nothing in geology or biology makes sense. A river that cuts a millimetre a year makes a Grand Canyon; a plate creeping as fast as your fingernails grow opens an ocean.",
-      "see": ["james-hutton", "radiometric-dating", "clair-patterson", "lord-kelvin", "charles-lyell"],
+      "see": [
+        "james-hutton",
+        "radiometric-dating",
+        "clair-patterson",
+        "lord-kelvin",
+        "charles-lyell"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "siccar", "for": "Where Hutton first saw it" },
-        { "course": "geology", "lesson": "age", "for": "How the number was found" },
-        { "course": "astronomy", "lesson": "sunshine", "for": "Why the Sun had to be as old as the rocks" }
+        {
+          "course": "geology",
+          "lesson": "siccar",
+          "for": "Where Hutton first saw it"
+        },
+        {
+          "course": "geology",
+          "lesson": "age",
+          "for": "How the number was found"
+        },
+        {
+          "course": "astronomy",
+          "lesson": "sunshine",
+          "for": "Why the Sun had to be as old as the rocks"
+        }
       ],
       "wikipedia": "Deep_time"
     },
     "unconformity": {
       "kind": "idea",
       "title": "Unconformity",
-      "also": ["angular unconformity"],
+      "also": [
+        "angular unconformity"
+      ],
       "line": "A surface in the rock where time is missing: layers worn away, then new ones laid on top.",
       "text": [
         "Picture layers of mud laid down on a sea floor, squeezed into rock, folded up into mountains, worn down flat by rain and waves, sunk again, and buried under fresh sand. Each step takes millions of years. What's left in the cliff is just a line where old tilted layers meet new flat ones.",
         "That line is the most eloquent thing in geology. Everything that happened while the old rocks were being lifted and eroded happened in the gap, and none of it was written down."
       ],
       "matters": "Unconformities proved that the rock record has missing pages, and that the missing time can be vast. At [[Siccar Point]], one line holds about 65 million years.",
-      "see": ["siccar-point", "james-hutton", "rock-cycle", "superposition"],
-      "learn": [{ "course": "geology", "lesson": "siccar", "for": "Build an unconformity step by step" }],
+      "see": [
+        "siccar-point",
+        "james-hutton",
+        "rock-cycle",
+        "superposition"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "siccar",
+          "for": "Build an unconformity step by step"
+        }
+      ],
       "wikipedia": "Unconformity"
     },
     "siccar-point": {
@@ -152,25 +345,55 @@
         "To get that, the grey beds had to be laid flat under the sea, buried, crumpled upright in a mountain range, ground down to a plain, and then covered by the rivers of a desert. Hutton saw all that in one glance from a boat."
       ],
       "matters": "It is the most famous [[unconformity]] in the world and a pilgrimage site for geologists: the place where the age of the Earth stopped being a few thousand years.",
-      "see": ["unconformity", "james-hutton", "deep-time"],
-      "learn": [{ "course": "geology", "lesson": "siccar" }],
+      "see": [
+        "unconformity",
+        "james-hutton",
+        "deep-time"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "siccar"
+        }
+      ],
       "wikipedia": "Siccar_Point"
     },
     "rock-cycle": {
       "kind": "idea",
       "title": "Rock cycle",
-      "also": ["rock families", "igneous", "sedimentary", "metamorphic"],
+      "also": [
+        "rock families",
+        "igneous",
+        "sedimentary",
+        "metamorphic"
+      ],
       "line": "Rock is endlessly recycled: melted, worn to grains, squeezed and baked, and melted again.",
       "text": [
         "There are three families of rock, and each can become the others. Molten rock cools into igneous rock, like basalt or granite. Rain and frost break it into grains that settle into sedimentary rock, like sandstone. Bury that deep enough and heat and pressure remake its crystals into metamorphic rock, like schist. Push it deeper still and it melts, and the cycle starts over.",
         "The atoms in the pebble in your shoe may have been through this a dozen times."
       ],
       "matters": "The cycle is why the Earth has no rocks from its first few hundred million years, and why a single outcrop can hold clues to mountains that vanished long ago. [[James Hutton]] was the first to see it whole.",
-      "see": ["james-hutton", "unconformity", "plate-tectonics"],
+      "see": [
+        "james-hutton",
+        "unconformity",
+        "plate-tectonics"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "basalt", "for": "Igneous rock" },
-        { "course": "geology", "lesson": "barrow", "for": "Metamorphic rock" },
-        { "course": "geology", "lesson": "families", "for": "All three families at once" }
+        {
+          "course": "geology",
+          "lesson": "basalt",
+          "for": "Igneous rock"
+        },
+        {
+          "course": "geology",
+          "lesson": "barrow",
+          "for": "Metamorphic rock"
+        },
+        {
+          "course": "geology",
+          "lesson": "families",
+          "for": "All three families at once"
+        }
       ],
       "wikipedia": "Rock_cycle"
     },
@@ -184,14 +407,32 @@
         "A young Charles Darwin took the first volume on the *Beagle*, and saw the world through Lyell's eyes: slow change, piled up over [[deep time]]."
       ],
       "matters": "Lyell made [[James Hutton]]'s ideas the rule of the science. The rule was so strong it sometimes blinded geologists, as when they spent forty years refusing [[J Harlen Bretz]]'s giant flood.",
-      "see": ["james-hutton", "deep-time", "j-harlen-bretz", "louis-agassiz"],
-      "learn": [{ "course": "geology", "lesson": "siccar" }, { "course": "geology", "lesson": "bretz", "for": "When his rule was wrong" }],
+      "see": [
+        "james-hutton",
+        "deep-time",
+        "j-harlen-bretz",
+        "louis-agassiz"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "siccar"
+        },
+        {
+          "course": "geology",
+          "lesson": "bretz",
+          "for": "When his rule was wrong"
+        }
+      ],
       "wikipedia": "Charles_Lyell"
     },
     "lord-kelvin": {
       "kind": "person",
       "title": "Lord Kelvin",
-      "also": ["William Thomson", "Kelvin"],
+      "also": [
+        "William Thomson",
+        "Kelvin"
+      ],
       "dates": "1824–1907",
       "line": "Physicist who timed the cooling Earth and the shrinking Sun, and got answers far too young.",
       "text": [
@@ -199,26 +440,62 @@
         "His physics was flawless. His assumptions weren't: he didn't know about radioactivity, which keeps the Earth warm, or nuclear fusion, which powers the Sun. His name also lives on in the sky: curling [[Kelvin–Helmholtz waves]] on top of clouds."
       ],
       "matters": "Kelvin forced geologists to put real numbers on time. When radioactivity proved him wrong, the same atoms gave them [[radiometric dating]], a far better clock.",
-      "see": ["deep-time", "radiometric-dating", "nuclear-fusion"],
+      "see": [
+        "deep-time",
+        "radiometric-dating",
+        "nuclear-fusion"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "age", "for": "The cooling Earth" },
-        { "course": "astronomy", "lesson": "sunshine", "for": "The shrinking Sun" },
-        { "course": "clouds", "lesson": "local-sky", "for": "The waves named after him" }
+        {
+          "course": "geology",
+          "lesson": "age",
+          "for": "The cooling Earth"
+        },
+        {
+          "course": "astronomy",
+          "lesson": "sunshine",
+          "for": "The shrinking Sun"
+        },
+        {
+          "course": "clouds",
+          "lesson": "local-sky",
+          "for": "The waves named after him"
+        }
       ],
       "wikipedia": "William_Thomson,_1st_Baron_Kelvin"
     },
     "radiometric-dating": {
       "kind": "idea",
       "title": "Radiometric dating",
-      "also": ["radioactive dating", "isotopic dating", "half-life"],
+      "also": [
+        "radioactive dating",
+        "isotopic dating",
+        "half-life"
+      ],
       "line": "Telling a rock's age from how many of its radioactive atoms have turned into something else.",
       "text": [
         "Some atoms are unstable. A uranium-238 atom will, at some unpredictable moment, start a chain of decays that ends as lead. For any one atom you can't say when. For a trillion of them you can say exactly how fast: half will be gone in 4.47 billion years, its half-life.",
         "So a crystal that locked in uranium and no lead when it formed is a stopwatch. Count the lead that has grown inside it, compare it with the uranium left, and you know how long the watch has been running. Rutherford suggested it in 1904; [[Arthur Holmes]] made it a science."
       ],
       "matters": "It turned [[deep time]] from an argument into a measurement, and gave numbers to every boundary in the geologic timescale, the age of the Earth, the Moon and the meteorites.",
-      "see": ["arthur-holmes", "clair-patterson", "deep-time", "lord-kelvin"],
-      "learn": [{ "course": "geology", "lesson": "age", "for": "Run a uranium clock" }, { "course": "geology", "lesson": "crater-ages", "for": "Dating the Moon" }],
+      "see": [
+        "arthur-holmes",
+        "clair-patterson",
+        "deep-time",
+        "lord-kelvin"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "age",
+          "for": "Run a uranium clock"
+        },
+        {
+          "course": "geology",
+          "lesson": "crater-ages",
+          "for": "Dating the Moon"
+        }
+      ],
       "wikipedia": "Radiometric_dating"
     },
     "arthur-holmes": {
@@ -228,11 +505,26 @@
       "line": "Geologist who turned radioactivity into a calendar, and guessed what moves the continents.",
       "text": [
         "In 1913, at 23, Holmes published *The Age of the Earth*, gathering uranium-lead dates that put the oldest rocks at 1.6 billion years: many times what [[Lord Kelvin]] had allowed. He spent the next fifty years building the timescale with that clock.",
-        "Around 1930 he also proposed that the hot mantle slowly churns, rising in some places and sinking in others, dragging the continents along. Almost no one listened. Thirty years later it turned out to be very nearly how [[plate tectonics]] works."
+        "In 1928 he also proposed that the hot mantle slowly churns, rising in some places and sinking in others, dragging the continents along. Almost no one listened. Thirty years later it turned out to be very nearly how [[plate tectonics]] works."
       ],
       "matters": "Holmes gave geology both its calendar and, decades early, the engine of moving continents.",
-      "see": ["radiometric-dating", "alfred-wegener", "plate-tectonics", "deep-time"],
-      "learn": [{ "course": "geology", "lesson": "age" }, { "course": "geology", "lesson": "drift", "for": "His convection idea" }],
+      "see": [
+        "radiometric-dating",
+        "alfred-wegener",
+        "plate-tectonics",
+        "deep-time"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "age"
+        },
+        {
+          "course": "geology",
+          "lesson": "drift",
+          "for": "His convection idea"
+        }
+      ],
       "wikipedia": "Arthur_Holmes"
     },
     "clair-patterson": {
@@ -245,14 +537,26 @@
         "Then he asked where all that lead had come from. The answer, leaded petrol, set him on a twenty-year fight against the oil industry, which he won."
       ],
       "matters": "He gave [[deep time]] its final number, and the same care with lead lowered the lead in every child's blood around the world.",
-      "see": ["radiometric-dating", "deep-time", "arthur-holmes"],
-      "learn": [{ "course": "geology", "lesson": "age", "for": "Follow his lead step by step" }],
+      "see": [
+        "radiometric-dating",
+        "deep-time",
+        "arthur-holmes"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "age",
+          "for": "Follow his lead step by step"
+        }
+      ],
       "wikipedia": "Clair_Cameron_Patterson"
     },
     "alfred-wegener": {
       "kind": "person",
       "title": "Alfred Wegener",
-      "also": ["Wegener"],
+      "also": [
+        "Wegener"
+      ],
       "dates": "1880–1930",
       "line": "Weather scientist who said the continents move, and was laughed at for forty years.",
       "text": [
@@ -261,29 +565,66 @@
         "His own field, the weather, holds a second idea of his. In 1911 he saw why, in a cloud colder than freezing, ice crystals grow by stealing water from the droplets around them: the first step of the [[Bergeron process]], which explains how most rain begins."
       ],
       "matters": "He was right about the drift and wrong about how. When the sea floor was mapped in the 1960s, his idea came back as [[plate tectonics]].",
-      "see": ["plate-tectonics", "seafloor-spreading", "arthur-holmes", "milutin-milankovic"],
+      "see": [
+        "plate-tectonics",
+        "seafloor-spreading",
+        "arthur-holmes",
+        "milutin-milankovic"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "drift", "for": "Fit the continents yourself" },
-        { "course": "clouds", "lesson": "local-sky", "for": "His other big idea, about snow" }
+        {
+          "course": "geology",
+          "lesson": "drift",
+          "for": "Fit the continents yourself"
+        },
+        {
+          "course": "clouds",
+          "lesson": "local-sky",
+          "for": "His other big idea, about snow"
+        }
       ],
       "wikipedia": "Alfred_Wegener"
     },
     "plate-tectonics": {
       "kind": "idea",
       "title": "Plate tectonics",
-      "also": ["plates", "tectonic plates", "continental drift"],
+      "also": [
+        "plates",
+        "tectonic plates",
+        "continental drift"
+      ],
       "line": "The Earth's surface is a dozen or so rigid plates that slide over the hot, slowly creeping rock of the mantle beneath, a few centimetres a year.",
       "text": [
         "The outer shell of the Earth is cracked like an eggshell into plates. Where two pull apart, hot rock wells up and makes new sea floor. Where they push together, one dives back into the mantle, and you get deep trenches, big earthquakes and lines of volcanoes. Where they grind past each other, you get faults like the San Andreas.",
         "A few centimetres a year sounds like nothing. Over 200 million years it is 6,000 kilometres: the whole width of the Atlantic."
       ],
       "matters": "It is geology's grand unifying theory, as evolution is biology's. Mountains, earthquakes, volcanoes, ocean basins, even where certain fossils turn up: all fall out of moving plates.",
-      "see": ["alfred-wegener", "seafloor-spreading", "harry-hess", "arthur-holmes", "rock-cycle"],
+      "see": [
+        "alfred-wegener",
+        "seafloor-spreading",
+        "harry-hess",
+        "arthur-holmes",
+        "rock-cycle"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "drift" },
-        { "course": "geology", "lesson": "stripes" },
-        { "course": "geology", "lesson": "quakes", "for": "See the plates outlined by earthquakes" },
-        { "course": "geology", "lesson": "supercontinents", "for": "A billion years of moving maps" }
+        {
+          "course": "geology",
+          "lesson": "drift"
+        },
+        {
+          "course": "geology",
+          "lesson": "stripes"
+        },
+        {
+          "course": "geology",
+          "lesson": "quakes",
+          "for": "See the plates outlined by earthquakes"
+        },
+        {
+          "course": "geology",
+          "lesson": "supercontinents",
+          "for": "A billion years of moving maps"
+        }
       ],
       "wikipedia": "Plate_tectonics"
     },
@@ -297,22 +638,45 @@
         "In 1960 he put it together. Hot rock rises under the ridge and becomes new ocean floor, which spreads away on both sides like two conveyor belts and sinks back down at the trenches. He called his paper \"an essay in geopoetry\", because he couldn't yet prove it."
       ],
       "matters": "[[Seafloor spreading]] gave [[Alfred Wegener]]'s drifting continents their missing engine. Within a few years the magnetic stripes on the sea floor proved Hess right.",
-      "see": ["seafloor-spreading", "plate-tectonics", "alfred-wegener"],
-      "learn": [{ "course": "geology", "lesson": "stripes" }],
+      "see": [
+        "seafloor-spreading",
+        "plate-tectonics",
+        "alfred-wegener"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "stripes"
+        }
+      ],
       "wikipedia": "Harry_Hammond_Hess"
     },
     "seafloor-spreading": {
       "kind": "idea",
       "title": "Seafloor spreading",
-      "also": ["sea-floor spreading", "magnetic stripes", "mid-ocean ridge"],
+      "also": [
+        "sea-floor spreading",
+        "magnetic stripes",
+        "mid-ocean ridge"
+      ],
       "line": "New ocean floor forms at mid-ocean ridges and moves away on both sides.",
       "text": [
         "Every so often the Earth's magnetic field flips: north becomes south. Lava cooling at a mid-ocean ridge freezes the direction of the field into its iron grains. As the floor spreads, each stretch carries its record away, like a tape recorder playing out on both sides at once.",
         "So the sea floor should be striped, normal and reversed, in a pattern that is a mirror image across the ridge. In 1963 Fred Vine and Drummond Matthews showed that it is."
       ],
       "matters": "The stripes were the smoking gun for moving plates. They also date the sea floor, and none of it is older than about 200 million years: the oceans are young, the continents old.",
-      "see": ["harry-hess", "plate-tectonics", "alfred-wegener"],
-      "learn": [{ "course": "geology", "lesson": "stripes", "for": "Spread a ridge and watch the stripes form" }],
+      "see": [
+        "harry-hess",
+        "plate-tectonics",
+        "alfred-wegener"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "stripes",
+          "for": "Spread a ridge and watch the stripes form"
+        }
+      ],
       "wikipedia": "Seafloor_spreading"
     },
     "louis-agassiz": {
@@ -325,58 +689,121 @@
         "He then camped on glaciers for summers on end, driving stakes into the ice to measure how fast it flowed. In the Americas he found the same scratched rocks and stranded boulders everywhere he went."
       ],
       "matters": "The [[ice age]] he proposed explained the boulders, scratched bedrock and odd hills of half the northern world, including the lakes and hills of Seattle.",
-      "see": ["ice-age", "milutin-milankovic", "charles-lyell"],
-      "learn": [{ "course": "geology", "lesson": "erratics", "for": "Track boulders back to the ice" }],
+      "see": [
+        "ice-age",
+        "milutin-milankovic",
+        "charles-lyell"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "erratics",
+          "for": "Track boulders back to the ice"
+        }
+      ],
       "wikipedia": "Louis_Agassiz"
     },
     "ice-age": {
       "kind": "idea",
       "title": "Ice age",
-      "also": ["ice ages", "glaciation", "ice sheet", "ice sheets"],
+      "also": [
+        "ice ages",
+        "glaciation",
+        "ice sheet",
+        "ice sheets"
+      ],
       "line": "Times when ice sheets kilometres thick covered much of the northern continents; the last ended about 11,700 years ago.",
       "text": [
-        "Twenty thousand years ago, a wall of ice a kilometre thick stood where Seattle is now, and another buried Chicago and New York. So much water was locked up in ice that the sea was 120 metres lower. You could walk from Siberia to Alaska.",
+        "Fifteen thousand years ago, a wall of ice a kilometre thick stood where Seattle is now; a few thousand years earlier, another had buried Chicago and New York. So much water was locked up in ice that the sea was 120 metres lower. You could walk from Siberia to Alaska.",
         "And it wasn't one ice age but dozens. For the last few million years the ice has grown and shrunk again and again, on a beat set by slow wobbles in the Earth's orbit, [[Milutin Milankovic]]'s cycles."
       ],
       "matters": "The ice ages shaped the landscapes most of us live in: the Great Lakes, Puget Sound, the scablands. They also show how sensitive climate is to small nudges.",
-      "see": ["louis-agassiz", "milutin-milankovic", "glacial-lake-missoula"],
+      "see": [
+        "louis-agassiz",
+        "milutin-milankovic",
+        "glacial-lake-missoula"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "erratics" },
-        { "course": "geology", "lesson": "pacemaker", "for": "What sets the rhythm" },
-        { "course": "geology", "lesson": "hills", "for": "The ice over Seattle" }
+        {
+          "course": "geology",
+          "lesson": "erratics"
+        },
+        {
+          "course": "geology",
+          "lesson": "pacemaker",
+          "for": "What sets the rhythm"
+        },
+        {
+          "course": "geology",
+          "lesson": "hills",
+          "for": "The ice over Seattle"
+        }
       ],
       "wikipedia": "Ice_age"
     },
     "milutin-milankovic": {
       "kind": "person",
       "title": "Milutin Milanković",
-      "also": ["Milankovic", "Milankovitch", "Milankovitch cycles", "Milankovic cycles"],
+      "also": [
+        "Milankovic",
+        "Milankovitch",
+        "Milankovitch cycles",
+        "Milankovic cycles"
+      ],
       "dates": "1879–1958",
       "line": "Serbian engineer who worked out, by hand, how wobbles in the Earth's orbit time the ice ages.",
       "text": [
         "The Earth's orbit isn't fixed. It stretches and relaxes every 100,000 years or so, the tilt of the axis nods every 41,000, and the axis wobbles like a top every 23,000. None of this changes the total sunshine much, but it shifts where and when it falls.",
-        "Milanković spent decades calculating, with pencil and paper, how much summer sunshine reached the far north over the last 600,000 years. Less summer sun there means last winter's snow survives, year after year, and ice sheets grow. He finished his first curves while held as a prisoner of war in Budapest."
+        "Milanković spent decades calculating, with pencil and paper, how much summer sunshine reached the far north over the last 600,000 years. Less summer sun there means last winter's snow survives, year after year, and ice sheets grow. He did his first curves on the climate of past ages while held as a prisoner of war in Budapest."
       ],
       "matters": "In 1976, ocean-floor mud showed the ice ages beating in time with his cycles. It was the first proof that the climate responds, reliably, to small changes in sunlight.",
-      "see": ["ice-age", "alfred-wegener", "louis-agassiz"],
-      "learn": [{ "course": "geology", "lesson": "pacemaker", "for": "Tilt the Earth and watch the ice" }],
+      "see": [
+        "ice-age",
+        "alfred-wegener",
+        "louis-agassiz"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "pacemaker",
+          "for": "Tilt the Earth and watch the ice"
+        }
+      ],
       "wikipedia": "Milutin_Milanković"
     },
     "earths-core": {
       "kind": "idea",
       "title": "Earth's core",
-      "also": ["core", "inner core", "outer core"],
+      "also": [
+        "core",
+        "inner core",
+        "outer core"
+      ],
       "line": "A ball of iron at the centre of the Earth, liquid outside and solid within, as wide as Mars.",
       "text": [
         "No one has been there; the deepest hole ever drilled went 12 kilometres, a scratch on a planet 6,371 kilometres in radius. We know the core from earthquakes. Their waves travel through the planet and bend, speed up or vanish as they cross from one layer to another, and seismographs around the world record where they come out.",
         "One kind of wave, the S wave, a side-to-side shake, can't travel through liquid, and it never comes through the middle: so the outer core is molten. Faint echoes from inside it, spotted by [[Inge Lehmann]] in 1936, showed a solid ball within."
       ],
       "matters": "The churning liquid iron of the outer core makes the Earth's magnetic field, which steers compasses, shields the air from the solar wind, and records the [[seafloor spreading]] stripes.",
-      "see": ["inge-lehmann", "seafloor-spreading"],
+      "see": [
+        "inge-lehmann",
+        "seafloor-spreading"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "weigh", "for": "Why the middle must be heavy" },
-        { "course": "geology", "lesson": "core", "for": "The shadow behind the core" },
-        { "course": "geology", "lesson": "lehmann" }
+        {
+          "course": "geology",
+          "lesson": "weigh",
+          "for": "Why the middle must be heavy"
+        },
+        {
+          "course": "geology",
+          "lesson": "core",
+          "for": "The shadow behind the core"
+        },
+        {
+          "course": "geology",
+          "lesson": "lehmann"
+        }
       ],
       "wikipedia": "Earth's_inner_core"
     },
@@ -390,14 +817,25 @@
         "Her 1936 explanation, in a paper titled just \"P′\", was a solid ball inside the liquid core, bending some waves out into the shadow. It took years of better instruments to prove her right. She kept working into her nineties and lived to 104."
       ],
       "matters": "The inner core is where the Earth's iron slowly freezes, and that freezing helps stir the liquid around it and keep the magnetic field going.",
-      "see": ["earths-core"],
-      "learn": [{ "course": "geology", "lesson": "lehmann", "for": "Find the inner core yourself" }],
+      "see": [
+        "earths-core"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "lehmann",
+          "for": "Find the inner core yourself"
+        }
+      ],
       "wikipedia": "Inge_Lehmann"
     },
     "j-harlen-bretz": {
       "kind": "person",
       "title": "J Harlen Bretz",
-      "also": ["Bretz", "J. Harlen Bretz"],
+      "also": [
+        "Bretz",
+        "J. Harlen Bretz"
+      ],
       "dates": "1882–1981",
       "line": "Geologist who said a single colossal flood carved eastern Washington, and was right, forty years too soon.",
       "text": [
@@ -405,40 +843,80 @@
         "The geologists of the day, raised on [[Charles Lyell]]'s slow and steady change, wouldn't have it, and asked where the water had come from. Bretz didn't know. The answer, [[Glacial Lake Missoula]], came later. In 1965 visiting geologists wired him, \"We are now all catastrophists.\""
       ],
       "matters": "Bretz showed that rare catastrophes write in the rock too, and that the evidence in the field beats the theory you brought with you.",
-      "see": ["channeled-scablands", "glacial-lake-missoula", "charles-lyell"],
-      "learn": [{ "course": "geology", "lesson": "bretz", "for": "Read the scablands as he did" }],
+      "see": [
+        "channeled-scablands",
+        "glacial-lake-missoula",
+        "charles-lyell"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "bretz",
+          "for": "Read the scablands as he did"
+        }
+      ],
       "wikipedia": "J_Harlen_Bretz"
     },
     "glacial-lake-missoula": {
       "kind": "place",
       "title": "Glacial Lake Missoula",
-      "also": ["Lake Missoula", "Missoula floods", "ice age floods"],
+      "also": [
+        "Lake Missoula",
+        "Missoula floods",
+        "ice age floods"
+      ],
       "line": "An ice-age lake in Montana, held back by a dam of ice, that burst again and again across Washington.",
       "text": [
         "About 18,000 to 15,000 years ago, a tongue of the ice sheet blocked the Clark Fork River in Idaho. Behind it, a lake filled the valleys of western Montana: half as much water as Lake Michigan.",
         "But an ice dam has a weakness a concrete one doesn't. Ice floats. When the lake grew to about nine-tenths the height of the dam, the dam lifted, and the lake emptied in a few days, faster than all the world's rivers put together flow today. Then the ice crept back, and the lake filled again. Dozens of times."
       ],
       "matters": "Its floods carved the [[Channeled Scablands]], dropped Montana boulders on Oregon hillsides, and left high-water lines you can still see on the hills around Missoula.",
-      "see": ["j-harlen-bretz", "channeled-scablands", "ice-age"],
+      "see": [
+        "j-harlen-bretz",
+        "channeled-scablands",
+        "ice-age"
+      ],
       "learn": [
-        { "course": "geology", "lesson": "ripples", "for": "Float the ice dam" },
-        { "course": "geology", "lesson": "rhythmites", "for": "Count the floods" },
-        { "course": "geology", "lesson": "montana-rocks" }
+        {
+          "course": "geology",
+          "lesson": "ripples",
+          "for": "Float the ice dam"
+        },
+        {
+          "course": "geology",
+          "lesson": "rhythmites",
+          "for": "Count the floods"
+        },
+        {
+          "course": "geology",
+          "lesson": "montana-rocks"
+        }
       ],
       "wikipedia": "Lake_Missoula"
     },
     "channeled-scablands": {
       "kind": "place",
       "title": "Channeled Scablands",
-      "also": ["scablands", "channelled scablands"],
+      "also": [
+        "scablands",
+        "channelled scablands"
+      ],
       "line": "Eastern Washington's strips of bare, gouged rock, carved by the ice-age floods.",
       "text": [
         "Most of the plateau is soft rolling hills of windblown dust, good wheat country. But running across it from Spokane toward the Columbia are strips where the dust has been stripped away to the black basalt beneath, cut into dry canyons, plunge pools and giant ripples.",
         "Dry Falls, near Coulee City, is a cliff five kilometres wide and 120 metres high, with not a drop going over it. At the height of the floods it was the biggest waterfall we know of."
       ],
-      "matters": "It is one of the strangest landscapes on Earth, and the proof that floods from [[Glacial Lake Missoula]] really happened. Similar channels on Mars are read the same way.",
-      "see": ["glacial-lake-missoula", "j-harlen-bretz"],
-      "learn": [{ "course": "geology", "lesson": "bretz" }],
+      "matters": "It is one of the strangest sights on Earth, and the proof that floods from [[Glacial Lake Missoula]] really happened. Similar channels on Mars are read the same way.",
+      "see": [
+        "glacial-lake-missoula",
+        "j-harlen-bretz"
+      ],
+      "learn": [
+        {
+          "course": "geology",
+          "lesson": "bretz"
+        }
+      ],
       "wikipedia": "Channeled_Scablands"
     }
   }

@@ -31,7 +31,7 @@
     {
       "title": "The wash-sale rule",
       "blocks": [
-        { "type": "text", "text": "A loss is disallowed if the same or a substantially identical security is bought within 30 days before or after the sale. The disallowed loss isn't lost, only postponed: it is added to the basis of the new purchase. But a purchase inside an IRA or Roth, including a reinvested dividend, counts too, and there the loss is gone for good." },
+        { "type": "text", "text": "A loss is disallowed if the same or a substantially identical security is bought within 30 days before or after the sale. The disallowed loss isn't lost, only postponed: it is added to the basis of the new purchase. But a purchase inside an IRA or Roth, including a reinvested dividend, counts too, and there the loss is gone for good.[^ira-wash]" },
         { "type": "text", "text": "The usual way through is to switch between two funds that track different indexes of the same market, such as a total US market fund and an S&P 500 fund. Their returns are nearly identical; whether they are substantially identical has never been ruled on, and the common practice is to treat different indexes as different.[^identical] Switching off automatic dividend reinvestment around the sale avoids small accidental wash sales." }
       ]
     },
@@ -72,6 +72,11 @@
   ],
   "footnotes": {
     "order": { "kind": "technical", "title": "The netting order", "text": "Short-term losses first offset short-term gains and long-term losses long-term gains; then any net loss of one kind offsets the other. A carried-forward loss keeps its character, short or long. Short-term losses are the more valuable, since short-term gains are taxed at ordinary rates." },
-    "identical": { "kind": "digression", "title": "Substantially identical", "text": "The IRS has never defined the phrase for funds. Shares of the same fund, or a fund's ETF and mutual fund classes, are plainly identical. Two funds from different companies on the same index are argued both ways; funds on different indexes are generally treated as different. Automated harvesting services rely on that reading." }
+    "identical": { "kind": "digression", "title": "Substantially identical", "text": "The IRS has never defined the phrase for funds. Shares of the same fund, or a fund's ETF and mutual fund classes, are plainly identical. Two funds from different companies on the same index are argued both ways; funds on different indexes are generally treated as different. Automated harvesting services rely on that reading." },
+    "ira-wash": {
+      "kind": "technical",
+      "title": "IRAs, spouses and the 61-day window",
+      "text": "The window is 30 calendar days before the sale, the day of the sale, and 30 calendar days after: 61 days in all. In Revenue Ruling 2008-5, the IRS ruled that buying the replacement shares in a traditional or Roth IRA disallows the loss without increasing the IRA's basis, so the deduction vanishes. Purchases by a spouse, or by a company the seller controls, count as well."
+    }
   }
 }

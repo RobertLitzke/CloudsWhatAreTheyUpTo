@@ -1,426 +1,407 @@
 {
- "id": "timbre",
- "n": 1,
- "title": "The clarinet and the flute",
- "teaches": "Timbre: a note is a stack of harmonics, and the wave's shape decides which ones",
- "parts": [
-  {
-   "title": "Same note, two sounds",
-   "blocks": [
+  "id": "timbre",
+  "n": 1,
+  "title": "The clarinet and the flute",
+  "teaches": "Timbre: a note is a stack of harmonics, and the wave's shape decides which ones",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The mystery.** Play the A above middle C on a clarinet, then on a flute. The pitch is the same: both make the air shake 440 times a second. Play them equally loud. Anyone can still tell which is which, with their eyes shut, from a single held note. So what is different? Pitch and loudness are only two numbers, and the two instruments agree on both. Whatever is left over has a name, **[[timbre]]**, and for most of history nobody could say what it was."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "One oscillator playing the same riff three ways: the same notes, equally loud",
-     "options": {
-      "stage": 1,
-      "riff": 69,
-      "start": {
-       "wave": 0,
-       "pw": 0
-      },
-      "sounds": [
-       {
-        "name": "Bright buzz",
-        "set": {
-         "wave": 0
+      "title": "Same note, two sounds",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The mystery.** Play the A above middle C on a clarinet, then on a flute. The pitch is the same: both make the air shake 440 times a second. Play them equally loud. Anyone can still tell which is which, with their eyes shut, from a single held note. Pitch and loudness are only two numbers, and the two instruments agree on both. Whatever is left over has a name, **[[timbre]]**, and for most of history nobody could say what it was."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "One oscillator playing the same riff three ways: the same notes, equally loud",
+          "options": {
+            "stage": 1,
+            "riff": 69,
+            "start": {
+              "wave": 0,
+              "pw": 0
+            },
+            "sounds": [
+              {
+                "name": "Bright buzz",
+                "set": {
+                  "wave": 0
+                }
+              },
+              {
+                "name": "Hollow, like a clarinet",
+                "set": {
+                  "wave": 1
+                }
+              },
+              {
+                "name": "Soft, like a flute",
+                "set": {
+                  "wave": 2
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "A synthesizer has the same puzzle in miniature. Its oscillator can play the riff above as a bright buzz, a hollow woodwind or a soft one, and nothing changes but one switch. By the end of the lesson you will know what that switch changes, and you will find a fourth woodwind by ear."
+        },
+        {
+          "type": "text",
+          "text": "In 1863 the German physicist [[Hermann von Helmholtz]] published his answer, worked out with a box of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches two, three, four and more times higher. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The synth plays a riff on one oscillator. On the left of the display is the wave, on the right its harmonics, low to high.",
+          "task": "Listen to all four waves",
+          "goal": "wave-all",
+          "options": {
+            "stage": 1,
+            "knobs": [
+              "wave"
+            ],
+            "start": {
+              "wave": 0
+            },
+            "riff": 69
+          }
+        },
+        {
+          "type": "text",
+          "text": "A synthesizer starts where Helmholtz finished. Its oscillator makes a wave of a fixed shape, and the shape decides the stack of harmonics before anything else touches the sound. A **saw** is bright and buzzy. A **pulse** is hollow, like a clarinet. A **triangle** is soft and flute-like. A **sine** is a bare, pure tone: one sphere, and nothing else."
         }
-       },
-       {
-        "name": "Hollow, like a clarinet",
-        "set": {
-         "wave": 1
-        }
-       },
-       {
-        "name": "Soft, like a flute",
-        "set": {
-         "wave": 2
-        }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "A synthesizer has the same puzzle in miniature. Its oscillator can play the riff above as a bright buzz, a hollow woodwind or a soft one, and nothing changes but one switch. What is that switch changing? By the end of the lesson you will know, and you will find a fourth woodwind by ear."
-    },
-    {
-     "type": "text",
-     "text": "In 1863 the German physicist [[Hermann von Helmholtz]] took the question apart with a box of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches two, three, four and more times higher. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Brass Helmholtz resonators of 1870, in the Hunterian Museum in Glasgow. The wide mouth faces the sound and the small nipple goes in the ear; each one’s size sets the one pitch it answers.",
-     "options": {
-      "photo": "helmholtz-resonator",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The synth plays a riff on one oscillator. On the left of the display is the wave, on the right its harmonics, low to high.",
-     "task": "Listen to all four waves",
-     "goal": "wave-all",
-     "options": {
-      "stage": 1,
-      "knobs": [
-       "wave"
-      ],
-      "start": {
-       "wave": 0
-      },
-      "riff": 69
-     }
-    },
-    {
-     "type": "text",
-     "text": "A synthesizer starts where Helmholtz finished. Its oscillator makes a wave of a fixed shape, and the shape decides the stack of harmonics before anything else touches the sound. A **saw** is bright and buzzy. A **pulse** is hollow, like a clarinet. A **triangle** is soft and flute-like. A **sine** is a bare, pure tone: one sphere, and nothing else."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Hermann von Helmholtz in 1884, two decades after his book on the sensations of tone.",
-     "options": {
-      "photo": "helmholtz",
-      "aspect": 0.8,
-      "position": "50% 20%"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Taking a wave apart",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Helmholtz had a theorem behind him. Forty years earlier the French mathematician [[Joseph Fourier]], working on how heat spreads through a metal bar, had shown that any shape that repeats can be built by adding up sine waves: one at the repeat rate, and others at two, three, four times it, each with its own size.[^fourier] Fourier was thinking about temperatures. Helmholtz saw that it was also a description of the ear, which seems to do the same sum in reverse and hear the pieces."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "harmonics",
-     "caption": "A wave built from its harmonics: pick a shape and add harmonics one at a time. The bars below are their sizes.",
-     "task": "Guess, then build a square from nine or more harmonics",
-     "goal": "square",
-     "aspect_ratio": 1.7391304347826086
-    },
-    {
-     "type": "text",
-     "text": "Every wave on the synth is one of these recipes. The saw has every harmonic, each weaker than the one before in a simple ratio: a half, a third, a quarter. The square has only the odd ones. The triangle has the odd ones too, but they fade so fast that it is nearly a sine. Nothing else about the shapes matters to the ear: two waves that look different but have the same harmonics at the same sizes sound the same.[^phase]"
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "A musical note is a stack of pure tones at whole-number multiples of its pitch: the harmonic series.",
-      "Timbre is how loud each harmonic is.",
-      "Fourier: any repeating wave is a sum of sines at those multiples."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Reading the display",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The synth's display shows both halves of Fourier's idea at once. The left side is the wave itself, the air pressure rising and falling over a few cycles. The right side is the same sound as a **spectrum**: one bar for each harmonic, the lowest pitch on the left, the highest on the right. A bright sound fills the right-hand side with bars. A dull one leaves it empty."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The same synth. Watch the right half of the display as you change the wave.",
-     "task": "Find the wave whose spectrum is a single bar",
-     "goal": "wave-sine",
-     "options": {
-      "stage": 1,
-      "knobs": [
-       "wave"
-      ],
-      "start": {
-       "wave": 0
-      },
-      "riff": 69
-     }
-    },
-    {
-     "type": "text",
-     "text": "The sine is the only wave with one bar. Every other sound you have ever heard, a voice, a violin, a door slamming, has more."
-    }
-   ]
-  },
-  {
-   "title": "The clarinet's secret",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now the clarinet. Its tube is a straight cylinder, closed at the top by the player's lips and reed and open at the bell. A tube like that can only hold standing waves that fit an odd number of quarter-wavelengths along it, so in its low register the clarinet's strong harmonics are the odd ones: 1, 3, 5, 7.[^pipe] That is the recipe of a square wave, and it is why a square sounds like a clarinet. A flute is open at both ends, so it keeps all the harmonics, but most of its energy sits in the first few, and it sounds close to a triangle or a sine."
-    },
-    {
-     "type": "text",
-     "text": "A pulse wave is a square that need not be square. It flips between high and low, and its **width** is how much of each cycle it spends high. At 50 % it is a square. Narrower, the low harmonics thin out and a reedy, nasal edge is left, more oboe than clarinet."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The oscillator on a pulse wave, with its width knob.",
-     "task": "Step Width all the way down to 10 %",
-     "goal": "pw-thin",
-     "options": {
-      "stage": 1,
-      "knobs": [
-       "pw"
-      ],
-      "start": {
-       "wave": 1,
-       "pw": 0
-      },
-      "riff": 69
-     }
-    },
-    {
-     "type": "text",
-     "text": "A narrow pulse misses every harmonic whose number divides evenly into the cycle's split: at 25 % it has no 4th, 8th or 12th harmonic. You don't hear the gaps as gaps; you hear a thinner colour."
-    }
-   ]
-  },
-  {
-   "title": "A knob that does nothing",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Width shapes the pulse and nothing else. On the saw, the triangle and the sine it has nothing to act on, so it goes dark. This matters in [PatchMatch](#/ear), the ear-training game beside this course: a knob that is dark in the target sound is never part of a puzzle's answer, because no ear could hear where it is set."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The wave selector and the width knob together.",
-     "task": "Pick a wave that turns Width dark",
-     "goal": "pw-dark",
-     "options": {
-      "stage": 1,
-      "knobs": [
-       "wave",
-       "pw"
-      ],
-      "start": {
-       "wave": 1,
-       "pw": 2
-      },
-      "riff": 69,
-      "examples": [
-       {
-        "name": "Buzzy saw",
-        "set": {
-         "wave": 0
+      "title": "Taking a wave apart",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Helmholtz had a theorem behind him. Forty years earlier the French mathematician [[Joseph Fourier]], working on how heat spreads through a metal bar, had shown that any shape that repeats can be built by adding up sine waves: one at the repeat rate, and others at two, three, four times it, each with its own size.[^fourier] Fourier was thinking about temperatures. Helmholtz saw that it was also a description of the ear, which seems to do the same sum in reverse and hear the pieces."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "harmonics",
+          "caption": "A wave built from its harmonics: pick a shape and add harmonics one at a time. The bars below are their sizes.",
+          "task": "Guess, then build a square from nine or more harmonics",
+          "goal": "square",
+          "aspect_ratio": 1.7391304347826086
+        },
+        {
+          "type": "text",
+          "text": "Every wave on the synth is one of these recipes. The saw has every harmonic, each weaker than the one before in a simple ratio: a half, a third, a quarter. The square has only the odd ones. The triangle has the odd ones too, but they fade so fast that it is nearly a sine. Nothing else about the shapes matters to the ear: two waves that look different but have the same harmonics at the same sizes sound the same.[^phase]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "A musical note is a stack of pure tones at whole-number multiples of its pitch: the harmonic series.",
+            "Timbre is how loud each harmonic is.",
+            "Fourier: any repeating wave is a sum of sines at those multiples."
+          ]
         }
-       },
-       {
-        "name": "Hollow square",
-        "set": {
-         "wave": 1,
-         "pw": 0
-        }
-       },
-       {
-        "name": "Thin pulse",
-        "set": {
-         "wave": 1,
-         "pw": 4
-        }
-       },
-       {
-        "name": "Pure sine",
-        "set": {
-         "wave": 3
-        }
-       }
       ]
-     }
     },
     {
-     "type": "diagram",
-     "id": "timeline",
-     "caption": "Taking sound apart, from a monk's string to an organ that played down telephone wires.",
-     "options": {
-      "events": [
-       {
-        "at": 1636,
-        "label": "Mersenne hears higher pitches inside one plucked string"
-       },
-       {
-        "at": 1822,
-        "label": "Fourier: any repeating shape is a sum of sines"
-       },
-       {
-        "at": 1843,
-        "label": "Ohm proposes that the ear hears those sines separately"
-       },
-       {
-        "at": 1863,
-        "label": "Helmholtz's On the Sensations of Tone: timbre is the harmonics",
-        "bold": true
-       },
-       {
-        "at": 1897,
-        "label": "Cahill patents the Telharmonium, an organ built from sine generators"
-       }
-      ],
-      "spacing": "even"
-     }
-    }
-   ]
-  },
-  {
-   "title": "A reed by ear",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Here is the puzzle turned round. The sound below is one of the synth's waves, and if it is a pulse, one of its widths. It is reedy and nasal, more oboe than clarinet. Listen to it, then listen to yours, and work out what must be in it: are the low harmonics strong or thin? Is it hollow, or does it have every harmonic like the saw?"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The oscillator again, with a woodwind to match. The left button plays yours, the right one the sound you are after.",
-     "task": "Match the reed by ear",
-     "goal": "match",
-     "options": {
-      "target": {
-       "name": "The reed",
-       "set": {
-        "wave": 1,
-        "pw": 3
-       }
-      },
-      "stage": 1,
-      "knobs": [
-       "wave",
-       "pw"
-      ],
-      "start": {
-       "wave": 0,
-       "pw": 0
-      },
-      "riff": 69
-     }
-    },
-    {
-     "type": "text",
-     "text": "That is all there is to the first stage of [PatchMatch](#/ear): hear a sound, guess what it is made of, turn the knobs until yours and the target can't be told apart. Every later lesson adds a knob and a new way to change the harmonics."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on harmonics and timbre",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "A clarinet and a flute play the same note equally loudly. What is different?",
-        "choices": [
-         "How loud each harmonic is",
-         "The pitch",
-         "How fast the air shakes"
-        ],
-        "answer": 0,
-        "why": "Pitch and loudness match; timbre, the mix of harmonics, is what differs."
-       },
-       {
-        "ask": "A note has a pitch of 200 Hz. Which of these is its third harmonic?",
-        "choices": [
-         "600 Hz",
-         "203 Hz",
-         "66.7 Hz"
-        ],
-        "answer": 0,
-        "why": "Harmonics are whole-number multiples of the pitch: 3 × 200 = 600 Hz."
-       },
-       {
-        "ask": "Which wave has only one bar on the spectrum?",
-        "choices": [
-         "Sine",
-         "Square",
-         "Saw"
-        ],
-        "answer": 0,
-        "why": "A sine is a single pure tone. Every other shape is a sum of several."
-       },
-       {
-        "ask": "Which harmonics does a square wave contain?",
-        "choices": [
-         "Only the odd ones",
-         "Every one",
-         "Only the even ones"
-        ],
-        "answer": 0,
-        "why": "A square is built from harmonics 1, 3, 5, 7… at sizes 1, 1/3, 1/5, 1/7…"
-       },
-       {
-        "ask": "Why does a low clarinet note sound hollow, like a square wave?",
-        "choices": [
-         "Its tube is closed at one end, so it favours odd harmonics",
-         "Its reed vibrates as a sine",
-         "It has no harmonics at all"
-        ],
-        "answer": 0,
-        "why": "A tube closed at one end holds only odd numbers of quarter-wavelengths, so the odd harmonics are strong."
-       },
-       {
-        "ask": "The Width knob goes dark when the wave is a saw. Why?",
-        "choices": [
-         "Width only shapes the pulse wave",
-         "The saw is too quiet",
-         "The filter has removed it"
-        ],
-        "answer": 0,
-        "why": "Width is how long a pulse spends high; the other three waves have no width to change."
-       }
+      "title": "Reading the display",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The synth's display shows both halves of Fourier's idea at once. The left side is the wave itself, the air pressure rising and falling over a few cycles. The right side is the same sound as a **spectrum**: one bar for each harmonic, the lowest pitch on the left, the highest on the right. A bright sound fills the right-hand side with bars. A dull one leaves it empty."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The same synth. Watch the right half of the display as you change the wave.",
+          "task": "Find the wave whose spectrum is a single bar",
+          "goal": "wave-sine",
+          "options": {
+            "stage": 1,
+            "knobs": [
+              "wave"
+            ],
+            "start": {
+              "wave": 0
+            },
+            "riff": 69
+          }
+        },
+        {
+          "type": "text",
+          "text": "The sine is the only wave with one bar. Every other sound you have ever heard (a voice, a violin, a door slamming) has more."
+        }
       ]
-     }
+    },
+    {
+      "title": "The clarinet's secret",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now the clarinet. Its tube is a straight cylinder, closed at the top by the player's lips and reed and open at the bell. A tube like that can only hold standing waves that fit an odd number of quarter-wavelengths along it, so in its low register the clarinet's strong harmonics are the odd ones: 1, 3, 5, 7.[^pipe] That is the recipe of a square wave, and it is why a square sounds like a clarinet. A flute behaves like a pipe open at both ends, so it keeps all the harmonics, but most of its energy sits in the first few, and it sounds close to a triangle or a sine."
+        },
+        {
+          "type": "text",
+          "text": "A pulse wave is a square that need not be square. It flips between high and low, and its **width** is how much of each cycle it spends high. At 50 % it is a square. Narrower, the low harmonics thin out and a reedy, nasal edge is left, more oboe than clarinet."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The oscillator on a pulse wave, with its width knob.",
+          "task": "Step Width all the way down to 10 %",
+          "goal": "pw-thin",
+          "options": {
+            "stage": 1,
+            "knobs": [
+              "pw"
+            ],
+            "start": {
+              "wave": 1,
+              "pw": 0
+            },
+            "riff": 69
+          }
+        },
+        {
+          "type": "text",
+          "text": "When the fraction of the cycle spent high is $1/n$, the pulse misses every $n$th harmonic: at 25 % it has no 4th, 8th or 12th harmonic. You don't hear the gaps as gaps; you hear a thinner colour."
+        }
+      ]
+    },
+    {
+      "title": "A knob that does nothing",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Width shapes the pulse and nothing else. On the saw, the triangle and the sine it has nothing to act on, so it goes dark. This matters in [PatchMatch](#/ear), the ear-training game beside this course: a knob that is dark in the target sound is never part of a puzzle's answer, because no ear could hear where it is set."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The wave selector and the width knob together.",
+          "task": "Pick a wave that turns Width dark",
+          "goal": "pw-dark",
+          "options": {
+            "stage": 1,
+            "knobs": [
+              "wave",
+              "pw"
+            ],
+            "start": {
+              "wave": 1,
+              "pw": 2
+            },
+            "riff": 69,
+            "examples": [
+              {
+                "name": "Buzzy saw",
+                "set": {
+                  "wave": 0
+                }
+              },
+              {
+                "name": "Hollow square",
+                "set": {
+                  "wave": 1,
+                  "pw": 0
+                }
+              },
+              {
+                "name": "Thin pulse",
+                "set": {
+                  "wave": 1,
+                  "pw": 4
+                }
+              },
+              {
+                "name": "Pure sine",
+                "set": {
+                  "wave": 3
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "Taking sound apart, from a monk's string to an organ that played down telephone wires.",
+          "options": {
+            "events": [
+              {
+                "at": 1636,
+                "label": "Mersenne hears higher pitches inside one plucked string"
+              },
+              {
+                "at": 1822,
+                "label": "Fourier: any repeating shape is a sum of sines"
+              },
+              {
+                "at": 1843,
+                "label": "Ohm proposes that the ear hears those sines separately"
+              },
+              {
+                "at": 1863,
+                "label": "Helmholtz's On the Sensations of Tone: timbre is the harmonics",
+                "bold": true
+              },
+              {
+                "at": 1897,
+                "label": "Cahill patents the Telharmonium, an organ built from sine generators"
+              }
+            ],
+            "spacing": "even"
+          }
+        }
+      ]
+    },
+    {
+      "title": "A reed by ear",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Here is the puzzle turned round. The sound below is one of the synth's waves, and if it is a pulse, one of its widths. It is reedy and nasal, more oboe than clarinet. Listen to it, then listen to yours, and work out what must be in it: are the low harmonics strong or thin? Is it hollow, or does it have every harmonic like the saw?"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The oscillator again, with a woodwind to match. The left button plays yours, the right one the sound you are after.",
+          "task": "Match the reed by ear",
+          "goal": "match",
+          "options": {
+            "target": {
+              "name": "The reed",
+              "set": {
+                "wave": 1,
+                "pw": 3
+              }
+            },
+            "stage": 1,
+            "knobs": [
+              "wave",
+              "pw"
+            ],
+            "start": {
+              "wave": 0,
+              "pw": 0
+            },
+            "riff": 69
+          }
+        },
+        {
+          "type": "text",
+          "text": "That is all there is to the first stage of [PatchMatch](#/ear): hear a sound, guess what it is made of, and turn the knobs until yours and the target can't be told apart. Every later lesson adds a knob and a new way to change the harmonics."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on harmonics and timbre",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A clarinet and a flute play the same note equally loudly. What is different?",
+                "choices": [
+                  "How loud each harmonic is",
+                  "The pitch",
+                  "How fast the air shakes"
+                ],
+                "answer": 0,
+                "why": "Pitch and loudness match; timbre, the mix of harmonics, is what differs."
+              },
+              {
+                "ask": "A note has a pitch of 200 Hz. Which of these is its third harmonic?",
+                "choices": [
+                  "600 Hz",
+                  "203 Hz",
+                  "66.7 Hz"
+                ],
+                "answer": 0,
+                "why": "Harmonics are whole-number multiples of the pitch: 3 × 200 = 600 Hz."
+              },
+              {
+                "ask": "Which wave has only one bar on the spectrum?",
+                "choices": [
+                  "Sine",
+                  "Square",
+                  "Saw"
+                ],
+                "answer": 0,
+                "why": "A sine is a single pure tone. Every other shape is a sum of several."
+              },
+              {
+                "ask": "Which harmonics does a square wave contain?",
+                "choices": [
+                  "Only the odd ones",
+                  "Every one",
+                  "Only the even ones"
+                ],
+                "answer": 0,
+                "why": "A square is built from harmonics 1, 3, 5, 7… at sizes 1, 1/3, 1/5, 1/7…"
+              },
+              {
+                "ask": "Why does a low clarinet note sound hollow, like a square wave?",
+                "choices": [
+                  "Its tube is closed at one end, so it favours odd harmonics",
+                  "Its reed vibrates as a sine",
+                  "It has no harmonics at all"
+                ],
+                "answer": 0,
+                "why": "A tube closed at one end holds only odd numbers of quarter-wavelengths, so the odd harmonics are strong."
+              },
+              {
+                "ask": "The Width knob goes dark when the wave is a saw. Why?",
+                "choices": [
+                  "Width only shapes the pulse wave",
+                  "The saw is too quiet",
+                  "The filter has removed it"
+                ],
+                "answer": 0,
+                "why": "Width is how long a pulse spends high; the other three waves have no width to change."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**A note is a stack of pure tones**, at one, two, three and more times its pitch: the harmonic series.",
-  "**Timbre is the mix**: how loud each harmonic is. Two instruments on the same note differ only in that.",
-  "**Helmholtz (1863) heard the harmonics** one at a time with tuned brass resonators.",
-  "**Fourier: any repeating wave is a sum of sines** at whole-number multiples of its rate.",
-  "**Saw: every harmonic. Square: the odd ones. Triangle: odd, fading fast. Sine: one.**",
-  "**A clarinet's closed tube favours odd harmonics**, which is why a square sounds like one.",
-  "**Pulse width thins a square into a nasal pulse**, and does nothing to the other waves."
- ],
- "footnotes": {
-  "resonators": {
-   "kind": "digression",
-   "title": "Helmholtz resonators",
-   "text": "Helmholtz had his spheres made in brass and glass, in a graded set covering several octaves. The same shape still bears his name: a bottle you blow across is a Helmholtz resonator, and so is the body of a guitar at its lowest resonance. Car makers use them to cancel the drone of an exhaust."
+  ],
+  "summary": [
+    "**A note is a stack of pure tones**, at one, two, three and more times its pitch: the harmonic series.",
+    "**Timbre is the mix**: how loud each harmonic is. Two instruments on the same note differ only in that.",
+    "**Helmholtz (1863) heard the harmonics** one at a time with tuned brass resonators.",
+    "**Fourier: any repeating wave is a sum of sines** at whole-number multiples of its rate.",
+    "**Saw: every harmonic. Square: the odd ones. Triangle: odd, fading fast. Sine: one.**",
+    "**A clarinet's closed tube favours odd harmonics**, which is why a square sounds like one.",
+    "**Pulse width thins a square into a nasal pulse**, and does nothing to the other waves."
+  ],
+  "footnotes": {
+    "resonators": {
+      "kind": "digression",
+      "title": "Helmholtz resonators",
+      "text": "Helmholtz had his spheres made in brass and glass, in a graded set covering several octaves. The same shape still bears his name: a bottle you blow across is a Helmholtz resonator, and so is the body of a guitar at its lowest resonance. Car makers use them to cancel the drone of an exhaust."
+    },
+    "fourier": {
+      "kind": "digression",
+      "title": "Fourier's heat",
+      "text": "Fourier presented his idea to the Paris Academy in 1807, and the judges, Lagrange among them, refused to believe that a shape with sharp corners could be made from smooth sine waves. His book on heat finally appeared in 1822. Fourier also seems to have been the first to suggest, in the 1820s, that the atmosphere keeps the Earth warmer than it would otherwise be."
+    },
+    "phase": {
+      "kind": "technical",
+      "title": "Phase",
+      "text": "Each harmonic also has a phase, where in its cycle it starts. Shifting the phases changes the drawn shape a great deal and the sound of a steady tone hardly at all, as Georg Ohm and Helmholtz both argued. That is why the synth's display shows the spectrum beside the wave: the spectrum is closer to what you hear."
+    },
+    "pipe": {
+      "kind": "technical",
+      "title": "Why a closed tube keeps the odd harmonics",
+      "text": "At a closed end the air can't move, and at an open end the pressure can't build. A standing wave has to fit both rules at once, so the tube's length must be one quarter of a wavelength, or three quarters, or five: odd numbers only. The clarinet's register key therefore jumps a twelfth (the third harmonic), not an octave like a flute or a saxophone, whose cone acts like an open tube."
+    }
   },
-  "fourier": {
-   "kind": "digression",
-   "title": "Fourier's heat",
-   "text": "Fourier presented his idea to the Paris Academy in 1807, and the judges, Lagrange among them, refused to believe that a shape with sharp corners could be made from smooth sine waves. His book on heat finally appeared in 1822. Fourier also seems to have been the first to suggest, in the 1820s, that the atmosphere keeps the Earth warmer than it would otherwise be."
-  },
-  "phase": {
-   "kind": "technical",
-   "title": "Phase",
-   "text": "Each harmonic also has a phase, where in its cycle it starts. Shifting the phases changes the drawn shape a great deal and the sound of a steady tone hardly at all, as Ohm and Helmholtz both argued. That is why the synth's display shows the spectrum beside the wave: the spectrum is closer to what you hear."
-  },
-  "pipe": {
-   "kind": "technical",
-   "title": "Why a closed tube keeps the odd harmonics",
-   "text": "At a closed end the air can't move, and at an open end the pressure can't build. A standing wave has to fit both rules at once, so the tube's length must be one quarter of a wavelength, or three quarters, or five: odd numbers only. The clarinet's register key therefore jumps a twelfth (the third harmonic), not an octave like a flute or a saxophone, whose cone acts like an open tube."
-  }
- },
- "journal": []
+  "journal": []
 }

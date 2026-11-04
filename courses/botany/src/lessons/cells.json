@@ -25,9 +25,9 @@
       "title": "Diffusion and osmosis",
       "blocks": [
         {"type": "text", "text": "The molecules of a liquid are never still. They jostle and wander at random, each moving a tiny distance before bumping into a neighbour and setting off another way. Put a drop of ink in water and, without any stirring, the colour slowly spreads out until it is even everywhere. Nothing pushes it. Wandering at random, molecules simply tend to end up wherever there are fewer of them, because more of them wander out of a crowded place than wander in. That spreading is **diffusion**."},
-        {"type": "text", "text": "Now put a barrier in the way: a membrane with holes big enough for water molecules but too small for sugar. Water molecules wander through it both ways. But on the side with sugar dissolved in it, the water is diluted: each drop holds fewer water molecules, because sugar molecules take up some of the room, so fewer water molecules arrive at the holes to cross back. More water crosses into the sugar side than out of it. This one-way trickle of water through a membrane is **osmosis**."},
+        {"type": "text", "text": "Now put a barrier in the way: a membrane with holes big enough for water molecules but too small for sugar.[^cell-membrane] Water molecules wander through it both ways. But on the side with sugar dissolved in it, the water is diluted: each drop holds fewer water molecules, because sugar molecules take up some of the room, so fewer water molecules arrive at the holes to cross back. More water crosses into the sugar side than out of it. This one-way trickle of water through a membrane is **osmosis**."},
         {"type": "interactive_diagram", "id": "osmosis", "caption": "A U-tube with a membrane at the bottom that lets water through but not sugar. A model.", "task": "Guess, then let water flow until the sugar side has risen", "goal": "rise", "aspect_ratio": 1.82},
-        {"type": "text", "text": "The water keeps flowing into the sugar side until something pushes back. In the tube it's the weight of the extra water, standing higher on that side. In a cell, it's the wall. In 1877 the German botanist Wilhelm Pfeffer built a pot whose wall was a membrane of this kind and measured the pressure that sugar solutions could build behind it. It was startlingly high, and the numbers he got were used a few years later by the Dutch chemist Jacobus van 't Hoff to work out the law of how dissolved substances behave, for which he won the first Nobel Prize in Chemistry."},
+        {"type": "text", "text": "The water keeps flowing into the sugar side until something pushes back. In the tube it's the weight of the extra water, standing higher on that side. In a cell, it's the wall. In 1877 the German botanist Wilhelm Pfeffer built a pot whose wall was a membrane of this kind[^pfeffer-pot] and measured the pressure that sugar solutions could build behind it. It was startlingly high, and the numbers he got were used a few years later by the Dutch chemist Jacobus van 't Hoff to work out the law of how dissolved substances behave, for which he won the first Nobel Prize in Chemistry."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**Diffusion**: molecules wandering at random spread from where they're crowded to where they're sparse.", "**Osmosis**: water crosses a membrane toward the side with more dissolved stuff.", "It flows until something pushes back: the weight of water, or a cell wall."]}
       ]
     },
@@ -36,8 +36,8 @@
       "blocks": [
         {"type": "text", "text": "A cell's sap is full of dissolved sugars, salts and acids. Its membrane lets water through freely but holds most of those back. So when a cell sits in fresh water, water flows in by osmosis, the living part swells against the wall, and turgor builds. In a lettuce leaf it is typically half a megapascal or more, several times the pressure in a car tyre."},
         {"type": "interactive_diagram", "id": "cell", "caption": "A plant cell in water of different saltiness. A model with the pressures of a real leaf cell.", "task": "Make the water outside saltier than the sap", "goal": "plasmolysed", "aspect_ratio": 1.82},
-        {"type": "text", "text": "In 1884 the Dutch botanist Hugo de Vries reversed it. He put thin slices of plant tissue in salt and sugar solutions of different strengths and watched the cells under a microscope. In a strong solution, water flowed out of the cells; the living part shrank and pulled away from the wall into a crumpled ball, leaving a gap. He called it **plasmolysis**. By finding the strength at which the cells only just started to pull away, he could measure how much was dissolved in their sap, and he gave chemistry a word that has stuck: solutions that leave a cell unchanged are **isotonic**."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["In fresh water, water flows into a cell and builds turgor of around half a megapascal or more.", "In water saltier than the sap, water flows out and the living part pulls away from the wall: **plasmolysis** (de Vries, 1884)."]}
+        {"type": "text", "text": "In 1877 the Dutch botanist Hugo de Vries reversed it. He put thin slices of plant tissue in salt and sugar solutions of different strengths and watched the cells under a microscope.[^tradescantia] In a strong solution, water flowed out of the cells; the living part shrank and pulled away from the wall into a crumpled ball, leaving a gap. He called it **plasmolysis**. By finding the strength at which the cells only just started to pull away, he could measure how much was dissolved in their sap, and in 1884 he gave chemistry a word that has stuck: solutions that pull with the same strength as the sap are **isotonic**."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["In fresh water, water flows into a cell and builds turgor of around half a megapascal or more.", "In water saltier than the sap, water flows out and the living part pulls away from the wall: **plasmolysis** (de Vries, 1877)."]}
       ]
     },
     {
@@ -61,7 +61,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on cells and water", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on cells and water",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "A wilted lettuce leaf is put in a bowl of water and goes crisp. What happened?", "choices": ["Water flowed into its cells by osmosis and restored their pressure", "The cold water froze the cell walls stiff", "The leaf grew new wood"], "answer": 0, "why": "The sap is saltier than tap water, so water flows into the cells, swelling them against their walls."},
             {"ask": "A membrane lets water through but not sugar. Pure water is on one side, sugar water on the other. Which way does water mainly move?", "choices": ["Into the sugar water", "Into the pure water", "It doesn't move"], "answer": 0, "why": "Water crosses both ways, but the sugar side has fewer water molecules in each drop to cross back, so the net flow is into it."},
@@ -80,9 +83,25 @@
     "**Diffusion: molecules wandering at random spread out.** Nothing needs to push them.",
     "**Osmosis: water crosses a membrane toward the side with more dissolved stuff.** It flows until something pushes back.",
     "**In fresh water, cells take in water and build half a megapascal or more.** Several times a car tyre.",
-    "**In saltier water, cells lose water and pull away from their walls.** De Vries called it plasmolysis (1884).",
+    "**In saltier water, cells lose water and pull away from their walls.** De Vries called it plasmolysis (1877).",
     "**Salt pulls water out of cells.** That is how pickling works, and why salted roadsides and salty fields kill plants."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "cell-membrane": {
+      "kind": "technical",
+      "title": "How water crosses a cell membrane",
+      "text": "A cell membrane is not a stiff sieve with punched holes, but an oily film of lipid molecules. A little water slips straight through the film; most goes through tiny protein channels called **aquaporins** that are wide enough for single water molecules in file, and nothing larger. Note that it is the membrane that does this sorting, not the cell wall outside it: the wall is an open mesh of fibres that lets water and dissolved salts through together."
+    },
+    "pfeffer-pot": {
+      "kind": "digression",
+      "title": "Pfeffer's clay pot",
+      "text": "Animal bladders were the membranes used in early osmosis experiments, and they stretched and leaked under pressure. Pfeffer solved this by taking an unglazed porous clay pot, filling it with a solution of copper sulphate and standing it in potassium ferrocyanide. Where the two met inside the clay pores, they reacted to form a thin brown film of copper ferrocyanide: a membrane that let water through, held sugar back, and had the rigid clay to support it."
+    },
+    "tradescantia": {
+      "kind": "digression",
+      "title": "Purple sap",
+      "text": "A shrinking cell is hard to see when its sap is clear, because the membrane itself is nearly invisible. De Vries chose cells whose vacuoles were naturally dyed purple or red with anthocyanin pigments, such as the underside of *Tradescantia* leaves and the stalk of rhubarb. As water left the cell, the purple sac pulled cleanly back from the colourless wall, so he could see the exact strength of solution at which shrinking began."
+    }
+  }
 }

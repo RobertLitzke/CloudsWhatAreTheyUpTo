@@ -14,7 +14,7 @@
     {
       "title": "Thirty-five years, three slices",
       "blocks": [
-        { "type": "text", "text": "The benefit starts from your earnings history, up to the yearly cap, $184,500 in 2026. Each year's earnings are indexed to wage growth, the 35 highest are averaged, and the total is divided by 420 months to give average indexed monthly earnings, the AIME. Fewer than 35 years of work means zeros in the average." },
+        { "type": "text", "text": "The benefit starts from your earnings history, up to the yearly cap, $184,500 in 2026.[^cap] Each year's earnings are indexed to wage growth, the 35 highest are averaged, and the total is divided by 420 months to give average indexed monthly earnings, the AIME. Fewer than 35 years of work means zeros in the average." },
         { "type": "text", "text": "The AIME goes through a formula with two bend points, which for someone turning 62 in 2026 are $1,286 and $7,749. The benefit at full retirement age is 90 percent of the AIME up to the first, 32 percent of the part between them, and 15 percent of the rest. The formula replaces most of a low earner's wages and a small share of a high earner's. Guess first." },
         { "type": "interactive_diagram", "id": "formula", "caption": "The monthly benefit at full retirement age (67) by average monthly earnings over 35 years, in today's dollars. The circle marks working all 35 years at the same earnings.", "task": "Guess, then compare 35 years of work with 15 or fewer", "goal": "formula", "aspect_ratio": 1.74 },
         { "type": "text", "text": "Someone who earns $150,000 a year for 20 years and then stops has 15 zeros in the average, which cuts their AIME by 43 percent. Their benefit falls only 23 percent, because the zeros come out of the 15 percent slice first. A high earner's last fifteen years of work add little to Social Security. A low earner's add much more, since their extra dollars would land in the 90 and 32 percent slices." },
@@ -26,8 +26,8 @@
       "blocks": [
         { "type": "text", "text": "Benefits can start at any age from 62 to 70. Full retirement age is 67 for anyone born in 1960 or later. Claim at 62 and the benefit is cut to 70 percent of the full amount, for life. Wait past 67 and it rises by 8 percent a year, to 124 percent at 70. So a benefit claimed at 70 is 77 percent larger than the same person's benefit at 62, and it rises with prices either way." },
         { "type": "interactive_diagram", "id": "claim", "caption": "Total benefits received by each age of death, claiming at 62, 67 or 70, in today's dollars. Slide the claiming age to compare others.", "task": "Try three claiming ages", "goal": "claim", "aspect_ratio": 1.77 },
-        { "type": "text", "text": "Waiting to 70 overtakes claiming at 62 for anyone who lives past about 80, and claiming at 67 at about 79. A 62-year-old's life expectancy is in the mid-eighties, so on average waiting pays, and it pays most in the case that matters most, a long life. Claiming early makes sense for someone in poor health, or a single person who needs the money and has no other way to bridge." },
-        { "type": "text", "text": "Before full retirement age, a claimant who is still working has benefits withheld: $1 for every $2 of earnings above $24,480 in 2026. The money isn't lost, since the benefit is raised later to make up for it, but it makes claiming early while working pointless for most." }
+        { "type": "text", "text": "Waiting to 70 overtakes claiming at 62 for anyone who lives past about 80, and claiming at 67 at about 82. A 62-year-old's life expectancy is in the mid-eighties, so on average waiting pays, and it pays most in the case that matters most, a long life. Claiming early makes sense for someone in poor health, or a single person who needs the money and has no other way to bridge." },
+        { "type": "text", "text": "Before full retirement age, a claimant who is still working has benefits withheld: $1 for every $2 of earnings above $24,480 in 2026.[^earnings-test] The money isn't lost, since the benefit is raised later to make up for it, but it makes claiming early while working pointless for most." }
       ]
     },
     {
@@ -43,7 +43,7 @@
       "blocks": [
         { "type": "text", "text": "Waiting from 62 to 70 means spending more from savings for eight years, in exchange for a larger income for life. Seen that way, delay is the purchase of an inflation-linked annuity, and a cheap one: each year of delay past 67 buys 8 percent more benefit for a year of benefits forgone, a better rate than any insurer offers." },
         { "type": "text", "text": "It fits the rest of the course. The years before Social Security starts are low-income years, the ones lesson 10 fills with Roth conversions; once benefits start, the torpedo from lesson 12 makes the same conversions dearer. And a larger guaranteed income lowers the risk lesson 3 described: the portfolio has less to do later, so a bad sequence hurts less." },
-        { "type": "text", "text": "One risk is political. The 2025 Trustees Report projects that the trust funds will run out in 2034, after which incoming payroll taxes would cover about 81 percent of scheduled benefits.[^trust] Congress has always acted before such a date in the past, but a cautious plan for someone now in their forties or fifties might assume a cut of a fifth, and check how much it matters." },
+        { "type": "text", "text": "One risk is political. The 2025 Trustees Report projects that the combined trust funds will run out in 2034, after which incoming payroll taxes would cover about 81 percent of scheduled benefits.[^trust] Congress has always acted before such a date in the past, but a cautious plan for someone now in their forties or fifties might assume a cut of a fifth, and check how much it matters." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "The benefit comes from the 35 highest years of indexed earnings, through slices replacing 90, 32 and 15 percent.",
           "Stopping work early costs a high earner less than you'd expect, because the zeros come out of the 15 percent slice first.",
@@ -77,6 +77,16 @@
   ],
   "footnotes": {
     "simple": { "kind": "technical", "title": "What the figures leave out", "text": "The course's version of the formula treats past earnings as already in today's dollars. The real one indexes each year's earnings to national wage growth up to age 60, uses the bend points of the year you turn 62, and rounds at several steps. The results are close, but use the estimate on your own record for real planning." },
-    "trust": { "kind": "digression", "title": "The trust funds", "text": "Social Security has been paid mostly from current payroll taxes since 1940. Surpluses from the 1980s to the 2010s, when the baby boom was working, were lent to the Treasury and built up the trust funds, which are now being drawn down as that generation retires. The last large fix, in 1983, raised the retirement age from 65 to 67 in stages and began taxing benefits." }
+    "trust": { "kind": "digression", "title": "The trust funds", "text": "Social Security has been paid mostly from current payroll taxes since 1940. Surpluses from the 1980s to the 2010s, when the baby boom was working, were lent to the Treasury and built up the trust funds, which are now being drawn down as that generation retires. The last large fix, in 1983, raised the retirement age from 65 to 67 in stages and began taxing benefits." },
+    "cap": {
+      "kind": "technical",
+      "title": "The taxable maximum",
+      "text": "This cap is also where the 6.2 percent Social Security payroll tax stops for the year; Medicare's 1.45 percent tax has no cap. Someone who earns at or above the cap for 35 years gets the maximum full retirement benefit, $4,152 a month in 2026."
+    },
+    "earnings-test": {
+      "kind": "technical",
+      "title": "What counts as earnings",
+      "text": "Only wages and net self-employment income count towards the limit. Pensions, annuities, investment income, interest, capital gains, and IRA or 401(k) withdrawals do not reduce benefits. In the calendar year you reach full retirement age, a gentler test applies up to the month of your birthday: $1 withheld for every $3 above $65,160 in 2026."
+    }
   }
 }

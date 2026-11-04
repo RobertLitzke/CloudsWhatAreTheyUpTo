@@ -12,7 +12,7 @@
       "title": "Fish under the spruce",
       "blocks": [
         { "type": "text", "text": "Walk along a salmon stream in coastal Alaska or British Columbia in autumn and you will find fish in the forest. Not in the water, but on the moss under the trees, ten, fifty, a hundred metres from the bank: salmon carcasses, mostly with only the brain, the eggs and the skin over the back eaten. In the 1990s the Canadian biologist Tom Reimchen sat by streams on Haida Gwaii through the autumn nights, watching black bears fish[^reimchen], and counted. A bear would catch a salmon, carry it into the woods, eat the richest parts and go back for another. Reimchen estimated that the bears on one stream carried most of the salmon they caught away from the water." },
-        { "type": "text", "text": "What happens to the rest of each fish? Flies lay eggs on it, and the maggots, beetles, birds and small mammals take their share. What they don't take rots into the soil. A spawning salmon, after several years at sea, is made of the ocean: its body is built of nitrogen, phosphorus and carbon taken from ocean food. Dragged into the forest, it delivers a load of the sea's fertiliser to the trees." },
+        { "type": "text", "text": "Flies lay eggs on the rest of each fish, and the maggots, beetles, birds and small mammals take their share. What they don't take rots into the soil. A spawning salmon, after several years at sea, is made of the ocean: its body is built of nitrogen, phosphorus and carbon taken from ocean food. Dragged into the forest, it delivers a load of the sea's fertiliser to the trees." },
         {
           "type": "diagram",
           "id": "photo",
@@ -28,7 +28,7 @@
       "title": "A tracer from the sea",
       "blocks": [
         { "type": "text", "text": "To follow the salmon's nitrogen, ecologists use a kind of nitrogen atom that is a little heavier than the usual one. Nitrogen-15 makes up less than half a percent of nitrogen everywhere, but the share is higher in the sea's food chains, because ocean food chains are long and each step up concentrates it a little more. So a salmon carries more nitrogen-15 than a plant growing on forest soil, and the extra can be traced. Measure the share of nitrogen-15 in a tree's needles and see where it falls between the value for trees far from any salmon and the value for salmon: if it sits a quarter of the way toward the salmon, about a quarter of the tree's nitrogen came from fish[^isotope]." },
-        { "type": "text", "text": "In 2001 James Helfield and Robert Naiman, of the University of Washington, measured the nitrogen in the needles of Sitka spruce along two streams in southeast Alaska, one with a salmon run and one without. By the salmon stream, about a quarter of the needles' nitrogen came from the sea. And the trees grew faster: spruce by the salmon stream put on wood about three times as fast as spruce by the stream without salmon." }
+        { "type": "text", "text": "In 2001 James Helfield and Robert Naiman, of the University of Washington, measured the nitrogen in the needles of Sitka spruce along two streams in southeast Alaska, one with a salmon run and one without. By the salmon stream, about a quarter of the needles' nitrogen came from the sea. And the trees grew faster: spruce by the salmon stream reached a given trunk size in about a third of the time it took spruce by the stream without salmon[^knock-on]." }
       ]
     },
     {
@@ -36,13 +36,13 @@
       "blocks": [
         { "type": "text", "text": "Lesson 12 showed that nitrogen is what a northern forest is usually short of, and that the forest holds onto it tightly. Rain brings in a little; bacteria in soil and roots fix some from the air; but most of what a forest has, it recycles. Salmon break the rule: they carry nitrogen uphill, from the sea into the land, against the downhill flow of streams that slowly washes nutrients out to the ocean. Ecologists call a flow like this a **subsidy**, food or nutrients that one ecosystem gets from another." },
         { "type": "interactive_diagram", "id": "salmon", "caption": "A salmon stream and the forest beside it. Bears carry carcasses into the trees; the ocean nitrogen in them reaches the soil, and the trees grow faster. Change the size of the run, or take the bears away. A model.", "task": "Compare a full salmon run with none", "goal": "ocean", "aspect_ratio": 1.81 },
-        { "type": "text", "text": "The forest pays the salmon back. Big trees on the bank shade the stream and keep it cool, which salmon eggs and young need. Their roots hold the banks, and when they fall into the water they make the pools and logjams where young salmon shelter. A stream with salmon grows a forest that makes a better salmon stream[^logs]." }
+        { "type": "text", "text": "The forest pays the salmon back. Big trees on the bank shade the stream and keep it cool, which salmon eggs and young need. Their roots hold the banks, and when the trees fall into the water they make the pools and logjams where young salmon shelter[^logs]." }
       ]
     },
     {
       "title": "Where the salmon are fewer",
       "blocks": [
-        { "type": "text", "text": "In Washington, salmon runs today are a small fraction of what they were before dams, logging, fishing and the loss of estuaries in the twentieth century. Some biologists estimate that rivers of the Pacific Northwest now receive less than a tenth of the ocean nitrogen and phosphorus they did when the runs were full. Some restoration projects have placed hatchery salmon carcasses along streams, by hand or from trucks, to put back part of the subsidy[^carcass]." },
+        { "type": "text", "text": "In Washington, salmon runs today are a small fraction of what they were before dams, logging, fishing and the loss of estuaries in the twentieth century. Biologists estimate that rivers of the Pacific Northwest outside Alaska now receive less than a tenth of the ocean nitrogen and phosphorus they did when the runs were full. Some restoration projects have placed hatchery salmon carcasses along streams, by hand or from trucks, to put back part of the subsidy[^carcass]." },
         { "type": "key_ideas", "title": "Outside", "points": ["In October or November, visit a salmon stream such as the Cedar River below Landsburg, Kennedy Creek near Olympia, or Issaquah Creek, where chum, coho or sockeye spawn. Look for carcasses along the banks and on gravel bars, and for the birds, from gulls to eagles, that come to them."] }
       ]
     },
@@ -82,6 +82,11 @@
       "kind": "digression",
       "title": "Watching at night",
       "text": "Reimchen and his students watched the bears with night-vision scopes, since bears on Haida Gwaii fish mostly after dark. They also counted the insects and birds that fed on what the bears left."
+    },
+    "knock-on": {
+      "kind": "digression",
+      "title": "Alders in the way",
+      "text": "A later study on the same creek argued that the two stretches differed in another way: the stream without salmon had more red alder, a tree whose root bacteria fix nitrogen from the air and which shades out young spruce. Even so, dozens of studies since have found salmon nitrogen in riverside plants, insects and songbirds."
     }
   }
 }

@@ -25,7 +25,7 @@
       "blocks": [
         { "type": "text", "text": "Medicare almost never pays for care outside the US. An American in Portugal still becomes eligible at 65, and has to decide whether to sign up anyway." },
         { "type": "text", "text": "Part A, hospital cover, costs nothing for anyone with ten years of US work, so there is no reason to refuse it. Part B costs $202.90 a month each in 2026, more with a high income, and does nothing in Lisbon. Its value is as a way back: someone who skips Part B and later returns to the US can only join in a fixed window each year, and pays a premium raised by 10 percent for every full year they went without, for life.[^penalty]" },
-        { "type": "text", "text": "For a couple who might return when they are frail, keeping Part B, about $4,900 a year between them, is an insurance premium against that penalty. For a couple sure they are staying, it is $4,900 a year for nothing. Medicare drug plans and Medicare Advantage need a US address, and have their own late penalties." }
+        { "type": "text", "text": "For a couple who might return when they are frail, keeping Part B, about $4,900 a year between them, is an insurance premium against that penalty. For a couple sure they are staying, it is $4,900 a year for nothing. Medicare drug plans and Medicare Advantage need a US address, and Part D has its own late penalty." }
       ]
     },
     {
@@ -39,7 +39,7 @@
     {
       "title": "What heirs pay",
       "blocks": [
-        { "type": "text", "text": "Portugal has no inheritance tax as such. It charges stamp duty of 10 percent on assets in Portugal that pass by gift or on death, but a spouse, a partner of two years, children, grandchildren and parents are exempt.[^partner] Property in Portugal also carries the 0.8 percent stamp duty on any transfer, to anyone. Assets outside Portugal, such as US brokerage accounts and IRAs, aren't touched." },
+        { "type": "text", "text": "Portugal has no inheritance tax as such. It charges stamp duty of 10 percent on assets in Portugal that pass by gift or on death, but a spouse, a partner of two years, children, grandchildren and parents are exempt.[^partner] Property in Portugal also carries the 0.8 percent stamp duty on gifts, even to close family, though not on inheritance. Assets outside Portugal, such as US brokerage accounts and IRAs, aren't touched." },
         { "type": "diagram", "id": "scale", "caption": "Portuguese stamp duty on inheriting a flat in Lisbon worth €400,000, by who inherits it.", "options": { "title": "Tax on inheriting a €400,000 flat", "unit": "euros", "items": [
           { "label": "Husband or wife", "value": 3200, "says": "€3,200", "color": "roth" },
           { "label": "Partner of two years", "value": 3200, "says": "€3,200", "color": "roth" },
@@ -47,13 +47,13 @@
           { "label": "Brother or sister", "value": 43200, "says": "€43,200", "color": "tax" },
           { "label": "Niece, nephew or friend", "value": 43200, "says": "€43,200", "color": "tax" }
         ] } },
-        { "type": "text", "text": "The US estate tax goes on applying to a citizen's whole estate wherever they live, but only above $15 million per person in 2026, so few households meet it. A Washington estate tax return depends on being domiciled in the state or owning property there; branch W covers it." },
+        { "type": "text", "text": "The US estate tax goes on applying to a citizen's whole estate wherever they live, but only above $15 million per person in 2026, so few households meet it. A Washington estate tax return depends on being domiciled in the state or owning tangible property there; branch W covers it." },
         { "type": "text", "text": "The bigger change is who inherits. Portuguese law reserves part of an estate, up to two thirds, for a spouse and children, whatever a will says. An EU regulation lets a foreigner's will choose the law of their nationality instead, which for an American means the law of a US state.[^choice] A will made in Portugal that makes this choice explicitly avoids a fight over which law applies." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "A legal resident can use the SNS; most foreign residents add private insurance, bought early because insurers turn away new clients in their late sixties.",
           "Medicare doesn't pay in Portugal, but skipping Part B carries a lifelong 10 percent penalty for each year missed if you return.",
           "Selling the US house before the move keeps the gain under the US exclusion; after it, Portugal taxes half the gain at its progressive rates.",
-          "Close family inherits Portuguese assets free of stamp duty, apart from 0.8 percent on property; other heirs pay 10 percent.",
+          "Close family inherits Portuguese assets free of stamp duty, and pays only 0.8 percent on gifts of property; other heirs pay 10 percent.",
           "Portugal reserves part of an estate for spouse and children, unless a will chooses the law of the owner's nationality."
         ] }
       ]
@@ -64,7 +64,7 @@
         { "type": "quiz", "id": "check", "caption": "Five questions on health, homes and heirs", "task": "Choose the best answer to each", "options": { "items": [
           { "ask": "Why might a couple living in Portugal keep paying for Medicare Part B?", "choices": ["To avoid a lifelong late penalty if they return to the US", "Because Part B pays for care in Portugal", "Because the SNS requires it"], "answer": 0, "why": "Part B doesn't pay abroad. Its value is as a way back without a premium raised by 10 percent for each year without it." },
           { "ask": "When is the cheapest time to sell the US home for someone moving to Portugal?", "choices": ["Before Portuguese residence begins", "After ten years in Portugal", "It makes no difference"], "answer": 0, "why": "The US exclusion can cover the gain; after the move Portugal taxes half of it at its progressive rates, with no US tax to credit." },
-          { "ask": "A widow living in Portugal leaves her Lisbon flat to her son. What does he pay?", "choices": ["0.8 percent stamp duty on the property", "10 percent of its value", "Nothing at all"], "answer": 0, "why": "Children are exempt from the 10 percent, but the 0.8 percent on property transfers applies to everyone." },
+          { "ask": "A widow living in Portugal gives her Lisbon flat to her son during her lifetime. What does he pay?", "choices": ["0.8 percent stamp duty on the property", "10 percent of its value", "Nothing at all"], "answer": 0, "why": "Children are exempt from the 10 percent, but the 0.8 percent on lifetime gifts of property applies to everyone." },
           { "ask": "Does Portugal's 10 percent stamp duty apply to a US brokerage account left to a friend?", "choices": ["No, it reaches only assets in Portugal", "Yes, on all worldwide assets of a resident", "Only above €600,000"], "answer": 0, "why": "The stamp duty on gifts and inheritances is charged on assets located in Portugal." },
           { "ask": "How can an American in Portugal keep Portugal's reserved shares for spouse and children from governing their estate?", "choices": ["By choosing the law of their nationality in a will", "By keeping a US address", "They can't: Portuguese law always applies"], "answer": 0, "why": "The EU succession regulation lets a will choose the law of the testator's nationality instead of the law of residence." }
         ] } }
@@ -74,9 +74,9 @@
   "summary": [
     "**The SNS is open to legal residents.** Care is nearly free, and private insurance, bought young, speeds it up.",
     "**Medicare stays home.** It doesn't pay abroad, but dropping Part B costs 10 percent a year missed if you return.",
-    "**Buying costs a transfer tax and stamp duty.** IMT reaches 6 percent of the price, and yearly IMI is 0.3 to 0.45 percent of tax value.",
+    "**Buying costs a transfer tax and stamp duty.** IMT reaches 6 to 7.5 percent of the price, and yearly IMI is 0.3 to 0.45 percent of tax value.",
     "**Sell the US house before moving.** The US exclusion covers the gain; Portugal would tax half of it at its own rates.",
-    "**Close family inherits nearly free.** Others pay 10 percent on assets in Portugal, and property carries 0.8 percent for everyone.",
+    "**Close family inherits free of stamp duty.** Others pay 10 percent on assets in Portugal, and lifetime gifts of property carry 0.8 percent for everyone.",
     "**A will can choose US law.** Otherwise Portugal reserves up to two thirds of an estate for spouse and children."
   ],
   "footnotes": {

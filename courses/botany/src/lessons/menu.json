@@ -14,7 +14,7 @@
     {
       "title": "Verschaffelt's smeared leaves",
       "blocks": [
-        {"type": "text", "text": "In 1910 the Dutch botanist Eduard Verschaffelt asked what the cabbage white's plants have in common. Cabbages, nasturtiums and capers belong to different families by their flowers, but they share a group of chemicals: they all make **mustard-oil glucosides**, mustard oils with a sugar attached that keeps them harmless, the source of the sharp taste of mustard, horseradish and wasabi. The leaf stores them harmlessly, along with an enzyme kept in separate cells. When an animal chews the leaf, the two mix and release the sharp, poisonous mustard oils."},
+        {"type": "text", "text": "In 1910 the Dutch botanist Eduard Verschaffelt asked what the cabbage white's plants have in common. Cabbages, nasturtiums and capers belong to different families by their flowers, but they share a group of chemicals: they all make **mustard-oil glucosides**,[^glucosinolates] mustard oils with a sugar attached that keeps them harmless, the source of the sharp taste of mustard, horseradish and wasabi. The leaf stores them harmlessly, along with an enzyme kept in separate cells. When an animal chews the leaf, the two mix and release the sharp, poisonous mustard oils."},
         {"type": "text", "text": "Verschaffelt pressed juice from mustard-family plants and smeared it on leaves the caterpillars normally refused. They ate them. The chemical that keeps most insects off a cabbage was, for this one, the signal that it had found food. The butterflies use it the same way: a female cabbage white tastes a leaf with her feet before she lays her eggs on it."}
       ]
     },
@@ -32,7 +32,7 @@
       "title": "Specialists",
       "blocks": [
         {"type": "text", "text": "A poison keeps off most insects, but not all of them for ever. Among millions of caterpillars, any that happen to tolerate a little more of the mustard oils get a food that their rivals can't touch, and selection does the rest, as with the orchid and its moth in lesson 18. The cabbage white's caterpillars make a protein in their gut that turns the mustard oils into a harmless form before they can do damage.[^gut]"},
-        {"type": "text", "text": "Once an insect can handle one family's poison, the poison becomes a signal, and the insect often stops eating anything else. Surveys of plant-eating insects find that most are specialists like this, feeding on one family or a few. The monarch butterfly's caterpillars eat milkweeds, whose bitter sap poisons the heart, and store the poison in their own bodies, where it stays through the change into a butterfly. In the 1960s Lincoln Brower fed monarchs to blue jays; a jay that ate one vomited within minutes and afterwards avoided monarchs on sight. The milkweed's defence ends up defending the butterfly."}
+        {"type": "text", "text": "Once an insect can handle one family's poison, the poison becomes a signal, and the insect often stops eating anything else. Surveys of plant-eating insects find that most are specialists like this, feeding on one family or a few. The monarch butterfly's caterpillars eat milkweeds, whose bitter sap poisons the heart, and store the poison in their own bodies, where it stays through the change into a butterfly. In the 1960s Lincoln Brower fed monarchs to blue jays; a jay that ate one vomited within minutes and afterwards avoided monarchs on sight.[^monarch] The milkweed's defence ends up defending the butterfly."}
       ]
     },
     {
@@ -54,7 +54,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on plant defence", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on plant defence",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "What did Verschaffelt's smeared leaves show?", "choices": ["Cabbage white caterpillars recognise their food by the mustard plants' chemicals", "The caterpillars were hungry enough to eat anything", "Mustard juice poisons cabbage white caterpillars"], "answer": 0, "why": "With mustard-family juice smeared on them, leaves the caterpillars normally refused were eaten. The chemical is their signal for food."},
             {"ask": "A caterpillar eats only cabbages, capers and nasturtiums. Which of these is it most likely to eat too?", "choices": ["Horseradish, which tastes sharp with mustard oils", "Kale's look-alike, lettuce, grown in the same garden", "Potato leaves, which are poisonous to most insects"], "answer": 0, "why": "Its plants share mustard-oil chemicals, not looks. Horseradish has them; lettuce and potato don't."},
@@ -79,6 +82,16 @@
   "journal": [],
   "footnotes": {
     "talking": {"kind": "digression", "title": "Talking trees?", "text": "In 1983 Ian Baldwin and Jack Schultz reported that undamaged poplar and maple saplings, sharing air with torn ones, raised their own defences, and David Rhoades reported the same in willows. Newspapers wrote of talking trees. Other ecologists pointed out weaknesses in how the experiments were set up, and the idea was doubted for years. Later work, especially Richard Karban's on sagebrush from 2000 onward, showed that plants do respond to the airborne chemicals of damaged neighbours, though more weakly and less often than the first headlines suggested."},
-    "gut": {"kind": "technical", "title": "Defusing the bomb", "text": "When a cabbage leaf is chewed, its enzyme normally turns the glucosides into isothiocyanates, the poisonous mustard oils. In the cabbage white's gut a protein steers the same reaction to make nitriles instead, which are far less harmful. Ute Wittstock and colleagues described it in 2004, and the gene for it appears in the butterfly family at about the time the mustard-oil plants spread."}
+    "gut": {"kind": "technical", "title": "Defusing the bomb", "text": "When a cabbage leaf is chewed, its enzyme normally turns the glucosides into isothiocyanates, the poisonous mustard oils. In the cabbage white's gut a protein steers the same reaction to make nitriles instead, which are far less harmful. Ute Wittstock and colleagues described it in 2004, and the gene for it appears in the butterfly family at about the time the mustard-oil plants spread."},
+    "glucosinolates": {
+      "kind": "technical",
+      "title": "Glucosinolates",
+      "text": "Verschaffelt called them mustard-oil glucosides; today's chemists call them glucosinolates, and the enzyme that splits off the sugar is myrosinase."
+    },
+    "monarch": {
+      "kind": "digression",
+      "title": "The monarch's heart",
+      "text": "The milkweed's poisons, cardenolides, work like foxglove's digitalis: they jam the sodium-potassium pump that animal nerves and hearts depend on. The monarch's own pump differs by a few amino acids at the spot where the poison grips, so the poison slides off while the caterpillar stores it safely."
+    }
   }
 }

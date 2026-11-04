@@ -7,17 +7,17 @@
     {
       "title": "Counting pores",
       "blocks": [
-        {"type": "text", "text": "Look at the underside of almost any leaf under a microscope and you'll see it dotted with tiny mouths, each a slit between two bean-shaped cells. These are **stomata** (one is a stoma, Greek for mouth). A single square millimetre of leaf may hold a hundred or several hundred of them. Every molecule of carbon dioxide a leaf takes in comes through one, and so does nearly every molecule of water it loses."},
-        {"type": "text", "text": "In the mid-1980s Ian Woodward, a plant ecologist at Cambridge, went looking in an unusual place: herbaria, the great collections of pressed, dried plants kept by botanical gardens and universities, some of them gathered more than two centuries ago. He took leaves of eight common European trees, among them oak, beech, maple and lime, and counted the stomata per square millimetre on old specimens and on leaves of the same species growing in the 1980s."},
+        {"type": "text", "text": "Look at the underside of almost any leaf under a microscope and you'll see it dotted with tiny mouths, each a slit between two bean-shaped cells.[^cuticle] These are **stomata** (one is a stoma, Greek for mouth). A single square millimetre of leaf may hold a hundred or several hundred of them. Every molecule of carbon dioxide a leaf takes in comes through one, and so does nearly every molecule of water it loses."},
+        {"type": "text", "text": "In the mid-1980s Ian Woodward, a plant ecologist at Cambridge, went looking in an unusual place: herbaria, the great collections of pressed, dried plants kept by botanical gardens and universities, some of them gathered more than two centuries ago. He took leaves of eight common British trees and shrubs, among them oak, beech, sycamore and lime, and counted the stomata per square millimetre on old specimens and on leaves of the same species growing in the 1980s.[^nail-varnish]"},
         {"type": "diagram", "id": "woodward", "caption": "Pores per area of leaf, then and now: drawn to show Woodward's average result, not his individual counts.", "aspect_ratio": 1.82},
-        {"type": "text", "text": "Over those two hundred years the number had fallen by about 40 percent. Over the same years, the carbon dioxide in the air had risen from about 280 parts per million to about 340. Woodward published the result in 1987. To check the cause, he grew plants in chambers with less carbon dioxide than today's air, as low as that of the eighteenth century, and their new leaves came out with more stomata. The trees, it seemed, needed fewer pores in richer air."},
+        {"type": "text", "text": "Over those two hundred years the number had fallen by about 40 percent. Over the same years, the carbon dioxide in the air had risen from about 280 parts per million to about 345. Woodward published the result in 1987. To check the cause, he grew plants in chambers with less carbon dioxide than the outside air, as low as that of the eighteenth century, and their new leaves came out with more stomata. The trees, it seemed, needed fewer pores in richer air."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**Stomata** are pores in a leaf's skin, each between two guard cells; carbon dioxide comes in and water goes out through them.", "Woodward (1987) found herbarium leaves from 200 years ago had more stomata: the number had fallen by about 40 percent by the 1980s, as carbon dioxide rose."]}
       ]
     },
     {
       "title": "The trade",
       "blocks": [
-        {"type": "text", "text": "Why would a plant want fewer pores? Because a pore can't tell one molecule from another. A leaf needs carbon dioxide from the air to make sugar, and the inside of a leaf is wet. Any hole that lets carbon dioxide diffuse in lets water vapour diffuse out. A plant can't feed without losing water, and it has to buy every bit of its carbon with water."},
+        {"type": "text", "text": "A pore can't tell one molecule from another, and that is why a plant makes no more of them than it needs. A leaf needs carbon dioxide from the air to make sugar, and the inside of a leaf is wet. Any hole that lets carbon dioxide diffuse in lets water vapour diffuse out. A plant can't feed without losing water; it has to buy every bit of its carbon with water."},
         {"type": "text", "text": "The price is steep. A typical leaf loses a hundred or more molecules of water for every molecule of carbon dioxide it takes in, and on a hot, dry day several hundred. That is where nearly all the water a plant draws up from its roots goes: out through its stomata, as vapour. A big tree can lose hundreds of litres on a summer day. That stream of evaporating water is also what pulls water up the xylem, as lesson 6 described."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Any pore that lets carbon dioxide in lets water vapour out.", "Leaves lose a hundred to several hundred molecules of water for each molecule of carbon dioxide gained."]}
       ]
@@ -26,7 +26,7 @@
       "title": "Why the ratio is hundreds to one",
       "blocks": [
         {"type": "text", "text": "You can work the price out from lesson 5's idea of diffusion. Gases diffuse through a pore at a rate set by the difference between inside and outside. The air spaces inside a leaf are saturated with water vapour: at 20 °C, about 2.3 percent of the air there is water. Outside on a fine day it might be 1 percent. That's a difference of about 1.3 percent, pushing water out."},
-        {"type": "text", "text": "Carbon dioxide makes up only 0.04 percent of the outside air, and a leaf that's photosynthesising draws its inside down to about 0.025 percent. The difference pushing carbon dioxide in is about 0.015 percent: nearly ninety times smaller than the water's. And water molecules, being lighter, diffuse about 1.6 times faster. Multiply, and roughly 140 water molecules leave for every carbon dioxide that enters. Make the air drier and the water's push grows, so the price rises."},
+        {"type": "text", "text": "Carbon dioxide makes up only 0.04 percent of the outside air, and a leaf that's photosynthesising draws its inside down to about 0.025 percent. The difference pushing carbon dioxide in is about 0.015 percent: nearly ninety times smaller than the water's. And water molecules, being lighter, diffuse about 1.6 times faster.[^graham] Multiply, and roughly 140 water molecules leave for every carbon dioxide that enters. Make the air drier and the water's push grows, so the price rises."},
         {"type": "interactive_diagram", "id": "stoma", "caption": "One stoma and the gases through it. Light opens it; dry soil, dry air and rich carbon dioxide close it. A model.", "task": "Guess, then find weather in which each carbon dioxide molecule costs at least 300 of water", "goal": "trade", "aspect_ratio": 1.82},
         {"type": "text", "text": "This is why carbon dioxide in the air matters to plants beyond feeding them. With more of it outside, the push inward is bigger, so a leaf can take in the same carbon through fewer or narrower pores and lose less water. Woodward's trees were, in effect, getting a better price, and building leaves to match."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Water's push out (about 1.3 percent) is nearly ninety times carbon dioxide's push in (about 0.015 percent).", "Water also diffuses faster, so the price is around 140 to 1 on a mild day and more when the air is dry.", "More carbon dioxide outside means fewer pores are needed for the same carbon."]}
@@ -36,23 +36,23 @@
       "title": "How a guard cell opens",
       "blocks": [
         {"type": "text", "text": "Each stoma is opened and closed by its two **guard cells**, using nothing but lesson 5's osmosis. In light, the guard cells pump in potassium and other dissolved substances. Water follows by osmosis, the guard cells swell, and because their walls are thicker on the side facing the pore and reinforced with hoops of cellulose, they bow apart like two sausage balloons pressed together at the ends, opening the slit between them. To close, they let the potassium out, water leaves, and they straighten and meet."},
-        {"type": "text", "text": "The guard cells respond to everything in the figure above. Light opens them, because there's sugar to be made. Darkness closes them, because there isn't. High carbon dioxide inside the leaf narrows them. Dry air narrows them too. And when the soil dries, a hormone called abscisic acid builds up in the leaf and shuts them, sacrificing carbon to save water."},
+        {"type": "text", "text": "The guard cells respond to each cue in the figure above. Light opens them, because there's sugar to be made. Darkness closes them, because there isn't. High carbon dioxide inside the leaf narrows them. Dry air narrows them too. And when the soil dries, a hormone called abscisic acid builds up in the leaf and shuts them, sacrificing carbon to save water."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**Guard cells** take in potassium, water follows by osmosis, and they swell and bow apart to open the pore.", "Light opens stomata; darkness, dry air, dry soil (through the hormone abscisic acid) and high carbon dioxide close them."]}
       ]
     },
     {
       "title": "Pores as a record of old air",
       "blocks": [
-        {"type": "text", "text": "Woodward's finding gave geologists a new tool. Fossil leaves preserve their stomata, and if leaves of a given kind grow fewer pores in richer air, a count of pores on a fossil leaf can be read, roughly, as a measure of the carbon dioxide in the air it grew in. Ginkgo is a favourite, because the ginkgo tree has barely changed in two hundred million years and still grows in parks today, where its leaves can be calibrated against known air."},
-        {"type": "text", "text": "Counts like these, along with chemical methods, suggest the air held several times today's carbon dioxide in parts of the age of dinosaurs. They are approximate, and different methods don't always agree, but they show how a feature you need a microscope to see can record the state of the whole atmosphere."},
+        {"type": "text", "text": "Woodward's finding gave geologists a new tool. Fossil leaves preserve their stomata, and if leaves of a given kind grow fewer pores in richer air, a count of pores on a fossil leaf can be read, roughly, as a measure of the carbon dioxide in the air it grew in.[^stomatal-index] Ginkgo is a favourite, because the ginkgo tree has barely changed in two hundred million years and still grows in parks today, where its leaves can be calibrated against known air."},
+        {"type": "text", "text": "Counts like these, along with chemical methods, suggest the air held several times today's carbon dioxide in parts of the age of dinosaurs. The numbers are approximate, and different methods don't always agree, but a feature you need a microscope to see can still record the state of the antiguos atmosphere."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Stomata on fossil leaves can be counted to estimate the carbon dioxide in ancient air."]}
       ]
     },
     {
       "title": "Responding is not evolving",
       "blocks": [
-        {"type": "text", "text": "It's tempting to say that Woodward's trees evolved fewer stomata. They didn't. Evolution would need generations of trees, with those that had fewer pores leaving more seedlings. Two hundred years is only a few generations of a tree, and his chamber plants changed their pore numbers within a single season. A leaf, as it develops, senses the carbon dioxide reaching the older leaves around it, and sets the number of stomata it makes."},
-        {"type": "text", "text": "Biologists distinguish the two carefully. **Evolution** is a change in a population over generations, because individuals with different inherited traits leave different numbers of offspring. A **response** within one life (a tan, a callus, a tree making fewer pores) changes the individual but nothing that is inherited. Plants are masters of the second kind. Rooted in one spot, they can't move away from a dry summer or a shady corner, so they adjust: sun leaves and shade leaves (lesson 2), fewer pores, deeper roots."},
+        {"type": "text", "text": "It's tempting to say that Woodward's trees evolved fewer stomata. They didn't. Evolution would need generations of trees, with those that had fewer pores leaving more seedlings. Two hundred years is only a few generations of a tree, and his chamber plants changed their pore numbers within a single season. A young leaf, as it develops in the bud, takes cues from the older leaves around it and sets the number of stomata it makes."},
+        {"type": "text", "text": "Biologists distinguish the two carefully. **Evolution** is a change in a population over generations, because individuals with different inherited traits leave different numbers of offspring. A **response** within one life (a tan, a callus, a tree making fewer pores) changes the individual, not what it passes on.[^plasticity] Plants are masters of the second kind. Rooted in one spot, they can't walk away from a dry summer or a shady corner, so they adjust how they grow: sun leaves and shade leaves (lesson 2), fewer pores, deeper roots."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Woodward's trees changed their pore numbers within their lives; they didn't evolve.", "**Evolution** is change in a population over generations; a response within one life is not inherited.", "Rooted plants adjust their bodies to their conditions more than most animals do."]}
       ]
     },
@@ -60,7 +60,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on pores", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on pores",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Why can't a leaf take in carbon dioxide without losing water?", "choices": ["Both gases go through the same pores", "Carbon dioxide is made of water", "Leaves are always dry inside"], "answer": 0, "why": "A pore can't sort molecules. Any opening that lets carbon dioxide in lets water vapour out."},
             {"ask": "The air outside becomes much drier. What happens to the water lost per carbon dioxide gained?", "choices": ["It rises", "It falls", "It stays the same"], "answer": 0, "why": "The difference in water vapour between the wet inside and the dry outside grows, so more water leaves for each carbon dioxide that enters."},
@@ -83,5 +86,31 @@
     "**Responding is not evolving.** Woodward's trees adjusted within their lives; evolution is change across generations."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "cuticle": {
+      "kind": "technical",
+      "title": "The waxy skin between pores",
+      "text": "The rest of the leaf's surface is coated in a waxy skin called the **cuticle**, which is nearly waterproof and gas-tight. Almost all gas exchange has to go through the stomata. On most tree leaves the stomata sit on the shady underside, where the leaf is cooler and loses less water."
+    },
+    "nail-varnish": {
+      "kind": "digression",
+      "title": "Counting pores without spoiling the specimen",
+      "text": "Curators do not let visitors cut up two-hundred-year-old specimens. The standard trick is to paint a dab of clear nail varnish or dental silicone onto the leaf, peel the dried film off, and put the peel under the microscope. It carries a cast of every cell and pore on the surface and leaves the leaf unharmed."
+    },
+    "graham": {
+      "kind": "technical",
+      "title": "Why lighter molecules diffuse faster",
+      "text": "At a given temperature, all gas molecules have the same average kinetic energy, so lighter ones move faster: the speed goes as the inverse square root of the molecular mass. A water molecule has a mass of 18 and carbon dioxide 44, and the square root of 44/18 is about 1.56 (in air, collision sizes nudge the ratio of diffusion rates to 1.6)."
+    },
+    "stomatal-index": {
+      "kind": "technical",
+      "title": "Stomatal index",
+      "text": "A leaf that grows in drought ends up smaller, which packs its cells and pores closer together even if it made the same number of them. To avoid being fooled by leaf shrinkage, Woodward and palaeobotanists also count ordinary skin cells and take the ratio of stomata to total cells, the **stomatal index**."
+    },
+    "plasticity": {
+      "kind": "technical",
+      "title": "Phenotypic plasticity",
+      "text": "Biologists call this **phenotypic plasticity**: the ability of one genotype (one set of genes) to produce different body forms depending on the conditions it grows up in. The capacity to adjust is itself inherited and shaped by evolution, even though the individual adjustments are not passed on."
+    }
+  }
 }

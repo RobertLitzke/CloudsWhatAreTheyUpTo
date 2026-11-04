@@ -1,224 +1,229 @@
 {
- "id": "ripples",
- "n": 302,
- "branch": "floods",
- "needs": [
-  "bretz",
-  "erratics"
- ],
- "title": "Ripples the size of hills",
- "teaches": "How Joseph Pardee found the source of Bretz's flood in a glacial lake in Montana, how an ice dam floats and fails, and why the lake drained again and again",
- "parts": [
-  {
-   "title": "Shorelines on the hills",
-   "blocks": [
+  "id": "ripples",
+  "n": 302,
+  "branch": "floods",
+  "needs": [
+    "bretz",
+    "erratics"
+  ],
+  "title": "Ripples the size of hills",
+  "teaches": "How Joseph Pardee found the source of Bretz's flood in a glacial lake in Montana, how an ice dam floats and fails, and why the lake drained again and again",
+  "parts": [
     {
-     "type": "text",
-     "text": "Anyone who drives into Missoula, Montana, can see the lake that is no longer there. On the grassy hills above the town run dozens of faint horizontal lines, one above another, like the rings left in a bathtub. They are old shorelines, cut by waves when water stood at each level. The highest is about 1,280 metres above sea level, more than 300 metres above the streets of Missoula."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Horizontal lines on Mount Sentinel above Missoula, Montana: shorelines of Glacial Lake Missoula, cut by waves at levels the lake stood at for a while.",
-     "options": {
-      "photo": "missoula-shorelines",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "Geologists had known since the 1880s that a lake had filled these valleys during the ice age. Joseph Pardee of the US Geological Survey studied it and published his first report in 1910. At its fullest, [[Glacial Lake Missoula]] covered about 7,700 square kilometres of western Montana and held more than 2,000 cubic kilometres of water, about half as much as Lake Michigan. It was there because the Clark Fork River, which drains these valleys westward into Idaho, had been blocked by a tongue of the Cordilleran ice sheet that pushed south down the Purcell Trench into northern Idaho, near today's Lake Pend Oreille. The ice made a dam across the Clark Fork's valley more than 600 metres high."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Shorelines on the hills above Missoula record a glacial lake that stood up to about 1,280 m above sea level.",
-      "Glacial Lake Missoula held more than 2,000 km³ of water, dammed by a lobe of the Cordilleran ice sheet across the Clark Fork valley in northern Idaho."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Pardee's ripples",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Pardee was in the audience at the 1927 meeting where Bretz presented his flood, and according to the story he leaned over to a colleague and said he knew where the water had come from. But he did not say so in print for years. Then in 1940, at a meeting in Seattle, he described what he had found in Camas Prairie, a valley in western Montana that had been part of the lake: ridges of gravel up to 15 metres high and 150 metres apart, running in parallel rows across the valley floor."
-    },
-    {
-     "type": "text",
-     "text": "They were **ripple marks**, of the same kind that a stream leaves in the sand of its bed or that the wind leaves on a dune (lesson 2), but hundreds of times larger. Ripples form where water flows over loose sediment, and their size grows with the depth and speed of the flow. Ripples this big needed water more than 100 metres deep moving at many metres a second. A lake that is simply full barely moves, because nothing pulls its water anywhere; a current like that runs through a lake only while it drains fast toward a low outlet. Pardee concluded that the ice dam had failed suddenly, and that Lake Missoula had drained in a matter of days through the narrow valleys at its western end, pulling the water past Camas Prairie at the speed of a river in flood. Downstream, its path led straight to the scablands."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Giant current ripples in Camas Prairie, Montana, seen from the air: parallel ridges of gravel up to 15 m high, left by water rushing out of Glacial Lake Missoula.",
-     "options": {
-      "photo": "camas-ripples",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "In 1940 Pardee described gravel ridges up to 15 m high and 150 m apart in Camas Prairie, Montana: giant current ripples.",
-      "Ripples that size need deep, fast water, which a lake has only while it drains; Lake Missoula had emptied suddenly, toward the scablands."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "A dam that floats",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "An ice dam is not like a concrete one. It is a block of buoyant material held down only by its own weight. Ice is about nine-tenths as dense as water, so when the water behind an ice dam is about nine-tenths as deep as the ice is thick, the water pressing up on the bottom of the ice is as great as the weight of the ice pressing down. The dam begins to lift. Water forces its way underneath and runs through tunnels along the bed, and flowing water melts the tunnel walls, so each tunnel widens and carries more water, which melts it faster. Within hours or days the dam is cut through and breaks apart."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "ice-dam",
-     "caption": "A glacier across a valley, with a lake rising behind it as the river keeps flowing in. The dashed line marks the depth at which the ice floats.",
-     "task": "Play the years until the dam fails",
-     "goal": "floated",
-     "aspect_ratio": 1.74
-    },
-    {
-     "type": "text",
-     "text": "This happens today. In Iceland such floods are called **jökulhlaups**, glacier bursts,[^gjalp] and lakes dammed by glaciers in Alaska, Canada and Patagonia drain in the same way every few years. Lake Missoula's dam behaved the same, on a vastly larger scale. A failure did not destroy the glacier: the Purcell lobe kept flowing south, and within a few years or decades it had closed the valley again, and the lake began to refill."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Ice is about nine-tenths as dense as water, so an ice dam floats once the lake against it is about nine-tenths as deep as the ice is thick.",
-      "Water then flows under the dam and melts tunnels that widen quickly, and the dam fails within hours or days.",
-      "Glaciers dam and release lakes the same way today, in Iceland's jökulhlaups."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Filling and emptying",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The time lapse below puts the pieces together. The ice blocks the Clark Fork; the river fills the valleys behind it for decades; the dam floats and fails; and the lake drains westward through northern Idaho into the Spokane valley and across the scablands. At the flood's peak, water left the lake at roughly ten times the combined flow of all the world's rivers. It reached the narrow gap where the Columbia River cuts through the Horse Heaven Hills at Wallula, which could not pass it all, and backed up into a temporary lake; then it ran down the Columbia Gorge toward the sea. Below Portland it met a second narrow place, near Kalama, and ponded again, as a later lesson tells."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "lake-missoula",
-     "caption": "Glacial Lake Missoula filling behind the ice dam, then draining across eastern Washington. The flood routes and timing are approximate.",
-     "task": "Play the filling of the lake and the flood that follows",
-     "goal": "drained",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "text",
-     "text": "Because the glacier kept coming back, the cycle repeated. Each time the lake grew deep enough to float the dam, it drained again. Bretz had been right about the flood, and wrong only in thinking there had been just one."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The lake took decades to fill and days to drain.",
-      "The floodwater crossed the Spokane valley and the scablands, ponded behind Wallula Gap and ran down the Columbia Gorge.",
-      "The glacier closed the valley again after each failure, so the lake filled and drained many times."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on Lake Missoula",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "What are the horizontal lines on the hills above Missoula?",
-        "choices": [
-         "Shorelines cut by waves when a lake stood at each level",
-         "Layers of lava flows",
-         "Roads built by early settlers"
-        ],
-        "answer": 0,
-        "why": "Waves cut a notch wherever the lake surface stayed for a while, leaving a ladder of shorelines up to about 1,280 m."
-       },
-       {
-        "ask": "What held back Glacial Lake Missoula?",
-        "choices": [
-         "A lobe of the Cordilleran ice sheet blocking the Clark Fork valley in northern Idaho",
-         "A lava flow across the Columbia",
-         "A landslide in the Bitterroot Valley"
-        ],
-        "answer": 0,
-        "why": "Ice flowing south down the Purcell Trench crossed the Clark Fork's path west, damming the river."
-       },
-       {
-        "ask": "Why did Pardee's giant ripples show that the lake had drained suddenly?",
-        "choices": [
-         "Ripples that size need deep water flowing fast, which a lake has only while it is emptying",
-         "Ripples form only in deserts",
-         "The ripples pointed north, toward the ice"
-        ],
-        "answer": 0,
-        "why": "Ripple size grows with the depth and speed of the flow; a still lake makes no ripples at all."
-       },
-       {
-        "ask": "An ice dam is 600 m thick. Roughly how deep must the lake be against it before it starts to float?",
-        "choices": [
-         "About 540 m",
-         "About 300 m",
-         "Over 600 m, so it spills over the top"
-        ],
-        "answer": 0,
-        "why": "Ice is about nine-tenths as dense as water, so it floats once the water is about nine-tenths as deep as the ice is thick: 0.9 × 600 = 540 m."
-       },
-       {
-        "ask": "Why did the dam fail so quickly once it began to lift?",
-        "choices": [
-         "Water flowing under the ice melts the tunnels it flows through, so they widen faster and faster",
-         "The lake boiled",
-         "An earthquake broke the ice"
-        ],
-        "answer": 0,
-        "why": "Each tunnel carries more water as it widens, and more water melts it faster still: a runaway that cuts through the dam in hours or days."
-       },
-       {
-        "ask": "Why was there more than one flood?",
-        "choices": [
-         "The glacier kept advancing and blocked the valley again, so the lake refilled",
-         "The lake was fed by many separate glaciers",
-         "Rain refilled the scablands"
-        ],
-        "answer": 0,
-        "why": "After each failure the Purcell lobe flowed back across the valley, the lake refilled behind it, and the cycle repeated."
-       }
+      "title": "Shorelines on the hills",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Anyone who drives into Missoula, Montana, can see the lake that is no longer there. On the grassy hills above the town run dozens of faint horizontal lines, one above another, like the rings left in a bathtub. They are old shorelines, cut by waves when water stood at each level. The highest is about 1,280 metres above sea level, more than 300 metres above the streets of Missoula."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Horizontal lines on Mount Sentinel above Missoula, Montana: shorelines of Glacial Lake Missoula, cut by waves at levels the lake stood at for a while.",
+          "options": {
+            "photo": "missoula-shorelines",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Geologists had known since the 1880s that a lake had filled these valleys during the ice age. Joseph Pardee of the US Geological Survey studied it and published his first report in 1910. At its fullest, [[Glacial Lake Missoula]] covered about 7,700 square kilometres of western Montana and held more than 2,000 cubic kilometres of water, about half as much as Lake Michigan. It was there because the Clark Fork River, which drains these valleys westward into Idaho, had been blocked by a tongue of the Cordilleran ice sheet that pushed south down the Purcell Trench into northern Idaho, near today's Lake Pend Oreille. The ice made a dam across the Clark Fork's valley more than 600 metres high."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Shorelines on the hills above Missoula record a glacial lake that stood up to about 1,280 m above sea level.",
+            "Glacial Lake Missoula held more than 2,000 km³ of water, dammed by a lobe of the Cordilleran ice sheet across the Clark Fork valley in northern Idaho."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "Pardee's ripples",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Pardee was in the audience at the 1927 meeting where Bretz presented his flood, and according to the story he leaned over to a colleague and said he knew where the water had come from. But he did not say so in print for years.[^pardee-silence] Then in 1940, at a meeting in Seattle, he described what he had found in Camas Prairie, a valley in western Montana that had been part of the lake: ridges of gravel up to 15 metres high and 150 metres apart, running in parallel rows across the valley floor."
+        },
+        {
+          "type": "text",
+          "text": "They were **ripple marks**, of the same kind that a stream leaves in the sand of its bed or that the wind leaves on a dune (lesson 2), but hundreds of times larger. Ripples form where water flows over loose sediment, and their size grows with the depth and speed of the flow. Ripples this big needed water more than 100 metres deep moving at many metres a second. A lake that is simply full barely moves, because nothing pulls its water anywhere; a current like that runs through a lake only while it drains fast toward a low outlet. Pardee concluded that the ice dam had failed suddenly, and that Lake Missoula had drained in a matter of days through the narrow valleys at its western end, pulling the water past Camas Prairie at the speed of a river in flood. Downstream, its path led straight to the scablands."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Giant current ripples in Camas Prairie, Montana, seen from the air: parallel ridges of gravel up to 15 m high, left by water rushing out of Glacial Lake Missoula.",
+          "options": {
+            "photo": "camas-ripples",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "In 1940 Pardee described gravel ridges up to 15 m high and 150 m apart in Camas Prairie, Montana: giant current ripples.",
+            "Ripples that size need deep, fast water, which a lake has only while it drains; Lake Missoula had emptied suddenly, toward the scablands."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "A dam that floats",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "An ice dam is not like a concrete one. It is a block of buoyant material held down only by its own weight. Ice is about nine-tenths as dense as water, so when the water behind an ice dam is about nine-tenths as deep as the ice is thick, the water pressing up on the bottom of the ice matches the weight of the ice pressing down. The dam begins to lift. Water forces its way underneath and runs through tunnels along the bed, and flowing water melts the tunnel walls, so each tunnel widens and carries more water, which melts it faster. Within hours or days the dam is cut through and breaks apart."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "ice-dam",
+          "caption": "A glacier across a valley, with a lake rising behind it as the river keeps flowing in. The dashed line marks the depth at which the ice floats.",
+          "task": "Play the years until the dam fails",
+          "goal": "floated",
+          "aspect_ratio": 1.74
+        },
+        {
+          "type": "text",
+          "text": "This happens today. In Iceland such floods are called **jökulhlaups**, glacier bursts,[^gjalp] and lakes dammed by glaciers in Alaska, Canada and Patagonia drain in the same way every few years. Lake Missoula's dam behaved the same way, on a much larger scale. A failure did not destroy the glacier: the Purcell lobe kept flowing south, and within a few years or decades it had closed the valley again, and the lake began to refill."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Ice is about nine-tenths as dense as water, so an ice dam floats once the lake against it is about nine-tenths as deep as the ice is thick.",
+            "Water then flows under the dam and melts tunnels that widen quickly, and the dam fails within hours or days.",
+            "Glaciers dam and release lakes the same way today, in Iceland's jökulhlaups."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Filling and emptying",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The time lapse below puts the pieces together. The ice blocks the Clark Fork; the river fills the valleys behind it for decades; the dam floats and fails; and the lake drains westward through northern Idaho into the Spokane valley and across the scablands. At the flood's peak, water left the lake at roughly ten times the combined flow of all the world's rivers. It reached the narrow gap where the Columbia River cuts through the Horse Heaven Hills at Wallula, which could not pass it all, and backed up into a temporary lake; then it ran down the Columbia Gorge toward the sea. Below Portland it met a second narrow place, near Kalama, and ponded again, as a later lesson tells."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "lake-missoula",
+          "caption": "Glacial Lake Missoula filling behind the ice dam, then draining across eastern Washington. The flood routes and timing are approximate.",
+          "task": "Play the filling of the lake and the flood that follows",
+          "goal": "drained",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "Because the glacier kept coming back, the cycle repeated. Each time the lake grew deep enough to float the dam, it drained again. Bretz had been right about the flood, and wrong only in thinking there had been just one."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The lake took decades to fill and days to drain.",
+            "The floodwater crossed the Spokane valley and the scablands, ponded behind Wallula Gap and ran down the Columbia Gorge.",
+            "The glacier closed the valley again after each failure, so the lake filled and drained many times."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on Lake Missoula",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "What are the horizontal lines on the hills above Missoula?",
+                "choices": [
+                  "Shorelines cut by waves when a lake stood at each level",
+                  "Layers of lava flows",
+                  "Roads built by early settlers"
+                ],
+                "answer": 0,
+                "why": "Waves cut a notch wherever the lake surface stayed for a while, leaving a ladder of shorelines up to about 1,280 m."
+              },
+              {
+                "ask": "What held back Glacial Lake Missoula?",
+                "choices": [
+                  "A lobe of the Cordilleran ice sheet blocking the Clark Fork valley in northern Idaho",
+                  "A lava flow across the Columbia",
+                  "A landslide in the Bitterroot Valley"
+                ],
+                "answer": 0,
+                "why": "Ice flowing south down the Purcell Trench crossed the Clark Fork's path west, damming the river."
+              },
+              {
+                "ask": "Why did Pardee's giant ripples show that the lake had drained suddenly?",
+                "choices": [
+                  "Ripples that size need deep water flowing fast, which a lake has only while it is emptying",
+                  "Ripples form only in deserts",
+                  "The ripples pointed north, toward the ice"
+                ],
+                "answer": 0,
+                "why": "Ripple size grows with the depth and speed of the flow; a still lake makes no ripples at all."
+              },
+              {
+                "ask": "An ice dam is 600 m thick. Roughly how deep must the lake be against it before it starts to float?",
+                "choices": [
+                  "About 540 m",
+                  "About 300 m",
+                  "Over 600 m, so it spills over the top"
+                ],
+                "answer": 0,
+                "why": "Ice is about nine-tenths as dense as water, so it floats once the water is about nine-tenths as deep as the ice is thick: 0.9 × 600 = 540 m."
+              },
+              {
+                "ask": "Why did the dam fail so quickly once it began to lift?",
+                "choices": [
+                  "Water flowing under the ice melts the tunnels it flows through, so they widen faster and faster",
+                  "The lake boiled",
+                  "An earthquake broke the ice"
+                ],
+                "answer": 0,
+                "why": "Each tunnel carries more water as it widens, and more water melts it faster still: a runaway that cuts through the dam in hours or days."
+              },
+              {
+                "ask": "Why was there more than one flood?",
+                "choices": [
+                  "The glacier kept advancing and blocked the valley again, so the lake refilled",
+                  "The lake was fed by many separate glaciers",
+                  "Rain refilled the scablands"
+                ],
+                "answer": 0,
+                "why": "After each failure the Purcell lobe flowed back across the valley, the lake refilled behind it, and the cycle repeated."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**A lake filled western Montana.** Glacial Lake Missoula held more than 2,000 km³ behind an ice dam in northern Idaho.",
+    "**Giant ripples showed it drained suddenly.** Pardee's 15 m gravel ripples need deep, fast water.",
+    "**Ice dams float.** When the lake is about nine-tenths as deep as the ice is thick, water lifts the ice and cuts under it.",
+    "**The flood ran across the scablands.** It ponded behind Wallula Gap and then ran down the Columbia Gorge.",
+    "**The cycle repeated.** The glacier closed the valley again, and the lake refilled and drained many times.",
+    "**Glaciers still do this.** Iceland's jökulhlaups are the same process on a smaller scale."
+  ],
+  "journal": [],
+  "footnotes": {
+    "gjalp": {
+      "kind": "digression",
+      "title": "Iceland, 1996",
+      "text": "In 1996 an eruption under the Vatnajökull ice cap melted about 3 cubic kilometres of ice into water trapped beneath the glacier. A month later the water lifted the ice and burst out across the plain to the sea, peaking at about 45,000 cubic metres a second and carrying away bridges on Iceland's ring road. Lake Missoula's floods were a few hundred times larger."
+    },
+    "pardee-silence": {
+      "kind": "digression",
+      "title": "Why Pardee waited",
+      "text": "Pardee worked for the US Geological Survey, whose senior geologists were among Bretz's sharpest critics at the 1927 meeting, and any paper he wrote had to pass the Survey's internal review. He waited until 1940, near the end of his career, to present the Camas Prairie evidence, and published the full paper in 1942, the year he retired."
+    }
   }
- ],
- "summary": [
-  "**A lake filled western Montana.** Glacial Lake Missoula held more than 2,000 km³ behind an ice dam in northern Idaho.",
-  "**Giant ripples showed it drained suddenly.** Pardee's 15 m gravel ripples need deep, fast water.",
-  "**Ice dams float.** When the lake is about nine-tenths as deep as the ice is thick, water lifts the ice and cuts under it.",
-  "**The flood ran across the scablands.** It ponded behind Wallula Gap and then ran down the Columbia Gorge.",
-  "**The cycle repeated.** The glacier closed the valley again, and the lake refilled and drained many times.",
-  "**Glaciers still do this.** Iceland's jökulhlaups are the same process on a smaller scale."
- ],
- "journal": [],
- "footnotes": {
-  "gjalp": {
-   "kind": "digression",
-   "title": "Iceland, 1996",
-   "text": "In 1996 an eruption under the Vatnajökull ice cap melted about 3 cubic kilometres of ice into water trapped beneath the glacier. A month later the water lifted the ice and burst out across the plain to the sea, peaking at about 45,000 cubic metres a second and carrying away bridges on Iceland's ring road. Lake Missoula's floods were a few hundred times larger."
-  }
- }
 }

@@ -7,8 +7,8 @@
     {
       "title": "The climb",
       "blocks": [
-        { "type": "text", "text": "On 23 June 1802 three men climbed the snowfields of Chimborazo, the great volcano of central Ecuador, then believed to be the highest mountain in the world. Alexander von Humboldt was a Prussian nobleman who had spent his inheritance on a scientific expedition to Spanish America; Aimé Bonpland was his French botanist; Carlos Montúfar was a young man from a leading Quito family. They had sent their porters back. They climbed in thin cotton clothes, with altitude sickness, bleeding from the gums, until a ravine in the ice stopped them at about 5,900 metres, by Humboldt's barometer the highest any European had stood." },
-        { "type": "text", "text": "All the way up Humboldt had been measuring: air pressure, temperature, the boiling point of water, the blueness of the sky. Bonpland had been collecting plants and noting the height at which each grew. At the bottom of the mountain were sugar cane and palms; then forests of tree ferns and evergreen trees hung with moss; then fields of potatoes and barley, and the last scrubby trees; then a wide belt of tussock grass and cushion plants, the **páramo**; then lichens and a few small flowering plants on bare rock, and finally snow." }
+        { "type": "text", "text": "On 23 June 1802 three men climbed the snowfields of Chimborazo, the great volcano of central Ecuador, then believed to be the highest mountain in the world. Alexander von Humboldt was a Prussian nobleman who had spent his inheritance on a scientific expedition to Spanish America; Aimé Bonpland was his French botanist; Carlos Montúfar was a young man from a leading Quito family. They had sent their porters back. They climbed in thin clothes, with altitude sickness, bleeding from the gums, until a ravine in the rock and ice stopped them: by Humboldt's barometer at 5,878 metres (modern estimates put them lower, around 5,400 to 5,600 metres), the highest any European had stood." },
+        { "type": "text", "text": "All the way up Humboldt had been measuring: air pressure, temperature, the boiling point of water, the blueness of the sky[^cyanometer]. Bonpland had been collecting plants and noting the height at which each grew. At the bottom of the mountain were sugar cane and palms; then forests of tree ferns and evergreen trees hung with moss; then fields of potatoes and barley, and the last scrubby trees; then a wide belt of tussock grass and cushion plants, the **páramo**; then lichens and a few small flowering plants on bare rock, and finally snow." }
       ]
     },
     {
@@ -18,7 +18,7 @@
         { "type": "diagram", "id": "photo", "caption": "Humboldt's Tableau physique des Andes (1807): Chimborazo in cross-section, with the names of plants written at the heights where they grow.", "options": { "photo": "tableau-physique", "aspect": 1.6 } },
         {
           "type": "text",
-          "text": "Humboldt saw that the zones on the mountain matched the zones of the whole Earth. Palms and tropical forest at the foot, like the lowlands of the equator. Forests of evergreen trees above, like temperate lands. Then grassland and low shrubs, like the treeless tundra of the far north, and ice at the top like the poles. Climbing a few kilometres up a mountain was like travelling thousands of kilometres toward a pole."
+          "text": "Humboldt saw that the zones on the mountain matched the zones of the whole Earth. At the foot were palms and tropical forest, like the lowlands of the equator; above them, forests of evergreen trees, like temperate lands; then grassland and low shrubs, like the treeless tundra of the far north, and ice at the top like the poles. Climbing a few kilometres up a mountain was like travelling thousands of kilometres toward a pole."
         }
       ]
     },
@@ -42,8 +42,8 @@
       "title": "Two hundred years later, and a correction",
       "blocks": [
         { "type": "text", "text": "In 2012 a team led by Naia Morueta-Holme, a Danish ecologist, climbed Chimborazo with Humboldt's records and searched for the highest plants, comparing the heights where they now grew with the heights on his picture. The upper limit of plant life had moved up by about 500 metres. The glacier that capped the mountain had shrunk back a long way and the climate there had warmed, and plants had followed both up the slope. Their paper, published in 2015, became a famous example of climate change seen through two centuries of records." },
-        { "type": "text", "text": "Then the record itself was checked. In 2019 the historian and archaeologist Pascal Moret and colleagues went back to Humboldt's and Bonpland's notebooks and found that much of the plant data in the *Tableau* did not come from Chimborazo at all. Some came from Antisana, another volcano, and other places they had passed, drawn together on one mountain for the picture. Using only the observations that really came from the slopes they described, Moret's team concluded that the plants had moved up, but by less than the 2015 paper said." },
-        { "type": "text", "text": "Both papers matter. Old records are precious because they let us see change over centuries, and they need the same scrutiny as new data, including where exactly each observation was made. The plants' climb is real; how far, for Humboldt's mountain, is still argued over." }
+        { "type": "text", "text": "Then the record itself was checked. In 2019 the entomologist and historian of science Pierre Moret and colleagues went back to Humboldt's and Bonpland's notebooks and found that much of the plant data in the *Tableau* did not come from Chimborazo at all. Some came from Antisana, another volcano, and other places they had passed, drawn together on one mountain for the picture. Using only the observations from Antisana, where Humboldt and Bonpland had actually collected the highest flowering plants, Moret's team concluded that the upper limit had moved up by about 215 to 265 metres: still a clear climb, but roughly half what the 2015 paper said." },
+        { "type": "text", "text": "Old records are precious because they let us see change over centuries, and they need the same scrutiny as new data, including where exactly each observation was made. The plants' climb is real; how far, for Humboldt's mountains, depends on matching each record to the slope it came from." }
       ]
     },
     {
@@ -58,7 +58,7 @@
       "blocks": [
         { "type": "text", "text": "Across the whole planet, the main types of vegetation, called **biomes**, follow two numbers more than anything else: how warm a place is on average, and how much rain and snow it gets in a year. In 1975 Robert Whittaker, the same ecologist who counted trees in the Smoky Mountains in lesson 15, drew them on one chart. Where it is cold, there is tundra; a little warmer, northern conifer forest. In the middle temperatures, more rain means grassland, then woodland, then broadleaf forest, then temperate rainforest. In the tropics, desert, then savanna, then seasonal forest, then rainforest." },
         { "type": "interactive_diagram", "id": "biomes", "caption": "Biomes by mean yearly temperature and rain, simplified from Whittaker's chart. Pick a place, or move one with the sliders.", "task": "Visit three biomes", "goal": "three", "aspect_ratio": 1.69 },
-        { "type": "text", "text": "Seattle and the Hoh rainforest on the Olympic Peninsula have almost the same temperature; the Hoh gets nearly four times the rain. Ritzville, in the wheat country east of the Cascades (near Harrow, the made-up town of the Clouds course), is barely cooler than Seattle but gets less than a third of its rain, and that makes it grassland, not forest. The chart is a summary, and real boundaries also depend on soil, fire and the timing of rain through the year[^tropics]. But it explains a good deal of the world's vegetation with two numbers." }
+        { "type": "text", "text": "Seattle and the Hoh rainforest on the Olympic Peninsula have almost the same temperature; the Hoh gets nearly four times the rain. Ritzville, in the wheat country east of the Cascades (near Harrow, the made-up town of the Clouds course), is barely cooler than Seattle but gets less than a third of its rain, and that makes it grassland, not forest. The chart is a summary, and real boundaries also depend on soil, fire and the timing of rain through the year[^tropics]. Even so, those two numbers explain a good deal of the world's vegetation." }
       ]
     },
     {
@@ -73,7 +73,7 @@
             { "ask": "Why did Humboldt compare climbing Chimborazo to travelling toward the poles?", "choices": ["Temperature falls with height as it does toward the poles", "The mountain's plants had come there from the north", "The sun is weaker on mountains near the equator"], "answer": 0, "why": "Air cools about 6.5 °C per kilometre up, so a few kilometres of height span the same temperatures as thousands of kilometres of latitude." },
             { "ask": "The climate warms by 2 °C on a mountain where the air cools about 6.5 °C per kilometre up. About how far do the plants' zones move?", "choices": ["About 300 m up", "About 30 m up", "About 1 km up"], "answer": 0, "why": "2 ÷ 6.5 is about 0.3 km. Each zone's lower and upper limits move up by about that much." },
             { "ask": "Why are mountaintop species especially at risk from warming?", "choices": ["Their zone narrows as it climbs, then runs out of mountain", "They can't set seed in warmer weather", "Lowland plant-eaters follow them uphill"], "answer": 0, "why": "Each step up has less ground. The highest zone has nowhere higher to go." },
-            { "ask": "What did Pascal Moret's team find in 2019 about Humboldt's picture of Chimborazo?", "choices": ["Much of its data came from other places, so the rise was smaller", "Humboldt's barometer had overstated every height", "The plants had not moved at all"], "answer": 0, "why": "The Tableau combined observations from several places. Using only those from the slopes, the shift was real but smaller." },
+            { "ask": "What did Pierre Moret's team find in 2019 about Humboldt's picture of Chimborazo?", "choices": ["Much of its data came from other places, so the rise was smaller", "Humboldt's barometer had overstated every height", "The plants had not moved at all"], "answer": 0, "why": "The Tableau combined observations from several places. Matching the records to Antisana, where the highest plants were actually collected, showed a real but smaller shift." },
             { "ask": "Seattle and Ritzville, in eastern Washington, have similar yearly temperatures. Why is one forest and the other grassland?", "choices": ["Ritzville gets less than a third of Seattle's rain", "Ritzville is much higher up", "Ritzville's soil is too rich for trees"], "answer": 0, "why": "On Whittaker's chart, at the same temperature, less rain moves a place from forest to grassland." },
             { "ask": "Which two numbers best predict a place's biome?", "choices": ["Its mean yearly temperature and its yearly rain", "Its height above the sea and its latitude", "Its soil and its distance from the sea"], "answer": 0, "why": "Height and latitude act through temperature. Temperature and rain together set most of what can grow." }
           ] }
@@ -86,7 +86,7 @@
     "**Height and latitude both cool the air.** About 6.5 °C per kilometre up; a kilometre up is worth roughly 900 kilometres toward a pole.",
     "**Zones of plants follow temperature.** Their edges are where conditions stop suiting each species.",
     "**When climate warms, the zones move up.** About 150 metres for each degree, and the highest zone shrinks toward the summit.",
-    "**Chimborazo's plants have climbed since 1802.** By how much is argued, since some of Humboldt's data came from other mountains.",
+    "**Andean plants have climbed since 1802.** By how much was first overestimated, since much of Humboldt's high-altitude plant data on his Chimborazo chart actually came from Antisana.",
     "**Old records need checking too.** Where and how each observation was made decides what it can show.",
     "**Temperature and rain set the biome.** Whittaker's chart places tundra, forest, grassland, desert and rainforest by those two numbers."
   ],
@@ -106,6 +106,11 @@
       "kind": "technical",
       "title": "Why rising air cools",
       "text": "Air pressure falls with height. Rising air expands as the pressure on it drops, and expanding gas cools because it does work pushing the surrounding air aside. Dry air cools about 10 °C per kilometre; moist air, which releases heat as its water condenses into cloud, cools less. The average is about 6.5 °C."
+    },
+    "cyanometer": {
+      "kind": "digression",
+      "title": "Measuring the blue of the sky",
+      "text": "Humboldt carried a cyanometer, invented by the Swiss physicist Horace-Bénédict de Saussure: a circle of card painted in 53 numbered shades from white through pale blue to nearly black. Held up against the sky, it measured how the air grows darker and deeper blue with height as there is less atmosphere overhead to scatter sunlight."
     }
   }
 }

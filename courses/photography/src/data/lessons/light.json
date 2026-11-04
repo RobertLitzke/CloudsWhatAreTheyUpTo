@@ -1,267 +1,267 @@
 {
- "id": "light",
- "n": 2,
- "title": "Light, and the three ways to let it in",
- "teaches": "Why the camera turns snow grey and a bird against the sky black, how to read the histogram, and which dial each shooting mode hands back to you",
- "parts": [
-  {
-   "title": "Grey snow",
-   "blocks": [
+  "id": "light",
+  "n": 2,
+  "title": "Light, and the three ways to let it in",
+  "teaches": "Why the camera turns snow grey and a bird against the sky black, how to read the histogram, and which dial each shooting mode hands back to you",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The challenge.** A clear morning after a heavy snowfall: low sun, long blue shadows, the trees standing black against a deep sky. You take the picture in Auto and look at the screen. The trees are right and the sky is right, but the snow has come out the colour of dishwater, a flat pale grey that looks nothing like the field in front of you. What you wanted was the right-hand picture: snow that looks like snow, white where the sun hits it and blue in the shade.[^blue-shadow]"
-    },
-    {
-     "type": "diagram",
-     "id": "challenge",
-     "caption": "A snowy park as the camera's meter exposed it, and as you saw it",
-     "options": {
-      "photo": "snow-scene-01",
-      "panels": [
-       {
-        "label": "What Auto gave",
-        "eqFocal": 24,
-        "aperture": 8,
-        "shutter": 0.002,
-        "stops": -1.3
-       },
-       {
-        "label": "What you wanted",
-        "eqFocal": 24,
-        "aperture": 8,
-        "shutter": 0.002
-       }
+      "title": "Grey snow",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The challenge.** A clear morning after a heavy snowfall: low sun, long blue shadows, the trees standing black against a deep sky. You take the picture in Auto and look at the screen. The trees are right and the sky is right, but the snow has come out the colour of dishwater, a flat pale grey that looks nothing like the field in front of you. What you wanted was the right-hand picture: snow that looks like snow, white where the sun hits it and blue in the shade.[^blue-shadow]"
+        },
+        {
+          "type": "diagram",
+          "id": "challenge",
+          "caption": "A snowy park as the camera's meter exposed it, and as you saw it",
+          "options": {
+            "photo": "snow-scene-01",
+            "panels": [
+              {
+                "label": "What Auto gave",
+                "eqFocal": 24,
+                "aperture": 8,
+                "shutter": 0.002,
+                "stops": -1.3
+              },
+              {
+                "label": "What you wanted",
+                "eqFocal": 24,
+                "aperture": 8,
+                "shutter": 0.002
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The camera's meter made an assumption about the world that does not hold for snow. To see what that assumption is, and how to overrule it in one press of a button, you first need the unit photographers use to count light."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The camera did not make a mistake about the snow so much as an assumption about the world. To see what the assumption is, and how to overrule it in one press of a button, you first need the unit photographers use to count light."
-    }
-   ]
-  },
-  {
-   "title": "Counting light in stops",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The amount of light that builds a picture is set by three things: how wide the [[aperture|aperture]] is, how long the [[shutter|shutter]] stays open, and how much the [[ISO|sensor]] amplifies what it caught. Each can be measured in **stops**, and a stop always means a factor of two: one stop more is twice the light, one stop less is half. Opening the shutter for 1/250 s instead of 1/500 s is one stop more. So is going from ISO 400 to ISO 800."
-    },
-    {
-     "type": "text",
-     "text": "Apertures are the odd one out, because they are written as f-numbers, which divide the focal length: f/4 means an opening a quarter of the focal length across. The light gathered goes with the opening's *area*, so a stop is a factor of the square root of two in the f-number, and the familiar series 2.8, 4, 5.6, 8 runs one stop at a time, each letting in half the light of the one before.[^f-series] The P950's widest aperture at the long end, f/6.5, is about two and a half stops less light than its f/2.8 at the wide end."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "stops",
-     "caption": "Three dials, one amount of light: a stop given up on one dial can be taken back on another",
-     "task": "Change one dial, then put the exposure right again with a different one",
-     "goal": "trade"
-    },
-    {
-     "type": "text",
-     "text": "Any setting that lets in the right total is a right exposure, and there are many: f/6.5 at 1/500 s and ISO 400 is the same light as f/6.5 at 1/250 s and ISO 200. What differs between them is what you pay for the light, in depth of field, in motion blur and in grain, which the next three lessons take one at a time. This lesson is about the total, and about who decides what it should be."
-    }
-   ]
-  },
-  {
-   "title": "What the meter assumes",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The camera decides how much light a scene needs with its **meter**, which measures how bright the scene in front of it is. But the meter cannot know what the scene *is*. A white swan in dim light and a black crow in bright sun can send exactly the same amount of light back to the lens. So the meter makes a guess about the world: on average, it assumes, a scene is mid-grey, about as bright as weathered wood or green grass. It sets the exposure that makes whatever it is looking at come out at that average."
-    },
-    {
-     "type": "text",
-     "text": "For a meadow, a forest or a street, the guess is good, and that is why Auto works most of the time. For a scene that really is brighter than average, it fails in a predictable direction. Snow is three or four times brighter than mid-grey, so the meter darkens it until its average is mid-grey: grey snow, about a stop and a half too dark. A black bear against dark rocks fails the other way and comes out a washed-out charcoal.[^grey-card]"
-    },
-    {
-     "type": "text",
-     "text": "The fix is **exposure compensation**, the +/− button: it tells the meter how far from its grey you want the picture to be. Plus means brighter than the meter thinks, minus darker. For snow in sun, +1 to +2 stops. For a dark animal filling the frame, −1 or so. The meter still does the measuring; you supply the one fact it does not have."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "meter",
-     "caption": "The snowy park, metered by the camera; the strip under it is the picture's histogram",
-     "task": "Use exposure compensation to make the snow white again without washing it out",
-     "goal": "right",
-     "options": {
-      "photo": "snow-scene-01"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Reading the histogram",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The small graph under the picture is a **histogram**, and the P950 can show one on its screen while you frame and after you shoot. It counts the picture's pixels by brightness: black at the left edge, white at the right, mid-grey in the middle. It does not show you what the picture looks like, but it tells you something the screen cannot, outdoors in bright light: where the tones actually landed."
-    },
-    {
-     "type": "text",
-     "text": "Two shapes matter. A histogram that stops well short of the right edge means the brightest thing in the picture is not white, so the whole picture is darker than it could be; in a snow scene that is grey snow. A histogram piled up against the right edge means some of the picture is pure white, and in those pixels the detail is gone for good: no editing will bring back feathers in a white patch that the sensor recorded as nothing but maximum. That is called **clipping**, and the P950 can flash clipped areas on its playback screen to warn you."
-    },
-    {
-     "type": "text",
-     "text": "The usual advice is to expose as bright as you can without clipping anything you care about, so that the histogram reaches the right edge and stops there. Brighter exposures gather more light, and more light means less grain in the shadows, for reasons the lesson on ISO makes clear. The exception is a highlight you do not need, such as the sun itself or a glint on water: let it clip."
-    },
-    {
-     "type": "text",
-     "text": "Now the second half of the challenge. A bald eagle crosses a bright blue sky. The sky fills nearly the whole frame and is much brighter than mid-grey, so the meter darkens everything to compensate, and the eagle, which is small and dark, goes nearly black. The same tool fixes it, in the same direction: more light than the meter wants. About a stop is enough to give the eagle its feathers back while the sky stays blue; much more and the sky washes out to white."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "meter",
-     "caption": "An eagle against the sky, metered by the camera",
-     "task": "Give the eagle back its feathers without losing the sky",
-     "goal": "right",
-     "options": {
-      "photo": "bird-in-flight-01"
-     }
-    }
-   ]
-  },
-  {
-   "title": "Who turns which dial",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Once the meter has decided how much light the picture needs, something has to choose the aperture, shutter and ISO that deliver it. That something is set by the camera's **mode dial**. The scene modes (Bird-watching, Landscape, Sports) each follow a recipe you cannot see. The four letter modes hand some of the choice back to you, and it is worth knowing exactly which part."
-    },
-    {
-     "type": "text",
-     "text": "In **A**, aperture priority, you choose the aperture and the camera picks a shutter speed to match. In **S**, shutter priority, you choose the shutter speed and the camera picks the aperture. In **P**, program, the camera picks both but lets you shift the pair. In **M**, manual, you choose everything, and the meter only shows you how far your choice is from its own. Exposure compensation works in P, A and S; in M you are the compensation."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "modes",
-     "caption": "The three dials in each mode at 1000 mm, with auto ISO except in manual, as a cloud comes over",
-     "task": "Pick a mode and change the light, and watch which dial follows it",
-     "goal": "follow"
-    },
-    {
-     "type": "text",
-     "text": "For birds on the P950, S is often the most useful: the shutter speed is the setting that most often makes or ruins the picture, and at the long end there is little aperture to choose anyway. A suits landscapes and flowers, where the aperture decides what is sharp. M is the answer when the light is steady but the scene keeps fooling the meter, such as a bird flying from dark trees into bright sky: set the exposure once for the bird and it stops jumping around."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "A stop is a factor of two in light, on any of the three dials.",
-      "The meter makes whatever it sees average out to mid-grey; bright scenes come out dark and dark scenes bright.",
-      "Exposure compensation tells the meter how far from grey you want the picture.",
-      "The histogram shows where the tones landed: reach the right edge, but do not pile up against it."
-     ]
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Light and the meter",
-     "task": "Answer each question",
-     "options": {
-      "items": [
-       {
-        "question": "You photograph a white egret on a white sandbar in full sun, in Auto. What will the picture most likely look like?",
-        "options": [
-         "Greyish: the meter darkens the bright scene toward mid-grey",
-         "Too bright: the white egret clips",
-         "Right, because the meter measures the light falling on the scene",
-         "Blue, because sand reflects the sky"
-        ],
-        "answer": 0,
-        "why": "An averaging meter assumes the scene is mid-grey. A frame full of white sand and a white bird is far brighter than that, so the meter cuts the exposure until the average is grey, and the whites come out dull. About +1.5 stops of compensation fixes it."
-       },
-       {
-        "question": "Going from f/4 to f/8 changes the light by how much?",
-        "options": [
-         "Two stops less",
-         "One stop less",
-         "Half a stop less",
-         "Four stops less"
-        ],
-        "answer": 0,
-        "why": "f/4 to f/5.6 is one stop and f/5.6 to f/8 is another. Doubling the f-number halves the opening's width, which quarters its area: two stops."
-       },
-       {
-        "question": "The histogram of your eagle picture is a tall spike pressed against the right edge. What does that mean?",
-        "options": [
-         "Part of the picture is white, detail lost",
-         "The whole picture is too dark to use",
-         "The picture is noisy in the shadows",
-         "The eagle is out of focus against the sky"
-        ],
-        "answer": 0,
-        "why": "The right edge is white. A pile-up there means many pixels reached maximum brightness, which records no detail. Less exposure, or minus compensation, pulls it back."
-       },
-       {
-        "question": "You are in aperture priority (A) at f/6.5 and a cloud covers the sun. What does the camera change?",
-        "options": [
-         "The shutter speed gets longer",
-         "The aperture opens",
-         "Nothing, so the picture goes dark",
-         "The focal length"
-        ],
-        "answer": 0,
-        "why": "In A you hold the aperture and the camera chooses the shutter time; with less light it leaves the shutter open longer (and, on auto ISO, raises the ISO once the shutter gets too slow)."
-       },
-       {
-        "question": "A black dog fills most of a frame on a dull day. Which way should exposure compensation go?",
-        "options": [
-         "Minus, so the dog stays black instead of grey",
-         "Plus, because dark subjects need more light",
-         "None, the meter handles dark subjects",
-         "It depends only on the shutter speed"
-        ],
-        "answer": 0,
-        "why": "The meter brightens the dark scene toward mid-grey, which turns a black coat a washed-out grey. Minus compensation tells it the scene really is darker than average."
-       },
-       {
-        "question": "Why does the course suggest exposing so the histogram reaches the right edge?",
-        "options": [
-         "More light gives less grain in the shadows",
-         "It makes colours warmer",
-         "It narrows the depth of field",
-         "It lets the camera use a faster shutter"
-        ],
-        "answer": 0,
-        "why": "The brighter you can expose without clipping what matters, the more light every pixel catches, and photon noise is smaller relative to a bigger count. Shadows lifted later stay cleaner."
-       }
+      "title": "Counting light in stops",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The amount of light that builds a picture is set by three things: how wide the [[aperture|aperture]] is, how long the [[shutter|shutter]] stays open, and how much the [[ISO|sensor]] amplifies what it caught. Each can be measured in **stops**, and a stop always means a factor of two: one stop more is twice the light, one stop less is half. Opening the shutter for 1/250 s instead of 1/500 s is one stop more. So is going from ISO 400 to ISO 800."
+        },
+        {
+          "type": "text",
+          "text": "Apertures are the odd one out, because they are written as f-numbers, which divide the focal length: f/4 means an opening a quarter of the focal length across. The light gathered goes with the opening's *area*, so a stop is a factor of the square root of two in the f-number, and the familiar series 2.8, 4, 5.6, 8 runs one stop at a time, each letting in half the light of the one before.[^f-series] The P950's widest aperture at the long end, f/6.5, is about two and a half stops less light than its f/2.8 at the wide end."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "stops",
+          "caption": "Three dials, one amount of light: a stop given up on one dial can be taken back on another",
+          "task": "Change one dial, then put the exposure right again with a different one",
+          "goal": "trade"
+        },
+        {
+          "type": "text",
+          "text": "Any setting that lets in the right total is a right exposure, and there are many: f/6.5 at 1/500 s and ISO 400 is the same light as f/6.5 at 1/250 s and ISO 200. What differs between them is what you pay for the light, in depth of field, motion blur or grain, which the next three lessons take one at a time. This lesson is about the total, and who decides what it should be."
+        }
       ]
-     }
+    },
+    {
+      "title": "What the meter assumes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The camera decides how much light a scene needs with its **meter**, which measures the light reflected from the scene in front of it. Because it only sees reflected light, the meter cannot know what the scene *is*. A white swan in dim light and a black crow in bright sun can send exactly the same amount of light back to the lens. So the meter makes a guess about the world: on average, it assumes, a scene is mid-grey, about as bright as weathered wood or green grass. It sets the exposure that makes whatever it is looking at come out at that average."
+        },
+        {
+          "type": "text",
+          "text": "For a meadow, a forest or a street, the guess is good, and that is why Auto works most of the time. For a scene that really is brighter than average, it fails in a predictable direction. Snow is three or four times brighter than mid-grey, so the meter darkens it until its average is mid-grey: grey snow, about a stop and a half too dark. A black bear against dark rocks fails the other way and comes out a washed-out charcoal.[^grey-card]"
+        },
+        {
+          "type": "text",
+          "text": "The fix is **exposure compensation**, the +/− button: it tells the meter how far from its grey you want the picture to be. Plus means brighter than the meter thinks, minus darker. For snow in sun, set +1 to +2 stops; for a dark animal filling the frame, −1 or so."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "meter",
+          "caption": "The snowy park, metered by the camera; the strip under it is the picture's histogram",
+          "task": "Use exposure compensation to make the snow white again without washing it out",
+          "goal": "right",
+          "options": {
+            "photo": "snow-scene-01"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Reading the histogram",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The small graph under the picture is a **histogram**, and the P950 can show one on its screen while you frame and after you shoot. It counts the picture's pixels by brightness: black at the left edge, white at the right, mid-grey in the middle. It does not show you what the picture looks like, but it tells you where the tones actually landed, which the screen cannot do outdoors in bright light."
+        },
+        {
+          "type": "text",
+          "text": "Two shapes matter. A histogram that stops well short of the right edge means the brightest thing in the picture is not white, so the whole picture is darker than it could be; in a snow scene that is grey snow. A histogram piled up against the right edge means some of the picture is pure white, and in those pixels the detail is gone for good: no editing will bring back feathers in a white patch that the sensor recorded as nothing but maximum. That is called **clipping**, and the P950 can flash clipped areas on its playback screen to warn you."
+        },
+        {
+          "type": "text",
+          "text": "The usual advice is to expose as bright as you can without clipping anything you care about, so that the histogram reaches the right edge and stops there. Brighter exposures gather more light, and more light means less grain in the shadows, for reasons the lesson on ISO makes clear. The exception is a highlight you do not need, such as the sun itself or a glint on water: let it clip."
+        },
+        {
+          "type": "text",
+          "text": "Now the second half of the challenge. A bald eagle crosses a bright blue sky. The sky fills nearly the whole frame and is much brighter than mid-grey, so the meter darkens everything to compensate, and the eagle, which is small and dark, goes nearly black. The same tool fixes it, in the same direction: more light than the meter wants. About a stop is enough to give the eagle its feathers back while the sky stays blue; much more and the sky washes out to white."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "meter",
+          "caption": "An eagle against the sky, metered by the camera",
+          "task": "Give the eagle back its feathers without losing the sky",
+          "goal": "right",
+          "options": {
+            "photo": "bird-in-flight-01"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Who turns which dial",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Once the meter has decided how much light the picture needs, the camera's **mode dial** decides what sets the aperture, shutter and ISO to deliver it. The scene modes (Bird-watching, Landscape, Sports) each follow a recipe you cannot see. The four letter modes hand some of the choice back to you."
+        },
+        {
+          "type": "text",
+          "text": "In **A**, aperture priority, you choose the aperture and the camera picks a shutter speed to match. In **S**, shutter priority, you choose the shutter speed and the camera picks the aperture. In **P**, program, the camera picks both but lets you shift the pair. In **M**, manual, you choose everything, and the meter only shows you how far your choice is from its own. Exposure compensation works in P, A and S; in M you set the exposure yourself."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "modes",
+          "caption": "The three dials in each mode at 1000 mm, with auto ISO except in manual, as a cloud comes over",
+          "task": "Pick a mode and change the light, and watch which dial follows it",
+          "goal": "follow"
+        },
+        {
+          "type": "text",
+          "text": "For birds on the P950, S is often the most useful: the shutter speed is the setting that most often makes or ruins the picture, and at the long end there is little aperture to choose anyway. A suits landscapes and flowers, where the aperture decides what is sharp. M is the answer when the light is steady but the scene keeps fooling the meter, such as a bird flying from dark trees into bright sky: set the exposure once for the bird and it stops jumping around."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "One stop doubles or halves the light.",
+            "The meter exposes for a mid-grey average.",
+            "+/− shifts the target brighter or darker.",
+            "A histogram piled against the right edge means clipped highlights."
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Light and the meter",
+          "task": "Answer each question",
+          "options": {
+            "items": [
+              {
+                "question": "You photograph a white egret on a white sandbar in full sun, in Auto. What will the picture most likely look like?",
+                "options": [
+                  "Greyish: the meter darkens the bright scene toward mid-grey",
+                  "Too bright: the white egret clips",
+                  "Right, because the meter measures the light falling on the scene",
+                  "Blue, because sand reflects the sky"
+                ],
+                "answer": 0,
+                "why": "An averaging meter assumes the scene is mid-grey. A frame full of white sand and a white bird is far brighter than that, so the meter cuts the exposure until the average is grey, and the whites come out dull. About +1.5 stops of compensation fixes it."
+              },
+              {
+                "question": "Going from f/4 to f/8 changes the light by how much?",
+                "options": [
+                  "Two stops less",
+                  "One stop less",
+                  "Half a stop less",
+                  "Four stops less"
+                ],
+                "answer": 0,
+                "why": "f/4 to f/5.6 is one stop and f/5.6 to f/8 is another. Doubling the f-number halves the opening's width, which quarters its area: two stops."
+              },
+              {
+                "question": "The histogram of your eagle picture is a tall spike pressed against the right edge. What does that mean?",
+                "options": [
+                  "Part of the picture is white, detail lost",
+                  "The whole picture is too dark to use",
+                  "The picture is noisy in the shadows",
+                  "The eagle is out of focus against the sky"
+                ],
+                "answer": 0,
+                "why": "The right edge is white. A pile-up there means many pixels reached maximum brightness, which records no detail. Less exposure, or minus compensation, pulls it back."
+              },
+              {
+                "question": "You are in aperture priority (A) at f/6.5 and a cloud covers the sun. What does the camera change?",
+                "options": [
+                  "The shutter speed gets longer",
+                  "The aperture opens",
+                  "Nothing, so the picture goes dark",
+                  "The focal length"
+                ],
+                "answer": 0,
+                "why": "In A you hold the aperture and the camera chooses the shutter time; with less light it leaves the shutter open longer (and, on auto ISO, raises the ISO once the shutter gets too slow)."
+              },
+              {
+                "question": "A black dog fills most of a frame on a dull day. Which way should exposure compensation go?",
+                "options": [
+                  "Minus, so the dog stays black instead of grey",
+                  "Plus, because dark subjects need more light",
+                  "None, the meter handles dark subjects",
+                  "It depends only on the shutter speed"
+                ],
+                "answer": 0,
+                "why": "The meter brightens the dark scene toward mid-grey, which turns a black coat a washed-out grey. Minus compensation tells it the scene really is darker than average."
+              },
+              {
+                "question": "Why does the course suggest exposing so the histogram reaches the right edge?",
+                "options": [
+                  "More light gives less grain in the shadows",
+                  "It makes colours warmer",
+                  "It narrows the depth of field",
+                  "It lets the camera use a faster shutter"
+                ],
+                "answer": 0,
+                "why": "The brighter you can expose without clipping what matters, the more light every pixel catches, and photon noise is smaller relative to a bigger count. Shadows lifted later stay cleaner."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**A stop is a factor of two.** One stop more on any dial doubles the light; f-numbers go 2.8, 4, 5.6, 8, a stop apart.",
+    "**Many settings give the same exposure.** They differ in what they cost: depth of field, motion blur or grain.",
+    "**The meter assumes mid-grey.** It exposes any scene so that its average comes out grey, so snow goes grey and black fur goes grey too.",
+    "**Exposure compensation corrects the assumption.** Plus for scenes brighter than average (snow, sky), minus for darker ones.",
+    "**The histogram shows where the tones landed.** Reach the right edge for the cleanest picture, but a pile-up against it is detail lost to white.",
+    "**Modes decide who turns which dial.** A: you set the aperture. S: you set the shutter. M: you set everything and the meter only advises."
+  ],
+  "journal": [],
+  "footnotes": {
+    "blue-shadow": {
+      "kind": "digression",
+      "title": "Why shadows on snow are blue",
+      "text": "A shadow on snow is lit only by the sky, never by the sun, and clear sky is blue because air scatters blue light far more than red. Snow is white, so it simply returns whatever light reaches it: yellow-white sunlight where it is lit, sky blue where it is shaded. The colour is real, and the white balance in the lesson on the colour of light can make it stronger or take it away."
+    },
+    "f-series": {
+      "kind": "technical",
+      "title": "Why the f-numbers are such strange numbers",
+      "text": "The light a lens gathers is proportional to the area of its opening, and the area goes with the square of the diameter. To halve the area, the diameter must shrink by the square root of two, about 1.414, and since the f-number is the focal length divided by the diameter, it grows by the same factor: 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16. Cameras also show the thirds of a stop in between, which is where the P950's f/3.2, f/3.5, f/4.5 and f/6.3 come from; its f/6.5 maximum at the long end is not one of the standard thirds, just the physical limit of the lens."
+    },
+    "grey-card": {
+      "kind": "digression",
+      "title": "Mid-grey and the grey card",
+      "text": "Photographers have long carried a card printed a standard mid-grey that reflects 18 per cent of the light falling on it, and metered off it instead of the scene, so that a white bird or a black one could not fool the reading. Camera meters are in fact calibrated a little darker than the card, closer to 12 or 13 per cent, a long-running source of argument. Either way the idea is the same: the meter aims for a middling tone and knows nothing of what it is looking at."
+    }
   }
- ],
- "summary": [
-  "**A stop is a factor of two.** One stop more on any dial doubles the light; f-numbers go 2.8, 4, 5.6, 8, a stop apart.",
-  "**Many settings give the same exposure.** They differ in what they cost: depth of field, motion blur or grain.",
-  "**The meter assumes mid-grey.** It exposes any scene so that its average comes out grey, so snow goes grey and black fur goes grey too.",
-  "**Exposure compensation corrects the assumption.** Plus for scenes brighter than average (snow, sky), minus for darker ones.",
-  "**The histogram shows where the tones landed.** Reach the right edge for the cleanest picture, but a pile-up against it is detail lost to white.",
-  "**Modes decide who turns which dial.** A: you set the aperture. S: you set the shutter. M: you set everything and the meter only advises."
- ],
- "journal": [],
- "footnotes": {
-  "blue-shadow": {
-   "kind": "digression",
-   "title": "Why shadows on snow are blue",
-   "text": "A shadow on snow is lit only by the sky, never by the sun, and clear sky is blue because air scatters blue light far more than red. Snow is white, so it simply returns whatever light reaches it: yellow-white sunlight where it is lit, sky blue where it is shaded. The colour is real, and the white balance in the lesson on the colour of light can make it stronger or take it away."
-  },
-  "f-series": {
-   "kind": "technical",
-   "title": "Why the f-numbers are such strange numbers",
-   "text": "The light a lens gathers is proportional to the area of its opening, and the area goes with the square of the diameter. To halve the area, the diameter must shrink by the square root of two, about 1.414, and since the f-number is the focal length divided by the diameter, it grows by the same factor: 1, 1.4, 2, 2.8, 4, 5.6, 8, 11, 16. Cameras also show the thirds of a stop in between, which is where the P950's f/3.2, f/3.5, f/4.5 and f/6.3 come from."
-  },
-  "grey-card": {
-   "kind": "digression",
-   "title": "Mid-grey and the grey card",
-   "text": "Photographers have long carried a card printed a standard mid-grey that reflects 18 per cent of the light falling on it, and metered off it instead of the scene, so that a white bird or a black one could not fool the reading. Camera meters are in fact calibrated a little darker than the card, closer to 12 or 13 per cent, a long-running source of argument. Either way the idea is the same: the meter aims for a middling tone and knows nothing of what it is looking at."
-  }
- }
 }

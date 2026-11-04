@@ -1,420 +1,425 @@
 {
- "id": "blank",
- "n": 23,
- "title": "The blank patch",
- "teaches": "Five sounds built from a blank patch, saved and recalled; what this course leaves out",
- "parts": [
-  {
-   "title": "Five from nothing",
-   "blocks": [
+  "id": "blank",
+  "n": 23,
+  "title": "The blank patch",
+  "teaches": "Five sounds built from a blank patch, saved and recalled; what this course leaves out",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** The first button is the blank patch from lesson 10: one saw, the filter open, an envelope like an organ's, nothing moving. Every other sound here started from it, and none took more than five knobs. By the end of this lesson you will have made all five yourself, with no recipe."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "The blank patch, and five sounds built from it",
-     "options": {
-      "stage": 23,
-      "riff": 103,
-      "start": {},
-      "sounds": [
-       {
-        "name": "Blank",
-        "set": {},
-        "riff": 103
-       },
-       {
-        "name": "Round bass",
-        "set": {
-         "cutoff": 1,
-         "envAmt": 2,
-         "sustain": 0,
-         "res": 1
+      "title": "Five from nothing",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** The first button is the blank patch from lesson 10: one saw, the filter open, an envelope like an organ's, nothing moving. Every other sound here started from it, and none took more than five knobs. By the end of this lesson you will have made all five yourself, with no recipe."
         },
-        "riff": 107
-       },
-       {
-        "name": "Pad",
-        "set": {
-         "voiceMode": 1,
-         "attack": 3,
-         "release": 3,
-         "cutoff": 4
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "The blank patch, and five sounds built from it",
+          "options": {
+            "stage": 23,
+            "riff": 103,
+            "start": {},
+            "sounds": [
+              {
+                "name": "Blank",
+                "set": {},
+                "riff": 103
+              },
+              {
+                "name": "Round bass",
+                "set": {
+                  "cutoff": 1,
+                  "envAmt": 2,
+                  "sustain": 0,
+                  "res": 1
+                },
+                "riff": 107
+              },
+              {
+                "name": "Pad",
+                "set": {
+                  "voiceMode": 1,
+                  "attack": 3,
+                  "release": 3,
+                  "cutoff": 4
+                },
+                "riff": 109
+              },
+              {
+                "name": "Bell",
+                "set": {
+                  "wave": 3,
+                  "fmRatio": 3,
+                  "fmAmount": 3,
+                  "sustain": 0,
+                  "decay": 4
+                },
+                "riff": 112
+              },
+              {
+                "name": "Echoing pluck",
+                "set": {
+                  "sustain": 0,
+                  "decay": 1,
+                  "echoMix": 2,
+                  "echoTime": 2
+                },
+                "riff": 112
+              },
+              {
+                "name": "Singing lead",
+                "set": {
+                  "osc2Level": 3,
+                  "glide": 2,
+                  "lfoDepth": 1
+                },
+                "riff": 108
+              }
+            ]
+          }
         },
-        "riff": 109
-       },
-       {
-        "name": "Bell",
-        "set": {
-         "wave": 3,
-         "fmRatio": 3,
-         "fmAmount": 3,
-         "sustain": 0,
-         "decay": 4
-        },
-        "riff": 112
-       },
-       {
-        "name": "Echoing pluck",
-        "set": {
-         "sustain": 0,
-         "decay": 1,
-         "echoMix": 2,
-         "echoTime": 2
-        },
-        "riff": 112
-       },
-       {
-        "name": "Singing lead",
-        "set": {
-         "osc2Level": 3,
-         "glide": 2,
-         "lfoDepth": 1
-        },
-        "riff": 108
-       }
+        {
+          "type": "text",
+          "text": "This is how most synth players work, and the reason this course has taught one module at a time. A sound is a short list of decisions, and each decision belongs to one part of the panel. Once you know which part a decision belongs to, you can make a sound on a synth you've never seen."
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "This is how most synth players work, and the reason this course has taught one module at a time. A sound is a short list of decisions, and each decision belongs to one part of the panel. Once you know which part a decision belongs to, you can make a sound on a synth you've never seen."
-    }
-   ]
-  },
-  {
-   "title": "Five questions",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Faced with a sound to make, ask five questions, in the order the signal goes. **What is the source?** That is the wave or engine, and whether there is a second oscillator, noise or FM. **How bright is it, and does the brightness move?** That is the cutoff, the resonance and the filter envelope. **How does it start and stop?** That is the amplifier envelope. **What moves while it plays?** That is the LFO, the second envelope and the matrix. **What is around it?** That is the drive and the echo, and the voices, glide and arpeggiator."
-    },
-    {
-     "type": "text",
-     "text": "Most sounds need an answer to only two or three of the five. Answer the biggest one first, play, and then decide whether the next question matters at all. The first sound is a bass: dark, round, each note a soft pluck that dies away. Its answers are all in the filter and the envelope."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The blank patch on a bass line. Make the round bass.",
-     "task": "Make the round bass",
-     "goal": "match",
-     "options": {
-      "stage": 23,
-      "knobs": [
-       "wave",
-       "cutoff",
-       "res",
-       "envAmt",
-       "decay",
-       "sustain"
-      ],
-      "start": {},
-      "riff": 107,
-      "keys": 36,
-      "target": {
-       "name": "Round bass",
-       "set": {
-        "cutoff": 1,
-        "envAmt": 2,
-        "sustain": 0,
-        "res": 1
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Here the cutoff did most of the work, and the envelope amount gave each note its pluck. The sustain at zero made each note die away whether the key was held or not. That is what makes a bass sound plucked instead of held, like an organ's."
-    }
-   ]
-  },
-  {
-   "title": "A pad",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A **pad** is the soft carpet of chords under a song. Its source is plain, and the question that matters is how it starts and stops. A pad swells in and fades out, so the chords overlap and blur. It is also played as chords, so it needs more than one note at a time. The filter takes some of the edge off the saws."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Four chords on the blank patch, one note at a time. Make the pad.",
-     "task": "Make the pad",
-     "goal": "match",
-     "options": {
-      "stage": 23,
-      "knobs": [
-       "voiceMode",
-       "attack",
-       "release",
-       "cutoff",
-       "lfoDest",
-       "lfoDepth"
-      ],
-      "start": {},
-      "riff": 109,
-      "keys": 48,
-      "target": {
-       "name": "Pad",
-       "set": {
-        "voiceMode": 1,
-        "attack": 3,
-        "release": 3,
-        "cutoff": 4
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "The LFO wasn't needed this time, but a slow sweep of the cutoff is the usual next step for a pad. Try it: the pad breathes. Leaving knobs alone is part of the skill. Many sounds are good because only a few things in them happen."
-    }
-   ]
-  },
-  {
-   "title": "A bell",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A bell's source is not a filtered saw at all. Lesson 6 made one with FM: a sine moving another sine's pitch, which gives the clangorous partials of struck metal. Both the ratio and the amount were well up, and the oscillator was a sine. A bell also starts at once and rings away for a long time, even when the hammer is off the bell, so the envelope has no sustain and a long decay."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A plucked line on the blank patch. Make the bell.",
-     "task": "Make the bell",
-     "goal": "match",
-     "options": {
-      "stage": 23,
-      "knobs": [
-       "wave",
-       "fmRatio",
-       "fmAmount",
-       "attack",
-       "decay",
-       "sustain"
-      ],
-      "start": {},
-      "riff": 112,
-      "keys": 48,
-      "target": {
-       "name": "Bell",
-       "set": {
-        "wave": 3,
-        "fmRatio": 3,
-        "fmAmount": 3,
-        "sustain": 0,
-        "decay": 4
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Notice which questions you skipped. The filter stayed wide open, because FM made the brightness, and nothing moved. Two questions answered, five knobs turned, and it rings."
-    }
-   ]
-  },
-  {
-   "title": "An echoing pluck",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The fourth sound is about what is around it. The source is the plain saw and the envelope makes it short, but what you hear is the echo filling in the gaps between notes. Listen for the gap between a note and its repeat, and count it against the beat: lesson 8's echo times are in sixteenths."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A plucked line on the blank patch. Make the echoing pluck.",
-     "task": "Make the echoing pluck",
-     "goal": "match",
-     "options": {
-      "stage": 23,
-      "knobs": [
-       "decay",
-       "sustain",
-       "cutoff",
-       "echoTime",
-       "echoRepeats",
-       "echoMix"
-      ],
-      "start": {},
-      "riff": 112,
-      "keys": 48,
-      "target": {
-       "name": "Echoing pluck",
-       "set": {
-        "sustain": 0,
-        "decay": 1,
-        "echoMix": 2,
-        "echoTime": 2
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "A short sound with an echo set to a dotted eighth is a staple of guitar and synth parts alike. Each repeat falls between two notes, so a simple line becomes a rippling one."
-    }
-   ]
-  },
-  {
-   "title": "A singing lead",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The last sound is a lead: one line, meant to sing over everything else. Its source is a little thicker than one saw, because two oscillators slightly apart sound fuller. Its notes slide from one to the next, and once a note is held it starts to waver. That makes three questions: the source, what moves, and the slide between notes."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A slow line on the blank patch. Make the singing lead.",
-     "task": "Make the singing lead",
-     "goal": "match",
-     "options": {
-      "stage": 23,
-      "knobs": [
-       "osc2Level",
-       "osc2Detune",
-       "glide",
-       "legato",
-       "lfoDepth",
-       "lfoRate"
-      ],
-      "start": {},
-      "riff": 108,
-      "keys": 48,
-      "target": {
-       "name": "Singing lead",
-       "set": {
-        "osc2Level": 3,
-        "glide": 2,
-        "lfoDepth": 1
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "That's five sounds from one blank patch, each from a handful of decisions. On a real synth the next step after making a sound is to keep it."
-    }
-   ]
-  },
-  {
-   "title": "Keeping a sound",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A synth keeps its sounds in numbered places called **presets**, or programs, often arranged in banks. Choosing one loads all its settings at once. Turn a knob and the synth usually marks the preset as **edited**: what you hear is no longer what is stored. Choose another preset without saving, and your changes are gone."
-    },
-    {
-     "type": "text",
-     "text": "**Saving** writes the current settings into a place, and anything already there is lost. So the habit is to save into an empty place, or onto a copy, and to give the sound a name you'll recognise in a month. Most synths keep the blank patch under a name like Init, and many have a button or menu item that loads it. On a new synth, find three things first: how to load Init, how to save into a chosen place, and how to tell when a sound has been edited.[^compare]"
-    },
-    {
-     "type": "text",
-     "text": "A preset is also a good teacher. Load one you like, then ask the five questions of it: turn each knob, hear what it does, and set it back. The whole sound comes apart into a handful of decisions, and you can make it again from Init."
-    }
-   ]
-  },
-  {
-   "title": "What this course leaves out",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "This course has covered what is on the front panel of a typical modern mono synth, so you can stand in front of one and make it do what you want. It has left out a good deal on purpose. It doesn't teach music: scales, chords and rhythm belong to a different course. It doesn't cover **MIDI** and **clock**, the cables and settings that let a synth play along with other gear, which every manual covers in a chapter of its own. And it doesn't cover the **modular** synth, where every connection is a cable you choose. After the matrix (lesson 15), a modular is the same ideas with more freedom."
-    },
-    {
-     "type": "text",
-     "text": "The rest of the oscillators a synth may offer, such as wavetables, organs, plucked strings, talking synths, samples and grains, are in the Other oscillators branch. Each one is three more knobs with three new jobs. Reverb, the most common effect of all, is in the branch on the room around the synth. And the Synth lab holds the whole panel, with every knob you've learned, for as long as you want to play."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on building a sound",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is an init patch?",
-        "choices": [
-         "A blank starting point: one oscillator, an open filter, an organ envelope, nothing moving",
-         "The loudest preset",
-         "The synth's first factory sound"
-        ],
-        "answer": 0,
-        "why": "Init, from initialise, is where a sound built from nothing starts."
-       },
-       {
-        "ask": "In what order are the five questions asked?",
-        "choices": [
-         "The order the signal goes: source, brightness, start and stop, movement, surroundings",
-         "From the last knob to the first",
-         "Any order: they don't affect each other"
-        ],
-        "answer": 0,
-        "why": "Following the signal means each answer builds on the one before."
-       },
-       {
-        "ask": "A sound needs to swell in and fade out slowly. Which part of the panel?",
-        "choices": [
-         "The amplifier envelope's attack and release",
-         "The filter's resonance",
-         "The LFO's rate"
-        ],
-        "answer": 0,
-        "why": "How a sound starts and stops is the amplifier envelope."
-       },
-       {
-        "ask": "You've edited a preset and now choose another one without saving. What happens to your changes?",
-        "choices": [
-         "They are lost",
-         "They are saved automatically",
-         "They move to the next preset"
-        ],
-        "answer": 0,
-        "why": "An edited preset is only in the synth's working memory until it is saved."
-       },
-       {
-        "ask": "Why save a new sound into an empty place?",
-        "choices": [
-         "Saving writes over whatever was already in the place",
-         "Empty places sound better",
-         "The synth can only save into empty places"
-        ],
-        "answer": 0,
-        "why": "A save overwrites; an empty place or a copy keeps the old sound."
-       }
+      "title": "Five questions",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Faced with a sound to make, ask five questions, in the order the signal goes. **What is the source?** That is the wave or engine, and whether there is a second oscillator, noise or FM. **How bright is it, and does the brightness move?** That is the cutoff, the resonance and the filter envelope. **How does it start and stop?** That is the amplifier envelope. **What moves while it plays?** That is the LFO, the second envelope and the matrix. **What is around it?** That is the drive and the echo, and the voices, glide and arpeggiator."
+        },
+        {
+          "type": "text",
+          "text": "Most sounds need an answer to only two or three of the five. Answer the biggest one first, play, and then decide whether the next question matters at all. The first sound is a bass: dark and round, each note a soft pluck that dies away. Its answers are all in the filter and the envelope."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The blank patch on a bass line. Make the round bass.",
+          "task": "Make the round bass",
+          "goal": "match",
+          "options": {
+            "stage": 23,
+            "knobs": [
+              "wave",
+              "cutoff",
+              "res",
+              "envAmt",
+              "decay",
+              "sustain"
+            ],
+            "start": {},
+            "riff": 107,
+            "keys": 36,
+            "target": {
+              "name": "Round bass",
+              "set": {
+                "cutoff": 1,
+                "envAmt": 2,
+                "sustain": 0,
+                "res": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Here the cutoff did most of the work, and the envelope amount gave each note its pluck. The sustain at zero made each note die away whether the key was held or not. That is what makes a bass sound plucked instead of held like an organ."
+        }
       ]
-     }
+    },
+    {
+      "title": "A pad",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A **pad** is the soft carpet of chords under a song. Its source is plain, and the question that matters is how it starts and stops. A pad swells in and fades out, so the chords overlap and blur. It is also played as chords, so it needs more than one note at a time. The filter takes some of the edge off the saws."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Four chords on the blank patch, one note at a time. Make the pad.",
+          "task": "Make the pad",
+          "goal": "match",
+          "options": {
+            "stage": 23,
+            "knobs": [
+              "voiceMode",
+              "attack",
+              "release",
+              "cutoff",
+              "lfoDest",
+              "lfoDepth"
+            ],
+            "start": {},
+            "riff": 109,
+            "keys": 48,
+            "target": {
+              "name": "Pad",
+              "set": {
+                "voiceMode": 1,
+                "attack": 3,
+                "release": 3,
+                "cutoff": 4
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "The LFO wasn't needed this time, but a slow sweep of the cutoff is the usual next step for a pad. Try it: the pad breathes. Leaving knobs alone is part of the skill, and many sounds are good because only a few things in them happen."
+        }
+      ]
+    },
+    {
+      "title": "A bell",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A bell's source is not a filtered saw at all. Lesson 6 made one with FM: a sine moving another sine's pitch, which gives the clangorous partials of struck metal. Both the ratio and the amount were well up, and the oscillator was a sine. A bell also starts at once and rings away for a long time, even when the hammer is off the bell, so the envelope has no sustain and a long decay."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A plucked line on the blank patch. Make the bell.",
+          "task": "Make the bell",
+          "goal": "match",
+          "options": {
+            "stage": 23,
+            "knobs": [
+              "wave",
+              "fmRatio",
+              "fmAmount",
+              "attack",
+              "decay",
+              "sustain"
+            ],
+            "start": {},
+            "riff": 112,
+            "keys": 48,
+            "target": {
+              "name": "Bell",
+              "set": {
+                "wave": 3,
+                "fmRatio": 3,
+                "fmAmount": 3,
+                "sustain": 0,
+                "decay": 4
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Notice which questions you skipped. The filter stayed wide open, because FM made the brightness, and nothing moved. Two questions answered and five knobs turned, and it rings."
+        }
+      ]
+    },
+    {
+      "title": "An echoing pluck",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The fourth sound is about what is around it. The source is the plain saw and the envelope makes it short, but what you hear is the echo filling in the gaps between notes. Listen for the gap between a note and its repeat, and count it against the beat: lesson 8's echo times are in sixteenths."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A plucked line on the blank patch. Make the echoing pluck.",
+          "task": "Make the echoing pluck",
+          "goal": "match",
+          "options": {
+            "stage": 23,
+            "knobs": [
+              "decay",
+              "sustain",
+              "cutoff",
+              "echoTime",
+              "echoRepeats",
+              "echoMix"
+            ],
+            "start": {},
+            "riff": 112,
+            "keys": 48,
+            "target": {
+              "name": "Echoing pluck",
+              "set": {
+                "sustain": 0,
+                "decay": 1,
+                "echoMix": 2,
+                "echoTime": 2
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "A short sound with an echo set to a dotted eighth is a staple of guitar and synth parts alike. Each repeat falls between two notes, so a simple line becomes a rippling one."
+        }
+      ]
+    },
+    {
+      "title": "A singing lead",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The last sound is a lead: one line, meant to sing over everything else. Its source is a little thicker than one saw, because two oscillators slightly apart sound fuller. Its notes slide from one to the next, and once a note is held it starts to waver. That answers three questions: the source, what moves, and what is around it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A slow line on the blank patch. Make the singing lead.",
+          "task": "Make the singing lead",
+          "goal": "match",
+          "options": {
+            "stage": 23,
+            "knobs": [
+              "osc2Level",
+              "osc2Detune",
+              "glide",
+              "legato",
+              "lfoDepth",
+              "lfoRate"
+            ],
+            "start": {},
+            "riff": 108,
+            "keys": 48,
+            "target": {
+              "name": "Singing lead",
+              "set": {
+                "osc2Level": 3,
+                "glide": 2,
+                "lfoDepth": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "That's five sounds from one blank patch, each from a handful of decisions. On a real synth the next step after making a sound is to keep it."
+        }
+      ]
+    },
+    {
+      "title": "Keeping a sound",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A synth keeps its sounds in numbered places called **presets**, or programmes, often arranged in banks.[^prophet-5] Choosing one loads all its settings at once. Turn a knob and the synth usually marks the preset as **edited**: what you hear is no longer what is stored. Choose another preset without saving, and your changes are gone."
+        },
+        {
+          "type": "text",
+          "text": "**Saving** writes the current settings into a place, and anything already there is lost. So the habit is to save into an empty place, or onto a copy, and to give the sound a name you'll recognise in a month. Most synths keep the blank patch under a name like Init, and many have a button or menu item that loads it. On a new synth, find out how to load Init, how to save into a chosen place, and how to tell when a sound has been edited.[^compare]"
+        },
+        {
+          "type": "text",
+          "text": "A preset is also a good teacher. Load one you like, then ask the five questions of it: turn each knob, hear what it does, and set it back. The whole sound comes apart into a handful of decisions, and you can make it again from Init."
+        }
+      ]
+    },
+    {
+      "title": "What this course leaves out",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "This course has covered what is on the front panel of a typical modern synth, so you can stand in front of one and make it do what you want. It has left out a good deal on purpose. It doesn't teach music: scales, chords and rhythm belong to a different course. It doesn't cover **MIDI** and **clock**, the cables and settings that let a synth play along with other gear, which every manual covers in a chapter of its own. And it doesn't cover the **modular** synth, where every connection is a cable you choose. After the matrix (lesson 15), a modular is the same ideas with more freedom."
+        },
+        {
+          "type": "text",
+          "text": "The rest of the oscillators a synth may offer, such as wavetables, organs, plucked strings, talking synths, samples and grains, are in the Other oscillators branch. Each one is three more knobs with three new jobs. Reverb, the most common effect of all, is in the branch on the room around the synth. And the Synth lab holds the whole panel, with every knob you've learned, for as long as you want to play."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on building a sound",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is an init patch?",
+                "choices": [
+                  "A blank starting point: one oscillator, an open filter, an organ envelope, nothing moving",
+                  "The loudest preset",
+                  "The synth's first factory sound"
+                ],
+                "answer": 0,
+                "why": "Init, from initialise, is where a sound built from nothing starts."
+              },
+              {
+                "ask": "In what order are the five questions asked?",
+                "choices": [
+                  "The order the signal goes: source, brightness, start and stop, movement, surroundings",
+                  "From the last knob to the first",
+                  "Any order: they don't affect each other"
+                ],
+                "answer": 0,
+                "why": "Following the signal means each answer builds on the one before."
+              },
+              {
+                "ask": "A sound needs to swell in and fade out slowly. Which part of the panel?",
+                "choices": [
+                  "The amplifier envelope's attack and release",
+                  "The filter's resonance",
+                  "The LFO's rate"
+                ],
+                "answer": 0,
+                "why": "How a sound starts and stops is the amplifier envelope."
+              },
+              {
+                "ask": "You've edited a preset and now choose another one without saving. What happens to your changes?",
+                "choices": [
+                  "They are lost",
+                  "They are saved automatically",
+                  "They move to the next preset"
+                ],
+                "answer": 0,
+                "why": "An edited preset is only in the synth's working memory until it is saved."
+              },
+              {
+                "ask": "Why save a new sound into an empty place?",
+                "choices": [
+                  "Saving writes over whatever was already in the place",
+                  "Empty places sound better",
+                  "The synth can only save into empty places"
+                ],
+                "answer": 0,
+                "why": "A save overwrites; an empty place or a copy keeps the old sound."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**Start from the init patch**: one saw, an open filter, an organ envelope, nothing moving.",
-  "**Ask five questions in signal order**: source; brightness; start and stop; movement; what's around it.",
-  "**Most sounds need answers to only two or three**: answer the biggest first, then listen.",
-  "**A bass is mostly filter and envelope; a pad is mostly envelope and voices; a bell is mostly its source.**",
-  "**Presets hold whole sounds**; turning a knob marks one as edited.",
-  "**Saving writes over the place you save to**: use an empty one, and a name you'll recognise.",
-  "**A preset taken apart knob by knob** is the quickest way to learn how a sound is made.",
-  "**Music, MIDI and modular patching are outside this course**; other oscillators and reverb are in its branches."
- ],
- "footnotes": {
-  "compare": {
-   "kind": "technical",
-   "title": "Compare",
-   "text": "Some synths have a Compare button: while it is held, or switched on, you hear the preset as it is stored, and when it is released you hear your edit again. It is the quickest way to tell whether a change made a sound better. Others show the stored position of a knob on the screen as you turn it, so you can find your way back."
-  }
- },
- "journal": []
+  ],
+  "summary": [
+    "**Start from the init patch**: one saw, an open filter, an organ envelope, nothing moving.",
+    "**Ask five questions in signal order**: source; brightness; start and stop; movement; what's around it.",
+    "**Most sounds need answers to only two or three**: answer the biggest first, then listen.",
+    "**A bass is mostly filter and envelope; a pad is mostly envelope and voices; a bell is mostly its source.**",
+    "**Presets hold whole sounds**; turning a knob marks one as edited.",
+    "**Saving writes over the place you save to**: use an empty one, and a name you'll recognise.",
+    "**A preset taken apart knob by knob** is the quickest way to learn how a sound is made.",
+    "**Music, MIDI and modular patching are outside this course**; other oscillators and reverb are in its branches."
+  ],
+  "footnotes": {
+    "compare": {
+      "kind": "technical",
+      "title": "Compare",
+      "text": "Some synths have a Compare button: while it is held, or switched on, you hear the preset as it is stored, and when it is released you hear your edit again. It is the quickest way to tell whether a change made a sound better. Others show the stored position of a knob on the screen as you turn it, so you can find your way back."
+    },
+    "prophet-5": {
+      "kind": "digression",
+      "title": "Before presets",
+      "text": "On early synths, the only way to keep a sound was to draw the position of every knob on a printed paper chart. In 1978, Dave Smith and John Bowen built the Sequential Circuits Prophet-5 around a microprocessor that scanned the whole front panel and stored the voltage of every knob in memory. It held 40 programmes in five banks of eight, and a player on stage could jump from strings to brass with one button."
+    }
+  },
+  "journal": []
 }

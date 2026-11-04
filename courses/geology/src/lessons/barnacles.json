@@ -1,502 +1,512 @@
 {
- "id": "barnacles",
- "n": 20,
- "title": "Barnacles above the tide",
- "teaches": "How George Plafker read the 1964 Alaska earthquake from barnacles and drowned forests, and how a locked subduction zone lifts and drops a coast and starts a tsunami",
- "parts": [
-  {
-   "title": "Good Friday, 1964",
-   "blocks": [
+  "id": "barnacles",
+  "n": 20,
+  "title": "Barnacles above the tide",
+  "teaches": "How George Plafker read the 1964 Alaska earthquake from barnacles and drowned forests, and how a locked subduction zone lifts and drops a coast and starts a tsunami",
+  "parts": [
     {
-     "type": "text",
-     "text": "At 5:36 in the evening on 27 March 1964, Good Friday, the ground in southern Alaska began to shake, and kept shaking for about four and a half minutes. In Anchorage a whole neighbourhood on the bluffs above the sea, Turnagain Heights, slid towards the water as the clay under it gave way.[^turnagain] Waterfronts at Seward and Valdez slumped into the sea and set off local waves that swept the harbours. A tsunami crossed the Gulf of Alaska and the Pacific, killing people as far away as Oregon and Crescent City in California. In all about 130 people died, a small number for such an earthquake because the region was so thinly settled. At magnitude 9.2, it is still the largest earthquake recorded in North America.[^magnitude]"
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Turnagain Heights, Anchorage, after the 1964 earthquake: houses carried down and broken up as the bluff slid toward the sea.",
-     "options": {
-      "photo": "turnagain-slide",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "When the shaking stopped, the coast itself had changed. In some harbours the sea now came farther up the beach at high tide than it ever had; in others the docks stood high above the water even at high tide, and boats could not reach them. At Portage, at the head of Turnagain Arm, the land had dropped so far that the tide flooded the town and the forest around it; the salt water killed the spruce trees, which still stand there today as a grey ghost forest. Elsewhere, reefs that had always been under water were now dry, covered in dying seaweed and starfish."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "The ghost forest at Portage, Alaska: spruce trees killed when the ground sank about 2 m in the 1964 earthquake and the tide flooded their roots with salt water.",
-     "options": {
-      "photo": "portage-ghost-forest",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The 1964 Alaska earthquake, magnitude 9.2, shook southern Alaska for about four and a half minutes.",
-      "Parts of the coast rose out of the sea, and other parts sank so that the tide flooded towns and forests."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "A ruler made of barnacles",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "George Plafker, a geologist with the US Geological Survey, flew to Alaska within days. He wanted to map exactly how much the land had moved, and where. There were almost no survey marks along that wild coast, and tide gauges in only a few harbours. But the shoreline itself carried a ruler. On rocky coasts, barnacles and seaweeds such as rockweed live in bands at set heights relative to the tide: barnacles grow up to just below the level of an ordinary high tide, and no higher, because above that they dry out. Where the land had risen, the band of barnacles had been lifted out of the sea, and the dead, bleached shells now stood above the new high tide. Measuring the height of the top of the dead band above the level where living barnacles started to grow again gave the uplift, to within about 15 centimetres."
-    },
-    {
-     "type": "diagram",
-     "id": "barnacles",
-     "caption": "How the barnacle line measures uplift. Barnacles grow up to just below high tide. When the land rises, the band is lifted out of the water and dies; the height of its top above the new barnacle line is the uplift."
-    },
-    {
-     "type": "text",
-     "text": "Where the land had sunk (**subsidence**), the tide now reached higher up the shore than before, so Plafker used marks of how far up it now came: high tides reaching the bark of shoreline trees, beach ridges now under water, and the drowned forests and flooded docks. Over the summers of 1964 and 1965, travelling by boat, plane and helicopter, he and his colleagues measured hundreds of points along the coast of the Gulf of Alaska."
-    },
-    {
-     "type": "diagram",
-     "id": "map",
-     "caption": "Southern Alaska, with the ground that rose (green) and sank (red) in the 1964 earthquake, simplified from George Plafker's map. The dark line offshore is the Aleutian Trench, where the Pacific plate sinks under Alaska.",
-     "options": {
-      "relief": "maps/alaska1964",
-      "title": "Up and down in 1964",
-      "water": 0,
-      "alt": "A shaded relief map of southern Alaska from Kodiak Island to the Copper River. A band of uplift, shaded green, runs along the outer coast and offshore, parallel to the Aleutian Trench, including Montague and Middleton Islands. Inland of it, a parallel band of subsidence, shaded red, covers Kodiak Island, the Kenai Peninsula, Anchorage and the head of Prince William Sound.",
-      "areas": [
-       {
-        "points": [
-         [
-          -154.8,
-          56.4
-         ],
-         [
-          -153.5,
-          56.9
-         ],
-         [
-          -152.2,
-          57.45
-         ],
-         [
-          -151,
-          58.3
-         ],
-         [
-          -150,
-          59.2
-         ],
-         [
-          -149,
-          59.75
-         ],
-         [
-          -148,
-          60.25
-         ],
-         [
-          -147,
-          60.65
-         ],
-         [
-          -146,
-          60.85
-         ],
-         [
-          -145,
-          60.95
-         ],
-         [
-          -144,
-          61
-         ],
-         [
-          -144,
-          61.7
-         ],
-         [
-          -147,
-          61.9
-         ],
-         [
-          -150,
-          62
-         ],
-         [
-          -152,
-          61.4
-         ],
-         [
-          -153.6,
-          59.9
-         ],
-         [
-          -155.2,
-          58.4
-         ],
-         [
-          -155.6,
-          57.1
-         ]
-        ],
-        "color": "#c0392b",
-        "opacity": 0.35
-       },
-       {
-        "points": [
-         [
-          -154.8,
-          56.4
-         ],
-         [
-          -153.5,
-          56.9
-         ],
-         [
-          -152.2,
-          57.45
-         ],
-         [
-          -151,
-          58.3
-         ],
-         [
-          -150,
-          59.2
-         ],
-         [
-          -149,
-          59.75
-         ],
-         [
-          -148,
-          60.25
-         ],
-         [
-          -147,
-          60.65
-         ],
-         [
-          -146,
-          60.85
-         ],
-         [
-          -145,
-          60.95
-         ],
-         [
-          -144,
-          61
-         ],
-         [
-          -144,
-          59.6
-         ],
-         [
-          -145.5,
-          59.1
-         ],
-         [
-          -147.5,
-          58.7
-         ],
-         [
-          -150,
-          57.6
-         ],
-         [
-          -152,
-          56.6
-         ],
-         [
-          -154,
-          55.9
-         ],
-         [
-          -155.2,
-          55.9
-         ]
-        ],
-        "color": "#3f8f5a",
-        "opacity": 0.35
-       }
-      ],
-      "lines": [
-       {
-        "points": [
-         [
-          -156,
-          54.9
-         ],
-         [
-          -154,
-          55.5
-         ],
-         [
-          -152,
-          56.1
-         ],
-         [
-          -150,
-          56.9
-         ],
-         [
-          -148,
-          57.8
-         ],
-         [
-          -146.5,
-          58.6
-         ],
-         [
-          -145,
-          59.3
-         ],
-         [
-          -143.5,
-          59.6
-         ]
-        ],
-        "color": "ink",
-        "width": 2.5,
-        "dashed": true
-       }
-      ],
-      "labels": [
-       {
-        "lon": -149.9,
-        "lat": 61.22,
-        "text": "Anchorage"
-       },
-       {
-        "lon": -148.98,
-        "lat": 60.83,
-        "text": "Portage −2.3 m",
-        "side": "left"
-       },
-       {
-        "lon": -147.4,
-        "lat": 60.05,
-        "text": "Montague I. +10 m",
-        "side": "left"
-       },
-       {
-        "lon": -146.33,
-        "lat": 59.43,
-        "text": "Middleton I. +3.4 m"
-       },
-       {
-        "lon": -152.4,
-        "lat": 57.79,
-        "text": "Kodiak −1.7 m",
-        "side": "left"
-       },
-       {
-        "lon": -145.75,
-        "lat": 60.54,
-        "text": "Cordova +2 m"
-       },
-       {
-        "lon": -149.44,
-        "lat": 60.1,
-        "text": "Seward −1.1 m",
-        "side": "left"
-       }
-      ],
-      "key": [
-       {
-        "color": "#3f8f5a",
-        "text": "rose in the earthquake"
-       },
-       {
-        "color": "#c0392b",
-        "text": "sank in the earthquake"
-       }
-      ],
-      "scale": "right"
-     }
-    },
-    {
-     "type": "text",
-     "text": "The map showed two long bands, both running parallel to the Aleutian Trench, the deep trough in the sea floor offshore. Along the outer coast and the islands nearest the trench, the land had risen, by 3.5 metres on Middleton Island and by up to 11.3 metres on part of Montague Island. Behind that band, farther from the trench, a second band had sunk: Kodiak Island, the Kenai Peninsula, Anchorage and the head of Prince William Sound, by up to about 2.3 metres. Altogether, the ground had changed level over about 250,000 square kilometres, roughly the area of the United Kingdom."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Barnacles grow up to just below high tide, so a band of dead barnacles lifted above it measures how far the land rose.",
-      "Plafker's map showed a band of uplift near the Aleutian Trench and, behind it, a parallel band of subsidence.",
-      "The ground changed level over about 250,000 square kilometres."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "The fault under the sea",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "No single break at the surface could explain land rising and sinking across hundreds of kilometres. Some seismologists thought the earthquake had happened on a steep fault, but Plafker argued in 1965 that the pattern fitted something much larger: a fault that slopes gently from the Aleutian Trench down under Alaska, along which the edge of the continent had been shoved up and over the Pacific plate by 10 metres or more at once. Five years later, the Japanese seismologist Hiroo Kanamori reached the same answer independently from the earthquake's seismic waves. Plafker also studied the 1960 Chilean earthquake, the largest ever recorded, and found the same pattern there."
-    },
-    {
-     "type": "text",
-     "text": "This kind of fault is a **megathrust**: the boundary where one plate sinks beneath another at a subduction zone (lesson 11), the largest faults on Earth. Like any fault, it locks and slips (lesson 18), but its locking does something to the coast above it that a strike-slip fault cannot. While it is locked, the sinking plate drags the edge of the overriding plate down with it and squeezes it, so the edge near the trench, with any islands on it, is pulled down, while the squeezed crust behind it rucks up into a slow bulge, the way a rug pushed from one end rises in a fold. When the fault slips, the edge springs back: the part near the trench jumps up, and the bulge behind it collapses and drops. The band that rises in the earthquake is the band that had been pulled down for centuries before, and the band that sinks is the one that had been rising."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "megathrust",
-     "caption": "A subduction zone in cross-section, with an island near the trench, a coast town and an inland town. The vertical movements are exaggerated hundreds of times.",
-     "task": "Play the centuries to the earthquake, then the 20 minutes after it",
-     "goal": "wave",
-     "aspect_ratio": 1.54
-    },
-    {
-     "type": "text",
-     "text": "Because the sea floor rises over a band hundreds of kilometres long, it lifts the whole column of water above it. That lifted water flows outward as a **tsunami**, a wave that in deep water is less than a metre high but hundreds of kilometres long, moving at the speed of a jet airliner. As it reaches shallow water near a coast, it slows down and piles up. The coast behind the trench is hit twice: it has just sunk, so the sea reaches farther inland than before, and the tsunami arrives within minutes."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Rocks lifted out of the sea at Cape Cleare on Montague Island in 1964. The white band is the barnacles and other sea creatures that died when they were raised above the reach of the tide.",
-     "options": {
-      "photo": "montague-uplift",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "A megathrust is the gently sloping fault between two plates at a subduction zone; the largest earthquakes break megathrusts.",
-      "While locked, the sinking plate drags the coast near the trench down and makes the land behind it bulge up; in the earthquake both spring back.",
-      "So in the earthquake the coast nearest the trench rises and the land behind it sinks.",
-      "The sudden rise of the sea floor lifts the sea above it and starts a tsunami."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Signs left behind",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Plafker's work gave geologists a way to recognise a megathrust earthquake long after it happened. A coast that sinks suddenly leaves drowned forests and buried soils, covered by mud from the tide and often by a sheet of sand washed in by the tsunami. A coast that rises leaves old beaches and dead barnacles above the tide. Those signs last for centuries, long after anyone who felt the earthquake has died."
-    },
-    {
-     "type": "text",
-     "text": "That matters because the Pacific Northwest sits above a megathrust of its own. The Cascadia subduction zone runs offshore from northern California to Vancouver Island, where the Juan de Fuca plate sinks beneath North America (lesson 11). Until the 1980s it had no recorded large earthquake, and some geologists suspected it slid smoothly without locking. The Cascadia branch of this course follows how geologists, reading drowned forests along the Washington coast with Plafker's eyes, found that it had broken in a magnitude 9 earthquake, and worked out the very day."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Sudden subsidence leaves drowned forests and buried soils under tidal mud and tsunami sand; sudden uplift leaves raised beaches and dead barnacles.",
-      "These signs allow geologists to find megathrust earthquakes that happened before any records, as in Cascadia."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on megathrust earthquakes",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "How did Plafker use barnacles to measure how far the coast had risen?",
-        "choices": [
-         "Barnacles grow only up to just below high tide, so the height of a dead band above the new barnacle line gave the uplift",
-         "Barnacles grow a ring each year, so counting rings showed when the land rose",
-         "Barnacles cannot survive shaking, so where they had died showed where the shaking was worst"
-        ],
-        "answer": 0,
-        "why": "The upper limit of barnacle growth sits at a fixed height relative to the tide. Lifted above it, the band dies and is left as a mark of how far the rock rose."
-       },
-       {
-        "ask": "What did Plafker's map of the 1964 earthquake show?",
-        "choices": [
-         "A band of uplift near the trench and, farther inland, a parallel band of subsidence",
-         "Uplift everywhere, greatest at Anchorage",
-         "A single crack across the land with one side raised"
-        ],
-        "answer": 0,
-        "why": "The two bands, both parallel to the Aleutian Trench, pointed to a huge, gently sloping fault under the sea rather than a steep fault on land."
-       },
-       {
-        "ask": "A coast town stands farther from the trench than the islands that rose in the last great earthquake there. What will probably happen to it in the next one?",
-        "choices": [
-         "It probably drops, and the tide and the tsunami reach farther inland",
-         "It rises by several metres",
-         "It does not move up or down"
-        ],
-        "answer": 0,
-        "why": "The land behind the band nearest the trench bulges up slowly while the fault is locked and drops when it slips, as Portage, Anchorage and Kodiak did in 1964."
-       },
-       {
-        "ask": "Between earthquakes, what is happening to an island close to the trench above a locked megathrust?",
-        "choices": [
-         "It is slowly being pulled down by the sinking plate",
-         "It is slowly rising",
-         "It is not moving"
-        ],
-        "answer": 0,
-        "why": "The stuck plate drags the edge of the overriding plate down with it. In the earthquake the edge springs back up, which is why Montague and Middleton Islands rose."
-       },
-       {
-        "ask": "Why do megathrust earthquakes cause tsunamis?",
-        "choices": [
-         "The sea floor rises suddenly over a large area, lifting the water above it",
-         "The shaking makes waves on the surface of the sea",
-         "The trench swallows sea water, which then rushes back"
-        ],
-        "answer": 0,
-        "why": "When a band of sea floor hundreds of kilometres long jumps up by metres, the water above it is lifted with it and flows outward as a long, fast wave."
-       },
-       {
-        "ask": "A geologist digging in a tidal marsh finds a soil with tree roots in it, covered abruptly by a thin layer of sand and then by tidal mud. What might it record?",
-        "choices": [
-         "Land that sank suddenly in an earthquake, with a tsunami washing sand over it",
-         "A slow rise of sea level over thousands of years",
-         "A river flood that spread sand and then dried out"
-        ],
-        "answer": 0,
-        "why": "A sudden drop puts a forest soil into the tide's reach; the tsunami leaves a sand sheet on it, and tidal mud then buries it. This is the sign Cascadia's geologists looked for."
-       }
+      "title": "Good Friday, 1964",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At 5:36 in the evening on 27 March 1964, Good Friday, the ground in southern Alaska began to shake, and kept shaking for about four and a half minutes. In Anchorage a whole neighbourhood on the bluffs above the sea, Turnagain Heights, slid towards the water as the clay under it gave way.[^turnagain] Waterfronts at Seward and Valdez slumped into the sea and set off local waves that swept the harbours.[^valdez] A tsunami crossed the Gulf of Alaska and the Pacific, killing people as far away as Oregon and Crescent City in California. In all about 130 people died, a small number for such an earthquake because the region was so thinly settled. At magnitude 9.2, it is still the largest earthquake recorded in North America, and the second largest ever recorded anywhere.[^magnitude]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Turnagain Heights, Anchorage, after the 1964 earthquake: houses carried down and broken up as the bluff slid towards the sea.",
+          "options": {
+            "photo": "turnagain-slide",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "When the shaking stopped, the coast itself had changed. In some harbours the sea now came farther up the beach at high tide than it ever had; in others the docks stood high above the water even at high tide, and boats could not reach them. At Portage, at the head of Turnagain Arm, the land had dropped so far that the tide flooded the town and the forest around it; the salt water killed the spruce trees, which still stand there today as a grey ghost forest. Elsewhere, reefs that had always been underwater were now dry, covered in dying seaweed and starfish."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The ghost forest at Portage, Alaska: spruce trees killed when the ground sank about 2 m in the 1964 earthquake and the tide flooded their roots with salt water.",
+          "options": {
+            "photo": "portage-ghost-forest",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The 1964 Alaska earthquake, magnitude 9.2, shook southern Alaska for about four and a half minutes.",
+            "Parts of the coast rose out of the sea, and other parts sank so that the tide flooded towns and forests."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "A ruler made of barnacles",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "George Plafker, a geologist with the US Geological Survey, flew to Alaska within days. He wanted to map how much the land had moved, and where. There were almost no survey marks along that wild coast, and tide gauges in only a few harbours. Yet the shoreline itself carried a ruler. On rocky coasts, barnacles and seaweeds such as rockweed live in bands at set heights relative to the tide: barnacles grow up to just below the level of an ordinary high tide, and no higher, because above that they dry out. Where the land had risen, the band of barnacles had been lifted out of the sea, and the dead, bleached shells now stood above the new high tide. Measuring the height of the top of the dead band above the level where young barnacles started to grow again gave the uplift, to within about 15 centimetres."
+        },
+        {
+          "type": "diagram",
+          "id": "barnacles",
+          "caption": "How the barnacle line measures uplift. Barnacles grow up to just below high tide. When the land rises, the band is lifted out of the water and dies; the height of its top above the new barnacle line is the uplift."
+        },
+        {
+          "type": "text",
+          "text": "Where the land had sunk (**subsidence**), the tide now reached higher up the shore than before, so Plafker used marks of how far up it now came: high tides reaching the bark of shoreline trees, beach ridges now underwater, and the drowned forests and flooded docks. Over the summers of 1964 and 1965, travelling by boat, plane and helicopter, he and his colleagues measured hundreds of points along the coast of the Gulf of Alaska."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Southern Alaska, with the ground that rose (green) and sank (red) in the 1964 earthquake, simplified from George Plafker's map. The dark line offshore is the Aleutian Trench, where the Pacific plate sinks under Alaska.",
+          "options": {
+            "relief": "maps/alaska1964",
+            "title": "Up and down in 1964",
+            "water": 0,
+            "alt": "A shaded relief map of southern Alaska from Kodiak Island to the Copper River. A band of uplift, shaded green, runs along the outer coast and offshore, parallel to the Aleutian Trench, including Montague and Middleton Islands. Inland of it, a parallel band of subsidence, shaded red, covers Kodiak Island, the Kenai Peninsula, Anchorage and the head of Prince William Sound.",
+            "areas": [
+              {
+                "points": [
+                  [
+                    -154.8,
+                    56.4
+                  ],
+                  [
+                    -153.5,
+                    56.9
+                  ],
+                  [
+                    -152.2,
+                    57.45
+                  ],
+                  [
+                    -151,
+                    58.3
+                  ],
+                  [
+                    -150,
+                    59.2
+                  ],
+                  [
+                    -149,
+                    59.75
+                  ],
+                  [
+                    -148,
+                    60.25
+                  ],
+                  [
+                    -147,
+                    60.65
+                  ],
+                  [
+                    -146,
+                    60.85
+                  ],
+                  [
+                    -145,
+                    60.95
+                  ],
+                  [
+                    -144,
+                    61
+                  ],
+                  [
+                    -144,
+                    61.7
+                  ],
+                  [
+                    -147,
+                    61.9
+                  ],
+                  [
+                    -150,
+                    62
+                  ],
+                  [
+                    -152,
+                    61.4
+                  ],
+                  [
+                    -153.6,
+                    59.9
+                  ],
+                  [
+                    -155.2,
+                    58.4
+                  ],
+                  [
+                    -155.6,
+                    57.1
+                  ]
+                ],
+                "color": "#c0392b",
+                "opacity": 0.35
+              },
+              {
+                "points": [
+                  [
+                    -154.8,
+                    56.4
+                  ],
+                  [
+                    -153.5,
+                    56.9
+                  ],
+                  [
+                    -152.2,
+                    57.45
+                  ],
+                  [
+                    -151,
+                    58.3
+                  ],
+                  [
+                    -150,
+                    59.2
+                  ],
+                  [
+                    -149,
+                    59.75
+                  ],
+                  [
+                    -148,
+                    60.25
+                  ],
+                  [
+                    -147,
+                    60.65
+                  ],
+                  [
+                    -146,
+                    60.85
+                  ],
+                  [
+                    -145,
+                    60.95
+                  ],
+                  [
+                    -144,
+                    61
+                  ],
+                  [
+                    -144,
+                    59.6
+                  ],
+                  [
+                    -145.5,
+                    59.1
+                  ],
+                  [
+                    -147.5,
+                    58.7
+                  ],
+                  [
+                    -150,
+                    57.6
+                  ],
+                  [
+                    -152,
+                    56.6
+                  ],
+                  [
+                    -154,
+                    55.9
+                  ],
+                  [
+                    -155.2,
+                    55.9
+                  ]
+                ],
+                "color": "#3f8f5a",
+                "opacity": 0.35
+              }
+            ],
+            "lines": [
+              {
+                "points": [
+                  [
+                    -156,
+                    54.9
+                  ],
+                  [
+                    -154,
+                    55.5
+                  ],
+                  [
+                    -152,
+                    56.1
+                  ],
+                  [
+                    -150,
+                    56.9
+                  ],
+                  [
+                    -148,
+                    57.8
+                  ],
+                  [
+                    -146.5,
+                    58.6
+                  ],
+                  [
+                    -145,
+                    59.3
+                  ],
+                  [
+                    -143.5,
+                    59.6
+                  ]
+                ],
+                "color": "ink",
+                "width": 2.5,
+                "dashed": true
+              }
+            ],
+            "labels": [
+              {
+                "lon": -149.9,
+                "lat": 61.22,
+                "text": "Anchorage"
+              },
+              {
+                "lon": -148.98,
+                "lat": 60.83,
+                "text": "Portage −2.3 m",
+                "side": "left"
+              },
+              {
+                "lon": -147.4,
+                "lat": 60.05,
+                "text": "Montague I. +10 m",
+                "side": "left"
+              },
+              {
+                "lon": -146.33,
+                "lat": 59.43,
+                "text": "Middleton I. +3.4 m"
+              },
+              {
+                "lon": -152.4,
+                "lat": 57.79,
+                "text": "Kodiak −1.7 m",
+                "side": "left"
+              },
+              {
+                "lon": -145.75,
+                "lat": 60.54,
+                "text": "Cordova +2 m"
+              },
+              {
+                "lon": -149.44,
+                "lat": 60.1,
+                "text": "Seward −1.1 m",
+                "side": "left"
+              }
+            ],
+            "key": [
+              {
+                "color": "#3f8f5a",
+                "text": "rose in the earthquake"
+              },
+              {
+                "color": "#c0392b",
+                "text": "sank in the earthquake"
+              }
+            ],
+            "scale": "right"
+          }
+        },
+        {
+          "type": "text",
+          "text": "The map showed two long bands, both running parallel to the Aleutian Trench, the deep trough in the sea floor offshore. Along the outer coast and the islands nearest the trench, the land had risen, by 3.5 metres on Middleton Island and by up to 11.3 metres on part of Montague Island.[^montague] Behind that band, farther from the trench, a second band had sunk: Kodiak Island, the Kenai Peninsula, Anchorage and the head of Prince William Sound, by up to about 2.3 metres. Altogether, the ground had changed level over about 250,000 square kilometres, roughly the area of the United Kingdom."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Barnacles grow up to just below high tide, so a band of dead barnacles lifted above it measures how far the land rose.",
+            "Plafker's map showed a band of uplift near the Aleutian Trench and, behind it, a parallel band of subsidence.",
+            "The ground changed level over about 250,000 square kilometres."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "The fault under the sea",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "No single break at the surface could explain land rising and sinking across hundreds of kilometres. Some seismologists thought the earthquake had happened on a steep fault, because two patterns of fault slip can give the same distant seismic waves, and they picked the steep one. Plafker argued in 1965 that the map of uplift and subsidence fitted the other: a fault that slopes gently from the Aleutian Trench down under Alaska, along which the edge of the continent had been shoved up and over the Pacific plate by 10 metres or more at once. Five years later, the Japanese seismologist Hiroo Kanamori confirmed that slip on the gently sloping fault explained the earthquake's longest seismic waves. Plafker also studied the 1960 Chilean earthquake, the largest ever recorded, and found the same pattern there."
+        },
+        {
+          "type": "text",
+          "text": "This kind of fault is a **megathrust**: the boundary where one plate sinks beneath another at a subduction zone (lesson 11), the largest faults on Earth. Like any fault, it locks and slips (lesson 18), but its locking does something to the coast above it that a strike-slip fault cannot. While it is locked, the sinking plate drags the edge of the overriding plate down with it and squeezes it, so the edge near the trench, with any islands on it, is pulled down, while the squeezed crust behind it rucks up into a slow bulge, the way a rug pushed from one end rises in a fold. When the fault slips, the edge springs back: the part near the trench jumps up, and the bulge behind it collapses and drops. The band that rises in the earthquake is the band that had been pulled down for centuries before, and the band that sinks is the one that had been rising."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "megathrust",
+          "caption": "A subduction zone in cross-section, with an island near the trench, a coast town and an inland town. The vertical movements are exaggerated hundreds of times.",
+          "task": "Play the centuries to the earthquake, then the 20 minutes after it",
+          "goal": "wave",
+          "aspect_ratio": 1.54
+        },
+        {
+          "type": "text",
+          "text": "Because the sea floor rises over a band hundreds of kilometres long, it lifts the whole column of water above it. That lifted water flows outward as a **tsunami**, a wave that in deep water is less than a metre high but hundreds of kilometres long, moving at the speed of a jet airliner. As it reaches shallow water near a coast, it slows down and piles up. The coast behind the trench is hit twice: it has just sunk, so the sea reaches farther inland than before, and the tsunami arrives within minutes."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Rocks lifted out of the sea at Cape Cleare on Montague Island in 1964. The white band is the barnacles and other sea creatures that died when they were raised above the reach of the tide.",
+          "options": {
+            "photo": "montague-uplift",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "A megathrust is the gently sloping fault between two plates at a subduction zone; the largest earthquakes break megathrusts.",
+            "While locked, the sinking plate drags the coast near the trench down and makes the land behind it bulge up; in the earthquake both spring back.",
+            "So in the earthquake the coast nearest the trench rises and the land behind it sinks.",
+            "The sudden rise of the sea floor lifts the sea above it and starts a tsunami."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Signs left behind",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Plafker's work gave geologists a way to recognise a megathrust earthquake long after it happened. A coast that sinks suddenly leaves drowned forests and buried soils, covered by mud from the tide and often by a sheet of sand washed in by the tsunami. A coast that rises leaves old beaches and dead barnacles above the tide. Those signs last for centuries, long after anyone who felt the earthquake has died."
+        },
+        {
+          "type": "text",
+          "text": "That matters because the Pacific Northwest sits above a megathrust of its own. The Cascadia subduction zone runs offshore from northern California to Vancouver Island, where the Juan de Fuca plate sinks beneath North America (lesson 11). Until the 1980s it had no known large earthquake, and some geologists suspected it slid smoothly without locking. The Cascadia branch of this course follows how geologists, reading drowned forests along the Washington coast with Plafker's eyes, found that it had broken in a magnitude 9 earthquake, and worked out the very day."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Sudden subsidence leaves drowned forests and buried soils under tidal mud and tsunami sand; sudden uplift leaves raised beaches and dead barnacles.",
+            "These signs allow geologists to find megathrust earthquakes that happened before written records, as in Cascadia."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on megathrust earthquakes",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "How did Plafker use barnacles to measure how far the coast had risen?",
+                "choices": [
+                  "Barnacles grow only up to just below high tide, so the height of a dead band above the new barnacle line gave the uplift",
+                  "Barnacles grow a ring each year, so counting rings showed when the land rose",
+                  "Barnacles cannot survive shaking, so where they had died showed where the shaking was worst"
+                ],
+                "answer": 0,
+                "why": "The upper limit of barnacle growth sits at a fixed height relative to the tide. Lifted above it, the band dies and is left as a mark of how far the rock rose."
+              },
+              {
+                "ask": "What did Plafker's map of the 1964 earthquake show?",
+                "choices": [
+                  "A band of uplift near the trench and, farther inland, a parallel band of subsidence",
+                  "Uplift everywhere, greatest at Anchorage",
+                  "A single crack across the land with one side raised"
+                ],
+                "answer": 0,
+                "why": "The two bands, both parallel to the Aleutian Trench, pointed to a huge, gently sloping fault under the sea rather than a steep fault on land."
+              },
+              {
+                "ask": "A coast town stands farther from the trench than the islands that rose in the last great earthquake there. What will probably happen to it in the next one?",
+                "choices": [
+                  "It probably drops, and the tide and the tsunami reach farther inland",
+                  "It rises by several metres",
+                  "It does not move up or down"
+                ],
+                "answer": 0,
+                "why": "The land behind the band nearest the trench bulges up slowly while the fault is locked and drops when it slips, as Portage, Anchorage and Kodiak did in 1964."
+              },
+              {
+                "ask": "Between earthquakes, what is happening to an island close to the trench above a locked megathrust?",
+                "choices": [
+                  "It is slowly being pulled down by the sinking plate",
+                  "It is slowly rising",
+                  "It is not moving"
+                ],
+                "answer": 0,
+                "why": "The stuck plate drags the edge of the overriding plate down with it. In the earthquake the edge springs back up, which is why Montague and Middleton Islands rose."
+              },
+              {
+                "ask": "Why do megathrust earthquakes cause tsunamis?",
+                "choices": [
+                  "The sea floor rises suddenly over a large area, lifting the water above it",
+                  "The shaking makes waves on the surface of the sea",
+                  "The trench swallows sea water, which then rushes back"
+                ],
+                "answer": 0,
+                "why": "When a band of sea floor hundreds of kilometres long jumps up by metres, the water above it is lifted with it and flows outward as a long, fast wave."
+              },
+              {
+                "ask": "A geologist digging in a tidal marsh finds a soil with tree roots in it, covered abruptly by a thin layer of sand and then by tidal mud. What might it record?",
+                "choices": [
+                  "Land that sank suddenly in an earthquake, with a tsunami washing sand over it",
+                  "A slow rise of sea level over thousands of years",
+                  "A river flood that spread sand and then dried out"
+                ],
+                "answer": 0,
+                "why": "A sudden drop puts a forest soil into the tide's reach; the tsunami leaves a sand sheet on it, and tidal mud then buries it. This is the sign Cascadia's geologists looked for."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**1964 moved a coast.** The magnitude 9.2 Alaska earthquake lifted some shores out of the sea and sank others.",
+    "**Barnacles measure uplift.** They grow up to just below high tide, so a dead band above it shows how far the rock rose.",
+    "**Two bands, parallel to the trench.** Plafker's map showed uplift near the Aleutian Trench and subsidence behind it.",
+    "**A megathrust broke.** The gently sloping fault between the plates slipped 10 metres or more, which seismic waves later confirmed.",
+    "**Between earthquakes the motion runs in reverse.** The locked plate drags the edge near the trench down and the land behind bulges up.",
+    "**A rising sea floor makes a tsunami.** The water lifted above it runs off as a long, fast wave.",
+    "**The signs outlast memory.** Drowned forests, buried soils and tsunami sands record megathrust earthquakes long after they happen."
+  ],
+  "journal": [],
+  "footnotes": {
+    "turnagain": {
+      "kind": "digression",
+      "title": "Turnagain Heights",
+      "text": "The bluff under Turnagain Heights is the Bootlegger Cove Clay, with layers of sensitive clay that lost most of its strength when shaken. About 75 houses were destroyed as the bluff broke into blocks and slid towards Cook Inlet."
+    },
+    "magnitude": {
+      "kind": "digression",
+      "title": "Measuring a giant",
+      "text": "At the time the earthquake was rated about 8.4 on the scales then in use, which could not measure earthquakes so large (lesson 18). Hiroo Kanamori's moment magnitude, worked out in the late 1970s, put it at 9.2."
+    },
+    "valdez": {
+      "kind": "digression",
+      "title": "Valdez moved town",
+      "text": "At Valdez, built on the loose sediment of a glacial delta, 28 million cubic metres of the waterfront gave way underwater, taking the docks and 32 people on them and sending a local wave up to 50 metres high against the shore of the inlet. The surviving town was rebuilt on bedrock 6 kilometres away."
+    },
+    "montague": {
+      "kind": "technical",
+      "title": "The jump on Montague Island",
+      "text": "Most of the coast rose above the main megathrust without the fault itself breaking the surface on land. On Montague Island, however, a steep branch fault rising off the megathrust, the Patton Bay fault, broke right through to the surface and lifted one side of the island by up to 11.3 metres."
+    }
   }
- ],
- "summary": [
-  "**1964 moved a coast.** The magnitude 9.2 Alaska earthquake lifted some shores out of the sea and sank others.",
-  "**Barnacles measure uplift.** They grow up to just below high tide, so a dead band above it shows how far the rock rose.",
-  "**Two bands, parallel to the trench.** Plafker's map showed uplift near the Aleutian Trench and subsidence behind it.",
-  "**A megathrust broke.** The gently sloping fault between the plates slipped 10 metres or more, which seismic waves later confirmed.",
-  "**Between earthquakes the motion runs in reverse.** The locked plate drags the edge near the trench down and the land behind bulges up.",
-  "**A rising sea floor makes a tsunami.** The water lifted above it runs off as a long, fast wave.",
-  "**The signs outlast memory.** Drowned forests, buried soils and tsunami sands record megathrust earthquakes long after they happen."
- ],
- "journal": [],
- "footnotes": {
-  "turnagain": {
-   "kind": "digression",
-   "title": "Turnagain Heights",
-   "text": "The bluff under Turnagain Heights is the Bootlegger Cove Clay, with layers of sensitive clay that lost most of its strength when shaken. About 75 houses were destroyed as the bluff broke into blocks and slid toward Cook Inlet."
-  },
-  "magnitude": {
-   "kind": "digression",
-   "title": "Measuring a giant",
-   "text": "At the time the earthquake was rated about 8.4 on the scales then in use, which could not measure earthquakes so large (lesson 18). Hiroo Kanamori's moment magnitude, worked out in the late 1970s, put it at 9.2."
-  }
- }
 }

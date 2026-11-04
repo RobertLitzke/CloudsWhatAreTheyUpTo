@@ -1,430 +1,430 @@
 {
- "id": "tape",
- "n": 3,
- "title": "The bell with its start cut off",
- "teaches": "The envelope: how a note starts, holds and ends shapes what instrument we think it is",
- "parts": [
-  {
-   "title": "A razor and a bell",
-   "blocks": [
+  "id": "tape",
+  "n": 3,
+  "title": "The bell with its start cut off",
+  "teaches": "The envelope: how a note starts, holds and ends shapes what instrument we think it is",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The mystery.** In 1948 the radio engineer [[Pierre Schaeffer]] was working in a studio of French radio in Paris, recording sounds onto lacquer discs and playing them back in every way the machines allowed: backwards, faster, slower, in loops. One day he recorded a struck bell and played it back with the first moment, the clang of the hammer, cut away. What was left no longer sounded like a bell. It sounded like an oboe, or a flute: a smooth, held tone.[^cloche]"
-    },
-    {
-     "type": "text",
-     "text": "Nothing about the bell's harmonics had changed. Schaeffer had removed only a fraction of a second at the start. Later experimenters found the same with pianos, trumpets and violins: cut off the first part of a note and listeners struggle to name the instrument, and a piano with its start removed is easily mistaken for an organ or a harmonium.[^attack] The beginning of a note, it turns out, does much of the work of telling us what made it."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "Pierre Schaeffer in 1960, twelve years after he cut the start off a bell.",
-     "options": {
-      "photo": "schaeffer",
-      "aspect": 0.8,
-      "position": "50% 25%"
-     }
-    },
-    {
-     "type": "text",
-     "text": "The synth can play the same trick. Below are three notes with exactly the same harmonics: the same wave through the same filter. Only their shape in time differs. One is an organ, one a bowed string, one a plucked harp."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "The same oscillator and filter, three instruments",
-     "options": {
-      "stage": 3,
-      "riff": 72,
-      "start": {
-       "wave": 0,
-       "cutoff": 2,
-       "res": 1,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 4,
-       "release": 0,
-       "envAmt": 0
-      },
-      "sounds": [
-       {
-        "name": "Organ",
-        "set": {}
-       },
-       {
-        "name": "Bowed",
-        "set": {
-         "attack": 3,
-         "sustain": 4,
-         "release": 3
+      "title": "An interrupted bell",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The mystery.** In 1948 the radio engineer [[Pierre Schaeffer]] was working in a studio of French radio in Paris, recording sounds onto lacquer discs and playing them back in every way the machines allowed: backwards, faster, slower, in loops. One day he recorded a struck bell, catching the sound only after the hammer hit, with the first clang left out. What remained no longer sounded like a bell. It sounded like an oboe: a smooth, held tone.[^cloche]"
+        },
+        {
+          "type": "text",
+          "text": "Nothing about the bell's ringing harmonics had changed. Schaeffer had left out only a fraction of a second at the start. Later experimenters found the same with pianos, trumpets and violins: cut off the first part of a note and listeners struggle to name the instrument, and a piano with its start removed is easily mistaken for an organ or a harmonium.[^attack] The beginning of a note, it turns out, does much of the work of telling us what made it."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "Pierre Schaeffer in 1960, twelve years after his bell experiment.",
+          "options": {
+            "photo": "schaeffer",
+            "aspect": 0.8,
+            "position": "50% 25%"
+          }
+        },
+        {
+          "type": "text",
+          "text": "The synth can play the same trick. Below are three notes with the same harmonics: the same wave through the same filter. Only their shape in time differs. One is an organ, one a bowed string, one a plucked harp."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "The same oscillator and filter, three instruments",
+          "options": {
+            "stage": 3,
+            "riff": 72,
+            "start": {
+              "wave": 0,
+              "cutoff": 2,
+              "res": 1,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 4,
+              "release": 0,
+              "envAmt": 0
+            },
+            "sounds": [
+              {
+                "name": "Organ",
+                "set": {}
+              },
+              {
+                "name": "Bowed",
+                "set": {
+                  "attack": 3,
+                  "sustain": 4,
+                  "release": 3
+                }
+              },
+              {
+                "name": "Plucked harp",
+                "set": {
+                  "decay": 2,
+                  "sustain": 0,
+                  "release": 2,
+                  "envAmt": 3
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "A synth shapes every note in time with an **[[envelope]]**: four settings that describe how the note starts, how it settles, how loud it holds and how it ends. By the end of the lesson you will turn the organ into the harp."
         }
-       },
-       {
-        "name": "Plucked harp",
-        "set": {
-         "decay": 2,
-         "sustain": 0,
-         "release": 2,
-         "envAmt": 3
-        }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "A synth shapes every note in time with an **[[envelope]]**: four settings that describe how the note starts, how it settles, how long it holds and how it ends. By the end of the lesson you will turn the organ into the harp."
-    }
-   ]
-  },
-  {
-   "title": "Attack",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**Attack** is how long a note takes to reach full volume after a key goes down. Short, and the note starts with a click, like a plucked or struck string. Long, and it swells in, like a bowed string or a choir."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Each note of the riff gets the envelope. Lengthen the attack.",
-     "task": "Raise Attack to 250 ms or more, so the notes swell in",
-     "goal": "attack-slow",
-     "options": {
-      "stage": 3,
-      "knobs": [
-       "attack"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 4,
-       "release": 1,
-       "envAmt": 0
-      },
-      "riff": 72
-     }
-    }
-   ]
-  },
-  {
-   "title": "Decay and sustain",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "After the attack, the note falls to the **sustain** level and holds there for as long as the key is down. **Decay** is how long that fall takes. Sustain is a level, not a time, and that is the usual thing to mix up. A piano note has no sustain at all: from the moment the hammer hits, the string loses energy and the note dies away whether you hold the key or not. An organ has full sustain: the pipe sounds unchanged until you let go. Most instruments lie somewhere between."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Two knobs as one square: across is decay, up is sustain.",
-     "task": "Make a pluck: Sustain at 0 %, Decay at 120 ms or shorter",
-     "goal": "pluck",
-     "options": {
-      "stage": 3,
-      "pad": [
-       "decay",
-       "sustain"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 1,
-       "release": 1,
-       "envAmt": 0
-      },
-      "riff": 72
-     }
-    },
-    {
-     "type": "text",
-     "text": "With sustain at half or more there is little left to fall, so the decay knob has almost nothing to do and goes dark."
-    }
-   ]
-  },
-  {
-   "title": "Release",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**Release** is how long the note takes to fade after the key comes up. Short, and each note stops dead. Long, and every note rings on under the next, the way a piano does with its sustain pedal down, or a voice in a stone church."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Set the release.",
-     "task": "Raise Release to 600 ms or more and hear the notes run together",
-     "goal": "release-long",
-     "options": {
-      "stage": 3,
-      "knobs": [
-       "release"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 3,
-       "release": 0,
-       "envAmt": 0
-      },
-      "riff": 72
-     }
-    },
-    {
-     "type": "text",
-     "text": "Attack, decay, sustain, release: the four together are an **ADSR** envelope. The composer Vladimir Ussachevsky of the Columbia-Princeton studio asked Robert Moog for an envelope in these four stages in the mid-1960s, and the letters, made standard by the ARP company's instruments a few years later, are printed on nearly every synth since.[^adsr]"
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "An ARP 2600, first sold in 1971. Its envelope sliders are marked attack, decay, sustain and release.",
-     "options": {
-      "photo": "arp-2600",
-      "aspect": 1.5
-     }
-    }
-   ]
-  },
-  {
-   "title": "A note that darkens as it fades",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Real instruments do more than get quieter. Pluck a guitar string and listen closely: the first instant is bright, and the note grows mellower as it rings, because the high harmonics lose their energy faster than the low ones. Hit a piano key harder and the note is not only louder but brighter. In the world, loud and bright go together, and so do fading and darkening."
-    },
-    {
-     "type": "text",
-     "text": "A synth copies this by sending the same envelope to the filter as well as to the volume. **Env amt** says how far each note opens the filter, counted in octaves above the cutoff. Each note then starts bright and settles darker along the decay. It needs a low cutoff, to leave room above it."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The filter's cutoff set low, with the envelope sending each note up through it.",
-     "task": "Open Env amt to 2 octaves or more",
-     "goal": "env-filter",
-     "options": {
-      "stage": 3,
-      "knobs": [
-       "envAmt",
-       "decay"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 2,
-       "res": 1,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 1,
-       "release": 1,
-       "envAmt": 0
-      },
-      "riff": 72,
-      "examples": [
-       {
-        "name": "Pluck",
-        "set": {
-         "attack": 0,
-         "decay": 1,
-         "sustain": 0,
-         "release": 1,
-         "envAmt": 0
+      "title": "Attack",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Attack** is how long a note takes to reach full volume after a key goes down. Short, and the note starts with a click, like a plucked or struck string. Long, and it swells in, like a bowed string or a choir."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Each note of the riff gets the envelope. Lengthen the attack.",
+          "task": "Raise Attack to 250 ms or more, so the notes swell in",
+          "goal": "attack-slow",
+          "options": {
+            "stage": 3,
+            "knobs": [
+              "attack"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 4,
+              "release": 1,
+              "envAmt": 0
+            },
+            "riff": 72
+          }
         }
-       },
-       {
-        "name": "Swell",
-        "set": {
-         "attack": 3,
-         "decay": 2,
-         "sustain": 3,
-         "release": 2,
-         "envAmt": 0
-        }
-       },
-       {
-        "name": "Organ",
-        "set": {
-         "attack": 0,
-         "decay": 2,
-         "sustain": 4,
-         "release": 0,
-         "envAmt": 0
-        }
-       },
-       {
-        "name": "Filter pluck",
-        "set": {
-         "attack": 0,
-         "decay": 2,
-         "sustain": 1,
-         "release": 1,
-         "envAmt": 3
-        }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "This one connection, an envelope sweeping a resonant filter, is behind most of the classic synth sounds: the “bwow” of a synth brass section, the squelch of a bass line, the plink of a synth harp."
-    }
-   ]
-  },
-  {
-   "title": "Organ into harp",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Back to the three instruments from the start. The organ holds every note at full volume and full brightness until the key comes up. The harp is struck: it starts bright and dies away, darkening as it goes, whether the key is held or not. Which knobs say “dies away even while held”, and how fast? Which one says “starts bright”?"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The organ's envelope, with the harp to match.",
-     "task": "Turn the organ into the harp",
-     "goal": "match",
-     "options": {
-      "target": {
-       "name": "The harp",
-       "set": {
-        "decay": 2,
-        "sustain": 0,
-        "envAmt": 3
-       }
-      },
-      "stage": 3,
-      "knobs": [
-       "envAmt",
-       "decay",
-       "sustain"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 2,
-       "res": 1,
-       "attack": 0,
-       "decay": 0,
-       "sustain": 4,
-       "release": 2,
-       "envAmt": 0
-      },
-      "riff": 72
-     }
-    },
-    {
-     "type": "text",
-     "text": "Nothing about the oscillator moved. Schaeffer's razor and these three knobs do the same thing: they change a sound's shape in time, and the ear changes its mind about what made it."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on envelopes",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "Schaeffer cut the first moment off a recorded bell. What happened?",
-        "choices": [
-         "It no longer sounded like a bell",
-         "It sounded the same",
-         "It went up in pitch"
-        ],
-        "answer": 0,
-        "why": "The start of a note carries much of what tells us what made it; without it the bell sounded like a smooth wind instrument."
-       },
-       {
-        "ask": "Which envelope setting is a level, not a time?",
-        "choices": [
-         "Sustain",
-         "Decay",
-         "Release"
-        ],
-        "answer": 0,
-        "why": "Attack, decay and release are times. Sustain is the level the note holds at while the key is down."
-       },
-       {
-        "ask": "Which envelope best matches a piano note?",
-        "choices": [
-         "Short attack, no sustain, a long decay",
-         "Long attack, full sustain",
-         "Short attack, full sustain, no release"
-        ],
-        "answer": 0,
-        "why": "A struck string starts at once and dies away even while the key is held."
-       },
-       {
-        "ask": "You set a long release. What do you hear?",
-        "choices": [
-         "Notes ring on and overlap after the keys come up",
-         "Notes swell in slowly",
-         "Notes stop dead"
-        ],
-        "answer": 0,
-        "why": "Release is the fade after the key is let go; a long one makes notes run together."
-       },
-       {
-        "ask": "Why do synths send the envelope to the filter too?",
-        "choices": [
-         "Real notes start bright and get darker as they fade",
-         "To make notes louder",
-         "To change their pitch"
-        ],
-        "answer": 0,
-        "why": "High harmonics die fastest in a real instrument; a filter envelope copies that."
-       },
-       {
-        "ask": "With Sustain at 100 %, why does Decay go dark?",
-        "choices": [
-         "There is nothing to fall to: the note stays at full volume",
-         "The filter is closed",
-         "The attack is too long"
-        ],
-        "answer": 0,
-        "why": "Decay is the fall from the peak to the sustain level; at full sustain there is no fall."
-       }
+      "title": "Decay and sustain",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "After the attack, the note falls to the **sustain** level and holds there for as long as the key is down. **Decay** is how long that fall takes. Sustain is a level, not a time, and that is the usual thing to mix up. A piano note has no sustain at all: from the moment the hammer hits, the string loses energy and the note dies away whether you hold the key or not. An organ has full sustain: the pipe sounds unchanged until you let go. Most instruments lie somewhere between."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Two knobs as one square: across is decay, up is sustain.",
+          "task": "Make a pluck: Sustain at 0 %, Decay at 120 ms or shorter",
+          "goal": "pluck",
+          "options": {
+            "stage": 3,
+            "pad": [
+              "decay",
+              "sustain"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 1,
+              "release": 1,
+              "envAmt": 0
+            },
+            "riff": 72
+          }
+        },
+        {
+          "type": "text",
+          "text": "With sustain at half or more there is little left to fall, so the decay knob has almost nothing to do and goes dark."
+        }
       ]
-     }
+    },
+    {
+      "title": "Release",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Release** is how long the note takes to fade after the key comes up. Short, and each note stops dead. Long, and every note rings on under the next, the way a piano does with its sustain pedal down, or a voice in a stone church."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Set the release.",
+          "task": "Raise Release to 600 ms or more and hear the notes run together",
+          "goal": "release-long",
+          "options": {
+            "stage": 3,
+            "knobs": [
+              "release"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 3,
+              "release": 0,
+              "envAmt": 0
+            },
+            "riff": 72
+          }
+        },
+        {
+          "type": "text",
+          "text": "Attack, decay, sustain, release: the four together are an **ADSR** envelope. The composer Vladimir Ussachevsky of the Columbia-Princeton studio asked Robert Moog for an envelope in these four stages in 1965, and the letters, made standard by the ARP company's instruments a few years later, are printed on nearly every synth since.[^adsr]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "An ARP 2600, first sold in 1971. Its envelope sliders are marked attack, decay, sustain and release.",
+          "options": {
+            "photo": "arp-2600",
+            "aspect": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "title": "A note that darkens as it fades",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Real instruments do more than get quieter. Pluck a guitar string and listen closely: the first instant is bright, and the note grows mellower as it rings, because the high harmonics lose their energy faster than the low ones. Hit a piano key harder and the note gets both louder and brighter. In the world, loud and bright go together, and so do fading and darkening."
+        },
+        {
+          "type": "text",
+          "text": "A synth copies this by sending the same envelope to the filter as well as to the volume. **Env amt** says how far each note opens the filter, counted in octaves above the cutoff. Each note then starts bright and settles darker along the decay. It needs a low cutoff, to leave room above it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The filter's cutoff set low, with the envelope sending each note up through it.",
+          "task": "Open Env amt to 2 octaves or more",
+          "goal": "env-filter",
+          "options": {
+            "stage": 3,
+            "knobs": [
+              "envAmt",
+              "decay"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 2,
+              "res": 1,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 1,
+              "release": 1,
+              "envAmt": 0
+            },
+            "riff": 72,
+            "examples": [
+              {
+                "name": "Pluck",
+                "set": {
+                  "attack": 0,
+                  "decay": 1,
+                  "sustain": 0,
+                  "release": 1,
+                  "envAmt": 0
+                }
+              },
+              {
+                "name": "Swell",
+                "set": {
+                  "attack": 3,
+                  "decay": 2,
+                  "sustain": 3,
+                  "release": 2,
+                  "envAmt": 0
+                }
+              },
+              {
+                "name": "Organ",
+                "set": {
+                  "attack": 0,
+                  "decay": 2,
+                  "sustain": 4,
+                  "release": 0,
+                  "envAmt": 0
+                }
+              },
+              {
+                "name": "Filter pluck",
+                "set": {
+                  "attack": 0,
+                  "decay": 2,
+                  "sustain": 1,
+                  "release": 1,
+                  "envAmt": 3
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "This one connection, an envelope sweeping a resonant filter, is behind many classic synth sounds: the “bwow” of synth brass, the squelch of a bass line, the plink of a synth harp."
+        }
+      ]
+    },
+    {
+      "title": "Organ into harp",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Back to the three instruments from the start. The organ holds every note at full volume and full brightness until the key comes up. The harp is plucked: it starts bright and dies away, darkening as it goes, whether the key is held or not. Which knobs say “dies away even while held”, and how fast? Which one says “starts bright”?"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The organ's envelope, with the harp to match.",
+          "task": "Turn the organ into the harp",
+          "goal": "match",
+          "options": {
+            "target": {
+              "name": "The harp",
+              "set": {
+                "decay": 2,
+                "sustain": 0,
+                "envAmt": 3
+              }
+            },
+            "stage": 3,
+            "knobs": [
+              "envAmt",
+              "decay",
+              "sustain"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 2,
+              "res": 1,
+              "attack": 0,
+              "decay": 0,
+              "sustain": 4,
+              "release": 2,
+              "envAmt": 0
+            },
+            "riff": 72
+          }
+        },
+        {
+          "type": "text",
+          "text": "Nothing about the oscillator moved. Schaeffer's cut and these three knobs do the same thing: they change a sound's shape in time, and the ear changes its mind about what made it."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on envelopes",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Schaeffer cut the first moment off a recorded bell. What happened?",
+                "choices": [
+                  "It no longer sounded like a bell",
+                  "It sounded the same",
+                  "It went up in pitch"
+                ],
+                "answer": 0,
+                "why": "The start of a note carries much of what tells us what made it; without it the bell sounded like a smooth wind instrument."
+              },
+              {
+                "ask": "Which envelope setting is a level, not a time?",
+                "choices": [
+                  "Sustain",
+                  "Decay",
+                  "Release"
+                ],
+                "answer": 0,
+                "why": "Attack, decay and release are times. Sustain is the level the note holds at while the key is down."
+              },
+              {
+                "ask": "Which envelope best matches a piano note?",
+                "choices": [
+                  "Short attack, no sustain, a long decay",
+                  "Long attack, full sustain",
+                  "Short attack, full sustain, no release"
+                ],
+                "answer": 0,
+                "why": "A struck string starts at once and dies away even while the key is held."
+              },
+              {
+                "ask": "You set a long release. What do you hear?",
+                "choices": [
+                  "Notes ring on and overlap after the keys come up",
+                  "Notes swell in slowly",
+                  "Notes stop dead"
+                ],
+                "answer": 0,
+                "why": "Release is the fade after the key is let go; a long one makes notes run together."
+              },
+              {
+                "ask": "Why do synths send the envelope to the filter too?",
+                "choices": [
+                  "Real notes start bright and get darker as they fade",
+                  "To make notes louder",
+                  "To change their pitch"
+                ],
+                "answer": 0,
+                "why": "High harmonics die fastest in a real instrument; a filter envelope copies that."
+              },
+              {
+                "ask": "With Sustain at 100 %, why does Decay go dark?",
+                "choices": [
+                  "There is nothing to fall to: the note stays at full volume",
+                  "The filter is closed",
+                  "The attack is too long"
+                ],
+                "answer": 0,
+                "why": "Decay is the fall from the peak to the sustain level; at full sustain there is no fall."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**The start of a note tells us what made it.** Cut it off and a bell sounds like a flute, a piano like an organ.",
-  "**Schaeffer (1948) found it by editing recordings**, the beginning of musique concrète.",
-  "**An envelope shapes each note in time: attack, decay, sustain, release.**",
-  "**Sustain is a level; the others are times.** A piano has no sustain; an organ has full sustain.",
-  "**Release is the fade after the key comes up.**",
-  "**Sending the envelope to the filter makes notes start bright and darken**, as real instruments do."
- ],
- "footnotes": {
-  "cloche": {
-   "kind": "digression",
-   "title": "Musique concrète",
-   "text": "Schaeffer called the new music *musique concrète*, music made from recorded sounds rather than written notes. His first pieces, in 1948, were built from trains, saucepans and spinning tops. Tape recorders arrived in the studio soon afterwards and made cutting a sound as simple as cutting the tape with a razor blade."
+  ],
+  "summary": [
+    "**The start of a note tells us what made it.** Cut it off and a bell sounds like an oboe, a piano like an organ.",
+    "**Schaeffer (1948) found it by editing recordings**, the beginning of musique concrète.",
+    "**An envelope shapes each note in time: attack, decay, sustain, release.**",
+    "**Sustain is a level; the others are times.** A piano has no sustain; an organ has full sustain.",
+    "**Release is the fade after the key comes up.**",
+    "**Sending the envelope to the filter makes notes start bright and darken**, as real instruments do."
+  ],
+  "footnotes": {
+    "cloche": {
+      "kind": "digression",
+      "title": "Musique concrète",
+      "text": "Schaeffer called the new music *musique concrète*, music made from recorded sounds rather than written notes. His first pieces, in 1948, were built from trains, saucepans and spinning tops. On his lacquer discs he cut off a sound's attack with the studio volume fader; tape recorders arrived in the studio in 1951 and made cutting a sound as simple as slicing the tape with a razor blade."
+    },
+    "attack": {
+      "kind": "technical",
+      "title": "Why the start matters so much",
+      "text": "The first few tens of milliseconds of a note are noisy and fast-changing: the scrape of a bow before the string settles, the chiff of air in an organ pipe, the hammer's thump. These transients differ far more between instruments than the steady tone that follows. Take them away and the steady tones of quite different instruments can be surprisingly alike."
+    },
+    "adsr": {
+      "kind": "digression",
+      "title": "Ussachevsky's envelope",
+      "text": "Ussachevsky wanted control over how each note began and ended for his tape and electronic pieces. Moog built envelope generators to his description; Moog's own panels labelled the stages differently (attack time, initial decay, sustain level, final decay). The tidy four letters A, D, S, R caught on from ARP, Moog's great rival in the early 1970s."
+    }
   },
-  "attack": {
-   "kind": "technical",
-   "title": "Why the start matters so much",
-   "text": "The first few tens of milliseconds of a note are noisy and fast-changing: the scrape of a bow before the string settles, the chiff of air in an organ pipe, the hammer's thump. These transients differ far more between instruments than the steady tone that follows. Take them away and the steady tones of quite different instruments can be surprisingly alike."
-  },
-  "adsr": {
-   "kind": "digression",
-   "title": "Ussachevsky's envelope",
-   "text": "Ussachevsky wanted control over how each note began and ended for his tape and electronic pieces. Moog built envelope generators to his description; Moog's own panels labelled the stages differently (attack time, initial decay, sustain level). The tidy four letters A, D, S, R caught on from ARP, Moog's great rival in the early 1970s."
-  }
- },
- "journal": []
+  "journal": []
 }

@@ -18,8 +18,8 @@
       "blocks": [
         {"type": "diagram", "id": "ten", "caption": "Ten families, each by its signature. Drawn simply."},
         {"type": "text", "text": "The **rose** family gives most of the fruit in a temperate orchard: apples, pears, cherries, plums, strawberries, raspberries and blackberries. The **pea** family's flowers have a big upright petal, the banner, two side petals, the wings, and two joined at the bottom into a keel that hides the stamens; its seeds grow in pods, and its roots carry lesson 10's nitrogen-fixing bacteria. The **mint** family, with basil, sage, lavender and self-heal (one of lesson K2's drawn plants), has square stems you can feel by rolling one between your fingers, opposite leaves and two-lipped flowers, and usually a smell when a leaf is rubbed."},
-        {"type": "text", "text": "The **aster** family, with sunflowers, daisies, dandelions and lettuce, is one of the two largest families of flowering plants, with about 30,000 species. What looks like one flower is a head of dozens or hundreds: a sunflower's face is a central disc of tiny flowers, each making one seed, ringed by flowers that each grow one long petal. The **carrot** family carries its tiny flowers in umbrellas, called umbels, on hollow stems, and includes carrots, parsley, dill and celery, and some of the most poisonous plants there are (lesson K4)."},
-        {"type": "text", "text": "The **mustard** family has six stamens, four long and two short (lesson K1's class for them), and its four petals in a cross gave it its old name, Cruciferae, the cross-bearers; lesson 20's cabbage white lives on it. The **buttercup** family has a knob of many separate carpels at the centre of each flower, and many of its members, including buttercups themselves, larkspurs and monkshood, are poisonous. The **heath** family, with blueberries, huckleberries, salal, rhododendrons and heather, hangs its flowers as little bells or urns and grows on acid soil with fungal partners in its roots; lesson 11's pinesap belongs to it."}
+        {"type": "text", "text": "The **aster** family, with sunflowers, daisies, dandelions and lettuce, is one of the two largest families of flowering plants, with about 30,000 species.[^orchids] What looks like one flower is a head of dozens or hundreds: a sunflower's face is a central disc of tiny flowers, each making one seed, ringed by flowers that each grow one long petal. The **carrot** family carries its tiny flowers in umbrellas, called umbels, on hollow stems, and includes carrots, parsley, dill and celery, and some of the most poisonous plants there are (lesson K4)."},
+        {"type": "text", "text": "The **mustard** family has six stamens, four long and two short (lesson K1's class for them), and its four petals in a cross gave it its old name, Cruciferae, the cross-bearers;[^old-names] lesson 20's cabbage white lives on it. The **buttercup** family has a knob of many separate carpels at the centre of each flower, and many of its members, including buttercups themselves, larkspurs and monkshood, are poisonous. The **heath** family, with blueberries, huckleberries, salal, rhododendrons and heather, hangs its flowers as little bells or urns and grows on acid soil with fungal partners in its roots; lesson 11's pinesap belongs to it."}
       ]
     },
     {
@@ -32,7 +32,7 @@
     {
       "title": "The lily-like plants",
       "blocks": [
-        {"type": "text", "text": "Strictly, that makes this a lesson of ten groups rather than ten families. The tenth group is the old lily family: monocots (lesson 21) with flower parts in threes or sixes, parallel-veined leaves, and often a bulb. DNA has split it into several families. True lilies and tulips stay in the lily family. Irises have a family of their own, onions and daffodils are in another, and camas, like asparagus, is in the asparagus family. In the field the old signature still works for recognising a lily-like monocot; the family name tells you which branch it is on."}
+        {"type": "text", "text": "Strictly, that makes this a lesson of eleven families rather than ten, or ten groups if you count the grass-like trio as one. The last group is the old lily family: monocots (lesson 21) with flower parts in threes or sixes, parallel-veined leaves, and often a bulb. DNA has split it into several families. True lilies and tulips stay in the lily family. Irises have a family of their own, onions and daffodils are in another, and camas, like asparagus, is in the asparagus family.[^lily-split] In the field the old signature still works for recognising a lily-like monocot; the family name tells you which branch it is on."}
       ]
     },
     {
@@ -45,7 +45,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on families", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on families",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "A plant has a square stem, opposite leaves and two-lipped flowers, and smells when a leaf is crushed. Which family?", "choices": ["Mint", "Carrot", "Mustard"], "answer": 0, "why": "Square stems, opposite leaves and two-lipped flowers are the mint family's signature."},
             {"ask": "A plant has tiny white flowers on spokes like an umbrella, and hollow stems. Which family?", "choices": ["Carrot", "Aster", "Rose"], "answer": 0, "why": "Umbels on hollow stems mark the carrot family, which holds both parsley and some of the most poisonous plants there are."},
@@ -67,5 +70,21 @@
     "**The old lily family is now several.** Lilies, irises, onions and camas sit in different families, but the lily-like signature still spots them."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "orchids": {
+      "kind": "digression",
+      "title": "The other giant family",
+      "text": "The other of the two largest families is the orchids, Orchidaceae, with nearly 30,000 species of its own. Most orchids live in the tropics, often perched on tree branches rather than rooted in soil, so in a temperate meadow the aster family has far more representatives."
+    },
+    "old-names": {
+      "kind": "technical",
+      "title": "Latin family names",
+      "text": "Modern botanical Latin gives every family a name ending in *-aceae*, built from a genus in that family: Rosaceae from *Rosa*, Asteraceae from *Aster*, Brassicaceae (mustards) from *Brassica*. Eight families also keep older descriptive names that are still legal to use, because they are so common in older books: Cruciferae (cross-bearers, the mustards), Leguminosae (pod-bearers, the peas), Labiatae (lipped flowers, the mints), Compositae (compound heads, the asters), Umbelliferae (umbrella-bearers, the carrots), Gramineae (the grasses), Palmae (the palms) and Guttiferae (Saint John's wort's relatives)."
+    },
+    "lily-split": {
+      "kind": "technical",
+      "title": "What happened to the lily family",
+      "text": "Irises, with three stamens rather than six, have long had their own family (Iridaceae). Onions, daffodils and camas were often kept inside a broad lily family (Liliaceae) in older field guides. DNA evidence showed that the three-petalled, six-stamened bulb habit evolved more than once or was kept by cousins that branched apart early, so botanists moved onions and daffodils into Amaryllidaceae and camas into Asparagaceae."
+    }
+  }
 }

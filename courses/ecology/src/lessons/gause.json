@@ -8,17 +8,17 @@
       "title": "Two kinds of Paramecium",
       "blocks": [
         {"type": "text", "text": "In the early 1930s a young biologist at Moscow University, Georgii Gause, set out to test a question that had been argued about since Darwin: when two species compete for the same food, what happens? Field naturalists could tell stories in either direction, but a field is too complicated to settle anything. Gause brought the question indoors, into test tubes, where he could control everything."},
-        {"type": "text", "text": "His animals were *Paramecium*, single-celled creatures shaped like a slipper, a fraction of a millimetre long, that swim with fine hairs and eat bacteria. He grew them in tubes of a broth made from oats, to which he added a measured amount of bacteria each day as food. Each morning he stirred a tube, drew off a tiny sample and counted the cells under a microscope. Grown alone, each of his species did what lesson 2's yeast did: it multiplied quickly, slowed, and levelled off at a ceiling set by the food."},
-        {"type": "text", "text": "Then he put two species in the same tube: *Paramecium aurelia* and *Paramecium caudatum*, which feed in the same way on the same bacteria. In 1934, still in his early twenties, he published the result in a short book, *The Struggle for Existence*."},
+        {"type": "text", "text": "His animals were *Paramecium*, single-celled creatures shaped like a slipper, a fraction of a millimetre long, that swim with fine hairs[^cilia] and eat bacteria. He grew them in tubes of a broth made from oats, or a salt solution, to which he added a measured amount of bacteria each day as food. Each morning he stirred a tube, drew off a tiny sample and counted the cells under a microscope. Grown alone, each of his species did what lesson 2's yeast did: it multiplied quickly, slowed, and levelled off at a ceiling set by the food."},
+        {"type": "text", "text": "Then he put two species in the same tube: *Paramecium aurelia* and *Paramecium caudatum*, which feed in the same way on the same bacteria. In 1934, still in his early twenties, he published the result in a short book, *The Struggle for Existence*.[^gause-antibiotics]"},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Gause grew Paramecium species in tubes with a measured daily ration of bacteria and counted them every day.", "Each species alone rose and levelled off at a ceiling."]}
       ]
     },
     {
       "title": "One always wins",
       "blocks": [
-        {"type": "text", "text": "Together, both species grew at first. But *P. aurelia* grew a little faster and could keep a population going on less food, and every bacterium it ate was one *P. caudatum* couldn't. Within about three weeks *P. caudatum* was gone, and it happened again each time Gause repeated the experiment. Neither species attacked the other. One simply did slightly better at the same job, and slightly better, compounded day after day, was enough."},
+        {"type": "text", "text": "Together, both species grew at first. But *P. aurelia* grew faster and could keep a population going on less food, and every bacterium it ate was one *P. caudatum* couldn't. Within about two to three weeks *P. caudatum* was gone, and it happened again each time Gause repeated the experiment. Neither species attacked the other. One simply did slightly better at the same job, and slightly better, compounded day after day, was enough."},
         {"type": "interactive_diagram", "id": "tube", "caption": "Two kinds of Paramecium in a tube of broth. A grows a little faster on the shared food. A model with the shape of Gause's curves.", "task": "Guess, then find an overlap at which both kinds are still there after thirty days", "goal": "coexist", "aspect_ratio": 1.67},
-        {"type": "text", "text": "How fast is “compounded”? If one species grows 10 percent more each generation than the other, the slower one's share is divided by 1.1 every generation. To fall to a tenth of its starting share takes about 24 generations. A Paramecium divides about once or twice a day, so the loser is reduced to a remnant within a few weeks, which is what Gause saw."},
+        {"type": "text", "text": "With a 10 percent advantage in growth each generation, the slower species has its share divided by 1.1 every generation. To fall to a tenth of its starting share takes about 24 generations. A Paramecium divides about once or twice a day, so the loser is reduced to a remnant within a few weeks, which is what Gause saw."},
         {"type": "text", "text": "The rule that came out of this is now called the **competitive exclusion principle**: two species that depend on the same limiting resource in the same way cannot live together indefinitely; one will drive the other out. The ecologist Garrett Hardin gave it that name in 1960 and put it bluntly: complete competitors cannot coexist."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Two species using the same limiting food in the same way: the slightly better one always drives the other out.", "This is the **competitive exclusion principle**.", "A small advantage, compounded every generation, is enough."]}
       ]
@@ -26,7 +26,7 @@
     {
       "title": "Sharing by splitting",
       "blocks": [
-        {"type": "text", "text": "Gause then paired *P. caudatum* with a third species, *P. bursaria*, and this time the two lived side by side for as long as he kept the tubes going. The difference was in where they fed. *P. bursaria* carries green algae inside its body, which give it oxygen, and it fed down at the bottom of the tube, where the oxygen was low and the food had settled. *P. caudatum* fed in the liquid above. They used the same tube but not quite the same food in the same place."},
+        {"type": "text", "text": "Gause then paired *P. caudatum* with a third species, *P. bursaria*, in a broth supplied with both bacteria and yeast, and this time the two lived side by side for as long as he kept the tubes going. The difference was in where they fed. *P. bursaria* carries green algae inside its body, which give it oxygen, and it fed on the yeast that settled down at the bottom of the tube. *P. caudatum* fed on the bacteria suspended in the liquid above. They used the same tube, and either could eat both foods, but they did not concentrate in the same place."},
         {"type": "text", "text": "How much two species need the same things, their **overlap**, is what the slider in the figure stands for. When two species share everything, each individual of one crowds the other as much as its own kind, and the better one wins. When they overlap only partly, each crowds its own kind more than it crowds the other, because its own kind wants exactly the same things, while the other species wants only some of them. Then neither can push the other out: whichever becomes rare finds itself with less competition and recovers."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Two species can coexist if each feeds partly where or on what the other doesn't.", "Coexistence needs each species to crowd its own kind more than it crowds the other."]}
       ]
@@ -34,8 +34,8 @@
     {
       "title": "Five warblers in a spruce",
       "blocks": [
-        {"type": "text", "text": "If Gause was right, closely related species living together should turn out to differ somehow. In the 1950s a Yale graduate student named Robert MacArthur went looking for that difference in the spruce forests of Maine and Vermont, where five species of small, insect-eating warbler live in the same trees and seem to eat the same caterpillars. It looked like a flat contradiction of the principle."},
-        {"type": "text", "text": "MacArthur watched individual birds for hours, timing exactly where in a tree each one fed: how high, how far out along the branch, on old needles or new buds. He found that each species spent most of its time in its own part of the tree, foraged in its own way, and in some cases nested at a different time. The Cape May warbler worked the tips at the very top; the bay-breasted warbler the dense middle near the trunk; the yellow-rumped warbler the lower branches and the ground."},
+        {"type": "text", "text": "If Gause was right, closely related species living together should turn out to differ somehow. In the 1950s a Yale graduate student named Robert MacArthur went looking for that difference in the spruce and fir forests of Maine and Vermont, where five species of small, insect-eating warbler live in the same trees and seem to eat the same caterpillars. It looked like a flat contradiction of the principle."},
+        {"type": "text", "text": "MacArthur watched individual birds with a stopwatch, timing to the second where in a tree each one fed: how high, how far out along the branch, on old needles or new buds.[^macarthur] He found that each species spent most of its time in its own part of the tree, foraged in its own way, and in some cases nested at a different time. The Cape May warbler worked the outer needles at the very top; the bay-breasted warbler the middle zones; the yellow-rumped warbler (then called the myrtle warbler) the lower branches and the ground."},
         {"type": "diagram", "id": "warblers", "caption": "Where five warblers fed in a spruce, simplified from MacArthur's 1958 diagrams. Each species did most of its feeding in its own zone, though all of them strayed.", "aspect_ratio": 1.6},
         {"type": "text", "text": "The zones overlap; every species strays into the others' parts of the tree. But the overlap is partial, which is what coexistence needs. MacArthur's study, published in 1958, became one of the best-known papers in ecology. It showed that the right question to ask about two similar species living together is not whether they compete, but how they differ enough to share."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["MacArthur found five similar warblers sharing spruce trees by feeding mostly in different parts of the tree.", "Similar species that live together usually turn out to divide their resources."]}
@@ -44,8 +44,8 @@
     {
       "title": "Niches",
       "blocks": [
-        {"type": "text", "text": "Ecologists call a species' way of making a living its **niche**: what it eats, where and when it feeds, what conditions it can stand, what eats it. The British ecologist Charles Elton, who studied the hare cycle in lesson 4, described a niche in 1927 as an animal's “profession”. In 1957 G. Evelyn Hutchinson made it more exact: list everything that matters to a species (temperature, food size, feeding height, time of day, and so on), and the niche is the range of all of them together in which it can live."},
-        {"type": "text", "text": "In those terms, Gause's principle says two species can't share the same niche for long. It explains why a gardener's bed of beans and lettuce does better than two rows of the same lettuce crowded together: beans and lettuce root at different depths, grow at different heights and want different things from the soil. A weed takes over a bed when it does the crop's job better, usually by growing tall faster and taking the light first."},
+        {"type": "text", "text": "Ecologists call a species' way of making a living its **niche**: what it eats, where and when it feeds, what conditions it can stand, what eats it. The British ecologist Charles Elton, who studied the hare cycle in lesson 4, described a niche in 1927 as an animal's “profession”.[^grinnell] In 1957 G. Evelyn Hutchinson, MacArthur's thesis adviser at Yale, made it more exact: list everything that matters to a species (temperature, food size, feeding height, time of day, and so on), and the niche is the range of all of them together in which it can live."},
+        {"type": "text", "text": "In those terms, Gause's principle says two species can't share the same niche for long. It explains why a gardener's bed of beans and lettuce does better than two rows of the same lettuce crowded together: beans and lettuce root at different depths and grow at different heights, while beans fix their own nitrogen from the air. A weed takes over a bed when it does the crop's job better, usually by growing tall faster and taking the light first."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["A **niche** is a species' way of living: its food, place, time and tolerances.", "Two species can't share the same niche for long."]}
       ]
     },
@@ -53,7 +53,7 @@
       "title": "Why so many plankton?",
       "blocks": [
         {"type": "text", "text": "In 1961 Hutchinson pointed out a problem with all this. A litre of lake water holds dozens of species of microscopic algae, the phytoplankton. They all need the same few things: light, carbon dioxide, and a handful of dissolved nutrients such as nitrogen and phosphorus. Open water has no treetops and trunks to divide up. By Gause's principle a few species should have won long ago. Hutchinson called it **the paradox of the plankton**."},
-        {"type": "text", "text": "His answer was that a lake never sits still long enough for anyone to win. The weather changes, the water mixes and settles, nutrients arrive in pulses, and each change favours a different species before the last one could finish off its rivals. Switch on “Conditions swing” in the tube figure and you can see the idea: when the conditions favour each species in turn, exclusion is slowed and may never finish. Ecologists still argue about how much of the world's diversity this explains, but it is part of the answer. Competition takes time to work, and the world keeps changing."},
+        {"type": "text", "text": "His answer was that a lake never sits still long enough for anyone to win. The weather changes, the water mixes and settles, nutrients arrive in pulses, and each change favours a different species before the last one can finish off its rivals. Switch on “Conditions swing” in the tube figure and you can see the idea: when the conditions favour each species in turn, exclusion is slowed and may never finish. Ecologists still argue about how much of the world's diversity this explains, but it is part of the answer: competition takes time to work, and the world keeps changing."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["The paradox of the plankton: many algae share a few resources without one winning.", "Changing conditions that favour each species in turn slow or stop exclusion."]}
       ]
     },
@@ -61,14 +61,17 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on competition", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on competition",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Two species of beetle live in stored flour and eat it in the same way. One breeds slightly faster. What happens over many generations in a sealed jar?", "choices": ["The faster one drives the other out", "They settle into a steady mix", "Both die out together"], "answer": 0, "why": "Two species using one limiting food in the same way: a small advantage compounds, and the competitive exclusion principle predicts one winner."},
             {"ask": "Two species of barnacle compete for space on rocks, but one can live higher up where it's drier and the other can't. Lower down, the other one is the stronger competitor. What's the likely outcome on a rocky shore?", "choices": ["Both live there, the drought-tolerant one higher up", "One drives the other off the shore entirely", "Both die out"], "answer": 0, "why": "They only partly overlap: the upper shore is a part of the niche only one of them can use, so the weaker competitor survives there."},
-            {"ask": "Why did P. caudatum and P. bursaria live together in Gause's tubes?", "choices": ["They fed in different parts of the tube, so they only partly shared the food", "P. bursaria was much faster", "They ate each other's waste"], "answer": 0, "why": "P. bursaria fed at the bottom, where oxygen was low and food had settled; P. caudatum fed in the liquid above. Partial overlap allows coexistence."},
+            {"ask": "Why did P. caudatum and P. bursaria live together in Gause's tubes?", "choices": ["They fed in different parts of the tube, so they only partly shared the food", "P. bursaria was much faster", "They ate each other's waste"], "answer": 0, "why": "P. bursaria fed at the bottom, where oxygen was low and yeast had settled; P. caudatum fed on bacteria in the liquid above. Partial overlap allows coexistence."},
             {"ask": "Species A grows 10 percent faster than species B each generation on the same food. Roughly how many generations until B's share has fallen to a tenth of what it was?", "choices": ["About 24", "About 10", "About 100"], "answer": 0, "why": "B's share is divided by 1.1 each generation. 1.1 multiplied by itself 24 times is about 10. A small edge compounds quickly."},
-            {"ask": "What did MacArthur find about the five warbler species sharing spruce trees?", "choices": ["Each fed mostly in its own part of the tree and in its own way", "They ate completely different foods", "One species was slowly driving out the others"], "answer": 0, "why": "They ate similar insects but in different zones (top tips, interior, lower branches) and in different ways, so their overlap was partial."},
-            {"ask": "What was Hutchinson's main answer to the paradox of the plankton?", "choices": ["Conditions change before any one species can drive the others out", "Each algae eats a different nutrient", "Plankton don't compete at all"], "answer": 0, "why": "In water that keeps changing, each change favours a different species, so the slow process of exclusion never finishes."}
+            {"ask": "What did MacArthur find about the five warbler species sharing spruce trees?", "choices": ["Each fed mostly in its own part of the tree and in its own way", "They ate completely different foods", "One species was slowly driving out the others"], "answer": 0, "why": "They ate similar insects but in different zones (top tips, middle, lower branches) and in different ways, so their overlap was partial."},
+            {"ask": "What was Hutchinson's main answer to the paradox of the plankton?", "choices": ["Conditions change before any one species can drive the others out", "Each alga uses a different nutrient", "Plankton don't compete at all"], "answer": 0, "why": "In water that keeps changing, each change favours a different species, so the slow process of exclusion never finishes."}
           ]}
         }
       ]
@@ -85,5 +88,26 @@
     "**Changing conditions slow exclusion.** That is part of why so many plankton share the same water."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "cilia": {
+      "kind": "technical",
+      "title": "Cilia",
+      "text": "These microscopic hairs are called **cilia**, and single-celled organisms that swim with them, including *Paramecium*, are known as **ciliates**. Beating in waves, cilia both row the cell through the water and sweep bacteria into its oral groove."
+    },
+    "gause-antibiotics": {
+      "kind": "digression",
+      "title": "From competition to antibiotics",
+      "text": "During the Second World War, Gause turned his knowledge of microbial competition to medicine. With his wife and colleague Maria Brazhnikova, he isolated **gramicidin S** from soil bacteria in 1942. It went straight to the Red Army's front-line hospitals to treat infected wounds, and Gause spent the rest of his career directing the Institute of New Antibiotics in Moscow."
+    },
+    "macarthur": {
+      "kind": "digression",
+      "title": "Seconds in the foliage",
+      "text": "A warbler in a spruce crown rarely stays in view for long. MacArthur broke each tree into sixteen zones (by height and by distance from the trunk) and timed every glimpse with a stopwatch, stopping the watch whenever a bird vanished behind needles. Across two summers he logged more than four hours of cumulative stopwatch time across the five species, roughly five seconds at a stretch."
+    },
+    "grinnell": {
+      "kind": "technical",
+      "title": "Three kinds of niche",
+      "text": "The word **niche** was first brought into ecology in 1917 by the Californian naturalist Joseph Grinnell, who used it mostly for the habitat and conditions a species needs, such as the scrubland where the California thrasher lives. Elton's 1927 definition emphasised the species' role in the food web, while Hutchinson's 1957 version combined everything into a mathematical space of resources and tolerances."
+    }
+  }
 }

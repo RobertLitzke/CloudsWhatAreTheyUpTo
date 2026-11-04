@@ -10,7 +10,7 @@
       "title": "Why Portugal comes up",
       "blocks": [
         { "type": "text", "text": "Portugal has become one of the most common places Americans consider for a long stretch abroad, or for good. The reasons are easy to list: a mild climate, safe towns, a national health service, a cost of living well below most of the US, a residence visa designed for people living on savings or pensions, and direct flights to the East Coast." },
-        { "type": "text", "text": "For fifteen years there was a tax reason as well. From 2009 Portugal offered new residents a decade of special treatment that left most foreign pensions untaxed. That has ended for newcomers, and the ordinary Portuguese income tax that replaces it is steep at the incomes most retirees have. This branch works out what a US household actually pays, starting with when Portugal considers you its taxpayer and how its tax is built. All figures are for 2026, in euros where they are Portuguese, at about $1.15 to the euro." },
+        { "type": "text", "text": "For fifteen years there was a tax reason as well. From 2009 Portugal offered new residents a decade of special treatment that left most foreign pensions untaxed, or from 2020 taxed at a flat 10 percent. That has ended for newcomers, and the ordinary Portuguese income tax that replaces it is steep at the incomes most retirees have. This branch works out what a US household actually pays, starting with when Portugal considers you its taxpayer and how its tax is built. All figures are for 2026, in euros where they are Portuguese, at about $1.15 to the euro." },
         { "type": "text", "text": "One fact frames all three lessons. The United States taxes its citizens wherever they live. Moving to Portugal adds a second tax system; it doesn't remove the first." }
       ]
     },
@@ -27,7 +27,7 @@
       "blocks": [
         { "type": "text", "text": "Portugal's personal income tax goes by the same three letters as the American tax agency, IRS: Imposto sobre o Rendimento das Pessoas Singulares. It sorts income into categories, among them A for employment, B for self-employment, E for capital income such as dividends and interest, G for capital gains and H for pensions." },
         { "type": "text", "text": "Pensions and wages are added together and taxed at progressive rates: in 2026, 12.5 percent on the first €8,342 of taxable income, climbing through nine brackets to 48 percent above €86,634, with a solidarity surcharge of 2.5 percent above €80,000 and 5 percent above €250,000. Each pensioner first deducts a specific amount, about €4,600. A married couple can file jointly, in which case their combined income is split in two, taxed, and the tax doubled, which helps when one earns much more than the other." },
-        { "type": "text", "text": "Investment income is taxed separately, at a flat 28 percent: dividends, interest, and gains on shares and funds. A resident can choose instead to add it to their other income at the progressive rates, which helps only those whose income is low.[^aggregate]" },
+        { "type": "text", "text": "Investment income is taxed separately, at a flat 28 percent: dividends, interest, and gains on shares and funds.[^short-term-gains] A resident can choose instead to add it to their other income at the progressive rates, which helps only those whose income is low.[^aggregate]" },
         { "type": "text", "text": "Guess first, then compare the two countries' tax on the same pension income." },
         { "type": "interactive_diagram", "id": "pt-tax", "caption": "Income tax on a year's withdrawals from IRAs and 401(k)s, in Portugal and in the US (federal; Washington has no income tax), for a couple filing jointly or a single person.", "task": "Guess, then compare a low income and a high one", "goal": "pt-tax", "aspect_ratio": 1.87 }
       ]
@@ -35,15 +35,15 @@
     {
       "title": "Why the brackets bite",
       "blocks": [
-        { "type": "text", "text": "Portugal's brackets are narrow by American standards. A single person's taxable income above €29,397 is already taxed at 34.9 percent, and above €43,090 at 43.1. The US equivalent at those incomes is 12 percent. On $60,000 of IRA withdrawals, a couple pays about $8,500 in Portugal against $2,840 in federal tax; a single person pays about $14,700 against $5,000." },
+        { "type": "text", "text": "Portugal's brackets are narrow by American standards. A single person's taxable income above €29,397 is already taxed at 34.9 percent, and above €43,090 at 43.1 percent. The US equivalent at those incomes is 12 percent. On $60,000 of IRA withdrawals, a couple pays about $8,500 in Portugal against $2,840 in federal tax; a single person pays about $14,700 against $5,000." },
         { "type": "text", "text": "The US standard deduction also has no real counterpart. The specific deduction for each pensioner is about €4,600, against a US couple's $32,200. So the first $30,000 a US couple withdraws is untaxed, while in Portugal the same couple already owes about $2,400." },
-        { "type": "text", "text": "This changes the strategies of the trunk. Filling the low US brackets in early retirement, lesson 10's main idea, matters less when Portugal's rates set the bill. And the 0 percent band for gains in lesson 7 disappears entirely, replaced by a flat 28 percent. Lesson P2 works through what that does to each US account." }
+        { "type": "text", "text": "This changes the strategies of the trunk. Filling the low US brackets in early retirement, lesson 10's main idea, matters less when Portugal's rates set the bill. And the 0 percent band for gains in lesson 7 disappears, replaced by a flat 28 percent. Lesson P2 works through what that does to each US account." }
       ]
     },
     {
       "title": "What replaced the old regime",
       "blocks": [
-        { "type": "text", "text": "The regime that made Portugal famous among retirees was called NHR, for non-habitual resident. It was closed to new applicants from 2024, and its replacement is narrower." },
+        { "type": "text", "text": "The regime that made Portugal famous among retirees was called NHR, for non-habitual resident. It was closed to most new applicants from 2024, and its replacement is narrower." },
         { "type": "diagram", "id": "timeline", "caption": "Portugal's tax regimes for new residents.", "options": { "events": [
           { "at": 2009, "label": "The non-habitual resident regime (NHR) begins: ten years of special rates, most foreign pensions untaxed" },
           { "at": 2020, "label": "New NHR entrants pay a flat 10 percent on foreign pensions" },
@@ -84,7 +84,12 @@
   ],
   "footnotes": {
     "d7": { "kind": "technical", "title": "The D7", "text": "The D7 is a national visa for people with regular passive income: pensions, rents, dividends. Applicants show the income, some savings (often a year's worth of the requirement in a Portuguese bank), accommodation and health insurance, then apply for a residence permit once in Portugal. Consulates differ in what they ask for; check the current list." },
-    "aggregate": { "kind": "technical", "title": "Choosing to aggregate", "text": "A resident who opts to add investment income to their other income must add all of it, and then pays the progressive rate on it. That helps only when total taxable income is low enough that the average progressive rate is below 28 percent." },
-    "islands": { "kind": "digression", "title": "The islands", "text": "The Azores and Madeira have regional powers over income tax and use them to cut the national rates, by up to 30 percent in the Azores in recent years. Residence there must be real: the rule is where you live, not where you register." }
+    "aggregate": { "kind": "technical", "title": "Choosing to aggregate", "text": "A resident who opts to add investment income to their other income must add all of it in that category, and then pays the progressive rate on it. That helps only when total taxable income is low enough that the marginal progressive rate stays below 28 percent." },
+    "islands": { "kind": "digression", "title": "The islands", "text": "The Azores and Madeira have regional powers over income tax and use them to cut the national rates, by up to 30 percent in the Azores in recent years. Residence there must be real: the rule is where you live, not where you register." },
+    "short-term-gains": {
+      "kind": "technical",
+      "title": "Short-term gains at high incomes",
+      "text": "Since 2023, net gains on shares and funds held for less than 365 days must be aggregated with other income and taxed at the progressive rates when the taxpayer's total taxable income, including those gains, reaches the top bracket (above €86,634 in 2026). Gains on investments held for a year or more stay eligible for the flat 28 percent rate."
+    }
   }
 }

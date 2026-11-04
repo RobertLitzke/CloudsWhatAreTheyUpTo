@@ -9,11 +9,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The rule in lessons 2 to 4 is a thought experiment. It has a retiree raise spending with prices every January, through 1974 and 2008, without a glance at the balance, until the money runs out or they die. Real people don't behave like that. When a portfolio halves, most people go out to dinner less, put off the new car, take the cheaper holiday."
+          "text": "The rule in lessons 2 to 4 is a thought experiment. It has a retiree raise spending with prices every January, through 1974 and 2008, without a glance at the balance, until the money runs out or they die. Real people don't behave like that. When a portfolio halves, most people go out to dinner less, put off the new car and take the cheaper holiday."
         },
         {
           "type": "text",
-          "text": "Nor does real spending stay level. In 2014 David Blanchett, then at Morningstar, looked at how retired households actually spend and found that it tends to fall in real terms by around 1 to 2 percent a year from the late sixties to the mid eighties, then rise again near the end with health care. He called the shape a smile.[^smile] A plan that assumes level real spending for fifty years is, for most people, planning to spend more in their eighties than they will."
+          "text": "Nor does real spending stay level. In 2013 David Blanchett, then at Morningstar, looked at how retired households actually spend and found that it tends to fall in real terms by around 1 to 2 percent a year from the late sixties to the mid eighties, then rise again near the end with health care. He called the shape a smile.[^smile] A plan that assumes level real spending for fifty years is, for most people, planning to spend more in their eighties than they will."
         },
         {
           "type": "text",
@@ -26,7 +26,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The simplest flexible rule spends a fixed share of whatever the balance is each January. A portfolio spent this way can never run out, because each year takes only a fraction of what remains. The cost is that spending follows the markets all the way down. Guess before you look."
+          "text": "The simplest flexible rule spends a fixed share of whatever the balance is each January. A portfolio spent this way can never run out, because each year takes only a fraction of what remains.[^endowment] The cost is that spending follows the markets all the way down. Guess before you look."
         },
         {
           "type": "interactive_diagram",
@@ -78,7 +78,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The useful way to think about this is to split spending in two. Some of it is essential: housing, food, insurance, the things you would cut last. The rest is discretionary. A household whose essential spending is half its total can follow a fairly volatile rule, since a cut of 30 percent in a bad decade means fewer trips, not missed mortgage payments. A household whose essential spending is nearly all of it needs a steady rule and a low starting rate."
+          "text": "The useful way to think about this is to split spending in two. Some of it is essential: housing, food and insurance, the things you would cut last. The rest is discretionary. A household whose essential spending is half its total can follow a fairly volatile rule, since a cut of 30 percent in a bad decade means fewer trips, not missed mortgage payments. A household whose essential spending is nearly all of it needs a steady rule and a low starting rate."
         },
         {
           "type": "text",
@@ -215,12 +215,17 @@
     "smile": {
       "kind": "digression",
       "title": "The spending smile",
-      "text": "Blanchett's paper, \"Exploring the Retirement Consumption Puzzle\", appeared in the Journal of Financial Planning in May 2014. It used survey data on what retired households actually spent. The fall is partly choice and partly ageing: people travel less in their late seventies, and they tend to own their homes outright by then. The rise at the end is mostly health and care costs, which lesson H2 takes up."
+      "text": "Blanchett's paper, \"Exploring the Retirement Consumption Puzzle\", was released as a Morningstar working paper in 2013 and appeared in the Journal of Financial Planning in May 2014. It used survey data on what retired households actually spent. The fall is partly choice and partly ageing: people travel less in their late seventies, and they tend to own their homes outright by then. The rise at the end is mostly health and care costs, which lesson H2 takes up."
     },
     "tips": {
       "kind": "technical",
       "title": "TIPS",
       "text": "Treasury bonds whose principal is raised each year with the consumer price index, so the interest and the final repayment keep their buying power. Their yield is quoted above inflation: a TIPS yielding 2 percent returns about 2 percent a year more than prices rise, if held to maturity. The inflation adjustment is taxed each year as income, even though it isn't paid until maturity, so TIPS usually sit best in a tax-deferred account."
+    },
+    "endowment": {
+      "kind": "digression",
+      "title": "How university endowments spend",
+      "text": "University endowments face the same problem without a finish line: they want to pay for scholarships and professors forever without letting a crash shut down a department. Most solve it by spending a percentage, usually 4.5 to 5 percent, not of this year's balance alone, but of the average balance over the past three to five years. Yale goes further and weights this year's payout 80 percent on last year's spending (raised for inflation) and only 20 percent on the endowment's value."
     }
   }
 }

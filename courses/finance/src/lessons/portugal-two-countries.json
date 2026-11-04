@@ -9,7 +9,7 @@
     {
       "title": "Taxed by both, by default",
       "blocks": [
-        { "type": "text", "text": "An American who moves to Lisbon keeps filing a US return every year, on the same brackets as before, for as long as they hold a US passport. Portugal now taxes them too, on the same income. Left alone, the two taxes would simply add up." },
+        { "type": "text", "text": "An American who moves to Lisbon keeps filing a US return every year, on the same brackets as before, for as long as they hold US citizenship. Portugal now taxes them too, on the same income. Left alone, the two taxes would simply add up." },
         { "type": "text", "text": "They don't add up, because of two pieces of machinery: the tax treaty between the two countries, signed in 1994, and the US foreign tax credit. Between them, a US citizen in Portugal ends up paying roughly the larger of the two countries' bills rather than both. Lesson P1 showed that Portugal's bill on pension income is usually the larger one by a wide margin, so in practice the American living in Portugal pays about Portugal's tax, and the US return mostly records that nothing more is owed." },
         { "type": "text", "text": "The treaty does less for a citizen than for anyone else. Like every US treaty, it contains a saving clause that keeps the US's right to tax its own citizens as if the treaty didn't exist, with a few exceptions.[^saving] Most of the relief therefore runs through credits rather than exemptions." }
       ]
@@ -51,7 +51,7 @@
       "blocks": [
         { "type": "text", "text": "Money in two countries brings forms in both." },
         { "type": "text", "text": "**In the US.** An FBAR lists every foreign account whenever their combined value passed $10,000 at any point in the year, including a Portuguese current account. Form 8938 overlaps it for larger sums: for a couple living abroad, above $400,000 at year end or $600,000 at any time. The penalties for missing either are severe, and both are easy to file." },
-        { "type": "text", "text": "**In Portugal.** The annual return lists foreign income on its own annex, and the bank, the broker and each US account must be declared." },
+        { "type": "text", "text": "**In Portugal.** The annual return lists foreign income on its own annex, and each foreign bank or brokerage account must be declared." },
         { "type": "text", "text": "**Funds.** A Portuguese or other European fund held by a US citizen is a PFIC under US law, taxed so harshly that it is almost always a mistake.[^pfic] And an EU broker usually won't sell a US-listed fund to an EU resident, because the fund lacks the short disclosure document EU rules require.[^priips] So Americans in Portugal mostly keep their US brokerage accounts, but not every US broker will keep a client with a foreign address. Some do; finding one before the move saves a forced sale later." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "A US citizen in Portugal files in both countries and pays roughly the larger of the two taxes, after the treaty and the foreign tax credit.",
@@ -85,7 +85,7 @@
     "**File the FBAR and avoid European funds.** Keep a US broker that serves clients living abroad."
   ],
   "footnotes": {
-    "saving": { "kind": "technical", "title": "The saving clause", "text": "Article 1 of the treaty lets the US tax its citizens and residents as if the treaty had not come into effect. The exceptions it lists include the relief from double taxation article, which is the one that matters here, and some pension and social security rules." },
+    "saving": { "kind": "technical", "title": "The saving clause", "text": "Article 1 of the treaty, as detailed in paragraph 1(b) of the Protocol, lets the US tax its citizens and residents as if the treaty had not come into effect. The exceptions it lists include the relief from double taxation article, which is the one that matters here, and some pension and social security rules." },
     "resource": { "kind": "technical", "title": "Re-sourcing", "text": "The US credit is normally limited to foreign tax on foreign income, and an IRA withdrawal is US income. The treaty's double taxation article re-sources income so that the US credits Portugal's tax on it anyway, after Portugal first credits whatever tax the US could charge a non-citizen. The order is fiddly; the effect is close to paying the larger of the two." },
     "ss": { "kind": "digression", "title": "The Social Security dispute", "text": "Article 20 of the treaty says US social security benefits paid to a Portuguese resident may be taxed in the US. The word 'may' leaves Portugal free to tax them too, which is how Portugal's tax authority reads it. Other treaties word the same rule as 'shall be taxable only', and the difference is the whole dispute." },
     "pfic": { "kind": "technical", "title": "PFICs", "text": "A passive foreign investment company is, broadly, any non-US fund. Unless the owner makes an election that the fund rarely supports, gains are taxed at the highest US rate with an interest charge, and an annual Form 8621 is due for each fund." },

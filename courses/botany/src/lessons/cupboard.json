@@ -8,7 +8,7 @@
       "title": "De Mairan's cupboard",
       "blocks": [
         {"type": "text", "text": "The sensitive plant, mimosa, is known for folding its leaflets when touched. It also folds them every evening and opens them every morning, as if asleep. In 1729 Jean-Jacques d'Ortous de Mairan, a French astronomer better known for his work on the aurora, wondered whether the plant was simply responding to the sun. He put one in a dark cupboard, where it could not see daylight at all, and looked in on it."},
-        {"type": "text", "text": "The leaves went on opening in the morning and folding in the evening for days, in the dark. De Mairan published a short note and left it there. Others repeated it with the room temperature held steady, to rule out the daily warming and cooling. The plant was keeping time by itself. Later work found that, left alone in constant conditions, the rhythm runs a little longer or shorter than 24 hours, so it drifts slowly out of step with the real day. An outside cue the cupboard failed to shut out, such as some daily change in the air, would keep exact 24-hour time. A rhythm that drifts must come from inside the plant."},
+        {"type": "text", "text": "The leaves went on opening in the morning and folding in the evening for days, in the dark. De Mairan published a short note and left it there.[^linnaeus] Others repeated it with the room temperature held steady, to rule out the daily warming and cooling. The plant was keeping time by itself. Later work found that, left alone in constant conditions, the rhythm runs a little longer or shorter than 24 hours, so it drifts slowly out of step with the real day. An outside cue the cupboard failed to shut out, such as some daily change in the air, would keep exact 24-hour time. A rhythm that drifts must come from inside the plant."},
         {"type": "text", "text": "Nearly every living thing has such a clock, called **circadian**, from Latin for about a day. In plants it is a loop of genes, each switching the next on or off, that takes about a day to go round. Each morning's light nudges it back into step. It lets a plant get ready for dawn before dawn comes, opening its stomata and making the proteins of photosynthesis in advance, and it lets the plant measure how long the night has been."}
       ]
     },
@@ -32,7 +32,7 @@
     {
       "title": "Red and far-red",
       "blocks": [
-        {"type": "text", "text": "Whatever reads the light in a plant has to be very sensitive, since a minute of it at midnight is enough. In the late 1940s and 1950s Harry Borthwick and Sterling Hendricks, physicists and botanists at the US Department of Agriculture's station at Beltsville, Maryland, measured which colour of light does it. They used a big home-made spectrograph to light plants with pure colours, and found red light, around 660 nanometres, worked best for breaking a night. They also found something stranger."},
+        {"type": "text", "text": "Whatever reads the light in a plant has to be very sensitive, since a minute of it at midnight is enough. In the late 1940s and 1950s Harry Borthwick and Sterling Hendricks, a botanist and a chemist at the US Department of Agriculture's station at Beltsville, Maryland, measured which colour of light does it. They used a big home-made spectrograph to light plants with pure colours,[^spectrograph] and found red light, around 660 nanometres, worked best for breaking a night. They also found something stranger."},
         {"type": "text", "text": "Lettuce seeds of one variety sprout well in light and hardly at all in the dark. Borthwick and Hendricks found that a flash of red light made them sprout. A flash of far-red, the deep red at the very edge of what we can see, about 730 nanometres, cancelled it. Red, then far-red, and the seeds stayed asleep. Red, far-red, red, and they sprouted. They could switch back and forth many times, and only the last flash counted."},
         {"type": "interactive_diagram", "id": "lettuce", "caption": "Lettuce seeds given flashes of red and far-red light, in any order. A model of Borthwick and Hendricks's experiment (1952).", "task": "Give three or more flashes ending in red, then three or more ending in far-red", "goal": "last", "aspect_ratio": 2.35},
         {"type": "text", "text": "That pattern meant one pigment with two forms. Red light switches it on, into its active form; far-red light switches it off again. (Each form absorbs the light that turns it into the other, which is why the two colours undo each other.) Whichever flash came last decides whether the switch is on. In 1959 Warren Butler and his colleagues at Beltsville extracted the pigment from plants, and it was named **phytochrome**, plant colour. In the dark, the active form slowly reverts, which is one way the plant measures the length of the night, though most of the timing is done by the clock, which phytochrome keeps set.[^nm]"}
@@ -43,7 +43,7 @@
       "blocks": [
         {"type": "text", "text": "Phytochrome also tells a plant whether it is in the shade of another plant. Lesson 3's leaves absorb red light strongly and let far-red through, since far-red is no use for photosynthesis. In open sunlight there is a little more red than far-red. Under a canopy of leaves, most of the red has been taken and much of the far-red remains, so the ratio of red to far-red falls from about 1.2 to as low as 0.1. A seedling's phytochrome, mostly switched off by the far-red, tells it there are leaves above it, and it can even sense the far-red reflected off a neighbour's leaves before it is shaded."},
         {"type": "interactive_diagram", "id": "canopy", "caption": "A shade-avoiding seedling and a shade-tolerant one, in the open and under leaves. A model.", "task": "Guess, then put both under a dense canopy", "goal": "stretch", "aspect_ratio": 1.82},
-        {"type": "text", "text": "What it does next depends on what kind of plant it is. A sunflower, a weed of open ground or a crop grown in a crowd reads low red as a race it can win, and pours its food into a long thin stem to get its leaves above its neighbours. Under a forest canopy that race is lost before it starts, and a forest herb or a young hemlock instead stays short, spreads thin, broad leaves and gets by on the little light there is, as lesson 2's shade leaves do. Small seeds of open-ground plants often use the same signal to stay dormant under leaves, and sprout only when a gap opens and red light reaches the soil, which matters a great deal in Ecology's lesson on how forests regrow gap by gap."},
+        {"type": "text", "text": "What it does next depends on what kind of plant it is. A sunflower, a weed of open ground or a crop grown in a crowd reads low red as a race it can win, and pours its food into a long, thin stem to get its leaves above its neighbours. Under a forest canopy that race is lost before it starts, and a forest herb or a young hemlock instead stays short, spreads thin, broad leaves and gets by on the little light there is, as lesson 2's shade leaves do. Small seeds of open-ground plants often use the same signal to stay dormant under leaves, and sprout only when a gap opens and red light reaches the soil, which matters a great deal in Ecology's lesson on how forests regrow gap by gap."},
         {"type": "text", "text": "In spring, note the order in which the trees and shrubs on your street leaf out, and which plants under them flower before the leaves close over. Many woodland flowers bloom early for that reason. Compare a weed seedling growing under a shrub with one of the same kind in open ground: the one in the shade will usually be taller, thinner and paler."}
       ]
     },
@@ -51,7 +51,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on clocks, nights and shade", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on clocks, nights and shade",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "De Mairan's mimosa went on opening and closing its leaves in a dark cupboard. What did that show?", "choices": ["The plant has its own clock", "Some daylight was leaking into the cupboard", "The leaves were responding to being touched"], "answer": 0, "why": "With no daylight to follow, the plant kept its daily rhythm by itself. In constant conditions the rhythm drifts slowly from 24 hours, so it comes from inside the plant."},
             {"ask": "Garner and Allard's tobacco flowered only after being wheeled into a dark hut each afternoon. What kind of plant is it?", "choices": ["A short-day plant", "A long-day plant", "A day-neutral plant"], "answer": 0, "why": "It flowered only when its days were made short, as in winter."},
@@ -76,6 +79,16 @@
   "journal": [],
   "footnotes": {
     "florigen": {"kind": "technical", "title": "The flowering signal", "text": "Day length is read in the leaves, but flowers are made at the shoot tip. In 1936 the Russian botanist Mikhail Chailakhyan showed that a single leaf given short days could make a whole plant flower, and proposed a travelling flowering signal he called florigen. It was finally identified in 2005 to 2007 as a small protein, made in the leaves and carried to the tip in the phloem (lesson 9)."},
-    "nm": {"kind": "technical", "title": "Nanometres", "text": "A nanometre is a millionth of a millimetre. Visible light runs from about 400 nanometres (violet) to about 700 (deep red); 730, far-red, is at the very edge of what we can see, and most of it passes straight through a leaf."}
+    "nm": {"kind": "technical", "title": "Nanometres", "text": "A nanometre is a millionth of a millimetre. Visible light runs from about 400 nanometres (violet) to about 700 (deep red); 730, far-red, is at the very edge of what we can see, and most of it passes straight through a leaf."},
+    "linnaeus": {
+      "kind": "digression",
+      "title": "Linnaeus's flower clock",
+      "text": "It is not only leaves that keep daily time. In 1751 Carl Linnaeus proposed a garden bed planted with species whose flowers open or close at different hours: goatsbeard opening near dawn, chicory in the morning, evening primrose at dusk. In practice weather and season shift the hours enough to make it a rough clock at best."
+    },
+    "spectrograph": {
+      "kind": "digression",
+      "title": "The Beltsville spectrograph",
+      "text": "With almost no budget in 1945, Borthwick, Hendricks and the physicist Marion Parker built their ten-metre spectrograph in a basement at Beltsville out of borrowed parts: two big glass prisms on loan from the Smithsonian Institution and a 12,000-watt carbon-arc lamp from a cinema projector. It threw a rainbow more than a metre wide along a wall where a row of seedlings could stand, each in its own pure colour."
+    }
   }
 }

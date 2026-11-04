@@ -1,228 +1,233 @@
 {
- "id": "birds",
- "n": 10,
- "title": "Birds, in practice",
- "teaches": "Starting settings for perched and flying birds, what Bird-watching mode was choosing for you, finding a bird at 2000 mm, and working a subject",
- "parts": [
-  {
-   "title": "Two birds, ten seconds apart",
-   "blocks": [
+  "id": "birds",
+  "n": 10,
+  "title": "Birds, in practice",
+  "teaches": "Starting settings for perched and flying birds, what Bird-watching mode was choosing for you, finding a bird at 2000 mm, and working a subject",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The challenge.** You are standing at the edge of a wood. A tanager lands on a bare branch ten metres away, in the shade, and sits. While you are photographing it, an eagle sails out over the clearing. Both pictures below were taken by the same camera, but the settings that made one would have ruined the other: the eagle needs a shutter eight times faster, and the tanager, in a quarter of the light, would have come out grainy at that speed. There is no time to think it through on the spot. The trick is to have thought it through before you went out."
-    },
-    {
-     "type": "diagram",
-     "id": "challenge",
-     "caption": "A tanager in shade and an eagle in sun, each with the settings it needed",
-     "options": {
-      "panels": [
-       {
-        "label": "The tanager on its branch",
-        "photo": "perched-bird-01",
-        "eqFocal": 1000,
-        "shutter": 0.004
-       },
-       {
-        "label": "The eagle overhead",
-        "photo": "bird-in-flight-01",
-        "eqFocal": 600,
-        "shutter": 0.0005
-       }
+      "title": "Two birds, ten seconds apart",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The challenge.** You are standing at the edge of a wood. A tanager lands on a bare branch ten metres away, in the shade, and sits. While you are photographing it, an eagle sails out over the clearing. Both pictures below were taken by the same camera, but the settings that made one would have ruined the other: the tanager took 1/250 s at ISO 800, while the eagle needs a shutter eight times faster (1/2000 s), and the tanager, in a quarter of the light, would have needed ISO 6400 and come out grainy at that speed. There is no time to work that out on the spot, so you need the settings ready before you go out."
+        },
+        {
+          "type": "diagram",
+          "id": "challenge",
+          "caption": "A tanager in shade (1/250 s, ISO 800) and an eagle in sun (1/2000 s, ISO 400), each with the settings it needed",
+          "options": {
+            "panels": [
+              {
+                "label": "The tanager on its branch",
+                "photo": "perched-bird-01",
+                "eqFocal": 1000,
+                "shutter": 0.004
+              },
+              {
+                "label": "The eagle overhead",
+                "photo": "bird-in-flight-01",
+                "eqFocal": 600,
+                "shutter": 0.0005
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Everything in this lesson has come up before, in the lessons on light, the aperture, the shutter, ISO and focus. This one puts it together into two starting recipes, one for a still bird and one for a moving one, so that in the field you only have to choose which.[^recipe-not-rule]"
+        }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Everything in this lesson has come up before, in the lessons on light, the aperture, the shutter, ISO and focus. This one puts it together into two starting recipes, one for a still bird and one for a moving one, so that in the field you only have to choose which.[^recipe-not-rule]"
-    }
-   ]
-  },
-  {
-   "title": "A perched bird",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**Start in aperture priority (A), wide open.** The P950's lens is only f/5.6 to f/6.5 at the long end, so wide open is where you want to be: the most light, and the softest background. Let the camera choose the shutter. **Set auto ISO with a ceiling** of 1600, or 3200 in poor light, so the camera raises the ISO before it lets the shutter get too slow. **Single autofocus, with a spot or small area on the bird's eye.** Stabiliser on."
-    },
-    {
-     "type": "text",
-     "text": "Then watch the shutter speed the camera chooses. The rule from the lesson on shutter speed says 1/1000 s at 1000 mm, but the stabiliser buys about three stops, so at 1000 mm, braced, about 1/125 s is the slowest you can trust; at 2000 mm, about 1/250 s. If the camera goes slower than that, you have run out of light: get steadier (lean on a tree, sit down, use a monopod[^monopod]), or raise the ISO ceiling and accept the grain. Take a short burst of three or four frames rather than a single one. Between the small tremors of your hands, one frame is often sharper than the rest."
-    }
-   ]
-  },
-  {
-   "title": "A bird in flight",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**Switch to shutter priority (S), 1/2000 s.** For big, slow birds like herons and eagles 1/1000 s can do; for small, fast ones like swallows, go faster if the light allows. Leave ISO on auto. **Continuous autofocus** so it follows the bird, and a **centre** area: big enough to keep on the bird, small enough not to wander off to a tree. Burst shooting on."
-    },
-    {
-     "type": "text",
-     "text": "**Zoom out more than you want to.** A bird in flight is hard to keep in a one-degree frame; at 600 mm to 1000 mm the frame is two to three times wider and you will lose it far less often. You can crop afterwards, as in the lesson The lens: 24 mm to 2000 mm. Track the bird before you press, keep panning smoothly through the burst, and keep going after you release the button, the way a golfer follows through."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "recipe",
-     "caption": "Set the dials for a perched bird in shade and a bird flying overhead in sun",
-     "task": "Get every check green for both birds",
-     "goal": "both"
-    }
-   ]
-  },
-  {
-   "title": "Leaving Bird-watching mode",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The P950's Bird-watching scene mode is a decent automatic recipe. It zooms to a long focal length as soon as you select it, uses a centre focus area, and offers a single-shot and a burst setting. What it does not know is what you are about to photograph. It cannot tell a perched bird from a flying one, does not know there are twigs in front of the bird, and settles on middle-of-the-road shutter speeds that are slower than a flier needs and sometimes faster than a perched bird in dim light can afford."
-    },
-    {
-     "type": "text",
-     "text": "The P950's mode dial has a **U** (user settings) position that remembers a full set of settings. A good use for it is your flight recipe: shutter priority, 1/2000 s, auto ISO, continuous focus, centre area, burst. Then you can spend most of your time in A for perched birds, and turn the dial one click when something takes off."
-    }
-   ]
-  },
-  {
-   "title": "Finding the bird at 2000 mm",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "At 2000 mm the frame takes in about one degree, the width of your little finger at arm's length. Raise the camera to where you think the bird is, and you will usually see empty leaves. The P950 has a button on the side of the lens barrel for exactly this: hold it down and the lens zooms out so you can find the bird, then let go and it zooms back in where it was. Keep the bird in the middle of the frame as it zooms back."
-    },
-    {
-     "type": "text",
-     "text": "Two habits help as much. Keep your eyes on the bird as you raise the camera, rather than looking down at the camera first. And find a landmark near the bird with your naked eye, a dead branch or a bright leaf, that you can find at the long end and then step over from. Some photographers add a small red-dot sight to the camera's hot shoe, which shows a dot floating over the scene where the lens is pointing."
-    }
-   ]
-  },
-  {
-   "title": "Working a subject",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "When a bird stays put, you have time to improve on the first picture. Take a safe frame first, with the starting recipe, as soon as you see it. Then work through the list: is the eye sharp (check by zooming into the picture on the screen)? Is the histogram clear of both edges? Is there a twig across the face or something growing out of the head, and would a step to the side clear it? Is the light coming from somewhere useful? Can you get lower?"
-    },
-    {
-     "type": "text",
-     "text": "Then wait for behaviour. A bird that turns its head toward the light, stretches, calls or catches something makes a picture; a bird sitting still is a record shot. Most good bird pictures are taken by people who stayed longer than everyone else, with the camera ready and the settings already sorted."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Perched bird: aperture priority wide open, auto ISO with a ceiling, single focus on the eye, bursts of three or four.",
-      "Bird in flight: shutter priority at 1/2000 s, auto ISO, continuous focus, centre area, burst.",
-      "Bird-watching mode cannot know which kind of bird you have; a saved U setting can switch you in one click.",
-      "To find a bird at 2000 mm, use the zoom-back button and a landmark near it.",
-      "Take a safe frame first, then improve it, then wait for behaviour."
-     ]
-    },
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Birds, in practice",
-     "task": "Answer each question",
-     "options": {
-      "items": [
-       {
-        "question": "A thrush sits still in dim shade at 1000 mm. In aperture priority the camera picks 1/30 s. What should you do?",
-        "options": [
-         "Brace well and raise the ISO ceiling",
-         "Switch to shutter priority at 1/2000 s",
-         "Narrow the aperture to f/8 for depth",
-         "Switch to continuous autofocus"
-        ],
-        "answer": 0,
-        "why": "At 1000 mm, about 1/125 s is the slowest safe speed braced. Letting the ISO rise buys that speed; 1/2000 s would be far too dark, and f/8 would make it worse."
-       },
-       {
-        "question": "Why zoom out to around 800 mm for a swallow in flight?",
-        "options": [
-         "A wider frame keeps the bird in it more easily",
-         "The lens focuses faster at 800 mm than 2000 mm",
-         "Shorter focal lengths freeze motion better",
-         "The camera only allows bursts below 1000 mm"
-        ],
-        "answer": 0,
-        "why": "At the long end the frame is about a degree wide, and a darting bird leaves it constantly. A wider view lets you follow it, and you can crop afterwards."
-       },
-       {
-        "question": "Which focus setup suits a gull flying across open sky?",
-        "options": [
-         "Continuous autofocus with a centre area",
-         "Single autofocus with a spot area",
-         "Manual focus set in advance",
-         "Single autofocus with the widest area"
-        ],
-        "answer": 0,
-        "why": "The gull's distance keeps changing, so focus must follow it, and a centre area is easy to keep on a bird against a plain sky. A spot is too small to hold on a moving bird."
-       },
-       {
-        "question": "What does the P950's button on the side of the lens barrel do?",
-        "options": [
-         "Zooms out while held, back in when released",
-         "Locks the focus at its current distance",
-         "Starts a burst of shots at the top speed",
-         "Turns the image stabiliser on and off"
-        ],
-        "answer": 0,
-        "why": "It is a quick way to find a bird you have lost at the long end: hold it to see a wider view, centre the bird, and let go."
-       },
-       {
-        "question": "Why take a burst of three or four frames of a perched bird?",
-        "options": [
-         "One is often sharper, between hand tremors",
-         "The camera averages the noise out of them",
-         "The camera exposes the later frames better",
-         "The stabiliser needs several frames to work"
-        ],
-        "answer": 0,
-        "why": "Hand-held at long zooms, shake varies from moment to moment. In a short burst, one frame often falls in a still moment."
-       },
-       {
-        "question": "A heron has been standing for ten minutes and you have a sharp, well-exposed picture. What is the best next step?",
-        "options": [
-         "Look for better light or background, and wait",
-         "Leave, because the safe shot is already done",
-         "Move much closer for a frame-filling shot",
-         "Change to a slower shutter for more light"
-        ],
-        "answer": 0,
-        "why": "A safe frame is a starting point. Improve the background and light where you can, and wait for behaviour, such as a strike or a stretch, which makes the picture."
-       }
+      "title": "A perched bird",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Start in aperture priority (A), wide open.** The P950's lens is only f/5.6 to f/6.5 at the long end, so wide open is where you want to be: the most light, and the softest background. Let the camera choose the shutter. **Set auto ISO with a ceiling** of 1600, or 3200 in poor light, so the camera raises the ISO before it lets the shutter get too slow. **Single autofocus, with a spot or small area on the bird's eye.** Stabiliser on."
+        },
+        {
+          "type": "text",
+          "text": "Then watch the shutter speed the camera chooses. The rule from the lesson on shutter speed says 1/1000 s at 1000 mm, but the stabiliser buys about three stops, so at 1000 mm, braced, about 1/125 s is the slowest you can trust; at 2000 mm, about 1/250 s. If the camera goes slower than that, you have run out of light: get steadier (lean on a tree, sit down, use a monopod[^monopod]), or raise the ISO ceiling and accept the grain. Take a short burst of three or four frames rather than a single one. Between the small tremors of your hands, one frame is often sharper than the rest."
+        }
       ]
-     }
+    },
+    {
+      "title": "A bird in flight",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Switch to shutter priority (S), 1/2000 s.** For big, slow birds like herons and eagles 1/1000 s can do; for small, fast ones like swallows, go faster if the light allows. Leave ISO on auto. **Continuous autofocus** so it follows the bird, and a **centre** area: big enough to keep on the bird, small enough not to wander off to a tree. Burst shooting on."
+        },
+        {
+          "type": "text",
+          "text": "**Zoom out more than you want to.** A bird in flight is hard to keep in a one-degree frame; at 600 mm to 1000 mm the frame is two to three times wider and you will lose it far less often. You can crop afterwards, as in the lesson The lens: 24 mm to 2000 mm. Track the bird before you press, keep panning smoothly through the burst, and keep going after you release the button, the way a golfer follows through."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "recipe",
+          "caption": "Set the dials for a perched bird in shade and a bird flying overhead in sun",
+          "task": "Get every check green for both birds",
+          "goal": "both"
+        }
+      ]
+    },
+    {
+      "title": "Leaving Bird-watching mode",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The P950's Bird-watching scene mode is a decent automatic recipe. It zooms to a long focal length as soon as you select it, uses a centre focus area, and offers a single-shot and a burst setting. What it does not know is what you are about to photograph. It cannot tell a perched bird from a flying one, does not know there are twigs in front of the bird, and settles on middle-of-the-road shutter speeds that are slower than a flier needs and sometimes faster than a perched bird in dim light can afford."
+        },
+        {
+          "type": "text",
+          "text": "The P950's mode dial has a **U** (user settings) position that remembers a full set of settings. Save the flight setup from the previous section there. Then you can spend most of your time in A for perched birds, and turn the dial one click when something takes off."
+        }
+      ]
+    },
+    {
+      "title": "Finding the bird at 2000 mm",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At 2000 mm the frame takes in about one degree, the width of your little finger at arm's length. Raise the camera to where you think the bird is, and you will usually see empty leaves. The P950 has a button on the side of the lens barrel (the snap-back zoom button) for this: hold it down and the lens zooms out so you can find the bird, then let go and it zooms back in where it was. Keep the bird in the middle of the frame as it zooms back."
+        },
+        {
+          "type": "text",
+          "text": "Two habits help as much. Keep your eyes on the bird as you raise the camera, rather than looking down at the camera first. And find a landmark near the bird with your naked eye, a dead branch or a bright leaf, that you can find at the long end and then step over from. Some photographers add a small red-dot sight[^red-dot] to the camera's hot shoe."
+        }
+      ]
+    },
+    {
+      "title": "Working a subject",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "When a bird stays put, you have time to improve on the first picture. Take a safe frame first, with the starting recipe, as soon as you see it. Then work through the list: is the eye sharp (check by zooming into the picture on the screen)? Is the histogram clear of both edges? Is there a twig across the face or something growing out of the head, and would a step to the side clear it? Is the light coming from somewhere useful? Can you get lower?"
+        },
+        {
+          "type": "text",
+          "text": "Then wait for behaviour. When the bird turns its head toward the light, stretches, calls or catches something, you get a much livelier picture than when it simply sits still. Give a cooperative bird time, with the camera up and the settings already sorted."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Perched bird: A mode wide open, auto ISO with a ceiling, single focus on the eye.",
+            "Bird in flight: S mode at 1/2000 s, continuous focus, centre area, zoomed out.",
+            "Save the flight setup on U to switch from perched to flying in one click.",
+            "At 2000 mm, find the bird with the snap-back button or a landmark.",
+            "Shoot a safe frame first, then check focus, background and angle while you wait."
+          ]
+        },
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Birds, in practice",
+          "task": "Answer each question",
+          "options": {
+            "items": [
+              {
+                "question": "A thrush sits still in dim shade at 1000 mm. In aperture priority the camera picks 1/30 s. What should you do?",
+                "options": [
+                  "Brace well and raise the ISO ceiling",
+                  "Switch to shutter priority at 1/2000 s",
+                  "Narrow the aperture to f/8 for depth",
+                  "Switch to continuous autofocus"
+                ],
+                "answer": 0,
+                "why": "At 1000 mm, about 1/125 s is the slowest safe speed braced. Letting the ISO rise buys that speed; 1/2000 s would be far too dark, and f/8 would make it worse."
+              },
+              {
+                "question": "Why zoom out to around 800 mm for a swallow in flight?",
+                "options": [
+                  "A wider frame keeps the bird in it more easily",
+                  "The lens focuses faster at 800 mm than 2000 mm",
+                  "Shorter focal lengths freeze motion better",
+                  "The camera only allows bursts below 1000 mm"
+                ],
+                "answer": 0,
+                "why": "At the long end the frame is about a degree wide, and a darting bird leaves it constantly. A wider view lets you follow it, and you can crop afterwards."
+              },
+              {
+                "question": "Which focus setup suits a gull flying across open sky?",
+                "options": [
+                  "Continuous autofocus with a centre area",
+                  "Single autofocus with a spot area",
+                  "Manual focus set in advance",
+                  "Single autofocus with the widest area"
+                ],
+                "answer": 0,
+                "why": "The gull's distance keeps changing, so focus must follow it, and a centre area is easy to keep on a bird against a plain sky. A spot is too small to hold on a moving bird."
+              },
+              {
+                "question": "What does the P950's button on the side of the lens barrel do?",
+                "options": [
+                  "Zooms out while held, back in when released",
+                  "Locks the focus at its current distance",
+                  "Starts a burst of shots at the top speed",
+                  "Turns the image stabiliser on and off"
+                ],
+                "answer": 0,
+                "why": "It is a quick way to find a bird you have lost at the long end: hold it to see a wider view, centre the bird, and let go."
+              },
+              {
+                "question": "Why take a burst of three or four frames of a perched bird?",
+                "options": [
+                  "One is often sharper, between hand tremors",
+                  "The camera averages the noise out of them",
+                  "The camera exposes the later frames better",
+                  "The stabiliser needs several frames to work"
+                ],
+                "answer": 0,
+                "why": "Hand-held at long zooms, shake varies from moment to moment. In a short burst, one frame often falls in a still moment."
+              },
+              {
+                "question": "A heron has been standing for ten minutes and you have a sharp, well-exposed picture. What is the best next step?",
+                "options": [
+                  "Look for better light or background, and wait",
+                  "Leave, because the safe shot is already done",
+                  "Move much closer for a frame-filling shot",
+                  "Change to a slower shutter for more light"
+                ],
+                "answer": 0,
+                "why": "A safe frame is a starting point. Improve the background and light where you can, and wait for action, such as a stretch or a strike (a lunge at a fish)."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Decide before you go.** Have a recipe for a still bird and one for a moving bird, and only choose between them in the field.",
+    "**Perched: aperture priority, wide open.** Auto ISO with a ceiling, single focus with a small area on the eye, short bursts.",
+    "**Flying: shutter priority at 1/2000 s.** Auto ISO, continuous focus, centre area, bursts, and a shorter zoom than you would like.",
+    "**Watch the shutter the camera picks.** About 1/125 s braced at 1000 mm, 1/250 s at 2000 mm; slower means more ISO or more support.",
+    "**Save the flight recipe on U.** Then one click of the dial switches from a perched bird to a flying one.",
+    "**Find the bird wide, then zoom.** The snap-back zoom button and a nearby landmark make the long end usable.",
+    "**Take a safe frame first.** Then check focus, background and light, and wait for the bird to do something."
+  ],
+  "journal": [],
+  "footnotes": {
+    "recipe-not-rule": {
+      "kind": "digression",
+      "title": "Starting points",
+      "text": "Every number in these recipes is a starting point that works more often than not. Experienced bird photographers break each of them regularly, a slow shutter for a deliberately blurred wingbeat, a narrow aperture to get a whole flock sharp, but they break them on purpose, knowing what they are giving up."
+    },
+    "monopod": {
+      "kind": "technical",
+      "title": "A monopod",
+      "text": "A monopod, a single telescoping leg screwed into the camera's tripod socket, takes the camera's weight and damps the up-and-down part of hand shake, typically buying one or two stops of shutter speed. Unlike a tripod it can be carried open and set down in a second, which suits birds."
+    },
+    "red-dot": {
+      "kind": "technical",
+      "title": "Red-dot sights",
+      "text": "A red-dot sight (such as Nikon's DF-M1) slides into the hot shoe on top of the camera. Looking through its small window with both eyes open, you see a glowing dot projected over the scene where the lens is pointing. Once calibrated to match the lens, it lets you track a fast bird without looking through the narrow viewfinder."
+    }
   }
- ],
- "summary": [
-  "**Decide before you go.** Have a recipe for a still bird and one for a moving bird, and only choose between them in the field.",
-  "**Perched: aperture priority, wide open.** Auto ISO with a ceiling, single focus with a small area on the eye, short bursts.",
-  "**Flying: shutter priority at 1/2000 s.** Auto ISO, continuous focus, centre area, bursts, and a shorter zoom than you would like.",
-  "**Watch the shutter the camera picks.** About 1/125 s braced at 1000 mm, 1/250 s at 2000 mm; slower means more ISO or more support.",
-  "**Save the flight recipe on U.** Then one click of the dial switches from a perched bird to a flying one.",
-  "**Find the bird wide, then zoom.** The zoom-back button and a nearby landmark make the long end usable.",
-  "**Safe frame, then better frames, then behaviour.** Most good pictures come from staying longer."
- ],
- "journal": [],
- "footnotes": {
-  "recipe-not-rule": {
-   "kind": "digression",
-   "title": "Recipes, not rules",
-   "text": "Every number in these recipes is a starting point that works more often than not. Experienced bird photographers break each of them regularly, a slow shutter for a deliberately blurred wingbeat, a narrow aperture to get a whole flock sharp, but they break them on purpose, knowing what they are giving up."
-  },
-  "monopod": {
-   "kind": "technical",
-   "title": "A monopod",
-   "text": "A monopod, a single telescoping leg screwed into the camera's tripod socket, takes the camera's weight and damps the up-and-down part of hand shake, typically buying one or two stops of shutter speed. Unlike a tripod it can be carried open and set down in a second, which suits birds."
-  }
- }
 }

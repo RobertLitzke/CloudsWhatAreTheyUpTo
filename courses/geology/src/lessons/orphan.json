@@ -1,272 +1,287 @@
 {
- "id": "orphan",
- "n": 401,
- "branch": "cascadia",
- "needs": [
-  "barnacles"
- ],
- "title": "The orphan tsunami",
- "teaches": "How buried marshes, dead cedars, Japanese records and Indigenous stories showed that Cascadia's megathrust broke in a magnitude 9 earthquake on 26 January 1700",
- "parts": [
-  {
-   "title": "A wave with no earthquake",
-   "blocks": [
+  "id": "orphan",
+  "n": 401,
+  "branch": "cascadia",
+  "needs": [
+    "barnacles"
+  ],
+  "title": "The orphan tsunami",
+  "teaches": "How buried marshes, dead cedars, Japanese records and Indigenous stories showed that Cascadia's megathrust broke in a magnitude 9 earthquake on 26 January 1700",
+  "parts": [
     {
-     "type": "text",
-     "text": "Around midnight between 27 and 28 January 1700 by the Western calendar,[^genroku] a tsunami came ashore along about 1,000 kilometres of the Pacific coast of Japan, from northern Honshu to the Kii Peninsula. At Miyako the sea flooded houses and fields, and the flooding set off a fire that burned houses; at Tanabe the flood ran into rice paddies and storehouses. Officials and merchants wrote it down, as they recorded everything that affected taxes and rice. What puzzled them was that nobody had felt an earthquake. In Japan tsunamis follow earthquakes, and this one had come out of a calm night. It was a tsunami without a parent: an orphan."
-    },
-    {
-     "type": "text",
-     "text": "For nearly three centuries no one connected those records with anything. On the other side of the Pacific, the Cascadia subduction zone, where the Juan de Fuca plate sinks beneath the coast from northern California to Vancouver Island (lesson 11), had produced no large earthquake in the two hundred years of written history in the Pacific Northwest. Some geologists suspected it slid smoothly, without locking at all."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Around midnight between 27 and 28 January 1700 (Japanese time), a tsunami flooded about 1,000 km of the Japanese coast with no earthquake felt there.",
-      "Cascadia had no large earthquake in written history, and some geologists thought it might not lock."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Ghost forests and buried marshes",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "In 1986 Brian Atwater of the US Geological Survey paddled a canoe up the tidal rivers of southwest Washington, looking at the banks at low tide. In the mud of the riverbanks around Willapa Bay he found the tops of old marshes: dark soils full of the roots of marsh plants, and in places the stumps of spruce trees, buried under grey tidal mud. Lesson 20 showed what that means. A marsh grows only around the level of high tide. To be buried under tidal mud, the ground beneath it must have dropped suddenly, a metre or two, into the reach of the tides. The soils were often capped by a thin layer of sand that thinned inland, the kind a tsunami leaves."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "marsh",
-     "caption": "A cut through a tidal marsh at the edge of a bay on the Washington coast, over 3,500 years. Earthquakes drop the marsh into the reach of the tides; it is buried, then rebuilt.",
-     "task": "Play the years until at least three soils are buried",
-     "goal": "buried",
-     "aspect_ratio": 1.66
-    },
-    {
-     "type": "text",
-     "text": "Atwater found the same sequence in estuary after estuary along the Washington coast: buried soils stacked one above another, each recording a sudden drop. Along the Copalis River and other tidal rivers, the drop had left something more: **ghost forests**, stands of dead western red cedar still upright in the tidal marshes, killed when salt water flooded their roots. High-precision radiocarbon dates on drowned trees and plants said the land had dropped sometime between about 1680 and 1720. Radiocarbon could not do better than that, but tree rings could."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A ghost forest of western red cedars on the Copalis River, Washington, killed when the land dropped in the 1700 earthquake and salt water flooded their roots.",
-     "options": {
-      "photo": "ghost-forest",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "Red cedar rots very slowly, and its tree rings record each year it grew. David Yamaguchi, a tree-ring scientist, matched the rings of the dead cedars against those of living old trees nearby, ring by ring,[^crossdate] to find the year of each dead tree's outermost ring. In 1997, with Atwater and others, he reported the result: in the roots of the dead trees, the last ring had grown in 1699, and the roots died before the growing season of 1700 began. The earthquake had struck in the winter between."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Buried marsh soils capped by tsunami sand and tidal mud show that the Washington coast dropped suddenly, again and again.",
-      "Ghost forests of red cedar were killed by salt water when the land dropped.",
-      "Tree rings dated the death of the cedars to the winter of 1699–1700."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Ten hours to Japan",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A winter of 1699–1700 at Cascadia pointed straight at the orphan tsunami. In 1996 Kenji Satake and colleagues worked through the old Japanese records of the wave, how high it rose and when it arrived at each place, and computed backwards. A tsunami crosses the deep ocean at the speed of a long wave. Its wavelength is hundreds of kilometres, far longer than the ocean is deep, so the whole water column moves with it and its speed is set only by the depth of the water: about 700 to 800 kilometres an hour over the deep Pacific. From the Cascadia coast to Japan takes about ten hours. Working back from the arrival times, the earthquake had struck at about nine o'clock at night, Pacific time, on 26 January 1700. Japan's clock runs 17 hours ahead of the Pacific coast's, so that was about two in the afternoon of 27 January in Japan, and ten hours later the wave arrived around midnight."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "orphan-tsunami",
-     "caption": "The North Pacific, with a tsunami spreading from the Cascadia margin. The travel times come from the depth of the ocean.",
-     "task": "Play the hours until the wave reaches Japan",
-     "goal": "crossed",
-     "aspect_ratio": 1.2
-    },
-    {
-     "type": "text",
-     "text": "The height of the wave in Japan told them the size. To raise a wave several metres high on the far side of the Pacific, the earthquake must have broken the whole length of the subduction zone, about 1,000 kilometres, in one magnitude 9 earthquake, much like Alaska in 1964."
-    },
-    {
-     "type": "text",
-     "text": "People on the coast had their own record. Peoples of the coast from Vancouver Island to northern California tell of a night when the ground shook and the sea came in and swept villages away. The Huu-ay-aht First Nation's account tells how the people of Pachena Bay on Vancouver Island were lost in a flood one winter night. In 2005 the seismologist Ruth Ludwin and colleagues gathered such accounts, and many fit a winter night about three hundred years ago."
-    },
-    {
-     "type": "diagram",
-     "id": "timeline",
-     "caption": "How the orphan found its parent.",
-     "options": {
-      "events": [
-       {
-        "at": 1700,
-        "label": "A tsunami reaches Japan with no earthquake felt",
-        "bold": true
-       },
-       {
-        "at": 1986,
-        "label": "Atwater finds buried marshes on the Washington coast"
-       },
-       {
-        "at": 1987,
-        "label": "Atwater publishes evidence of sudden drops of the coast"
-       },
-       {
-        "at": 1996,
-        "label": "Satake and colleagues date the earthquake from the Japanese records"
-       },
-       {
-        "at": 1997,
-        "label": "Yamaguchi’s tree rings put it in the winter of 1699–1700"
-       },
-       {
-        "at": 2005,
-        "label": "Ludwin and colleagues gather the coast peoples’ accounts"
-       }
-      ],
-      "spacing": "even"
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Satake's team worked back from the times and heights of the tsunami in Japan to an earthquake at about 9 p.m. on 26 January 1700.",
-      "Only a magnitude 9 earthquake rupturing the whole Cascadia subduction zone could make that wave.",
-      "Indigenous oral histories along the coast describe the same event."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "What it means now",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The buried soils go back further than 1700. Atwater's marshes, which span 3,500 years, and layers of muddy sand that undersea landslides shook loose into the deep sea, record about twenty great Cascadia earthquakes over the past 10,000 years, at intervals from a couple of centuries to a thousand years, about 500 years on average. The plates are locked again today. GPS stations on the coast show it is being squeezed and dragged down exactly as lesson 20's figure shows between earthquakes."
-    },
-    {
-     "type": "text",
-     "text": "Building codes in Washington, Oregon and British Columbia were updated from the 1990s onwards to plan for a magnitude 9 earthquake, and coastal towns now have tsunami evacuation routes and towers. For the people there, the important part is the warning that the earthquake itself gives: on the coast, strong shaking that lasts for minutes means go to high ground at once, because the tsunami may arrive in 15 to 30 minutes."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A tsunami evacuation route sign on the Pacific coast of the Northwest.",
-     "options": {
-      "photo": "tsunami-sign",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Buried soils and deep-sea deposits record about twenty great Cascadia earthquakes over 10,000 years, on average about 500 years apart.",
-      "The megathrust is locked again today, and the region now plans for a magnitude 9 earthquake and tsunami."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on the orphan tsunami",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "Why did the 1700 tsunami puzzle the people who recorded it in Japan?",
-        "choices": [
-         "Nobody in Japan had felt an earthquake before it",
-         "It came in the middle of summer",
-         "It flooded only one village"
-        ],
-        "answer": 0,
-        "why": "Tsunamis in Japan normally follow local earthquakes. This one arrived from an earthquake on the far side of the Pacific."
-       },
-       {
-        "ask": "What does a marsh soil buried under tidal mud tell a geologist?",
-        "choices": [
-         "The ground beneath it dropped suddenly into the reach of the tides",
-         "The sea slowly rose over thousands of years",
-         "A river flood buried it"
-        ],
-        "answer": 0,
-        "why": "Marshes grow only near high tide; a sharp contact from soil to tidal mud means a sudden drop."
-       },
-       {
-        "ask": "How did Yamaguchi date the earthquake to the winter of 1699–1700?",
-        "choices": [
-         "He matched the rings of dead cedars against living trees and found their last ring grew in 1699",
-         "He used radiocarbon on the cedars",
-         "He counted the layers of mud above the trees"
-        ],
-        "answer": 0,
-        "why": "Tree rings give calendar years. The dead cedars stopped growing after the 1699 season and before 1700's."
-       },
-       {
-        "ask": "How did Satake's team find the hour of the earthquake?",
-        "choices": [
-         "They worked back from the tsunami's arrival times in Japan, using the speed of a wave across the deep Pacific",
-         "Japanese seismographs recorded it",
-         "Indigenous stories gave the hour"
-        ],
-        "answer": 0,
-        "why": "A tsunami's speed depends on the ocean depth, about 10 hours from Cascadia to Japan, so arrival times give the time of the earthquake."
-       },
-       {
-        "ask": "Why must the 1700 earthquake have been about magnitude 9?",
-        "choices": [
-         "Only a rupture along the whole 1,000 km subduction zone could make a wave that high in Japan",
-         "Because the cedars died",
-         "Because it was felt in Japan"
-        ],
-        "answer": 0,
-        "why": "A smaller earthquake breaking part of the fault would have made a much smaller wave on the far side of the ocean."
-       },
-       {
-        "ask": "You are on the Washington coast and the ground shakes hard for over a minute. What should you do?",
-        "choices": [
-         "Go to high ground at once, without waiting for an official warning",
-         "Wait for the tsunami siren",
-         "Go to the beach to watch the sea"
-        ],
-        "answer": 0,
-        "why": "A Cascadia tsunami can arrive within 15 to 30 minutes; the shaking itself is the warning."
-       }
+      "title": "A wave with no earthquake",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Around midnight between 27 and 28 January 1700 by the Western calendar,[^genroku] a tsunami came ashore along about 1,000 kilometres of the Pacific coast of Japan, from northern Honshu to the Kii Peninsula. At Miyako the sea flooded houses and fields, and the flooding set off a fire that burned twenty houses; at Tanabe the water ran into rice paddies and storehouses. Officials and merchants wrote it down, as they recorded everything that affected taxes and rice. What puzzled them was that nobody had felt an earthquake. In Japan tsunamis follow earthquakes, and this one had come out of a calm night. Modern researchers came to call it an orphan tsunami."
+        },
+        {
+          "type": "text",
+          "text": "For nearly three centuries no one connected those records with anything. On the other side of the Pacific, the Cascadia subduction zone, where the Juan de Fuca plate sinks beneath the coast from northern California to Vancouver Island (lesson 11), had produced no great earthquake in the two hundred years of written history in the Pacific Northwest. Some geologists suspected the fault slid smoothly, without locking at all."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Around midnight between 27 and 28 January 1700 (Japanese time), a tsunami flooded about 1,000 km of the Japanese coast with no earthquake felt there.",
+            "Cascadia had no great earthquake in written history, and some geologists thought it might not lock."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "Ghost forests and buried marshes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the mid-1980s Brian Atwater of the US Geological Survey paddled a canoe up the tidal rivers of southwest Washington, digging into the banks at low tide. In the mud of the riverbanks around Willapa Bay he found the tops of old marshes: dark soils full of the roots of marsh plants, and in places the stumps of Sitka spruce trees, buried under grey tidal mud. Lesson 20 showed what that means. A marsh grows only around the level of high tide. To be buried under tidal mud, the ground beneath it must have dropped suddenly, a metre or two, into the reach of the tides. The soils were often capped by a thin layer of sand that thinned inland, the kind a tsunami leaves."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "marsh",
+          "caption": "A cut through a tidal marsh at the edge of a bay on the Washington coast, over 3,500 years. Earthquakes drop the marsh into the reach of the tides; it is buried, then rebuilt.",
+          "task": "Play the years until at least three soils are buried",
+          "goal": "buried",
+          "aspect_ratio": 1.66
+        },
+        {
+          "type": "text",
+          "text": "Atwater found the same sequence in estuary after estuary along the Washington coast: buried soils stacked one above another, each recording a sudden drop. Along the Copalis River and other tidal rivers, the drop had left something more: **ghost forests**, stands of dead western red cedar still upright in the tidal marshes, killed when salt water flooded their roots. High-precision radiocarbon dates on drowned Sitka spruce stumps and marsh plants said the land had dropped sometime between about 1680 and 1720. Radiocarbon could not do better than that, but tree rings could."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A ghost forest of western red cedars on the Copalis River, Washington, killed when the land dropped in the 1700 earthquake and salt water flooded their roots.",
+          "options": {
+            "photo": "ghost-forest",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Red cedar rots very slowly, and its tree rings record each year it grew. David Yamaguchi, a tree-ring scientist, matched the rings of the dead cedars against those of living old trees nearby, ring by ring,[^crossdate] to find the year of each dead tree's outermost ring. On their trunks the outer rings had weathered away, so his team dug out the bark-covered roots, preserved in the mud. In 1997, with Atwater and others, he reported the result: in the roots of the dead trees, the last ring had grown in 1699, and the roots died before the growing season of 1700 began. The earthquake had struck in the winter between."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Buried marsh soils capped by tsunami sand and tidal mud show that the Washington coast dropped suddenly, again and again.",
+            "Ghost forests of red cedar were killed by salt water when the land dropped.",
+            "Tree rings dated the death of the cedars to the winter of 1699–1700."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ten hours to Japan",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A winter of 1699–1700 at Cascadia pointed straight at the orphan tsunami. In 1996 Kenji Satake and colleagues worked through the old Japanese records of the wave, how high it rose and when it arrived at each place, and computed backwards. A tsunami crosses the deep ocean at a speed set only by the depth of the water:[^long-wave] about 700 to 800 kilometres an hour over the deep Pacific. From the Cascadia coast to Japan takes about ten hours. Working back from the arrival times, the earthquake had struck at about nine o'clock at night, Pacific time, on 26 January 1700. Japan's clock runs 17 hours ahead of the Pacific coast's, so that was about two in the afternoon of 27 January in Japan, and ten hours later the wave arrived around midnight."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "orphan-tsunami",
+          "caption": "The North Pacific, with a tsunami spreading from the Cascadia margin. The travel times come from the depth of the ocean.",
+          "task": "Play the hours until the wave reaches Japan",
+          "goal": "crossed",
+          "aspect_ratio": 1.2
+        },
+        {
+          "type": "text",
+          "text": "The height of the wave in Japan told them the size. To raise a wave two to five metres high on the far side of the Pacific, the earthquake must have broken the whole length of the subduction zone, about 1,000 kilometres, in one magnitude 9 earthquake, much like Alaska in 1964."
+        },
+        {
+          "type": "text",
+          "text": "People on the coast had their own record. Indigenous peoples from Vancouver Island to northern California tell of a night when the ground shook and the sea came in and swept villages away.[^thunderbird] The Huu-ay-aht First Nation's account tells how the people of Pachena Bay on Vancouver Island were drowned when a wave hit one winter night, sparing only the village on the mountain above. In 2005 the seismologist Ruth Ludwin and colleagues gathered dozens of such accounts, and several independently pointed to a winter night around 1700."
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "How the orphan found its parent.",
+          "options": {
+            "events": [
+              {
+                "at": 1700,
+                "label": "A tsunami reaches Japan with no earthquake felt",
+                "bold": true
+              },
+              {
+                "at": 1986,
+                "label": "Atwater finds buried marshes on the Washington coast"
+              },
+              {
+                "at": 1987,
+                "label": "Atwater publishes evidence of sudden drops of the coast"
+              },
+              {
+                "at": 1996,
+                "label": "Satake and colleagues date the earthquake from the Japanese records"
+              },
+              {
+                "at": 1997,
+                "label": "Yamaguchi’s tree rings put it in the winter of 1699–1700"
+              },
+              {
+                "at": 2005,
+                "label": "Ludwin and colleagues gather the coast peoples’ accounts"
+              }
+            ],
+            "spacing": "even"
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Satake's team worked back from the times and heights of the tsunami in Japan to an earthquake at about 9 p.m. on 26 January 1700.",
+            "Only a magnitude 9 earthquake rupturing the whole Cascadia subduction zone could make that wave.",
+            "Indigenous oral histories along the coast describe the same event."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "What it means now",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The buried soils go back further than 1700. Atwater's marshes, which span 3,500 years, and layers of muddy sand that undersea landslides shook loose into the deep sea,[^turbidites] record about twenty great Cascadia earthquakes over the past 10,000 years, at intervals from a couple of centuries to a thousand years, about 500 years on average. The plates are locked again today. GPS stations near the coast show it is being squeezed eastward and flexed, just as lesson 20's figure shows between earthquakes."
+        },
+        {
+          "type": "text",
+          "text": "Building codes in Washington, Oregon and British Columbia were updated from the 1990s onwards to plan for a magnitude 9 earthquake, and coastal towns now have tsunami evacuation routes and towers. For people on the coast, the earthquake itself gives the warning: strong shaking that lasts for minutes means go to high ground at once, because the tsunami may arrive in 15 to 30 minutes."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A tsunami evacuation route sign on the Pacific coast of the Northwest.",
+          "options": {
+            "photo": "tsunami-sign",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Buried soils and deep-sea deposits record about twenty great Cascadia earthquakes over 10,000 years, on average about 500 years apart.",
+            "The megathrust is locked again today, and the region now plans for a magnitude 9 earthquake and tsunami."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the orphan tsunami",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "Why did the 1700 tsunami puzzle the people who recorded it in Japan?",
+                "choices": [
+                  "Nobody in Japan had felt an earthquake before it",
+                  "It came in the middle of summer",
+                  "It flooded only one village"
+                ],
+                "answer": 0,
+                "why": "Tsunamis in Japan normally follow local earthquakes. This one arrived from an earthquake on the far side of the Pacific."
+              },
+              {
+                "ask": "What does a marsh soil buried under tidal mud tell a geologist?",
+                "choices": [
+                  "The ground beneath it dropped suddenly into the reach of the tides",
+                  "The sea slowly rose over thousands of years",
+                  "A river flood buried it"
+                ],
+                "answer": 0,
+                "why": "Marshes grow only near high tide; a sharp contact from soil to tidal mud means a sudden drop."
+              },
+              {
+                "ask": "How did Yamaguchi date the earthquake to the winter of 1699–1700?",
+                "choices": [
+                  "He matched the rings of dead cedars against living trees and found their last ring grew in 1699",
+                  "He used radiocarbon on the cedars",
+                  "He counted the layers of mud above the trees"
+                ],
+                "answer": 0,
+                "why": "Tree rings give calendar years. The dead cedars stopped growing after the 1699 season and before 1700's."
+              },
+              {
+                "ask": "How did Satake's team find the hour of the earthquake?",
+                "choices": [
+                  "They worked back from the tsunami's arrival times in Japan, using the speed of a wave across the deep Pacific",
+                  "Japanese seismographs recorded it",
+                  "Indigenous stories gave the hour"
+                ],
+                "answer": 0,
+                "why": "A tsunami's speed depends on the ocean depth, about 10 hours from Cascadia to Japan, so arrival times give the time of the earthquake."
+              },
+              {
+                "ask": "Why must the 1700 earthquake have been about magnitude 9?",
+                "choices": [
+                  "Only a rupture along the whole 1,000 km subduction zone could make a wave that high in Japan",
+                  "Because the cedars died",
+                  "Because it was felt in Japan"
+                ],
+                "answer": 0,
+                "why": "A smaller earthquake breaking part of the fault would have made a much smaller wave on the far side of the ocean."
+              },
+              {
+                "ask": "You are on the Washington coast and the ground shakes hard for over a minute. What should you do?",
+                "choices": [
+                  "Go to high ground at once, without waiting for an official warning",
+                  "Wait for the tsunami siren",
+                  "Go to the beach to watch the sea"
+                ],
+                "answer": 0,
+                "why": "A Cascadia tsunami can arrive within 15 to 30 minutes; the shaking itself is the warning."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**Japan recorded an orphan tsunami.** In January 1700 a wave hit 1,000 km of coast with no earthquake felt.",
+    "**Cascadia's coast dropped suddenly.** Atwater found marsh soils buried under tsunami sand and tidal mud.",
+    "**Ghost forests date it to the winter of 1699–1700.** Yamaguchi's tree rings showed the cedars' last ring was 1699.",
+    "**The wave took about ten hours to cross.** Satake worked back to about 9 p.m. on 26 January 1700.",
+    "**It was a magnitude 9.** Only the whole subduction zone breaking could make that wave.",
+    "**Oral histories record it too.** Coastal peoples tell of a winter night of shaking and flooding.",
+    "**It will happen again.** About twenty great earthquakes have struck in 10,000 years, and the fault is locked now."
+  ],
+  "journal": [],
+  "footnotes": {
+    "genroku": {
+      "kind": "digression",
+      "title": "The twelfth month of Genroku 12",
+      "text": "Japanese records date the wave to the eighth day of the twelfth month of the twelfth year of the Genroku era, by the calendar then used in Japan."
+    },
+    "crossdate": {
+      "kind": "technical",
+      "title": "Cross-dating",
+      "text": "Wet and dry, warm and cold years make wide and narrow rings, and the same run of years leaves the same pattern in every tree of a region. Matching a dead tree's pattern against a living tree, whose rings can be counted back from today, gives each of the dead tree's rings its calendar year."
+    },
+    "long-wave": {
+      "kind": "technical",
+      "title": "Why ocean depth sets tsunami speed",
+      "text": "A tsunami's wavelength is hundreds of kilometres, far longer than the ocean is deep, so the whole water column moves as one and its speed equals the square root of gravity times water depth $(\\sqrt{gd})$. Over the 4,000-metre-deep Pacific, that is about 200 metres per second, or 720 kilometres an hour."
+    },
+    "thunderbird": {
+      "kind": "digression",
+      "title": "Thunderbird and Whale",
+      "text": "Many stories from Vancouver Island to Oregon describe the shaking and flood as a battle between Thunderbird and Whale: when Thunderbird lifted Whale from the sea and dropped it, the earth shook and the waters rose."
+    },
+    "turbidites": {
+      "kind": "technical",
+      "title": "Turbidites",
+      "text": "When strong shaking triggers underwater landslides along the continental slope, dense slurries of mud and sand race down submarine canyons and settle out on the deep ocean floor in graded layers called turbidites. Marine geologist Chris Goldfinger and colleagues cored dozens of these layers off the Cascadia coast to extend the earthquake record back 10,000 years."
+    }
   }
- ],
- "summary": [
-  "**Japan recorded an orphan tsunami.** In January 1700 a wave hit 1,000 km of coast with no earthquake felt.",
-  "**Cascadia's coast dropped suddenly.** Atwater found marsh soils buried under tsunami sand and tidal mud.",
-  "**Ghost forests date it to the winter of 1699–1700.** Yamaguchi's tree rings showed the cedars' last ring was 1699.",
-  "**The wave took about ten hours to cross.** Satake worked back to about 9 p.m. on 26 January 1700.",
-  "**It was a magnitude 9.** Only the whole subduction zone breaking could make that wave.",
-  "**Oral histories record it too.** Coastal peoples tell of a winter night of shaking and flooding.",
-  "**It will happen again.** About twenty great earthquakes have struck in 10,000 years, and the fault is locked now."
- ],
- "journal": [],
- "footnotes": {
-  "genroku": {
-   "kind": "digression",
-   "title": "The twelfth month of Genroku 12",
-   "text": "Japanese records date the wave to the eighth day of the twelfth month of the twelfth year of the Genroku era, by the calendar then used in Japan."
-  },
-  "crossdate": {
-   "kind": "technical",
-   "title": "Cross-dating",
-   "text": "Wet and dry, warm and cold years make wide and narrow rings, and the same run of years leaves the same pattern in every tree of a region. Matching a dead tree's pattern against a living tree, whose rings can be counted back from today, gives each of the dead tree's rings its calendar year."
-  }
- }
 }

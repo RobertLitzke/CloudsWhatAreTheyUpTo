@@ -6,7 +6,7 @@
   "title": "The autumn flush",
   "teaches": "Why Northwest mushrooms come up after the first soaking autumn rain and stop with hard frost, and how fruiting seasons are shifting",
   "summary": [
-    "**Northwest summers are dry and its mushrooms wait.** The mycelium lives on through the drought, but fruiting needs water.",
+    "**Northwest summers are dry and their mushrooms wait.** The mycelium lives on through the drought, but fruiting needs water.",
     "**A mushroom is built mostly of water.** It forms as a tiny knot of threads and then swells with water in a day or two.",
     "**The first soaking autumn rain sets the season going.** Mushrooms appear one to two weeks after the soil is wet through.",
     "**Cold ends it.** A hard frost kills the mushrooms in a night, so a late first rain means a short season.",
@@ -24,7 +24,7 @@
     {
       "title": "Built of water",
       "blocks": [
-        {"type": "text", "text": "The mycelium has been in the soil all summer, alive and feeding where it could. What it waits for is water to build its fruit. A mushroom is about nine-tenths water. It begins as a tiny knot of threads, a pin no bigger than a grain of rice, in which the cap, gills and stem are already laid out. Then the cells swell with water, and the whole mushroom can expand to full size in a day or two. That is why mushrooms seem to appear overnight."},
+        {"type": "text", "text": "The mycelium has been in the soil all summer, alive and feeding where it could. What it waits for is water to build its fruit. A mushroom is about nine-tenths water. It begins as a tiny knot of threads, a pin no bigger than a grain of rice, in which the cap, gills and stem are already laid out. Then the cells swell with water, and the whole mushroom can expand to full size in a day or two.[^puffballs] That is why mushrooms seem to appear overnight."},
         {"type": "text", "text": "Expansion needs a large amount of water in a short time, and the soil must stay wet long enough for the pins to form first. A light shower that wets the needles and dries in a day does nothing. A soaking that wets the soil through, with more rain over the following days, sets the flush going."},
         {"type": "interactive_diagram", "id": "flush", "caption": "A model Northwest autumn: soil water, temperature and mushrooms, from September to December. The temperature line is drawn on its own scale.", "task": "Try a late first rain and an early frost", "goal": "season", "aspect_ratio": 1.82}
       ]
@@ -33,13 +33,13 @@
       "title": "Partners of the trees",
       "blocks": [
         {"type": "text", "text": "Many of the mushrooms in a Northwest conifer forest in autumn are the fruit of root fungi, the sheath fungi of lesson 9 that wrap the tips of tree roots. Their food comes from the trees, as sugar passed down to the roots. A tree has sugar to spare late in the growing season, once its new shoots are built, and the fungi fruit when water arrives to go with it. Decomposers on logs and needles fruit with them, but in many forests the root fungi make most of the show."},
-        {"type": "text", "text": "Not every fungus follows the autumn. Some fruit in spring after snowmelt, among them the morels that come up on burned ground the year after a forest fire, and a few, like the velvet shank of broadleaf woods, fruit in the middle of winter and survive freezing. But the great flush is in autumn."}
+        {"type": "text", "text": "Not every fungus follows the autumn. Some fruit in spring after snowmelt, among them the morels that come up on burned ground the year after a forest fire, and a few, like the velvet shank of broadleaf woods, fruit in the middle of winter and survive freezing.[^velvet-shank] But the great flush is in autumn."}
       ]
     },
     {
       "title": "Seasons on the move",
       "blocks": [
-        {"type": "text", "text": "Because fruiting is set by rain and temperature, it should shift as the climate does. One of the clearest records came from an amateur. From 1950 Edward Gange, an amateur mycologist, noted every mushroom he found around Salisbury in southern England, more than fifty thousand records over half a century. In 2007 his son Alan Gange, an ecologist, and colleagues analysed them. The average fruiting season had more than doubled in length, from about five weeks in the 1950s to about eleven by the early 2000s, as first fruiting came earlier and last fruiting later in milder autumns."},
+        {"type": "text", "text": "Because fruiting is set by rain and temperature, it should shift as the climate does. One of the clearest records came from an amateur. From 1950 Edward Gange, an amateur mycologist, noted the mushrooms found around Salisbury in southern England, gathering more than fifty thousand records over half a century. In 2007 his son Alan Gange, an ecologist, and colleagues analysed them. For autumn-fruiting species, the average season had more than doubled in length, from about thirty-three days in the 1950s to nearly seventy-five by the early 2000s, as first fruiting came earlier and last fruiting later in milder autumns."},
         {"type": "text", "text": "Records from Norway and Switzerland have also shown seasons shifting later into the autumn. No one has a long record like Gange's for the Northwest, but the same logic holds there: a late first rain shortens the season, a mild, wet autumn lengthens it, and an early frost cuts it off.[^records]"}
       ]
     },
@@ -56,6 +56,16 @@
     }
   ],
   "footnotes": {
-    "records": {"kind": "technical", "title": "Records from amateurs", "text": "Many of the longest records of fungi come from amateur naturalists and mushroom societies. Today sites such as iNaturalist and Mushroom Observer collect millions of dated, mapped observations, which researchers use in the same way to track when and where fungi fruit."}
+    "records": {"kind": "technical", "title": "Records from amateurs", "text": "Many of the longest records of fungi come from amateur naturalists and mushroom societies. Today sites such as iNaturalist and Mushroom Observer collect millions of dated, mapped observations, which researchers use in the same way to track when and where fungi fruit."},
+    "puffballs": {
+      "kind": "digression",
+      "title": "Lifting asphalt",
+      "text": "Swelling cells generate enough hydraulic pressure to lift stones and crack pavement. In suburban streets and car parks, tough mushrooms such as shaggy ink caps and puffballs sometimes push up right through a fresh layer of tarmac."
+    },
+    "velvet-shank": {
+      "kind": "technical",
+      "title": "Antifreeze in the velvet shank",
+      "text": "The velvet shank (*Flammulina velutipes*) makes glycerol and ice-binding proteins that keep sharp ice crystals from puncturing its cells. A cap can freeze solid on a January night, thaw the next afternoon, and carry on dropping spores."
+    }
   }
 }

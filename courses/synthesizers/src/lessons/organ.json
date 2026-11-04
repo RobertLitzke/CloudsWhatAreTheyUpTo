@@ -1,274 +1,284 @@
 {
- "id": "organ",
- "n": 102,
- "branch": "engines",
- "needs": [
-  "macros"
- ],
- "title": "Organs by telephone",
- "teaches": "Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines",
- "parts": [
-  {
-   "title": "Building up instead of cutting down",
-   "blocks": [
+  "id": "organ",
+  "n": 102,
+  "branch": "engines",
+  "needs": [
+    "macros"
+  ],
+  "title": "Organs by telephone",
+  "teaches": "Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** Every sound in this course so far has started bright and been cut down by a filter. These three started from nothing and were built up, one sine at a time. The first is a single sine. The second has a few soft harmonics added, and sounds like a flute. The third has only the odd harmonics, which gives it a hollow, reedy sound. You'll build that third one at the end."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "The same line, built from sines: one, a few, and only the odd ones",
-     "options": {
-      "stage": 22,
-      "riff": 108,
-      "start": {
-       "cutoff": 7,
-       "release": 1,
-       "engine": 5
-      },
-      "sounds": [
-       {
-        "name": "One sine",
-        "set": {}
-       },
-       {
-        "name": "Flute",
-        "set": {
-         "engineWave": 4,
-         "engineTimbre": 5,
-         "engineShape": 4
+      "title": "Building up instead of cutting down",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** Every sound in this course so far has started bright and been cut down by a filter. These three started from nothing and were built up, one sine at a time. The first is a single sine. The second has a few soft harmonics added, and sounds like a flute. The third has only the odd harmonics, which gives it a hollow, reedy sound. You'll build that third one at the end."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "The same line, built from sines: one, a few, and only the odd ones",
+          "options": {
+            "stage": 22,
+            "riff": 108,
+            "start": {
+              "cutoff": 7,
+              "release": 1,
+              "engine": 5
+            },
+            "sounds": [
+              {
+                "name": "One sine",
+                "set": {}
+              },
+              {
+                "name": "Flute",
+                "set": {
+                  "engineWave": 4,
+                  "engineTimbre": 5,
+                  "engineShape": 4
+                }
+              },
+              {
+                "name": "Hollow reed",
+                "set": {
+                  "engineWave": 6,
+                  "engineTimbre": 0,
+                  "engineShape": 6
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "Building a sound from sines is called **additive synthesis**. It is the most direct use of what lesson 1 showed: any steady sound is a stack of sines, so a synth that can set the size of each sine can make any steady sound. Its first use came nearly half a century before anyone called an instrument a synthesizer."
         }
-       },
-       {
-        "name": "Hollow reed",
-        "set": {
-         "engineWave": 6,
-         "engineTimbre": 0,
-         "engineShape": 6
+      ]
+    },
+    {
+      "title": "The Telharmonium",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The mystery.** In 1906 New Yorkers could pick up a telephone and listen to live music, with no musicians on the line. The music came from a machine in a building on Broadway that weighed about two hundred tons. It was the **Telharmonium**, built by Thaddeus Cahill, and it made every note from spinning alternators, each one making a single, nearly pure tone.[^cahill]"
+        },
+        {
+          "type": "text",
+          "text": "The player didn't choose a wave. For each note, keys and stops mixed several alternators' tones at the note's harmonics, louder or softer, and the mixture was the instrument's colour. That's additive synthesis exactly. The scheme failed for reasons that had nothing to do with sound. The machine needed power-station currents, and its signals leaked into ordinary phone calls.[^crosstalk] Before long, nobody wanted to pay for music by telephone."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Telharmonium on the front page of Scientific American in 1907.",
+          "options": {
+            "photo": "telharmonium",
+            "aspect": 0.8
+          }
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "Building a sound from sines is called **additive synthesis**. It is the most direct use of what lesson 1 showed: any steady sound is a stack of sines, so a synth that can set the size of each sine can make any steady sound. Its first use was nearly a century before anyone said synthesizer."
-    }
-   ]
-  },
-  {
-   "title": "The Telharmonium",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**The mystery.** In 1906 New Yorkers could pick up a telephone and listen to live music, with no musicians on the line. The music came from a machine in a building on Broadway that weighed about two hundred tons. It was the **Telharmonium**, built by Thaddeus Cahill, and it made every note from spinning dynamos, each one making a single, nearly pure tone.[^cahill]"
-    },
-    {
-     "type": "text",
-     "text": "The player didn't choose a wave. For each note, keys and stops mixed several dynamos' tones at the note's harmonics, louder or softer, and the mixture was the instrument's colour. That's additive synthesis exactly. The scheme failed for reasons that had nothing to do with sound. The machine needed power-station currents, and its signals leaked into ordinary phone calls. Before long, nobody wanted to pay for music by telephone."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "The Telharmonium on the front page of Scientific American in 1907.",
-     "options": {
-      "photo": "telharmonium",
-      "aspect": 0.8
-     }
-    }
-   ]
-  },
-  {
-   "title": "Nine drawbars",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Thirty years later, Laurens Hammond made the same idea fit in a living room. His organ of 1935 had small **tonewheels**, metal discs spinning next to magnets, each giving a near-sine. Above the keys sat the **drawbars**: nine sliders, each one a sine at a different harmonic of the note, pulled out in nine steps from silent to full."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A Hammond B-3 of 1958, the best known of Hammond's tonewheel organs, with its drawbars above the keys.",
-     "options": {
-      "photo": "hammond-b3",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "The drawbars are named in feet, after the lengths of organ pipes. The 8′ bar is the note itself; 4′ is an octave up, 2′ two octaves, and so on. The two brown bars sound under the note and a fifth above it, to fill it out. An organist sets up a sound by pulling bars out, and writes it down as nine digits, a **registration**: \"00 8000 000\" is the 8′ alone, a pure sine."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "drawbars",
-     "caption": "A Hammond's nine drawbars, with what they add up to. Play it, and pull bars out.",
-     "task": "Set the registration 88 8000 000",
-     "goal": "drawbars-888",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "text",
-     "text": "Pull the first three bars all the way out and leave the rest in: 88 8000 000. That registration, a deep, round, full sound, is on a great many jazz and gospel records. Every Hammond sound is a mixture like this one: a handful of sines, each at a level you chose."
-    }
-   ]
-  },
-  {
-   "title": "An additive engine",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Nine sliders is about as many as a player can handle, and a sound with thirty harmonics would need thirty. So an additive engine on a synth puts its sines under three knobs, each of which sets many of them at once. On this one, **Wave** is the brightness: how quickly the harmonics fall away as they go up. **Timbre** is the level of the even harmonics, against the odd ones. **Shape** is how many harmonics there are, from the fundamental alone to thirty-two."
-    },
-    {
-     "type": "text",
-     "text": "Leave out the even harmonics and the sound goes hollow, the colour of a clarinet in its low register. Lesson 1's square wave has only the odd ones too. The engine gives you that by turning one knob down, with no filter involved."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The additive engine at a single sine. Add harmonics, and then take away the even ones.",
-     "task": "Turn Shape to 50 % or more and Timbre to 0",
-     "goal": "add-odd",
-     "options": {
-      "stage": 22,
-      "knobs": [
-       "engine",
-       "engineWave",
-       "engineTimbre",
-       "engineShape"
-      ],
-      "start": {
-       "cutoff": 7,
-       "release": 1,
-       "engine": 5,
-       "engineWave": 5,
-       "engineTimbre": 10
-      },
-      "riff": 108,
-      "keys": 48
-     }
-    },
-    {
-     "type": "text",
-     "text": "Because every harmonic is set separately, an additive engine can do what a filter can't: thin out the middle, lift only the top, or keep the evens and drop the odds. The price is the number of things to set, and that's why the three knobs exist."
-    }
-   ]
-  },
-  {
-   "title": "The hollow reed",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now build the third sound from the opening. Here the synth plays the plain saw, with the classic oscillator. Pick the engine, and then set how bright, how many harmonics, and how many of them are even."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A plain saw. Make the hollow reed from sines.",
-     "task": "Make the hollow reed",
-     "goal": "match",
-     "options": {
-      "stage": 22,
-      "knobs": [
-       "engine",
-       "engineWave",
-       "engineTimbre",
-       "engineShape"
-      ],
-      "start": {
-       "cutoff": 7,
-       "release": 1
-      },
-      "riff": 108,
-      "keys": 48,
-      "target": {
-       "name": "Hollow reed",
-       "set": {
-        "engine": 5,
-        "engineWave": 6,
-        "engineTimbre": 0,
-        "engineShape": 6
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Additive synthesis came back in the 1980s and 1990s, when computers became fast enough to run hundreds of sines at once, each with its own envelope. Its great strength is that it can change each harmonic separately as a note plays. A bell's high partials die away before its low ones, for instance. Its weakness is the same thing: someone has to decide what all those harmonics do."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Four questions on additive synthesis",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What is additive synthesis?",
-        "choices": [
-         "Building a sound by adding sines at chosen levels",
-         "Adding a second filter",
-         "Adding echoes together"
-        ],
-        "answer": 0,
-        "why": "Start from nothing and add harmonics, the opposite of filtering a bright wave."
-       },
-       {
-        "ask": "How did the Telharmonium make its tones?",
-        "choices": [
-         "Spinning dynamos, each giving a nearly pure tone",
-         "Recorded tapes",
-         "Vacuum-tube oscillators"
-        ],
-        "answer": 0,
-        "why": "Cahill's dynamos were giant tonewheels; their tones were mixed at the harmonics of each note."
-       },
-       {
-        "ask": "On a Hammond, what does the 4′ drawbar add?",
-        "choices": [
-         "A sine an octave above the note",
-         "An echo",
-         "A sine an octave below"
-        ],
-        "answer": 0,
-        "why": "8′ is the note; halving the footage doubles the pitch."
-       },
-       {
-        "ask": "Turning the even harmonics down to nothing makes a sound...",
-        "choices": [
-         "Hollow, like a clarinet",
-         "Louder",
-         "Higher in pitch"
-        ],
-        "answer": 0,
-        "why": "Odd harmonics alone give the hollow colour of a square wave or a low clarinet."
-       }
+      "title": "Nine drawbars",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Thirty years later, Laurens Hammond made the same idea fit in a living room. His organ of 1935 had small **tonewheels**, metal discs spinning next to magnets, each giving a near-sine. Above the keys sat the **drawbars**: nine sliders, each one a sine at a different harmonic of the note, pulled out in eight steps from silent to full."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Hammond B-3 of 1958, the best known of Hammond's tonewheel organs, with its drawbars above the keys.",
+          "options": {
+            "photo": "hammond-b3",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "The drawbars are named in feet, after the lengths of organ pipes.[^pipe-feet] The 8′ bar is the note itself; 4′ is an octave up, 2′ two octaves, and so on. The two brown bars are sub-harmonics, an octave below the note and a fifth above that, to fill it out. An organist sets up a sound by pulling bars out, and writes it down as nine digits, a **registration**: \"00 8000 000\" is the 8′ alone, a pure sine."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "drawbars",
+          "caption": "A Hammond's nine drawbars, with what they add up to. Play it, and pull bars out.",
+          "task": "Set the registration 88 8000 000",
+          "goal": "drawbars-888",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "Pull the first three bars all the way out and leave the rest in: 88 8000 000. That registration, a deep, round sound, is on a great many jazz and gospel records. Every Hammond sound is a mixture like this one: a handful of sines, each at a level you chose."
+        }
       ]
-     }
+    },
+    {
+      "title": "An additive engine",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Nine sliders is about as many as a player can handle, and a sound with thirty harmonics would need thirty. So an additive engine on a synth puts its sines under three knobs, each of which sets many of them at once. On this one, **Wave** is the brightness: how quickly the harmonics fall away as they go up. **Timbre** is the level of the even harmonics, against the odd ones. **Shape** is how many harmonics there are, from the fundamental alone to thirty-two."
+        },
+        {
+          "type": "text",
+          "text": "Leave out the even harmonics and the sound goes hollow, the colour of a clarinet in its low register. Lesson 1's square wave has only the odd ones too. The engine gives you that by turning one knob down, with no filter involved."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The additive engine at a single sine. Add harmonics, and then take away the even ones.",
+          "task": "Turn Shape to 50 % or more and Timbre to 0",
+          "goal": "add-odd",
+          "options": {
+            "stage": 22,
+            "knobs": [
+              "engine",
+              "engineWave",
+              "engineTimbre",
+              "engineShape"
+            ],
+            "start": {
+              "cutoff": 7,
+              "release": 1,
+              "engine": 5,
+              "engineWave": 5,
+              "engineTimbre": 10
+            },
+            "riff": 108,
+            "keys": 48
+          }
+        },
+        {
+          "type": "text",
+          "text": "Because every harmonic is set separately, an additive engine can do what a filter can't: thin out the middle, lift only the top, or keep the evens and drop the odds. The price is the number of things to set, and that's why the three knobs exist."
+        }
+      ]
+    },
+    {
+      "title": "The hollow reed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now build the third sound from the opening. Here the synth plays the plain saw, with the classic oscillator. Pick the additive engine, and then set the brightness, the number of harmonics and the balance of even to odd."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A plain saw. Make the hollow reed from sines.",
+          "task": "Make the hollow reed",
+          "goal": "match",
+          "options": {
+            "stage": 22,
+            "knobs": [
+              "engine",
+              "engineWave",
+              "engineTimbre",
+              "engineShape"
+            ],
+            "start": {
+              "cutoff": 7,
+              "release": 1
+            },
+            "riff": 108,
+            "keys": 48,
+            "target": {
+              "name": "Hollow reed",
+              "set": {
+                "engine": 5,
+                "engineWave": 6,
+                "engineTimbre": 0,
+                "engineShape": 6
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Additive synthesis came back in the 1980s and 1990s, when computers became fast enough to run hundreds of sines at once, each with its own envelope. Its strength is that it can change each harmonic separately as a note plays. A bell's high partials die away before its low ones, for instance. Its weakness is the same thing: someone has to decide what all those harmonics do."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Four questions on additive synthesis",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What is additive synthesis?",
+                "choices": [
+                  "Building a sound by adding sines at chosen levels",
+                  "Adding a second filter",
+                  "Adding echoes together"
+                ],
+                "answer": 0,
+                "why": "Start from nothing and add harmonics, the opposite of filtering a bright wave."
+              },
+              {
+                "ask": "How did the Telharmonium make its tones?",
+                "choices": [
+                  "Spinning alternators, each giving a nearly pure tone",
+                  "Recorded tapes",
+                  "Vacuum-tube oscillators"
+                ],
+                "answer": 0,
+                "why": "Cahill's alternators were giant tonewheels; their tones were mixed at the harmonics of each note."
+              },
+              {
+                "ask": "On a Hammond, what does the 4′ drawbar add?",
+                "choices": [
+                  "A sine an octave above the note",
+                  "An echo",
+                  "A sine an octave below"
+                ],
+                "answer": 0,
+                "why": "8′ is the note; halving the footage doubles the pitch."
+              },
+              {
+                "ask": "Turning the even harmonics down to nothing makes a sound...",
+                "choices": [
+                  "Hollow, like a clarinet",
+                  "Louder",
+                  "Higher in pitch"
+                ],
+                "answer": 0,
+                "why": "Odd harmonics alone give the hollow colour of a square wave or a low clarinet."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**Additive synthesis builds a sound from sines**, each at a chosen level, instead of filtering a bright wave.",
-  "**Cahill’s Telharmonium (1906)** made tones with spinning dynamos and sent music down New York’s phone lines.",
-  "**Hammond’s organ (1935)** made the idea small: tonewheels and nine drawbars, each a sine at one harmonic.",
-  "**Drawbars are named in feet**: 8′ is the note, 4′ an octave up; a setting is written as nine digits.",
-  "**An additive engine puts many sines under three knobs**: brightness, even harmonics and how many.",
-  "**Odd harmonics alone sound hollow**, like a low clarinet."
- ],
- "footnotes": {
-  "cahill": {
-   "kind": "digression",
-   "title": "Thaddeus Cahill",
-   "text": "Cahill patented the idea in 1897 and built three Telharmoniums, each bigger than the last. The largest filled a floor of Telharmonic Hall, at Broadway and 39th Street, with its dynamos, and played to subscribers through the telephone network, with paper cones on the receivers to make them louder. The company went bankrupt within a few years, and none of the machines survives."
-  }
- },
- "journal": []
+  ],
+  "summary": [
+    "**Additive synthesis builds a sound from sines**, each at a chosen level, instead of filtering a bright wave.",
+    "**Cahill’s Telharmonium (1906)** made tones with spinning alternators and sent music down New York’s phone lines.",
+    "**Hammond’s organ (1935)** made the idea small: tonewheels and nine drawbars, each a sine at one harmonic.",
+    "**Drawbars are named in feet**: 8′ is the note, 4′ an octave up; a setting is written as nine digits.",
+    "**An additive engine puts many sines under three knobs**: brightness, even harmonics and how many.",
+    "**Odd harmonics alone sound hollow**, like a low clarinet."
+  ],
+  "footnotes": {
+    "cahill": {
+      "kind": "digression",
+      "title": "Thaddeus Cahill",
+      "text": "Cahill patented the idea in 1897 and built three Telharmoniums, each bigger than the last. The second filled the basement of Telharmonic Hall, at Broadway and 39th Street, with its alternators, and played to subscribers through the telephone network, with paper cones on the receivers to make them louder. The company went bankrupt within a few years, and the last machine was scrapped in 1962."
+    },
+    "crosstalk": {
+      "kind": "digression",
+      "title": "Music on the line",
+      "text": "To drive a horn speaker at the far end of a telephone wire without amplifiers, the Telharmonium put nearly an amp of current down the line. That current induced a signal in neighbouring wires under the street, so Wall Street brokers and startled householders heard arpeggios behind their conversations until the telephone company ended its contract with Cahill."
+    },
+    "pipe-feet": {
+      "kind": "technical",
+      "title": "Organ footage",
+      "text": "On a pipe organ, an open flue pipe for bottom C (about 65 Hz) is roughly eight feet long, so a rank of pipes at normal pitch is called an 8′ stop. A rank sounding an octave higher has pipes half as long (4′); an octave lower takes 16′."
+    }
+  },
+  "journal": []
 }

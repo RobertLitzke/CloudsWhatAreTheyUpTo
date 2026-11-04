@@ -8,7 +8,7 @@
       "title": "A price that depends on your income",
       "blocks": [
         { "type": "text", "text": "Anyone who stops working before 65 loses employer health insurance and isn't yet old enough for Medicare. For most, the answer is a plan bought on the marketplace set up by the Affordable Care Act, at HealthCare.gov or a state's own exchange, which in Washington is Washington Healthplanfinder." },
-        { "type": "text", "text": "The sticker prices are high, and they rise with age: a plan for a 60-year-old can cost nearly three times as much as the same plan for a 21-year-old. A couple around 60 can easily face $20,000 to $30,000 a year for a mid-range plan. What they actually pay, though, depends on their income, through a premium tax credit that can cover most of the price. For someone living on savings, income is partly a choice, which makes this one of the largest numbers in an early-retirement plan that can be steered." },
+        { "type": "text", "text": "The sticker prices are high, and they rise with age: a plan for a 60-year-old can cost nearly three times as much as the same plan for a 21-year-old.[^age-curve] A couple around 60 can easily face $20,000 to $30,000 a year for a mid-range plan. What they actually pay, though, depends on their income, through a premium tax credit that can cover most of the price. For someone living on savings, income is partly a choice, which makes this one of the largest numbers in an early-retirement plan that can be steered." },
         { "type": "text", "text": "Everything in this lesson is for 2026. The rules changed at the start of the year, when a temporary expansion of the credits that ran from 2021 to 2025 ended, and Congress may change them again.[^enhanced] Check the current year's rules before planning." }
       ]
     },
@@ -25,7 +25,7 @@
     {
       "title": "The cliff",
       "blocks": [
-        { "type": "text", "text": "Above 400 percent of the poverty line, $84,600 for a couple in 2026, there is no credit at all. Not a smaller one: none. The couple in the guess goes from paying $8,400 to paying the full $24,000 when their income rises by $1,000. That last $1,000 of income costs them more than $15,000." },
+        { "type": "text", "text": "Above 400 percent of the poverty line, $84,600 for a couple in 2026, there is no credit at all. The couple in the guess goes from paying $8,400 to paying the full $24,000 when their income rises by $1,000. That last $1,000 of income costs them more than $15,000." },
         { "type": "text", "text": "The cliff hurts most for older couples, whose benchmark plans cost most, and in expensive areas. A couple of 63 in a costly county may face a benchmark of $30,000 or more, so a dollar over the line costs over $20,000. For a 40-year-old single person the benchmark might be $6,000 and the cliff a few hundred dollars, sometimes nothing." },
         { "type": "text", "text": "At the bottom there is a second edge. In the 40 states and Washington, D.C., that expanded Medicaid, income below 138 percent of the poverty line ($29,187 for a couple) qualifies for Medicaid instead of a marketplace plan, and no credit is available. In the states that didn't, income below 100 percent gets neither.[^medicaid] Branch W looks at Washington's Medicaid, Apple Health, and what it means for a retiree with savings." }
       ]
@@ -46,7 +46,7 @@
         { "type": "text", "text": "**Choose a MAGI target each year.** Often just under the cliff, sometimes lower if the extra credit outweighs what a conversion saves. Above 400 percent, if the household's income would be far over the line anyway, the cliff stops mattering and conversions are judged on tax alone." },
         { "type": "text", "text": "**Fund spending from money that isn't income.** Cash, the basis in a taxable account, Roth contributions and seasoned conversions all buy groceries without raising MAGI. A taxable account with a high basis is especially useful here." },
         { "type": "text", "text": "**Convert more from 65.** Once Medicare starts, the premium credit no longer matters, and the years from 65 to Social Security or to required withdrawals become the main conversion window, minding the Medicare surcharge in lesson 12, which looks back two years: income at 63 sets the premium at 65." },
-        { "type": "text", "text": "**Watch the year of stopping work.** A year with nine months of salary is a poor year for low MAGI. Coverage often starts in January of the first full year without wages, after COBRA from the old employer covers the gap." },
+        { "type": "text", "text": "**Watch the year of stopping work.** A year with nine months of salary is a poor year for low MAGI. Coverage often starts in January of the first full year without wages, after COBRA[^cobra] from the old employer covers the gap." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "The ACA premium credit fills the gap between a benchmark plan's price and a set share of income, 2.1 to 9.96 percent in 2026.",
           "In the credit range, each extra dollar of income costs tax plus lost credit, often 25 to 30 percent together.",
@@ -81,6 +81,16 @@
   "footnotes": {
     "enhanced": { "kind": "digression", "title": "2021 to 2025", "text": "The American Rescue Plan of 2021 lowered the expected contributions, to nothing below 150 percent of the poverty line, and capped them at 8.5 percent of income with no upper limit, removing the cliff. The Inflation Reduction Act extended this through 2025. When it ended, the 2026 premiums of many households above 400 percent of the poverty line more than doubled. Whether it returns is a political question; check the year you plan for." },
     "medicaid": { "kind": "technical", "title": "Expansion", "text": "The Affordable Care Act let states extend Medicaid to adults under 138 percent of the poverty line, with the federal government paying most of the cost. Washington did so in 2014. In the ten states that have not, adults under 100 percent of the poverty line usually qualify for neither Medicaid nor a marketplace credit." },
-    "reconcile": { "kind": "technical", "title": "Settling up", "text": "The marketplace pays the credit to the insurer each month based on your estimate; Form 8962 on the tax return compares it with what your actual income allowed. Under the budget act of July 2025, from 2026 there is no cap on how much of an over-paid credit must be repaid. Check the year's rules." }
+    "reconcile": { "kind": "technical", "title": "Settling up", "text": "The marketplace pays the credit to the insurer each month based on your estimate; Form 8962 on the tax return compares it with what your actual income allowed. Under the budget act of July 2025, from 2026 there is no cap on how much of an over-paid credit must be repaid. Check the year's rules." },
+    "age-curve": {
+      "kind": "technical",
+      "title": "The 3-to-1 age limit",
+      "text": "Federal rules cap the price for a 64-year-old at three times the price for a 21-year-old. On the federal curve, a 60-year-old pays 2.714 times the 21-year-old rate. Because the benchmark plan's price also rises with age, the credit grows alongside the sticker price, keeping the net cost tied to income for anyone under 400 percent of the poverty line."
+    },
+    "cobra": {
+      "kind": "technical",
+      "title": "COBRA",
+      "text": "A federal law (the Consolidated Omnibus Budget Reconciliation Act of 1985) that lets someone leaving an employer with 20 or more workers keep the company health plan for up to 18 months, paying the full premium plus a 2 percent fee."
+    }
   }
 }

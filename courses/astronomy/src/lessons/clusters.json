@@ -7,9 +7,9 @@
     {
       "title": "Two families",
       "blocks": [
-        {"type":"text","text":"On a winter evening, look up past Orion's shoulder and a little to the right and you will see a small, tight, misty dipper of stars. The Greeks called them the Seven Sisters; the Japanese call them Subaru, and put them on their cars. They are the **Pleiades**, and most people with good eyes count six. A telescope shows more than a thousand."},
+        {"type":"text","text":"On a winter evening, look up past Orion's shoulder and a little to the right and you will see a small, tight, misty dipper of stars. The Greeks called them the Seven Sisters; the Japanese call them Subaru, and put them on their cars.[^subaru] They are the **Pleiades**, and most people with good eyes count six. A telescope shows more than a thousand."},
         {"type":"text","text":"Stars packed that close are not a chance alignment. They were born together, from one cloud of gas, at about the same time, and they are all about the same distance from us. That makes a cluster a gift: a family photograph in which everyone has the same birthday and stands the same distance from the camera. Any difference between two of its stars is a difference in the stars, not in their age or their distance."},
-        {"type":"text","text":"Plot the Pleiades on the Hertzsprung–Russell diagram from *Giants and dwarfs* and they fall neatly along the main sequence, all the way up to brilliant blue-white stars at the top left. Now do the same for **M67**, a cluster in Cancer too faint to see without binoculars. Its main sequence stops short, at about the Sun's colour. Above that point there are no hot blue stars at all. Instead a separate branch curls off to the upper right: a sprinkling of red giants."},
+        {"type":"text","text":"Plot the Pleiades on the Hertzsprung–Russell diagram from *Giants and dwarfs* and they fall neatly along the main sequence, all the way up to brilliant blue-white stars at the top left. Now do the same for **M67**, a cluster in Cancer too faint to see without binoculars. Its main sequence stops short, at about the Sun's colour. Above that point there are no hot blue stars at all.[^blue-stragglers] Instead a separate branch curls off to the upper right: a sprinkling of red giants."},
         {"type":"text","text":"Two families, the same physics, two different pictures. Remember Henry Norris Russell's reading of his diagram: stars, he thought, are born as red giants and shrink down the main sequence as they age. By that story M67, with its giants, should be the young one. It is the other way round, and the reason is the most important fact about a star."}
       ]
     },
@@ -17,7 +17,7 @@
       "title": "Big spenders",
       "blocks": [
         {"type":"text","text":"A star on the main sequence is burning hydrogen into helium in its core, as the Sun does. A heavier star has more hydrogen to burn. You might expect it to last longer. It dies far sooner, because it burns its fuel ruinously fast."},
-        {"type":"text","text":"Here is why. A heavier star presses harder on its own middle, so to hold itself up its core must be hotter. Fusion is extraordinarily sensitive to temperature (that steepness is what made the Sun a thermostat in *What makes the Sun shine?*), so a hotter core burns very much faster. And a bigger, hotter star leaks its light out faster too, which the burning must keep up with. The upshot is that a star of ten Suns has ten times the fuel but shines several thousand times as brightly. It runs out in about 30 million years. The Sun gets about ten billion. A star of a fifth of a Sun sips so slowly it will shine for trillions of years, far longer than the universe has existed, so not one of them has yet died."},
+        {"type":"text","text":"A heavier star presses harder on its own middle, so to hold itself up its core must be hotter. Fusion is extraordinarily sensitive to temperature (that steepness is what made the Sun a thermostat in *What makes the Sun shine?*), so a hotter core burns very much faster. And a bigger, hotter star leaks its light out faster too, which the burning must keep up with. The upshot is that a star of ten Suns has ten times the fuel but shines several thousand times as brightly. It runs out in about 30 million years. The Sun gets about ten billion. A star of a fifth of a Sun sips so slowly it will shine for trillions of years, far longer than the universe has existed, so not one of them has yet died."},
         {"type":"text","text":"Roughly: double the mass and the life is five or six times shorter. That one fact, mass sets lifetime, is what turns a cluster into a clock."},
         {"type":"key_ideas","title":"Hold on to","points":["Heavier stars have more fuel but burn it so much faster that they live far shorter lives: ten Suns, about 30 million years; the Sun, about 10 billion."]}
       ]
@@ -34,8 +34,8 @@
     {
       "title": "What leaving means",
       "blocks": [
-        {"type":"text","text":"What happens to a star that runs out of hydrogen in its core? The core is now helium, which won't fuse at the core's present temperature, so nothing makes up the heat it leaks. It does what Kelvin's Sun did: it shrinks, and shrinking heats it. Hydrogen just outside the core gets hot enough to burn in a shell, faster than the core ever did, and the extra heat pushes the outer layers out. The star swells enormously and its surface, now far from the fire, cools to red. It has become a **red giant**."},
-        {"type":"text","text":"When the shrinking core reaches about a hundred million degrees, helium starts to fuse into carbon and oxygen, and the star settles down for a while, smaller and yellower. When the helium in the core runs out in turn, it swells again. A star like the Sun ends by puffing its outer layers gently into space, a glowing shell that William Herschel, seeing a small round disc in his telescope, called a **planetary nebula**, though it has nothing to do with planets. What is left is the exposed core: hot, faint, about the size of the Earth. A white dwarf. Heavier stars end much more violently, which is a story for *Star stuff*."},
+        {"type":"text","text":"When a star runs out of hydrogen in its core, that core is left as helium, which won't fuse at the present temperature. Nothing makes up the heat it leaks, so it does what Kelvin's Sun did: it shrinks, and shrinking heats it. Hydrogen just outside the core gets hot enough to burn in a shell, faster than the core ever did, and the extra heat pushes the outer layers out. The star swells enormously and its surface, now far from the fire, cools to red. It has become a **red giant**."},
+        {"type":"text","text":"When the shrinking core reaches about a hundred million degrees, helium starts to fuse into carbon and oxygen, and the star settles down for a while, smaller and yellower. When the helium in the core runs out in turn, it swells again. A star like the Sun ends by puffing its outer layers gently into space, a glowing shell that William Herschel, seeing a small round greenish disc in his telescope, called a **planetary nebula**, though it has nothing to do with planets. What is left is the exposed core: hot, faint, about the size of the Earth. A white dwarf. Heavier stars end much more violently, which is a story for *Star stuff*."},
         {"type":"diagram","id":"sun-life","caption":"The Sun's future on the Hertzsprung–Russell diagram, roughly. About ten billion years on the main sequence, then a red giant, helium burning, a second swelling, and a white dwarf."},
         {"type":"text","text":"The Sun is about halfway through its time on the main sequence, slowly brightening as it goes. In about five billion years it will swell into a red giant more than a hundred times its present width, swallowing Mercury and Venus. Whether the Earth is swallowed too is close, and depends on how much mass the Sun loses on the way; either way, the oceans will have boiled long before. Then it will shed its outer layers and spend the rest of time as a white dwarf, slowly cooling."},
         {"type":"text","text":"Betelgeuse, a supergiant of perhaps fifteen to twenty Suns, is near the end. In the winter of 2019 to 2020 it suddenly faded to under half its usual brightness, and newspapers asked whether it was about to explode. It wasn't: a burst from its surface had made a cloud of dust that briefly hid part of it. It will explode one day, most likely in the next hundred thousand years, which in astronomy counts as soon and in newspapers does not."}
@@ -45,8 +45,8 @@
       "title": "Reading it the right way round",
       "blocks": [
         {"type":"text","text":"Russell had the right diagram and the story backwards, and he was not foolish to. From a single photograph of a crowd you cannot tell whether children grow into adults or adults into children. What settles it is knowing how the people work inside. For stars that needed nuclear physics: Hans Bethe's fusion reactions of 1938, and then calculations of what a star's insides do as the fuel changes."},
-        {"type":"text","text":"In 1952 Allan Sandage, a young astronomer at Mount Wilson, and Martin Schwarzschild at Princeton showed that a star whose core runs out of hydrogen must swell and move off to the right of the diagram: the giants are old stars, not newborn ones. In the same years Sandage, Halton Arp and William Baum used the great 200-inch telescope at Palomar to measure the faint stars of globular clusters, and found their turnoffs exactly where an old cluster's should be. The crowd photograph could at last be read the right way round. The giants were the elders."},
-        {"type":"text","text":"The clock had a sting in it. By the 1990s, careful work put the oldest globular clusters at fifteen billion years or more, while the expansion of the universe, measured another way, suggested the universe was younger than that. Stars cannot be older than the universe they live in. Something was wrong. Part of the answer was that the cluster ages were too high, and later came down to twelve or thirteen billion years; the rest, when it came, turned out to be one of the great surprises of modern astronomy. It is in *The speeding universe*."}
+        {"type":"text","text":"In 1952 Allan Sandage, a young astronomer at Mount Wilson, and Martin Schwarzschild at Princeton showed that a star whose core runs out of hydrogen must swell and move off to the right of the diagram: the giants are old stars, not newborn ones.[^schonberg-chandrasekhar] In the same years Sandage, Halton Arp and William Baum used the great 200-inch telescope at Palomar to measure the faint stars of globular clusters, and found their turnoffs exactly where an old cluster's should be. The crowd photograph could at last be read the right way round."},
+        {"type":"text","text":"The clock had a sting in it. By the 1990s, careful work put the oldest globular clusters at fifteen billion years or more, while the expansion of the universe, measured another way, suggested the universe was younger than that. Stars cannot be older than the universe they live in. Something was wrong. Part of the answer was that the cluster ages were too high, and later came down to twelve or thirteen billion years;[^hipparcos] the rest, when it came, turned out to be one of the great surprises of modern astronomy. It is in *The speeding universe*."}
       ]
     },
     {
@@ -73,5 +73,26 @@
     "**Russell read his diagram backwards.** Nuclear physics and cluster diagrams in the 1950s showed that giants are old stars, not young ones."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "subaru": {
+      "kind": "digression",
+      "title": "Six stars on a car",
+      "text": "The word *subaru* means \"gathered together\". In 1953 five small Japanese companies merged into Fuji Heavy Industries, which named its cars after the cluster and put six stars on the badge: five small ones for the companies and one big one for the group they formed."
+    },
+    "blue-stragglers": {
+      "kind": "technical",
+      "title": "Blue stragglers",
+      "text": "Look closely at a real diagram of M67 or a globular cluster and you will spot a handful of bright blue stars sitting stubbornly on the main sequence above the turnoff, where no star that old has any right to be. Allan Sandage found the first ones in 1953 and called them **blue stragglers**. They are old stars that gained a second youth by stealing gas from a close companion or by colliding and merging with another star in the crowded cluster."
+    },
+    "schonberg-chandrasekhar": {
+      "kind": "digression",
+      "title": "How red giants got their answer",
+      "text": "The trail to 1952 had several hands on it. In 1938 Ernst Öpik, in Tartu, Estonia, saw that an exhausted core surrounded by a burning shell could swell a star into a giant. In 1942 Mario Schönberg and Subrahmanyan Chandrasekhar calculated that a quiet helium core can hold itself up only until it reaches about a tenth of the star's mass; past that limit it must collapse and heat up. And in 1948 Fred Hoyle and Raymond Lyttleton showed how the fierce shell burning that follows puffs the outer envelope out to giant size. Sandage and Schwarzschild put these pieces together with electronic computers to trace the star's path across the diagram."
+    },
+    "hipparcos": {
+      "kind": "technical",
+      "title": "Why the cluster ages came down",
+      "text": "To tell how bright a cluster's turnoff stars truly are, you first have to know how far away the cluster is. In 1997 the European Space Agency's Hipparcos satellite measured crisp parallaxes for nearby stars and showed that the globular clusters lay slightly further away than astronomers had thought. Further away meant their turnoff stars were really brighter, and brighter stars burn through their fuel faster, so the clusters were a couple of billion years younger."
+    }
+  }
 }

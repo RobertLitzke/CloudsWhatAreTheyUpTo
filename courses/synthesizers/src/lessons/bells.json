@@ -1,455 +1,455 @@
 {
- "id": "bells",
- "n": 6,
- "title": "The accidental bell",
- "teaches": "FM: a vibrato so fast it becomes new harmonics, and why bells clang",
- "parts": [
-  {
-   "title": "Vibrato turned up too far",
-   "blocks": [
+  "id": "bells",
+  "n": 6,
+  "title": "The accidental bell",
+  "teaches": "FM: a vibrato so fast it becomes new harmonics, and why bells clang",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** A bell is one of the hardest sounds to make with a filter. Start from a bright saw, take harmonics away, and whatever you do it sounds like a note, never a clang. Yet here is a bell from the synth, made from nothing but two sine waves."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "A sine wave struck like a bell, and the same sine with a second one hidden inside it",
-     "options": {
-      "stage": 6,
-      "riff": 72,
-      "start": {
-       "wave": 3,
-       "cutoff": 7,
-       "res": 0,
-       "attack": 0,
-       "decay": 4,
-       "sustain": 0,
-       "release": 3,
-       "fmAmount": 0,
-       "fmRatio": 3
-      },
-      "sounds": [
-       {
-        "name": "A plain sine",
-        "set": {}
-       },
-       {
-        "name": "A bell",
-        "set": {
-         "fmAmount": 3
+      "title": "Vibrato turned up too far",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** A bell is one of the hardest sounds to make with a filter. Start from a bright saw, take harmonics away, and whatever you do it sounds like a note, never a clang. Yet here is a bell from the synth, made from nothing but two sine waves."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "A sine wave struck like a bell, and the same sine with a second one hidden inside it",
+          "options": {
+            "stage": 6,
+            "riff": 72,
+            "start": {
+              "wave": 3,
+              "cutoff": 7,
+              "res": 0,
+              "attack": 0,
+              "decay": 4,
+              "sustain": 0,
+              "release": 3,
+              "fmAmount": 0,
+              "fmRatio": 3
+            },
+            "sounds": [
+              {
+                "name": "A plain sine",
+                "set": {}
+              },
+              {
+                "name": "A bell",
+                "set": {
+                  "fmAmount": 3
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "It was found by accident. In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a program that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a Leslie, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "John Chowning, who found FM synthesis at Stanford in 1967.",
+          "options": {
+            "photo": "chowning",
+            "aspect": 0.8,
+            "position": "50% 25%"
+          }
+        },
+        {
+          "type": "text",
+          "text": "He had found **[[FM synthesis]]**: frequency modulation at audio rates. One oscillator, the **modulator**, swings the pitch of another, the **carrier**, so fast that the ear hears new harmonics instead of a wobble. It took two oscillators to make sounds that subtractive synthesis needed dozens of parts to fake, and nobody had noticed because nobody had thought to turn vibrato up that far."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A sine wave, with a hidden oscillator swinging its pitch. Amount is how far it swings.",
+          "task": "Raise Amount to 2 or more",
+          "goal": "fm-up",
+          "options": {
+            "stage": 6,
+            "knobs": [
+              "fmAmount"
+            ],
+            "start": {
+              "wave": 3,
+              "cutoff": 7,
+              "res": 0,
+              "decay": 3,
+              "sustain": 2,
+              "release": 2,
+              "fmAmount": 0,
+              "fmRatio": 2
+            },
+            "riff": 72
+          }
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "It was found by accident. In 1967 [[John Chowning]], a young composer at Stanford, was playing with vibrato on a computer. He had a program that could swing the pitch of one tone with another, as an LFO does, and he did what anyone does with a new control: he turned it up. Faster than a singer, faster than a Leslie, into the hundreds of wobbles a second. At that speed the wobble vanished. Instead the tone changed colour. It became brassy, or hollow, or rang like a bell, and a tiny change in the numbers moved it from one to the other.[^chowning]"
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "John Chowning, who found FM synthesis at Stanford in 1967.",
-     "options": {
-      "photo": "chowning",
-      "aspect": 0.8,
-      "position": "50% 25%"
-     }
-    },
-    {
-     "type": "text",
-     "text": "He had found **[[FM synthesis]]**: frequency modulation at audio rates. One oscillator, the **modulator**, swings the pitch of another, the **carrier**, so fast that the ear hears new harmonics instead of a wobble. It took two oscillators to make sounds that subtractive synthesis needed dozens of parts to fake, and nobody had noticed because nobody had thought to turn vibrato up that far."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A sine wave, with a hidden oscillator swinging its pitch. Amount is how far it swings.",
-     "task": "Raise Amount to 2 or more",
-     "goal": "fm-up",
-     "options": {
-      "stage": 6,
-      "knobs": [
-       "fmAmount"
-      ],
-      "start": {
-       "wave": 3,
-       "cutoff": 7,
-       "res": 0,
-       "decay": 3,
-       "sustain": 2,
-       "release": 2,
-       "fmAmount": 0,
-       "fmRatio": 2
-      },
-      "riff": 72
-     }
-    }
-   ]
-  },
-  {
-   "title": "Where the new harmonics come from",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Swing a pitch around fast and its spectrum grows **sidebands**: new lines on either side of the carrier, spaced by the modulator's frequency. A carrier on 220 Hz modulated at 220 Hz grows lines at 440, 660, 880: the harmonics of the note. The further the pitch swings (the **index**), the more lines appear, and their sizes rise and fall in a pattern that mathematicians had worked out a century earlier for the motion of planets, the Bessel functions.[^bessel]"
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "sidebands",
-     "caption": "The spectrum of FM: a carrier on 220 Hz, and the lines that grow either side of it. Pick the modulator's ratio to the carrier and turn up the index.",
-     "task": "Find a clang: a ratio that is not a whole number, with the index at 2 or more",
-     "goal": "clang",
-     "aspect_ratio": 1.8181818181818181
-    },
-    {
-     "type": "text",
-     "text": "FM radio uses the same mathematics, with a carrier at a hundred million cycles a second and your voice as the modulator.[^radio] The sidebands are why stations must be spaced apart on the dial."
-    }
-   ]
-  },
-  {
-   "title": "Ratio",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "On the synth, **Ratio** is how fast the modulator runs compared with the note. ×1 fills in every harmonic, like brass. ×2 gives only the odd ones, hollow like a square. ×3 and ×4 leave gaps. ×½ adds a line an octave below, a growl."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The FM ratio, with the amount part way up.",
-     "task": "Listen to all five ratios",
-     "goal": "fm-ratios",
-     "options": {
-      "stage": 6,
-      "knobs": [
-       "fmRatio"
-      ],
-      "start": {
-       "wave": 3,
-       "cutoff": 7,
-       "res": 0,
-       "decay": 3,
-       "sustain": 2,
-       "release": 2,
-       "fmAmount": 2,
-       "fmRatio": 2
-      },
-      "riff": 72
-     }
-    }
-   ]
-  },
-  {
-   "title": "Why a bell clangs",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A struck bell does not make a stack of harmonics. Its metal shell flexes in several shapes at once, and their frequencies are not whole-number multiples of one note: a well-tuned church bell has a hum tone, a prime, a minor third (which gives bells their faintly sad sound), a fifth and more, and the higher ones drift off any harmonic series.[^bellmodes] Our ears try to fit them to one note and can't, and that failure is the clang. FM with a ratio that puts sidebands between the harmonics does the same, which is why it makes such convincing bells, chimes and electric pianos."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Two knobs as one square: across is the ratio, up is the amount.",
-     "task": "Find a bell: ratio ×3 or ×4, amount 2 or more",
-     "goal": "fm-bell",
-     "options": {
-      "stage": 6,
-      "pad": [
-       "fmRatio",
-       "fmAmount"
-      ],
-      "start": {
-       "wave": 3,
-       "cutoff": 7,
-       "res": 0,
-       "decay": 3,
-       "sustain": 2,
-       "release": 2,
-       "fmAmount": 2,
-       "fmRatio": 1
-      },
-      "riff": 72
-     }
-    }
-   ]
-  },
-  {
-   "title": "FM goes to market",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Stanford patented Chowning's discovery and licensed it to Yamaha in 1975. In 1983 Yamaha put it in the **[[DX7]]**, a keyboard with six sine oscillators per voice and no filter at all. It cost about a fifth of the big analogue synths and sounded like nothing else: glassy electric pianos, punchy basses, bells. It became one of the best-selling synthesizers ever made, and for a few years its preset electric piano was on what feels like every pop ballad.[^royalties]"
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A Yamaha DX7. Its sounds were edited one number at a time with buttons and a single slider, and many owners never went past the factory sounds.",
-     "options": {
-      "photo": "dx7",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "diagram",
-     "id": "timeline",
-     "caption": "From radio to the DX7.",
-     "options": {
-      "events": [
-       {
-        "at": 1933,
-        "label": "Armstrong patents FM radio"
-       },
-       {
-        "at": 1967,
-        "label": "Chowning turns vibrato up into the audio range",
-        "bold": true
-       },
-       {
-        "at": 1973,
-        "label": "Chowning publishes FM synthesis"
-       },
-       {
-        "at": 1975,
-        "label": "Stanford licenses the patent to Yamaha"
-       },
-       {
-        "at": 1983,
-        "label": "The Yamaha DX7"
-       }
-      ],
-      "spacing": "even"
-     }
-    },
-    {
-     "type": "text",
-     "text": "FM on a sine is the clean case. On a brighter wave every harmonic grows sidebands of its own, and the sound becomes rough quickly."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The wave selector and the FM amount.",
-     "task": "On the saw, raise Amount until you can clearly hear it",
-     "goal": "fm-saw",
-     "options": {
-      "stage": 6,
-      "knobs": [
-       "wave",
-       "fmAmount"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 7,
-       "res": 0,
-       "decay": 3,
-       "sustain": 2,
-       "release": 2,
-       "fmAmount": 0,
-       "fmRatio": 2
-      },
-      "riff": 72,
-      "examples": [
-       {
-        "name": "Pure sine",
-        "set": {
-         "wave": 3,
-         "fmAmount": 0
+      "title": "Where the new harmonics come from",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Swing a pitch around fast and its spectrum grows **sidebands**: new lines on either side of the carrier, spaced by the modulator's frequency. A carrier on 220 Hz modulated at 220 Hz grows lines at 440, 660, 880: the harmonics of the note. The further the pitch swings (the **index**), the more lines appear, and their sizes rise and fall in a pattern that mathematicians had worked out a century earlier for the motion of planets, the Bessel functions.[^bessel]"
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "sidebands",
+          "caption": "The spectrum of FM: a carrier on 220 Hz, and the lines that grow either side of it. Pick the modulator's ratio to the carrier and turn up the index.",
+          "task": "Find a clang: a ratio that is not a whole number, with the index at 2 or more",
+          "goal": "clang",
+          "aspect_ratio": 1.8181818181818181
+        },
+        {
+          "type": "text",
+          "text": "FM radio uses the same mathematics, with a carrier at a hundred million cycles a second and your voice as the modulator.[^radio] The sidebands are why stations must be spaced apart on the dial."
         }
-       },
-       {
-        "name": "Glassy",
-        "set": {
-         "wave": 3,
-         "fmAmount": 1,
-         "fmRatio": 2
-        }
-       },
-       {
-        "name": "Brassy",
-        "set": {
-         "wave": 3,
-         "fmAmount": 3,
-         "fmRatio": 1
-        }
-       },
-       {
-        "name": "Bell",
-        "set": {
-         "wave": 3,
-         "fmAmount": 3,
-         "fmRatio": 3
-        }
-       },
-       {
-        "name": "Growl",
-        "set": {
-         "wave": 3,
-         "fmAmount": 4,
-         "fmRatio": 0
-        }
-       }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "Ringing the bell",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Back to the bell from the start. Its envelope is already set: struck, no sustain, a long ring. What is left is the FM. Does it clang, or does it sound like a note? A clang means a ratio that puts sidebands between the harmonics. How bright is the strike? That is the amount."
     },
     {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Two sines, struck like a bell, with the FM off.",
-     "task": "Ring the bell",
-     "goal": "match",
-     "options": {
-      "target": {
-       "name": "The bell",
-       "set": {
-        "fmRatio": 3,
-        "fmAmount": 3
-       }
-      },
-      "stage": 6,
-      "pad": [
-       "fmRatio",
-       "fmAmount"
-      ],
-      "start": {
-       "wave": 3,
-       "cutoff": 7,
-       "res": 0,
-       "attack": 0,
-       "decay": 4,
-       "sustain": 0,
-       "release": 3,
-       "fmAmount": 0,
-       "fmRatio": 1
-      },
-      "riff": 72
-     }
-    },
-    {
-     "type": "text",
-     "text": "A real bell's partials start bright and the high ones die first. Send the envelope to the FM amount as well, as the DX7 does, and the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on FM",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What did Chowning do to discover FM synthesis?",
-        "choices": [
-         "Turned a vibrato's rate up into the hundreds of cycles a second",
-         "Built a new kind of filter",
-         "Recorded a bell and slowed it down"
-        ],
-        "answer": 0,
-        "why": "An audio-rate vibrato is no longer heard as a wobble but as new harmonics."
-       },
-       {
-        "ask": "A carrier on 300 Hz is modulated at 100 Hz. Where do the first sidebands appear?",
-        "choices": [
-         "200 Hz and 400 Hz",
-         "300 Hz only",
-         "100 Hz and 900 Hz"
-        ],
-        "answer": 0,
-        "why": "Sidebands sit either side of the carrier, spaced by the modulator's frequency."
-       },
-       {
-        "ask": "What does turning up the FM index (the amount) do?",
-        "choices": [
-         "Adds more sidebands, so a brighter sound",
-         "Raises the pitch",
-         "Makes the note quieter"
-        ],
-        "answer": 0,
-        "why": "The further the pitch swings, the more sidebands carry energy."
-       },
-       {
-        "ask": "Why does FM with a ratio like ×3.5 sound like a bell?",
-        "choices": [
-         "Its sidebands fall between the harmonics, as a bell's tones do",
-         "It has no harmonics",
-         "It is too loud"
-        ],
-        "answer": 0,
-        "why": "Bells have partials that aren't whole-number multiples of one note; the ear hears that as a clang."
-       },
-       {
-        "ask": "What did the DX7 lack that most earlier synths had?",
-        "choices": [
-         "A filter",
-         "A keyboard",
-         "Oscillators"
-        ],
-        "answer": 0,
-        "why": "It built its sounds by FM alone, with six sine oscillators per voice."
-       },
-       {
-        "ask": "What do FM radio and FM synthesis share?",
-        "choices": [
-         "The same mathematics of sidebands",
-         "The same frequencies",
-         "Nothing at all"
-        ],
-        "answer": 0,
-        "why": "Both swing one frequency with another; only the speeds differ."
-       }
+      "title": "Ratio",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "On the synth, **Ratio** is how fast the modulator runs compared with the note. ×1 fills in every harmonic, like brass. ×2 gives only the odd ones, hollow like a square. ×3 and ×4 leave gaps. ×½ adds a line an octave below, a growl."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The FM ratio, with the amount part way up.",
+          "task": "Listen to all five ratios",
+          "goal": "fm-ratios",
+          "options": {
+            "stage": 6,
+            "knobs": [
+              "fmRatio"
+            ],
+            "start": {
+              "wave": 3,
+              "cutoff": 7,
+              "res": 0,
+              "decay": 3,
+              "sustain": 2,
+              "release": 2,
+              "fmAmount": 2,
+              "fmRatio": 2
+            },
+            "riff": 72
+          }
+        }
       ]
-     }
+    },
+    {
+      "title": "Why a bell clangs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A struck bell does not make a stack of harmonics. Its metal shell flexes in several shapes at once, and their frequencies are not whole-number multiples of one note: a well-tuned church bell has a hum tone, a prime, a minor third (which gives bells their faintly sad sound), a fifth and more, and the higher ones drift off any harmonic series.[^bellmodes] Our ears try to fit them to one note and can't, and that failure is the clang. FM with a ratio that puts sidebands between the harmonics does the same, which is why it makes such convincing bells, chimes and electric pianos."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Two knobs as one square: across is the ratio, up is the amount.",
+          "task": "Find a bell: ratio ×3 or ×4, amount 2 or more",
+          "goal": "fm-bell",
+          "options": {
+            "stage": 6,
+            "pad": [
+              "fmRatio",
+              "fmAmount"
+            ],
+            "start": {
+              "wave": 3,
+              "cutoff": 7,
+              "res": 0,
+              "decay": 3,
+              "sustain": 2,
+              "release": 2,
+              "fmAmount": 2,
+              "fmRatio": 1
+            },
+            "riff": 72
+          }
+        }
+      ]
+    },
+    {
+      "title": "FM goes to market",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Stanford patented Chowning's discovery and licensed it to Yamaha in 1973. In 1983 Yamaha put it in the **[[DX7]]**, a keyboard with six sine oscillators per voice and no filter at all. It cost about a fifth of the big analogue synths and sounded like nothing else: glassy electric pianos, punchy basses, bells. It became one of the best-selling synthesizers ever made, and for a few years its preset electric piano was on what feels like every pop ballad.[^royalties]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Yamaha DX7. Its sounds were edited one number at a time with buttons and a single slider, and many owners never went past the factory sounds.",
+          "options": {
+            "photo": "dx7",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "From radio to the DX7.",
+          "options": {
+            "events": [
+              {
+                "at": 1933,
+                "label": "Armstrong patents FM radio"
+              },
+              {
+                "at": 1967,
+                "label": "Chowning turns vibrato up into the audio range",
+                "bold": true
+              },
+              {
+                "at": 1973,
+                "label": "Chowning publishes FM synthesis"
+              },
+              {
+                "at": 1975,
+                "label": "Stanford licenses the patent to Yamaha"
+              },
+              {
+                "at": 1983,
+                "label": "The Yamaha DX7"
+              }
+            ],
+            "spacing": "even"
+          }
+        },
+        {
+          "type": "text",
+          "text": "FM on a sine is the clean case. On a brighter wave every harmonic grows sidebands of its own, and the sound becomes rough quickly."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The wave selector and the FM amount.",
+          "task": "On the saw, raise Amount until you can clearly hear it",
+          "goal": "fm-saw",
+          "options": {
+            "stage": 6,
+            "knobs": [
+              "wave",
+              "fmAmount"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 7,
+              "res": 0,
+              "decay": 3,
+              "sustain": 2,
+              "release": 2,
+              "fmAmount": 0,
+              "fmRatio": 2
+            },
+            "riff": 72,
+            "examples": [
+              {
+                "name": "Pure sine",
+                "set": {
+                  "wave": 3,
+                  "fmAmount": 0
+                }
+              },
+              {
+                "name": "Glassy",
+                "set": {
+                  "wave": 3,
+                  "fmAmount": 1,
+                  "fmRatio": 2
+                }
+              },
+              {
+                "name": "Brassy",
+                "set": {
+                  "wave": 3,
+                  "fmAmount": 3,
+                  "fmRatio": 1
+                }
+              },
+              {
+                "name": "Bell",
+                "set": {
+                  "wave": 3,
+                  "fmAmount": 3,
+                  "fmRatio": 3
+                }
+              },
+              {
+                "name": "Growl",
+                "set": {
+                  "wave": 3,
+                  "fmAmount": 4,
+                  "fmRatio": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Ringing the bell",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Back to the bell from the start. Its envelope is already set: struck, no sustain, a long ring. What Remains is the FM. A clang needs a ratio that puts sidebands between the harmonics, and the amount sets how bright the strike is."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Two sines, struck like a bell, with the FM off.",
+          "task": "Ring the bell",
+          "goal": "match",
+          "options": {
+            "target": {
+              "name": "The bell",
+              "set": {
+                "fmRatio": 3,
+                "fmAmount": 3
+              }
+            },
+            "stage": 6,
+            "pad": [
+              "fmRatio",
+              "fmAmount"
+            ],
+            "start": {
+              "wave": 3,
+              "cutoff": 7,
+              "res": 0,
+              "attack": 0,
+              "decay": 4,
+              "sustain": 0,
+              "release": 3,
+              "fmAmount": 0,
+              "fmRatio": 1
+            },
+            "riff": 72
+          }
+        },
+        {
+          "type": "text",
+          "text": "A real bell's partials start bright and the high ones die first. Send the envelope to the FM amount as well, as the DX7 does, and the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on FM",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What did Chowning do to discover FM synthesis?",
+                "choices": [
+                  "Turned a vibrato's rate up into the hundreds of cycles a second",
+                  "Built a new kind of filter",
+                  "Recorded a bell and slowed it down"
+                ],
+                "answer": 0,
+                "why": "An audio-rate vibrato is no longer heard as a wobble but as new harmonics."
+              },
+              {
+                "ask": "A carrier on 300 Hz is modulated at 100 Hz. Where do the first sidebands appear?",
+                "choices": [
+                  "200 Hz and 400 Hz",
+                  "300 Hz only",
+                  "100 Hz and 900 Hz"
+                ],
+                "answer": 0,
+                "why": "Sidebands sit either side of the carrier, spaced by the modulator's frequency."
+              },
+              {
+                "ask": "What does turning up the FM index (the amount) do?",
+                "choices": [
+                  "Adds more sidebands, so a brighter sound",
+                  "Raises the pitch",
+                  "Makes the note quieter"
+                ],
+                "answer": 0,
+                "why": "The further the pitch swings, the more sidebands carry energy."
+              },
+              {
+                "ask": "Why does FM with a ratio like ×3.5 sound like a bell?",
+                "choices": [
+                  "Its sidebands fall between the harmonics, as a bell's tones do",
+                  "It has no harmonics",
+                  "It is too loud"
+                ],
+                "answer": 0,
+                "why": "Bells have partials that aren't whole-number multiples of one note; the ear hears that as a clang."
+              },
+              {
+                "ask": "What did the DX7 lack that most earlier synths had?",
+                "choices": [
+                  "A filter",
+                  "A keyboard",
+                  "Oscillators"
+                ],
+                "answer": 0,
+                "why": "It built its sounds by FM alone, with six sine oscillators per voice."
+              },
+              {
+                "ask": "What do FM radio and FM synthesis share?",
+                "choices": [
+                  "The same mathematics of sidebands",
+                  "The same frequencies",
+                  "Nothing at all"
+                ],
+                "answer": 0,
+                "why": "Both swing one frequency with another; only the speeds differ."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**FM is a vibrato so fast it becomes timbre**, found by Chowning at Stanford in 1967.",
-  "**Swinging a carrier's pitch grows sidebands**, spaced by the modulator's frequency; more swing, more sidebands.",
-  "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow.",
-  "**Other ratios put them between harmonics**: a clang, like a bell, whose tones aren't a harmonic series.",
-  "**The DX7 (1983) brought FM to everyone**: six sine oscillators per voice and no filter.",
-  "**FM radio is the same mathematics** at a hundred million cycles a second."
- ],
- "footnotes": {
-  "chowning": {
-   "kind": "digression",
-   "title": "Chowning's computer",
-   "text": "Chowning worked on the Stanford Artificial Intelligence Laboratory's computer with Max Mathews's MUSIC programs, which computed sound sample by sample and could take minutes to render seconds of music. Nothing about FM needed special hardware; it was simply a setting nobody had tried."
+  ],
+  "summary": [
+    "**FM is a vibrato so fast it becomes timbre**, found by Chowning at Stanford in 1967.",
+    "**Swinging a carrier's pitch grows sidebands**, spaced by the modulator's frequency; more swing, more sidebands.",
+    "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow.",
+    "**Other ratios put them between harmonics**: a clang, like a bell, whose tones aren't a harmonic series.",
+    "**The DX7 (1983) brought FM to everyone**: six sine oscillators per voice and no filter.",
+    "**FM radio is the same mathematics** at a hundred million cycles a second."
+  ],
+  "footnotes": {
+    "chowning": {
+      "kind": "digression",
+      "title": "Chowning's computer",
+      "text": "Chowning worked on the Stanford Artificial Intelligence Laboratory's computer with Max Mathews's MUSIC programs, which computed sound sample by sample and could take minutes to render seconds of music. Nothing about FM needed special hardware; it was simply a setting nobody had tried."
+    },
+    "bessel": {
+      "kind": "technical",
+      "title": "Bessel functions",
+      "text": "Friedrich Bessel worked them out in 1817 for the motion of a planet in an elliptical orbit. The size of the k-th sideband is the Bessel function Jₖ of the index. At an index of about 2.4 the carrier itself vanishes entirely, leaving only sidebands: a trick radio engineers use to calibrate transmitters."
+    },
+    "radio": {
+      "kind": "digression",
+      "title": "Armstrong's static-free radio",
+      "text": "Edwin Armstrong patented FM broadcasting in 1933 to beat the crackle of AM radio, since lightning and motors change a signal's strength but hardly its frequency. RCA, which had bet on AM, fought him for decades. FM stations broadcast between 88 and 108 million cycles a second."
+    },
+    "bellmodes": {
+      "kind": "technical",
+      "title": "The tones of a bell",
+      "text": "Bell founders tune five main partials in a church bell. Above the hum note come the prime, a minor third (the tierce), a fifth (the quint) and the nominal an octave above the prime; the higher partials no founder can tune fall where the shape puts them. The note we hear as the bell's pitch, the strike note, isn't any one of these: the ear invents it from the pattern."
+    },
+    "royalties": {
+      "kind": "digression",
+      "title": "Stanford's royalties",
+      "text": "The FM patent earned Stanford more than twenty million dollars before it expired in 1994, at the time one of the university's most lucrative licences. Yamaha sold about 200,000 DX7s."
+    }
   },
-  "bessel": {
-   "kind": "technical",
-   "title": "Bessel functions",
-   "text": "Friedrich Bessel worked them out in the 1820s for the motion of a planet in an elliptical orbit. The size of the k-th sideband is the Bessel function Jₖ of the index. At an index of about 2.4 the carrier itself vanishes entirely, leaving only sidebands: a trick radio engineers use to calibrate transmitters."
-  },
-  "radio": {
-   "kind": "digression",
-   "title": "Armstrong's static-free radio",
-   "text": "Edwin Armstrong patented FM broadcasting in 1933 to beat the crackle of AM radio, since lightning and motors change a signal's strength but hardly its frequency. RCA, which had bet on AM, fought him for decades. FM stations broadcast between 88 and 108 million cycles a second."
-  },
-  "bellmodes": {
-   "kind": "technical",
-   "title": "The tones of a bell",
-   "text": "Bell founders tune five main partials in a church bell. Above the hum note come the prime, a minor third (the tierce), a fifth (the quint) and the nominal an octave above the prime; the higher partials no founder can tune fall where the shape puts them. The note we hear as the bell's pitch, the strike note, isn't any one of these: the ear invents it from the pattern."
-  },
-  "royalties": {
-   "kind": "digression",
-   "title": "Stanford's royalties",
-   "text": "The FM patent earned Stanford more than twenty million dollars before it expired in 1995, at the time one of the university's most lucrative licences. Yamaha sold about 200,000 DX7s."
-  }
- },
- "journal": []
+  "journal": []
 }

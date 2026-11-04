@@ -7,8 +7,8 @@
     {
       "title": "Five years and a tub",
       "blocks": [
-        {"type": "text", "text": "Jan Baptist van Helmont was a Flemish physician and chemist who lived near Brussels in the early 1600s. He believed water was the basic stuff of the world, and he devised an experiment to prove it. He dried 200 pounds of soil in a furnace, put it in a large earthenware tub, and planted in it a willow shoot weighing 5 pounds. He covered the tub with a perforated iron plate so dust couldn't blow in, and for five years he gave the willow nothing but rainwater, or distilled water when there was no rain."},
-        {"type": "text", "text": "At the end he pulled the willow out and weighed it: 169 pounds and about 3 ounces, not counting the leaves that had fallen in four autumns. Then he dried the soil again and weighed that. It had lost about 2 ounces. One hundred and sixty-four pounds of willow, he concluded, “arose out of water only”. He died in 1644, and the experiment was published by his son four years later."},
+        {"type": "text", "text": "Jan Baptist van Helmont was a Flemish physician and chemist who lived near Brussels in the early 1600s. He believed water was the basic stuff of the world, and he devised an experiment to prove it.[^cusa] He dried 200 pounds of soil in a furnace, put it in a large earthenware tub, and planted in it a willow shoot weighing 5 pounds. He covered the tub with a perforated iron plate, tinned so it wouldn't rust, to keep dust from blowing in, and for five years he gave the willow nothing but rainwater, or distilled water when there was no rain."},
+        {"type": "text", "text": "At the end he pulled the willow out and weighed it: 169 pounds and about 3 ounces, not counting the leaves that had fallen in four autumns. Then he dried the soil again and weighed that. It had lost about 2 ounces. One hundred and sixty-four pounds of willow, he concluded, “arose out of water only”. He died in 1644, and his son published the experiment four years later."},
         {"type": "interactive_diagram", "id": "tub", "caption": "Van Helmont's willow over five years, and what it would be made of if you took it apart. His weights; the split into parts is from modern measurements of wood.", "task": "Guess, then run five years and take the willow apart", "goal": "split", "aspect_ratio": 1.69},
         {"type": "text", "text": "Most people, asked where a tree's bulk comes from, still say the soil. Van Helmont's tub is the simplest answer to that: the soil hardly changed. A big tree in a field is the same, if you think about it. If trees were made of earth, every forest would stand in a pit."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Van Helmont grew a 5-pound willow in 200 pounds of dried soil for five years, adding only water.", "The willow gained about 164 pounds; the soil lost about 2 ounces.", "So a plant's mass doesn't come from the soil."]}
@@ -17,26 +17,26 @@
     {
       "title": "Weighing the evidence",
       "blocks": [
-        {"type": "text", "text": "Van Helmont's experiment was careful, and for its time it was remarkable: he weighed things, at the beginning and the end, and let the numbers decide. His mistake was in the conclusion. He had ruled out the soil. But he had assumed that water was the only other thing going into the tub, and he never thought to weigh the air."},
-        {"type": "text", "text": "He had good reason not to. In the 1600s air was thought of as a kind of empty background, not as a substance with weight that could become part of a solid. Ironically, van Helmont himself discovered that burning charcoal gives off a gas, which he called *gas sylvestre*, “wild spirit”. It was carbon dioxide. He never connected it with the willow."},
-        {"type": "text", "text": "His result also wasn't quite as clean as it looked. Two ounces of soil were lost, which modern botanists would say is about right: the small share of the willow that is minerals, taken from the soil (more on those below). And the leaves that fell each autumn weren't weighed. But none of that changes the main point. Something other than soil built almost all of the tree, and that something came in invisibly."},
+        {"type": "text", "text": "Van Helmont's experiment was careful, and unusual for its time: he weighed things at the beginning and the end, and let the numbers decide. His mistake was in the conclusion. He had ruled out the soil, but he assumed that water was the only other thing going into the tub, and he never thought to weigh the air."},
+        {"type": "text", "text": "He had good reason not to. In the 1600s air was thought of as a kind of empty background, not as a substance with weight that could become part of a solid. Ironically, van Helmont himself discovered that burning charcoal gives off an invisible substance he called *gas sylvestre*, “wild spirit”.[^gas] It was carbon dioxide. He never connected it with the willow."},
+        {"type": "text", "text": "His result also wasn't quite as clean as it looked. Two ounces of soil were lost, though a willow of that size actually takes closer to a pound of minerals from the soil (more on those below); on scales big enough for a 200-pound tub, an error of a few ounces was hard to avoid. And the leaves that fell each autumn weren't weighed. None of that changes the main point: something other than soil built almost all of the tree, and that something came in invisibly."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Van Helmont concluded the willow was made from water, because he never considered the air.", "The two ounces of soil lost were roughly the willow's minerals."]}
       ]
     },
     {
       "title": "What a tree is made of",
       "blocks": [
-        {"type": "text", "text": "Take a fresh-cut piece of willow and dry it in a low oven until its weight stops falling. It loses about half its weight: that half was water, held in the wood and leaves, and it really did come from van Helmont's watering can. What's left is dry wood. Now ask what that is made of."},
+        {"type": "text", "text": "Take a fresh-cut piece of willow and dry it in a low oven until its weight stops falling. It loses about half its weight: that half was water, held in the wood and leaves, and it really did come from van Helmont's watering can. What's left is dry wood, and we can break that down into its elements."},
         {"type": "diagram", "id": "log", "caption": "A kilogram of dry wood split by the atoms in it, and where those atoms came from. Rounded values for typical wood.", "aspect_ratio": 2},
-        {"type": "text", "text": "Dry wood is almost entirely three elements. About half its weight is carbon. About 43 percent is oxygen, and about 6 percent hydrogen. Mostly they are put together as cellulose, long chains of sugar, and lignin, a tough glue that stiffens the cellulose and is built from the same sugar the plant makes. Only about 1 percent is anything else: calcium, potassium, magnesium, phosphorus and the other minerals, which are what's left as ash when wood burns."},
-        {"type": "text", "text": "Soil supplies that 1 percent, and water supplies the hydrogen. The carbon, and the oxygen that comes with it, come from carbon dioxide, a gas making up only about 0.04 percent of the air. A tree is built mostly out of thin air, a few molecules at a time."},
-        {"type": "key_ideas", "title": "Hold on to", "points": ["Fresh wood is about half water. Dry wood is about half carbon, 43 percent oxygen and 6 percent hydrogen, with about 1 percent minerals.", "The carbon and most of the oxygen come from carbon dioxide in the air; the hydrogen from water; the minerals from soil."]}
+        {"type": "text", "text": "Dry wood is almost entirely three elements. About half its weight is carbon, about 43 percent is oxygen, and about 6 percent is hydrogen. Mostly they are put together as cellulose and lignin.[^cellulose] Only about 1 percent is anything else: nitrogen, calcium, potassium, magnesium, phosphorus and the other minerals from the soil, most of which stay behind as ash when wood burns."},
+        {"type": "text", "text": "Soil supplies that 1 percent, and water supplies the hydrogen. The carbon, and the oxygen in the wood, come from carbon dioxide, a gas making up only about 0.04 percent of the air.[^oxygen-source] A tree is built mostly out of thin air, a few molecules at a time."},
+        {"type": "key_ideas", "title": "Hold on to", "points": ["Fresh wood is about half water. Dry wood is about half carbon, 43 percent oxygen and 6 percent hydrogen, with about 1 percent minerals.", "The carbon and the oxygen come from carbon dioxide in the air; the hydrogen from water; the minerals from soil."]}
       ]
     },
     {
       "title": "Hales and the air",
       "blocks": [
-        {"type": "text", "text": "The first person to suggest the air was the answer was Stephen Hales, an English clergyman and experimenter, in his book *Vegetable Staticks* of 1727. Hales measured everything about plants he could: how much water a sunflower drank and gave off in a day, how hard sap pushed out of a cut vine. He also heated pieces of wood, peas and other plant matter and collected the “air” that came out of them, and found a great deal: a piece of oak gave off many times its own volume of gas."},
+        {"type": "text", "text": "The first person to suggest the air was the answer was Stephen Hales, an English clergyman and experimenter, in his book *Vegetable Staticks* of 1727. Hales measured everything about plants he could: how much water a sunflower drank and gave off in a day, how hard sap pushed out of a cut vine. He also heated pieces of wood, peas and other plant matter and collected the “air” that came out of them, and found a great deal: a half-inch cube of oak gave off more than two hundred times its own volume of gas."},
         {"type": "text", "text": "From this Hales argued that plants take in “some part of their nourishment from the air”, and give it back when they burn or rot. He was right, though he couldn't say which part of the air it was. That took another eighty years and the new chemistry of gases, which lesson 2 follows."},
         {"type": "interactive_diagram", "id": "belljar", "caption": "A seedling in a glass jar, sealed or open, with light, water and soil it never runs short of. A model.", "task": "Seal the jar and run it until the plant stops growing", "goal": "stall", "aspect_ratio": 1.82},
         {"type": "text", "text": "You can see Hales's idea in the figure. A plant sealed under a glass jar with plenty of light, water and soil grows for a while and then stops. It has used up the carbon dioxide in the jar, down to the point where its own breathing gives back as much as it takes in. Lift the jar, and it grows again. The soil and the water were never the limit."},
@@ -46,9 +46,9 @@
     {
       "title": "Burning a log backwards",
       "blocks": [
-        {"type": "text", "text": "Here is a way to see the whole of this lesson at once. When you burn a log, the wood combines with oxygen from the air. The carbon goes up the chimney as carbon dioxide, and the hydrogen as water vapour. The minerals stay behind as a small heap of ash. And the fire gives out heat and light."},
+        {"type": "text", "text": "Think of what happens when you burn a log. The wood combines with oxygen from the air. The carbon goes up the chimney as carbon dioxide, and the hydrogen as water vapour. The minerals stay behind as a small heap of ash, and the fire gives out heat and light."},
         {"type": "text", "text": "A growing tree runs the fire backwards. It takes carbon dioxide from the air and water from the ground, puts them together into sugar and then into wood, and gives oxygen back to the air. The minerals it takes from the soil in tiny amounts. And just as burning gives out energy as heat and light, building the wood takes energy in, which comes from sunlight. This process is called **photosynthesis**, “putting together with light”."},
-        {"type": "text", "text": "So be careful with one more wrong answer. The tree's mass doesn't come from sunlight. Light has almost no mass; it brings the *energy* that does the building, the way a fire gives energy out. The mass comes from the air and the water. Mass from the air, energy from the Sun: that is the start of every food chain on land, including yours."},
+        {"type": "text", "text": "There is one more trap to avoid: the tree's mass doesn't come from sunlight. Light has no rest mass; it brings the *energy* that does the building, the way a fire gives energy out. The mass comes from the air and the water. Mass from the air, energy from the Sun: that is the start of every food chain on land."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Burning wood turns it back into carbon dioxide, water, ash and heat.", "**Photosynthesis** runs the other way: carbon dioxide and water, with energy from light, become sugar and wood.", "The mass comes from air and water; sunlight supplies the energy, not the mass."]}
       ]
     },
@@ -56,7 +56,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on what a plant is made of", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on what a plant is made of",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "A big oak weighs many tonnes. Where did most of its dry wood come from?", "choices": ["Carbon dioxide from the air", "Minerals from the soil", "Sunlight"], "answer": 0, "why": "Dry wood is mostly carbon and oxygen, built from carbon dioxide. Soil supplies about 1 percent, and light supplies energy, not mass."},
             {"ask": "Van Helmont concluded his willow was made from water. What did he overlook?", "choices": ["The air", "The soil", "The sunlight"], "answer": 0, "why": "He weighed the soil and counted the water, but never thought of the air as something that could become wood."},
@@ -73,11 +76,32 @@
     "**Van Helmont's willow gained 164 pounds in five years; the soil lost two ounces.** So the mass didn't come from the soil.",
     "**He thought it came from water, but never weighed the air.**",
     "**Fresh wood is about half water.** Dry wood is about half carbon, 43 percent oxygen, 6 percent hydrogen and 1 percent minerals.",
-    "**The carbon and most of the oxygen come from carbon dioxide in the air.** Water supplies the hydrogen; soil supplies the minerals.",
+    "**The carbon and the oxygen come from carbon dioxide in the air.** Water supplies the hydrogen; soil supplies the minerals.",
     "**Hales (1727) suggested plants feed partly on air.** A plant sealed in a jar stops growing when the carbon dioxide runs out.",
     "**Photosynthesis is burning run backwards.** Carbon dioxide and water, with energy from light, become sugar and wood.",
     "**Mass from the air, energy from the Sun.** Light brings energy, not mass."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "cusa": {
+      "kind": "digression",
+      "title": "The idea before van Helmont",
+      "text": "The German philosopher Nicholas of Cusa had proposed the exact same experiment in 1450, in a book on weighing things called *De Staticis Experimentis*, though there is no record that he ever carried it out. Whether van Helmont had read Cusa or hit on the idea independently, he was the first to put a tree in a tub and wait five years."
+    },
+    "gas": {
+      "kind": "digression",
+      "title": "Why we call it “gas”",
+      "text": "The word *gas* is van Helmont's own invention. He needed a name for air-like substances that were not ordinary air, and fashioned *gas* from the Greek *chaos* (the Dutch *g* is pronounced like the Greek *ch*). In one passage he wrote that 62 pounds of oak charcoal, burned, left 1 pound of ash and 61 pounds of *gas sylvestre*."
+    },
+    "cellulose": {
+      "kind": "technical",
+      "title": "Cellulose and lignin",
+      "text": "Cellulose is made of glucose (sugar) molecules linked end to end into stiff fibres, which form the walls of plant cells. Cotton is almost pure cellulose. In wood, those fibres are embedded in lignin, a tough, cross-linked polymer built from the same sugar supply, which gives wood its stiffness and keeps it from rotting easily."
+    },
+    "oxygen-source": {
+      "kind": "technical",
+      "title": "Where the oxygen atoms go",
+      "text": "In the 1940s, Samuel Ruben and his colleagues tracked oxygen atoms tipped with the heavy isotope oxygen-18. They showed that the oxygen atoms in water are split off and released to the air as oxygen gas ($\\text{O}_2$), while the oxygen atoms built into the plant's sugars and wood come from carbon dioxide."
+    }
+  }
 }

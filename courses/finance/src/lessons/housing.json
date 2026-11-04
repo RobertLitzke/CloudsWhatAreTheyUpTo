@@ -9,7 +9,7 @@
     {
       "title": "The largest asset most people own",
       "blocks": [
-        { "type": "text", "text": "For most households the house is worth more than any account, yet the trunk left it out. It produces no income, but it removes rent from spending, and it can be sold, downsized or borrowed against. Three decisions come up at almost every retirement: whether to pay off the mortgage, whether and when to sell, and whether to use the house as a last reserve." }
+        { "type": "text", "text": "For most households the house is worth more than any account, yet the trunk left it out. It produces no income, but it removes rent from spending, and it can be sold, downsized or borrowed against. Three decisions come up in almost every retirement: whether to pay off the mortgage, whether and when to sell, and whether to use the house as a last reserve." }
       ]
     },
     {
@@ -23,8 +23,8 @@
     {
       "title": "Selling",
       "blocks": [
-        { "type": "text", "text": "Up to $250,000 of gain on a main home, or $500,000 for a married couple, is free of federal tax when it has been owned and lived in for two of the five years before the sale. A surviving spouse keeps the $500,000 if they sell within two years of the death. Washington doesn't tax the gain at all: real estate is outside its capital gains tax." },
-        { "type": "text", "text": "Washington taxes the sale instead. The seller pays a real estate excise tax on the price, graduated from 1.1 percent to 3 percent, plus a local rate of up to 0.5 percent.[^reet]" },
+        { "type": "text", "text": "Up to $250,000 of gain on a main home, or $500,000 for a married couple, is free of federal tax when it has been owned and lived in for two of the five years before the sale.[^section-121] A surviving spouse keeps the $500,000 if they sell within two years of the death. Washington doesn't tax the gain at all: real estate is outside its capital gains tax." },
+        { "type": "text", "text": "Washington taxes the sale instead. The seller pays a real estate excise tax on the price, graduated from 1.1 percent to 3 percent, plus a local rate of up to 0.5 percent in most cities and counties.[^reet]" },
         { "type": "diagram", "id": "scale", "caption": "Washington's real estate excise tax on a home sale at four prices, state rates from 2023 plus a local rate of 0.5 percent as in Seattle. Paid by the seller.", "options": { "title": "Excise tax on selling a Washington home", "unit": "dollars", "items": [
           { "label": "Sold for $600,000", "value": 9700, "says": "about $9,700", "color": "tax" },
           { "label": "Sold for $1 million", "value": 16900, "says": "about $16,900", "color": "tax" },
@@ -38,7 +38,7 @@
       "title": "The house as a reserve",
       "blocks": [
         { "type": "text", "text": "Late in life the house can pay for care or extend a portfolio that is running low. A reverse mortgage, available from 62, lends against the house with nothing to repay until the owner sells, moves out or dies; the loan grows with interest. A line of credit opened early grows in size each year whether used or not, which makes it a reserve for a bad sequence of returns.[^hecm]" },
-        { "type": "text", "text": "Washington also helps older homeowners with modest incomes: owners 61 or older with income under a county limit can be exempted from part of their property tax, or defer it until the house is sold. For a retiree drawing mostly from a Roth or a taxable account's basis, income on the application can be low enough to qualify." },
+        { "type": "text", "text": "Washington also helps older homeowners with modest incomes: owners 61 or older with income under a county limit can be exempted from part of their property tax, or defer it until the house is sold.[^wa-prop-tax] For a retiree drawing mostly from a Roth or a taxable account's basis, income on the application can be low enough to qualify." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Paying off a mortgage earns its rate without risk: worth it at 7 percent, rarely at 3.",
           "A paid-off house lowers the income an early retiree must draw, which helps with the ACA and conversions.",
@@ -65,11 +65,21 @@
     "**A paid-off house lowers the income needed.** Which helps an early retiree's ACA credit and conversions.",
     "**Keep money reachable.** Don't empty the bridge or draw pre-tax money at high brackets to pay a cheap loan.",
     "**A couple's gain up to $500,000 is tax-free.** And Washington doesn't tax real estate gains.",
-    "**Washington taxes the sale price instead.** 1.1 to 3 percent, plus up to 0.5 percent locally.",
+    "**Washington taxes the sale price instead.** 1.1 to 3 percent, plus up to 0.5 percent in most cities and counties.",
     "**The house is a last reserve.** A reverse mortgage line or a property tax deferral can extend the plan."
   ],
   "footnotes": {
-    "reet": { "kind": "technical", "title": "The excise tax bands", "text": "From 2023 the state rates are 1.1 percent of the price up to $525,000, 1.28 percent to $1,525,000, 2.75 percent to $3,025,000 and 3 percent above. The bands are adjusted every four years, next in 2027. Local rates are set by cities and counties within the 0.5 percent allowed." },
-    "hecm": { "kind": "technical", "title": "How the line grows", "text": "Federally insured reverse mortgages let the unused part of a credit line grow at the loan's interest rate plus the insurance charge. A line of $300,000 opened at 62 can be worth twice that at 80 if untouched. The costs at the start are high, so it suits people who expect to stay in the house for many years." }
+    "reet": { "kind": "technical", "title": "The excise tax bands", "text": "From 2023 the state rates are 1.1 percent of the price up to $525,000, 1.28 percent to $1,525,000, 2.75 percent to $3,025,000 and 3 percent above. The bands are adjusted every four years, next in 2027. Most cities and counties add 0.25 or 0.5 percent; a few, such as San Juan County, add conservation and housing levies that bring the local rate higher." },
+    "hecm": { "kind": "technical", "title": "How the line grows", "text": "Federally insured reverse mortgages let the unused part of a credit line grow at the loan's interest rate plus the insurance charge. A line of $300,000 opened at 62 can be worth twice that at 80 if untouched. The costs at the start are high, so it suits people who expect to stay in the house for many years." },
+    "section-121": {
+      "kind": "digression",
+      "title": "Frozen since 1997",
+      "text": "The Taxpayer Relief Act of 1997 replaced an older rule that let sellers defer the gain only by buying a dearer house, and offered a once-in-a-lifetime $125,000 exclusion after age 55. The $250,000 and $500,000 limits were not indexed to inflation: had they been, a couple's exclusion would now sit near $1 million."
+    },
+    "wa-prop-tax": {
+      "kind": "technical",
+      "title": "What Washington counts as income",
+      "text": "Washington's disposable income test for the senior property tax exemption starts with federal adjusted gross income and adds back tax-exempt interest, non-taxable Social Security and capital losses, then subtracts out-of-pocket medical, prescription and care costs. Qualified Roth withdrawals and the return of basis from a taxable sale are not in AGI and are not added back."
+    }
   }
 }

@@ -8,25 +8,25 @@
       "title": "A new star",
       "blocks": [
         {"type":"text","text":"On the evening of 11 November 1572, Tycho Brahe, the nobleman with the metal nose from *Planets that loop backwards*, was walking home from his laboratory when he noticed a star in Cassiopeia where no star should be. It was brighter than Venus. He didn't trust his own eyes and called his servants out to look. They saw it too."},
-        {"type":"text","text":"This mattered more than it sounds. Since Aristotle, everyone had agreed that the heavens beyond the Moon were perfect and unchanging; anything new in the sky, like a comet, must be close by, in the air. Tycho measured the new star carefully against its neighbours, night after night, and found it didn't shift at all, as something near the Earth would. It was far beyond the Moon. The unchanging heavens had changed. The star stayed visible for sixteen months, then faded away, and Tycho's little book about it made his name."},
+        {"type":"text","text":"This mattered more than it sounds. Since Aristotle, everyone had agreed that the heavens beyond the Moon were perfect and unchanging; anything new in the sky, like a comet, must be close by, in the air. Tycho measured the new star carefully against its neighbours, night after night, and found it didn't shift at all, as something near the Earth would. It was far beyond the Moon. The unchanging heavens had changed. The star stayed visible for sixteen months, then faded away, and Tycho's little book about it[^nova] made his name."},
         {"type":"text","text":"Tycho's new star was what we now call a **supernova**: a star blowing itself apart, for a few weeks outshining a whole galaxy of a hundred billion stars. Tycho's was the white-dwarf kind from *Stars that shouldn't exist*. Another blazed up in 1604 and Kepler watched that one. There hasn't been one visible to the naked eye in our galaxy since."}
       ]
     },
     {
       "title": "The recipe problem",
       "blocks": [
-        {"type":"text","text":"Here is a puzzle that took most of the twentieth century to solve. The universe began hot and dense, in what is called the Big Bang (its story is told in *Everything is running away* and *Why is the night sky dark?*). In its first few minutes it made atoms' nuclei, but almost only the two simplest: about three quarters hydrogen and one quarter helium by weight, with a pinch of lithium."},
-        {"type":"text","text":"Yet the Earth is mostly iron, oxygen, silicon and magnesium. You are mostly oxygen, carbon and hydrogen, with calcium in your bones and iron in your blood. Somebody must have made the rest. Spectra like those in *Mostly hydrogen* showed that the oldest stars have hardly any heavy elements at all, and younger stars have more. The heavy elements had been made over time, inside stars."}
+        {"type":"text","text":"The universe began hot and dense, in what is called the Big Bang (its story is told in *Everything is running away* and *Why is the night sky dark?*). In its first few minutes it made atomic nuclei, but almost only the two simplest: about three quarters hydrogen and one quarter helium by weight, with a pinch of lithium."},
+        {"type":"text","text":"Yet the Earth is mostly iron, oxygen, silicon and magnesium. You are mostly oxygen, carbon and hydrogen, with calcium in your bones and iron in your blood. Somebody must have made the rest, and finding out who took most of the twentieth century. Spectra like those in *Mostly hydrogen* showed that the oldest stars have hardly any heavy elements at all, and younger stars have more. The heavy elements had been made over time, inside stars."}
       ]
     },
     {
       "title": "Down to the bottom of the valley",
       "blocks": [
-        {"type":"text","text":"In *What makes the Sun shine?* Francis Aston weighed atoms and found a helium nucleus weighs less than the four hydrogen nuclei that go into it; the missing mass is the Sun's energy. Weigh every kind of nucleus and divide by the number of particles in it, and the weights fall steeply from hydrogen to helium, keep falling more gently through carbon and oxygen, and reach their lowest at iron. After iron they rise again, slowly, all the way to uranium."},
+        {"type":"text","text":"In *What makes the Sun shine?* Francis Aston weighed atoms and found a helium nucleus weighs less than the four hydrogen nuclei that go into it; the missing mass is the Sun's energy. Weigh every kind of nucleus and divide by the number of particles in it, and the weights fall steeply from hydrogen to helium, keep falling more gently through carbon and oxygen, and reach their lowest at the iron group.[^iron-group] After iron they rise again, slowly, all the way to uranium."},
         {"type":"text","text":"Think of it as a valley with iron at the bottom. Fusing light nuclei into heavier ones rolls downhill from the light side, and every step gives out energy: that's how stars shine. Splitting very heavy nuclei rolls downhill from the other side: that's how nuclear power stations work. But nothing rolls downhill out of iron. Fusing iron into something heavier takes energy instead of giving it."},
         {"type":"text","text":"A star like the Sun gets as far as carbon and oxygen and stops, because it isn't heavy enough to squeeze its core hot enough for the next step. A star of more than about eight Suns keeps going. When its core runs out of helium it shrinks, heats up and starts burning carbon; when that runs out, neon; then oxygen; then silicon, making iron. Each older fuel goes on burning in a shell around the newer fire, so the star ends up layered like an onion. And each new fuel gives less energy than the last and has to burn hotter, so each stage is far shorter than the one before."},
         {"type":"interactive_diagram","id":"onion","caption":"The last years of a star of about twenty Suns: what its core is burning, with older fuels burning on in shells around it, and how long each stage lasts.","task":"Make a prediction, then run the clock down to the end","goal":"collapse","aspect_ratio":1.67},
-        {"type":"text","text":"The end is a matter of seconds. The iron core, about the mass of the Sun and with no fuel to hold it up, passes Chandrasekhar's limit and falls in on itself at a quarter of the speed of light. In under a second it is a ball of neutrons twenty kilometres across, the neutron star of *Little green men*. The infalling layers hit it and rebound; a flood of neutrinos from the new neutron star helps drive them back out; and the rest of the star is blasted into space. In that blast, and in the star's onion layers, are oxygen, magnesium, silicon, calcium and much of the iron, flung out to mix with the gas that will make the next stars."},
+        {"type":"text","text":"The end is a matter of seconds. The iron core, a little heavier than the Sun and with no fuel to hold it up, passes Chandrasekhar's limit and falls in on itself at a quarter of the speed of light. In under a second it is a ball of neutrons twenty kilometres across, the neutron star of *Little green men*. The infalling layers hit it and rebound; a flood of neutrinos from the new neutron star helps drive them back out; and the rest of the star is blasted into space. In that blast, and in the star's onion layers, are oxygen, magnesium, silicon, calcium and much of the iron, flung out to mix with the gas that will make the next stars."},
         {"type":"key_ideas","title":"Hold on to","points":["Fusion gives energy only up to iron. Heavy stars build up layers of heavier and heavier elements, each burning faster, until an iron core collapses and the star explodes as a supernova, scattering what it made."]}
       ]
     },
@@ -34,8 +34,8 @@
       "title": "Hoyle's rung",
       "blocks": [
         {"type":"text","text":"There was a gap in this story, right at the start. To make carbon, three helium nuclei must stick together. Two helium nuclei make beryllium-8, which falls apart again in about a ten-millionth of a billionth of a second. Catching a third helium in that time is so unlikely that, on the physics known in 1950, stars should make almost no carbon at all. But carbon is common. You are made of it."},
-        {"type":"text","text":"The British astronomer Fred Hoyle, visiting Caltech in 1953, argued that the carbon nucleus must have a rung on its energy ladder (the same kind of ladder as hydrogen's in *A schoolteacher's number puzzle*, but for a nucleus) at exactly the energy that beryllium plus helium arrive with in a hot star. Then the third helium would be caught easily, like a ball dropped on a step of just the right height. He even said where: at about 7.7 million electronvolts (an electronvolt is the tiny energy one electron gains crossing one volt; nuclear rungs are millions of them). The physicists in the laboratory were sceptical, but Ward Whaling's group agreed to look. Within weeks they had found it, at 7.65."},
-        {"type":"text","text":"Four years later, Margaret and Geoffrey Burbidge, William Fowler and Hoyle published a long paper, known ever since by their initials as B²FH (the B² is the two Burbidges), laying out how stars make nearly every element, step by step. Fowler, who ran the laboratory measurements, shared the 1983 Nobel Prize, in the same year as Chandrasekhar."}
+        {"type":"text","text":"The British astronomer Fred Hoyle, visiting Caltech in 1953, argued that the carbon nucleus must have a rung on its energy ladder (the same kind of ladder as hydrogen's in *A schoolteacher's number puzzle*, but for a nucleus) at the exact energy that beryllium plus helium arrive with in a hot star. Then the third helium would be caught easily, like a ball dropped on a step of just the right height. He even said where: at about 7.7 million electronvolts.[^ev] The physicists in the laboratory were sceptical, but Ward Whaling's group agreed to look. Within days they had found it, at 7.65."},
+        {"type":"text","text":"Four years later, Margaret and Geoffrey Burbidge, William Fowler and Hoyle published a long paper, known ever since by their initials as B²FH (the B² is the two Burbidges), laying out how stars make nearly every element, step by step. Fowler, who ran the laboratory measurements, shared the 1983 Nobel Prize, in the same year as Chandrasekhar.[^hoyle-nobel]"}
       ]
     },
     {
@@ -50,7 +50,7 @@
       "title": "Star stuff",
       "blocks": [
         {"type":"text","text":"Put it together. The hydrogen in your water and your fat was made in the first few minutes of the universe and has never been inside a star. The carbon in your genes and the nitrogen in your proteins were made mostly by ordinary stars, a little heavier than the Sun, and puffed gently into space as they died. The oxygen you breathe and the calcium in your bones were made in the onion layers of heavy stars and blown out when they exploded. Much of the iron in your blood came from exploding white dwarfs. A gold ring may be made of the wreckage of two dead stars colliding."},
-        {"type":"text","text":"Carl Sagan put it in five words in 1973, and made them famous on television in *Cosmos* in 1980: “We are made of star-stuff.” The idea was B²FH's and Hoyle's, and all the people who measured the rungs and the reactions. The phrase was Sagan's, and it is exactly right."}
+        {"type":"text","text":"Carl Sagan put it in five words in 1973, and made them famous on television in *Cosmos* in 1980: “We are made of star-stuff.” The idea was B²FH's and Hoyle's, and all the people who measured the rungs and the reactions. The phrase was Sagan's, and it is right."}
       ]
     },
     {
@@ -77,5 +77,26 @@
     "**We are made of star-stuff.** Our hydrogen is from the Big Bang; our carbon, oxygen, calcium and iron were made in stars."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "nova": {
+      "kind": "technical",
+      "title": "Novae and supernovae",
+      "text": "Tycho's book was *De nova stella*, Latin for “On the new star”, and any sudden new star came to be called a **nova**. In the 1930s Fritz Zwicky and Walter Baade realised that the brightest ones were a different and far more violent thing, and coined **supernova** for them. Ordinary novae are mere thermonuclear flashes on the surface of a white dwarf that do not destroy the star."
+    },
+    "iron-group": {
+      "kind": "technical",
+      "title": "Iron and nickel",
+      "text": "Strictly, the very lightest nucleus per particle is nickel-62, with iron-56 and iron-58 a whisker behind. And the last step of silicon burning in a star actually makes radioactive nickel-56, which then decays through cobalt-56 into iron-56 over the weeks after the explosion; that radioactive glow is much of what makes a supernova so bright. Astronomers lump these neighbours together as “iron”."
+    },
+    "ev": {
+      "kind": "technical",
+      "title": "Electronvolt",
+      "text": "An **electronvolt** (eV) is the tiny energy one electron gains crossing one volt of electric potential. Chemical reactions, and visible light, involve a few electronvolts per atom; nuclear rungs and nuclear reactions are millions of them (MeV)."
+    },
+    "hoyle-nobel": {
+      "kind": "digression",
+      "title": "Hoyle left out",
+      "text": "Leaving Hoyle off the 1983 prize surprised many physicists, including Fowler himself, who had credited Hoyle with the grand concept of stellar nucleosynthesis. Why the committee passed him over was never explained in public; Hoyle had a gift for picking public fights with scientific orthodoxy (including with the Nobel committee over the 1974 pulsar prize), which cannot have helped."
+    }
+  }
 }

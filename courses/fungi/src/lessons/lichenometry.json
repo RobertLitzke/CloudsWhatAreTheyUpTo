@@ -7,7 +7,7 @@
   "teaches": "How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers",
   "summary": [
     "**Crust lichens grow slowly and steadily for centuries.** Some widen by less than half a millimetre a year.",
-    "**Beschel turned that into a clock in 1950.** He measured lichens on gravestones and buildings of known date in the Alps.",
+    "**Beschel turned that into a clock in 1950.** He measured lichens on gravestones and moraines of known date in the Alps.",
     "**The largest lichen dates a surface.** It is most likely the first to have settled there.",
     "**Gravestones calibrate the clock.** The largest lichen on stones of known age gives a growth curve for one region.",
     "**Moraines left by glaciers can be dated this way.** Many in the Alps and elsewhere date from the end of the Little Ice Age, after about 1850.",
@@ -17,14 +17,14 @@
     {
       "title": "A ring of rubble",
       "blocks": [
-        {"type": "text", "text": "Walk up a valley toward a mountain glacier today and you cross ridges of bare rubble long before you reach the ice. They are **moraines**, piles of rock the glacier pushed in front of it or dropped at its edge, and each one marks a place where the ice once ended. Photographs and paintings show that many glaciers in the Alps reached far down their valleys in the decades before about 1850 and have been shrinking since. But where there are no pictures, how can anyone tell when the ice stood at a given moraine?"},
-        {"type": "text", "text": "The answer is on the boulders. A moraine is fresh rock, scraped clean by the ice. Once the ice leaves, lichens begin to settle on it, and the most useful of them is the **map lichen**, *Rhizocarpon geographicum*, a yellow-green crust edged in black that grows on hard rock from the Arctic to high mountains around the world. Its patches look like the countries on a map, each ringed by a black border."}
+        {"type": "text", "text": "Walk up a valley toward a mountain glacier today and you cross ridges of bare rubble long before you reach the ice. They are **moraines**, piles of rock the glacier pushed in front of it or dropped at its edge, and each one marks a place where the ice once ended. Photographs and paintings show that many glaciers in the Alps reached far down their valleys in the decades before about 1850 and have been shrinking since. Older moraines, or those in valleys nobody drew or photographed, carry no such record."},
+        {"type": "text", "text": "What dates them is growing on the boulders. A moraine is fresh rock, scraped clean by the ice. Once the ice leaves, lichens begin to settle on it, and the most useful of them is the **map lichen**, *Rhizocarpon geographicum*, a yellow-green crust edged in black that grows on hard, acidic rock from the Arctic to high mountains around the world. Its patches look like the countries on a map, each ringed by a black border.[^prothallus]"}
       ]
     },
     {
       "title": "Beschel's clock",
       "blocks": [
-        {"type": "text", "text": "In 1950 the Austrian botanist Roland Beschel, then a student, noticed that the map lichens on old gravestones and buildings in the Alps were larger the older the stone. He measured lichens on surfaces whose dates were carved into them and found that, after a few years' delay while the first spores and fragments arrived and took hold, the largest lichen on each surface had grown at a steady rate. Lesson 10 explained why lichens are slow: they grow only while wet and lit. In a cold, dry mountain climate a map lichen may widen by a fraction of a millimetre a year, slowly enough to go on for centuries."},
+        {"type": "text", "text": "In 1950 the Austrian botanist Roland Beschel, then a student at Innsbruck, noticed that the map lichens on old gravestones and moraines in the Alps were larger the older the stone. He measured lichens on surfaces whose dates were known and found that, after a few years' delay while the first spores and fragments arrived and took hold, the largest lichen on each surface had grown at a steady rate. Lesson 10 explained why lichens are slow: they grow only while wet and lit. In a cold, dry mountain climate a map lichen may widen by a fraction of a millimetre a year, slowly enough to go on for centuries."},
         {"type": "text", "text": "Beschel called his method **lichenometry**, lichen measuring. It needs only a ruler and a known set of surfaces to calibrate against."}
       ]
     },
@@ -55,6 +55,11 @@
     }
   ],
   "footnotes": {
-    "limits": {"kind": "technical", "title": "How far back?", "text": "In very cold, dry places such as parts of Greenland and Baffin Island, map lichens have been used to date surfaces thousands of years old, though the dates are rough. Some single lichens there are thought to be several thousand years old, though such ages rest on growth rates measured over only a century or so."}
+    "limits": {"kind": "technical", "title": "How far back?", "text": "In very cold, dry places such as parts of Greenland and Baffin Island, map lichens have been used to date surfaces thousands of years old, though the dates are rough. Some single lichens there are thought to be several thousand years old, though such ages rest on growth rates measured over only a century or so."},
+    "prothallus": {
+      "kind": "technical",
+      "title": "The black border",
+      "text": "The black rim around a map lichen, and between the yellow-green islands within it, is the **prothallus**: a mat of dark fungal hyphae growing out onto the bare rock ahead of the algal partner. New islands form where those hyphae capture green algae."
+    }
   }
 }

@@ -1,232 +1,237 @@
 {
- "id": "rhythmites",
- "n": 303,
- "branch": "floods",
- "needs": [
-  "ripples",
-  "age"
- ],
- "title": "How many floods?",
- "teaches": "How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed",
- "parts": [
-  {
-   "title": "Stripes in a canyon wall",
-   "blocks": [
+  "id": "rhythmites",
+  "n": 303,
+  "branch": "floods",
+  "needs": [
+    "ripples",
+    "age"
+  ],
+  "title": "How many floods?",
+  "teaches": "How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed",
+  "parts": [
     {
-     "type": "text",
-     "text": "In the Walla Walla valley of southeastern Washington, small streams have cut through the valley floor and exposed what lies beneath it. At Burlingame Canyon, a ditch that an irrigation spill eroded into a gully about 30 metres deep, the walls are striped with dozens of layers of pale sand and silt, each from a few centimetres to about a metre thick. They are called the **Touchet Beds**, after the nearby Touchet River."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "The Touchet Beds along the Touchet River near Walla Walla: dozens of flood beds, each grading from sand at the bottom to silt at the top.",
-     "options": {
-      "photo": "touchet-beds",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "The Walla Walla valley is a side valley off the Columbia, just upstream of Wallula Gap. When the floods from [[Lake Missoula]] reached the gap and backed up behind it (the previous lesson), the rising water pushed up the side valleys, slowed down and dropped what it carried. Each layer is graded: coarse sand at the bottom, settling out first from the fast incoming water, then finer and finer silt toward the top as the water stood still and then drained away. A graded layer like this is what a single pulse of muddy water leaves."
-    },
-    {
-     "type": "text",
-     "text": "By the end of the 1960s most geologists accepted Bretz's flood, but many thought there had been only one, or a few, with the layers recording surges within it. Bretz himself had come to suspect several floods. The Touchet Beds held the answer, if anyone could tell whether the gap between two layers was a few minutes or a few decades."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The Touchet Beds are dozens of graded layers of sand and silt in the side valleys behind Wallula Gap.",
-      "Each graded layer is what one pulse of floodwater leaves as it slows and drains.",
-      "The question was whether the layers record surges of one flood, or many separate floods."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Signs of dry land",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Richard Waitt of the US Geological Survey went looking for the signs of time. In a 1980 paper he showed that the tops of many beds had been dry land. Some had cracks, like those in a dried-out mud puddle. Others held burrows of small rodents, dug down from the top of one bed and filled with the sand of the bed above. An animal can only burrow into ground that has drained and dried, and the burrows were filled by the next flood, so each burrowed bed had been dry land for at least a season, probably years, before it was buried."
-    },
-    {
-     "type": "text",
-     "text": "Volcanoes gave a second clock. Between two beds high in the pile lie thin layers of volcanic ash from Mount St Helens, more than 200 kilometres to the west, from eruptions that geologists have dated to about 15,000 years ago (about 13,000 radiocarbon years)[^c14]. The ash settled on dry ground and lay in an undisturbed sheet; it had not been stirred into moving floodwater. So that ground was dry when the ash fell, between one flood and the next."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "flood-beds",
-     "caption": "A cut through a side valley built up by flood beds. The gap between floods sets whether burrows and a clean ash layer can form between the beds.",
-     "task": "Build all 40 beds with at least 30 years between floods",
-     "goal": "counted",
-     "aspect_ratio": 1.6
-    },
-    {
-     "type": "text",
-     "text": "Counting the beds that showed these signs, Waitt concluded that about forty separate floods had reached the Walla Walla valley, at intervals of decades. Similar sequences elsewhere, near the Columbia and in the Washington and Oregon valleys, suggest dozens of floods in all. The intervals fit the ice dam. When the dam lifted, Lake Missoula held about 2,000 cubic kilometres of water. The Clark Fork and the other rivers feeding it, swollen with ice-age meltwater, brought in perhaps 30 to 60 cubic kilometres a year, so refilling to the depth at which the dam floats took roughly 30 to 70 years (2,000 ÷ 60 ≈ 33; 2,000 ÷ 30 ≈ 67). Forty floods on that rhythm take about 1,200 to 2,800 years, which fits the span of the beds, roughly 18,000 to 15,000 years ago."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A layer of volcanic ash from Mount St Helens between two flood beds in southeastern Washington.",
-     "options": {
-      "photo": "ash-layer",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "Burrows dug down from the top of one bed and filled by the next show the bed was dry land before the next flood.",
-      "Mount St Helens ash lying as a clean layer between two beds shows the ground was dry when it fell.",
-      "Waitt counted about 40 floods at Burlingame Canyon, decades apart, roughly matching the time Lake Missoula took to refill."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Smaller floods, more of them",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Not every flood was as large as the biggest. The lake refilled to different depths depending on how thick the ice dam was each time, and the floods got smaller as the ice sheet shrank toward the end of the ice age. The largest floods probably came early, when the dam was thickest, and stripped much of the scablands; later, smaller ones reworked the channels and left the youngest beds. Some geologists still argue that one or more of the largest floods may have come from a different source, perhaps water under the ice sheet in Canada, but the basic picture of a lake that filled and burst dozens of times is now accepted."
-    },
-    {
-     "type": "text",
-     "text": "Bretz's single flood thus became many, and that did not weaken his case. It strengthened it. Each flood was still far beyond anything in the historical record, and the many of them together shaped the scablands in ways no ordinary river could have done."
-    },
-    {
-     "type": "diagram",
-     "id": "timeline",
-     "caption": "The argument over the floods.",
-     "options": {
-      "events": [
-       {
-        "at": 1910,
-        "label": "Pardee describes Glacial Lake Missoula"
-       },
-       {
-        "at": 1923,
-        "label": "Bretz proposes the Spokane Flood"
-       },
-       {
-        "at": 1927,
-        "label": "Bretz’s case is rejected at a meeting in Washington, DC"
-       },
-       {
-        "at": 1940,
-        "label": "Pardee shows giant ripples where the lake drained"
-       },
-       {
-        "at": 1965,
-        "label": "“We are now all catastrophists”: a telegram to Bretz"
-       },
-       {
-        "at": 1979,
-        "label": "Bretz, 97, receives the Penrose Medal"
-       },
-       {
-        "at": 1980,
-        "label": "Waitt counts about forty floods in the Touchet Beds",
-        "bold": true
-       }
-      ],
-      "spacing": "even"
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The floods varied in size: the earliest, behind the thickest dams, were probably the largest.",
-      "Dozens of separate floods, each still enormous, together shaped the scablands."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on counting floods",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "Why does each Touchet bed grade from sand at the bottom to silt at the top?",
-        "choices": [
-         "The water arrived fast, dropping coarse sand first, then slowed and let finer silt settle",
-         "Wind blew silt onto each bed after it dried",
-         "Animals mixed the sand downward"
-        ],
-        "answer": 0,
-        "why": "Faster water carries coarser grains. As each pulse of floodwater slowed and stood still, finer and finer grains settled out."
-       },
-       {
-        "ask": "Waitt found burrows dug from the top of one bed and filled with sand from the bed above. What did that show?",
-        "choices": [
-         "The lower bed was dry land, with animals living on it, before the next flood buried it",
-         "The two beds were laid in the same flood",
-         "Animals lived in the floodwater"
-        ],
-        "answer": 0,
-        "why": "Animals burrow only into drained, dry ground, so time passed between the floods."
-       },
-       {
-        "ask": "Why does a clean layer of Mount St Helens ash between two beds matter?",
-        "choices": [
-         "It fell on dry ground between floods rather than into moving water",
-         "It shows Mount St Helens caused the floods",
-         "It proves the beds are older than the volcano"
-        ],
-        "answer": 0,
-        "why": "Ash falling into floodwater would have been stirred into the sediment. A clean sheet means still, dry ground."
-       },
-       {
-        "ask": "Why did the floods come back every few decades?",
-        "choices": [
-         "That was about how long the lake took to refill to the depth at which the ice dam floats",
-         "Volcanic eruptions released the water",
-         "The seasons melted the dam every summer"
-        ],
-        "answer": 0,
-        "why": "The river filled the lake at a rate that brought it to the floating depth in roughly 30 to 70 years."
-       },
-       {
-        "ask": "Why were the later floods probably smaller?",
-        "choices": [
-         "The ice sheet was shrinking, so the dam was thinner and floated at a lower lake level",
-         "The scablands had been filled in",
-         "The Clark Fork carried less water"
-        ],
-        "answer": 0,
-        "why": "A thinner dam floats with a shallower lake behind it, so less water drains each time."
-       }
+      "title": "Stripes in a canyon wall",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the Walla Walla valley of southeastern Washington, small streams have cut through the valley floor and exposed what lies beneath it. At Burlingame Canyon, a ditch that an irrigation spill eroded into a gully about 30 metres deep[^burlingame], the walls are striped with dozens of layers of pale sand and silt, each from a few centimetres to about a metre thick. They are called the **Touchet Beds**, after the nearby Touchet River."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "The Touchet Beds along the Touchet River near Walla Walla: dozens of flood beds, each grading from sand at the bottom to silt at the top.",
+          "options": {
+            "photo": "touchet-beds",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "The Walla Walla valley is a side valley off the Columbia, just upstream of Wallula Gap. When the floods from [[Lake Missoula]] reached the gap and backed up behind it (the previous lesson), the rising water pushed up the side valleys, slowed down and dropped what it carried. Each layer is graded: coarse sand at the bottom, settling out first from the fast incoming water, then finer and finer silt toward the top as the water stood still and then drained away. A graded layer like this is what a single pulse of muddy water leaves."
+        },
+        {
+          "type": "text",
+          "text": "By the end of the 1960s most geologists accepted Bretz's flood, but many thought there had been only one, or a few, with the layers recording surges within a single flood. Bretz himself had come to suspect several floods. The Touchet Beds held the answer, if anyone could tell whether the gap between two layers was a few minutes or a few decades."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The Touchet Beds are dozens of graded layers of sand and silt in the side valleys behind Wallula Gap.",
+            "Each graded layer is what one pulse of floodwater leaves as it slows and drains.",
+            "The question was whether the layers record surges of one flood, or many separate floods."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "Signs of dry land",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Richard Waitt of the US Geological Survey went looking for the signs of time. In a 1980 paper he showed that the tops of many beds had been dry land. Some had cracks, like those in a dried-out mud puddle. Others held burrows of small rodents, dug down from the top of one bed and filled with the sand of the bed above. An animal can burrow only into ground that has drained and dried, and the burrows were filled by the next flood, so each burrowed bed had been dry land for at least a season, probably years, before it was buried."
+        },
+        {
+          "type": "text",
+          "text": "Volcanoes gave a second clock. Between two beds high in the pile lie thin layers of volcanic ash from Mount St Helens, more than 200 kilometres to the west, from eruptions that geologists have dated to about 15,000 years ago (about 13,000 radiocarbon years)[^c14]. The ash settled on dry ground and lay in an undisturbed sheet; it had not been stirred into moving floodwater. So that ground was dry when the ash fell, between one flood and the next."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "flood-beds",
+          "caption": "A cut through a side valley built up by flood beds. The gap between floods sets whether burrows and a clean ash layer can form between the beds.",
+          "task": "Build all 40 beds with at least 30 years between floods",
+          "goal": "counted",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "Counting the beds that showed these signs, Waitt concluded that about forty separate floods had reached the Walla Walla valley, at intervals of decades. Similar sequences elsewhere, near the Columbia and in the Washington and Oregon valleys, point to dozens of floods in all. The intervals fit the ice dam. When the dam lifted, Lake Missoula held about 2,000 cubic kilometres of water. The Clark Fork and the other rivers feeding it, swollen with ice-age meltwater, brought in perhaps 30 to 60 cubic kilometres a year, so refilling to the depth at which the dam floats took roughly 30 to 70 years (2,000 ÷ 60 ≈ 33; 2,000 ÷ 30 ≈ 67). Forty floods on that rhythm take about 1,200 to 2,800 years, which fits the span of the beds, roughly 18,000 to 15,000 years ago."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A layer of volcanic ash from Mount St Helens between two flood beds in southeastern Washington.",
+          "options": {
+            "photo": "ash-layer",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "Burrows dug down from the top of one bed and filled by the next show the bed was dry land before the next flood.",
+            "Mount St Helens ash lying as a clean layer between two beds shows the ground was dry when it fell.",
+            "Waitt counted about 40 floods at Burlingame Canyon, decades apart, roughly matching the time Lake Missoula took to refill."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Smaller floods, more of them",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Not every flood was as large as the biggest. The lake refilled to different depths depending on how thick the ice dam was each time, and the floods got smaller as the ice sheet shrank toward the end of the ice age. The largest floods probably came early, when the dam was thickest, and stripped much of the scablands; later, smaller ones reworked the channels and left the youngest beds. Some geologists still argue that one or more of the largest floods may have come from a different source, perhaps water under the ice sheet in Canada, but the basic picture of a lake that filled and burst dozens of times is now accepted."
+        },
+        {
+          "type": "text",
+          "text": "Bretz's single flood thus became many, and that strengthened his case rather than weakening it. Each flood was still far beyond anything in the historical record, and together they shaped the scablands in ways no ordinary river could have done."
+        },
+        {
+          "type": "diagram",
+          "id": "timeline",
+          "caption": "The argument over the floods.",
+          "options": {
+            "events": [
+              {
+                "at": 1910,
+                "label": "Pardee describes Glacial Lake Missoula"
+              },
+              {
+                "at": 1923,
+                "label": "Bretz proposes the Spokane Flood"
+              },
+              {
+                "at": 1927,
+                "label": "Bretz’s case is rejected at a meeting in Washington, DC"
+              },
+              {
+                "at": 1940,
+                "label": "Pardee shows giant ripples where the lake drained"
+              },
+              {
+                "at": 1965,
+                "label": "“We are now all catastrophists”: a telegram to Bretz"
+              },
+              {
+                "at": 1979,
+                "label": "Bretz, 97, receives the Penrose Medal"
+              },
+              {
+                "at": 1980,
+                "label": "Waitt counts about forty floods in the Touchet Beds",
+                "bold": true
+              }
+            ],
+            "spacing": "even"
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The floods varied in size: the earliest, behind the thickest dams, were probably the largest.",
+            "Dozens of separate floods, each still enormous, together shaped the scablands."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on counting floods",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does each Touchet bed grade from sand at the bottom to silt at the top?",
+                "choices": [
+                  "The water arrived fast, dropping coarse sand first, then slowed and let finer silt settle",
+                  "Wind blew silt onto each bed after it dried",
+                  "Animals mixed the sand downward"
+                ],
+                "answer": 0,
+                "why": "Faster water carries coarser grains. As each pulse of floodwater slowed and stood still, finer and finer grains settled out."
+              },
+              {
+                "ask": "Waitt found burrows dug from the top of one bed and filled with sand from the bed above. What did that show?",
+                "choices": [
+                  "The lower bed was dry land, with animals living on it, before the next flood buried it",
+                  "The two beds were laid in the same flood",
+                  "Animals lived in the floodwater"
+                ],
+                "answer": 0,
+                "why": "Animals burrow only into drained, dry ground, so time passed between the floods."
+              },
+              {
+                "ask": "Why does a clean layer of Mount St Helens ash between two beds matter?",
+                "choices": [
+                  "It fell on dry ground between floods rather than into moving water",
+                  "It shows Mount St Helens caused the floods",
+                  "It proves the beds are older than the volcano"
+                ],
+                "answer": 0,
+                "why": "Ash falling into floodwater would have been stirred into the sediment. A clean sheet means still, dry ground."
+              },
+              {
+                "ask": "Why did the floods come back every few decades?",
+                "choices": [
+                  "That was about how long the lake took to refill to the depth at which the ice dam floats",
+                  "Volcanic eruptions released the water",
+                  "The seasons melted the dam every summer"
+                ],
+                "answer": 0,
+                "why": "The river filled the lake at a rate that brought it to the floating depth in roughly 30 to 70 years."
+              },
+              {
+                "ask": "Why were the later floods probably smaller?",
+                "choices": [
+                  "The ice sheet was shrinking, so the dam was thinner and floated at a lower lake level",
+                  "The scablands had been filled in",
+                  "The Clark Fork carried less water"
+                ],
+                "answer": 0,
+                "why": "A thinner dam floats with a shallower lake behind it, so less water drains each time."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**The Touchet Beds are stacked flood layers.** Dozens of graded beds lie in the side valleys behind Wallula Gap.",
+    "**Each graded bed is one pulse of water.** Sand settles first, then silt as the water stills.",
+    "**Burrows and ash show dry land between beds.** Animals burrowed into dried beds, and ash lay undisturbed on them.",
+    "**Waitt counted about 40 floods.** They came decades apart, between about 18,000 and 15,000 years ago.",
+    "**The rhythm matches the ice dam.** The lake took roughly 30 to 70 years to refill to the floating depth.",
+    "**Many floods, not one.** Each was still enormous, and together they shaped the scablands."
+  ],
+  "journal": [],
+  "footnotes": {
+    "c14": {
+      "kind": "technical",
+      "title": "Radiocarbon years",
+      "text": "Radiocarbon dating assumes the air always held the same share of carbon-14, and it has not: the share has wandered as the Sun's activity and the Earth's magnetic field changed. A raw radiocarbon age is therefore converted to calendar years with a curve built from tree rings, corals and cave deposits of known age. For ice-age dates the two differ by a couple of thousand years."
+    },
+    "burlingame": {
+      "kind": "digression",
+      "title": "A six-day canyon",
+      "text": "In March 1926, wind-driven debris blocked the Burlingame irrigation canal near Walla Walla. Engineers diverted the water into a shallow overflow ditch while they cleared the blockage. In six days the runaway water cut a canyon up to 30 metres deep and 450 metres long through the loose silt, giving geologists their best window into the Touchet Beds."
+    }
   }
- ],
- "summary": [
-  "**The Touchet Beds are stacked flood layers.** Dozens of graded beds lie in the side valleys behind Wallula Gap.",
-  "**Each graded bed is one pulse of water.** Sand settles first, then silt as the water stills.",
-  "**Burrows and ash show dry land between beds.** Animals burrowed into dried beds, and ash lay undisturbed on them.",
-  "**Waitt counted about 40 floods.** They came decades apart, between about 18,000 and 15,000 years ago.",
-  "**The rhythm matches the ice dam.** The lake took roughly 30 to 70 years to refill to the floating depth.",
-  "**Many floods, not one.** Each was still enormous, and together they shaped the scablands."
- ],
- "journal": [],
- "footnotes": {
-  "c14": {
-   "kind": "technical",
-   "title": "Radiocarbon years",
-   "text": "Radiocarbon dating assumes the air always held the same share of carbon-14, and it has not: the share has wandered as the Sun's activity and the Earth's magnetic field changed. A raw radiocarbon age is therefore converted to calendar years with a curve built from tree rings, corals and cave deposits of known age. For ice-age dates the two differ by a couple of thousand years."
-  }
- }
 }

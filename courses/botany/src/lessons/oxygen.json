@@ -24,7 +24,7 @@
     {
       "title": "Heavy oxygen",
       "blocks": [
-        {"type": "text", "text": "Most oxygen atoms weigh 16 units, but about one in five hundred weighs 18. The heavy kind behaves the same in every chemical reaction, but it can be counted with an instrument called a mass spectrometer, which sorts molecules by weight. In 1941 Samuel Ruben, Martin Kamen and their colleagues at Berkeley grew algae in water enriched with heavy oxygen, and measured the oxygen gas the algae gave off."},
+        {"type": "text", "text": "Most oxygen atoms weigh 16 units, but about one in five hundred weighs 18. The heavy kind behaves the same in every chemical reaction, but it can be counted with an instrument called a mass spectrometer, which sorts molecules by weight. In 1941 Samuel Ruben, Martin Kamen and their colleagues at Berkeley grew algae in water enriched with heavy oxygen, and measured the oxygen gas the algae gave off.[^ruben-kamen]"},
         {"type": "interactive_diagram", "id": "label", "caption": "Heavy oxygen put into the water or into the carbon dioxide, and where it turns up.", "task": "Guess, then try heavy oxygen in each", "goal": "traced", "aspect_ratio": 2},
         {"type": "text", "text": "The gas carried the same share of heavy oxygen as the water. When the heavy oxygen was put in the carbon dioxide instead, the gas came out ordinary. Van Niel was right: the oxygen comes from water. The oxygen atoms of the carbon dioxide go into the sugar, and into some new water the plant makes along the way. The experiment had complications (oxygen atoms swap between water and carbon dioxide dissolved in it), and it was checked more carefully in later decades, but the answer held."},
         {"type": "text", "text": "So the shorthand is better written with twelve molecules of water going in and six coming out. All six oxygen molecules come from splitting the twelve waters, and building the sugar makes six fresh waters along the way; the old shorthand had simply cancelled six from each side. Every breath of oxygen you take was once part of a water molecule in a leaf or an alga."},
@@ -35,15 +35,15 @@
       "title": "Two halves of one process",
       "blocks": [
         {"type": "text", "text": "A few years earlier, in 1937, Robert Hill at Cambridge had ground up leaves and separated out the **chloroplasts**, the small green bodies in leaf cells that hold the chlorophyll. Lit in a test tube with an iron salt that could accept hydrogen, they gave off oxygen. There was no carbon dioxide in the tube, and no sugar was made. Splitting water and fixing carbon dioxide could be pulled apart."},
-        {"type": "text", "text": "Photosynthesis, it turned out, is two linked processes. In the first, light absorbed by chlorophyll splits water, releasing oxygen, and stores the energy in two kinds of small carrier molecule (called ATP and NADPH), a little like charging batteries. In the second, those charged carriers are spent to attach carbon dioxide to other molecules and build sugar. The first needs light directly. The second only needs the charged carriers, so it can run on for a moment in the dark, and its steps happen too fast to follow by ordinary chemistry. Seeing them took a new trick."},
+        {"type": "text", "text": "Photosynthesis, it turned out, is two linked processes. In the first, light absorbed by chlorophyll splits water, releasing oxygen, and stores the energy in two kinds of small carrier molecule, a little like charging batteries.[^carriers] In the second, those charged carriers are spent to attach carbon dioxide to other molecules and build sugar. The first needs light directly. The second only needs the charged carriers, so it can run on for a moment in the dark, and its steps happen too fast to follow by ordinary chemistry. Seeing them took a new trick."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Hill (1937): chloroplasts in a test tube give off oxygen in light with no carbon dioxide present.", "Photosynthesis is two halves: light splits water and charges energy carriers; the carriers are spent to build sugar from carbon dioxide."]}
       ]
     },
     {
       "title": "The lollipop",
       "blocks": [
-        {"type": "text", "text": "After the Second World War, laboratories had something new: radioactive carbon-14, a by-product of the atomic programme. At Berkeley, Melvin Calvin, Andrew Benson and James Bassham used it to follow carbon into a plant. They grew the green alga *Chlorella* in a flat, round glass flask shaped like a lollipop, lit from both sides. They squirted in carbon dioxide made with carbon-14, waited a set number of seconds, and then opened a tap that dropped the algae into boiling alcohol, killing them instantly and freezing their chemistry at that moment."},
-        {"type": "text", "text": "Then they spread the extract on a sheet of paper and let two solvents creep across it, one way and then the other, so that each kind of molecule ended up at its own spot. Laid against photographic film, any spot holding radioactive carbon showed up dark."},
+        {"type": "text", "text": "After the Second World War, laboratories had something new: radioactive carbon-14, which Ruben and Kamen had discovered at Berkeley in 1940 and which wartime nuclear reactors now made in quantity. At Berkeley, Melvin Calvin, Andrew Benson and James Bassham used it to follow carbon into a plant. They grew the green alga *Chlorella* in a flat, round glass flask shaped like a lollipop, lit from both sides. They squirted in carbon dioxide made with carbon-14, waited a set number of seconds, and then opened a tap that dropped the algae into boiling alcohol, killing them instantly and freezing their chemistry at that moment."},
+        {"type": "text", "text": "Then they spread the extract on a sheet of paper and let two solvents creep across it, one way and then the other, so that each kind of molecule ended up at its own spot.[^chromatography] Laid against photographic film, any spot holding radioactive carbon showed up dark."},
         {"type": "interactive_diagram", "id": "lollipop", "caption": "Calvin's paper: where the radioactive carbon has got to when the algae are killed. Spot positions simplified. A model of the sequence they found.", "task": "Find the first molecule the carbon goes into", "goal": "first", "aspect_ratio": 2},
         {"type": "text", "text": "After a minute the film was covered with spots. As they shortened the time, the spots dropped out one by one, and after a few seconds almost all the radioactivity was in a single molecule with three carbon atoms, called PGA. That is the first thing carbon dioxide becomes. Working out what came next, and where the PGA's partner came from, took years. The answer was a **cycle**: carbon dioxide is attached to a five-carbon sugar, the result splits into two PGAs, and these are rebuilt, using the charged carriers, partly into new sugar and partly back into the five-carbon sugar to catch more carbon dioxide. Calvin received the Nobel Prize in Chemistry for it in 1961."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Calvin, Benson and Bassham fed algae radioactive carbon dioxide for a few seconds and found where it went.", "Carbon dioxide first becomes PGA; then a cycle builds sugar and regenerates the molecule that catches carbon dioxide."]}
@@ -52,7 +52,7 @@
     {
       "title": "The slowest busy enzyme",
       "blocks": [
-        {"type": "text", "text": "The step that catches carbon dioxide is done by an enzyme, a protein that speeds up a reaction. Its name is **rubisco**. Most enzymes handle thousands of molecules a second. Rubisco manages about three. And it isn't fussy: now and then it grabs an oxygen molecule instead of carbon dioxide, and the plant has to spend energy cleaning up the mistake."},
+        {"type": "text", "text": "The step that catches carbon dioxide is done by an enzyme, a protein that speeds up a reaction. Its name is **rubisco**.[^rubisco] Most enzymes handle thousands of molecules a second. Rubisco manages about three. And it isn't fussy: now and then it grabs an oxygen molecule instead of carbon dioxide, and the plant has to spend energy cleaning up the mistake."},
         {"type": "text", "text": "A plant's answer to a slow enzyme is to make a lot of it. Rubisco can be a third or more of all the protein in a leaf, and it is probably the most abundant protein on Earth. That is one reason leaves need so much nitrogen, and why trees take it back before their leaves fall (lesson 3). Rubisco's slowness and its mistakes with oxygen are behind some of the most interesting inventions in plants, which lesson 8 follows into a field of corn and a cactus."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**Rubisco** catches carbon dioxide, slowly (about three a second), and sometimes grabs oxygen by mistake.", "Leaves make huge amounts of it; it is probably the most abundant protein on Earth."]}
       ]
@@ -61,7 +61,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on oxygen and carbon", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on oxygen and carbon",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "A plant is given carbon dioxide made with heavy oxygen and ordinary water. Where does the heavy oxygen end up?", "choices": ["In the sugar and new water, not the oxygen gas", "In the oxygen gas", "Nowhere: it is lost"], "answer": 0, "why": "The oxygen given off comes from water. Carbon dioxide's oxygen goes into the sugar and some new water."},
             {"ask": "What was van Niel's argument that plants split water?", "choices": ["Purple bacteria give off sulphur from hydrogen sulphide, in the place where plants give off oxygen", "He measured heavy oxygen in the gas", "He saw water splitting under a microscope"], "answer": 0, "why": "He reasoned by comparison: the sulphur clearly came from H₂S, so the oxygen probably came from H₂O."},
@@ -83,5 +86,26 @@
     "**Rubisco catches the carbon dioxide.** It is slow and sometimes grabs oxygen by mistake, so leaves make vast amounts of it."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "ruben-kamen": {
+      "kind": "digression",
+      "title": "Ruben and Kamen",
+      "text": "A year before the heavy-oxygen experiment, in February 1940, Ruben and Kamen had discovered carbon-14, the radioactive isotope that Calvin's group later used to trace how plants build sugar. Neither of them shared in the Nobel Prize that followed. Ruben died in 1943, aged twenty-nine, after inhaling phosgene gas in a laboratory accident while doing wartime research. Kamen was dismissed from his post during the loyalty purges of the late 1940s and spent years clearing his name in court."
+    },
+    "carriers": {
+      "kind": "technical",
+      "title": "ATP and NADPH",
+      "text": "**ATP** (adenosine triphosphate) and **NADPH** (nicotinamide adenine dinucleotide phosphate) are small molecules that ferry energy and hydrogen atoms around the cell. Light reactions load ATP with a third phosphate group and attach hydrogen to NADP⁺ to make NADPH; the sugar-building reactions spend both and send the empty carriers, ADP and NADP⁺, back to the chlorophyll to be recharged."
+    },
+    "chromatography": {
+      "kind": "technical",
+      "title": "Two-dimensional paper chromatography",
+      "text": "This technique, invented in the 1940s by Archer Martin and Richard Synge, separates a mixture of small molecules on a sheet of filter paper. A drop of extract is dried near one corner, and the edge of the paper is dipped in a solvent. As the liquid creeps up the sheet, different molecules travel at different speeds depending on how readily they dissolve. Turning the paper ninety degrees and running a second solvent spreads the spots out across the whole sheet."
+    },
+    "rubisco": {
+      "kind": "technical",
+      "title": "Why it is called rubisco",
+      "text": "Its full name is **r**ib**u**lose-1,5-**bis**phosphate **c**arb**o**xylase/**o**xygenase: it attaches either carbon dioxide (carboxylase) or oxygen (oxygenase) to the five-carbon sugar ribulose bisphosphate. In 1979 the biochemist David Eisenberg coined the nickname rubisco as a joke at a seminar, and his colleagues adopted it with relief."
+    }
+  }
 }

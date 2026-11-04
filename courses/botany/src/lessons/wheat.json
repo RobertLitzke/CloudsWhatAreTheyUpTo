@@ -10,7 +10,7 @@
       "title": "Wheat without watering",
       "blocks": [
         {"type": "text", "text": "Drive east from the Cascades across Washington and the land dries out: sagebrush, then, past the Columbia, wheat to the horizon. On the rolling hills of the Palouse, near the Idaho border, farmers grow some of the highest wheat yields in the world without any irrigation, on 45 to 60 centimetres of rain a year, about half of what falls on Seattle. Farther west, around Ritzville, wheat is grown on under 30 centimetres, close to the limit for any crop without watering."},
-        {"type": "text", "text": "The hills are the first part of the answer. They are drifts of **loess**, fine wind-blown silt, piled tens of metres deep after the ice ages. Loess holds water like a sponge, and it takes rain in rather than shedding it. Before farmers came it carried a prairie of bunchgrasses; Ecology's lesson on the prairie under the wheat tells what became of it. The rest of the answer is in when the wheat grows, how tall it stands, and what farmers do with the years they don't plant."}
+        {"type": "text", "text": "The hills are the first part of the answer. They are drifts of **loess**, fine wind-blown silt, piled tens of metres deep after the ice ages.[^palouse-loess] Loess holds water like a sponge, and it takes rain in rather than shedding it. Before farmers came it carried a prairie of bunchgrasses; Ecology's lesson on the prairie under the wheat tells what became of it. The rest of the answer is in when the wheat grows, how tall it stands, and what farmers do with the years they don't plant."}
       ]
     },
     {
@@ -23,7 +23,7 @@
     {
       "title": "Vogel's short wheat",
       "blocks": [
-        {"type": "text", "text": "Old Palouse wheats were tall, and in a good year, with nitrogen fertiliser, they grew so heavy they fell over before harvest: lesson 14's lodging. In 1949 Orville Vogel, a federal wheat breeder at Washington State College in Pullman, received seeds of Norin 10, a Japanese wheat that stood only about knee-high. He crossed it with local wheats for years, and in 1961 released Gaines, a semi-dwarf winter wheat that could take heavy fertiliser without lodging. Yields in the region rose by a quarter or more within a few years."},
+        {"type": "text", "text": "Old Palouse wheats were tall, and in a good year, with nitrogen fertiliser, they grew so heavy they fell over before harvest: lesson 14's lodging. In 1949 Orville Vogel, a federal wheat breeder at Washington State College in Pullman, received seeds of Norin 10,[^norin-10] a Japanese wheat that stood only about knee-high. He crossed it with local wheats for years, and in 1961 released Gaines, a semi-dwarf winter wheat that could take heavy fertiliser without lodging. Yields in the region rose by a quarter or more within a few years."},
         {"type": "text", "text": "Vogel also sent his Norin 10 crosses to Norman Borlaug in Mexico, whose short wheats went on to feed much of South Asia (lesson 14). The short-stem genes work by making the plant deaf to gibberellin, which is why spraying them with the hormone does nothing. That is a different route to a short stem from Mendel's dwarf peas (lesson C1), which make too little gibberellin and grow tall when sprayed."}
       ]
     },
@@ -32,7 +32,7 @@
       "blocks": [
         {"type": "text", "text": "In the dry western belt, farmers grow a crop only every other year. In the year between, the field is left **fallow**: kept free of weeds, so that nothing draws water from it, and the rain of that year soaks into the loess. Most of it evaporates anyway, but perhaps a third is still in the soil when the next crop is sown, so that crop has more water than one year's rain alone could give it."},
         {"type": "interactive_diagram", "id": "fallow", "caption": "Grain over two years, wheat every year against fallow and then wheat. A model.", "task": "Guess, then try a dry place and a wet one", "goal": "both", "aspect_ratio": 1.67},
-        {"type": "text", "text": "Why give up a whole crop? Because a wheat plant uses a certain amount of water just to grow its leaves and roots before it makes any grain. Where the rain barely covers that, a crop every year makes very little grain twice, while one crop with two years' water makes a real harvest. Where rain is plentiful, the water lost from a fallow field is a waste, and farmers crop every year. In the model, where a sown crop keeps 60 percent of its year's rain and a fallow year carries 30 percent over, the switch comes at about 33 centimetres, roughly where the real fallow country ends."},
+        {"type": "text", "text": "Giving up a whole crop pays because a wheat plant uses a certain amount of water just to grow its leaves and roots before it makes any grain. Where the rain barely covers that, a crop every year makes very little grain twice, while one crop with two years' water makes a real harvest. Where rain is plentiful, the water lost from a fallow field is a waste, and farmers crop every year. In the model, where a sown crop keeps 60 percent of its year's rain and a fallow year carries 30 percent over, the switch comes at about 33 centimetres, roughly where the real fallow country ends."},
         {"type": "key_ideas", "title": "Estimate", "points": ["Suppose a crop needs 10 cm of water before it makes grain, then gives 0.2 tonnes per hectare for each centimetre more. With 15 cm of water it makes 1 tonne; with 25 cm, 3 tonnes.", "Two crops on 15 cm each give 2 tonnes. If a fallow year carries 10 cm over, the next crop has 25 cm and gives 3 tonnes. Saving water for one crop wins."]}
       ]
     },
@@ -47,7 +47,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Five questions on Palouse wheat", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on Palouse wheat",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Why is winter wheat sown in autumn suited to eastern Washington?", "choices": ["Most of the rain falls in winter, and the established wheat uses it before the dry summer", "Wheat seeds need frost to sprout", "Autumn sowing avoids spring frosts on the seedlings"], "answer": 0, "why": "Winter wheat is up and rooted by spring, when the soil is full of winter's water."},
             {"ask": "Winter wheat is sown in spring by mistake. What happens?", "choices": ["It stays leafy and doesn't flower, because it has had no cold", "It flowers early and gives a big crop", "It flowers late but normally"], "answer": 0, "why": "Without weeks of cold, vernalisation, the gene that blocks flowering stays on."},
@@ -68,5 +71,16 @@
     "**The cost is soil.** Many hilltops have lost their topsoil; direct seeding into stubble now cuts erosion."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "palouse-loess": {
+      "kind": "digression",
+      "title": "Where the silt came from",
+      "text": "During the ice ages, glaciers ground bedrock into fine rock flour, and giant floods from glacial Lake Missoula washed it into the basins of central and southern Washington. Prevailing south-westerly winds then picked the dry silt up and blew it eastward into dune-like hills up to 75 metres deep."
+    },
+    "norin-10": {
+      "kind": "digression",
+      "title": "Norin 10",
+      "text": "Japanese breeders developed Norin 10 in 1935 by crossing a short Japanese variety, Daruma, with two American wheats. In 1946 Cecil Salmon, an agronomist with the US occupation forces, noticed it at an experiment station on Honshu and sent 16 varieties home to the Department of Agriculture."
+    }
+  }
 }

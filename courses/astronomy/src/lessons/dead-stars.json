@@ -8,16 +8,16 @@
       "title": "The Pup",
       "blocks": [
         {"type":"text","text":"Sirius, the brightest star in the night sky, does not move straight. In 1844 the German astronomer Friedrich Bessel, who had measured the first distance to a star a few years before, noticed that over decades Sirius drifts across the sky in a gentle wavy line, as if something were swinging it round. A star can't swing itself. Bessel concluded that Sirius has a partner too faint to see, the two of them circling each other every fifty years."},
-        {"type":"text","text":"In 1862 Alvan Graham Clark, son of a famous Boston telescope maker, was testing a new lens on Sirius and saw a faint speck beside it, exactly where Bessel's partner should be. It was named Sirius B, and nicknamed the Pup (Sirius is the Dog Star). From the wobble, the Pup had about the mass of the Sun. From its faintness, it gave out about one four-hundredth of the Sun's light. A heavy, dim star: presumably cool and red, nearing the end of its life."},
-        {"type":"text","text":"Then in 1914 Walter Adams at Mount Wilson managed to get the Pup's spectrum, no easy job next to the glare of Sirius. It was white: hot, hotter than the Sun. Remember from *Giants and dwarfs* what that means. A hot surface gives out a great deal of light from every square metre, so a hot star that gives out so little light in total must have very few square metres. The Pup had the mass of the Sun packed into a ball about the size of the Earth. A teaspoon of it would weigh as much as a lorry."},
-        {"type":"text","text":"Arthur Eddington, the most famous astronomer in Britain, put the general reaction this way: the Pup's message, decoded, was “I am composed of material 3,000 times denser than anything you have ever come across.” And the reply most astronomers made in 1914 was “Shut up. Don't talk nonsense.” But it was true, and more of these **white dwarfs** turned up. They were stars that shouldn't exist."}
+        {"type":"text","text":"In 1862 Alvan Graham Clark, son of a famous Boston telescope maker, was testing a new lens on Sirius and saw a faint speck beside it, exactly where Bessel's partner should be.[^clark] It was named Sirius B, and nicknamed the Pup (Sirius is the Dog Star). From the wobble, the Pup had about the mass of the Sun. From its faintness, it gave out about one four-hundredth of the Sun's light. A heavy, dim star: presumably cool and red, nearing the end of its life."},
+        {"type":"text","text":"Then in 1915 Walter Adams at Mount Wilson managed to get the Pup's spectrum, no easy job next to the glare of Sirius. It was white: hot, hotter than the Sun. Remember from *Giants and dwarfs* what that means. A hot surface gives out a great deal of light from every square metre, so a hot star that gives out so little light in total must have very few square metres. The Pup had the mass of the Sun packed into a ball about the size of the Earth. A teaspoon of it would weigh as much as a lorry."},
+        {"type":"text","text":"Arthur Eddington, the most famous astronomer in Britain, put the general reaction this way: the Pup's message, decoded, was “I am composed of material 3,000 times denser than anything you have ever come across.” And the reply most astronomers made was “Shut up. Don't talk nonsense.”[^relativity-test] But it was true, and more of these **white dwarfs** turned up. They were stars that shouldn't exist."}
       ]
     },
     {
       "title": "What holds it up?",
       "blocks": [
         {"type":"text","text":"An ordinary star holds itself up with heat. Its hot gas pushes outwards, gravity pulls in, and as *What makes the Sun shine?* showed, the two stay balanced as long as fusion keeps the middle hot. A white dwarf has no fusion going on at all. It is the exposed core of a dead star, slowly cooling. Eddington worried about this: when it cooled, surely gravity would crush it further. What could possibly stop it?"},
-        {"type":"text","text":"The answer came from the new physics of atoms. In 1925 the Austrian physicist Wolfgang Pauli found the rule behind the ladders of *A schoolteacher's number puzzle*: no two electrons can be in exactly the same state. Each rung of the ladder has room for two electrons and no more. That's why atoms aren't all piled up on their bottom rungs, and why chemistry is interesting."},
+        {"type":"text","text":"The answer came from the new physics of atoms. In 1925 the Austrian physicist Wolfgang Pauli found the rule behind the ladders of *A schoolteacher's number puzzle*: no two electrons can be in exactly the same state.[^exclusion] Each rung of the ladder has room for two electrons and no more. That is why atoms aren't all piled up on their bottom rungs, and why chemistry is interesting."},
         {"type":"text","text":"In a white dwarf the atoms are crushed together and the electrons roam freely, but the rule still holds. Confine electrons in a smaller space and their rungs spread apart, just as a shorter string plays higher notes. Every electron needs a rung of its own (well, half of one), so squeezing the star forces electrons up onto higher, faster rungs. Fast electrons push. And they keep pushing even when the star is stone cold, because it is not heat that keeps them moving but the lack of room."},
         {"type":"diagram","id":"two-per-rung","caption":"The same eight electrons in a roomy box and a squeezed one. Squeezing spreads the rungs apart, and since no rung takes more than two electrons, the top ones end up moving much faster."},
         {"type":"key_ideas","title":"Hold on to","points":["No two electrons can share a state, so squeezing electrons into less room forces them to move faster, and they push back, hot or cold. That push holds up a white dwarf."]}
@@ -35,15 +35,15 @@
       "blocks": [
         {"type":"text","text":"In the summer of 1930, Subrahmanyan Chandrasekhar, nineteen years old, sailed from India to England to study at Cambridge with Fowler. He had Fowler's paper with him and worked on it during the voyage. He noticed something Fowler had left out. In a heavy white dwarf the electrons are squeezed so hard that they move at a good fraction of the speed of light, and nothing can go faster than light (*Muons that live too long*). As they get close to it, squeezing them harder hardly speeds them up. Squeeze harder and their push no longer grows to match."},
         {"type":"text","text":"Gravity has no such limit. So above a certain mass, gravity always wins, and no white dwarf can exist at all. Chandrasekhar's figure, as it came out in later work, was about 1.4 times the mass of the Sun. It is now called the **Chandrasekhar limit**."},
-        {"type":"text","text":"Eddington did not like it. At a meeting of the Royal Astronomical Society in January 1935, straight after Chandrasekhar presented his results, Eddington got up and ridiculed them: “I think there should be a law of Nature to prevent a star from behaving in this absurd way!” The leading physicists privately agreed Chandrasekhar was right, but few said so publicly, and Eddington's authority held the idea back for years. Chandrasekhar moved to Chicago, worked on other things, and stayed friends with Eddington. He received the Nobel Prize in 1983, more than fifty years after the voyage. NASA's X-ray telescope is named after him."}
+        {"type":"text","text":"Eddington did not like it. At a meeting of the Royal Astronomical Society in January 1935, straight after Chandrasekhar presented his results, Eddington got up and ridiculed them: “I think there should be a law of Nature to prevent a star from behaving in this absurd way!”[^eddington-trap] The leading physicists privately agreed Chandrasekhar was right, but few said so publicly, and Eddington's authority held the idea back for years. Chandrasekhar moved to Chicago, worked on other things, and stayed friends with Eddington. He received the Nobel Prize in 1983, more than fifty years after the voyage. NASA's X-ray telescope is named after him."}
       ]
     },
     {
       "title": "Beyond the limit",
       "blocks": [
-        {"type":"text","text":"What happens to a dead core heavier than the limit? It collapses, and something even stranger is left behind: either a star made almost entirely of neutrons, which is *Little green men*, or something from which not even light escapes, which is *Dark stars*. Which one depends on how heavy it is. Eddington's “absurd” behaviour is just what nature does."},
-        {"type":"text","text":"The limit has a use, too. A white dwarf with a close partner star can steal gas from it, growing heavier and heavier. When it gets near the limit its middle heats up so much that carbon catches fire all at once, and the whole white dwarf blows itself apart. Because they all go off at about the same mass, these explosions all reach about the same peak brightness. A light whose true brightness you know is a measuring stick for distance: measure how bright it looks and you know how far away it is. Exploding white dwarfs can be seen across most of the universe, and in *The speeding universe* they deliver one of the biggest surprises in astronomy."},
-        {"type":"text","text":"As for the Sun, it is safely under the limit. In about eight billion years it will be a white dwarf of a little over half its present mass, about the size of the Earth, cooling slowly for longer than the universe has existed so far."}
+        {"type":"text","text":"When a dead core is heavier than the limit, it collapses, and something even stranger is left behind: either a star made almost entirely of neutrons, which is *Little green men*, or something from which not even light escapes, which is *Dark stars*. Which one depends on how heavy it is. Eddington's “absurd” behaviour is just what nature does."},
+        {"type":"text","text":"The limit has a use, too. A white dwarf with a close partner star can steal gas from it, growing heavier and heavier. When it gets near the limit its middle heats up so much that carbon catches fire all at once, and the whole white dwarf blows itself apart. Because they all go off at about the same mass, these explosions all reach about the same peak brightness.[^type-ia] A light whose true brightness you know is a measuring stick for distance: measure how bright it looks and you know how far away it is. Exploding white dwarfs can be seen across most of the universe, and in *The speeding universe* they deliver one of the biggest surprises in astronomy."},
+        {"type":"text","text":"As for the Sun, it is safely under the limit. In about seven billion years it will be a white dwarf of a little over half its present mass, about the size of the Earth, cooling slowly for longer than the universe has existed so far."}
       ]
     },
     {
@@ -68,5 +68,31 @@
     "**Exploding white dwarfs are standard brightnesses.** They go off near the limit, so they can measure distances across the universe."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "clark": {
+      "kind": "digression",
+      "title": "The lens that found the Pup",
+      "text": "The 18.5-inch lens Clark was testing on the night of 31 January 1862 was the largest in the world at the time. The University of Mississippi had ordered it, but the American Civil War broke out before it could be shipped south, so it went to Chicago instead and eventually to Dearborn Observatory at Northwestern University, where it still sits."
+    },
+    "relativity-test": {
+      "kind": "digression",
+      "title": "How Adams proved the Pup was real",
+      "text": "The doubt hung on for a decade: perhaps Sirius B was a small rock or gas cloud reflecting the hot white light of Sirius A. In 1925 Eddington suggested a test. If the Pup really packed the Sun's mass into the Earth's size, its fierce gravity should stretch any light climbing out of it, shifting its spectral lines slightly towards the red, as Einstein's general relativity predicted. Adams measured the shift at Mount Wilson that year and found what Eddington had calculated. It settled the density of Sirius B and scored an early triumph for Einstein in one stroke."
+    },
+    "exclusion": {
+      "kind": "technical",
+      "title": "The Pauli exclusion principle and degeneracy pressure",
+      "text": "Pauli's rule is called the **Pauli exclusion principle**. It allows two electrons per energy rung because an electron has a quantum property called spin that can point in one of two ways, so two electrons on the same rung with opposite spins are in different states. Matter packed so tightly that its rungs are full from the bottom up is called **degenerate matter**, and the push of its crowded electrons is **electron degeneracy pressure**."
+    },
+    "eddington-trap": {
+      "kind": "digression",
+      "title": "Eddington's ambush",
+      "text": "Eddington had dropped in on Chandrasekhar almost daily at Cambridge for months to watch the calculations take shape, and had even arranged for him to have half an hour at the Royal Astronomical Society meeting instead of the usual fifteen minutes. Only on the day before the meeting did Chandrasekhar see the programme and discover that Eddington was down to speak immediately after him, on the same subject."
+    },
+    "type-ia": {
+      "kind": "technical",
+      "title": "Type Ia supernovae and standard candles",
+      "text": "Astronomers call an exploding white dwarf a **Type Ia supernova**, to distinguish it from the core-collapse supernovae of massive stars. Any object whose true brightness is known, so that its apparent brightness reveals its distance, is called a **standard candle**."
+    }
+  }
 }

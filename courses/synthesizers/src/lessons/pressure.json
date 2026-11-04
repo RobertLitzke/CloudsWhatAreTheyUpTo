@@ -1,324 +1,329 @@
 {
- "id": "pressure",
- "n": 16,
- "title": "Leaning on a note",
- "teaches": "Velocity, pressure and the touch strip, and where each one is routed",
- "parts": [
-  {
-   "title": "Struck harder",
-   "blocks": [
+  "id": "pressure",
+  "n": 16,
+  "title": "Leaning on a note",
+  "teaches": "Velocity, pressure and the touch strip, and where each one is routed",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** Strike a piano key gently and you get a soft, round note. Strike it hard and the note is louder, and also brighter: the hammer hits the string harder, and a harder blow sets more of the high harmonics ringing. The loop below plays one note seven times, each struck harder than the last. On the first version, every note sounds the same. On the second, the synth is listening."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "One note struck harder each time: ignored, then heard",
-     "options": {
-      "stage": 16,
-      "riff": 105,
-      "start": {
-       "wave": 0,
-       "cutoff": 2,
-       "res": 1,
-       "sustain": 0,
-       "decay": 2,
-       "release": 1
-      },
-      "sounds": [
-       {
-        "name": "Ignored",
-        "set": {}
-       },
-       {
-        "name": "Heard",
-        "set": {
-         "mxVelLevel": 6,
-         "mxVelCutoff": 9
+      "title": "Struck harder",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** Strike a piano key gently and you get a soft, round note. Strike it hard and the note is louder, and also brighter: the hammer hits the string harder, and a harder blow sets more of the high harmonics ringing. The loop below plays one note seven times, each struck harder than the last. On the first version, every note sounds the same. On the second, the synth is listening."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "One note struck harder each time: ignored, then heard",
+          "options": {
+            "stage": 16,
+            "riff": 105,
+            "start": {
+              "wave": 0,
+              "cutoff": 2,
+              "res": 1,
+              "sustain": 0,
+              "decay": 2,
+              "release": 1
+            },
+            "sounds": [
+              {
+                "name": "Ignored",
+                "set": {}
+              },
+              {
+                "name": "Heard",
+                "set": {
+                  "mxVelLevel": 6,
+                  "mxVelCutoff": 9
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "A keyboard measures how hard each key is struck, and sends that number with the note. The number is called **velocity**. What it does is up to you: on its own, it does nothing at all. It is one more source in the matrix, and it has to be routed somewhere before it can be heard."
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "A keyboard measures how hard each key is struck, and sends that number with the note. The number is called **velocity**. What it does is up to you: on its own, it does nothing at all. It is one more source in the matrix, and it has to be routed somewhere before it can be heard."
-    }
-   ]
-  },
-  {
-   "title": "Velocity",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Velocity means speed: a keyboard doesn't feel force, it times the key's fall. Each key has two contacts, one near the top of its travel and one near the bottom, and the time between them says how fast the key went down.[^contacts] A fast fall is a hard strike. The number is sent once, as the note starts, and doesn't change while the note is held. The matrix has two new rows for it and for pressure, below."
-    },
-    {
-     "type": "text",
-     "text": "The keyboard on screen has no contacts to time, so here, where you touch a key stands in for how hard you strike it: near the far end of a key is gentle, near your end is hard. The loop plays the notes from the first sound. Route velocity to the cutoff, so harder notes are brighter."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A dark pluck, with velocity going nowhere. Route it to the cutoff.",
-     "task": "Send velocity to the cutoff by an octave or more",
-     "goal": "vel-bright",
-     "options": {
-      "stage": 16,
-      "knobs": [],
-      "start": {
-       "wave": 0,
-       "cutoff": 2,
-       "res": 1,
-       "sustain": 0,
-       "decay": 2,
-       "release": 1
-      },
-      "riff": 105,
-      "matrix": true,
-      "keys": 36
-     }
-    },
-    {
-     "type": "text",
-     "text": "At +2 octaves, the gentlest note keeps the dark sound and the hardest opens the filter two octaves. That is most of what makes a synth feel like an instrument rather than a switch. Velocity to **level** is the obvious route, and most synths have it built in, but on its own it only makes a note louder. Velocity to brightness is the one the ear believes. Velocity to the envelope's attack, or to the amount of FM, are other favourites."
-    }
-   ]
-  },
-  {
-   "title": "Soft and hard keyboards",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Two players strike a key with the same force and get different numbers, because no two keyboards, and no two hands, are alike. So most synths have a setting, usually buried in a utility menu, called the **velocity curve**. It decides how a strike becomes a number from 1 to 127."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "curve",
-     "caption": "How hard you strike, against the velocity the synth gets. Try each curve at the same strike.",
-     "task": "Try all three curves",
-     "goal": "curves",
-     "aspect_ratio": 1.9
-    },
-    {
-     "type": "text",
-     "text": "If a synth seems to play everything loud, try a harder curve; if you can't get the top of its range without hammering, a softer one. It is worth setting once, the first time you sit down at an unfamiliar keyboard, before deciding you don't like its sounds."
-    }
-   ]
-  },
-  {
-   "title": "Pressure",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Velocity is settled the moment a note starts. **Pressure**, also called **aftertouch**, is what happens next: once the key is down, pressing it harder into the bed. It changes all the time the note is held, so it can do what velocity can't, such as bring in a vibrato halfway through a note, or swell a note that has already started."
-    },
-    {
-     "type": "text",
-     "text": "Like velocity, pressure is just a source in the matrix. Here it goes to the LFO's amount, which (lesson 15) is how strong the LFO is everywhere it goes. The LFO is set to a vibrato. The loop leans into each note as it is held."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "Two held notes, leaned into as they go on: pressure going nowhere, then to the LFO's amount",
-     "options": {
-      "stage": 16,
-      "riff": 106,
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "attack": 1,
-       "sustain": 4,
-       "release": 3,
-       "lfoDest": 0,
-       "lfoDepth": 2,
-       "lfoRate": 4
-      },
-      "sounds": [
-       {
-        "name": "Pressure ignored",
-        "set": {}
-       },
-       {
-        "name": "Pressure to vibrato",
-        "set": {
-         "mxPressLfo": 6
+      "title": "Velocity",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Velocity means speed: a keyboard doesn't feel force, it times the key's fall. Each key has two contacts, one near the top of its travel and one near the bottom, and the time between them says how fast the key went down.[^contacts] A fast fall is a hard strike. The number is sent once, as the note starts, and doesn't change while the note is held. The matrix below has two new rows, for velocity and for pressure."
+        },
+        {
+          "type": "text",
+          "text": "The keyboard on screen has no contacts to time, so here, where you touch a key stands in for how hard you strike it: near the far end of a key is gentle, near your end is hard. The loop plays the notes from the first sound. Route velocity to the cutoff, so harder notes are brighter."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A dark pluck, with velocity going nowhere. Route it to the cutoff.",
+          "task": "Send velocity to the cutoff by an octave or more",
+          "goal": "vel-bright",
+          "options": {
+            "stage": 16,
+            "knobs": [],
+            "start": {
+              "wave": 0,
+              "cutoff": 2,
+              "res": 1,
+              "sustain": 0,
+              "decay": 2,
+              "release": 1
+            },
+            "riff": 105,
+            "matrix": true,
+            "keys": 36
+          }
+        },
+        {
+          "type": "text",
+          "text": "At +2 octaves, the gentlest note keeps the dark sound and the hardest opens the filter two octaves. That is most of what makes a synth feel like an instrument rather than a switch. Velocity to **level** is the obvious route, and most synths have it built in, but on its own it only makes a note louder. Velocity to brightness is the one the ear believes. Velocity to the envelope's attack, or to the amount of FM, are other favourites."
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "With the route, the notes start straight, and the vibrato grows as the pressure does: the player decides, note by note, how much to add. A violinist does the same thing with the left hand. On most keyboards, pressure is one number for the whole keyboard, the hardest key pressed. A few, and some flat touch-sensitive keyboards, measure each key separately, which makes a difference only when several notes sound at once.[^poly] On the keyboard here, press a key and slide your finger towards you to lean on it."
-    }
-   ]
-  },
-  {
-   "title": "Wheels and strips",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Velocity and pressure come from the keys. Most synths have a few more hand controls beside them, each another source, and most are routed in the factory before you touch the matrix. The **pitch-bend wheel** springs back to the middle and bends every note up or down, usually by two semitones. The **mod wheel** stays where you leave it; it usually turns up the LFO's amount, for vibrato on demand. The Minimoog, in 1970, put both to the left of the keys, and they have stayed there since."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A Minimoog Model D, with its pitch and modulation wheels at the left end of the keyboard.",
-     "options": {
-      "photo": "minimoog",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "text",
-     "text": "Some synths have a **touch strip** or **ribbon** instead: a flat strip that reads where your finger is. Slide along it and the pitch slides, or the cutoff, or whatever it is routed to. The idea is older than the synthesizer. The ondes Martenot of 1928 was played by sliding a ring along a wire, and its player could glide between any two pitches as freely as a voice."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "An ondes Martenot made in Paris in 1960. The player slides a ring along a wire in front of the keys.",
-     "options": {
-      "photo": "ondes-martenot",
-      "aspect": 1.5
-     }
-    }
-   ]
-  },
-  {
-   "title": "Vibrato on demand",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now make the expressive version. The LFO is a vibrato from the first instant, and the notes are struck one soft and one hard, but nothing listens to how they are played. Make the harder note brighter, and let the vibrato come in only as the notes are leaned on. Then play the keys yourself: touch near your end for a hard note, and slide towards you as you hold it."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A held note with a constant vibrato, deaf to how it is played. Make it listen.",
-     "task": "Make the expressive version",
-     "goal": "match",
-     "options": {
-      "stage": 16,
-      "knobs": [],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 1,
-       "attack": 1,
-       "sustain": 4,
-       "release": 3,
-       "lfoDest": 0,
-       "lfoDepth": 2,
-       "lfoRate": 4
-      },
-      "riff": 106,
-      "matrix": true,
-      "keys": 48,
-      "target": {
-       "name": "Played",
-       "set": {
-        "mxPressLfo": 6,
-        "mxVelCutoff": 8
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Two routes and the sound changes with every note you play. When you sit down at a synth you don't know, it is worth checking these four sources first: velocity, pressure, and the two wheels or strips. Find out where each is going, by turning them and listening, before you start turning the knobs on the panel. A patch that sounds dead may simply be waiting to be played."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on playing the synth",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does a keyboard measure to get velocity?",
-        "choices": [
-         "How fast the key goes down",
-         "How hard the key is pressed once down",
-         "Which key it is"
-        ],
-        "answer": 0,
-        "why": "Two contacts per key, and the time between them."
-       },
-       {
-        "ask": "A synth ignores how hard you play. What is the likeliest reason?",
-        "choices": [
-         "Velocity isn't routed anywhere",
-         "The velocity curve is too soft",
-         "Pressure is turned up"
-        ],
-        "answer": 0,
-        "why": "Velocity is a source like any other; it does nothing until it is sent somewhere."
-       },
-       {
-        "ask": "What can pressure do that velocity can't?",
-        "choices": [
-         "Change during a held note",
-         "Change the pitch",
-         "Make the note brighter"
-        ],
-        "answer": 0,
-        "why": "Velocity is sent once as the note starts; pressure changes all the time the note is held."
-       },
-       {
-        "ask": "Everything you play comes out loud. Which setting do you try?",
-        "choices": [
-         "A harder velocity curve",
-         "A softer velocity curve",
-         "More pressure"
-        ],
-        "answer": 0,
-        "why": "A hard curve needs a firmer strike for the same number, so gentle playing gives smaller numbers."
-       },
-       {
-        "ask": "What does the mod wheel usually do on a synth fresh from the factory?",
-        "choices": [
-         "Turns up the LFO's amount, for vibrato",
-         "Bends the pitch",
-         "Changes the octave"
-        ],
-        "answer": 0,
-        "why": "The pitch wheel bends; the mod wheel stays where it is left and usually brings in the LFO."
-       }
+      "title": "Soft and hard keyboards",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Two players strike a key with the same force and get different numbers, because no two keyboards, and no two hands, are alike. So most synths have a setting, usually buried in a utility menu, called the **velocity curve**. It decides how a strike becomes a number from 1 to 127."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "curve",
+          "caption": "How hard you strike, against the velocity the synth gets. Try each curve at the same strike.",
+          "task": "Try all three curves",
+          "goal": "curves",
+          "aspect_ratio": 1.9
+        },
+        {
+          "type": "text",
+          "text": "If a synth seems to play everything loud, try a harder curve; if you can't get the top of its range without hammering, a softer one. It is worth setting once, the first time you sit down at an unfamiliar keyboard, before deciding you don't like its sounds."
+        }
       ]
-     }
+    },
+    {
+      "title": "Pressure",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Velocity is settled the moment a note starts. **Pressure**, also called **aftertouch**, is what happens next: once the key is down, pressing it harder into the bed. It changes all the time the note is held, so it can do what velocity can't, such as bring in a vibrato halfway through a note, or swell a note that has already started."
+        },
+        {
+          "type": "text",
+          "text": "Like velocity, pressure is just a source in the matrix. Here it goes to the LFO's amount, which (lesson 15) is how strong the LFO is everywhere it goes. The LFO is set to a vibrato. The loop leans into each note as it is held."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "Two held notes, leaned into as they go on: pressure going nowhere, then to the LFO's amount",
+          "options": {
+            "stage": 16,
+            "riff": 106,
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "attack": 1,
+              "sustain": 4,
+              "release": 3,
+              "lfoDest": 0,
+              "lfoDepth": 2,
+              "lfoRate": 4
+            },
+            "sounds": [
+              {
+                "name": "Pressure ignored",
+                "set": {}
+              },
+              {
+                "name": "Pressure to vibrato",
+                "set": {
+                  "mxPressLfo": 6
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "With the route, the notes start straight, and the vibrato grows as the pressure does: the player decides, note by note, how much to add. A violinist does the same thing with the left hand. On most keyboards, pressure is one number for the whole keyboard, the hardest key pressed. A few, and some flat touch-sensitive keyboards, measure each key separately, which makes a difference only when several notes sound at once.[^poly] On the keyboard here, press a key and slide your finger towards you to lean on it."
+        }
+      ]
+    },
+    {
+      "title": "Wheels and strips",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Velocity and pressure come from the keys. Most synths have a few more hand controls beside them, each another source, and most are routed in the factory before you touch the matrix. The **pitch-bend wheel** springs back to the middle and bends every note up or down, usually by two semitones. The **mod wheel** stays where you leave it; it usually turns up the LFO's amount, for vibrato on demand. The Minimoog, in 1970, put both to the left of the keys, and they have stayed there since.[^wheels]"
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Minimoog Model D, with its pitch and modulation wheels at the left end of the keyboard.",
+          "options": {
+            "photo": "minimoog",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "text",
+          "text": "Some synths have a **touch strip** or **ribbon** instead: a flat strip that reads where your finger is. Slide along it and the pitch slides, or the cutoff, or whatever it is routed to. The idea is older than the synthesizer. The ondes Martenot of 1928 was played by sliding a ring along a wire, and its player could glide between any two pitches as freely as a voice."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "An ondes Martenot made in Paris in 1960. The player slides a ring along a wire in front of the keys.",
+          "options": {
+            "photo": "ondes-martenot",
+            "aspect": 1.5
+          }
+        }
+      ]
+    },
+    {
+      "title": "Vibrato on demand",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now make the expressive version. The LFO is a vibrato from the first instant, and the notes are struck one soft and one hard, but nothing listens to how they are played. Make the harder note brighter, and let the vibrato come in only as the notes are leaned on. Then play the keys yourself: touch near your end for a hard note, and slide towards you as you hold it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A held note with a constant vibrato, deaf to how it is played. Make it listen.",
+          "task": "Make the expressive version",
+          "goal": "match",
+          "options": {
+            "stage": 16,
+            "knobs": [],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 1,
+              "attack": 1,
+              "sustain": 4,
+              "release": 3,
+              "lfoDest": 0,
+              "lfoDepth": 2,
+              "lfoRate": 4
+            },
+            "riff": 106,
+            "matrix": true,
+            "keys": 48,
+            "target": {
+              "name": "Played",
+              "set": {
+                "mxPressLfo": 6,
+                "mxVelCutoff": 8
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Two routes and the sound changes with every note you play. When you sit down at a synth you don't know, it is worth checking these four sources first: velocity, pressure, and the two wheels or strips. Find out where each is going, by turning them and listening, before you start turning the knobs on the panel. A patch that sounds dead may simply be waiting to be played."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on playing the synth",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does a keyboard measure to get velocity?",
+                "choices": [
+                  "How fast the key goes down",
+                  "How hard the key is pressed once down",
+                  "Which key it is"
+                ],
+                "answer": 0,
+                "why": "Two contacts per key, and the time between them."
+              },
+              {
+                "ask": "A synth ignores how hard you play. What is the likeliest reason?",
+                "choices": [
+                  "Velocity isn't routed anywhere",
+                  "The velocity curve is too soft",
+                  "Pressure is turned up"
+                ],
+                "answer": 0,
+                "why": "Velocity is a source like any other; it does nothing until it is sent somewhere."
+              },
+              {
+                "ask": "What can pressure do that velocity can't?",
+                "choices": [
+                  "Change during a held note",
+                  "Change the pitch",
+                  "Make the note brighter"
+                ],
+                "answer": 0,
+                "why": "Velocity is sent once as the note starts; pressure changes all the time the note is held."
+              },
+              {
+                "ask": "Everything you play comes out loud. Which setting do you try?",
+                "choices": [
+                  "A harder velocity curve",
+                  "A softer velocity curve",
+                  "More pressure"
+                ],
+                "answer": 0,
+                "why": "A hard curve needs a firmer strike for the same number, so gentle playing gives smaller numbers."
+              },
+              {
+                "ask": "What does the mod wheel usually do on a synth fresh from the factory?",
+                "choices": [
+                  "Turns up the LFO's amount, for vibrato",
+                  "Bends the pitch",
+                  "Changes the octave"
+                ],
+                "answer": 0,
+                "why": "The pitch wheel bends; the mod wheel stays where it is left and usually brings in the LFO."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**Velocity is how fast a key goes down**, sent as a number from 1 to 127 when the note starts.",
-  "**Velocity does nothing until it is routed**: to level for loudness, to the cutoff for brightness.",
-  "**Velocity to the cutoff** is what makes harder notes sound harder, as on a piano.",
-  "**The velocity curve** decides how a strike becomes a number; set it once for your hands.",
-  "**Pressure, or aftertouch**, is pressing a held key harder, and it changes all through the note.",
-  "**Pressure to the LFO's amount** gives a vibrato the player brings in note by note.",
-  "**The pitch-bend wheel springs back; the mod wheel stays** and usually brings in vibrato.",
-  "**On a strange synth, try the four hand sources first**: velocity, pressure and the two wheels or strips."
- ],
- "footnotes": {
-  "contacts": {
-   "kind": "technical",
-   "title": "Two contacts",
-   "text": "A key closes its first contact a few millimetres into its fall and its second at the bottom. Between them, a gentle strike might take forty thousandths of a second and a hard one two thousandths. The keyboard turns that time into a number, and MIDI, the standard way synths have talked to each other since 1983, sends it as a value from 1 to 127 alongside the note. A velocity of 0 means the note has ended."
+  ],
+  "summary": [
+    "**Velocity is how fast a key goes down**, sent as a number from 1 to 127 when the note starts.",
+    "**Velocity does nothing until it is routed**: to level for loudness, to the cutoff for brightness.",
+    "**Velocity to the cutoff** is what makes harder notes sound harder, as on a piano.",
+    "**The velocity curve** decides how a strike becomes a number; set it once for your hands.",
+    "**Pressure, or aftertouch**, is pressing a held key harder, and it changes all through the note.",
+    "**Pressure to the LFO's amount** gives a vibrato the player brings in note by note.",
+    "**The pitch-bend wheel springs back; the mod wheel stays** and usually brings in vibrato.",
+    "**On a strange synth, try the four hand sources first**: velocity, pressure and the two wheels or strips."
+  ],
+  "footnotes": {
+    "contacts": {
+      "kind": "technical",
+      "title": "Two contacts",
+      "text": "A key closes its first contact a few millimetres into its fall and its second at the bottom. Between them, a gentle strike might take forty thousandths of a second and a hard one two thousandths. The keyboard turns that time into a number, and MIDI, the standard way synths have talked to each other since 1983, sends it as a value from 1 to 127 alongside the note. A velocity of 0 means the note has ended."
+    },
+    "poly": {
+      "kind": "digression",
+      "title": "Each key on its own",
+      "text": "Pressure for each key separately is called polyphonic aftertouch. The Yamaha CS-80 of 1977 had it, and players of the CS-80 still talk about it, but it was expensive to build and rare for decades. It has come back with keyboards that sense each finger in two or three directions at once, and with a newer version of MIDI written to carry them."
+    },
+    "wheels": {
+      "kind": "digression",
+      "title": "The first pitch wheel",
+      "text": "On the Minimoog, the pitch wheel had no spring: it stayed where you left it, with only a notch at the centre so your thumb could feel when the note was back in tune. Springs came later, on other synths, after enough players had nudged the wheel by mistake and played the rest of the song slightly sharp."
+    }
   },
-  "poly": {
-   "kind": "digression",
-   "title": "Each key on its own",
-   "text": "Pressure for each key separately is called polyphonic aftertouch. The Yamaha CS-80 of 1977 had it, and players of the CS-80 still talk about it, but it was expensive to build and rare for decades. It has come back with keyboards that sense each finger in two or three directions at once, and with a newer version of MIDI written to carry them."
-  }
- },
- "journal": []
+  "journal": []
 }

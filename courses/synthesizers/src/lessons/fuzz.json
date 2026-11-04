@@ -1,403 +1,408 @@
 {
- "id": "fuzz",
- "n": 7,
- "title": "The torn speaker",
- "teaches": "Drive: clipping a wave adds harmonics, and why distorted guitars play power chords",
- "parts": [
-  {
-   "title": "A broken amplifier",
-   "blocks": [
+  "id": "fuzz",
+  "n": 7,
+  "title": "The torn speaker",
+  "teaches": "Drive: clipping a wave adds harmonics, and why distorted guitars play power chords",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** Here is a clean, plucked synth line, and the same line as a fuzz guitar: thick, buzzing, every note hanging on. You will make the second from the first. The story of how anyone came to want it begins with a broken amplifier."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "A plucked saw, clean and fuzzed",
-     "options": {
-      "stage": 7,
-      "riff": 69,
-      "start": {
-       "wave": 0,
-       "cutoff": 4,
-       "res": 0,
-       "attack": 0,
-       "decay": 3,
-       "sustain": 1,
-       "release": 1,
-       "drive": 0,
-       "driveTone": 4
-      },
-      "sounds": [
-       {
-        "name": "Clean",
-        "set": {}
-       },
-       {
-        "name": "Fuzz",
-        "set": {
-         "drive": 3,
-         "driveTone": 1
+      "title": "A broken amplifier",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** Here is a clean, plucked synth line, and the same line as a fuzz guitar: thick, buzzing, every note hanging on. You will make the second from the first. The story of how anyone came to want it begins with a broken amplifier."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "A plucked saw, clean and fuzzed",
+          "options": {
+            "stage": 7,
+            "riff": 69,
+            "start": {
+              "wave": 0,
+              "cutoff": 4,
+              "res": 0,
+              "attack": 0,
+              "decay": 3,
+              "sustain": 1,
+              "release": 1,
+              "drive": 0,
+              "driveTone": 4
+            },
+            "sounds": [
+              {
+                "name": "Clean",
+                "set": {}
+              },
+              {
+                "name": "Fuzz",
+                "set": {
+                  "drive": 3,
+                  "driveTone": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "In March 1951 a young band from Mississippi drove to Memphis to record at Sam Phillips's little studio. On the way, the story goes, the guitar amplifier fell from the car onto the road, and its speaker cone split. There was no time to fix it. Phillips stuffed paper into the tear and recorded anyway, and the guitar on “Rocket 88” came out fat and fuzzy, buzzing in a way no amplifier was meant to.[^rocket88] It was a hit."
+        },
+        {
+          "type": "text",
+          "text": "Over the next fifteen years guitarists broke their equipment on purpose. Link Wray poked holes in his speakers with a pencil for “Rumble” in 1958. Dave Davies of the Kinks slashed his amplifier's cone with a razor blade before “You Really Got Me” in 1964.[^maestro] Engineers had spent decades trying to make amplifiers faithful, yet players seemed to prefer a broken one."
+        },
+        {
+          "type": "text",
+          "text": "The reason is **[[clipping]]**. Push a signal harder than an amplifier or a speaker can follow, and the tops of the wave are squashed flat. A flattened wave is a squarer wave, and from lesson 1 you know what a square is made of."
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "In March 1951 a young band from Mississippi drove to Memphis to record at Sam Phillips's little studio. On the way, the story goes, the guitar amplifier fell off the car roof onto the road, and its speaker cone split. There was no time to fix it. Phillips stuffed paper into the tear and recorded anyway, and the guitar on “Rocket 88” came out fat and fuzzy, buzzing in a way no amplifier was meant to.[^rocket88] It was a hit."
-    },
-    {
-     "type": "text",
-     "text": "Over the next fifteen years guitarists broke their equipment on purpose. Link Wray poked holes in his speakers with a pencil for “Rumble” in 1958. Dave Davies of the Kinks slashed his amplifier's cone with a razor blade before “You Really Got Me” in 1964. Engineers had spent decades trying to make amplifiers faithful. Why would a broken one sound better?"
-    },
-    {
-     "type": "text",
-     "text": "The answer is **[[clipping]]**. Push a signal harder than an amplifier or a speaker can follow, and the tops of the wave are squashed flat. A flattened wave is a squarer wave, and from lesson 1 you know what a square is made of."
-    }
-   ]
-  },
-  {
-   "title": "Clipping",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The synth's first pedal is a **drive**. It turns the signal up until it no longer fits, and squashes the tops. This starts on a pure sine, so that every new harmonic shows plainly in the spectrum."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A sine wave into the drive pedal.",
-     "task": "Raise Drive to 24 dB or more",
-     "goal": "drive-up",
-     "options": {
-      "stage": 7,
-      "knobs": [
-       "drive"
-      ],
-      "start": {
-       "wave": 3,
-       "cutoff": 7,
-       "sustain": 4,
-       "drive": 0,
-       "driveTone": 4
-      },
-      "riff": 69
-     }
-    },
-    {
-     "type": "text",
-     "text": "A sine has one harmonic. Clipped, it grows a buzz of new ones above it, and the harder it is pushed the more there are. Nothing is taken away, as a filter does: clipping *adds*."
-    }
-   ]
-  },
-  {
-   "title": "Odd and even",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Not all clipping sounds alike. A circuit that squashes the top and the bottom of the wave equally turns it into something like a square, which has only odd harmonics. A circuit that squashes one side more than the other adds even harmonics too, and the 2nd and 4th harmonics are octaves of the note, which the ear finds sweet rather than harsh."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "clip",
-     "caption": "A sine wave into a clipper, and what comes out. The bars are the harmonics of the output: orange odd, purple even.",
-     "task": "Push a lopsided clipper to ×4 or more and find the even harmonics",
-     "goal": "even",
-     "aspect_ratio": 1.7391304347826086
-    },
-    {
-     "type": "text",
-     "text": "This is a large part of an old argument about valves and transistors. Valve amplifiers driven hard tend to clip gently and lopsidedly, and many players hear them as warm. Early transistor fuzz clipped hard and symmetrically, and sounded raspy.[^valves] Both are the same physics: a curve that bends a sine into something else."
-    }
-   ]
-  },
-  {
-   "title": "Sustain for free",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The drive pedal turns its output back down, so more drive is not much louder. But the quiet tail of a note is turned up and never reaches the ceiling, so it comes out nearly as loud as the start. Notes hang on longer, and a short pluck turns into a held note. This is why rock guitar solos can sustain for bars on end: the distortion is also a **compressor**."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A short pluck into the drive.",
-     "task": "Hear this pluck with Drive at Off, and at 32 dB",
-     "goal": "drive-sustain",
-     "options": {
-      "stage": 7,
-      "knobs": [
-       "drive"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 0,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 0,
-       "release": 1,
-       "drive": 0,
-       "driveTone": 3
-      },
-      "riff": 69
-     }
-    }
-   ]
-  },
-  {
-   "title": "Power chords",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Clip two notes at once and they don't just each grow harmonics. They also make new tones at the sum and the difference of their frequencies, called **intermodulation**. For two notes a fifth apart, 200 Hz and 300 Hz, the difference is 100 Hz: exactly an octave below the lower note, a deep extra bass that fits. For a major third, 200 Hz and about 252 Hz, the difference is 52 Hz, a muddy tone that belongs to neither note."
-    },
-    {
-     "type": "text",
-     "text": "That is why distorted guitars play **power chords**, the root and fifth with no third. Through a clean amplifier a power chord sounds bare. Through a fuzz it sounds enormous, and a full chord turns to mud.[^powerchord] The physics of clipping wrote one of rock music's rules of harmony."
-    }
-   ]
-  },
-  {
-   "title": "Tone, or cutoff?",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "**Tone** is a small filter inside the pedal, after the clipping. Turned down, it takes the fizz off the top. With Drive at Off the pedal is out of the circuit, and Tone goes dark."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The drive's tone control.",
-     "task": "Turn Tone down to 1.4 kHz or lower",
-     "goal": "tone-down",
-     "options": {
-      "stage": 7,
-      "knobs": [
-       "driveTone"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 4,
-       "res": 0,
-       "sustain": 3,
-       "decay": 2,
-       "drive": 3,
-       "driveTone": 4
-      },
-      "riff": 69
-     }
-    },
-    {
-     "type": "text",
-     "text": "Both the pedal's tone and the synth's cutoff darken the sound, which is why they get mixed up. The cutoff comes before the clipping, so closing it gives the pedal less to bite on and the grit itself thins out. The tone comes after, so the grit stays and only its top is shaved off."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Two knobs as one square: across is the synth's cutoff, up is the pedal's tone.",
-     "task": "Make it gritty but dark: Cutoff at 2.8 kHz or higher, Tone at 1.4 kHz or lower",
-     "goal": "gritty-dark",
-     "options": {
-      "stage": 7,
-      "pad": [
-       "cutoff",
-       "driveTone"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 0,
-       "sustain": 3,
-       "decay": 2,
-       "drive": 3,
-       "driveTone": 3
-      },
-      "riff": 69,
-      "examples": [
-       {
-        "name": "Clean",
-        "set": {
-         "drive": 0
+      "title": "Clipping",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The synth's first pedal is a **drive**. It turns the signal up until it no longer fits, and squashes the tops. This starts on a pure sine, so that every new harmonic shows plainly in the spectrum."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A sine wave into the drive pedal.",
+          "task": "Raise Drive to 24 dB or more",
+          "goal": "drive-up",
+          "options": {
+            "stage": 7,
+            "knobs": [
+              "drive"
+            ],
+            "start": {
+              "wave": 3,
+              "cutoff": 7,
+              "sustain": 4,
+              "drive": 0,
+              "driveTone": 4
+            },
+            "riff": 69
+          }
+        },
+        {
+          "type": "text",
+          "text": "A sine has one harmonic. Clipped, it grows a buzz of new ones above it, and the harder it is pushed the more there are. Nothing is taken away, as a filter does: clipping *adds*."
         }
-       },
-       {
-        "name": "Warm",
-        "set": {
-         "drive": 1,
-         "driveTone": 2
-        }
-       },
-       {
-        "name": "Crunch",
-        "set": {
-         "drive": 2,
-         "driveTone": 3
-        }
-       },
-       {
-        "name": "Fuzz",
-        "set": {
-         "drive": 4,
-         "driveTone": 4
-        }
-       },
-       {
-        "name": "Woolly",
-        "set": {
-         "drive": 4,
-         "driveTone": 0
-        }
-       }
       ]
-     }
-    }
-   ]
-  },
-  {
-   "title": "The fuzz guitar",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now the fuzz from the start of the lesson. Does each note hang on, or die as fast as the clean one? That says how hard the drive is pushed. Is the fizz on top sharp, like a wasp, or rounded off, like a speaker stuffed with paper? That is the tone."
     },
     {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The clean pluck and the drive pedal, with the fuzz to match.",
-     "task": "Make the clean line into the fuzz",
-     "goal": "match",
-     "options": {
-      "target": {
-       "name": "The fuzz",
-       "set": {
-        "drive": 3,
-        "driveTone": 1
-       }
-      },
-      "stage": 7,
-      "knobs": [
-       "drive",
-       "driveTone"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 4,
-       "res": 0,
-       "attack": 0,
-       "decay": 3,
-       "sustain": 1,
-       "release": 1,
-       "drive": 0,
-       "driveTone": 4
-      },
-      "riff": 69
-     }
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Six questions on drive",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does clipping do to a wave?",
-        "choices": [
-         "Flattens its tops, adding harmonics",
-         "Removes its harmonics",
-         "Changes its pitch"
-        ],
-        "answer": 0,
-        "why": "A flattened wave is squarer, and a square carries many more harmonics than a sine."
-       },
-       {
-        "ask": "How is clipping unlike a filter?",
-        "choices": [
-         "It adds harmonics instead of taking them away",
-         "It changes the pitch",
-         "It only works on sines"
-        ],
-        "answer": 0,
-        "why": "Filters remove; clipping creates new harmonics that weren't in the input."
-       },
-       {
-        "ask": "A clipper squashes the top of the wave more than the bottom. What does that add?",
-        "choices": [
-         "Even harmonics as well as odd ones",
-         "Only odd harmonics",
-         "No harmonics"
-        ],
-        "answer": 0,
-        "why": "Symmetrical clipping adds only odd harmonics; lopsided clipping adds even ones too."
-       },
-       {
-        "ask": "Why does heavy drive make a guitar note sustain longer?",
-        "choices": [
-         "Its quiet tail is turned up towards the same ceiling as the start",
-         "It adds an echo",
-         "It slows the string down"
-        ],
-        "answer": 0,
-        "why": "Drive squashes loud and quiet towards one level, so the fading tail stays loud: it acts as a compressor."
-       },
-       {
-        "ask": "Two notes at 200 Hz and 300 Hz are distorted together. What new tone appears at the difference?",
-        "choices": [
-         "100 Hz, an octave below the lower note",
-         "500 Hz",
-         "250 Hz"
-        ],
-        "answer": 0,
-        "why": "Intermodulation makes the difference tone, 300 - 200 = 100 Hz, which fits under a fifth."
-       },
-       {
-        "ask": "Why do distorted guitars favour power chords over full chords?",
-        "choices": [
-         "The fifth's difference tone fits; a third's adds mud",
-         "Thirds can't be distorted",
-         "Power chords are louder clean"
-        ],
-        "answer": 0,
-        "why": "Clipping makes sum and difference tones; for a fifth they land on related notes, for a third they don't."
-       }
+      "title": "Odd and even",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Not all clipping sounds alike. A circuit that squashes the top and the bottom of the wave equally turns it into something like a square, which has only odd harmonics. A circuit that squashes one side more than the other adds even harmonics too, and the 2nd and 4th harmonics are octaves of the note, which the ear finds sweet rather than harsh."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "clip",
+          "caption": "A sine wave into a clipper, and what comes out. The bars are the harmonics of the output: orange odd, purple even.",
+          "task": "Push a lopsided clipper to ×4 or more and find the even harmonics",
+          "goal": "even",
+          "aspect_ratio": 1.7391304347826086
+        },
+        {
+          "type": "text",
+          "text": "This is a large part of an old argument about valves and transistors. Valve amplifiers driven hard tend to clip gently and lopsidedly, and many players hear them as warm. Early transistor fuzz clipped hard and symmetrically, and sounded raspy.[^valves] Both are the same physics: a curve that bends a sine into something else."
+        }
       ]
-     }
+    },
+    {
+      "title": "Sustain for free",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The drive pedal turns its output back down, so more drive is not much louder. But the quiet tail of a note is turned up and never reaches the ceiling, so it comes out nearly as loud as the start. Notes hang on longer, and a short pluck turns into a held note. This is why rock guitar solos can sustain for bars on end: the distortion is also a **compressor**."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A short pluck into the drive.",
+          "task": "Hear this pluck with Drive at Off, and at 32 dB",
+          "goal": "drive-sustain",
+          "options": {
+            "stage": 7,
+            "knobs": [
+              "drive"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 0,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 0,
+              "release": 1,
+              "drive": 0,
+              "driveTone": 3
+            },
+            "riff": 69
+          }
+        }
+      ]
+    },
+    {
+      "title": "Power chords",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Clip two notes at once and each one grows harmonics, while together they also make new tones at the sum and the difference of their frequencies, called **intermodulation**. For two notes a fifth apart, 200 Hz and 300 Hz, the difference is 100 Hz: exactly an octave below the lower note, a deep extra bass that fits. For a major third, 200 Hz and about 252 Hz, the difference is 52 Hz, a muddy tone that belongs to neither note."
+        },
+        {
+          "type": "text",
+          "text": "That is why distorted guitars play **power chords**, the root and fifth with no third. Through a clean amplifier a power chord sounds bare. Through a fuzz it sounds enormous, and a full chord turns to mud.[^powerchord]"
+        }
+      ]
+    },
+    {
+      "title": "Tone, or cutoff?",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Tone** is a small filter inside the pedal, after the clipping. Turned down, it takes the fizz off the top. With Drive at Off the pedal is out of the circuit, and Tone goes dark."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The drive's tone control.",
+          "task": "Turn Tone down to 1.4 kHz or lower",
+          "goal": "tone-down",
+          "options": {
+            "stage": 7,
+            "knobs": [
+              "driveTone"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 4,
+              "res": 0,
+              "sustain": 3,
+              "decay": 2,
+              "drive": 3,
+              "driveTone": 4
+            },
+            "riff": 69
+          }
+        },
+        {
+          "type": "text",
+          "text": "Both the pedal's tone and the synth's cutoff darken the sound, which is why they get mixed up. The cutoff comes before the clipping, so closing it gives the pedal less to bite on and the grit itself thins out. The tone comes after, so the grit stays and only its top is shaved off."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Two knobs as one square: across is the synth's cutoff, up is the pedal's tone.",
+          "task": "Make it gritty but dark: Cutoff at 2.8 kHz or higher, Tone at 1.4 kHz or lower",
+          "goal": "gritty-dark",
+          "options": {
+            "stage": 7,
+            "pad": [
+              "cutoff",
+              "driveTone"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 0,
+              "sustain": 3,
+              "decay": 2,
+              "drive": 3,
+              "driveTone": 3
+            },
+            "riff": 69,
+            "examples": [
+              {
+                "name": "Clean",
+                "set": {
+                  "drive": 0
+                }
+              },
+              {
+                "name": "Warm",
+                "set": {
+                  "drive": 1,
+                  "driveTone": 2
+                }
+              },
+              {
+                "name": "Crunch",
+                "set": {
+                  "drive": 2,
+                  "driveTone": 3
+                }
+              },
+              {
+                "name": "Fuzz",
+                "set": {
+                  "drive": 4,
+                  "driveTone": 4
+                }
+              },
+              {
+                "name": "Woolly",
+                "set": {
+                  "drive": 4,
+                  "driveTone": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The fuzz guitar",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now the fuzz from the start of the lesson. Look at whether each note hangs on or dies as fast as the clean one: that tells you how hard the drive is pushed. Listen for whether the fizz on top is sharp, like a wasp, or rounded off, like a speaker stuffed with paper: that is the tone."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The clean pluck and the drive pedal, with the fuzz to match.",
+          "task": "Make the clean line into the fuzz",
+          "goal": "match",
+          "options": {
+            "target": {
+              "name": "The fuzz",
+              "set": {
+                "drive": 3,
+                "driveTone": 1
+              }
+            },
+            "stage": 7,
+            "knobs": [
+              "drive",
+              "driveTone"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 4,
+              "res": 0,
+              "attack": 0,
+              "decay": 3,
+              "sustain": 1,
+              "release": 1,
+              "drive": 0,
+              "driveTone": 4
+            },
+            "riff": 69
+          }
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on drive",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does clipping do to a wave?",
+                "choices": [
+                  "Flattens its tops, adding harmonics",
+                  "Removes its harmonics",
+                  "Changes its pitch"
+                ],
+                "answer": 0,
+                "why": "A flattened wave is squarer, and a square carries many more harmonics than a sine."
+              },
+              {
+                "ask": "How is clipping unlike a filter?",
+                "choices": [
+                  "It adds harmonics instead of taking them away",
+                  "It changes the pitch",
+                  "It only works on sines"
+                ],
+                "answer": 0,
+                "why": "Filters remove; clipping creates new harmonics that weren't in the input."
+              },
+              {
+                "ask": "A clipper squashes the top of the wave more than the bottom. What does that add?",
+                "choices": [
+                  "Even harmonics as well as odd ones",
+                  "Only odd harmonics",
+                  "No harmonics"
+                ],
+                "answer": 0,
+                "why": "Symmetrical clipping adds only odd harmonics; lopsided clipping adds even ones too."
+              },
+              {
+                "ask": "Why does heavy drive make a guitar note sustain longer?",
+                "choices": [
+                  "Its quiet tail is turned up towards the same ceiling as the start",
+                  "It adds an echo",
+                  "It slows the string down"
+                ],
+                "answer": 0,
+                "why": "Drive squashes loud and quiet towards one level, so the fading tail stays loud: it acts as a compressor."
+              },
+              {
+                "ask": "Two notes at 200 Hz and 300 Hz are distorted together. What new tone appears at the difference?",
+                "choices": [
+                  "100 Hz, an octave below the lower note",
+                  "500 Hz",
+                  "250 Hz"
+                ],
+                "answer": 0,
+                "why": "Intermodulation makes the difference tone, 300 - 200 = 100 Hz, which fits under a fifth."
+              },
+              {
+                "ask": "Why do distorted guitars favour power chords over full chords?",
+                "choices": [
+                  "The fifth's difference tone fits; a third's adds mud",
+                  "Thirds can't be distorted",
+                  "Power chords are louder clean"
+                ],
+                "answer": 0,
+                "why": "Clipping makes sum and difference tones; for a fifth they land on related notes, for a third they don't."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**Overdriven amplifiers clip**: the tops of the wave are flattened.",
-  "**Clipping adds harmonics**, where a filter only takes them away.",
-  "**Symmetrical clipping adds odd harmonics; lopsided clipping adds even ones too**, which sound warmer.",
-  "**Drive also compresses**: quiet tails come up, so notes sustain.",
-  "**Clipping two notes makes sum and difference tones**: fine for a fifth, muddy for a third. Hence power chords.",
-  "**Cutoff before the drive thins the grit; tone after it only shaves the top.**"
- ],
- "footnotes": {
-  "rocket88": {
-   "kind": "digression",
-   "title": "Rocket 88",
-   "text": "The band was Ike Turner's Kings of Rhythm, with Jackie Brenston singing; the record came out under Brenston's name. Accounts of exactly how the amplifier broke differ, as do accounts of whether it was the first rock and roll record, a title it is often given."
+  ],
+  "summary": [
+    "**Overdriven amplifiers clip**: the tops of the wave are flattened.",
+    "**Clipping adds harmonics**, where a filter only takes them away.",
+    "**Symmetrical clipping adds odd harmonics; lopsided clipping adds even ones too**, which sound warmer.",
+    "**Drive also compresses**: quiet tails come up, so notes sustain.",
+    "**Clipping two notes makes sum and difference tones**: fine for a fifth, muddy for a third. Hence power chords.",
+    "**Cutoff before the drive thins the grit; tone after it only shaves the top.**"
+  ],
+  "footnotes": {
+    "rocket88": {
+      "kind": "digression",
+      "title": "Rocket 88",
+      "text": "The band was Ike Turner's Kings of Rhythm, with Jackie Brenston singing and Willie Kizart on guitar; the record came out under Brenston's name. Accounts of exactly how the amplifier broke differ, as do accounts of whether it was the first rock and roll record, a title it is often given."
+    },
+    "valves": {
+      "kind": "technical",
+      "title": "Why valves clip lopsidedly",
+      "text": "A single valve (vacuum tube) amplifies the two halves of a wave unequally once pushed: it runs out of current on one side well before the other, so the wave flattens on one side first. Push-pull designs and most transistor circuits treat both halves alike and clip more symmetrically. Real amplifiers mix both, and taste does the rest."
+    },
+    "powerchord": {
+      "kind": "technical",
+      "title": "Sum and difference tones",
+      "text": "A curve that is not a straight line multiplies the signal by itself, and the product of two sines at f₁ and f₂ contains sines at f₁ + f₂ and f₁ - f₂. For a pure fifth (3:2) every such tone lands on a harmonic of a note an octave below the root. For an equal-tempered major third (about 5.04:4) they land between notes, and beat."
+    },
+    "maestro": {
+      "kind": "digression",
+      "title": "The first fuzz box",
+      "text": "By then you could also buy the sound in a box. In 1960 a faulty channel in a Nashville mixing desk turned Grady Martin's bass into a buzz on Marty Robbins's “Don't Worry”. Engineer Glenn Snoddy copied the flaw with three germanium transistors and sold the circuit to Gibson, which brought out the Maestro Fuzz-Tone in 1962. Keith Richards used one on “(I Can't Get No) Satisfaction” in 1965, and shops sold out of the pedal before the summer was over."
+    }
   },
-  "valves": {
-   "kind": "technical",
-   "title": "Why valves clip lopsidedly",
-   "text": "A single valve (vacuum tube) amplifies the two halves of a wave unequally once pushed: it runs out of current on one side well before the other, so the wave flattens on one side first. Push-pull designs and most transistor circuits treat both halves alike and clip more symmetrically. Real amplifiers mix both, and taste does the rest."
-  },
-  "powerchord": {
-   "kind": "technical",
-   "title": "Sum and difference tones",
-   "text": "A curve that is not a straight line multiplies the signal by itself, and the product of two sines at f₁ and f₂ contains sines at f₁ + f₂ and f₁ - f₂. For a pure fifth (3:2) every such tone lands on a harmonic of a note an octave below the root. For an equal-tempered major third (about 5.04:4) they land between notes, and beat."
-  }
- },
- "journal": []
+  "journal": []
 }

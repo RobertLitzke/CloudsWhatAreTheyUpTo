@@ -1,259 +1,264 @@
 {
- "id": "whidbey-fault",
- "n": 105,
- "branch": "whidbey",
- "needs": [
-  "faults"
- ],
- "title": "A fault under the island",
- "teaches": "How geologists showed that the South Whidbey Island fault is active with no earthquake on record: lidar that sees through forest, trenches across scarps, and dates from the layers",
- "parts": [
-  {
-   "title": "A fault with no history",
-   "blocks": [
+  "id": "whidbey-fault",
+  "n": 105,
+  "branch": "whidbey",
+  "needs": [
+    "faults"
+  ],
+  "title": "A fault under the island",
+  "teaches": "How geologists showed that the South Whidbey Island fault is active with no earthquake on record: lidar that sees through forest, trenches across scarps, and dates from the layers",
+  "parts": [
     {
-     "type": "text",
-     "text": "Written records in the Puget Sound region go back only to the 1830s, and the region’s big twentieth-century and modern earthquakes, in 1949, 1965 and 2001, were all deep, inside the subducting plate. None of them came from the faults near the surface. Yet the US Geological Survey lists several shallow faults across the lowland as active and dangerous. One of them, the **South Whidbey Island fault**, runs from near Port Townsend across the south end of Whidbey, past Mukilteo and on toward Woodinville."
-    },
-    {
-     "type": "text",
-     "text": "A fault can still be dangerous even if no one has ever seen it have an earthquake. Lesson 18 gives the reason to worry: a locked fault stores strain for centuries and then lets it go. A few hundred years of quiet means nothing. What is needed is a record that goes back thousands of years, and the ground itself keeps one."
-    },
-    {
-     "type": "diagram",
-     "id": "map",
-     "caption": "The Puget Lowland, with the approximate line of the South Whidbey Island fault zone. It is a zone of several strands kilometres wide, not one line.",
-     "options": {
-      "relief": "maps/puget",
-      "title": "The South Whidbey Island fault",
-      "ground": "height",
-      "water": 0,
-      "exaggeration": 2,
-      "alt": "A shaded relief map of the Puget Lowland. A red dashed line runs from south-east of Port Townsend across the south end of Whidbey Island, past Mukilteo on the mainland and south-east toward Woodinville.",
-      "labels": [
-       {
-        "lon": -122.76,
-        "lat": 48.117,
-        "text": "Port Townsend",
-        "side": "left"
-       },
-       {
-        "lon": -122.3,
-        "lat": 47.945,
-        "text": "Mukilteo",
-        "side": "right"
-       },
-       {
-        "lon": -122.15,
-        "lat": 47.755,
-        "text": "Woodinville",
-        "side": "right"
-       },
-       {
-        "lon": -122.33,
-        "lat": 47.61,
-        "text": "Seattle",
-        "side": "right"
-       },
-       {
-        "lon": -122.55,
-        "lat": 48.03,
-        "text": "Holmes Harbor",
-        "side": "left"
-       }
-      ],
-      "lines": [
-       {
-        "points": [
-         [
-          -122.82,
-          48.13
-         ],
-         [
-          -122.66,
-          48.06
-         ],
-         [
-          -122.52,
-          48.01
-         ],
-         [
-          -122.4,
-          47.97
-         ],
-         [
-          -122.28,
-          47.9
-         ],
-         [
-          -122.15,
-          47.77
-         ]
-        ],
-        "color": "heat",
-        "width": 3,
-        "dashed": true
-       }
-      ],
-      "scale": "right"
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "The region’s recent big quakes were deep; the shallow faults have no written history.",
-      "The South Whidbey Island fault runs from near Port Townsend across south Whidbey toward Woodinville.",
-      "Only a record thousands of years long can show whether such a fault is active."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Seeing through the forest",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The first step is to find where the fault reaches the surface. In the Puget Lowland that is hard: the ground is covered in dense forest, and the glaciers smeared everything about 16,000 years ago. A fault that has broken the surface since then should have left a **scarp**, a small step in the ground, but under trees a step one or two metres high is invisible."
-    },
-    {
-     "type": "text",
-     "text": "**Lidar** solved this. An aircraft fires tens to hundreds of thousands of laser pulses a second at the ground and times their echoes. Most bounce off leaves, but some find gaps and reach the ground, and software keeps only those last echoes, giving a map of the bare earth with the forest removed (lesson 17). In 1996 a lidar survey of Bainbridge Island, flown for a local water utility, happened to show a fresh scarp on the Seattle fault that no geologist had noticed, and from 1999 a consortium of local governments and the USGS flew lidar across the Puget Lowland. Geologists started to see things nobody had seen: fresh-looking scarps cutting across glacial landforms, on Bainbridge Island, along the South Whidbey Island fault zone and others.[^lidar] Those scarps are younger than the ice, so the faults that made them have broken the surface within the last 16,000 years."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A fault scarp revealed by lidar: a sharp step across smooth glacial landforms, invisible under the forest.",
-     "options": {
-      "photo": "lidar-scarp",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "A fault that breaks the surface leaves a scarp, hidden under forest.",
-      "Lidar keeps the echoes from the ground and maps the bare earth, revealing scarps younger than the ice."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Reading a trench",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A scarp says the fault has moved since the ice left. To learn when, and how often, geologists dig a **trench** across it with a backhoe, a few metres deep, and log its walls layer by layer. Sediment is laid down flat, as Steno said (lesson 1). Where an earthquake breaks the ground, every layer that exists at that moment is cut and offset by the fault. Layers laid down afterward lie across the break unbroken. So each earthquake is pinned between the youngest layer it broke and the oldest one it did not."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "trench",
-     "caption": "A trench wall across a fault, simplified, from a made-up history of the kind trench logs record. Each earthquake lifts the left side about a metre.",
-     "task": "Replay the history to the end",
-     "goal": "counted",
-     "aspect_ratio": 1.75
-    },
-    {
-     "type": "text",
-     "text": "Dating the layers closes the case. Peat, charcoal and plant remains in them can be dated by radiocarbon (lesson 8), which gives each earthquake a window of a few centuries. Trenches across the South Whidbey Island fault zone from 1999 through the 2000s showed the ground broken at least four times since the ice left, the latest within the last 3,000 years. Together with the lidar scarps and with marsh deposits at Cultus Bay on south Whidbey, where tidal mud changes abruptly to peat or back, a sign that the ground jumped up or down in a moment, as at Restoration Point in the Seattle branch, that is enough: the fault is active, and it can produce earthquakes of around magnitude 7, shallow and close to many people."
-    },
-    {
-     "type": "text",
-     "text": "So the absence of a written record says little. On the scale of a fault, 190 years is a moment. The record that matters is written in layers of soil, and it says the South Whidbey Island fault will break again, at a time nobody can yet predict."
-    },
-    {
-     "type": "key_ideas",
-     "title": "Hold on to",
-     "points": [
-      "A trench across a scarp shows which layers each quake broke and which lie over the break unbroken.",
-      "Radiocarbon dates of the layers bracket each earthquake.",
-      "The South Whidbey Island fault has broken several times since the ice left; it is active."
-     ]
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on the South Whidbey Island fault",
-     "task": "Select the best answer for each question",
-     "options": {
-      "items": [
-       {
-        "ask": "Why does the lack of a recorded earthquake not show that the fault is safe?",
-        "choices": [
-         "Written records cover less than 200 years, far shorter than the time between quakes",
-         "The fault is too small to matter",
-         "Earthquakes are always recorded"
-        ],
-        "answer": 0,
-        "why": "A locked fault can stay quiet for centuries while it stores strain."
-       },
-       {
-        "ask": "Why do geologists use lidar to find scarps in the Puget Lowland?",
-        "choices": [
-         "It maps the bare ground under the forest",
-         "It sees deep into the rock",
-         "It measures earthquakes"
-        ],
-        "answer": 0,
-        "why": "The last echoes of the laser pulses come from the ground, so the trees can be removed."
-       },
-       {
-        "ask": "A scarp cuts across glacial landforms. What does that tell you?",
-        "choices": [
-         "The fault has broken the surface since the ice left, about 16,000 years ago",
-         "The fault is older than the ice",
-         "The ice made the scarp"
-        ],
-        "answer": 0,
-        "why": "The landforms are about 16,000 years old, and the scarp cuts them, so it is younger."
-       },
-       {
-        "ask": "In a trench wall, a quake broke the gravel and silt but not the peat above them. When was it?",
-        "choices": [
-         "After the silt was laid down and before the peat",
-         "Before the gravel",
-         "After the peat"
-        ],
-        "answer": 0,
-        "why": "It broke every layer that existed then, and the peat came later."
-       },
-       {
-        "ask": "How are the layers in a trench dated?",
-        "choices": [
-         "Radiocarbon in peat, charcoal and plant remains",
-         "Counting the layers",
-         "Their colour"
-        ],
-        "answer": 0,
-        "why": "Organic remains in the layers can be radiocarbon dated, giving windows for each quake."
-       }
+      "title": "A fault with no history",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Written records in the Puget Sound region go back only to the 1830s, and the region’s big twentieth-century and modern earthquakes, in 1949, 1965 and 2001, were all deep, inside the subducting plate. None of them came from the faults near the surface. Yet the US Geological Survey lists several shallow faults across the lowland as active and dangerous. One of them, the **South Whidbey Island fault**, runs from near Port Townsend across the south end of Whidbey, past Mukilteo and on toward Woodinville."
+        },
+        {
+          "type": "text",
+          "text": "A fault can still be dangerous even if no one has ever seen it have an earthquake. Lesson 18 gives the reason to worry: a locked fault stores strain for centuries and then lets it go. A few hundred years of quiet means nothing. What is needed is a record that goes back thousands of years, and the ground itself keeps one."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "The Puget Lowland, with the approximate line of the South Whidbey Island fault zone. It is a zone of several strands kilometres wide, not one line.",
+          "options": {
+            "relief": "maps/puget",
+            "title": "The South Whidbey Island fault",
+            "ground": "height",
+            "water": 0,
+            "exaggeration": 2,
+            "alt": "A shaded relief map of the Puget Lowland. A red dashed line runs from south-east of Port Townsend across the south end of Whidbey Island, past Mukilteo on the mainland and south-east toward Woodinville.",
+            "labels": [
+              {
+                "lon": -122.76,
+                "lat": 48.117,
+                "text": "Port Townsend",
+                "side": "left"
+              },
+              {
+                "lon": -122.3,
+                "lat": 47.945,
+                "text": "Mukilteo",
+                "side": "right"
+              },
+              {
+                "lon": -122.15,
+                "lat": 47.755,
+                "text": "Woodinville",
+                "side": "right"
+              },
+              {
+                "lon": -122.33,
+                "lat": 47.61,
+                "text": "Seattle",
+                "side": "right"
+              },
+              {
+                "lon": -122.55,
+                "lat": 48.03,
+                "text": "Holmes Harbor",
+                "side": "left"
+              }
+            ],
+            "lines": [
+              {
+                "points": [
+                  [
+                    -122.82,
+                    48.13
+                  ],
+                  [
+                    -122.66,
+                    48.06
+                  ],
+                  [
+                    -122.52,
+                    48.01
+                  ],
+                  [
+                    -122.4,
+                    47.97
+                  ],
+                  [
+                    -122.28,
+                    47.9
+                  ],
+                  [
+                    -122.15,
+                    47.77
+                  ]
+                ],
+                "color": "heat",
+                "width": 3,
+                "dashed": true
+              }
+            ],
+            "scale": "right"
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The region’s recent big quakes were deep; the shallow faults have no written history.",
+            "The South Whidbey Island fault runs from near Port Townsend across south Whidbey toward Woodinville.",
+            "Only a record thousands of years long can show whether such a fault is active."
+          ]
+        }
       ]
-     }
+    },
+    {
+      "title": "Seeing through the forest",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first step is to find where the fault reaches the surface. In the Puget Lowland that is hard: the ground is covered in dense forest, and the glaciers smeared everything about 16,000 years ago. A fault that has broken the surface since then should have left a **scarp**, a small step in the ground, but under trees a step one or two metres high is invisible."
+        },
+        {
+          "type": "text",
+          "text": "**Lidar** solved this. An aircraft fires tens to hundreds of thousands of laser pulses a second at the ground and times their echoes. Most bounce off leaves, but some find gaps and reach the ground, and software keeps only those last echoes, giving a map of the bare earth with the forest removed (lesson 17). In 1996 a lidar survey of Bainbridge Island, flown for the island's city government, happened to show a fresh scarp on the Seattle fault that no geologist had noticed, and from 1999 a consortium of local governments and federal agencies flew lidar across the Puget Lowland. Geologists started to see things nobody had seen: fresh-looking scarps cutting across glacial landforms, on Bainbridge Island, along the South Whidbey Island fault zone and others.[^lidar] Those scarps are younger than the ice, so the faults that made them have broken the surface within the last 16,000 years."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A fault scarp revealed by lidar: a sharp step across smooth glacial landforms, invisible under the forest.",
+          "options": {
+            "photo": "lidar-scarp",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "A fault that breaks the surface leaves a scarp, hidden under forest.",
+            "Lidar keeps the echoes from the ground and maps the bare earth, revealing scarps younger than the ice."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Reading a trench",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A scarp says the fault has moved since the ice left. To learn when, and how often, geologists dig a **trench** across it with a backhoe, a few metres deep, and log its walls layer by layer. Sediment is laid down flat, as Steno said (lesson 1). Where an earthquake breaks the ground, every layer that exists at that moment is cut and offset by the fault. Layers laid down afterward lie across the break unbroken. So each earthquake is pinned between the youngest layer it broke and the oldest one it did not."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "trench",
+          "caption": "A trench wall across a fault, simplified, from a made-up history of the kind trench logs record. Each earthquake lifts the left side about a metre.",
+          "task": "Replay the history to the end",
+          "goal": "counted",
+          "aspect_ratio": 1.75
+        },
+        {
+          "type": "text",
+          "text": "Dating the layers closes the case. Peat, charcoal and plant remains in them can be dated by radiocarbon (lesson 8), which gives each earthquake a window of a few centuries. Trenches across the South Whidbey Island fault zone from 2002 through the 2000s showed the ground broken at least four times since the ice left, the latest within the last 3,000 years.[^trenches] Together with the lidar scarps and with marsh deposits at Cultus Bay on south Whidbey, where tidal mud changes abruptly to peat or back (a sign that the ground jumped up or down in a moment, as at Restoration Point in the Seattle branch), that is enough: the fault is active, and it can produce earthquakes of around magnitude 7, shallow and close to many people."
+        },
+        {
+          "type": "text",
+          "text": "So the absence of a written record says little. On the scale of a fault, 190 years is a moment. The record that matters is written in layers of soil, and it says the South Whidbey Island fault will break again, at a time nobody can yet predict."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "A trench across a scarp shows which layers each quake broke and which lie over the break unbroken.",
+            "Radiocarbon dates of the layers bracket each earthquake.",
+            "The South Whidbey Island fault has broken several times since the ice left; it is active."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the South Whidbey Island fault",
+          "task": "Select the best answer for each question",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does the lack of a recorded earthquake not show that the fault is safe?",
+                "choices": [
+                  "Written records cover less than 200 years, far shorter than the time between quakes",
+                  "The fault is too small to matter",
+                  "Earthquakes are always recorded"
+                ],
+                "answer": 0,
+                "why": "A locked fault can stay quiet for centuries while it stores strain."
+              },
+              {
+                "ask": "Why do geologists use lidar to find scarps in the Puget Lowland?",
+                "choices": [
+                  "It maps the bare ground under the forest",
+                  "It sees deep into the rock",
+                  "It measures earthquakes"
+                ],
+                "answer": 0,
+                "why": "The last echoes of the laser pulses come from the ground, so the trees can be removed."
+              },
+              {
+                "ask": "A scarp cuts across glacial landforms. What does that tell you?",
+                "choices": [
+                  "The fault has broken the surface since the ice left, about 16,000 years ago",
+                  "The fault is older than the ice",
+                  "The ice made the scarp"
+                ],
+                "answer": 0,
+                "why": "The landforms are about 16,000 years old, and the scarp cuts them, so it is younger."
+              },
+              {
+                "ask": "In a trench wall, a quake broke the gravel and silt but not the peat above them. When was it?",
+                "choices": [
+                  "After the silt was laid down and before the peat",
+                  "Before the gravel",
+                  "After the peat"
+                ],
+                "answer": 0,
+                "why": "It broke every layer that existed then, and the peat came later."
+              },
+              {
+                "ask": "How are the layers in a trench dated?",
+                "choices": [
+                  "Radiocarbon in peat, charcoal and plant remains",
+                  "Counting the layers",
+                  "Their colour"
+                ],
+                "answer": 0,
+                "why": "Organic remains in the layers can be radiocarbon dated, giving windows for each quake."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
+  ],
+  "summary": [
+    "**No written record means little.** It covers less than 200 years.",
+    "**The South Whidbey Island fault is shallow.** It runs from near Port Townsend toward Woodinville.",
+    "**Faults that break the surface leave scarps.** Forest hides them.",
+    "**Lidar strips the forest away.** It revealed scarps younger than the ice.",
+    "**Trenches read the history.** Broken layers are older than a quake, unbroken ones younger.",
+    "**Radiocarbon dates the quakes.** Several since the ice left.",
+    "**The fault is active.** It can make quakes around magnitude 7."
+  ],
+  "journal": [],
+  "footnotes": {
+    "lidar": {
+      "kind": "technical",
+      "title": "The Puget Sound Lidar Consortium",
+      "text": "The 1996 survey of Bainbridge Island was commissioned by the Kitsap Public Utility District to map its watersheds; USGS geologists who saw the data spotted the Toe Jam Hill scarp in it. The Puget Sound Lidar Consortium, formed in 1999 by the USGS, NASA, local counties and cities, then flew much of the lowland with airborne lidar through the 2000s and made the data public. The first results, including the Toe Jam Hill scarp, were published by Ralph Haugerud, Brian Sherrod and colleagues in 2003."
+    },
+    "trenches": {
+      "kind": "technical",
+      "title": "Trenching the South Whidbey Island fault",
+      "text": "USGS geologist Brian Sherrod and colleagues dug the first trench across a lidar scarp in the zone near Langley on Whidbey Island in 2002 (published in 2008). Further trenches on the mainland near Snohomish and Woodinville, reported by Harvey Kelsey, Sherrod and colleagues in 2012, pieced together the record of at least four surface-breaking earthquakes since the ice retreated."
+    }
   }
- ],
- "summary": [
-  "**No written record means little.** It covers less than 200 years.",
-  "**The South Whidbey Island fault is shallow.** It runs from near Port Townsend toward Woodinville.",
-  "**Faults that break the surface leave scarps.** Forest hides them.",
-  "**Lidar strips the forest away.** It revealed scarps younger than the ice.",
-  "**Trenches read the history.** Broken layers are older than a quake, unbroken ones younger.",
-  "**Radiocarbon dates the quakes.** Several since the ice left.",
-  "**The fault is active.** It can make quakes around magnitude 7."
- ],
- "journal": [],
- "footnotes": {
-  "lidar": {
-   "kind": "technical",
-   "title": "The Puget Sound Lidar Consortium",
-   "text": "The 1996 survey of Bainbridge Island was commissioned by the Kitsap Public Utility District to map its watersheds; USGS geologists who saw the data spotted the Toe Jam Hill scarp in it. The Puget Sound Lidar Consortium, formed in 1999 by the USGS, NASA, local counties and cities, then flew much of the lowland with airborne lidar through the 2000s and made the data public. The first results, including the Toe Jam Hill scarp, were published by Ralph Haugerud, Brian Sherrod and colleagues in 2003."
-  }
- }
 }

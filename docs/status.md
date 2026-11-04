@@ -8,15 +8,15 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
 | [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 37 | 0 | 1 | 9 |
+| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 0 | 0 | 1 | 46 |
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
-| [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
-| [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 37 | 37 | 16 | 0 |
-| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
-| [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 0 | 0 |
-| [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 25 | 25 | 24 | 0 |
+| [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
+| [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 0 | 25 | 15 | 0 |
+| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 0 | 37 | 16 | 0 |
+| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 0 | 33 | 33 | 0 |
+| [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 0 | 30 | 0 | 0 |
+| [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 0 | 32 | 0 | 0 |
+| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -24,15 +24,15 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- |
 | Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
 | Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
-| Geology | 1.0 released | 2026-11-04 | released; still to do: 37 to copy-edit, 1 awaiting photos |
+| Geology | 1.0 released | 2026-11-04 | released; still to do: 1 awaiting photos |
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
-| Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to copy-edit, 12 to fact-check, 4 awaiting photos |
-| Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to copy-edit, 25 to fact-check, 15 awaiting photos |
-| Ecology | 0.1 beta | 2026-11-04 | no: 37 to copy-edit, 37 to fact-check, 16 awaiting photos |
-| Botany | 0.1 beta | 2026-11-04 | no: 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
-| Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check |
-| Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to copy-edit, 32 to fact-check |
-| Fungi | 0.2 beta | 2026-11-04 | no: 25 to copy-edit, 25 to fact-check, 24 awaiting photos |
+| Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
+| Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to fact-check, 15 awaiting photos |
+| Ecology | 0.1 beta | 2026-11-04 | no: 37 to fact-check, 16 awaiting photos |
+| Botany | 0.1 beta | 2026-11-04 | no: 33 to fact-check, 33 awaiting photos |
+| Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to fact-check |
+| Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to fact-check |
+| Fungi | 0.2 beta | 2026-11-04 | no: 25 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -82,52 +82,52 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
 | 1 | Seashells on mountaintops (`steno`) |  | done |  | How loose mud becomes layers of rock, and how to read their order. |
-| 2 | A desert turned to stone (`dunes`) |  | awaiting Gemini review (queued 2026-11-03) |  | How water and wind sort grains, and how a moving dune leaves sloping layers behind. |
-| 3 | The map that read the ground (`smith`) |  | awaiting Gemini review (queued 2026-11-03) |  | How fossils match layers across the countryside, and how tilted beds show up on a map. |
-| 4 | The rock that was once on fire (`basalt`) |  | awaiting Gemini review (queued 2026-11-03) |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
-| 5 | Garnets in the mud (`barrow`) |  | awaiting Gemini review (queued 2026-11-03) |  | How heat and pressure alter buried rock in the solid state, and how the resulting minerals record the depth of burial. |
-| 6 | Fossils in the schist (`families`) |  | awaiting Gemini review (queued 2026-11-03) |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
-| 7 | The rock at Siccar Point (`siccar`) |  | awaiting Gemini review (queued 2026-11-03) |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
-| 8 | How old is the Earth? (`age`) |  | awaiting Gemini review (queued 2026-11-03) |  | Kelvin's cooling Earth, the objections that undid it, and the clock in radioactive atoms. |
-| 9 | Continents that fit (`drift`) |  | awaiting Gemini review (queued 2026-11-03) |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
-| 10 | Stripes on the seafloor (`stripes`) |  | awaiting Gemini review (queued 2026-11-03) |  | How magnetic reversals recorded in ocean-floor rock showed the sea floor spreading apart. |
-| 11 | Where the Earth shakes (`quakes`) |  | awaiting Gemini review (queued 2026-11-03) |  | How earthquakes outline the plates, and how the angle of a sinking slab of ocean floor sets where volcanoes rise. |
-| 12 | Islands that get older in a line (`hotspot`) |  | awaiting Gemini review (queued 2026-11-03) |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
-| 13 | The ocean before the Atlantic (`supercontinents`) |  | awaiting Gemini review (queued 2026-11-03) |  | How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today. |
-| 14 | A river that cuts through a mountain (`rivers`) |  | awaiting Gemini review (queued 2026-11-03) |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
-| 15 | Boulders where they don't belong (`erratics`) |  | awaiting Gemini review (queued 2026-11-03) |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
-| 16 | The pacemaker of the ice ages (`pacemaker`) |  | awaiting Gemini review (queued 2026-11-03) |  | How slow changes in the Earth's orbit time the ice ages, and how the record was read from deep-sea mud. |
-| 17 | A lake with no river (`kettles`) |  | awaiting Gemini review (queued 2026-11-03) |  | The landforms an ice sheet leaves behind, how shaded relief reveals them, and how the land rises once the ice is gone. |
+| 2 | A desert turned to stone (`dunes`) |  | done |  | How water and wind sort grains, and how a moving dune leaves sloping layers behind. |
+| 3 | The map that read the ground (`smith`) |  | done |  | How fossils match layers across the countryside, and how tilted beds show up on a map. |
+| 4 | The rock that was once on fire (`basalt`) |  | done |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
+| 5 | Garnets in the mud (`barrow`) |  | done |  | How heat and pressure alter buried rock in the solid state, and how the resulting minerals record the depth of burial. |
+| 6 | Fossils in the schist (`families`) |  | done |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
+| 7 | The rock at Siccar Point (`siccar`) |  | done |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
+| 8 | How old is the Earth? (`age`) |  | done |  | Kelvin's cooling Earth, the objections that undid it, and the clock in radioactive atoms. |
+| 9 | Continents that fit (`drift`) |  | done |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
+| 10 | Stripes on the seafloor (`stripes`) |  | done |  | How magnetic reversals recorded in ocean-floor rock showed the sea floor spreading apart. |
+| 11 | Where the Earth shakes (`quakes`) |  | done |  | How earthquakes outline the plates, and how the angle of a sinking slab of ocean floor sets where volcanoes rise. |
+| 12 | Islands that get older in a line (`hotspot`) |  | done |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
+| 13 | The ocean before the Atlantic (`supercontinents`) |  | done |  | How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today. |
+| 14 | A river that cuts through a mountain (`rivers`) |  | done |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
+| 15 | Boulders where they don't belong (`erratics`) |  | done |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
+| 16 | The pacemaker of the ice ages (`pacemaker`) |  | done |  | How slow changes in the Earth's orbit time the ice ages, and how the record was read from deep-sea mud. |
+| 17 | A lake with no river (`kettles`) |  | done |  | The landforms an ice sheet leaves behind, how shaded relief reveals them, and how the land rises once the ice is gone. |
 | 18 | Why faults snap (`faults`) |  | done |  | How a stuck fault stores the plates' motion as bent rock and releases it in an earthquake, what sets an earthquake's size, and why soft ground shakes harder. |
-| 19 | Why some volcanoes explode (`explode`) |  | awaiting Gemini review (queued 2026-11-03) |  | How the silica and water in magma decide whether a volcano pours out lava or explodes, and what a pyroclastic flow is. |
-| 20 | Barnacles above the tide (`barnacles`) |  | awaiting Gemini review (queued 2026-11-03) |  | How George Plafker read the 1964 Alaska earthquake from barnacles and drowned forests, and how a locked subduction zone lifts and drops a coast and starts a tsunami. |
+| 19 | Why some volcanoes explode (`explode`) |  | done |  | How the silica and water in magma decide whether a volcano pours out lava or explodes, and what a pyroclastic flow is. |
+| 20 | Barnacles above the tide (`barnacles`) |  | done |  | How George Plafker read the 1964 Alaska earthquake from barnacles and drowned forests, and how a locked subduction zone lifts and drops a coast and starts a tsunami. |
 | W1 | Shells at the top of the bluff (`ebey`) | Whidbey Island | done |  | How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top. |
 | W2 | Holes in the prairie (`prairie`) | Whidbey Island | done |  | Why central Whidbey has open prairies and pits with no outlets: gravel that drains too fast for young firs, blocks of buried ice, and thousands of years of fire. |
 | W3 | Where the beaches come from (`feeder-bluffs`) | Whidbey Island | done |  | How Whidbey’s bluffs fail when water builds up above clay, and how the sand that falls feeds the beaches along the shore, until a bulkhead cuts it off. |
 | W4 | Seafloor at Deception Pass (`deception`) | Whidbey Island | done |  | How pillow basalt, ribbon chert and serpentinite at Deception Pass record pieces of ocean floor scraped off and welded onto North America. |
-| W5 | A fault under the island (`whidbey-fault`) | Whidbey Island | awaiting Gemini review (queued 2026-11-03) |  | How geologists showed that the South Whidbey Island fault is active with no earthquake on record: lidar that sees through forest, trenches across scarps, and dates from the layers. |
+| W5 | A fault under the island (`whidbey-fault`) | Whidbey Island | done |  | How geologists showed that the South Whidbey Island fault is active with no earthquake on record: lidar that sees through forest, trenches across scarps, and dates from the layers. |
 | S1 | Why Seattle’s hills run north–south (`hills`) | Seattle | done |  | How a lobe of the Cordilleran ice sheet, a kilometre thick, flowed south over Seattle and left its hills, lakes and the Sound lined up in its direction. |
 | S2 | Drowned forests in Lake Washington (`drowned`) | Seattle | awaiting photos/images (2 photos parked in pending-photos.json) |  | How tree rings, a raised beach, a tsunami sand and underwater landslides together revealed a large earthquake on the Seattle fault about 1,100 years ago. |
 | S3 | Why the hills slide (`slides`) | Seattle | done |  | Why Seattle’s landslides happen at the same level on its bluffs, and why they come after wet winters: sand over clay, and water that cannot get out. |
-| S4 | The ground people built (`fill`) | Seattle | awaiting Gemini review (queued 2026-11-03) |  | How Seattle sluiced away hills and filled its tideflats, and why loose, wet fill shook hardest and liquefied in the 2001 Nisqually earthquake. |
+| S4 | The ground people built (`fill`) | Seattle | done |  | How Seattle sluiced away hills and filled its tideflats, and why loose, wet fill shook hardest and liquefied in the 2001 Nisqually earthquake. |
 | F1 | Bretz’s heresy (`bretz`) | The ice age floods | done |  | How J Harlen Bretz read the channelled scablands of eastern Washington as the work of a flood far bigger than any river, and why geologists refused to believe him for forty years. |
-| F2 | Ripples the size of hills (`ripples`) | The ice age floods | awaiting Gemini review (queued 2026-11-03) |  | How Joseph Pardee found the source of Bretz's flood in a glacial lake in Montana, how an ice dam floats and fails, and why the lake drained again and again. |
-| F3 | How many floods? (`rhythmites`) | The ice age floods | awaiting Gemini review (queued 2026-11-03) |  | How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed. |
-| F4 | Montana rocks in Oregon (`montana-rocks`) | The ice age floods | awaiting Gemini review (queued 2026-11-03) |  | How boulders from Montana came to rest on hillsides in Oregon's Willamette Valley, carried by icebergs on the floodwater. |
-| C1 | The orphan tsunami (`orphan`) | Cascadia | awaiting Gemini review (queued 2026-11-03) |  | How buried marshes, dead cedars, Japanese records and Indigenous stories showed that Cascadia's megathrust broke in a magnitude 9 earthquake on 26 January 1700. |
-| C2 | Mud under Auburn (`osceola`) | Cascadia | awaiting Gemini review (queued 2026-11-03) |  | How towns from Enumclaw to Kent came to stand on a mudflow from Mount Rainier, and why lahars are the volcano's biggest threat to the Puget Lowland. |
-| C3 | The sideways blast (`blast`) | Cascadia | awaiting Gemini review (queued 2026-11-03) |  | Why Mount St Helens exploded sideways on 18 May 1980: a bulging flank, a landslide, and magma suddenly unloaded. |
-| P1 | Round holes on the Moon (`craters`) | The Moon and planets | awaiting Gemini review (queued 2026-11-03) |  | Why craters were long thought to be volcanoes, how a fast impact becomes an explosion, and how geologists trained the Apollo crews. |
-| P2 | Dating a surface you can’t visit (`crater-ages`) | The Moon and planets | awaiting Gemini review (queued 2026-11-03) |  | How counting craters gives an age, and how the Apollo and Luna samples turned the count into years. |
-| P3 | Why the highlands are white (`highlands`) | The Moon and planets | awaiting Gemini review (queued 2026-11-03) |  | White crystals in Apollo 11's soil, the ocean of magma that floated the Moon's crust, and where the mare lavas came from. |
-| P4 | Where the Moon came from (`moon-origin`) | The Moon and planets | awaiting Gemini review (queued 2026-11-03) |  | Three theories that Apollo's samples ruled out, the giant impact that replaced them, and the oxygen puzzle that remains. |
-| L1 | Wood that turned to stone (`petrified`) | Fossils | awaiting Gemini review (queued 2026-11-03) |  | Why most living things leave no trace, and the chemistry that turns wood, shell and soft bodies into fossils. |
-| D1 | Weighing the Earth (`weigh`) | Deep Earth | awaiting Gemini review (queued 2026-11-03) |  | How a mountain and a pair of lead balls measured the Earth's density, and why that density demands a dense core. |
-| D2 | Finding a quake nobody saw (`epicentre`) | Deep Earth | awaiting Gemini review (queued 2026-11-03) |  | The two kinds of wave an earthquake sends through the Earth, how three stations find where it happened, and how its size is measured. |
-| D3 | Mohorovičić’s second wave (`moho`) | Deep Earth | awaiting Gemini review (queued 2026-11-03) |  | How a doubled wave from a 1909 earthquake revealed the base of the crust, and why the crust is thick under mountains and thin under oceans. |
-| D4 | The shadow behind the core (`core`) | Deep Earth | awaiting Gemini review (queued 2026-11-03) |  | How missing waves on the far side of the Earth revealed the core, and how S waves showed it is liquid. |
-| D5 | Lehmann’s inner core (`lehmann`) | Deep Earth | awaiting Gemini review (queued 2026-11-03) |  | Faint waves inside the shadow zone, the solid inner core they revealed, and how its growth powers the magnetic field. |
-| D6 | The deepest hole (`boreholes`) | Deep Earth | awaiting Gemini review (queued 2026-11-03) |  | Project Mohole, the Kola Superdeep Borehole and KTB: what drilling into the crust found, and why the holes stopped. |
+| F2 | Ripples the size of hills (`ripples`) | The ice age floods | done |  | How Joseph Pardee found the source of Bretz's flood in a glacial lake in Montana, how an ice dam floats and fails, and why the lake drained again and again. |
+| F3 | How many floods? (`rhythmites`) | The ice age floods | done |  | How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed. |
+| F4 | Montana rocks in Oregon (`montana-rocks`) | The ice age floods | done |  | How boulders from Montana came to rest on hillsides in Oregon's Willamette Valley, carried by icebergs on the floodwater. |
+| C1 | The orphan tsunami (`orphan`) | Cascadia | done |  | How buried marshes, dead cedars, Japanese records and Indigenous stories showed that Cascadia's megathrust broke in a magnitude 9 earthquake on 26 January 1700. |
+| C2 | Mud under Auburn (`osceola`) | Cascadia | done |  | How towns from Enumclaw to Kent came to stand on a mudflow from Mount Rainier, and why lahars are the volcano's biggest threat to the Puget Lowland. |
+| C3 | The sideways blast (`blast`) | Cascadia | done |  | Why Mount St Helens exploded sideways on 18 May 1980: a bulging flank, a landslide, and magma suddenly unloaded. |
+| P1 | Round holes on the Moon (`craters`) | The Moon and planets | done |  | Why craters were long thought to be volcanoes, how a fast impact becomes an explosion, and how geologists trained the Apollo crews. |
+| P2 | Dating a surface you can’t visit (`crater-ages`) | The Moon and planets | done |  | How counting craters gives an age, and how the Apollo and Luna samples turned the count into years. |
+| P3 | Why the highlands are white (`highlands`) | The Moon and planets | done |  | White crystals in Apollo 11's soil, the ocean of magma that floated the Moon's crust, and where the mare lavas came from. |
+| P4 | Where the Moon came from (`moon-origin`) | The Moon and planets | done |  | Three theories that Apollo's samples ruled out, the giant impact that replaced them, and the oxygen puzzle that remains. |
+| L1 | Wood that turned to stone (`petrified`) | Fossils | done |  | Why most living things leave no trace, and the chemistry that turns wood, shell and soft bodies into fossils. |
+| D1 | Weighing the Earth (`weigh`) | Deep Earth | done |  | How a mountain and a pair of lead balls measured the Earth's density, and why that density demands a dense core. |
+| D2 | Finding a quake nobody saw (`epicentre`) | Deep Earth | done |  | The two kinds of wave an earthquake sends through the Earth, how three stations find where it happened, and how its size is measured. |
+| D3 | Mohorovičić’s second wave (`moho`) | Deep Earth | done |  | How a doubled wave from a 1909 earthquake revealed the base of the crust, and why the crust is thick under mountains and thin under oceans. |
+| D4 | The shadow behind the core (`core`) | Deep Earth | done |  | How missing waves on the far side of the Earth revealed the core, and how S waves showed it is liquid. |
+| D5 | Lehmann’s inner core (`lehmann`) | Deep Earth | done |  | Faint waves inside the shadow zone, the solid inner core they revealed, and how its growth powers the magnetic field. |
+| D6 | The deepest hole (`boreholes`) | Deep Earth | done |  | Project Mohole, the Kola Superdeep Borehole and KTB: what drilling into the crust found, and why the holes stopped. |
 
 ## Circuitry <a id="electronics"></a>
 
@@ -156,18 +156,18 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Camera decisions in automatic modes (`tour`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Core exposure and focus controls, preset priorities in Bird-watching mode, and manual overrides. |
-| 2 | Light, and the three ways to let it in (`light`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why the camera turns snow grey and a bird against the sky black, how to read the histogram, and which dial each shooting mode hands back to you. |
-| 3 | The aperture and what stays sharp (`aperture`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why the hole in the lens decides how much of the scene is sharp, why a small sensor makes that band so deep, and where narrowing the aperture stops helping. |
-| 4 | Shutter speed, and everything that moves (`shutter`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How far things move while the shutter is open, telling your own shake from the subject's movement, panning, and leaving the shutter open on purpose. |
-| 5 | ISO, noise, and the light you do not have (`iso`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why grain is a counting problem, when to raise ISO without hesitating, and where this small-sensor camera runs out of light. |
-| 6 | The lens: 24 mm to 2000 mm (`lens`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (the moonrise stage is a drawn stand-in) | What focal length really changes, why a far moon looks huge behind a near tree, when cropping beats zooming, and the air between you and the subject. |
-| 7 | Focus: telling the camera what you meant (`focus`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (the bramble stage is a drawn stand-in) | How autofocus chooses what to focus on, why it grabs the twig in front of the bird, and how to point it, follow a moving bird, or wait for one. |
-| 8 | The colour of light (`colour`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Colour temperature, what white balance is guessing, the hours of the day as different kinds of light, and what a polariser does. |
-| 9 | Seeing the picture before you take it (`seeing`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (the meadow stage is a drawn stand-in) | Backgrounds, light direction, framing and fieldcraft: the decisions made with your feet before any dial is turned. |
-| 10 | Birds, in practice (`birds`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Starting settings for perched and flying birds, what Bird-watching mode was choosing for you, finding a bird at 2000 mm, and working a subject. |
-| 11 | After the shutter (`after`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | What the JPEG and RAW files keep, what can still be recovered from them, and a short editing pass that is mostly undoing. |
-| 12 | How the camera got here (`history`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (Boulevard du Temple photo still to fetch (Commons, from Rob's PC)) | The long story behind the dials: the dark room, the silver, the film and the chip, and why the numbers on the camera are the numbers they are. |
+| 1 | Camera decisions in automatic modes (`tour`) |  | awaiting fact check |  | Core exposure and focus controls, preset priorities in Bird-watching mode, and manual overrides. |
+| 2 | Light, and the three ways to let it in (`light`) |  | awaiting fact check |  | Why the camera turns snow grey and a bird against the sky black, how to read the histogram, and which dial each shooting mode hands back to you. |
+| 3 | The aperture and what stays sharp (`aperture`) |  | awaiting fact check |  | Why the hole in the lens decides how much of the scene is sharp, why a small sensor makes that band so deep, and where narrowing the aperture stops helping. |
+| 4 | Shutter speed, and everything that moves (`shutter`) |  | awaiting fact check |  | How far things move while the shutter is open, telling your own shake from the subject's movement, panning, and leaving the shutter open on purpose. |
+| 5 | ISO, noise, and the light you do not have (`iso`) |  | awaiting fact check |  | Why grain is a counting problem, when to raise ISO without hesitating, and where this small-sensor camera runs out of light. |
+| 6 | The lens: 24 mm to 2000 mm (`lens`) |  | awaiting fact check | Photos (the moonrise stage is a drawn stand-in) | What focal length really changes, why a far moon looks huge behind a near tree, when cropping beats zooming, and the air between you and the subject. |
+| 7 | Focus: telling the camera what you meant (`focus`) |  | awaiting fact check | Photos (the bramble stage is a drawn stand-in) | How autofocus chooses what to focus on, why it grabs the twig in front of the bird, and how to point it, follow a moving bird, or wait for one. |
+| 8 | The colour of light (`colour`) |  | awaiting fact check |  | Colour temperature, what white balance is guessing, the hours of the day as different kinds of light, and what a polariser does. |
+| 9 | Seeing the picture before you take it (`seeing`) |  | awaiting fact check | Photos (the meadow stage is a drawn stand-in) | Backgrounds, light direction, framing and fieldcraft: the decisions made with your feet before any dial is turned. |
+| 10 | Birds, in practice (`birds`) |  | awaiting fact check |  | Starting settings for perched and flying birds, what Bird-watching mode was choosing for you, finding a bird at 2000 mm, and working a subject. |
+| 11 | After the shutter (`after`) |  | awaiting fact check |  | What the JPEG and RAW files keep, what can still be recovered from them, and a short editing pass that is mostly undoing. |
+| 12 | How the camera got here (`history`) |  | awaiting fact check | Photos (Boulevard du Temple photo still to fetch (Commons, from Rob's PC)) | The long story behind the dials: the dark room, the silver, the film and the chip, and why the numbers on the camera are the numbers they are. |
 
 ## Astronomy <a id="astronomy"></a>
 
@@ -175,31 +175,31 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Two shadows (`shadows`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How a shadow measured the Earth, and how an angle measured the distance to the Sun. |
-| 2 | Planets that loop backwards (`loops`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why planets sometimes run backwards across the sky, and why their orbits are ellipses. |
-| 3 | The falling Moon (`falling`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why the Moon goes round the Earth instead of falling down, and why orbits are ellipses. |
-| 4 | A planet found with a pen (`neptune`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How small errors in Uranus's orbit revealed Neptune, and why the same trick failed for Mercury. |
-| 5 | How far are the stars? (`parallax`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why the stars should shift as the Earth moves, why nobody could see it, and how Bessel finally did. |
-| 6 | What the stars are made of (`spectra`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth. *Outline v2 adds the Doppler shift here (not written yet).* |
-| 7 | Why are there no green stars? (`colour`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How a star's colour gives its temperature, and why no star looks green. |
-| 8 | A schoolteacher's number puzzle (`ladder`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why each kind of atom gives out and soaks up only certain colours: Balmer's pattern, Bohr's ladder, and the electron as a wave. |
-| 9 | Mostly hydrogen (`hydrogen`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How stars were sorted into classes, and why the classes are temperatures, not ingredients. |
-| 10 | Giants and dwarfs (`hr`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | How plotting brightness against colour sorted the stars, and showed that some are giants and some are no bigger than the Earth. *Outline v2 adds binary stars here (not written yet).* |
-| 11 | What makes the Sun shine? (`sunshine`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check | Why burning and shrinking can't power the Sun for long enough, and how fusing hydrogen into helium does. |
-| 12 | Clusters as clocks (`clusters`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How a star's mass decides how long it lives, what happens when its core runs out of hydrogen, and how a cluster of stars tells its own age. |
-| 13 | Muons that live too long (`muons`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why light's speed is the same for everyone, why that makes moving clocks run slow, and how muons raining down a mountain prove it. |
-| 14 | The Sun bends starlight (`bending`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How gravity slows time, why that makes things fall and bends light, and how Mercury, an eclipse and the satellites in your phone test it. |
-| 15 | Stars that shouldn't exist (`dead-stars`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What holds up a dead star that has no fuel left, why a heavier white dwarf is smaller, and why no white dwarf can weigh more than about 1.4 Suns. |
-| 16 | Little green men (`pulsars`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How a graduate student found a clock in the sky, how she and her colleagues ruled out aliens, and why it had to be a spinning star made of neutrons. |
-| 17 | Star stuff (`star-stuff`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How stars build the elements, why fusion stops at iron, how heavy stars explode, and where the carbon, calcium and gold around you were made. |
-| 18 | Dark stars (`dark-stars`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why enough mass in a small enough space traps light, what a black hole's horizon is and isn't, and how one was found. |
-| 19 | Island universes (`island`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How we found we are not at the centre of our galaxy, how the 1920 debate about the spiral nebulae was settled, and how a pulsing star measures distances to other galaxies. |
-| 20 | Everything is running away (`running`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How the redshifts of galaxies showed the universe is expanding, why that doesn't put us at the centre, and how the expansion gives the universe an age. |
-| 21 | Brighter than a galaxy (`quasars`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How a faint blue 'star' turned out to outshine whole galaxies, why the engine must be a giant black hole, and how one was found at the centre of our own galaxy. |
-| 22 | Why is the night sky dark? (`dark-night`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why the darkness of night means the universe had a beginning, how the Big Bang beat the Steady State, and how the afterglow of the hot young universe was found. |
-| 23 | Unseen mass or a wrong law? (`missing-mass`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why galaxies and clusters seem to hold far more mass than we can see, the case for dark matter against a change in the law of gravity, and why the answer is still open. |
-| 24 | The speeding universe (`speeding`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How exploding white dwarfs showed the expansion of the universe is speeding up, what dark energy is (and isn't known to be), and how it settled the puzzle of stars older than the universe. |
-| 25 | Did time have a beginning? (`beginning`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What Einstein's theory says about the first moment, why it predicts its own failure there, and what is well tested about the Big Bang and what isn't. |
+| 1 | Two shadows (`shadows`) |  | awaiting fact check |  | How a shadow measured the Earth, and how an angle measured the distance to the Sun. |
+| 2 | Planets that loop backwards (`loops`) |  | awaiting fact check |  | Why planets sometimes run backwards across the sky, and why their orbits are ellipses. |
+| 3 | The falling Moon (`falling`) |  | awaiting fact check |  | Why the Moon goes round the Earth instead of falling down, and why orbits are ellipses. |
+| 4 | A planet found with a pen (`neptune`) |  | awaiting fact check |  | How small errors in Uranus's orbit revealed Neptune, and why the same trick failed for Mercury. |
+| 5 | How far are the stars? (`parallax`) |  | awaiting fact check |  | Why the stars should shift as the Earth moves, why nobody could see it, and how Bessel finally did. |
+| 6 | What the stars are made of (`spectra`) |  | awaiting fact check |  | How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth. *Outline v2 adds the Doppler shift here (not written yet).* |
+| 7 | Why are there no green stars? (`colour`) |  | awaiting fact check |  | How a star's colour gives its temperature, and why no star looks green. |
+| 8 | A schoolteacher's number puzzle (`ladder`) |  | awaiting fact check | Photos (no photos chosen yet) | Why each kind of atom gives out and soaks up only certain colours: Balmer's pattern, Bohr's ladder, and the electron as a wave. |
+| 9 | Mostly hydrogen (`hydrogen`) |  | awaiting fact check |  | How stars were sorted into classes, and why the classes are temperatures, not ingredients. |
+| 10 | Giants and dwarfs (`hr`) |  | awaiting fact check |  | How plotting brightness against colour sorted the stars, and showed that some are giants and some are no bigger than the Earth. *Outline v2 adds binary stars here (not written yet).* |
+| 11 | What makes the Sun shine? (`sunshine`) |  | awaiting fact check |  | Why burning and shrinking can't power the Sun for long enough, and how fusing hydrogen into helium does. |
+| 12 | Clusters as clocks (`clusters`) |  | awaiting fact check | Photos (no photos chosen yet) | How a star's mass decides how long it lives, what happens when its core runs out of hydrogen, and how a cluster of stars tells its own age. |
+| 13 | Muons that live too long (`muons`) |  | awaiting fact check | Photos (no photos chosen yet) | Why light's speed is the same for everyone, why that makes moving clocks run slow, and how muons raining down a mountain prove it. |
+| 14 | The Sun bends starlight (`bending`) |  | awaiting fact check | Photos (no photos chosen yet) | How gravity slows time, why that makes things fall and bends light, and how Mercury, an eclipse and the satellites in your phone test it. |
+| 15 | Stars that shouldn't exist (`dead-stars`) |  | awaiting fact check | Photos (no photos chosen yet) | What holds up a dead star that has no fuel left, why a heavier white dwarf is smaller, and why no white dwarf can weigh more than about 1.4 Suns. |
+| 16 | Little green men (`pulsars`) |  | awaiting fact check | Photos (no photos chosen yet) | How a graduate student found a clock in the sky, how she and her colleagues ruled out aliens, and why it had to be a spinning star made of neutrons. |
+| 17 | Star stuff (`star-stuff`) |  | awaiting fact check | Photos (no photos chosen yet) | How stars build the elements, why fusion stops at iron, how heavy stars explode, and where the carbon, calcium and gold around you were made. |
+| 18 | Dark stars (`dark-stars`) |  | awaiting fact check | Photos (no photos chosen yet) | Why enough mass in a small enough space traps light, what a black hole's horizon is and isn't, and how one was found. |
+| 19 | Island universes (`island`) |  | awaiting fact check | Photos (no photos chosen yet) | How we found we are not at the centre of our galaxy, how the 1920 debate about the spiral nebulae was settled, and how a pulsing star measures distances to other galaxies. |
+| 20 | Everything is running away (`running`) |  | awaiting fact check | Photos (no photos chosen yet) | How the redshifts of galaxies showed the universe is expanding, why that doesn't put us at the centre, and how the expansion gives the universe an age. |
+| 21 | Brighter than a galaxy (`quasars`) |  | awaiting fact check | Photos (no photos chosen yet) | How a faint blue 'star' turned out to outshine whole galaxies, why the engine must be a giant black hole, and how one was found at the centre of our own galaxy. |
+| 22 | Why is the night sky dark? (`dark-night`) |  | awaiting fact check | Photos (no photos chosen yet) | Why the darkness of night means the universe had a beginning, how the Big Bang beat the Steady State, and how the afterglow of the hot young universe was found. |
+| 23 | Unseen mass or a wrong law? (`missing-mass`) |  | awaiting fact check | Photos (no photos chosen yet) | Why galaxies and clusters seem to hold far more mass than we can see, the case for dark matter against a change in the law of gravity, and why the answer is still open. |
+| 24 | The speeding universe (`speeding`) |  | awaiting fact check | Photos (no photos chosen yet) | How exploding white dwarfs showed the expansion of the universe is speeding up, what dark energy is (and isn't known to be), and how it settled the puzzle of stars older than the universe. |
+| 25 | Did time have a beginning? (`beginning`) |  | awaiting fact check | Photos (no photos chosen yet) | What Einstein's theory says about the first moment, why it predicts its own failure there, and what is well tested about the Big Bang and what isn't. |
 | N1 | Why is summer hot? (`december`) | The sky from home | planned, listed as coming |  | Tilt, not distance: the seasons, and Seattle’s dark Decembers. |
 | N2 | The changing Moon (`phases`) | The sky from home | planned, listed as coming |  | Phases, and why eclipses don’t come every month. |
 | N3 | The Sun over the Olympics (`sun-path`) | The sky from home | planned, listed as coming |  | The Sun’s path through the year at 48° N. |
@@ -250,43 +250,43 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | How many kinds are there? (`kinds`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How to estimate what you can’t count, and why no one knows how many species there are. |
-| 2 | Why aren’t we knee-deep in elephants? (`elephants`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How populations grow, why growth compounds, and what brings it to a stop. |
-| 3 | The reindeer of St Matthew Island (`reindeer`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why a population can shoot past its ceiling and crash when its food is slow to grow back. |
-| 4 | The hare and the lynx (`lynx`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why predators and prey rise and fall in cycles, and why fishing both can help the prey. |
-| 5 | A drought on Daphne Major (`finches`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What natural selection is, and how it was watched changing a population in a single year. |
-| 6 | Gause’s bottles (`gause`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Why two species can’t share one food in the same way, and how splitting it lets them live together. |
-| 7 | The sea star experiment (`seastar`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How one predator can keep many species on a shore, and what a keystone species is. |
-| 8 | Why is the world green? (`green`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How a predator can protect plants it never eats, and why food chains flip in alternation. |
-| 9 | The ants that guard a tree (`acacia`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What a mutualism is, what each partner pays, and how cheaters threaten it. |
-| 10 | Why big fierce animals are rare (`pyramid`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How energy passes up a food chain, why most of it ends as heat, and why that keeps chains short and top predators few. |
-| 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
-| 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
-| 13 | A curtain across a lake (`curtain`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
-| 14 | Walking back in time (`glacier-bay`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
-| 15 | Is a forest an organism? (`gaps`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Clements, Gleason and a forest grown gap by gap. |
-| 16 | Boulders and fires (`fires`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Why some disturbance keeps more kinds alive. |
-| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Chimborazo, climate zones and why they move. |
-| 18 | Islands that refilled (`islands`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check | Mangrove islets, arrivals, losses and the species-area rule. |
-| 19 | Half the Earth? (`half`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
-| H1 | Eggs that broke (`eggs`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check | Peregrines, DDT and poisons that build up the food chain. |
-| H2 | Arrivals (`arrivals`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check | Species carried to new places, and the few that take over. |
-| H3 | The cod that didn’t come back (`cod`) | People in the web | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Harvesting a stock, and a fishery that collapsed. |
-| N1 | Trails that fade (`trails`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check | How ants find the shortest path with no one in charge. |
-| N2 | Why work for someone else’s children? (`kin`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Hamilton’s rule and the sterile workers. |
-| N3 | Farmers in the forest (`farmers`) | Ants and other societies | awaiting Gemini review (queued 2026-11-04) | Fact check | Leafcutter ants and their fungus gardens. |
-| T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check | Zones of a Salish Sea shore and what sets each edge. |
-| T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check | Sea star wasting and the urchins that followed. |
-| T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | awaiting Gemini review (queued 2026-11-04) | Fact check | Sea otters on the outer coast of Washington. |
-| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check | What lived through the 1980 blast at Mount St Helens. |
-| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check | The first plants on the Pumice Plain. |
-| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | awaiting Gemini review (queued 2026-11-04) | Fact check | A lake that went dead and came back. |
-| S1 | Why no trees? (`no-trees`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check | The shrub-steppe of the dry side. |
-| S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check | An annual grass that changed a fire cycle. |
-| S3 | The prairie under the wheat (`palouse`) | The dry side | awaiting Gemini review (queued 2026-11-04) | Fact check | The Palouse prairie and what is left of it. |
-| W1 | Salmon in the trees (`salmon-trees`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check | Ocean nitrogen carried up rivers by salmon. |
-| W2 | After the dams came down (`elwha`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check | The Elwha River since 2014. |
-| W3 | The lake Seattle saved (`lake-washington`) | Salmon and Lake Washington | awaiting Gemini review (queued 2026-11-04) | Fact check | Edmondson, sewage and a lake that cleared. |
+| 1 | How many kinds are there? (`kinds`) |  | awaiting fact check | Photos (no photos chosen yet) | How to estimate what you can’t count, and why no one knows how many species there are. |
+| 2 | Why aren’t we knee-deep in elephants? (`elephants`) |  | awaiting fact check | Photos (no photos chosen yet) | How populations grow, why growth compounds, and what brings it to a stop. |
+| 3 | The reindeer of St Matthew Island (`reindeer`) |  | awaiting fact check | Photos (no photos chosen yet) | Why a population can shoot past its ceiling and crash when its food is slow to grow back. |
+| 4 | The hare and the lynx (`lynx`) |  | awaiting fact check | Photos (no photos chosen yet) | Why predators and prey rise and fall in cycles, and why fishing both can help the prey. |
+| 5 | A drought on Daphne Major (`finches`) |  | awaiting fact check | Photos (no photos chosen yet) | What natural selection is, and how it was watched changing a population in a single year. |
+| 6 | Gause’s bottles (`gause`) |  | awaiting fact check | Photos (no photos chosen yet) | Why two species can’t share one food in the same way, and how splitting it lets them live together. |
+| 7 | The sea star experiment (`seastar`) |  | awaiting fact check | Photos (no photos chosen yet) | How one predator can keep many species on a shore, and what a keystone species is. |
+| 8 | Why is the world green? (`green`) |  | awaiting fact check | Photos (no photos chosen yet) | How a predator can protect plants it never eats, and why food chains flip in alternation. |
+| 9 | The ants that guard a tree (`acacia`) |  | awaiting fact check | Photos (no photos chosen yet) | What a mutualism is, what each partner pays, and how cheaters threaten it. |
+| 10 | Why big fierce animals are rare (`pyramid`) |  | awaiting fact check | Photos (no photos chosen yet) | How energy passes up a food chain, why most of it ends as heat, and why that keeps chains short and top predators few. |
+| 11 | The planet breathes (`breathes`) |  | awaiting fact check |  | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
+| 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
+| 13 | A curtain across a lake (`curtain`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
+| 14 | Walking back in time (`glacier-bay`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
+| 15 | Is a forest an organism? (`gaps`) |  | awaiting fact check |  | Clements, Gleason and a forest grown gap by gap. |
+| 16 | Boulders and fires (`fires`) |  | awaiting fact check |  | Why some disturbance keeps more kinds alive. |
+| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting fact check |  | Chimborazo, climate zones and why they move. |
+| 18 | Islands that refilled (`islands`) |  | awaiting fact check |  | Mangrove islets, arrivals, losses and the species-area rule. |
+| 19 | Half the Earth? (`half`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
+| H1 | Eggs that broke (`eggs`) | People in the web | awaiting fact check |  | Peregrines, DDT and poisons that build up the food chain. |
+| H2 | Arrivals (`arrivals`) | People in the web | awaiting fact check |  | Species carried to new places, and the few that take over. |
+| H3 | The cod that didn’t come back (`cod`) | People in the web | awaiting fact check | Photos (no photos chosen yet) | Harvesting a stock, and a fishery that collapsed. |
+| N1 | Trails that fade (`trails`) | Ants and other societies | awaiting fact check |  | How ants find the shortest path with no one in charge. |
+| N2 | Why work for someone else’s children? (`kin`) | Ants and other societies | awaiting fact check | Photos (no photos chosen yet) | Hamilton’s rule and the sterile workers. |
+| N3 | Farmers in the forest (`farmers`) | Ants and other societies | awaiting fact check |  | Leafcutter ants and their fungus gardens. |
+| T1 | Stripes on the rocks (`stripes`) | Tide pools of the Salish Sea | awaiting fact check |  | Zones of a Salish Sea shore and what sets each edge. |
+| T2 | The year the sea stars melted (`melted`) | Tide pools of the Salish Sea | awaiting fact check |  | Sea star wasting and the urchins that followed. |
+| T3 | The otters came back (`otters`) | Tide pools of the Salish Sea | awaiting fact check |  | Sea otters on the outer coast of Washington. |
+| M1 | Survivors under the snow (`under-snow`) | Mount St Helens | awaiting fact check |  | What lived through the 1980 blast at Mount St Helens. |
+| M2 | Lupine on the pumice (`lupine`) | Mount St Helens | awaiting fact check |  | The first plants on the Pumice Plain. |
+| M3 | Spirit Lake (`spirit-lake`) | Mount St Helens | awaiting fact check |  | A lake that went dead and came back. |
+| S1 | Why no trees? (`no-trees`) | The dry side | awaiting fact check |  | The shrub-steppe of the dry side. |
+| S2 | Cheatgrass and fire (`cheatgrass`) | The dry side | awaiting fact check |  | An annual grass that changed a fire cycle. |
+| S3 | The prairie under the wheat (`palouse`) | The dry side | awaiting fact check |  | The Palouse prairie and what is left of it. |
+| W1 | Salmon in the trees (`salmon-trees`) | Salmon and Lake Washington | awaiting fact check |  | Ocean nitrogen carried up rivers by salmon. |
+| W2 | After the dams came down (`elwha`) | Salmon and Lake Washington | awaiting fact check |  | The Elwha River since 2014. |
+| W3 | The lake Seattle saved (`lake-washington`) | Salmon and Lake Washington | awaiting fact check |  | Edmondson, sewage and a lake that cleared. |
 
 ## Botany <a id="botany"></a>
 
@@ -294,39 +294,39 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The willow in the tub (`willow`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Where a plant's mass comes from: mostly the air, a little water, almost none from the soil. |
-| 2 | Restoring the air (`air`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | That plants make oxygen only in light but breathe all the time, and how a leaf's balance sets where it can live. |
-| 3 | Why leaves are green (`green`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Which colours of light leaves use, why they still look green, and what happens to the green in autumn. |
-| 4 | Where the oxygen comes from (`oxygen`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | That the oxygen plants give off comes from splitting water, and how carbon dioxide is turned into sugar in a cycle. |
-| 5 | Boxes full of water (`cells`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What plant cells are, how water moves into them by osmosis, and how its pressure holds a soft plant up. |
-| 6 | Higher than a pump can lift (`xylem`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How trees lift water a hundred metres by pulling it, under tension, through dead pipes. |
-| 7 | The pores on old herbarium sheets (`stomata`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How leaves trade water for carbon dioxide through their pores, and how a plant adjusts within its life. |
-| 8 | Sour in the morning (`cam`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Rubisco's mistake with oxygen, and the two ways plants get round it: the C4 pump and CAM's night shift. |
-| 9 | The ring around the trunk (`phloem`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How sugar moves through a plant in the phloem, pushed by osmotic pressure from where it's made to where it's used. |
-| 10 | Peas in sterile sand (`peas`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What plants take from the soil, why fertiliser isn't food, and how peas get nitrogen from the air with the help of bacteria. |
-| 11 | The plant with no green (`pale`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How root fungi trade phosphorus and water for a plant's sugar, and how some plants with no chlorophyll cheat on the trade. |
-| 12 | The spiral in the pine cone (`spiral`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants grow longer only near their tips, and how one rule for placing each new leaf makes Fibonacci spirals. |
-| 13 | The bending seedling (`bending`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a shoot bends toward light: the tip senses it, and a hormone, auxin, makes the shaded side grow faster. |
-| 14 | The foolish seedling (`foolish`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Gibberellin, the hormone that lengthens stems, found through a rice disease, and the short wheat and rice of the Green Revolution. |
-| 15 | The plant in the cupboard (`cupboard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants keep time with an inner clock, time the night to know the season, and read red and far-red light to tell sun from shade. |
-| 16 | Rings that tell time (`rings`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How the cambium under the bark makes a ring of wood each year, and how matching patterns of wide and thin rings dates old timber. |
-| 17 | Plants without leaves (`rhynie`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants came onto land, what they had to solve there, and the two generations in the life of a moss, a fern and a pine. |
-| 18 | The comet orchid (`orchid`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | What flowers are for, how they make animals carry pollen, the double fertilisation that makes a seed and fruit, and a moth Darwin predicted forty years early. |
-| 19 | Travelling and waiting (`seeds`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable. |
-| 20 | The caterpillar’s menu (`menu`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants defend themselves with poisons, spines and toughness, what defence costs, and how specialist insects beat one family's poisons and use them to find their food. |
-| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
-| K1 | Counting stamens (`stamens`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Linnaeus's system of sorting plants by counting stamens, the two-word names that outlived it, how to read a plant's name, and why names and families still change. |
-| K2 | Using a key (`key`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook. |
-| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
-| K4 | The deadly look-alikes (`look-alikes`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Camas and death camas, and poison hemlock, water hemlock and Queen Anne's lace: how botanists tell them apart, and why this course gives no advice on eating wild plants. |
-| C1 | Mendel’s peas (`mendel`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How Gregor Mendel's counts of pea plants showed that traits are passed on as particles, one copy from each parent, why short plants vanish and come back in a quarter of the next generation, and what the short gene does. |
-| C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How maize was made from teosinte, a Mexican grass that looks nothing like it, how George Beadle and later DNA showed it, and how a few genes made the biggest changes. |
-| C3 | Wheat on the Palouse (`wheat`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How eastern Washington grows high wheat yields without irrigation: winter wheat and its need for cold, Orville Vogel's short wheats, storing water in fallow fields, and the soil it has cost. |
-| C4 | Every Red Delicious is one tree (`apples`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why an apple seed almost never grows the apple it came from, how grafting copies a tree by joining cambium to cambium, how rootstocks set a tree's size, and the apples of Washington. |
-| O1 | Snap traps and sticky leaves (`traps`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why plants of nitrogen-poor bogs catch insects, how a sundew tells food from grit, and how a Venus flytrap counts touches and snaps shut faster than water can move. |
-| O2 | Plants that steal (`steal`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Parasitic plants that tap other plants' xylem and phloem: dodder, which finds its host by smell, mistletoes that fire their seeds, and witchweed, which waits for a crop's root to call. |
-| O3 | The heaviest living thing (`giant`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Pando, a grove of aspen that is one plant, what counts as one living thing, the other contenders for biggest, how tall a tree can grow, and why Pando is shrinking. |
-| O4 | Flowers that make heat (`heat`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How skunk cabbage, the sacred lotus and titan arum burn sugar to warm their flowers, how a lotus flower holds its temperature like a thermostat, and what the warmth is for. |
+| 1 | The willow in the tub (`willow`) |  | awaiting fact check | Photos (no photos chosen yet) | Where a plant's mass comes from: mostly the air, a little water, almost none from the soil. |
+| 2 | Restoring the air (`air`) |  | awaiting fact check | Photos (no photos chosen yet) | That plants make oxygen only in light but breathe all the time, and how a leaf's balance sets where it can live. |
+| 3 | Why leaves are green (`green`) |  | awaiting fact check | Photos (no photos chosen yet) | Which colours of light leaves use, why they still look green, and what happens to the green in autumn. |
+| 4 | Where the oxygen comes from (`oxygen`) |  | awaiting fact check | Photos (no photos chosen yet) | That the oxygen plants give off comes from splitting water, and how carbon dioxide is turned into sugar in a cycle. |
+| 5 | Boxes full of water (`cells`) |  | awaiting fact check | Photos (no photos chosen yet) | What plant cells are, how water moves into them by osmosis, and how its pressure holds a soft plant up. |
+| 6 | Higher than a pump can lift (`xylem`) |  | awaiting fact check | Photos (no photos chosen yet) | How trees lift water a hundred metres by pulling it, under tension, through dead pipes. |
+| 7 | The pores on old herbarium sheets (`stomata`) |  | awaiting fact check | Photos (no photos chosen yet) | How leaves trade water for carbon dioxide through their pores, and how a plant adjusts within its life. |
+| 8 | Sour in the morning (`cam`) |  | awaiting fact check | Photos (no photos chosen yet) | Rubisco's mistake with oxygen, and the two ways plants get round it: the C4 pump and CAM's night shift. |
+| 9 | The ring around the trunk (`phloem`) |  | awaiting fact check | Photos (no photos chosen yet) | How sugar moves through a plant in the phloem, pushed by osmotic pressure from where it's made to where it's used. |
+| 10 | Peas in sterile sand (`peas`) |  | awaiting fact check | Photos (no photos chosen yet) | What plants take from the soil, why fertiliser isn't food, and how peas get nitrogen from the air with the help of bacteria. |
+| 11 | The plant with no green (`pale`) |  | awaiting fact check | Photos (no photos chosen yet) | How root fungi trade phosphorus and water for a plant's sugar, and how some plants with no chlorophyll cheat on the trade. |
+| 12 | The spiral in the pine cone (`spiral`) |  | awaiting fact check | Photos (no photos chosen yet) | How plants grow longer only near their tips, and how one rule for placing each new leaf makes Fibonacci spirals. |
+| 13 | The bending seedling (`bending`) |  | awaiting fact check | Photos (no photos chosen yet) | How a shoot bends toward light: the tip senses it, and a hormone, auxin, makes the shaded side grow faster. |
+| 14 | The foolish seedling (`foolish`) |  | awaiting fact check | Photos (no photos chosen yet) | Gibberellin, the hormone that lengthens stems, found through a rice disease, and the short wheat and rice of the Green Revolution. |
+| 15 | The plant in the cupboard (`cupboard`) |  | awaiting fact check | Photos (no photos chosen yet) | How plants keep time with an inner clock, time the night to know the season, and read red and far-red light to tell sun from shade. |
+| 16 | Rings that tell time (`rings`) |  | awaiting fact check | Photos (no photos chosen yet) | How the cambium under the bark makes a ring of wood each year, and how matching patterns of wide and thin rings dates old timber. |
+| 17 | Plants without leaves (`rhynie`) |  | awaiting fact check | Photos (no photos chosen yet) | How plants came onto land, what they had to solve there, and the two generations in the life of a moss, a fern and a pine. |
+| 18 | The comet orchid (`orchid`) |  | awaiting fact check | Photos (no photos chosen yet) | What flowers are for, how they make animals carry pollen, the double fertilisation that makes a seed and fruit, and a moth Darwin predicted forty years early. |
+| 19 | Travelling and waiting (`seeds`) |  | awaiting fact check | Photos (no photos chosen yet) | How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable. |
+| 20 | The caterpillar’s menu (`menu`) |  | awaiting fact check | Photos (no photos chosen yet) | How plants defend themselves with poisons, spines and toughness, what defence costs, and how specialist insects beat one family's poisons and use them to find their food. |
+| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting fact check | Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
+| K1 | Counting stamens (`stamens`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Linnaeus's system of sorting plants by counting stamens, the two-word names that outlived it, how to read a plant's name, and why names and families still change. |
+| K2 | Using a key (`key`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook. |
+| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
+| K4 | The deadly look-alikes (`look-alikes`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Camas and death camas, and poison hemlock, water hemlock and Queen Anne's lace: how botanists tell them apart, and why this course gives no advice on eating wild plants. |
+| C1 | Mendel’s peas (`mendel`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How Gregor Mendel's counts of pea plants showed that traits are passed on as particles, one copy from each parent, why short plants vanish and come back in a quarter of the next generation, and what the short gene does. |
+| C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How maize was made from teosinte, a Mexican grass that looks nothing like it, how George Beadle and later DNA showed it, and how a few genes made the biggest changes. |
+| C3 | Wheat on the Palouse (`wheat`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How eastern Washington grows high wheat yields without irrigation: winter wheat and its need for cold, Orville Vogel's short wheats, storing water in fallow fields, and the soil it has cost. |
+| C4 | Every Red Delicious is one tree (`apples`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | Why an apple seed almost never grows the apple it came from, how grafting copies a tree by joining cambium to cambium, how rootstocks set a tree's size, and the apples of Washington. |
+| O1 | Snap traps and sticky leaves (`traps`) | Odd plants | awaiting fact check | Photos (no photos chosen yet) | Why plants of nitrogen-poor bogs catch insects, how a sundew tells food from grit, and how a Venus flytrap counts touches and snaps shut faster than water can move. |
+| O2 | Plants that steal (`steal`) | Odd plants | awaiting fact check | Photos (no photos chosen yet) | Parasitic plants that tap other plants' xylem and phloem: dodder, which finds its host by smell, mistletoes that fire their seeds, and witchweed, which waits for a crop's root to call. |
+| O3 | The heaviest living thing (`giant`) | Odd plants | awaiting fact check | Photos (no photos chosen yet) | Pando, a grove of aspen that is one plant, what counts as one living thing, the other contenders for biggest, how tall a tree can grow, and why Pando is shrinking. |
+| O4 | Flowers that make heat (`heat`) | Odd plants | awaiting fact check | Photos (no photos chosen yet) | How skunk cabbage, the sacred lotus and titan arum burn sugar to warm their flowers, how a lotus flower holds its temperature like a thermostat, and what the warmth is for. |
 
 ## Synthesizers <a id="synthesizers"></a>
 
@@ -334,36 +334,36 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
-| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
-| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
-| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
-| 5 | Counting beats (`beats`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
-| 6 | The accidental bell (`bells`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
-| 7 | The torn speaker (`fuzz`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
-| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
-| 9 | Does the order matter? (`order`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
-| 10 | The silent key (`silent`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
-| 11 | Wind from nothing (`noise`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
-| 12 | A drum with no drum (`drums`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
-| 13 | The computer that burbles (`random`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
-| 14 | The envelope that wouldn't stop (`cycle`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
-| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
-| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
-| 17 | The slide (`glide`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
-| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
-| 19 | One hand, many notes (`arp`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
-| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
-| 21 | Knobs that remember (`lanes`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Recorded knob moves in a sequence, and controlled randomness. |
-| 22 | Same knob, different job (`macros`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
-| 23 | The blank patch (`blank`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
-| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
-| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
-| O3 | A string from a delay line (`pluck`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
-| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
-| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
-| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Granular synthesis: grain size, density and position. |
-| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Gemini (queued 2026-11-04); Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
+| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
+| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
+| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
+| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
+| 5 | Counting beats (`beats`) |  | needs student read-through | Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
+| 6 | The accidental bell (`bells`) |  | needs student read-through | Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
+| 7 | The torn speaker (`fuzz`) |  | needs student read-through | Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
+| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
+| 9 | Does the order matter? (`order`) |  | needs student read-through | Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
+| 10 | The silent key (`silent`) |  | needs student read-through | Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
+| 11 | Wind from nothing (`noise`) |  | needs student read-through | Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
+| 12 | A drum with no drum (`drums`) |  | needs student read-through | Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
+| 13 | The computer that burbles (`random`) |  | needs student read-through | Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
+| 14 | The envelope that wouldn't stop (`cycle`) |  | needs student read-through | Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
+| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
+| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
+| 17 | The slide (`glide`) |  | needs student read-through | Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
+| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
+| 19 | One hand, many notes (`arp`) |  | needs student read-through | Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
+| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
+| 21 | Knobs that remember (`lanes`) |  | needs student read-through | Fact check | Recorded knob moves in a sequence, and controlled randomness. |
+| 22 | Same knob, different job (`macros`) |  | needs student read-through | Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
+| 23 | The blank patch (`blank`) |  | needs student read-through | Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
+| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
+| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
+| O3 | A string from a delay line (`pluck`) | Other oscillators | needs student read-through | Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
+| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
+| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
+| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Fact check | Granular synthesis: grain size, density and position. |
+| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
 
 ## Money That Lasts <a id="finance"></a>
 
@@ -371,38 +371,38 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why the savings rate beats the return (`savings-rate`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
-| 2 | Where 4 percent came from (`four-percent`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
-| 3 | The same average, a different order (`sequence`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
-| 4 | A fifty-year retirement (`long-retirement`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
-| 5 | Spending rules that bend (`flexible-spending`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
-| 6 | Stocks, bonds and the glide path (`allocation`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
-| 7 | How a federal return stacks (`brackets`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
-| 8 | Four buckets (`accounts`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
-| 9 | Money before 59 and a half (`early-access`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
-| 10 | Filling the low brackets (`filling-brackets`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
-| 11 | Health insurance before 65 (`aca`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
-| 12 | Which account to spend first (`withdrawal-order`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
-| 13 | Social Security, worked out (`social-security`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
-| 14 | Build the plan (`capstone`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
-| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | needs student read-through | Gemini (queued 2026-11-04); Fact check | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
-| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | needs student read-through | Gemini (queued 2026-11-04); Fact check | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
-| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | needs student read-through | Gemini (queued 2026-11-04); Fact check | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
-| W1 | What Washington taxes instead (`wa-taxes`) | Washington | needs student read-through | Gemini (queued 2026-11-04); Fact check | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
-| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | needs student read-through | Gemini (queued 2026-11-04); Fact check | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
-| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | needs student read-through | Gemini (queued 2026-11-04); Fact check | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
-| T1 | Where to hold what (`asset-location`) | Taxable-account craft | needs student read-through | Gemini (queued 2026-11-04); Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
-| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | needs student read-through | Gemini (queued 2026-11-04); Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
-| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | needs student read-through | Gemini (queued 2026-11-04); Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
-| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | needs student read-through | Gemini (queued 2026-11-04); Fact check | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
-| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | needs student read-through | Gemini (queued 2026-11-04); Fact check | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
-| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | needs student read-through | Gemini (queued 2026-11-04); Fact check | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
-| C1 | Two people, one plan (`filing-status`) | Couples and heirs | needs student read-through | Gemini (queued 2026-11-04); Fact check | When marriage raises or lowers a couple's tax, how unmarried partners are treated for tax and health credits, and the higher tax a survivor pays on the same savings. |
-| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | needs student read-through | Gemini (queued 2026-11-04); Fact check | Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax. |
-| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | needs student read-through | Gemini (queued 2026-11-04); Fact check | What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance. |
-| H2 | Long-term care (`long-term-care`) | Health after 65 | needs student read-through | Gemini (queued 2026-11-04); Fact check | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
-| S1 | Coast, part-time and partial (`coast`) | Other shapes | needs student read-through | Gemini (queued 2026-11-04); Fact check | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
-| S2 | The house (`housing`) | Other shapes | needs student read-through | Gemini (queued 2026-11-04); Fact check | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
+| 1 | Why the savings rate beats the return (`savings-rate`) |  | needs student read-through | Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
+| 2 | Where 4 percent came from (`four-percent`) |  | needs student read-through | Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
+| 3 | The same average, a different order (`sequence`) |  | needs student read-through | Fact check | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
+| 4 | A fifty-year retirement (`long-retirement`) |  | needs student read-through | Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
+| 5 | Spending rules that bend (`flexible-spending`) |  | needs student read-through | Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
+| 6 | Stocks, bonds and the glide path (`allocation`) |  | needs student read-through | Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
+| 7 | How a federal return stacks (`brackets`) |  | needs student read-through | Fact check | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
+| 8 | Four buckets (`accounts`) |  | needs student read-through | Fact check | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
+| 9 | Money before 59 and a half (`early-access`) |  | needs student read-through | Fact check | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
+| 10 | Filling the low brackets (`filling-brackets`) |  | needs student read-through | Fact check | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
+| 11 | Health insurance before 65 (`aca`) |  | needs student read-through | Fact check | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
+| 12 | Which account to spend first (`withdrawal-order`) |  | needs student read-through | Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
+| 13 | Social Security, worked out (`social-security`) |  | needs student read-through | Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
+| 14 | Build the plan (`capstone`) |  | needs student read-through | Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
+| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | needs student read-through | Fact check | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
+| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | needs student read-through | Fact check | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
+| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | needs student read-through | Fact check | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
+| W1 | What Washington taxes instead (`wa-taxes`) | Washington | needs student read-through | Fact check | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
+| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | needs student read-through | Fact check | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
+| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | needs student read-through | Fact check | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
+| T1 | Where to hold what (`asset-location`) | Taxable-account craft | needs student read-through | Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
+| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | needs student read-through | Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
+| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | needs student read-through | Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
+| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | needs student read-through | Fact check | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
+| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | needs student read-through | Fact check | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
+| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | needs student read-through | Fact check | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
+| C1 | Two people, one plan (`filing-status`) | Couples and heirs | needs student read-through | Fact check | When marriage raises or lowers a couple's tax, how unmarried partners are treated for tax and health credits, and the higher tax a survivor pays on the same savings. |
+| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | needs student read-through | Fact check | Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax. |
+| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | needs student read-through | Fact check | What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance. |
+| H2 | Long-term care (`long-term-care`) | Health after 65 | needs student read-through | Fact check | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
+| S1 | Coast, part-time and partial (`coast`) | Other shapes | needs student read-through | Fact check | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
+| S2 | The house (`housing`) | Other shapes | needs student read-through | Fact check | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
 
 ## Fungi <a id="fungi"></a>
 
@@ -410,42 +410,31 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The ring in the meadow (`rings`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
-| 2 | Closer to us than to plants (`kingdom`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
-| 3 | Eating from the outside (`tips`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
-| 4 | Seven trillion spores (`spores`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
-| 5 | Twenty thousand sexes (`sexes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
-| 6 | Sacs and clubs (`groups`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
-| 7 | The yeast that wastes its sugar (`yeast`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
-| 8 | The gap in the coal (`rot`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
-| 9 | Do trees share through fungi? (`network`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
-| 10 | A lichen is two (or three) (`lichens`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
-| 11 | The spoiled plate (`mould`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why moulds make antibiotics, how penicillin was found and made into a medicine, and what fungi's other chemicals do. |
-| 12 | Foxfire (`glow`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Fungi that glow in the dark: how the light is made, and the experiment that asked what it is for. |
-| 13 | Fungi that hunt (`hunters`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence. |
-| 14 | How big is one fungus? (`individual`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | What counts as one fungus, and how genetic markers revealed single fungi covering whole forests. |
-| 15 | The trunk with no tree (`prototaxites`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for 165 years. |
-| 16 | A log's afterlife (`log`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way. |
-| L1 | The lichens that left the city (`bark`) | More lichens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How lichens vanished from smoky cities, how they were used to map sulphur in the air, and how they came back once the smoke ended. |
-| L2 | Dating a moraine by its lichens (`lichenometry`) | More lichens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers. |
-| L3 | Gardens in the canopy (`canopy`) | More lichens | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | The nitrogen-fixing lichens high in old Douglas-firs, what they add to the forest, and why young forests lack them. |
-| N1 | The autumn flush (`flush`) | Northwest fungi | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why Northwest mushrooms come up after the first soaking autumn rain and stop with hard frost, and how fruiting seasons are shifting. |
-| N2 | Gophers on the pumice (`pumice`) | Northwest fungi | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How root fungi came back to the bare pumice of Mount St Helens after 1980, carried by gophers, wind and elk, and why plants waited for them. |
-| N3 | The squirrel, the truffle and the owl (`truffles`) | Northwest fungi | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Underground truffles, the flying squirrels that dig them up and spread their spores, and the owls that eat the squirrels. |
-| M1 | A spore print and a microscope (`spore-print`) | Looking closely | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How mycologists examine a fungus: spore prints, gills and spores under the microscope, and why they measure many spores. |
-| M2 | Names written in DNA (`barcode`) | Looking closely | awaiting Gemini review (queued 2026-11-04) | Fact check | Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen. |
-| M3 | How many kinds of fungi? (`how-many`) | Looking closely | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | About 150,000 kinds named against 2 to 4 million estimated, how that estimate is made, and where the unnamed fungi are. |
-
-## Encyclopedia
-
-Waiting for the Gemini copy edit (`tools/encyclopedia-review-queue.json`):
-
-- `encyclopedia/geology.json`: course page and 24 new entries (student review done) (queued 2026-11-03)
-- `encyclopedia/astronomy.json`: course page and 19 new entries (student review done) (queued 2026-11-03)
-- `encyclopedia/clouds.json`: course page and 19 new entries (student review done) (queued 2026-11-03)
-- `encyclopedia/synthesizers.json`: course page and 20 new entries (no student review yet); 2026-11-03 also: white-noise, roland-tr-808 (queued 2026-11-03)
-- `encyclopedia/synthesizers.json`: new entry ems-vcs3 (lesson 15) (queued 2026-11-03)
-- `encyclopedia/synthesizers.json`: new entry don-buchla (lesson 22) (queued 2026-11-04)
+| 1 | The ring in the meadow (`rings`) |  | awaiting fact check | Photos (no photos chosen yet) | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
+| 2 | Closer to us than to plants (`kingdom`) |  | awaiting fact check | Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
+| 3 | Eating from the outside (`tips`) |  | awaiting fact check | Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
+| 4 | Seven trillion spores (`spores`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
+| 5 | Twenty thousand sexes (`sexes`) |  | awaiting fact check | Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
+| 6 | Sacs and clubs (`groups`) |  | awaiting fact check | Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
+| 7 | The yeast that wastes its sugar (`yeast`) |  | awaiting fact check | Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
+| 8 | The gap in the coal (`rot`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
+| 9 | Do trees share through fungi? (`network`) |  | awaiting fact check | Photos (no photos chosen yet) | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
+| 10 | A lichen is two (or three) (`lichens`) |  | awaiting fact check | Photos (no photos chosen yet) | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
+| 11 | The spoiled plate (`mould`) |  | awaiting fact check | Photos (no photos chosen yet) | Why moulds make antibiotics, how penicillin was found and made into a medicine, and what fungi's other chemicals do. |
+| 12 | Foxfire (`glow`) |  | awaiting fact check | Photos (no photos chosen yet) | Fungi that glow in the dark: how the light is made, and the experiment that asked what it is for. |
+| 13 | Fungi that hunt (`hunters`) |  | awaiting fact check | Photos (no photos chosen yet) | Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence. |
+| 14 | How big is one fungus? (`individual`) |  | awaiting fact check | Photos (no photos chosen yet) | What counts as one fungus, and how genetic markers revealed single fungi covering whole forests. |
+| 15 | The trunk with no tree (`prototaxites`) |  | awaiting fact check | Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for over 165 years. |
+| 16 | A log's afterlife (`log`) |  | awaiting fact check | Photos (no photos chosen yet) | How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way. |
+| L1 | The lichens that left the city (`bark`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | How lichens vanished from smoky cities, how they were used to map sulphur in the air, and how they came back once the smoke ended. |
+| L2 | Dating a moraine by its lichens (`lichenometry`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers. |
+| L3 | Gardens in the canopy (`canopy`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | The nitrogen-fixing lichens high in old Douglas-firs, what they add to the forest, and why young forests lack them. |
+| N1 | The autumn flush (`flush`) | Northwest fungi | awaiting fact check | Photos (no photos chosen yet) | Why Northwest mushrooms come up after the first soaking autumn rain and stop with hard frost, and how fruiting seasons are shifting. |
+| N2 | Gophers on the pumice (`pumice`) | Northwest fungi | awaiting fact check | Photos (no photos chosen yet) | How root fungi came back to the bare pumice of Mount St Helens after 1980, carried by gophers, wind and elk, and why plants waited for them. |
+| N3 | The squirrel, the truffle and the owl (`truffles`) | Northwest fungi | awaiting fact check | Photos (no photos chosen yet) | Underground truffles, the flying squirrels that dig them up and spread their spores, and the owls that eat the squirrels. |
+| M1 | A spore print and a microscope (`spore-print`) | Looking closely | awaiting fact check | Photos (no photos chosen yet) | How mycologists examine a fungus: spore prints, gills and spores under the microscope, and why they measure many spores. |
+| M2 | Names written in DNA (`barcode`) | Looking closely | awaiting fact check |  | Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen. |
+| M3 | How many kinds of fungi? (`how-many`) | Looking closely | awaiting fact check | Photos (no photos chosen yet) | About 150,000 kinds named against 2 to 4 million estimated, how that estimate is made, and where the unnamed fungi are. |
 
 ## Not started
 

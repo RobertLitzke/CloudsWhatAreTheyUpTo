@@ -34,7 +34,7 @@
     {
       "title": "The health savings account",
       "blocks": [
-        { "type": "text", "text": "An HSA is open only to people covered by a high-deductible health plan, but for them it is the best account the tax code offers. Contributions come off taxable income, and through payroll they also skip the 7.65 percent Social Security and Medicare tax, which even a 401(k) doesn't. The money can be invested, grows untaxed, and comes out untaxed for medical costs." },
+        { "type": "text", "text": "An HSA is open only to people covered by a high-deductible health plan,[^hdhp] but for them it is the best account the tax code offers. Contributions come off taxable income, and through payroll they also skip the 7.65 percent Social Security and Medicare tax, which even a 401(k) doesn't. The money can be invested, grows untaxed, and comes out untaxed for medical costs." },
         { "type": "text", "text": "The useful trick is that there is no deadline for reimbursement. Pay a medical bill from ordinary savings today, keep the receipt, leave the HSA invested, and reimburse yourself from it in twenty years. In effect the account becomes a second Roth, which can be drawn on at any age by matching old receipts.[^receipts]" },
         { "type": "text", "text": "After 65 an HSA can also be spent on anything, taxed as ordinary income like a traditional IRA, with no penalty. Before 65, money spent on anything other than health care is taxed and penalised 20 percent. The 2026 limits are $4,400 for self-only coverage and $8,750 for a family, plus $1,000 from age 55." }
       ]
@@ -42,7 +42,7 @@
     {
       "title": "Taxable accounts, and what to fill first",
       "blocks": [
-        { "type": "text", "text": "A taxable brokerage account looks like the worst of the four, and for a single deposit held thirty years it is. It has three things the others lack. There are no age rules: the money is available at any time, which matters to anyone planning to stop work before 59½ (lesson 9). The basis comes back untaxed, so selling $100,000 of shares bought for $70,000 adds only $30,000 to income. And a couple whose income is mostly long-term gains can sit in the 0 percent band for gains from lesson 7." },
+        { "type": "text", "text": "A taxable brokerage account looks like the worst of the four, and for a single deposit held thirty years it is. Yet it has three things the others lack. There are no age rules: the money is available at any time, which matters to anyone planning to stop work before 59½ (lesson 9). The basis comes back untaxed, so selling $100,000 of shares bought for $70,000 adds only $30,000 to income. And a couple whose income is mostly long-term gains can sit in the 0 percent band for gains from lesson 7." },
         { "type": "text", "text": "The 2026 contribution limits are $24,500 for a 401(k), plus $8,000 from age 50 or $11,250 from 60 to 63; and $7,500 for an IRA, plus $1,100 from 50. From 2026, workers who earned more than about $150,000 the year before must make their 401(k) catch-up contributions to a Roth.[^catchup] Higher earners can't put money into a Roth IRA directly, but can usually get there through a backdoor, which branch E explains with the mega backdoor." },
         { "type": "text", "text": "A common order of filling: take any employer match first, since it is an immediate return of 50 or 100 percent; then an HSA if eligible; then the 401(k) and IRA, pre-tax or Roth by the comparison above; and then a taxable account. Someone planning to stop work early may want the taxable account to grow larger than this order would make it, as the next lesson shows." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
@@ -79,6 +79,11 @@
   "footnotes": {
     "equal": { "kind": "technical", "title": "Why they match", "text": "Pre-tax: $10,000 × growth × (1 − rate). Roth: $10,000 × (1 − rate) × growth. The same three numbers multiplied in a different order. The Roth's one hidden advantage is size: a $24,500 Roth contribution holds more after-tax money than a $24,500 pre-tax one, so someone who fills the limit either way shelters more in the Roth." },
     "receipts": { "kind": "technical", "title": "Keeping receipts", "text": "The IRS can ask for proof that a reimbursement matches a qualified medical expense paid after the HSA was opened. A folder of scanned bills and explanations of benefits, kept as long as the account, is enough. The expense must have been paid while the account existed, not before." },
-    "catchup": { "kind": "technical", "title": "Roth catch-ups", "text": "The SECURE 2.0 Act of 2022 requires catch-up contributions from anyone whose wages from that employer were above a threshold in the previous year, set at $145,000 and raised for inflation, to go into a Roth 401(k). After a delay, the rule applies from 2026. Check the exact threshold for the year." }
+    "catchup": { "kind": "technical", "title": "Roth catch-ups", "text": "The SECURE 2.0 Act of 2022 requires catch-up contributions from anyone whose wages from that employer were above a threshold in the previous year, set at $145,000 and raised for inflation, to go into a Roth 401(k). After a delay, the rule applies from 2026. Check the exact threshold for the year." },
+    "hdhp": {
+      "kind": "technical",
+      "title": "High-deductible plans",
+      "text": "To qualify for an HSA in 2026, a health plan must have an annual deductible of at least $1,700 for self-only coverage or $3,400 for a family, and cap annual out-of-pocket costs at $8,500 or $17,000. You also cannot be enrolled in Medicare or covered by another non-qualifying plan."
+    }
   }
 }

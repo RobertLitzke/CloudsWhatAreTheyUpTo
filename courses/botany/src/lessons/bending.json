@@ -16,7 +16,7 @@
       "blocks": [
         {"type": "text", "text": "They tried caps of tinfoil, and little caps made of fine glass tubing painted black, over the tip. The seedlings grew straight up. Caps of clear glass let them bend. Then they did the opposite: buried the seedlings in fine black sand, or wrapped them in a collar, leaving only the tip in the light. They bent as usual, and the bend was still below the tip, in the part hidden from the lamp. Cutting the tip off stopped the bending entirely."},
         {"type": "interactive_diagram", "id": "darwin", "caption": "A canary grass seedling lit from one side, and what the Darwins and those after them did to it. A model.", "task": "Guess, then try at least five of the treatments", "goal": "all", "aspect_ratio": 1.74},
-        {"type": "text", "text": "In 1880 they published *The Power of Movement in Plants* and concluded that when the tip is lit from one side, \"some influence is transmitted from the upper to the lower part, causing the latter to bend.\" They did not know what the influence was. The next forty years found out, a step at a time. In 1913 the Danish botanist Peter Boysen-Jensen cut the tips off seedlings and stuck them back on with a slice of gelatine between, and they still bent: the influence could cross a gap of jelly. A sliver of mica pushed into the shaded side, below the tip, stopped the bend; mica on the lit side did not. In 1919 the Hungarian Árpád Paál put cut tips back on off centre, over one side of the stump only, in the dark. The side under the tip grew faster than the other, so the seedlings bent away from it."}
+        {"type": "text", "text": "In 1880 they published *The Power of Movement in Plants* and concluded that when the tip is lit from one side, \"some influence is transmitted from the upper to the lower part, causing the latter to bend.\" They did not know what the influence was. The next forty years found out, a step at a time. In 1913 the Danish botanist Peter Boysen-Jensen cut the tips off seedlings and stuck them back on with a slice of gelatine between, and they still bent: the influence could cross a gap of jelly. A sliver of mica pushed into the shaded side, below the tip, stopped the bend; mica on the lit side did not. In 1918 the Hungarian Árpád Paál put cut tips back on off centre, over one side of the stump only, in the dark. The side under the tip grew faster than the other, so the seedlings bent away from it."}
       ]
     },
     {
@@ -30,14 +30,14 @@
     {
       "title": "How much bend",
       "blocks": [
-        {"type": "text", "text": "A small difference in growth makes a large bend. Take a seedling a millimetre thick whose growing zone adds 10 millimetres of length in a day. If the shaded side grows 10 percent faster than the lit side, it ends the day about a millimetre longer. A stalk with one side a millimetre longer than the other, across a width of a millimetre, has turned through about 57° (an arc as long as its radius, which is what a radian is). A seedling on a windowsill can swing from upright to pointing well over toward the window in a day, with no part of it growing more than a tenth faster than any other."},
+        {"type": "text", "text": "A small difference in growth makes a large bend. Take a seedling a millimetre thick whose growing zone adds 10 millimetres of length in a day. If the shaded side grows 10 percent faster than the lit side, it ends the day about a millimetre longer. A stalk with one side a millimetre longer than the other, across a width of a millimetre, has turned through about 57°.[^radian] A seedling on a windowsill can swing from upright to pointing well over toward the window in a day, with no part of it growing more than a tenth faster than any other."},
         {"type": "text", "text": "Auxin makes cells stretch by using lesson 5's turgor. It sets off proteins in the cell membrane that pump acid out into the cell wall, and the acid loosens the wall's fibres. The water pressure inside the cell, which was always pushing on the wall, can now stretch it, and the cell takes in more water and grows longer. Nothing outside the cell pushes or pulls."}
       ]
     },
     {
       "title": "Up and down",
       "blocks": [
-        {"type": "text", "text": "Lay a potted seedling on its side in the dark and in a few hours its shoot turns up and its root turns down. A root does this only if it keeps its tip. The Polish botanist Theophil Ciesielski found in 1872, and Darwin confirmed, that if the last millimetre is cut off, the root grows on sideways. The sensing is done in the cap at the root's very end. Its cells hold heavy grains of starch, which settle to whichever side is lowest, the way sand settles in a jar, and the cell senses which side they press on."},
+        {"type": "text", "text": "Lay a potted seedling on its side in the dark and in a few hours its shoot turns up and its root turns down. A root does this only if it keeps its tip. The Polish botanist Teofil Ciesielski found in 1872, and Darwin confirmed, that if the last millimetre is cut off, the root grows on sideways. The sensing is done in the cap at the root's very end. Its cells hold heavy grains of starch, which settle to whichever side is lowest, the way sand settles in a jar, and the cell senses which side they press on."},
         {"type": "interactive_diagram", "id": "gravity", "caption": "A seedling laid on its side, its shoot and root turning. A model.", "task": "Guess, then let it grow for half a day", "goal": "down", "aspect_ratio": 1.82},
         {"type": "text", "text": "In both shoot and root, auxin collects on the lower side. The shoot's lower cells stretch more, so the shoot curls up. In the root, the same extra auxin slows its lower cells instead, because a root's cells are far more sensitive to auxin than a shoot's and a dose that makes shoot cells grow is too much for root cells. The root's upper side grows faster, and the root curls down. One hormone, two tissues that answer it differently, and the plant ends with its shoot up and its roots down whichever way the seed fell."},
         {"type": "text", "text": "Auxin coming down from the shoot tip is also part of what keeps lesson 12's sleeping buds asleep. In 1933 Kenneth Thimann and Folke Skoog cut the tips off bean shoots and put auxin on the cut stump; the buds below stayed dormant, as if the tip were still there. Sugar reaching the buds plays a part too, and how auxin and sugar share the work is still being sorted out.[^weedkiller]"}
@@ -55,7 +55,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on auxin and bending", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on auxin and bending",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "A seedling lit from one side has a lightproof cap put over its tip only. What happens?", "choices": ["It grows straight up", "It bends toward the light", "It bends away from the light"], "answer": 0, "why": "The tip is where light is sensed. With it in the dark, auxin comes down evenly and both sides grow alike."},
             {"ask": "A seedling is covered everywhere except its tip and lit from one side. Where does it bend?", "choices": ["Below the tip, in the covered part", "Only at the tip", "It doesn't bend"], "answer": 0, "why": "The tip senses the light, and a signal moving down makes the growing zone below bend, as the Darwins found."},
@@ -81,6 +84,11 @@
   "journal": [],
   "footnotes": {
     "urine": {"kind": "digression", "title": "Auxin from urine", "text": "Fritz Kögl and his colleagues in Utrecht went looking for Went's growth substance in large amounts and found it, of all places, in human urine, which carries auxin made by gut bacteria and taken in with food. In 1934 they identified it as indole-3-acetic acid. Kenneth Thimann at Caltech found the same molecule in a mould the following year."},
-    "weedkiller": {"kind": "digression", "title": "A hormone as a weedkiller", "text": "Synthetic auxins such as 2,4-D, made in the 1940s, kill broadleaved plants by giving them far too much of the hormone, so they grow themselves to death in twisted, swollen stems. Grasses and cereals are much less affected, which is why 2,4-D is used on lawns and wheat fields. Mixed with another synthetic auxin, it was also half of Agent Orange, the defoliant used in Vietnam."}
+    "weedkiller": {"kind": "digression", "title": "A hormone as a weedkiller", "text": "Synthetic auxins such as 2,4-D, made in the 1940s, kill broadleaved plants by giving them far too much of the hormone, so they grow themselves to death in twisted, swollen stems. Grasses and cereals are much less affected, which is why 2,4-D is used on lawns and wheat fields. Mixed with another synthetic auxin, it was also half of Agent Orange, the defoliant used in Vietnam."},
+    "radian": {
+      "kind": "technical",
+      "title": "The geometry of a bend",
+      "text": "When a stalk of thickness *w* bends in a circular arc, the outer side has to travel round a circle whose radius is *w* larger than the inner side's. For a turn of angle *θ* (in radians, where 1 radian is about 57°), the extra length on the outside is simply *w* × *θ*. So an extra 1 millimetre across a 1-millimetre stalk is a turn of 1 radian, regardless of how long the curving section is."
+    }
   }
 }

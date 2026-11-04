@@ -6,7 +6,7 @@
   "summary": [
     "**In 1928 Fleming saw bacteria dying around a stray mould.** The mould was a *Penicillium*, and he called its product penicillin.",
     "**Fleming could not make enough to use.** Penicillin was unstable and hard to purify, and he used it mainly in the laboratory.",
-    "**Florey, Chain and Heatley turned it into a medicine at Oxford from 1939.** Their 1940 mouse test and 1941 first patient showed it worked in the body.",
+    "**Florey, Chain and Heatley turned it into a medicine at Oxford from 1938.** Their 1940 mouse test and 1941 first patient showed it worked in the body.",
     "**American labs scaled it up.** Deep tanks, a richer broth and a better strain from a mouldy melon gave millions of doses by 1944.",
     "**Penicillin stops bacteria building their walls.** Our cells have no such wall, which is why it spares us.",
     "**A common explanation is that fungi make such chemicals to compete.** In soil and on rotting food, a mould that holds back bacteria keeps more food for itself.",
@@ -18,7 +18,7 @@
       "title": "A plate left out",
       "blocks": [
         {"type": "text", "text": "In September 1928 Alexander Fleming came back from a summer holiday to his cramped laboratory at St Mary's Hospital in London. Before leaving he had stacked a pile of glass dishes on his bench, each spread with a jelly on which he was growing *Staphylococcus*, a bacterium that lives on skin and causes boils. Sorting through them, he noticed that one had been spoiled by a mould. A greenish colony had grown near its edge, and around it the bacterial colonies, which elsewhere covered the jelly in golden dots, had turned pale and see-through and were dying. Further out, the bacteria grew normally."},
-        {"type": "text", "text": "Contaminated dishes were thrown away by the hundred in any bacteriology lab. Fleming kept this one. He had spent years looking for something that would kill bacteria without harming the body, and had already found one, an enzyme in tears and egg white that broke open some harmless bacteria. Here was something stronger. The mould, a *Penicillium*, had probably drifted up from a lab on the floor below where moulds were being studied.[^which]"}
+        {"type": "text", "text": "Contaminated dishes were thrown away by the hundred in any bacteriology lab. Fleming kept this one. He had spent years looking for something that would kill bacteria without harming the body, and had already found one, an enzyme in tears and egg white that broke open some harmless bacteria.[^lysozyme] Here was something stronger. The mould, a *Penicillium*, had probably drifted up from a lab on the floor below where moulds were being studied.[^which]"}
       ]
     },
     {
@@ -26,35 +26,35 @@
       "blocks": [
         {"type": "text", "text": "Fleming grew the mould in broth and found that the broth, with the mould filtered out, still killed bacteria, even diluted hundreds of times. He named the unknown substance **penicillin**. It stopped many bacteria that cause disease, such as the ones behind boils, sore throats and pneumonia, but did nothing to some others, among them the common gut bacterium *E. coli*. Injected into rabbits and mice it did them no harm, unlike the antiseptics of the day, which damaged the body's own cells as readily as germs."},
         {"type": "interactive_diagram", "id": "zone", "caption": "A mould colony on a dish of bacteria, and the penicillin spreading out from it. A model.", "task": "Grow the mould on both bacteria", "goal": "clear", "aspect_ratio": 1.9},
-        {"type": "text", "text": "What he could not do was make enough of it. Penicillin was made in tiny amounts, fell apart within days, and resisted every attempt to purify it. Fleming published his findings in 1929, used penicillin in his lab to sort one kind of bacterium from another, and moved on. The paper was read by few people for ten years."}
+        {"type": "text", "text": "What he could not do was make enough of it. Penicillin was made in tiny amounts, fell apart within days, and resisted every attempt to purify it. Fleming published his findings in 1929, used penicillin in his lab to sort one kind of bacterium from another, and moved on. Few people paid attention to the paper for ten years."}
       ]
     },
     {
       "title": "From broth to medicine",
       "blocks": [
-        {"type": "text", "text": "In 1939 Howard Florey, an Australian who led the pathology department at Oxford, and Ernst Chain, a German-Jewish chemist who had fled the Nazis, went looking for natural substances that killed bacteria, and found Fleming's paper. Their colleague Norman Heatley worked out how to pull penicillin out of the broth into a solvent and back into water, cold and fast, before it fell apart. With war rationing, he grew the mould in milk churns, bedpans and custom-made ceramic pots."},
-        {"type": "text", "text": "On 25 May 1940 they infected eight mice with a deadly bacterium and gave four of them penicillin. By the next morning the four untreated mice were dead and the treated ones alive. In February 1941 they treated their first patient, Albert Alexander, a policeman with a severe infection that had spread from a scratch on his face. Within days he was improving. But their whole supply ran out, even with penicillin recovered from his urine and used again, and he relapsed and died. They needed far more."},
+        {"type": "text", "text": "In 1938 Howard Florey, an Australian who led the pathology department at Oxford, and Ernst Chain, a German-Jewish chemist who had fled the Nazis, went looking for natural substances that killed bacteria, and found Fleming's paper. Their colleague Norman Heatley worked out how to pull penicillin out of the broth into a solvent and back into water, cold and fast, before it fell apart. With wartime shortages, he grew the mould in milk churns, bedpans and custom-made ceramic pots."},
+        {"type": "text", "text": "On 25 May 1940 they infected eight mice with a deadly bacterium and gave four of them penicillin. By the next morning the four untreated mice were dead and the treated ones alive. In February 1941 they treated their first patient with an injection of penicillin: Albert Alexander, a policeman with a severe infection that had spread from a scratch on his face. Within days he was improving. But their whole supply ran out, even with penicillin recovered from his urine and used again, and he relapsed and died. They needed far more."},
         {"type": "text", "text": "Florey and Heatley flew to the United States in 1941. At the Department of Agriculture's laboratory in Peoria, Illinois, scientists found that the mould made far more penicillin in a broth made with corn steep liquor, a waste of the starch industry, and in deep, stirred tanks rather than shallow trays. A search for better strains turned up one on a mouldy cantaloupe melon from a Peoria market, which made more again, and its descendants were improved further.[^melon] By the Normandy landings in June 1944 American firms were making millions of doses. Fleming, Florey and Chain shared the Nobel Prize in 1945."}
       ]
     },
     {
       "title": "Why it spares us",
       "blocks": [
-        {"type": "text", "text": "Lesson 2 explained why drugs against fungi are hard to find: fungal cells work too much like ours. Penicillin is the opposite case. A bacterium wraps itself in a wall made of a mesh of sugar chains cross-linked by short bits of protein. Penicillin jams the enzyme that makes the cross-links. A bacterium that keeps growing without them builds a weak wall and bursts. Our cells have no wall at all, and the fungus's wall is built of chitin, not this mesh, so there is nothing for penicillin to hit."},
-        {"type": "text", "text": "Not every bacterium is reachable. *E. coli* and its relatives have a second, outer membrane outside the wall that keeps penicillin from getting to it at all, which is why Fleming's mould left them untouched. Later penicillins, such as ampicillin in 1961, were altered so that they slip through that coat."}
+        {"type": "text", "text": "Lesson 2 explained why drugs against fungi are hard to find: fungal cells work too much like ours. Penicillin is the opposite case. A bacterium wraps itself in a wall made of a mesh of sugar chains cross-linked by short bits of protein.[^peptidoglycan] Penicillin jams the enzyme that makes the cross-links. A bacterium that keeps growing without them builds a weak wall and bursts. Our cells have no wall at all, and the fungus's wall is built of chitin, not this mesh, so there is nothing for penicillin to hit."},
+        {"type": "text", "text": "Not every bacterium is reachable. *E. coli* and its relatives have a second, outer membrane outside the wall that keeps penicillin from getting to it at all, which is why Fleming's mould left them untouched. Later penicillins, such as ampicillin in 1961, were altered so that they slip through pores in that coat."}
       ]
     },
     {
       "title": "Why a mould makes it",
       "blocks": [
         {"type": "text", "text": "*Penicillium* is not a medicine maker; it is a mould of soil, rotting fruit and bread, the blue-green fuzz on an old orange. There it feeds by digesting its food outside its body, as lesson 3 described, which leaves the digested sugars sitting in the open where any bacterium can take them. A chemical that holds back bacteria around its threads keeps more of that food for the fungus."},
-        {"type": "text", "text": "That is the usual explanation, and it fits the fact that fungi and soil bacteria between them make most of the antibiotics known. It is not the whole story. In soil, antibiotics are usually far too dilute to kill anything, and at those levels some seem to act more as signals between microbes than as weapons.[^signals] What is clear is that a crowd of microbes competing for the same scraps has been inventing chemicals against each other for hundreds of millions of years, and medicine has been borrowing them since 1941."}
+        {"type": "text", "text": "That is the usual explanation, and it fits the fact that fungi and soil bacteria between them make most of the antibiotics known. It is not the whole story. In soil, antibiotics are usually far too dilute to kill anything, and at those levels some seem to act more as signals between microbes than as weapons.[^signals] What is clear is that a crowd of microbes competing for the same scraps has been inventing chemicals against each other for hundreds of millions of years, and medicine has been borrowing them since the 1940s."}
       ]
     },
     {
       "title": "More gifts, and a warning",
       "blocks": [
-        {"type": "text", "text": "Penicillin was the first of many. In 1945 Giuseppe Brotzu in Sardinia found a mould near a sewage outlet that held back bacteria; chemists at Oxford later isolated its active chemical, and altered versions of it became the **cephalosporins**, still among the most used antibiotics. In the 1970s a fungus from a soil sample collected in Norway gave **ciclosporin**, which quietens the immune system and made organ transplants routine. And Akira Endo in Japan, searching thousands of fungi for something that would block the body's making of cholesterol, found the first **statin** in a *Penicillium* in 1976."},
+        {"type": "text", "text": "Penicillin was the first of many. In 1945 Giuseppe Brotzu in Sardinia found a mould near a sewage outlet that held back bacteria; chemists at Oxford later isolated its active chemical, and altered versions of it became the **cephalosporins**, still among the most used antibiotics. In 1970 a fungus from a soil sample collected in Norway gave **ciclosporin**, which quietens the immune system and made organ transplants routine. And Akira Endo in Japan, searching thousands of fungi for something that would block the body's making of cholesterol, found the first **statin** in a *Penicillium* in 1973."},
         {"type": "text", "text": "The warning came almost at once. In 1940, before the first patient was treated, Chain and his colleague Edward Abraham found that some bacteria make an enzyme that breaks penicillin apart. Fleming warned in his Nobel lecture that too small a dose would breed resistant bacteria. By the late 1940s most *Staphylococcus* in some hospitals resisted penicillin. Bacteria had been meeting fungal antibiotics in the soil long before people bottled them, and many already carried the means to resist."}
       ]
     },
@@ -72,8 +72,18 @@
     }
   ],
   "footnotes": {
-    "which": {"kind": "technical", "title": "Which Penicillium?", "text": "Fleming's mould was long called *Penicillium notatum*. Its genes now place it in *Penicillium rubens*, the same species as the high-yielding Peoria strain, which was called *Penicillium chrysogenum*. How it reached his plate, and why it grew before the bacteria did, depended on a cool spell in the London summer, on one explanation, offered by the bacteriologist Ronald Hare after he tried to repeat the accident."},
+    "which": {"kind": "technical", "title": "Which Penicillium?", "text": "Fleming's mould was long called *Penicillium notatum*. Its genes now place it in *Penicillium rubens*, the same species as the high-yielding Peoria strain, which was called *Penicillium chrysogenum*. How it reached his plate, and why it grew before the bacteria did, depended on a cool spell in the London summer, according to the bacteriologist Ronald Hare, who later tried to repeat the accident."},
     "melon": {"kind": "digression", "title": "Mouldy Mary", "text": "The story is that the laboratory looked for mouldy fruit wherever it could. The melon is usually credited to Mary Hunt, a laboratory assistant, who became known as Mouldy Mary. Its strain was then treated with X-rays and ultraviolet light to make mutants, and the best of those made hundreds of times what Fleming's mould did."},
-    "signals": {"kind": "technical", "title": "Weapons or words?", "text": "At low doses some antibiotics switch genes on and off in bacteria rather than killing them, and some bacteria even feed on them. Whether the main job of these chemicals in nature is war or communication is an open question, and the answer probably differs from one chemical to another."}
+    "signals": {"kind": "technical", "title": "Weapons or words?", "text": "At low doses some antibiotics switch genes on and off in bacteria rather than killing them, and some bacteria even feed on them. Whether the main job of these chemicals in nature is war or communication is an open question, and the answer probably differs from one chemical to another."},
+    "lysozyme": {
+      "kind": "digression",
+      "title": "Lysozyme",
+      "text": "Fleming found this enzyme in 1921 when he had a cold and dripped his own nasal mucus onto a dish of bacteria. He named it **lysozyme**. It is part of our natural defences, and the Oxford team actually began their work by studying how lysozyme breaks bacteria open before turning to penicillin."
+    },
+    "peptidoglycan": {
+      "kind": "technical",
+      "title": "Peptidoglycan",
+      "text": "This mesh is called **peptidoglycan** (from *peptide* for the short protein chains and *glycan* for the sugar chains). Lysozyme, Fleming's earlier discovery, attacks the same wall in a different place: it cuts the sugar chains themselves, whereas penicillin stops a growing bacterium from linking new chains together."
+    }
   }
 }

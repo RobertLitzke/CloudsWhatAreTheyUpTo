@@ -31,7 +31,7 @@
     {
       "title": "What the heat is for",
       "blocks": [
-        {"type": "text", "text": "The lotus is pollinated by beetles, which crawl into the flower in the evening as its petals close round them, and spend the night inside, warm, feeding and mating, before leaving in the morning dusted with pollen. Warmth is the reward, and in a warm flower a cold-blooded insect can stay active. Other heaters use heat to spread scent. The titan arum of Sumatra, whose flower spike can stand three metres tall, heats the tip of its spike to well above the air temperature while it gives off a stench of rotting meat, and the heat helps carry the smell far and wide to the carrion flies and beetles, which feed and lay eggs on dead animals, that pollinate it. Skunk cabbage's warmth may do both, and may also protect its flowers from frost."},
+        {"type": "text", "text": "The lotus is pollinated by beetles, which crawl into the flower in the evening as its petals close round them, and spend the night inside, warm, feeding and mating, before leaving in the morning dusted with pollen. Warmth is the reward, and in a warm flower a cold-blooded insect can stay active. Other heaters use heat to spread scent. The titan arum of Sumatra, whose flower spike can stand three metres tall, heats the tip of its spike to well above the air temperature while it gives off a stench of rotting meat, and the heat helps carry the smell far and wide to the carrion flies and beetles[^carrion] that pollinate it. Skunk cabbage's warmth may do both, and may also protect its flowers from frost."},
         {"type": "text", "text": "Botanic gardens announce when their titan arums bloom, since a plant flowers only once every several years and the flower lasts a day or two; people queue to see and smell it."}
       ]
     },
@@ -39,7 +39,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Five questions on hot flowers", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on hot flowers",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "How does a skunk cabbage make heat?", "choices": ["It burns stored starch by respiration, with a short cut that turns the energy into heat", "It traps warmth from the swamp water in its hood", "It burns its starch by fermentation, without oxygen"], "answer": 0, "why": "The alternative oxidase skips the ATP-making steps, so the energy of the sugar comes out as heat."},
             {"ask": "As the night cools, what does a sacred lotus flower do?", "choices": ["Burns more starch and stays at about 30 to 35 °C", "Cools with the air", "Closes and stops heating"], "answer": 0, "why": "Seymour and Schultze-Motel found the flowers regulate their temperature, making more heat the colder it gets."},
@@ -59,5 +62,11 @@
     "**The warmth is a reward or a scent pump.** Beetles spend warm nights in lotus flowers; the titan arum's heat spreads its stench."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "carrion": {
+      "kind": "technical",
+      "title": "Carrion insects",
+      "text": "Flies and beetles that feed and lay their eggs on dead animals, drawn from afar by the smell of decay."
+    }
+  }
 }

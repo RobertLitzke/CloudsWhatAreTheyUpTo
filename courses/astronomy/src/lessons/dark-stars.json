@@ -9,14 +9,14 @@
       "blocks": [
         {"type":"text","text":"In 1783 John Michell, the rector of Thornhill, a village near Leeds, sent the Royal Society a paper with an extraordinary idea in it. Michell was a clergyman of the sort the eighteenth century produced in quantity, with a parish to run and a passion for science on the side; he had already explained earthquakes as waves in the ground and designed the instrument that Henry Cavendish would later use to weigh the Earth (Geology tells that story)."},
         {"type":"text","text":"Michell followed Newton in thinking of light as a stream of tiny particles. Gravity should slow them down as they climb away from a star, like a stone thrown upwards. A big enough star, he worked out, would have so strong a pull that its light would rise, slow, stop and fall back: a star of the Sun's density but five hundred times its width. It would shine, but no light would ever reach us. “All light emitted from such a body would be made to return towards it,” he wrote. The universe might be full of them, and we'd never see them. Unless, he added shrewdly, one had a bright companion going round it, whose motion would give it away."},
-        {"type":"text","text":"The French mathematician Pierre-Simon Laplace had the same idea a few years later. Then light turned out to be a wave (*Muons that live too long*), and nobody could see how gravity would act on a wave, so the idea of dark stars was quietly dropped for a hundred and thirty years."}
+        {"type":"text","text":"The French mathematician Pierre-Simon Laplace had the same idea in 1796.[^laplace] Then light turned out to be a wave (*Muons that live too long*), and nobody could see how gravity would act on a wave, so the idea of dark stars was quietly dropped for more than a century."}
       ]
     },
     {
       "title": "A letter from the front",
       "blocks": [
-        {"type":"text","text":"In November 1915 Einstein published general relativity (*The Sun bends starlight*). A month later he received a letter from Karl Schwarzschild, director of the Potsdam observatory, who at forty-two had volunteered for the German army and was working out artillery trajectories on the Russian front. In between, he had found the first exact solution of Einstein's equations: the shape of space and time around a single round mass. Einstein was astonished; he hadn't expected anyone to solve them exactly so soon. Schwarzschild fell ill at the front and died a few months later."},
-        {"type":"text","text":"His solution had a strange feature. Squeeze a mass inside a certain radius and something drastic happens: time at that radius, seen from far away, stops altogether, and nothing inside can ever get out, not even light. That radius is now called the **event horizon**, and the object inside it a **black hole**, a name the American physicist John Wheeler made popular in 1967. Oddly, the size Schwarzschild got is exactly the size Michell had got from Newton's particles of light. That's a coincidence: Michell's reasoning was wrong in its details and happened to land on the right number. But it means you can picture a horizon Michell's way: the place where you would need the speed of light to escape."},
+        {"type":"text","text":"In November 1915 Einstein published general relativity (*The Sun bends starlight*). A month later he received a letter from Karl Schwarzschild, director of the Potsdam observatory, who at forty-two had volunteered for the German army and was working out artillery trajectories on the Russian front. In between, he had found the first exact solution of Einstein's equations: the shape of space and time around a single round mass. Einstein was astonished; he hadn't expected anyone to solve them exactly so soon. Schwarzschild fell ill at the front and died a few months later.[^schwarzschild]"},
+        {"type":"text","text":"His solution had a strange feature. Squeeze a mass inside a certain radius and something drastic happens: time at that radius, seen from far away, stops altogether, and nothing inside can ever get out, not even light. That radius is now called the **event horizon**, and the object inside it a **black hole**, a name the American physicist John Wheeler made popular in 1967. Oddly, the size Schwarzschild got is exactly the size Michell had got from Newton's particles of light.[^escape-radius] That's a coincidence: Michell's reasoning was wrong in its details and happened to land on the right number. But it means you can picture a horizon Michell's way: the place where you would need the speed of light to escape."},
         {"type":"interactive_diagram","id":"squash","caption":"Keep a body's mass the same and squeeze it. The yellow arrow is light leaving its surface; the bar is the speed needed to escape.","task":"Make a prediction, then squeeze the Earth (or the Sun) until light can't escape","goal":"horizon","aspect_ratio":1.75},
         {"type":"text","text":"The Earth would have to be crushed to the size of a marble, the Sun into a ball six kilometres across. Nothing in our daily lives comes close, and for decades most physicists, Einstein included, thought nature would never manage it. But you met, in *Stars that shouldn't exist*, a limit on how much mass a dead star's electrons can hold up, and in *Little green men*, a heavier limit for neutrons. Above the neutron limit, at around two or three Suns, nothing known can stop the collapse. In 1939 Robert Oppenheimer and his student Hartland Snyder showed what general relativity says then: the core falls inside its own horizon and is gone."}
       ]
@@ -41,7 +41,7 @@
       "title": "Finding one",
       "blocks": [
         {"type":"text","text":"Michell's own suggestion turned out to be the way. In 1964 a rocket carrying X-ray detectors above the atmosphere found a bright X-ray source in the constellation Cygnus, the Swan, called Cygnus X-1. In 1971 astronomers matched it to a blue supergiant star that swings back and forth every 5.6 days, so it is in orbit with something. From the swing, that something weighs far more than any neutron star can, yet it gives out no light of its own. The X-rays come from gas pulled off the big star and heated to millions of degrees as it spirals down into its partner. The modern estimate of the unseen partner's mass is about twenty-one Suns."},
-        {"type":"text","text":"In 1974 Stephen Hawking made a bet with his friend Kip Thorne, of Caltech, that Cygnus X-1 was *not* a black hole. It was, he explained, an insurance policy. He had put a great deal of his life's work into black holes; if they turned out not to exist, at least he would win the bet. The stakes were magazine subscriptions. In 1990, with the evidence overwhelming, Hawking conceded, breaking into Thorne's office to sign the framed bet with his thumbprint."}
+        {"type":"text","text":"In December 1974 Stephen Hawking made a bet with his friend Kip Thorne, of Caltech, that Cygnus X-1 was *not* a black hole. It was, he explained, an insurance policy. He had put a great deal of his life's work into black holes; if they turned out not to exist, at least he would win the bet.[^bet-stakes] In June 1990, with the evidence overwhelming, Hawking conceded, breaking into Thorne's office while Thorne was in Moscow to sign the framed bet with his thumbprint."}
       ]
     },
     {
@@ -58,7 +58,7 @@
           {"ask":"What is the event horizon of a black hole?","choices":["The boundary inside which nothing, not even light, can get out","The surface of the collapsed star","The edge of the glowing gas around it"],"answer":0,"why":"It is not a surface you could stand on, just a boundary of no return. For a black hole of the Sun's mass it is 3 km in radius."},
           {"ask":"How did Michell suggest an invisible star could be detected?","choices":["By the motion of a bright companion orbiting it","By the dark hole it makes in the sky","By its X-rays"],"answer":0,"why":"That is how Cygnus X-1 was found: a blue supergiant swinging round an unseen partner far too heavy to be a neutron star."},
           {"ask":"General relativity predicts a point of infinite density at a black hole's centre. What do most physicists take that to mean?","choices":["The theory breaks down there and something else is needed","There really is a point of infinite density","The black hole has no centre"],"answer":0,"why":"Infinities are a theory's way of saying it has gone beyond what it can describe. A theory joining gravity with atomic physics is needed."},
-          {"ask":"Which of these is an untested prediction rather than an observation?","choices":["Black holes slowly glow and evaporate (Hawking radiation)","Cygnus X-1 has an unseen partner of about twenty Suns","Light bends near the Sun"],"answer":0,"why":"Hawking radiation would be far too faint to see from any known black hole. The others have been measured."},
+          {"ask":"Which of these is an untested prediction rather than an observation?","choices":["Black holes slowly glow and evaporate (Hawking radiation)","Cygnus X-1 has an unseen partner of about twenty-one Suns","Light bends near the Sun"],"answer":0,"why":"Hawking radiation would be far too faint to see from any known black hole. The others have been measured."},
           {"ask":"Why can a collapsed core of five Suns not stop at being a neutron star?","choices":["It is above the most that neutrons can hold up, so nothing can stop the collapse","Neutron stars are always lighter than the Sun","It spins too fast"],"answer":0,"why":"Just as electrons can hold up only about 1.4 Suns, neutrons can hold up only two or three. Above that, the core falls inside its own horizon."}
         ]}}
       ]
@@ -74,5 +74,26 @@
     "**Hawking radiation is a prediction.** Black holes should glow faintly and evaporate; it has never been seen."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "laplace": {
+      "kind": "digression",
+      "title": "Laplace deletes his dark star",
+      "text": "Laplace put his calculation into the first two editions of his book *Exposition du système du monde* (1796 and 1799). After Thomas Young's experiments convinced physicists that light was a wave, Laplace quietly cut the passage from the third edition of 1808."
+    },
+    "schwarzschild": {
+      "kind": "digression",
+      "title": "Schwarzschild at the front",
+      "text": "Schwarzschild wrote to Einstein on 22 December 1915, ending his letter: “As you see, the war treated me kindly enough, in spite of the heavy gunfire, to allow me to get away from it all and take this walk in the land of your ideas.”Einstein read the paper to the Prussian Academy on Schwarzschild's behalf in January 1916. On the Russian front Schwarzschild developed pemphigus, a painful autoimmune blistering disease of the skin, was invalided home in March, and died in May."
+    },
+    "escape-radius": {
+      "kind": "technical",
+      "title": "Why Michell got the right radius",
+      "text": "In Newton's physics, the speed $v$ needed to escape from a body of mass $M$ and radius $R$ satisfies $\\frac{1}{2}mv^2 = GMm/R$. Setting $v = c$, the speed of light, gives $R = 2GM/c^2$. Two errors cancel: light does not slow down as it climbs out of a gravitational field (it loses energy by dropping in frequency instead), and Newton's gravity and kinetic energy both fail near a horizon. Yet general relativity gives the exact same formula for the Schwarzschild radius."
+    },
+    "bet-stakes": {
+      "kind": "digression",
+      "title": "The stakes of the Cygnus X-1 bet",
+      "text": "The written wager, signed in December 1974, reads: “Whereas Stephen Hawking has such a large investment in General Relativity and Black Holes and desires an insurance policy, and whereas Kip Thorne likes to live dangerously without an insurance policy, Therefore be it resolved that Stephen Hawking bets 1 year of Penthouse as against Kip Thorne's 4 years of Private Eye that Cygnus X-1 does not contain a black hole of mass above the Chandrasekhar limit.” Hawking paid up in 1990, though according to Thorne's wife Carolee, the subscription was not well received at home."
+    }
+  }
 }

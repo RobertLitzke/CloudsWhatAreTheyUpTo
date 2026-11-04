@@ -1,300 +1,300 @@
 {
- "id": "arp",
- "n": 19,
- "title": "One hand, many notes",
- "teaches": "The arpeggiator: modes, octave range, rate, swing and hold",
- "parts": [
-  {
-   "title": "A chord that runs",
-   "blocks": [
+  "id": "arp",
+  "n": 19,
+  "title": "One hand, many notes",
+  "teaches": "The arpeggiator: modes, octave range, rate, swing and hold",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The sound.** Here are four chords, each held for a bar, played through a short pluck. Then the same four chords, held the same way, but now each comes out as a running stream of notes, faster and wider than one hand could play. Nobody played the stream. The synth did."
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "Four chords held, then the same chords through the arpeggiator",
-     "options": {
-      "stage": 19,
-      "riff": 109,
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 2,
-       "envAmt": 2,
-       "decay": 1,
-       "sustain": 0,
-       "release": 1,
-       "echoMix": 1,
-       "echoTime": 2,
-       "echoRepeats": 1
-      },
-      "sounds": [
-       {
-        "name": "Held",
-        "set": {
-         "voiceMode": 1
+      "title": "A chord that runs",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The sound.** Here are four chords, each held for a bar, played through a short pluck. Then the same four chords, held the same way, but now each comes out as a running stream of notes, faster and wider than one hand could play. Nobody played the stream. The synth did."
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "Four chords held, then the same chords through the arpeggiator",
+          "options": {
+            "stage": 19,
+            "riff": 109,
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 2,
+              "envAmt": 2,
+              "decay": 1,
+              "sustain": 0,
+              "release": 1,
+              "echoMix": 1,
+              "echoTime": 2,
+              "echoRepeats": 1
+            },
+            "sounds": [
+              {
+                "name": "Held",
+                "set": {
+                  "voiceMode": 1
+                }
+              },
+              {
+                "name": "Arpeggiated",
+                "set": {
+                  "arpMode": 1,
+                  "arpOct": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The machine doing it is an **arpeggiator**. It takes the notes you hold and plays them one at a time, in an order, at a steady rate, for as long as you hold them. An arpeggio is a chord played one note at a time, as a harpist does; the word comes from the Italian for playing the harp.[^harp]"
         }
-       },
-       {
-        "name": "Arpeggiated",
-        "set": {
-         "arpMode": 1,
-         "arpOct": 1
+      ]
+    },
+    {
+      "title": "The order",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "An arpeggiator has a handful of settings, and the first is the **order**. **Up** plays the held notes from the lowest to the highest, then starts again. **Down** goes the other way. **Order** plays them in the order the keys went down, so the same chord can give different patterns. **Random** picks a held note at each step. **Octaves** repeats the pattern one, two or three octaves higher before going round again, which is how a small chord becomes a wide sweep."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "roll",
+          "caption": "A held chord of three notes, as the arpeggiator plays it over one bar.",
+          "task": "Try three modes, and two octaves or more",
+          "goal": "roll-done",
+          "aspect_ratio": 1.75
+        },
+        {
+          "type": "text",
+          "text": "The **rate** is how many notes fit in a beat, and like the LFO's rate it is counted against the tempo: eighth notes, sixteenths, thirty-seconds. An arpeggiator is therefore always in time with whatever else is playing, which is what made it so useful in dance music."
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The machine doing it is an **arpeggiator**. It takes the notes you hold and plays them one at a time, in an order, at a steady rate, for as long as you hold them. An arpeggio is a chord played one note at a time, as a harpist does; the word comes from the Italian for playing the harp.[^harp]"
-    }
-   ]
-  },
-  {
-   "title": "The order",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "An arpeggiator has a handful of settings, and the first is the **order**. **Up** plays the held notes from the lowest to the highest, then starts again. **Down** goes the other way. **Order** plays them in the order the keys went down, so the same chord can give different patterns. **Random** picks a held note at each step. **Octaves** repeats the pattern one, two or three octaves higher before going round again, which is how a small chord becomes a wide sweep."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "roll",
-     "caption": "A held chord of three notes, as the arpeggiator plays it over one bar.",
-     "task": "Try three modes, and two octaves or more",
-     "goal": "roll-done",
-     "aspect_ratio": 1.75
-    },
-    {
-     "type": "text",
-     "text": "The **rate** is how many notes fit in a beat, and like the LFO's rate it is counted against the tempo: eighth notes, sixteenths, thirty-seconds. An arpeggiator is therefore always in time with whatever else is playing, which is what made it so useful in dance music."
-    }
-   ]
-  },
-  {
-   "title": "Switch it on",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Below, the arpeggiator is off and the loop holds its chords. Switch it on and try its settings. Then stop the loop and hold three keys on the keyboard: the arpeggiator plays whatever you hold."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A short pluck on four held chords. Switch the arpeggiator on.",
-     "task": "Switch the arpeggiator on",
-     "goal": "arp-on",
-     "options": {
-      "stage": 19,
-      "knobs": [
-       "arpMode",
-       "arpOct",
-       "arpRate"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 2,
-       "envAmt": 2,
-       "decay": 1,
-       "sustain": 0,
-       "release": 1,
-       "echoMix": 1,
-       "echoTime": 2,
-       "echoRepeats": 1
-      },
-      "riff": 109,
-      "keys": 48
-     }
-    },
-    {
-     "type": "text",
-     "text": "A single held note works too: with one note and three octaves, Up gives a rising run of octaves. Most arpeggiators also have a **swing** setting, which delays every second step a little so the pattern lopes instead of ticking. You will meet swing properly with the sequencer in the next lesson."
-    }
-   ]
-  },
-  {
-   "title": "Hold",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The last setting frees your hand. With **Hold** on, the arpeggiator keeps playing the last chord after you let go, until you play a new one; then it starts on that. Keys pressed while another is still down add to the chord instead. A player can set a pattern going with one hand and spend both on the knobs."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The arpeggiator on, from the keyboard. Switch Hold on, play a chord and let go.",
-     "task": "Switch Hold on",
-     "goal": "arp-hold",
-     "options": {
-      "stage": 19,
-      "knobs": [
-       "arpHold"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 2,
-       "envAmt": 2,
-       "decay": 1,
-       "sustain": 0,
-       "release": 1,
-       "echoMix": 1,
-       "echoTime": 2,
-       "echoRepeats": 1,
-       "arpMode": 1,
-       "arpOct": 1
-      },
-      "riff": 109,
-      "keys": 48
-     }
-    },
-    {
-     "type": "text",
-     "text": "With Hold on, the arpeggiator becomes a crude sequencer: a pattern that plays itself while you change the sound. Sweeping the cutoff or the envelope amount over a running arpeggio is one of the oldest moves in synth music. The arpeggiator follows the tempo of the synth's clock, and two machines that share a clock stay together.[^clock]"
-    }
-   ]
-  },
-  {
-   "title": "The running chords",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Now make the arpeggio from the start of this lesson. The pluck is holding its chords again. Make the notes run upwards over two octaves, in sixteenth notes."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "Four held chords. Make them run.",
-     "task": "Make the running chords",
-     "goal": "match",
-     "options": {
-      "stage": 19,
-      "knobs": [
-       "arpMode",
-       "arpOct",
-       "arpRate"
-      ],
-      "start": {
-       "wave": 0,
-       "cutoff": 3,
-       "res": 2,
-       "envAmt": 2,
-       "decay": 1,
-       "sustain": 0,
-       "release": 1,
-       "echoMix": 1,
-       "echoTime": 2,
-       "echoRepeats": 1,
-       "arpRate": 1
-      },
-      "riff": 109,
-      "keys": 48,
-      "target": {
-       "name": "Running chords",
-       "set": {
-        "arpMode": 1,
-        "arpOct": 1,
-        "arpRate": 2
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "When you meet an arpeggiator on a strange synth, there is usually a button to switch it on, a Hold button, and the rest (order, octaves, rate, swing) on a shared knob or a menu. If a synth plays a stream of notes when you press one key, or keeps playing after you let go, the arpeggiator and its Hold are the first things to check."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on the arpeggiator",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What does an arpeggiator do?",
-        "choices": [
-         "Plays the held notes one at a time, in an order, at a steady rate",
-         "Plays a chord from one key",
-         "Records a melody"
-        ],
-        "answer": 0,
-        "why": "It turns held notes into a stream."
-       },
-       {
-        "ask": "Mode Up, one octave, holding C, E and G. What plays?",
-        "choices": [
-         "C E G C E G ...",
-         "G E C G E C ...",
-         "C C C ..."
-        ],
-        "answer": 0,
-        "why": "Up goes from lowest to highest, then starts again."
-       },
-       {
-        "ask": "What does the Octaves setting do?",
-        "choices": [
-         "Repeats the pattern higher before going round",
-         "Transposes everything down",
-         "Changes the rate"
-        ],
-        "answer": 0,
-        "why": "Two octaves plays the held notes, then the same an octave up."
-       },
-       {
-        "ask": "Why is the arpeggiator's rate given in note lengths like 1/16?",
-        "choices": [
-         "It is counted against the tempo, so it stays in time",
-         "It is a fixed number of hertz",
-         "It is the length of the release"
-        ],
-        "answer": 0,
-        "why": "A synced rate follows the tempo, like the LFO's."
-       },
-       {
-        "ask": "The synth keeps playing a pattern after you let go of the keys. Which setting is on?",
-        "choices": [
-         "Hold",
-         "Random",
-         "Legato"
-        ],
-        "answer": 0,
-        "why": "Hold keeps the last chord going until a new one is played."
-       }
+      "title": "Switch it on",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Below, the arpeggiator is off and the loop holds its chords. Switch it on and try its settings. Then stop the loop and hold three keys on the keyboard: the arpeggiator plays whatever you hold."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A short pluck on four held chords. Switch the arpeggiator on.",
+          "task": "Switch the arpeggiator on",
+          "goal": "arp-on",
+          "options": {
+            "stage": 19,
+            "knobs": [
+              "arpMode",
+              "arpOct",
+              "arpRate"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 2,
+              "envAmt": 2,
+              "decay": 1,
+              "sustain": 0,
+              "release": 1,
+              "echoMix": 1,
+              "echoTime": 2,
+              "echoRepeats": 1
+            },
+            "riff": 109,
+            "keys": 48
+          }
+        },
+        {
+          "type": "text",
+          "text": "A single held note works too: with one note and three octaves, Up gives a rising run of octaves. Most arpeggiators also have a **swing** setting, which delays every second step a little so the pattern lopes instead of ticking. You will meet swing properly with the sequencer in the next lesson."
+        }
       ]
-     }
+    },
+    {
+      "title": "Hold",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The last setting frees your hand. With **Hold** on, the arpeggiator keeps playing the last chord after you let go, until you play a new one; then it starts on that. Keys pressed while another is still down add to the chord instead. A player can set a pattern going with one hand and spend both on the knobs."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The arpeggiator on, from the keyboard. Switch Hold on, play a chord and let go.",
+          "task": "Switch Hold on",
+          "goal": "arp-hold",
+          "options": {
+            "stage": 19,
+            "knobs": [
+              "arpHold"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 2,
+              "envAmt": 2,
+              "decay": 1,
+              "sustain": 0,
+              "release": 1,
+              "echoMix": 1,
+              "echoTime": 2,
+              "echoRepeats": 1,
+              "arpMode": 1,
+              "arpOct": 1
+            },
+            "riff": 109,
+            "keys": 48
+          }
+        },
+        {
+          "type": "text",
+          "text": "With Hold on, the arpeggiator becomes a crude sequencer: a pattern that plays itself while you change the sound. Sweeping the cutoff or the envelope amount over a running arpeggio is one of the oldest moves in synth music. The arpeggiator follows the tempo of the synth's clock, and two machines that share a clock stay together.[^clock]"
+        }
+      ]
+    },
+    {
+      "title": "The running chords",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Now make the arpeggio from the start of this lesson. The pluck is holding its chords again. Make the notes run upwards over two octaves, in sixteenth notes."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "Four held chords. Make them run.",
+          "task": "Make the running chords",
+          "goal": "match",
+          "options": {
+            "stage": 19,
+            "knobs": [
+              "arpMode",
+              "arpOct",
+              "arpRate"
+            ],
+            "start": {
+              "wave": 0,
+              "cutoff": 3,
+              "res": 2,
+              "envAmt": 2,
+              "decay": 1,
+              "sustain": 0,
+              "release": 1,
+              "echoMix": 1,
+              "echoTime": 2,
+              "echoRepeats": 1,
+              "arpRate": 1
+            },
+            "riff": 109,
+            "keys": 48,
+            "target": {
+              "name": "Running chords",
+              "set": {
+                "arpMode": 1,
+                "arpOct": 1,
+                "arpRate": 2
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "When you meet an arpeggiator on a strange synth, there is usually a button to switch it on, a Hold button, and the rest (order, octaves, rate, swing) on a shared knob or a menu. If a synth plays a stream of notes when you press one key, or keeps playing after you let go, the arpeggiator and its Hold are the first things to check."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on the arpeggiator",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What does an arpeggiator do?",
+                "choices": [
+                  "Plays the held notes one at a time, in an order, at a steady rate",
+                  "Plays a chord from one key",
+                  "Records a melody"
+                ],
+                "answer": 0,
+                "why": "It turns held notes into a stream."
+              },
+              {
+                "ask": "Mode Up, one octave, holding C, E and G. What plays?",
+                "choices": [
+                  "C E G C E G ...",
+                  "G E C G E C ...",
+                  "C C C ..."
+                ],
+                "answer": 0,
+                "why": "Up goes from lowest to highest, then starts again."
+              },
+              {
+                "ask": "What does the Octaves setting do?",
+                "choices": [
+                  "Repeats the pattern higher before going round",
+                  "Transposes everything down",
+                  "Changes the rate"
+                ],
+                "answer": 0,
+                "why": "Two octaves plays the held notes, then the same an octave up."
+              },
+              {
+                "ask": "Why is the arpeggiator's rate given in note lengths like 1/16?",
+                "choices": [
+                  "It is counted against the tempo, so it stays in time",
+                  "It is a fixed number of hertz",
+                  "It is the length of the release"
+                ],
+                "answer": 0,
+                "why": "A synced rate follows the tempo, like the LFO's."
+              },
+              {
+                "ask": "The synth keeps playing a pattern after you let go of the keys. Which setting is on?",
+                "choices": [
+                  "Hold",
+                  "Random",
+                  "Legato"
+                ],
+                "answer": 0,
+                "why": "Hold keeps the last chord going until a new one is played."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**An arpeggiator plays held notes one at a time**, in an order, at a steady rate.",
-  "**Up, Down, Order and Random** decide the order; Order follows the keys as they went down.",
-  "**Octaves repeats the pattern higher**, so a small chord becomes a wide sweep.",
-  "**The rate is counted against the tempo**, so an arpeggio is always in time.",
-  "**Swing delays every second step** so a pattern lopes instead of ticking.",
-  "**Hold keeps the last chord playing** after you let go, leaving both hands free for the knobs.",
-  "**A stream of notes from one key** on a strange synth usually means the arpeggiator is on."
- ],
- "footnotes": {
-  "harp": {
-   "kind": "digression",
-   "title": "Machines that arpeggiate",
-   "text": "Arpeggios are as old as the harp, and keyboard players have always used them to keep a held chord moving. Electronic arpeggiators arrived in the 1970s on polyphonic synths, where scanning the held keys in turn was something the keyboard's circuits already did. Roland's Jupiter-4 of 1978 had one, and by the early 1980s most synths with a microprocessor did."
+  ],
+  "summary": [
+    "**An arpeggiator plays held notes one at a time**, in an order, at a steady rate.",
+    "**Up, Down, Order and Random** decide the order; Order follows the keys as they went down.",
+    "**Octaves repeats the pattern higher**, so a small chord becomes a wide sweep.",
+    "**The rate is counted against the tempo**, so an arpeggio is always in time.",
+    "**Swing delays every second step** so a pattern lopes instead of ticking.",
+    "**Hold keeps the last chord playing** after you let go, leaving both hands free for the knobs.",
+    "**A stream of notes from one key** on a strange synth usually means the arpeggiator is on."
+  ],
+  "footnotes": {
+    "harp": {
+      "kind": "digression",
+      "title": "Machines that arpeggiate",
+      "text": "Arpeggios are as old as the harp, and keyboard players have always used them to keep a held chord moving. Electronic arpeggiators arrived in the 1970s on polyphonic synths, where scanning the held keys in turn was something the keyboard's circuits already did. Roland's Jupiter-4 of 1978 had one, and by the early 1980s most synths with a microprocessor did."
+    },
+    "clock": {
+      "kind": "technical",
+      "title": "Sharing a clock",
+      "text": "An arpeggiator steps on a clock, and the clock can come from outside. Synths, drum machines and sequencers send one another clock pulses, usually twenty-four per beat: over a DIN cable as MIDI clock, or on older Roland gear as a separate sync signal. The machine that sends the clock sets the tempo, and every machine following it steps in time."
+    }
   },
-  "clock": {
-   "kind": "technical",
-   "title": "Sharing a clock",
-   "text": "An arpeggiator steps on a clock, and the clock can come from outside. Synths, drum machines and sequencers send one another clock pulses, usually twenty-four per beat: over a DIN cable as MIDI clock, or on older Roland gear as a separate sync signal. The machine that sends the clock sets the tempo, and every machine following it steps in time."
-  }
- },
- "journal": []
+  "journal": []
 }

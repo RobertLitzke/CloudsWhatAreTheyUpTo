@@ -12,7 +12,7 @@
       "title": "A river cut in two",
       "blocks": [
         { "type": "text", "text": "The Elwha River runs north out of the Olympic Mountains to the Strait of Juan de Fuca, west of Port Angeles. It was one of the richest salmon rivers on the peninsula, with all five kinds of Pacific salmon as well as steelhead and bull trout, and runs that some have estimated at hundreds of thousands of fish a year. The Lower Elwha Klallam people had fished it for thousands of years[^klallam]." },
-        { "type": "text", "text": "In 1910 workers began a dam 8 kilometres from the river's mouth to power the mills of Port Angeles. Washington law already required dams to let fish pass, but the Elwha Dam was built without a fish ladder, and when it was finished in 1913 salmon could go no further. In 1927 a second, taller dam was built further up, at Glines Canyon. For a century salmon could reach only the lowest 8 kilometres of a river more than 70 kilometres long. The runs fell to a small fraction of what they had been. Below the dams, the river's bed and the beaches at its mouth, starved of the sand and gravel trapped in the reservoirs, washed away to bare cobbles." },
+        { "type": "text", "text": "In 1910 workers began a dam 8 kilometres from the river's mouth to power the mills of Port Angeles. Washington law already required dams to let fish pass, but the Elwha Dam was built without a fish ladder[^hatchery-compromise], and when it was finished in 1913 salmon could go no further. In 1927 a second, taller dam was built further up, at Glines Canyon. For a century salmon could reach only the lowest 8 kilometres of a river more than 70 kilometres long. The runs fell to a small fraction of what they had been. Below the dams, the river's bed and the beaches at its mouth, starved of the sand and gravel trapped in the reservoirs, washed away to bare cobbles." },
         {
           "type": "diagram",
           "id": "photo",
@@ -36,13 +36,13 @@
       "title": "The sediment pulse",
       "blocks": [
         { "type": "text", "text": "The river went to work fast. Within about five years, roughly two-thirds of the trapped sediment had been carried out of the old reservoirs. Much of it travelled all the way to the sea. The river's mouth, which had been shrinking for decades, grew a new delta and beach of about 60 hectares, the biggest change to the shoreline of the Strait in living memory. Sand and gravel settled on the bed of the lower river, making new gravel bars and side channels. The Geology course describes the same work done slowly over thousands of years[^sediment]." },
-        { "type": "text", "text": "The pulse had costs too. For a few years the river ran thick and grey, and the fine silt smothered salmon eggs in the gravel and filled the city's water intake, which needed a new treatment plant. Hatcheries kept some salmon going through the muddiest years[^hatch]." }
+        { "type": "text", "text": "The pulse had costs too. For a few years the river ran thick and grey, and the fine silt smothered salmon eggs in the gravel and clogged the city's water supply, which needed a new treatment plant built before the teardown could begin. Hatcheries kept some salmon going through the muddiest years[^hatch]." }
       ]
     },
     {
       "title": "Salmon return",
       "blocks": [
-        { "type": "text", "text": "Salmon did not wait. Within weeks of the Elwha Dam's removal, chinook were swimming past its old site. In the autumn of 2014, weeks after the last of Glines Canyon Dam was gone, biologists found chinook above its old site, where no salmon had swum since the Elwha Dam closed the river a century before, and steelhead, coho and bull trout followed into the upper river and its side streams. Divers counting salmon have watched their numbers grow, unevenly, year after year. Some fish that had been trapped above the dams as landlocked populations, like the kokanee of the reservoirs, began running to sea again." },
+        { "type": "text", "text": "Salmon did not wait. Within months of the Elwha Dam's removal, chinook were swimming past its old site. In the autumn of 2014, weeks after the last of Glines Canyon Dam was gone, biologists found chinook above its old site, where no salmon had swum since the Elwha Dam closed the river a century before, and steelhead, coho and bull trout followed into the upper river and its side streams. Divers counting salmon have watched their numbers grow, unevenly, year after year. Some fish that had been trapped above the dams as landlocked populations, like rainbow trout that had stayed in the river for generations, began running to sea again as steelhead." },
         { "type": "text", "text": "With the salmon came the ocean subsidy of lesson W1, the nitrogen salmon carry from the sea into streams and forests. Researchers found ocean nitrogen turning up again in the insects, birds and plants of the upper river as the carcasses returned. American dippers, small grey birds that feed underwater on insects and salmon eggs, were found to be in better condition and to stay put more along stretches where salmon had returned[^dipper]." },
         { "type": "key_ideas", "title": "Outside", "points": ["The former Lake Mills, behind Glines Canyon Dam, is now a valley of young alder, willow and cottonwood growing on the old reservoir bed, with the stumps of trees cut before the dam was built still standing among them. A short trail from the Olympic Hot Springs road leads to an overlook of the old dam site."] }
       ]
@@ -77,12 +77,17 @@
     "klallam": {
       "kind": "digression",
       "title": "The creation site",
-      "text": "The Klallam tell of a place on the Elwha where the Creator bathed and blessed the people. A pair of rock formations at the spot were drowned by the reservoir behind Glines Canyon Dam, and emerged again when the water drained."
+      "text": "The Klallam tell of a place on the Elwha where the Creator bathed and blessed the people. A pair of rock formations at the spot were drowned by the reservoir behind the Elwha Dam, and emerged again when the water drained."
     },
     "hatch": {
       "kind": "technical",
       "title": "Hatcheries and the wild",
       "text": "Hatchery fish raised during the muddy years were meant as a bridge. Managers kept fishing closed on the Elwha for years after the removals so that the returning wild fish could build up their numbers."
+    },
+    "hatchery-compromise": {
+      "kind": "digression",
+      "title": "The hatchery compromise",
+      "text": "Rather than make builder Thomas Aldwell add a fish ladder to the Elwha Dam, Washington's fish commissioner let him build a small hatchery at the dam's base instead. It failed within a few years and was abandoned in 1922."
     }
   }
 }

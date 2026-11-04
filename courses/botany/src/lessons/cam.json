@@ -7,7 +7,7 @@
     {
       "title": "Heyne's sour leaves",
       "blocks": [
-        {"type": "text", "text": "In 1815 the Linnean Society of London published a short letter from Benjamin Heyne, a botanist working for the East India Company in southern India. He had noticed something odd about a succulent plant in his garden, the one now called *Bryophyllum* or air plant, with thick, fleshy leaves. Chewed early in the morning, its leaves were as sour as sorrel. At noon they tasted of nothing much. By evening they were faintly bitter."},
+        {"type": "text", "text": "In 1815 the Linnean Society of London published a short letter from Benjamin Heyne, a botanist working for the East India Company in southern India.[^heyne] He had noticed something odd about a succulent plant in his garden, the one now called *Bryophyllum* or air plant, with thick, fleshy leaves. Chewed early in the morning, its leaves were as sour as sorrel. At noon they tasted of nothing much. By evening they were faintly bitter."},
         {"type": "text", "text": "Nobody could explain it, and for more than a century it stayed a curiosity. The leaves were filling up with acid overnight and emptying by day, over and over. Heyne had noticed, with his tongue, the trace of a different way of photosynthesising, which plants of deserts and dry places use to save water."},
         {"type": "text", "text": "To see why a plant would bother, we need to go back to rubisco, the enzyme from lesson 4 that catches carbon dioxide, and to the water trade from lesson 7."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Heyne (1815): the leaves of a succulent were sour in the morning and bland by noon.", "The leaves fill with acid overnight and use it up by day."]}
@@ -16,7 +16,7 @@
     {
       "title": "Rubisco's mistake",
       "blocks": [
-        {"type": "text", "text": "Rubisco evolved more than three billion years ago, when the air had a lot of carbon dioxide and almost no oxygen. It was never good at telling the two gases apart, and it never needed to be. Now the air is 21 percent oxygen and only 0.04 percent carbon dioxide, and rubisco grabs an oxygen molecule instead roughly one time in four or five on a mild day, and more in the heat. The result is a useless by-product, which the plant has to break down at a cost in energy, releasing some carbon dioxide it had already fixed. This waste is called **photorespiration**."},
+        {"type": "text", "text": "Rubisco evolved more than three billion years ago, when the air had a lot of carbon dioxide and almost no oxygen. It was never good at telling the two gases apart, and it never needed to be. Now the air is 21 percent oxygen and only 0.04 percent carbon dioxide, and rubisco grabs an oxygen molecule instead roughly one time in four or five on a mild day, and more in the heat. The result is a useless by-product, which the plant has to break down at a cost in energy, releasing some carbon dioxide it had already fixed.[^phosphoglycolate] This waste is called **photorespiration**."},
         {"type": "text", "text": "It gets worse in the heat, for two reasons. As a leaf warms, rubisco mistakes oxygen for carbon dioxide more often. And on a hot, dry day the leaf partly closes its stomata to save water (lesson 7), so the carbon dioxide inside runs low while the oxygen made by photosynthesis builds up. In hot weather an ordinary leaf can lose a quarter or more of the carbon it fixes this way."},
         {"type": "text", "text": "Most plants, including wheat, rice, potatoes, beans and almost all trees, just live with it. They are called **C3 plants**, because the first thing they make is lesson 4's PGA, which has three carbon atoms. But some plants have found ways round."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["Rubisco sometimes grabs oxygen instead of carbon dioxide; cleaning up costs energy and carbon: **photorespiration**.", "It gets worse in heat and when stomata close to save water.", "Plants that just live with it are **C3 plants**."]}
@@ -25,8 +25,8 @@
     {
       "title": "Sugarcane's first molecule",
       "blocks": [
-        {"type": "text", "text": "In the 1950s Hugo Kortschak, Constance Hartt and George Burr, at the Hawaiian Sugar Planters' Association, did with sugarcane what Calvin had done with algae: they fed it radioactive carbon dioxide for a few seconds and looked for where the carbon went first. It didn't go into PGA. It went into acids with four carbon atoms, mostly malate (malic acid, the acid of sour apples). Their result was so unexpected that it wasn't published in a journal until 1965."},
-        {"type": "text", "text": "In 1966 Marshall Hatch and Roger Slack, at a sugar company's laboratory in Brisbane, worked out what cane was doing. Its leaves have two kinds of green cell. Outer cells, in direct contact with the air spaces, catch carbon dioxide with a different enzyme, one that never mistakes it for oxygen, and fix it into a four-carbon acid. The acid is passed inward to a ring of cells wrapped tightly round each vein, where the carbon dioxide is released again and handed to rubisco. The pump concentrates carbon dioxide around rubisco to several times its level in the air, so rubisco seldom grabs oxygen at all."},
+        {"type": "text", "text": "In the 1950s Hugo Kortschak, Constance Hartt and George Burr, at the Hawaiian Sugar Planters' Association, did with sugarcane what Calvin had done with algae: they fed it radioactive carbon dioxide for a few seconds and looked for where the carbon went first. It didn't go into PGA. It went into acids with four carbon atoms, mostly malate (malic acid, the acid of sour apples). Their result was so unexpected that it wasn't published in a journal until 1965.[^kortschak]"},
+        {"type": "text", "text": "In 1966 Marshall Hatch and Roger Slack, at a sugar company's laboratory in Brisbane, worked out what cane was doing. Its leaves have two kinds of green cell. Outer cells, in direct contact with the air spaces, catch carbon dioxide with a different enzyme,[^pep-carboxylase] one that never mistakes it for oxygen, and fix it into a four-carbon acid. The acid is passed inward to a ring of cells wrapped tightly round each vein, where the carbon dioxide is released again and handed to rubisco. The pump concentrates carbon dioxide around rubisco to several times its level in the air, so rubisco seldom grabs oxygen at all."},
         {"type": "diagram", "id": "kranz", "caption": "Cross-sections of a wheat leaf and a corn leaf, simplified. Corn's dark ring of sheath cells is where its pump delivers the carbon dioxide.", "aspect_ratio": 1.9},
         {"type": "text", "text": "Botanists had already seen those rings of cells under the microscope in the 1880s and named them Kranz anatomy, from the German for wreath, without knowing what they were for. Plants that work this way are called **C4 plants**. They include corn, sugarcane, sorghum and millet, and many grasses of hot, open country. The pump costs energy, so it pays only where photorespiration would be costly: in heat and bright sun."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**C4 plants** first fix carbon dioxide into a four-carbon acid with an enzyme that ignores oxygen.", "The acid is carried to a wreath of cells round each vein and releases carbon dioxide there, concentrated, for rubisco.", "Corn, sugarcane and sorghum are C4; the pump pays in heat and bright light."]}
@@ -35,8 +35,8 @@
     {
       "title": "Opening at night",
       "blocks": [
-        {"type": "text", "text": "Heyne's succulent does something different with the same chemistry. Instead of separating the two steps in space, between two kinds of cell, it separates them in time. At night, when the air is cool and damp and opening the pores costs little water, it opens its stomata, takes in carbon dioxide and fixes it into malic acid, the acid of sour apples, which it stores in the big vacuoles of its cells. By dawn the leaves are full of acid: sour. During the hot day it keeps its stomata shut, and releases the carbon dioxide from the acid inside the sealed leaf for rubisco to use with the sunlight. By evening the acid is gone."},
-        {"type": "text", "text": "This is called **CAM**, after the Crassulaceae, the family of stonecrops and jade plants where it was studied. Cacti, agaves, pineapples and many orchids use it. It is the most water-thrifty way to photosynthesise there is, but it has a limit: a plant can only store so much acid overnight, so CAM plants grow slowly."},
+        {"type": "text", "text": "Heyne's succulent does something different with the same chemistry. Instead of separating the two steps in space, between two kinds of cell, it separates them in time. At night, when the air is cool and damp and opening the pores costs little water, it opens its stomata, takes in carbon dioxide and fixes it into malic acid, which it stores in the big vacuoles of its cells. By dawn the leaves are full of acid: sour. During the hot day it keeps its stomata shut, and releases the carbon dioxide from the acid inside the sealed leaf for rubisco to use with the sunlight. By evening the acid is gone."},
+        {"type": "text", "text": "This is called **CAM**,[^cam-name] after the Crassulaceae, the family of stonecrops and jade plants where it was studied. Cacti, agaves, pineapples and many orchids use it. It is the most water-thrifty way to photosynthesise there is, but it has a limit: a plant can only store so much acid overnight, so CAM plants grow slowly."},
         {"type": "interactive_diagram", "id": "pathways", "caption": "A C3, a C4 and a CAM plant through one hot, dry day: when their pores are open, and the water lost and sugar made since midnight. A model with realistic proportions.", "task": "Guess, then run the day and take away rubisco's mistake", "goal": "mistake", "aspect_ratio": 1.67},
         {"type": "text", "text": "Take away rubisco's mistake in the figure and the C3 plant catches up with the C4 one in sugar. That is the assumption the whole C4 story rests on: the pump is worth its cost only because rubisco wastes so much effort on oxygen. In a cool, cloudy climate, where photorespiration is small, C3 plants often do better."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["**CAM** plants open their pores at night, store carbon dioxide as malic acid, and use it behind shut pores by day.", "CAM saves the most water but limits growth.", "The C4 advantage exists because of rubisco's mistake; without it, the pump wouldn't pay."]}
@@ -45,7 +45,7 @@
     {
       "title": "Corn, cactus and wheat",
       "blocks": [
-        {"type": "text", "text": "Only about 3 percent of flowering plant species use C4, yet they do something like a fifth or a quarter of all the photosynthesis on land, because they dominate tropical grasslands and savannas. CAM is used by several percent of species, mostly in deserts, on rocks and up in tree branches, places where water is scarce even in wet climates. C4 has evolved independently more than sixty times in different plant families, and CAM dozens of times. Natural selection keeps finding the same fixes for the same problem."},
+        {"type": "text", "text": "Only about 3 percent of flowering plant species use C4, yet they do something like a fifth or a quarter of all the photosynthesis on land, because they dominate tropical grasslands and savannas. CAM is used by about 6 or 7 percent of species, mostly in deserts, on rocks and up in tree branches, places where water is scarce even in wet climates. C4 has evolved independently more than sixty times in different plant families, and CAM dozens of times. Natural selection keeps finding the same fixes for the same problem."},
         {"type": "text", "text": "Eastern Washington shows the pattern. The wheat of the Palouse is a C3 plant, sown in autumn to grow through the cool, wet spring and finish before high summer. Corn, a C4 plant, thrives in the hot, irrigated fields of the Columbia Basin. The cactus that grows wild on the dry side, the brittle prickly pear, is a CAM plant. Each grows in the season and place that suits the way it photosynthesises."},
         {"type": "key_ideas", "title": "Hold on to", "points": ["C4 plants are about 3 percent of species but do a fifth or more of land photosynthesis.", "C4 and CAM evolved many separate times, as fixes for the same problem.", "Cool-season wheat is C3; hot-season corn is C4; desert cacti are CAM."]}
       ]
@@ -54,7 +54,10 @@
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Six questions on three ways to fix carbon", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on three ways to fix carbon",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Why were Heyne's succulent leaves sour in the morning?", "choices": ["They had stored carbon dioxide as malic acid overnight", "Dew made them acidic", "They had been chewed by insects"], "answer": 0, "why": "CAM plants take in carbon dioxide at night and store it as malic acid, then use it up by day."},
             {"ask": "What is photorespiration?", "choices": ["Rubisco grabbing oxygen by mistake, wasting energy and carbon", "Breathing in the light", "Making oxygen from water"], "answer": 0, "why": "Rubisco can't tell oxygen from carbon dioxide well; the mistake costs the plant energy and some fixed carbon."},
@@ -77,5 +80,31 @@
     "**C4 and CAM evolved many separate times.** Wheat is C3, corn is C4, the prickly pear is CAM."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "heyne": {
+      "kind": "digression",
+      "title": "Heyne's letter",
+      "text": "Heyne had written the letter in 1813 to Aylmer Bourke Lambert, vice-president of the Linnean Society, who read it to a meeting on 20 April 1813; it appeared in the society's *Transactions* in 1815. Heyne called the plant *Cotyledon calycina* (now *Kalanchoe pinnata* or *Bryophyllum pinnatum*). More than a century earlier, in 1682, Nehemiah Grew had remarked in passing that aloe leaves tasted sourer in the morning, and in 1804 Nicolas-Théodore de Saussure had measured nocturnal carbon dioxide uptake in prickly pear cacti without connecting it to the morning taste."
+    },
+    "phosphoglycolate": {
+      "kind": "technical",
+      "title": "What the mistake produces",
+      "text": "When rubisco attaches oxygen instead of carbon dioxide to its five-carbon starter molecule (RuBP), it makes one molecule of normal three-carbon PGA and one of two-carbon **2-phosphoglycolate**. Phosphoglycolate cannot enter the Calvin cycle and inhibits several plastid enzymes if it builds up. To salvage the carbon, the cell runs a long recycling pathway across three compartments (chloroplast, peroxisome and mitochondrion), spending ATP and releasing one carbon in four as carbon dioxide."
+    },
+    "kortschak": {
+      "kind": "digression",
+      "title": "The parallel discovery in Leningrad",
+      "text": "While Kortschak's group in Hawaii hesitated to publish outside their experiment station's annual reports, a young Soviet plant physiologist in Leningrad, Yuri Karpilov, ran the same short-pulse radiocarbon experiment on maize in 1960 and published right away that malate and aspartate came first. Neither group knew of the other, and both at first suspected their result was an artefact of how the leaves were killed."
+    },
+    "pep-carboxylase": {
+      "kind": "technical",
+      "title": "PEP carboxylase",
+      "text": "The outer-cell enzyme is **PEP carboxylase** (phosphoenolpyruvate carboxylase). It attaches carbon dioxide, in the dissolved form of bicarbonate ($\\text{HCO}_3^-$), to a three-carbon molecule called PEP to make a four-carbon acid (oxaloacetate, quickly converted to malate or aspartate). Because bicarbonate has a shape and charge nothing like oxygen gas, PEP carboxylase has no trouble telling them apart."
+    },
+    "cam-name": {
+      "kind": "technical",
+      "title": "Crassulacean acid metabolism",
+      "text": "CAM stands for **crassulacean acid metabolism**, a name coined in the late 1940s by Meirion Thomas and his colleagues at Newcastle upon Tyne, who studied the overnight acid rise in *Bryophyllum* and other members of the stonecrop family, Crassulaceae."
+    }
+  }
 }

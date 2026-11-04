@@ -23,8 +23,8 @@
       "title": "Growing at the tip",
       "blocks": [
         {"type": "text", "text": "A hypha is a tube with a wall of chitin, filled with living cell contents, and it grows in only one place: the last few thousandths of a millimetre of its tip. Everything behind the tip has stopped growing. Its wall has hardened and will not stretch again. Most tissues in a plant or an animal grow throughout; a hypha grows only at its tip."},
-        {"type": "text", "text": "Two things make tip growth work. The first is pressure. A hypha is full of dissolved sugars and salts, more concentrated than the water around it, so water flows in, as it does into a plant cell: water moving through a wall from a weak solution towards a strong one is called osmosis. The flow presses outward on the wall everywhere. Behind the tip the hard wall holds; at the tip the wall is new and soft, so the tip is where it gives."},
-        {"type": "text", "text": "The second is a supply line. Under a microscope, the tip of a growing hypha holds a dense cluster of tiny membrane-wrapped packets, called vesicles, the **Spitzenkörper**, German for tip body.[^spitz] Each packet carries wall material and enzymes from deeper in the hypha. They gather at the tip and fuse with the cell's outer membrane, laying down new wall exactly where it is needed and releasing enzymes outside. When the cluster moves to one side, the hypha turns that way. A fast mould can extend its hyphae by a few millimetres an hour.[^speed]"}
+        {"type": "text", "text": "Two things make tip growth work. The first is pressure. A hypha is full of dissolved sugars and salts, more concentrated than the water around it, so water flows in by osmosis, as it does into a plant cell.[^osmosis] The flow presses outward on the wall everywhere. Behind the tip the hard wall holds; at the tip the wall is new and soft, so the tip is where it gives."},
+        {"type": "text", "text": "The second is a supply line. Under a microscope, the tip of a growing hypha holds a dense cluster of tiny membrane-wrapped packets, called vesicles, the **Spitzenkörper**, German for tip body.[^spitz] Each packet carries wall material and enzymes from deeper in the hypha. They gather at the tip and fuse with the cell's outer membrane, laying down new wall where it is needed and releasing enzymes outside. When the cluster moves to one side, the hypha turns that way. A fast mould can extend its hyphae by a few millimetres an hour.[^speed]"}
       ]
     },
     {
@@ -33,14 +33,14 @@
         {"type": "text", "text": "A hypha's wall lets water and small molecules through, but nothing large. Bread is mostly starch, a giant molecule of thousands of glucose units; a dead leaf is largely cellulose, another chain of glucose; wood is cellulose wrapped and glued in lignin. None of these can pass a cell wall. So the hypha sends its digestion out ahead of itself. The enzymes released at the tip break starch and cellulose into single sugars, and the hypha takes them in."},
         {"type": "text", "text": "Each food needs its own enzymes. Starch cutters do nothing to cellulose, and cellulose cutters cannot reach cellulose that is wrapped in lignin. A fungus can eat only what it has enzymes for, which is why different fungi grow on bread, on leaves and on logs."},
         {"type": "interactive_diagram", "id": "digest", "caption": "A hyphal tip growing into its food, with the enzymes it releases. Choose the food and switch the enzymes on and off. A model.", "task": "Find which enzymes let the tip grow into wood", "goal": "wood", "aspect_ratio": 2.1},
-        {"type": "text", "text": "Lignin is the hard case. It is a tangled, irregular molecule with no repeating unit for an enzyme to fit, and only a few groups of fungi can break it, with enzymes that attack it with reactive chemicals that tear it apart at random rather than cutting it neatly. Lesson 8 is about them, and about the coal that piled up before they existed. For now the point is that a fungus lives inside its food and turns it into soup a little ahead of itself, all the time."}
+        {"type": "text", "text": "Lignin is the hard case. It is a tangled, irregular molecule with no repeating unit for an enzyme to fit, and only a few groups of fungi can break it, using enzymes that generate reactive chemicals to tear it apart at random rather than cutting it neatly. Lesson 8 is about them, and about the coal that piled up before they existed. For now, a fungus lives inside its food and turns it into soup a little ahead of itself."}
       ]
     },
     {
       "title": "Branches and fusions",
       "blocks": [
         {"type": "text", "text": "A single hypha would eat a single line through its food. A mycelium covers ground by branching: a short way behind the tip, a new tip starts to bulge from the side wall and grows off on its own. Branches branch again, and the mycelium fills space in a widening fan."},
-        {"type": "text", "text": "Hyphae also fuse. This is not mating, which the next lessons cover: where two hyphae of the same mycelium meet, they can join walls and open into each other, turning a fan of separate tubes into a connected network. Most fungal hyphae are divided into compartments by cross walls every so often, but the walls have pores, so the cell contents can stream from one compartment into the next. Food absorbed at one edge of a mycelium can therefore travel through the network to feed growth at another edge. The mycelium is one body, even though it is made of threads."}
+        {"type": "text", "text": "Hyphae also fuse. This is not mating, which the next lessons cover: where two hyphae of the same mycelium meet, they can join walls and open into each other, turning a fan of separate tubes into a connected network. Most fungal hyphae are divided into compartments by cross walls every so often, but the walls have pores, so the cell contents can stream from one compartment into the next.[^septa] Food absorbed at one edge of a mycelium can therefore travel through the network to feed growth at another edge. The mycelium is one body, even though it is made of threads."}
       ]
     },
     {
@@ -49,7 +49,7 @@
         {"type": "text", "text": "In a forest, food comes in pieces: a fallen twig here, a dead root there, separated by soil with little worth eating. A fungus that lives on such scraps has a problem an animal would recognise. It has to spend food it already has to find the next meal, without knowing where that meal is."},
         {"type": "text", "text": "Lynne Boddy and her colleagues at Cardiff University have watched this in the laboratory for decades. Their method is simple. A small block of wood that a fungus has already colonised is set on a tray of soil, and fresh blocks are placed around it. Photographed every day or two, the mycelium first sends threads out in every direction, a fan of searchers. When a thread touches a fresh block, the colony changes. The threads that connect the old block to the new one thicken into **cords**, bundles of hyphae that carry water and food like pipes. The searching threads that found nothing stop growing and fade. In a few weeks the fan has become a few thick roads between food."},
         {"type": "interactive_diagram", "id": "forage", "caption": "A mycelium spreading from a colonised wood block over a tray of soil toward fresh blocks. The mycelium grower, a model with three rules: grow and branch while there is food to spend, thicken the threads that reach food, and let threads that lead nowhere die back.", "task": "Run the days until both blocks are found", "goal": "found", "aspect_ratio": 1.82},
-        {"type": "text", "text": "Nothing in the mycelium plans this. Each tip grows where it can, and the colony moves food toward where food is coming in. The result looks like a decision: to stop searching an area and to invest in a connection.[^slime] In laboratory trays of soil, cord-forming woodland fungi given a large new block of wood have been seen to let cords to poorer parts of the network thin and die back. The cords on a forest floor, the black bootlaces of the honey fungus (*Armillaria*) under bark, the white strands under a log, are the roads such decisions leave behind."}
+        {"type": "text", "text": "Nothing in the mycelium plans this. Each tip grows where it can, and the colony moves food toward where food is coming in. The result looks like a decision: to stop searching an area and to invest in a connection.[^slime] In laboratory trays of soil, cord-forming woodland fungi given a large new block of wood have been seen to let cords to poorer parts of the network thin and die back. The cords on a forest floor, such as the black bootlaces of the honey fungus (*Armillaria*) under bark or the white strands under a log, are the roads such decisions leave behind."}
       ]
     },
     {
@@ -66,8 +66,18 @@
     }
   ],
   "footnotes": {
-    "spitz": {"kind": "technical", "title": "The Spitzenkörper", "text": "It was first seen in 1924 by Heinrich Brunswik, in stained hyphae, and only accepted as a living structure once it was filmed in growing hyphae decades later. It acts as a distribution centre: bubbles arrive from behind and leave from it toward the tip's surface."},
+    "spitz": {"kind": "technical", "title": "The Spitzenkörper", "text": "It was first seen in 1924 by Heinrich Brunswik, in stained hyphae, and only accepted as a living structure once it was filmed in growing hyphae decades later. It acts as a distribution centre: vesicles arrive from behind and leave from it toward the tip's surface."},
     "speed": {"kind": "technical", "title": "How fast?", "text": "The red bread mould *Neurospora crassa*, one of the fastest, extends its leading hyphae by a few millimetres an hour at room temperature. Most fungi are slower. Even so, a fast mould can cover a Petri dish in a day or two."},
-    "slime": {"kind": "digression", "title": "The slime mould and the Tokyo railway", "text": "A different organism, the slime mould *Physarum*, does something similar with a single sprawling cell. In 2010 Atsushi Tero and colleagues set oat flakes on a map in the positions of the cities around Tokyo, and the slime mould's network of tubes came out much like the region's railway. Slime moulds are not fungi (lesson 2), but they face the same problem and arrive at a similar answer."}
+    "slime": {"kind": "digression", "title": "The slime mould and the Tokyo railway", "text": "A different organism, the slime mould *Physarum*, does something similar with a single sprawling cell. In 2010 Atsushi Tero and colleagues set oat flakes on a map in the positions of the cities around Tokyo, and the slime mould's network of tubes came out much like the region's railway. Slime moulds are not fungi (lesson 2), but they face the same problem and arrive at a similar answer."},
+    "osmosis": {
+      "kind": "technical",
+      "title": "Osmosis",
+      "text": "Osmosis is the movement of water across a membrane from a weaker solution (fewer dissolved particles) to a stronger one. In a hypha, water passes freely through the cell wall and across the selective cell membrane beneath it."
+    },
+    "septa": {
+      "kind": "technical",
+      "title": "Septa and open tubes",
+      "text": "These cross walls are called septa (singular: septum). Not every fungus has them: the bread mould *Rhizopus* and its relatives have open, undivided hyphae, except where they wall off reproductive parts or damaged sections."
+    }
   }
 }

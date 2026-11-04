@@ -15,16 +15,16 @@
     {
       "title": "Gleason’s reply",
       "blocks": [
-        { "type": "text", "text": "In 1926 Henry Gleason, a botanist at the New York Botanical Garden, published a short paper with a dry title, “The individualistic concept of the plant association”. Gleason argued that a community is not a unit at all. Each species grows where its seeds happen to land and where it can survive the conditions it meets there. Two species are found together because they tolerate the same conditions and reached the same place, not because they belong together. Move along a slope or across a state, and the species drop out and come in one at a time, at different points, with no shared edges." },
+        { "type": "text", "text": "In 1926 Henry Gleason, a botanist at the New York Botanical Garden, published a short paper with a dry title, “The individualistic concept of the plant association”[^gleason]. Gleason argued that a community is not a unit at all. Each species grows where its seeds happen to land and where it can survive the conditions it meets there. Two species are found together because they tolerate the same conditions and reached the same place, not because they belong together. Move along a slope or across a state, and the species drop out and come in one at a time, at different points, with no shared edges." },
         { "type": "text", "text": "Gleason's paper was mostly ignored. Clements's view filled the textbooks, and Gleason, discouraged, turned to classifying plants instead. It took about thirty years, and somebody counting trees, to bring his idea back." }
       ]
     },
     {
       "title": "Whittaker’s mountain",
       "blocks": [
-        { "type": "text", "text": "In the late 1940s a graduate student named Robert Whittaker spent several summers in the Great Smoky Mountains of Tennessee and North Carolina, a range with forest from the valleys at 300 metres to the summits at over 2,000. He sampled hundreds of sites, counting every tree, and recorded each site's height and how damp or dry it was. If Clements was right, the counts should fall into a few distinct communities, with a sudden change in many species at once where one community met the next." },
+        { "type": "text", "text": "In 1947 a graduate student named Robert Whittaker spent the summer in the Great Smoky Mountains of Tennessee and North Carolina, a range with forest from the valleys at 400 metres to the summits at over 2,000. He sampled hundreds of sites, counting every tree, and recorded each site's height and how damp or dry it was. If Clements was right, the counts should fall into a few distinct communities, with a sudden change in many species at once where one community met the next." },
         { "type": "interactive_diagram", "id": "whittaker", "caption": "Seven trees of the Smokies' moist slopes, by height above sea level, simplified from Whittaker's 1956 counts; beside them, the same slope as Clements's view would divide it.", "task": "Compare the two views", "goal": "compare", "aspect_ratio": 1.69 },
-        { "type": "text", "text": "They didn't. When Whittaker plotted each species' share of the trees against height, every species made its own hump: rising, peaking and falling at its own place, with its own spread. The humps overlapped every which way. There were no lines where whole groups of species stopped together. A forest that looked like a distinct type from a road was a point along a smooth slope of change. Whittaker published the work in 1956, and similar studies in the forests of Wisconsin by John Curtis came to the same conclusion. Gleason had been right[^names]." }
+        { "type": "text", "text": "They didn't. When Whittaker plotted each species' share of the trees against height, every species made its own hump, rising and falling at its own place, with its own spread. The humps overlapped every which way. There were no lines where whole groups of species stopped together. A forest that looked like a distinct type from a road was a point along a smooth slope of change. Whittaker published the work in 1956, and similar studies in the forests of Wisconsin by John Curtis came to the same conclusion. Gleason had been right[^names]." }
       ]
     },
     {
@@ -46,9 +46,9 @@
     {
       "title": "A forest in a computer",
       "blocks": [
-        { "type": "text", "text": "In 1972 Daniel Botkin, James Janak and James Wallis turned gap dynamics into a computer program. They took the trees of Hubbard Brook, the forest of lesson 12, and wrote down for each species how fast it grew in sun and in shade, how long it lived, and how likely its seedlings were to survive. Then the program grew a small plot one tree at a time, year by year, letting trees die at random and seedlings compete for each gap. Called JABOWA, after its authors' names, it produced forests with realistic mixtures of species, out of nothing but rules for individual trees." },
+        { "type": "text", "text": "In 1972 Daniel Botkin, James Janak and James Wallis turned gap dynamics into a computer program. They took the trees of Hubbard Brook, the forest of lesson 12, and wrote down for each species how fast it grew in sun and in shade, how long it lived, and how many saplings it added each year. Then the program grew a small plot one tree at a time, year by year, letting trees die at random and saplings compete for the light in each gap. Called JABOWA, after its authors' names[^jabowa], it produced forests with realistic mixtures of species, out of nothing but rules for individual trees." },
         { "type": "interactive_diagram", "id": "gaps", "caption": "A strip of forest, forty plots wide, each holding one tree. Trees die of age and chance, and storms flatten stretches now and then; each gap goes to one of three species depending on its light. The lines below count the plots each species holds. A model in the spirit of JABOWA.", "task": "Guess, then play past the second storm", "goal": "storm", "aspect_ratio": 1.53 },
-        { "type": "text", "text": "Try the switch that makes every species equally shade-tolerant. The pattern disappears: storms no longer bring a flush of birch, and the forest becomes a random mixture drifting with chance. The forest's order, pioneers after big disturbances and shade-tolerant trees in between, comes, in the model, entirely from the species' different abilities. Nothing in the program knows what the forest as a whole should look like." }
+        { "type": "text", "text": "Try the switch that makes every species equally shade-tolerant. The pattern disappears: storms no longer bring a flush of birch, and the forest becomes a random mixture drifting with chance. The forest's order, with pioneers after big disturbances and shade-tolerant trees in between, comes in the model entirely from the species' different abilities. Nothing in the program knows what the forest as a whole should look like." }
       ]
     },
     {
@@ -170,7 +170,17 @@
     "climax": {
       "kind": "digression",
       "title": "Clements on the prairie",
-      "text": "Clements's ideas shaped American land management for decades. After the Dust Bowl of the 1930s, he and his colleagues argued that the shortgrass prairie was the climax that the plough had wrongly destroyed, which helped make the case for returning some of the worst land to grass."
+      "text": "Clements's ideas shaped American land management for decades. After the Dust Bowl of the 1930s, he argued that the shortgrass plains were only a grazed-down stage of a taller mixed-grass climax, though the droughts of the 1930s forced even him to admit that climate could keep the grass short."
+    },
+    "gleason": {
+      "kind": "digression",
+      "title": "Gleason's first attempt",
+      "text": "Gleason had made the same argument in 1917, a year after Clements's book appeared, and been ignored then too. When he republished his 1926 paper in 1939, he still stood almost alone."
+    },
+    "jabowa": {
+      "kind": "digression",
+      "title": "Why JABOWA?",
+      "text": "The name comes from the first two letters of each surname: **Ja**nak, **Bo**tkin and **Wa**llis. Botkin, the ecologist of the three, teamed up with two physicists at IBM's Thomas J. Watson Research Center who knew how to turn his field notes into Fortran code."
     }
   }
 }

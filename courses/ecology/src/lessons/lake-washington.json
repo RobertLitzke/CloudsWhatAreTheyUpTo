@@ -11,8 +11,8 @@
     {
       "title": "A red scum",
       "blocks": [
-        { "type": "text", "text": "In 1955 a University of Washington zoologist named W. Thomas Edmondson, who studied the tiny animals of lakes, found something new in the water samples he took from Lake Washington, Seattle's big lake on its eastern edge. It was *Oscillatoria rubescens*, a cyanobacterium that forms reddish scums and is a well-known sign, in the lakes of Europe, of water overfed with nutrients. It had never been recorded in the lake before." },
-        { "type": "text", "text": "Edmondson knew what it meant. Since 1941 the growing towns around the lake had built sewage treatment plants that discharged their treated water into it, eleven of them by the 1950s. Treatment removed the solids and germs, but not the dissolved nutrients, above all phosphorus. Lesson 13 showed what that does to a lake. Within a few years the water had turned green and murky in summer, and drifts of algae rotted on the beaches." },
+        { "type": "text", "text": "In 1955 a University of Washington zoologist named W. Thomas Edmondson, who studied the tiny animals of lakes, learned of something new in water samples from Lake Washington, the big lake on Seattle's eastern edge[^hasler]. It was *Oscillatoria rubescens*, a cyanobacterium that forms reddish scums and is a well-known sign, in the lakes of Europe, of water overfed with nutrients. It had never been recorded in the lake before." },
+        { "type": "text", "text": "Edmondson knew what it meant. Since 1941 the growing towns around the lake had built sewage treatment plants that discharged their treated water into it, ten of them by the mid-1950s. Treatment removed the solids and germs, but not the dissolved nutrients, above all phosphorus. Lesson 13 showed what that does to a lake. Within a few years the water had turned green and murky in summer, and drifts of algae rotted on the beaches." },
         {
           "type": "diagram",
           "id": "photo",
@@ -34,7 +34,7 @@
     {
       "title": "The lake clears",
       "blocks": [
-        { "type": "text", "text": "Metro built the pipes and plants, and between 1963 and 1968 the sewage was diverted from the lake. The lake's water is replaced by its rivers in about three years, so the phosphorus washed out quickly. The algae fell with it, and by the early 1970s the Secchi disk, which had disappeared about a metre down at the worst, could be seen three metres down or more. Edmondson had predicted the recovery, and it came about as he said." },
+        { "type": "text", "text": "Metro built the pipes and plants, and between 1963 and 1968 the sewage was diverted from the lake. The lake's water is replaced by its rivers in about two and a half years, so the phosphorus washed out quickly. The algae fell with it, and by the early 1970s the Secchi disk, which had disappeared about a metre down at the worst, could be seen three metres down or more. Edmondson had predicted the recovery, and it came about as he said." },
         { "type": "text", "text": "Then, in 1976, the lake cleared further, and nobody had predicted that. The water flea *Daphnia*, a grazer of algae, suddenly became abundant. Edmondson and his colleagues worked out why: a small shrimp-like predator, *Neomysis*, which had kept the *Daphnia* down, had declined as the longfin smelt that eat it increased. With *Daphnia* grazing hard, the algae fell further and summer clarity reached six metres or more. Lesson 8's cascade had happened in a lake: fish to shrimp to water flea to algae." },
         { "type": "interactive_diagram", "id": "lakewa", "caption": "Phosphorus, algae and clarity in Lake Washington from 1940 to 1990, as sewage plants were built and then diverted, and as Daphnia returned. A model.", "task": "Divert the sewage, then bring back the Daphnia", "goal": "clear", "aspect_ratio": 1.81 }
       ]
@@ -50,15 +50,15 @@
     {
       "title": "Check",
       "blocks": [
-        { "type": "quiz", "id": "check", "caption": "Five questions on Lake Washington", "task": "Choose the best answer to each", "options": { "items": [{ "ask": "What did Edmondson find in Lake Washington in 1955?", "choices": ["A cyanobacterium known as a sign of overfed lakes", "A fish that had never been seen there", "Oil from boats"], "answer": 0, "why": "Oscillatoria rubescens had warned of over-fertilised lakes in Europe." }, { "ask": "Where was the lake's extra phosphorus coming from?", "choices": ["Treated sewage from plants discharging into the lake", "Silt from logging around the lake", "Rocks in the lake bed"], "answer": 0, "why": "Treatment removed solids and germs but not dissolved phosphorus." }, { "ask": "Why did the lake clear within a few years of the diversion?", "choices": ["Its water is replaced in about three years, so the phosphorus washed out", "The algae were poisoned", "Metro dredged the bottom"], "answer": 0, "why": "With the sewage gone, the rivers flushed the phosphorus out and the algae fell with it." }, { "ask": "Why did the lake clear further in 1976?", "choices": ["Daphnia became abundant and grazed the algae down", "More sewage was diverted", "A cold winter killed the algae"], "answer": 0, "why": "The predator that had kept Daphnia down declined. A cascade, as in lesson 8." }, { "ask": "A Secchi disk vanishes 1 metre down in one summer and 6 metres down in another. What changed?", "choices": ["The water held far fewer algae in the second", "The water was warmer in the second", "The disk was lowered faster in the first"], "answer": 0, "why": "The disk shows how clear the water is, and in a lake like this the algae decide that." }] } }
+        { "type": "quiz", "id": "check", "caption": "Five questions on Lake Washington", "task": "Choose the best answer to each", "options": { "items": [{ "ask": "What appeared in Lake Washington in 1955 that warned Edmondson of the danger?", "choices": ["A cyanobacterium known as a sign of overfed lakes", "A fish that had never been seen there", "Oil from boats"], "answer": 0, "why": "Oscillatoria rubescens had warned of over-fertilised lakes in Europe." }, { "ask": "Where was the lake's extra phosphorus coming from?", "choices": ["Treated sewage from plants discharging into the lake", "Silt from logging around the lake", "Rocks in the lake bed"], "answer": 0, "why": "Treatment removed solids and germs but not dissolved phosphorus." }, { "ask": "Why did the lake clear within a few years of the diversion?", "choices": ["Its water is replaced in under three years, so the phosphorus washed out", "The algae were poisoned", "Metro dredged the bottom"], "answer": 0, "why": "With the sewage gone, the rivers flushed the phosphorus out and the algae fell with it." }, { "ask": "Why did the lake clear further in 1976?", "choices": ["Daphnia became abundant and grazed the algae down", "More sewage was diverted", "A cold winter killed the algae"], "answer": 0, "why": "The predator that had kept Daphnia down declined. A cascade, as in lesson 8." }, { "ask": "A Secchi disk vanishes 1 metre down in one summer and 6 metres down in another. What changed?", "choices": ["The water held far fewer algae in the second", "The water was warmer in the second", "The disk was lowered faster in the first"], "answer": 0, "why": "The disk shows how clear the water is, and in a lake like this the algae decide that." }] } }
       ]
     }
   ],
   "summary": [
-    "**In 1955 Edmondson found a warning alga in Lake Washington.** Treated sewage was feeding the lake phosphorus.",
-    "**He argued that the sewage had to go.** His measurements showed the algae tracking the phosphorus.",
+    "**In 1955 a warning alga appeared in Lake Washington.** Treated sewage was feeding the lake phosphorus.",
+    "**Edmondson argued that the sewage had to go.** His measurements showed the algae tracking the phosphorus.",
     "**Voters approved a smaller Metro plan in September 1958.** Sewage was diverted to Puget Sound between 1963 and 1968.",
-    "**The lake cleared in a few years.** Its water is replaced in about three, and the phosphorus washed out.",
+    "**The lake cleared in a few years.** Its water is replaced in about two and a half years, and the phosphorus washed out.",
     "**In 1976 Daphnia cleared it further.** A cascade from fish to shrimp to water flea to algae.",
     "**The recovery helped persuade governments to limit phosphorus.** Lake Erie improved too."
   ],
@@ -67,12 +67,12 @@
     "secchi": {
       "kind": "technical",
       "title": "The Secchi disk",
-      "text": "Angelo Secchi, an Italian astronomer, used white disks to measure the clearness of the Mediterranean in 1865 for the Papal Navy. The method is so simple and consistent that volunteers' readings over decades are used in scientific studies of lakes."
+      "text": "Angelo Secchi, an Italian astronomer and Jesuit priest, used white disks to measure the clarity of the Mediterranean in 1865 for the Papal Navy. The method is so simple and consistent that volunteers' readings over decades are used in scientific studies of lakes."
     },
     "metro": {
       "kind": "digression",
       "title": "Why the second vote passed",
-      "text": "The March 1958 plan covered sewage, transport, water and parks across a wide area, and lost in the suburbs. The September plan covered only sewage in a smaller area. Ellis went on to lead the Forward Thrust campaign of the late 1960s, which paid for parks and the Kingdome."
+      "text": "The March 1958 plan covered sewage, transport and regional planning across a wide area, and lost in the suburbs. The September plan covered only sewage in a smaller area. Ellis went on to lead the Forward Thrust campaign of the late 1960s, which paid for parks and the Kingdome."
     },
     "erie": {
       "kind": "digression",
@@ -82,7 +82,12 @@
     "nutrients": {
       "kind": "technical",
       "title": "Why not nitrogen",
-      "text": "Edmondson noticed that the ratio of nitrogen to phosphorus in the lake suggested phosphorus was the nutrient that ran short first. Schindler's Lake 226 later showed the same thing directly, by adding nitrogen and carbon to one half of a lake and phosphorus too to the other. Only the phosphorus half bloomed."
+      "text": "Edmondson noticed that in summer, when the algae stopped growing, all the dissolved phosphate in the surface water had been used up while nitrate remained. That showed phosphorus was the nutrient that ran short first. Schindler's Lake 226 later showed the same thing directly, by adding nitrogen and carbon to one half of a lake and phosphorus too to the other. Only the phosphorus half bloomed."
+    },
+    "hasler": {
+      "kind": "digression",
+      "title": "Who spotted the alga",
+      "text": "It was actually Edmondson's student Richard B. Wood who took the June 1955 sample and spotted *Oscillatoria rubescens* in it. Three months later the Wisconsin limnologist Arthur Hasler visited Seattle, heard about the find, and told Edmondson what the species had done to Lake Zurich in Switzerland, where sewage had triggered blooms, foul scums and the loss of deep-water fish."
     }
   }
 }

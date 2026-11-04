@@ -9,8 +9,8 @@
     {
       "title": "An apple you can't plant",
       "blocks": [
-        {"type": "text", "text": "Eat a good apple, plant its seeds, and wait the five to ten years it takes the trees to fruit. Almost every tree gives a different apple, and most of them are small, hard and sour, fit only for cider or for pigs. The pioneer nurseryman John Chapman, Johnny Appleseed, planted apple seeds across Ohio and Indiana in the early 1800s, and the orchards that grew from them were mostly for hard cider. Apples don't come true from seed."},
-        {"type": "text", "text": "Yet every Red Delicious apple ever sold grew on a tree that is a copy of one tree. In the early 1870s a seedling came up out of line in Jesse Hiatt's orchard near Peru, Iowa. Hiatt cut it down; it grew back, and he let it grow. Its fruit was striped red and sweet. In 1893 he sent it to a fruit contest held by the Stark Brothers nursery of Missouri, which bought the rights and renamed it Delicious. Every Red Delicious tree since has been grown from shoots cut from that tree, or from its copies, and grafted."}
+        {"type": "text", "text": "Eat a good apple, plant its seeds, and wait the five to ten years it takes the trees to fruit. Almost every tree gives a different apple, and most of them are small, hard and sour, fit only for cider or for pigs. The pioneer nurseryman John Chapman, Johnny Appleseed, planted apple seeds across Ohio and Indiana in the early 1800s, and the orchards that grew from them were mostly for hard cider.[^johnny-appleseed] Apples don't come true from seed."},
+        {"type": "text", "text": "Yet every Red Delicious apple ever sold grew on a tree that is a copy of one tree. In the early 1870s a seedling came up out of line in Jesse Hiatt's orchard near Peru, Iowa. Hiatt cut it down; it grew back, and he let it grow. Its fruit was striped red and sweet. In 1893 he sent it to a fruit contest held by the Stark Brothers nursery of Missouri, which bought the rights in 1894 and renamed it Delicious.[^hawkeye] Every Red Delicious tree since has been grown from shoots cut from that tree, or from its copies, and grafted."}
       ]
     },
     {
@@ -25,13 +25,13 @@
       "blocks": [
         {"type": "text", "text": "So apples are copied, not grown from seed. A **graft** joins a short length of shoot from the tree to be copied, the **scion**, onto the roots and lower stem of another young tree, the **rootstock**. People have done this for well over two thousand years. What makes it work is the cambium, lesson 16's thin layer under the bark that makes new wood on its inside and new phloem on its outside. It is the only layer of a woody stem whose cells are still dividing."},
         {"type": "interactive_diagram", "id": "graft", "caption": "A scion set on a rootstock's cut end, seen from above.", "task": "Guess, then line the cambium up", "goal": "take", "aspect_ratio": 1.82},
-        {"type": "text", "text": "The grafter cuts both pieces so their cambium meets along at least one edge, and binds them tight. Within weeks the cambium cells on each side grow into the gap, mingle, and make new xylem and phloem that join the two. From then on the scion's leaves feed the roots and the roots water the scion, and the branches that grow from the scion carry its genes, and its apples, faithfully, apart from the rare mutation described below. A tree in your garden labelled Gala is a Gala scion on someone else's roots."}
+        {"type": "text", "text": "The grafter cuts both pieces so their cambium meets along at least one edge, and binds them tight. Within weeks the cambium cells on each side grow into the gap, mingle, and make new xylem and phloem that join the two. From then on the scion's leaves feed the roots and the roots water the scion. The branches that grow from the scion carry its genes and its apples faithfully, apart from the rare mutation described below. A tree in your garden labelled Gala is a Gala scion on someone else's roots."}
       ]
     },
     {
       "title": "Roots that set the size",
       "blocks": [
-        {"type": "text", "text": "The rootstock does more than hold the tree up. From 1912 the East Malling research station in Kent, England, collected and tested apple rootstocks, and found that some keep any scion grafted onto them small. On the rootstock called M9 an apple tree stays two or three metres tall and bears fruit in its second or third year, where the same variety on its own roots would grow into a big tree taking eight years to fruit. Modern orchards are rows of such small trees on wires, picked from the ground or short ladders."},
+        {"type": "text", "text": "The rootstock does more than hold the tree up. From 1913 the East Malling research station in Kent, England, collected and tested apple rootstocks, and found that some keep any scion grafted onto them small.[^east-malling] On the rootstock called M9 an apple tree stays two or three metres tall and bears fruit in its second or third year, where the same variety on its own roots would grow into a big tree taking eight years to fruit. Modern orchards are rows of such small trees on wires, picked from the ground or short ladders."},
         {"type": "text", "text": "Copies can still change. Now and then a single bud mutates and grows into a branch whose fruit is different, a **sport**. Growers looking for redder Red Delicious grafted the reddest sports for decades, and ended up with a deep red apple that looked perfect and, many buyers felt, had lost much of its taste."}
       ]
     },
@@ -39,14 +39,17 @@
       "title": "Washington's apples",
       "blocks": [
         {"type": "text", "text": "Washington grows most of the fresh apples sold in the United States, in irrigated valleys east of the Cascades around Wenatchee, Yakima and the Okanogan, where dry sunny summers mean few fungal diseases and cold nights colour the fruit. For most of the twentieth century its main apple was Red Delicious. It has since given way to newer varieties, including Cosmic Crisp, bred at Washington State University from a 1997 cross of Enterprise and Honeycrisp: one of thousands of seedlings tested, and the rare good one, now grafted onto millions of trees."},
-        {"type": "text", "text": "The wild ancestor of the apple, *Malus sieversii*, still grows in the forests of the Tian Shan mountains in Kazakhstan, where, like trees grown from seed in any orchard, each tree's apples are different. Look at an apple tree in winter for the graft union, a bulge in the trunk just above the ground where scion meets rootstock."}
+        {"type": "text", "text": "The wild ancestor of the apple, *Malus sieversii*, still grows in the forests of the Tian Shan mountains in Kazakhstan, where, like trees grown from seed in any orchard, each tree's apples are different.[^kazakhstan] Look at an apple tree in winter for the graft union, a bulge in the trunk just above the ground where scion meets rootstock."}
       ]
     },
     {
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Five questions on apples and grafting", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on apples and grafting",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Why do trees grown from a good apple's seeds give mostly poor apples?", "choices": ["Each seed is a new random mix of two parents' many different gene copies", "The seeds come from the weakest flowers", "Seedling trees fruit too young to ripen well"], "answer": 0, "why": "Apples can't self-fertilise and carry two different copies of many genes, so each seed is a new combination."},
             {"ask": "In a graft, which layers must meet?", "choices": ["The cambium of scion and rootstock", "The centres of the wood", "The bark of each"], "answer": 0, "why": "The cambium is the only layer still dividing. Its cells grow across the join and connect xylem and phloem."},
@@ -67,5 +70,26 @@
     "**A sport is a mutated bud.** Grafting the reddest sports made Red Delicious redder and, many said, less tasty."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "johnny-appleseed": {
+      "kind": "digression",
+      "title": "Johnny Appleseed's business",
+      "text": "Chapman (1774–1845) was not scattering seeds at random. On the Ohio frontier a settler had to plant fifty apple or pear trees to claim a homestead. Chapman walked ahead of the wave of settlers, planted fenced nurseries from cider-mill pomace, and sold the young trees when families arrived. He opposed grafting as an injury to the tree."
+    },
+    "hawkeye": {
+      "kind": "digression",
+      "title": "Hawkeye and Golden Delicious",
+      "text": "Hiatt called his apple Hawkeye. At the 1893 Stark Brothers show in Louisiana, Missouri, the label tying it to his name was lost, so the nursery had to hold a second contest the next year and wait for Hiatt to enter again before buying it in 1894. In 1914 the Starks released a yellow seedling from West Virginia under the name Golden Delicious (no relation to Hiatt's apple), and Delicious became Red Delicious to tell the two apart."
+    },
+    "east-malling": {
+      "kind": "digression",
+      "title": "Sorting out the Paradise stocks",
+      "text": "European nurserymen had used dwarfing rootstocks called 'Paradise' and 'Doucin' for centuries, but the names were a muddle: a grower buying Paradise might get any of several stocks of very different vigour. Ronald Hatton at East Malling collected seventy-one lots from across Europe, grew them side by side, and numbered the distinct types with Roman numerals. Type IX (now M9), an old French stock called *Jaune de Metz*, is still the world's main dwarfing apple rootstock."
+    },
+    "kazakhstan": {
+      "kind": "digression",
+      "title": "The city of the apple",
+      "text": "Kazakhstan's largest city, at the foot of the Tian Shan, was called Alma-Ata in Soviet times, meaning 'Father of Apples', and is now Almaty, 'rich in apples'. The Russian botanist Nikolai Vavilov visited the wild apple forests around the city in 1929 and argued that the domesticated apple had originated there, a view later confirmed by DNA comparisons."
+    }
+  }
 }

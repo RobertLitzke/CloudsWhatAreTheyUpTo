@@ -10,20 +10,20 @@
       "title": "One of the most wonderful plants",
       "blocks": [
         {"type": "text", "text": "In 1875 Charles Darwin published a book on plants that eat animals. Of the Venus flytrap he wrote that, from the rapidity and force of its movements, it is one of the most wonderful plants in the world. Each of its leaves ends in a pair of lobes hinged like a book, edged with stiff teeth and lined with a few short trigger hairs. An insect walks in after the sweet nectar on the rim; the lobes slam shut in about a tenth of a second, the teeth interlock like bars, and over the next week the leaf digests it."},
-        {"type": "text", "text": "Plants have no nerves and no muscles. Yet the flytrap senses a touch, decides whether it is food, and moves faster than most animals blink. How?"}
+        {"type": "text", "text": "Plants have no nerves and no muscles, yet the flytrap senses a touch, decides whether it is food, and moves faster than most animals blink."}
       ]
     },
     {
       "title": "Why eat insects?",
       "blocks": [
-        {"type": "text", "text": "The flytrap grows wild in only one small region, the wet, sandy savannas and bogs of the Carolinas around Wilmington, North Carolina. Carnivorous plants as a group, sundews, pitcher plants, butterworts and bladderworts, live mostly in places like that: waterlogged, acid, sunny, and short of nitrogen. In a bog, dead plants decay so slowly that they pile up as peat, a spongy brown mass of half-rotted moss and leaves, with their nitrogen still locked inside, and the soil water holds very little (lesson 10's nitrogen starvation). Such plants make their own sugar by photosynthesis like any other. Insects are their fertiliser."},
-        {"type": "text", "text": "Darwin tested this on the round-leaved sundew, which grows in bogs in the Northwest too. Its leaves are covered in red hairs, each tipped with a glistening drop of glue. He put tiny objects on the leaves: bits of raw meat, egg white, glass, cinders, paper, a scrap of hair too light to feel. The hairs bent slowly over anything placed on them, but they held on and poured out digestive juice only for things with nitrogen in them: meat, egg, insects. The hairs let go of grit and glass."}
+        {"type": "text", "text": "The flytrap grows wild in only one small region, the wet, sandy savannas and bogs of the Carolinas around Wilmington, North Carolina. Carnivorous plants as a group, sundews, pitcher plants, butterworts and bladderworts, live mostly in places like that: waterlogged, acid, sunny, and short of nitrogen. In a bog, dead plants decay so slowly that they pile up as peat[^peat] with their nitrogen still locked inside, and the soil water holds very little (lesson 10's nitrogen starvation). Such plants make their own sugar by photosynthesis like any other. Insects are their fertiliser."},
+        {"type": "text", "text": "Darwin tested this on the round-leaved sundew, which grows in bogs in the Northwest too. Its leaves are covered in red hairs, each tipped with a glistening drop of glue. He put tiny objects on the leaves: bits of raw meat, egg white, glass, cinders, paper, a scrap of hair too light to feel.[^sundew-sensitivity] The hairs bent slowly over anything placed on them, but they held on and poured out digestive juice only for things with nitrogen in them: meat, egg, insects. The hairs let go of grit and glass."}
       ]
     },
     {
       "title": "Counting to two",
       "blocks": [
-        {"type": "text", "text": "At Darwin's request, in 1873, the physiologist John Burdon-Sanderson laid electrodes, metal contacts wired to a sensitive meter, on a flytrap leaf and touched a trigger hair. He recorded a spike of voltage running across the leaf, like a nerve impulse in an animal. In plants, as in nerves, such a spike passes because charged atoms of salts, chiefly chloride and potassium, rush across cell membranes (lesson 5's membranes, which control what passes)."},
+        {"type": "text", "text": "At Darwin's request, in 1873, the physiologist John Burdon-Sanderson laid electrodes[^electrodes] on a flytrap leaf and touched a trigger hair. He recorded a spike of voltage running across the leaf, like a nerve impulse in an animal. In plants, as in nerves, such a spike passes because charged atoms of salts, chiefly calcium, chloride and potassium, rush across cell membranes (lesson 5's membranes, which control what passes)."},
         {"type": "text", "text": "One spike doesn't shut the trap. A raindrop or a blown seed could touch one hair once. The leaf keeps a memory of the spike that fades over about half a minute, and only a second spike while the memory lasts shuts it. In 2016 Rainer Hedrich's group in Würzburg went further: after it shuts, the trap keeps counting. An insect struggling inside sets off spike after spike, and at about five the trap starts to make digestive enzymes and the channels to absorb what it digests. A trap that caught a pebble reopens within a day; one that caught a fly stays shut for a week."},
         {"type": "interactive_diagram", "id": "flytrap", "caption": "A flytrap leaf's memory of touches. A model.", "task": "Guess; let one touch fade, then feed the trap", "goal": "digest", "aspect_ratio": 1.74}
       ]
@@ -31,20 +31,23 @@
     {
       "title": "Faster than water",
       "blocks": [
-        {"type": "text", "text": "Plants move by moving water: a guard cell swells as water flows in (lesson 7), and lesson 13's bending shoot curves because cells on one side take in water and lengthen faster. But water seeps through tissue slowly, far too slowly to shut a trap in a tenth of a second. In 2005 Yoël Forterre and colleagues at Harvard filmed flytraps at high speed and painted dots on them to measure their shape. Each open lobe is curved outward, like a contact lens, and its tissue is bent and strained, storing energy like a drawn bow. The touch signal moves a little water from cells on one side to the other, changing the lobe's shape just enough to push it past the point of balance. Then it snaps through to curve the other way, the way the curved metal tongue of a clicker toy flips once you press it past centre. The energy was stored in the bent leaf; the signal only releases it."}
+        {"type": "text", "text": "Plants move by moving water: a guard cell swells as water flows in (lesson 7), and lesson 13's bending shoot curves because cells on one side take in water and lengthen faster. But water seeps through tissue slowly, far too slowly to shut a trap in a tenth of a second. In 2005 Yoël Forterre and colleagues at Harvard filmed flytraps at high speed and painted dots on them to measure their shape. Each open lobe is curved outward, like a contact lens turned inside out, and its tissue is bent and strained, storing energy like a drawn bow. The touch signal moves a little water from cells on one side to the other, changing the lobe's shape just enough to push it past the point of balance. Then it snaps through to curve the other way, the way the curved metal tongue of a clicker toy flips once you press it past centre. The energy was stored in the bent leaf; the signal only releases it."}
       ]
     },
     {
       "title": "Carnivores near you",
       "blocks": [
-        {"type": "text", "text": "Flesh-eating has evolved separately many times, by most counts about ten, in flowering plants, with traps of every kind: glue, pitfalls, bladders that suck in water fleas, and snap traps. In Northwest bogs look for round-leaved sundew, tiny and red among the sphagnum, the spongy moss that builds bogs, and in the Oregon mountains for the cobra lily, a pitcher plant whose hooded leaves look like a rearing snake. Bogs are fragile; look from the boardwalk."}
+        {"type": "text", "text": "Flesh-eating has evolved separately many times, by most counts at least ten, in flowering plants, with traps of every kind: glue, pitfalls, bladders that suck in water fleas, and snap traps. In Northwest bogs look for round-leaved sundew, tiny and red among the sphagnum[^sphagnum], and in the Oregon mountains for the cobra lily, a pitcher plant whose hooded leaves look like a rearing snake. Bogs are fragile; look from the boardwalk."}
       ]
     },
     {
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Five questions on carnivorous plants", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on carnivorous plants",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Why do carnivorous plants catch insects?", "choices": ["For nitrogen, which their bog soils lack", "For energy, since bogs are too shady to photosynthesise", "For water"], "answer": 0, "why": "They photosynthesise like other plants. Insects supply the nitrogen that waterlogged, acid bogs hold back."},
             {"ask": "Darwin put glass and meat on sundew leaves. What happened?", "choices": ["The hairs held and digested only the meat, and let the glass go", "The hairs digested both", "The hairs held both, but digested only the glass slowly"], "answer": 0, "why": "The sundew responds most to food with nitrogen in it, and releases grit and glass."},
@@ -65,5 +68,26 @@
     "**Carnivory evolved at least ten times.** Look for sundews in Northwest bogs and cobra lilies in Oregon."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "peat": {
+      "kind": "technical",
+      "title": "Peat",
+      "text": "A spongy brown mass of half-rotted moss and leaves that accumulates in waterlogged bogs where there is too little oxygen for bacteria and fungi to break dead plants down."
+    },
+    "sundew-sensitivity": {
+      "kind": "digression",
+      "title": "Darwin's hair",
+      "text": "The smallest scrap of human hair that made a sundew tentacle bend was a fifth of a millimetre long and weighed about a seventy-eighth of a thousandth of a grain, less than a millionth of a gram. Darwin pointed out that a piece ten times heavier makes no impression on the tip of the human tongue."
+    },
+    "electrodes": {
+      "kind": "technical",
+      "title": "Electrodes",
+      "text": "Metal contacts wired to a sensitive meter to pick up small electrical currents in living tissue."
+    },
+    "sphagnum": {
+      "kind": "technical",
+      "title": "Sphagnum",
+      "text": "The spongy moss that builds most northern bogs. It holds up to twenty times its dry weight in water and makes the water around it acid, starving competing plants of minerals."
+    }
+  }
 }

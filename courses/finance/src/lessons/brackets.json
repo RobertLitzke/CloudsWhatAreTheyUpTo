@@ -25,7 +25,7 @@
         { "type": "text", "text": "Long-term capital gains, on things held for more than a year, and qualified dividends, from most shares held long enough, have their own rates: 0, 15 and 20 percent. They are not taxed separately, though. The return stacks them on top of ordinary income, and the rate depends on where in the stack each dollar lands. For a couple in 2026, gains are taxed at 0 percent until taxable income reaches $98,900, at 15 percent up to $613,700, and at 20 percent above that." },
         { "type": "text", "text": "Make a guess about the second couple, then use the figure to see their return." },
         { "type": "interactive_diagram", "id": "stack", "caption": "Ordinary income fills from the left; gains stack on top. The top two rows are the bands each kind of income is taxed in. The dashed lines mark the end of the standard deduction and the end of the 0 percent band for gains.", "task": "Guess, then move both kinds of income", "goal": "stack", "aspect_ratio": 1.69 },
-        { "type": "text", "text": "With no ordinary income, the second couple's first $32,200 of gains is covered by the standard deduction, and the next $87,800 lands under the $98,900 line. All $120,000 is taxed at 0 percent. A couple could live on up to about $131,000 of gains and dividends a year and owe no federal income tax." },
+        { "type": "text", "text": "With no ordinary income, the second couple's first $32,200 of gains is covered by the standard deduction, and the next $87,800 lands under the $98,900 line. All $120,000 is taxed at 0 percent. A couple could live on up to $131,100 of gains and dividends a year and owe no federal income tax." },
         { "type": "text", "text": "Add ordinary income and it goes underneath, pushing the gains up the stack and out of the 0 percent band. The same $120,000 split evenly, $60,000 from a pre-tax account and $60,000 of gains, costs $2,840: all of it on the ordinary half." },
         { "type": "text", "text": "At high incomes one more layer appears. The net investment income tax adds 3.8 percent on investment income (interest, dividends, gains) once a couple's income passes $250,000, or $200,000 for a single person.[^niit] Those thresholds are not raised for inflation, so each year they catch more people." }
       ]
@@ -35,7 +35,7 @@
       "blocks": [
         { "type": "text", "text": "The stacking has a strange side effect. Take a couple with $60,000 of gains and $100,000 of ordinary income. They are in the 12 percent bracket. But an extra $1,000 of ordinary income is taxed at 12 percent and also pushes $1,000 of gains out of the 0 percent band into the 15 percent band. The extra $1,000 costs $270: a marginal rate of 27 percent, in the 12 percent bracket." },
         { "type": "interactive_diagram", "id": "marginal", "caption": "The federal tax on the next dollar of ordinary income for a married couple, as their ordinary income rises, with some long-term gains stacked on top.", "task": "Find a stretch where the rate is above the bracket", "goal": "marginal", "aspect_ratio": 1.77 },
-        { "type": "text", "text": "The bump sits where ordinary income pushes gains across the $98,900 line, and it lasts as long as there are gains left to push. For this couple it runs from about $71,000 to $131,000 of ordinary income. Planning that ignores it can choose badly: a Roth conversion that seems to cost 12 percent may really cost 27." },
+        { "type": "text", "text": "The bump sits where ordinary income pushes gains across the $98,900 line, and it lasts as long as there are gains left to push. For this couple it runs from $71,100 to $131,100 of ordinary income. Planning that ignores it can choose badly: a Roth conversion that seems to cost 12 percent may really cost 27." },
         { "type": "text", "text": "This is the first of several places where the rate on the next dollar differs from the bracket. Later lessons find others: Social Security becoming taxable (lesson 12), health insurance credits shrinking (lesson 11), Medicare surcharges (lesson 12). A plan that asks \"what bracket am I in?\" asks the wrong question. The right one is \"what does the next $1,000 of income cost, counting everything?\"" }
       ]
     },
@@ -44,7 +44,7 @@
       "blocks": [
         { "type": "text", "text": "**Ordinary income:** wages; interest, including on bonds and savings accounts; dividends that aren't qualified, such as most from bond funds and REITs; gains on things held a year or less; withdrawals from traditional 401(k)s and IRAs; Roth conversions; pensions; and up to 85 percent of Social Security, depending on other income." },
         { "type": "text", "text": "**Long-term gains and qualified dividends:** gains on shares, funds and other property held more than a year, and dividends from most US companies and many foreign ones held for more than about two months around the payment." },
-        { "type": "text", "text": "**Not income at all:** money returned to you that you already paid tax on. When you sell $100,000 of shares you bought for $60,000, only the $40,000 gain is income. The $60,000, called the basis, comes back free. Qualified withdrawals from a Roth account and health savings account money spent on medical costs are also outside the return." },
+        { "type": "text", "text": "**Not income at all:** money returned to you that you already paid tax on. When you sell $100,000 of shares you bought for $60,000, only the $40,000 gain is income. The $60,000, called the basis, comes back free.[^basis] Qualified withdrawals from a Roth account and health savings account money spent on medical costs are also outside the return." },
         { "type": "text", "text": "That last point is why living on a taxable brokerage account can look so cheap. A retiree who sells $100,000 of shares a year with a basis of $60,000 reports only $40,000 of income. If that is all their income, a married couple owes nothing." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Each bracket's rate applies only to the slice inside it; the standard deduction is a 0 percent bracket at the bottom.",
@@ -72,14 +72,19 @@
     "**Brackets fill from the bottom.** Each rate applies only to its slice, so a higher bracket never lowers take-home pay.",
     "**The standard deduction is a 0 percent bracket.** $32,200 for a couple and $16,100 for a single person in 2026.",
     "**Gains stack on top.** Long-term gains and qualified dividends are taxed at 0, 15 or 20 percent by where they land above ordinary income.",
-    "**A couple can live on about $131,000 of gains tax-free.** The deduction plus the 0 percent band to $98,900 of taxable income.",
+    "**A couple can live on $131,100 of gains tax-free.** The deduction plus the 0 percent band to $98,900 of taxable income.",
     "**The next dollar can cost more than the bracket.** Ordinary income that pushes gains out of the 0 percent band costs its own rate plus 15 percent.",
     "**Only the gain is income.** Selling shares returns the basis untaxed.",
     "**The 3.8 percent surtax isn't indexed.** It applies to investment income above $250,000 for a couple, $200,000 single."
   ],
   "footnotes": {
-    "payroll": { "kind": "technical", "title": "Payroll tax", "text": "Wages also pay Social Security tax, 6.2 percent on earnings up to $184,500 in 2026, and Medicare tax, 1.45 percent on all of them, with an extra 0.9 percent on wages above $250,000 for a couple. Employers pay a matching share. None of it applies to investment income or to withdrawals from retirement accounts." },
+    "payroll": { "kind": "technical", "title": "Payroll tax", "text": "Wages also pay Social Security tax, 6.2 percent on earnings up to $184,500 in 2026, and Medicare tax, 1.45 percent on all of them, with an extra 0.9 percent on wages above $250,000 for a couple. Employers pay a matching share, except on the 0.9 percent. None of it applies to investment income or to withdrawals from retirement accounts." },
     "rules": { "kind": "technical", "title": "Where the numbers come from", "text": "Brackets, the standard deduction and the gains bands are raised for inflation each year and published by the IRS each autumn; the 2026 figures are in Revenue Procedure 2025-32. The rates themselves, 10 to 37 percent, were set in 2017 and made permanent by the budget act of July 2025. That act also added a deduction of up to $6,000 for each person 65 or older, for 2025 to 2028." },
-    "niit": { "kind": "digression", "title": "The 3.8 percent", "text": "The net investment income tax came in with the Affordable Care Act in 2013 to help pay for it. Its thresholds, $250,000 and $200,000, were written into the law as fixed numbers and have never changed, while prices have risen by about 40 percent since. Withdrawals from retirement accounts are not investment income for this tax, though they do raise the income that is measured against the threshold." }
+    "niit": { "kind": "digression", "title": "The 3.8 percent", "text": "The net investment income tax came in with the Affordable Care Act in 2013 to help pay for it. Its thresholds, $250,000 and $200,000, were written into the law as fixed numbers and have never changed, while prices have risen by about 40 percent since. Withdrawals from retirement accounts are not investment income for this tax, though they do raise the income that is measured against the threshold." },
+    "basis": {
+      "kind": "technical",
+      "title": "Picking which shares to sell",
+      "text": "If you bought shares of the same fund at different times and prices, each purchase is a separate lot with its own basis and holding period. By default most brokers sell the oldest shares first, which usually carry the largest gain. Before placing an order you can tell the broker to sell specific lots with a higher basis instead, reporting a smaller gain on the same cash."
+    }
   }
 }

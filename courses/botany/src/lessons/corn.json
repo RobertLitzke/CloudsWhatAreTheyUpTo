@@ -9,21 +9,21 @@
     {
       "title": "A crop with no wild double",
       "blocks": [
-        {"type": "text", "text": "Most crops have wild relatives that look much like them. Wild wheat and wild barley still grow on hillsides in the Middle East, with the same ears and grains, only smaller and quick to shatter. Wild rice looks like rice. But nothing wild looks like maize, the plant Americans call corn: a single stout stalk with one or two huge cobs, each holding hundreds of naked kernels in neat rows, wrapped in husks so tightly that the seeds can't fall out. Left alone, a cob that drops to the ground sprouts as a crowded clump that mostly dies. Maize can't spread itself. It survives only because people plant it."},
-        {"type": "text", "text": "So where did it come from? For much of the twentieth century the leading answer, from the Harvard botanist Paul Mangelsdorf, was that maize descended from a wild maize, now extinct, that had never been found."}
+        {"type": "text", "text": "Most crops have wild relatives that look much like them. Wild wheat and wild barley still grow on hillsides in the Middle East, with the same ears and grains, only smaller and quick to shatter. Wild rice looks like rice. Nothing wild looks like maize, the plant Americans call corn[^corn-word]: a single stout stalk with one or two huge cobs, each holding hundreds of naked kernels in neat rows, wrapped in husks so tightly that the seeds can't fall out. Left alone, a cob that drops to the ground sprouts as a crowded clump that mostly dies. Maize can't spread itself. It survives only because people plant it."},
+        {"type": "text", "text": "Where maize came from was long a puzzle. For much of the twentieth century the leading answer, from the Harvard botanist Paul Mangelsdorf, was that maize descended from a wild maize, now extinct, that had never been found."}
       ]
     },
     {
       "title": "Teosinte",
       "blocks": [
-        {"type": "text", "text": "The rival answer was **teosinte**, a wild grass of the hills of western Mexico. Teosinte is bushy, with many branches, each ending in small ears. Each ear is a single row of five to twelve kernels, each sealed in a stony case, which break apart when ripe and scatter. You would not look at it and think of food, and the stony cases would break teeth."},
-        {"type": "text", "text": "George Beadle, a geneticist who later shared a Nobel Prize for showing that each gene makes one enzyme, became convinced in the 1930s that teosinte was the ancestor. Maize and teosinte cross easily, and their hybrids are fertile, which argues for close kinship. And he showed that teosinte kernels can be eaten: heated, they pop like popcorn, bursting out of their cases. He spent his retirement proving it."}
+        {"type": "text", "text": "The rival answer was **teosinte**, a wild grass of the hills of western and southern Mexico. Teosinte is bushy, with many branches, each ending in clusters of small ears. Each ear is a single row of five to twelve kernels, each sealed in a stony case, which break apart when ripe and scatter. You would not look at it and think of food, and the stony cases would break teeth."},
+        {"type": "text", "text": "George Beadle, a geneticist who later shared a Nobel Prize for showing that genes direct the making of enzymes, became convinced in the 1930s that teosinte was the ancestor. Maize and teosinte cross easily, and their hybrids are fertile, which argues for close kinship. He also showed that teosinte kernels can be eaten: heated, they pop like popcorn, bursting out of their cases.[^beadle-pop] He spent his retirement proving the link."}
       ]
     },
     {
       "title": "Beadle's count",
       "blocks": [
-        {"type": "text", "text": "In the 1970s, by then in his late sixties and seventies, Beadle crossed maize with teosinte and grew around fifty thousand plants of the next generation, the grandchildren of the original cross, in the way Mendel (lesson C1) let his hybrids breed. He reasoned that if a handful of genes made most of the difference, then by chance a small share of the grandchildren would inherit the maize form of all of them, and look like maize, and a similar share the teosinte form of all of them. If the difference rested on hundreds of genes, nothing in the field would look like either parent."},
+        {"type": "text", "text": "In the 1970s, by then in his late sixties and seventies, Beadle crossed maize with teosinte and grew around fifty thousand grandchildren of the original cross, in the way Mendel (lesson C1) let his hybrids breed. He reasoned that if a handful of genes made most of the difference, then by chance a small share of the grandchildren would inherit the maize form of all of them, and look like maize, and a similar share would inherit the teosinte form of all of them. If the difference rested on hundreds of genes, nothing in the field would look like either parent."},
         {"type": "text", "text": "About one plant in five hundred looked like maize, and about one in five hundred like teosinte. In a Mendel-style cross, each gene gives the pure form of one parent to a quarter of the grandchildren, and if the genes are inherited independently, the chance of getting all of them at once is a quarter multiplied by itself once per gene. A share of one in five hundred means about four or five genes. A few genes of big effect separate the two plants; many more of small effect fine-tune them."},
         {"type": "interactive_diagram", "id": "corn", "caption": "Teosinte, changed one trait at a time towards maize. Drawn simply.", "task": "Guess, then turn on all four changes", "goal": "maize", "aspect_ratio": 1.67}
       ]
@@ -31,22 +31,25 @@
     {
       "title": "The genes found",
       "blocks": [
-        {"type": "text", "text": "From the 1990s the geneticist John Doebley, at the University of Wisconsin, tracked those genes down. One, *teosinte branched1* (*tb1*), is more active in maize, which keeps the side branches short and puts the plant's sugar into a single stalk with a few big ears. Another, *teosinte glume architecture1* (*tga1*, the glume being the case around the kernel), differs by a single letter of DNA, and that change leaves the stony case around each kernel soft and small, so the kernel sits bare on the cob. Neither gene was new: teosinte has both, and the maize forms were changes of the kind lesson C1's short peas showed: a gene doing its old job a little differently."},
-        {"type": "text", "text": "In 2002 Doebley's group compared DNA from maize all over the Americas with teosinte from across Mexico. All maize traced back to a single domestication, the taming of a wild plant into a crop, from the teosinte of the Balsas River valley in southern Mexico, about 9,000 years ago. Grains of maize starch on stone tools from a rock shelter in that valley are about 8,700 years old. The oldest cobs found, from a cave in Oaxaca, are about 6,250 years old and just a few centimetres long."},
+        {"type": "text", "text": "From the 1990s the geneticist John Doebley, at the University of Wisconsin, tracked those genes down. One, *teosinte branched1* (*tb1*), is more active in maize, which keeps the side branches short and puts the plant's sugar into a single stalk with a few big ears. Another, *teosinte glume architecture1* (*tga1*),[^glume] differs in function by a single letter of DNA, and that change leaves the stony case around each kernel soft and small, so the kernel sits bare on the cob. Neither gene was new: teosinte has both, and the maize forms were changes of the kind lesson C1's short peas showed, a gene doing its old job a little differently."},
+        {"type": "text", "text": "In 2002 Doebley's group compared DNA from maize all over the Americas with teosinte from across Mexico. All maize traced back to a single domestication, the taming of a wild plant into a crop, from the teosinte of the Balsas River valley in southwestern Mexico, about 9,000 years ago. Grains of maize starch on stone tools from a rock shelter in that valley are about 8,700 years old. The oldest cobs found, from a cave in Oaxaca, are about 6,250 years old and just a few centimetres long."},
         {"type": "key_ideas", "title": "Estimate", "points": ["Each gene gives the pure maize form to a quarter of the grandchildren. For four genes at once: ¼ × ¼ × ¼ × ¼ = 1 in 256; for five, 1 in 1,024.", "Beadle's one in five hundred sits between: about four or five genes."]}
       ]
     },
     {
       "title": "Farmers as breeders",
       "blocks": [
-        {"type": "text", "text": "The first farmers knew nothing of genes. They harvested the plants that gave them the most food, ate most of the grain and planted some, and over thousands of years the plants that held their seed, kept it bare, and made it in bigger ears became the crop. It is selection of the same kind as lesson 18's orchid and moth, steered by people. By the time Europeans arrived, maize grew from Canada to Chile, in thousands of local varieties, and today more maize is harvested, by weight, than any other grain."}
+        {"type": "text", "text": "The first farmers knew nothing of genes. They harvested the plants that gave them the most food, ate most of the grain and planted some. Over thousands of years, the plants that held on to their seed, kept it bare and made it in bigger ears became the crop. It is selection of the same kind as lesson 18's orchid and moth, steered by people. By the time Europeans arrived, maize grew from Canada to Chile in thousands of local varieties, and today more maize is harvested, by weight, than any other grain."}
       ]
     },
     {
       "title": "Check",
       "blocks": [
         {
-          "type": "quiz", "id": "check", "caption": "Five questions on maize", "task": "Choose the best answer to each",
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on maize",
+          "task": "Choose the best answer to each",
           "options": {"items": [
             {"ask": "Why can't maize survive without people?", "choices": ["Its kernels stay on the cob in tight husks, so it can't scatter its seed", "Its seeds need fertiliser to sprout", "Its pollen can't reach other maize plants"], "answer": 0, "why": "A dropped cob sprouts as a crowded clump that mostly dies. Teosinte's ears fall apart and scatter."},
             {"ask": "How did Beadle estimate the number of genes that separate maize from teosinte?", "choices": ["From how often grandchildren of a cross looked like either parent", "By counting chromosomes", "By counting how many kernels each ear held"], "answer": 0, "why": "About one in five hundred looked like maize. With each gene in a quarter of plants, that means four or five genes."},
@@ -67,5 +70,21 @@
     "**Farmers selected without knowing genes.** Keeping the best ears and replanting them made the crop."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "corn-word": {
+      "kind": "digression",
+      "title": "Why 'corn' and 'maize'",
+      "text": "In Britain, 'corn' traditionally meant whichever cereal grain was the local staple: wheat in England, oats in Scotland and Ireland. English settlers in North America applied their word for the main grain to the Indigenous crop *mahiz*, and 'Indian corn' was later shortened to 'corn'. Botanists and most of the English-speaking world outside North America use 'maize' to avoid confusion."
+    },
+    "beadle-pop": {
+      "kind": "digression",
+      "title": "Living on teosinte",
+      "text": "To answer sceptics who said no hunter-gatherer would bother harvesting such bony seeds, Beadle ground teosinte on a Mexican stone *metate* and ate it himself for days at a time, popped it in hot sand and oil, and served popped teosinte to visiting colleagues."
+    },
+    "glume": {
+      "kind": "technical",
+      "title": "Glume",
+      "text": "A **glume** is one of the small scale-like bracts that enclose each flower or grain in a grass ear. In wheat and oats the glumes come off as chaff when the grain is threshed; in teosinte the outer glume hardens with silica into a bony cup that seals the kernel inside."
+    }
+  }
 }

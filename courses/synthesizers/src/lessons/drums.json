@@ -1,334 +1,334 @@
 {
- "id": "drums",
- "n": 12,
- "title": "A drum with no drum",
- "teaches": "An envelope sent to pitch instead of volume: a kick and a snare built from nothing",
- "parts": [
-  {
-   "title": "A box with no drums in it",
-   "blocks": [
+  "id": "drums",
+  "n": 12,
+  "title": "A drum with no drum",
+  "teaches": "An envelope sent to pitch instead of volume: a kick and a snare built from nothing",
+  "parts": [
     {
-     "type": "text",
-     "text": "**The mystery.** Roland's [[TR-808]] drum machine, released in 1980, held no drums and no recordings of drums. Machines that played back recorded drums were only just appearing, at several times the price, so the 808 built each sound from circuits every time it played.[^808] Its kick drum became one of the most copied sounds in popular music. Below is a plain sine wave plucked on a low note, and then the same sine with one change. The change is not to its volume, its filter or its wave."
-    },
-    {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "A Roland TR-808. The sixteen buttons along the bottom are the steps of its pattern.",
-     "options": {
-      "photo": "tr-808",
-      "aspect": 1.5
-     }
-    },
-    {
-     "type": "diagram",
-     "id": "sound",
-     "caption": "A low sine, plucked, and the same sine with one change",
-     "options": {
-      "stage": 12,
-      "riff": 101,
-      "start": {
-       "wave": 3,
-       "attack": 0,
-       "decay": 3,
-       "sustain": 0,
-       "release": 2,
-       "cutoff": 7
-      },
-      "sounds": [
-       {
-        "name": "Plucked sine",
-        "set": {}
-       },
-       {
-        "name": "One change",
-        "set": {
-         "env2Amt": 3,
-         "env2Fall": 1
+      "title": "A box with no drums in it",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**The mystery.** Roland's [[TR-808]] drum machine, released in 1980, held no drums and no recordings of drums. Machines that played back recorded drums were only just appearing, at several times the price, so the 808 built each sound from circuits every time it played.[^808] Its kick drum became one of the most copied sounds in popular music. Below is a plain sine wave plucked on a low note, and then the same sine with one change. The change is not to its volume, its filter or its wave."
+        },
+        {
+          "type": "diagram",
+          "id": "photo",
+          "caption": "A Roland TR-808. The sixteen buttons along the bottom are the steps of its pattern.",
+          "options": {
+            "photo": "tr-808",
+            "aspect": 1.5
+          }
+        },
+        {
+          "type": "diagram",
+          "id": "sound",
+          "caption": "A low sine, plucked, and the same sine with one change",
+          "options": {
+            "stage": 12,
+            "riff": 101,
+            "start": {
+              "wave": 3,
+              "attack": 0,
+              "decay": 3,
+              "sustain": 0,
+              "release": 2,
+              "cutoff": 7
+            },
+            "sounds": [
+              {
+                "name": "Plucked sine",
+                "set": {}
+              },
+              {
+                "name": "One change",
+                "set": {
+                  "env2Amt": 3,
+                  "env2Fall": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The first is a soft, dull boop. The second is a kick drum. What changed is the *pitch*, and not in the way a melody changes it. Every note now starts high and falls, within a few hundredths of a second, to where it would have been. That one movement is most of what makes a drum sound like a drum."
         }
-       }
       ]
-     }
     },
     {
-     "type": "text",
-     "text": "The first is a soft, dull boop. The second is a kick drum. What changed is the *pitch*, and not in the way a melody changes it. Every note now starts high and falls, within a few hundredths of a second, to where it would have been. That one movement is most of what makes a drum sound like a drum."
-    }
-   ]
-  },
-  {
-   "title": "Why a drum's pitch falls",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Hit a drum hard and its skin is pushed a long way in. Stretched further, it is tighter, and a tighter skin vibrates faster, so the first instant of the note is higher in pitch. As the skin settles and its swing gets smaller, it slackens back to its resting tension and the pitch drops. Listen closely to a big tom-tom struck hard: you can hear it fall, a soft *dooown*.[^tom] A kick drum does the same thing faster."
-    },
-    {
-     "type": "text",
-     "text": "A synth can copy this with an envelope. Lesson 3 sent an envelope to the amplifier and the filter, so that each note's loudness and brightness had a shape in time. Nothing says an envelope must stay there. A second envelope can be sent to the oscillators' pitch, so that every note starts some way above its own pitch and falls back. Here it is a simple one: it jumps up at each note and falls back at a rate you set. Its **Amount** knob sets how far above the note it starts, in semitones."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A low sine, plucked. Envelope 2 on its pitch: raise how far each note starts above itself.",
-     "task": "Raise Envelope 2's amount to +24 semitones or more",
-     "goal": "env2-up",
-     "options": {
-      "stage": 12,
-      "knobs": [
-       "env2Amt"
-      ],
-      "start": {
-       "wave": 3,
-       "attack": 0,
-       "decay": 3,
-       "sustain": 0,
-       "release": 2,
-       "cutoff": 7,
-       "env2Fall": 1
-      },
-      "riff": 101,
-      "keys": 36
-     }
-    },
-    {
-     "type": "text",
-     "text": "At first it sounds like a pluck with a click on the front. Further up, the click becomes a punch. Play a few keys too: each note gets the same fall, so the kick can be tuned, which drum machine players do to fit a kick to a song's key."
-    }
-   ]
-  },
-  {
-   "title": "Fast and slow falls",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "The other knob, **Fall**, sets how quickly the pitch comes back down. It matters as much as how far it starts. A very fast fall is heard as a click or a knock, too quick to hear as pitch at all. A slower one is heard as a sweep: the *pew* of a toy laser gun, the *boing* of a cartoon spring, the *bloop* of an old video game."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "The same kick. Try the quickest and the slowest fall, and the ones in between.",
-     "task": "Hear the fall at its quickest and at its slowest",
-     "goal": "env2-falls",
-     "options": {
-      "stage": 12,
-      "knobs": [
-       "env2Fall",
-       "env2Amt"
-      ],
-      "start": {
-       "wave": 3,
-       "attack": 0,
-       "decay": 3,
-       "sustain": 0,
-       "release": 2,
-       "cutoff": 7,
-       "env2Amt": 3,
-       "env2Fall": 1
-      },
-      "riff": 101,
-      "keys": 36
-     }
-    },
-    {
-     "type": "text",
-     "text": "A real kick sits at the fast end, with a fall of a few hundredths of a second. On headphones, its weight is the low sine underneath. On a phone's small speaker that sine is nearly lost, because the speaker cannot move enough air at 80 hertz, and what you hear is the falling start, which is high enough to come through.[^phone] That is one reason the fall is set by ear on the speakers a track will be played on."
-    }
-   ]
-  },
-  {
-   "title": "Kick",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "Make the 808-style kick: a sine, a fast fall from two octaves up, and a long enough decay to boom. The decay is the main envelope's from lesson 3; the fall is envelope 2's. Listen for the punch at the front and the round tail after it."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A plucked sine on a low note. Make the kick.",
-     "task": "Make the kick",
-     "goal": "match",
-     "options": {
-      "stage": 12,
-      "knobs": [
-       "env2Amt",
-       "env2Fall",
-       "decay"
-      ],
-      "start": {
-       "wave": 3,
-       "attack": 0,
-       "decay": 1,
-       "sustain": 0,
-       "release": 2,
-       "cutoff": 7
-      },
-      "riff": 101,
-      "keys": 36,
-      "target": {
-       "name": "The kick",
-       "set": {
-        "env2Amt": 3,
-        "env2Fall": 1,
-        "decay": 3
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Hip-hop producers found that the 808's kick, with its decay turned right up, rings on long enough to play as a bass line, a deep sine sliding down at the start of every note. It is still the sound under a great deal of rap and trap today."
-    }
-   ]
-  },
-  {
-   "title": "Snare",
-   "blocks": [
-    {
-     "type": "text",
-     "text": "A snare drum is a drum with wires stretched against its bottom skin. Hit it and you hear two things: the drum's own short, tuned note, and the rattle of the wires, which is close to noise. The 808 built it the same way: two tuned circuits for the drum, and filtered noise for the wires, with a knob labelled *snappy* for the balance between them.[^snare]"
-    },
-    {
-     "type": "text",
-     "text": "This synth has everything that needs: an oscillator, noise in the mixer from lesson 11, and envelope 2 for a little punch on the tone. Below is the tone alone, on beats two and four, the backbeat. Bring in the noise, and shorten the decay so the rattle stops quickly, as a real snare's does."
-    },
-    {
-     "type": "interactive_diagram",
-     "id": "synth",
-     "caption": "A short tone with a small pitch fall, on the backbeat. Make the snare.",
-     "task": "Make the snare",
-     "goal": "match",
-     "options": {
-      "stage": 12,
-      "knobs": [
-       "noise",
-       "oscLevel",
-       "decay"
-      ],
-      "start": {
-       "wave": 2,
-       "attack": 0,
-       "decay": 2,
-       "sustain": 0,
-       "release": 1,
-       "cutoff": 7,
-       "env2Amt": 2,
-       "env2Fall": 1
-      },
-      "riff": 102,
-      "target": {
-       "name": "The snare",
-       "set": {
-        "noise": 3,
-        "oscLevel": 2,
-        "decay": 1
-       }
-      }
-     }
-    },
-    {
-     "type": "text",
-     "text": "Most drum sounds are some mix of these two parts, a tuned body and noise, each with its own short envelope. Hi-hats are almost all noise, high-passed and very short; toms are almost all body, with a slower pitch fall. The same few knobs make a whole kit."
-    }
-   ]
-  },
-  {
-   "title": "Check",
-   "blocks": [
-    {
-     "type": "quiz",
-     "id": "check",
-     "caption": "Five questions on drums from a synth",
-     "task": "Choose the best answer to each",
-     "options": {
-      "items": [
-       {
-        "ask": "What turns a plucked sine into a kick drum?",
-        "choices": [
-         "A fast fall in pitch at the start of each note",
-         "A longer release",
-         "A high-pass filter"
-        ],
-        "answer": 0,
-        "why": "Each note starts above its pitch and falls quickly back, as a drum skin does when struck hard."
-       },
-       {
-        "ask": "Why does a drum's pitch fall after it is hit?",
-        "choices": [
-         "The skin is stretched tighter at first and slackens as it settles",
-         "The air inside cools",
-         "The drummer's stick slows down"
-        ],
-        "answer": 0,
-        "why": "A tighter skin vibrates faster. As the swing gets smaller, tension and pitch fall back."
-       },
-       {
-        "ask": "Envelope 2's fall is made much slower. What do you hear?",
-        "choices": [
-         "A sweep, like a laser or a cartoon spring",
-         "A sharper click",
-         "A louder note"
-        ],
-        "answer": 0,
-        "why": "A slow fall is heard as pitch moving; a very fast one only as a click."
-       },
-       {
-        "ask": "On a phone speaker, what do you mostly hear of a kick drum?",
-        "choices": [
-         "The falling start, which is high enough to reproduce",
-         "The low sine underneath",
-         "Nothing at all"
-        ],
-        "answer": 0,
-        "why": "Small speakers cannot play 80 hertz well, but the start of the note is far higher."
-       },
-       {
-        "ask": "What two parts make a snare?",
-        "choices": [
-         "A short tuned tone and short noise",
-         "Two sines an octave apart",
-         "Noise and a long release"
-        ],
-        "answer": 0,
-        "why": "The drum gives a short tuned note; the wires against its skin give a burst of near-noise."
-       }
+      "title": "Why a drum's pitch falls",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hit a drum hard and its skin is pushed a long way in. Stretched further, it is tighter, and a tighter skin vibrates faster, so the first instant of the note is higher in pitch. As the skin settles and its swing gets smaller, it slackens back to its resting tension and the pitch drops. Listen closely to a big tom-tom struck hard: you can hear it fall, a soft *dooown*.[^tom] A kick drum does the same thing faster."
+        },
+        {
+          "type": "text",
+          "text": "A synth can copy this with an envelope. Lesson 3 sent an envelope to the amplifier and the filter, so that each note's loudness and brightness had a shape in time. Nothing says an envelope must stay there. A second envelope can be sent to the oscillators' pitch, so that every note starts some way above its own pitch and falls back. Here it is a simple one: it jumps up at each note and falls back at a rate you set. Its **Amount** knob sets how far above the note it starts, in semitones."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A low sine, plucked. Envelope 2 on its pitch: raise how far each note starts above itself.",
+          "task": "Raise Envelope 2's amount to +24 semitones or more",
+          "goal": "env2-up",
+          "options": {
+            "stage": 12,
+            "knobs": [
+              "env2Amt"
+            ],
+            "start": {
+              "wave": 3,
+              "attack": 0,
+              "decay": 3,
+              "sustain": 0,
+              "release": 2,
+              "cutoff": 7,
+              "env2Fall": 1
+            },
+            "riff": 101,
+            "keys": 36
+          }
+        },
+        {
+          "type": "text",
+          "text": "At first it sounds like a pluck with a click on the front. Further up, the click becomes a punch. Play a few keys too: each note gets the same fall, so the kick can be tuned, which drum machine players do to fit a kick to a song's key."
+        }
       ]
-     }
+    },
+    {
+      "title": "Fast and slow falls",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The other knob, **Fall**, sets how quickly the pitch comes back down. It matters as much as how far it starts. A very fast fall is heard as a click or a knock, too quick to hear as pitch at all. A slower one is heard as a sweep: the *pew* of a toy laser gun, the *boing* of a cartoon spring, the *bloop* of an old video game."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "The same kick. Try the quickest and the slowest fall, and the ones in between.",
+          "task": "Hear the fall at its quickest and at its slowest",
+          "goal": "env2-falls",
+          "options": {
+            "stage": 12,
+            "knobs": [
+              "env2Fall",
+              "env2Amt"
+            ],
+            "start": {
+              "wave": 3,
+              "attack": 0,
+              "decay": 3,
+              "sustain": 0,
+              "release": 2,
+              "cutoff": 7,
+              "env2Amt": 3,
+              "env2Fall": 1
+            },
+            "riff": 101,
+            "keys": 36
+          }
+        },
+        {
+          "type": "text",
+          "text": "A real kick sits at the fast end, with a fall of a few hundredths of a second. On headphones, its weight is the low sine underneath. On a phone's small speaker that sine is nearly lost, because the speaker cannot move enough air at 50 hertz, and what you hear is the falling start, which is high enough to come through.[^phone] That is one reason the fall is set by ear on the speakers a track will be played on."
+        }
+      ]
+    },
+    {
+      "title": "Kick",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Make the 808-style kick: a sine, a fast fall from two octaves up, and a long enough decay to boom. The decay is the main envelope's from lesson 3; the fall is envelope 2's. Listen for the punch at the front and the round tail after it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A plucked sine on a low note. Make the kick.",
+          "task": "Make the kick",
+          "goal": "match",
+          "options": {
+            "stage": 12,
+            "knobs": [
+              "env2Amt",
+              "env2Fall",
+              "decay"
+            ],
+            "start": {
+              "wave": 3,
+              "attack": 0,
+              "decay": 1,
+              "sustain": 0,
+              "release": 2,
+              "cutoff": 7
+            },
+            "riff": 101,
+            "keys": 36,
+            "target": {
+              "name": "The kick",
+              "set": {
+                "env2Amt": 3,
+                "env2Fall": 1,
+                "decay": 3
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Hip-hop producers found that the 808's kick, with its decay turned right up, rings on long enough to play as a bass line, a deep sine sliding down at the start of every note. It is still the sound under a great deal of rap and trap today."
+        }
+      ]
+    },
+    {
+      "title": "Snare",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A snare drum is a drum with wires stretched against its bottom skin. Hit it and you hear two things: the drum's own short, tuned note, and the rattle of the wires, which is close to noise. The 808 built it the same way: two tuned circuits for the drum, and filtered noise for the wires, with a knob labelled *snappy* for the balance between them.[^snare]"
+        },
+        {
+          "type": "text",
+          "text": "This synth has everything that needs: an oscillator, noise in the mixer from lesson 11, and envelope 2 for a little punch on the tone. Below is the tone alone, on beats two and four, the backbeat. Bring in the noise, and shorten the decay so the rattle stops quickly, as a real snare's does."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "synth",
+          "caption": "A short tone with a small pitch fall, on the backbeat. Make the snare.",
+          "task": "Make the snare",
+          "goal": "match",
+          "options": {
+            "stage": 12,
+            "knobs": [
+              "noise",
+              "oscLevel",
+              "decay"
+            ],
+            "start": {
+              "wave": 2,
+              "attack": 0,
+              "decay": 2,
+              "sustain": 0,
+              "release": 1,
+              "cutoff": 7,
+              "env2Amt": 2,
+              "env2Fall": 1
+            },
+            "riff": 102,
+            "target": {
+              "name": "The snare",
+              "set": {
+                "noise": 3,
+                "oscLevel": 2,
+                "decay": 1
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Most drum sounds are some mix of these two parts, a tuned body and noise, each with its own short envelope. Hi-hats are almost all noise, high-passed and very short; toms are almost all body, with a slower pitch fall. Those few controls are enough to build a whole kit."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Five questions on drums from a synth",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What turns a plucked sine into a kick drum?",
+                "choices": [
+                  "A fast fall in pitch at the start of each note",
+                  "A longer release",
+                  "A high-pass filter"
+                ],
+                "answer": 0,
+                "why": "Each note starts above its pitch and falls quickly back, as a drum skin does when struck hard."
+              },
+              {
+                "ask": "Why does a drum's pitch fall after it is hit?",
+                "choices": [
+                  "The skin is stretched tighter at first and slackens as it settles",
+                  "The air inside cools",
+                  "The drummer's stick slows down"
+                ],
+                "answer": 0,
+                "why": "A tighter skin vibrates faster. As the swing gets smaller, tension and pitch fall back."
+              },
+              {
+                "ask": "Envelope 2's fall is made much slower. What do you hear?",
+                "choices": [
+                  "A sweep, like a laser or a cartoon spring",
+                  "A sharper click",
+                  "A louder note"
+                ],
+                "answer": 0,
+                "why": "A slow fall is heard as pitch moving; a very fast one only as a click."
+              },
+              {
+                "ask": "On a phone speaker, what do you mostly hear of a kick drum?",
+                "choices": [
+                  "The falling start, which is high enough to reproduce",
+                  "The low sine underneath",
+                  "Nothing at all"
+                ],
+                "answer": 0,
+                "why": "Small speakers cannot play 50 hertz well, but the start of the note is far higher."
+              },
+              {
+                "ask": "What two parts make a snare?",
+                "choices": [
+                  "A short tuned tone and short noise",
+                  "Two sines an octave apart",
+                  "Noise and a long release"
+                ],
+                "answer": 0,
+                "why": "The drum gives a short tuned note; the wires against its skin give a burst of near-noise."
+              }
+            ]
+          }
+        }
+      ]
     }
-   ]
-  }
- ],
- "summary": [
-  "**The TR-808 (1980) built its drums from circuits**, with no recordings inside.",
-  "**A struck drum's pitch falls**: the skin starts tight and slackens as it settles.",
-  "**An envelope can go to pitch**, not only to loudness or the filter: each note starts high and falls back.",
-  "**How far it starts sets the punch; how fast it falls sets click, thump or sweep.**",
-  "**A kick is a low sine with a fast pitch fall** and a decay long enough to boom.",
-  "**A snare is a short tuned tone plus short noise**, the wires' rattle.",
-  "**Small speakers lose a kick's low sine** but keep its falling start."
- ],
- "footnotes": {
-  "808": {
-   "kind": "digression",
-   "title": "The 808",
-   "text": "Roland made the TR-808 from 1980 to 1983, about twelve thousand of them. Reviewers found its drums unrealistic, and it was soon overtaken by machines that played back recordings. Cheap on the second-hand market, it was taken up by electro and hip-hop producers: Afrika Bambaataa's “Planet Rock” and Marvin Gaye's “Sexual Healing” both used it in 1982."
+  ],
+  "summary": [
+    "**The TR-808 (1980) built its drums from circuits**, with no recordings inside.",
+    "**A struck drum's pitch falls**: the skin starts tight and slackens as it settles.",
+    "**An envelope can go to pitch**, as well as to loudness or the filter: each note starts high and falls back.",
+    "**How far it starts sets the punch; how fast it falls sets whether you hear a click or a sweep.**",
+    "**A kick is a low sine with a fast pitch fall** and a decay long enough to boom.",
+    "**A snare is a short tuned tone plus short noise**, the wires' rattle.",
+    "**Small speakers lose a kick's low sine** but keep its falling start."
+  ],
+  "footnotes": {
+    "808": {
+      "kind": "digression",
+      "title": "The 808",
+      "text": "Roland made the TR-808 from 1980 to 1983, about twelve thousand of them. Reviewers found its drums unrealistic, and it was soon overtaken by machines that played back recordings. Cheap on the second-hand market, it was taken up by electro and hip-hop producers: Afrika Bambaataa's “Planet Rock” and Marvin Gaye's “Sexual Healing” both used it in 1982."
+    },
+    "tom": {
+      "kind": "technical",
+      "title": "Pitch glide",
+      "text": "Physicists call it pitch glide. The tension in a membrane rises with how far it is displaced, so a hard hit raises the pitch for as long as the swing is large. Timpani and toms show it clearly; tabla players exploit it on purpose, pressing the skin with the heel of the hand to bend notes."
+    },
+    "phone": {
+      "kind": "technical",
+      "title": "Small speakers and bass",
+      "text": "To make a low note equally loud, a speaker has to move far more air than for a high one, and a phone speaker's cone is the size of a fingernail. Below about 200 hertz its output falls away steeply. Mix engineers often add a little distortion or a higher click to bass sounds so that they survive small speakers."
+    },
+    "snare": {
+      "kind": "digression",
+      "title": "Inside the 808's snare",
+      "text": "The 808's snare used two 'bridged-T' resonators, circuits that ring at a set pitch when given a short pulse, tuned apart so the drum has two body tones. White noise through a high-pass filter, with its own short envelope, gave the wires. The hi-hats came from six square-wave oscillators at unrelated pitches, through band-pass filters, which is why they sound metallic."
+    }
   },
-  "tom": {
-   "kind": "technical",
-   "title": "Pitch glide",
-   "text": "Physicists call it pitch glide. The tension in a membrane rises with how far it is displaced, so a hard hit raises the pitch for as long as the swing is large. Timpani and toms show it clearly; tabla players exploit it on purpose, pressing the skin with the heel of the hand to bend notes."
-  },
-  "phone": {
-   "kind": "technical",
-   "title": "Small speakers and bass",
-   "text": "To make a low note equally loud, a speaker has to move far more air than for a high one, and a phone speaker's cone is the size of a fingernail. Below about 200 hertz its output falls away steeply. Mix engineers often add a little distortion or a higher click to bass sounds so that they survive small speakers."
-  },
-  "snare": {
-   "kind": "digression",
-   "title": "Inside the 808's snare",
-   "text": "The 808's snare used two 'bridged-T' resonators, circuits that ring at a set pitch when given a short pulse, tuned apart so the drum has two body tones. White noise through a high-pass filter, with its own short envelope, gave the wires. The hi-hats came from six square-wave oscillators at unrelated pitches, through band-pass filters, which is why they sound metallic."
-  }
- },
- "journal": []
+  "journal": []
 }

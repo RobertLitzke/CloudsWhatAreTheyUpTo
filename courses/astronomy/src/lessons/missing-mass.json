@@ -7,7 +7,7 @@
     {
       "title": "A cluster that should fly apart",
       "blocks": [
-        {"type":"text","text":"In 1933 Fritz Zwicky, a brilliant, abrasive Swiss astronomer at Caltech (the same Zwicky who predicted neutron stars in *Little green men*), measured the speeds of galaxies in the Coma cluster, a swarm of more than a thousand galaxies about 320 million light years away. They were moving fast, around a thousand kilometres a second. A cluster can only hold on to galaxies that fast if it has enough mass to pull them back, and adding up the light of all its galaxies gave nothing like enough. By Zwicky's sums the cluster needed hundreds of times more mass than its stars could account for. He called the missing stuff *dunkle Materie*, dark matter."},
+        {"type":"text","text":"In 1933 Fritz Zwicky, a brilliant, abrasive Swiss astronomer at Caltech[^zwicky] (the same Zwicky who predicted neutron stars in *Little green men*), measured the speeds of galaxies in the Coma cluster, a swarm of more than a thousand galaxies about 320 million light years away. They were moving fast, around a thousand kilometres a second. A cluster can only hold on to galaxies that fast if it has enough mass to pull them back, and adding up the light of all its galaxies gave nothing like enough. By Zwicky's sums the cluster needed hundreds of times more mass than its stars could account for.[^coma-factor] He called the missing stuff *dunkle Materie*, dark matter."},
         {"type":"text","text":"Zwicky was disliked, and his numbers were rough, and for forty years hardly anyone took the problem seriously. It was put down to bad measurements or some untidiness in clusters. Then it turned up again, in ordinary galaxies, where it couldn't be ignored."}
       ]
     },
@@ -15,7 +15,7 @@
       "title": "Flat curves",
       "blocks": [
         {"type":"text","text":"In the Solar System, the further a planet is from the Sun, the slower it goes: Mercury races round at 48 kilometres a second, Neptune plods at 5. Nearly all the mass is in the middle, so the pull fades with distance and the outer planets need less speed to stay in orbit. A spiral galaxy's light is concentrated towards its middle too, so its outer stars ought to orbit more slowly, the same way. Plot how fast things orbit against distance from the centre, a graph called a **rotation curve**, and you'd expect it to rise and then fall away."},
-        {"type":"text","text":"In the 1970s Vera Rubin and Kent Ford at the Carnegie Institution in Washington, using a sensitive new spectrograph Ford had built, measured the speeds of stars and gas across spiral galaxy after spiral galaxy, by the Doppler shifts of their light. The curves didn't fall. They rose and then stayed flat, out to the faintest edges of the starlight. At about the same time, the Dutch astronomer Albert Bosma used radio telescopes to follow the cold hydrogen gas that extends far beyond the stars. Out there, where there is almost no light at all, the gas was still going round just as fast."},
+        {"type":"text","text":"In the 1970s Vera Rubin and Kent Ford at the Carnegie Institution in Washington, using a sensitive new spectrograph Ford had built, measured the speeds of glowing gas clouds across spiral galaxy after spiral galaxy, by the Doppler shifts of their light.[^rubin] The curves didn't fall. They rose and then stayed flat, out to the faintest edges of the starlight. At about the same time, the Dutch astronomer Albert Bosma used radio telescopes to follow the cold hydrogen gas that extends far beyond the stars. Out there, where there is almost no light at all, the gas was still going round just as fast."},
         {"type":"interactive_diagram","id":"rotation","caption":"A spiral galaxy's rotation curve: orbit speed against distance from the centre. The dots are measurements; the line is what the mass you include predicts.","task":"Make a prediction, then add unseen mass until the prediction fits","goal":"flat","aspect_ratio":1.67},
         {"type":"key_ideas","title":"Hold on to","points":["The outer parts of galaxies orbit too fast for the mass we can see. Either there is a lot of unseen mass, or gravity behaves differently far out."]}
       ]
@@ -25,34 +25,34 @@
       "blocks": [
         {"type":"text","text":"This is the fork you met in *A planet found with a pen*. When Uranus strayed from its path, Le Verrier trusted the law of gravity and found an unseen mass: Neptune. When Mercury strayed, he tried the same thing and invented Vulcan, but the real answer was a wrong law, fixed by Einstein. The galaxies are straying. Which kind of problem is this?"},
         {"type":"text","text":"The Neptune answer is **dark matter**: mass that gives out no light and is felt only by its pull, gathered in a great round halo enveloping each galaxy and extending far past its stars. To flatten the curves, a galaxy like ours needs several times as much of it as all its stars and gas put together."},
-        {"type":"text","text":"The Mercury answer came in 1983 from the Israeli physicist Mordehai Milgrom. Perhaps, he said, gravity changes its behaviour when it gets very weak, as it is in the outskirts of galaxies, fading more slowly with distance than Newton's law says. He called it Modified Newtonian Dynamics, MOND. It is a simple rule, and it predicts the rotation curves of individual galaxies remarkably well, often better than dark matter does, from their visible mass alone. It cannot be dismissed. But a law has to work everywhere, and the hardest tests are on bigger scales."}
+        {"type":"text","text":"The Mercury answer came in 1983 from the Israeli physicist Mordehai Milgrom. Perhaps, he said, gravity changes its behaviour when its pull gets very weak, as it is in the outskirts of galaxies, fading more slowly with distance than Newton's law says. He called it Modified Newtonian Dynamics, MOND.[^mond] It is a simple rule, and it predicts the rotation curves of individual galaxies very well, often better than dark matter does, from their visible mass alone. It cannot be dismissed. But a law has to work everywhere, and the hardest tests are on bigger scales."}
       ]
     },
     {
       "title": "Where the mass went",
       "blocks": [
         {"type":"text","text":"Most of the ordinary matter in a cluster of galaxies is not in the galaxies at all. It is in thin gas between them, heated to tens of millions of degrees, glowing in X-rays. And the total mass of a cluster can be mapped independently, by the way it bends the light of more distant galaxies behind it: the gravitational lensing of *The Sun bends starlight*."},
-        {"type":"text","text":"In 2006 astronomers looked at a pair of clusters, nicknamed the Bullet Cluster, that collided head-on about 150 million years ago. The galaxies, mostly empty space with far apart stars, sailed past one another. The hot gas clouds of the two clusters slammed into each other, slowed, and were left behind in the middle. So most of the ordinary matter is in the middle. But the lensing map shows most of the mass is out with the galaxies, on either side, having passed straight through like the galaxies did."},
+        {"type":"text","text":"In 2006 astronomers led by Douglas Clowe looked at a pair of clusters, nicknamed the Bullet Cluster, that had collided head-on about 150 million years before the light we see left them. The galaxies, mostly empty space with stars far apart, sailed past one another. The hot gas clouds of the two clusters slammed into each other, slowed, and were left behind in the middle. So most of the ordinary matter is in the middle. But the lensing map shows most of the mass is out with the galaxies, on either side, having passed straight through as the galaxies did."},
         {"type":"diagram","id":"bullet","caption":"The Bullet Cluster, drawn simply. The hot gas (pink) was left in the middle; the mass, mapped by lensing (blue), went on with the galaxies."},
-        {"type":"text","text":"If gravity simply followed the ordinary matter under a different law, it should be centred on the gas. It isn't. Something with mass, which doesn't collide like gas does, passed through. Modified-gravity theories have struggled to explain this without adding unseen matter of their own."}
+        {"type":"text","text":"If gravity simply followed the ordinary matter under a different law, it should be centred on the gas. It isn't. Something with mass, which doesn't collide as gas does, passed through. Modified-gravity theories have struggled to explain this without adding unseen matter of their own."}
       ]
     },
     {
       "title": "Too smooth to make galaxies",
       "blocks": [
-        {"type":"text","text":"In 1986 Valérie de Lapparent, Margaret Geller and John Huchra at the Harvard-Smithsonian Center for Astrophysics (CfA) measured the redshifts, and so the distances, of a thousand galaxies in a thin slice of the sky. They expected them to be scattered fairly evenly. Instead the galaxies lay on the walls of enormous empty bubbles, like the film of a mass of soap suds, with a cluster in the middle making a shape like a stick figure. The universe on its largest scales is a web of walls and threads round huge voids."},
+        {"type":"text","text":"In 1986 Valérie de Lapparent, Margaret Geller and John Huchra at the Harvard-Smithsonian Center for Astrophysics (CfA) measured the redshifts, and so the distances, of about a thousand galaxies in a thin slice of the sky. They expected them to be scattered fairly evenly. Instead the galaxies lay on the walls of enormous empty bubbles, like the film of a mass of soap suds, with the Coma cluster in the middle making a shape like a stick figure. The universe on its largest scales is a web of walls and threads round huge voids."},
         {"type":"diagram","id":"cfa","caption":"A slice of the universe, as mapped in 1986, with us at the bottom point. Each dot is a galaxy. The Coma cluster makes the stick figure's body."},
         {"type":"text","text":"Now remember the afterglow of *Why is the night sky dark?*: smooth to one part in 100,000. Gravity makes denser patches pull in more matter and grow denser still, but slowly. Since the afterglow was released the universe has stretched about 1,100 times, and ripples of ordinary matter grow roughly in step with it. One part in 100,000 times 1,100 is about one percent. That isn't a web of galaxies. It isn't even one galaxy."},
         {"type":"interactive_diagram","id":"ripples","caption":"How much denser than average the dense patches of the universe are, from 10,000 years after the start to today, in a simplified picture: ordinary matter alone (grey), and with dark matter (blue).","task":"Make a prediction, then add dark matter until galaxies can form","goal":"galaxies","aspect_ratio":1.75},
         {"type":"text","text":"Dark matter solves it. Light pushes ordinary matter around, and in the hot early universe that push kept its ripples from growing. Dark matter feels gravity but not light, so its clumps had been growing for hundreds of thousands of years before the afterglow, and were far deeper than the afterglow shows. When the ordinary matter was freed, it fell into wells that were already there."},
-        {"type":"text","text":"Could the dark matter just be ordinary atoms that are hard to see: dim stars, lost planets, cold gas? Two separate measurements say no. The first is **deuterium**, heavy hydrogen, made only in the first few minutes of the universe. How much of it was made depends sensitively on how much ordinary matter there was, and the amount measured in pristine gas clouds says ordinary matter is about a sixth of all matter. The second is the exact pattern of ripples in the afterglow, which gives the same answer. About five-sixths of the matter in the universe is something else."}
+        {"type":"text","text":"Could the dark matter just be ordinary atoms that are hard to see: dim stars, lost planets, cold gas? Two separate measurements say no. The first is **deuterium**,[^deuterium] Made only in the first few minutes of the universe, its abundance depends sensitively on how much ordinary matter there was, and the amount measured in pristine gas clouds says ordinary matter is about a sixth of all matter. The second is the exact pattern of ripples in the afterglow, which gives the same answer. About five-sixths of the matter in the universe is something else."}
       ]
     },
     {
       "title": "Still unseen",
       "blocks": [
-        {"type":"text","text":"So what is it? Most physicists think it is some kind of particle not yet discovered, which barely interacts with anything except by gravity. Detectors deep underground, tanks of liquid xenon shielded from cosmic rays by a mile of rock, have waited for decades for one to bump into an atom. The Large Hadron Collider at CERN has looked for signs of them being made. None has been found. The searches have ruled out many of the most popular ideas, and others remain."},
-        {"type":"text","text":"Unseen mass explains a great deal: rotation curves, the Bullet Cluster, the web of galaxies, the afterglow's ripples. A modified law explains rotation curves very neatly and the rest badly. But until someone catches a dark matter particle, or finds a law that does everything, the honest answer to this lesson's title is that most of the evidence points to unseen mass, and no one knows what it is."}
+        {"type":"text","text":"Meanwhile, physicists have tried to catch the stuff itself. Most think it is some kind of particle not yet discovered, which barely interacts with anything except by gravity. Detectors deep underground, tanks of liquid xenon shielded from cosmic rays by a mile of rock, have waited for decades for one to bump into an atom. The Large Hadron Collider at CERN has looked for signs of them being made. None has been found. The searches have ruled out many of the most popular ideas, and others remain."},
+        {"type":"text","text":"Unseen mass explains a great deal: rotation curves, the Bullet Cluster, the web of galaxies, the afterglow's ripples. A modified law explains rotation curves very neatly and the rest badly. Until someone catches a dark matter particle, or finds a law that does everything, the honest answer to this lesson's title is that most of the evidence points to unseen mass, and no one knows what it is."}
       ]
     },
     {
@@ -79,5 +79,31 @@
     "**Still unseen.** Decades of searches have caught no dark matter particle; the question is open."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "zwicky": {
+      "kind": "digression",
+      "title": "Spherical bastards",
+      "text": "Zwicky famously called his slower-thinking colleagues \"spherical bastards\", because, he explained, they were bastards whichever way you looked at them. His manner did not help his best ideas win a quick hearing."
+    },
+    "coma-factor": {
+      "kind": "technical",
+      "title": "Zwicky's factor of 400",
+      "text": "Zwicky estimated the Coma cluster needed about 400 times more mass than its starlight implied. He was using the 1930s value for the universe's expansion rate, which made the cluster seem much closer and dimmer than it really is, and he could not see the hot X-ray gas between the galaxies. With modern distances and the gas included, the cluster's total mass is about six times all its ordinary matter."
+    },
+    "rubin": {
+      "kind": "digression",
+      "title": "Vera Rubin at Palomar",
+      "text": "In 1965 Vera Rubin became the first woman officially allowed to observe at Palomar Observatory, which for decades had barred women with the excuse that the dome had only one lavatory. She solved the problem by cutting a paper skirt out of construction paper and taping it to the figure on the door."
+    },
+    "mond": {
+      "kind": "technical",
+      "title": "Milgrom's threshold",
+      "text": "In MOND, gravity switches from Newton's inverse-square law to a gentler inverse-distance law below an acceleration of about $1.2 \\times 10^{-10}$ metres per second squared, roughly a hundred billionth of the pull at Earth's surface. In the Solar System gravity is far stronger than this, so planets obey Newton and Einstein; in the outskirts of galaxies it falls below the threshold."
+    },
+    "deuterium": {
+      "kind": "technical",
+      "title": "Deuterium",
+      "text": "Ordinary hydrogen has a single proton as its nucleus. Deuterium, or \"heavy hydrogen\", adds a neutron. Stars only destroy deuterium by fusing it into helium, so every deuterium atom in the universe today is a survivor from the first few minutes after the Big Bang. The denser the ordinary matter was back then, the more completely that early deuterium was cooked into helium, leaving less behind."
+    }
+  }
 }

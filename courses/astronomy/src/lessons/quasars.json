@@ -7,9 +7,9 @@
     {
       "title": "A star that wasn't",
       "blocks": [
-        {"type":"text","text":"The early radio telescopes found the sky full of radio sources, which Cambridge astronomers catalogued by number. The 273rd in their third catalogue, 3C 273, was a strong one, but radio telescopes then were too blurry to say exactly where it was. In 1962 Cyril Hazard and his colleagues at the Parkes dish in Australia used a clever trick: they waited for the Moon to pass in front of it and timed exactly when the radio signal vanished and came back. That pinned it down, and at that spot there was an ordinary-looking faint blue star."},
-        {"type":"text","text":"In early 1963 Maarten Schmidt at Palomar took its spectrum. It had bright lines in places no element was supposed to have them. Schmidt puzzled over them for weeks, until one afternoon he noticed that four of them were spaced in a familiar pattern: they were hydrogen's Balmer lines, the four lines of *A schoolteacher's number puzzle*, all shifted towards the red by 16 percent."},
-        {"type":"text","text":"No star in our galaxy moves that fast. But a galaxy that far away, by the Hubble–Lemaître law of *Everything is running away*, receding that fast would be about two billion light years away. And at that distance, to look even as bright as a faint star, 3C 273 must be giving out the light of four trillion Suns: a hundred times as much as our whole galaxy. Similar objects turned up fast. They were called quasi-stellar radio sources, soon shortened to **quasars**."}
+        {"type":"text","text":"The early radio telescopes found the sky full of radio sources, which Cambridge astronomers catalogued by number. The 273rd in their third catalogue, 3C 273, was a strong one, but radio telescopes then were too blurry to say exactly where it was. In 1962 Cyril Hazard and his colleagues at the Parkes dish in Australia used a clever trick: they waited for the Moon to pass in front of it and timed exactly when the radio signal vanished and came back.[^parkes-occultation] That pinned it down, and at that spot there was an ordinary-looking faint blue star."},
+        {"type":"text","text":"At the end of 1962 Maarten Schmidt at Palomar took its spectrum. It had bright lines in places no element was supposed to have them. Schmidt puzzled over them for weeks, until one afternoon in February 1963 he noticed that four of them were spaced in a familiar pattern: they were hydrogen's Balmer lines, the four lines of *A schoolteacher's number puzzle*, all shifted towards the red by 16 percent."},
+        {"type":"text","text":"No star in our galaxy moves that fast. But by the Hubble–Lemaître law of *Everything is running away*, a galaxy receding that fast would be about two and a half billion light years away. And at that distance, to look even as bright as a faint star, 3C 273 must be giving out the light of four trillion Suns: a hundred times as much as our whole galaxy. Similar objects turned up fast.[^3c-48] They were called quasi-stellar radio sources, soon shortened to **quasars**."}
       ]
     },
     {
@@ -25,7 +25,7 @@
       "title": "The engine",
       "blocks": [
         {"type":"text","text":"Fusion, the Sun's engine, turns less than one percent of its fuel's mass into energy, by E = mc² (*What makes the Sun shine?*). Running a quasar on fusion would mean burning through stars faster than any galaxy could supply them. In 1964 Edwin Salpeter in America and Yakov Zel'dovich in the Soviet Union separately proposed something much more efficient: gas falling into a black hole."},
-        {"type":"text","text":"Gas falling straight in would just vanish. But gas almost never falls straight; it swirls, like water round a plughole, into a flat disc spiralling slowly inwards. Rubbing against itself, the gas heats to millions of degrees and glows ferociously. By the time it crosses the horizon, it can have given out a tenth or more of its whole mass-energy as light, many times what fusion can manage. Feed a black hole of a few hundred million to a few billion Suns a few Suns' worth of gas a year, and you have a quasar."},
+        {"type":"text","text":"Gas falling straight in would just vanish. But gas almost never falls straight; it swirls, like water round a plughole, into a flat disc spiralling slowly inwards.[^accretion-disc] Rubbing against itself, the gas heats to millions of degrees and glows ferociously. By the time it crosses the horizon, it can have given out a tenth or more of its whole mass-energy as light, many times what fusion can manage. Feed a black hole of a few hundred million to a few billion Suns a few Suns' worth of gas a year, and you have a quasar."},
         {"type":"key_ideas","title":"Hold on to","points":["Quasars are gas swirling into black holes of millions to billions of Suns, at the centres of distant galaxies. Their speed of flickering shows how small the engine is."]}
       ]
     },
@@ -33,7 +33,7 @@
       "title": "Sleeping giants",
       "blocks": [
         {"type":"text","text":"Quasars are distant, so we see them as they were long ago, and there are many more of them far away than near by. They were common when the universe was young, and most have gone quiet. In 1969 Donald Lynden-Bell at Cambridge drew the obvious conclusion. The black holes can't have gone anywhere. If quasars were powered by giant black holes, then the dead quasars should still be there, sleeping, in the centres of ordinary nearby galaxies, perhaps even our own."},
-        {"type":"text","text":"In 1974 radio astronomers found a small, bright radio source at the exact centre of our galaxy, in Sagittarius, 26,000 light years away. It was named Sagittarius A*. Thick dust hides the centre from ordinary telescopes, but infrared light gets through, and in the 1990s two teams, one led by Reinhard Genzel using telescopes in Chile and one led by Andrea Ghez using the Keck telescopes in Hawaii, started photographing the stars around it, year after year, with cameras that correct for the blurring of the air."}
+        {"type":"text","text":"In 1974 radio astronomers found a small, bright radio source at the exact centre of our galaxy, in Sagittarius, 26,000 light years away. It was named Sagittarius A*.[^sgr-a-star] Thick dust hides the centre from ordinary telescopes, but infrared light gets through, and in the 1990s two teams, one led by Reinhard Genzel using telescopes in Chile and one led by Andrea Ghez using the Keck telescopes in Hawaii, started photographing the stars around it, year after year, with cameras that correct for the blurring of the air."}
       ]
     },
     {
@@ -56,9 +56,9 @@
       "title": "Check",
       "blocks": [
         {"type": "quiz", "id": "check", "caption": "Six questions on quasars and giant black holes", "task": "Select the best answer for each question", "options": {"items": [
-          {"ask":"Schmidt saw hydrogen's lines in 3C 273 shifted 16 percent to the red. Why did that mean it was so bright?","choices":["The shift meant it was billions of light years away, so it must be enormously bright to be seen at all","Redshifted light is brighter","Hydrogen only shines in very bright objects"],"answer":0,"why":"By the Hubble–Lemaître law, that redshift means about two billion light years. Something that far away and still visible must be giving out the light of a hundred galaxies."},
+          {"ask":"Schmidt saw hydrogen's lines in 3C 273 shifted 16 percent to the red. Why did that mean it was so bright?","choices":["The shift meant it was billions of light years away, so it must be enormously bright to be seen at all","Redshifted light is brighter","Hydrogen only shines in very bright objects"],"answer":0,"why":"By the Hubble–Lemaître law, that redshift means about two and a half billion light years. Something that far away and still visible must be giving out the light of a hundred galaxies."},
           {"ask":"A source doubles in brightness in ten days. Roughly how big can it be?","choices":["About ten light-days","About ten light-years","Any size at all"],"answer":0,"why":"Light from the far side lags behind light from the near side, smearing any change over the light-crossing time. Ten days of change means no more than about ten light-days across."},
-          {"ask":"Why can't fusion power a quasar?","choices":["It turns too little of its fuel's mass into energy","Quasars have no hydrogen","Fusion produces no light"],"answer":0,"why":"Fusion gives under one percent of the fuel's mass as energy. Gas swirling into a black hole can give out ten percent or more."},
+          {"ask":"Why can't fusion power a quasar?","choices":["It turns too little of its fuel's fuel's mass into energy","Quasars have no hydrogen","Fusion produces no light"],"answer":0,"why":"Fusion gives under one percent of the fuel's mass as energy. Gas swirling into a black hole can give out ten percent or more."},
           {"ask":"Lynden-Bell predicted in 1969 that nearby galaxies should have giant black holes at their centres. Why?","choices":["Quasars were common long ago and their black holes can't have vanished","Nearby galaxies were seen to flicker","Black holes form wherever there are many stars"],"answer":0,"why":"The quasars have mostly gone quiet, but their black holes must still be there, starved of gas."},
           {"ask":"S2 orbits Sagittarius A* every 16 years. If the central mass were four times larger, the same-sized orbit would take…","choices":["8 years","64 years","4 years"],"answer":0,"why":"By Kepler's and Newton's laws, for the same orbit the period goes as one over the square root of the mass. Four times the mass, half the period."},
           {"ask":"What is the bright ring in the Event Horizon Telescope images?","choices":["Hot gas whose light is bent round the black hole","The surface of the black hole","A ring of stars"],"answer":0,"why":"A black hole has no surface. The ring is light from hot gas, bent by gravity round the dark shadow."}
@@ -67,7 +67,7 @@
     }
   ],
   "summary": [
-    "**3C 273 was a quasar.** In 1963 Schmidt saw hydrogen's lines redshifted 16 percent: two billion light years away, a hundred times as bright as our galaxy.",
+    "**3C 273 was a quasar.** In 1963 Schmidt saw hydrogen's lines redshifted 16 percent: two and a half billion light years away, a hundred times as bright as our galaxy.",
     "**Fast flickers mean small.** A source that changes in days is no more than a few light-days across.",
     "**The engine is a giant black hole.** Gas swirling in heats up and gives out a tenth or more of its mass-energy as light.",
     "**Dead quasars sleep in galaxies' centres.** Lynden-Bell, 1969.",
@@ -75,5 +75,26 @@
     "**Pictures of the shadow.** The Event Horizon Telescope imaged M87's black hole in 2019 and ours in 2022."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "parkes-occultation": {
+      "kind": "digression",
+      "title": "Sawing at the dish",
+      "text": "During the best of the three Moon crossings, in August 1962, 3C 273 was going to drop below the lowest angle the brand-new 64-metre Parkes dish was built to tilt to. The observatory's director, John Bolton, had the safety bolts removed, drove the dish down onto its safety stops and stood by with a blowtorch in case the frame needed cutting away. Nobody was allowed to leave the control room or flush a toilet until the Moon had cleared the source."
+    },
+    "3c-48": {
+      "kind": "digression",
+      "title": "The one right behind it",
+      "text": "As soon as Schmidt worked out 3C 273 on 5 February 1963, he walked down the corridor to Jesse Greenstein, who had been baffled for two years by the spectrum of another radio 'star', 3C 48. Together they checked Greenstein's numbers and saw within minutes that its lines were shifted even further to the red, by 37 percent."
+    },
+    "accretion-disc": {
+      "kind": "technical",
+      "title": "Accretion disc",
+      "text": "Astronomers call this swirling flat ring of infalling gas an **accretion disc**. How much of the gas's mass-energy turns into light depends on how fast the black hole is spinning: about 6 percent for a black hole that doesn't spin at all, and up to 42 percent for one spinning as fast as physics allows."
+    },
+    "sgr-a-star": {
+      "kind": "digression",
+      "title": "Why the asterisk?",
+      "text": "Bruce Balick and Robert Brown discovered the source in February 1974. Brown gave it the name Sagittarius A* in 1982: it sat inside a broader region already called Sagittarius A, and the asterisk came from atomic physics, where it marks an atom in an excited state. The source, Brown wrote later, was 'exciting'. Astronomers read it aloud as 'Sagittarius A-star'."
+    }
+  }
 }

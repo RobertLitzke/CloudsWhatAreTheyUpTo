@@ -17,7 +17,7 @@
       "title": "The split-gill",
       "blocks": [
         {"type": "text", "text": "The split-gill mushroom, *Schizophyllum commune*, is one of the most widespread fungi on Earth. It grows on dead branches and logs on every continent but Antarctica, as small, tough, fan-shaped caps a centimetre or two across, grey and furry on top. Turn one over and its gills look as if each had been slit down its edge, which gives it its name. In dry weather the split edges curl over and the cap shrivels; after rain it opens again and goes back to shedding spores."},
-        {"type": "text", "text": "In the 1950s and 1960s John Raper and his students at Harvard crossed thousands of split-gill strains in the laboratory, pairing them two by two to see which could mate.[^raper] What they found was not two sexes, nor three, but thousands of **mating types**: strains that can mate with each other but not with their own kind, which is the work sexes do, though they look the same. Later counts put the total at more than 20,000. Any one of them can mate with almost any unrelated strain. The question is what so many sexes could be for, and the answer begins with how a fungus mates at all."}
+        {"type": "text", "text": "In the 1950s and 1960s John Raper and his students at Harvard crossed thousands of split-gill strains in the laboratory, pairing them two by two to see which could mate.[^raper] What they found was not two sexes, nor three, but thousands of **mating types**: strains that can mate with each other but not with their own kind, which is the work sexes do, though they look the same. Later counts put the total at more than 23,000. Any one of them can mate with almost any unrelated strain. Why a fungus would have so many sexes begins with how it mates at all."}
       ]
     },
     {
@@ -30,23 +30,23 @@
     {
       "title": "Mating types",
       "blocks": [
-        {"type": "text", "text": "Not every pair can fuse and stay fused. Each mycelium carries **mating-type genes**, and two mycelia can mate only if their versions differ. In many fungi there is a single mating-type gene with just two versions. Baker's yeast, a fungus that lives as single cells, is like this: its two types are called *a* and α, and they behave like two sexes, since any *a* can mate with any α and with no other *a*."},
-        {"type": "text", "text": "The split-gill has two mating-type genes, A and B, and both must differ between partners. In 1920 the German botanist Hans Kniep worked out this two-gene pattern. What Raper's group added, and laid out in a book in 1966, was the number of versions of each: hundreds of versions of A and dozens of B. Every combination of an A and a B is a different mating type, which is how the count passes 20,000."}
+        {"type": "text", "text": "Not every pair can fuse and stay fused. Each mycelium carries **mating-type genes**, and two mycelia can mate only if their versions differ. In many fungi there is a single mating-type locus with just two versions. Baker's yeast, a fungus that lives as single cells, is like this: its two types are called *a* and α, and they behave like two sexes, since any *a* can mate with any α and with no other *a*."},
+        {"type": "text", "text": "The split-gill has two mating-type loci, A and B, and both must differ between partners.[^loci] In 1920 the German botanist Hans Kniep worked out this two-part pattern. What Raper's group added, and laid out in a book in 1966, was the number of versions of each: hundreds of versions of A and dozens of B. Every combination of an A and a B is a different mating type, which is how the count passes 20,000."}
       ]
     },
     {
       "title": "Why so many?",
       "blocks": [
-        {"type": "text", "text": "Think of what a mycelium faces. It cannot travel to find a mate. It mates with whoever happens to grow into it, and the most likely partners are its own close relatives, grown from spores of the same mushroom and landing nearby. Mating with a sibling, as in animals, tends to bring out harmful genes and makes offspring less varied."},
+        {"type": "text", "text": "A mycelium cannot travel to find a mate. It mates with whoever happens to grow into it, and the most likely partners are its own close relatives, grown from spores of the same mushroom and landing nearby. Mating with a sibling, as in animals, tends to bring out harmful genes and makes offspring less varied."},
         {"type": "interactive_diagram", "id": "mating", "caption": "The chance that a stranger, or a sibling from the same mushroom, can mate with a given mycelium, as the number of mating-type versions grows. With one gene, partners must differ at it; with two, at both. A model where every version is equally common.", "task": "Raise the versions with one gene, then with two", "goal": "many", "aspect_ratio": 2.04},
         {"type": "text", "text": "With two versions of one gene, half of all strangers and half of all siblings are possible mates: no help against inbreeding, and half of all meetings wasted. Add versions and a random stranger becomes more and more likely to differ, until almost any unrelated mycelium will do. Siblings, though, only ever carry the two versions their parents had, so the share of compatible siblings stays put. With two genes it falls to a quarter. Many mating types make outbreeding nearly certain and inbreeding rare, without any need to go looking."},
-        {"type": "text", "text": "New versions arise now and then by mutation, a copying slip in the gene. Rare versions have an advantage over common ones: a mycelium with a rare version can mate with almost everyone it meets, so rare versions spread. As one becomes common, more of the mycelia it meets share it, and its edge fades. Over long stretches of time this keeps adding versions and keeps them all in use, which is how the split-gill came to have so many."}
+        {"type": "text", "text": "New versions arise now and then by mutation, a copying slip in the DNA. Rare versions have an advantage over common ones: a mycelium with a rare version can mate with almost everyone it meets, so rare versions spread. As one becomes common, more of the mycelia it meets share it, and its edge fades. Over long stretches of time this keeps adding versions and keeps them all in use, which is how the split-gill came to have so many."}
       ]
     },
     {
       "title": "Nuclei meet at last",
       "blocks": [
-        {"type": "text", "text": "The two nuclei stay apart through all of the mycelium's growth and through the building of the mushroom. They fuse only at the very end, in the cells on the surface of the gills. There each pair merges into one nucleus with two sets of genes, the only cell in the whole life in which both sets share one nucleus. Almost at once that nucleus divides twice, shuffling and halving the genes, into four new nuclei. This special double division is meiosis, the same one that makes our eggs and sperm. Each moves into one of four spores budding on prongs on top of the cell, and those are the spores that Buller's drop throws off."},
+        {"type": "text", "text": "The two nuclei stay apart through all of the mycelium's growth and through the building of the mushroom. They fuse only at the very end, in the cells on the surface of the gills. There each pair merges into one nucleus with two sets of genes, the only cell in the whole life in which both sets share one nucleus. Almost at once that nucleus divides twice, shuffling and halving the genes, into four new nuclei.[^meiosis] Each moves into one of four spores budding on prongs on top of the cell, and those are the spores that Buller's drop throws off."},
         {"type": "diagram", "id": "cycle", "caption": "The life of a mushroom fungus. Orange and teal mark the two parents' nuclei, purple the one cell where they fuse. Not to scale."},
         {"type": "text", "text": "So each spore carries a new combination of its parents' genes, including their mating-type versions. Spores from one mushroom fall in four mating types, and a spore has a one-in-four chance of being able to mate with a sibling picked at random, which is the sibling figure in the model."}
       ]
@@ -54,7 +54,7 @@
     {
       "title": "Copies without sex",
       "blocks": [
-        {"type": "text", "text": "Mating is only half the story. Most fungi can also make spores without it, by pinching off copies from the tips of hyphae. A blue-green mould on an orange, the powdery coat on a leaf, the grey fuzz on a strawberry: these are carpets of copies, made in hours and in vast numbers. A copy has exactly its parent's genes, which is no loss if those genes are doing well on the food at hand."},
+        {"type": "text", "text": "Mating is only half the story. Most fungi can also make spores without it, by pinching off copies from the tips of hyphae. The blue-green mould on an orange or the grey fuzz on a strawberry is a carpet of copies, made in hours and in vast numbers. A copy has its parent's exact genes, which is no loss if those genes are doing well on the food at hand."},
         {"type": "text", "text": "For some common moulds no one could find a sexual stage at all, and they were classed for a century as fungi that had given sex up. Careful searches keep turning it up. The blue mould used to make Roquefort cheese was shown in 2014 to have both mating types and the genes for mating, and to be capable of sex, after a century of being thought sexless. Copies spread a fungus quickly; sex, now and then, keeps its genes shuffled."}
       ]
     },
@@ -73,6 +73,16 @@
   ],
   "footnotes": {
     "raper": {"kind": "digression", "title": "Raper's crosses", "text": "John Raper, a mycologist at Harvard, made the split-gill one of the first fungi whose genetics was worked out in detail. His 1966 book *Genetics of Sexuality in Higher Fungi* set out the scale of the two-gene system, and the fungus is still a standard laboratory species."},
-    "clamp": {"kind": "technical", "title": "Clamp connections", "text": "In many mushroom fungi, each time a two-nucleus cell divides, a small hook grows back over the new cross wall and carries one of the dividing nuclei past it. The hooks stay as little bumps beside each cross wall, called clamp connections, and a mycologist looking for them under a microscope can tell at a glance that a hypha has mated: a clamp forms only in a cell carrying both parents' nuclei."}
+    "clamp": {"kind": "technical", "title": "Clamp connections", "text": "In many mushroom fungi, each time a two-nucleus cell divides, a small hook grows back over the new cross wall and carries one of the dividing nuclei past it. The hooks stay as little bumps beside each cross wall, called clamp connections, and a mycologist looking for them under a microscope can tell at a glance that a hypha has mated: a clamp forms only in a cell carrying both parents' nuclei."},
+    "loci": {
+      "kind": "technical",
+      "title": "Two genes or four",
+      "text": "Strictly, each of A and B is a **locus**, a short stretch of chromosome containing two tightly linked sub-genes (Aα and Aβ, Bα and Bβ). Because partners need to differ at only one sub-gene in A and one in B to mate, each locus behaves in crosses like a single gene with hundreds or dozens of versions: about 288 for A and 81 for B, giving 23,328 mating types in all."
+    },
+    "meiosis": {
+      "kind": "technical",
+      "title": "Meiosis and the basidium",
+      "text": "This double division is **meiosis**, the same division that makes eggs and sperm in animals and pollen and ovules in plants. The club-shaped gill cell in which the two nuclei fuse and undergo meiosis is called a **basidium**, and mushroom fungi belong to the group named after it, the basidiomycetes."
+    }
   }
 }

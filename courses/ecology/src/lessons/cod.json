@@ -18,7 +18,7 @@
     {
       "title": "The most a stock can give",
       "blocks": [
-        {"type": "text", "text": "Lesson 2's logistic curve says how a population grows: slowly when it is small, fastest at half its ceiling, then slower again as it fills up. A fishery lives on that growth. If the boats take each year exactly what the fish add, the stock stays the same size. The most they can take, year after year, is the growth at the curve's steepest point, at half the unfished stock. Fisheries scientists call it the **maximum sustainable yield**, and from the 1950s it became the target that governments set catches by[^msy]."},
+        {"type": "text", "text": "Lesson 2's logistic curve says how a population grows: slowly when it is small, fastest at half its ceiling, then slower again as it fills up. A fishery lives on that growth. If the boats take each year what the fish add, the stock stays the same size. The most they can take, year after year, is the growth at the curve's steepest point, at half the unfished stock. Fisheries scientists call it the **maximum sustainable yield**, and from the 1950s it became the target that governments set catches by[^msy]."},
         {"type": "text", "text": "There are two simple ways to fish a stock at that level. One is to set a **fixed catch**: a quota of so many tonnes a year. The other is to set a **fixed share**: so many boats and days at sea, so that the catch is a set fraction of whatever fish there are. In a steady world both give the same catch. The difference shows when the sea has a bad year."},
         {"type": "interactive_diagram", "id": "cod", "caption": "A fish stock that grows by lesson 2's logistic rule, fished each year by a fixed catch or a fixed share. In year 15 the young fish fail and half the stock is lost. A model.", "task": "Guess, then find a rule that survives the bad year", "goal": "share", "aspect_ratio": 1.81},
         {"type": "text", "text": "A fixed catch takes the same tonnage from fewer fish, so after a bad year it takes a larger share of what's left, which slows the regrowth, which raises the share again. Below a certain size the stock can't grow fast enough to pay the quota, and it slides to nothing, slowly at first. A fixed share takes less when fish are few, which lets the stock rebuild. Fishing close to the maximum with a fixed catch is fishing on a knife edge[^sardine]."}
@@ -34,16 +34,16 @@
     {
       "title": "Why they didn't come back",
       "blocks": [
-        {"type": "text", "text": "A stock fished down hard does not always grow back when fishing stops. Big cod used to eat smaller fish, including species whose own diet includes cod eggs and young cod. With few big cod left, those smaller fish flourished and ate the eggs and young of the cod that remained, so the cod could not get a start. Grey seals, whose numbers grew in those years, eat cod as well, though how much they hold the cod back is argued over. Shrimp and snow crab boomed, and the Newfoundland fishing fleet turned to them."},
-        {"type": "text", "text": "The cod grew back slowly through the 2000s and 2010s. In 2024 Canada reopened a small commercial fishery after a new assessment judged the stock out of danger, though still far below its size in the 1960s. For twenty years ecologists held up the cod as an example of a population that, once pushed down far enough, settles at a new and lower level and stays there. Its slow return since shows that such a state can last decades without being permanent."}
+        {"type": "text", "text": "A stock fished down hard does not always grow back when fishing stops. Big cod used to eat smaller fish, including species whose own diet includes cod eggs and young cod. With few big cod left, those smaller fish flourished and ate the eggs and young of the cod that remained, so the cod could not get a start. Harp and grey seals, whose numbers grew in those years, eat cod as well, though how much they hold the cod back is argued over. Shrimp and snow crab boomed, and the Newfoundland fishing fleet turned to them."},
+        {"type": "text", "text": "The cod grew back slowly through the 2000s and 2010s. In 2024 Canada reopened a small commercial fishery after a revised assessment model judged the stock out of the critical zone, though still far below its size in the 1960s. For twenty years ecologists held up the cod as an example of a population that, once pushed down far enough, settles at a new and lower level and stays there. Its slow return since shows that such a state can last decades without being permanent."}
       ]
     },
     {
       "title": "Shifting baselines",
       "blocks": [
-        {"type": "text", "text": "In 1995 the fisheries scientist Daniel Pauly, of the University of British Columbia in Vancouver, named a problem behind collapses like this one. Each generation of scientists, he wrote, takes the stock as it was at the start of their careers as the natural state, and measures losses from there. Over several generations the idea of normal slides down without anyone noticing. He called it the **shifting baseline syndrome**[^keywest]."},
+        {"type": "text", "text": "In 1995 the fisheries scientist Daniel Pauly named a problem behind collapses like this one. Each generation of scientists, he wrote, takes the stock as it was at the start of their careers as the natural state, and measures losses from there. Over several generations the idea of normal slides down without anyone noticing. He called it the **shifting baseline syndrome**[^keywest]."},
         {"type": "text", "text": "The cure is old records: ships' logs, fish-market ledgers, photographs and museum specimens, which show what the sea held before anyone alive remembers. Lesson 11's Keeling and lesson 17's Humboldt made the same point on land and in the air: a long record is what lets a slow change be seen."},
-        {"type": "key_ideas", "title": "An estimate", "points": ["A stock whose unfished size is 100 and which grows at 40 percent a year when small can give at most 40 × 100 ÷ 4 = 10 a year, taken at a stock of 50. A quota of 9, just under the maximum, holds steady at about 66. Halve the stock to 33 in a bad year and it grows only about 9 a year, a little less than the quota. Below about 34 the quota takes more than the stock adds each year, so it shrinks, grows less, and shrinks faster."]}
+        {"type": "key_ideas", "title": "An estimate", "points": ["A stock whose unfished size is 100 and which grows at 40 percent a year when small can give at most 0.40 × 100 ÷ 4 = 10 a year, taken at a stock of 50. A quota of 9, just under the maximum, holds steady at about 66. Halve the stock to 33 in a bad year and it grows only about 8.8 a year, a little less than the quota. Below about 34 the quota takes more than the stock adds each year, so it shrinks, grows less, and shrinks faster."]}
       ]
     },
     {
@@ -76,7 +76,7 @@
     "keywest": {
       "kind": "digression",
       "title": "The fish in the photographs",
-      "text": "In 2009 the American historian of the sea Loren McClenachan studied photographs of anglers' trophy fish taken on charter boats in Key West, Florida, from the 1950s to 2007. The fish in the photographs shrank from about 20 kilograms on average to about 2, while the anglers smiled just as broadly."
+      "text": "In 2009 the American marine historian Loren McClenachan studied photographs of anglers' trophy fish taken on charter boats in Key West, Florida, from the 1950s to 2007. The fish in the photographs shrank from about 20 kilograms on average to about 2, while the anglers smiled just as broadly."
     },
     "sardine": {
       "kind": "digression",

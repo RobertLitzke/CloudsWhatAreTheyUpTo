@@ -8,7 +8,7 @@
       "title": "Measuring the slowdown",
       "blocks": [
         {"type":"text","text":"By the 1990s everyone knew the universe was expanding, and everyone knew it must be slowing down. Every galaxy pulls on every other, so gravity should be braking the expansion, like a ball thrown upwards slowing as it rises. The only question was how hard. A strong brake would mean the universe will one day stop and fall back together; a weak one, that it will expand for ever, ever more slowly. Measure the slowdown and you would know the fate of the universe."},
-        {"type":"text","text":"The way to measure it is to look far away, which means looking back in time, and compare how fast the universe was expanding then with how fast it expands now. For that you need distances to galaxies billions of light years away, and the only standard candles bright enough to be seen that far are exploding white dwarfs, which go off when they reach Chandrasekhar's limit and so all blaze with about the same peak brightness (*Stars that shouldn't exist*). Measured carefully, one of them can tell you its distance to within a few per cent."},
+        {"type":"text","text":"The way to measure it is to look far away, which means looking back in time, and compare how fast the universe was expanding then with how fast it expands now. For that you need distances to galaxies billions of light years away, and the only standard candles bright enough to be seen that far are exploding white dwarfs, which go off when they reach Chandrasekhar's limit and so all blaze with about the same peak brightness (*Stars that shouldn't exist*).[^type-ia] Measured carefully, one of them can tell you its distance to within a few per cent."},
         {"type":"text","text":"The trouble is that in any one galaxy one goes off only every century or so, and you have to catch it in the few weeks around its peak. Two rival teams worked out how. One, led by Saul Perlmutter at Berkeley, and the other, led by Brian Schmidt in Australia with Adam Riess, photographed the same patches of sky packed with distant galaxies a few weeks apart, just after new Moon, and searched by computer for new points of light. Then they rushed to the biggest telescopes, and the Hubble Space Telescope, to follow each one before it faded."}
       ]
     },
@@ -17,24 +17,24 @@
       "blocks": [
         {"type":"text","text":"By early 1998 both teams had a few dozen distant supernovae, and both had found the same unwelcome thing. The distant ones were too faint. Not by much, about a quarter fainter, but fainter than they should be even if gravity weren't slowing the expansion at all. Fainter means further away, and further away means the universe had expanded more since the light set out than a slowing universe allows."},
         {"type":"interactive_diagram","id":"supernovae","caption":"How bright distant exploding white dwarfs look, compared with a universe expanding at a steady rate, against the share of the universe in dark energy. Dots are measurements of the kind made in 1998.","task":"Make a prediction, then find the share of dark energy that matches the measurements","goal":"match","aspect_ratio":1.67},
-        {"type":"text","text":"The expansion isn't slowing down. It is speeding up. Riess said his own reaction was “somewhere between amazement and horror”. Both teams spent months trying to find a mistake: dust dimming the supernovae, distant white dwarfs exploding differently from near ones. Neither found one, and when they published, each team's result backed the other's. Perlmutter, Schmidt and Riess shared the Nobel Prize in 2011."}
+        {"type":"text","text":"The expansion isn't slowing down. It is speeding up. Schmidt said his own reaction was “somewhere between amazement and horror”. Both teams spent months trying to find a mistake: dust dimming the supernovae, distant white dwarfs exploding differently from near ones. Neither found one, and when they published, each team's result backed the other's. Perlmutter, Schmidt and Riess shared the Nobel Prize in 2011."}
       ]
     },
     {
       "title": "Dark energy",
       "blocks": [
-        {"type":"text","text":"Something is pushing the universe apart. Whatever it is has been given a name that describes our ignorance: **dark energy**, whatever makes empty space push outward. Measured by the supernovae, the afterglow's ripples and the web of galaxies together, it makes up about 70 percent of everything in the universe, counting matter as energy by E = mc². Dark matter is about a quarter. Ordinary matter, every star, planet, gas cloud and person, is about five percent."},
-        {"type":"text","text":"Einstein had, in a sense, seen it first. In 1917, when everyone thought the universe was static, he added an extra term to his equations, the cosmological constant, to stop gravity making it collapse. When the universe turned out to be expanding, he dropped it; the physicist George Gamow later said Einstein called it his “biggest blunder”, though nobody else remembers him saying so. The simplest explanation of dark energy is Einstein's constant back from the bin: a fixed amount of energy in every cubic metre of empty space, which pushes outward."},
+        {"type":"text","text":"Something is pushing the universe apart. Whatever it is has been given a name that describes our ignorance: **dark energy**, whatever makes empty space push outward.[^turner-name] Measured by the supernovae, the afterglow's ripples and the web of galaxies together, it makes up about 70 per cent of everything in the universe, counting matter as energy by E = mc². Dark matter is about a quarter. Ordinary matter, every star, planet, gas cloud and person, is about 5 per cent."},
+        {"type":"text","text":"Einstein had, in a sense, seen it first. In 1917, when everyone thought the universe was static, he added an extra term to his equations, the cosmological constant, to stop gravity making it collapse. When the universe turned out to be expanding, he dropped it.[^blunder] The simplest explanation of dark energy is Einstein's constant back from the bin: a fixed amount of energy in every cubic metre of empty space, which pushes outward."},
         {"type":"text","text":"Matter thins out as the universe expands; the energy of empty space doesn't, because every new cubic metre of space comes with its own. So for the first seven or eight billion years, matter dominated and the expansion slowed. Then matter thinned out enough for dark energy to win, and about six billion years ago, the expansion began to speed up."},
         {"type":"diagram","id":"history","caption":"The size of the universe through time, with dark energy (solid) and with matter only (dashed). The expansion slowed for its first seven or eight billion years, then started speeding up."},
-        {"type":"key_ideas","title":"Hold on to","points":["The expansion of the universe has been speeding up for about six billion years. Whatever drives it, called dark energy, makes up about 70 percent of the universe's mass and energy, and nobody knows what it is."]}
+        {"type":"key_ideas","title":"Hold on to","points":["The expansion of the universe has been speeding up for about six billion years. Whatever drives it, called dark energy, makes up about 70 per cent of the universe's mass and energy, and nobody knows what it is."]}
       ]
     },
     {
       "title": "Stars older than the universe",
       "blocks": [
         {"type":"text","text":"*Clusters as clocks* ended with a crisis. In the early 1990s the oldest globular clusters came out at fifteen billion years or more, but a universe of matter alone, always slowing, expanding at the measured rate, was only about ten billion years old. Stars can't be older than the universe they live in."},
-        {"type":"text","text":"The fix came from both sides. Dark energy fixed one: a universe that was expanding more slowly in the past than it is now took longer to reach its present size, so working back from today's rate gives an older universe: 13.8 billion years. The other was fixed by better distances to nearby stars from the Hipparcos satellite, launched in 1989, showed that the globular clusters were a little further away and so their stars a little brighter than thought, which made them younger: twelve or thirteen billion years. The clocks agreed at last, and the oldest stars are a little younger than the universe, as they should be."}
+        {"type":"text","text":"The fix came from both sides. Dark energy fixed one: a universe that was expanding more slowly in the past than it is now took longer to reach its present size, so working back from today's rate gives an older universe: 13.8 billion years. Better distances to nearby stars from the Hipparcos satellite, launched in 1989, fixed the other: they showed that the globular clusters were a little further away and so their stars a little brighter than thought, which made them younger, twelve or thirteen billion years. The clocks agreed at last, and the oldest stars are a little younger than the universe, as they should be."}
       ]
     },
     {
@@ -42,7 +42,7 @@
       "blocks": [
         {"type":"text","text":"Nobody knows. The physics of atoms says empty space isn't really empty: it seethes with fleeting particles, and that activity should give space an energy. When physicists estimate how much, the answer is too big by a factor of about one followed by 120 zeros. It is often called the worst prediction in the history of physics. Something must cancel almost all of it, but not quite."},
         {"type":"text","text":"In 1987, before dark energy was found, the physicist Steven Weinberg made a strange argument. If the energy of empty space were much bigger than it is, it would have pushed the universe apart too fast for galaxies, stars and planets ever to form, and nobody would be here to measure it. So we should expect to find it small, but not necessarily zero. That is reasoning from our own existence, and it is controversial; it comes back, labelled as speculation, in the branch on cosmic beginnings. But his rough number was close to what was measured eleven years later."},
-        {"type":"text","text":"And it may not even be constant. In 2024 and 2025 the Dark Energy Spectroscopic Instrument (DESI), mapping millions of galaxies from a telescope in Arizona, reported hints that dark energy is weakening over time. The evidence is strong but not yet conclusive. If it holds up, dark energy is not Einstein's simple constant but something that changes, and the future of the universe is more open than anyone thought."}
+        {"type":"text","text":"And it may not even be constant. In 2024 and 2025 the Dark Energy Spectroscopic Instrument (DESI), mapping millions of galaxies from a telescope in Arizona, reported hints that dark energy is weakening over time. With the 2025 map the evidence grew stronger, though still short of proof. If it holds up, dark energy is not Einstein's simple constant but something that changes, and the future of the universe is more open than anyone thought."}
       ]
     },
     {
@@ -53,7 +53,7 @@
           {"ask":"The distant supernovae looked fainter than expected. Why did that mean the expansion is speeding up?","choices":["Fainter means further away, so the universe stretched more since the light left than a slowing universe allows","Fainter means the white dwarfs were smaller","Fainter means they are moving towards us"],"answer":0,"why":"In a universe that had slowed, the distant ones would be closer, and brighter. They were further away than even a steady expansion allows."},
           {"ask":"Why does dark energy win in the end, even though matter dominated at first?","choices":["Matter thins out as space expands, but the energy of empty space doesn't","Dark energy is created by stars","Gravity switches off"],"answer":0,"why":"Each new cubic metre of space brings its own dark energy, while the same matter is spread ever thinner."},
           {"ask":"In a universe that is speeding up, working back from today's expansion rate gives…","choices":["An older universe than if it had always been slowing","A younger universe","The same age"],"answer":0,"why":"It expanded more slowly in the past than now, so it took longer to get this big. That helped fix the age crisis."},
-          {"ask":"What share of the universe's mass and energy is ordinary matter, the stuff of stars and people?","choices":["About 5 percent","About 70 percent","About 25 percent"],"answer":0,"why":"Dark energy is about 70 percent and dark matter about a quarter. Ordinary matter is the small remainder."},
+          {"ask":"What share of the universe's mass and energy is ordinary matter, the stuff of stars and people?","choices":["About 5 per cent","About 70 per cent","About 25 per cent"],"answer":0,"why":"Dark energy is about 70 per cent and dark matter about a quarter. Ordinary matter is the small remainder."},
           {"ask":"Which of these is measured, rather than a hint or a speculation?","choices":["The expansion has been speeding up for about six billion years","Dark energy is weakening","The energy of empty space is small so that we can exist"],"answer":0,"why":"The speeding up is established by many methods. DESI's weakening is a strong but inconclusive hint; Weinberg's argument is a speculation."}
         ]}}
       ]
@@ -63,11 +63,27 @@
     "**The expansion was expected to slow.** Gravity should brake it; measuring the braking would tell the universe's fate.",
     "**Exploding white dwarfs are standard candles.** Two teams found distant ones about a quarter too faint (1998).",
     "**The expansion is speeding up.** Nobel Prize 2011 to Perlmutter, Schmidt and Riess.",
-    "**Dark energy.** Whatever makes empty space push outward: about 70 percent of everything; dark matter a quarter, ordinary matter 5 percent.",
+    "**Dark energy.** Whatever makes empty space push outward: about 70 per cent of everything; dark matter a quarter, ordinary matter 5 per cent.",
     "**Slowing, then speeding.** The expansion slowed for seven or eight billion years and has been speeding up for about six billion.",
     "**The age crisis resolved.** The universe is 13.8 billion years old; the oldest clusters twelve or thirteen.",
     "**Unexplained.** Theory predicts a vastly bigger energy of empty space; DESI hints dark energy may be weakening (strong but not yet conclusive)."
   ],
   "journal": [],
-  "footnotes": {}
+  "footnotes": {
+    "type-ia": {
+      "kind": "technical",
+      "title": "Type Ia supernovae and the Phillips relation",
+      "text": "Astronomers call an exploding white dwarf a **Type Ia supernova**. They are not quite all identical, which at first made them too messy for cosmology. In 1993 the Chilean astronomer Mark Phillips noticed that the brighter ones fade more slowly than the dimmer ones: measure how fast one fades over the weeks after its peak and you can correct for its true brightness. That correction made the 1998 discovery possible."
+    },
+    "turner-name": {
+      "kind": "digression",
+      "title": "Naming dark energy",
+      "text": "The name **dark energy** was coined in 1998 by the cosmologist Michael Turner, a few months after the supernova papers, to echo Fritz Zwicky's **dark matter**. The two share little beyond the adjective: dark matter pulls things together by gravity, while dark energy pushes space apart."
+    },
+    "blunder": {
+      "kind": "digression",
+      "title": "Einstein's “biggest blunder”",
+      "text": "In his 1970 memoir *My World Line*, the physicist George Gamow wrote that Einstein had called the cosmological constant “the biggest blunder he ever made in his life”. No letter or notebook of Einstein's uses the phrase, and the astrophysicist Mario Livio has argued that Gamow, a cheerful embellisher of stories, may have invented or inflated it. What is certain is that after Hubble's discovery Einstein dropped the term as unneeded and ugly."
+    }
+  }
 }
