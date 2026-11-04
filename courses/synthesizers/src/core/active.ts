@@ -28,7 +28,7 @@ const lfoUsed = (s: Sound) => (s.lfoDepth > 0 && lfoDestEffective(s)) || routed(
  * has no harmonics to remove from it.
  */
 function pure(s: Sound): boolean {
-  return s.wave === WAVE.sine && s.fmAmount === 0 && s.noise === 0 && s.env2Amt === 0;
+  return (s.engine ?? 0) === 0 && s.wave === WAVE.sine && s.fmAmount === 0 && s.noise === 0 && s.env2Amt === 0;
 }
 
 /** Does the LFO's destination do anything in this sound? */
@@ -73,7 +73,13 @@ export function isLive(id: ParamId, s: Sound): boolean {
     case 'echoRepeats':
       return s.echoMix > 0;
     case 'pw':
-      return s.wave === WAVE.pulse;
+      return s.engine === 0 && s.wave === WAVE.pulse;
+    case 'engine':
+      return true;
+    case 'engineWave':
+    case 'engineTimbre':
+    case 'engineShape':
+      return s.engine > 0;
     case 'cutoff':
     case 'res':
     case 'envAmt':
@@ -104,7 +110,7 @@ export function isLive(id: ParamId, s: Sound): boolean {
     case 'env2Amt':
       return true;
     case 'spread':
-      return s.voiceMode === 2;
+      return s.voiceMode === 2 && s.engine !== 3;
     case 'arpRate':
     case 'arpOct':
     case 'arpHold':
@@ -143,7 +149,13 @@ export function isActive(id: ParamId, s: Sound): boolean {
     case 'fmAmount':
       return true;
     case 'pw':
-      return s.wave === WAVE.pulse;
+      return s.engine === 0 && s.wave === WAVE.pulse;
+    case 'engine':
+      return true;
+    case 'engineWave':
+    case 'engineTimbre':
+    case 'engineShape':
+      return s.engine > 0;
     case 'cutoff':
       return !pure(s);
     case 'res':
@@ -197,7 +209,7 @@ export function isActive(id: ParamId, s: Sound): boolean {
     case 'env2Amt':
       return true;
     case 'spread':
-      return s.voiceMode === 2;
+      return s.voiceMode === 2 && s.engine !== 3;
     case 'arpRate':
     case 'arpOct':
     case 'arpHold':

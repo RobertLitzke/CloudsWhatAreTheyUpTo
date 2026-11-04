@@ -122,6 +122,9 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   // Lesson 19: the arpeggiator
   'arp-on': (now) => now.arpMode > 0,
   'arp-hold': (now) => now.arpMode > 0 && now.arpHold === 1,
+  'morph-sine': (now) => now.engine === 1 && now.engineWave >= 9,
+  'fold-deep': (now) => now.engine === 2 && now.engineWave >= 5,
+  'super-wide': (now) => now.engine === 3 && now.engineWave >= 5 && now.engineTimbre >= 5,
   // Lesson 20: the step sequencer
   squelch: (now) => now.res >= 3 && now.envAmt >= 2,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.

@@ -10,6 +10,7 @@ import { clipFigure } from './clip';
 import { cycleFigure } from './cycle';
 import { curveFigure } from './curve';
 import { echoFigure } from './echo';
+import { enginesFigure } from './engines';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
 import { rollFigure } from './roll';
@@ -52,4 +53,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   roll: rollFigure,
   // Lesson 20
   seq: seqFigure,
+  // Lesson 22
+  engines: enginesFigure,
 };

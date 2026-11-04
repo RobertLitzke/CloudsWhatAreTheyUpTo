@@ -75,6 +75,10 @@ export const STEPS: StepTable = {
   arpRate: [4, 2, 1, 0.5], // sixteenths per step
   arpOct: [1, 2, 3, 4],
   arpHold: [0, 1],
+  engine: [0, 1, 2, 3], // classic, morph, fold, supersaw
+  engineWave: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+  engineTimbre: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+  engineShape: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
   // The matrix: each cell's middle position is no route. Pitch in semitones,
   // cutoff in octaves; level and LFO amount as how much of it the source
   // takes over (see the voice).
@@ -150,6 +154,10 @@ export const DEFAULTS: Patch = {
   arpRate: 2,
   arpOct: 0,
   arpHold: 0,
+  engine: 0,
+  engineWave: 0,
+  engineTimbre: 0,
+  engineShape: 0,
   mxEnvPitch: OFF(PITCH_ROUTE),
   mxEnvCutoff: OFF(CUTOFF_ROUTE),
   mxEnvLevel: OFF(SHARE_ROUTE),
@@ -457,6 +465,10 @@ const GOAL_WEIGHT: Record<ParamId, number> = {
   arpRate: 0,
   arpOct: 0,
   arpHold: 0,
+  engine: 0,
+  engineWave: 0,
+  engineTimbre: 0,
+  engineShape: 0,
   mxEnvPitch: 0,
   mxEnvCutoff: 0,
   mxEnvLevel: 0,

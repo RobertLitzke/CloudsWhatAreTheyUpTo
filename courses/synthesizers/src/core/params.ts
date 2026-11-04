@@ -86,6 +86,11 @@ export const PARAM_IDS = [
   'arpRate',
   'arpOct',
   'arpHold',
+  // Lesson 22: an engine selector, and three knobs whose job depends on it.
+  'engine',
+  'engineWave',
+  'engineTimbre',
+  'engineShape',
 ] as const;
 
 export type ParamId = (typeof PARAM_IDS)[number];
@@ -93,7 +98,7 @@ export type Patch = Record<ParamId, number>;
 export type Sound = Record<ParamId, number>;
 export type StepTable = Record<ParamId, readonly number[]>;
 
-export type ModuleId = 'osc' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'arp' | 'drive' | 'echo' | 'chain';
+export type ModuleId = 'osc' | 'engine' | 'osc2' | 'fm' | 'mixer' | 'filter' | 'env' | 'env2' | 'lfo' | 'matrix' | 'voice' | 'arp' | 'drive' | 'echo' | 'chain';
 export type Category = 'tone' | 'brightness' | 'shape' | 'movement' | 'thickness' | 'metal' | 'grit' | 'space' | 'order';
 
 export const WAVE = { saw: 0, pulse: 1, triangle: 2, sine: 3 } as const;
@@ -111,7 +116,21 @@ export const VOICE_MODE = { mono: 0, para: 1, unison: 2 } as const;
 /** The chord one key plays, as semitones above it, by the chord knob's position. */
 export const CHORDS: readonly (readonly number[])[] = [[], [12], [7], [3, 7], [4, 7], [5, 7]];
 /** Pitches beyond the played one that a voice can sound at once. */
-export const EXTRA_PITCHES = 3;
+export const EXTRA_PITCHES = 6;
+
+/**
+ * The oscillator engines. Classic is the oscillator the course began with,
+ * its wave and width knobs; the others take over from it and give the three
+ * engine knobs (Wave, Timbre, Shape) jobs of their own.
+ */
+export const ENGINE = { classic: 0, morph: 1, fold: 2, supersaw: 3 } as const;
+/** What each engine knob does, by engine. */
+export const ENGINE_JOBS: readonly { name: string; wave: string; timbre: string; shape: string }[] = [
+  { name: 'Classic', wave: '', timbre: '', shape: '' },
+  { name: 'Morph', wave: 'saw → square → triangle → sine', timbre: 'pulse width', shape: 'sub-octave' },
+  { name: 'Fold', wave: 'how hard the wave is folded', timbre: 'symmetry', shape: 'sine → triangle' },
+  { name: 'Supersaw', wave: 'detune', timbre: 'outer saws’ level', shape: 'how many saws' },
+];
 
 /** The arpeggiator's orders. Off plays the notes as they are. */
 export const ARP_MODE = { off: 0, up: 1, down: 2, order: 3, random: 4 } as const;
@@ -528,6 +547,58 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     low: 'wrong',
     high: 'wrong',
   },
+  engine: {
+    id: 'engine',
+    label: 'Engine',
+    module: 'engine',
+    category: 'tone',
+    kind: 'selector',
+    options: ['Classic', 'Morph', 'Fold', 'Super'],
+    interp: 'lin',
+    stage: 22,
+    format: (v) => ['Classic: the wave and width knobs', 'Morph', 'Wavefolder', 'Supersaw'][Math.round(v)] ?? '?',
+    low: 'wrong',
+    high: 'wrong',
+  },
+  engineWave: {
+    id: 'engineWave',
+    label: 'Wave',
+    full: 'Engine wave',
+    module: 'engine',
+    category: 'tone',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 22,
+    format: pct,
+    low: 'low',
+    high: 'high',
+  },
+  engineTimbre: {
+    id: 'engineTimbre',
+    label: 'Timbre',
+    full: 'Engine timbre',
+    module: 'engine',
+    category: 'tone',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 22,
+    format: pct,
+    low: 'low',
+    high: 'high',
+  },
+  engineShape: {
+    id: 'engineShape',
+    label: 'Shape',
+    full: 'Engine shape',
+    module: 'engine',
+    category: 'tone',
+    kind: 'knob',
+    interp: 'lin',
+    stage: 22,
+    format: pct,
+    low: 'low',
+    high: 'high',
+  },
   arpMode: {
     id: 'arpMode',
     label: 'Arp',
@@ -777,6 +848,7 @@ function matrixSpecs(): Record<MatrixId, ParamSpec> {
  */
 export const MODULES: readonly { id: ModuleId; label: string; stage: number; params: readonly ParamId[] }[] = [
   { id: 'osc', label: 'Oscillator', stage: 1, params: ['wave', 'pw'] },
+  { id: 'engine', label: 'Engine', stage: 22, params: ['engine', 'engineWave', 'engineTimbre', 'engineShape'] },
   { id: 'osc2', label: 'Osc 2', stage: 5, params: ['osc2Interval', 'osc2Level', 'osc2Detune'] },
   { id: 'fm', label: 'FM', stage: 6, params: ['fmRatio', 'fmAmount'] },
   { id: 'mixer', label: 'Mixer', stage: 10, params: ['oscLevel', 'noise'] },

@@ -11,6 +11,10 @@
 //   extra pitches: up to three more saw/triangle/sine sets, for a chord or a
 //          unison stack, joining oscillator 1 ahead of the wave select (so all
 //          share the one filter and envelope: paraphonic)
+//   engines: morph blends the wave select's four gains and adds a square an
+//          octave down (oscillator 1's fourth input); fold sends the triangle
+//          and sine through a sine-shaped wavefolder; supersaw is a stack of up
+//          to six extra saws, detuned, using the extra pitches
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -51,12 +55,22 @@
 
 import { arpPick, arpSequence } from '../core/arp';
 import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
-import { ARP_MODE, CHAIN, CHORDS, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
+import { ARP_MODE, CHAIN, CHORDS, ENGINE, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
 const SMOOTH = 0.008;
+/** The wavefolder's curve: a sine of its input, so past full height the wave folds back. It covers plus or minus this much. */
+const FOLD_RANGE = 12;
+const FOLD_CURVE = Float32Array.from({ length: 8193 }, (_, i) => Math.sin((Math.PI / 2) * FOLD_RANGE * (i / 4096 - 1)));
+/** How much harder the wave is pushed into the folder at Wave 100 %. */
+const FOLD_MAX = 8;
+/** The supersaw's extra saws, as fractions of its detune: the outer pair first. */
+const SUPER_SPREAD = [-1, 1, -0.55, 0.55, -0.2, 0.2];
+/** Supersaw detune at Wave 0 and 100 %, in cents. */
+const SUPER_MIN = 3;
+const SUPER_MAX = 55;
 /** How long one bank hands over to the next. */
 const HANDOVER = 0.004;
 
@@ -238,7 +252,7 @@ class Echo {
 }
 
 interface Bank {
-  /** Saw, triangle, sine. */
+  /** Saw, triangle, sine, and the morph engine's square an octave down. */
   o1: OscillatorNode[];
   /** The extra pitches, each a saw, triangle and sine; empty when the sound has none. */
   x: OscillatorNode[][];
@@ -265,6 +279,13 @@ export class Voice {
   private readonly delay: DelayNode;
   private readonly delay2: DelayNode;
   private readonly level2: GainNode;
+  /** The wavefolder: the sine and triangle, pushed in, offset, folded. */
+  private readonly foldSine: GainNode;
+  private readonly foldTri: GainNode;
+  private readonly foldPre: GainNode;
+  private readonly foldOffset: GainNode;
+  private readonly foldOut: GainNode;
+  private readonly oneSrc: ConstantSourceNode;
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -353,7 +374,8 @@ export class Voice {
       return gains;
     };
 
-    this.in1 = [gain(1), gain(1), gain(1)];
+    // The fourth is the sub-octave square; its gain is its level.
+    this.in1 = [gain(1), gain(1), gain(1), gain(0)];
     this.in2 = [gain(1), gain(1), gain(1)];
     this.delay = ctx.createDelay(0.1);
     this.delay2 = ctx.createDelay(0.1);
@@ -374,6 +396,28 @@ export class Voice {
       return g;
     }));
     for (const g of this.waveGains) g.connect(this.mix);
+    this.in1[3].connect(this.mix);
+    this.foldSine = gain(0);
+    this.foldTri = gain(0);
+    this.foldPre = gain(1);
+    this.foldOffset = gain(0);
+    this.foldOut = gain(0);
+    const folder = ctx.createWaveShaper();
+    folder.curve = FOLD_CURVE;
+    folder.oversample = '4x';
+    // An offset folds the two halves differently and leaves a little DC behind.
+    const unDc = ctx.createBiquadFilter();
+    unDc.type = 'highpass';
+    unDc.frequency.value = 15;
+    // The curve's input runs from −1 to 1 over ±FOLD_RANGE.
+    const scale = gain(1 / FOLD_RANGE);
+    this.in1[2].connect(this.foldSine).connect(this.foldPre);
+    this.in1[1].connect(this.foldTri).connect(this.foldPre);
+    this.foldPre.connect(scale);
+    this.oneSrc = ctx.createConstantSource();
+    this.oneSrc.start(startAt);
+    this.oneSrc.connect(this.foldOffset).connect(scale);
+    scale.connect(folder).connect(unDc).connect(this.foldOut).connect(this.mix);
     for (const g of this.wave2Gains) g.connect(this.level2);
     this.level2.connect(this.mix);
 
@@ -487,6 +531,9 @@ export class Voice {
     };
     const types: OscillatorType[] = ['sawtooth', 'triangle', 'sine'];
     const o1 = types.map((type) => osc(type, this.lastHz));
+    const sub = osc('square', this.lastHz);
+    sub.detune.value = -1200;
+    o1.push(sub);
     const o2 = types.map((type) => osc(type, this.lastHz));
     const mod = osc('sine', this.lastHz * s.fmRatio);
     const modGain = ctx.createGain();
@@ -512,7 +559,7 @@ export class Voice {
       o.detune.value = s.osc2Interval + s.osc2Detune;
     });
     const x = this.stacked()
-      ? this.slotIn.map((ins, k) => types.map((type, i) => {
+      ? this.slotIn.slice(0, this.slots()).map((ins, k) => types.map((type, i) => {
           const o = osc(type, this.lastHz * cents(this.offsets[k] ?? 0));
           wire(o, ins[i]);
           return o;
@@ -552,10 +599,38 @@ export class Voice {
     return this.sound.osc2Level > 0 || this.sound.fmAmount > 0 || this.stacked();
   }
 
-  /** Can this sound play more than one pitch: a chord, paraphony or unison? */
+  /** Can this sound play more than one pitch: a chord, paraphony, unison or a supersaw? */
   private stacked(): boolean {
     const s = this.sound;
-    return Math.round(s.voiceMode) !== VOICE_MODE.mono || Math.round(s.chord) !== 0;
+    return Math.round(s.voiceMode) !== VOICE_MODE.mono || Math.round(s.chord) !== 0 || this.engine() === ENGINE.supersaw;
+  }
+
+  private engine(): number {
+    return Math.round(this.sound.engine ?? 0);
+  }
+
+  /** How many extra pitches a bank needs oscillators for. */
+  private slots(): number {
+    return this.engine() === ENGINE.supersaw || Math.round(this.sound.voiceMode) === VOICE_MODE.para ? EXTRA_PITCHES : 3;
+  }
+
+  /** The supersaw's extra saws, in cents: two, four or six, by Shape. */
+  private superSaws(): number[] {
+    const s = this.sound;
+    const n = 2 + 2 * Math.round(s.engineShape * 2);
+    const d = SUPER_MIN + (SUPER_MAX - SUPER_MIN) * s.engineWave;
+    return SUPER_SPREAD.slice(0, n).map((k) => k * d);
+  }
+
+  /** How loud each extra pitch is: the supersaw's Timbre sets its outer saws; anything else is at full. */
+  private sideLevel(): number {
+    return this.engine() === ENGINE.supersaw ? this.sound.engineTimbre : 1;
+  }
+
+  /** The pulse width now: the width knob, or the morph engine's Timbre. */
+  private width(): number {
+    const s = this.sound;
+    return this.engine() === ENGINE.morph ? 0.5 - 0.45 * s.engineTimbre : s.pw;
   }
 
   /**
@@ -565,6 +640,7 @@ export class Voice {
   private extras(chord: readonly number[] = []): number[] {
     const s = this.sound;
     const mode = Math.round(s.voiceMode);
+    if (this.engine() === ENGINE.supersaw) return this.superSaws();
     if (mode === VOICE_MODE.unison) return [-s.spread, s.spread, -0.4 * s.spread];
     // The arpeggiator plays a chord's notes one at a time instead.
     if (this.arpOn()) return [];
@@ -575,10 +651,11 @@ export class Voice {
   /** Switch on the extra pitches in `offsets` at `t`, and level the stack. */
   private setExtras(t: number, offsets: number[]): void {
     this.offsets = offsets;
+    const side = this.sideLevel();
     this.slotIn.forEach((ins, k) => {
-      for (const g of ins) g.gain.setValueAtTime(k < offsets.length ? 1 : 0, t);
+      for (const g of ins) g.gain.setValueAtTime(k < offsets.length ? side : 0, t);
     });
-    this.stack.gain.setValueAtTime(1 / Math.sqrt(1 + offsets.length), t);
+    this.stack.gain.setValueAtTime(1 / Math.sqrt(1 + offsets.length * side * side), t);
   }
 
   /** Hand over to a fresh bank at `t`, every phase at zero. */
@@ -612,7 +689,7 @@ export class Voice {
   private widthSwing(): number {
     const s = this.sound;
     if (s.lfoDest !== LFO_DEST.pw) return 0;
-    return Math.min(s.lfoDepth * LFO_WIDTH, Math.max(0, s.pw - 0.04));
+    return Math.min(s.lfoDepth * LFO_WIDTH, Math.max(0, this.width() - 0.04));
   }
 
   /** Oscillator 2's pitch as a multiple of oscillator 1's. */
@@ -628,9 +705,9 @@ export class Voice {
     const s = this.sound;
     const swing = this.widthSwing();
     const hz2 = hz * this.ratio2();
-    this.delay.delayTime.setTargetAtTime(s.pw / hz, t, tau);
+    this.delay.delayTime.setTargetAtTime(this.width() / hz, t, tau);
     this.lfoPw.gain.setTargetAtTime(swing / hz, t, tau);
-    this.delay2.delayTime.setTargetAtTime(s.pw / hz2, t, tau);
+    this.delay2.delayTime.setTargetAtTime(this.width() / hz2, t, tau);
     this.lfoPw2.gain.setTargetAtTime(swing / hz2, t, tau);
     const bank = this.bankAt(t);
     bank.mod.frequency.setTargetAtTime(hz * s.fmRatio, t, tau);
@@ -648,11 +725,32 @@ export class Voice {
     };
 
     // A sound that has just begun to stack pitches needs oscillators for them.
-    if (!immediate && this.stacked() && this.banks[this.banks.length - 1].x.length === 0) this.renew(t);
+    if (!immediate && this.stacked() && this.banks[this.banks.length - 1].x.length < this.slots()) this.renew(t);
 
-    const wave = Math.round(s.wave);
-    this.waveGains.forEach((g, i) => set(g.gain, i === wave ? WAVE_GAIN[i] * s.oscLevel : 0));
-    this.wave2Gains.forEach((g, i) => set(g.gain, i === wave ? WAVE_GAIN[i] : 0));
+    // The wave select, as the engine has it: one wave (classic, supersaw's
+    // saws), a blend of two neighbours (morph), or none (fold).
+    const engine = this.engine();
+    const morph = engine === ENGINE.morph;
+    const fold = engine === ENGINE.fold;
+    const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
+    const at = 3 * s.engineWave;
+    const weight = (i: number) => (fold ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
+    this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
+    set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);
+    set(this.foldSine.gain, fold ? 1 - s.engineShape : 0);
+    set(this.foldTri.gain, fold ? s.engineShape : 0);
+    set(this.foldPre.gain, 1 + (FOLD_MAX - 1) * s.engineWave);
+    set(this.foldOffset.gain, fold ? 1.2 * s.engineTimbre : 0);
+    // Folding makes the wave fuller and louder; turn it down as the push goes up.
+    set(this.foldOut.gain, fold ? 0.85 * (1 - 0.5 * Math.sqrt(s.engineWave)) * s.oscLevel : 0);
+    if (engine === ENGINE.supersaw && this.offsets.length) {
+      const side = this.sideLevel();
+      this.slotIn.forEach((ins, k) => {
+        for (const g of ins) set(g.gain, k < this.offsets.length ? side : 0);
+      });
+      set(this.stack.gain, 1 / Math.sqrt(1 + this.offsets.length * side * side));
+    }
     set(this.level2.gain, s.osc2Level);
     for (const bank of this.banks) for (const o of bank.o2) set(o.detune, s.osc2Interval + s.osc2Detune);
 
@@ -1047,7 +1145,7 @@ export class Voice {
       this.noiseSrc.disconnect();
       this.env2Src.stop();
       this.env2Src.disconnect();
-      for (const c of [this.keySrc, this.velSrc, this.pressSrc, this.laneSrc]) {
+      for (const c of [this.keySrc, this.velSrc, this.pressSrc, this.laneSrc, this.oneSrc]) {
         c.stop();
         c.disconnect();
       }

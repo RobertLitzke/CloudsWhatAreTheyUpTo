@@ -28,4 +28,6 @@ export const PATTERNS: readonly RiffSource[] = [
     notes: 'A1@1 A1@0.45 A2@0.45_ A1@0.45 C2@1 A1@0.45 -:1 G1@0.45_ A1@0.45 A1@0.45 E2@1_ D2@0.45 C2@0.45 -:1 A1@1 A2@0.45' },
   { id: 111, title: 'Acid line, recorded', artist: 'The acid line with a cutoff move recorded across the bar', group: 'folk', pd: true, bpm: 122, sure: 3, fixed: true,
     notes: 'A1@1^-1.5 A1@0.45^-1.5 A2@0.45^-1_ A1@0.45^-1 C2@1^-0.5 A1@0.45^-0.5 -:1 G1@0.45^0_ A1@0.45^0.5 A1@0.45^0.5 E2@1^1_ D2@0.45^1 C2@0.45^1.5 -:1 A1@1^2 A2@0.45^-1.5' },
+  { id: 112, title: 'Plucked line', artist: 'Short notes in a rising and falling figure', group: 'folk', pd: true, bpm: 104, sure: 3, fixed: true,
+    notes: 'C3:2 G3:2 C4:2 G3:2 Eb4:2 C4:2 Bb3:2 G3:2' },
 ];
