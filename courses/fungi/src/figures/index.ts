@@ -14,6 +14,7 @@ import { fallFigure, gillFigure, launchStill } from './spores';
 import { cycleStill, matingFigure } from './sexes';
 import { makersStill, sortFigure } from './groups';
 import { buddingStill, flaskFigure } from './yeast';
+import { coalFigure, rotsFigure } from './rot';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -41,4 +42,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 7
   flask: flaskFigure,
   budding: buddingStill,
+  // Lesson 8
+  rots: rotsFigure,
+  coal: coalFigure,
 };

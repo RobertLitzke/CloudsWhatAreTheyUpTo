@@ -15,6 +15,7 @@ import { drift, escape, fallSpeed } from '../src/figures/spores';
 import { mateChance } from '../src/figures/sexes';
 import { SPECIMENS, GROUPS } from '../src/figures/groups';
 import { flask } from '../src/figures/yeast';
+import { buried, rotted } from '../src/figures/rot';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -131,5 +132,22 @@ describe('figures', () => {
     click(f.node, 'Ferment to alcohol');
     setSlider(f.node, 0, 60);
     await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 8: brown rot leaves lignin; no white rot or much swamp makes more coal', async () => {
+    expect(rotted('brown', 24).lignin).toBeGreaterThan(rotted('white', 24).lignin * 3);
+    expect(rotted('white', 24).cellulose).toBeGreaterThan(rotted('brown', 24).cellulose);
+    expect(buried(0.05, false) / buried(0.05, true)).toBeGreaterThan(2.5);
+    expect(buried(0.3, true) / buried(0.05, true)).toBeGreaterThan(4);
+    const r = FIGURES.rots(context(), 'cubes');
+    guess(r.node, 'Lignin');
+    click(r.node, 'Brown rot');
+    setSlider(r.node, 0, 20);
+    await expect(r.done).resolves.toBeUndefined();
+    const c = FIGURES.coal(context(), 'both');
+    click(c.node, 'White rot fungi exist');
+    click(c.node, 'White rot fungi exist');
+    setSlider(c.node, 0, 0.4);
+    await expect(c.done).resolves.toBeUndefined();
   });
 });
