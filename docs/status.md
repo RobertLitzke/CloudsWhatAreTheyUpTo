@@ -16,7 +16,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.1 beta | 8 | 13 | 3 | 8 | 8 | 8 | 0 |
+| [Fungi](#fungi) | 0.1 beta | 10 | 11 | 2 | 10 | 10 | 10 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -32,7 +32,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Botany | 0.1 beta | 2026-11-04 | no: 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
 | Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check, 17 awaiting photos |
 | Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to copy-edit, 32 to fact-check |
-| Fungi | 0.1 beta | 2026-11-04 | no: 13 lessons to write, 3 to read through, 8 to copy-edit, 8 to fact-check, 8 awaiting photos |
+| Fungi | 0.1 beta | 2026-11-04 | no: 11 lessons to write, 2 to read through, 10 to copy-edit, 10 to fact-check, 10 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -415,11 +415,11 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 3 | Eating from the outside (`tips`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
 | 4 | Seven trillion spores (`spores`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
 | 5 | Twenty thousand sexes (`sexes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
-| 6 | Sacs and clubs (`groups`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
-| 7 | The yeast that wastes its sugar (`yeast`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
-| 8 | The gap in the coal (`rot`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
-| 9 | Do trees share through fungi? (`network`) |  | planned, listed as coming |  | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
-| 10 | A lichen is two (or three) (`lichens`) |  | planned, listed as coming |  | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
+| 6 | Sacs and clubs (`groups`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
+| 7 | The yeast that wastes its sugar (`yeast`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
+| 8 | The gap in the coal (`rot`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
+| 9 | Do trees share through fungi? (`network`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
+| 10 | A lichen is two (or three) (`lichens`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
 | 12 | The wood that glows (`glow`) |  | planned, listed as coming |  | Fungi that make cold light, foxfire, and a mushroom that glows on a clock to draw insects. |
 | 13 | Fungi that hunt (`hunters`) |  | planned, listed as coming |  | Fungi that trap roundworms for nitrogen, fungi that steer ants, and why a new parasite can be a catastrophe. |
 | 15 | A trunk with no leaves (`prototaxites`) |  | planned, listed as coming |  | How a Devonian fossil eight metres tall is weighed as fungus or not, and fungi with the first land plants. |

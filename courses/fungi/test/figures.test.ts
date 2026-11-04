@@ -16,6 +16,8 @@ import { mateChance } from '../src/figures/sexes';
 import { SPECIMENS, GROUPS } from '../src/figures/groups';
 import { flask } from '../src/figures/yeast';
 import { buried, rotted } from '../src/figures/rot';
+import { meanRange, transfer } from '../src/figures/network';
+import { lichenDay } from '../src/figures/lichens';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -149,5 +151,29 @@ describe('figures', () => {
     click(c.node, 'White rot fungi exist');
     setSlider(c.node, 0, 0.4);
     await expect(c.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 9: shade raises transfer clear of zero; a trench leaves it in the scatter', async () => {
+    const sun = meanRange(transfer(0, false));
+    const shade = meanRange(transfer(0.8, false));
+    const cut = meanRange(transfer(0.8, true));
+    expect(sun.mean - sun.half).toBeLessThan(0);
+    expect(shade.mean - shade.half).toBeGreaterThan(0);
+    expect(cut.mean - cut.half).toBeLessThan(0);
+    const f = FIGURES.transfer(context(), 'plots');
+    guess(f.node, 'More');
+    setSlider(f.node, 0, 0.8);
+    click(f.node, 'Dig a trench between them');
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 10: wet in daylight gains, wet only at night loses, dry does nothing', async () => {
+    expect(lichenDay(20, 4)[24]).toBeLessThan(0);
+    expect(lichenDay(6, 4)[24]).toBeGreaterThan(0);
+    expect(lichenDay(0, 0)[24]).toBe(0);
+    const f = FIGURES.day(context(), 'timing');
+    guess(f.node, 'It loses');
+    setSlider(f.node, 0, 7);
+    await expect(f.done).resolves.toBeUndefined();
   });
 });
