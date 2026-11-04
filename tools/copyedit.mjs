@@ -107,8 +107,11 @@ function pieces(lesson) {
         add(`${at}, task for the reader`, () => b.task, (v) => (b.task = v));
       }
       if (b.type === 'quiz') (b.options?.items ?? []).forEach((q, k) => {
-        add(`quiz ${k + 1}, question`, () => q.ask, (v) => (q.ask = v));
-        q.choices.forEach((_, c) => add(`quiz ${k + 1}, choice ${c + 1}${c === q.answer ? ' (correct)' : ' (wrong)'}`, () => q.choices[c], (v) => (q.choices[c] = v)));
+        // Two spellings of a question: { ask, choices } and the older { question, options }.
+        const ask = 'ask' in q ? 'ask' : 'question';
+        const choices = q.choices ?? q.options ?? [];
+        add(`quiz ${k + 1}, question`, () => q[ask], (v) => (q[ask] = v));
+        choices.forEach((_, c) => add(`quiz ${k + 1}, choice ${c + 1}${c === q.answer ? ' (correct)' : ' (wrong)'}`, () => choices[c], (v) => (choices[c] = v)));
         add(`quiz ${k + 1}, explanation`, () => q.why, (v) => (q.why = v));
       });
     });
