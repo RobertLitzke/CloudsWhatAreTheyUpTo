@@ -1,0 +1,73 @@
+{
+  "id": "hunters",
+  "n": 13,
+  "title": "Fungi that hunt",
+  "teaches": "Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence",
+  "summary": [
+    "**Some soil fungi catch nematodes.** Zopf described them in 1888: threads that make sticky nets, sticky knobs or tightening rings.",
+    "**They hunt for nitrogen.** Rotting wood and leaves are poor in it, and a worm is rich.",
+    "**Traps are built when prey is near.** The fungi sense chemicals the worms give off, and make traps mostly when food is short.",
+    "**Even the oyster mushroom attacks worms.** Its threads carry tiny drops of a toxin that paralyses them within minutes.",
+    "**Ophiocordyceps steers dying ants.** An infected carpenter ant climbs a plant, bites the underside of a leaf and dies there.",
+    "**The height is no accident.** Ants die about 25 centimetres up, in air damp enough for the fungus but out of reach of scavengers.",
+    "**The habit is ancient.** A 48-million-year-old fossil leaf shows the same death-grip scars.",
+    "**A parasite on new hosts can be ruinous.** The chytrid fungus spread by the trade in frogs has driven hundreds of amphibian species into decline."
+  ],
+  "parts": [
+    {
+      "title": "A noose in the soil",
+      "blocks": [
+        {"type": "text", "text": "A handful of garden soil holds thousands of **nematodes**, roundworms about a millimetre long, thinner than a hair, which wriggle through the water between grains eating bacteria, fungi and roots. In 1888 the German botanist Wilhelm Zopf, watching soil fungi under the microscope, saw something no one had described: a nematode stuck fast to a loop of fungal thread, struggling, then still. Within a day threads had grown into its body and filled it."},
+        {"type": "text", "text": "Zopf had found a fungus that hunts. Around two hundred kinds are now known that catch nematodes, most of them small sac fungi of soil, dung and rotting wood. They build traps of a few kinds. Some grow loops of thread into a three-dimensional net coated in glue. Some grow short stalks tipped with sticky knobs. The most striking grow rings of three cells on a short stalk; when a worm pushes into one, the three cells swell inward in about a tenth of a second and grip it."},
+        {"type": "diagram", "id": "traps", "caption": "Three ways soil fungi trap nematodes, drawn greatly magnified."}
+      ]
+    },
+    {
+      "title": "Why a fungus hunts",
+      "blocks": [
+        {"type": "text", "text": "A fungus needs nitrogen to build proteins, and the food of a decomposer is short of it. Wood, as lesson 8 described, is mostly cellulose and lignin, which hold no nitrogen at all. A nematode is a packet of protein. So it is not surprising that many hunting fungi live on rotting wood and dung, and that they build most of their traps when nitrogen is short."},
+        {"type": "text", "text": "They also build them when prey is near. In 2013 Yen-Ping Hsueh and her colleagues at Caltech showed that the commonest trapping fungus, *Arthrobotrys oligospora*, grows almost no traps on its own. Add nematodes, or just the chemicals nematodes give off to signal to each other, and it starts building nets within hours. The fungus is listening to its prey."},
+        {"type": "text", "text": "Not all the hunters are obscure. The oyster mushroom, a white rot fungus of dead trees, also attacks nematodes. Its threads carry tiny stalked droplets of a toxin; a worm that touches one is paralysed within minutes, and the threads grow into it.[^oyster]"}
+      ]
+    },
+    {
+      "title": "The ant on the leaf",
+      "blocks": [
+        {"type": "text", "text": "Other fungi live inside insects. One of the best studied is *Ophiocordyceps unilateralis*, a sac fungus of tropical forests that infects carpenter ants. A spore lands on an ant and grows through its outer skin. For two or three weeks the fungus multiplies inside the ant's body as single cells, while the ant goes about its work. Then the ant changes. It leaves the nest and the trails, wanders, and climbs a plant in the understorey. Around midday it bites hard into the vein on the underside of a leaf, and its jaw muscles lock. It dies there, hanging."},
+        {"type": "text", "text": "Over the following days a stalk grows from the back of the dead ant's head, and after a week or two it begins to rain spores onto the forest floor below, where more ants pass. The fungus does not reach the ant's brain. Studies of infected ants in 2017 found its cells packed around and between the ant's muscle fibres, a network through the whole body, but not in the brain itself. How it changes the ant's behaviour, perhaps through chemicals that act on the nerves and muscles, is still being worked out."}
+      ]
+    },
+    {
+      "title": "Why 25 centimetres?",
+      "blocks": [
+        {"type": "text", "text": "In 2009 Sandra Andersen, David Hughes and their colleagues counted dead ants in a Thai rainforest. They found them in a tight band: on the underside of leaves about 25 centimetres above the ground, mostly on the north-west side of plants, where the air was steadily humid and warm. They then moved freshly killed infected ants. Ants put higher up, or down on the forest floor, rarely grew healthy stalks. Up high, the fungus dried; on the ground, the bodies were found and taken by other insects."},
+        {"type": "interactive_diagram", "id": "ant", "caption": "Where a dead ant gives the fungus its best chance. A model built on the pattern found in Thailand.", "task": "Try the ground, high up, and the best height", "goal": "height", "aspect_ratio": 1.82},
+        {"type": "text", "text": "The ant's last climb, in other words, delivers the fungus to the place it needs. The habit is old. On a 48-million-year-old fossil leaf from the Messel pit in Germany, Hughes and his colleagues found rows of scars along the main vein of exactly the shape a dying ant's jaws leave today.[^messel]"}
+      ]
+    },
+    {
+      "title": "When a hunter moves",
+      "blocks": [
+        {"type": "text", "text": "Parasitic fungi are a normal part of nature. Insect-killing fungi keep many insect populations in check, and some are sprayed by farmers to kill pests instead of insecticides. A parasite and its host usually evolve together, and the host evolves defences."},
+        {"type": "text", "text": "Trouble comes when a parasite reaches hosts that never met it. In the 1990s frogs began vanishing from forests in Australia and Central America where nothing else had changed. The cause turned out to be a chytrid, one of the swimming-spore fungi of lesson 6, that grows in the thin skin through which frogs drink and breathe. Its genes trace it to East Asia, where frogs live with it, and it seems to have spread round the world in the twentieth century with the trade in live frogs. A 2019 study counted more than five hundred amphibian species that had declined because of it, about ninety of them thought extinct.[^chytrid]"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on hunting fungi", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Why do many wood-rotting fungi catch nematodes?", "choices": ["Wood is poor in nitrogen, and a nematode is rich in protein", "Nematodes damage the wood they live in", "Nematodes carry their spores"], "answer": 0, "why": "Cellulose and lignin hold no nitrogen. A worm supplies the nitrogen a decomposer's food lacks."},
+          {"ask": "What made *Arthrobotrys* start building traps in Hsueh's experiments?", "choices": ["Chemicals given off by nematodes", "Bright light", "Being given more sugar"], "answer": 0, "why": "With no nematodes it made almost no traps. Their signalling chemicals alone were enough to start it."},
+          {"ask": "How does a tightening ring catch a nematode?", "choices": ["Its three cells swell inward in a fraction of a second and grip the worm", "It drips glue onto the worm from above", "It wraps a thread around the worm slowly over hours"], "answer": 0, "why": "When a worm pushes into the ring, its cells swell inward in about a tenth of a second."},
+          {"ask": "Why do ants killed by Ophiocordyceps hang about 25 centimetres up?", "choices": ["The air there is damp enough for the fungus, and the body is out of reach of scavengers", "Ants cannot climb higher", "Leaves at that height are poisonous to other insects"], "answer": 0, "why": "Moved higher, the fungus dried out; moved to the ground, the bodies were taken. The fungus does best in the band where infected ants die."},
+          {"ask": "Why was the frog chytrid so damaging?", "choices": ["It reached frogs that had never met it and had no defences", "It is the only fungus that infects animals", "It kills by poisoning ponds"], "answer": 0, "why": "In East Asia frogs live with it. Spread by trade to places where frogs had never met it, it caused declines in hundreds of species."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "oyster": {"kind": "technical", "title": "The oyster's toxin", "text": "The droplets are called toxocysts. In 2020 a team led by Yen-Ping Hsueh, by then in Taiwan, showed that a nematode touching one has its sensory cilia damaged, which floods its nerve and muscle cells with calcium and paralyses it. The effect works on many kinds of nematode."},
+    "messel": {"kind": "digression", "title": "The Messel pit", "text": "The Messel pit, near Darmstadt, is an old oil-shale quarry that holds an ancient lake's bed in fine detail: whole bats, early horses, birds with feathers, insects with their colours. The bitten leaf comes from the same layers."},
+    "chytrid": {"kind": "technical", "title": "Counting the losses", "text": "The 2019 estimate, by Ben Scheele and colleagues, is uncertain in its details and has been debated, but there is no doubt that the chytrid *Batrachochytrium dendrobatidis* has caused the largest loss of species ever traced to a single disease. A second chytrid, which attacks salamanders, has since spread to Europe."}
+  }
+}

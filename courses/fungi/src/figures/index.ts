@@ -19,6 +19,9 @@ import { rootsStill, transferFigure } from './network';
 import { dayFigure, layersStill } from './lichens';
 import { zoneFigure } from './mould';
 import { cycleLightStill, decoyFigure } from './glow';
+import { antFigure, trapsStill } from './hunters';
+import { mapFigure, pairingStill } from './individual';
+import { cluesFigure, scaleStill } from './prototaxites';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -60,4 +63,13 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 12
   luciferin: cycleLightStill,
   decoys: decoyFigure,
+  // Lesson 13
+  traps: trapsStill,
+  ant: antFigure,
+  // Lesson 14
+  pairing: pairingStill,
+  genotypes: mapFigure,
+  // Lesson 15
+  tallest: scaleStill,
+  clues: cluesFigure,
 };

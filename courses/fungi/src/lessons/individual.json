@@ -1,0 +1,72 @@
+{
+  "id": "individual",
+  "n": 14,
+  "title": "How big is one fungus?",
+  "teaches": "What counts as one fungus, and how genetic markers revealed single fungi covering whole forests",
+  "summary": [
+    "**A fungal individual is all the mycelium grown from one mating.** It can be broken into pieces and still be one individual.",
+    "**Two mycelia can be told apart in a dish.** Threads of the same individual fuse where they meet; different ones wall themselves off with a dark line.",
+    "**Genetic markers tell individuals apart more surely.** Matching at one gene proves little; matching at many makes chance unlikely.",
+    "**Smith, Bruhn and Anderson found a giant in Michigan in 1992.** One honey fungus covered at least 15 hectares and was at least 1,500 years old.",
+    "**The same fungus, restudied in 2018, was bigger still.** At least 70 hectares and some 2,500 years, with its genes barely changed.",
+    "**The largest known is in Oregon.** A honey fungus in the Malheur National Forest spreads over nearly 1,000 hectares.",
+    "**Honey fungi spread by underground cords.** The black bootlaces run through soil from root to root and stump to stump.",
+    "**Size depends on what you count.** A fungus is huge in area but thin, so the biggest trees still outweigh it."
+  ],
+  "parts": [
+    {
+      "title": "Where does one end?",
+      "blocks": [
+        {"type": "text", "text": "A tree is easy to count. It has one trunk, and it stops where its bark stops. An animal is easier still. But a fungus is a net of threads in soil and wood, branching, fusing, dying back in one place and growing in another. Lesson 1's fairy ring broke into arcs that no longer touched. Are the arcs one fungus or several?"},
+        {"type": "text", "text": "Biologists answer by ancestry. A fungal individual is all the mycelium that has grown from one mating, or from one spore, carrying the same set of genes. It can be broken into pieces by a path or a stream and still be one individual, as a lawn of grass spread by runners is one plant. The question becomes how to find where one set of genes stops and the next begins, in threads too thin to see buried under a forest."}
+      ]
+    },
+    {
+      "title": "Two tests",
+      "blocks": [
+        {"type": "text", "text": "The first test is to let the fungus decide. Grow two samples side by side in a dish. Lesson 3 described hyphae of one mycelium fusing where they meet. If the two samples are the same individual, their threads meet and fuse into one colony. If they are different, the threads that touch kill themselves, and a dark line of dead cells and pigment forms along the meeting place. A fungus guards itself against fusing with a stranger, which might carry a virus or a cheat."},
+        {"type": "diagram", "id": "pairing", "caption": "The pairing test: two samples grown in a dish until they meet."},
+        {"type": "text", "text": "The test is cheap and works well, but it can be fooled by close relatives, and some fungi do not form clear lines. So the second test reads the genes themselves. Compare the samples at many places in their DNA where individuals differ, called **markers**. Any one marker comes in only a few versions, so two unrelated fungi often share a version by chance. At many markers at once, the chance that two unrelated fungi match everywhere becomes tiny."},
+        {"type": "interactive_diagram", "id": "genotypes", "caption": "Samples of a honey fungus from a forest, grouped by how many markers are compared. A model with five individuals.", "task": "Compare enough markers to find the real individuals", "goal": "markers", "aspect_ratio": 2.04}
+      ]
+    },
+    {
+      "title": "The fungus at Crystal Falls",
+      "blocks": [
+        {"type": "text", "text": "In the late 1980s Myron Smith, Johann Bruhn and James Anderson were sampling honey fungus in a mixed hardwood forest near Crystal Falls in Michigan. Honey fungi live on the roots of trees, rotting stumps and dead roots and attacking the roots of weakened living trees. They spread through the soil by **rhizomorphs**, the black bootlaces of lesson 3: cords of many hyphae bundled inside a dark rind, which grow from root to root through the soil."},
+        {"type": "text", "text": "They collected samples across the forest and compared them at mating-type genes and other markers. Nearly every sample from an area of about 15 hectares, the size of twenty football pitches, matched at every marker. In 1992 they reported in *Nature* that this was a single individual. From the rate at which its rhizomorphs spread, about 20 centimetres a year, they estimated it was at least 1,500 years old. They also guessed at its weight, roots and cords together, at ten tonnes or more, and the paper's title called it among the largest and oldest living organisms."},
+        {"type": "text", "text": "The press called it the humongous fungus. Crystal Falls now holds a festival in its honour every summer, with a giant mushroom pizza."}
+      ]
+    },
+    {
+      "title": "Going back",
+      "blocks": [
+        {"type": "text", "text": "In the 2010s Anderson and Smith went back to the same forest and sampled it again, more widely and with whole-genome sequencing. The fungus had not shrunk. It turned out to cover at least 70 hectares, to weigh perhaps 400 tonnes, and to be around 2,500 years old. What surprised them most was its genes. Comparing samples from far apart in the fungus, they found almost no mutations, far fewer than expected after so long. Somehow the fungus keeps its genome unusually stable as it grows.[^stable]"},
+        {"type": "text", "text": "By then a larger one had been found. In the Malheur National Forest in eastern Oregon, a honey fungus that kills conifers by attacking their roots was mapped around 2000 across about 965 hectares, nearly ten square kilometres, all one individual by its markers. Its age is very uncertain, somewhere between about two and eight thousand years.[^malheur]"}
+      ]
+    },
+    {
+      "title": "Biggest by what measure?",
+      "blocks": [
+        {"type": "text", "text": "Whether these are the largest living things depends on what is counted. By area, the Oregon fungus beats anything else known. By weight, it probably does not. A fungus is spread thin, a few threads and cords in each handful of soil, and a single giant sequoia weighs well over a thousand tonnes. A grove of quaking aspen in Utah called Pando, all one tree joined by its roots, is estimated at about 6,000 tonnes over 43 hectares."},
+        {"type": "text", "text": "What these giants show is something about the way fungi grow. A mycelium has no fixed shape and no set size. It grows where there is food and dies back where there is not, and as long as there is food at its edge it can go on for thousands of years. Lesson 1's fairy ring and the Michigan fungus are the same kind of thing at different scales."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on fungal individuals", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "What counts as one fungal individual?", "choices": ["All the mycelium grown from one mating or one spore, with one set of genes", "Each separate mushroom", "Any patch of threads that touches no other"], "answer": 0, "why": "An individual is defined by its genes and ancestry. It can be broken into pieces and still be one individual."},
+          {"ask": "What happens when two different individuals meet in a dish?", "choices": ["A dark line of dead cells forms where they meet", "They fuse into one colony", "They mate at once"], "answer": 0, "why": "Threads of the same individual fuse. Strangers wall each other off, leaving a dark line."},
+          {"ask": "Why is matching at a single marker weak evidence?", "choices": ["Unrelated fungi often share a version of any one marker by chance", "Markers change every year", "One marker is too small to see"], "answer": 0, "why": "Each marker comes in only a few versions. Only a match at many markers at once makes chance unlikely."},
+          {"ask": "How did Smith and colleagues estimate the Michigan fungus's age?", "choices": ["From its size and how fast its rhizomorphs spread", "From tree rings in the roots it lived on", "By carbon dating its spores"], "answer": 0, "why": "Spreading about 20 centimetres a year, a fungus that size needed at least 1,500 years."},
+          {"ask": "In what sense is the Oregon honey fungus the largest organism known?", "choices": ["By area covered", "By weight", "By height"], "answer": 0, "why": "It covers nearly 1,000 hectares, but it is spread thin. A giant sequoia or the aspen grove Pando weighs more."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "stable": {"kind": "technical", "title": "Why so few mutations?", "text": "The 2018 study found a rate of change far lower than in most organisms that have been measured. One idea is that the fungus grows from a small number of cells at the tips of its cords, which divide relatively few times; another is that its DNA repair is unusually good. Neither has been shown."},
+    "malheur": {"kind": "digression", "title": "Finding the Oregon fungus", "text": "Foresters had noticed patches of dying firs scattered over the forest. Catherine Parks and her colleagues at the US Forest Service sampled roots under the dying trees and found that over large areas the samples matched. The fungus is a natural part of these forests, and the gaps it opens are filled by young trees."}
+  }
+}

@@ -1,6 +1,6 @@
 // Lesson 9, Do trees share through fungi?: the two kinds of root fungus (a
 // still), and a model of Simard's 1997 labelling experiment, with a shade
-// cloth over the fir, a trench that cuts the fungal links, and the scatter
+// cloth over the fir, a fine mesh that stops the fungal links, and the scatter
 // between plots that later critics stressed.
 
 import { svg } from 'didactics/dom';
@@ -62,7 +62,7 @@ const SCATTER = [-1.4, -0.7, -0.3, 0.1, 0.4, 0.8, 1.2, -0.1];
 /**
  * Net carbon passed from birch to fir, as a percentage of the carbon the fir
  * fixed itself, in each of eight plots. Through fungal links it grows as
- * shade makes the fir a stronger sink; a trench cuts those links but leaves
+ * shade makes the fir a stronger sink; a mesh cuts those links but leaves
  * a smaller route through the soil. The plots scatter by `noise`.
  */
 export function transfer(shade: number, trench: boolean, noise = 2): number[] {
@@ -90,7 +90,7 @@ export const transferFigure = figure(['plots'], (_ctx, t) => {
   const paint = () => {
     const plots = transfer(shade, trench);
     const { mean, half } = meanRange(plots);
-    // Left: birch and fir seedlings, the shade cloth, the links and the trench.
+    // Left: birch and fir seedlings, the shade cloth, the links and the mesh.
     const scene: SVGElement[] = [
       svg('rect', { x: 10, y: 120, width: 170, height: 70, fill: COL.soil, opacity: 0.35 }),
       // Birch: a thin pale stem with rounded leaves.
@@ -103,9 +103,9 @@ export const transferFigure = figure(['plots'], (_ctx, t) => {
       small(140, 136, 'fir', { anchor: 'middle', bold: true }),
     ];
     if (shade > 0) scene.push(svg('rect', { x: 110, y: 30, width: 60, height: 90, fill: '#1c1a1e', opacity: 0.12 + 0.6 * shade }), small(140, 26, `shade ${Math.round(shade * 100)}%`, { anchor: 'middle' }));
-    // Fungal links under the soil, and the trench if cut.
+    // Fungal links under the soil, and the mesh if put in.
     for (const dy of [0, 10, 20]) scene.push(svg('path', { d: `M52,${150 + dy} C80,${140 + dy} 110,${170 + dy} 138,${152 + dy}`, stroke: COL.hypha, 'stroke-width': 1.6, fill: 'none', opacity: trench ? 0.35 : 1 }));
-    if (trench) scene.push(svg('rect', { x: 90, y: 120, width: 8, height: 70, fill: COL.ink }), small(94, 202, 'trench', { anchor: 'middle', bold: true }));
+    if (trench) scene.push(svg('rect', { x: 92, y: 120, width: 4, height: 70, fill: COL.ink, opacity: 0.6 }), small(94, 202, 'mesh', { anchor: 'middle', bold: true }));
     // Right: the plots.
     const ax = axes({ x: 226, y: 26, w: 160, h: 150, xmin: 0, xmax: 1, ymin: -4, ymax: 12, yticks: [-4, 0, 4, 8, 12], ylabel: 'carbon from birch, % of fir’s own', ink: COL.ink, grid: COL.grid });
     const xs = plots.map((_, i) => 0.18 + (i % 4) * 0.08 + (i >= 4 ? 0.04 : 0));
@@ -126,14 +126,14 @@ export const transferFigure = figure(['plots'], (_ctx, t) => {
     if (trench) sawTrench = true;
     if (!trench && shade >= 0.6) sawShade = true;
     f.readout.textContent = trench
-      ? `With the links cut, a little carbon still crosses, ${mean.toFixed(1)}% on average, through the soil and roots; the dots now straddle zero. Any study has to rule out this route.`
+      ? `With the fungal links blocked, a little carbon still crosses, ${mean.toFixed(1)}% on average, leaking from roots through the soil water; the dots now straddle zero. Any study has to rule out this route.`
       : shade < 0.3
         ? `Each dot is one pair of seedlings. In full sun the fir gets ${mean.toFixed(1)}% of its carbon from the birch on average, and the plots scatter widely around that.`
         : `Shaded, the fir makes less sugar of its own and draws more from the birch: ${mean.toFixed(1)}% on average. This is the pattern Simard reported in 1997.`;
     if (sawTrench && sawShade) t.done();
   };
   const sh = slider('Shade on the fir', 0, 0.9, 0.05, shade, (v) => `${Math.round(v * 100)}%`, (v) => { shade = v; paint(); }, 'leaf');
-  const tr = toggles(['Dig a trench between them'], [false], (v) => { trench = v[0]; paint(); });
+  const tr = toggles(['Fine mesh between them'], [false], (v) => { trench = v[0]; paint(); });
   f.controls.append(tr.node, sh.node);
   const open = guessFirst(t, f, {
     ask: 'Shade the fir so it makes less sugar of its own. Does more birch carbon end up in it, less, or the same?',

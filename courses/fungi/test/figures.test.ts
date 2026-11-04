@@ -20,6 +20,9 @@ import { meanRange, transfer } from '../src/figures/network';
 import { lichenDay } from '../src/figures/lichens';
 import { BACTERIA, colony, zone } from '../src/figures/mould';
 import { clearWin, decoys } from '../src/figures/glow';
+import { fruiting } from '../src/figures/hunters';
+import { groups } from '../src/figures/individual';
+import { standing } from '../src/figures/prototaxites';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -155,7 +158,7 @@ describe('figures', () => {
     await expect(c.done).resolves.toBeUndefined();
   });
 
-  it('lesson 9: shade raises transfer clear of zero; a trench leaves it in the scatter', async () => {
+  it('lesson 9: shade raises transfer clear of zero; a mesh leaves it in the scatter', async () => {
     const sun = meanRange(transfer(0, false));
     const shade = meanRange(transfer(0.8, false));
     const cut = meanRange(transfer(0.8, true));
@@ -165,7 +168,7 @@ describe('figures', () => {
     const f = FIGURES.transfer(context(), 'plots');
     guess(f.node, 'More');
     setSlider(f.node, 0, 0.8);
-    click(f.node, 'Dig a trench between them');
+    click(f.node, 'Fine mesh between them');
     await expect(f.done).resolves.toBeUndefined();
   });
 
@@ -197,6 +200,33 @@ describe('figures', () => {
     const f = FIGURES.decoys(context(), 'nights');
     guess(f.node, 'Yes');
     setSlider(f.node, 0, 16);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 13: the fungus fruits best a little above the ground', async () => {
+    expect(fruiting(25)).toBeGreaterThan(fruiting(2) * 3);
+    expect(fruiting(25)).toBeGreaterThan(fruiting(100) * 2);
+    const f = FIGURES.ant(context(), 'height');
+    guess(f.node, 'A little above the ground');
+    setSlider(f.node, 0, 2);
+    setSlider(f.node, 0, 25);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 14: one marker lumps neighbours together, four or more separate all five', async () => {
+    expect(new Set(groups(1)).size).toBeLessThan(5);
+    expect(new Set(groups(4)).size).toBe(5);
+    const f = FIGURES.genotypes(context(), 'markers');
+    guess(f.node, 'Not necessarily');
+    setSlider(f.node, 0, 6);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('lesson 15: every clue together leaves only the lost lineage', async () => {
+    expect(standing([true, true, true, true])).toEqual([false, false, false, true]);
+    expect(standing([true, true, true, false])).toEqual([false, false, true, true]);
+    const f = FIGURES.clues(context(), 'clues');
+    for (const c of ['1. Tubes, not wood', '2. Grew on land', '3. Carbon varies', '4. No chitin traces']) click(f.node, c);
     await expect(f.done).resolves.toBeUndefined();
   });
 });
