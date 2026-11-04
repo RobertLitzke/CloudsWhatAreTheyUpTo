@@ -79,7 +79,7 @@ queue. The dependency on Didactics is pinned once, in the root
 (`catalog/test/site.test.ts` holds them to it).
 
 How to plan a course and write a lesson, and the steps each lesson goes
-through, are in [LESSON-GUIDE.md](LESSON-GUIDE.md), which Rob edits directly. `npm run status`
+through, are in the lesson guide, a Claude Doc Rob edits (linked from [CLAUDE.md](CLAUDE.md)). `npm run status`
 writes [docs/status.md](docs/status.md), every lesson of every course with
 where it stands (also at `/status.html` on the live site).
 

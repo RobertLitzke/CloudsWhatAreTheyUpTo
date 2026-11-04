@@ -211,7 +211,7 @@ const statusText = (l) => (l.waiting[0]?.why ? `${l.status} (${l.waiting[0].why}
 export function toMarkdown(data, when = new Date()) {
   const out = [];
   out.push('# Course status', '');
-  out.push(`Made by \`npm run status\` on ${when.toISOString().slice(0, 10)}. Don't edit this file: change the lessons, the review queues or \`tools/lesson-status.json\` and run it again. How to keep it current: [LESSON-GUIDE.md](../LESSON-GUIDE.md#keeping-the-status-table-current).`, '');
+  out.push(`Made by \`npm run status\` on ${when.toISOString().slice(0, 10)}. Don't edit this file: change the lessons, the review queues or \`tools/lesson-status.json\` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).`, '');
   out.push('A lesson\'s status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.', '');
   out.push('| Course | ' + COLS.map((k) => HEAD[k]).join(' | ') + ' |', '| --- |' + COLS.map(() => ' ---: |').join(''));
   for (const c of data.courses) {
