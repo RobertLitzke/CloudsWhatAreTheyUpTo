@@ -140,4 +140,15 @@ describe('figures', () => {
     setSlider(cap.node, 1, 70_000);
     await expect(cap.done).resolves.toBeUndefined();
   });
+  it('branch P: Portugal against the US', async () => {
+    const pt = FIGURES['pt-tax'](context(), 'pt-tax');
+    guess(pt.node, 'About three times as much');
+    expect(pt.node.textContent).toMatch(/Portugal takes \$8,5\d\d and the US \$2,840/);
+    setSlider(pt.node, 0, 150_000);
+    await expect(pt.done).resolves.toBeUndefined();
+
+    const two = FIGURES['two-countries'](context(), 'two-countries');
+    setSlider(two.node, 1, 100_000);
+    await expect(two.done).resolves.toBeUndefined();
+  });
 });

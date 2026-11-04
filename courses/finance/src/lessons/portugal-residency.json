@@ -1,0 +1,90 @@
+{
+  "id": "portugal-residency",
+  "n": 101,
+  "branch": "portugal",
+  "needs": ["brackets"],
+  "title": "Becoming a Portuguese tax resident",
+  "teaches": "When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents",
+  "parts": [
+    {
+      "title": "Why Portugal comes up",
+      "blocks": [
+        { "type": "text", "text": "Portugal has become one of the most common places Americans consider for a long stretch abroad, or for good. The reasons are easy to list: a mild climate, safe towns, a national health service, a cost of living well below most of the US, a residence visa designed for people living on savings or pensions, and direct flights to the East Coast." },
+        { "type": "text", "text": "For fifteen years there was a tax reason as well. From 2009 Portugal offered new residents a decade of special treatment that left most foreign pensions untaxed. That has ended for newcomers, and the ordinary Portuguese income tax that replaces it is steep at the incomes most retirees have. This branch works out what a US household actually pays, starting with when Portugal considers you its taxpayer and how its tax is built. All figures are for 2026, in euros where they are Portuguese, at about $1.15 to the euro." },
+        { "type": "text", "text": "One fact frames all three lessons. The United States taxes its citizens wherever they live. Moving to Portugal adds a second tax system; it doesn't remove the first." }
+      ]
+    },
+    {
+      "title": "When Portugal taxes you",
+      "blocks": [
+        { "type": "text", "text": "You become a Portuguese tax resident for a year if you spend more than 183 days in Portugal in any twelve-month period that starts or ends in that year, or if at any point you have a home there in circumstances suggesting you intend to keep it as your usual residence. A rented flat on a long lease, with your life in it, usually counts." },
+        { "type": "text", "text": "A resident is taxed on worldwide income: pensions, IRA withdrawals, dividends from US funds, gains on shares sold through a US broker. In the year of arrival or departure, Portugal can split the year, taxing only the part after you arrive or before you leave." },
+        { "type": "text", "text": "Residence for tax and the right to live there are separate questions. Most Americans moving for retirement or on savings use the D7 visa, which in 2026 asks for passive income of at least €920 a month for the main applicant, the Portuguese minimum wage, and half as much again for a spouse.[^d7] Working remotely for a foreign employer has its own visa, the D8, with a higher income requirement. The old golden visa no longer offers residence for buying a home." }
+      ]
+    },
+    {
+      "title": "How Portugal's income tax is built",
+      "blocks": [
+        { "type": "text", "text": "Portugal's personal income tax goes by the same three letters as the American tax agency, IRS: Imposto sobre o Rendimento das Pessoas Singulares. It sorts income into categories, among them A for employment, B for self-employment, E for capital income such as dividends and interest, G for capital gains and H for pensions." },
+        { "type": "text", "text": "Pensions and wages are added together and taxed at progressive rates: in 2026, 12.5 percent on the first €8,342 of taxable income, climbing through nine brackets to 48 percent above €86,634, with a solidarity surcharge of 2.5 percent above €80,000 and 5 percent above €250,000. Each pensioner first deducts a specific amount, about €4,600. A married couple can file jointly, in which case their combined income is split in two, taxed, and the tax doubled, which helps when one earns much more than the other." },
+        { "type": "text", "text": "Investment income is taxed separately, at a flat 28 percent: dividends, interest, and gains on shares and funds. A resident can choose instead to add it to their other income at the progressive rates, which helps only those whose income is low.[^aggregate]" },
+        { "type": "text", "text": "Guess first, then compare the two countries' tax on the same pension income." },
+        { "type": "interactive_diagram", "id": "pt-tax", "caption": "Income tax on a year's withdrawals from IRAs and 401(k)s, in Portugal and in the US (federal; Washington has no income tax), for a couple filing jointly or a single person.", "task": "Guess, then compare a low income and a high one", "goal": "pt-tax", "aspect_ratio": 1.87 }
+      ]
+    },
+    {
+      "title": "Why the brackets bite",
+      "blocks": [
+        { "type": "text", "text": "Portugal's brackets are narrow by American standards. A single person's taxable income above €29,397 is already taxed at 34.9 percent, and above €43,090 at 43.1. The US equivalent at those incomes is 12 percent. On $60,000 of IRA withdrawals, a couple pays about $8,500 in Portugal against $2,840 in federal tax; a single person pays about $14,700 against $5,000." },
+        { "type": "text", "text": "The US standard deduction also has no real counterpart. The specific deduction for each pensioner is about €4,600, against a US couple's $32,200. So the first $30,000 a US couple withdraws is untaxed, while in Portugal the same couple already owes about $2,400." },
+        { "type": "text", "text": "This changes the strategies of the trunk. Filling the low US brackets in early retirement, lesson 10's main idea, matters less when Portugal's rates set the bill. And the 0 percent band for gains in lesson 7 disappears entirely, replaced by a flat 28 percent. Lesson P2 works through what that does to each US account." }
+      ]
+    },
+    {
+      "title": "What replaced the old regime",
+      "blocks": [
+        { "type": "text", "text": "The regime that made Portugal famous among retirees was called NHR, for non-habitual resident. It was closed to new applicants from 2024, and its replacement is narrower." },
+        { "type": "diagram", "id": "timeline", "caption": "Portugal's tax regimes for new residents.", "options": { "events": [
+          { "at": 2009, "label": "The non-habitual resident regime (NHR) begins: ten years of special rates, most foreign pensions untaxed" },
+          { "at": 2020, "label": "New NHR entrants pay a flat 10 percent on foreign pensions" },
+          { "at": 2024, "label": "NHR closes to new applicants, with a transition for those already moving" },
+          { "at": 2025, "label": "IFICI, often called NHR 2.0, opens: 20 percent on qualifying Portuguese work income for ten years" }
+        ], "spacing": "even" } },
+        { "type": "text", "text": "The new regime, IFICI, taxes income from qualifying work in Portugal at a flat 20 percent for ten years and exempts most foreign income. It is aimed at researchers, university staff, start-up employees and some technical jobs. Foreign pensions are not covered, so a retiree living on IRAs and Social Security gets nothing from it. People already inside NHR keep their terms until their ten years run out." },
+        { "type": "text", "text": "The Azores and Madeira, Portugal's autonomous regions, set their own lower rates on the national brackets, so a resident there pays noticeably less.[^islands]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "More than 183 days in Portugal, or a home kept as your usual residence, makes you a tax resident, taxed on worldwide income.",
+          "Pensions and IRA withdrawals face progressive rates from 12.5 to 48 percent; investment income a flat 28 percent.",
+          "At typical retirement incomes, Portugal's tax on pension income is about three times the US federal tax.",
+          "NHR is closed to newcomers; its successor, IFICI, doesn't cover pensions."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Five questions on Portuguese tax residence", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "An American spends 200 days in Portugal in 2026. What does Portugal tax?", "choices": ["Their worldwide income, as a resident", "Only income earned in Portugal", "Nothing, since US citizens are taxed by the US"], "answer": 0, "why": "More than 183 days makes them resident, and residents are taxed on income from everywhere." },
+          { "ask": "How does Portugal tax dividends and gains for most residents?", "choices": ["At a flat 28 percent", "At 0 percent up to a threshold, as in the US", "Not at all"], "answer": 0, "why": "Investment income is taxed separately at 28 percent, unless the resident chooses to add it to other income." },
+          { "ask": "A married couple in Portugal files jointly. How is their tax worked out?", "choices": ["Their combined income is halved, taxed, and the tax doubled", "Each pays at the single rates on half the brackets", "Couples pay a flat 20 percent"], "answer": 0, "why": "Splitting helps when one spouse earns much more, since both halves start at the bottom of the brackets." },
+          { "ask": "Does the IFICI regime, which replaced NHR, lower the tax on a retiree's US pension?", "choices": ["No, foreign pensions are taxed at the ordinary rates", "Yes, to a flat 10 percent", "Yes, pensions are exempt for ten years"], "answer": 0, "why": "IFICI's 20 percent rate is for qualifying Portuguese work income. Pensions get no special treatment." },
+          { "ask": "Why does Portugal tax a couple's $60,000 of IRA withdrawals so much more than the US?", "choices": ["Its brackets are narrow and it has nothing like the US standard deduction", "Portugal adds a 28 percent surcharge on US income", "It taxes the whole IRA balance each year"], "answer": 0, "why": "Rates climb past 30 percent at modest incomes, and the deduction per pensioner is about €4,600 against a US couple's $32,200." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Residence is about days and a home.** More than 183 days, or a home kept as your usual residence, makes you resident.",
+    "**Residents are taxed on worldwide income.** And US citizens stay taxed by the US as well.",
+    "**Pensions face steep progressive rates.** 12.5 to 48 percent, past 30 percent at modest incomes.",
+    "**Investment income pays a flat 28 percent.** The US 0 percent band for gains has no Portuguese equivalent.",
+    "**Couples can split their income.** Joint filing taxes each half from the bottom of the brackets.",
+    "**NHR is gone for newcomers.** IFICI, its successor, gives nothing for pensions.",
+    "**The D7 visa needs modest passive income.** €920 a month in 2026 for the main applicant, plus half for a spouse."
+  ],
+  "footnotes": {
+    "d7": { "kind": "technical", "title": "The D7", "text": "The D7 is a national visa for people with regular passive income: pensions, rents, dividends. Applicants show the income, some savings (often a year's worth of the requirement in a Portuguese bank), accommodation and health insurance, then apply for a residence permit once in Portugal. Consulates differ in what they ask for; check the current list." },
+    "aggregate": { "kind": "technical", "title": "Choosing to aggregate", "text": "A resident who opts to add investment income to their other income must add all of it, and then pays the progressive rate on it. That helps only when total taxable income is low enough that the average progressive rate is below 28 percent." },
+    "islands": { "kind": "digression", "title": "The islands", "text": "The Azores and Madeira have regional powers over income tax and use them to cut the national rates, by up to 30 percent in the Azores in recent years. Residence there must be real: the rule is where you live, not where you register." }
+  }
+}

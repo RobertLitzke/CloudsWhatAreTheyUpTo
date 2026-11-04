@@ -219,3 +219,27 @@ export function portugalTax(taxable: number, rules: Rules = RULES): number {
   }
   return tax;
 }
+
+/** The solidarity surcharge on Portuguese taxable income above 80,000 and 250,000 euros. */
+export function portugalSolidarity(taxable: number, rules: Rules = RULES): number {
+  const s = rules.portugal.solidarity;
+  let out = 0;
+  s.forEach(([lo, r], i) => {
+    const hi = i + 1 < s.length ? s[i + 1][0] : Infinity;
+    out += Math.max(0, Math.min(taxable, hi) - lo) * r;
+  });
+  return out;
+}
+
+/**
+ * Portugal's tax on a year's pension income in euros for one person or a married
+ * couple filing jointly (the couple's taxable income is split in two, taxed, and doubled).
+ * Each pensioner takes the specific deduction.
+ */
+export function portugalPensionTax(pension: number, joint: boolean, rules: Rules = RULES): number {
+  const people = joint ? 2 : 1;
+  const taxable = Math.max(0, pension - people * rules.portugal.pensionDeduction);
+  const each = taxable / people;
+  return people * (portugalTax(each, rules) + portugalSolidarity(each, rules));
+}
+

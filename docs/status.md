@@ -15,7 +15,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Money That Lasts](#finance) | 14 | 18 | 14 | 0 | 14 | 0 | 0 |
+| [Money That Lasts](#finance) | 17 | 15 | 17 | 0 | 17 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -368,9 +368,9 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 12 | Which account to spend first (`withdrawal-order`) |  | needs student read-through | Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
 | 13 | Social Security, worked out (`social-security`) |  | needs student read-through | Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
 | 14 | Build the plan (`capstone`) |  | needs student read-through | Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
-| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | planned, listed as coming |  | When Portugal taxes you, how its income tax is built, and what replaced NHR. |
-| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | planned, listed as coming |  | The US-Portugal treaty, foreign tax credits, and each US account abroad. |
-| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | planned, listed as coming |  | The national health service, Medicare abroad, property tax and inheritance. |
+| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | needs student read-through | Fact check | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
+| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | needs student read-through | Fact check | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
+| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | needs student read-through | Fact check | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
 | W1 | What Washington taxes instead (`wa-taxes`) | Washington | planned, listed as coming |  | The state’s tax on long-term gains, its sales tax, and moving states. |
 | W2 | Apple Health and Cascade Care (`wa-health`) | Washington | planned, listed as coming |  | The Medicaid floor, state premium help and estate recovery. |
 | W3 | WA Cares and the estate tax (`wa-estate`) | Washington | planned, listed as coming |  | The long-term care premium and benefit, and the state’s estate tax. |

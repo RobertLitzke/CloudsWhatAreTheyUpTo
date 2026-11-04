@@ -1,0 +1,89 @@
+{
+  "id": "portugal-life",
+  "n": 103,
+  "branch": "portugal",
+  "needs": ["portugal-two-countries"],
+  "title": "Health, homes and heirs in Portugal",
+  "teaches": "What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay",
+  "parts": [
+    {
+      "title": "The costs that aren't income tax",
+      "blocks": [
+        { "type": "text", "text": "Lessons P1 and P2 were about income tax, where Portugal is dearer than the US for most retirees. Much of the case for moving rests on everything else: health care, housing and daily life cost far less. This lesson goes through the large items that come with the move: health cover, Medicare, the house, and what happens to the estate." }
+      ]
+    },
+    {
+      "title": "Health care",
+      "blocks": [
+        { "type": "text", "text": "A legal resident can register with the national health service, the SNS, and receive a user number.[^utente] Care through a local health centre and the public hospitals is then free or nearly so: most of the small charges for visits were abolished in 2022, and prescriptions are subsidised." },
+        { "type": "text", "text": "The SNS is good at serious and urgent care and slow at everything else, so most foreign residents add private insurance for faster appointments and private hospitals. Policies are cheap at 50 by American standards, rise steeply with age, and many insurers won't take a new client past about 65 or 70, or cover conditions they had before joining. Buying a policy early and keeping it matters more than the price in any one year." },
+        { "type": "text", "text": "Before 65 this replaces the most expensive line in lesson 11. A couple of 60 who would pay $24,000 a year for a benchmark plan in Washington, or lose the credit by crossing the cliff, pays a small fraction of that in Portugal." }
+      ]
+    },
+    {
+      "title": "Medicare from abroad",
+      "blocks": [
+        { "type": "text", "text": "Medicare almost never pays for care outside the US. An American in Portugal still becomes eligible at 65, and has to decide whether to sign up anyway." },
+        { "type": "text", "text": "Part A, hospital cover, costs nothing for anyone with ten years of US work, so there is no reason to refuse it. Part B costs $202.90 a month each in 2026, more with a high income, and does nothing in Lisbon. Its value is as a way back: someone who skips Part B and later returns to the US can only join in a fixed window each year, and pays a premium raised by 10 percent for every full year they went without, for life.[^penalty]" },
+        { "type": "text", "text": "For a couple who might return when they are frail, keeping Part B, about $4,900 a year between them, is an insurance premium against that penalty. For a couple sure they are staying, it is $4,900 a year for nothing. Medicare drug plans and Medicare Advantage need a US address, and have their own late penalties." }
+      ]
+    },
+    {
+      "title": "The house",
+      "blocks": [
+        { "type": "text", "text": "**Buying in Portugal.** The buyer pays a transfer tax, IMT, on a sliding scale that reaches 6 percent of the price and 7.5 above about €1.1 million, with lower rates for a home that will be the buyer's permanent residence, plus a stamp duty of 0.8 percent." },
+        { "type": "text", "text": "**Owning.** The yearly property tax, IMI, is 0.3 to 0.45 percent of the property's tax value, set by the town within that range. The tax value is usually well below the market price.[^vpt] Holdings above €600,000 of tax value per owner also pay an additional tax, AIMI, of 0.7 percent on the excess, more above €1 million." },
+        { "type": "text", "text": "**Selling the US house.** A US citizen keeps the US exclusion of $250,000 of gain, or $500,000 for a couple, for a home they lived in for two of the last five years, and the clock keeps running after the move. Portugal has no such rule for a foreign home: a resident who sells adds half the gain to their income at the progressive rates, and with no US tax to credit, Portugal's is the whole bill. Selling before residence in Portugal begins, or in the US part of the year of the move, keeps the gain under US rules only." }
+      ]
+    },
+    {
+      "title": "What heirs pay",
+      "blocks": [
+        { "type": "text", "text": "Portugal has no inheritance tax as such. It charges stamp duty of 10 percent on assets in Portugal that pass by gift or on death, but a spouse, a partner of two years, children, grandchildren and parents are exempt.[^partner] Property in Portugal also carries the 0.8 percent stamp duty on any transfer, to anyone. Assets outside Portugal, such as US brokerage accounts and IRAs, aren't touched." },
+        { "type": "diagram", "id": "scale", "caption": "Portuguese stamp duty on inheriting a flat in Lisbon worth €400,000, by who inherits it.", "options": { "title": "Tax on inheriting a €400,000 flat", "unit": "euros", "items": [
+          { "label": "Husband or wife", "value": 3200, "says": "€3,200", "color": "roth" },
+          { "label": "Partner of two years", "value": 3200, "says": "€3,200", "color": "roth" },
+          { "label": "Child or grandchild", "value": 3200, "says": "€3,200", "color": "roth" },
+          { "label": "Brother or sister", "value": 43200, "says": "€43,200", "color": "tax" },
+          { "label": "Niece, nephew or friend", "value": 43200, "says": "€43,200", "color": "tax" }
+        ] } },
+        { "type": "text", "text": "The US estate tax goes on applying to a citizen's whole estate wherever they live, but only above $15 million per person in 2026, so few households meet it. A Washington estate tax return depends on being domiciled in the state or owning property there; branch W covers it." },
+        { "type": "text", "text": "The bigger change is who inherits. Portuguese law reserves part of an estate, up to two thirds, for a spouse and children, whatever a will says. An EU regulation lets a foreigner's will choose the law of their nationality instead, which for an American means the law of a US state.[^choice] A will made in Portugal that makes this choice explicitly avoids a fight over which law applies." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "A legal resident can use the SNS; most foreign residents add private insurance, bought early because insurers turn away new clients in their late sixties.",
+          "Medicare doesn't pay in Portugal, but skipping Part B carries a lifelong 10 percent penalty for each year missed if you return.",
+          "Selling the US house before the move keeps the gain under the US exclusion; after it, Portugal taxes half the gain at its progressive rates.",
+          "Close family inherits Portuguese assets free of stamp duty, apart from 0.8 percent on property; other heirs pay 10 percent.",
+          "Portugal reserves part of an estate for spouse and children, unless a will chooses the law of the owner's nationality."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Five questions on health, homes and heirs", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "Why might a couple living in Portugal keep paying for Medicare Part B?", "choices": ["To avoid a lifelong late penalty if they return to the US", "Because Part B pays for care in Portugal", "Because the SNS requires it"], "answer": 0, "why": "Part B doesn't pay abroad. Its value is as a way back without a premium raised by 10 percent for each year without it." },
+          { "ask": "When is the cheapest time to sell the US home for someone moving to Portugal?", "choices": ["Before Portuguese residence begins", "After ten years in Portugal", "It makes no difference"], "answer": 0, "why": "The US exclusion can cover the gain; after the move Portugal taxes half of it at its progressive rates, with no US tax to credit." },
+          { "ask": "A widow living in Portugal leaves her Lisbon flat to her son. What does he pay?", "choices": ["0.8 percent stamp duty on the property", "10 percent of its value", "Nothing at all"], "answer": 0, "why": "Children are exempt from the 10 percent, but the 0.8 percent on property transfers applies to everyone." },
+          { "ask": "Does Portugal's 10 percent stamp duty apply to a US brokerage account left to a friend?", "choices": ["No, it reaches only assets in Portugal", "Yes, on all worldwide assets of a resident", "Only above €600,000"], "answer": 0, "why": "The stamp duty on gifts and inheritances is charged on assets located in Portugal." },
+          { "ask": "How can an American in Portugal keep Portugal's reserved shares for spouse and children from governing their estate?", "choices": ["By choosing the law of their nationality in a will", "By keeping a US address", "They can't: Portuguese law always applies"], "answer": 0, "why": "The EU succession regulation lets a will choose the law of the testator's nationality instead of the law of residence." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**The SNS is open to legal residents.** Care is nearly free, and private insurance, bought young, speeds it up.",
+    "**Medicare stays home.** It doesn't pay abroad, but dropping Part B costs 10 percent a year missed if you return.",
+    "**Buying costs a transfer tax and stamp duty.** IMT reaches 6 percent of the price, and yearly IMI is 0.3 to 0.45 percent of tax value.",
+    "**Sell the US house before moving.** The US exclusion covers the gain; Portugal would tax half of it at its own rates.",
+    "**Close family inherits nearly free.** Others pay 10 percent on assets in Portugal, and property carries 0.8 percent for everyone.",
+    "**A will can choose US law.** Otherwise Portugal reserves up to two thirds of an estate for spouse and children."
+  ],
+  "footnotes": {
+    "utente": { "kind": "technical", "title": "The user number", "text": "Registration happens at the local health centre with a residence permit and a tax number. Waiting lists for an assigned family doctor are long in Lisbon and the Algarve, and shorter in smaller towns." },
+    "penalty": { "kind": "technical", "title": "The Part B penalty", "text": "The general enrolment period runs from January to March, with cover from the following month. The 10 percent is counted for each full twelve months without Part B or cover from current work, and it applies to every later premium. Ten years abroad means paying double for the rest of one's life." },
+    "vpt": { "kind": "technical", "title": "Tax value", "text": "The valor patrimonial tributário is set by a formula from the building's area, age, location and type, and revised every few years. It often runs at half the market price or less in older towns, though the gap is narrower for new flats in Lisbon." },
+    "partner": { "kind": "digression", "title": "Partners who aren't married", "text": "Portugal recognises a união de facto, two people who have lived together for more than two years, for several purposes, including this exemption. The US estate tax gives an unmarried partner nothing like a spouse's unlimited deduction." },
+    "choice": { "kind": "technical", "title": "Choosing the law", "text": "Regulation 650/2012 applies the law of the country where the person last lived, unless their will chooses the law of a country of nationality. The US has no single law of succession, so the will should name a state, and it should be made with a lawyer who knows how Portuguese registries treat the choice." }
+  }
+}

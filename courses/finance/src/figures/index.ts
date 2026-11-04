@@ -20,6 +20,7 @@ import { acaFigure } from './aca';
 import { orderOfWithdrawalFigure, torpedoFigure } from './withdrawal-order';
 import { claimFigure, formulaFigure } from './social-security';
 import { capstoneFigure } from './capstone';
+import { ptTaxFigure, twoCountriesFigure } from './portugal';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -62,4 +63,7 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   claim: claimFigure,
   // Lesson 14
   capstone: capstoneFigure,
+  // Branch P
+  'pt-tax': ptTaxFigure,
+  'two-countries': twoCountriesFigure,
 };
