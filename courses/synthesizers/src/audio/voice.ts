@@ -21,7 +21,9 @@
 //          is one oscillator whose PeriodicWave is rebuilt from the knobs;
 //          pluck is a Karplus-Strong string in an AudioWorklet (worklets.ts),
 //          struck at each note; vowel puts a buzz (the saw) and breath (the
-//          noise) through three band-passes at a vowel's formants
+//          noise) through three band-passes at a vowel's formants; sample
+//          plays a stored sound per note at a rate set by the pitch, through
+//          a sample-rate reducer (worklets.ts) when Shape is up
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -67,6 +69,7 @@ import { Rng } from '../core/rng';
 import { additiveAmps, TABLE_FRAMES, TABLE_LAST } from '../core/tables';
 import { workletsReady } from './worklets';
 import { formantsAt, mouth } from '../core/vowels';
+import { SAMPLE_HZ, SAMPLE_RATE, SAMPLE_SECONDS, sampleData } from '../core/sample';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
@@ -106,6 +109,17 @@ function frameCurve(i: number): Float32Array<ArrayBuffer> {
     if (i === TABLE_LAST && x >= TABLE_LAST) return 1;
     return Math.max(0, 1 - Math.abs(x - i));
   });
+}
+const sampleBuffers = new WeakMap<BaseAudioContext, AudioBuffer>();
+function sampleBuffer(ctx: BaseAudioContext): AudioBuffer {
+  let b = sampleBuffers.get(ctx);
+  if (!b) {
+    const data = sampleData();
+    b = ctx.createBuffer(1, data.length, SAMPLE_RATE);
+    b.getChannelData(0).set(data);
+    sampleBuffers.set(ctx, b);
+  }
+  return b;
 }
 /** How long one bank hands over to the next. */
 const HANDOVER = 0.004;
@@ -341,6 +355,12 @@ export class Voice {
   private readonly vowelBreath: GainNode;
   private readonly formants: BiquadFilterNode[];
   private readonly vowelOut: GainNode;
+  /** The sample engine: each note's player joins here; the crusher, once its worklet is in. */
+  private readonly sampleIn: GainNode;
+  private readonly sampleOut: GainNode;
+  private crusher: AudioWorkletNode | null = null;
+  /** The sample a key is playing. */
+  private liveSample: AudioBufferSourceNode | null = null;
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -493,6 +513,10 @@ export class Voice {
     this.pluckOut.connect(this.mix);
     this.vowelBuzz = gain(0);
     this.vowelBreath = gain(0);
+    this.sampleIn = gain(1);
+    this.sampleOut = gain(0);
+    this.sampleIn.connect(this.sampleOut);
+    this.sampleOut.connect(this.mix);
     this.vowelOut = gain(0);
     this.vowelOut.connect(this.mix);
     this.in1[0].connect(this.vowelBuzz);
@@ -753,6 +777,36 @@ export class Voice {
     return node;
   }
 
+  /** The crusher, between the sample players and the output, once its worklet has loaded. */
+  private ensureCrusher(): AudioWorkletNode | null {
+    if (this.crusher || this.engine() !== ENGINE.sample || !workletsReady(this.ctx)) return this.crusher;
+    const node = new AudioWorkletNode(this.ctx, 'crush', { numberOfInputs: 1, outputChannelCount: [1] });
+    this.sampleIn.disconnect();
+    this.sampleIn.connect(node).connect(this.sampleOut);
+    this.crusher = node;
+    return node;
+  }
+
+  /** Play the sample for a note from `on` until `until`, pitched to `hz`. */
+  private playSample(on: number, until: number, hz: number): AudioBufferSourceNode | null {
+    if (this.engine() !== ENGINE.sample) return null;
+    const s = this.sound;
+    const src = this.ctx.createBufferSource();
+    src.buffer = sampleBuffer(this.ctx);
+    src.playbackRate.value = hz / SAMPLE_HZ;
+    const offset = s.engineWave * 0.8 * SAMPLE_SECONDS;
+    const length = Math.max(0.03, (0.15 + 0.85 * s.engineTimbre) * (SAMPLE_SECONDS - offset));
+    for (const m of [this.lfoPitch, this.env2Pitch, this.pitchMod]) m.connect(src.detune);
+    src.connect(this.sampleIn);
+    src.onended = () => {
+      src.disconnect();
+      for (const m of [this.lfoPitch, this.env2Pitch, this.pitchMod]) m.disconnect(src.detune);
+    };
+    src.start(on, offset, length);
+    src.stop(Math.max(on + 0.01, until));
+    return src;
+  }
+
   /** Pluck the string at `t`. */
   private strike(t: number): void {
     const p = this.pluck?.parameters.get('strike');
@@ -898,6 +952,10 @@ export class Voice {
     const additive = engine === ENGINE.additive;
     const plucked = engine === ENGINE.pluck;
     const vowel = engine === ENGINE.vowel;
+    const sampled = engine === ENGINE.sample;
+    set(this.sampleOut.gain, sampled ? 1.5 * s.oscLevel : 0);
+    const crush = this.ensureCrusher();
+    if (crush) set(crush.parameters.get('hold')!, 1 + 15 * s.engineShape * s.engineShape);
     const { f1, f2 } = formantsAt(s.engineWave);
     const size = mouth(s.engineTimbre);
     [f1, f2, 2600].forEach((f, i) => set(this.formants[i].frequency, f * size));
@@ -913,7 +971,7 @@ export class Voice {
     }
     const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
     const at = 3 * s.engineWave;
-    const weight = (i: number) => (fold || table || additive || plucked || vowel ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    const weight = (i: number) => (fold || table || additive || plucked || vowel || sampled ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
     this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
     this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
     set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);
@@ -1125,7 +1183,10 @@ export class Voice {
     const glides = this.glides(slide);
     this.pitch(bank, on, hz, glides);
     this.pluckPitch(on, this.lastHz, hz, glides);
-    if (!slide) this.strike(on);
+    if (!slide) {
+      this.strike(on);
+      this.playSample(on, next, hz);
+    }
     this.aim(on, hz, glides ? this.glideTau() : 0.002);
     this.pending.push({ on, hz });
     this.lastHz = hz;
@@ -1244,7 +1305,16 @@ export class Voice {
     };
     for (const o of [...bank.o1, ...bank.tbl, ...bank.o2]) to(o, hz);
     this.pluckPitch(t, this.lastHz, hz, glides, true);
-    if (!slide) this.strike(t);
+    if (!slide) {
+      this.strike(t);
+      // One note at a time: a new key cuts the last one's sample off.
+      try {
+        this.liveSample?.stop(t);
+      } catch {
+        // Already over.
+      }
+      this.liveSample = this.playSample(t, t + SAMPLE_SECONDS * 8, hz);
+    }
     bank.x.forEach((set, k) => {
       for (const o of set) to(o, hz * cents(this.offsets[k] ?? 0));
     });
@@ -1338,6 +1408,7 @@ export class Voice {
         c.disconnect();
       }
       this.pluck?.port.postMessage('stop');
+      this.crusher?.port.postMessage('stop');
       this.pluck?.disconnect();
       this.echo.dispose();
       this.out.disconnect();

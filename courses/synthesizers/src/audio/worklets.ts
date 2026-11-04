@@ -87,6 +87,43 @@ class Pluck extends AudioWorkletProcessor {
   }
 }
 registerProcessor('pluck', Pluck);
+
+// Sample-rate reduction: hold each sample for 'hold' samples, with no filter
+// first, so everything above the new rate's half folds back down (aliasing).
+class Crush extends AudioWorkletProcessor {
+  static get parameterDescriptors() {
+    return [{ name: 'hold', defaultValue: 1, minValue: 1, maxValue: 64, automationRate: 'k-rate' }];
+  }
+  constructor() {
+    super();
+    this.count = 0;
+    this.held = 0;
+    this.alive = true;
+    this.port.onmessage = (e) => { if (e.data === 'stop') this.alive = false; };
+  }
+  process(inputs, outputs, p) {
+    if (!this.alive) return false;
+    const input = inputs[0][0];
+    const out = outputs[0][0];
+    if (!out) return true;
+    const hold = p.hold[0];
+    for (let i = 0; i < out.length; i++) {
+      const x = input ? input[i] : 0;
+      if (hold <= 1) {
+        out[i] = x;
+        continue;
+      }
+      this.count += 1;
+      if (this.count >= hold) {
+        this.count -= hold;
+        this.held = x;
+      }
+      out[i] = this.held;
+    }
+    return true;
+  }
+}
+registerProcessor('crush', Crush);
 `;
 
 const loaded = new WeakMap<BaseAudioContext, Promise<void>>();

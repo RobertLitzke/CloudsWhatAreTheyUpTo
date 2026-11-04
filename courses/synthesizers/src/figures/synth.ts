@@ -132,6 +132,8 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'pluck-dark': (now) => now.engine === 6 && now.engineTimbre >= 7,
   'vowel-oo': (now) => now.engine === 7 && now.engineWave >= 9,
   'vowel-whisper': (now) => now.engine === 7 && now.engineShape >= 8,
+  'sample-late': (now) => now.engine === 8 && now.engineWave >= 5,
+  'sample-crush': (now) => now.engine === 8 && now.engineShape >= 7,
   // Lesson 20: the step sequencer
   squelch: (now) => now.res >= 3 && now.envAmt >= 2,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.

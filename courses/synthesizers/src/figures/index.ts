@@ -4,6 +4,7 @@
 import { charts } from 'didactics/charts';
 import type { FigureFactory } from 'didactics/figure';
 import { asset } from '../asset';
+import { aliasFigure } from './alias';
 import { beatsFigure } from './beats';
 import { checkFigure } from './check';
 import { clipFigure } from './clip';
@@ -67,4 +68,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   string: stringFigure,
   // Branch lesson O4
   vocoder: vocoderFigure,
+  // Branch lesson O5
+  alias: aliasFigure,
 };
