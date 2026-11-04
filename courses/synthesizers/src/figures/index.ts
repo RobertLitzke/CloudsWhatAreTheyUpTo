@@ -17,6 +17,7 @@ import { grainsFigure } from './grains';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
 import { rollFigure } from './roll';
+import { photoFigure } from './photo';
 import { roomFigure } from './room';
 import { seqFigure } from './seq';
 import { shFigure } from './sh';
@@ -36,6 +37,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   synth: synthFigure,
   // The sound a lesson is after, to listen to before there is anything to turn.
   sound: soundFigure,
+  // A photo by id, with its credit (src/data/photos.json).
+  photo: photoFigure,
   // Lesson 1
   harmonics: harmonicsFigure,
   // Lesson 2

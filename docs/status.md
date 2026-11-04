@@ -14,7 +14,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 10 | 27 | 0 | 10 | 10 | 10 | 0 |
 | [Botany](#botany) | 10 | 23 | 0 | 10 | 10 | 10 | 0 |
-| [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 0 | 0 |
+| [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
@@ -313,39 +313,39 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Synthesizers <a id="synthesizers"></a>
 
-`courses/synthesizers`. Lessons are built on the live synth, so photos are optional. No student read-through yet for any lesson.
+`courses/synthesizers`. Lessons are built on the live synth; 28 photos of instruments and people (17 lessons) are queued for Rob's PC in tools/photo-picks.json and parked in pending-photos.json (4 Nov). No student read-through yet for any lesson.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
-| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
-| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
-| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
+| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
+| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
+| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
+| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (1 photo parked in pending-photos.json) | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
 | 5 | Counting beats (`beats`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
-| 6 | The accidental bell (`bells`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
+| 6 | The accidental bell (`bells`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
 | 7 | The torn speaker (`fuzz`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
-| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
+| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
 | 9 | Does the order matter? (`order`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
 | 10 | The silent key (`silent`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
 | 11 | Wind from nothing (`noise`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
-| 12 | A drum with no drum (`drums`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
+| 12 | A drum with no drum (`drums`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (1 photo parked in pending-photos.json) | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
 | 13 | The computer that burbles (`random`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
 | 14 | The envelope that wouldn't stop (`cycle`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
-| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
-| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
+| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
+| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (2 photos parked in pending-photos.json) | Velocity, pressure and the touch strip, and where each one is routed. |
 | 17 | The slide (`glide`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
-| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
+| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Gemini (queued 2026-11-03); Fact check; Photos (1 photo parked in pending-photos.json) | Paraphonic and unison voices, voice stealing, and chords from one key. |
 | 19 | One hand, many notes (`arp`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
-| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
+| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
 | 21 | Knobs that remember (`lanes`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Recorded knob moves in a sequence, and controlled randomness. |
-| 22 | Same knob, different job (`macros`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
+| 22 | Same knob, different job (`macros`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
 | 23 | The blank patch (`blank`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
-| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
-| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
+| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Wavetables: a stack of waves scanned by an envelope or LFO. |
+| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
 | O3 | A string from a delay line (`pluck`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
-| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
-| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
-| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check | Granular synthesis: grain size, density and position. |
+| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Formants, speech engines and Homer Dudley’s vocoder. |
+| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (1 photo parked in pending-photos.json) | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
+| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (2 photos parked in pending-photos.json) | Granular synthesis: grain size, density and position. |
 | S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Gemini (queued 2026-11-04); Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
 
 ## Retiring Early, Taxed Lightly (working title) <a id="finance"></a>

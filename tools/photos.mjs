@@ -18,7 +18,7 @@
 // Photo ids are remembered by saves (check answers, review cards), so a pick
 // keeps its id for good.
 
-import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import sharp from 'sharp';
 import { fileInfo, licenceId, politeFetch } from './lib/commons.mjs';
@@ -56,6 +56,7 @@ async function save(pick, img) {
   return { file, width: info.width, height: info.height };
 }
 
+mkdirSync(join(dir, 'public/photos'), { recursive: true });
 const seen = new Set();
 for (const pick of picks) {
   if (seen.has(pick.id)) { console.error(`${pick.id}: picked twice`); process.exitCode = 1; }

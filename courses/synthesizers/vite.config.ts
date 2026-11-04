@@ -17,6 +17,7 @@ export default defineConfig(
     inSite: true,
     encyclopedia: { dir: '../../encyclopedia', courses: '..' },
     oneFile: 'synthesizers.html',
+    precache: ['photos/*.webp'],
     // The words in the code, for the course file: everything but the riffs,
     // whose titles and notes are tunes, not prose (and the site leaves the
     // copyrighted ones out altogether: .env.production).

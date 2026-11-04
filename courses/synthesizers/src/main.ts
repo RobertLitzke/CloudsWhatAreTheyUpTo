@@ -16,6 +16,7 @@ import { learnView } from './game/views/learn';
 import { practiceView, roundView } from './game/views/round';
 import { settingsView } from './game/views/settings';
 import { BRANCHES, LESSONS } from './lessons';
+import { PHOTOS } from './photos';
 
 /** One of PatchMatch's pages, in a .pm box of its own so its styles stay inside it. */
 const pm = (view: View): View => (root, ctx) => {
@@ -49,6 +50,14 @@ defineCourse({
     { path: '/ear/arcade', view: pm(arcadeView) },
     { path: '/ear/settings', view: pm(settingsView) },
   ],
+  photos: {
+    photos: PHOTOS,
+    name: (p) => p.about,
+  },
+  settings: {
+    about: el('p', {}, el('a', { href: '#/credits' }, 'Credits'), ': who took the photographs.'),
+  },
+  offline: { noun: 'photos' },
   menu: ['/home', '/lab', '/ear', '/review', '/encyclopedia', '/settings'],
   catalog: { href: '../' },
   encyclopedia: { data: encyclopedia, course: 'synthesizers' },

@@ -79,6 +79,12 @@ for (const e of pending) {
   part.blocks.splice(at + 1, 0, e.block);
   console.log(`restored ${id} in ${e.lesson} (${e.part})`);
 }
-for (const [file, { lesson, source }] of touched) writeFileSync(file, formatJson(lesson, source));
+/** A file that is plain JSON.stringify at some indent (Synthesizers' lessons use one space) is written the same way; others keep their layout. */
+const plain = (lesson, source) => {
+  const indent = /^\{\r?\n( +)"/.exec(source)?.[1];
+  if (!indent || JSON.stringify(JSON.parse(source), null, indent.length) !== source.trimEnd()) return null;
+  return JSON.stringify(lesson, null, indent.length) + (source.endsWith('\n') ? '\n' : '');
+};
+for (const [file, { lesson, source }] of touched) writeFileSync(file, plain(lesson, source) ?? formatJson(lesson, source));
 writeFileSync(pendingFile, `${JSON.stringify(left, null, 1)}\n`);
 console.log(`${pending.length - left.length} restored, ${left.length} still waiting`);
