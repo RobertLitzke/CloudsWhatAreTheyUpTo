@@ -1,0 +1,71 @@
+{
+  "id": "key",
+  "n": 102,
+  "branch": "keys",
+  "needs": ["stamens"],
+  "title": "Using a key",
+  "teaches": "How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook",
+  "parts": [
+    {
+      "title": "Not flipping through pictures",
+      "blocks": [
+        {"type": "text", "text": "Faced with a plant they don't know, most people flip through a field guide looking for a picture that matches. With a few hundred pictures that works, slowly. A regional flora, a book describing every wild plant of an area, covers thousands of plants, many of them near-twins, and a picture can't show what separates them. Botanists use a **key** instead: a series of questions, each answered by looking at the plant, that narrows the possibilities until one is left."},
+        {"type": "text", "text": "The usual kind was made popular by Jean-Baptiste Lamarck in his flora of France in 1778. Each step is a **couplet**, a pair of statements of which exactly one is true of your plant. Choose the true one, and it sends you to another couplet or gives you a name. It is the game of twenty questions, played with a plant: twenty well-chosen either-or questions could, in principle, tell apart a million kinds."}
+      ]
+    },
+    {
+      "title": "Walking a key",
+      "blocks": [
+        {"type": "interactive_diagram", "id": "key", "caption": "An either-or key to eight plants of the Pacific Northwest. Drawn simply.", "task": "Key out two plants", "goal": "keyed", "aspect_ratio": 1.82},
+        {"type": "text", "text": "A key's commonest failure is quiet: a wrong answer sends you confidently to the wrong name. So read both halves of a couplet before choosing, and when the name comes out, check it against a description. If it doesn't fit, go back to the last couplet you weren't sure of and take the other road. Good keys ask about features that are easy to see and don't vary, and put the clearest questions first."}
+      ]
+    },
+    {
+      "title": "The words a key uses",
+      "blocks": [
+        {"type": "text", "text": "Keys use a small vocabulary, and most of it is about leaves and flowers. Leaves are **alternate**, one at each node, the point on the stem where a leaf joins; **opposite**, in pairs facing each other; or **whorled**, three or more in a ring. A leaf is **simple**, in one piece however deeply lobed, or **compound**, made of separate leaflets, in two rows along a stalk (**pinnate**, like a rose) or spreading from one point (**palmate**, like a lupine). To tell a leaflet from a leaf, look for the bud: a leaf has a bud in the angle where it joins the stem, and a leaflet doesn't."},
+        {"type": "text", "text": "A flower is **radial**, the same all round like a buttercup, or **bilateral**, with a top and a bottom and only one way to cut it into mirror halves, like a pea or a mint. And its ovary, the seed-holding base of the carpel (lesson 18), sits either above the point where the petals join, or below it. An apple shows the second kind: the dry remains of the flower are at the bottom of the fruit, opposite the stalk, because the ovary that became the apple sat below them."},
+        {"type": "key_ideas", "title": "Estimate", "points": ["If each either-or question split the plants left exactly in half, ten questions could tell apart 2 multiplied by itself ten times: 1,024 plants.", "Real couplets split unevenly, so a key to a thousand plants usually takes fifteen or twenty steps, still far fewer than a thousand pictures."]}
+      ]
+    },
+    {
+      "title": "A key you can enter anywhere",
+      "blocks": [
+        {"type": "text", "text": "An either-or key has a weakness: it must be answered in order. If couplet 1 asks about the fruit and your plant is only flowering, you are stuck. A **multi-access key** lets you start with whatever you can see. You tick off features in any order, and the list of plants that fit them shrinks. Botanists once did this with stacks of punched cards; the plant-naming apps and online keys of today work the same way."},
+        {"type": "interactive_diagram", "id": "multi", "caption": "The same eight plants, narrowed by whatever features you can see.", "task": "Tick features until one plant is left", "goal": "one", "aspect_ratio": 1.6}
+      ]
+    },
+    {
+      "title": "A notebook",
+      "blocks": [
+        {"type": "text", "text": "Many plants can't be keyed from one look, or from a photo taken in a hurry. Botanists write down what they see while the plant is in front of them: the date and place, what kind of ground and how much shade, how tall it stands, how the leaves are arranged, both sides of a leaf, the flower from the front and the side, the number of petals and stamens, any smell when a leaf is crushed, for plants you know are safe to handle (lesson K4). A hand lens that magnifies ten times shows hairs, glands and stamens that the eye misses."},
+        {"type": "text", "text": "Pick one plant on your street you can't name, and fill a notebook page about it. Then try to key it out with a regional flora or an online key, and see which questions your notes could answer."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on keys", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "What is a couplet in a key?", "choices": ["A pair of statements of which exactly one is true of your plant", "Two plants that the key says are closely related", "A pair of leaves facing each other"], "answer": 0, "why": "You choose the true statement, and it sends you on to another couplet or to a name."},
+            {"ask": "A plant's leaves come in pairs facing each other on the stem. What does a key call them?", "choices": ["Opposite", "Compound", "Alternate"], "answer": 0, "why": "Opposite leaves come in pairs at each node. Alternate leaves come one at a time; compound describes a leaf made of leaflets."},
+            {"ask": "How can you tell a leaflet of a compound leaf from a whole leaf?", "choices": ["A leaf has a bud where it joins the stem; a leaflet doesn't", "Leaflets are always smaller than leaves", "Leaflets are always paler than leaves"], "answer": 0, "why": "The bud in the angle marks a whole leaf. Leaflets join the leaf's stalk, not the stem, and have no bud."},
+            {"ask": "You key a plant and the name that comes out doesn't fit its description. What should you do?", "choices": ["Go back to the couplet you were least sure of and take the other road", "Look for a picture that matches better", "Start again with a different key from the beginning"], "answer": 0, "why": "A key fails by one wrong answer. Going back to the doubtful couplet is the quickest way to find it."},
+            {"ask": "Why is a multi-access key useful when a plant has flowers but no fruit?", "choices": ["You can tick the features you can see, in any order", "It is always shorter than an either-or key", "It skips the features that vary"], "answer": 0, "why": "An either-or key must be answered in order. A multi-access key lets you start with whatever the plant shows."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A key names a plant by questions, not pictures.** Each answer narrows the plants left until one remains.",
+    "**An either-or key is a chain of couplets.** Pick the true statement of each pair; it leads on or gives a name (Lamarck, 1778).",
+    "**One wrong answer gives a confident wrong name.** Check the name against a description, and go back to the doubtful couplet if it doesn't fit.",
+    "**Keys use a small vocabulary.** Alternate, opposite or whorled; simple or compound; radial or bilateral; ovary above or below the petals.",
+    "**A multi-access key can be entered anywhere.** Tick whatever features you can see, in any order.",
+    "**Write it down while the plant is in front of you.** Place, habitat, height, leaves both sides, flower front and side, smell."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

@@ -28,6 +28,13 @@ import { beeFigure, partsStill, raceFigure } from './orchid';
 import { bankFigure, dropFigure, hedgeFigure } from './seeds';
 import { costFigure, escapeFigure } from './menu';
 import { lotusFigure, twoStill } from './abominable';
+import { sortFigure } from './stamens';
+import { keyFigure, multiFigure } from './key';
+import { alikeStill, familiesStill } from './families';
+import { crossFigure } from './mendel';
+import { cornFigure } from './corn';
+import { fallowFigure } from './wheat';
+import { graftFigure, seedFigure } from './apples';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -104,4 +111,21 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 21
   lotus: lotusFigure,
   two: twoStill,
+  // Lesson K1
+  sort: sortFigure,
+  // Lesson K2
+  key: keyFigure,
+  multi: multiFigure,
+  // Lessons K3 and K4
+  ten: familiesStill,
+  alike: alikeStill,
+  // Lesson C1
+  cross: crossFigure,
+  // Lesson C2
+  corn: cornFigure,
+  // Lesson C3
+  fallow: fallowFigure,
+  // Lesson C4
+  seedlings: seedFigure,
+  graft: graftFigure,
 };

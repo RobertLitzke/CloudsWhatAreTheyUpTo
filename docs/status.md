@@ -13,7 +13,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 31 | 6 | 3 | 31 | 31 | 31 | 0 |
-| [Botany](#botany) | 21 | 12 | 0 | 21 | 21 | 21 | 0 |
+| [Botany](#botany) | 29 | 4 | 0 | 29 | 29 | 29 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
 
@@ -273,7 +273,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
+`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and branches K and C were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -298,14 +298,14 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 19 | Travelling and waiting (`seeds`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable. |
 | 20 | The caterpillar’s menu (`menu`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants defend themselves with poisons, spines and toughness, what defence costs, and how specialist insects beat one family's poisons and use them to find their food. |
 | 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
-| K1 | Counting stamens (`stamens`) | Naming and keying plants | planned, listed as coming |  | Linnaeus, two-word names and why plants are grouped as they are. |
-| K2 | Using a key (`key`) | Naming and keying plants | planned, listed as coming |  | Either-or questions and keys you can enter anywhere. |
-| K3 | Ten families to know (`families`) | Naming and keying plants | planned, listed as coming |  | Recognising the commonest flowering-plant families at a glance. |
-| K4 | The deadly look-alikes (`look-alikes`) | Naming and keying plants | planned, listed as coming |  | Camas and death camas, and other pairs it matters to tell apart. |
-| C1 | Mendel’s peas (`mendel`) | Crops and breeding | planned, listed as coming |  | Counting offspring, and how traits are inherited. |
-| C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | planned, listed as coming |  | Teosinte and how farmers made maize. |
-| C3 | Wheat on the Palouse (`wheat`) | Crops and breeding | planned, listed as coming |  | Winter wheat, day length and dryland farming in eastern Washington. |
-| C4 | Every Red Delicious is one tree (`apples`) | Crops and breeding | planned, listed as coming |  | Grafting, clones and the apples of the Wenatchee valley. |
+| K1 | Counting stamens (`stamens`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Linnaeus's system of sorting plants by counting stamens, the two-word names that outlived it, how to read a plant's name, and why names and families still change. |
+| K2 | Using a key (`key`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook. |
+| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
+| K4 | The deadly look-alikes (`look-alikes`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Camas and death camas, and poison hemlock, water hemlock and Queen Anne's lace: how botanists tell them apart, and why this course gives no advice on eating wild plants. |
+| C1 | Mendel’s peas (`mendel`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How Gregor Mendel's counts of pea plants showed that traits are passed on as particles, one copy from each parent, why short plants vanish and come back in a quarter of the next generation, and what the short gene does. |
+| C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How maize was made from teosinte, a Mexican grass that looks nothing like it, how George Beadle and later DNA showed it, and how a few genes made the biggest changes. |
+| C3 | Wheat on the Palouse (`wheat`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How eastern Washington grows high wheat yields without irrigation: winter wheat and its need for cold, Orville Vogel's short wheats, storing water in fallow fields, and the soil it has cost. |
+| C4 | Every Red Delicious is one tree (`apples`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why an apple seed almost never grows the apple it came from, how grafting copies a tree by joining cambium to cambium, how rootstocks set a tree's size, and the apples of Washington. |
 | O1 | Snap traps and sticky leaves (`traps`) | Odd plants | planned, listed as coming |  | How a Venus flytrap counts and closes, and why bog plants eat insects. |
 | O2 | Plants that steal (`steal`) | Odd plants | planned, listed as coming |  | Dodder, mistletoe and plants that tap other plants. |
 | O3 | The heaviest living thing (`giant`) | Odd plants | planned, listed as coming |  | Giant sequoias, aspen clones and how big a plant can get. |

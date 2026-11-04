@@ -28,6 +28,12 @@ import { race } from '../src/figures/orchid';
 import { distance, hedge, sprouts } from '../src/figures/seeds';
 import { best, FAST, radiate, SLOW } from '../src/figures/menu';
 import { BY_DNA, BY_LOOKS, lotusKin } from '../src/figures/abominable';
+import { sortBy } from '../src/figures/stamens';
+import { fits, KEY, plant, PLANTS, walk } from '../src/figures/key';
+import { cross } from '../src/figures/mendel';
+import { crossover, twoYears } from '../src/figures/wheat';
+import { takes } from '../src/figures/apples';
+
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -382,5 +388,70 @@ describe('figures', () => {
     guess(l.node, 'Plane trees');
     click(l.node, 'Read from DNA');
     await expect(l.done).resolves.toBeUndefined();
+  });
+  it('lesson K1: stamen classes and families group the flowers differently', async () => {
+    expect(sortBy('cls').length).toBe(4);
+    expect(sortBy('family').find(([n]) => n === 'Rose family')![1].map((b) => b.name)).toEqual(['Lady’s mantle', 'Apple', 'Strawberry']);
+    const s = FIGURES.sort(context(), 'both');
+    guess(s.node, 'The rose family, with apples');
+    click(s.node, 'By family');
+    await expect(s.done).resolves.toBeUndefined();
+  });
+  it('lesson K2: the key names every plant, and features narrow to one', async () => {
+    for (const p of PLANTS) expect(walk(p).name).toBe(p.id);
+    expect(fits({ leaves: 'opposite', leaf: 'any', flower: 'lipped', petals: 'any' }).map((p) => p.id)).toEqual(['selfheal']);
+    const k = FIGURES.key(context(), 'keyed');
+    for (const id of ['rose', 'selfheal']) {
+      for (const step of walk(plant(id)).path) {
+        const c = KEY.find((x) => x.n === Number(step.slice(0, -1)))!;
+        click(k.node, step.endsWith('a') ? c.a.text : c.b.text);
+      }
+      click(k.node, 'Another plant');
+    }
+    await expect(k.done).resolves.toBeUndefined();
+    const m = FIGURES.multi(context(), 'one');
+    click(m.node, 'two-lipped');
+    click(m.node, 'opposite');
+    await expect(m.done).resolves.toBeUndefined();
+  });
+  it('lesson C1: hybrids crossed give about one short in four, and pure tall hides the short', async () => {
+    const kids = cross('Tt', 'Tt', 4000, 3);
+    const short = kids.filter((k) => k === 'tt').length / 4000;
+    expect(short).toBeGreaterThan(0.22);
+    expect(short).toBeLessThan(0.28);
+    expect(cross('TT', 'tt', 100, 1).every((k) => k === 'Tt')).toBe(true);
+    const c = FIGURES.cross(context(), 'ratio');
+    guess(c.node, 'About a quarter');
+    setSlider(c.node, 0, 400);
+    await expect(c.done).resolves.toBeUndefined();
+  });
+  it('lesson C2: all four changes turn teosinte into maize', async () => {
+    const c = FIGURES.corn(context(), 'maize');
+    guess(c.node, 'Four or five');
+    for (const n of ['One main stalk', 'Naked kernels', 'Ear stays whole', 'Many rows']) click(c.node, n);
+    await expect(c.done).resolves.toBeUndefined();
+  });
+  it('lesson C3: fallow wins in the dry belt and annual wheat in the wet Palouse', async () => {
+    expect(twoYears(29).fallow).toBeGreaterThan(twoYears(29).annual);
+    expect(twoYears(53).annual).toBeGreaterThan(twoYears(53).fallow);
+    expect(crossover).toBeGreaterThan(30);
+    expect(crossover).toBeLessThan(36);
+    const f = FIGURES.fallow(context(), 'both');
+    guess(f.node, 'More');
+    setSlider(f.node, 0, 22);
+    setSlider(f.node, 0, 55);
+    await expect(f.done).resolves.toBeUndefined();
+  });
+  it('lesson C4: a graft takes only with cambium against cambium, and grafted trees all match', async () => {
+    expect(takes(0)).toBe(false);
+    expect(takes(13)).toBe(true);
+    const g = FIGURES.graft(context(), 'take');
+    guess(g.node, 'Off to one side, its bark edge at the rootstock’s');
+    setSlider(g.node, 0, 13);
+    await expect(g.done).resolves.toBeUndefined();
+    const s = FIGURES.seedlings(context(), 'graft');
+    guess(s.node, 'Hardly any');
+    click(s.node, 'Graft instead');
+    await expect(s.done).resolves.toBeUndefined();
   });
 });

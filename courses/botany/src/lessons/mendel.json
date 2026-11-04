@@ -1,0 +1,66 @@
+{
+  "id": "mendel",
+  "n": 201,
+  "branch": "crops",
+  "needs": ["orchid"],
+  "title": "Mendel’s peas",
+  "teaches": "How Gregor Mendel's counts of pea plants showed that traits are passed on as particles, one copy from each parent, why short plants vanish and come back in a quarter of the next generation, and what the short gene does",
+  "parts": [
+    {
+      "title": "Short peas that came back",
+      "blocks": [
+        {"type": "text", "text": "Ecology's lesson on the finches of Daphne Major showed that beak depth is inherited: deep-beaked parents have deep-beaked young. But how? In the 1800s most people thought that a child's traits were a blend of its parents', like mixing paints. If that were true, every difference would be diluted by half in each generation, and a population would soon be all one middling shade, with nothing left for selection to sort."},
+        {"type": "text", "text": "Gregor Mendel, a friar at the abbey of St Thomas in Brno, in what is now the Czech Republic, had trained in physics and mathematics at the University of Vienna. From 1856 to 1863 he grew and counted peas in the abbey garden, tens of thousands of plants. He chose seven traits that came in two clear forms: tall or short stems, round or wrinkled seeds, yellow or green seeds, and so on. He first grew each variety for two years to be sure it bred true, and then crossed them, moving pollen from one flower to another by hand with a fine brush and covering the flowers so no other pollen could reach them."}
+      ]
+    },
+    {
+      "title": "Three to one",
+      "blocks": [
+        {"type": "text", "text": "When he crossed true-breeding tall peas, about two metres high, with true-breeding short ones, under half a metre, the offspring were not middling. Every one was tall. The short form had vanished. Then he let those tall hybrids pollinate themselves and grew their seeds. Of 1,064 plants, 787 were tall and 277 short. The short ones were back, as short as ever, in about a quarter of the plants. That is 2.84 tall to each short one, close to three to one. The other six traits did the same."},
+        {"type": "text", "text": "Mendel's explanation, which he presented in 1865, was that each plant carries two copies of a hereditary factor for each trait (today we would say two copies of a gene, which may come in different forms), one from each parent, and passes on one of them, chosen at random, in each pollen grain or egg. The factors don't blend. The tall form **dominates**: one tall copy is enough to make a plant tall. The short form is **recessive**: it shows only when a plant has two short copies. A hybrid carries one of each. Two hybrids crossed give, by chance, a quarter of offspring with two tall copies, half with one of each, and a quarter with two short. Three-quarters are tall."},
+        {"type": "interactive_diagram", "id": "cross", "caption": "Choose two parents and grow their offspring. Each takes one copy at random from each parent. A model.", "task": "Guess, then cross two hybrids and grow at least 400", "goal": "ratio", "aspect_ratio": 1.74},
+        {"type": "text", "text": "Chance matters here. A cross of two hybrids rarely gives exactly 3 to 1, just as tossing a coin a hundred times rarely gives exactly fifty heads. Mendel needed hundreds of plants per cross to see the ratio clearly, and that was his real innovation: counting, and thinking about the counts as probabilities.[^fisher]"}
+      ]
+    },
+    {
+      "title": "Ignored, then found three times",
+      "blocks": [
+        {"type": "text", "text": "Mendel's paper was published in 1866 in the proceedings of the natural history society of Brno, a journal that went to libraries across Europe. Almost nobody understood its importance. Mendel became abbot in 1868 and had little time for research afterwards, and he died in 1884. In 1900 three botanists, Hugo de Vries, Carl Correns and Erich von Tschermak, working separately, reached the same ratios in their own crosses and then found Mendel's paper. His factors were later named **genes**."},
+        {"type": "text", "text": "Particles that don't blend answered the problem the finches posed. A recessive form can hide for generations, unblended, and come back whole, as the short peas did. Variation is kept, not averaged away, and selection always has something to work on."}
+      ]
+    },
+    {
+      "title": "What the short gene does",
+      "blocks": [
+        {"type": "text", "text": "In 1997 two teams found the gene behind Mendel's tall and short peas. It makes an enzyme, a protein that speeds up one chemical step in a cell, for the last step in making gibberellin, the stem-lengthening hormone of lesson 14. The short form has one changed letter in its DNA, so its enzyme works poorly, and a plant with two short copies makes too little active gibberellin to lengthen its stems. That is why lesson 14's dwarf peas shot up when sprayed with gibberellin. For this gene, one working copy makes enough enzyme, which is why tall is dominant. The wrinkled seed gene turned out, in 1990, to make an enzyme for building starch; without it, seeds hold more sugar and water, and shrivel as they dry."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on Mendel's peas", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Pure tall peas are crossed with short ones. What are the offspring like?", "choices": ["All tall", "All middling in height", "Half tall and half short"], "answer": 0, "why": "Each offspring gets a tall copy from the tall parent, and one tall copy is enough. The short form hides."},
+            {"ask": "Two of those tall hybrids are crossed. About what share of their offspring are short?", "choices": ["A quarter", "None", "Half"], "answer": 0, "why": "Each hybrid passes on its short copy half the time, so a quarter of offspring get two short copies."},
+            {"ask": "Why did Mendel grow hundreds of plants per cross?", "choices": ["Chance makes small batches stray from the true ratio", "Only a few seeds in each pod were fertile", "Tall and short plants grow at different speeds"], "answer": 0, "why": "Like coin tosses, small batches wander. Large counts show the 3 to 1 ratio clearly."},
+            {"ask": "Why did blending inheritance pose a problem for selection?", "choices": ["Differences would halve each generation, leaving nothing to select", "Blending would make every plant tall", "Blending would make offspring vary more each generation"], "answer": 0, "why": "If traits mixed like paint, variation would soon average away. Mendel's particles keep it."},
+            {"ask": "What does the short form of Mendel's height gene do?", "choices": ["Makes a weak enzyme for the last step of gibberellin, so stems stay short", "Makes the plant's cells smaller", "Stops the plant from flowering"], "answer": 0, "why": "With two short copies a pea makes too little active gibberellin. Spraying gibberellin makes it tall."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Mendel counted peas (1856 to 1863).** He crossed true-breeding forms of seven traits by hand and counted tens of thousands of plants.",
+    "**Tall crossed with short gave all tall.** The short form hid, and came back in a quarter of the next generation: 787 tall to 277 short.",
+    "**Each plant carries two copies and passes on one at random.** Copies don't blend; a dominant one shows over a recessive one.",
+    "**Chance makes small counts stray.** The 3 to 1 ratio shows clearly only in large batches.",
+    "**Ignored in 1866, found again in 1900.** De Vries, Correns and von Tschermak; the factors became genes.",
+    "**The short gene makes a weak gibberellin enzyme.** That is why dwarf peas grow tall when sprayed (lesson 14)."
+  ],
+  "journal": [],
+  "footnotes": {
+    "fisher": {"kind": "digression", "title": "Too good to be true?", "text": "In 1936 the statistician Ronald Fisher went through Mendel's numbers and argued that they fit the expected ratios more closely than chance would usually allow, as if the results had been tidied. Historians and statisticians have argued about it ever since. Suggested explanations include unconscious bias in sorting borderline plants, an assistant who knew what was expected, or Mendel reporting only his clearest runs. Nobody doubts the 3 to 1 ratio itself: it has turned up in countless later crosses."}
+  }
+}

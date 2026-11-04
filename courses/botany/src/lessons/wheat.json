@@ -1,0 +1,72 @@
+{
+  "id": "wheat",
+  "n": 203,
+  "branch": "crops",
+  "needs": ["foolish", "cupboard"],
+  "title": "Wheat on the Palouse",
+  "teaches": "How eastern Washington grows high wheat yields without irrigation: winter wheat and its need for cold, Orville Vogel's short wheats, storing water in fallow fields, and the soil it has cost",
+  "parts": [
+    {
+      "title": "Wheat without watering",
+      "blocks": [
+        {"type": "text", "text": "Drive east from the Cascades across Washington and the land dries out: sagebrush, then, past the Columbia, wheat to the horizon. On the rolling hills of the Palouse, near the Idaho border, farmers grow some of the highest wheat yields in the world without any irrigation, on 45 to 60 centimetres of rain a year, about half of what falls on Seattle. Farther west, around Ritzville, wheat is grown on under 30 centimetres, close to the limit for any crop without watering."},
+        {"type": "text", "text": "The hills are the first part of the answer. They are drifts of **loess**, fine wind-blown silt, piled tens of metres deep after the ice ages. Loess holds water like a sponge, and it takes rain in rather than shedding it. Before farmers came it carried a prairie of bunchgrasses; Ecology's lesson on the prairie under the wheat tells what became of it. The rest of the answer is in when the wheat grows, how tall it stands, and what farmers do with the years they don't plant."}
+      ]
+    },
+    {
+      "title": "Wheat that needs a winter",
+      "blocks": [
+        {"type": "text", "text": "Most Palouse wheat is **winter wheat**. It is sown in September and October, comes up in the autumn rains, and spends the winter as a low tuft of leaves under the snow. In spring it is already established, with deep roots, when the soil is full of winter's water, and it does most of its growing in the cool, damp months before the dry summer. It is harvested in late July and August. Most of the region's rain falls between October and March, and winter wheat is built to use it."},
+        {"type": "text", "text": "Winter wheat won't flower at all unless it has first spent weeks in the cold, a requirement called **vernalisation**. Sown in spring, it stays leafy all summer. The cold switches off a gene that blocks flowering; then the long days of late spring, read by the clock of lesson 15, set the time. The two together keep the wheat from flowering in a warm autumn spell, when frost would kill its flowers."}
+      ]
+    },
+    {
+      "title": "Vogel's short wheat",
+      "blocks": [
+        {"type": "text", "text": "Old Palouse wheats were tall, and in a good year, with nitrogen fertiliser, they grew so heavy they fell over before harvest: lesson 14's lodging. In 1949 Orville Vogel, a federal wheat breeder at Washington State College in Pullman, received seeds of Norin 10, a Japanese wheat that stood only about knee-high. He crossed it with local wheats for years, and in 1961 released Gaines, a semi-dwarf winter wheat that could take heavy fertiliser without lodging. Yields in the region rose by a quarter or more within a few years."},
+        {"type": "text", "text": "Vogel also sent his Norin 10 crosses to Norman Borlaug in Mexico, whose short wheats went on to feed much of South Asia (lesson 14). The short-stem genes work by making the plant deaf to gibberellin, which is why spraying them with the hormone does nothing. That is a different route to a short stem from Mendel's dwarf peas (lesson C1), which make too little gibberellin and grow tall when sprayed."}
+      ]
+    },
+    {
+      "title": "Storing a year of rain",
+      "blocks": [
+        {"type": "text", "text": "In the dry western belt, farmers grow a crop only every other year. In the year between, the field is left **fallow**: kept free of weeds, so that nothing draws water from it, and the rain of that year soaks into the loess. Most of it evaporates anyway, but perhaps a third is still in the soil when the next crop is sown, so that crop has more water than one year's rain alone could give it."},
+        {"type": "interactive_diagram", "id": "fallow", "caption": "Grain over two years, wheat every year against fallow and then wheat. A model.", "task": "Guess, then try a dry place and a wet one", "goal": "both", "aspect_ratio": 1.67},
+        {"type": "text", "text": "Why give up a whole crop? Because a wheat plant uses a certain amount of water just to grow its leaves and roots before it makes any grain. Where the rain barely covers that, a crop every year makes very little grain twice, while one crop with two years' water makes a real harvest. Where rain is plentiful, the water lost from a fallow field is a waste, and farmers crop every year. In the model, where a sown crop keeps 60 percent of its year's rain and a fallow year carries 30 percent over, the switch comes at about 33 centimetres, roughly where the real fallow country ends."},
+        {"type": "key_ideas", "title": "Estimate", "points": ["Suppose a crop needs 10 cm of water before it makes grain, then gives 0.2 tonnes per hectare for each centimetre more. With 15 cm of water it makes 1 tonne; with 25 cm, 3 tonnes.", "Two crops on 15 cm each give 2 tonnes. If a fallow year carries 10 cm over, the next crop has 25 cm and gives 3 tonnes. Saving water for one crop wins."]}
+      ]
+    },
+    {
+      "title": "What it has cost",
+      "blocks": [
+        {"type": "text", "text": "Bare fallow and steep ploughed hills come at a price. Rain on bare, loose loess runs off in sheets and small gullies, and wind lifts the dry fallow fields of the west into dust storms that can close the highways (the Clouds course's branch on fog, dust and wind). The Palouse has lost much of its topsoil in a century and a half of farming; on many hilltops it is gone, and the paler subsoil shows through as light patches in the fields. Since the 1970s many farmers have moved to direct seeding, sowing through the cut stalks left from the last crop without ploughing, which keeps the soil covered and cuts erosion sharply."},
+        {"type": "text", "text": "The fictional town of Harrow in the Clouds course sits in this dry belt, and the soil course, Dirt, tells how loess becomes soil. If you drive through the Palouse in June, look for the pale hilltops, and for the difference between a green wheat field, a golden one ripening and a bare brown fallow one."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on Palouse wheat", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Why is winter wheat sown in autumn suited to eastern Washington?", "choices": ["Most of the rain falls in winter, and the established wheat uses it before the dry summer", "Wheat seeds need frost to sprout", "Autumn sowing avoids spring frosts on the seedlings"], "answer": 0, "why": "Winter wheat is up and rooted by spring, when the soil is full of winter's water."},
+            {"ask": "Winter wheat is sown in spring by mistake. What happens?", "choices": ["It stays leafy and doesn't flower, because it has had no cold", "It flowers early and gives a big crop", "It flowers late but normally"], "answer": 0, "why": "Without weeks of cold, vernalisation, the gene that blocks flowering stays on."},
+            {"ask": "What did Orville Vogel's Gaines wheat (1961) do?", "choices": ["Stood short and took heavy fertiliser without falling over", "Grew without any water", "Matured a month earlier than older wheats"], "answer": 0, "why": "Its Norin 10 genes made it short, so heavier ears didn't make it lodge."},
+            {"ask": "Why does fallow pay in the driest wheat country but not where rain is plentiful?", "choices": ["A crop uses a fixed amount of water before making grain, so one crop on two years' water beats two crops that barely clear it", "Fallow fields get more rain", "Fallow fields gain nitrogen from the air"], "answer": 0, "why": "In the wet Palouse each year's crop has water to spare, and a fallow year wastes most of a year's rain."},
+            {"ask": "What are the pale patches on Palouse hilltops?", "choices": ["Subsoil showing where the topsoil has eroded away", "Patches of ripe wheat", "Where frost lies longest"], "answer": 0, "why": "Runoff from bare, ploughed slopes has carried the dark topsoil off many hilltops."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**The Palouse grows high yields without irrigation.** On 45 to 60 cm of rain a year, on deep, water-holding loess.",
+    "**Winter wheat is sown in autumn and uses winter's rain.** It needs weeks of cold, vernalisation, before it can flower; then long days time it.",
+    "**Vogel's semi-dwarf Gaines (1961) stood up to fertiliser.** Its Norin 10 genes also went to Borlaug's wheats.",
+    "**In the dry west, farmers crop every other year.** The fallow year stores some water, so one crop gets two years' rain.",
+    "**Fallow pays only where rain is short.** A crop spends a fixed amount of water before making grain.",
+    "**The cost is soil.** Many hilltops have lost their topsoil; direct seeding into stubble now cuts erosion."
+  ],
+  "journal": [],
+  "footnotes": {}
+}
