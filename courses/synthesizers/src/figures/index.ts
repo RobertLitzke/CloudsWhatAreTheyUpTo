@@ -23,6 +23,7 @@ import { tableFigure } from './table';
 import { sidebandsFigure } from './sidebands';
 import { soundFigure } from './sound';
 import { synthFigure } from './synth';
+import { vocoderFigure } from './vocoder';
 import { vowelFigure } from './vowel';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
@@ -64,4 +65,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   drawbars: drawbarsFigure,
   // Branch lesson O3
   string: stringFigure,
+  // Branch lesson O4
+  vocoder: vocoderFigure,
 };

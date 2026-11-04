@@ -20,7 +20,8 @@
 //          through a wave shaper, so the scan runs at audio rate); additive
 //          is one oscillator whose PeriodicWave is rebuilt from the knobs;
 //          pluck is a Karplus-Strong string in an AudioWorklet (worklets.ts),
-//          struck at each note
+//          struck at each note; vowel puts a buzz (the saw) and breath (the
+//          noise) through three band-passes at a vowel's formants
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -65,6 +66,7 @@ import { ARP_MODE, CHAIN, CHORDS, ENGINE, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, F
 import { Rng } from '../core/rng';
 import { additiveAmps, TABLE_FRAMES, TABLE_LAST } from '../core/tables';
 import { workletsReady } from './worklets';
+import { formantsAt, mouth } from '../core/vowels';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
@@ -334,6 +336,11 @@ export class Voice {
   /** The plucked string, made the first time the pluck engine is chosen (once its worklet has loaded). */
   private pluck: AudioWorkletNode | null = null;
   private readonly pluckOut: GainNode;
+  /** The vowel engine: the buzz and the breath in, three formants, out. */
+  private readonly vowelBuzz: GainNode;
+  private readonly vowelBreath: GainNode;
+  private readonly formants: BiquadFilterNode[];
+  private readonly vowelOut: GainNode;
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -484,6 +491,22 @@ export class Voice {
     this.addIn.connect(this.mix);
     this.pluckOut = gain(0);
     this.pluckOut.connect(this.mix);
+    this.vowelBuzz = gain(0);
+    this.vowelBreath = gain(0);
+    this.vowelOut = gain(0);
+    this.vowelOut.connect(this.mix);
+    this.in1[0].connect(this.vowelBuzz);
+    this.formants = [700, 1200, 2600].map((f, i) => {
+      const bp = ctx.createBiquadFilter();
+      bp.type = 'bandpass';
+      bp.frequency.value = f;
+      bp.Q.value = 6;
+      const level = gain([1, 0.7, 0.25][i]);
+      this.vowelBuzz.connect(bp);
+      this.vowelBreath.connect(bp);
+      bp.connect(level).connect(this.vowelOut);
+      return bp;
+    });
     this.frameIn = TABLE_FRAMES.map((_, i) => {
       const level = gain(0);
       const shaper = ctx.createWaveShaper();
@@ -501,6 +524,7 @@ export class Voice {
     this.noiseSrc.loop = true;
     this.noiseLevel = gain(0);
     this.noiseSrc.connect(this.noiseLevel).connect(this.mix);
+    this.noiseSrc.connect(this.vowelBreath);
     this.noiseSrc.start(startAt);
 
     this.env2Src = ctx.createConstantSource();
@@ -873,6 +897,13 @@ export class Voice {
     const table = engine === ENGINE.table;
     const additive = engine === ENGINE.additive;
     const plucked = engine === ENGINE.pluck;
+    const vowel = engine === ENGINE.vowel;
+    const { f1, f2 } = formantsAt(s.engineWave);
+    const size = mouth(s.engineTimbre);
+    [f1, f2, 2600].forEach((f, i) => set(this.formants[i].frequency, f * size));
+    set(this.vowelBuzz.gain, vowel ? 1 - 0.85 * s.engineShape : 0);
+    set(this.vowelBreath.gain, vowel ? 1.6 * s.engineShape : 0);
+    set(this.vowelOut.gain, vowel ? 2.6 * s.oscLevel : 0);
     const string = this.ensurePluck();
     set(this.pluckOut.gain, plucked ? s.oscLevel : 0);
     if (string) {
@@ -882,7 +913,7 @@ export class Voice {
     }
     const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
     const at = 3 * s.engineWave;
-    const weight = (i: number) => (fold || table || additive || plucked ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    const weight = (i: number) => (fold || table || additive || plucked || vowel ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
     this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
     this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
     set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);

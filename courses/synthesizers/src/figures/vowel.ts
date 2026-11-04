@@ -5,7 +5,10 @@
 import { svg } from 'didactics/dom';
 import { label, redraw, small } from 'didactics/draw';
 import { sounder } from '../audio/tone';
+import { VOWELS } from '../core/vowels';
 import { choices, COL, figure, frame, hz, slider } from './kit';
+
+export { VOWELS };
 
 const W = 400;
 const H = 220;
@@ -13,15 +16,6 @@ const H = 220;
 const F0 = 110;
 /** How sharp each formant is. */
 const Q = 6;
-
-/** Rough average formants of an adult speaker (Peterson and Barney's 1952 measurements, rounded). */
-export const VOWELS: readonly { name: string; as: string; f1: number; f2: number }[] = [
-  { name: 'ee', as: 'heed', f1: 280, f2: 2250 },
-  { name: 'eh', as: 'head', f1: 550, f2: 1800 },
-  { name: 'ah', as: 'father', f1: 750, f2: 1100 },
-  { name: 'aw', as: 'law', f1: 600, f2: 900 },
-  { name: 'oo', as: 'who', f1: 310, f2: 850 },
-];
 
 /** The vowel nearest these two formants, measured by ratio. */
 export function nearestVowel(f1: number, f2: number): (typeof VOWELS)[number] {

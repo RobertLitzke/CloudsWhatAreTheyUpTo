@@ -1,0 +1,295 @@
+{
+ "id": "vocoder",
+ "n": 104,
+ "branch": "engines",
+ "needs": [
+  "macros"
+ ],
+ "title": "The talking synth",
+ "teaches": "Formants, speech engines and Homer Dudley’s vocoder",
+ "parts": [
+  {
+   "title": "A synth that sings",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The sound.** Here is a plain buzz, then the same buzz singing \"ah\", then whispering it. Nothing here was recorded. The buzz went through three resonances set where your mouth puts them for that vowel, and for the whisper, breath noise took the buzz's place. You'll set up the sung \"ah\" at the end."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "A slow line: a buzz, the buzz singing “ah”, and a whisper",
+     "options": {
+      "stage": 22,
+      "riff": 108,
+      "start": {
+       "cutoff": 7,
+       "attack": 1,
+       "release": 2
+      },
+      "sounds": [
+       {
+        "name": "Buzz",
+        "set": {}
+       },
+       {
+        "name": "Sung “ah”",
+        "set": {
+         "engine": 7,
+         "engineWave": 5,
+         "engineTimbre": 5,
+         "engineShape": 2
+        }
+       },
+       {
+        "name": "Whispered",
+        "set": {
+         "engine": 7,
+         "engineWave": 5,
+         "engineTimbre": 5,
+         "engineShape": 10
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "Lesson 2 showed how this works in your own throat. Your vocal folds make a buzz full of harmonics, and the shape of your mouth makes a few resonances, called **formants**, that pick some of them out. Two formants are enough to tell most vowels apart. A synth only has to copy the buzz and move the resonances."
+    }
+   ]
+  },
+  {
+   "title": "A vowel engine",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "On a vowel engine, **Wave** moves through the vowels, from \"ee\" through \"eh\", \"ah\" and \"aw\" to \"oo\", moving the formants smoothly from one vowel to the next. **Timbre** is the size of the mouth: all the formants together, lower for a big throat and higher for a small one. That is much of the difference between a man's voice, a woman's and a child's. **Shape** is breath: it swaps the buzz for noise, and the voice whispers."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The vowel engine saying “ee”. Move it through the vowels to “oo”.",
+     "task": "Turn Wave to 90 % or more",
+     "goal": "vowel-oo",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "cutoff": 7,
+       "attack": 1,
+       "release": 2,
+       "engine": 7,
+       "engineTimbre": 5
+      },
+      "riff": 108,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "Listen to the pitch and the vowel separately. The keys move the buzz, and the vowel stays put. The Wave knob moves the vowel, and the pitch stays put. That's the source and the filter of lesson 2, kept apart."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The engine singing “ah”. Turn the buzz into breath.",
+     "task": "Turn Shape to 80 % or more",
+     "goal": "vowel-whisper",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "cutoff": 7,
+       "attack": 1,
+       "release": 2,
+       "engine": 7,
+       "engineTimbre": 5,
+       "engineWave": 5
+      },
+      "riff": 108,
+      "keys": 48
+     }
+    }
+   ]
+  },
+  {
+   "title": "The Voder",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The mystery.** At the 1939 New York World's Fair, visitors to the Bell Telephone exhibit heard a machine talk. A woman sat at a console of keys, a wrist bar and a foot pedal, and the machine said whatever the audience asked for. It wasn't a recording, and there was no computer. How did she make it speak?"
+    },
+    {
+     "type": "text",
+     "text": "The machine was the **Voder**, designed by Homer Dudley at Bell Labs. It had two sources, a buzz for voiced sounds and a hiss for sounds like \"s\" and \"f\". Ten keys each opened one band of a bank of filters, so the operator shaped the formants by hand, and the foot pedal set the pitch of the buzz. It was the vowel engine, played live. Operators trained for months, and it was hard work, but in the right hands it was understandable.[^voder]"
+    }
+   ]
+  },
+  {
+   "title": "The vocoder",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Dudley's bigger idea went the other way. Instead of a person setting the bands, a real voice would set them. A **vocoder** splits a voice into bands and measures how loud each one is from moment to moment. Those levels then open and close the same bands of a different sound, the **carrier**. The carrier is a synth playing chords; the voice is the **modulator**. What comes out has the synth's pitch and the voice's words."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "vocoder",
+     "caption": "A vocoder: a voice's vowel measured in bands, and a saw or noise through the same bands at those levels. Play it.",
+     "task": "Hear a vowel with 4 bands and with 16 or more, and try two vowels",
+     "goal": "vocoder-bands",
+     "aspect_ratio": 1.6
+    },
+    {
+     "type": "text",
+     "text": "The number of bands decides how clearly it talks. With four, the bands are too coarse to show where the formants are, and every vowel sounds much the same. With sixteen or more, the synth speaks. Dudley built it for the telephone. The levels of a few bands change slowly, so they need far less sending than the voice itself. In the Second World War the same idea, scrambled, carried secret calls between Churchill and Roosevelt.[^sigsaly]"
+    }
+   ]
+  },
+  {
+   "title": "Speech engines",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Musicians found the vocoder in the 1970s, and it became the sound of robots and of a good deal of pop and funk. Most hardware vocoders need a microphone for the modulator. A **speech engine** on a small synth gets by without one. It stores a few words or phrases as sequences of formant settings, buzz and hiss, and plays them back at the note's pitch. That's the same thing the Voder operator did by hand, now done by a program."
+    },
+    {
+     "type": "text",
+     "text": "The best-known talking machine of all worked the same way: Texas Instruments' Speak & Spell toy of 1978. It stored speech as a stream of filter settings, only about a thousand bits a second. That was compact enough to fit the vocabulary of a spelling game on two small chips. The three knobs of a speech engine usually pick the word, stretch or squeeze it in time, and shift the mouth's size, just as the vowel engine's Timbre does."
+    }
+   ]
+  },
+  {
+   "title": "The sung “ah”",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now set up the sung \"ah\" from the opening, starting from the plain buzz. You need the engine, the vowel, the mouth's size, and a little breath."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A plain buzz. Make it sing “ah”.",
+     "task": "Make the sung “ah”",
+     "goal": "match",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "cutoff": 7,
+       "attack": 1,
+       "release": 2
+      },
+      "riff": 108,
+      "keys": 48,
+      "target": {
+       "name": "Sung “ah”",
+       "set": {
+        "engine": 7,
+        "engineWave": 5,
+        "engineTimbre": 5,
+        "engineShape": 2
+       }
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "A touch of breath makes a synth voice sound more like a person, as a real singer's voice is never a pure buzz. Pressure and the matrix (lessons 15 and 16) can move it as you play."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on talking synths",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What makes one vowel sound different from another?",
+        "choices": [
+         "Where the formants are",
+         "The pitch of the buzz",
+         "How loud it is"
+        ],
+        "answer": 0,
+        "why": "The same buzz with formants in different places says different vowels."
+       },
+       {
+        "ask": "What did the Voder's operator do?",
+        "choices": [
+         "Shaped the formants by hand with keys, and set the pitch with a pedal",
+         "Played recordings of words",
+         "Typed the words into a computer"
+        ],
+        "answer": 0,
+        "why": "The Voder was a buzz and a hiss through filters played live."
+       },
+       {
+        "ask": "In a vocoder, what does the modulator (the voice) control?",
+        "choices": [
+         "The level of each band of the carrier",
+         "The carrier's pitch",
+         "The tempo"
+        ],
+        "answer": 0,
+        "why": "The voice's band levels open and close the synth's bands; the synth keeps its own pitch."
+       },
+       {
+        "ask": "Why does a vocoder with four bands barely talk?",
+        "choices": [
+         "Four bands are too coarse to show where the formants are",
+         "It is too quiet",
+         "It needs a microphone"
+        ],
+        "answer": 0,
+        "why": "With more bands, the formants' places come through and the words become clear."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A voice is a buzz through formants**; two formants are enough to tell most vowels apart.",
+  "**A vowel engine copies that**: Wave moves the vowel, Timbre the size of the mouth, Shape the breath.",
+  "**Homer Dudley’s Voder (1939)** was played by hand: keys shaped the formants, a pedal set the pitch.",
+  "**A vocoder lets a voice set the bands**: the voice’s band levels shape a synth’s sound.",
+  "**More bands, clearer words**: with too few, every vowel sounds the same.",
+  "**Speech engines store words as formant settings**, as the Speak & Spell did in 1978."
+ ],
+ "footnotes": {
+  "voder": {
+   "kind": "digression",
+   "title": "The operators",
+   "text": "Bell trained a group of telephone operators to play the Voder, and the training took about a year. Stops like \"p\" and \"t\" had their own keys, and a wrist bar switched between the buzz and the hiss. The best operators could make it sing, and even say a sentence with a rising question at the end."
+  },
+  "sigsaly": {
+   "kind": "digression",
+   "title": "SIGSALY",
+   "text": "The wartime system, called SIGSALY, used a vocoder to turn speech into a few band levels, scrambled those numbers with a key recorded on matching phonograph records at each end, and rebuilt the voice from them. Each terminal filled a room. The voices it rebuilt sounded buzzy and flat, much like a vocoder in a song, but no one who intercepted the signal could understand them."
+  }
+ },
+ "journal": []
+}
