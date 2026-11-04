@@ -1,0 +1,90 @@
+{
+  "id": "rhynie",
+  "n": 17,
+  "title": "Plants without leaves",
+  "teaches": "How plants came onto land, what they had to solve there, and the two generations in the life of a moss, a fern and a pine",
+  "parts": [
+    {
+      "title": "A wall at Rhynie",
+      "blocks": [
+        {"type": "text", "text": "In 1912 William Mackie, a country doctor and amateur geologist in the north-east of Scotland, was looking at the stones in a field wall near the village of Rhynie when he noticed one that was unlike the rest: a hard, glassy, grey-black rock called chert. Cut thin and held up to the light under a microscope, it was full of plants. Not impressions or carbon smudges, as most plant fossils are, but whole plants, stems, spores and cells, each wall and pore in place, turned to stone so finely that they could be studied almost as if they were alive."},
+        {"type": "text", "text": "The chert had formed 407 million years ago around hot springs, like the ones at Yellowstone today. Silica-rich water flooded a marsh at the edge of the springs, soaked into the plants growing there and set around them like glass. Between 1917 and 1921 the palaeobotanists, students of fossil plants, Robert Kidston and William Lang described what was inside.[^kidston] The plants were no taller than a hand. Most had no leaves and no roots: just green stems that forked in two, and forked again, with a little bag of spores at the tip of each branch, and hair-like threads underneath to hold them to the mud. One of them, *Asteroxylon*, had small flaps along its stems like a clubmoss, the beginning of leaves. Clubmosses still grow today: low, creeping evergreen plants with stems covered in tiny scale-like leaves. These were among the earliest plants to grow on land that anyone has been able to look at cell by cell."},
+        {"type": "text", "text": "Mosses, ferns and clubmosses are sometimes called primitive plants, as if they were early drafts that failed and were left behind. Rhynie suggests a better way to see them. Every plant on land today descends from small green things like those in the chert, and each living group is a different solution, still working, to the same problems."}
+      ]
+    },
+    {
+      "title": "Going ashore",
+      "blocks": [
+        {"type": "text", "text": "Land plants descend from green algae, simple water plants without roots, stems or leaves, that lived in fresh water, and the first of them, little more than mats of green, came ashore around 470 million years ago, judging by the tough-walled spores they left in rocks of that age. Out of water, a plant faces problems an alga never meets. Air dries everything it touches. Without water to buoy it up, a plant collapses under its own weight. And an alga's sperm and eggs can simply be let out into the water around it, which on land isn't there."},
+        {"type": "diagram", "id": "tree", "caption": "The land plants' family tree, with what each branch added.", "options": {"layout": "across", "root": {"label": "Green algae in fresh water", "children": [{"label": "Land plants", "note": "waxy skin, tough spores, embryo kept on the parent", "children": [{"label": "Liverworts, mosses, hornworts", "note": "small, no pipes; sperm swim"}, {"label": "Vascular plants", "note": "xylem and phloem: stand tall, lift water", "children": [{"label": "Clubmosses", "note": "small leaves, like Asteroxylon"}, {"label": "Ferns and horsetails", "note": "big leaves; sperm still swim"}, {"label": "Seed plants", "note": "pollen and seeds: no swimming", "children": [{"label": "Conifers and relatives", "note": "seeds bare on cone scales"}, {"label": "Flowering plants", "note": "seeds inside a fruit"}]}]}]}]}}},
+        {"type": "text", "text": "The solutions can be seen in the Rhynie plants. Their stems were wrapped in a waxy **cuticle** that kept water in, and dotted with lesson 7's stomata, pores that could open to let carbon dioxide in and close to save water. Some had thin strands of water-conducting cells running up the middle of the stem, early xylem, stiffened with lignin, the tough substance that makes wood woody. Plants with such pipes are called **vascular** plants. Their spores had walls of a material so resistant that spores survive in rocks for hundreds of millions of years. And they were already partnered with fungi in their underground stems, the bushy fungal trees of lesson 11."},
+        {"type": "text", "text": "Mosses and their flat, ribbon-like relatives the liverworts never developed true xylem. A few mosses have strands of water-carrying cells, but they are thin and unstiffened, so mosses stay small and grow in damp places, or they do something cleverer and let themselves dry out completely."},
+        {"type": "interactive_diagram", "id": "dry", "caption": "A moss and a lettuce leaf through a day of hot sun and then rain. A model.", "task": "Guess, then play it through the rain", "goal": "revive", "aspect_ratio": 1.9},
+        {"type": "text", "text": "A dried moss can sit on a wall or a roof for months, brittle and grey, with its photosynthesis switched off and its cells protected by sugars and special proteins that keep their membranes from tearing as they shrink. Wet it and it greens up and starts photosynthesising again within hours. The leaves of most other plants are killed by drying out that far. So where a lettuce leaf must hold its water in or die, a moss can afford to let it go and wait for the next rain."}
+      ]
+    },
+    {
+      "title": "Two generations",
+      "blocks": [
+        {"type": "text", "text": "In 1851 Wilhelm Hofmeister, the same Hofmeister whose rule placed lesson 12's leaves, published a study of how mosses, ferns and conifers reproduce. He had worked it out in his spare time while running his father's music and book business in Leipzig. He found that all of them do something no animal does. Their lives pass through two different generations, taking turns."},
+        {"type": "text", "text": "One generation makes spores, single cells that drift off on the wind and can each grow into a new plant on their own. A spore does not grow into another spore-maker. It grows into the other generation, which makes eggs and sperm. When a sperm reaches an egg and fertilises it, the fertilised egg grows into a spore-maker again. Every land plant does this, which is called the **alternation of generations**. The two generations carry different numbers of chromosomes, the packages of genes in each cell's nucleus: the spore-maker has two sets, one from each parent, like an animal's body, and the egg-and-sperm maker has one.[^sets]"},
+        {"type": "interactive_diagram", "id": "cycle", "caption": "The life cycles of a moss, a fern and a pine, with the spore generation on the left and the egg-and-sperm generation on the right.", "task": "Look at all three", "goal": "all", "aspect_ratio": 1.7},
+        {"type": "text", "text": "What differs from group to group is which generation is the big, long-lived plant you can see."}
+      ]
+    },
+    {
+      "title": "Mosses and ferns",
+      "blocks": [
+        {"type": "text", "text": "In a moss, the green carpet is the egg-and-sperm generation. The spore generation is the thin brown stalk that grows out of it after fertilisation, with a capsule of spores on top, and it lives its whole short life attached to the green plant and fed by it. For the sperm to reach an egg, it has to swim, through a film of rainwater or dew. A moss sperm can swim a few centimetres at most, so mosses grow in low, dense cushions, where a female shoot is never far from a male one and a raindrop splashing between them can carry sperm across."},
+        {"type": "text", "text": "In a fern it is the other way round. The fern you see, with its big divided leaves, called fronds, is the spore generation. Turn a frond over in late summer and you'll find rows of brown dots, clusters of spore cases, each throwing out its spores when it dries. A spore landing somewhere damp grows into a tiny green heart-shaped plant a few millimetres across, lying flat on the soil. Almost nobody notices them. That little heart is the egg-and-sperm generation, and its sperm also swim, in the film of water on the soil, to reach its eggs. The fertilised egg grows into a new fern, and the heart withers."},
+        {"type": "text", "text": "A fern spore, a few hundredths of a millimetre across, weighs billionths of a gram and can ride the wind for hundreds of kilometres, which is why ferns turn up on remote islands. Its sperm can swim only a few centimetres. A fern can spread across a continent, but it can only reproduce on ground that stays wet long enough for the sperm to swim, which is why ferns are plants of damp woods and shady banks. Ferns are not a failed experiment: there are about ten thousand species, and many of today's species are relatively new, having evolved in the shade of the flowering-plant forests that grew up in the last hundred million years."}
+      ]
+    },
+    {
+      "title": "A pine's two years",
+      "blocks": [
+        {"type": "text", "text": "Seed plants solved the swimming problem by shrinking the egg-and-sperm generation to almost nothing and keeping it inside the spore-maker. A pine tree is the spore generation. In spring it makes two kinds of cones. The small, soft pollen cones, clustered at the tips of lower branches, make spores that each grow, while still inside their spore wall, into a pollen grain of just a few cells: the whole male egg-and-sperm generation, small enough to blow on the wind. That is what the yellow dust on puddles and car windscreens in May is."},
+        {"type": "text", "text": "The big woody seed cones carry, on each scale, two **ovules**, each holding a female spore that stays where it is and grows into a small mass of tissue with eggs in it. A pollen grain that lands on an ovule sends a tube growing slowly into it, and the tube carries the sperm right to the egg. Nothing swims. In a pine this is unhurried: pollen lands in the first spring, but fertilisation waits until the next summer, more than a year later, and the seed is ripe in the second autumn. Look along a pine branch and you can often find both years at once: small green cones, a year old, and big ones nearly ripe."}
+      ]
+    },
+    {
+      "title": "Seeds",
+      "blocks": [
+        {"type": "text", "text": "After fertilisation, the ovule becomes a **seed**: a young plant, the embryo, packed with a store of food and wrapped in a tough coat. A fern's next generation starts as a single spore and has to make its own way from the start. A seed sends its embryo off with a store of food and a protective coat, and can wait in the soil until conditions are right (lesson 19)."},
+        {"type": "text", "text": "With pollen, seed plants no longer needed water to breed; with seeds, their young could travel and wait. Together they let plants move away from wet ground onto dry uplands. Seed plants first appear about 370 million years ago, and by 300 million years ago, conifer-like trees were spreading across the drier parts of the continents. Flowering plants, the newest big branch, are a kind of seed plant that wraps its seeds inside a fruit. They are the next lesson."},
+        {"type": "text", "text": "On a walk, look for a fern with brown dots under its fronds, and on damp soil nearby, perhaps, a tiny green heart. Then look for a pine, and find its pollen cones in spring, and its first-year and second-year seed cones on the same branch."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on land plants", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Which of these was a problem plants had to solve to live on land?", "choices": ["Their sperm could no longer swim through open water to the eggs", "Air holds too little carbon dioxide for photosynthesis", "Rain washed the nutrients out of their leaves"], "answer": 0, "why": "Out of water, plants dry out, sag under their own weight and lose the water their sperm swam in. Carbon dioxide is easier to get in air than in water, and nutrients come from the soil, not rain."},
+            {"ask": "In a moss, which generation is the soft carpet you see?", "choices": ["The egg-and-sperm generation", "The spore generation", "Both, taking turns each year"], "answer": 0, "why": "The green moss makes eggs and sperm. The spore generation is the brown stalk and capsule growing out of it."},
+            {"ask": "Why do most ferns grow where the ground stays damp?", "choices": ["Their sperm must swim through water on the soil to reach the eggs", "Their spores can only travel in water", "Their roots can only take up water near the surface"], "answer": 0, "why": "A fern's spores travel far on the wind, but the tiny heart-shaped plant they grow into needs a film of water for its sperm to swim to its eggs."},
+            {"ask": "What is a pine pollen grain?", "choices": ["The whole male egg-and-sperm generation, a few cells small", "A seed without a coat", "A spore that will grow into a pine tree if it lands on soil"], "answer": 0, "why": "Seed plants shrank the egg-and-sperm generation to a few cells. The pollen grain carries the sperm to the egg through a tube, with no swimming."},
+            {"ask": "A moss dried out for months on a wall is wetted. What happens?", "choices": ["It photosynthesises again within hours", "It needs weeks of rain before it can grow", "It must grow again from spores"], "answer": 0, "why": "Mosses protect their cells while they dry and switch back on when wet, which most other plants' leaves cannot do."},
+            {"ask": "Which statement about mosses and ferns is best?", "choices": ["They are successful living groups with their own solutions to life on land", "They are early plants that survive only where seed plants can't grow", "They are young plants that will evolve into trees"], "answer": 0, "why": "Each living group descends from the first land plants by its own route. There are about ten thousand fern species, many of them evolved quite recently."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**The Rhynie chert preserved early land plants cell by cell.** Found in a field wall by Mackie in 1912, it is 407 million years old.",
+    "**The first vascular plants had no leaves or roots.** They were forked green stems with spore bags at the tips.",
+    "**Land meant drying out, sagging and no water to swim in.** A waxy cuticle and stomata, stiff xylem, and tough spores were the answers.",
+    "**Every land plant alternates two generations.** One makes spores; the plant a spore grows into makes eggs and sperm (Hofmeister, 1851).",
+    "**In mosses the egg-and-sperm generation is the big one; in ferns and pines, the spore generation.**",
+    "**Ferns need wet ground to breed.** Their spores fly far, but their sperm swim only a few centimetres.",
+    "**Pollen and seeds freed plants from water.** A pollen tube carries sperm to the egg; a seed packs an embryo with food and a coat.",
+    "**Mosses can dry out completely and revive.** They let water go and switch back on when it rains."
+  ],
+  "journal": [],
+  "footnotes": {
+    "sets": {"kind": "technical", "title": "One set and two", "text": "A cell with one set of chromosomes is called haploid, and one with two sets diploid. Animals make haploid eggs and sperm directly from diploid cells. Plants make haploid spores instead, and each spore grows a whole haploid plant before any eggs or sperm are made. In flowering plants that haploid plant is a few cells inside a pollen grain or an ovule."},
+    "kidston": {"kind": "digression", "title": "Still digging at Rhynie", "text": "The Rhynie chert is still being studied. Besides plants it holds fungi, algae, lichens, and some of the earliest land animals: mites, springtails and a creature like a harvestman. Because it sits in a field rather than a cliff, it is known from a few trenches and boreholes; there are no outcrops to walk along."}
+  }
+}

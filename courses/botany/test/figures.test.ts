@@ -23,6 +23,11 @@ import { bend, sideways } from '../src/figures/bending';
 import { field, sprayed } from '../src/figures/foolish';
 import { dayLength, flowering, lettuce, stretch } from '../src/figures/cupboard';
 import { BEAM_END, match, ringWidth } from '../src/figures/rings';
+import { drying } from '../src/figures/rhynie';
+import { race } from '../src/figures/orchid';
+import { distance, hedge, sprouts } from '../src/figures/seeds';
+import { best, FAST, radiate, SLOW } from '../src/figures/menu';
+import { BY_DNA, BY_LOOKS, lotusKin } from '../src/figures/abominable';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -304,5 +309,78 @@ describe('figures', () => {
     const c = FIGURES.crossdate(context(), 'dated');
     setSlider(c.node, 0, BEAM_END);
     await expect(c.done).resolves.toBeUndefined();
+  });
+  it('lesson 17: a dried moss revives and a dried lettuce leaf dies, and all three life cycles can be seen', async () => {
+    expect(drying('moss', 24).working).toBeLessThan(0.2);
+    expect(drying('moss', 30).working).toBeGreaterThan(0.7);
+    expect(drying('lettuce', 36).dead).toBe(true);
+    const d = FIGURES.dry(context(), 'revive');
+    guess(d.node, 'Only the moss');
+    setSlider(d.node, 0, 36);
+    await expect(d.done).resolves.toBeUndefined();
+    const c = FIGURES.cycle(context(), 'all');
+    click(c.node, 'Fern');
+    click(c.node, 'Pine');
+    await expect(c.done).resolves.toBeUndefined();
+  });
+  it('lesson 18: spur and tongue lengthen together, and a fixed spur stops the tongues', async () => {
+    const both = race(300, false);
+    expect(both[300].spur).toBeGreaterThan(25);
+    expect(both[300].tongue).toBeGreaterThan(25);
+    const fixed = race(300, true);
+    expect(fixed[300].spur).toBe(4);
+    expect(fixed[300].tongue).toBeLessThan(8);
+    expect(fixed[300].tongue - fixed[200].tongue).toBeLessThan(0.05);
+    const r = FIGURES.race(context(), 'fixed');
+    guess(r.node, 'They grow until they reach the nectar, then stop');
+    click(r.node, 'Hold the spur fixed');
+    setSlider(r.node, 0, 200);
+    await expect(r.done).resolves.toBeUndefined();
+    const b = FIGURES.bee(context(), 'bee');
+    click(b.node, 'As a bee sees it');
+    await expect(b.done).resolves.toBeUndefined();
+  });
+  it('lesson 19: a maple key goes 75 m, fire wakes the heat seeds, and waiting seeds outlast droughts', async () => {
+    expect(distance(15, 5, 1)).toBe(75);
+    expect(sprouts('fire')).toEqual(['Snowbrush', 'Lodgepole pine']);
+    expect(sprouts('none')).toEqual([]);
+    for (let s = 3; s < 10; s++) {
+      expect(hedge(1, 40, s)).toContain(0);
+      expect(hedge(0.5, 40, s)).not.toContain(0);
+    }
+    const d = FIGURES.drop(context(), 'compare');
+    click(d.node, 'Dandelion');
+    await expect(d.done).resolves.toBeUndefined();
+    const b = FIGURES.bank(context(), 'fire');
+    guess(b.node, 'The ones that need heat');
+    click(b.node, 'A fire');
+    await expect(b.done).resolves.toBeUndefined();
+    const h = FIGURES.hedge(context(), 'hedge');
+    setSlider(h.node, 0, 0.5);
+    await expect(h.done).resolves.toBeUndefined();
+  });
+  it('lesson 20: some poison is best, free poison is all-out, and a late specialist leaves a bigger radiation', async () => {
+    expect(best(0.1)).toBe(0);
+    expect(best(0.5)).toBeGreaterThan(0.3);
+    expect(best(0.5)).toBeLessThan(1);
+    expect(best(0.5, { free: true })).toBe(1);
+    expect(best(0.5, { tolerant: true })).toBe(0);
+    expect(radiate('mustard', FAST, SLOW, 45).tips).toBeGreaterThan(3 * radiate('mustard', FAST, SLOW, 5).tips);
+    const c = FIGURES.cost(context(), 'free');
+    guess(c.node, 'No: past some point poison costs more than it saves');
+    click(c.node, 'Defence is free');
+    await expect(c.done).resolves.toBeUndefined();
+    const e = FIGURES.escape(context(), 'radiate');
+    setSlider(e.node, 0, 10);
+    setSlider(e.node, 0, 50);
+    await expect(e.done).resolves.toBeUndefined();
+  });
+  it('lesson 21: by looks the lotus sits with water lilies, by DNA with plane trees', async () => {
+    expect(lotusKin(BY_LOOKS)).toEqual(['Water lily']);
+    expect(lotusKin(BY_DNA)).toEqual(['Plane tree', 'Protea']);
+    const l = FIGURES.lotus(context(), 'dna');
+    guess(l.node, 'Plane trees');
+    click(l.node, 'Read from DNA');
+    await expect(l.done).resolves.toBeUndefined();
   });
 });

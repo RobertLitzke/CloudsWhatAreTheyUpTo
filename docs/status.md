@@ -13,7 +13,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 19 | 18 | 0 | 19 | 19 | 19 | 0 |
-| [Botany](#botany) | 16 | 17 | 0 | 16 | 16 | 16 | 0 |
+| [Botany](#botany) | 21 | 12 | 0 | 21 | 21 | 21 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
 
@@ -273,7 +273,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-16 were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
+`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -293,11 +293,11 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 14 | The foolish seedling (`foolish`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Gibberellin, the hormone that lengthens stems, found through a rice disease, and the short wheat and rice of the Green Revolution. |
 | 15 | The plant in the cupboard (`cupboard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants keep time with an inner clock, time the night to know the season, and read red and far-red light to tell sun from shade. |
 | 16 | Rings that tell time (`rings`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How the cambium under the bark makes a ring of wood each year, and how matching patterns of wide and thin rings dates old timber. |
-| 17 | Plants without leaves (`rhynie`) |  | planned, listed as coming |  | The Rhynie chert and how plants came onto land. |
-| 18 | The comet orchid (`orchid`) |  | planned, listed as coming |  | Flowers, pollinators and a moth predicted forty years early. |
-| 19 | Travelling and waiting (`seeds`) |  | planned, listed as coming |  | How seeds cross oceans and wait for years. |
-| 20 | The caterpillar’s menu (`menu`) |  | planned, listed as coming |  | Plant poisons and the insects that beat them. |
-| 21 | Darwin’s abominable mystery (`abominable`) |  | planned, listed as coming |  | The flowering-plant family tree read from DNA. |
+| 17 | Plants without leaves (`rhynie`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants came onto land, what they had to solve there, and the two generations in the life of a moss, a fern and a pine. |
+| 18 | The comet orchid (`orchid`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | What flowers are for, how they make animals carry pollen, the double fertilisation that makes a seed and fruit, and a moth Darwin predicted forty years early. |
+| 19 | Travelling and waiting (`seeds`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable. |
+| 20 | The caterpillar’s menu (`menu`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants defend themselves with poisons, spines and toughness, what defence costs, and how specialist insects beat one family's poisons and use them to find their food. |
+| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
 | K1 | Counting stamens (`stamens`) | Naming and keying plants | planned, listed as coming |  | Linnaeus, two-word names and why plants are grouped as they are. |
 | K2 | Using a key (`key`) | Naming and keying plants | planned, listed as coming |  | Either-or questions and keys you can enter anywhere. |
 | K3 | Ten families to know (`families`) | Naming and keying plants | planned, listed as coming |  | Recognising the commonest flowering-plant families at a glance. |

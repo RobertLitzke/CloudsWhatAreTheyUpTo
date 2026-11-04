@@ -1,0 +1,89 @@
+{
+  "id": "seeds",
+  "n": 19,
+  "title": "Travelling and waiting",
+  "teaches": "How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable",
+  "parts": [
+    {
+      "title": "Seeds on the sea",
+      "blocks": [
+        {"type": "text", "text": "Islands in the middle of an ocean, raised from the sea floor by volcanoes and never joined to land, have plants on them. In the 1850s some naturalists explained this by imagining lost land bridges between the continents and every island. Charles Darwin thought the seeds had crossed the water, and in the spring of 1855 he set out to test whether they could."},
+        {"type": "text", "text": "He filled bottles and dishes with salt water, made up to match sea water, and dropped in seeds from his kitchen garden: cress, radish, cabbage, lettuce, onion, celery. Every few days he took some out and planted them. Many died within a week or two. But of 87 kinds, 64 still sprouted after 28 days in salt water, and a few after 137 days. Atlantic currents, Darwin reckoned, move about 50 kilometres a day, so a seed that floats and survives a month could drift some 1,500 kilometres."},
+        {"type": "text", "text": "Floating was not the only way. Darwin washed the mud off birds' feet. A ball of earth weighing six and a half ounces, about 180 grams, from the leg of a wounded partridge sent to him by a friend was kept damp under glass for three years, and he raised 82 plants of five kinds from it. A bird that lands on an island carrying mud from a mainland pond carries seeds with it."}
+      ]
+    },
+    {
+      "title": "Wings, plumes, hooks and ants",
+      "blocks": [
+        {"type": "text", "text": "A seed is an embryo packed with food and wrapped in a coat (lesson 18 followed how one is made). The plant that made it can't move. Its pollen travels, but the seed is the only time the plant itself goes anywhere, and seeds are built for the ways they go."},
+        {"type": "text", "text": "Wind seeds are light or slow to fall. A dandelion seed hangs from a parachute of about a hundred fine bristles, which drags on the air so well that it falls at about 30 centimetres a second, ten times slower than a raindrop of similar weight.[^vortex] A maple seed has a single wing, a **samara**, that spins as it falls like a helicopter blade, slowing it to about a metre a second. Water seeds float: a coconut's fibrous husk is full of air. Seeds eaten in a fruit pass through an animal and are dropped, with some fertiliser, wherever it goes next. Burdock's hooked burs catch in fur, and a Swiss engineer who looked at them under a microscope in the 1940s went on to invent Velcro. Some seeds carry a small fatty snack for ants.[^ants]"}
+      ]
+    },
+    {
+      "title": "How far a seed falls",
+      "blocks": [
+        {"type": "text", "text": "For a wind seed there is a simple first estimate. Let go at some height, it falls at a steady speed, so it stays in the air for its height divided by its fall speed. All that time the wind carries it sideways. So the distance it goes is the time in the air multiplied by the wind speed: height × wind ÷ fall speed. Doubling the height or the wind doubles the distance, and so does halving the fall speed. A heavy seed can't do much about the wind or its height, but its shape and weight set how fast it falls, which is where seeds differ most: a dandelion seed falls about twenty times slower than a pea."},
+        {"type": "key_ideas", "title": "Estimate", "points": ["A maple key lets go 15 metres up and falls about 1 metre a second, in a wind of 5 metres a second. It is in the air about 15 seconds, and the wind moves it 5 metres each second: about 75 metres.", "A dandelion seed falls three times slower but starts only 40 centimetres up: 0.4 × 5 ÷ 0.3, about 7 metres. In still, steady wind most dandelion seeds land close to home."]},
+        {"type": "interactive_diagram", "id": "drop", "caption": "Three seeds let go in the same wind, and where a crowd of them lands. A model.", "task": "Try at least two seeds in a wind of 5 m/s or more", "goal": "compare", "aspect_ratio": 1.74},
+        {"type": "text", "text": "Where all of one plant's seeds land, mapped on the ground, is its **seed shadow**: thick close to the parent and thinning with distance, with a long tail. Gusts and rising air on a warm day lift a few slow-falling seeds far higher than they started, and those few go kilometres. For reaching a new place, the tail matters more than the average."}
+      ]
+    },
+    {
+      "title": "Beal's bottles",
+      "blocks": [
+        {"type": "text", "text": "Many seeds that land somewhere damp don't sprout at all. They are **dormant**: alive, but shut down until something wakes them. In 1879 William James Beal, a botany professor at Michigan Agricultural College, wanted to know how long weed seeds could lie in a farmer's field and still come up. He filled twenty bottles with moist sand, mixed fifty seeds of each of about twenty kinds of common weed into each one, and buried them upside down on campus, so that water would not collect in them. One bottle was to be dug up every few years and its seeds planted."},
+        {"type": "text", "text": "Beal died in 1924, and others have kept the experiment going since, stretching the gaps between digs so it would last longer. In the spring of 2021 a team dug up a bottle at night, so that light would not wake the seeds before they were ready, and planted them. Seeds of moth mullein, buried 142 years earlier, sprouted.[^masada] The last bottle is due in 2100."},
+        {"type": "text", "text": "A field's soil holds a **seed bank**: thousands of seeds per square metre, of many kinds, alive and waiting. What comes up after a disturbance depends on which of them is woken by it."}
+      ]
+    },
+    {
+      "title": "Cues and bet-hedging",
+      "blocks": [
+        {"type": "text", "text": "A dormant seed waits for a sign that conditions above ground are good for a seedling. Many need light, and so sprout only when the soil is turned or bared: the poppies that came up across the churned fields of Flanders in the First World War had been waiting in the soil. Others read the colour of the light, as in lesson 15: light that has passed through leaves is poor in red, so a seed under the leafy roof of a forest stays put, while a gap from a fallen tree lets red in. Many seeds of cold places need a winter's chill first, so they don't sprout in a warm autumn spell. And in places that burn, some need heat or smoke. Snowbrush, a shrub of western forests, has seeds with coats so hard that water can't get in until a fire's heat cracks them, and many lodgepole pines keep their seeds in cones sealed shut until a fire opens them.[^cones]"},
+        {"type": "interactive_diagram", "id": "bank", "caption": "Four kinds of seed waiting in the same soil, each with its own cue. A model.", "task": "Guess, then try each disturbance", "goal": "fire", "aspect_ratio": 1.82},
+        {"type": "text", "text": "Even with the right cue, many plants hold some seeds back. An annual, a plant that grows from seed, flowers and dies within one year, survives the bad season only as seed. A desert annual's seeds may need rain to sprout, but one rain doesn't mean enough rain will follow for the seedlings to set seed. In 1966 the Israeli ecologist Dan Cohen worked out what a plant gains by letting only a share of its seeds sprout each year. If they all sprout and the year turns out to be a drought, the plant's line ends. If some wait, a bad year costs only that year's seedlings. Spreading the risk over years like this is called **bet-hedging**, from the gambler's habit of placing a second bet against the first."},
+        {"type": "interactive_diagram", "id": "hedge", "caption": "An annual plant through 40 years, some of them droughts. A model.", "task": "Run it with every seed sprouting, then with some waiting", "goal": "hedge", "aspect_ratio": 1.82},
+        {"type": "text", "text": "In good years, waiting costs something: the waiting seeds aren't growing, and some die in the soil. Holding seed back pays when years are unpredictable. Where every year is reliably good, plants that sprout all at once do better."}
+      ]
+    },
+    {
+      "title": "Seeds and islands",
+      "blocks": [
+        {"type": "text", "text": "Darwin's salt-water experiments help explain why oceanic islands have the plants they do. Their plant life is rich in kinds whose seeds float, stick to birds or ride inside them, and has few kinds with heavy seeds that drop at the parent's feet. Ecology's lesson on islands that refilled watches the arrivals and losses happen over a few years; the seeds behind those arrivals are the travellers of this lesson."},
+        {"type": "text", "text": "Drop a maple key and a dandelion seed from the same height, indoors where the air is still, and time each fall. Then pull a dandelion seed's parachute off and drop the seed alone. In autumn, walk through long grass in wool socks and count the kinds of seed that hitch a ride."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on seeds", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "What did Darwin's salt-water experiment of 1855 show?", "choices": ["Many seeds survive weeks in sea water, so seeds can drift to islands", "Seeds die in salt water within days, so islands needed land bridges", "Seeds survive sea water only if they are inside a fruit"], "answer": 0, "why": "Of 87 kinds, 64 sprouted after 28 days in salt water and a few after 137 days, long enough to drift more than a thousand kilometres."},
+            {"ask": "A seed lets go 10 metres up and falls 2 metres a second, in a wind of 4 metres a second. About how far does it land?", "choices": ["20 metres", "80 metres", "5 metres"], "answer": 0, "why": "Height × wind ÷ fall speed: 10 × 4 ÷ 2 = 20 metres. It is in the air 5 seconds and moves 4 metres each second."},
+            {"ask": "Which change would carry a wind seed farthest?", "choices": ["Halving the speed it falls", "Doubling its weight", "Letting go in half the wind from twice the height"], "answer": 0, "why": "Distance is height × wind ÷ fall speed, so falling at half the speed doubles the distance. A heavier seed of the same shape falls faster; half the wind from twice the height comes out the same."},
+            {"ask": "A fire burns through a forest whose soil holds lodgepole pine, snowbrush and poppy seed. Which come up first?", "choices": ["The lodgepole pine and snowbrush", "The poppy", "None of them: fire kills seeds in the soil"], "answer": 0, "why": "Lodgepole pine and snowbrush wait for heat, which opens sealed cones and cracks hard seed coats. Poppies wait for bare, turned soil and light."},
+            {"ask": "What did Beal's bottles show?", "choices": ["Some weed seeds stay alive in the soil for well over a century", "Seeds sprout as soon as they are buried in moist sand", "Seeds stored in bottles never sprout again"], "answer": 0, "why": "Moth mullein seeds buried in 1879 sprouted in 2021, 142 years later. Moist, dark soil doesn't wake them: they wait for a cue."},
+            {"ask": "Why does it pay an annual plant to let only some of its seeds sprout each year?", "choices": ["If a drought kills every seedling, the seeds still waiting carry the plant on", "Seeds that wait grow into bigger plants", "Seeds that sprout later grow faster and catch up"], "answer": 0, "why": "This is bet-hedging. In an unpredictable climate, a plant whose seeds all sprout can be wiped out by one bad year."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Seeds can cross oceans.** Darwin found in 1855 that many survive weeks in salt water, and raised 82 plants from the mud on a partridge's leg.",
+    "**A seed is the one time a plant travels.** Wings, plumes, floats, fruits, hooks and ant snacks each suit a way of going.",
+    "**A wind seed goes about height × wind ÷ fall speed.** A maple key from 15 m in a 5 m/s wind goes about 75 m.",
+    "**A seed shadow is thick near the parent with a long tail.** The few seeds that go far are the ones that reach new places.",
+    "**Seeds wait in the soil, sometimes for over a century.** Beal's moth mullein, buried in 1879, sprouted in 2021.",
+    "**Each kind waits for its own cue.** Light on bare soil, red light in a gap, a winter's cold, or a fire's heat.",
+    "**Holding seeds back is insurance.** When years are unpredictable, seeds still waiting carry the plant through a drought: bet-hedging (Cohen, 1966)."
+  ],
+  "journal": [],
+  "footnotes": {
+    "vortex": {"kind": "technical", "title": "A ring of air", "text": "In 2018 Cathal Cummins, Naomi Nakayama and colleagues at Edinburgh filmed dandelion seeds in a vertical wind tunnel. The parachute is about nine-tenths empty space, yet air flowing through and around its bristles forms a stable ring of swirling air that hovers just above it, unattached. Thanks to the ring, the parachute gets about four times the drag of a solid disc of the same size."},
+    "ants": {"kind": "digression", "title": "Paid in fat", "text": "Trillium, bloodroot, violets and many other woodland plants attach a small fatty body to each seed. Ants carry the seed home, eat the fatty part and throw the seed out with their rubbish, in rich soil some way from the parent. Ecology's lesson on the ants that guard a tree is another bargain between plants and ants."},
+    "masada": {"kind": "digression", "title": "A date palm two thousand years old", "text": "Seeds of Judean date palm found in excavations at Masada, a fortress by the Dead Sea, were planted by Elaine Solowey in 2005. One sprouted, and radiocarbon dating of its seed coat put it at about 2,000 years old. The palm, nicknamed Methuselah, has since flowered."},
+    "cones": {"kind": "technical", "title": "Cones sealed with resin", "text": "Many lodgepole pine cones are sealed shut with resin and can hang on the tree for years. The resin melts at about 50 to 60 °C, so the cones open after a fire has killed the parent, dropping seed onto ash where there is light and no competition. Such cones are called serotinous, from the Latin for late."}
+  }
+}

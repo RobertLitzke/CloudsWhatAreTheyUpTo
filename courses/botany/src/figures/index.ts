@@ -23,6 +23,11 @@ import { darwinFigure, gravityFigure } from './bending';
 import { dwarfsFigure, lodgingFigure } from './foolish';
 import { canopyFigure, lettuceFigure, photoperiodFigure } from './cupboard';
 import { crossdateFigure, growFigure, trunkStill } from './rings';
+import { cycleFigure, dryFigure } from './rhynie';
+import { beeFigure, partsStill, raceFigure } from './orchid';
+import { bankFigure, dropFigure, hedgeFigure } from './seeds';
+import { costFigure, escapeFigure } from './menu';
+import { lotusFigure, twoStill } from './abominable';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -82,4 +87,21 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   trunk: trunkStill,
   grow: growFigure,
   crossdate: crossdateFigure,
+  // Lesson 17
+  dry: dryFigure,
+  cycle: cycleFigure,
+  // Lesson 18
+  parts: partsStill,
+  bee: beeFigure,
+  race: raceFigure,
+  // Lesson 19
+  drop: dropFigure,
+  bank: bankFigure,
+  hedge: hedgeFigure,
+  // Lesson 20
+  cost: costFigure,
+  escape: escapeFigure,
+  // Lesson 21
+  lotus: lotusFigure,
+  two: twoStill,
 };

@@ -14,11 +14,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: PlantLesson[] = [
-  coming('rhynie', 17, 'Plants without leaves', 'The Rhynie chert and how plants came onto land'),
-  coming('orchid', 18, 'The comet orchid', 'Flowers, pollinators and a moth predicted forty years early'),
-  coming('seeds', 19, 'Travelling and waiting', 'How seeds cross oceans and wait for years'),
-  coming('menu', 20, 'The caterpillar’s menu', 'Plant poisons and the insects that beat them'),
-  coming('abominable', 21, 'Darwin’s abominable mystery', 'The flowering-plant family tree read from DNA'),
 ];
 
 const BRANCH_COMING: PlantLesson[] = [
