@@ -10,6 +10,7 @@ import { execFileSync } from 'node:child_process';
 import { cpSync, existsSync, readdirSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeHtml as writeStatus } from './status.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -39,4 +40,10 @@ for (const folder of courses) {
 }
 console.log('\n== catalog');
 run(['run', 'build'], join(root, 'catalog'));
+// The course status table (tools/status.mjs) at /status.html, unlinked: a page for whoever writes the courses.
+try {
+  writeStatus(join(dist, 'status.html'));
+} catch (e) {
+  console.warn(`status.html left out: ${e.message}`);
+}
 console.log(`\nBuilt ${courses.length} courses and the catalog into dist/.`);

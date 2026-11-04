@@ -18,7 +18,8 @@
     "photos": "node tools/photos.mjs",
     "photos:find": "node tools/photos-find.mjs",
     "restore-photos": "node tools/restore-photos.mjs",
-    "icons": "node tools/process-icons.mjs"
+    "icons": "node tools/process-icons.mjs",
+    "status": "node tools/status.mjs"
   },
   "dependencies": {
     "didactics": "github:RobertLitzke/Didactics#c096b9e75db3fa8d3f4f68c70aa109c31cabff08"

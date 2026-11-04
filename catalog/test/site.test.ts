@@ -86,3 +86,13 @@ describe('the copy edit', () => {
     }
   });
 });
+
+describe('the status table', () => {
+  it('reads every course, and tools/lesson-status.json names only lessons that exist', async () => {
+    const { collect } = await import('../../tools/status.mjs');
+    const data = collect();
+    expect(data.warnings).toEqual([]);
+    const courses = readdirSync(join(root, 'courses')).filter((c) => existsSync(join(root, 'courses', c, 'course.json')));
+    expect(data.courses.map((c: { folder: string }) => c.folder).sort()).toEqual(courses.sort());
+  });
+});

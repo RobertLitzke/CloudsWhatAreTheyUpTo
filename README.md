@@ -24,6 +24,7 @@ tools/              what every course shares at the command line:
   restore-photos.mjs  puts parked photo blocks back into lessons
   copyedit.mjs        the Gemini copy edit, with each course's brief
   review-queue.mjs    runs the copy edits waiting in every course
+  status.mjs          the lesson status table (docs/status.md), with tools/lesson-status.json
   process-icons.mjs   crops every course's icons from the painted sheets in catalog/icons/
   lib/                the pieces the tools share (Commons, course folders)
 tsconfig.base.json  the compiler options every workspace extends
@@ -76,6 +77,11 @@ and search categories, its copy-edit brief (`copyedit.json`), its review
 queue. The dependency on Didactics is pinned once, in the root
 `package.json`, and every workspace extends `tsconfig.base.json`
 (`catalog/test/site.test.ts` holds them to it).
+
+How to plan a course and write a lesson, and the steps each lesson goes
+through, are in [docs/lesson-guide.md](docs/lesson-guide.md). `npm run status`
+writes [docs/status.md](docs/status.md), every lesson of every course with
+where it stands (also at `/status.html` on the live site).
 
 New lesson prose waits for its final Gemini copy edit in each course's
 `tools/review-queue.json`. `npm run review-queue` lists what is waiting;
