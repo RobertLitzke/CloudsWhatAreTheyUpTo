@@ -14,12 +14,6 @@ export const coming = (id: string, n: number, title: string, teaches: string, mo
   ({ id, n, title, teaches, parts: [], coming: true, summary: [], ...more });
 
 const TRUNK_COMING: PlantLesson[] = [
-  coming('pale', 11, 'The plant with no green', 'Root fungi, the trade of sugar for phosphorus, and plants that cheat on it'),
-  coming('spiral', 12, 'The spiral in the pine cone', 'Growing points, and how one rule makes Fibonacci spirals'),
-  coming('bending', 13, 'The bending seedling', 'Darwin’s canary grass and auxin, the signal that bends a shoot'),
-  coming('foolish', 14, 'The foolish seedling', 'Gibberellin, a fungus’s weapon and the short wheat of the Green Revolution'),
-  coming('cupboard', 15, 'The plant in the cupboard', 'Clocks, day length and how plants read light under a canopy'),
-  coming('rings', 16, 'Rings that tell time', 'The cambium, wood and dating with tree rings'),
   coming('rhynie', 17, 'Plants without leaves', 'The Rhynie chert and how plants came onto land'),
   coming('orchid', 18, 'The comet orchid', 'Flowers, pollinators and a moth predicted forty years early'),
   coming('seeds', 19, 'Travelling and waiting', 'How seeds cross oceans and wait for years'),

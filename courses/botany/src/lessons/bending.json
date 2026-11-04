@@ -1,0 +1,86 @@
+{
+  "id": "bending",
+  "n": 13,
+  "title": "The bending seedling",
+  "teaches": "How a shoot bends toward light: the tip senses it, and a hormone, auxin, makes the shaded side grow faster",
+  "parts": [
+    {
+      "title": "The Darwins' seedlings",
+      "blocks": [
+        {"type": "text", "text": "Any plant on a windowsill leans toward the window. Turn the pot round and within a day or two it leans back. In the late 1870s, at his house at Down in Kent, Charles Darwin and his son Francis set out to find how. They grew seedlings of canary grass, the bird-seed grass, in a darkened room lit by one lamp on one side. A grass seedling first comes up as a single pale sheath called a **coleoptile**, a hollow spike a few centimetres tall with the leaves still folded inside it, and it bends toward light within an hour or two."},
+        {"type": "text", "text": "Watching closely, the Darwins saw something odd. The bend was not at the tip. The tip stayed straight and was simply tilted over by the curve, which was lower down, in the part that was growing fastest. Yet when they covered just the top few millimetres of the seedling, the very tip, it no longer bent at all. Saying a plant bends because it wants the light names a result, not a cause. The Darwins wanted to know what happens inside the stalk."}
+      ]
+    },
+    {
+      "title": "Caps and collars",
+      "blocks": [
+        {"type": "text", "text": "They tried caps of tinfoil, and little caps made of fine glass tubing painted black, over the tip. The seedlings grew straight up. Caps of clear glass let them bend. Then they did the opposite: buried the seedlings in fine black sand, or wrapped them in a collar, leaving only the tip in the light. They bent as usual, and the bend was still below the tip, in the part hidden from the lamp. Cutting the tip off stopped the bending entirely."},
+        {"type": "interactive_diagram", "id": "darwin", "caption": "A canary grass seedling lit from one side, and what the Darwins and those after them did to it. A model.", "task": "Guess, then try at least five of the treatments", "goal": "all", "aspect_ratio": 1.74},
+        {"type": "text", "text": "In 1880 they published *The Power of Movement in Plants* and concluded that when the tip is lit from one side, \"some influence is transmitted from the upper to the lower part, causing the latter to bend.\" They did not know what the influence was. The next forty years found out, a step at a time. In 1913 the Danish botanist Peter Boysen-Jensen cut the tips off seedlings and stuck them back on with a slice of gelatine between, and they still bent: the influence could cross a gap of jelly. A sliver of mica pushed into the shaded side, below the tip, stopped the bend; mica on the lit side did not. In 1919 the Hungarian Árpád Paál put cut tips back on off centre, over one side of the stump only, in the dark. The side under the tip grew faster than the other, so the seedlings bent away from it."}
+      ]
+    },
+    {
+      "title": "Went's agar blocks",
+      "blocks": [
+        {"type": "text", "text": "In 1926, in Utrecht, a young Dutch botanist named Frits Went caught the influence in a block of jelly. He cut the tips off oat seedlings and stood them on small blocks of agar, the seaweed jelly used in laboratories, for an hour. Then he threw the tips away and put each block on one side of a seedling whose own tip had been removed. In the dark, with no light at all, the side under the block grew faster, and the seedling bent away from it. A chemical had seeped out of the tips into the agar, and it made the cells beneath it grow."},
+        {"type": "text", "text": "The more tips a block had soaked up, the more the seedling bent, so the bend could be used to measure how much of the chemical there was. Went named it Wuchsstoff, growth substance. It became **auxin**, from the Greek for to grow, and in 1934 it was identified as a small molecule called indole-3-acetic acid.[^urine] Auxin was the first plant **hormone** found: a chemical made in one part of a plant that changes what happens in another."},
+        {"type": "text", "text": "Lit from one side, the tip sends more of its auxin down the shaded side than the lit side, and the shaded side's cells stretch more. A stalk that grows longer on one side than the other has to curve, the way a strip of metal made of two layers curls when one layer expands more than the other. The light sensor in the tip, found in the 1990s, is a protein called phototropin that holds a pigment absorbing blue light."}
+      ]
+    },
+    {
+      "title": "How much bend",
+      "blocks": [
+        {"type": "text", "text": "A small difference in growth makes a large bend. Take a seedling a millimetre thick whose growing zone adds 10 millimetres of length in a day. If the shaded side grows 10 percent faster than the lit side, it ends the day about a millimetre longer. A stalk with one side a millimetre longer than the other, across a width of a millimetre, has turned through about 57° (an arc as long as its radius, which is what a radian is). A seedling on a windowsill can swing from upright to pointing well over toward the window in a day, with no part of it growing more than a tenth faster than any other."},
+        {"type": "text", "text": "Auxin makes cells stretch by using lesson 5's turgor. It sets off proteins in the cell membrane that pump acid out into the cell wall, and the acid loosens the wall's fibres. The water pressure inside the cell, which was always pushing on the wall, can now stretch it, and the cell takes in more water and grows longer. Nothing outside the cell pushes or pulls."}
+      ]
+    },
+    {
+      "title": "Up and down",
+      "blocks": [
+        {"type": "text", "text": "Lay a potted seedling on its side in the dark and in a few hours its shoot turns up and its root turns down. A root does this only if it keeps its tip. The Polish botanist Theophil Ciesielski found in 1872, and Darwin confirmed, that if the last millimetre is cut off, the root grows on sideways. The sensing is done in the cap at the root's very end. Its cells hold heavy grains of starch, which settle to whichever side is lowest, the way sand settles in a jar, and the cell senses which side they press on."},
+        {"type": "interactive_diagram", "id": "gravity", "caption": "A seedling laid on its side, its shoot and root turning. A model.", "task": "Guess, then let it grow for half a day", "goal": "down", "aspect_ratio": 1.82},
+        {"type": "text", "text": "In both shoot and root, auxin collects on the lower side. The shoot's lower cells stretch more, so the shoot curls up. In the root, the same extra auxin slows its lower cells instead, because a root's cells are far more sensitive to auxin than a shoot's and a dose that makes shoot cells grow is too much for root cells. The root's upper side grows faster, and the root curls down. One hormone, two tissues that answer it differently, and the plant ends with its shoot up and its roots down whichever way the seed fell."},
+        {"type": "text", "text": "Auxin coming down from the shoot tip is also part of what keeps lesson 12's sleeping buds asleep. In 1933 Kenneth Thimann and Folke Skoog cut the tips off bean shoots and put auxin on the cut stump; the buds below stayed dormant, as if the tip were still there. Sugar reaching the buds plays a part too, and how auxin and sugar share the work is still being sorted out.[^weedkiller]"}
+      ]
+    },
+    {
+      "title": "Signals through a plant",
+      "blocks": [
+        {"type": "text", "text": "Auxin moves slowly, about a centimetre an hour, carried from cell to cell by carrier proteins that sit on one side of each cell and pass it along in one direction. Plants have faster signals too. When a caterpillar bites a leaf, an electrical signal runs through the veins to other leaves in a minute or two, with a wave of calcium flooding into the cells along the way, and those leaves start making defences (lesson 20). The leaves of the sensitive plant, mimosa, fold within a second of a touch, because an electrical signal tells cells at the base of each leaflet to let water out, and the leaflet sags on its hinge. The Venus flytrap, in the odd-plants branch, counts electrical signals to decide when to shut."},
+        {"type": "text", "text": "None of this needs a nervous system. A plant senses light, gravity and touch, and answers with hormones that change how fast cells grow, or with electrical signals that change where water goes. Most of its responses are built from growth, so they are slow, and a plant that cannot walk toward light grows toward it instead."},
+        {"type": "text", "text": "Sow cress on damp cotton wool in a shoebox with one small hole cut in the end and the lid on. Within a few days the seedlings all lean to the hole. Turn the box round and they lean the other way, and each stem keeps an S-bend from the two directions."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on auxin and bending", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A seedling lit from one side has a lightproof cap put over its tip only. What happens?", "choices": ["It grows straight up", "It bends toward the light", "It bends away from the light"], "answer": 0, "why": "The tip is where light is sensed. With it in the dark, auxin comes down evenly and both sides grow alike."},
+            {"ask": "A seedling is covered everywhere except its tip and lit from one side. Where does it bend?", "choices": ["Below the tip, in the covered part", "Only at the tip", "It doesn't bend"], "answer": 0, "why": "The tip senses the light, and a signal moving down makes the growing zone below bend, as the Darwins found."},
+            {"ask": "What did Went's agar blocks show?", "choices": ["The signal from the tip is a chemical that can soak into jelly and make cells grow", "Plants bend toward agar", "Light travels down the stem"], "answer": 0, "why": "A block that had held cut tips made a tipless seedling bend away from it in the dark. A chemical, later called auxin, had passed into it."},
+            {"ask": "Why does a shoot lit from one side curve toward the light?", "choices": ["More auxin reaches the shaded side, whose cells stretch more", "The lit side's cells shrink in the light", "The shoot is pulled by the light"], "answer": 0, "why": "With one side growing longer than the other, the stalk has to curve, toward the slower, lit side."},
+            {"ask": "A seedling is laid on its side. Auxin collects on the lower side of both root and shoot. Why do they turn opposite ways?", "choices": ["Extra auxin speeds shoot cells but slows root cells", "Auxin collects on the upper side of the root instead", "The root is too heavy to curl upward"], "answer": 0, "why": "Root cells are far more sensitive to auxin. The extra that makes shoot cells stretch is too much for root cells, so the root's upper side grows faster and it curls down."},
+            {"ask": "Paál put a cut tip back on one side of the stump, in the dark. Which way did the seedling bend?", "choices": ["Away from the side with the tip", "Toward the side with the tip", "It grew straight"], "answer": 0, "why": "The tip's auxin went down only the side under it, which grew faster, so the seedling bent away from that side, with no light involved."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A seedling bends below its tip, but the tip senses the light.** The Darwins (1880) found that capping the tip stops the bend.",
+    "**A chemical carries the signal down.** It crossed Boysen-Jensen's gelatine (1913) and soaked into Went's agar blocks (1926); it is auxin.",
+    "**Auxin was the first plant hormone found.** A chemical made in one part of a plant that changes what happens in another.",
+    "**More auxin goes down the shaded side.** Its cells stretch more, so the shoot curves toward the light.",
+    "**A small difference makes a big bend.** One side growing a tenth faster turns a thin seedling through tens of degrees in a day.",
+    "**Roots sense gravity in their caps.** Heavy starch grains settle; cut the cap off and the root grows on sideways.",
+    "**The same auxin bends shoots up and roots down.** Root cells are slowed by an amount of auxin that makes shoot cells grow.",
+    "**Plants signal with hormones and electricity.** Slow hormones change growth; faster electrical signals spread the effects of a bite or a touch."
+  ],
+  "journal": [],
+  "footnotes": {
+    "urine": {"kind": "digression", "title": "Auxin from urine", "text": "Fritz Kögl and his colleagues in Utrecht went looking for Went's growth substance in large amounts and found it, of all places, in human urine, which carries auxin made by gut bacteria and taken in with food. In 1934 they identified it as indole-3-acetic acid. Kenneth Thimann at Caltech found the same molecule in a mould the following year."},
+    "weedkiller": {"kind": "digression", "title": "A hormone as a weedkiller", "text": "Synthetic auxins such as 2,4-D, made in the 1940s, kill broadleaved plants by giving them far too much of the hormone, so they grow themselves to death in twisted, swollen stems. Grasses and cereals are much less affected, which is why 2,4-D is used on lawns and wheat fields. Mixed with another synthetic auxin, it was also half of Agent Orange, the defoliant used in Vietnam."}
+  }
+}

@@ -17,6 +17,12 @@ import { stomaFigure, woodwardStill } from './stomata';
 import { kranzStill, pathwaysFigure } from './cam';
 import { girdleFigure, munchFigure } from './phloem';
 import { barrelStill, knopFigure, potsFigure } from './peas';
+import { kindsStill, tracerFigure, tradeFigure } from './pale';
+import { phyllotaxisFigure, rootFigure } from './spiral';
+import { darwinFigure, gravityFigure } from './bending';
+import { dwarfsFigure, lodgingFigure } from './foolish';
+import { canopyFigure, lettuceFigure, photoperiodFigure } from './cupboard';
+import { crossdateFigure, growFigure, trunkStill } from './rings';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -55,4 +61,25 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   pots: potsFigure,
   barrel: barrelStill,
   knop: knopFigure,
+  // Lesson 11
+  kinds: kindsStill,
+  trade: tradeFigure,
+  tracer: tracerFigure,
+  // Lesson 12
+  root: rootFigure,
+  phyllotaxis: phyllotaxisFigure,
+  // Lesson 13
+  darwin: darwinFigure,
+  gravity: gravityFigure,
+  // Lesson 14
+  dwarfs: dwarfsFigure,
+  lodging: lodgingFigure,
+  // Lesson 15
+  photoperiod: photoperiodFigure,
+  lettuce: lettuceFigure,
+  canopy: canopyFigure,
+  // Lesson 16
+  trunk: trunkStill,
+  grow: growFigure,
+  crossdate: crossdateFigure,
 };

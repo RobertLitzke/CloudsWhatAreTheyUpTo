@@ -17,6 +17,12 @@ import { stoma } from '../src/figures/stomata';
 import { day } from '../src/figures/cam';
 import { girdled, munch } from '../src/figures/phloem';
 import { pot } from '../src/figures/peas';
+import { trade, tracer } from '../src/figures/pale';
+import { divergence, inkDots, shoot } from '../src/figures/spiral';
+import { bend, sideways } from '../src/figures/bending';
+import { field, sprayed } from '../src/figures/foolish';
+import { dayLength, flowering, lettuce, stretch } from '../src/figures/cupboard';
+import { BEAM_END, match, ringWidth } from '../src/figures/rings';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -198,5 +204,105 @@ describe('figures', () => {
     click(k.node, 'No N');
     click(k.node, 'No Fe');
     await expect(k.done).resolves.toBeUndefined();
+  });
+  it('lesson 11: a fungus pays most in poor soil, and the tracer reaches pinesap unless the threads are cut', async () => {
+    expect(trade(0.2).partnered).toBeGreaterThan(trade(0.2).alone * 3);
+    expect(trade(0.9).share).toBeLessThan(trade(0.2).share / 5);
+    expect(tracer(14, false)[14].pinesap).toBeGreaterThan(0.1);
+    expect(tracer(14, true)[14].pinesap).toBe(0);
+    const tr = FIGURES.trade(context(), 'trade');
+    setSlider(tr.node, 0, 0.1);
+    setSlider(tr.node, 0, 0.95);
+    await expect(tr.done).resolves.toBeUndefined();
+    const tc = FIGURES.tracer(context(), 'pinesap');
+    guess(tc.node, 'In the pinesap too');
+    setSlider(tc.node, 0, 14);
+    await expect(tc.done).resolves.toBeUndefined();
+  });
+  it('lesson 12: slow tip growth spirals at 137.5°, fast growth alternates, and a root grows only behind its tip', async () => {
+    expect(Math.abs(divergence(shoot(0.08)) - 137.5)).toBeLessThan(2.5);
+    expect(divergence(shoot(1))).toBeGreaterThan(175);
+    const d = inkDots(24);
+    expect(d[11] - d[10]).toBeCloseTo(1, 5);
+    expect(d[1] - d[0]).toBeGreaterThan(0.9);
+    expect(d[5] - d[4]).toBeGreaterThan(1.5);
+    const r = FIGURES.root(context(), 'tip');
+    guess(r.node, 'Just behind the tip');
+    setSlider(r.node, 0, 24);
+    await expect(r.done).resolves.toBeUndefined();
+    const p = FIGURES.phyllotaxis(context(), 'golden');
+    guess(p.node, 'An odd angle, near 137.5°');
+    setSlider(p.node, 0, 1.1);
+    setSlider(p.node, 0, 0.08);
+    await expect(p.done).resolves.toBeUndefined();
+  });
+  it('lesson 13: a capped or cut seedling grows straight, and a laid-down root turns only with its cap', async () => {
+    expect(bend('none').angle).toBeGreaterThan(20);
+    expect(bend('cap').angle).toBe(0);
+    expect(bend('collar').angle).toBeGreaterThan(20);
+    expect(bend('micaShade').angle).toBe(0);
+    expect(bend('micaLit').angle).toBeGreaterThan(20);
+    expect(sideways(12, false).root).toBeGreaterThan(80);
+    expect(sideways(12, true).root).toBe(0);
+    const d = FIGURES.darwin(context(), 'all');
+    guess(d.node, 'No, it grows straight');
+    for (const n of ['Nothing', 'Collar below the tip', 'Tip cut off', 'Mica, shaded side']) click(d.node, n);
+    await expect(d.done).resolves.toBeUndefined();
+    const g = FIGURES.gravity(context(), 'down');
+    guess(g.node, 'Down');
+    setSlider(g.node, 0, 14);
+    await expect(g.done).resolves.toBeUndefined();
+  });
+  it('lesson 14: tall wheat lodges at high fertiliser, and gibberellin rescues the pea but not the wheat', async () => {
+    expect(field('tall', 180, true).lodged).toBeGreaterThan(0.3);
+    expect(field('semi', 200, true).lodged).toBe(0);
+    expect(field('semi', 180, true).grain).toBeGreaterThan(field('tall', 180, true).grain * 1.4);
+    expect(field('tall', 180, false).lodged).toBe(0);
+    expect(sprayed('dwarfPea', true)).toBeGreaterThan(sprayed('dwarfPea', false) * 2);
+    expect(sprayed('dwarfWheat', true)).toBe(sprayed('dwarfWheat', false));
+    const l = FIGURES.lodging(context(), 'lodge');
+    guess(l.node, 'The semi-dwarf');
+    setSlider(l.node, 0, 180);
+    await expect(l.done).resolves.toBeUndefined();
+    const d = FIGURES.dwarfs(context(), 'spray');
+    click(d.node, 'Spray with gibberellin');
+    await expect(d.done).resolves.toBeUndefined();
+  });
+  it('lesson 15: day length at 48° N, a night break stops a short-day plant, the last flash wins, and shade stretches the avoider', async () => {
+    expect(dayLength(48, 171)).toBeGreaterThan(15.7);
+    expect(dayLength(48, 171)).toBeLessThan(16.3);
+    expect(dayLength(48, 354)).toBeGreaterThan(8.2);
+    expect(dayLength(48, 354)).toBeLessThan(8.7);
+    expect(flowering(48, false).shortDay.some(Boolean)).toBe(true);
+    expect(flowering(48, true).shortDay.some(Boolean)).toBe(false);
+    expect(lettuce('RFRF')).toBeLessThan(0.1);
+    expect(lettuce('FRFR')).toBeGreaterThan(0.8);
+    expect(stretch(0.15).avoider).toBeGreaterThan(2.5);
+    expect(stretch(0.15).tolerant).toBeLessThan(1.2);
+    const p = FIGURES.photoperiod(context(), 'nightbreak');
+    guess(p.node, 'No, never');
+    click(p.node, 'Flash of light at midnight');
+    await expect(p.done).resolves.toBeUndefined();
+    const l = FIGURES.lettuce(context(), 'last');
+    for (const b of ['Red flash', 'Far-red flash', 'Red flash', 'Far-red flash']) click(l.node, b);
+    await expect(l.done).resolves.toBeUndefined();
+    const c = FIGURES.canopy(context(), 'stretch');
+    guess(c.node, 'The shade-avoider, a sunflower');
+    click(c.node, 'Under a dense canopy');
+    await expect(c.done).resolves.toBeUndefined();
+  });
+  it('lesson 16: wet years make wide rings, and the beam matches the master at one year only', async () => {
+    expect(ringWidth(50)).toBeGreaterThan(ringWidth(10) * 2.5);
+    expect(match(BEAM_END)).toBeGreaterThan(0.85);
+    for (let y = 1240; y <= 1299; y++) if (y !== BEAM_END) expect(match(y)).toBeLessThan(0.6);
+    const g = FIGURES.grow(context(), 'grow');
+    for (const r of [10, 50, 30, 30, 30, 30, 30, 30]) {
+      setSlider(g.node, 0, r);
+      click(g.node, 'Grow a year');
+    }
+    await expect(g.done).resolves.toBeUndefined();
+    const c = FIGURES.crossdate(context(), 'dated');
+    setSlider(c.node, 0, BEAM_END);
+    await expect(c.done).resolves.toBeUndefined();
   });
 });

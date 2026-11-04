@@ -1,0 +1,92 @@
+{
+  "id": "pale",
+  "n": 11,
+  "title": "The plant with no green",
+  "teaches": "How root fungi trade phosphorus and water for a plant's sugar, and how some plants with no chlorophyll cheat on the trade",
+  "parts": [
+    {
+      "title": "A white plant in the dark",
+      "blocks": [
+        {"type": "text", "text": "Walk into an old conifer forest in midsummer, somewhere deep enough that hardly any light reaches the floor, and you may find a plant that looks as if it has been left in a cellar. Ghost pipe comes up in clumps of waxy white stems, each bent over at the top into a single nodding flower. Its cousin pinesap is the same idea in pale yellow or pink. Neither has a trace of green anywhere: no leaves to speak of, only a few scales on the stem, and no chlorophyll at all."},
+        {"type": "text", "text": "By the first eight lessons, such a plant should starve. A plant builds itself from sugar it makes out of carbon dioxide and water using the energy of light, and chlorophyll is what catches the light. Ghost pipe has none and grows in the darkest places in the forest. Yet it flowers and sets seed, and stems, flowers and seeds are built from sugar, so it is getting sugar from somewhere. It is not eating insects, it does not twine round other plants, and if you dig it up its roots are a short, matted ball buried in the litter. Nineteenth-century botanists assumed they lived on rotting leaves, as many mushrooms do. The real answer began with a commission to farm truffles and ended, in 1960, with sugar made radioactive so it could be followed through a forest."}
+      ]
+    },
+    {
+      "title": "Frank's truffle commission",
+      "blocks": [
+        {"type": "text", "text": "In the early 1880s the Prussian ministry of agriculture wanted truffles. They fetched high prices, they grew wild under oaks and beeches, and nobody knew how to farm them. The ministry asked Albert Bernhard Frank, a plant physiologist in Berlin, to find out how they lived.[^truffles] Frank never did learn to grow truffles. But digging under the trees, he found something that interested him more."},
+        {"type": "text", "text": "The fine root tips of the oaks and beeches were wrapped in fungus. Each tip was sheathed in a dense mat of fungal threads, and the threads ran into the root between its outer cells and out into the soil in every direction. It was not one diseased tree: nearly every root tip he dug up, on nearly every tree, was the same. In 1885 he called the combined thing a **mycorrhiza**, Greek for fungus-root, and argued, against most of his colleagues, that the fungus was not a parasite. The tree, he said, was feeding the fungus, and the fungus was feeding the tree."},
+        {"type": "diagram", "id": "kinds", "caption": "The two commonest kinds of mycorrhiza. Left: a sheath of fungus round a root tip, with threads running out into the soil. Right: fungus growing inside the root's cells, branching into tiny trees where the trade is made."},
+        {"type": "text", "text": "What Frank saw on oak and beech is one of two common kinds, now called **ectomycorrhizae**, outside fungus-roots, since the fungus stays outside the root's cells. In the other kind, the **arbuscular mycorrhizae**, which are far more widespread, the fungus grows right into the cells of the root and branches inside them into little bushy trees (arbuscules, from Latin for little tree), each pressed against the cell's membrane. Arbuscular fungi are found in about seven in ten of all plant species: grasses, most crops, most garden flowers, maples, apple trees. Pines, firs, spruces, oaks, beeches and birches have Frank's sheathed kind instead. Between these two, and a few rarer kinds found in orchids and heathers, most land plants grow with a fungus in their roots. The cabbage family is one of the few big groups that mostly does without."}
+      ]
+    },
+    {
+      "title": "The trade",
+      "blocks": [
+        {"type": "text", "text": "What the fungus gets is easy to say. A fungus cannot photosynthesise. It lives on sugar made by something else, and a root tip is a steady supply of it, pumped down by the phloem of lesson 9. Estimates vary with the plant and the soil, but a plant commonly sends somewhere between a twentieth and a fifth of all the sugar it makes to its root fungi."},
+        {"type": "text", "text": "What the plant gets back is mostly **phosphorus**. Plants need phosphorus for their membranes, their DNA and ATP, the molecule that carries energy around a cell, and it is often the hardest of all the minerals to get. Phosphate clings to soil particles and barely moves in soil water, so a root soon empties the millimetre or two around itself and then has to grow to find more. A fungal thread is a few thousandths of a millimetre across, far finer and cheaper to build than a root, and a pinch of forest soil can hold metres of it. Threads reach into pores and crevices no root could enter, take up phosphate there, and pass it back along the thread to the root, along with some nitrogen, zinc and water."},
+        {"type": "interactive_diagram", "id": "trade", "caption": "A plant on its own, and the same plant paying a root fungus with sugar, as soil phosphate changes. A model.", "task": "Try scarce phosphate, then plenty", "goal": "trade", "aspect_ratio": 1.82},
+        {"type": "text", "text": "The deal is worth more the poorer the soil. Where phosphate is scarce, a plant with its fungus can grow several times as well as the same plant without. Where there is plenty, the fungus has little to sell, and plants cut back on it: a crop given lots of phosphate fertiliser has far less fungus in its roots. None of this needs the plant to decide anything. Roots short of phosphate let fungi in and feed them; roots with plenty let in less. Plants whose roots behaved that way grew better and left more offspring, over millions of years, than plants that fed fungi regardless."},
+        {"type": "text", "text": "The partnership is very old, which suggests it has paid its way all along. Some of the first land plants, preserved in rock from 407 million years ago (lesson 17), already have the bushy little fungal trees inside their cells.[^old] It may be how plants managed to live on the bare rock and thin soil of the early continents at all."}
+      ]
+    },
+    {
+      "title": "Björkman's tracer",
+      "blocks": [
+        {"type": "text", "text": "Ghost pipe and pinesap have mycorrhizae too: dig one up and the matted ball of roots is wrapped in fungus. In 1960 a Swedish forest botanist, Erik Björkman, found out what the pinesap was doing with its fungus. He injected sugar made with radioactive carbon, along with radioactive phosphate, into the trunks of spruces and pines. A radioactive atom acts as a **tracer**: wherever it ends up, a Geiger counter clicks. Some days later he went looking for it in the plants around."},
+        {"type": "interactive_diagram", "id": "tracer", "caption": "Björkman's experiment: radioactive sugar given to a spruce, and pinesap growing a metre away. A model of where the tracer goes.", "task": "Guess, then follow the tracer until it reaches the pinesap", "goal": "pinesap", "aspect_ratio": 1.74},
+        {"type": "text", "text": "It turned up in pinesap plants growing nearby. The tracer had gone down the tree's phloem into its roots, out into the fungus wrapped around them, along the fungal threads through the soil, and into the pinesap's roots, which were wrapped in the same fungus. The tree pays the fungus in sugar for phosphorus, and the pinesap draws sugar from the same fungus and pays nothing."},
+        {"type": "text", "text": "Plants like this are called **mycoheterotrophs**, from the Greek for fungus and for feeding on others. There are several hundred species, from many unrelated families, so the trick has been found again and again. Ghost pipe takes its sugar from fungi of the brittlegill and milkcap mushrooms, which are partnered with nearby trees. In the Pacific Northwest the striped red and white candystick, the coralroot orchids and the phantom orchid live the same way."}
+      ]
+    },
+    {
+      "title": "Partners and cheats",
+      "blocks": [
+        {"type": "text", "text": "Ecology's ninth lesson, on ants that guard a tree, followed a partnership between two kinds of living thing in which each pays the other. A trade like that is open to cheats: anyone who takes the payment and gives nothing back. Pinesap is one. It gives the fungus nothing in return, and it gets its sugar from trees that are paying the fungus for something else."},
+        {"type": "text", "text": "Orchids take the idea furthest. An orchid seed is a speck of dust, a tiny embryo with almost no food stored in it, which is why one orchid pod can hold hundreds of thousands of seeds, and some a million or more.[^dust] It cannot get started on its own. A seed sprouts only if the right fungus grows into it, and for the first months or years of its life every orchid in the world lives on its fungus, often underground, before it makes a green leaf. Once a green orchid has leaves, it makes most of its own sugar, though many go on taking some from their fungi. Coralroots, small orchids of shady forests, have almost no chlorophyll and live on their fungi for life."},
+        {"type": "text", "text": "Fungi can cheat too. Some fungi take sugar from roots and give little back, at least in some soils, and whether a given partnership helps the plant can change with the soil and the season. The partnership survives the cheats because plants and fungi each tend to send more to partners that send more back, and because, on average, in poor soil, it pays both sides better than going alone."}
+      ]
+    },
+    {
+      "title": "How much do trees share?",
+      "blocks": [
+        {"type": "text", "text": "If a fungus can carry sugar from a spruce to a pinesap, it might carry it from one tree to another. One fungus can be partnered with many trees at once, and the threads of one fungal individual can join the roots of trees of different kinds, so a forest's trees may be linked underground. In 1997 Suzanne Simard and her colleagues in British Columbia fed seedlings of paper birch and Douglas fir growing side by side with carbon dioxide labelled two ways, one with radioactive carbon and one with a heavy but harmless form, and found each kind of carbon had moved, a little, into the other tree. More had gone from birch to fir than back, especially when the fir was in shade. The journal *Nature* put the paper on its cover under the headline *The wood-wide web*."},
+        {"type": "text", "text": "In popular books and films the idea grew far beyond the paper: forests as communities in which mother trees feed their seedlings and warn their neighbours. In 2023 Justine Karst and two colleagues went back over the field studies and found the evidence much thinner than the stories.[^karst] Carbon does move between trees through fungi, sometimes. Whether the amounts matter to the trees, whether it travels inside the fungal threads rather than through the soil between them, and whether trees favour their own kin, they found hard to show in real forests at all. For a pinesap, which has no other source of sugar, the transfer has been confirmed many times since 1960. For two green trees, how much they share is still an open question."},
+        {"type": "text", "text": "If you have a trowel, dig gently at the foot of a pine or fir, down into the dark, damp layer under the needles. The finest roots will be stubby and forked, and often coated in white, yellow or even black threads. That coat is the fungus, and the stubby tips are mycorrhizae, as Frank found them."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on root fungi", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "In a mycorrhiza, what does the plant mainly give the fungus, and what does it get back?", "choices": ["It gives sugar and gets phosphorus and water", "It gives phosphorus and gets sugar", "It gives water and gets nitrogen from the air"], "answer": 0, "why": "The fungus can't photosynthesise, so it lives on the plant's sugar. In return its fine threads gather phosphate, which barely moves in soil, along with some water and other minerals."},
+            {"ask": "Why can a fungus collect phosphate better than the root it grows on?", "choices": ["Its threads are much finer and reach soil the root has not emptied", "Phosphate moves quickly through soil water toward fungi", "Fungi need no sugar, so they can grow anywhere"], "answer": 0, "why": "Phosphate hardly moves, so a root soon empties the soil just around it. Thin fungal threads are cheap to build and reach far beyond that zone, into pores no root could enter."},
+            {"ask": "A crop is given plenty of phosphate fertiliser. What happens to the fungus in its roots?", "choices": ["There is less of it: the plant feeds it less", "There is more of it: it has more to eat", "It is unchanged: the partnership is fixed"], "answer": 0, "why": "With phosphate in easy reach, the fungus has little to sell, and the roots let in and feed less of it."},
+            {"ask": "Björkman gave a spruce radioactive sugar and found radioactivity in pinesap nearby. What is the best explanation?", "choices": ["The sugar went down the spruce to its roots, into a shared fungus and on into the pinesap", "The pinesap took up radioactive carbon dioxide the spruce breathed out", "Radioactive sugar leaked from the spruce's roots and soaked through the soil"], "answer": 0, "why": "The tracer went down the tree's phloem, into the fungus on its roots, along the fungal threads and into the pinesap, whose roots carry the same fungus."},
+            {"ask": "Why can't an orchid seed sprout without a fungus?", "choices": ["It is a tiny embryo with almost no stored food", "Its seed coat can only be opened by a fungus", "It needs the fungus to make its chlorophyll"], "answer": 0, "why": "Orchid seeds are like dust, with next to no food in them. A fungus has to grow in and feed the seedling until it can make its own sugar, and some orchids never do."},
+            {"ask": "What did Karst and colleagues conclude in 2023 about the wood-wide web?", "choices": ["Field evidence that trees share important amounts of food through fungi is thin", "Trees cannot be joined by fungi at all", "Mother trees have been shown to feed their own seedlings first"], "answer": 0, "why": "Carbon can move between trees through fungi, but they found little field evidence that the amounts matter to the trees, or that trees favour their kin."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Ghost pipe and pinesap have no chlorophyll.** They grow in deep shade and live on sugar made by trees, taken through fungi.",
+    "**Most land plants grow with a fungus in their roots.** Frank named the combination a mycorrhiza, fungus-root, in 1885.",
+    "**The plant pays sugar for phosphorus.** Commonly between a twentieth and a fifth of what it makes, for phosphate gathered by threads finer than any root.",
+    "**The poorer the soil, the more the deal pays.** Given plenty of phosphate, plants feed their fungi less.",
+    "**Björkman's tracer (1960) ran from spruce to pinesap.** Down the tree's phloem, into a shared fungus and into the pale plant.",
+    "**Some plants cheat on the trade.** Mycoheterotrophs take sugar from fungi that are partnered with trees and give nothing back.",
+    "**Every orchid starts life on a fungus.** Its dust-like seed has almost no food of its own.",
+    "**How much green trees share through fungi is still unsettled.** Carbon can move between them, but field evidence that it matters is thin."
+  ],
+  "journal": [],
+  "footnotes": {
+    "truffles": {"kind": "digression", "title": "Truffles", "text": "A truffle is the underground fruiting body of a fungus partnered with tree roots. It cannot release its spores into the air, so it ripens with a strong smell that draws pigs, dogs, squirrels and voles to dig it up and eat it; the spores pass through them. Truffles are farmed now, by planting oak or hazel seedlings whose roots have been given the fungus, but it took until the 1970s to make it work reliably."},
+    "old": {"kind": "digression", "title": "Fungi in the oldest land plants", "text": "The Rhynie chert, a rock formed when a hot spring flooded a Scottish marsh 407 million years ago, preserved plants so well that the fungi inside them can still be seen. One plant, Aglaophyton, has the branched fungal trees inside the cells of its underground stems, much as a modern leek or a grass does. The fungi look much like their living relatives."},
+    "dust": {"kind": "technical", "title": "Dust seeds", "text": "A large tropical orchid pod can hold a million or more seeds, each a few tenths of a millimetre long and weighing a few millionths of a gram. They blow a long way, which helps orchids reach new ground. In a laboratory they can be germinated on agar with sugar in it, which stands in for the fungus; that is how commercial orchids are raised."},
+    "karst": {"kind": "digression", "title": "The 2023 reassessment", "text": "Justine Karst, Melanie Jones and Jason Hoeksema reviewed the field studies of common mycorrhizal networks in *Nature Ecology & Evolution*. They found that some papers' claims had grown in the retelling, as later papers cited them for more than they showed. They did not say networks don't exist or never matter, only that the popular picture had run ahead of the evidence."}
+  }
+}

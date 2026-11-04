@@ -29,6 +29,8 @@ export const COL = {
   /** Nitrogen and the other minerals. */
   nitrogen: '#7a3b6e',
   mineral: '#8f7fd0',
+  /** Hormones: auxin, gibberellin and the plant's other signals. */
+  hormone: '#c2508a',
   red: '#c0392b',
   blue: '#3156a8',
   green: '#3f9a3f',

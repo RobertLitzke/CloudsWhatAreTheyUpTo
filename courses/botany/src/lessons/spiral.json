@@ -1,0 +1,86 @@
+{
+  "id": "spiral",
+  "n": 12,
+  "title": "The spiral in the pine cone",
+  "teaches": "How plants grow longer only near their tips, and how one rule for placing each new leaf makes Fibonacci spirals",
+  "parts": [
+    {
+      "title": "Counting spirals",
+      "blocks": [
+        {"type": "text", "text": "Pick up a pine cone and look at it from the bottom, where it was attached to the branch. Its scales are not in rings. They run in spirals out from the stalk, and there are two sets of them, one winding clockwise and the other anticlockwise, crossing each other. Count each set. On many cones you get 8 one way and 13 the other. On others, 5 and 8. On a big sunflower head the seeds run in spirals too, 34 one way and 55 the other, or on a giant one 55 and 89. The same thing turns up in pineapples, the florets of a cauliflower, the leaf rosettes of succulents and the scales on a cactus."},
+        {"type": "text", "text": "Each pair is two numbers next to each other in the series 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, in which each number is the sum of the two before it. It is named after Leonardo of Pisa, called Fibonacci, who used it in 1202 in a puzzle about breeding rabbits. A cone with 8 and 11 spirals, or 7 and 12, is very rare.[^lucas] A pine has no way of counting its scales, so the numbers must come out of the way it grows."}
+      ]
+    },
+    {
+      "title": "Growing from the tips",
+      "blocks": [
+        {"type": "text", "text": "A child grows all over, every part of the body getting bigger together. A plant does not. In the 1870s the German botanist Julius Sachs, the same Sachs whose mineral solutions grew lesson 10's plants, painted ink marks a millimetre apart along the roots of bean seedlings and watched them for a day."},
+        {"type": "interactive_diagram", "id": "root", "caption": "A bean root marked with ink every millimetre from its tip, as Sachs marked them. A model.", "task": "Guess, then let the root grow for a day", "goal": "tip", "aspect_ratio": 2},
+        {"type": "text", "text": "The marks near the seed stayed a millimetre apart. Only the marks in the last few millimetres behind the tip moved apart. At the very tip, under a protective cap, is a small knot of cells that keeps dividing, called a **meristem**. Just behind it, the new cells stretch to many times their length by taking up water, which is lesson 5's turgor at work: the walls loosen, water rushes in, and the cell lengthens. Further back the cells have stopped growing and turned into the root's working tissues: pipes, skin and root hairs. (New side roots are the exception: they start deep inside an older root and push their way out.)"},
+        {"type": "text", "text": "Shoots work the same way. Every growing shoot tip holds a meristem, a dome of dividing cells a fraction of a millimetre across, and everything above ground is made there: stem, leaves, buds and eventually flowers. A nail driven into a tree trunk a metre up is still a metre up fifty years later, because the trunk below the growing tip never gets any longer. It only gets thicker, which is lesson 16's story. A tree's meristems keep making new tissue for as long as it lives, which in a bristlecone pine is nearly five thousand years."}
+      ]
+    },
+    {
+      "title": "The biggest gap",
+      "blocks": [
+        {"type": "text", "text": "Under a microscope, a shoot tip seen from above is a smooth dome with bumps round its edge. Each bump is a new leaf, or a new scale or floret, just beginning. Bumps appear one at a time, at the rim of the dome, and as the dome keeps growing and making new cells in its middle, each bump is pushed outward and away from the centre. Measure the angle round the tip from one bump to the next, and in most plants it comes out close to 137.5°, about three-eighths of a turn."},
+        {"type": "text", "text": "The brothers Louis and Auguste Bravais measured that angle in 1837. In 1868 Wilhelm Hofmeister, a German botanist, proposed where it comes from: each new bump forms in the biggest gap left by the ones before it, as far as it can get from its older neighbours. Later work found the reason. A new leaf starts wherever a growth hormone called auxin (lesson 13) builds up. Each young leaf pulls auxin toward itself, draining it from the tissue around. So auxin can build up again only where no young leaf is draining it, which is the spot furthest from all of them.[^auxin]"},
+        {"type": "interactive_diagram", "id": "phyllotaxis", "caption": "A shoot tip seen from above. Each new leaf forms on the rim where it is least crowded by the ones before it, and all of them drift outward as the tip grows. A model.", "task": "Guess, then find a setting where leaves alternate and one where they spiral", "goal": "golden", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Nothing in that rule mentions an angle, and nothing mentions Fibonacci. The angle settles by itself, and what decides it is how far the older leaves drift out between one new leaf and the next. If they drift a long way, the newest leaf is crowded only by the last one, and forms on the far side of the tip from it: half a turn, which is how grasses and irises place their leaves, alternating up the stem in two flat rows. If they drift only a little, several older leaves crowd each new one, and the angle settles near 137.5°. The leaves then fall into spirals, and the spirals come in Fibonacci numbers. A seedling's tip is small, so it usually starts with leaves on alternate sides, and the spiral appears as its tip grows larger."}
+      ]
+    },
+    {
+      "title": "Spirals with no plant",
+      "blocks": [
+        {"type": "text", "text": "If the rule alone makes the spirals, it should work without a plant. In 1992 two physicists in Paris, Stéphane Douady and Yves Couder, tried it. They filled a shallow dish with silicone oil and put it in a magnetic field. Then they let small drops of a magnetic fluid fall at the centre, one at a time, at a steady rate. The field did two things. It made each drop a tiny magnet, all pointing the same way, so the drops repelled one another. And it was stronger at the edge of the dish, which drew every drop slowly outward. So each new drop was pushed off by the drops already there, in whatever direction was least crowded, and then drifted out."},
+        {"type": "text", "text": "When the drops came slowly, each was pushed only by the last one, and they alternated: half a turn each time. When the drops came faster, the angle settled near 137.5°, and the drops formed spirals that, counted, came out in neighbouring Fibonacci numbers, the pattern of a sunflower's seeds. The plant's spirals are not a design for anything. They are what happens when new things are added one at a time at the edge of a growing centre, each as far as possible from the others."}
+      ]
+    },
+    {
+      "title": "Why Fibonacci",
+      "blocks": [
+        {"type": "text", "text": "Why that angle gives those numbers can be checked with arithmetic. Divide each Fibonacci number by the one before: 8/5 = 1.6, 13/8 = 1.625, 21/13 = 1.615, 34/21 = 1.619. The answers close in on 1.618..., the **golden ratio**. Divide a full turn by it, 360° ÷ 1.618 = 222.5°, and the rest of the circle is 137.5°, the angle the leaves settle at. It is called the golden angle."},
+        {"type": "text", "text": "Now number the leaves in the order they formed. Leaf 0 and leaf 8 are 8 × 137.5° = 1100° apart, which is three full turns and 20° more: nearly in line. So are leaves 1 and 9, 2 and 10, and so on, and your eye joins each run into a spiral. Since leaves 0 to 7 each start a run, there are eight spirals. The same works for steps of 13 leaves (13 × 137.5° is five turns minus 12.5°), and for steps of 5 and 21. Steps of a Fibonacci number of leaves land close to a whole number of turns, and the bigger the number the closer: that is a property of the golden ratio. Your eye joins whichever leaves sit nearest each other. On a cone with a few dozen big scales those are 8 and 13 apart; on a sunflower with hundreds of tiny seeds packed closely, the nearest neighbours are 34 and 55 apart."},
+        {"type": "text", "text": "With a pine cone in hand, count both ways. Mark the start of one spiral with a pen so you know when you're back. Then try a sunflower head, a pineapple or a head of romanesco, and you'll find pairs from the same series."}
+      ]
+    },
+    {
+      "title": "Leaves, buds and branches",
+      "blocks": [
+        {"type": "text", "text": "Not every plant spirals. In mint, maple and lilac the leaves come in opposite pairs, each pair at right angles to the one below. In some plants they come three or more at a time in rings. Models of the same crowding rule give these patterns too, when the tip makes leaves two or three at a time instead of one by one."},
+        {"type": "text", "text": "In the angle where each leaf joins the stem, the shoot tip leaves behind a small bud as it grows on, which holds a meristem of its own. Most of these buds stay asleep. If the shoot tip is cut off or eaten, the buds just below it wake and grow into branches. That is why pinching out the tip of a basil plant makes it bushy, and why a hedge cut flat grows thick. Something from the growing tip keeps the buds below it asleep, and lesson 13 follows what it is."},
+        {"type": "text", "text": "Every shoot, branch and flower comes from a meristem at a tip. Woody plants have one more meristem, the cambium, a thin sheet of dividing cells running all the way round the stem under the bark, which makes the trunk thicker year by year. That one keeps a record, and lesson 16 reads it."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on growing points and spirals", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "A growing root is marked with ink every millimetre. A day later, which marks have moved apart?", "choices": ["Only those a few millimetres behind the tip", "All of them, evenly", "Only those nearest the seed"], "answer": 0, "why": "A root grows only in a short zone behind its tip, where new cells from the meristem stretch. Further back, the cells have stopped growing."},
+            {"ask": "A nail is driven into a young tree a metre above the ground. Fifty years later, how high is it?", "choices": ["Still about a metre", "Much higher, since the trunk has grown", "Lower, since the trunk has settled"], "answer": 0, "why": "Trees grow taller only at their shoot tips. The trunk below gets thicker but never longer."},
+            {"ask": "What is Hofmeister's rule for where a new leaf forms on a shoot tip?", "choices": ["In the biggest gap left by the leaves before it", "At a fixed angle from the last leaf, set by the plant's genes", "On whichever side gets the most light"], "answer": 0, "why": "Each new leaf forms where it is least crowded by its older neighbours. The 137.5° angle is a result of that rule, not part of it."},
+            {"ask": "What did Douady and Couder's drops of magnetic fluid show?", "choices": ["That the crowding rule alone makes Fibonacci spirals, with no plant involved", "That plants contain magnetic particles", "That spirals help leaves catch more light"], "answer": 0, "why": "Drops added one by one at the centre, each pushed away from the others, made the same 137.5° angle and the same Fibonacci spirals as a sunflower."},
+            {"ask": "On a shoot tip where the older leaves drift far out before each new leaf forms, how are the leaves arranged?", "choices": ["Alternating, half a turn apart, in two rows", "In a spiral at 137.5°", "In opposite pairs at right angles"], "answer": 0, "why": "The new leaf is crowded only by the last one, so it forms opposite it, as in grasses and irises."},
+            {"ask": "You pinch out the growing tip of a basil plant. What happens?", "choices": ["Buds lower down wake and grow into side shoots", "The stem below grows longer to replace it", "The plant stops growing"], "answer": 0, "why": "Each leaf has a sleeping bud above it with its own meristem. With the tip gone, the buds below it are released and branch."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Plants grow longer only near their tips.** A meristem of dividing cells at each shoot and root tip makes new cells, and the cells just behind it stretch with water.",
+    "**A trunk gets thicker but never longer.** A nail in a tree stays at the height it was driven in.",
+    "**Each new leaf forms in the biggest gap.** Hofmeister's rule (1868): as far as possible from the leaves before it.",
+    "**The rule alone settles the angle.** If older leaves drift far out between new leaves, they alternate; if only a little, the angle settles near 137.5°.",
+    "**137.5° gives spirals in Fibonacci numbers.** Steps of 5, 8, 13 or 21 leaves land almost a whole number of turns round, so the eye joins them into spirals.",
+    "**Douady and Couder's drops (1992) made spirals with no plant.** Magnetic drops added one by one at a centre formed the same patterns as a sunflower.",
+    "**Sleeping buds wait above each leaf.** Cut off the shoot tip and they grow into branches."
+  ],
+  "journal": [],
+  "footnotes": {
+    "lucas": {"kind": "digression", "title": "The other series", "text": "A few plants show spirals in another series built the same way but from a different start: 1, 3, 4, 7, 11, 18, 29, the Lucas numbers, named after the French mathematician Édouard Lucas. Their angle is about 99.5°. The crowding rule can settle on it too, when growth starts from an unusual arrangement, and in surveys of plants it turns up in only a few percent of spirals."},
+    "auxin": {"kind": "technical", "title": "Auxin at the tip", "text": "In 2000 and 2003, Didier Reinhardt, Cris Kuhlemeier and their colleagues showed that a new leaf forms where auxin collects in the shoot tip's surface layer, and that each young leaf pumps auxin towards itself through carrier proteins in the cell membranes, draining the cells around it. Put a dab of auxin paste on a tip whose own transport has been blocked, and a leaf forms there."}
+  }
+}

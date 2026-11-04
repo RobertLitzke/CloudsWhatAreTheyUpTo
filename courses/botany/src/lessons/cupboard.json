@@ -1,0 +1,81 @@
+{
+  "id": "cupboard",
+  "n": 15,
+  "title": "The plant in the cupboard",
+  "teaches": "How plants keep time with an inner clock, time the night to know the season, and read red and far-red light to tell sun from shade",
+  "parts": [
+    {
+      "title": "De Mairan's cupboard",
+      "blocks": [
+        {"type": "text", "text": "The sensitive plant, mimosa, is known for folding its leaflets when touched. It also folds them every evening and opens them every morning, as if asleep. In 1729 Jean-Jacques d'Ortous de Mairan, a French astronomer better known for his work on the aurora, wondered whether the plant was simply responding to the sun. He put one in a dark cupboard, where it could not see daylight at all, and looked in on it."},
+        {"type": "text", "text": "The leaves went on opening in the morning and folding in the evening for days, in the dark. De Mairan published a short note and left it there. Others repeated it with the room temperature held steady, to rule out the daily warming and cooling. The plant was keeping time by itself. Later work found that, left alone in constant conditions, the rhythm runs a little longer or shorter than 24 hours, so it drifts slowly out of step with the real day. An outside cue the cupboard failed to shut out, such as some daily change in the air, would keep exact 24-hour time. A rhythm that drifts must come from inside the plant."},
+        {"type": "text", "text": "Nearly every living thing has such a clock, called **circadian**, from Latin for about a day. In plants it is a loop of genes, each switching the next on or off, that takes about a day to go round. Each morning's light nudges it back into step. It lets a plant get ready for dawn before dawn comes, opening its stomata and making the proteins of photosynthesis in advance, and it lets the plant measure how long the night has been."}
+      ]
+    },
+    {
+      "title": "A tobacco that wouldn't flower",
+      "blocks": [
+        {"type": "text", "text": "In the summer of 1918, in the fields of the US Department of Agriculture near Washington, Wightman Garner and Harry Allard were puzzled by a new tobacco called Maryland Mammoth. It grew enormous, taller than a man and with many more leaves than ordinary tobacco, which made it valuable, and it went on growing all summer without ever flowering, which made it hard to get seed. Cuttings moved into a greenhouse for the winter flowered there, though they were still small."},
+        {"type": "text", "text": "Garner and Allard tried changing the temperature, the water and the feeding, and none of it mattered. Then they tried the length of the day. Every afternoon they wheeled some plants on trolleys into a dark hut and wheeled them out again the next morning, so in midsummer they had short winter days and long winter nights. Those plants flowered. In 1920 they published it: many plants flower only when the days are short enough, and others only when they are long enough. They called the response **photoperiodism**.[^florigen]"},
+        {"type": "text", "text": "Chrysanthemums, poinsettias, soybeans and Maryland Mammoth are **short-day plants**, flowering as the days shorten in late summer and autumn. Spinach, radish, and winter wheat once it has been through a winter's cold, are **long-day plants**, flowering in the long days of early summer. Tomatoes, cucumbers and many weeds are day-neutral, flowering whenever they are big enough. Garner and Allard also found that one soybean variety flowered on almost the same date in late summer whether it was sown in May or in June: the date was set by the shortening days, not by the plant's age."}
+      ]
+    },
+    {
+      "title": "It's the night that counts",
+      "blocks": [
+        {"type": "text", "text": "A short-day plant might be measuring the day, or the night; in a 24-hour cycle, a short day always comes with a long night. In 1938 Karl Hamner and James Bonner, in Chicago, separated them. They gave cocklebur, a short-day weed, long nights and short days, so it should flower, and then interrupted either the day or the night. A spell of darkness in the middle of the day made no difference. A single minute of light in the middle of the night stopped it flowering entirely."},
+        {"type": "interactive_diagram", "id": "photoperiod", "caption": "A year of daylight at a chosen latitude, with the seasons when a short-day and a long-day plant flower. A model.", "task": "Guess, then give both plants a flash at midnight", "goal": "nightbreak", "aspect_ratio": 1.74},
+        {"type": "text", "text": "The plants were timing the dark. A short-day plant flowers only after an unbroken night longer than some critical length, and a long-day plant only after a night shorter than its own critical length. A flash at midnight splits one long night into two short ones. Chrysanthemum growers use this: lamps switched on for an hour in the middle of the night stop the plants flowering and keep them growing leaves through autumn, and when the lamps are turned off the plants flower all at once, timed for market. Poinsettias need nights of about 14 hours with no light at all from late September to turn their top leaves red by Christmas, and a street light shining into the greenhouse can spoil a crop."},
+        {"type": "text", "text": "Day length is a reliable calendar. Rain and temperature vary from year to year, but at 48° N, the latitude of Seattle and Spokane, the longest day is always about 16 hours and the shortest about 8 and a half, on the same dates every year. A plant that times its flowering by the night will flower at the right season even after a cold spring or a warm autumn. Near the equator the days hardly change, and plants there flower by other cues: rain, dry spells or their own age."}
+      ]
+    },
+    {
+      "title": "Red and far-red",
+      "blocks": [
+        {"type": "text", "text": "Whatever reads the light in a plant has to be very sensitive, since a minute of it at midnight is enough. In the late 1940s and 1950s Harry Borthwick and Sterling Hendricks, physicists and botanists at the US Department of Agriculture's station at Beltsville, Maryland, measured which colour of light does it. They used a big home-made spectrograph to light plants with pure colours, and found red light, around 660 nanometres, worked best for breaking a night. They also found something stranger."},
+        {"type": "text", "text": "Lettuce seeds of one variety sprout well in light and hardly at all in the dark. Borthwick and Hendricks found that a flash of red light made them sprout. A flash of far-red, the deep red at the very edge of what we can see, about 730 nanometres, cancelled it. Red, then far-red, and the seeds stayed asleep. Red, far-red, red, and they sprouted. They could switch back and forth many times, and only the last flash counted."},
+        {"type": "interactive_diagram", "id": "lettuce", "caption": "Lettuce seeds given flashes of red and far-red light, in any order. A model of Borthwick and Hendricks's experiment (1952).", "task": "Give three or more flashes ending in red, then three or more ending in far-red", "goal": "last", "aspect_ratio": 2.35},
+        {"type": "text", "text": "That pattern meant one pigment with two forms. Red light switches it on, into its active form; far-red light switches it off again. (Each form absorbs the light that turns it into the other, which is why the two colours undo each other.) Whichever flash came last decides whether the switch is on. In 1959 Warren Butler and his colleagues at Beltsville extracted the pigment from plants, and it was named **phytochrome**, plant colour. In the dark, the active form slowly reverts, which is one way the plant measures the length of the night, though most of the timing is done by the clock, which phytochrome keeps set.[^nm]"}
+      ]
+    },
+    {
+      "title": "Shade under a canopy",
+      "blocks": [
+        {"type": "text", "text": "Phytochrome also tells a plant whether it is in the shade of another plant. Lesson 3's leaves absorb red light strongly and let far-red through, since far-red is no use for photosynthesis. In open sunlight there is a little more red than far-red. Under a canopy of leaves, most of the red has been taken and much of the far-red remains, so the ratio of red to far-red falls from about 1.2 to as low as 0.1. A seedling's phytochrome, mostly switched off by the far-red, tells it there are leaves above it, and it can even sense the far-red reflected off a neighbour's leaves before it is shaded."},
+        {"type": "interactive_diagram", "id": "canopy", "caption": "A shade-avoiding seedling and a shade-tolerant one, in the open and under leaves. A model.", "task": "Guess, then put both under a dense canopy", "goal": "stretch", "aspect_ratio": 1.82},
+        {"type": "text", "text": "What it does next depends on what kind of plant it is. A sunflower, a weed of open ground or a crop grown in a crowd reads low red as a race it can win, and pours its food into a long thin stem to get its leaves above its neighbours. Under a forest canopy that race is lost before it starts, and a forest herb or a young hemlock instead stays short, spreads thin, broad leaves and gets by on the little light there is, as lesson 2's shade leaves do. Small seeds of open-ground plants often use the same signal to stay dormant under leaves, and sprout only when a gap opens and red light reaches the soil, which matters a great deal in Ecology's lesson on how forests regrow gap by gap."},
+        {"type": "text", "text": "In spring, note the order in which the trees and shrubs on your street leaf out, and which plants under them flower before the leaves close over. Many woodland flowers bloom early for that reason. Compare a weed seedling growing under a shrub with one of the same kind in open ground: the one in the shade will usually be taller, thinner and paler."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Six questions on clocks, nights and shade", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "De Mairan's mimosa went on opening and closing its leaves in a dark cupboard. What did that show?", "choices": ["The plant has its own clock", "Some daylight was leaking into the cupboard", "The leaves were responding to being touched"], "answer": 0, "why": "With no daylight to follow, the plant kept its daily rhythm by itself. In constant conditions the rhythm drifts slowly from 24 hours, so it comes from inside the plant."},
+            {"ask": "Garner and Allard's tobacco flowered only after being wheeled into a dark hut each afternoon. What kind of plant is it?", "choices": ["A short-day plant", "A long-day plant", "A day-neutral plant"], "answer": 0, "why": "It flowered only when its days were made short, as in winter."},
+            {"ask": "A short-day plant gets long nights, but each is broken by one minute of light at midnight. What happens?", "choices": ["It doesn't flower", "It flowers as usual", "It flowers sooner"], "answer": 0, "why": "Plants time the unbroken dark. The flash splits one long night into two short ones, neither long enough."},
+            {"ask": "Lettuce seeds get flashes of red, far-red, red, far-red. What do they do?", "choices": ["Stay dormant, because the last flash was far-red", "Sprout, because they got two red flashes", "Half sprout"], "answer": 0, "why": "Each flash switches phytochrome; only the last one decides. Far-red turns it to the inactive form."},
+            {"ask": "How does a seedling tell it is under other plants' leaves?", "choices": ["The light reaching it has much less red than far-red", "It feels the leaves' shadow cooling it", "It senses the other plants' roots"], "answer": 0, "why": "Leaves absorb red and pass far-red. Phytochrome reads the low red to far-red ratio as shade."},
+            {"ask": "Why is timing flowering by the length of the night a reliable way to find the season?", "choices": ["Night length on a given date is the same every year", "Nights are always warmer in autumn", "Night length changes with each year's rainfall"], "answer": 0, "why": "Weather varies from year to year, but the length of the night on a given date follows the calendar exactly."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Plants have an inner clock.** De Mairan's mimosa (1729) kept opening and folding its leaves in a dark cupboard.",
+    "**Many plants flower by day length.** Garner and Allard (1920): short-day plants flower as days shorten, long-day plants as they lengthen.",
+    "**It is the night that is timed.** A minute of light at midnight stops a short-day plant flowering (Hamner and Bonner, 1938).",
+    "**Day length is a reliable calendar.** It falls on the same dates every year, whatever the weather.",
+    "**Phytochrome is switched by red and far-red light.** Red turns it on and far-red off; with lettuce seeds, the last flash wins.",
+    "**Low red to far-red means shade.** Leaves absorb red and pass far-red, so a seedling can tell it has neighbours above.",
+    "**Shade-avoiders stretch; shade-tolerant plants don't.** A sunflower races upward, while a forest herb stays short and spreads its leaves."
+  ],
+  "journal": [],
+  "footnotes": {
+    "florigen": {"kind": "technical", "title": "The flowering signal", "text": "Day length is read in the leaves, but flowers are made at the shoot tip. In 1936 the Russian botanist Mikhail Chailakhyan showed that a single leaf given short days could make a whole plant flower, and proposed a travelling flowering signal he called florigen. It was finally identified in 2005 to 2007 as a small protein, made in the leaves and carried to the tip in the phloem (lesson 9)."},
+    "nm": {"kind": "technical", "title": "Nanometres", "text": "A nanometre is a millionth of a millimetre. Visible light runs from about 400 nanometres (violet) to about 700 (deep red); 730, far-red, is at the very edge of what we can see, and most of it passes straight through a leaf."}
+  }
+}

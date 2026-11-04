@@ -13,7 +13,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 10 | 27 | 0 | 10 | 10 | 10 | 0 |
-| [Botany](#botany) | 10 | 23 | 0 | 10 | 10 | 10 | 0 |
+| [Botany](#botany) | 16 | 17 | 0 | 16 | 16 | 16 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
 
@@ -229,7 +229,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov). No photos or encyclopedia links yet.
+`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-16 were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -273,7 +273,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov). No photos or encyclopedia links yet.
+`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-16 were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -287,12 +287,12 @@ A lesson's status is the first step it still waits for, in the order: student re
 | 8 | Sour in the morning (`cam`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | Rubisco's mistake with oxygen, and the two ways plants get round it: the C4 pump and CAM's night shift. |
 | 9 | The ring around the trunk (`phloem`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | How sugar moves through a plant in the phloem, pushed by osmotic pressure from where it's made to where it's used. |
 | 10 | Peas in sterile sand (`peas`) |  | awaiting Gemini review (queued 2026-11-03) | Fact check; Photos (no photos chosen yet) | What plants take from the soil, why fertiliser isn't food, and how peas get nitrogen from the air with the help of bacteria. |
-| 11 | The plant with no green (`pale`) |  | planned, listed as coming |  | Root fungi, the trade of sugar for phosphorus, and plants that cheat on it. |
-| 12 | The spiral in the pine cone (`spiral`) |  | planned, listed as coming |  | Growing points, and how one rule makes Fibonacci spirals. |
-| 13 | The bending seedling (`bending`) |  | planned, listed as coming |  | Darwin’s canary grass and auxin, the signal that bends a shoot. |
-| 14 | The foolish seedling (`foolish`) |  | planned, listed as coming |  | Gibberellin, a fungus’s weapon and the short wheat of the Green Revolution. |
-| 15 | The plant in the cupboard (`cupboard`) |  | planned, listed as coming |  | Clocks, day length and how plants read light under a canopy. |
-| 16 | Rings that tell time (`rings`) |  | planned, listed as coming |  | The cambium, wood and dating with tree rings. |
+| 11 | The plant with no green (`pale`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How root fungi trade phosphorus and water for a plant's sugar, and how some plants with no chlorophyll cheat on the trade. |
+| 12 | The spiral in the pine cone (`spiral`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants grow longer only near their tips, and how one rule for placing each new leaf makes Fibonacci spirals. |
+| 13 | The bending seedling (`bending`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a shoot bends toward light: the tip senses it, and a hormone, auxin, makes the shaded side grow faster. |
+| 14 | The foolish seedling (`foolish`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Gibberellin, the hormone that lengthens stems, found through a rice disease, and the short wheat and rice of the Green Revolution. |
+| 15 | The plant in the cupboard (`cupboard`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How plants keep time with an inner clock, time the night to know the season, and read red and far-red light to tell sun from shade. |
+| 16 | Rings that tell time (`rings`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How the cambium under the bark makes a ring of wood each year, and how matching patterns of wide and thin rings dates old timber. |
 | 17 | Plants without leaves (`rhynie`) |  | planned, listed as coming |  | The Rhynie chert and how plants came onto land. |
 | 18 | The comet orchid (`orchid`) |  | planned, listed as coming |  | Flowers, pollinators and a moth predicted forty years early. |
 | 19 | Travelling and waiting (`seeds`) |  | planned, listed as coming |  | How seeds cross oceans and wait for years. |
