@@ -187,4 +187,23 @@ describe('figures', () => {
     setSlider(a.node, 1, 20_000);
     await expect(a.done).resolves.toBeUndefined();
   });
+  it('branches C, H and S: survivor, IRMAA, part-time work', async () => {
+    const s = FIGURES.survivor(context(), 'survivor');
+    expect(s.node.textContent).toContain('$6,544 more');
+    setSlider(s.node, 0, 150_000);
+    await expect(s.done).resolves.toBeUndefined();
+
+    const m = FIGURES.irmaa(context(), 'irmaa');
+    guess(m.node, 'About $2,300');
+    setSlider(m.node, 0, 300_000);
+    setSlider(m.node, 0, 500_000);
+    await expect(m.done).resolves.toBeUndefined();
+
+    const p = FIGURES['part-time'](context(), 'part-time');
+    guess(p.node, 'About $7,000');
+    expect(p.node.textContent).toMatch(/by \$6,9\d\d a year/);
+    setSlider(p.node, 0, 30_000);
+    setSlider(p.node, 1, 5);
+    await expect(p.done).resolves.toBeUndefined();
+  }, { timeout: 30_000 });
 });

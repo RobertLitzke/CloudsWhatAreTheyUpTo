@@ -1,0 +1,75 @@
+{
+  "id": "beneficiaries",
+  "n": 502,
+  "branch": "couples",
+  "needs": ["filing-status"],
+  "title": "Beneficiaries and inherited accounts",
+  "teaches": "Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax",
+  "parts": [
+    {
+      "title": "The form beats the will",
+      "blocks": [
+        { "type": "text", "text": "Retirement accounts, life insurance and accounts marked payable or transfer on death pass by their beneficiary forms, not by the will. A will written last year that leaves everything to the children doesn't touch a 401(k) whose form, filled in at a first job, names a parent who has since died or an ex-spouse." },
+        { "type": "text", "text": "For many households these forms control most of the money. Each account needs a primary beneficiary and a contingent one, checked after every marriage, divorce, birth and death. Washington law revokes an ex-spouse's designation automatically on divorce for most assets, but not for employer plans governed by federal law, as a Washington case decided.[^egelhoff] A 401(k) also needs the spouse's written consent to name anyone else." },
+        { "type": "text", "text": "Taxable brokerage and bank accounts can carry a transfer-on-death designation too, and Washington allows a transfer-on-death deed for a house. With all of them, the probate estate can be close to empty." }
+      ]
+    },
+    {
+      "title": "A surviving spouse's choice",
+      "blocks": [
+        { "type": "text", "text": "A spouse who inherits an IRA can roll it into their own IRA and treat it as theirs from then on, with required withdrawals based on their own age. That is usually best for an older survivor." },
+        { "type": "text", "text": "A younger survivor may do better leaving it as an inherited IRA for a while. Withdrawals from an inherited IRA carry no 10 percent penalty before 59 and a half, which a widow of 50 living on the account needs. They can roll it into their own IRA later, once past 59 and a half." }
+      ]
+    },
+    {
+      "title": "Everyone else: ten years",
+      "blocks": [
+        { "type": "text", "text": "Since 2020, most other heirs must empty an inherited IRA or 401(k) by the end of the tenth year after the death. If the owner had already begun required withdrawals, the heir must also take a withdrawal each year in between; if not, they can take any amounts in any years, as long as the account is empty by year ten.[^edb]" },
+        { "type": "text", "text": "The freedom over timing is worth a lot. An heir earning $150,000 who takes a $1 million IRA in one lump pays most of it at 35 and 37 percent. Spread evenly over ten years, the same money is taxed mostly at 24. An heir who retires during the ten years can do better still, taking most of it in the years with no salary." },
+        { "type": "diagram", "id": "scale", "caption": "Federal tax a single heir pays on a $1 million inherited traditional IRA, by how it is withdrawn within the ten years, ignoring growth. 2026 rules.", "options": { "title": "Tax on inheriting a $1 million IRA", "unit": "dollars", "items": [
+          { "label": "All in one year, earning $150,000", "value": 350800, "says": "$350,800", "color": "bad" },
+          { "label": "A tenth a year, earning $150,000", "value": 265700, "says": "$265,700", "color": "tax" },
+          { "label": "A tenth a year, after retiring", "value": 131700, "says": "$131,700", "color": "taxable" },
+          { "label": "A Roth IRA instead", "value": 0, "says": "$0", "color": "roth" }
+        ] } },
+        { "type": "text", "text": "An inherited Roth follows the same ten years but is tax-free, so the best plan there is usually the opposite: leave it untouched to grow until the tenth year, then take it all." }
+      ]
+    },
+    {
+      "title": "Trusts as beneficiaries",
+      "blocks": [
+        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money: for a young heir, a spendthrift, or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust, or the account may have to be emptied within five years. A trust that keeps the withdrawals rather than paying them out pays the top 37 percent rate above about $16,000 of income, so these trusts are written with care." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Beneficiary forms, not the will, decide where retirement accounts go: name a contingent and review them after every change in the family.",
+          "A surviving spouse can roll an IRA into their own, or keep it inherited to draw without penalty before 59 and a half.",
+          "Most other heirs must empty an inherited account within ten years.",
+          "Spreading withdrawals over the ten years, especially into low-income years, can halve the tax.",
+          "Inherited Roths are best left to grow until the tenth year."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on beneficiaries", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "A will leaves everything to the children; the IRA's form names the owner's sister. Who gets the IRA?", "choices": ["The sister", "The children", "It is split equally"], "answer": 0, "why": "The beneficiary form decides, whatever the will says." },
+          { "ask": "A widow of 52 inherits her husband's IRA and needs income from it. What is usually best?", "choices": ["Keep it as an inherited IRA for now", "Roll it into her own IRA at once", "Cash it out"], "answer": 0, "why": "Inherited IRA withdrawals have no early penalty; her own IRA's would until 59 and a half." },
+          { "ask": "An adult son inherits a traditional IRA from a father who hadn't started required withdrawals. When must it be empty?", "choices": ["By the end of the tenth year after the death", "Within five years", "Over the son's life expectancy"], "answer": 0, "why": "Most non-spouse heirs follow the ten-year rule." },
+          { "ask": "Why is it usually best to leave an inherited Roth untouched until the tenth year?", "choices": ["Its growth is tax-free, so the longer it grows the better", "Early withdrawals are penalised", "The tenth year has lower rates"], "answer": 0, "why": "With no tax on withdrawals, there is no reason to take them early." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Beneficiary forms override wills.** Name a contingent, and review after every family change.",
+    "**A spouse can roll over or wait.** An inherited IRA can be drawn without penalty before 59 and a half.",
+    "**Other heirs have ten years.** With yearly withdrawals too if the owner had started them.",
+    "**Spread the withdrawals.** Low-income years in the ten can halve the tax.",
+    "**Let an inherited Roth grow.** Take it at the end of the ten years.",
+    "**Trusts need careful drafting.** Or they speed up the withdrawals and pay the top rate."
+  ],
+  "footnotes": {
+    "egelhoff": { "kind": "digression", "title": "Egelhoff", "text": "David Egelhoff of Washington died soon after his divorce, with his ex-wife still named on his employer's life insurance and pension. Washington law said the divorce revoked her designation; in 2001 the Supreme Court held that federal pension law overrode the state statute, and she kept the money. The lesson is to change the forms, not rely on the law." },
+    "edb": { "kind": "technical", "title": "Eligible designated beneficiaries", "text": "Some heirs can still stretch withdrawals over their own life expectancy: a surviving spouse, a minor child of the owner until 21, a disabled or chronically ill heir, and anyone less than ten years younger than the owner. Final IRS rules issued in 2024 confirmed the yearly withdrawals within the ten years when the owner had started theirs." }
+  }
+}

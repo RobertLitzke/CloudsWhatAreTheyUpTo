@@ -1,0 +1,71 @@
+{
+  "id": "medicare",
+  "n": 601,
+  "branch": "after65",
+  "needs": ["aca"],
+  "title": "Medicare and IRMAA",
+  "teaches": "What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance",
+  "parts": [
+    {
+      "title": "From the marketplace to Medicare",
+      "blocks": [
+        { "type": "text", "text": "At 65 the health line in the plan changes shape. Lesson 11's marketplace premiums, worth more than $20,000 a year to a couple and steeply tied to income, end. Medicare replaces them with lower premiums, but its own link to income, the IRMAA surcharges, is set by the tax return from two years earlier. A Roth conversion at 63 can raise the Medicare bill at 65." }
+      ]
+    },
+    {
+      "title": "The parts",
+      "blocks": [
+        { "type": "text", "text": "**Part A** covers hospital stays and is free for anyone with ten years of payroll taxes, or whose spouse has them." },
+        { "type": "text", "text": "**Part B** covers doctors, outpatient care and tests, for a standard premium of $202.90 a month each in 2026, usually taken from Social Security. It pays 80 percent of approved costs with no yearly limit on the rest." },
+        { "type": "text", "text": "**Part D** covers prescriptions through private plans, with a cap of $2,100 a year on out-of-pocket drug costs in 2026." },
+        { "type": "text", "text": "Then one of two ways to fill the gaps. **Medigap** policies pay most of what Parts A and B leave, letting the holder see any doctor who takes Medicare; Plan G, the most common, costs a 65-year-old in Washington somewhere around $150 to $250 a month. **Medicare Advantage** plans replace Parts A and B with a private plan, often with no premium beyond Part B and with a yearly out-of-pocket limit, but with networks and prior approvals.[^switch]" }
+      ]
+    },
+    {
+      "title": "Enrolling on time",
+      "blocks": [
+        { "type": "text", "text": "The initial enrolment period runs for seven months around the 65th birthday, three before to three after. Someone not covered by a current employer's plan, which includes every early retiree, should sign up for Parts A, B and D in it. Missing it costs a Part B premium raised by 10 percent for each full year late, for life, and a Part D penalty that grows by 1 percent a month." },
+        { "type": "text", "text": "Three other dates matter. The marketplace credit stops once someone is eligible for premium-free Part A, so the ACA plan should end the day Medicare starts. HSA contributions must stop six months before Part A begins, because Part A is backdated six months when it starts after 65. And the six months after Part B begins are the only time Medigap must accept a buyer without asking about their health." }
+      ]
+    },
+    {
+      "title": "IRMAA",
+      "blocks": [
+        { "type": "text", "text": "Medicare's income-related surcharges add to the Part B and Part D premiums for anyone whose MAGI two years earlier was above a line: $218,000 for a couple, $109,000 for a single person, for 2026 premiums based on 2024 returns. They come in five steps, and a dollar over a step costs the whole of the next surcharge." },
+        { "type": "interactive_diagram", "id": "irmaa", "caption": "Medicare's 2026 income surcharges for a married couple, both enrolled, by their MAGI two years earlier: the extra cost of Part B and Part D together in a year.", "task": "Guess, then visit three tiers", "goal": "irmaa", "aspect_ratio": 1.74 },
+        { "type": "text", "text": "Compared with lesson 11's cliff, these steps are small: about $2,300 a year for a couple at the first, rising to about $13,900 at the top. For conversions they act like a few extra percentage points of tax, and lesson 12's advice holds: converting to just under a step is free, a little over is expensive." },
+        { "type": "text", "text": "Because of the two-year lag, the conversion window of lesson 14 starts paying IRMAA from 63. And the first years of Medicare often look at a year with a salary in it. Retirement counts as a life-changing event: form SSA-44 asks Social Security to use the current, lower income instead.[^events]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Part A is free, Part B costs $202.90 a month each in 2026, and Part D caps drug costs at $2,100.",
+          "Choose Medigap in the first six months of Part B, when it can't refuse you, or Medicare Advantage.",
+          "Enrol in the seven months around 65; late Part B costs 10 percent a year for life.",
+          "IRMAA uses income from two years earlier: conversions from 63 count.",
+          "After retiring, file SSA-44 so Medicare uses the new, lower income."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on Medicare", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "A couple's MAGI in 2024 was $230,000. What does that change in 2026?", "choices": ["Both pay the first IRMAA surcharge on Parts B and D", "Nothing: IRMAA uses this year's income", "They lose premium-free Part A"], "answer": 0, "why": "2026 premiums are based on the 2024 return, and $230,000 is above the first step at $218,000." },
+          { "ask": "An early retiree turns 65 and has a marketplace plan. When should they sign up for Part B?", "choices": ["In the seven months around their birthday", "When the marketplace plan renews", "Whenever they first need a doctor"], "answer": 0, "why": "A marketplace plan isn't employer cover, so waiting brings the lifelong late penalty." },
+          { "ask": "When can a Medigap insurer not refuse a buyer or charge more for their health?", "choices": ["In the six months after Part B starts", "At any annual enrolment", "Only after age 70"], "answer": 0, "why": "Outside that window, insurers in most states can ask health questions and refuse." },
+          { "ask": "Someone retired in 2025 with a high salary in 2024. How can they avoid IRMAA in 2026?", "choices": ["File form SSA-44 reporting the work stoppage", "Delay Part B", "Convert to Roth in 2026"], "answer": 0, "why": "A life-changing event lets Social Security use the lower current income." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Medicare replaces the marketplace at 65.** Its premiums are lower but have their own link to income.",
+    "**Part B is $202.90 a month in 2026.** Add Part D, and either Medigap or Medicare Advantage.",
+    "**Enrol in the seven months around 65.** Late Part B is 10 percent dearer for every year missed, for life.",
+    "**Buy Medigap in its first six months.** Then it can't refuse you.",
+    "**IRMAA looks back two years.** Conversions from 63 raise premiums from 65.",
+    "**Use SSA-44 after retiring.** It swaps a salary year for the current income."
+  ],
+  "footnotes": {
+    "switch": { "kind": "technical", "title": "Switching later", "text": "Someone can leave Medicare Advantage for original Medicare each autumn, but a Medigap insurer may then refuse them or charge more for their health. A few states guarantee the right to buy Medigap later; Washington's rules on switching are narrow, so the first choice at 65 is the hardest to undo and worth checking with the state's free SHIBA counsellors." },
+    "events": { "kind": "technical", "title": "Life-changing events", "text": "The list includes marriage, divorce, a spouse's death, stopping or cutting back work, and the loss of a pension. Selling a house or a large conversion doesn't count. The appeal asks for an estimate of the current year's income, checked later against the actual return." }
+  }
+}

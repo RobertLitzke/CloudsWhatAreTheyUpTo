@@ -1,0 +1,75 @@
+{
+  "id": "housing",
+  "n": 702,
+  "branch": "shapes",
+  "needs": ["coast"],
+  "title": "The house",
+  "teaches": "Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life",
+  "parts": [
+    {
+      "title": "The largest asset most people own",
+      "blocks": [
+        { "type": "text", "text": "For most households the house is worth more than any account, yet the trunk left it out. It produces no income, but it removes rent from spending, and it can be sold, downsized or borrowed against. Three decisions come up at almost every retirement: whether to pay off the mortgage, whether and when to sell, and whether to use the house as a last reserve." }
+      ]
+    },
+    {
+      "title": "Paying off the mortgage",
+      "blocks": [
+        { "type": "text", "text": "Paying off a mortgage early earns its interest rate, with no risk. A 3 percent mortgage from 2021 is a poor use of money that could earn 4 percent in Treasury bonds. A 7 percent mortgage from 2024 is a good one: few safe investments pay that much. Most retirees take the standard deduction, so the mortgage interest usually saves no tax at all." },
+        { "type": "text", "text": "For an early retiree there is a second effect. A paid-off house cuts the spending the portfolio has to cover, and with it the income that has to be drawn. A couple spending $70,000 including $20,000 of mortgage payments needs $20,000 less a year from their accounts once it is paid. Before 65 that can mean lower MAGI, a larger ACA credit and more room for conversions; after, less tax and less IRMAA." },
+        { "type": "text", "text": "Against that, money in the house is hard to reach. A household that empties its taxable account to pay off a mortgage at 50 may have nothing left for the bridge years of lesson 9 except a home equity loan. The usual middle course is to pay off a high-rate mortgage, keep a low-rate one, and never pay it off with money that would need to be withdrawn from a pre-tax account at a high bracket." }
+      ]
+    },
+    {
+      "title": "Selling",
+      "blocks": [
+        { "type": "text", "text": "Up to $250,000 of gain on a main home, or $500,000 for a married couple, is free of federal tax when it has been owned and lived in for two of the five years before the sale. A surviving spouse keeps the $500,000 if they sell within two years of the death. Washington doesn't tax the gain at all: real estate is outside its capital gains tax." },
+        { "type": "text", "text": "Washington taxes the sale instead. The seller pays a real estate excise tax on the price, graduated from 1.1 percent to 3 percent, plus a local rate of up to 0.5 percent.[^reet]" },
+        { "type": "diagram", "id": "scale", "caption": "Washington's real estate excise tax on a home sale at four prices, state rates from 2023 plus a local rate of 0.5 percent as in Seattle. Paid by the seller.", "options": { "title": "Excise tax on selling a Washington home", "unit": "dollars", "items": [
+          { "label": "Sold for $600,000", "value": 9700, "says": "about $9,700", "color": "tax" },
+          { "label": "Sold for $1 million", "value": 16900, "says": "about $16,900", "color": "tax" },
+          { "label": "Sold for $2 million", "value": 41600, "says": "about $41,600", "color": "tax" },
+          { "label": "Sold for $4 million", "value": 109100, "says": "about $109,100", "color": "bad" }
+        ] } },
+        { "type": "text", "text": "Downsizing frees capital that can be invested, but the excise tax, an agent's commission of 5 percent or so, and moving costs often take 8 to 10 percent of the price. It pays when the smaller house is much cheaper, or when the large one is hard to keep up." }
+      ]
+    },
+    {
+      "title": "The house as a reserve",
+      "blocks": [
+        { "type": "text", "text": "Late in life the house can pay for care or extend a portfolio that is running low. A reverse mortgage, available from 62, lends against the house with nothing to repay until the owner sells, moves out or dies; the loan grows with interest. A line of credit opened early grows in size each year whether used or not, which makes it a reserve for a bad sequence of returns.[^hecm]" },
+        { "type": "text", "text": "Washington also helps older homeowners with modest incomes: owners 61 or older with income under a county limit can be exempted from part of their property tax, or defer it until the house is sold. For a retiree drawing mostly from a Roth or a taxable account's basis, income on the application can be low enough to qualify." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Paying off a mortgage earns its rate without risk: worth it at 7 percent, rarely at 3.",
+          "A paid-off house lowers the income an early retiree must draw, which helps with the ACA and conversions.",
+          "Up to $500,000 of a couple's gain on a main home is federally tax-free, and Washington doesn't tax it.",
+          "Washington's excise tax on the sale price runs from 1.1 to 3 percent, plus local rates.",
+          "A reverse mortgage line of credit, opened early, is a reserve for bad years or care."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on the house", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "What does paying off a mortgage at 6.5 percent earn?", "choices": ["6.5 percent, without risk", "The stock market's return", "Nothing, because the house value doesn't change"], "answer": 0, "why": "Each dollar repaid saves the interest it would have cost." },
+          { "ask": "How can a paid-off house help an early retiree's ACA credit?", "choices": ["Lower spending means less income drawn, so lower MAGI", "Homeowners get a larger credit", "Mortgage interest raises the credit"], "answer": 0, "why": "With less to spend, less has to be withdrawn or realised as income." },
+          { "ask": "A married couple sell the Seattle home they've lived in for 20 years with a $450,000 gain. What tax is due on the gain?", "choices": ["None, federal or state", "15 percent federal", "7 percent Washington capital gains tax"], "answer": 0, "why": "The $500,000 exclusion covers it, and Washington exempts real estate from its gains tax; the excise tax on the price is separate." },
+          { "ask": "Why open a reverse mortgage line of credit before it is needed?", "choices": ["The unused line grows each year", "The interest is tax-deductible", "It avoids the excise tax"], "answer": 0, "why": "The available credit rises over time, making it a larger reserve later." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Paying off a mortgage earns its rate.** Worth it for a high rate, rarely for a low one.",
+    "**A paid-off house lowers the income needed.** Which helps an early retiree's ACA credit and conversions.",
+    "**Keep money reachable.** Don't empty the bridge or draw pre-tax money at high brackets to pay a cheap loan.",
+    "**A couple's gain up to $500,000 is tax-free.** And Washington doesn't tax real estate gains.",
+    "**Washington taxes the sale price instead.** 1.1 to 3 percent, plus up to 0.5 percent locally.",
+    "**The house is a last reserve.** A reverse mortgage line or a property tax deferral can extend the plan."
+  ],
+  "footnotes": {
+    "reet": { "kind": "technical", "title": "The excise tax bands", "text": "From 2023 the state rates are 1.1 percent of the price up to $525,000, 1.28 percent to $1,525,000, 2.75 percent to $3,025,000 and 3 percent above. The bands are adjusted every four years, next in 2027. Local rates are set by cities and counties within the 0.5 percent allowed." },
+    "hecm": { "kind": "technical", "title": "How the line grows", "text": "Federally insured reverse mortgages let the unused part of a credit line grow at the loan's interest rate plus the insurance charge. A line of $300,000 opened at 62 can be worth twice that at 80 if untouched. The costs at the start are high, so it suits people who expect to stay in the house for many years." }
+  }
+}

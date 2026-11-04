@@ -1,0 +1,74 @@
+{
+  "id": "long-term-care",
+  "n": 602,
+  "branch": "after65",
+  "needs": ["medicare"],
+  "title": "Long-term care",
+  "teaches": "How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings",
+  "parts": [
+    {
+      "title": "The cost the plan leaves out",
+      "blocks": [
+        { "type": "text", "text": "Every plan in this course spent the same real amount each year to 95. The real pattern is lumpier: spending usually drifts down through the seventies and eighties, and then, for many people, rises sharply at the end, because of care. Help with bathing, dressing and eating, at home or in a facility, is long-term care, and Medicare mostly doesn't pay for it." },
+        { "type": "text", "text": "Federal estimates suggest that about 70 percent of people turning 65 will need some long-term care, often a few months of help at home or after a hospital stay. About one in five will need it for more than five years. The average is modest; the risk is the long tail." }
+      ]
+    },
+    {
+      "title": "What care costs",
+      "blocks": [
+        { "type": "diagram", "id": "scale", "caption": "National median costs of a year of care in 2024, from the CareScout survey, rounded. Costs in the Seattle area run 20 to 40 percent higher.", "options": { "title": "A year of care, US medians", "unit": "dollars a year", "items": [
+          { "label": "Adult day care, weekdays", "value": 25000, "says": "about $25,000", "color": "health" },
+          { "label": "Assisted living", "value": 70800, "says": "about $70,800", "color": "health" },
+          { "label": "Home health aide, 44 hours a week", "value": 80000, "says": "about $80,000", "color": "health" },
+          { "label": "Nursing home, shared room", "value": 111300, "says": "about $111,300", "color": "bad" },
+          { "label": "Nursing home, private room", "value": 127800, "says": "about $127,800", "color": "bad" }
+        ] } },
+        { "type": "text", "text": "Round-the-clock care at home costs more than a nursing home. A couple's plan that has to pay for one partner's care while the other stays in the house carries both costs at once." }
+      ]
+    },
+    {
+      "title": "Who pays",
+      "blocks": [
+        { "type": "text", "text": "**Medicare** pays for skilled nursing or rehabilitation after a hospital stay of three days or more, in full for 20 days and with a daily copay up to day 100, and for some skilled care at home. It doesn't pay for custodial care, the help with daily living that makes up most long-term care." },
+        { "type": "text", "text": "**Medicaid** pays for most nursing home care in the US, but only once the person's savings are almost gone: in Washington, $2,000 for a single person. A spouse at home keeps the house, a car, and a share of the couple's other assets, about $160,000 at most. Gifts made in the five years before applying delay eligibility, and Washington recovers what it paid from the estate after both spouses have died (lesson W2)." },
+        { "type": "text", "text": "**WA Cares** pays up to $36,500 for those who qualify, from July 2026 (lesson W3)." },
+        { "type": "text", "text": "**Savings** pay the rest. For a household with $1.5 million at 85, three years of care at $130,000 is a serious cost but not a ruinous one. For a household with $400,000, the same three years ends in Medicaid." }
+      ]
+    },
+    {
+      "title": "Insure or self-fund",
+      "blocks": [
+        { "type": "text", "text": "Traditional long-term care insurance pays a daily benefit for care, for a premium paid every year. The policies sold in the 1990s were underpriced, and insurers have since raised premiums on existing holders many times, sometimes by 50 to 100 percent at once. Few companies still sell them, and premiums for a 55-year-old couple run several thousand dollars a year." },
+        { "type": "text", "text": "Hybrid policies combine life insurance or an annuity with a care benefit. They cost a large single premium or ten years of premiums, can't be raised, and pay something either way: care if needed, a death benefit if not. They insure less for the money." },
+        { "type": "text", "text": "A rough rule follows from the figures. Households with modest savings will spend down to Medicaid in a long illness, and insurance mostly protects Medicaid's budget. Households with several million can pay for even five years from savings. Insurance is worth most in the middle, from about $500,000 to $2 or $3 million, where a long stay could take most of what a surviving spouse needs.[^partnership]" },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "About 70 percent of 65-year-olds will need some long-term care; about one in five for more than five years.",
+          "A nursing home costs about $110,000 to $130,000 a year at the US median, and more around Seattle.",
+          "Medicare pays only short skilled stays; Medicaid pays once savings are nearly spent.",
+          "Insurance matters most for households in the middle, protecting the spouse who stays at home."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on long-term care", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "What does Medicare pay for a year in a nursing home needed because of dementia?", "choices": ["Almost nothing: it is custodial care", "All of it", "80 percent of it"], "answer": 0, "why": "Medicare covers skilled care for up to 100 days after a hospital stay, not long-term custodial care." },
+          { "ask": "When does Medicaid start paying for a single person's nursing home in Washington?", "choices": ["Once their countable savings are down to about $2,000", "At 65", "After five years in care"], "answer": 0, "why": "Medicaid for long-term care has an asset limit, unlike Medicaid for younger adults." },
+          { "ask": "Why have many holders of traditional care insurance seen large premium increases?", "choices": ["The policies were priced too low when sold", "Medicare stopped paying for care", "The policies converted to life insurance"], "answer": 0, "why": "Insurers underestimated how many people would keep their policies and claim, and regulators approved large increases." },
+          { "ask": "Which household gains most from long-term care insurance?", "choices": ["One with about $1 million, with a spouse to protect", "One with $100,000", "One with $10 million"], "answer": 0, "why": "Small estates reach Medicaid anyway, large ones can self-fund; the middle has most at risk." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Most people need some care, a few need years of it.** About one in five 65-year-olds needs care for more than five years.",
+    "**Care is expensive.** A private nursing room costs about $128,000 a year at the US median.",
+    "**Medicare pays little of it.** Only short stays of skilled care after a hospital visit.",
+    "**Medicaid pays once savings are gone.** With protections for a spouse at home, and recovery from the estate.",
+    "**Insurance suits the middle.** Small estates reach Medicaid and large ones can pay; the middle has most to lose."
+  ],
+  "footnotes": {
+    "partnership": { "kind": "technical", "title": "Partnership policies", "text": "Washington takes part in the long-term care partnership programme: for each dollar a qualifying policy pays out, a dollar of assets is protected if the holder later needs Medicaid. A $300,000 partnership policy that is used up lets its holder keep $302,000 instead of $2,000." }
+  }
+}

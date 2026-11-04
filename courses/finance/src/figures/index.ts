@@ -24,6 +24,7 @@ import { ptTaxFigure, twoCountriesFigure } from './portugal';
 import { waEstateFigure, waGainsFigure } from './washington';
 import { heirsFigure, locationFigure } from './taxable';
 import { amtFigure, rsuFigure } from './equity';
+import { irmaaFigure, partTimeFigure, survivorFigure } from './later';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -78,4 +79,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Branch E
   'rsu-gap': rsuFigure,
   amt: amtFigure,
+  // Branches C, H and S
+  survivor: survivorFigure,
+  irmaa: irmaaFigure,
+  'part-time': partTimeFigure,
 };

@@ -1,0 +1,65 @@
+{
+  "id": "coast",
+  "n": 701,
+  "branch": "shapes",
+  "needs": ["flexible-spending"],
+  "title": "Coast, part-time and partial",
+  "teaches": "How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits",
+  "parts": [
+    {
+      "title": "Between full-time and nothing",
+      "blocks": [
+        { "type": "text", "text": "The trunk treated the end of work as a single date: a salary one year, a portfolio the next. Many people do something in between: a shorter week, consulting, seasonal work, a job that pays less and matters more. Even small amounts of pay in those years change the arithmetic of lessons 2 to 5 a great deal, because they arrive exactly when a portfolio is most fragile." }
+      ]
+    },
+    {
+      "title": "Why the first years count most",
+      "blocks": [
+        { "type": "text", "text": "Lesson 3 showed that the order of returns matters most in the first decade: a bad run early, while withdrawals are large relative to the balance, does damage that later good years can't repair. Pay earned in those years reduces the withdrawals at the worst moment." },
+        { "type": "interactive_diagram", "id": "part-time", "caption": "The highest constant real spending that lasted 45 years from every US start since 1871, from $1 million at 60 percent shares, with and without part-time earnings in the first years. Earnings count towards the spending while they last.", "task": "Guess, then try three combinations of pay and years", "goal": "part-time", "aspect_ratio": 2.27 },
+        { "type": "text", "text": "From $1 million, the portfolio alone sustained about $32,700 a year for 45 years in every start. Earning $20,000 a year for ten years lifts that to about $39,600, for all 45 years, not only while working. $200,000 of pay buys about $310,000 of extra spending over a lifetime, because it protected the portfolio when it was most exposed." }
+      ]
+    },
+    {
+      "title": "The coast number",
+      "blocks": [
+        { "type": "text", "text": "A related idea runs the other way. Someone who has saved enough that, left alone to grow, the portfolio will reach their target by a chosen age can stop saving now. They need to earn only their spending until then. At a real return of 5 percent, money roughly doubles in 14 years, so $560,000 at 40 becomes about $1.5 million at 60." },
+        { "type": "text", "text": "Reaching this coast number changes the kind of work that is possible: a job that covers spending but saves nothing is enough. It rests on an assumed return, though, and lesson 2's history says that twenty-year real returns on a 60/40 portfolio have ranged from slightly below zero to nearly 10 percent a year. A coast plan is safer with a margin, or with a willingness to save again after a weak decade.[^coast]" }
+      ]
+    },
+    {
+      "title": "Pay, tax and credits",
+      "blocks": [
+        { "type": "text", "text": "Part-time pay brings tax effects of its own. It is earned income, which allows IRA or Roth IRA contributions of up to $7,500 a year in 2026, a useful way to move a little more into Roth. It pays Social Security tax, and if it replaces a zero year in the 35-year average of lesson 13 it raises the benefit slightly." },
+        { "type": "text", "text": "It also adds to MAGI. Before 65, pay counts against the ACA cliff and leaves less room for conversions. A pre-tax 401(k) or SEP-IRA at the part-time job brings MAGI back down: self-employed consultants can put about a fifth of their net earnings into a SEP. And from 63 it counts towards IRMAA." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Pay in the first years after leaving full-time work protects the portfolio when sequence risk is highest.",
+          "$20,000 a year for ten years raised the spending $1 million sustained for 45 years from $32,700 to $39,600.",
+          "A coast number is a balance that will grow to the target unaided; saving can stop, but the return assumed may not arrive.",
+          "Part-time pay allows IRA and Roth contributions, but counts against the ACA cliff and IRMAA."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Four questions on part-time work", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "Why does part-time pay in the first decade raise sustainable spending for life?", "choices": ["It cuts withdrawals when a bad sequence does the most harm", "It earns a higher return than the portfolio", "It is untaxed"], "answer": 0, "why": "Lower early withdrawals leave more invested through any bad run, which lasts into later decades." },
+          { "ask": "What is a coast number?", "choices": ["A balance that will grow to the target without further saving", "The spending that lasted every start", "The income limit for Roth contributions"], "answer": 0, "why": "Once reached, work only needs to cover spending until the target age." },
+          { "ask": "What risk does a coast plan carry?", "choices": ["Returns over the coasting years may fall well short of the assumption", "Social Security stops", "The money is locked away"], "answer": 0, "why": "Twenty-year real returns have varied widely; a weak run leaves the target unmet." },
+          { "ask": "An early retiree of 60 earns $30,000 consulting. How can they keep the ACA credit and their conversion room?", "choices": ["Put part of the pay into a SEP-IRA or solo 401(k)", "Take the pay in cash", "Delay invoices to next year every year"], "answer": 0, "why": "Pre-tax contributions lower MAGI, as lesson 11 showed." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Work need not stop all at once.** Small amounts of pay after full-time work change the plan a great deal.",
+    "**Early pay protects against a bad sequence.** It cuts withdrawals when the portfolio is most exposed.",
+    "**The gain lasts for life.** $20,000 a year for ten years raised $1 million's lasting spending by about $6,900 a year.",
+    "**A coast number lets saving stop.** But it rests on an assumed return that history doesn't promise.",
+    "**Part-time pay is earned income.** It allows IRA contributions and counts against the ACA and IRMAA lines."
+  ],
+  "footnotes": {
+    "coast": { "kind": "digression", "title": "Where the name comes from", "text": "Coasting is one of several labels from the early retirement community, along with lean, fat and barista versions of financial independence. The arithmetic behind all of them is lesson 1's: the share of income saved, the return, and the spending the portfolio has to support." }
+  }
+}
