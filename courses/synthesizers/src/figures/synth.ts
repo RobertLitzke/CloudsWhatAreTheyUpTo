@@ -125,6 +125,8 @@ export const SYNTH_GOALS: Readonly<Record<string, (now: Patch, log: Log) => bool
   'morph-sine': (now) => now.engine === 1 && now.engineWave >= 9,
   'fold-deep': (now) => now.engine === 2 && now.engineWave >= 5,
   'super-wide': (now) => now.engine === 3 && now.engineWave >= 5 && now.engineTimbre >= 5,
+  'table-env': (now) => now.engine === 4 && now.engineShape >= 5,
+  'table-lfo': (now) => now.engine === 4 && now.engineTimbre >= 3,
   // Lesson 20: the step sequencer
   squelch: (now) => now.res >= 3 && now.envAmt >= 2,
   // Any stage: the reader's patch matches the figure's target on every knob the target sets.

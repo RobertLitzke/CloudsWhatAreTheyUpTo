@@ -1,0 +1,291 @@
+{
+ "id": "tables",
+ "n": 101,
+ "branch": "engines",
+ "needs": [
+  "macros"
+ ],
+ "title": "Stepping through tables",
+ "teaches": "Wavetables: a stack of waves scanned by an envelope or LFO",
+ "parts": [
+  {
+   "title": "A note that changes",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "**The sound.** A filter sweep makes a note brighter or darker, and nothing else. Listen to these held notes. The first stays the same colour all the way through. In the second, every note starts round, opens into a hollow, vocal sound, and settles part of the way back, and no filter is moving. The oscillator itself is changing its wave as the note plays. By the end you'll make that second sound."
+    },
+    {
+     "type": "diagram",
+     "id": "sound",
+     "caption": "Held notes, the same wave throughout, then with the wave changing as each note plays",
+     "options": {
+      "stage": 22,
+      "riff": 103,
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "attack": 2,
+       "decay": 4,
+       "sustain": 1,
+       "release": 3,
+       "engine": 4
+      },
+      "sounds": [
+       {
+        "name": "Fixed",
+        "set": {
+         "engineWave": 2
+        }
+       },
+       {
+        "name": "Changing",
+        "set": {
+         "engineWave": 2,
+         "engineShape": 6
+        }
+       }
+      ]
+     }
+    },
+    {
+     "type": "text",
+     "text": "The engine is a **wavetable**: not one wave but a numbered stack of them, and a knob that picks where in the stack to play from. Turn the knob while a note sounds, or let an envelope turn it, and the wave changes under your fingers."
+    }
+   ]
+  },
+  {
+   "title": "A stack of waves",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Each wave in the table is a single cycle, called a **frame**, stored as a list of numbers. The oscillator reads one frame round and round, as fast as the note's pitch says. In this table, eight frames run from a sine, through the triangle, square and saw you know, to hollow, vowel-like waves and a bright buzz at the far end. Between two frames the engine plays a blend of both, so a slow turn of the knob is a smooth change."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "table",
+     "caption": "A wavetable of eight frames, drawn stacked as synth screens draw them. The bold wave is the one playing.",
+     "task": "Sweep the Wave knob from one end of the table to the other",
+     "goal": "table-scanned",
+     "aspect_ratio": 1.55
+    },
+    {
+     "type": "text",
+     "text": "Notice that a sweep through the table can do things a filter can't. Going from the saw to the hollow \"ah\" doesn't remove the top harmonics. It takes away the lowest few and leaves a hump in the middle, which is roughly what your mouth does to the buzz of your voice when you say \"ah\" (lesson 2). A filter can only take harmonics away from one end; a table can go anywhere."
+    }
+   ]
+  },
+  {
+   "title": "Wolfgang Palm’s idea",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Wavetables came from memory chips. In the late 1970s, in Hamburg, Wolfgang Palm realised that a digital oscillator didn't need a circuit for each wave. It could read its wave from memory, so memory could hold many waves, and the synth could move between them. His PPG Wave synths of the early 1980s did exactly that, and the analogue filter that followed gave them a sound of their own.[^steps] Tables are now standard on synths of every kind, and many let you draw or load your own."
+    },
+    {
+     "type": "text",
+     "text": "On a table engine of this kind, Wave is the place in the table. The other two knobs set how far two of the synth's movers scan it. **Shape** is how far the envelope pushes the place up the table as each note starts, and **Timbre** is how far the LFO swings it back and forth."
+    }
+   ]
+  },
+  {
+   "title": "Scanning with the envelope",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Let the envelope do the turning. As each note starts, the envelope rises, carrying the wave up the table. It then falls back to the sustain level, and the wave comes partway back down. With the envelope's attack slow, as here, the change is a bloom. With a short decay, it is a quick flick of colour at the start of every note."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A held-note pad on the table, at its second frame. Let the envelope scan it.",
+     "task": "Turn Shape to 50 % or more",
+     "goal": "table-env",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "attack": 2,
+       "decay": 4,
+       "sustain": 1,
+       "release": 3,
+       "engine": 4
+      },
+      "riff": 103,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "Try the attack and decay too, in the Envelope module of the Synth lab: the scan follows them exactly, because it is the same envelope. A sound that changes like this needs no filter sweep at all."
+    }
+   ]
+  },
+  {
+   "title": "Scanning with the LFO",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "The LFO does the same job, but it swings the place back and forth for as long as the note lasts. Slowly, it is a sound that drifts between colours. Fast, it is a rhythmic wobble of the kind that runs through a lot of electronic bass music."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "The same pad. Let the LFO swing it through the table.",
+     "task": "Turn Timbre up to 30 % or more",
+     "goal": "table-lfo",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "attack": 2,
+       "decay": 4,
+       "sustain": 1,
+       "release": 3,
+       "engine": 4,
+       "engineWave": 3
+      },
+      "riff": 103,
+      "keys": 48
+     }
+    },
+    {
+     "type": "text",
+     "text": "With both at once, the envelope sets where each note goes and the LFO wobbles it while it's there."
+    }
+   ]
+  },
+  {
+   "title": "The blooming pad",
+   "blocks": [
+    {
+     "type": "text",
+     "text": "Now make the opening's second sound. Here the synth is playing a plain saw, with the classic oscillator. Pick the engine, then find where in the table the notes start and how far the envelope carries them."
+    },
+    {
+     "type": "interactive_diagram",
+     "id": "synth",
+     "caption": "A plain saw on held notes. Make the pad whose wave changes.",
+     "task": "Make the blooming pad",
+     "goal": "match",
+     "options": {
+      "stage": 22,
+      "knobs": [
+       "engine",
+       "engineWave",
+       "engineTimbre",
+       "engineShape"
+      ],
+      "start": {
+       "wave": 0,
+       "cutoff": 7,
+       "attack": 2,
+       "decay": 4,
+       "sustain": 1,
+       "release": 3
+      },
+      "riff": 103,
+      "keys": 48,
+      "target": {
+       "name": "The blooming pad",
+       "set": {
+        "engine": 4,
+        "engineWave": 2,
+        "engineShape": 6
+       }
+      }
+     }
+    },
+    {
+     "type": "text",
+     "text": "Tables are a good place to see the idea of this branch: a new engine is a new source, and everything after it, the filter, envelopes, LFO and effects, works as before."
+    }
+   ]
+  },
+  {
+   "title": "Check",
+   "blocks": [
+    {
+     "type": "quiz",
+     "id": "check",
+     "caption": "Four questions on wavetables",
+     "task": "Choose the best answer to each",
+     "options": {
+      "items": [
+       {
+        "ask": "What is a wavetable?",
+        "choices": [
+         "A stack of single-cycle waves, with a knob that picks a place in it",
+         "A table of filter settings",
+         "A recording of a whole note"
+        ],
+        "answer": 0,
+        "why": "Each frame is one cycle; the place in the table picks which one plays, or a blend of two."
+       },
+       {
+        "ask": "What does the oscillator play between two frames?",
+        "choices": [
+         "A blend of the two",
+         "Silence",
+         "The nearer frame only"
+        ],
+        "answer": 0,
+        "why": "The blend makes a slow turn of the knob a smooth change of wave."
+       },
+       {
+        "ask": "Why can a table change a sound in ways a filter can't?",
+        "choices": [
+         "Its frames can have any harmonics, so it can take away the low ones or leave a hump in the middle",
+         "It is louder",
+         "It changes the pitch"
+        ],
+        "answer": 0,
+        "why": "A low-pass filter only takes away from the top."
+       },
+       {
+        "ask": "The envelope scans the table. What happens as a note starts and settles?",
+        "choices": [
+         "The wave moves up the table, then partway back to the sustain level",
+         "The wave stays where it is",
+         "The note gets higher"
+        ],
+        "answer": 0,
+        "why": "The scan follows the envelope's shape exactly."
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "**A wavetable is a stack of single-cycle waves, called frames**; the Wave knob picks a place in it.",
+  "**Between two frames the engine plays a blend**, so turning the knob changes the wave smoothly.",
+  "**A table can move anywhere in the harmonics**, not only darker or brighter, so it can sound vocal or hollow.",
+  "**Wolfgang Palm’s PPG Wave of the early 1980s** read its waves from memory and moved between them.",
+  "**The envelope can scan the table** as each note starts: a bloom of colour without a filter sweep.",
+  "**The LFO can swing the place back and forth**, slowly for drift or fast for a wobble."
+ ],
+ "footnotes": {
+  "steps": {
+   "kind": "digression",
+   "title": "Stepping",
+   "text": "Early wavetable synths often jumped from one frame to the next instead of blending them, and a slow sweep could be heard as a run of little steps. Some players liked it, and later synths kept it as an option. Blending needs more arithmetic per sample, which was expensive in 1981; it costs almost nothing now."
+  }
+ },
+ "journal": []
+}

@@ -123,13 +123,14 @@ export const EXTRA_PITCHES = 6;
  * its wave and width knobs; the others take over from it and give the three
  * engine knobs (Wave, Timbre, Shape) jobs of their own.
  */
-export const ENGINE = { classic: 0, morph: 1, fold: 2, supersaw: 3 } as const;
+export const ENGINE = { classic: 0, morph: 1, fold: 2, supersaw: 3, table: 4 } as const;
 /** What each engine knob does, by engine. */
 export const ENGINE_JOBS: readonly { name: string; wave: string; timbre: string; shape: string }[] = [
   { name: 'Classic', wave: '', timbre: '', shape: '' },
   { name: 'Morph', wave: 'saw → square → triangle → sine', timbre: 'pulse width', shape: 'sub-octave' },
   { name: 'Fold', wave: 'how hard the wave is folded', timbre: 'symmetry', shape: 'sine → triangle' },
   { name: 'Supersaw', wave: 'detune', timbre: 'outer saws’ level', shape: 'how many saws' },
+  { name: 'Table', wave: 'place in the table', timbre: 'how far the LFO scans', shape: 'how far the envelope scans' },
 ];
 
 /** The arpeggiator's orders. Off plays the notes as they are. */
@@ -553,10 +554,10 @@ export const PARAMS: Record<ParamId, ParamSpec> = {
     module: 'engine',
     category: 'tone',
     kind: 'selector',
-    options: ['Classic', 'Morph', 'Fold', 'Super'],
+    options: ['Classic', 'Morph', 'Fold', 'Super', 'Table'],
     interp: 'lin',
     stage: 22,
-    format: (v) => ['Classic: the wave and width knobs', 'Morph', 'Wavefolder', 'Supersaw'][Math.round(v)] ?? '?',
+    format: (v) => ['Classic: the wave and width knobs', 'Morph', 'Wavefolder', 'Supersaw', 'Wavetable'][Math.round(v)] ?? '?',
     low: 'wrong',
     high: 'wrong',
   },

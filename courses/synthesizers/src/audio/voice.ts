@@ -14,7 +14,10 @@
 //   engines: morph blends the wave select's four gains and adds a square an
 //          octave down (oscillator 1's fourth input); fold sends the triangle
 //          and sine through a sine-shaped wavefolder; supersaw is a stack of up
-//          to six extra saws, detuned, using the extra pitches
+//          to six extra saws, detuned, using the extra pitches; table
+//          crossfades eight single-cycle waves, at a place set by a knob plus
+//          the envelope and the LFO (each frame's level is that place put
+//          through a wave shaper, so the scan runs at audio rate)
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -57,6 +60,7 @@ import { arpPick, arpSequence } from '../core/arp';
 import { legatoEnvelope, noteEnvelope, type EnvEvent } from '../core/envelope';
 import { ARP_MODE, CHAIN, CHORDS, ENGINE, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, FILTER_MODE, LFO_DEST, LFO_SHAPE, MATRIX_IDS, VOICE_MODE, WAVE, cellOf, type MatrixId, type ModSource, type Sound } from '../core/params';
 import { Rng } from '../core/rng';
+import { TABLE_FRAMES, TABLE_LAST } from '../core/tables';
 
 /** Rough loudness matching between waves. */
 const WAVE_GAIN = [0.8, 0.5, 1.1, 1.0];
@@ -71,6 +75,32 @@ const SUPER_SPREAD = [-1, 1, -0.55, 0.55, -0.2, 0.2];
 /** Supersaw detune at Wave 0 and 100 %, in cents. */
 const SUPER_MIN = 3;
 const SUPER_MAX = 55;
+/** The table's scan: the shaper's input covers plus or minus this many frames. */
+const SCAN_RANGE = 12;
+const tableWaves = new WeakMap<BaseAudioContext, PeriodicWave[]>();
+function tableWavesFor(ctx: BaseAudioContext): PeriodicWave[] {
+  let w = tableWaves.get(ctx);
+  if (!w) {
+    w = TABLE_FRAMES.map((f) => {
+      const real = new Float32Array(f.amps.length + 1);
+      const imag = new Float32Array(f.amps.length + 1);
+      f.amps.forEach((a, i) => (imag[i + 1] = a));
+      // The frames are levelled already (core/tables.ts).
+      return ctx.createPeriodicWave(real, imag, { disableNormalization: true });
+    });
+    tableWaves.set(ctx, w);
+  }
+  return w;
+}
+/** Frame i's level at a scan position: 1 on the frame, falling to 0 at its neighbours, held at the ends. */
+function frameCurve(i: number): Float32Array<ArrayBuffer> {
+  return Float32Array.from({ length: 2049 }, (_, k) => {
+    const x = SCAN_RANGE * (k / 1024 - 1);
+    if (i === 0 && x <= 0) return 1;
+    if (i === TABLE_LAST && x >= TABLE_LAST) return 1;
+    return Math.max(0, 1 - Math.abs(x - i));
+  });
+}
 /** How long one bank hands over to the next. */
 const HANDOVER = 0.004;
 
@@ -254,6 +284,8 @@ class Echo {
 interface Bank {
   /** Saw, triangle, sine, and the morph engine's square an octave down. */
   o1: OscillatorNode[];
+  /** The wavetable's frames; empty unless the table engine is on. */
+  tbl: OscillatorNode[];
   /** The extra pitches, each a saw, triangle and sine; empty when the sound has none. */
   x: OscillatorNode[][];
   o2: OscillatorNode[];
@@ -286,6 +318,12 @@ export class Voice {
   private readonly foldOffset: GainNode;
   private readonly foldOut: GainNode;
   private readonly oneSrc: ConstantSourceNode;
+  /** The wavetable: each frame's way in (its level set by the scan), the scan's parts, and the output. */
+  private readonly frameIn: GainNode[];
+  private readonly scanAt: ConstantSourceNode;
+  private readonly scanEnv: GainNode;
+  private readonly scanLfo: GainNode;
+  private readonly tableOut: GainNode;
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -418,6 +456,28 @@ export class Voice {
     this.oneSrc.start(startAt);
     this.oneSrc.connect(this.foldOffset).connect(scale);
     scale.connect(folder).connect(unDc).connect(this.foldOut).connect(this.mix);
+
+    // The table: where it is scanned to, in frames, is the knob's place plus
+    // the envelope and the LFO, each times its depth.
+    this.tableOut = gain(0);
+    this.tableOut.connect(this.mix);
+    const scan = gain(1 / SCAN_RANGE);
+    this.scanAt = ctx.createConstantSource();
+    this.scanAt.offset.value = 0;
+    this.scanAt.start(startAt);
+    this.scanAt.connect(scan);
+    this.scanEnv = gain(0);
+    this.scanEnv.connect(scan);
+    this.scanLfo = gain(0);
+    this.scanLfo.connect(scan);
+    this.frameIn = TABLE_FRAMES.map((_, i) => {
+      const level = gain(0);
+      const shaper = ctx.createWaveShaper();
+      shaper.curve = frameCurve(i);
+      scan.connect(shaper).connect(level.gain);
+      level.connect(this.tableOut);
+      return level;
+    });
     for (const g of this.wave2Gains) g.connect(this.level2);
     this.level2.connect(this.mix);
 
@@ -459,6 +519,7 @@ export class Voice {
     this.envSrc.start(startAt);
     this.envToFilter = gain(0);
     this.envSrc.connect(this.envToFilter);
+    this.envSrc.connect(this.scanEnv);
     this.envToFilter.connect(this.f1.detune);
     this.envToFilter.connect(this.f2.detune);
 
@@ -469,7 +530,7 @@ export class Voice {
     this.lfoPw = gain(0);
     this.lfoPw2 = gain(0);
     this.lfoLevel = gain(0);
-    for (const g of [this.lfoPitch, this.lfoCut, this.lfoPw, this.lfoPw2, this.lfoLevel]) this.lfoBus.connect(g);
+    for (const g of [this.lfoPitch, this.lfoCut, this.lfoPw, this.lfoPw2, this.lfoLevel, this.scanLfo]) this.lfoBus.connect(g);
     this.env2Cut.connect(this.f1.detune);
     this.env2Cut.connect(this.f2.detune);
     this.lfoCut.connect(this.f1.detune);
@@ -565,15 +626,25 @@ export class Voice {
           return o;
         }))
       : [];
+    const tbl = this.engine() === ENGINE.table
+      ? tableWavesFor(ctx).map((wave, i) => {
+          const o = ctx.createOscillator();
+          o.setPeriodicWave(wave);
+          o.frequency.value = this.lastHz;
+          o.start(t);
+          wire(o, this.frameIn[i]);
+          return o;
+        })
+      : [];
     // Vibrato moves the modulator too, so the ratio holds.
     this.lfoPitch.connect(mod.detune);
     this.env2Pitch.connect(mod.detune);
     this.pitchMod.connect(mod.detune);
-    return { o1, x, o2, mod, modGain, fades, from: t };
+    return { o1, tbl, x, o2, mod, modGain, fades, from: t };
   }
 
   private dropBank(bank: Bank, at: number): void {
-    const all = [...bank.o1, ...bank.x.flat(), ...bank.o2, bank.mod];
+    const all = [...bank.o1, ...bank.tbl, ...bank.x.flat(), ...bank.o2, bank.mod];
     bank.mod.onended = () => {
       for (const o of all) {
         o.disconnect();
@@ -725,16 +796,18 @@ export class Voice {
     };
 
     // A sound that has just begun to stack pitches needs oscillators for them.
-    if (!immediate && this.stacked() && this.banks[this.banks.length - 1].x.length < this.slots()) this.renew(t);
+    const newest = this.banks[this.banks.length - 1];
+    if (!immediate && ((this.stacked() && newest.x.length < this.slots()) || (this.engine() === ENGINE.table && newest.tbl.length === 0))) this.renew(t);
 
     // The wave select, as the engine has it: one wave (classic, supersaw's
     // saws), a blend of two neighbours (morph), or none (fold).
     const engine = this.engine();
     const morph = engine === ENGINE.morph;
     const fold = engine === ENGINE.fold;
+    const table = engine === ENGINE.table;
     const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
     const at = 3 * s.engineWave;
-    const weight = (i: number) => (fold ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    const weight = (i: number) => (fold || table ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
     this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
     this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
     set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);
@@ -744,6 +817,10 @@ export class Voice {
     set(this.foldOffset.gain, fold ? 1.2 * s.engineTimbre : 0);
     // Folding makes the wave fuller and louder; turn it down as the push goes up.
     set(this.foldOut.gain, fold ? 0.85 * (1 - 0.5 * Math.sqrt(s.engineWave)) * s.oscLevel : 0);
+    set(this.tableOut.gain, table ? s.oscLevel : 0);
+    set(this.scanAt.offset, TABLE_LAST * s.engineWave);
+    set(this.scanEnv.gain, table ? TABLE_LAST * s.engineShape : 0);
+    set(this.scanLfo.gain, table ? (TABLE_LAST / 2) * s.engineTimbre : 0);
     if (engine === ENGINE.supersaw && this.offsets.length) {
       const side = this.sideLevel();
       this.slotIn.forEach((ins, k) => {
@@ -1012,7 +1089,7 @@ export class Voice {
         o.frequency.setTargetAtTime(to, t, this.glideTau());
       } else o.frequency.setValueAtTime(to, t);
     };
-    for (const o of [...bank.o1, ...bank.o2]) go(o, this.lastHz, hz);
+    for (const o of [...bank.o1, ...bank.tbl, ...bank.o2]) go(o, this.lastHz, hz);
     bank.x.forEach((set, k) => {
       const c = cents(this.offsets[k] ?? 0);
       for (const o of set) go(o, this.lastHz * c, hz * c);
@@ -1056,7 +1133,7 @@ export class Voice {
       if (glides) o.frequency.setTargetAtTime(f, t, this.glideTau());
       else o.frequency.setValueAtTime(f, t);
     };
-    for (const o of [...bank.o1, ...bank.o2]) to(o, hz);
+    for (const o of [...bank.o1, ...bank.tbl, ...bank.o2]) to(o, hz);
     bank.x.forEach((set, k) => {
       for (const o of set) to(o, hz * cents(this.offsets[k] ?? 0));
     });
@@ -1145,7 +1222,7 @@ export class Voice {
       this.noiseSrc.disconnect();
       this.env2Src.stop();
       this.env2Src.disconnect();
-      for (const c of [this.keySrc, this.velSrc, this.pressSrc, this.laneSrc, this.oneSrc]) {
+      for (const c of [this.keySrc, this.velSrc, this.pressSrc, this.laneSrc, this.oneSrc, this.scanAt]) {
         c.stop();
         c.disconnect();
       }
