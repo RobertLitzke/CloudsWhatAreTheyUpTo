@@ -4,23 +4,39 @@ Made by `npm run status` on 2026-11-04. Don't edit this file: change the lessons
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
-| Course | Written | Planned | Need read-through | Awaiting Gemini | Awaiting fact check | Awaiting photos | Done |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| [Clouds](#clouds) | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
-| [Dirt](#soil) | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 47 | 0 | 0 | 37 | 0 | 1 | 9 |
-| [Circuitry](#electronics) | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
-| [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
-| [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
-| [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
-| [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Money That Lasts](#finance) | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 7 | 14 | 7 | 0 | 7 | 0 | 0 |
+| Course | Version | Written | Planned | Need read-through | Awaiting Gemini | Awaiting fact check | Awaiting photos | Done |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
+| [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
+| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 37 | 0 | 1 | 9 |
+| [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
+| [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
+| [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
+| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
+| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
+| [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
+| [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 32 | 32 | 0 | 0 |
+| [Fungi](#fungi) | 0.1 beta | 8 | 13 | 3 | 8 | 8 | 8 | 0 |
+
+A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
+
+| Course | Version | Since | Ready to release? |
+| --- | --- | --- | --- |
+| Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
+| Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
+| Geology | 1.0 released | 2026-11-04 | released; still to do: 37 to copy-edit, 1 awaiting photos |
+| Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
+| Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to copy-edit, 12 to fact-check, 4 awaiting photos |
+| Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to copy-edit, 25 to fact-check, 15 awaiting photos |
+| Ecology | 0.1 beta | 2026-11-04 | no: 37 to copy-edit, 37 to fact-check, 37 awaiting photos |
+| Botany | 0.1 beta | 2026-11-04 | no: 33 to copy-edit, 33 to fact-check, 33 awaiting photos |
+| Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to copy-edit, 30 to fact-check, 17 awaiting photos |
+| Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to copy-edit, 32 to fact-check |
+| Fungi | 0.1 beta | 2026-11-04 | no: 13 lessons to write, 3 to read through, 8 to copy-edit, 8 to fact-check, 8 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
-`courses/clouds`. The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check.
+`courses/clouds`, version 0.1 (beta, 2026-11-04). The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -43,7 +59,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Dirt <a id="soil"></a>
 
-`courses/soil`. Came in from the old Dirt repository. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
+`courses/soil`, version 0.1 (beta, 2026-11-04). Came in from the old Dirt repository. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -61,7 +77,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Geology <a id="geology"></a>
 
-`courses/geology`. Every lesson was fact-checked on 3 Nov. Gemini's later fact notes still need checking against that review when the queue is run.
+`courses/geology`, version 1.0 (released, 2026-11-04). Every lesson was fact-checked on 3 Nov. Gemini's later fact notes still need checking against that review when the queue is run.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -115,7 +131,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Circuitry <a id="electronics"></a>
 
-`courses/electronics`. Came in from the old Circuitry repository. Circuits are drawn by its solver, so it needs no photos. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
+`courses/electronics`, version 0.1 (beta, 2026-11-04). Came in from the old Circuitry repository. Circuits are drawn by its solver, so it needs no photos. No record of a Gemini copy edit or a full fact check; the read-through status is a guess.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -136,7 +152,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Photography: Out of Auto <a id="photography"></a>
 
-`courses/photography`. Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive.
+`courses/photography`, version 0.1 (beta, 2026-11-04). Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -155,7 +171,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Astronomy <a id="astronomy"></a>
 
-`courses/astronomy`. Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet.
+`courses/astronomy`, version 0.1 (beta, 2026-11-04). Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -230,7 +246,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Ecology <a id="ecology"></a>
 
-`courses/ecology`. Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. No photos (parked in tools/pending-photos.json) or encyclopedia links yet.
+`courses/ecology`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); lessons 11-19 and branches H, N, T, M, S and W were written 4 Nov, each read by a Haiku student. No photos (parked in tools/pending-photos.json) or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -274,7 +290,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
+`courses/botany`, version 0.1 (beta, 2026-11-04). Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -314,7 +330,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Synthesizers <a id="synthesizers"></a>
 
-`courses/synthesizers`. Lessons are built on the live synth; 28 photos of instruments and people (17 lessons) are queued for Rob's PC in tools/photo-picks.json and parked in pending-photos.json (4 Nov). No student read-through yet for any lesson.
+`courses/synthesizers`, version 0.1 (beta, 2026-11-04). Lessons are built on the live synth; 28 photos of instruments and people (17 lessons) are queued for Rob's PC in tools/photo-picks.json and parked in pending-photos.json (4 Nov). No student read-through yet for any lesson.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -351,7 +367,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Money That Lasts <a id="finance"></a>
 
-`courses/finance`. Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026, no student read-through yet. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, and Portugal's treatment of Social Security and Roth IRAs.
+`courses/finance`, version 0.1 (beta, 2026-11-04). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026, no student read-through yet. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, and Portugal's treatment of Social Security and Roth IRAs.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -390,18 +406,18 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Fungi <a id="fungi"></a>
 
-`courses/fungi`. Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).
+`courses/fungi`, version 0.1 (beta, 2026-11-04). Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The ring in the meadow (`rings`) |  | needs student read-through | Fact check | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
-| 2 | Closer to us than to plants (`kingdom`) |  | needs student read-through | Fact check | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
-| 3 | Eating from the outside (`tips`) |  | needs student read-through | Fact check | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
-| 4 | Seven trillion spores (`spores`) |  | needs student read-through | Fact check | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
-| 5 | Twenty thousand sexes (`sexes`) |  | needs student read-through | Fact check | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
-| 6 | Sacs and clubs (`groups`) |  | needs student read-through | Fact check | The main groups of fungi told apart by how they make spores. |
-| 7 | The yeast that wastes its sugar (`yeast`) |  | needs student read-through | Fact check | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
-| 8 | The gap in the coal (`rot`) |  | planned, listed as coming |  | White and brown rot, lignin, and whether wood-rotting fungi ended the age of coal. |
+| 1 | The ring in the meadow (`rings`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
+| 2 | Closer to us than to plants (`kingdom`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
+| 3 | Eating from the outside (`tips`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
+| 4 | Seven trillion spores (`spores`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
+| 5 | Twenty thousand sexes (`sexes`) |  | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
+| 6 | Sacs and clubs (`groups`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
+| 7 | The yeast that wastes its sugar (`yeast`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
+| 8 | The gap in the coal (`rot`) |  | needs student read-through | Gemini (queued 2026-11-04); Fact check; Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
 | 9 | Do trees share through fungi? (`network`) |  | planned, listed as coming |  | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
 | 10 | A lichen is two (or three) (`lichens`) |  | planned, listed as coming |  | A fungus farming algae, and how drying out and waking lets lichens live on bare rock. |
 | 12 | The wood that glows (`glow`) |  | planned, listed as coming |  | Fungi that make cold light, foxfire, and a mushroom that glows on a clock to draw insects. |

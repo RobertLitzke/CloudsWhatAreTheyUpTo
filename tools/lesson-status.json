@@ -13,22 +13,54 @@
       "facts": "pending",
       "note": "The oldest course. Its prose went through several student read-throughs (Oct 2026) and a physics review of the sky lab (3 Nov), but never a Gemini copy edit or a full fact check.",
       "lessons": {
-        "fog": { "about": "What a cloud is made of, how a calm clear night makes fog and stratus, and how rising air builds fair-weather cumulus." },
-        "low-sky": { "about": "Stable and unstable air, the lid that flattens heaps into stratocumulus, and why a deep cloud rains when a dark thin one doesn't; nimbostratus." },
-        "middle-sky": { "about": "The three height floors, how the Latin names fit together, and three field checks for a cloud's height; altocumulus, cirrocumulus and cirrus." },
-        "ice-realm": { "about": "Mares' tails, contrails, the 22° halo and altostratus's frosted sun, read as a warm front's countdown 12 to 24 hours ahead." },
-        "giants": { "about": "Latent heat and conditional instability, the morning signs of an afternoon storm, anvils, gust fronts and the 30-30 lightning rule." },
-        "front": { "about": "Lows and their fronts, the barometer, why warm fronts soak and cold fronts squall, the crossed-winds rule, and reading rain on radar." },
-        "local-sky": { "about": "Rain shadows, standing mountain waves and lens clouds, supercooled water, rime and freezing rain, and how ice crystals make rain." },
-        "seeding": { "about": "The 1946 dry ice and silver iodide experiments, which clouds seeding can and can't help, and how randomised trials tested it." },
-        "wind": { "about": "How pressure pushes the wind, how the turning Earth bends it along the isobars, friction near the ground, and the jet stream." },
-        "coast": { "about": "Why the coast from Seattle to San Francisco hardly ever thunders: a cold sea, a lid of sinking air and the marine layer." },
-        "rivers": { "about": "Why the Northwest's rain comes from October to April: the storm track, atmospheric rivers, snow level and the Puget Sound convergence zone." },
-        "violent": { "about": "Why a few thunderstorms last all evening and drop big hail: the energy a rising bubble gains, the cap that stores it, and wind shear." },
-        "tornado": { "about": "Where a tornado's spin comes from (a horizontal roll tipped up and stretched by an updraft), wall clouds, hook echoes and the EF scale." },
-        "hurricane": { "about": "How tropical showers become a hurricane: the trade winds, a heat engine run on warm sea, the eye, what kills one, and storm surge." },
-        "winter-fog": { "about": "Why a basin can stay foggy for weeks in winter while the hills are sunny: the cold pool, other kinds of fog, rime and freezing rain." },
-        "east-wind": { "about": "Dust walls raised by storms whose rain never lands, and why wind coming down off the Cascades arrives hot and dry; the Gorge and the Santa Ana." }
+        "fog": {
+          "about": "What a cloud is made of, how a calm clear night makes fog and stratus, and how rising air builds fair-weather cumulus."
+        },
+        "low-sky": {
+          "about": "Stable and unstable air, the lid that flattens heaps into stratocumulus, and why a deep cloud rains when a dark thin one doesn't; nimbostratus."
+        },
+        "middle-sky": {
+          "about": "The three height floors, how the Latin names fit together, and three field checks for a cloud's height; altocumulus, cirrocumulus and cirrus."
+        },
+        "ice-realm": {
+          "about": "Mares' tails, contrails, the 22° halo and altostratus's frosted sun, read as a warm front's countdown 12 to 24 hours ahead."
+        },
+        "giants": {
+          "about": "Latent heat and conditional instability, the morning signs of an afternoon storm, anvils, gust fronts and the 30-30 lightning rule."
+        },
+        "front": {
+          "about": "Lows and their fronts, the barometer, why warm fronts soak and cold fronts squall, the crossed-winds rule, and reading rain on radar."
+        },
+        "local-sky": {
+          "about": "Rain shadows, standing mountain waves and lens clouds, supercooled water, rime and freezing rain, and how ice crystals make rain."
+        },
+        "seeding": {
+          "about": "The 1946 dry ice and silver iodide experiments, which clouds seeding can and can't help, and how randomised trials tested it."
+        },
+        "wind": {
+          "about": "How pressure pushes the wind, how the turning Earth bends it along the isobars, friction near the ground, and the jet stream."
+        },
+        "coast": {
+          "about": "Why the coast from Seattle to San Francisco hardly ever thunders: a cold sea, a lid of sinking air and the marine layer."
+        },
+        "rivers": {
+          "about": "Why the Northwest's rain comes from October to April: the storm track, atmospheric rivers, snow level and the Puget Sound convergence zone."
+        },
+        "violent": {
+          "about": "Why a few thunderstorms last all evening and drop big hail: the energy a rising bubble gains, the cap that stores it, and wind shear."
+        },
+        "tornado": {
+          "about": "Where a tornado's spin comes from (a horizontal roll tipped up and stretched by an updraft), wall clouds, hook echoes and the EF scale."
+        },
+        "hurricane": {
+          "about": "How tropical showers become a hurricane: the trade winds, a heat engine run on warm sea, the eye, what kills one, and storm surge."
+        },
+        "winter-fog": {
+          "about": "Why a basin can stay foggy for weeks in winter while the hills are sunny: the cold pool, other kinds of fog, rime and freezing rain."
+        },
+        "east-wind": {
+          "about": "Dust walls raised by storms whose rain never lands, and why wind coming down off the Cascades arrives hot and dry; the Gorge and the Santa Ana."
+        }
       }
     },
     "soil": {
@@ -50,10 +82,18 @@
       "facts": "pending",
       "note": "Student read-through done 3 Nov (d041fec). Three of the four stages are still drawn stand-ins until Rob's picture sets arrive.",
       "lessons": {
-        "lens": { "images": "the moonrise stage is a drawn stand-in" },
-        "focus": { "images": "the bramble stage is a drawn stand-in" },
-        "seeing": { "images": "the meadow stage is a drawn stand-in" },
-        "history": { "images": "Boulevard du Temple photo still to fetch (Commons, from Rob's PC)" }
+        "lens": {
+          "images": "the moonrise stage is a drawn stand-in"
+        },
+        "focus": {
+          "images": "the bramble stage is a drawn stand-in"
+        },
+        "seeing": {
+          "images": "the meadow stage is a drawn stand-in"
+        },
+        "history": {
+          "images": "Boulevard du Temple photo still to fetch (Commons, from Rob's PC)"
+        }
       }
     },
     "geology": {
@@ -68,8 +108,12 @@
       "expectsPhotos": true,
       "note": "Lessons 1-11 had the six-reviewer pass on 3 Nov, whose fixes are queued for Gemini; that was not a full fact check. Lessons 8 and 12-25 have no photos or encyclopedia links yet.",
       "lessons": {
-        "spectra": { "note": "Outline v2 adds the Doppler shift here (not written yet)." },
-        "hr": { "note": "Outline v2 adds binary stars here (not written yet)." }
+        "spectra": {
+          "note": "Outline v2 adds the Doppler shift here (not written yet)."
+        },
+        "hr": {
+          "note": "Outline v2 adds binary stars here (not written yet)."
+        }
       }
     },
     "ecology": {
@@ -97,7 +141,25 @@
     "fungi": {
       "student": "pending",
       "facts": "pending",
-      "note": "Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC)."
+      "note": "Fungi: Threads in the dark. Outline: https://claude.ai/artifact/3um9m4dasG3fu9D8U2Vthh (approved by Rob 4 Nov 2026, with one lesson on parasites and no photos of disease). Lessons are being written from 4 Nov; figures are drawn, photos come later (iNaturalist allowed, including CC BY-NC).",
+      "expectsPhotos": true,
+      "lessons": {
+        "rings": {
+          "student": "done"
+        },
+        "kingdom": {
+          "student": "done"
+        },
+        "tips": {
+          "student": "done"
+        },
+        "spores": {
+          "student": "done"
+        },
+        "sexes": {
+          "student": "done"
+        }
+      }
     }
   },
   "notStarted": []

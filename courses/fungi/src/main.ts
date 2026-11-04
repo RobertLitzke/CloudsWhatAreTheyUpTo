@@ -8,8 +8,11 @@ import { FIGURES } from './figures';
 import { prose } from './figures/kit';
 import { BRANCHES, LESSONS } from './lessons';
 import { PHOTOS } from './photos';
+import type { CourseRelease } from 'didactics/release';
+import course from '../course.json';
 
 defineCourse({
+  release: course.release as CourseRelease,
   id: 'fungi',
   title: 'Fungi',
   subtitle: 'Threads in the dark',
