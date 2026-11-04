@@ -33,6 +33,10 @@ import { fits, KEY, plant, PLANTS, walk } from '../src/figures/key';
 import { cross } from '../src/figures/mendel';
 import { crossover, twoYears } from '../src/figures/wheat';
 import { takes } from '../src/figures/apples';
+import { fresh, touch } from '../src/figures/traps';
+import { seek } from '../src/figures/steal';
+import { grove, stems } from '../src/figures/giant';
+import { flower, starch } from '../src/figures/heat';
 
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
@@ -338,7 +342,7 @@ describe('figures', () => {
     expect(fixed[300].tongue).toBeLessThan(8);
     expect(fixed[300].tongue - fixed[200].tongue).toBeLessThan(0.05);
     const r = FIGURES.race(context(), 'fixed');
-    guess(r.node, 'They grow until they reach the nectar, then stop');
+    guess(r.node, 'They reach the nectar, then stop');
     click(r.node, 'Hold the spur fixed');
     setSlider(r.node, 0, 200);
     await expect(r.done).resolves.toBeUndefined();
@@ -373,7 +377,7 @@ describe('figures', () => {
     expect(best(0.5, { tolerant: true })).toBe(0);
     expect(radiate('mustard', FAST, SLOW, 45).tips).toBeGreaterThan(3 * radiate('mustard', FAST, SLOW, 5).tips);
     const c = FIGURES.cost(context(), 'free');
-    guess(c.node, 'No: past some point poison costs more than it saves');
+    guess(c.node, 'No: too much costs more than it saves');
     click(c.node, 'Defence is free');
     await expect(c.done).resolves.toBeUndefined();
     const e = FIGURES.escape(context(), 'radiate');
@@ -446,12 +450,54 @@ describe('figures', () => {
     expect(takes(0)).toBe(false);
     expect(takes(13)).toBe(true);
     const g = FIGURES.graft(context(), 'take');
-    guess(g.node, 'Off to one side, its bark edge at the rootstock’s');
+    guess(g.node, 'At one side, bark edge to bark edge');
     setSlider(g.node, 0, 13);
     await expect(g.done).resolves.toBeUndefined();
     const s = FIGURES.seedlings(context(), 'graft');
     guess(s.node, 'Hardly any');
     click(s.node, 'Graft instead');
     await expect(s.done).resolves.toBeUndefined();
+  });
+  it('lesson O1: two touches close together shut the trap, far apart they do not, and five start digestion', async () => {
+    expect(touch(touch(fresh(), 10), 10).shut).toBe(true);
+    expect(touch(touch(fresh(), 60), 60).shut).toBe(false);
+    let s = fresh();
+    for (let k = 0; k < 5; k++) s = touch(s, 5);
+    expect(s.digesting).toBe(true);
+    const f = FIGURES.flytrap(context(), 'digest');
+    guess(f.node, 'A second touch, soon after');
+    click(f.node, 'Touch a trigger hair');
+    click(f.node, 'Touch a trigger hair');
+    setSlider(f.node, 0, 5);
+    for (let k = 0; k < 5; k++) click(f.node, 'Touch a trigger hair');
+    await expect(f.done).resolves.toBeUndefined();
+  });
+  it('lesson O2: dodder seedlings mostly reach the tomato', async () => {
+    const r = Array.from({ length: 40 }, (_, k) => seek('tomato', 'wheat', k).reached);
+    expect(r.filter((x) => x === 'left').length).toBeGreaterThan(25);
+    const d = FIGURES.dodder(context(), 'tomato');
+    guess(d.node, 'Towards the tomato');
+    await expect(d.done).resolves.toBeUndefined();
+  });
+  it('lesson O3: a browsed clone thins and a fenced one fills in', async () => {
+    expect(stems(grove(150, true)[150])).toBeLessThan(stems(grove(150, true)[0]) / 3);
+    expect(stems(grove(150, false)[150])).toBeGreaterThan(stems(grove(150, false)[0]));
+    const c = FIGURES.clone(context(), 'fence');
+    guess(c.node, 'It thins as old trunks die');
+    setSlider(c.node, 0, 120);
+    click(c.node, 'Fence out deer and elk');
+    setSlider(c.node, 0, 120);
+    await expect(c.done).resolves.toBeUndefined();
+  });
+  it('lesson O4: the lotus holds about 32 °C down to about 10 °C air, burning more as it cools', async () => {
+    expect(flower(15).temp).toBeCloseTo(32);
+    expect(flower(5).temp).toBeLessThan(32);
+    expect(flower(10).watts).toBeGreaterThan(flower(20).watts);
+    expect(starch(1)).toBeCloseTo(2.1, 1);
+    const h = FIGURES['lotus-heat'](context(), 'cold');
+    guess(h.node, 'Burns more and stays warm');
+    setSlider(h.node, 0, 8);
+    setSlider(h.node, 0, 30);
+    await expect(h.done).resolves.toBeUndefined();
   });
 });

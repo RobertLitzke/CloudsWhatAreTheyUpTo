@@ -1,0 +1,63 @@
+{
+  "id": "heat",
+  "n": 304,
+  "branch": "odd",
+  "needs": ["air"],
+  "title": "Flowers that make heat",
+  "teaches": "How skunk cabbage, the sacred lotus and titan arum burn sugar to warm their flowers, how a lotus flower holds its temperature like a thermostat, and what the warmth is for",
+  "parts": [
+    {
+      "title": "A flower that melts snow",
+      "blocks": [
+        {"type": "text", "text": "In the swamps of eastern North America, in February, while the ground is still frozen, eastern skunk cabbage pushes up a mottled purple hood. Inside it stands a stubby club covered in tiny flowers, and around the hood the snow has melted into a ring. The club is warm: measured on frosty nights, it holds itself near 20 °C for a week or two, sometimes 30 °C warmer than the air around it. The Northwest's yellow skunk cabbage, flowering in wet woods in March, warms itself only slightly."},
+        {"type": "text", "text": "Plants are usually at the temperature of their surroundings, or a little cooler in sun when they sweat water through their stomata (lesson 7). A few make heat, and some of those make a lot of it. In 1778 Lamarck, in the same flora of France that made keys popular (lesson K2), noted that the flowers of an arum were warm to the touch."}
+      ]
+    },
+    {
+      "title": "Respiration run hot",
+      "blocks": [
+        {"type": "text", "text": "Lesson 2 described respiration, the slow burning of sugar with oxygen that every cell uses for energy, as the same reaction as a fire, run in tiny steps so that the energy is caught instead of lost as flame. In the mitochondria, the cell's power stations, the last steps pass electrons along a chain of proteins to oxygen, and the chain uses that flow to make the cell's energy carrier, ATP."},
+        {"type": "text", "text": "Heat-making flowers have a short cut. An extra enzyme, the alternative oxidase, hands electrons straight to oxygen, skipping the steps that make ATP. The sugar burns just as completely, but its energy comes out as heat instead of being caught. Gram for gram, the hottest of these flowers burn sugar about as fast as a small mammal does to keep warm. In 1987 Ilya Raskin and colleagues showed that in the voodoo lily the signal that switches heating on is salicylic acid, a chemical that aspirin is made from."}
+      ]
+    },
+    {
+      "title": "A thermostat in a lotus",
+      "blocks": [
+        {"type": "text", "text": "In 1996 Roger Seymour and Paul Schultze-Motel pushed temperature probes into the flowers of sacred lotus in the botanic garden of Adelaide, Australia. For two to four days after opening, the flat-topped centre of each flower stayed between 30 and 35 °C, while the air around it ranged between about 10 and 30 °C or more. As the night grew colder, the flowers burned more and took in more oxygen; on hot days they made almost no heat at all. The flower was regulating its temperature, as a warm-blooded animal does, though only for a few days and only in the flower."},
+        {"type": "interactive_diagram", "id": "lotus-heat", "caption": "A lotus flower holding itself near 32 °C as the air changes. A model.", "task": "Guess, then try a cold night and a hot day", "goal": "cold", "aspect_ratio": 1.74},
+        {"type": "key_ideas", "title": "Estimate", "points": ["On a cool night a lotus flower makes about 1 watt, a joule each second. Over a 10-hour night, 36,000 seconds, that is 36,000 joules.", "A gram of starch holds about 17,000 joules, so the flower burns about 2 grams of starch a night, a little under a level teaspoon, which its leaves and its rhizome, the thick underground stem in the pond mud, must supply."]}
+      ]
+    },
+    {
+      "title": "What the heat is for",
+      "blocks": [
+        {"type": "text", "text": "The lotus is pollinated by beetles, which crawl into the flower in the evening as its petals close round them, and spend the night inside, warm, feeding and mating, before leaving in the morning dusted with pollen. Warmth is the reward, and in a warm flower a cold-blooded insect can stay active. Other heaters use heat to spread scent. The titan arum of Sumatra, whose flower spike can stand three metres tall, heats the tip of its spike to well above the air temperature while it gives off a stench of rotting meat, and the heat helps carry the smell far and wide to the carrion flies and beetles, which feed and lay eggs on dead animals, that pollinate it. Skunk cabbage's warmth may do both, and may also protect its flowers from frost."},
+        {"type": "text", "text": "Botanic gardens announce when their titan arums bloom, since a plant flowers only once every several years and the flower lasts a day or two; people queue to see and smell it."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on hot flowers", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "How does a skunk cabbage make heat?", "choices": ["It burns stored starch by respiration, with a short cut that turns the energy into heat", "It traps warmth from the swamp water in its hood", "It burns its starch by fermentation, without oxygen"], "answer": 0, "why": "The alternative oxidase skips the ATP-making steps, so the energy of the sugar comes out as heat."},
+            {"ask": "As the night cools, what does a sacred lotus flower do?", "choices": ["Burns more starch and stays at about 30 to 35 °C", "Cools with the air", "Closes and stops heating"], "answer": 0, "why": "Seymour and Schultze-Motel found the flowers regulate their temperature, making more heat the colder it gets."},
+            {"ask": "A lotus flower makes 1 watt for 10 hours. Roughly how much starch does it burn?", "choices": ["About 2 grams", "About 200 grams", "About 20 grams"], "answer": 0, "why": "36,000 joules divided by about 17,000 joules per gram is about 2 grams."},
+            {"ask": "What do the lotus's beetle pollinators get from a warm flower?", "choices": ["A warm place to feed and mate overnight", "Pollen that is easier to digest warm", "Protection from birds"], "answer": 0, "why": "The beetles spend the night inside the closed flower and leave covered in pollen."},
+            {"ask": "Why does the titan arum heat its flower spike?", "choices": ["The heat helps spread its rotting-meat smell to carrion insects", "To keep frost off in the tropics", "To ripen its seeds faster"], "answer": 0, "why": "Warmth helps lift the scent, drawing the flies and beetles that pollinate it."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**A few flowers make their own heat.** Eastern skunk cabbage melts its way through snow, holding itself near 20 °C.",
+    "**They burn starch by respiration with a short cut.** The alternative oxidase turns the energy into heat instead of ATP.",
+    "**A sacred lotus flower is a thermostat.** It holds 30 to 35 °C, burning more as the air cools (Seymour and Schultze-Motel, 1996).",
+    "**The heat costs starch.** About 2 grams a night for a watt.",
+    "**The warmth is a reward or a scent pump.** Beetles spend warm nights in lotus flowers; the titan arum's heat spreads its stench."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

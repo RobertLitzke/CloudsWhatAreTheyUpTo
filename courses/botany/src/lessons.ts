@@ -17,10 +17,6 @@ const TRUNK_COMING: PlantLesson[] = [
 ];
 
 const BRANCH_COMING: PlantLesson[] = [
-  coming('traps', 301, 'Snap traps and sticky leaves', 'How a Venus flytrap counts and closes, and why bog plants eat insects', { branch: 'odd', needs: ['cells', 'peas', 'bending'] }),
-  coming('steal', 302, 'Plants that steal', 'Dodder, mistletoe and plants that tap other plants', { branch: 'odd', needs: ['phloem', 'pale'] }),
-  coming('giant', 303, 'The heaviest living thing', 'Giant sequoias, aspen clones and how big a plant can get', { branch: 'odd', needs: ['spiral', 'rings'] }),
-  coming('heat', 304, 'Flowers that make heat', 'Skunk cabbage and titan arum, which burn sugar to warm their flowers', { branch: 'odd', needs: ['air'] }),
 ];
 
 /** The branches: naming plants, crops, and odd plants. */

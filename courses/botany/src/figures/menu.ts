@@ -73,7 +73,7 @@ export const costFigure = figure(['free'], (_ctx, t) => {
   f.controls.append(ds.node, ps.node, sw.node);
   const open = guessFirst(t, f, {
     ask: 'A plant can put more and more of its sugar into a poison that caterpillars avoid. Does the most poisonous plant always grow best?',
-    options: ['Yes: the more poison the better', 'No: past some point poison costs more than it saves', 'No: poison never pays'],
+    options: ['Yes: the more poison the better', 'No: too much costs more than it saves', 'No: poison never pays'],
     answer: 1,
     reveal: 'done',
     sliders: [ds, ps],

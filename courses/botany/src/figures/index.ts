@@ -35,6 +35,10 @@ import { crossFigure } from './mendel';
 import { cornFigure } from './corn';
 import { fallowFigure } from './wheat';
 import { graftFigure, seedFigure } from './apples';
+import { flytrapFigure } from './traps';
+import { dodderFigure } from './steal';
+import { cloneFigure } from './giant';
+import { lotusHeatFigure } from './heat';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -128,4 +132,12 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson C4
   seedlings: seedFigure,
   graft: graftFigure,
+  // Lesson O1
+  flytrap: flytrapFigure,
+  // Lesson O2
+  dodder: dodderFigure,
+  // Lesson O3
+  clone: cloneFigure,
+  // Lesson O4
+  'lotus-heat': lotusHeatFigure,
 };

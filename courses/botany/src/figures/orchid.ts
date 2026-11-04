@@ -164,7 +164,7 @@ export const raceFigure = figure(['fixed'], (ctx, t) => {
   f.controls.append(play.node, gs.node, sw.node);
   const open = guessFirst(t, f, {
     ask: 'Suppose the orchids stop changing and their spurs stay 4 cm long. What happens to the moths’ tongues?',
-    options: ['They keep getting longer', 'They grow until they reach the nectar, then stop', 'They get shorter at once'],
+    options: ['They keep getting longer', 'They reach the nectar, then stop', 'They get shorter at once'],
     answer: 1,
     reveal: 'done',
     sliders: [gs],

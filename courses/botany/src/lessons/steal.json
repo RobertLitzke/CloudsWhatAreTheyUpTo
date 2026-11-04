@@ -1,0 +1,69 @@
+{
+  "id": "steal",
+  "n": 302,
+  "branch": "odd",
+  "needs": ["phloem", "pale"],
+  "title": "Plants that steal",
+  "teaches": "Parasitic plants that tap other plants' xylem and phloem: dodder, which finds its host by smell, mistletoes that fire their seeds, and witchweed, which waits for a crop's root to call",
+  "parts": [
+    {
+      "title": "A few days to find a host",
+      "blocks": [
+        {"type": "text", "text": "Dodder looks like a tangle of orange string thrown over a hedge or a field of clover. It has no leaves to speak of and almost no chlorophyll. Its seedling comes up from the soil as a thin yellow thread with a root that withers within days, and it has about a week of food stored in its seed. In that time it must find another plant, wrap itself around it and break in. If it doesn't, it dies."},
+        {"type": "text", "text": "Like most growing shoots, the dodder seedling's tip sweeps slowly round in circles as it grows, a habit Darwin measured in climbing plants. But a dodder doesn't wander at random. In 2006 Justin Runyon, Mark Mescher and Consuelo De Moraes at Penn State set dodder seedlings between a tomato and a wheat plant, and most grew towards the tomato. They still did when the tomato was hidden in a box so that only its air could reach them, and they grew towards a rubber stopper that had been soaked in a scent extracted from tomatoes. The seedlings were following a smell."}
+      ]
+    },
+    {
+      "title": "Following a smell",
+      "blocks": [
+        {"type": "interactive_diagram", "id": "dodder", "caption": "Dodder seedlings between two pots. A model.", "task": "Guess, then watch five seedlings choose", "goal": "tomato", "aspect_ratio": 1.74},
+        {"type": "text", "text": "Every plant gives off a mix of airborne chemicals, the green smell of cut grass or crushed tomato leaves. The researchers picked out several in tomato's mix that drew the seedlings, and one in wheat's that pushed them away: tomato both pulls harder and doesn't push. Once a seedling touches a stem it coils around it, a few turns, and pushes pegs called **haustoria** into it. The pegs grow until they meet the host's xylem and phloem and join them, cell to cell. From then on dodder drinks the host's water and sap. Its own root has already withered, and the little chlorophyll it had is no longer needed."}
+      ]
+    },
+    {
+      "title": "Half thieves and whole thieves",
+      "blocks": [
+        {"type": "text", "text": "About one flowering plant in a hundred is a parasite on another plant. Some, like dodder, take sugar from the host's phloem (lesson 9) as well as water from its xylem; they are whole parasites. Others are green and make their own sugar, and take only water and minerals; the leafy mistletoes on Oregon white oaks are like that. Lesson 11's pinesap is a thief at one remove, taking its sugar through a fungus that is tied to a tree."},
+        {"type": "text", "text": "The largest single flower in the world, nearly a metre across, belongs to a parasite. (Lesson O4's titan arum is bigger, but it is a spike of thousands of small flowers.) *Rafflesia* lives inside the stems of tropical vines as threads of tissue, with no leaves, stems or roots of its own, and shows itself only when a huge, foul-smelling flower bursts out of the vine."}
+      ]
+    },
+    {
+      "title": "Dwarf mistletoes",
+      "blocks": [
+        {"type": "text", "text": "The Northwest's conifers have their own parasites, the dwarf mistletoes: small, jointed, yellow-green shoots a few centimetres long that grow out of the branches of hemlocks, pines, larches and Douglas-fir. Forest surveys rank them among the most damaging pests of western conifers, costing more timber growth each year than most insects. An infected tree grows slowly, and around each infection its branches bunch into a dense, twiggy tangle called a witches' broom, easy to see from a road."},
+        {"type": "text", "text": "A dwarf mistletoe spreads in an unusual way. As its berry ripens, water pressure builds up inside it, until the berry bursts and fires its single sticky seed at about 25 metres a second, as fast as a car on a highway. The seed flies up to 15 metres, and with luck sticks to a needle on a neighbouring tree. When rain wets it, it slides down to the twig and grows in."}
+      ]
+    },
+    {
+      "title": "Witchweed",
+      "blocks": [
+        {"type": "text", "text": "The most costly plant parasite of all is witchweed, *Striga*, which attacks the roots of maize, sorghum and millet in Africa and costs farmers there several billion dollars of grain a year by most estimates. Its tiny seeds can wait in the soil for many years. They sprout only when they detect strigolactones, chemicals that a crop's roots release to call lesson 11's mycorrhizal fungi. The signal a crop sends to find its partner tells the parasite a host is near."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on parasitic plants", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "How does a dodder seedling find a host?", "choices": ["It grows towards the airborne scent of a suitable plant", "It grows straight up until it touches something", "Its roots follow the host's roots"], "answer": 0, "why": "Runyon and colleagues showed seedlings growing towards tomato scent alone, even with no plant there."},
+            {"ask": "What do a dodder's haustoria do?", "choices": ["Join the host's xylem and phloem to take its water and sap", "Hold the dodder upright", "Store food for the dodder's seeds"], "answer": 0, "why": "The pegs grow in until they meet the host's pipes and connect cell to cell."},
+            {"ask": "An oak mistletoe has green leaves and its roots reach only the oak's xylem. What kind of parasite is it?", "choices": ["A half parasite, making its own sugar", "A whole parasite", "Not a parasite at all"], "answer": 0, "why": "Green parasites photosynthesise and take only water and minerals from the host's xylem."},
+            {"ask": "How does a dwarf mistletoe's seed reach a new tree?", "choices": ["Its berry builds up water pressure and fires the seed", "Squirrels bury its berries", "Wind blows it on a parachute"], "answer": 0, "why": "The berry bursts and fires a sticky seed at about 25 metres a second, up to 15 metres."},
+            {"ask": "What wakes a witchweed seed?", "choices": ["Strigolactones that crop roots release to attract fungal partners", "Light on bare soil", "The first autumn rains"], "answer": 0, "why": "The crop's call to its mycorrhizal fungi is also a signal to the parasite."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**About one flowering plant in a hundred steals from another.** Whole parasites take sugar and water; green half parasites take water and minerals.",
+    "**A dodder seedling has about a week to find a host.** It follows the host's scent (Runyon, Mescher and De Moraes, 2006).",
+    "**Haustoria join the host's xylem and phloem cell to cell.**",
+    "**Dwarf mistletoes harm western conifers and make witches' brooms.** Their berries fire seeds at about 25 metres a second.",
+    "**Witchweed waits for a crop root's call.** Strigolactones meant for fungal partners wake its seeds.",
+    "**Rafflesia, the largest flower, is a parasite inside a vine.**"
+  ],
+  "journal": [],
+  "footnotes": {}
+}

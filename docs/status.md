@@ -13,7 +13,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Photography: Out of Auto](#photography) | 12 | 0 | 0 | 12 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 25 | 43 | 0 | 25 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 31 | 6 | 3 | 31 | 31 | 31 | 0 |
-| [Botany](#botany) | 29 | 4 | 0 | 29 | 29 | 29 | 0 |
+| [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
 | [Retiring Early, Taxed Lightly (working title)](#finance) | 0 | 29 | 0 | 0 | 0 | 0 | 0 |
 
@@ -273,7 +273,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 
 ## Botany <a id="botany"></a>
 
-`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and branches K and C were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
+`courses/botany`. Lessons 1-10 had a Haiku student read-through (3 Nov); 11-21 and all branches (K, C, O) were written 4 Nov with one read-through each. No photos or encyclopedia links yet.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
@@ -306,10 +306,10 @@ A lesson's status is the first step it still waits for, in the order: student re
 | C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How maize was made from teosinte, a Mexican grass that looks nothing like it, how George Beadle and later DNA showed it, and how a few genes made the biggest changes. |
 | C3 | Wheat on the Palouse (`wheat`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How eastern Washington grows high wheat yields without irrigation: winter wheat and its need for cold, Orville Vogel's short wheats, storing water in fallow fields, and the soil it has cost. |
 | C4 | Every Red Delicious is one tree (`apples`) | Crops and breeding | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why an apple seed almost never grows the apple it came from, how grafting copies a tree by joining cambium to cambium, how rootstocks set a tree's size, and the apples of Washington. |
-| O1 | Snap traps and sticky leaves (`traps`) | Odd plants | planned, listed as coming |  | How a Venus flytrap counts and closes, and why bog plants eat insects. |
-| O2 | Plants that steal (`steal`) | Odd plants | planned, listed as coming |  | Dodder, mistletoe and plants that tap other plants. |
-| O3 | The heaviest living thing (`giant`) | Odd plants | planned, listed as coming |  | Giant sequoias, aspen clones and how big a plant can get. |
-| O4 | Flowers that make heat (`heat`) | Odd plants | planned, listed as coming |  | Skunk cabbage and titan arum, which burn sugar to warm their flowers. |
+| O1 | Snap traps and sticky leaves (`traps`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Why plants of nitrogen-poor bogs catch insects, how a sundew tells food from grit, and how a Venus flytrap counts touches and snaps shut faster than water can move. |
+| O2 | Plants that steal (`steal`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Parasitic plants that tap other plants' xylem and phloem: dodder, which finds its host by smell, mistletoes that fire their seeds, and witchweed, which waits for a crop's root to call. |
+| O3 | The heaviest living thing (`giant`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | Pando, a grove of aspen that is one plant, what counts as one living thing, the other contenders for biggest, how tall a tree can grow, and why Pando is shrinking. |
+| O4 | Flowers that make heat (`heat`) | Odd plants | awaiting Gemini review (queued 2026-11-04) | Fact check; Photos (no photos chosen yet) | How skunk cabbage, the sacred lotus and titan arum burn sugar to warm their flowers, how a lotus flower holds its temperature like a thermostat, and what the warmth is for. |
 
 ## Synthesizers <a id="synthesizers"></a>
 

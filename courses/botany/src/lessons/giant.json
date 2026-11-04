@@ -1,0 +1,69 @@
+{
+  "id": "giant",
+  "n": 303,
+  "branch": "odd",
+  "needs": ["spiral", "rings"],
+  "title": "The heaviest living thing",
+  "teaches": "Pando, a grove of aspen that is one plant, what counts as one living thing, the other contenders for biggest, how tall a tree can grow, and why Pando is shrinking",
+  "parts": [
+    {
+      "title": "One plant, 47,000 trunks",
+      "blocks": [
+        {"type": "text", "text": "On a mountainside in central Utah, near Fish Lake, grows a grove of quaking aspen covering about 43 hectares, the size of sixty football pitches. It has about 47,000 trunks, white-barked and up to about 25 metres tall, and every one of them is part of a single plant, joined underground by one root system and carrying the same genes. It has a name, Pando, Latin for I spread, and its weight has been estimated at about 6,000 tonnes, which would make it the heaviest living thing known."},
+        {"type": "text", "text": "From the 1960s the forester Burton Barnes mapped aspen clones across the West by eye, from features every trunk in a clone shares: the shape of the leaves, the colour of the bark, and above all the day in autumn when the leaves turn. Look at an aspen-covered hillside in late September and it is a patchwork, one patch gold, the next still green: each patch is one clone. In 2008 a genetic study confirmed that Pando's trunks share one set of genes."}
+      ]
+    },
+    {
+      "title": "How a grove becomes one plant",
+      "blocks": [
+        {"type": "text", "text": "Aspen seeds are tiny and need bare, wet ground at just the right moment, so in the dry interior West few aspen grow from seed. Instead, an aspen's shallow roots run out sideways for tens of metres and send up new shoots, **suckers**, along the way. Each sucker grows into a trunk with its own crown of leaves, still joined to the roots. When a trunk dies, after about a century, its roots send up suckers in the gap. The trunks come and go; the root system goes on, spreading slowly outward, and can outlive its trunks by thousands of years. Nobody knows how old Pando is: estimates run from several thousand years to far more."},
+        {"type": "text", "text": "A fire that kills every trunk barely touches the roots, which push up suckers in their tens of thousands per hectare the next spring. That is why aspen is one of the first trees back after a burn."},
+        {"type": "interactive_diagram", "id": "clone", "caption": "An aspen clone over 150 years, seen from above. Each dot is a trunk. A model.", "task": "Guess, play it, then fence out the deer", "goal": "fence", "aspect_ratio": 1.69}
+      ]
+    },
+    {
+      "title": "What counts as one?",
+      "blocks": [
+        {"type": "text", "text": "For animals the question hardly arises: an elk is one elk. Plants blur it. Is each aspen trunk a tree, or is the grove one tree? Botanists separate the two meanings. A **clone** is everything grown, without sex, from one original seedling: all its pieces carry the same genes, however many there are. Each separate trunk or plant within it is called a ramet. By trunks, Pando is a forest. By clone, it is one plant. Strawberries spreading by runners, grass spreading by underground stems and lesson C4's Red Delicious trees are all clones too. The Red Delicious trees are scattered over orchards worldwide, and spread by grafting instead of by roots."}
+      ]
+    },
+    {
+      "title": "Big in other ways",
+      "blocks": [
+        {"type": "text", "text": "Pando's record depends on how you count. A honey fungus (*Armillaria ostoyae*) in the Blue Mountains of Oregon spreads its threads under about 900 hectares of forest, twenty times Pando's area, though it is probably lighter. A clone of a seagrass in Shark Bay, Western Australia, covers about 200 square kilometres of sea floor. By single trunk, the giant sequoia called General Sherman in California, about 1,500 cubic metres of wood, is the largest tree by volume, and a coast redwood called Hyperion, 116 metres tall, is the tallest."},
+        {"type": "text", "text": "Why not taller? In 2004 George Koch and colleagues climbed the tallest redwoods and measured their leaves at different heights. Near the top, water had to be pulled so hard up the xylem (lesson 6) that the leaves were small and thick, with little room inside for carbon dioxide to reach the cells, and they grew far more slowly than leaves lower down. They estimated that no redwood could grow much past 120 to 130 metres, however long it lived."}
+      ]
+    },
+    {
+      "title": "A giant in trouble",
+      "blocks": [
+        {"type": "text", "text": "Much of Pando has few young trunks. Its trunks are old, and as they die, the suckers that should replace them are bitten off, browsed, by mule deer and elk, which have few predators there now, and by cattle grazing the forest. Studies led by Paul Rogers of Utah State University found that where parts of the grove had been fenced, suckers grew up thickly; outside the fences, few lived past a deer's reach. More of Pando has been fenced since. Ecology's lesson on why the world is green shows the same pattern elsewhere: what eats the young plants, and what in turn eats the plant-eaters, decides what a landscape looks like."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz", "id": "check", "caption": "Five questions on giant plants", "task": "Choose the best answer to each",
+          "options": {"items": [
+            {"ask": "Why is Pando counted as one plant?", "choices": ["All its trunks grow from one root system and share one set of genes", "Its trunks were all planted at once", "It is surrounded by a fence"], "answer": 0, "why": "Every trunk is a sucker from the same roots, grown from one original seedling."},
+            {"ask": "How can you see separate aspen clones on a hillside?", "choices": ["Each clone turns gold in autumn on its own day", "Each clone has a different bark colour every year", "Clones grow in straight lines"], "answer": 0, "why": "Every trunk in a clone shares its genes, so they change colour together, in patches."},
+            {"ask": "Why is Pando losing trunks?", "choices": ["Deer, elk and cattle eat the suckers that should replace old trunks", "Its roots are dying of old age", "It has run out of room to spread"], "answer": 0, "why": "Where the grove is fenced, suckers grow up thickly. Outside, few survive browsing."},
+            {"ask": "What largely limits how tall a redwood can grow?", "choices": ["How hard water must be pulled up to the top leaves", "The strength of its wood", "How much light reaches the lower branches"], "answer": 0, "why": "Koch's group found the top leaves so short of water they could barely grow, setting a limit of about 120 to 130 metres."},
+            {"ask": "Which is a clone in the same sense as Pando?", "choices": ["A patch of strawberries spread by runners from one plant", "A field of wheat sown from seed", "An orchard of apple trees each grown from seed"], "answer": 0, "why": "Runners, like aspen roots, carry one plant's genes into new pieces of it."}
+          ]}
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Pando is one aspen clone of about 47,000 trunks on 43 hectares.** About 6,000 tonnes: probably the heaviest living thing.",
+    "**Aspen spreads by suckers from its roots.** Trunks live about a century; the roots can outlive them by thousands of years.",
+    "**A clone is everything grown from one fertilised egg.** By trunks Pando is a forest; by clone, one plant.",
+    "**Other records count differently.** A honey fungus and a seagrass cover more ground; General Sherman is the biggest single trunk, Hyperion the tallest.",
+    "**Redwoods stop near 120 to 130 metres.** Water can't be pulled any higher fast enough (Koch, 2004).",
+    "**Pando is shrinking.** Browsing deer, elk and cattle eat its suckers; fenced parts regrow."
+  ],
+  "journal": [],
+  "footnotes": {}
+}

@@ -68,7 +68,7 @@ export const graftFigure = figure(['take'], (_ctx, t) => {
   f.controls.append(os.node);
   const open = guessFirst(t, f, {
     ask: 'A grafter joins a thin twig, the scion, onto a thicker rootstock. Where on the cut should the scion go?',
-    options: ['In the middle, wood on wood', 'Off to one side, its bark edge at the rootstock’s', 'Anywhere, as long as it is tied tight'],
+    options: ['In the middle, wood on wood', 'At one side, bark edge to bark edge', 'Anywhere, if tied tight'],
     answer: 1,
     reveal: 'done',
     sliders: [os],
