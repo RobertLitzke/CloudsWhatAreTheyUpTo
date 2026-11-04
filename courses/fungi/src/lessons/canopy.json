@@ -1,0 +1,61 @@
+{
+  "id": "canopy",
+  "n": 103,
+  "branch": "lichens",
+  "needs": ["lichenometry"],
+  "title": "Gardens in the canopy",
+  "teaches": "The nitrogen-fixing lichens high in old Douglas-firs, what they add to the forest, and why young forests lack them",
+  "summary": [
+    "**Old Douglas-fir forests carry gardens of lichen in their crowns.** The tops were almost unknown until climbers reached them in the 1970s.",
+    "**The lettuce lichen is the largest of them.** Its big green lobes hold cyanobacteria as well as algae.",
+    "**Its cyanobacteria take nitrogen from the air.** When the lichen falls and rots, that nitrogen feeds the forest.",
+    "**An old forest can carry a tonne or more of it on each hectare.** Together such lichens add a few kilograms of nitrogen a hectare each year.",
+    "**Young forests have almost none.** Lichens transplanted into young trees grew well, so the problem is getting there, not living there.",
+    "**Leaving old trees standing helps.** They act as sources from which the lichen spreads into the young forest."
+  ],
+  "parts": [
+    {
+      "title": "Seventy metres up",
+      "blocks": [
+        {"type": "text", "text": "The old-growth forests of the Cascades and the Oregon and Washington coast are among the tallest on Earth. Douglas-firs there grow seventy metres high and live five hundred years or more. Until the 1970s almost nothing was known about their crowns. They were too high for ladders, and the lowest branches were often thirty metres up."},
+        {"type": "text", "text": "In the early 1970s William Denison, a lichenologist at Oregon State University, and his students began climbing them, using ropes and techniques borrowed from caving. What they found in the upper branches surprised them: a rich garden of lichens, mosses and liverworts, in some trees weighing more than the tree's own needles. The commonest large lichen was a pale green, leafy one with lobes the size of a hand, the **lettuce lichen**, *Lobaria oregana*."}
+      ]
+    },
+    {
+      "title": "Nitrogen from the air",
+      "blocks": [
+        {"type": "text", "text": "Lesson 10 described lichens whose partners are cyanobacteria, which can take nitrogen gas from the air and turn it into a form living things can use. The lettuce lichen has both: green algae spread through its lobes to make sugar, and small packets of cyanobacteria inside to fix nitrogen. Nitrogen is often the nutrient in shortest supply in these forests, and very little comes in with the rain."},
+        {"type": "text", "text": "The lichens hold on to their nitrogen while they live. But lobes break off in storms and fall to the forest floor, where they rot quickly, and deer and elk eat them in winter. Measurements in old forests have put the amount of lettuce and similar lichens in the canopy at a tonne or more on each hectare, adding a few kilograms of nitrogen a hectare each year, a large share of the new nitrogen these forests get.[^estimate]"}
+      ]
+    },
+    {
+      "title": "Why young forests lack them",
+      "blocks": [
+        {"type": "text", "text": "Much of the old-growth forest of the Northwest was clear-cut in the twentieth century and replanted with young Douglas-fir. In those plantations, lettuce lichen is scarce or absent, even where the trees are tall. Two explanations were possible. The young forest might be the wrong place for it, too sunny, too dry or too unstable. Or the lichen might simply not have arrived."},
+        {"type": "text", "text": "In the 1990s Stephen Sillett and Bruce McCune tested this directly. They tied pieces of lettuce lichen into the crowns of young trees and old ones and came back over the following years. The transplants survived and grew well in the young forest, in places as well as in the old. The problem was getting there. The lichen spreads mostly by fragments that fall rather than fly, and travel only a short way from the tree they came from."},
+        {"type": "interactive_diagram", "id": "canopy", "caption": "Lettuce lichen in a regrowing Douglas-fir forest. A model of how fast it builds up, with and without a few old trees left standing as sources.", "task": "Grow an old forest, then try one with old trees kept", "goal": "old", "aspect_ratio": 1.9}
+      ]
+    },
+    {
+      "title": "Keeping the sources",
+      "blocks": [
+        {"type": "text", "text": "Since the 1990s, forestry rules on public land in the Northwest have required some old trees to be left standing in logged areas, in part for this kind of reason. Old trees carry lichens, mosses and the animals that depend on them into the next forest, so it does not have to wait centuries to be colonised from far away."},
+        {"type": "text", "text": "The canopy gardens connect to the Northwest branch of this course. The hair lichens that hang from the same trees, dark brown beards of *Bryoria*, are the main winter food and nest lining of the northern flying squirrel, which in turn spreads truffle spores across the forest floor."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Four questions on canopy lichens", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "How does the lettuce lichen add nitrogen to the forest?", "choices": ["Its cyanobacteria fix nitrogen from the air, and fallen lobes rot on the forest floor", "It pulls nitrogen out of the tree's sap", "It takes nitrogen from rainwater and stores it forever"], "answer": 0, "why": "Cyanobacteria inside the lichen turn nitrogen gas into usable forms. When lobes fall and rot, the forest gets it."},
+          {"ask": "What did Sillett and McCune's transplants show?", "choices": ["Lettuce lichen grows well in young trees; it just does not reach them", "Young forests are too dry for it", "It can only live on trees over 500 years old"], "answer": 0, "why": "Transplanted pieces survived and grew in young crowns. The barrier is dispersal, not habitat."},
+          {"ask": "Why does lettuce lichen spread slowly?", "choices": ["It spreads mostly by fragments that fall only a short way", "It makes no spores or fragments", "Animals eat all of it"], "answer": 0, "why": "Fragments drop close to the parent tree, so a cleared forest is recolonised only slowly from its edges."},
+          {"ask": "Why leave some old trees standing when a forest is cut?", "choices": ["They carry lichens and other life that can spread into the new forest", "They shade out weeds", "They make the logging cheaper"], "answer": 0, "why": "Old trees are sources. With them, the young forest is colonised in decades rather than centuries."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "estimate": {"kind": "technical", "title": "How much?", "text": "Estimates vary with the forest and the method, from about two to ten kilograms of nitrogen per hectare per year. To estimate it, researchers weigh the lichen on sample branches, scale up to whole trees, and measure how fast pieces of lichen fix nitrogen in the field."}
+  }
+}

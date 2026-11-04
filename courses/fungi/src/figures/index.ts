@@ -23,6 +23,9 @@ import { antFigure, trapsStill } from './hunters';
 import { mapFigure, pairingStill } from './individual';
 import { cluesFigure, scaleStill } from './prototaxites';
 import { logFigure, territoriesStill } from './log';
+import { barkFigure } from './bark';
+import { datingFigure } from './lichenometry';
+import { canopyFigure } from './canopy';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
@@ -76,4 +79,8 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   // Lesson 16
   afterlife: logFigure,
   territories: territoriesStill,
+  // Branch L
+  city: barkFigure,
+  dating: datingFigure,
+  canopy: canopyFigure,
 };

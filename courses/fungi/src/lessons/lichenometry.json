@@ -1,0 +1,60 @@
+{
+  "id": "lichenometry",
+  "n": 102,
+  "branch": "lichens",
+  "needs": ["bark"],
+  "title": "Dating a moraine by its lichens",
+  "teaches": "How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers",
+  "summary": [
+    "**Crust lichens grow slowly and steadily for centuries.** Some widen by less than half a millimetre a year.",
+    "**Beschel turned that into a clock in 1950.** He measured lichens on gravestones and buildings of known date in the Alps.",
+    "**The largest lichen dates a surface.** It is most likely the first to have settled there.",
+    "**Gravestones calibrate the clock.** The largest lichen on stones of known age gives a growth curve for one region.",
+    "**Moraines left by glaciers can be dated this way.** Many in the Alps and elsewhere date from the end of the Little Ice Age, after about 1850.",
+    "**The method has limits.** Growth varies with climate and rock, the calibration is local, and the oldest dates are least certain."
+  ],
+  "parts": [
+    {
+      "title": "A ring of rubble",
+      "blocks": [
+        {"type": "text", "text": "Walk up a valley toward a mountain glacier today and you cross ridges of bare rubble long before you reach the ice. They are **moraines**, piles of rock the glacier pushed in front of it or dropped at its edge, and each one marks a place where the ice once ended. Photographs and paintings show that many glaciers in the Alps reached far down their valleys in the early nineteenth century and have been shrinking since. But where there are no pictures, how can anyone tell when the ice stood at a given moraine?"},
+        {"type": "text", "text": "The answer is on the boulders. A moraine is fresh rock, scraped clean by the ice. Once the ice leaves, lichens begin to settle on it, and the most useful of them is the **map lichen**, *Rhizocarpon geographicum*, a yellow-green crust edged in black that grows on hard rock from the Arctic to high mountains everywhere. Its patches look like the countries on a map, each ringed by a black border."}
+      ]
+    },
+    {
+      "title": "Beschel's clock",
+      "blocks": [
+        {"type": "text", "text": "In 1950 the Austrian botanist Roland Beschel, then a student, noticed that the map lichens on old gravestones and buildings in the Alps were larger the older the stone. He measured lichens on surfaces whose dates were carved into them and found that, after a few years' delay while the first spores and fragments arrived and took hold, the largest lichen on each surface had grown at a steady rate. Lesson 10 explained why lichens are slow: they grow only while wet and lit. In a cold, dry mountain climate a map lichen may widen by a fraction of a millimetre a year, slowly enough to go on for centuries."},
+        {"type": "text", "text": "Beschel called his method **lichenometry**, lichen measuring. It needs only a ruler and a known set of surfaces to calibrate against."}
+      ]
+    },
+    {
+      "title": "Why the largest",
+      "blocks": [
+        {"type": "text", "text": "The lichens on a boulder are not all the same age. The first settles a few years after the rock is bared; others arrive over the following decades. Measuring a typical lichen would give an age somewhere in that range. The largest lichen on a surface is most likely the one that settled first, so it comes closest to dating the rock itself. Lichenometrists measure the longest axis of the largest lichen they can find on a moraine, or the average of the five largest, which is less upset by one odd lichen."},
+        {"type": "interactive_diagram", "id": "dating", "caption": "Gravestones of known age calibrate the growth of the largest map lichen; the largest lichen on a moraine is then read off the line. The growth rate is typical of a cold mountain region; a model.", "task": "Date a moraine", "goal": "dated", "aspect_ratio": 1.9}
+      ]
+    },
+    {
+      "title": "What it shows, and where it fails",
+      "blocks": [
+        {"type": "text", "text": "Applied to valley after valley in the Alps, Scandinavia, Iceland and North America, lichenometry has dated the moraines left as glaciers shrank from their greatest extent in the cold centuries known as the **Little Ice Age**, which in many places ended around the middle of the nineteenth century. Each moraine further up the valley is younger, and the dates trace the glacier's retreat step by step. It has also been used to date rockfalls and old shorelines."},
+        {"type": "text", "text": "The method has known weaknesses. A lichen's growth depends on climate, rock type and exposure, so a curve from gravestones in a village may not fit a windswept boulder two thousand metres higher. Two lichens can grow into one and look like a single large one. Lichens can be killed by long snow cover and start again. And beyond a few centuries growth slows and dates become rough. Where possible, lichen dates are checked against tree rings, old photographs and other methods.[^limits]"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Four questions on lichenometry", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Why can map lichens be used as a clock?", "choices": ["They grow slowly and steadily for centuries", "They grow a fixed ring each year", "They change colour with age"], "answer": 0, "why": "Growing a fraction of a millimetre a year at a steady rate, a lichen's size tracks how long it has been there."},
+          {"ask": "Why measure the largest lichen on a surface?", "choices": ["It is most likely the first to have settled", "It is the easiest to identify", "Large lichens grow fastest"], "answer": 0, "why": "Lichens keep arriving for decades. The largest probably arrived first, so it comes closest to the age of the bare rock."},
+          {"ask": "What are gravestones used for in lichenometry?", "choices": ["Calibrating the growth rate against surfaces of known date", "Finding the rarest lichens", "Measuring air pollution"], "answer": 0, "why": "The carved date gives the age, and the largest lichen on each stone gives a point on the growth curve."},
+          {"ask": "Why might a lichen date from a high, windswept moraine be wrong?", "choices": ["Growth there may differ from the lowland gravestones used to calibrate", "Wind blows lichens off rock", "Moraines have no lichens"], "answer": 0, "why": "Growth depends on climate and exposure, so the calibration must come from a similar place."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "limits": {"kind": "technical", "title": "How far back?", "text": "In very cold, dry places such as parts of Greenland and Baffin Island, map lichens have been used to date surfaces thousands of years old, though the dates are rough. Some single lichens there are thought to be several thousand years old, among the oldest living things known."}
+  }
+}

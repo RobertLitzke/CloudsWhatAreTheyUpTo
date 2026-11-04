@@ -24,6 +24,9 @@ import { fruiting } from '../src/figures/hunters';
 import { groups } from '../src/figures/individual';
 import { standing } from '../src/figures/prototaxites';
 import { stages, woodLeft } from '../src/figures/log';
+import { cover } from '../src/figures/bark';
+import { ageFrom, largest } from '../src/figures/lichenometry';
+import { lichenMass } from '../src/figures/canopy';
 
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
@@ -243,5 +246,26 @@ describe('figures', () => {
     setSlider(f.node, 0, 50);
     click(f.node, 'Douglas-fir');
     await expect(f.done).resolves.toBeUndefined();
+  });
+
+  it('branch L: lichens return after the smoke, size dates rock, old trees seed young forest', async () => {
+    expect(cover(1955)[2]).toBe(0);
+    expect(cover(2015)[1]).toBeGreaterThan(0.8);
+    expect(ageFrom(largest(150))).toBeCloseTo(150);
+    expect(lichenMass(100, true)).toBeGreaterThan(lichenMass(100, false) * 3);
+    const b = FIGURES.city(context(), 'clean');
+    guess(b.node, 'Only a few flat crusts, or none');
+    setSlider(b.node, 0, 2015);
+    await expect(b.done).resolves.toBeUndefined();
+    const d = FIGURES.dating(context(), 'dated');
+    guess(d.node, 'It is probably the first to have settled');
+    setSlider(d.node, 0, 40);
+    await expect(d.done).resolves.toBeUndefined();
+    const c = FIGURES.canopy(context(), 'old');
+    guess(c.node, 'Well over a century');
+    setSlider(c.node, 0, 300);
+    click(c.node, 'Old trees left standing when cut');
+    setSlider(c.node, 0, 100);
+    await expect(c.done).resolves.toBeUndefined();
   });
 });
