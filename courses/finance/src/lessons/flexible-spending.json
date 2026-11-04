@@ -1,0 +1,226 @@
+{
+  "id": "flexible-spending",
+  "n": 5,
+  "title": "Spending rules that bend",
+  "teaches": "Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders",
+  "parts": [
+    {
+      "title": "Nobody spends like the 4 percent rule",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The rule in lessons 2 to 4 is a thought experiment. It has a retiree raise spending with prices every January, through 1974 and 2008, without a glance at the balance, until the money runs out or they die. Real people don't behave like that. When a portfolio halves, most people go out to dinner less, put off the new car, take the cheaper holiday."
+        },
+        {
+          "type": "text",
+          "text": "Nor does real spending stay level. In 2014 David Blanchett, then at Morningstar, looked at how retired households actually spend and found that it tends to fall in real terms by around 1 to 2 percent a year from the late sixties to the mid eighties, then rise again near the end with health care. He called the shape a smile.[^smile] A plan that assumes level real spending for fifty years is, for most people, planning to spend more in their eighties than they will."
+        },
+        {
+          "type": "text",
+          "text": "So it makes sense to write the flexibility into the plan. The question is how much, and what it buys. This lesson tries several rules on the same history."
+        }
+      ]
+    },
+    {
+      "title": "Spending a share of what is there",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The simplest flexible rule spends a fixed share of whatever the balance is each January. A portfolio spent this way can never run out, because each year takes only a fraction of what remains. The cost is that spending follows the markets all the way down. Guess before you look."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "rules",
+          "caption": "A $1,000,000 portfolio in 60 percent shares and 40 percent bonds, spent by the rule you choose, for thirty years from the year you choose. Above: each year's spending. Below: the balance. Dashed: the fixed 4 percent rule from the same start.",
+          "task": "Guess, then compare four of the rules",
+          "goal": "rules",
+          "aspect_ratio": 1.38
+        },
+        {
+          "type": "text",
+          "text": "From 1966 the percent rule never failed, but it paid $20,000 or less every year from 1978 to 1982, bottoming at about $15,000, under 40 percent of the $40,000 it began with. It took until the 1990s to get back above $30,000. Most households can't cut that deep, and the ones that could didn't need much of the money to begin with. A rule that never fails by letting income collapse has moved the risk, not removed it."
+        }
+      ]
+    },
+    {
+      "title": "Rules in between",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most practical rules sit between fixed spending and a pure percentage. Three are common."
+        },
+        {
+          "type": "text",
+          "text": "**Guardrails.** In 2006 the planners Jonathan Guyton and William Klinger proposed starting higher, at around 5 percent, and adjusting only when spending drifts far from that. If a bad run pushes this year's spending above 6 percent of the balance, cut it by 10 percent; if a good run drops it below 4 percent, raise it by 10. In between, spending just follows prices. The figure's version is simplified; theirs had more rules, such as skipping the inflation raise after a losing year."
+        },
+        {
+          "type": "text",
+          "text": "**Variable percentage withdrawal (VPW).** Each year, work out the payment that would spend the balance down to zero over the years left, at a modest assumed return, and spend that. Early on it is a little over 5 percent of the balance; with five years left, about a fifth. It came out of the Bogleheads investing forum in the 2010s. It spends everything by design, so it suits someone who has other money, such as Social Security, for the very end."
+        },
+        {
+          "type": "text",
+          "text": "**A floor and a ceiling.** Spend a percentage of the balance, but never less than a set floor or more than a set ceiling. The figure's version spends 4.5 percent of the balance, held between 75 and 125 percent of the first year's spending. Vanguard publishes a similar rule that limits each year's change instead: spending may rise at most 5 percent or fall at most 2.5 percent from the year before."
+        },
+        {
+          "type": "diagram",
+          "id": "rules-table",
+          "caption": "Each rule over every 30-year start from 1871 to 1993, in 60/40.",
+          "aspect_ratio": 1.87
+        },
+        {
+          "type": "text",
+          "text": "Read the table across. Every flexible rule starts higher than 4 percent or ends richer, or both, and none ran out. What they cost shows in the worst year column. The floor and ceiling rule did well on this record, with a worst year of $33,750 and no failures over thirty years. Over forty years the same rule ran out from 1965 and 1966, because a floor is a fixed withdrawal in disguise: once the balance falls far enough, it stops bending."
+        }
+      ]
+    },
+    {
+      "title": "What flexibility is worth",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The useful way to think about this is to split spending in two. Some of it is essential: housing, food, insurance, the things you would cut last. The rest is discretionary. A household whose essential spending is half its total can follow a fairly volatile rule, since a cut of 30 percent in a bad decade means fewer trips, not missed mortgage payments. A household whose essential spending is nearly all of it needs a steady rule and a low starting rate."
+        },
+        {
+          "type": "text",
+          "text": "Willingness to cut is worth a lot. Combined with lesson 4, it suggests that someone prepared to cut 10 or 20 percent in a bad sequence can reasonably start nearer 4 percent than 3.25, even for a long retirement, while someone who can't cut at all should not start above about 3.5."
+        },
+        {
+          "type": "text",
+          "text": "One trap: a rule only helps if it is followed. A guardrail cut that a retiree puts off for three years has lost most of its value, because the early years are the ones that matter. Write the rule down, with numbers, before the bad year arrives."
+        }
+      ]
+    },
+    {
+      "title": "Floors from elsewhere",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The other way to protect essential spending is to pay for it from a source that doesn't depend on markets, and leave the portfolio to pay for the rest. Three sources are common."
+        },
+        {
+          "type": "text",
+          "text": "**Social Security.** For most households, the largest floor by far: it rises with prices every year and lasts for life. Delaying it to 70 and spending more from the portfolio until then is often the cheapest floor available, a point lesson 13 makes with numbers."
+        },
+        {
+          "type": "text",
+          "text": "**A bond ladder.** Buy Treasury Inflation-Protected Securities (TIPS)[^tips] that mature one each year, each paying that year's essential spending in today's dollars. When long TIPS yield about 2 percent above inflation, as they did through much of 2024 and 2025, a 30-year ladder pays out about 4.4 percent of its cost each year, guaranteed by the government and indexed to prices, then nothing. It costs the chance of ending rich, since the money spent on the ladder never grows faster than inflation plus 2 percent."
+        },
+        {
+          "type": "text",
+          "text": "**An annuity.** A single-premium immediate annuity turns a lump sum into an income for life from an insurer.[^annuity] Because the insurer pools many buyers, those who die early pay for those who live long, and the payout can beat what a portfolio could safely spend, especially from 70 onwards. Most US annuities pay a fixed number of dollars that inflation erodes, and few insurers now sell ones linked to prices. For someone stopping work at 50, an annuity bought then pays too little to be worth much; it is mainly a tool for later in retirement."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "A percent-of-balance rule never runs out, but its spending can collapse.",
+            "Guardrails, VPW and a floor and ceiling start higher than 4 percent and trade a steady income for smaller worst years.",
+            "Split spending into essential and discretionary; the essential part needs a floor, from Social Security, bonds or an annuity.",
+            "A flexible rule only helps if the cuts happen when the rule says."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on spending rules",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why can a portfolio spent at 4 percent of its current balance each year never run out?",
+                "choices": [
+                  "Each year takes only a fraction of what is left",
+                  "Shares always recover within a year",
+                  "The rule switches to bonds when markets fall"
+                ],
+                "answer": 0,
+                "why": "Taking 4 percent of any balance leaves 96 percent of it, so the balance can shrink but never reach zero. The spending shrinks with it."
+              },
+              {
+                "ask": "From 1966, how low did spending at 4 percent of the balance fall at worst, starting from $40,000?",
+                "choices": [
+                  "About $15,000",
+                  "About $34,000",
+                  "It never fell"
+                ],
+                "answer": 0,
+                "why": "By 1982 the real balance had fallen by more than 60 percent, and the spending followed it to about $15,000."
+              },
+              {
+                "ask": "Under the simplified guardrails rule, what happens when this year's spending reaches 6.5 percent of the balance?",
+                "choices": [
+                  "Spending is cut by 10 percent",
+                  "Spending is raised by 10 percent",
+                  "Nothing, until the money runs out"
+                ],
+                "answer": 0,
+                "why": "The upper guardrail is 20 percent above the 5 percent starting rate, 6 percent. Crossing it triggers a 10 percent cut."
+              },
+              {
+                "ask": "Who is variable percentage withdrawal best suited to?",
+                "choices": [
+                  "Someone with other income, such as Social Security, for the very end",
+                  "Someone who wants to leave the whole balance to heirs",
+                  "Someone who cannot cut spending at all"
+                ],
+                "answer": 0,
+                "why": "VPW spends the balance down to zero by design, and its payments vary. It works best with a separate floor of income for the last years."
+              },
+              {
+                "ask": "Why did the floor and ceiling rule run out over forty years from 1966 when it lasted thirty?",
+                "choices": [
+                  "Once the balance fell far enough the floor became a fixed withdrawal",
+                  "The ceiling forced it to overspend in good years",
+                  "Inflation was zero in those years"
+                ],
+                "answer": 0,
+                "why": "A floor stops spending from falling further, so in a long enough bad run it behaves like the fixed 4 percent rule and can drain the money."
+              },
+              {
+                "ask": "A 30-year TIPS ladder at a 2 percent real yield pays about 4.4 percent of its cost each year. What does it give up compared with a portfolio of shares?",
+                "choices": [
+                  "Any chance of ending with more than it started with",
+                  "Protection against inflation",
+                  "Its government guarantee"
+                ],
+                "answer": 0,
+                "why": "The ladder pays out exactly what it was built to, indexed to prices and guaranteed, and ends at zero. A share portfolio might end far richer, or poorer."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "**Real spending isn't level.** It tends to fall in real terms through the late sixties to mid eighties and rise near the end.",
+    "**A percent of the balance never runs out.** From 1966 it cut spending from $40,000 to about $15,000.",
+    "**Guardrails, VPW and floors sit in between.** They start higher than 4 percent and trade a steady income for shallower worst years.",
+    "**A floor stops bending.** Over long enough bad runs a spending floor acts like a fixed withdrawal and can still fail.",
+    "**Split essential from discretionary.** The more of the budget is discretionary, the more volatile a rule a household can follow.",
+    "**Follow the rule on time.** Cuts put off for years lose most of their value, because the early years matter most.",
+    "**Floors can come from elsewhere.** Social Security, a TIPS ladder or an annuity can pay for essentials while the portfolio pays for the rest."
+  ],
+  "footnotes": {
+    "annuity": {
+      "kind": "technical",
+      "title": "Mortality credits",
+      "text": "An insurer that sells a lifetime income to a thousand 70-year-olds knows roughly how many will die each year, though not which. The money of those who die early stays in the pool and pays those who live long. That extra return, on top of the interest on the insurer's bonds, is called a mortality credit. It grows with age, which is why annuities pay so much more to an 80-year-old than to a 50-year-old."
+    },
+    "smile": {
+      "kind": "digression",
+      "title": "The spending smile",
+      "text": "Blanchett's paper, \"Exploring the Retirement Consumption Puzzle\", appeared in the Journal of Financial Planning in May 2014. It used survey data on what retired households actually spent. The fall is partly choice and partly ageing: people travel less in their late seventies, and they tend to own their homes outright by then. The rise at the end is mostly health and care costs, which lesson H2 takes up."
+    },
+    "tips": {
+      "kind": "technical",
+      "title": "TIPS",
+      "text": "Treasury bonds whose principal is raised each year with the consumer price index, so the interest and the final repayment keep their buying power. Their yield is quoted above inflation: a TIPS yielding 2 percent returns about 2 percent a year more than prices rise, if held to maturity. The inflation adjustment is taxed each year as income, even though it isn't paid until maturity, so TIPS usually sit best in a tax-deferred account."
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "id": "sequence",
+  "n": 3,
+  "title": "The same average, a different order",
+  "teaches": "Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement",
+  "parts": [
+    {
+      "title": "A retirement that beat the average and still failed",
+      "blocks": [
+        { "type": "text", "text": "Take someone who retired in January 1969 with $1,000,000 in 60 percent shares and 40 percent bonds and followed the 4 percent rule from lesson 2: $40,000 in the first year, raised with prices every year after. Over the next thirty years that portfolio earned 5.5 percent a year after inflation. That is better than the long-run figure for the same mix since 1871, about 5.3 percent." },
+        { "type": "text", "text": "The money ran out in the 28th year." },
+        { "type": "text", "text": "Someone who retired in 1929, at the worst possible moment by most accounts, earned less over their thirty years, 4.8 percent a year, and ended with about $700,000 in today's money. Averages, it turns out, are a poor guide to how a pile of savings fares once you start spending it. What matters is when the good and bad years arrive. The name for this is sequence-of-returns risk, and this lesson is about how it works and how large it is." }
+      ]
+    },
+    {
+      "title": "Same returns, another order",
+      "blocks": [
+        { "type": "text", "text": "Start with two years and no spending. A portfolio that falls 20 percent and then rises 25 percent ends where it began: 0.8 × 1.25 = 1. Reverse the order and it still ends where it began, since multiplication doesn't care about order. A saver who neither adds nor takes money out is indifferent to the sequence." },
+        { "type": "text", "text": "Now take $40,000 out at the start of each year. Down first: $1,000,000 less $40,000 is $960,000, which falls 20 percent to $768,000; take out another $40,000 and the remaining $728,000 rises 25 percent to $910,000. Up first: $960,000 rises to $1,200,000; less $40,000 is $1,160,000, which falls to $928,000. Same returns, same withdrawals, and $18,000 apart after two years." },
+        { "type": "text", "text": "The reason is that a withdrawal taken after a fall sells more of the portfolio than the same withdrawal taken after a rise. Those shares are gone before the recovery, so the recovery has less to work on. Over thirty years the effect compounds. The figure plays the 1969 retiree's actual thirty years of returns in three orders. Guess first." },
+        { "type": "interactive_diagram", "id": "order", "caption": "The thirty real returns from 1969 to 1998 on 60 percent shares and 40 percent bonds, spent at a fixed real amount each year. The bars are the returns in the order used.", "task": "Guess, then try backwards and shuffle twice", "goal": "order", "aspect_ratio": 1.53 },
+        { "type": "text", "text": "Backwards, the 1969 retiree meets the strong markets of the 1980s and 1990s first and ends with about three times what they started with. The same returns in their real order put the bad years first: 1973 and 1974, when the 60/40 mix lost about a third of its real value in two years, and a decade of high inflation after. By the time the boom arrived there was too little left for it to rescue." },
+        { "type": "text", "text": "A saver faces the mirror image. Someone adding money every year does best with bad years early, while the pile is small and contributions buy cheaply, and good years late, when the pile is large. Which is why the same bear market that worries a 64-year-old is good news, in the long run, for a 30-year-old." }
+      ]
+    },
+    {
+      "title": "The first decade",
+      "blocks": [
+        { "type": "text", "text": "If order matters this much, the early returns should predict the outcome better than the average over the whole retirement. They do. The figure plots each 30-year start from 1871 to 1993 by the average real return of its first few years against the highest steady withdrawal rate that would have lasted the full thirty. Move the slider to change how many years are counted." },
+        { "type": "interactive_diagram", "id": "window", "caption": "Each dot is one 30-year retirement on 60/40. Across: the compound real return of its first few years. Up: the highest fixed real withdrawal rate that lasted thirty years.", "task": "Find the window that predicts best", "goal": "window", "aspect_ratio": 1.67 },
+        { "type": "text", "text": "Counting all thirty years, the correlation[^corr] is about 0.63: a decent guide, with wide misses. Counting only the first ten, it rises to 0.88, and it peaks near fifteen years at about 0.92. The returns of the last ten or fifteen years of a retirement barely matter to whether the money lasts, because by then either the pile is large enough that nothing threatens it or it is already too small to recover." },
+        { "type": "text", "text": "Planners sometimes call the years just before and after the last paycheck the riskiest of a financial life. The figure shows why: a fall of 30 percent at 35 costs a few years of contributions; the same fall in the first years of spending can decide the next thirty." }
+      ]
+    },
+    {
+      "title": "1966: no crash needed",
+      "blocks": [
+        { "type": "text", "text": "The worst US start in this course's data, 1966, contains no famous crash. What it contains is inflation. Consumer prices almost tripled between January 1966 and January 1982, and a retiree following Bengen's rule raised their withdrawal every year to match. Shares, meanwhile, went nowhere: the S&P 500 in the summer of 1982 stood barely above its level of early 1966. Counting dividends and taking out inflation, shares lost about a fifth of their value over those sixteen years. Bonds, paying fixed interest while prices soared, did worse." },
+        { "type": "text", "text": "So the 1966 retiree was taking ever larger amounts in dollars from a portfolio whose dollar value stayed flat. Ten years in, the balance had halved in real terms while the spending had not changed, which meant the withdrawal had become 8 percent of what was left. From there even the great bull market of the 1980s and 1990s could not save it. On 60/40 the money ran out in 1990, its 25th year.[^infl]" },
+        { "type": "text", "text": "1929 is the comparison everyone expects to be worse. Prices fell in the early 1930s, by about a quarter, so a fixed real withdrawal shrank in dollars just as share prices collapsed, and bonds gained in real terms. The 1929 retiree's balance was down a third after three years and back above where it started by 1937. Inflation, not a crash, is what made the late 1960s the hardest time in the record to retire." }
+      ]
+    },
+    {
+      "title": "What can be done about it",
+      "blocks": [
+        { "type": "text", "text": "Sequence risk can't be diversified away within a single market, because everyone retiring the same year draws the same sequence. It can be reduced, and each of the next three lessons takes one route." },
+        { "type": "text", "text": "**Spend less when the early years go badly.** The 4 percent rule assumes spending never bends. A retiree who trims 10 percent after a bad year sells fewer shares at low prices, which is exactly the damage the order figure shows. Lesson 5 compares rules that do this." },
+        { "type": "text", "text": "**Hold more in bonds around the retirement date.** If the first decade decides most of the outcome, the portfolio could be most cautious then and take more risk later. Lesson 6 looks at the idea, sometimes called a bond tent, and at what history says about it." },
+        { "type": "text", "text": "**Start lower when markets are expensive.** The 1966 and 1929 retirements both began after long rises, with share prices high relative to earnings. Lesson 4 asks whether starting valuations predict the bad sequences, and how much." },
+        { "type": "text", "text": "A fourth route is income. A part-time job or a pension in the first years means smaller withdrawals exactly when withdrawals do the most harm. A year of $20,000 in wages at the start of a retirement is worth much more to the plan than the same $20,000 in year twenty." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Without withdrawals, the order of returns doesn't change where you end; with withdrawals it can change everything.",
+          "The first ten to fifteen years of returns predict a retirement's outcome far better than the thirty-year average.",
+          "The worst US start, 1966, was a slow loss to inflation, not a crash."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Six questions on the order of returns", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "A portfolio falls 20 percent one year and rises 25 percent the next, with no money added or taken out. How does the reverse order compare?", "choices": ["It ends at the same value", "It ends higher, because the gain comes first", "It ends lower, because the loss comes last"], "answer": 0, "why": "Without withdrawals the returns just multiply: 0.8 × 1.25 and 1.25 × 0.8 are both 1. Order only matters once money comes in or goes out." },
+          { "ask": "Why does a withdrawal after a fall do more harm than the same withdrawal after a rise?", "choices": ["It sells more shares at low prices, leaving less to recover", "Withdrawals after a fall are taxed more heavily", "Funds charge higher fees in falling markets"], "answer": 0, "why": "The same number of dollars is a bigger share of a smaller portfolio. Those shares are not there when prices recover." },
+          { "ask": "The 1969 retiree's thirty years averaged better than history's long-run return on 60/40. What happened to a 4 percent withdrawal?", "choices": ["It ran out in the 28th year", "It lasted with a large surplus", "It lasted with almost nothing left"], "answer": 0, "why": "Bad years came first, in 1973 and 1974 and the inflation that followed, and by the time strong returns arrived the pile was too small for them to rescue." },
+          { "ask": "Which predicts best whether a 30-year retirement could sustain a given withdrawal rate?", "choices": ["The average return of its first ten to fifteen years", "The average return over all thirty years", "The return in the year before retiring"], "answer": 0, "why": "In this course's data the first ten to fifteen years correlate at about 0.9 with the highest safe rate, against about 0.6 for the full thirty." },
+          { "ask": "What mainly made 1966 the worst US year to start a fixed real withdrawal?", "choices": ["Inflation raised withdrawals for sixteen years while shares went sideways", "A single crash much larger than 1929", "Bond interest rates fell to zero"], "answer": 0, "why": "Prices nearly tripled from 1966 to 1982 and shares lost about a fifth of their real value. There was no single crash on the scale of 1929." },
+          { "ask": "A saver in their thirties sees shares fall 30 percent. In the long run, is the sequence risk they face the same as a new retiree's?", "choices": ["No: for someone still adding money, early falls tend to help", "Yes: a fall hurts everyone equally", "No: savers face no market risk at all"], "answer": 0, "why": "New contributions buy cheaply after a fall, and the pile is small, so early losses cost little. A retiree is selling, so the same fall costs far more." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Order only matters when money moves.** With no withdrawals, the same returns in any order end in the same place.",
+    "**Withdrawals after a fall sell low.** The shares sold are not there for the recovery, and the effect compounds.",
+    "**The 1969 retiree shows it.** Thirty years that averaged better than history, and 4 percent ran out in year 28; backwards, it ended with about three times the start.",
+    "**The first decade decides most of it.** Early returns predict the outcome far better than the thirty-year average.",
+    "**1966 was inflation, not a crash.** Prices nearly tripled while shares went sideways, and the rule raised spending every year.",
+    "**Savers face the mirror image.** Bad years early help someone still adding money.",
+    "**Four routes reduce the risk.** Flexible spending, more bonds around the retirement date, a lower start when markets are expensive, and income in the early years."
+  ],
+  "footnotes": {
+    "corr": { "kind": "technical", "title": "Correlation", "text": "A number from −1 to 1 for how closely two quantities move together along a straight line. At 1 every dot sits on a rising line; at 0 knowing one tells you nothing about the other. It measures how well a line fits, not how steep it is." },
+    "infl": { "kind": "digression", "title": "The Great Inflation", "text": "US consumer prices rose by more than 5 percent a year for most of 1969 to 1982, peaking at 14.8 percent in the year to March 1980. It ended when the Federal Reserve under Paul Volcker pushed short-term interest rates to around 20 percent in 1980 and 1981, at the cost of a deep recession. Falling inflation and interest rates after 1982 are a large part of why the following two decades were so good for both shares and bonds." }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "id": "long-retirement",
+  "n": 4,
+  "title": "A fifty-year retirement",
+  "teaches": "How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you",
+  "parts": [
+    {
+      "title": "Thirty years was the client's question",
+      "blocks": [
+        { "type": "text", "text": "Bengen's clients were retiring at about 65, and thirty years took them to 95, past almost everyone's lifespan. The 4 percent rule answered their question. A person who stops drawing a salary at 45, or a couple where one partner is ten years younger, has a different question: will the money last fifty years, or sixty?" },
+        { "type": "text", "text": "It is tempting to think a longer horizon just needs a little more caution, since the extra years come at the end, when lesson 3 showed returns matter least. That is roughly right, and the size of \"a little\" is the subject of this lesson. So is the other side of it: in most of history, a rate chosen to survive the worst case left a great deal unspent." }
+      ]
+    },
+    {
+      "title": "Stretching the horizon",
+      "blocks": [
+        { "type": "text", "text": "The figure runs Bengen's test, a fixed real withdrawal set as a share of the first balance, for every start year with enough history after it, and shows the highest rate each start could have sustained. Lengthen the horizon and watch the worst case. Guess first." },
+        { "type": "interactive_diagram", "id": "horizon", "caption": "Each bar is one start year: the highest share of the first balance it could have withdrawn each year, raised with prices, and still lasted. The dashed line is 4 percent.", "task": "Guess, then stretch the horizon to 45 years or more", "goal": "horizon", "aspect_ratio": 1.69 },
+        { "type": "text", "text": "With 75 percent in shares the worst rate falls from 3.7 percent over thirty years to about 3.45 over forty and 3.3 over fifty, and 1966 is the worst start each time. At 4 percent, four of 123 thirty-year starts ran out; over fifty years it was 16 of 103, and the failures now include the years before the First World War as well as the late 1960s. At 3.5 percent over fifty years, only four starts failed, all in the late 1960s." },
+        { "type": "text", "text": "The rate falls fastest between thirty and forty years and slowly after that. A portfolio that pays out less than it earns in a typical year never runs down at all, and as the horizon lengthens the safe rate settles towards that level, a payout the money could sustain forever. Fifty and sixty years are close to forever already.[^sixty]" },
+        { "type": "text", "text": "This is where the 3.25 to 3.5 percent quoted in lesson 1 for long retirements comes from. Karsten Jeske, a former Federal Reserve economist who writes as Early Retirement Now, ran this analysis at length from 2016 and reached much the same range on a similar record." }
+      ]
+    },
+    {
+      "title": "Most retirements end rich",
+      "blocks": [
+        { "type": "text", "text": "The bars in the figure are a reminder that the worst case is one year among a hundred. Over fifty years with 75 percent shares, the median start could have spent 5.1 percent, and nine in ten managed 3.9 percent or more." },
+        { "type": "text", "text": "Turn that round. A retiree who spends 3.5 percent for fifty years, chosen to survive 1966, ends in the median case with more than four times their starting balance in today's money. Planning for the worst start means that in most starts a lot of money goes unspent, often to heirs, sometimes to nobody in particular." },
+        { "type": "text", "text": "That is not an argument for spending more at the start, since nobody knows in advance which start they are in. It is an argument for a plan that can spend more later if the early years go well, which is what the rules in lesson 5 do. A fixed real withdrawal is the one rule that never notices whether the retiree is in 1966 or 1982." }
+      ]
+    },
+    {
+      "title": "Does the price at the start matter?",
+      "blocks": [
+        { "type": "text", "text": "Some of the worst starts, 1929 and 1966 among them, began after long rises, when shares were expensive. A common measure of expense is the cyclically adjusted price-to-earnings ratio, or CAPE, from the Yale economist Robert Shiller: the price of the S&P 500 divided by its companies' average earnings over the past ten years, after inflation.[^cape] A CAPE of 10 means the market costs ten years of earnings; a CAPE of 30 means thirty." },
+        { "type": "text", "text": "In 2008 the planner Michael Kitces showed that the CAPE at the start of a retirement lined up well with the highest rate that retirement could sustain. The figure lets you pick a starting CAPE and see what the starts near it managed." },
+        { "type": "interactive_diagram", "id": "cape", "caption": "Each dot is one 30-year start from 1881, with 75 percent shares. Across: the CAPE in the January it began. Up: the highest steady rate it could have spent. The shaded band is the CAPE you pick; the dashed line is January 2022.", "task": "Move the CAPE to 30 or above", "goal": "cape", "aspect_ratio": 1.69 },
+        { "type": "text", "text": "Cheap starts did very well: no start with a CAPE under 10 could sustain less than 7 percent. Starts between 20 and 25 managed 3.7 percent at worst. Above 25 there is almost nothing to go on: 1929, at 27, is the only 30-year start in the record. The CAPE was 44 in January 2000, 37 in January 2022 and higher again in 2025. Those starts don't have thirty years of results yet." },
+        { "type": "text", "text": "The 2000 retiree is worth watching. With 60 percent in shares and 4 percent withdrawals, after 23 years they had about 60 percent of their starting balance in real terms, so their withdrawal had grown to nearly 7 percent of what was left, with seven years still to go. Whether it lasts depends on the rest of the 2020s." },
+        { "type": "text", "text": "A high CAPE is a warning, not a forecast. Earnings have been higher relative to prices for decades than they were before the 1990s, partly because of changes in accounting and in what companies do with profits, so a CAPE of 30 today may not mean what 30 meant in 1929. A reasonable reading is that an expensive market at the start is a reason to choose the lower end of the range, 3.25 rather than 3.75, and to hold a plan that can cut spending if needed." }
+      ]
+    },
+    {
+      "title": "One lucky country",
+      "blocks": [
+        { "type": "text", "text": "Everything so far uses the US record, and the twentieth century was very good to US investors. In 2010 the economist Wade Pfau ran Bengen's test on 109 years of data from 17 developed countries. A 4 percent withdrawal would have survived every start in only four of them. In Japan, Italy, Germany, France, Belgium and Spain, the worst-case rate was below 3 percent, because wars and bursts of inflation wrecked their markets for decades at a time." },
+        { "type": "text", "text": "A later study by Aizhan Anarkulova, Scott Cederburg, Michael O'Doherty and Richard Sias pooled 38 developed countries from 1890 to 2019. For a couple retiring at 65 on a portfolio of domestic shares and bonds, they put the rate with a 5 percent chance of running out at 2.26 percent. Holding shares from many countries raises it, since no single country's disaster sinks the whole portfolio, a strong reason to own shares from many countries." },
+        { "type": "text", "text": "Nobody knows whether the next fifty years will look more like the US record or the world's. The honest position is that 3.25 to 3.5 percent survived every US start for fifty years, that the US was lucky, and that the most reliable protection is not a lower number but a plan that can bend." },
+        { "type": "key_ideas", "title": "Hold on to", "points": [
+          "Over fifty years the worst US start could spend about 3.3 percent; over thirty, about 3.7.",
+          "Most long retirements at a safe rate end with several times their starting balance.",
+          "Expensive markets at the start have meant lower safe rates, but today's valuations have almost no precedent with thirty years of results.",
+          "Other countries' records are worse than the US's, which argues for flexibility and for owning world markets."
+        ] }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        { "type": "quiz", "id": "check", "caption": "Six questions on long retirements", "task": "Choose the best answer to each", "options": { "items": [
+          { "ask": "In the US record with 75 percent shares, roughly what fixed real withdrawal survived every 50-year start?", "choices": ["About 3.3 percent", "About 4 percent", "About 2 percent"], "answer": 0, "why": "The worst 50-year start, 1966, could sustain about 3.3 percent. Over thirty years the worst was about 3.7." },
+          { "ask": "Why does the safe rate fall slowly once the horizon passes about forty years?", "choices": ["It approaches the rate a portfolio could pay forever without running down", "Returns are always higher late in retirement", "Fees fall for long-term investors"], "answer": 0, "why": "A payout below what the portfolio earns in a typical year can go on indefinitely. As the horizon lengthens, the safe rate settles towards that level." },
+          { "ask": "A retiree spends 3.5 percent for fifty years. In the median historical start, how did they end?", "choices": ["With several times their starting balance", "With almost nothing left", "Exactly where they started"], "answer": 0, "why": "A rate built to survive 1966 is far too cautious for a typical start. The median ending balance was over four times the start, after inflation." },
+          { "ask": "What is the CAPE?", "choices": ["Share prices divided by ten years of average real earnings", "The yearly return on shares after inflation", "The share of a portfolio held in bonds"], "answer": 0, "why": "Shiller's cyclically adjusted price-to-earnings ratio averages earnings over ten years to smooth out booms and recessions." },
+          { "ask": "Why should today's high CAPE be read with care?", "choices": ["Almost no 30-year US start began this expensive, and earnings may be measured differently now", "High CAPE always means a crash within a year", "The CAPE stopped being published in 2000"], "answer": 0, "why": "Only 1929 among complete 30-year starts had a CAPE above 25. Changes in accounting and payouts also make old and new values hard to compare." },
+          { "ask": "What did Pfau's 2010 study of 17 countries find?", "choices": ["A 4 percent withdrawal survived every start in only four of them", "The US had the worst record of the 17", "4 percent was safe everywhere"], "answer": 0, "why": "Wars and inflation wrecked several markets, and the worst-case rate was under 3 percent in six countries, including Japan and Italy." }
+        ] } }
+      ]
+    }
+  ],
+  "summary": [
+    "**Longer horizons need lower rates, but not much lower.** The worst US start could spend about 3.7 percent over thirty years and 3.3 over fifty.",
+    "**Most of the drop comes early.** Beyond about forty years the safe rate settles towards what the portfolio could pay forever.",
+    "**The worst case is one start in a hundred.** Over fifty years the median start could have spent about 5 percent.",
+    "**Safe rates leave money unspent.** At 3.5 percent the median fifty-year retiree ended with over four times the start.",
+    "**Expensive starts did worse.** The CAPE at the start lines up with the safe rate, but today's levels have almost no complete precedent.",
+    "**The US was lucky.** In other developed countries the worst cases were lower, which argues for owning world markets.",
+    "**Flexibility beats a lower number.** A plan that can cut in bad starts and raise in good ones handles both risks."
+  ],
+  "footnotes": {
+    "sixty": { "kind": "technical", "title": "Sixty years", "text": "The figure stops at fifty years because a 60-year retirement needs 60 years of data after it begins, so the last start in the record is 1963. The 60-year results miss the late 1960s, the worst starts of all, and can look better than the 50-year ones for that reason alone." },
+    "cape": { "kind": "technical", "title": "Shiller's data", "text": "Robert Shiller published the CAPE in his 2000 book Irrational Exuberance, which came out in March 2000 as the dot-com bubble peaked, and he keeps the monthly series on his Yale website. This course's returns are built from the same series." }
+  }
+}

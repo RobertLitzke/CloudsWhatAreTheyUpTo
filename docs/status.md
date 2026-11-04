@@ -15,7 +15,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Ecology](#ecology) | 37 | 0 | 0 | 37 | 37 | 37 | 0 |
 | [Botany](#botany) | 33 | 0 | 0 | 33 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 30 | 0 | 30 | 30 | 30 | 17 | 0 |
-| [Money That Lasts](#finance) | 2 | 30 | 2 | 0 | 2 | 0 | 0 |
+| [Money That Lasts](#finance) | 6 | 26 | 6 | 0 | 6 | 0 | 0 |
 
 ## Clouds <a id="clouds"></a>
 
@@ -356,10 +356,10 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | --- | --- | --- | --- |
 | 1 | Why the savings rate beats the return (`savings-rate`) |  | needs student read-through | Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
 | 2 | Where 4 percent came from (`four-percent`) |  | needs student read-through | Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
-| 3 | The same average, a different order (`sequence`) |  | planned, listed as coming |  | Sequence-of-returns risk, and why 1966 is the worst US start. |
-| 4 | A fifty-year retirement (`long-retirement`) |  | planned, listed as coming |  | Safe rates for long horizons, starting valuations and the spread of outcomes. |
-| 5 | Spending rules that bend (`flexible-spending`) |  | planned, listed as coming |  | Guardrails, variable withdrawals and floors, and what each trades away. |
-| 6 | Stocks, bonds and the glide path (`allocation`) |  | planned, listed as coming |  | What bonds do in a portfolio you are spending, the bond tent, and Japan. |
+| 3 | The same average, a different order (`sequence`) |  | needs student read-through | Fact check | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
+| 4 | A fifty-year retirement (`long-retirement`) |  | needs student read-through | Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
+| 5 | Spending rules that bend (`flexible-spending`) |  | needs student read-through | Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
+| 6 | Stocks, bonds and the glide path (`allocation`) |  | needs student read-through | Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
 | 7 | How a federal return stacks (`brackets`) |  | planned, listed as coming |  | Ordinary income, gains on top at 0, 15 or 20 percent, and marginal against average rates. |
 | 8 | Four buckets (`accounts`) |  | planned, listed as coming |  | Pre-tax, Roth, HSA and taxable, compared by the tax rate in and the rate out. |
 | 9 | Money before 59 and a half (`early-access`) |  | planned, listed as coming |  | Conversion ladders, Roth basis, 72(t), the rule of 55 and a taxable bridge. |
