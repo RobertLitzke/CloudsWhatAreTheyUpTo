@@ -23,7 +23,8 @@
 //          struck at each note; vowel puts a buzz (the saw) and breath (the
 //          noise) through three band-passes at a vowel's formants; sample
 //          plays a stored sound per note at a rate set by the pitch, through
-//          a sample-rate reducer (worklets.ts) when Shape is up
+//          a sample-rate reducer (worklets.ts) when Shape is up; grains
+//          plays the same sample as a cloud of short crumbs (grains.ts)
 //   envelope 2: a rise and a fall, once a note, looping, or running free ─▶ every oscillator's pitch, or the cutoff
 //   the matrix: envelope, envelope 2, LFO, key, velocity, pressure ─ amount ─▶ pitch, cutoff, level, LFO amount
 //
@@ -68,6 +69,7 @@ import { ARP_MODE, CHAIN, CHORDS, ENGINE, ENV2_DEST, ENV2_MODE, EXTRA_PITCHES, F
 import { Rng } from '../core/rng';
 import { additiveAmps, TABLE_FRAMES, TABLE_LAST } from '../core/tables';
 import { workletsReady } from './worklets';
+import { grainSettings, scheduleGrains } from './grains';
 import { formantsAt, mouth } from '../core/vowels';
 import { SAMPLE_HZ, SAMPLE_RATE, SAMPLE_SECONDS, sampleData } from '../core/sample';
 
@@ -361,6 +363,9 @@ export class Voice {
   private crusher: AudioWorkletNode | null = null;
   /** The sample a key is playing. */
   private liveSample: AudioBufferSourceNode | null = null;
+  /** The grains engine's way out, and the grains a key has scheduled. */
+  private readonly grainOut: GainNode;
+  private liveGrains: AudioBufferSourceNode[] = [];
   /** Both oscillators together, before anything shapes them. */
   private readonly mix: GainNode;
   /** One drive at each place the pedal can sit, indexed by CHAIN. */
@@ -513,6 +518,8 @@ export class Voice {
     this.pluckOut.connect(this.mix);
     this.vowelBuzz = gain(0);
     this.vowelBreath = gain(0);
+    this.grainOut = gain(0);
+    this.grainOut.connect(this.mix);
     this.sampleIn = gain(1);
     this.sampleOut = gain(0);
     this.sampleIn.connect(this.sampleOut);
@@ -807,6 +814,25 @@ export class Voice {
     return src;
   }
 
+  /** A note's cloud of grains, from `on` until `until`. Pitch modulation does not reach grains. */
+  private playGrains(on: number, until: number, hz: number): AudioBufferSourceNode[] {
+    if (this.engine() !== ENGINE.grains) return [];
+    const s = this.sound;
+    const g = grainSettings(s.engineWave, s.engineTimbre, s.engineShape, hz / SAMPLE_HZ);
+    return scheduleGrains(this.ctx, sampleBuffer(this.ctx), this.grainOut, on, until, g, Math.round(on * 1000) + 1);
+  }
+
+  private stopGrains(t: number): void {
+    for (const src of this.liveGrains) {
+      try {
+        src.stop(t);
+      } catch {
+        // Already over.
+      }
+    }
+    this.liveGrains = [];
+  }
+
   /** Pluck the string at `t`. */
   private strike(t: number): void {
     const p = this.pluck?.parameters.get('strike');
@@ -954,6 +980,7 @@ export class Voice {
     const vowel = engine === ENGINE.vowel;
     const sampled = engine === ENGINE.sample;
     set(this.sampleOut.gain, sampled ? 1.5 * s.oscLevel : 0);
+    set(this.grainOut.gain, engine === ENGINE.grains ? 3 * s.oscLevel : 0);
     const crush = this.ensureCrusher();
     if (crush) set(crush.parameters.get('hold')!, 1 + 15 * s.engineShape * s.engineShape);
     const { f1, f2 } = formantsAt(s.engineWave);
@@ -971,7 +998,7 @@ export class Voice {
     }
     const wave = engine === ENGINE.supersaw ? 0 : Math.round(s.wave);
     const at = 3 * s.engineWave;
-    const weight = (i: number) => (fold || table || additive || plucked || vowel || sampled ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
+    const weight = (i: number) => (fold || table || additive || plucked || vowel || sampled || engine === ENGINE.grains ? 0 : morph ? Math.max(0, 1 - Math.abs(at - i)) : i === wave ? 1 : 0);
     this.waveGains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i] * s.oscLevel));
     this.wave2Gains.forEach((g, i) => set(g.gain, weight(i) * WAVE_GAIN[i]));
     set(this.in1[3].gain, morph ? 0.45 * s.engineShape * s.oscLevel : 0);
@@ -1186,6 +1213,7 @@ export class Voice {
     if (!slide) {
       this.strike(on);
       this.playSample(on, next, hz);
+      this.playGrains(on, next, hz);
     }
     this.aim(on, hz, glides ? this.glideTau() : 0.002);
     this.pending.push({ on, hz });
@@ -1314,6 +1342,8 @@ export class Voice {
         // Already over.
       }
       this.liveSample = this.playSample(t, t + SAMPLE_SECONDS * 8, hz);
+      this.stopGrains(t);
+      this.liveGrains = this.playGrains(t, t + 8, hz);
     }
     bank.x.forEach((set, k) => {
       for (const o of set) to(o, hz * cents(this.offsets[k] ?? 0));
@@ -1362,6 +1392,8 @@ export class Voice {
 
   keyUp(t: number): void {
     this.keyHeld = false;
+    // The cloud carries on through the release, then stops.
+    if (this.liveGrains.length) this.stopGrains(t + this.sound.release * 3 + 0.05);
     this.pressure(t, 0);
     for (const p of [this.amp.gain, this.envSrc.offset]) {
       p.cancelScheduledValues(t);

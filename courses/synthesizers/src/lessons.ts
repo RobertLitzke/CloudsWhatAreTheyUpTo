@@ -20,7 +20,6 @@ const TRUNK_COMING: SynthLesson[] = [
 ];
 
 const BRANCH_COMING: SynthLesson[] = [
-  coming('grains', 106, 'Crumbs of sound', 'Granular synthesis: grain size, density and position', { branch: 'engines', needs: ['samples'] }),
   coming('rooms', 201, 'Sabine’s lecture hall', 'Reverb: how a room answers, and the plates and springs that fake one', { branch: 'studio', needs: ['echo'] }),
 ];
 

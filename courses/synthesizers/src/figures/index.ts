@@ -13,6 +13,7 @@ import { curveFigure } from './curve';
 import { drawbarsFigure } from './drawbars';
 import { echoFigure } from './echo';
 import { enginesFigure } from './engines';
+import { grainsFigure } from './grains';
 import { harmonicsFigure } from './harmonics';
 import { COL } from './kit';
 import { rollFigure } from './roll';
@@ -70,4 +71,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   vocoder: vocoderFigure,
   // Branch lesson O5
   alias: aliasFigure,
+  // Branch lesson O6
+  grains: grainsFigure,
 };
