@@ -9,6 +9,9 @@
 // re-expose them, and a picture that was already soft or noisy cannot show
 // what a setting would have done.
 
+/** How these tools name themselves to Commons, which asks every client to. */
+export const USER_AGENT = 'OutOfAuto/0.1 (https://github.com/RobertLitzke/Courses)';
+
 export const CATEGORIES: Record<string, string[]> = {
   'perched-bird': ['Birds perching', 'Passeriformes', 'Birds of the United States'],
   'bird-in-flight': ['Birds in flight', 'Flying birds', 'Ardea herodias in flight'],

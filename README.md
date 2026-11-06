@@ -69,7 +69,9 @@ npm run dev -w catalog      # the catalog, on http://localhost:5410
 npm test                    # every course's tests and the catalog's
 npm run build               # the whole site into dist/
 npm run preview             # serve dist/ on http://localhost:5411
-npm run photos -- geology   # fetch a course's photos (tools/photo-picks.json)
+npm run photos -- geology   # fetch a course's pictures (tools/photo-picks.json; Didactics' picture pipeline)
+npm run pictures:check      # every course's picture records, and none on Commons' inaccurate-paleoart list
+npm run pictures:paleoart   # save that list again to tools/inaccurate-paleoart.json (your own computer)
 npm run copyedit -- geology dunes --write   # the Gemini copy edit of a lesson
 ```
 

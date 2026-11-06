@@ -10,8 +10,11 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { categoryFiles, fileInfo, type FileInfo } from './commons.ts';
-import { CATEGORIES, MIN_WIDTH } from './config.ts';
+import { categoryFiles, commonsFiles, type Found as FileInfo, type SourceContext } from 'didactics/picture-sources';
+import { spreadByAuthor } from 'didactics/picture-tools';
+import { CATEGORIES, MIN_WIDTH, USER_AGENT } from './config.ts';
+
+const ctx: SourceContext = { userAgent: USER_AGENT };
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const outDir = path.join(here, 'candidates');
@@ -19,31 +22,18 @@ const PER_SUBJECT = Number(process.env.PER_SUBJECT ?? 60);
 
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 
-/**
- * Categories list files alphabetically, so one keen photographer's series can
- * fill a whole sheet. Take every author's first photo, then every author's
- * second, and so on.
- */
-function spreadByAuthor(files: FileInfo[]): FileInfo[] {
-  const byAuthor = new Map<string, FileInfo[]>();
-  for (const f of files) byAuthor.set(f.author, [...(byAuthor.get(f.author) ?? []), f]);
-  const out: FileInfo[] = [];
-  for (let round = 0; out.length < files.length; round++) for (const list of byAuthor.values()) if (list[round]) out.push(list[round]);
-  return out;
-}
-
 const found: Record<string, FileInfo[]> = {};
 for (const [subject, cats] of Object.entries(CATEGORIES)) {
   const titles = new Set<string>();
   for (const cat of cats) {
     try {
-      for (const t of await categoryFiles(cat, 500)) titles.add(t);
+      for (const t of await categoryFiles(cat, ctx, 500)) titles.add(t);
     } catch (e) {
       console.warn(`  ${cat}: ${(e as Error).message}`);
     }
   }
   const images = [...titles].filter((t) => /\.(jpe?g|png|webp|tiff?)$/i.test(t));
-  const infos = (await fileInfo(images, 400)).filter((f) => f.license && f.width >= MIN_WIDTH);
+  const infos = (await commonsFiles(images, 400, ctx)).filter((f) => f.license && f.width >= MIN_WIDTH);
   found[subject] = spreadByAuthor(infos).slice(0, PER_SUBJECT);
   console.log(`${subject}: ${images.length} files, ${infos.length} usable, kept ${found[subject].length}`);
 }
@@ -55,7 +45,7 @@ const sections = Object.entries(found)
   .map(
     ([subject, files]) => `<h2>${subject}</h2><div class="grid">${files
       .map(
-        (f) => `<label><input type="checkbox" data-subject="${subject}" value="${esc(f.title)}"><img loading="lazy" src="${esc(f.thumbUrl)}"><span>${esc(f.author)} · ${esc(f.licenseName)} · <a href="${esc(f.pageUrl)}" target="_blank">page</a></span></label>`,
+        (f) => `<label><input type="checkbox" data-subject="${subject}" value="${esc(f.title!)}"><img loading="lazy" src="${esc(f.thumbUrl)}"><span>${esc(f.author)} · ${esc(f.licenseName)} · <a href="${esc(f.pageUrl)}" target="_blank">page</a></span></label>`,
       )
       .join('')}</div>`,
   )

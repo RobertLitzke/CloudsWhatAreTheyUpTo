@@ -6,8 +6,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { isLicenseId } from 'didactics/photos';
-import { licenceId, plainText } from '../../tools/lib/commons.mjs';
+import { licenceFrom, paleoartFlags, pictureProblems, type PaleoartList } from 'didactics/pictures';
 
 const root = resolve(__dirname, '../..');
 const courses = readdirSync(join(root, 'courses')).filter((c) => existsSync(join(root, 'courses', c, 'course.json')));
@@ -46,29 +45,38 @@ describe('every workspace', () => {
 });
 
 describe('the photo tools', () => {
-  it('map the accepted Commons licences onto the ids Didactics knows, and no others', () => {
-    expect(licenceId('Public domain')).toBe('PD');
-    expect(licenceId('CC0')).toBe('CC0');
-    expect(licenceId('CC BY 2.0')).toBe('CC-BY-2.0');
-    expect(licenceId('CC BY-SA 3.0')).toBe('CC-BY-SA-3.0');
-    expect(licenceId('CC BY-SA 4.0')).toBe('CC-BY-SA-4.0');
-    for (const s of ['CC BY-NC 2.0', 'CC BY-ND 4.0', 'CC BY-NC-SA 3.0', 'GFDL', 'CC BY-SA 2.5', '']) expect(licenceId(s)).toBeNull();
-    for (const s of ['Public domain', 'CC0', 'CC BY 3.0', 'CC BY 4.0', 'CC BY-SA 2.0']) expect(isLicenseId(licenceId(s)!)).toBe(true);
+  it('credit every picture fully, with its kind (didactics/pictures)', () => {
+    for (const c of courses) {
+      const file = join(root, 'courses', c, 'src/data/photos.json');
+      if (!existsSync(file)) continue;
+      for (const p of json(file) as { id: string }[]) expect(pictureProblems(p), `${c}: ${p.id}`).toEqual([]);
+    }
   });
 
-  it('strip the author HTML', () => {
-    expect(plainText('<a href="//commons.wikimedia.org/wiki/User:X">Jane &amp; Joe</a>')).toBe('Jane & Joe');
-    expect(plainText('Simon Eugster --Simon 13:24, 18 April 2006 (UTC)')).toBe('Simon Eugster');
+  it("show no picture on Commons' inaccurate-paleoart list (tools/inaccurate-paleoart.json)", () => {
+    const listFile = join(root, 'tools/inaccurate-paleoart.json');
+    if (!existsSync(listFile)) return; // made on Rob's computer: npm run pictures:paleoart
+    const list: PaleoartList = json(listFile);
+    for (const c of courses) {
+      const file = join(root, 'courses', c, 'src/data/photos.json');
+      if (existsSync(file)) expect(paleoartFlags(json(file), list).map((f) => f.problem), c).toEqual([]);
+    }
+  });
+
+  it('read licences as Didactics does', () => {
+    expect(licenceFrom('CC BY-SA 4.0')).toBe('CC-BY-SA-4.0');
+    expect(licenceFrom('CC BY-NC 2.0')).toBeNull();
   });
 
   it('keep every photo id: each picked once, and every credited photo still picked', () => {
     for (const c of courses) {
       const picksFile = join(root, 'courses', c, 'tools/photo-picks.json');
       if (!existsSync(picksFile)) continue;
-      const picks: { id: string; title?: string; url?: string }[] = json(picksFile);
+      const picks: ({ id: string } & Record<string, unknown>)[] = json(picksFile);
       const ids = picks.map((p) => p.id);
       expect(new Set(ids).size, `${c}: a pick id repeats`).toBe(ids.length);
-      for (const p of picks) expect(p.title || p.url, `${c}: ${p.id} names no file`).toBeTruthy();
+      const sources = ['title', 'commons', 'phylopic', 'inaturalist', 'bhl', 'smithsonian', 'url'];
+      for (const p of picks) expect(sources.some((k) => p[k]), `${c}: ${p.id} names no file`).toBe(true);
       const library: { id: string }[] = json(join(root, 'courses', c, 'src/data/photos.json'));
       for (const p of library) expect(ids, `${c}: ${p.id} is credited but no longer picked`).toContain(p.id);
     }

@@ -6,6 +6,7 @@ import { makeRng } from 'didactics/rng';
 
 const photo = (id: string, genus: GenusId): Photo => ({
   id,
+  kind: "photo",
   genus,
   width: 1280,
   height: 853,

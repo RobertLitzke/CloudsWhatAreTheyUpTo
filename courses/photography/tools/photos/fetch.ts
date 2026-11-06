@@ -10,7 +10,8 @@ import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import sharp from 'sharp';
-import { fileInfo, politeFetch } from './commons.ts';
+import { commonsFiles, politeFetch, type SourceContext } from 'didactics/picture-sources';
+import { USER_AGENT } from './config.ts';
 import { depthMap, depthName } from './depth.ts';
 import { DEPTH_WIDTH, STORE_WIDTH, WEBP } from './config.ts';
 
@@ -19,6 +20,7 @@ const root = path.join(here, '..', '..');
 const photoDir = path.join(root, 'public', 'photos');
 /** A pick is a file title, or a title with noMirror for a photo with writing or a landmark in it. */
 type Pick = string | { title: string; noMirror?: true };
+const ctx: SourceContext = { userAgent: USER_AGENT };
 const picks: Record<string, Pick[]> = JSON.parse(await readFile(path.join(here, 'picks.json'), 'utf8'));
 
 await mkdir(photoDir, { recursive: true });
@@ -28,18 +30,22 @@ const keep = new Set<string>();
 for (const [subject, list] of Object.entries(picks)) {
   const order = list.map((p) => (typeof p === 'string' ? p : p.title));
   const noMirror = new Set(list.flatMap((p) => (typeof p !== 'string' && p.noMirror ? [p.title] : [])));
-  const infos = await fileInfo(order, STORE_WIDTH);
+  const infos = await commonsFiles(order, STORE_WIDTH, ctx);
   // Commons returns files in its own order; keep the order they were picked in.
-  infos.sort((a, b) => order.indexOf(a.title) - order.indexOf(b.title));
+  infos.sort((a, b) => order.indexOf(a.title!) - order.indexOf(b.title!));
   let n = 0;
   for (const info of infos) {
     if (!info.license) {
       console.warn(`skip ${info.title}: licence "${info.licenseName}" is not accepted`);
       continue;
     }
+    if (info.categories?.some((c) => /inaccurate pal(a)?eoart/i.test(c))) {
+      console.warn(`skip ${info.title}: marked inaccurate paleoart on Commons`);
+      continue;
+    }
     const id = `${subject}-${String(++n).padStart(2, '0')}`;
     const file = `${id}.webp`;
-    const res = await politeFetch(info.thumbUrl);
+    const res = await politeFetch(info.imageUrl, ctx);
     if (!res.ok) {
       console.warn(`skip ${info.title}: download answered ${res.status}`);
       n--;
@@ -60,8 +66,9 @@ for (const [subject, list] of Object.entries(picks)) {
     keep.add(depth);
     entries.push({
       id,
+      kind: 'photo',
       subject,
-      ...(noMirror.has(info.title) ? { noMirror: true } : {}),
+      ...(noMirror.has(info.title!) ? { noMirror: true } : {}),
       file: `photos/${file}`,
       depthFile: `photos/${depth}`,
       // How far away things are, and how fast they move: the figures need it
