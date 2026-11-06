@@ -20,13 +20,45 @@
      "text": "In that top clay are shells: whole clam shells, some still paired, the kinds that live today in the mud of Puget Sound’s bays. Scattered through the same clay are stones, from pebbles to boulders, of granite and other rocks that do not come from anywhere on the island. Clams live underwater. So the top of the bluff, 70 metres above the sea, was once the bottom of the sea. And the boulders cannot have been rolled there by waves into quiet mud. Something dropped them."
     },
     {
-     "type": "diagram",
-     "id": "photo",
-     "caption": "The bluff at Ebey’s Landing, with the trail along its top and the beach below.",
-     "options": {
-      "photo": "ebeys-landing-bluff",
-      "aspect": 1.5
-     }
+      "type": "interactive_diagram",
+      "id": "hotspots",
+      "caption": "The bluff at Ebey’s Landing, with the trail along its top and the beach below. Tap a spot to see what it is.",
+      "options": {
+        "photo": "ebeys-landing-bluff",
+        "intro": "Tap a numbered spot to see what it is.",
+        "spots": [
+          {
+            "x": 0.22,
+            "y": 0.6,
+            "name": "Ebey’s Prairie",
+            "text": "Flat farmland on top of the glacial deposits, about 70 metres above the sea."
+          },
+          {
+            "x": 0.63,
+            "y": 0.53,
+            "name": "The bluff",
+            "text": "A cliff cut by the waves into layers of sand, gravel and clay left by the ice age."
+          },
+          {
+            "x": 0.73,
+            "y": 0.66,
+            "name": "The beach",
+            "text": "Sand and gravel that fall from the bluff, carried along the shore by the waves."
+          },
+          {
+            "x": 0.88,
+            "y": 0.6,
+            "name": "Admiralty Inlet",
+            "text": "The channel that runs past the island from the Strait of Juan de Fuca into Puget Sound."
+          },
+          {
+            "x": 0.62,
+            "y": 0.79,
+            "name": "The trail",
+            "text": "The path along the top of the bluff, with two walkers for scale."
+          }
+        ]
+      }
     },
     {
      "type": "diagram",

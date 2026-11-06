@@ -11,7 +11,7 @@ import { checkFigure } from './check';
 import { COL } from './kit';
 import { photoFigure } from './photo';
 import { fruitStill, meadowFigure } from './rings';
-import { cellsStill, relativesFigure } from './kingdom';
+import { cellsStill } from './kingdom';
 import { digestFigure, forageFigure } from './tips';
 import { fallFigure, gillFigure, launchStill } from './spores';
 import { cycleStill, matingFigure } from './sexes';
@@ -24,7 +24,7 @@ import { zoneFigure } from './mould';
 import { cycleLightStill, decoyFigure } from './glow';
 import { antFigure, trapsStill } from './hunters';
 import { mapFigure, pairingStill } from './individual';
-import { cluesFigure, scaleStill } from './prototaxites';
+import { scaleStill } from './prototaxites';
 import { logFigure, territoriesStill } from './log';
 import { barkFigure } from './bark';
 import { datingFigure } from './lichenometry';
@@ -45,7 +45,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   meadow: meadowFigure,
   fruit: fruitStill,
   // Lesson 2
-  relatives: relativesFigure,
   cells: cellsStill,
   // Lesson 3
   digest: digestFigure,
@@ -84,7 +83,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   genotypes: mapFigure,
   // Lesson 15
   tallest: scaleStill,
-  clues: cluesFigure,
   // Lesson 16
   afterlife: logFigure,
   territories: territoriesStill,

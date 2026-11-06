@@ -75,11 +75,59 @@
         },
         {
           "type": "interactive_diagram",
-          "id": "clues",
+          "id": "clue-board",
           "caption": "Four ideas about what Prototaxites was (the lichen idea is a kind of fungus), and the clues that bear on them.",
           "task": "Turn on every clue",
           "goal": "clues",
-          "aspect_ratio": 1.87
+          "options": {
+            "ideas": [
+              {
+                "name": "A rotted conifer"
+              },
+              {
+                "name": "A giant seaweed"
+              },
+              {
+                "name": "A fungus"
+              },
+              {
+                "name": "A lost lineage"
+              }
+            ],
+            "clues": [
+              {
+                "name": "Tubes, not wood",
+                "text": "Built of tangled tubes of three widths, with no wood cells",
+                "rules": [
+                  "A rotted conifer"
+                ]
+              },
+              {
+                "name": "Grew on land",
+                "text": "Found standing in old river plains among the first land plants",
+                "rules": [
+                  "A giant seaweed"
+                ]
+              },
+              {
+                "name": "Carbon varies",
+                "text": "Its carbon’s make-up varies from trunk to trunk, as if each fed on different food",
+                "rules": [
+                  "A rotted conifer",
+                  "A giant seaweed"
+                ]
+              },
+              {
+                "name": "No chitin traces",
+                "text": "Its chemistry lacks the traces that fungal walls leave in fossils from the same rock",
+                "rules": [
+                  "A fungus"
+                ]
+              }
+            ],
+            "intro": "Four ideas Prototaxites has been taken for. Turn on the clues one at a time and see which survive.",
+            "end": "Only the last idea survives every clue: something that is neither plant, seaweed nor fungus, a branch of life with no living members."
+          }
         }
       ]
     },
@@ -87,9 +135,11 @@
       "title": "A long argument",
       "blocks": [
         {
-          "type": "diagram",
-          "id": "timeline",
-          "caption": "Prototaxites from 1843 to 2025.",
+          "type": "interactive_diagram",
+          "id": "timeline-live",
+          "caption": "Prototaxites from 1843 to 2025. Tap the events from earliest to latest: each idea answered the evidence before it.",
+          "task": "Put the ideas in order",
+          "goal": "order",
           "options": {
             "events": [
               {

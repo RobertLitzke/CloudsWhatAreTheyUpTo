@@ -1,130 +1,13 @@
-// Lesson 21, Darwin's abominable mystery: the flowering plants grouped by
-// looks and by DNA, with the sacred lotus moving from the water lilies to the
-// plane trees; and a monocot beside a eudicot (still).
+// Lesson 21, Darwin's abominable mystery: a monocot beside a eudicot (still).
+// The flowering plants grouped by looks and by DNA, with the sacred lotus
+// moving from the water lilies to the plane trees, are a regroup block in the
+// lesson's JSON (didactics/live-charts).
 
 import { svg } from 'didactics/dom';
-import { label, line, redraw, small, still } from 'didactics/draw';
-import { COL, figure, frame, guessFirst, toggles } from './kit';
+import { label, line, small, still } from 'didactics/draw';
+import { COL } from './kit';
 
 const W = 400;
-
-export type Node = { name: string; group?: boolean; kids?: Node[] };
-
-const tip = (name: string): Node => ({ name });
-const grp = (name: string, ...kids: Node[]): Node => ({ name, group: true, kids });
-
-/** The old grouping, by the look of leaves and flowers. */
-export const BY_LOOKS: Node = grp('',
-  grp('Monocots', tip('Grasses'), tip('Lilies')),
-  grp('Dicots',
-    grp('Magnolias and kin', tip('Magnolia'), tip('Amborella')),
-    grp('Water plants', tip('Water lily'), tip('Sacred lotus')),
-    grp('Catkin trees', tip('Oak'), tip('Plane tree')),
-    grp('Others', tip('Protea'), tip('Rose'), tip('Sunflower')),
-  ),
-);
-
-/** The tree read from DNA (from 1993 on). */
-export const BY_DNA: Node = grp('',
-  tip('Amborella'),
-  grp('',
-    tip('Water lily'),
-    grp('',
-      tip('Magnolia'),
-      grp('',
-        grp('Monocots', tip('Grasses'), tip('Lilies')),
-        grp('Eudicots',
-          grp('', tip('Sacred lotus'), tip('Plane tree'), tip('Protea')),
-          grp('', tip('Oak'), tip('Rose'), tip('Sunflower')),
-        ),
-      ),
-    ),
-  ),
-);
-
-/** The tips that share the lotus's smallest group. */
-export function lotusKin(tree: Node): string[] {
-  const tips = (n: Node): string[] => (n.kids ? n.kids.flatMap(tips) : [n.name]);
-  const find = (n: Node): Node | null => {
-    if (!n.kids) return null;
-    for (const k of n.kids) {
-      const f = find(k);
-      if (f) return f;
-    }
-    return n.kids.some((k) => k.name === 'Sacred lotus' && !k.kids) ? n : null;
-  };
-  const g = find(tree);
-  return g ? tips(g).filter((x) => x !== 'Sacred lotus') : [];
-}
-
-function depth(n: Node): number {
-  return n.kids ? 1 + Math.max(...n.kids.map(depth)) : 0;
-}
-
-export const lotusFigure = figure(['dna'], (_ctx, t) => {
-  const f = frame(W, 240, 3);
-  const g = svg('g');
-  f.svg.append(g);
-  let dna = false;
-  const paint = () => {
-    const shown = open();
-    const tree = dna && shown ? BY_DNA : BY_LOOKS;
-    const parts: SVGElement[] = [];
-    const levels = depth(tree);
-    const x0 = 16;
-    const xTip = 250;
-    const step = (xTip - x0) / levels;
-    let row = 0;
-    const gap = 17;
-    const top = 34;
-    const kin = new Set(lotusKin(tree));
-    // Returns the node's y; draws as it goes.
-    const draw = (n: Node, d: number): number => {
-      const x = x0 + d * step;
-      if (!n.kids) {
-        const y = top + row++ * gap;
-        const lotus = n.name === 'Sacred lotus';
-        const near = kin.has(n.name);
-        parts.push(
-          line(x, y, xTip, y, COL.soft, 1.2),
-          small(xTip + 6, y + 4, n.name, { bold: lotus || near, fill: lotus ? COL.hormone : near ? COL.leaf : undefined }),
-        );
-        return y;
-      }
-      const ys = n.kids.map((k) => draw(k, d + 1));
-      const kx = x + step;
-      for (const y of ys) parts.push(line(x, y, kx, y, COL.soft, 1.2));
-      parts.push(line(x, ys[0], x, ys[ys.length - 1], COL.soft, 1.2));
-      const y = (ys[0] + ys[ys.length - 1]) / 2;
-      if (n.name) parts.push(small(x + 3, ys[0] - 4, n.name, { fill: COL.leaf, bold: true }));
-      return y;
-    };
-    const yRoot = draw(tree, 0);
-    parts.unshift(line(4, yRoot, x0, yRoot, COL.soft, 1.2));
-    redraw(g,
-      label(16, 18, dna && shown ? 'Read from DNA' : 'Grouped by looks', { bold: true }),
-      ...parts,
-    );
-    if (!shown) return;
-    f.readout.textContent = dna
-      ? 'From DNA, the lotus’s closest relatives are the plane trees and the proteas. Its floating leaves and big flowers are a way of life it shares with water lilies, arrived at separately. Amborella branches off first, and the water lilies next.'
-      : 'Grouped by how they look, the lotus sits with the water lilies: round leaves floating on ponds and big many-petalled flowers. Switch to the tree read from DNA.';
-    if (dna) t.done();
-  };
-  const sw = toggles(['Read from DNA'], [false], (on) => { dna = on[0]; paint(); });
-  f.controls.append(sw.node);
-  const open = guessFirst(t, f, {
-    ask: 'The sacred lotus has round leaves floating on ponds and big many-petalled flowers, like a water lily. Which is its closest living relative?',
-    options: ['Water lilies', 'Plane trees', 'Magnolias'],
-    answer: 1,
-    reveal: 'done',
-    sliders: [],
-    buttons: sw.buttons,
-    after: () => paint(),
-  });
-  paint();
-  return f.node;
-});
 
 // ---- A monocot and a eudicot (still) -----------------------------------------------------------------
 

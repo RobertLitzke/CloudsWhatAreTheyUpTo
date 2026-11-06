@@ -30,7 +30,7 @@ import { cycleFigure, dryFigure } from './rhynie';
 import { beeFigure, partsStill, raceFigure } from './orchid';
 import { bankFigure, dropFigure, hedgeFigure } from './seeds';
 import { costFigure, escapeFigure } from './menu';
-import { lotusFigure, twoStill } from './abominable';
+import { twoStill } from './abominable';
 import { sortFigure } from './stamens';
 import { keyFigure, multiFigure } from './key';
 import { alikeStill, familiesStill } from './families';
@@ -117,7 +117,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   cost: costFigure,
   escape: escapeFigure,
   // Lesson 21
-  lotus: lotusFigure,
   two: twoStill,
   // Lesson K1
   sort: sortFigure,

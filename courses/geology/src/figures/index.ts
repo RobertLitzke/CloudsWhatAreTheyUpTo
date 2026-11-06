@@ -15,7 +15,7 @@ import { photoFigure } from './photo';
 import { bioStill } from './bio';
 import { duneFigure, sortFigure } from './dunes';
 import { correlateFigure, veesFigure } from './smith';
-import { cycleStill, unconformityFigure } from './siccar';
+import { unconformityFigure } from './siccar';
 import { bowenFigure, conditionsFigure, igneousStill } from './families';
 import { coolingFigure, decayFigure, leadLineFigure } from './age';
 import { fitFigure, gondwanaIceFigure, gondwanaStill, openingFigure } from './drift';
@@ -70,7 +70,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   bowen: bowenFigure,
   // Lesson 7
   unconformity: unconformityFigure,
-  cycle: cycleStill,
   // Lesson 8
   cooling: coolingFigure,
   decay: decayFigure,

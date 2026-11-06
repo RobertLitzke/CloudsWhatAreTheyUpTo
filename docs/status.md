@@ -8,15 +8,15 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
 | [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 1 | 0 | 1 | 45 |
+| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 7 | 0 | 1 | 39 |
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
-| [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 0 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 2 | 37 | 16 | 0 |
-| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 1 | 33 | 33 | 0 |
+| [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 2 | 25 | 15 | 0 |
+| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 4 | 37 | 16 | 0 |
+| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 2 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 0 | 30 | 0 | 0 |
 | [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 0 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 1 | 25 | 24 | 0 |
+| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 3 | 25 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -24,15 +24,15 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- |
 | Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
 | Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
-| Geology | 1.0 released | 2026-11-04 | released; still to do: 1 to copy-edit, 1 awaiting photos |
+| Geology | 1.0 released | 2026-11-04 | released; still to do: 7 to copy-edit, 1 awaiting photos |
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
-| Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to fact-check, 15 awaiting photos |
-| Ecology | 0.1 beta | 2026-11-04 | no: 2 to copy-edit, 37 to fact-check, 16 awaiting photos |
-| Botany | 0.1 beta | 2026-11-04 | no: 1 to copy-edit, 33 to fact-check, 33 awaiting photos |
+| Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 2 to copy-edit, 25 to fact-check, 15 awaiting photos |
+| Ecology | 0.1 beta | 2026-11-04 | no: 4 to copy-edit, 37 to fact-check, 16 awaiting photos |
+| Botany | 0.1 beta | 2026-11-04 | no: 2 to copy-edit, 33 to fact-check, 33 awaiting photos |
 | Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to fact-check |
 | Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to fact-check |
-| Fungi | 0.2 beta | 2026-11-04 | no: 1 to copy-edit, 25 to fact-check, 24 awaiting photos |
+| Fungi | 0.2 beta | 2026-11-04 | no: 3 to copy-edit, 25 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -84,15 +84,15 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 1 | Seashells on mountaintops (`steno`) |  | done |  | How loose mud becomes layers of rock, and how to read their order. |
 | 2 | A desert turned to stone (`dunes`) |  | done |  | How water and wind sort grains, and how a moving dune leaves sloping layers behind. |
 | 3 | The map that read the ground (`smith`) |  | done |  | How fossils match layers across the countryside, and how tilted beds show up on a map. |
-| 4 | The rock that was once on fire (`basalt`) |  | done |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
+| 4 | The rock that was once on fire (`basalt`) |  | awaiting Gemini review (queued 2026-11-06) |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
 | 5 | Garnets in the mud (`barrow`) |  | done |  | How heat and pressure alter buried rock in the solid state, and how the resulting minerals record the depth of burial. |
 | 6 | Fossils in the schist (`families`) |  | awaiting Gemini review (queued 2026-11-06) |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
-| 7 | The rock at Siccar Point (`siccar`) |  | done |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
+| 7 | The rock at Siccar Point (`siccar`) |  | awaiting Gemini review (queued 2026-11-06) |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
 | 8 | How old is the Earth? (`age`) |  | done |  | Kelvin's cooling Earth, the objections that undid it, and the clock in radioactive atoms. |
-| 9 | Continents that fit (`drift`) |  | done |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
+| 9 | Continents that fit (`drift`) |  | awaiting Gemini review (queued 2026-11-06) |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
 | 10 | Stripes on the seafloor (`stripes`) |  | done |  | How magnetic reversals recorded in ocean-floor rock showed the sea floor spreading apart. |
 | 11 | Where the Earth shakes (`quakes`) |  | done |  | How earthquakes outline the plates, and how the angle of a sinking slab of ocean floor sets where volcanoes rise. |
-| 12 | Islands that get older in a line (`hotspot`) |  | done |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
+| 12 | Islands that get older in a line (`hotspot`) |  | awaiting Gemini review (queued 2026-11-06) |  | How a nearly fixed source of magma under a moving plate builds a chain of volcanoes, and what the Hawaiian-Emperor bend records. |
 | 13 | The ocean before the Atlantic (`supercontinents`) |  | done |  | How geologists rebuilt the map for a billion years: an ocean that closed before the Atlantic opened, compass needles frozen in rock, and the cycle of supercontinents from Rodinia through Gondwana and Pangaea to today. |
 | 14 | A river that cuts through a mountain (`rivers`) |  | done |  | How rivers cut down to base level, and how a river can come to cross a mountain range rather than go around it. |
 | 15 | Boulders where they don't belong (`erratics`) |  | done |  | How glaciers grow, flow, carry rock and drop it, and how Agassiz argued for an ice age. |
@@ -101,7 +101,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 18 | Why faults snap (`faults`) |  | done |  | How a stuck fault stores the plates' motion as bent rock and releases it in an earthquake, what sets an earthquake's size, and why soft ground shakes harder. |
 | 19 | Why some volcanoes explode (`explode`) |  | done |  | How the silica and water in magma decide whether a volcano pours out lava or explodes, and what a pyroclastic flow is. |
 | 20 | Barnacles above the tide (`barnacles`) |  | done |  | How George Plafker read the 1964 Alaska earthquake from barnacles and drowned forests, and how a locked subduction zone lifts and drops a coast and starts a tsunami. |
-| W1 | Shells at the top of the bluff (`ebey`) | Whidbey Island | done |  | How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top. |
+| W1 | Shells at the top of the bluff (`ebey`) | Whidbey Island | awaiting Gemini review (queued 2026-11-06) |  | How to read the bluff at Ebey’s Landing from the beach up, and why clam shells and boulders sit together in clay near its top. |
 | W2 | Holes in the prairie (`prairie`) | Whidbey Island | done |  | Why central Whidbey has open prairies and pits with no outlets: gravel that drains too fast for young firs, blocks of buried ice, and thousands of years of fire. |
 | W3 | Where the beaches come from (`feeder-bluffs`) | Whidbey Island | done |  | How Whidbey’s bluffs fail when water builds up above clay, and how the sand that falls feeds the beaches along the shore, until a bulkhead cuts it off. |
 | W4 | Seafloor at Deception Pass (`deception`) | Whidbey Island | done |  | How pillow basalt, ribbon chert and serpentinite at Deception Pass record pieces of ocean floor scraped off and welded onto North America. |
@@ -112,7 +112,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | S4 | The ground people built (`fill`) | Seattle | done |  | How Seattle sluiced away hills and filled its tideflats, and why loose, wet fill shook hardest and liquefied in the 2001 Nisqually earthquake. |
 | F1 | Bretz’s heresy (`bretz`) | The ice age floods | done |  | How J Harlen Bretz read the channelled scablands of eastern Washington as the work of a flood far bigger than any river, and why geologists refused to believe him for forty years. |
 | F2 | Ripples the size of hills (`ripples`) | The ice age floods | done |  | How Joseph Pardee found the source of Bretz's flood in a glacial lake in Montana, how an ice dam floats and fails, and why the lake drained again and again. |
-| F3 | How many floods? (`rhythmites`) | The ice age floods | done |  | How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed. |
+| F3 | How many floods? (`rhythmites`) | The ice age floods | awaiting Gemini review (queued 2026-11-06) |  | How Richard Waitt counted dozens of separate floods in the Touchet Beds of Washington's Walla Walla valley, using burrows, ash and the shape of each bed. |
 | F4 | Montana rocks in Oregon (`montana-rocks`) | The ice age floods | done |  | How boulders from Montana came to rest on hillsides in Oregon's Willamette Valley, carried by icebergs on the floodwater. |
 | C1 | The orphan tsunami (`orphan`) | Cascadia | done |  | How buried marshes, dead cedars, Japanese records and Indigenous stories showed that Cascadia's megathrust broke in a magnitude 9 earthquake on 26 January 1700. |
 | C2 | Mud under Auburn (`osceola`) | Cascadia | done |  | How towns from Enumclaw to Kent came to stand on a mudflow from Mount Rainier, and why lahars are the volcano's biggest threat to the Puget Lowland. |
@@ -180,8 +180,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 3 | The falling Moon (`falling`) |  | awaiting fact check |  | Why the Moon goes round the Earth instead of falling down, and why orbits are ellipses. |
 | 4 | A planet found with a pen (`neptune`) |  | awaiting fact check |  | How small errors in Uranus's orbit revealed Neptune, and why the same trick failed for Mercury. |
 | 5 | How far are the stars? (`parallax`) |  | awaiting fact check |  | Why the stars should shift as the Earth moves, why nobody could see it, and how Bessel finally did. |
-| 6 | What the stars are made of (`spectra`) |  | awaiting fact check |  | How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth. *Outline v2 adds the Doppler shift here (not written yet).* |
-| 7 | Why are there no green stars? (`colour`) |  | awaiting fact check |  | How a star's colour gives its temperature, and why no star looks green. |
+| 6 | What the stars are made of (`spectra`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | How dark lines in sunlight revealed the elements in the Sun, and found one that wasn't known on Earth. *Outline v2 adds the Doppler shift here (not written yet).* |
+| 7 | Why are there no green stars? (`colour`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | How a star's colour gives its temperature, and why no star looks green. |
 | 8 | A schoolteacher's number puzzle (`ladder`) |  | awaiting fact check | Photos (no photos chosen yet) | Why each kind of atom gives out and soaks up only certain colours: Balmer's pattern, Bohr's ladder, and the electron as a wave. |
 | 9 | Mostly hydrogen (`hydrogen`) |  | awaiting fact check |  | How stars were sorted into classes, and why the classes are temperatures, not ingredients. |
 | 10 | Giants and dwarfs (`hr`) |  | awaiting fact check |  | How plotting brightness against colour sorted the stars, and showed that some are giants and some are no bigger than the Earth. *Outline v2 adds binary stars here (not written yet).* |
@@ -253,14 +253,14 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 1 | How many kinds are there? (`kinds`) |  | awaiting fact check | Photos (no photos chosen yet) | How to estimate what you can’t count, and why no one knows how many species there are. |
 | 2 | Why aren’t we knee-deep in elephants? (`elephants`) |  | awaiting fact check | Photos (no photos chosen yet) | How populations grow, why growth compounds, and what brings it to a stop. |
 | 3 | The reindeer of St Matthew Island (`reindeer`) |  | awaiting fact check | Photos (no photos chosen yet) | Why a population can shoot past its ceiling and crash when its food is slow to grow back. |
-| 4 | The hare and the lynx (`lynx`) |  | awaiting fact check | Photos (no photos chosen yet) | Why predators and prey rise and fall in cycles, and why fishing both can help the prey. |
+| 4 | The hare and the lynx (`lynx`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | Why predators and prey rise and fall in cycles, and why fishing both can help the prey. |
 | 5 | A drought on Daphne Major (`finches`) |  | awaiting fact check | Photos (no photos chosen yet) | What natural selection is, and how it was watched changing a population in a single year. |
 | 6 | Gause’s bottles (`gause`) |  | awaiting fact check | Photos (no photos chosen yet) | Why two species can’t share one food in the same way, and how splitting it lets them live together. |
 | 7 | The sea star experiment (`seastar`) |  | awaiting fact check | Photos (no photos chosen yet) | How one predator can keep many species on a shore, and what a keystone species is. |
 | 8 | Why is the world green? (`green`) |  | awaiting fact check | Photos (no photos chosen yet) | How a predator can protect plants it never eats, and why food chains flip in alternation. |
 | 9 | The ants that guard a tree (`acacia`) |  | awaiting fact check | Photos (no photos chosen yet) | What a mutualism is, what each partner pays, and how cheaters threaten it. |
 | 10 | Why big fierce animals are rare (`pyramid`) |  | awaiting fact check | Photos (no photos chosen yet) | How energy passes up a food chain, why most of it ends as heat, and why that keeps chains short and top predators few. |
-| 11 | The planet breathes (`breathes`) |  | awaiting fact check |  | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
+| 11 | The planet breathes (`breathes`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | Keeling’s curve, its yearly sawtooth and the carbon cycle as stocks and flows. |
 | 12 | The forest that was cut on purpose (`hubbard`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Hubbard Brook, and how living plants hold a watershed’s nitrogen. |
 | 13 | A curtain across a lake (`curtain`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Lake 226 and the nutrient that runs short. |
 | 14 | Walking back in time (`glacier-bay`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
@@ -314,7 +314,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 18 | The comet orchid (`orchid`) |  | awaiting fact check | Photos (no photos chosen yet) | What flowers are for, how they make animals carry pollen, the double fertilisation that makes a seed and fruit, and a moth Darwin predicted forty years early. |
 | 19 | Travelling and waiting (`seeds`) |  | awaiting fact check | Photos (no photos chosen yet) | How seeds travel by wind, water and animals, why many wait in the soil for a cue, and why waiting pays when years are unpredictable. |
 | 20 | The caterpillar’s menu (`menu`) |  | awaiting fact check | Photos (no photos chosen yet) | How plants defend themselves with poisons, spines and toughness, what defence costs, and how specialist insects beat one family's poisons and use them to find their food. |
-| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting fact check | Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
+| 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
 | K1 | Counting stamens (`stamens`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Linnaeus's system of sorting plants by counting stamens, the two-word names that outlived it, how to read a plant's name, and why names and families still change. |
 | K2 | Using a key (`key`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook. |
 | K3 | Ten families to know (`families`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
@@ -411,7 +411,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
 | 1 | The ring in the meadow (`rings`) |  | awaiting fact check | Photos (no photos chosen yet) | A mushroom is only the fruit of a hidden net of threads; a fairy ring is one fungus spreading outward for centuries. |
-| 2 | Closer to us than to plants (`kingdom`) |  | awaiting fact check | Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
+| 2 | Closer to us than to plants (`kingdom`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | Why fungi are a kingdom of their own: chitin walls, digestion outside the body, and DNA that puts them beside animals. |
 | 3 | Eating from the outside (`tips`) |  | awaiting fact check | Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
 | 4 | Seven trillion spores (`spores`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
 | 5 | Twenty thousand sexes (`sexes`) |  | awaiting fact check | Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
@@ -424,7 +424,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 12 | Foxfire (`glow`) |  | awaiting fact check | Photos (no photos chosen yet) | Fungi that glow in the dark: how the light is made, and the experiment that asked what it is for. |
 | 13 | Fungi that hunt (`hunters`) |  | awaiting fact check | Photos (no photos chosen yet) | Fungi that trap worms in soil and take over insects, and what happens when such a fungus reaches animals with no defence. |
 | 14 | How big is one fungus? (`individual`) |  | awaiting fact check | Photos (no photos chosen yet) | What counts as one fungus, and how genetic markers revealed single fungi covering whole forests. |
-| 15 | The trunk with no tree (`prototaxites`) |  | awaiting fact check | Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for over 165 years. |
+| 15 | The trunk with no tree (`prototaxites`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | Prototaxites, an eight-metre fossil from the first land ecosystems, and how its identity has been argued from clues for over 165 years. |
 | 16 | A log's afterlife (`log`) |  | awaiting fact check | Photos (no photos chosen yet) | How a fallen tree is taken apart by a succession of fungi over decades, and what the log gives the forest on the way. |
 | L1 | The lichens that left the city (`bark`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | How lichens vanished from smoky cities, how they were used to map sulphur in the air, and how they came back once the smoke ended. |
 | L2 | Dating a moraine by its lichens (`lichenometry`) | More lichens | awaiting fact check | Photos (no photos chosen yet) | How the slow, steady growth of crust lichens is used to date rock laid bare by retreating glaciers. |

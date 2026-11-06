@@ -1,9 +1,10 @@
 // Lesson 7, The rock at Siccar Point: an unconformity built up stage by stage,
 // with the time each stage takes at the rates rock is laid down and worn away;
-// and the rock cycle that ties the lessons so far together.
+// the rock cycle that ties the lessons so far together is a loop block in the
+// lesson's JSON (didactics/live-charts).
 
 import { svg } from 'didactics/dom';
-import { arrow, label, line, note, redraw, small, still } from 'didactics/draw';
+import { label, line, redraw, small } from 'didactics/draw';
 import { makeRng } from 'didactics/rng';
 import { COL, figure, frame, guessFirst, player, slider } from './kit';
 
@@ -158,47 +159,3 @@ export const unconformityFigure = figure(['story'], (ctx, t) => {
   });
   return f.node;
 });
-
-// ---- The rock cycle: a still --------------------------------------------------------
-
-export const cycleStill = () => {
-  const { node, svg: s } = still(W, 250);
-  const items: { text: string; color: string; lesson: string; x: number; y: number }[] = [
-    { text: 'Sediment', color: COL.sand, lesson: 'lesson 2', x: 200, y: 28 },
-    { text: 'Sedimentary rock', color: '#c9a66b', lesson: 'lessons 1–3', x: 320, y: 88 },
-    { text: 'Metamorphic rock', color: '#b98aa0', lesson: 'lessons 5–6', x: 320, y: 168 },
-    { text: 'Magma', color: COL.heat, lesson: 'lesson 4', x: 200, y: 225 },
-    { text: 'Igneous rock', color: '#6b6670', lesson: 'lesson 4', x: 80, y: 168 },
-    { text: 'Mountains', color: '#8fa37a', lesson: 'lesson 7', x: 80, y: 88 },
-  ];
-  // How each step happens, placed beside its arrow: [text, x, y, anchor].
-  const how: [string, number, number, 'start' | 'middle' | 'end'][] = [
-    ['buried and cemented', 272, 46, 'start'],
-    ['heated, squeezed', 312, 131, 'end'],
-    ['melted', 272, 212, 'start'],
-    ['cooled', 128, 212, 'end'],
-    ['pushed up', 88, 131, 'start'],
-    ['worn away, carried off', 128, 46, 'end'],
-  ];
-  const parts: SVGElement[] = [svg('rect', { width: W, height: 250, fill: COL.paper })];
-  items.forEach((a, i) => {
-    const b = items[(i + 1) % items.length];
-    const k = a.x === b.x ? 0.24 : 0.3;
-    parts.push(arrow(a.x + (b.x - a.x) * k, a.y + (b.y - a.y) * k, a.x + (b.x - a.x) * (1 - k), a.y + (b.y - a.y) * (1 - k), COL.soft, 1.6));
-    const [text, x, y, anchor] = how[i];
-    parts.push(small(x, y, text, { anchor: anchor === 'start' ? undefined : anchor, soft: true }));
-  });
-  for (const it of items) {
-    const w = it.text.length * 6.4 + 16;
-    const dark = it.text === 'Magma' || it.text === 'Igneous rock';
-    parts.push(
-      svg('rect', { x: it.x - w / 2, y: it.y - 13, width: w, height: 26, rx: 6, fill: it.color, opacity: 0.9 }),
-      note(it.x, it.y + 1, it.text, { anchor: 'middle', bold: true, fill: dark ? COL.paper : COL.ink }),
-      small(it.x, it.y + 10, it.lesson, { anchor: 'middle', fill: dark ? COL.paper : COL.ink, attrs: { opacity: 0.8 } }),
-    );
-  }
-  parts.push(note(200, 150, 'Hutton’s cycle', { anchor: 'middle', bold: true, soft: true }));
-  s.append(...parts);
-  s.setAttribute('aria-label', 'The rock cycle: sediment is buried and becomes sedimentary rock, which heat and pressure turn to metamorphic rock, which can melt to magma, which cools to igneous rock, which is pushed up into mountains, which wear away into sediment again.');
-  return { node };
-};

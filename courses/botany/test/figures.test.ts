@@ -27,7 +27,6 @@ import { drying } from '../src/figures/rhynie';
 import { race } from '../src/figures/orchid';
 import { distance, hedge, sprouts } from '../src/figures/seeds';
 import { best, FAST, radiate, SLOW } from '../src/figures/menu';
-import { BY_DNA, BY_LOOKS, lotusKin } from '../src/figures/abominable';
 import { sortBy } from '../src/figures/stamens';
 import { fits, KEY, plant, PLANTS, walk } from '../src/figures/key';
 import { cross } from '../src/figures/mendel';
@@ -386,11 +385,15 @@ describe('figures', () => {
     await expect(e.done).resolves.toBeUndefined();
   });
   it('lesson 21: by looks the lotus sits with water lilies, by DNA with plane trees', async () => {
-    expect(lotusKin(BY_LOOKS)).toEqual(['Water lily']);
-    expect(lotusKin(BY_DNA)).toEqual(['Plane tree', 'Protea']);
-    const l = FIGURES.lotus(context(), 'dna');
+    const block = WRITTEN.flatMap((x) => x.parts.flatMap((p) => p.blocks)).find((b) => isDiagram(b) && b.id === 'regroup')!;
+    const l = FIGURES.regroup(context(), 'switched', isDiagram(block) ? block.options : undefined);
+    const bold = () => [...l.node.querySelectorAll('text.bold')].map((t) => t.textContent);
+    expect(bold()).toContain('Water lily');
+    expect(bold()).not.toContain('Plane tree');
     guess(l.node, 'Plane trees');
-    click(l.node, 'Read from DNA');
+    click(l.node, 'From DNA');
+    expect(bold()).toEqual(expect.arrayContaining(['Plane tree', 'Protea']));
+    expect(bold()).not.toContain('Water lily');
     await expect(l.done).resolves.toBeUndefined();
   });
   it('lesson K1: stamen classes and families group the flowers differently', async () => {

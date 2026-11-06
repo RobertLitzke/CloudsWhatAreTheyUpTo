@@ -21,7 +21,6 @@ import { BACTERIA, colony, zone } from '../src/figures/mould';
 import { clearWin, decoys } from '../src/figures/glow';
 import { fruiting } from '../src/figures/hunters';
 import { groups } from '../src/figures/individual';
-import { standing } from '../src/figures/prototaxites';
 import { stages, woodLeft } from '../src/figures/log';
 import { cover } from '../src/figures/bark';
 import { ageFrom, largest } from '../src/figures/lichenometry';
@@ -36,6 +35,12 @@ import { estimate, yearsLeft } from '../src/figures/howmany';
 globalThis.IntersectionObserver ??= class { observe() {} disconnect() {} } as unknown as typeof IntersectionObserver;
 
 const context = (units: Units = 'metric') => ({ save: emptyProgress(units), closed: new AbortController().signal, score: () => {} });
+
+/** A live chart's options, from the one block in the written lessons with that id. */
+const blockOptions = (id: string) => {
+  const b = WRITTEN.flatMap((l) => l.parts.flatMap((p) => p.blocks)).find((x) => isDiagram(x) && x.id === id);
+  return b && isDiagram(b) ? b.options : undefined;
+};
 
 export function setSlider(node: HTMLElement, n: number, value: number): void {
   const input = node.querySelectorAll('input[type=range]')[n] as HTMLInputElement;
@@ -83,7 +88,7 @@ describe('figures', () => {
   });
 
   it('lesson 2: fungi sit beside animals once the guess is in', async () => {
-    const r = FIGURES.relatives(context(), 'genes');
+    const r = FIGURES.regroup(context(), 'switched', blockOptions('regroup'));
     guess(r.node, 'The horse');
     click(r.node, 'By genes (1993 on)');
     await expect(r.done).resolves.toBeUndefined();
@@ -131,8 +136,7 @@ describe('figures', () => {
   });
 
   it('lesson 6: six fungi sorted by spore-maker, from the lesson\'s JSON', async () => {
-    const block = WRITTEN.flatMap((l) => l.parts.flatMap((p) => p.blocks)).find((b) => isDiagram(b) && b.id === 'groups')!;
-    const f = FIGURES.groups(context(), 'sorted', isDiagram(block) ? block.options : undefined);
+    const f = FIGURES.groups(context(), 'sorted', blockOptions('groups'));
     const names = ['Sac fungus', 'Club fungus', 'Older lineage'];
     for (let k = 0; k < 6; k++) click(f.node, names[k % 3]);
     await expect(f.done).resolves.toBeUndefined();
@@ -234,10 +238,9 @@ describe('figures', () => {
   });
 
   it('lesson 15: every clue together leaves only the lost lineage', async () => {
-    expect(standing([true, true, true, true])).toEqual([false, false, false, true]);
-    expect(standing([true, true, true, false])).toEqual([false, false, true, true]);
-    const f = FIGURES.clues(context(), 'clues');
+    const f = FIGURES['clue-board'](context(), 'clues', blockOptions('clue-board'));
     for (const c of ['1. Tubes, not wood', '2. Grew on land', '3. Carbon varies', '4. No chitin traces']) click(f.node, c);
+    expect(f.node.querySelector('.fig-readout')!.textContent).toMatch(/Only the last idea survives/);
     await expect(f.done).resolves.toBeUndefined();
   });
 

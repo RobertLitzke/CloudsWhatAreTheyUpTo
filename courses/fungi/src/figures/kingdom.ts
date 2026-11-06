@@ -1,84 +1,17 @@
-// Lesson 2, Closer to us than to plants: where fungi sit among living
-// things, sorted by looks (Linnaeus) and by shared proteins and genes
-// (Baldauf and Palmer, 1993, and since), and a still of three cells.
+// Lesson 2, Closer to us than to plants: a still of three cells. The two
+// sortings of living things, by looks (Linnaeus) and by shared proteins and
+// genes (Baldauf and Palmer, 1993), are a regroup block in the lesson's JSON
+// (didactics/live-charts).
 
 import { svg } from 'didactics/dom';
-import { label, line, redraw, small, still } from 'didactics/draw';
-import { clado, type Clade } from './clado';
-import { COL, figure, frame, guessFirst, pick, wrapped } from './kit';
+import { label, line, small, still } from 'didactics/draw';
+import { COL, wrapped } from './kit';
 
 const W = 400;
 
 const FUNGI = COL.cap;
 const PLANT = COL.leaf;
 const ANIMAL = COL.matB;
-const OTHER = COL.soft;
-
-/** Linnaeus's sorting: two kingdoms, and everything that does not move goes with the plants. */
-export const BY_LOOKS: Clade = {
-  kids: [
-    { label: 'Plants (Linnaeus, 1753)', kids: [
-      { label: 'Flowering plants', color: PLANT },
-      { label: 'Ferns and mosses', color: PLANT },
-      { label: 'Algae', color: PLANT },
-      { label: 'Fungi', color: FUNGI },
-      { label: 'Water moulds', color: OTHER },
-      { label: 'Slime moulds', color: OTHER },
-    ] },
-    { label: 'Animals', kids: [
-      { label: 'Animals', color: ANIMAL },
-    ] },
-  ],
-};
-
-/** The tree from shared genes: fungi and animals are each other's closest kin; water moulds sit with brown seaweeds. */
-export const BY_GENES: Clade = {
-  kids: [
-    { kids: [
-      { label: 'Plants', note: 'with green and red algae', color: PLANT },
-      { label: 'Water moulds', note: 'kin of brown seaweeds', color: OTHER },
-    ] },
-    { kids: [
-      { label: 'Slime moulds', note: 'kin of amoebas', color: OTHER },
-      { label: 'One spore tail', kids: [
-        { label: 'Fungi', note: 'chitin walls, absorb food', color: FUNGI, bold: true },
-        { label: 'Animals', note: 'swallow food', color: ANIMAL, bold: true },
-      ] },
-    ] },
-  ],
-};
-
-export const relativesFigure = figure(['genes'], (_ctx, t) => {
-  const f = frame(W, 214, 3);
-  const g = svg('g');
-  f.svg.append(g);
-  let view = 0;
-  const paint = () => {
-    const tree = view === 0 ? BY_LOOKS : BY_GENES;
-    const drawn = clado(tree, { x: 24, y: view === 0 ? 30 : 34, w: W - 24, gap: view === 0 ? 24 : 40, ink: COL.ink, labelAt: 210 });
-    redraw(g,
-      label(14, 16, view === 0 ? 'Sorted by looks: does it move?' : 'Sorted by shared genes and proteins', { bold: true }),
-      ...drawn.parts,
-    );
-    if (!open()) return;
-    f.readout.textContent = view === 0
-      ? 'Linnaeus put fungi among the plants, because they stand still and grow from the ground. Water moulds and slime moulds went in too.'
-      : 'Fungi and animals share a common ancestor that plants do not: their nearest relatives are each other. The water moulds, long called fungi, turned out to be kin of brown seaweeds.';
-    if (view === 1) t.done();
-  };
-  const views = pick(['By looks (1753)', 'By genes (1993 on)'], 0, (i) => { view = i; paint(); });
-  f.controls.append(views.node);
-  const open = guessFirst(t, f, {
-    ask: 'Compare the genes and proteins of a mushroom with those of an oak and a horse. Which is the mushroom closer to?',
-    options: ['The oak', 'The horse', 'Equally far from both'],
-    answer: 1,
-    sliders: [],
-    buttons: views.buttons,
-    after: () => paint(),
-  });
-  paint();
-  return f.node;
-});
 
 // ---- Three cells (still) ----------------------------------------------------------------------------
 
