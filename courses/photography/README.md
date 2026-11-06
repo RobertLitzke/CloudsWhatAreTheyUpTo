@@ -196,5 +196,5 @@ tools/        photos/ (find, fetch, import, depth), gallery/
 
 Pushes to `main` build and deploy to GitHub Pages
 (`.github/workflows/pages.yml`) at
-https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/photography/. In the repository's settings,
+https://robertlitzke.github.io/Courses/photography/. In the repository's settings,
 Pages must be set to deploy from GitHub Actions.

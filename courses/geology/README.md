@@ -5,7 +5,7 @@ puzzle: something odd in a cliff or a hand of rock, or a question people
 argued about for decades. The trunk is geology anywhere; branches read
 Seattle, Whidbey Island and the ice age floods with it, and go further, to
 the Moon, into fossils and down to the core. Live at
-https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/geology/.
+https://robertlitzke.github.io/Courses/geology/.
 
 Geology is one course of several in this repository (see the README at its
 root) and is built on [Didactics](https://github.com/RobertLitzke/Didactics):

@@ -23,7 +23,7 @@ export function courseArg(usage) {
     /** The folder of lesson files. */
     lessons: join(dir, course.lessons),
     /** How the course names itself to Commons and other APIs. */
-    userAgent: `${course.title.replace(/\W+/g, '')}Course/0.1 (https://github.com/RobertLitzke/CloudsWhatAreTheyUpTo)`,
+    userAgent: `${course.title.replace(/\W+/g, '')}Course/0.1 (https://github.com/RobertLitzke/Courses)`,
   };
 }
 

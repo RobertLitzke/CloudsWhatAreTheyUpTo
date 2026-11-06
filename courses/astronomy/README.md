@@ -6,7 +6,7 @@ to the stars and what the stars are made of. Each lesson opens on a puzzle
 someone actually faced, then follows how it was solved, with live figures to
 push. Ten lessons are written; the rest of the plan (relativity, galaxies,
 exoplanets, the gas giants and more) shows on the home tree as coming. Live at
-https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/astronomy/.
+https://robertlitzke.github.io/Courses/astronomy/.
 
 Astronomy is one course of several in this repository (see the README at its
 root) and is built on [Didactics](https://github.com/RobertLitzke/Didactics):

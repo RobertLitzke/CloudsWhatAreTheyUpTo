@@ -5,8 +5,9 @@ diagrams, a check at the end of each lesson, and flash cards, built on
 [Didactics](https://github.com/RobertLitzke/Didactics). The site opens on a
 course catalog; each course opens in its own folder, in its own look.
 
-Live at https://robertlitzke.github.io/CloudsWhatAreTheyUpTo/ (the repository
-keeps its old name for now).
+Live at https://robertlitzke.github.io/Courses/. That address is written in one
+place, `homepage` in package.json; every path on the site is relative, and only
+a course's one-file copy opened from disk uses it, to fetch its photos.
 
 ## Layout
 

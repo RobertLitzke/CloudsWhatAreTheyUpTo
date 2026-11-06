@@ -7,7 +7,7 @@
 // one of each, at its root.
 
 import { execFileSync } from 'node:child_process';
-import { cpSync, existsSync, readdirSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeHtml as writeStatus } from './status.mjs';
@@ -26,6 +26,13 @@ const run = (args, cwd = root) =>
   npm
     ? execFileSync(process.execPath, [npm, ...args], { cwd, stdio: 'inherit' })
     : execFileSync(win ? 'npm.cmd' : 'npm', args, { cwd, stdio: 'inherit', shell: win });
+
+// The live site's address, the one place it is written: `homepage` in package.json.
+// Every path on the site is relative; only a course's one-file copy, opened from
+// disk, fetches its photos and links its catalog from here (VITE_SITE_URL, read in
+// each course's asset.ts). Hosting the site elsewhere means changing that field.
+const homepage = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')).homepage;
+if (homepage) process.env.VITE_SITE_URL = homepage.endsWith('/') ? homepage : `${homepage}/`;
 
 rmSync(dist, { recursive: true, force: true });
 const courses = readdirSync(join(root, 'courses')).filter((f) => existsSync(join(root, 'courses', f, 'course.json'))).sort();
