@@ -8,7 +8,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | [Clouds](#clouds) | 0.1 beta | 16 | 0 | 0 | 16 | 16 | 0 | 0 |
 | [Dirt](#soil) | 0.1 beta | 11 | 0 | 0 | 11 | 11 | 0 | 0 |
-| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 0 | 0 | 1 | 46 |
+| [Geology](#geology) | 1.0 released | 47 | 0 | 0 | 1 | 0 | 1 | 45 |
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 0 | 25 | 15 | 0 |
@@ -24,7 +24,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | --- | --- | --- | --- |
 | Clouds | 0.1 beta | 2026-11-04 | no: 16 to copy-edit, 16 to fact-check |
 | Dirt | 0.1 beta | 2026-11-04 | no: 11 to copy-edit, 11 to fact-check |
-| Geology | 1.0 released | 2026-11-04 | released; still to do: 1 awaiting photos |
+| Geology | 1.0 released | 2026-11-04 | released; still to do: 1 to copy-edit, 1 awaiting photos |
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
 | Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to fact-check, 15 awaiting photos |
@@ -86,7 +86,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 3 | The map that read the ground (`smith`) |  | done |  | How fossils match layers across the countryside, and how tilted beds show up on a map. |
 | 4 | The rock that was once on fire (`basalt`) |  | done |  | How molten rock cools into glass or crystals, and how a lava flow cracks into columns. |
 | 5 | Garnets in the mud (`barrow`) |  | done |  | How heat and pressure alter buried rock in the solid state, and how the resulting minerals record the depth of burial. |
-| 6 | Fossils in the schist (`families`) |  | done |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
+| 6 | Fossils in the schist (`families`) |  | awaiting Gemini review (queued 2026-11-06) |  | How the conditions a rock has been through sort it into one of three families, and why the families shade into one another. |
 | 7 | The rock at Siccar Point (`siccar`) |  | done |  | Unconformities, the cycle that makes and unmakes rock, and how Hutton read deep time in a single cliff. |
 | 8 | How old is the Earth? (`age`) |  | done |  | Kelvin's cooling Earth, the objections that undid it, and the clock in radioactive atoms. |
 | 9 | Continents that fit (`drift`) |  | done |  | Wegener's evidence that the continents have moved, and why most geologists rejected it for forty years. |
