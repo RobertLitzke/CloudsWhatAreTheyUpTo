@@ -2,9 +2,11 @@
 // scale, plate) and the map are drawn from a lesson's JSON alone.
 
 import { charts } from 'didactics/charts';
+import { liveCharts } from 'didactics/live-charts';
 import type { FigureFactory } from 'didactics/figure';
 import { maps } from 'didactics/maps';
 import { asset } from '../asset';
+import { photoById } from '../photos';
 import { burialFigure, rootsFigure, squeezeFigure } from './barrow';
 import { columnsFigure, furnaceFigure } from './basalt';
 import { checkFigure } from './check';
@@ -40,6 +42,7 @@ import { drillFigure, earthStill, epicentreFigure, innerFigure, layersFigure, mo
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
+  ...liveCharts({ palette: COL, asset, photos: { find: photoById, src: (p) => asset(p.file) } }),
   ...maps({ palette: COL, asset }),
   photo: photoFigure,
   bio: bioStill,

@@ -13,7 +13,6 @@ import { grow } from '../src/figures/mycelium';
 import { blocks } from '../src/figures/tips';
 import { drift, escape, fallSpeed } from '../src/figures/spores';
 import { mateChance } from '../src/figures/sexes';
-import { SPECIMENS, GROUPS } from '../src/figures/groups';
 import { flask } from '../src/figures/yeast';
 import { buried, rotted } from '../src/figures/rot';
 import { meanRange, transfer } from '../src/figures/network';
@@ -131,9 +130,11 @@ describe('figures', () => {
     await expect(m.done).resolves.toBeUndefined();
   });
 
-  it('lesson 6: six fungi sorted by spore-maker', async () => {
-    const f = FIGURES.sort(context(), 'sorted');
-    for (const sp of SPECIMENS) click(f.node, GROUPS[sp.group]);
+  it('lesson 6: six fungi sorted by spore-maker, from the lesson\'s JSON', async () => {
+    const block = WRITTEN.flatMap((l) => l.parts.flatMap((p) => p.blocks)).find((b) => isDiagram(b) && b.id === 'groups')!;
+    const f = FIGURES.groups(context(), 'sorted', isDiagram(block) ? block.options : undefined);
+    const names = ['Sac fungus', 'Club fungus', 'Older lineage'];
+    for (let k = 0; k < 6; k++) click(f.node, names[k % 3]);
     await expect(f.done).resolves.toBeUndefined();
   });
 

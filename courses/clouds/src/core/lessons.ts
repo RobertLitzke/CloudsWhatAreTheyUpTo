@@ -18,6 +18,7 @@
 // popup (Didactics' footnote.ts).
 
 import { CHART_IDS } from 'didactics/charts';
+import { LIVE_CHART_IDS } from 'didactics/live-charts';
 import type { Footnotes } from 'didactics/footnote';
 import type { Block as KitBlock, Lesson, Part as KitPart } from 'didactics/lesson';
 import { lessonCodes, type TreeBranch } from 'didactics/tree';
@@ -60,6 +61,7 @@ export const FIGURE_IDS = [
   'coldPool', 'fogMaker', 'rime', 'iceLayers',
   'dustWall', 'downslope', 'gorgeGap', 'santaAna',
   ...CHART_IDS,
+  ...LIVE_CHART_IDS,
 ] as const;
 export type FigureId = (typeof FIGURE_IDS)[number];
 

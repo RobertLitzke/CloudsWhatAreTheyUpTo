@@ -20,12 +20,14 @@ import { heatEngineFigure, hurricaneBeltDiagram, shipThroughFigure, surgeFigure,
 import { coldPoolFigure, fogMakerFigure, iceLayersFigure, rimeDiagram } from './winter-fog';
 import { downslopeFigure, dustWallFigure, gorgeGapFigure, santaAnaDiagram } from './east-wind';
 import { charts } from 'didactics/charts';
+import { liveCharts } from 'didactics/live-charts';
 import { asset } from '../asset';
 import { COL, type FigureFactory } from './kit';
 
 export const FIGURES: Record<FigureId, FigureFactory> = {
   // Timelines, trees, scale comparisons and labelled plates, drawn from the lesson's JSON.
   ...charts({ palette: COL, asset }),
+  ...liveCharts({ palette: COL, asset }),
   jar: jarFigure,
   parcel: parcelFigure,
   freezing: freezingFigure,

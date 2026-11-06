@@ -1,9 +1,12 @@
 // Each diagram id the lessons name, to its code. The charts (timeline, tree,
-// scale, plate) are drawn from a lesson's JSON alone.
+// scale, plate) and the live charts (hotspots, compare, timeline-live,
+// scale-guess, groups, id-key, id-drill) are drawn from a lesson's JSON alone.
 
 import { charts } from 'didactics/charts';
+import { liveCharts } from 'didactics/live-charts';
 import type { FigureFactory } from 'didactics/figure';
 import { asset } from '../asset';
+import { photoById } from '../photos';
 import { checkFigure } from './check';
 import { COL } from './kit';
 import { photoFigure } from './photo';
@@ -12,7 +15,7 @@ import { cellsStill, relativesFigure } from './kingdom';
 import { digestFigure, forageFigure } from './tips';
 import { fallFigure, gillFigure, launchStill } from './spores';
 import { cycleStill, matingFigure } from './sexes';
-import { makersStill, sortFigure } from './groups';
+import { makersStill } from './groups';
 import { buddingStill, flaskFigure } from './yeast';
 import { coalFigure, rotsFigure } from './rot';
 import { rootsStill, transferFigure } from './network';
@@ -35,6 +38,7 @@ import { howManyFigure } from './howmany';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
+  ...liveCharts({ palette: COL, asset, photos: { find: photoById, src: (p) => asset(p.file) } }),
   photo: photoFigure,
   check: checkFigure,
   // Lesson 1
@@ -55,7 +59,6 @@ export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   cycle: cycleStill,
   // Lesson 6
   makers: makersStill,
-  sort: sortFigure,
   // Lesson 7
   flask: flaskFigure,
   budding: buddingStill,

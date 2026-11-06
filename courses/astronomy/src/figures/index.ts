@@ -1,9 +1,12 @@
 // Each diagram id the lessons name, to its code. The charts (timeline, tree,
-// scale, plate) are drawn from a lesson's JSON alone.
+// scale, plate) and the live charts (hotspots, compare, timeline-live,
+// scale-guess, groups, id-key, id-drill) are drawn from a lesson's JSON alone.
 
 import { charts } from 'didactics/charts';
+import { liveCharts } from 'didactics/live-charts';
 import type { FigureFactory } from 'didactics/figure';
 import { asset } from '../asset';
+import { photoById } from '../photos';
 import { checkFigure } from './check';
 import { clustersFigure, sunLifeStill } from './clusters';
 import { glowFigure, starColoursStill } from './colour';
@@ -35,6 +38,7 @@ import { fuelFigure, thermostatFigure } from './sunshine';
 
 export const FIGURES: Readonly<Record<string, FigureFactory>> = {
   ...charts({ palette: COL, asset }),
+  ...liveCharts({ palette: COL, asset, photos: { find: photoById, src: (p) => asset(p.file) } }),
   photo: photoFigure,
   check: checkFigure,
   // Lesson 1

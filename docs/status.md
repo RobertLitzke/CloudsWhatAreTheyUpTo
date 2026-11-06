@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-04. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-06. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
@@ -12,11 +12,11 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Circuitry](#electronics) | 0.1 beta | 14 | 0 | 0 | 14 | 14 | 0 | 0 |
 | [Photography: Out of Auto](#photography) | 0.1 beta | 12 | 0 | 0 | 0 | 12 | 4 | 0 |
 | [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 0 | 25 | 15 | 0 |
-| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 0 | 37 | 16 | 0 |
-| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 0 | 33 | 33 | 0 |
+| [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 2 | 37 | 16 | 0 |
+| [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 1 | 33 | 33 | 0 |
 | [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 0 | 30 | 0 | 0 |
 | [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 0 | 32 | 0 | 0 |
-| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 0 | 25 | 24 | 0 |
+| [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 1 | 25 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -28,11 +28,11 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Circuitry | 0.1 beta | 2026-11-04 | no: 14 to copy-edit, 14 to fact-check |
 | Photography: Out of Auto | 0.1 beta | 2026-11-04 | no: 12 to fact-check, 4 awaiting photos |
 | Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 25 to fact-check, 15 awaiting photos |
-| Ecology | 0.1 beta | 2026-11-04 | no: 37 to fact-check, 16 awaiting photos |
-| Botany | 0.1 beta | 2026-11-04 | no: 33 to fact-check, 33 awaiting photos |
+| Ecology | 0.1 beta | 2026-11-04 | no: 2 to copy-edit, 37 to fact-check, 16 awaiting photos |
+| Botany | 0.1 beta | 2026-11-04 | no: 1 to copy-edit, 33 to fact-check, 33 awaiting photos |
 | Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to fact-check |
 | Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to fact-check |
-| Fungi | 0.2 beta | 2026-11-04 | no: 25 to fact-check, 24 awaiting photos |
+| Fungi | 0.2 beta | 2026-11-04 | no: 1 to copy-edit, 25 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -266,10 +266,10 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 14 | Walking back in time (`glacier-bay`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Glacier Bay and how new ground fills with life. |
 | 15 | Is a forest an organism? (`gaps`) |  | awaiting fact check |  | Clements, Gleason and a forest grown gap by gap. |
 | 16 | Boulders and fires (`fires`) |  | awaiting fact check |  | Why some disturbance keeps more kinds alive. |
-| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting fact check |  | Chimborazo, climate zones and why they move. |
+| 17 | Humboldt’s mountain (`humboldt`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check | Chimborazo, climate zones and why they move. |
 | 18 | Islands that refilled (`islands`) |  | awaiting fact check |  | Mangrove islets, arrivals, losses and the species-area rule. |
 | 19 | Half the Earth? (`half`) |  | awaiting fact check | Photos (1 photo parked in pending-photos.json) | Habitat loss, extinction debt and how much to protect. |
-| H1 | Eggs that broke (`eggs`) | People in the web | awaiting fact check |  | Peregrines, DDT and poisons that build up the food chain. |
+| H1 | Eggs that broke (`eggs`) | People in the web | awaiting Gemini review (queued 2026-11-06) | Fact check | Peregrines, DDT and poisons that build up the food chain. |
 | H2 | Arrivals (`arrivals`) | People in the web | awaiting fact check |  | Species carried to new places, and the few that take over. |
 | H3 | The cod that didn’t come back (`cod`) | People in the web | awaiting fact check | Photos (no photos chosen yet) | Harvesting a stock, and a fishery that collapsed. |
 | N1 | Trails that fade (`trails`) | Ants and other societies | awaiting fact check |  | How ants find the shortest path with no one in charge. |
@@ -317,7 +317,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 21 | Darwin’s abominable mystery (`abominable`) |  | awaiting fact check | Photos (no photos chosen yet) | How quickly flowering plants spread, how their family tree is read from DNA and why it overturned some groupings by looks, Amborella, and telling monocots from eudicots. |
 | K1 | Counting stamens (`stamens`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Linnaeus's system of sorting plants by counting stamens, the two-word names that outlived it, how to read a plant's name, and why names and families still change. |
 | K2 | Using a key (`key`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | How to name an unknown plant with a chain of either-or questions or a key you can enter anywhere, the words keys use, and what to note in a field notebook. |
-| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
+| K3 | Ten families to know (`families`) | Naming and keying plants | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | The signatures of ten flowering-plant families that make up much of what grows in a temperate field or garden, and how to tell grasses, sedges and rushes apart. |
 | K4 | The deadly look-alikes (`look-alikes`) | Naming and keying plants | awaiting fact check | Photos (no photos chosen yet) | Camas and death camas, and poison hemlock, water hemlock and Queen Anne's lace: how botanists tell them apart, and why this course gives no advice on eating wild plants. |
 | C1 | Mendel’s peas (`mendel`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How Gregor Mendel's counts of pea plants showed that traits are passed on as particles, one copy from each parent, why short plants vanish and come back in a quarter of the next generation, and what the short gene does. |
 | C2 | Corn has no wild ancestor (`corn`) | Crops and breeding | awaiting fact check | Photos (no photos chosen yet) | How maize was made from teosinte, a Mexican grass that looks nothing like it, how George Beadle and later DNA showed it, and how a few genes made the biggest changes. |
@@ -415,7 +415,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | 3 | Eating from the outside (`tips`) |  | awaiting fact check | Photos (no photos chosen yet) | How a hypha grows at its tip, digests food outside itself, and how a mycelium searches and moves food. |
 | 4 | Seven trillion spores (`spores`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi spread by spores, how gills launch them, and why most land close while a few cross oceans. |
 | 5 | Twenty thousand sexes (`sexes`) |  | awaiting fact check | Photos (no photos chosen yet) | Mating types, fused threads and the two-nucleus stage of a mushroom's life. |
-| 6 | Sacs and clubs (`groups`) |  | awaiting fact check | Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
+| 6 | Sacs and clubs (`groups`) |  | awaiting Gemini review (queued 2026-11-06) | Fact check; Photos (no photos chosen yet) | The main groups of fungi told apart by how they make spores. |
 | 7 | The yeast that wastes its sugar (`yeast`) |  | awaiting fact check | Photos (no photos chosen yet) | Single-celled fungi, fermentation, and why yeast makes alcohol even with oxygen. |
 | 8 | The gap in the coal (`rot`) |  | awaiting fact check | Photos (no photos chosen yet) | How fungi rot wood, white rot and brown rot, and whether the late arrival of lignin-breaking fungi explains the age of coal. |
 | 9 | Do trees share through fungi? (`network`) |  | awaiting fact check | Photos (no photos chosen yet) | The two kinds of root fungi and what the evidence shows about carbon passing between trees. |
