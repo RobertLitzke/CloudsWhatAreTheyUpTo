@@ -69,6 +69,12 @@ in Settings under About (Didactics `release`).
 - Progress is keyed by lesson id, so a version never touches a save.
 - Then `npm run status` (the table shows versions and the bar) and commit.
 
+## Skills
+
+`.claude/skills/` has `new-lesson`, `new-figure` and `pick-images`. Each is a
+pointer: the steps are kept once, in Didactics' `.claude/skills/`, beside
+Didactics' own CLAUDE.md (module layout, releasing and pinning).
+
 ## Elsewhere
 
 - Layout, commands and how the site fits together: [README.md](README.md).
