@@ -20,11 +20,10 @@
       "blocks": [
         {"type": "text", "text": "Until the autumn of 1906, the White River, grey with silt from the glaciers of Mount Rainier, came out of the foothills at Auburn, took in the Green and turned north. Together they wound down the Kent valley past the farms, took in the Black River from Lake Washington, and reached Elliott Bay in Seattle as the Duwamish. A few kilometres to the south, across a valley floor so flat that a farmer could hardly tell which way it sloped, a smaller channel called the Stuck ran the other way, south to the Puyallup River and on to Tacoma."},
         {"type": "text", "text": "In November 1906 a flood came down every river around the Sound. Driftwood piled up where the White spread out onto the valley floor near Auburn and jammed across its channel. When the water went down, the White was running south down the Stuck into the Puyallup. It had gone to bed flowing to Seattle and woken up flowing to Tacoma."},
-        {"type": "interactive_diagram", "id": "map-live", "caption": "Where the White River went: before the flood of November 1906, after it, and once the diversion at Auburn held it. Rivers drawn by hand over the relief, so their courses are approximate.", "task": "Step through to today", "goal": "end", "options": {"relief": "maps/puget", "textLines": 4, "seconds": 9, "labels": [
+        {"type": "interactive_diagram", "id": "map-live", "caption": "Where the White River went: before the flood of November 1906, after it, and once the diversion at Auburn held it. Rivers drawn by hand over the relief, so their courses are approximate.", "task": "Step through to today", "goal": "end", "options": {"relief": "maps/puget", "sun": {"azimuth": 315, "altitude": 35}, "water": 0, "textLines": 4, "seconds": 9, "labels": [
           {"lon": -122.228, "lat": 47.307, "text": "Auburn", "side": "left"},
           {"lon": -122.335, "lat": 47.6, "text": "Seattle", "side": "left"},
-          {"lon": -122.44, "lat": 47.252, "text": "Tacoma", "side": "left"},
-          {"lon": -121.76, "lat": 46.88, "text": "to Mount Rainier", "side": "left", "color": "soft"}
+          {"lon": -122.44, "lat": 47.252, "text": "Tacoma", "side": "left"}
         ], "stages": [
           {"label": "Before 1906", "text": "The White leaves the foothills at Auburn and turns north with the Green, down the Kent valley to the Duwamish and Elliott Bay. The Stuck (dashed) is a small channel running south to the Puyallup.", "lines": [
             {"points": [[-121.98, 47.17], [-122.06, 47.2], [-122.13, 47.25], [-122.2, 47.29], [-122.225, 47.305]], "color": "water", "width": 3},

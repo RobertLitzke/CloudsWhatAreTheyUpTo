@@ -5,89 +5,261 @@
   "teaches": "Discharge, the river gauge and its hydrograph, rain on snow, and what a \"100-year flood\" means",
   "summary": [
     "**Discharge is the volume of water passing a point each second.** It is width times depth times average speed, in cubic metres or cubic feet a second.",
-    "**Depth and speed rise together in a flood.** Three times as deep and two and a half times as fast is seven and a half times the water.",
+    "**Depth and speed rise together in a flood.** Three times as deep and two and a half times as fast is seven and a half times the water, before the river even widens.",
     "**A gauge measures height, not flow.** Hydrographers measure the flow by hand at many heights and draw a rating curve, which turns every reading of stage into a discharge.",
     "**A hydrograph is discharge against time.** It rises after the rain, peaks hours later, and falls back slowly as the ground drains.",
     "**The same rain makes very different floods.** Soaked soil, a high freezing level and fresh snow on the ground all add to the peak; dry soil and a low freezing level hold it back.",
     "**Rain on snow makes western Washington's largest floods.** A warm storm rains over the whole basin at once, melts the low snow, and passes straight through a pack already full of water.",
     "**Pavement brings the peak sooner and higher.** Rain on roofs and roads reaches a creek in hours instead of soaking in.",
-    "**A 100-year flood has a 1 in 100 chance every year.** The years are independent, so one flood does not make the next less likely.",
-    "**Over a 30-year mortgage the chance of at least one is about 26 percent.** Two at one gauge in a decade is rare, about 0.4 percent; across hundreds of gauges it happens somewhere often."
+    "**A 100-year flood has a 1 in 100 chance every year.** Each year's chance is the same, whatever happened the year before.",
+    "**Over a 30-year mortgage the chance of at least one is about 26 percent.** Two at one gauge in a decade is rare, about 1 in 230, but across 200 gauges it happens at one of them more often than not."
   ],
   "parts": [
     {
       "title": "January 2009",
       "blocks": [
-        {"type": "text", "text": "In the second half of December 2008, Seattle had one of its snowiest stretches in decades. Snow lay on the city for more than a week, and it lay deep on the foothills and the low valleys of the Cascades, down to the dairy farms of the Snoqualmie valley. Then, in the first week of January, the weather turned. A long plume of warm, wet air from the subtropical Pacific, an atmospheric river, swung onto the coast.[^ar] The freezing level, the height above which the air is below 0 °C, climbed far above the passes, and it rained for two days on the snow."},
-        {"type": "text", "text": "By 8 January the Snoqualmie had risen to one of the largest floods ever measured on it. The valley floor from Fall City past Carnation to Duvall went under, as it does in most big floods, but deeper than in most, and the Skykomish, the Snohomish, the Green and rivers all down the Cascade front were in flood with it."},
-        {"type": "text", "text": "Storms that wet come to western Washington most winters, and most of them do not do this. The same two days of rain falling on bare, cold ground would have raised the river, perhaps to the tops of its banks. Falling on snow, under a warm sky, it nearly doubled the flood. To see why, three things are needed first: a way to say how much water a river is carrying, a way to measure it, and a picture of how a river answers a storm."}
+        {
+          "type": "text",
+          "text": "In the second half of December 2008, Seattle had one of its snowiest stretches in decades. Snow lay on the city for more than a week, and it lay deep on the foothills and the low valleys of the Cascades, down to the dairy farms of the Snoqualmie valley. Then, in the first week of January, the weather turned. A long plume of warm, wet air from the subtropical Pacific, an atmospheric river, swung onto the coast.[^ar] The **freezing level**, the height where the air cools to 0 °C, with rain below it and snow above, climbed far above the passes, and it rained for two days on the snow."
+        },
+        {
+          "type": "text",
+          "text": "By 8 January the Snoqualmie had risen to one of the largest floods ever measured on it. The valley floor from Fall City past Carnation to Duvall went under, as it does in most big floods, but deeper than in most. The Skykomish and the Snohomish to the north and the Green to the south flooded with it."
+        },
+        {
+          "type": "text",
+          "text": "Storms that wet come to western Washington most winters, and most of them do not do this. The same two days of rain falling on bare, cold ground would have raised the river, perhaps to the tops of its banks. Falling as warm rain on snow, it made a far bigger flood, and a model later in this lesson puts it at nearly twice the size. To see why, three things are needed first: a way to say how much water a river is carrying, a way to measure it, and a picture of how a river answers a storm."
+        }
       ]
     },
     {
       "title": "How much water is going by",
       "blocks": [
-        {"type": "text", "text": "\"A lot of water\" can mean three different things. A river can be deep, it can be fast, and it can carry a large volume past you every second. The last is the one that floods towns, and it has a name: **discharge**, the volume of water passing one point on the river each second, measured in cubic metres a second (m³/s) or, in the United States, in cubic feet a second (cfs).[^cfs]"},
-        {"type": "text", "text": "Think of the river cut across at one spot, so the cut face is a rectangle the width of the river and as tall as it is deep. In one second, all the water in that face moves downstream by the river's speed. The block of water that has gone past is width times depth times distance moved, so discharge is **width × depth × average speed**. A real river's bed is not flat, so hydrographers split it into strips and add them up, but the rule is the same."},
-        {"type": "interactive_diagram", "id": "floods-discharge", "caption": "The water that passes one spot on the bank in one second, as a block: the river's cross-section, pushed downstream as far as the water moves in a second.", "task": "Guess, then set the flood's depth and speed", "goal": "flood", "aspect_ratio": 1.94},
-        {"type": "text", "text": "Depth and speed rise together. A river in flood is deeper, and because deep water drags less on its bed, it flows faster too, so a rise in level that looks modest from the bank can mean several times the water. Rivers also spread wider as they rise, until they leave their banks altogether and the width jumps to the whole floodplain. The In the field branch of this course measures a creek's discharge with an orange and a stopwatch."}
+        {
+          "type": "text",
+          "text": "\"A lot of water\" can mean three different things. A river can be deep, it can be fast, and it can carry a large volume past you every second. The last is the one that floods towns, and it has a name: **discharge**, the volume of water passing one point on the river each second, measured in cubic metres a second (m³/s) or, in the United States, in cubic feet a second (cfs).[^cfs]"
+        },
+        {
+          "type": "text",
+          "text": "Think of the river cut across at one spot, so the cut face is a rectangle the width of the river and as tall as it is deep. In one second, all the water in that face moves downstream by the distance the river flows in a second, which is its speed. The block of water that has gone past in that second is width × depth × speed, so discharge is **width × depth × average speed**. A real river's bed is not flat, so hydrographers split it into strips and add them up, but the rule is the same."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "floods-discharge",
+          "caption": "The water that passes one spot on the bank in one second, drawn as a block: the river's cross-section, pushed downstream as far as the water moves in a second. Sliders set the width and depth in metres and the speed in metres a second; the discharge is written above the block.",
+          "task": "Guess how many times more water the flood carries, then set its depth and speed to check",
+          "goal": "flood",
+          "aspect_ratio": 1.89
+        },
+        {
+          "type": "text",
+          "text": "At 40 metres wide, 1 metre deep and 1 metre a second, the river carries 40 × 1 × 1 = 40 m³/s. At 3 metres deep and 2.5 metres a second it carries 40 × 3 × 2.5 = 300 m³/s, seven and a half times as much, because the two increases multiply. Depth and speed do rise together: deeper water drags less on its bed for each litre, so it flows faster. And a real river widens as it rises too, until it leaves its banks and spreads across its **floodplain**, the flat valley floor beside it that it covers in floods. A rise that looks modest from the bank can mean many times the water."
+        }
       ]
     },
     {
       "title": "The gauge",
       "blocks": [
-        {"type": "text", "text": "Nobody can measure width, depth and speed across a big river in flood every fifteen minutes. What a river gauge measures instead is the water's height, its **stage**, which is easy. A classic gauge is a small house on the bank over a pipe-fed well, so the water inside rises and falls with the river but without its waves, and a float in the well drives a recorder. Newer gauges sense the pressure of the water over a sensor on the bed, or bounce radar off the surface. The US Geological Survey runs thousands of them, and their readings, every fifteen minutes, go out over the internet within the hour.[^gauge]"},
-        {"type": "text", "text": "Turning height into flow takes work by hand. Several times a year, and especially during floods, a hydrographer goes out and measures the discharge the slow way, by wading across with a current meter, or from a cableway, a bridge or a boat, strip by strip. Each measurement gives one point: at this stage, this discharge. Enough points at enough stages make a **rating curve**, and from then on every reading of the gauge can be turned into a discharge. A river carves and fills its own bed, so the curve drifts, and the measuring never stops."},
-        {"type": "diagram", "id": "floods-rating", "caption": "A gauge records the river's height in a well connected to it by a pipe. Measurements of discharge made by hand at different heights give the rating curve, which turns each height into a flow. The numbers are made up but the shape is typical: near flood stage, each foot of rise adds far more water than a foot near the bottom."},
-        {"type": "text", "text": "The curve bends upward, for the reason in the last part: as the river rises it gets wider and faster as well as deeper. **Flood stage** is a height set for each gauge by the National Weather Service, the level at which the river starts to spill onto land or roads nearby. It is a height, not a discharge, because the height is what the people beside the river live with."},
-        {"type": "text", "text": "The first gauge the US Geological Survey ran was set up in 1889 on the Rio Grande at Embudo, New Mexico, by the irrigation survey that John Wesley Powell, from lesson 1, was directing. It was a camp where young engineers learned to measure rivers, and it is still running."}
+        {
+          "type": "text",
+          "text": "Nobody can measure width, depth and speed across a big river in flood every fifteen minutes. What a river gauge measures instead is the water's height, its **stage**, which is easy. A classic gauge is a small house on the bank over a well fed by a pipe from the river, so the water inside rises and falls with the river but without its waves, and a float in the well drives a recorder. Newer gauges sense the pressure of the water over a sensor on the bed, or bounce radar off the surface. The US Geological Survey runs thousands of them, and their readings, every fifteen minutes, go out over the internet within the hour.[^gauge]"
+        },
+        {
+          "type": "text",
+          "text": "Turning height into flow takes work by hand. Several times a year, and especially during floods, a **hydrographer**, as the people who measure rivers are called, goes out and measures the discharge the slow way, strip by strip across the river. The speed in each strip comes from a current meter, a small propeller or a sound sensor held in the water; the hydrographer wades across, or works from a bridge, a boat, or a cableway, a small car hung from a cable strung over the river. Each measurement gives one point: at this stage, this discharge. Enough points at enough stages make a **rating curve**, and from then on every reading of the gauge can be turned into a discharge. A river carves and fills its own bed, so the curve drifts, and the measuring never stops."
+        },
+        {
+          "type": "diagram",
+          "id": "floods-rating",
+          "caption": "Left: a gauge house records the river's height in a well joined to it by a pipe. Right: the rating curve, with height (stage) up the side and discharge along the bottom. Each dot is one measurement made by hand. The numbers are made up but the shape is typical: near flood stage, each foot of rise adds far more water than a foot near the bottom."
+        },
+        {
+          "type": "text",
+          "text": "The curve bends that way because a rising river gets wider and faster as well as deeper, so each extra foot of height carries more water than the one below it. **Flood stage** is a height set for each gauge by the National Weather Service, the level at which the river starts to spill onto land or roads nearby. It is a height, not a discharge, because the height is what the people beside the river live with."
+        }
       ]
     },
     {
       "title": "The hydrograph",
       "blocks": [
-        {"type": "text", "text": "Plot a gauge's discharge against time and you have a **hydrograph**, the record of how the river answers the weather. Through a storm it has a typical shape. Before the rain the river runs on its **baseflow**, the steady seep from the ground that lesson 3 takes up. Once the rain starts, the river rises slowly while the soil soaks up the first of it, then steeply. The **peak** comes hours after the heaviest rain, because water from the far corners of the basin takes time to arrive: on a basin the size of the Snoqualmie's, most of a day. Then the river falls, quickly at first and then slowly, as the soil and the ground drain."},
-        {"type": "text", "text": "How high the peak goes depends on more than the rain. Soil that is already soaked from a wet week has no room left, so more of the storm runs straight to the river. The **freezing level** decides how much of the basin gets rain at all: above it the storm falls as snow, which stays where it lands. The figure below is a model of a basin about the size of the Snoqualmie's above Carnation, 1,560 square kilometres from the valley floor to peaks above 2,000 metres, hit by the same two-day storm under different conditions."},
-        {"type": "interactive_diagram", "id": "floods-hydrograph", "caption": "A two-day storm on a model basin the size of the Snoqualmie's. Top: the rain, hour by hour. Below: the river at the gauge. Change the storm and the ground it falls on. A model: the numbers are about right for a river this size, but the flood stage is the model's own.", "task": "Guess, then send the storm over flood stage without adding rain", "goal": "flood", "aspect_ratio": 1.69},
-        {"type": "text", "text": "Try each control on its own. Drying the soil lowers and delays the peak. Lowering the freezing level shrinks the flood, because the upper basin stores its share as snow. Paving the basin makes the peak come sooner and sharper, since rain on roofs, roads and parking lots runs into drains and reaches the river in an hour or two instead of soaking in. For a basin the size of the Snoqualmie's, nearly all forest and farmland, pavement matters little. For a small city creek like Thornton Creek in north Seattle, it decides the flood: the creek rises within an hour of a downpour and falls nearly as fast."}
+        {
+          "type": "text",
+          "text": "Plot a gauge's discharge against time and you have a **hydrograph**, the record of how the river answers the weather. Through a storm it has a typical shape. Before the rain the river runs on its **baseflow**, the steady flow fed by water seeping out of the ground, which keeps a river running between storms. Once the rain starts, the river rises slowly while the soil soaks up the first of it, then steeply. The **peak** comes after the heaviest rain, because water from the far corners of the basin takes time to arrive: on a basin the size of the Snoqualmie's, most of a day after. Then the river falls, quickly at first and then slowly, as the soil and the ground drain."
+        },
+        {
+          "type": "text",
+          "text": "How high the peak goes depends on more than the rain. Soil that is already soaked from a wet week has no room left, so more of the storm runs straight to the river. The freezing level decides how much of the basin gets rain at all, since above it the storm falls as snow, which stays where it lands. The figure below is a model of a basin the size of the Snoqualmie's above Carnation: 1,560 square kilometres of valleys and mountains, rising from near sea level to peaks above 2,000 metres. The same two-day storm can hit it under different conditions."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "floods-hydrograph",
+          "caption": "A two-day storm on a model basin the size of the Snoqualmie's. Top: the rain, hour by hour. Below: the river at the gauge, with flood stage as a red dashed line and the starting storm dashed in grey. Sliders set the rain, how wet the soil is, the freezing level and how much of the basin is paved; a switch lays fresh snow down to the valleys. A model: the numbers are about right for a river this size, but the flood stage is the model's own.",
+          "task": "Guess whether the warm storm floods the river, then push it over flood stage with the rain kept at 150 mm or less",
+          "goal": "flood",
+          "aspect_ratio": 1.69
+        },
+        {
+          "type": "text",
+          "text": "Try each control on its own. Drying the soil lowers and delays the peak. Lowering the freezing level shrinks the flood, because the upper basin stores its share as snow. Paving the basin makes the peak come sooner and higher, since rain on roofs, roads and parking lots runs into drains and reaches the river in an hour or two instead of soaking in. For a basin the size of the Snoqualmie's, nearly all forest and farmland, pavement matters little. For a small city creek like Thornton Creek in north Seattle, it decides the flood: the creek rises within an hour of a downpour and falls nearly as fast."
+        }
       ]
     },
     {
       "title": "Rain on snow",
       "blocks": [
-        {"type": "text", "text": "The January 2009 flood was a **rain-on-snow** flood, and three things made it worse than the same rain on bare ground. The first and largest was the freezing level. In a cold storm, the upper half of a Cascade basin gets snow and holds it, so only the lower slopes send water to the river. In a warm one, the whole basin gets rain at once, up to the ridges, so the river takes water from twice the area or more."},
-        {"type": "text", "text": "The second was the snow itself. Snow is not a sponge that soaks up rain for long. Cold, fresh snow can hold some, but once the pack has warmed to 0 °C and is wet through, it passes rain straight down to the ground beneath. Warm, humid wind blowing over it melts it as well, and the meltwater joins the rain.[^melt] The third was the ground under the snow, already wet or frozen, with little room to take more."},
-        {"type": "text", "text": "Western Washington's largest floods have nearly all come this way: in November 1990, February 1996, November 2006, and January 2009 among others. Each followed snow low in the mountains, then a warm atmospheric river. Forecasters call the strongest of these storms, the ones that reach back toward Hawaii, the Pineapple Express."},
-        {"type": "text", "text": "Most of the lowland rivers of Puget Sound now run between **levees**, earth banks built along them to keep floods off the farms and towns behind. A levee holds back the smaller floods, but it squeezes the river into a narrower channel, so the water stands higher and runs faster past it, and land behind it that floods rarely is land people build on. When a levee fails, the water behind it has no easy way back out. The Columbia branch of this course follows a town that learned this, Vanport, in 1948. Dams help where there are any: that same January, the Howard Hanson Dam on the Green River held back the highest water in its history and spared the Kent valley a flood."}
+        {
+          "type": "text",
+          "text": "The January 2009 flood was a **rain-on-snow** flood, and three things made it worse than the same rain on bare ground. The first and largest was the freezing level. In a cold storm, the upper half of a Cascade basin gets snow and holds it, so only the lower slopes send water to the river. In a warm one, the whole basin gets rain at once, up to the ridges, so the river takes water from twice the area or more."
+        },
+        {
+          "type": "text",
+          "text": "The second was the snow itself. Snow is not a sponge that soaks up rain for long. Cold, fresh snow can hold some, but once the pack has warmed to 0 °C and is wet through, it passes rain straight down to the ground beneath. The rain itself melts little, but the warm, humid wind that comes with it melts the snow's surface, and the meltwater joins the rain.[^melt] The third was the ground under the snow, already wet or frozen, with little room to take more."
+        },
+        {
+          "type": "text",
+          "text": "Western Washington's largest floods have nearly all come this way: in November 1990, February 1996, November 2006, and January 2009 among others. Each followed snow low in the mountains, then a warm atmospheric river. Forecasters call the strongest of these storms, the ones that reach back toward Hawaii, the Pineapple Express."
+        },
+        {
+          "type": "text",
+          "text": "Most of the lowland rivers of Puget Sound now run between **levees**, earth banks built along them to keep floods off the farms and towns behind. A levee holds back the smaller floods. But it squeezes the river into a narrower channel, so the water stands higher and runs faster past it. And the land behind it floods so rarely that people build on it, so when a levee does fail, more is lost. Dams help where there are any: in January 2009 the Howard Hanson Dam on the Green River held back the highest water in its history and spared the Kent valley a flood."
+        }
       ]
     },
     {
       "title": "What a 100-year flood means",
       "blocks": [
-        {"type": "text", "text": "After a big flood, people living beside the river often hear it called a \"100-year flood\", and many take that to mean the next one is a century away. It means something else. A **100-year flood** is a flood so large that in any one year it has a 1 in 100 chance of being equalled or exceeded at that place. The years do not take turns: a river has no memory of last year's flood, and next year's chance is 1 in 100 again."},
-        {"type": "interactive_diagram", "id": "floods-dice", "caption": "A century of years at one river, each a roll of a 100-sided die: a 1 is a 100-year flood. The brackets mark three 30-year mortgages. Play a century, roll new ones, then roll a thousand.", "task": "Guess, then roll at least three centuries", "goal": "roll", "aspect_ratio": 1.69},
-        {"type": "text", "text": "Over 30 years, the chance of getting through without one is 0.99 multiplied by itself 30 times, about 74 percent, so the chance of at least one is about 26 percent: one mortgage in four. That is why a federally backed mortgage on a house in the mapped 100-year floodplain, the zone the Federal Emergency Management Agency draws, requires flood insurance. Two 100-year floods at one gauge within ten years is rare, about 0.4 percent. Across a state with a couple of hundred gauges, though, the chance that it happens at one of them in a given decade is better than even, so the news of a \"second 100-year flood\" is not by itself a sign that anything has changed."},
-        {"type": "text", "text": "Where does the 1 in 100 come from? From the gauge's record of each year's largest flood, which on most rivers runs back 60 to 100 years. A curve fitted through those peaks is stretched to the size expected once a century.[^fit] It is an estimate from a short record, and it moves: each new big flood raises it, paving a basin raises it, and a warming climate that turns more winter snow into rain, as in lesson 1, raises it again on the rivers of the Cascades."}
+        {
+          "type": "text",
+          "text": "After a big flood, people living beside the river often hear it called a \"100-year flood\", and many take that to mean the next one is a century away. It means something else. A **100-year flood** is a flood so large that in any one year it has a 1 in 100 chance of being equalled or exceeded at that place. The years do not take turns: a river has no memory of last year's flood, and next year's chance is 1 in 100 again."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "floods-dice",
+          "caption": "A century of years at one river, each a roll of a 100-sided die: a 1 is a 100-year flood. The brackets mark three 30-year mortgages. Play one century, roll new ones, or roll a thousand at once to see the long-run share of mortgages with a flood.",
+          "task": "Guess the chance over a 30-year mortgage, then roll at least three centuries",
+          "goal": "roll",
+          "aspect_ratio": 1.69
+        },
+        {
+          "type": "text",
+          "text": "Over 30 years, the chance of getting through without one is 0.99 multiplied by itself 30 times, about 74 percent, so the chance of at least one is about 26 percent: one mortgage in four. That is why a federally backed mortgage on a house in the mapped 100-year floodplain, the zone the Federal Emergency Management Agency draws, comes with a requirement to buy flood insurance."
+        },
+        {
+          "type": "text",
+          "text": "Two 100-year floods at one gauge within ten years is rare: worked out the same way, the chance is about 0.4 percent, or 1 in 230.[^odds] Across a state with 200 gauges, though, the chance that none of them sees it in a given decade is 0.9957 multiplied by itself 200 times, about 42 percent. So more often than not, one gauge somewhere has its \"second 100-year flood in a decade\", and the headline is not by itself a sign that anything has changed."
+        },
+        {
+          "type": "text",
+          "text": "The 1 in 100 comes from the gauge's record of each year's largest flood, which on most rivers runs back 60 to 100 years. Hydrologists fit a smooth curve to those yearly peaks and follow it past the end of the record to the flood that only 1 year in 100 should exceed.[^fit] It is an estimate from a short record, and it moves. A new record flood adds a large peak to the list, so the fitted curve rises. Paving a basin raises it, and so does a warming climate that brings more winters like 2015's, with rain where there used to be snow."
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        {"type": "quiz", "id": "check", "caption": "Six questions on floods", "task": "Choose the best answer to each", "options": {"items": [
-          {"ask": "A river doubles in depth and its speed doubles too, while its width stays the same. What happens to its discharge?", "choices": ["It becomes four times as large, since discharge is width times depth times speed", "It doubles, since discharge follows the depth and the speed only changes how it looks", "It stays the same, since the same water is simply moving through a deeper channel"], "answer": 0, "why": "Discharge, the volume passing each second, is width × depth × average speed. Double two of the three and the product goes up four times."},
-          {"ask": "A river gauge records the height of the water. How is that turned into a discharge?", "choices": ["Through a rating curve made from discharges measured by hand at many different heights", "By multiplying the height by a fixed number set for each river when its gauge was built", "From the speed of the float in the gauge's well, which rises faster when more water flows"], "answer": 0, "why": "Hydrographers measure discharge strip by strip at many stages, and the points make a rating curve. Because the bed changes, they keep measuring and adjusting it."},
-          {"ask": "Why does a river's peak flow come hours after the heaviest rain?", "choices": ["Water from the far parts of the basin, and water passing through the soil, takes time to reach the gauge", "Rain falling into the river cools it, and cold water moves more slowly until it warms again", "The gauge records only every few hours, so the peak always appears late on the hydrograph"], "answer": 0, "why": "Rain on the near banks arrives at once, but water from distant slopes and through the soil comes hours later. On a basin the size of the Snoqualmie's the peak comes most of a day after the heaviest rain."},
-          {"ask": "The same two-day storm hits a Cascade river twice: once with the freezing level at 1,000 m, once at 2,000 m with fresh snow on the low slopes. Why is the second flood so much larger?", "choices": ["Rain falls on far more of the basin, and melting snow adds to it through a pack that can hold no more", "Snow on the low slopes stops the rain from evaporating, so all of it goes to the river", "Warm air holds more water, so a storm at 2,000 m always brings twice as much rain"], "answer": 0, "why": "With a high freezing level the whole basin sends rain to the river instead of storing the upper half as snow. A warm, wet snowpack passes the rain through and adds its own melt."},
-          {"ask": "A town had a 100-year flood last winter. What is the chance of another next year?", "choices": ["The same 1 in 100 as every year, since each year's chance does not depend on the last", "Close to zero, since a 100-year flood should not come back for about a century", "Higher than 1 in 100, since a flood that large means the next will come sooner"], "answer": 0, "why": "A 100-year flood has a 1 percent chance every year. Floods are not scheduled, so one year's flood does not change the next year's odds."},
-          {"ask": "Why does a bank require flood insurance for a 30-year mortgage on a house in the 100-year floodplain?", "choices": ["The chance of at least one such flood in 30 years is about 26 percent, one mortgage in four", "Such a house is certain to flood about once during a 30-year mortgage", "The chance is 1 percent over the whole mortgage, but the cost of a flood is large"], "answer": 0, "why": "Each year has a 99 percent chance of no such flood; 0.99 to the 30th power is about 0.74, so the chance of at least one is about 0.26."}
-        ]}}
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on floods",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A river in a rock gorge, which cannot widen, doubles in depth and doubles in speed. What happens to its discharge?",
+                "choices": [
+                  "It becomes four times as large",
+                  "It doubles, as speed rises only because depth does",
+                  "It becomes eight times as large"
+                ],
+                "answer": 0,
+                "why": "Discharge is width × depth × average speed. With the width fixed, doubling the depth and doubling the speed multiply the discharge by 2 × 2 = 4."
+              },
+              {
+                "ask": "A river gauge records the height of the water. How is that height turned into a discharge?",
+                "choices": [
+                  "With a rating curve built from flows measured by hand",
+                  "By multiplying it by the channel width measured when the gauge was built",
+                  "With a computer model of the rain that fell over the basin"
+                ],
+                "answer": 0,
+                "why": "Hydrographers measure discharge strip by strip at many stages, and the points make a rating curve. Because the bed changes, they keep measuring and adjusting it."
+              },
+              {
+                "ask": "Why does a big river's peak flow come hours after the heaviest rain?",
+                "choices": [
+                  "Water from distant slopes, and through the soil, takes hours to arrive",
+                  "Storms move up the valley, so the upper basin's rain starts hours later",
+                  "Floodwater downstream backs up and holds the peak back at the gauge"
+                ],
+                "answer": 0,
+                "why": "Rain on the near banks arrives at once, but water from distant slopes and through the soil comes hours later. On a basin the size of the Snoqualmie's the peak comes most of a day after the heaviest rain."
+              },
+              {
+                "ask": "Snow lies down to the valleys when a two-day storm arrives. Why does the river rise much higher if the storm's freezing level is 2,000 m than if it is 1,000 m?",
+                "choices": [
+                  "Rain falls on far more of the basin, and the wet snow adds melt",
+                  "Warm air carries more water, so the storm brings twice the rain",
+                  "The snow freezes the soil hard, so none of the rain can soak in"
+                ],
+                "answer": 0,
+                "why": "With a high freezing level the whole basin sends rain to the river instead of storing the upper half as snow, and the warm, wet snowpack passes the rain through and adds its own melt. The rain in the two cases can be the same."
+              },
+              {
+                "ask": "A town had a 100-year flood last winter. What is the chance that a flood at least as large comes next year?",
+                "choices": [
+                  "1 in 100, the same as in any year",
+                  "Far less than 1 in 100, as one is due only once a century",
+                  "More than 1 in 100, as the soil is still wet from the last one"
+                ],
+                "answer": 0,
+                "why": "A 100-year flood has a 1 percent chance every year. Floods are not scheduled, and a winter's soil wetness does not carry over a dry summer, so last year's flood does not change next year's odds."
+              },
+              {
+                "ask": "A house stands in the mapped 100-year floodplain. About how likely is at least one 100-year flood during a 30-year mortgage?",
+                "choices": [
+                  "About 26 percent",
+                  "About 30 percent, 1 percent for each of the 30 years",
+                  "About 1 percent, the same as for a single year"
+                ],
+                "answer": 0,
+                "why": "Each year has a 99 percent chance of no such flood; 0.99 to the 30th power is about 0.74, so the chance of at least one is about 0.26. Adding 1 percent a year overcounts, because some runs of years would have two floods."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
   "footnotes": {
-    "ar": {"kind": "digression", "title": "Atmospheric rivers", "text": "A long, narrow band of moist air, often reaching back toward Hawaii, that pours rain onto a coast for a day or more where it hits the mountains. The Clouds course follows where the water comes from."},
-    "cfs": {"kind": "technical", "title": "Cubic feet a second", "text": "A cubic metre is about 35.3 cubic feet, so 1 m³/s is about 35 cfs. US gauges report in cfs; a big flood on the Snoqualmie runs to tens of thousands of cfs, against a few thousand on an ordinary winter day."},
-    "gauge": {"kind": "technical", "title": "Your nearest gauge", "text": "Each USGS gauge has a number and a page on the USGS water data site; the Snoqualmie near Carnation is 12149000 and the Cedar River at Renton 12119000. The National Weather Service draws its river forecasts on the same gauges, with their flood stages marked."},
-    "melt": {"kind": "technical", "title": "What melts the snow", "text": "Rain itself carries little heat: a centimetre of rain at 5 °C melts only a few millimetres of snow. Most of the melt in a rain-on-snow storm comes from warm, humid wind, which heats the snow directly and releases more heat as its water vapour condenses on the cold surface."},
-    "fit": {"kind": "technical", "title": "Fitting the curve", "text": "In the United States the standard method fits a curve called the log-Pearson Type III to the yearly peaks, following federal guidelines last revised in 2018 as Bulletin 17C. With 80 years of record, the 100-year flood lies beyond the data, so its estimate carries a wide margin of error."}
+    "ar": {
+      "kind": "digression",
+      "title": "Atmospheric rivers",
+      "text": "A long, narrow band of moist air, often reaching back toward Hawaii, that pours rain onto a coast for a day or more where it hits the mountains. The Clouds course follows where the water comes from."
+    },
+    "cfs": {
+      "kind": "technical",
+      "title": "Cubic feet a second",
+      "text": "A cubic metre is about 35.3 cubic feet, so 1 m³/s is about 35 cfs, and 1,000 cfs is about 28 m³/s. US gauges report in cfs; a big flood on the Snoqualmie runs to tens of thousands of cfs (over 1,000 m³/s), against a few thousand cfs on an ordinary winter day."
+    },
+    "gauge": {
+      "kind": "technical",
+      "title": "Gauges",
+      "text": "Each USGS gauge has a number and a page on the USGS water data site; the Snoqualmie near Carnation is 12149000 and the Cedar River at Renton 12119000. The first gauge the Survey ran was set up in 1889 on the Rio Grande at Embudo, New Mexico, by the irrigation survey John Wesley Powell (lesson 1) was directing, as a camp where young engineers learned to measure rivers."
+    },
+    "melt": {
+      "kind": "technical",
+      "title": "What melts the snow",
+      "text": "Rain itself carries little heat: a centimetre of rain at 5 °C melts only a few millimetres of snow. Most of the melt in a rain-on-snow storm comes from warm, humid wind, which heats the snow directly and releases more heat as its water vapour condenses on the cold surface."
+    },
+    "fit": {
+      "kind": "technical",
+      "title": "Fitting the curve",
+      "text": "In the United States the standard method fits a curve called the log-Pearson Type III to the yearly peaks, following federal guidelines last revised in 2018 as Bulletin 17C. With 80 years of record, the 100-year flood lies beyond the data, so its estimate carries a wide margin of error."
+    },
+    "odds": {
+      "kind": "technical",
+      "title": "Two in a decade",
+      "text": "No 100-year flood in ten years: 0.99 to the 10th power, about 0.904. Exactly one: ten possible years, each 0.01 × 0.99 to the 9th power, about 0.091. Two or more is what is left: 1 − 0.904 − 0.091, about 0.004, or 1 in 230."
+    }
   }
 }

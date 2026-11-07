@@ -67,3 +67,9 @@ describe('estuary: the figures', () => {
     expect(FIGURES['estuary-locks'](context()).node).toBeInstanceOf(HTMLElement);
   });
 });
+
+describe('estuary: the slicks still', () => {
+  it('draws', () => {
+    expect(FIGURES['estuary-slicks'](context()).node).toBeInstanceOf(HTMLElement);
+  });
+});

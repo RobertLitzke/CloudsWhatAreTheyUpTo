@@ -5,14 +5,14 @@
   "teaches": "The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight",
   "summary": [
     "**Seattle's two daily tides are unequal.** Most days have a lower low and a higher low, often several feet apart, and the two highs differ too.",
-    "**The Moon's tilt makes the difference.** The Moon swings up to about 28° north and south of the equator each month, which tilts the two bulges so that Seattle passes through a thick part of one and a thin part of the other.",
-    "**The difference comes and goes every two weeks.** It is biggest when the Moon is furthest north or south and almost gone when the Moon crosses the equator, a cycle separate from springs and neaps.",
+    "**The Moon's tilt makes the difference.** The Moon swings up to about 28° north and south of the equator, which tilts the bulges so that Seattle meets deep water on one side of the Earth and shallow on the other.",
+    "**The difference comes and goes every two weeks.** It is biggest when the Moon is furthest north or south and almost gone when it crosses the equator, a cycle separate from springs and neaps.",
     "**Two steady waves of nearly equal period add to an uneven pattern.** They drift in and out of step, so the sum swells and shrinks over days.",
-    "**The tide is a sum of constituents.** Each is a steady wave with its own period: M2 (12.42 h) and S2 (12 h) twice a day, K1 (23.93 h) and O1 (25.82 h) once a day.",
-    "**The daily waves are what split the lows.** At Seattle K1 and O1 together are about as big as M2 and S2, which makes its tide mixed.",
-    "**Kelvin measured the tide instead of solving it.** Laplace's equations could not be solved for real seas, so Kelvin took each constituent's size and timing from a port's gauge records and built a machine in 1872 that added them.",
+    "**The tide is a sum of constituents.** Each is a steady wave: M2 (12.42 h) and S2 (12 h) twice a day; K1 (23.93 h), O1 (25.82 h) and P1 (24.07 h) once a day.",
+    "**The daily waves split the lows.** K1 with O1 carries the Moon's tilt and K1 with P1 the Sun's; at Seattle the daily waves are about as big as the twice-daily ones, which makes its tide mixed.",
+    "**Kelvin measured the tide instead of solving it.** Laplace's equations could not be solved for real seas, so Kelvin took each constituent's size and timing from a port's gauge record and in 1872 designed a machine that added them.",
     "**Tide tables are still made this way.** Machines did it with pulleys and a wire until the 1960s; computers now add the same waves.",
-    "**Summer's lowest lows come in daylight at Seattle.** The Sun's tilt adds a daily wave that keeps to the clock, and it flips by twelve hours between June and December, so winter's lowest lows come at night."
+    "**Summer's lowest lows come in daylight at Seattle.** The Sun's daily wave keeps to the clock and flips between June and December, so winter's lowest lows come at night."
   ],
   "parts": [
     {
@@ -20,15 +20,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In late May 1792 [[George Vancouver]]'s two ships lay at anchor in the Sound while their boats explored it. Lieutenant [[Peter Puget]] took two boats south for a week, past the Narrows and into the inlets beyond, rowing by day and camping on the beaches at night. Anyone who lives on a beach like that, hauling boats up and down it twice a day, meets the habit of this sea quickly: of the two low tides each day, one goes out much further than the other, and the difference grows and shrinks from one week to the next. The two equal bulges of lesson 8, taken alone, would give two equal tides a day."
+          "text": "In late May 1792 [[George Vancouver]]'s two ships lay at anchor in Puget Sound while Lieutenant [[Peter Puget]] took two boats south for a week, through the Tacoma Narrows and into the inlets of the South Sound, camping on the beaches at night. Anyone who hauls boats up a beach twice a day learns this sea's habit quickly: of the two low tides each day, one goes out much further than the other."
         },
         {
           "type": "text",
-          "text": "The tide table for Seattle shows it plainly. A mid-June day can run like this: a high of about 11 feet in the early morning, a low of minus 3 feet at lunchtime, a high of 12 feet in the evening, and then a low that only gets down to 7 feet, a little after midnight. The two lows of that day are 10 feet apart. On other days the lows are nearly equal and the highs differ instead, and on a few days a month everything is close to even."
+          "text": "Seattle's tide table shows it plainly. The table counts heights from a zero set near the lowest water of an ordinary day (the last part of this lesson says exactly where), so a minus height is an unusually low tide. One stretch in mid-June can run like this: a high of about 11 feet in the early morning, a low of minus 3 feet at lunchtime, a high of 12 feet in the evening, and a low of only 7 feet at about 2 the next morning. Those two lows, about thirteen hours apart, differ by 10 feet. A week later the same table shows the two lows nearly equal."
         },
         {
           "type": "text",
-          "text": "Lesson 8 built the two bulges: the Moon pulls the near side of the Earth a little harder than the centre, and the centre a little harder than the far side, so the ocean stretches into a bulge facing the Moon and another facing away. The Earth turns under both, which gives two high tides and two low tides each day. If the bulges were the same size and the Earth turned evenly under them, every place would see two equal tides. Something about the Moon must make Seattle's two passes under the bulges different. It is worth thinking about what that could be before reading on."
+          "text": "Lesson 8 built the two bulges: the Moon pulls the near side of the Earth a little harder than the centre, and the centre a little harder than the far side, so the ocean stretches into a bulge facing the Moon and another facing away. The Earth turns under both, which gives two high tides and two low tides each day. If Seattle passed through both bulges in the same way, its two tides would be equal. Before reading on, it is worth trying to think what could make Seattle's trip through one bulge different from its trip through the other."
         }
       ]
     },
@@ -37,27 +37,27 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The Moon does not stay over the equator. Its path around the Earth is tilted, so over each month of about 27 days it swings north of the equator, crosses back, swings south and returns. At its furthest the Moon stands about 28° north or south of the equator in these years, which is called its **declination**.[^standstill] The two bulges point toward the Moon and away from it, so when the Moon is far north the near bulge is tilted up into the northern hemisphere and the far bulge down into the southern."
+          "text": "The Moon does not stay over the equator. Its orbit is tilted, so the Moon swings north of the equator, back across it, south, and back again, a round trip of 27.3 days. Its angle north or south of the equator at any moment is its **declination**. At the far point of each swing the declination reaches about 28° in these years, and less in others.[^standstill] The bulges point toward the Moon and away from it, so when the Moon is far north the bulge facing it is tilted up into the northern hemisphere, and the bulge on the far side is tilted down into the southern."
         },
         {
           "type": "text",
-          "text": "Now follow Seattle as the Earth turns. Seattle sits at about 47.6° north and goes round on its circle of latitude once a day. With the bulge tilted, that circle cuts through the thick middle of the near bulge on one side of the Earth and only skims the thin edge of the far bulge on the other. One high water is deep and the other shallow. Newton saw this effect of the tilt in 1687, in the same book as the bulges."
+          "text": "Now follow Seattle as the Earth turns. Seattle sits at about 47.6° north, and the Earth's turning carries it once a day around its **circle of latitude**, the ring of all places 47.6° north. With the bulges tilted, that ring passes close to the middle of the bulge facing the Moon, which is tilted toward Seattle's latitude, and half a day later far above the middle of the opposite bulge, which is tilted into the southern hemisphere. So Seattle meets deep water on one side of the Earth and only the thin upper edge of the bulge on the other: one high tide is high, and the other barely rises. Newton saw this effect of the tilt in 1687, in the same book as the bulges."
         },
         {
           "type": "interactive_diagram",
           "id": "inequality-tilt",
-          "caption": "The Earth seen side on, with the Moon to the right and the water's two bulges drawn far thicker than life. Seattle's dot goes round its line of latitude once a day (filled while it is on the side of the Earth facing you). Below, the water over Seattle through one turn, in Newton's picture.",
-          "task": "Tilt the Moon at least 20° north or south and play a day",
+          "caption": "The Earth seen side on, with the Moon to the right and the water's two bulges drawn far thicker than life. Seattle's dot goes round its circle of latitude once a day; it is filled while on the side of the Earth facing you. The lower panel is the water over Seattle through one turn, in Newton's picture: compare its two high points.",
+          "task": "Tilt the Moon to 20° or more, north or south, and compare the two high waters in the lower panel",
           "goal": "tilted",
           "aspect_ratio": 1.33
         },
         {
           "type": "text",
-          "text": "Twice a month the Moon crosses the equator. Then the bulges are not tilted, Seattle passes through both at the same depth, and the two tides of the day are nearly equal. A week later the Moon is at its furthest north or south and the difference is greatest. So the inequality comes and goes on a cycle of about two weeks, set by the Moon's swing north and south. It is a different clock from lesson 8's springs and neaps, which follow the Moon's phase, and the two drift past each other through the year."
+          "text": "The Moon crosses the equator twice in each 27.3-day swing, once going north and once going south. Each time, the bulges are not tilted, Seattle passes through both at the same depth, and the two tides of the day are nearly equal. About a week later the Moon is at its furthest north or south and the difference is greatest. So the difference vanishes and returns about every two weeks. This is a separate clock from lesson 8's springs and neaps, which follow the Moon's phase from new to full, a 29.5-day cycle; because the two clocks run at slightly different rates, they slide past each other through the year."
         },
         {
           "type": "text",
-          "text": "Newton's picture puts the difference in the high waters. In the Sound it falls mostly on the lows, with a smaller difference in the highs. The bulges are a forcing, not the tide itself: the real ocean answers with waves that take hours to cross it and reach Seattle at their own times, and the daily part of the answer arrives on a different schedule from the twice-daily part. To see how that moves the difference from the highs to the lows, the tide has to be pulled apart into its pieces."
+          "text": "At Seattle the difference shows mostly in the lows, with a smaller one in the highs. Newton's picture puts it all in the highs. The bulges only describe the pull, the **forcing**. The real ocean cannot take up that shape at once; the pull sets off waves that take hours to travel round the ocean basins and up the Strait (lesson 10 follows one into the Sound). The once-a-day part of the answer and the twice-a-day part reach Seattle with different delays, and the next parts show how a delay moves the difference from the highs to the lows."
         }
       ]
     },
@@ -71,14 +71,14 @@
         {
           "type": "interactive_diagram",
           "id": "inequality-beat",
-          "caption": "Top: two steady waves over three days, one every 12 hours and one whose period you set. Bottom: their sum over a month.",
-          "task": "Set wave B to 12.42 hours",
+          "caption": "Top: wave A rises and falls every 12 hours; wave B every so many hours, which you set. Both are shown over three days. Bottom: A plus B over a whole month, so the slow swelling and shrinking shows.",
+          "task": "Set wave B to 12.42 hours and count the days between big swings in the lower panel",
           "goal": "beat",
           "aspect_ratio": 1.87
         },
         {
           "type": "text",
-          "text": "Nothing in either wave changes, yet their sum looks irregular, with big swings, small swings and everything between. The closer the two periods, the longer they take to drift apart and back, and at 12 hours and 12.42 hours the sum swells and shrinks every 14.8 days. Those are the Sun's and the Moon's twice-daily waves, and the pattern is the spring and neap cycle from lesson 8, seen as two steady waves adding."
+          "text": "Nothing in either wave changes, yet their sum looks irregular. The closer the two periods, the longer they take to drift apart and back. At 12 and 12.42 hours, wave B falls 0.42 hours further behind on every cycle, and it takes about 12.42 ÷ 0.42, nearly 30, cycles of 12 hours to fall a whole wave behind and come back into step: about 355 hours, or 14.8 days. Those are the Sun's and the Moon's twice-daily waves, and the pattern is the spring and neap cycle of lesson 8, seen as two steady waves adding."
         }
       ]
     },
@@ -87,37 +87,38 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The same trick works the other way round: any tide that repeats its patterns, however tangled it looks, can be pulled apart into steady waves, each with a period fixed by some cycle of the Moon or the Sun. Each of these waves is called a **constituent**. Four carry most of the tide at Seattle:[^names]"
+          "text": "The same trick works the other way round: a tide that looks tangled can be pulled apart into steady waves, each with a period fixed by some cycle of the Moon or the Sun. Each of these waves is called a **constituent**. Five carry most of the tide at Seattle, and this lesson uses no others:[^names]"
         },
         {
           "type": "key_ideas",
-          "title": "Seattle's four main constituents (about)",
+          "title": "Seattle's five main constituents (about)",
           "points": [
             "[[M2|moon]]: the Moon's twice-daily wave, every 12.42 hours, about 1.07 m (3.5 ft) high.",
             "[[S2|sun]]: the Sun's twice-daily wave, every 12 hours, about 0.26 m (0.9 ft).",
-            "[[K1|moon]]: a daily wave every 23.93 hours, from the tilt of both Moon and Sun, about 0.83 m (2.7 ft).",
-            "[[O1|moon]]: a daily wave every 25.82 hours, from the Moon's tilt, about 0.46 m (1.5 ft)."
+            "[[K1|moon]]: a daily wave every 23.93 hours, from the tilt of both the Moon and the Sun, about 0.83 m (2.7 ft).",
+            "[[O1|moon]]: a daily wave every 25.82 hours, from the Moon's tilt, about 0.46 m (1.5 ft).",
+            "[[P1|sun]]: a daily wave every 24.07 hours, from the Sun's tilt, about 0.26 m (0.9 ft)."
           ]
         },
         {
           "type": "text",
-          "text": "K1 and O1 are the tilt from the last part, written as steady waves. The tilt makes a once-a-day rise and fall that is strong while the Moon is far north or south and fades as it crosses the equator. A daily wave that swells and fades every two weeks is exactly what two steady daily waves of slightly different period make when they add, as the figure above showed for the twice-daily pair. K1 and O1 fall in and out of step every 13.66 days, half the Moon's month from north to south and back.[^pair]"
+          "text": "The three daily waves are the tilt, written as steady waves. The Moon's tilt makes a once-a-day rise and fall that is strong while the Moon is far north or south and fades as it crosses the equator. A daily wave that swells and fades like that is exactly what two steady daily waves of slightly different period make when they add, as the twice-daily pair did above. For the Moon those two are K1 and O1, which fall in and out of step every 13.66 days: one peak with the Moon far north, one with it far south, in each 27.3-day swing.[^pair] The Sun's tilt works the same way over a year, through K1 and P1. K1 serves both because its period, 23.93 hours, is the time the Earth takes to turn once against the stars, which the Moon's and the Sun's tilt effects share."
         },
         {
           "type": "text",
-          "text": "Lay a once-a-day wave on top of a twice-a-day wave and one of the two daily lows lands where the daily wave is also low, so it goes deeper; the other lands where the daily wave is high, so it is held up. Whether the split shows in the lows or the highs depends on when the daily wave peaks compared with the twice-daily one, and at Seattle that timing puts most of it in the lows."
+          "text": "Lay a once-a-day wave on top of a twice-a-day wave and, of the two lows in a day, one lands where the daily wave is also low, so it goes deeper; the other lands where the daily wave is high, so it is held up. Whether the split shows in the lows or the highs depends on when the daily wave peaks compared with the twice-daily one. That timing comes from how the Pacific, the Strait and the Sound respond, and it is measured rather than worked out (the next part tells how); at Seattle it puts most of the split in the lows. The figure starts with no daily waves at all. Before moving anything, guess what happens to the two lows of a day as K1 and O1 grow."
         },
         {
           "type": "interactive_diagram",
           "id": "inequality-sum",
-          "caption": "A model of the tide over two weeks of May, made from four constituents. M2 and S2 start at Seattle's sizes; K1 and O1 start at zero, as if the Moon and Sun never left the equator. Dots mark the lows. Seattle sets all four to Seattle's values.",
-          "task": "Raise K1 and O1 (or lower M2 and S2) until some day has only one low",
+          "caption": "A model of the tide over two weeks of May. M2 and S2 start at Seattle's sizes; K1 and O1 start at zero, as if the Moon and Sun never left the equator, and go up to 2 m. Dots mark the lows. The Seattle button sets all four to Seattle's values.",
+          "task": "Guess, then raise K1 and O1 (or lower M2 and S2) until some day has only one low",
           "goal": "oneLow",
           "aspect_ratio": 1.7
         },
         {
           "type": "text",
-          "text": "One number sums up the balance: the **form number**, K1 plus O1 divided by M2 plus S2. Under about a quarter, the daily waves hardly show and a place has two nearly equal tides a day, as most of the Atlantic coast of North America does. Over about three, the daily waves win and most days have one high and one low, as along parts of the Gulf of Mexico. Seattle's form number is close to one, a **mixed** tide: two tides a day, strongly unequal, with the lower low the one beach walkers wait for."
+          "text": "Push the daily waves far enough and the held-up low climbs until it merges into the high beside it, and that day has one low and one high. One number sums up the balance: the **form number**, K1 plus O1 divided by M2 plus S2. Under about a quarter, the daily waves hardly show and a place has two nearly equal tides a day, as most of the Atlantic coast of North America does. Over about three, the daily waves win and most days have one high and one low, as along parts of the Gulf of Mexico. Seattle's is (0.83 + 0.46) ÷ (1.07 + 0.26), close to one: a **mixed** tide, two tides a day and strongly unequal, with the lower low the one beach walkers wait for."
         }
       ]
     },
@@ -130,23 +131,23 @@
         },
         {
           "type": "text",
-          "text": "The way round came from Glasgow. From 1867 [[William Thomson]], later Lord Kelvin, led a committee of the British Association that gave up on deriving each port's tide from first principles and measured it instead. Take a long record of hourly heights from a tide gauge, a year if possible. For each known period, find the size and timing of the steady wave hidden in the record: this is **harmonic analysis**. Then to predict the tide for any day in the future, add those waves back together. The arithmetic was the problem, since a year of predictions for one port meant thousands of sums of a dozen cosines."
+          "text": "The way round came from Glasgow. From 1867 [[William Thomson]], later Lord Kelvin, led a committee of the British Association that gave up on deriving each port's tide from first principles and measured it instead. Take a long record of hourly heights from a tide gauge, a year if possible. For each known period, find the size and timing of the steady wave hidden in the record: this is **harmonic analysis**. Then to predict the tide for any day in the future, add those waves back together. The arithmetic was the problem: a year of hourly predictions for one port meant nearly 9,000 additions of a dozen or so waves, each worked out by hand."
         },
         {
           "type": "text",
-          "text": "So in 1872 Kelvin designed a machine to do the adding. Each constituent got a crank that turns once per period, set to its port's timing, and a pulley that the crank lifts and lowers by the right amount. A single wire runs over all the pulleys, fixed at one end, with a pen on the other. Every pulley that rises takes up a little wire and every one that falls lets some out, so the pen moves by the sum of all of them and draws the tide on a roll of paper as the handle turns."
+          "text": "So in 1872 Kelvin designed a machine to do the adding. Each constituent got a crank that turns once per period, set to its port's timing, and on the crank a pulley that rises and falls by that constituent's size. A single wire is fixed at one end, runs over the first moving pulley, under a fixed one, over the next moving pulley, and so on, and carries the pen at its free end. When a moving pulley rises it takes up a loop of wire, which pulls the free end and lifts the pen; when it falls it gives the wire back. Each pulley's movement passes straight along the wire, so the pen moves by the sum of all of them and draws the tide on a roll of paper as the handle turns."
         },
         {
           "type": "interactive_diagram",
           "id": "inequality-machine",
-          "caption": "A tide-predicting machine with Seattle's four main constituents. Each crank turns at its own constituent's rate, the wire over the pulleys adds their movements, and the pen draws the sum. Kelvin's first machine had ten cranks.",
+          "caption": "A tide-predicting machine with Seattle's four largest constituents. Each crank turns at its own constituent's rate, the wire over the pulleys adds their movements, and the pen draws the sum on paper that moves to the left.",
           "task": "Turn the handle through two days",
           "goal": "turned",
           "aspect_ratio": 1.4
         },
         {
           "type": "text",
-          "text": "The first machine, built in 1872 and 1873, could draw a year of tides for a port in a few hours. Others followed in several countries. The US Coast and Geodetic Survey's Tide Predicting Machine No. 2, a brass machine that added 37 constituents, made the country's tide tables, Seattle's among them, from about 1912 until the mid-1960s, when electronic computers took over the same sums.[^brass]"
+          "text": "The first machine, built in 1872 and 1873, had ten cranks and could draw a year of tides for a port in a few hours. Others followed in several countries. The US Coast and Geodetic Survey's Tide Predicting Machine No. 2, a brass machine that added 37 constituents, made the country's tide tables, Seattle's among them, from about 1912 until the mid-1960s, when electronic computers took over the same sums.[^brass] The counts differ because more constituents only refine the sum: the four or five largest give Seattle's tide its shape, and the small ones adjust it by inches."
         },
         {
           "type": "diagram",
@@ -195,11 +196,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The tide tables count heights from a zero called **mean lower low water**: the average, over many years, of the lower of each day's two lows.[^datum] A low below that zero is a **minus tide**, and the lowest of them uncover sea stars, moon snails and eelgrass that are under water most of the year. Seattle's naturalists plan their summer around them, and in June and July the best come in the middle of the day. In December and January the same deep lows come in the middle of the night."
+          "text": "The zero of the tide tables, promised at the start, is **mean lower low water**: the average, over many years, of the lower of each day's two lows.[^datum] A low below it is a **minus tide**, and the lowest of them uncover sea stars, moon snails and eelgrass that are under water most of the year. Seattle's naturalists plan their summer around them, and in June and July the best come in the middle of the day. In December and January the same deep lows come in the middle of the night."
         },
         {
           "type": "text",
-          "text": "The Moon's tilt cannot explain that, because the Moon keeps no regular clock time: its tides come about 50 minutes later each day. Something tied to the Sun must be at work. The Sun's path is tilted too, north of the equator in June and south in December, and its tilt makes a once-a-day wave of its own, carried by K1 and a smaller constituent called P1. Unlike the Moon's, this wave keeps to the clock, rising and falling at the same time of day for weeks on end. When the Sun crosses to the other side of the equator the wave turns over, so its low moves by twelve hours. At Seattle, in the months around June, it lands near midday, deepening whichever lunar low falls then; around December it lands near midnight."
+          "text": "The Moon's tilt cannot explain that, because the Moon's tides come about 50 minutes later each day: while the Earth turns once, the Moon moves on along its orbit, and the Earth needs extra time to catch up. Something tied to the Sun must be at work. The Sun's path is tilted too, north of the equator in June and south in December, and its tilt makes a once-a-day wave of its own through K1 and P1. Unlike the Moon's, this wave keeps to the clock, rising and falling at the same time of day for weeks on end. When the Sun crosses to the other side of the equator the wave flips: its highs and lows trade places, so its low moves by twelve hours. At Seattle, in the months around June, its low lands near midday by the Sun (a little after 1 pm on a summer clock), and any lunar low that falls near then is made deeper still. Around December its low lands near midnight."
         },
         {
           "type": "diagram",
@@ -208,7 +209,7 @@
         },
         {
           "type": "text",
-          "text": "Each month the minus tides arrive in a run of a few days, when a spring tide and the Moon's far swing north or south come together, and on each day of the run the low comes about 40 to 50 minutes later than the day before. That is enough to plan a low-tide walk from the table alone."
+          "text": "The deepest minus tides come in runs of a few days, when a spring tide and the Moon's far swing north or south come together, and on each day of a run the low comes about 40 to 50 minutes later than the day before. The two cycles, 14.8 and 13.7 days long, line up about every six months, and the timing works out near the solstices, because at new or full moon near a solstice the Moon is near the Sun's own far north or south position. That is why June and December have the deepest runs, and enough to plan a low-tide walk from the table alone."
         },
         {
           "type": "key_ideas",
@@ -234,62 +235,62 @@
               {
                 "ask": "Why are the two low tides of a day at Seattle often very different in depth?",
                 "choices": [
-                  "The Moon's tilt north or south of the equator tilts the bulges, so Seattle passes through a thick part of one and a thin part of the other",
-                  "The Sun pulls the water one way in the morning and the Moon pulls it the other way in the afternoon",
-                  "The wind blows harder by day than by night, piling water against the shore in the afternoon"
+                  "The Moon's tilt tilts the bulges, so Seattle meets deep water on one side and shallow on the other",
+                  "The Sun's bulge and the Moon's bulge pass Seattle at different hours on most days of the month",
+                  "The ebb runs out through Admiralty Inlet faster on one tide than the other each day"
                 ],
                 "answer": 0,
-                "why": "With the Moon far north or south, the bulges are tilted. Seattle's circle of latitude cuts deep through one and only skims the other, so the two tides of the day differ."
+                "why": "With the Moon far north or south, the bulges are tilted. Seattle's circle of latitude passes near the middle of one and far from the middle of the other, so the two tides of the day differ."
               },
               {
                 "ask": "The Moon is crossing the equator this week. What does that do to the difference between Seattle's two daily tides?",
                 "choices": [
-                  "It makes the difference smallest, because the bulges are not tilted",
-                  "It makes the difference greatest, because the Moon is closest to the Earth",
-                  "It has no effect; the difference follows the Moon's phase, new and full"
+                  "It makes the difference smallest",
+                  "It makes the difference greatest, since the Moon pulls hardest on the equator",
+                  "Nothing: the difference follows the Moon's phase, from new to full"
                 ],
                 "answer": 0,
-                "why": "With the Moon over the equator, Seattle passes through both bulges at the same depth. The difference is greatest about a week later, when the Moon is furthest north or south."
+                "why": "With the Moon over the equator the bulges are not tilted, so Seattle passes through both at the same depth. The difference is greatest about a week later, when the Moon is furthest north or south."
               },
               {
-                "ask": "What is a tidal constituent?",
+                "ask": "A tide record looks irregular: big swings for a few days, then small ones. What could produce that from waves that never change?",
                 "choices": [
-                  "One steady wave with a fixed period set by a cycle of the Moon or Sun; the tide is the sum of many",
-                  "The part of the tide caused by one basin, such as the Strait or the Sound",
-                  "The average height of high water at a port over a nineteen-year record"
+                  "Two steady waves of slightly different period drifting in and out of step",
+                  "One steady wave whose period lengthens and shortens through the month",
+                  "A single wave reflected back and forth until it dies away"
                 ],
                 "answer": 0,
-                "why": "M2, S2, K1, O1 and the rest are each a steady rise and fall at one period. Added together, they make a tide that looks irregular but can be predicted."
+                "why": "Two steady waves add to big swings when their crests coincide and small ones when crest meets trough. The tide is a sum of such constituents, which is why it can be predicted."
               },
               {
                 "ask": "Why did Kelvin's method predict tides when Laplace's equations could not?",
                 "choices": [
-                  "It measured each constituent's size and timing at a port from gauge records, so nobody had to solve how the ocean answers the pull",
-                  "Kelvin's machine solved Laplace's equations mechanically, one ocean basin at a time",
-                  "Kelvin found that Laplace had made an error, and corrected equations could be solved by hand"
+                  "It took each wave's size and timing from the port's own gauge record",
+                  "Kelvin's machine solved Laplace's equations with pulleys, one basin at a time",
+                  "Kelvin corrected an error in Laplace's equations, which then solved by hand"
                 ],
                 "answer": 0,
-                "why": "Harmonic analysis takes each wave's size and timing from the port's own record, which already contains the ocean's response. Predicting is then only a matter of adding the waves, which the machine did."
+                "why": "Harmonic analysis reads each constituent's size and timing from the record, which already contains the ocean's response. Predicting is then only adding the waves, which the machine did."
               },
               {
-                "ask": "At one port K1 plus O1 is three times M2 plus S2. What tide do people there see on most days?",
+                "ask": "At one port K1 plus O1 is five times M2 plus S2. What tide do people there see on most days?",
                 "choices": [
                   "One high and one low a day",
-                  "Two nearly equal highs and lows a day",
-                  "Four highs and lows a day, two large and two small"
+                  "Two highs and two lows a day, all nearly equal",
+                  "Two highs and two lows a day, with very unequal highs"
                 ],
                 "answer": 0,
-                "why": "With the daily constituents that strong, the second low of most days climbs up into the high and disappears. A form number above about three means a once-a-day tide."
+                "why": "With the daily constituents that strong, the second low of most days climbs into the high beside it and disappears. A form number above about three means a once-a-day tide."
               },
               {
                 "ask": "Why do Seattle's lowest summer tides come in daylight while winter's come at night?",
                 "choices": [
-                  "The Sun's tilt adds a daily wave that keeps to the clock, and it turns over between June and December",
-                  "Long summer days warm and expand the water, lowering it in the afternoon",
-                  "Winter storms hold the water up during the day, so only night lows can go deep"
+                  "The Sun's tilt makes a daily wave that keeps to the clock and flips between June and December",
+                  "Long summer days warm the water, and the warm water shrinks back by afternoon",
+                  "The Moon stands higher in the summer sky, so its lows come in the daytime"
                 ],
                 "answer": 0,
-                "why": "The Moon's tides come about 50 minutes later each day, but the Sun's daily wave keeps clock time. With the Sun north in June its low falls near midday at Seattle; with the Sun south in December the same wave is turned over and its low falls near midnight."
+                "why": "The Moon's tides come about 50 minutes later each day, but the Sun's daily wave keeps clock time. With the Sun north in June its low falls near midday at Seattle; with the Sun south in December its highs and lows trade places, and its low falls near midnight."
               }
             ]
           }
@@ -306,12 +307,12 @@
     "names": {
       "kind": "technical",
       "title": "Why the odd names",
-      "text": "The labels come from the nineteenth-century tables of harmonic analysis: M for the Moon, S for the Sun (*sol*), while K and O are only letters. The number counts crests a day, 2 for twice-daily waves and 1 for daily ones. NOAA uses 37 constituents for Seattle's predictions; the four here carry most of the range."
+      "text": "The labels come from the nineteenth-century tables of harmonic analysis: M for the Moon, S for the Sun (*sol*), while K, O and P are only letters. The number counts crests a day, 2 for twice-daily waves and 1 for daily ones. NOAA uses 37 constituents for Seattle's predictions; the five in this lesson carry most of the range, and the figures that add waves use four or five of them."
     },
     "pair": {
       "kind": "technical",
       "title": "One swelling wave, or two steady ones",
-      "text": "A wave of period 24.84 hours (the Moon's day) whose size rises and falls every 13.66 days is the same, by a rule of trigonometry, as two steady waves with periods of 23.93 and 25.82 hours added together. Tide tables use the steady pair because steady waves are easy to measure and to add."
+      "text": "A daily wave whose size rises and falls every 13.66 days is the same, by a rule of trigonometry, as two steady waves with periods of 23.93 and 25.82 hours added together. Tide tables use the steady pair because steady waves are easy to measure and to add."
     },
     "laplace": {
       "kind": "digression",

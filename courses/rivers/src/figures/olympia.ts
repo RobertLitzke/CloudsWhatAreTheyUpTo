@@ -221,7 +221,7 @@ export const riseFigure = figure(['reach'], (ctx, t) => {
     if (mhhw >= d.king - 0.005) reached = true;
     const when = yearOrdinaryReachesKing(rate, d);
     const rise = lift >= 0 ? `${Math.round(lift * 100)} cm (${Math.round(ft(lift) * 12)} in) above today` : `${Math.round(-lift * 100)} cm (${Math.round(-ft(lift) * 12)} in) below today`;
-    f.readout.textContent = `${year}: the sea ${year === NOW ? 'as it is today' : rise}. Ordinary higher high water (dotted) ${ft(mhhw).toFixed(1)} ft; today's king tides ${ft(d.king).toFixed(1)} ft. At this pace the two meet around ${Math.round(when / 10) * 10}.`;
+    f.readout.textContent = `${year}: the sea ${year === NOW ? 'as it is today' : rise}. Ordinary higher high water (dotted) ${ft(mhhw).toFixed(1)} ft, ${mhhw < d.king ? `${Math.round((d.king - mhhw) * 100)} cm below` : 'level with'} today's king tides (${ft(d.king).toFixed(1)} ft). At this pace the two meet around ${Math.round(when / 10) * 10}.`;
     if (reached && t.goal === 'reach') t.done();
   };
   const years = slider('Year', 1900, 2150, 1, year, (v) => `${v}`, (v) => { year = v; paint(); }, 'ink');

@@ -8,9 +8,9 @@
     "**A watershed is all the land that drains to one point on a river.** Small watersheds sit inside larger ones, the Snoqualmie's inside the Snohomish's inside Puget Sound's.",
     "**Rivers run to the nearest low ground, not south.** The Snohomish runs north-west to Everett and the Yakima south-east to the Columbia.",
     "**Powell wanted the West governed by watersheds.** His 1878 report argued it and his 1890 map drew the districts; Congress never adopted them.",
-    "**Rain goes three ways once it lands.** Back to the air from leaves and soil, into the ground, and down the river, almost all of it through the soil under a forest.",
-    "**Over a year, what falls on a watershed leaves it.** Rain and snow in equal water back to the air plus water down the river, give or take what the ground and snow still hold.",
-    "**Snow is the mountains' reservoir.** It holds winter's precipitation until the melt of May and June, when the rains have eased.",
+    "**Rain goes three ways once it lands.** Back to the air from leaves and soil, into the ground, and down the river; under a forest, most of what reaches the river travels through the soil.",
+    "**Over a year, what falls on a watershed leaves it.** Rain and snow in equals water back to the air plus water down the river, give or take what the ground and snow still hold.",
+    "**Snow is the mountains' reservoir.** It holds winter's precipitation until it melts, from May into July, when the rains have eased.",
     "**A warm winter moves the river's water from summer to winter.** In 2015 the usual precipitation fell as rain and ran off in winter, leaving little snow to melt in June.",
     "**Seattle drinks about an eighth of what falls on the Cedar watershed.** The rest goes down the river or back to the air."
   ],
@@ -18,86 +18,373 @@
     {
       "title": "A drop on the pass",
       "blocks": [
-        {"type": "text", "text": "Drive east from Seattle on Interstate 90 and the road climbs for an hour beside a river, the South Fork of the Snoqualmie, until it tops out at Snoqualmie Pass, about 920 metres (3,000 feet) up. On a November afternoon it is often raining there, or snowing. Two drops land a metre apart on the summit, one on each side of the high point of the road."},
-        {"type": "text", "text": "Seattle is 80 kilometres away, and the salt water of Puget Sound closer still. It would be natural to think both drops are headed there. Before reading on, decide where each one reaches the sea."},
-        {"type": "text", "text": "The drop on the west side runs down into the South Fork, past North Bend, over Snoqualmie Falls and down the valley through Fall City, Carnation and Duvall. At Monroe the Snoqualmie meets the Skykomish and the two become the Snohomish, which reaches salt water at Everett, about 150 kilometres of river from the pass. The drop on the east side runs into Lake Keechelus, a reservoir just below the summit, and out of it as the Yakima River. The Yakima flows south-east, away from the Sound, through Cle Elum, Ellensburg and Yakima to the Columbia at Richland. The Columbia carries it west along the Oregon border to the Pacific at Astoria, nearly 900 kilometres from where it fell.[^distance]"},
-        {"type": "interactive_diagram", "id": "map-live", "caption": "The central Cascades from Puget Sound to the crest, with the crest drawn roughly as a dashed line. Rain west of it runs to Puget Sound; rain east of it runs to the Columbia.", "task": "Tap each ringed place", "goal": "explore", "options": {"relief": "maps/cascades", "title": "Which way the water goes", "water": 0, "exaggeration": 1.5, "textLines": 5, "alt": "A shaded relief map of the central Cascades and the Puget Sound lowland, from Everett and Seattle in the west to the Cascade crest and the head of the Yakima valley in the east, with Mount Rainier at the bottom.", "labels": [{"lon": -122.335, "lat": 47.61, "text": "Seattle", "side": "left"}, {"lon": -122.2, "lat": 47.98, "text": "Everett", "side": "left"}, {"lon": -122.44, "lat": 47.25, "text": "Tacoma", "side": "right"}, {"lon": -121.79, "lat": 47.49, "text": "North Bend", "side": "below"}, {"lon": -121.0, "lat": 47.2, "text": "Yakima River", "side": "left"}], "lines": [{"points": [[-121.089, 47.746], [-121.178, 47.566], [-121.33, 47.47], [-121.413, 47.425], [-121.334, 47.276], [-121.376, 47.083], [-121.517, 46.871]], "color": "ink", "dashed": true, "width": 1.5}], "spots": [{"lon": -121.413, "lat": 47.425, "name": "Snoqualmie Pass", "text": "Rain west of the summit joins the South Fork Snoqualmie and reaches Puget Sound at Everett. Rain east of it runs into Lake Keechelus, the head of the Yakima, and reaches the Pacific by the Columbia."}, {"lon": -121.089, "lat": 47.746, "name": "Stevens Pass", "text": "The same split 40 km north. West, the Tye River feeds the Skykomish and the Snohomish; east, Nason Creek feeds the Wenatchee River, which joins the Columbia at Wenatchee."}, {"lon": -121.72, "lat": 47.39, "name": "The Cedar River watershed", "text": "Rain here runs down the Cedar into Lake Washington at Renton, through the Ship Canal and the Ballard Locks, and into the Sound at Shilshole Bay. Seattle drinks from it."}, {"lon": -121.837, "lat": 47.541, "name": "Snoqualmie Falls", "text": "The river drops 82 metres (268 feet) here. Every drop that fell between the falls and the crest, from the Middle Fork's valleys to Snoqualmie Pass, goes over it."}, {"lon": -122.335, "lat": 47.61, "name": "A Seattle street", "text": "Depending on the street: Lake Washington, Lake Union, the Duwamish or straight into the Sound. In older neighbourhoods street drains share pipes with the sewers and run to the treatment plant at West Point."}, {"lon": -121.76, "lat": 46.87, "name": "Mount Rainier", "text": "Snow on the summit feeds glaciers on every side. The White, Carbon and Puyallup reach the Sound at Tacoma and the Nisqually near Olympia, but melt from the south side runs down the Cowlitz into the Columbia."}]}},
-        {"type": "text", "text": "Both drops do reach the Pacific in the end, one through the Strait of Juan de Fuca and one across the Columbia bar, but by routes hundreds of kilometres apart, through very different country, after starting a metre from each other."}
+        {
+          "type": "text",
+          "text": "Drive east from Seattle on Interstate 90 and the road climbs for an hour beside a river, the South Fork of the Snoqualmie, until it tops out at Snoqualmie Pass, about 920 metres (3,000 feet) up. On a November afternoon it is often raining there, or snowing. Two drops land a metre apart on the summit, one on each side of the high point of the road."
+        },
+        {
+          "type": "text",
+          "text": "Seattle is 80 kilometres away, and the salt water of Puget Sound closer still. It would be natural to think both drops are headed there. Before reading on, decide which salt water each one reaches first."
+        },
+        {
+          "type": "text",
+          "text": "The drop on the west side runs down into the South Fork, past North Bend, over Snoqualmie Falls and down the farm valley through Carnation. At Monroe the Snoqualmie meets the Skykomish and the two become the Snohomish, which reaches salt water at Everett, in Puget Sound, about 150 kilometres of river from the pass. The drop on the east side runs into Lake Keechelus, a reservoir just below the summit, and out of it as the Yakima River. The Yakima flows south-east, away from the Sound, through Ellensburg and Yakima to the Columbia, and the Columbia carries it west to the Pacific Ocean at Astoria, on the Oregon border. That is nearly 900 kilometres: about 350 down the Yakima and 540 down the Columbia."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "The central Cascades from Puget Sound to the crest, with the crest drawn roughly as a dashed line. Rain west of it runs to Puget Sound; rain east of it runs to the Columbia.",
+          "task": "Tap each ringed place to see which sea its rain reaches",
+          "goal": "explore",
+          "options": {
+            "relief": "maps/cascades",
+            "title": "Which way the water goes",
+            "water": 0,
+            "exaggeration": 1.5,
+            "textLines": 5,
+            "alt": "A shaded relief map of the central Cascades and the Puget Sound lowland, from Everett and Seattle in the west to the Cascade crest and the head of the Yakima valley in the east, with Mount Rainier at the bottom.",
+            "labels": [
+              {
+                "lon": -122.335,
+                "lat": 47.61,
+                "text": "Seattle",
+                "side": "left"
+              },
+              {
+                "lon": -122.2,
+                "lat": 47.98,
+                "text": "Everett",
+                "side": "left"
+              },
+              {
+                "lon": -122.44,
+                "lat": 47.25,
+                "text": "Tacoma",
+                "side": "right"
+              },
+              {
+                "lon": -121.79,
+                "lat": 47.49,
+                "text": "North Bend",
+                "side": "below"
+              },
+              {
+                "lon": -121.0,
+                "lat": 47.2,
+                "text": "Yakima River",
+                "side": "left"
+              },
+              {
+                "lon": -121.914,
+                "lat": 47.648,
+                "text": "Carnation",
+                "side": "left"
+              }
+            ],
+            "lines": [
+              {
+                "points": [
+                  [
+                    -121.089,
+                    47.746
+                  ],
+                  [
+                    -121.178,
+                    47.566
+                  ],
+                  [
+                    -121.33,
+                    47.47
+                  ],
+                  [
+                    -121.413,
+                    47.425
+                  ],
+                  [
+                    -121.334,
+                    47.276
+                  ],
+                  [
+                    -121.376,
+                    47.083
+                  ],
+                  [
+                    -121.517,
+                    46.871
+                  ]
+                ],
+                "color": "ink",
+                "dashed": true,
+                "width": 1.5
+              }
+            ],
+            "spots": [
+              {
+                "lon": -121.413,
+                "lat": 47.425,
+                "name": "Snoqualmie Pass",
+                "text": "Rain west of the summit joins the South Fork Snoqualmie and reaches Puget Sound at Everett. Rain east of it runs into Lake Keechelus, the head of the Yakima, and reaches the Pacific by the Columbia."
+              },
+              {
+                "lon": -121.089,
+                "lat": 47.746,
+                "name": "Stevens Pass",
+                "text": "The same split 40 km north. West, the Tye River feeds the Skykomish and the Snohomish; east, Nason Creek feeds the Wenatchee River, which joins the Columbia at Wenatchee."
+              },
+              {
+                "lon": -121.72,
+                "lat": 47.39,
+                "name": "The Cedar River watershed",
+                "text": "Rain here runs down the Cedar into Lake Washington at Renton, through the Ship Canal and the Ballard Locks, and into the Sound at Shilshole Bay. Seattle drinks from it."
+              },
+              {
+                "lon": -121.837,
+                "lat": 47.541,
+                "name": "Snoqualmie Falls",
+                "text": "The river drops 82 metres (268 feet) here. Every drop that fell between the falls and the crest, from the Middle Fork's valleys to Snoqualmie Pass, goes over it."
+              },
+              {
+                "lon": -122.335,
+                "lat": 47.61,
+                "name": "A Seattle street",
+                "text": "Depending on the street: Lake Washington, Lake Union, the Duwamish or straight into the Sound. In older neighbourhoods street drains share pipes with the sewers and run to the treatment plant at West Point."
+              },
+              {
+                "lon": -121.76,
+                "lat": 46.87,
+                "name": "Mount Rainier",
+                "text": "Snow on the summit feeds glaciers on every side. The White, Carbon and Puyallup reach the Sound at Tacoma and the Nisqually near Olympia, but melt from the south side runs down the Cowlitz into the Columbia."
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "So the first drop reaches Puget Sound, the second the open Pacific. Puget Sound is the southern arm of the **Salish Sea**, the inland sea that also takes in the Strait of Georgia in British Columbia and the Strait of Juan de Fuca, which joins it to the ocean. In time the first drop's water leaves through that strait into the Pacific too. The two drops meet the same ocean, about 250 kilometres apart, after starting a metre from each other."
+        }
       ]
     },
     {
       "title": "Divides and watersheds",
       "blocks": [
-        {"type": "text", "text": "Water runs downhill. A line drawn along the highest ground between two valleys, so that rain on one side runs into one and rain on the other side into the other, is a **divide**. The Cascade crest is the great divide of Washington: almost everything west of it drains to the Salish Sea or straight to the ocean, and almost everything east of it to the Columbia."},
-        {"type": "text", "text": "All the land that drains to one point on a river, bounded by divides on every side, is that point's **watershed**, also called its drainage basin.[^word] Choose the point and you choose the watershed. The Snoqualmie's watershed above Snoqualmie Falls is a bowl of valleys on the west side of the pass. Move the point down to Monroe and it grows to take in the whole Snoqualmie valley; down to Everett, and it adds the Skykomish's. Watersheds nest inside one another like the bowls of a set, and the largest here, the Columbia's, drains about 670,000 square kilometres in seven states and British Columbia."},
-        {"type": "text", "text": "One misconception catches nearly everyone who grew up with north at the top of the map: that rivers flow south, or downward on the page. They flow to the nearest low ground, in whatever direction that lies. The Snohomish runs north-west to Everett, the Skagit west to the Sound, the Yakima south-east, and the Columbia, near its source in British Columbia, runs north for its first 300 kilometres or so before it turns."}
+        {
+          "type": "text",
+          "text": "Water runs downhill. A line drawn along the highest ground between two valleys, so that rain on one side runs into one and rain on the other side into the other, is a **divide**. The Cascade crest, the dashed line on the map, is the great divide of Washington: almost everything west of it drains to the Salish Sea or, like the Chehalis River, straight to the Pacific coast, and almost everything east of it drains to the Columbia."
+        },
+        {
+          "type": "text",
+          "text": "All the land that drains to one point on a river, bounded by divides on every side, is that point's **watershed**, also called its drainage basin.[^word] Choose the point and you choose the watershed. The Snoqualmie's watershed above Snoqualmie Falls is a bowl of valleys on the west side of the pass. Move the point down to Monroe and it grows to take in the whole Snoqualmie valley; down to Everett, and it adds the Skykomish's. Watersheds nest inside one another like a set of bowls. The Columbia's, which takes in the Yakima's, is one of the largest in North America: about 670,000 square kilometres, nearly the size of Texas, in seven states and British Columbia."
+        },
+        {
+          "type": "text",
+          "text": "A common mistake, learned from maps drawn with north at the top, is that rivers flow south, or down the page. They flow to the nearest low ground, in whatever direction that lies. On this map alone, the Snohomish runs north-west to Everett, the Cedar north-west to Lake Washington, and the Yakima south-east."
+        }
       ]
     },
     {
       "title": "Powell's districts",
       "blocks": [
-        {"type": "text", "text": "The first person to argue that watersheds should decide how people live on the land was John Wesley Powell, a geologist who had lost his right arm at the Battle of Shiloh and in 1869 led the first known boat trip down the Colorado River through the Grand Canyon. In 1878 he sent Congress a *Report on the Lands of the Arid Region of the United States*. West of about the 100th meridian, he wrote, there is too little rain to farm without irrigation, so the land is worth only as much as the water that can be brought to it. The standard 160-acre homestead was the wrong size, and the straight survey lines that cut the country into squares ignored the one thing that mattered."},
-        {"type": "text", "text": "His answer was to settle and govern the West by drainage basins: the people who share a river should decide together how its water is used, because water taken upstream is water missing downstream. In 1890, as director of the US Geological Survey, he drew it, on a map titled *Arid Region of the United States, showing Drainage Districts*, which divides the West into districts along its divides. Congress never adopted it, and soon cut the money for the survey that was to plan them. The idea lasted better than the map. Washington today manages its water in 62 Water Resource Inventory Areas drawn along watershed lines.[^wria]"}
+        {
+          "type": "text",
+          "text": "The first person to argue that watersheds should decide how people live on the land was John Wesley Powell, a geologist who had lost his right arm at the Battle of Shiloh and in 1869 led the first known boat trip down the Colorado River through the Grand Canyon. In 1878 he sent Congress a *Report on the Lands of the Arid Region of the United States*. West of about the 100th meridian, the line of longitude that runs down through the Dakotas, Nebraska, Kansas and Texas, there is too little rain to farm without irrigation, so land is worth only as much as the water that can be brought to it. The standard homestead of 160 acres (65 hectares) fitted neither use: too large to irrigate from one farmer's share of a stream, too small to raise cattle on dry range. And the straight survey lines that cut the country into squares ignored where the water ran."
+        },
+        {
+          "type": "text",
+          "text": "His answer was to settle and govern the West by drainage basins, so that the people who share a river decide together how its water is used, since water taken upstream is water missing downstream. In 1890, as director of the US Geological Survey, he drew it, on a map titled *Arid Region of the United States, showing Drainage Districts*, which divides the West into districts along its divides. Congress never adopted it, and soon cut the money for the survey that was to plan them. The idea lasted better than the map. Washington today divides itself into 62 Water Resource Inventory Areas, each one a river's watershed or a group of small neighbouring ones, and plans its water and its salmon recovery by them.[^wria]"
+        }
       ]
     },
     {
       "title": "Where the rain goes",
       "blocks": [
-        {"type": "text", "text": "Follow one drop that lands in a Cascade forest, in the Cedar River's watershed east of Seattle. It can go three ways."},
-        {"type": "text", "text": "It can go **back to the air**. Rain caught on needles and leaves evaporates before it reaches the ground, and water in the soil is drawn up through roots and breathed out through leaves, a process called transpiration. Hydrologists lump the two together as evapotranspiration.[^et] It is small in a wet, cool winter and large in a warm, dry summer."},
-        {"type": "text", "text": "It can **soak in**. A forest floor of needles, roots and loose dark soil takes up water faster than all but the heaviest rain falls on it, so under trees almost nothing runs over the surface. Water in the soil moves downhill through it, slowly, toward the nearest stream, and some sinks further, to the groundwater below the **water table**, the level beneath which every gap between grains is full. Lesson 3 follows that water."},
-        {"type": "text", "text": "And it can **run off** down the river, which is where both of the other paths also end unless the water goes back to the air first. Only where the ground is already full, frozen, or paved does rain run over the surface."},
-        {"type": "diagram", "id": "watershed-paths", "caption": "Where rain goes on a forested slope. Very little runs over the ground; most soaks in and reaches the stream through the soil or, more slowly, as groundwater. Some goes back to the air from wet leaves and through the trees."},
-        {"type": "text", "text": "Over a whole year a watershed keeps almost nothing. What falls as rain and snow leaves either as water vapour or down the river, give or take the small change in what the soil, groundwater and snow hold from one October to the next. That bookkeeping, rain and snow in equals evapotranspiration plus river out, is the **water balance**, and it is the first thing a hydrologist writes down about any watershed. In the wet Cascades, perhaps a fifth to a quarter goes back to the air and the rest down the river. At Ellensburg, in the Cascades' rain shadow, about 230 millimetres (9 inches) of rain and snow fall in a year and nearly all of it goes back to the air; the Yakima's water comes from the mountains upstream.[^shadow]"}
+        {
+          "type": "text",
+          "text": "Follow one drop that lands in a Cascade forest, in the Cedar River's watershed, the ringed patch south of North Bend on the map. It can go three ways."
+        },
+        {
+          "type": "text",
+          "text": "It can go **back to the air**. Rain caught on needles and leaves evaporates before it reaches the ground, and water in the soil is drawn up through roots and breathed out through leaves, a process called transpiration. Hydrologists, the scientists who study water on land, lump the two together as **evapotranspiration**.[^et] It is small in a wet, cool winter and large in a warm, dry summer."
+        },
+        {
+          "type": "text",
+          "text": "It can **soak in**. A forest floor of needles, roots and loose dark soil takes up water faster than all but the heaviest rain falls on it, so under trees almost nothing runs over the surface. Water in the soil moves slowly downhill through it toward the nearest stream, and some sinks further, below the **water table**, the level beneath which every gap between grains is full. That deeper water is groundwater, and it can take months or years to reach a stream."
+        },
+        {
+          "type": "text",
+          "text": "And it can **run off**: reach the river and leave the watershed. Most water that soaks in and does not go back to the air ends up in the river too, through the soil within days or as groundwater much later. Only where the ground is already full, frozen or paved does rain run over the surface straight to a stream."
+        },
+        {
+          "type": "diagram",
+          "id": "watershed-paths",
+          "caption": "Where rain goes on a forested slope. Very little runs over the ground; most soaks in and reaches the stream through the soil or, more slowly, as groundwater. Some goes back to the air from wet leaves and through the trees."
+        },
+        {
+          "type": "text",
+          "text": "Over a whole year a watershed keeps almost nothing. What falls as rain and snow leaves either as water vapour or down the river, give or take the small change in what the soil, groundwater and snow hold from one October to the next. That bookkeeping, rain and snow in equals evapotranspiration plus river out, is the **water balance**. On the Cedar watershed, roughly 2,400 millimetres falls in an average year; about 450 of it goes back to the air and about 1,950 leaves down the river, so a little under a fifth goes to the air. East of the crest the balance tips the other way. Ellensburg lies in the Cascades' **rain shadow**, the dry side of the range, where air coming over the mountains has already dropped most of its water.[^shadow] It gets about 230 millimetres (9 inches) of rain and snow a year, and nearly all of it goes back to the air. The Yakima's water comes from the mountains upstream."
+        }
       ]
     },
     {
       "title": "Snow, the mountains' reservoir",
       "blocks": [
-        {"type": "text", "text": "Most of western Washington's rain and snow falls between October and March, and summer is nearly dry. If every drop ran off as it fell, the rivers would be in flood all winter and close to empty by August. Part of the reason they are not is groundwater, which lesson 3 takes up. The other part lies on the mountains from November to May as snow."},
-        {"type": "text", "text": "Snow is stored water. A metre of fresh, fluffy snow holds roughly 10 centimetres of water; by April the pack has settled and packed down until a metre holds 40 or more. Hydrologists measure snow by that water, the **snow water equivalent**, at automatic stations across the mountains.[^swe] Once the sun climbs in spring and the air warms, the pack melts from May into July, just as the rains ease, and the rivers that drain the high country run highest then."},
-        {"type": "interactive_diagram", "id": "watershed-year", "caption": "A water year on Seattle's Cedar River watershed, from 1 October. Top: rain and snow falling. Middle: water held as snow. Bottom: the river. The bar on the right adds up where everything that has fallen since October is now. A model, with the same precipitation in both years; only the temperature changes.", "task": "Guess, then play a warm winter through to July", "goal": "warm", "aspect_ratio": 1.53},
-        {"type": "text", "text": "The warm-winter switch copies the winter of 2014 to 2015. Washington's mountains got close to their usual precipitation, but the storms came warm, and what would have been snow fell as rain and ran off in winter. On 1 April the snowpack was a small fraction of normal. People called it a snow drought: plenty of water had fallen, in the wrong form and at the wrong time. Lesson 3 opens on what it did to the rivers by August, and on the other store that kept them running."}
+        {
+          "type": "text",
+          "text": "Most of western Washington's rain and snow falls between October and March, and summer is nearly dry. If every drop ran off as it fell, the rivers would be in flood all winter and close to empty by August. Part of the reason they are not is groundwater, which lesson 3 takes up. The other part lies on the mountains through the winter as snow."
+        },
+        {
+          "type": "text",
+          "text": "Snow is stored water. A metre of fresh, fluffy snow holds roughly 10 centimetres of water. By April the **snowpack**, the layered snow that has built up over the winter, has settled and packed down until a metre of it holds 40 centimetres or more. Hydrologists measure snow by that water, the **snow water equivalent**, at automatic stations across the mountains.[^swe] Once the sun climbs and the air warms, the snowpack melts from May into July, just as the rains ease, and the rivers that drain the high country run highest then."
+        },
+        {
+          "type": "text",
+          "text": "Whether a storm leaves snow or runs straight off depends on the temperature, and in the Cascades a degree or two can decide it. Rain falls below the **freezing level**, the height at which the air drops to 0 °C, and snow above it. In a warm winter the freezing level sits higher, more of the mountains get rain, and the water leaves months early."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "watershed-year",
+          "caption": "A year on Seattle's Cedar River watershed from 1 October, in two versions with the same rain and snow: an ordinary winter, and a warm one like 2014 to 2015. Top: rain and snow falling each week. Middle: water held in the snowpack. Bottom: the river. The bar on the right shares out everything that has fallen since October: still in the snow, in the ground, gone to the air, gone down the river. A model.",
+          "task": "Guess what a warm winter does to June's river, then play the warm winter through to July",
+          "goal": "warm",
+          "aspect_ratio": 1.53
+        },
+        {
+          "type": "text",
+          "text": "The warm-winter switch copies the winter of 2014 to 2015. Washington's mountains got close to their usual precipitation, but the storms came warm, and what would have been snow fell as rain and ran off in winter. On 1 April many Cascade snow stations held the least water ever recorded there on that date. People called it a snow drought: plenty of water had fallen, in the wrong form and at the wrong time. Lesson 3 follows what came next."
+        }
       ]
     },
     {
       "title": "Why Seattle drinks the Cedar",
       "blocks": [
-        {"type": "text", "text": "After the fire of 1889 burned out downtown, a fire blamed partly on weak water pressure, Seattle voted to build its own water supply. The city engineer, Reginald H. Thomson, wanted the Cedar River: high enough in the mountains for its water to run to the city by gravity, with no pumps, and clean. Water from a pipeline at Landsburg reached the city in 1901.[^thomson] The city then bought the land above it, piece by piece, until it owned nearly the whole watershed, about 370 square kilometres of forest that is still closed to the public. Cedar water is clean enough that it is not filtered, only disinfected. Today the Cedar supplies about two thirds of the water for some 1.5 million people in and around Seattle, and the South Fork of the Tolt River, north of the Snoqualmie, the rest. The Seattle branch of this course follows the Cedar's story further."},
-        {"type": "key_ideas", "title": "Estimate: how much of the Cedar does Seattle drink?", "points": [
-          "Rain and snow on the watershed: about 2.4 metres a year averaged over it (more on the ridges, less near the bottom), on 370 square kilometres. That is 370 million square metres times 2.4 metres, about 900 million cubic metres, or 0.9 cubic kilometres.",
-          "Seattle's supply: about 120 million US gallons a day, some 450 million litres, which over a year is about 0.17 cubic kilometres. Two thirds of that from the Cedar is about 0.11 cubic kilometres.",
-          "So the city drinks about an eighth of what lands on the watershed. Of the rest, roughly a fifth goes back to the air, and the remainder flows down the Cedar to Lake Washington, where salmon need it."
-        ]},
-        {"type": "text", "text": "An eighth sounds like plenty to spare, and over a year it is. The pinch comes in late summer, when the rain has stopped, the snow is gone, the river is at its lowest and people water their gardens. The city's reservoirs on the Cedar store enough to bridge an ordinary summer. In 2015, with the snow gone by May, they had to carry the city through a longer dry stretch than usual, and in August Seattle, Tacoma and Everett asked their customers to cut their water use by a tenth."},
-        {"type": "key_ideas", "title": "Outside: find your watershed", "points": [
-          "Next time it rains, find the storm drain nearest your home. Many in Seattle carry a small marker saying where they drain: a stream, a lake or the Sound.",
-          "Follow the slope of your street to it, then find it on a map: which lake, creek or bay does that water reach? You are standing in that watershed.",
-          "In older parts of the city the drain may join the sewer and run to the treatment plant at West Point, a watershed drawn by engineers."
-        ]}
+        {
+          "type": "text",
+          "text": "After the fire of 1889 burned out downtown, a fire blamed partly on weak water pressure, Seattle voted to build its own water supply. The city engineer, Reginald H. Thomson, wanted the Cedar River: high enough in the mountains for its water to run to the city by gravity, with no pumps, and clean. Water from a pipeline at Landsburg reached the city in 1901. The city then bought the land above it, piece by piece, until it owned nearly the whole watershed, about 370 square kilometres of forest that is still closed to the public. Cedar water is clean enough that it is not filtered, only disinfected. Today the Cedar supplies about two thirds of the water for some 1.5 million people in and around Seattle; the Tolt River, a smaller supply to the north, gives the other third."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Estimate: how much of the Cedar does Seattle drink?",
+          "points": [
+            "Rain and snow on the watershed: about 2.4 metres a year averaged over it (more on the ridges, less near the bottom), on 370 square kilometres. That is 370 million square metres times 2.4 metres, about 900 million cubic metres, or 0.9 cubic kilometres.",
+            "Seattle's supply: about 120 million US gallons a day, some 450 million litres, which over a year is about 0.17 cubic kilometres. Two thirds of that from the Cedar is about 0.11 cubic kilometres.",
+            "0.11 out of 0.9 is about an eighth. Of the rest, a little under a fifth goes back to the air, and the remainder flows down the Cedar to Lake Washington, where salmon need it."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "So Seattle takes about an eighth of what falls on the Cedar watershed, which over a whole year leaves plenty. The pinch comes in late summer, when the rain has stopped, the snow is gone, the river is at its lowest and people water their gardens. Chester Morse Lake, the reservoir high on the Cedar, stores enough to bridge an ordinary summer. In 2015, with the snow gone by May, it had to carry the city through a longer dry stretch than usual, and in August Seattle, Tacoma and Everett asked their customers to cut their water use by a tenth."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Outside: find your watershed",
+          "points": [
+            "Next time it rains, find the storm drain nearest your home. Many in Seattle carry a small marker saying where they drain: a stream, a lake or the Sound.",
+            "Follow the slope of your street to it, then find it on a map: which lake, creek or bay does that water reach? You are standing in that watershed.",
+            "In older parts of the city the drain may join the sewer and run to the treatment plant at West Point, a watershed drawn by engineers."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        {"type": "quiz", "id": "check", "caption": "Six questions on where the rain goes", "task": "Choose the best answer to each", "options": {"items": [
-          {"ask": "Two raindrops land a metre apart, either side of the summit of Snoqualmie Pass. Why do they reach salt water by such different routes?", "choices": ["Each runs downhill from the divide into a different watershed, one draining to Puget Sound and one to the Columbia", "The wind at the pass usually carries one of the two drops east over the crest before it reaches the ground", "Rivers on the east side of the Cascades flow south by habit, while those on the west side flow north"], "answer": 0, "why": "The crest is a divide: the highest ground between two watersheds. Water runs downhill, so a drop on the west side joins the Snoqualmie and reaches the Sound at Everett, and one on the east side joins the Yakima and then the Columbia."},
-          {"ask": "Rain falls steadily on a forested slope in the Cascades. Which best describes how most of it reaches the stream?", "choices": ["It soaks into the soil and moves downhill through it, reaching the stream underground", "It runs over the surface of the forest floor in thin sheets straight into the stream", "It is taken up by the trees and held in their wood until the following summer"], "answer": 0, "why": "Forest soil takes up water faster than all but the heaviest rain falls, so very little runs over the surface. The water travels through the soil, and some through groundwater, to the stream."},
-          {"ask": "Over a whole year, what does a watershed's water balance say?", "choices": ["Rain and snow in roughly equal water back to the air plus water down the river", "Rain and snow in roughly equal what is stored in the ground plus the snow left in spring", "River out roughly equals the rain and snow in, since very little ever goes back to the air"], "answer": 0, "why": "Over a year the soil, groundwater and snow end close to where they began, so nearly everything that falls leaves as vapour or as river water. How it splits depends on the climate: a fifth or so to the air in the wet Cascades, nearly all of it at Ellensburg."},
-          {"ask": "Why does a Cascade river that drains high country run highest in late spring, after the rains have eased?", "choices": ["The snowpack has held the winter's precipitation and releases it as it melts", "Spring storms in the Cascades bring more rain than the storms of November and December", "Groundwater rises in spring because the trees have stopped drawing water from the soil"], "answer": 0, "why": "Snow is stored water. What falls as snow from November to March waits on the mountains and melts from May into July, so the river carries winter's precipitation months after it fell."},
-          {"ask": "In the winter of 2014 to 2015, Washington's mountains got close to their usual precipitation, yet rivers ran very low that August. What is the best explanation?", "choices": ["The winter was warm, so the precipitation fell as rain and ran off in winter instead of waiting as snow", "Most of the precipitation evaporated straight from the snow surface during a sunny spring", "The usual precipitation fell, but on the east side of the crest, so it drained to the Columbia instead"], "answer": 0, "why": "With the freezing level high, rain fell where snow usually would and ran straight to the rivers. The snow that normally melts out in June was missing, so summer flows were low: a snow drought."},
-          {"ask": "What did John Wesley Powell propose for the arid West, in his 1878 report and his 1890 map?", "choices": ["Settling and governing it by drainage basins, so that people sharing a river decide on its water together", "Dividing it into square counties along survey lines, so that water rights could be sold by the acre", "Moving its rivers by canal into the wetter Pacific Northwest, where farms would need less irrigation"], "answer": 0, "why": "Powell argued that in a dry country land is worth only the water it can get, and that water taken upstream is missing downstream, so the natural unit of government is the watershed. His 1890 map drew such drainage districts; Congress never adopted them."}
-        ]}}
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on where the rain goes",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Two raindrops land a metre apart, either side of the summit of Snoqualmie Pass. Why does one reach Puget Sound and the other the Columbia?",
+                "choices": [
+                  "Each runs downhill off the divide into a different watershed",
+                  "Drains beside the highway split the water and pipe it east or west",
+                  "The east-side drop falls as snow and melts into the Yakima in spring"
+                ],
+                "answer": 0,
+                "why": "The crest is a divide, the highest ground between two watersheds. Water runs downhill, so a drop on the west side joins the Snoqualmie and reaches the Sound at Everett, and one on the east side joins the Yakima and then the Columbia."
+              },
+              {
+                "ask": "Steady rain falls on a forested slope in the Cascades. How does most of the water that reaches the stream get there?",
+                "choices": [
+                  "Underground, moving downhill through the soil and groundwater",
+                  "Over the forest floor, in thin sheets running between the trees",
+                  "Dripping from branches that overhang the stream along its banks"
+                ],
+                "answer": 0,
+                "why": "Forest soil takes up water faster than all but the heaviest rain falls, so very little runs over the surface. The water travels through the soil, and some through groundwater, to the stream."
+              },
+              {
+                "ask": "Over a whole year, which statement about a wet Cascade watershed's water is closest to true?",
+                "choices": [
+                  "Nearly all that falls leaves, mostly down the river and the rest to the air",
+                  "Most of what falls stays in the soil and groundwater from year to year",
+                  "About half of what falls goes back to the air through the forest"
+                ],
+                "answer": 0,
+                "why": "Over a year the soil, groundwater and snow end close to where they began, so what falls leaves as vapour or river water. On the Cedar a little under a fifth goes to the air and the rest down the river."
+              },
+              {
+                "ask": "Why does a Cascade river that drains high country run highest in late spring, after the rains have eased?",
+                "choices": [
+                  "The snowpack holds winter's precipitation and releases it as it melts",
+                  "Spring storms bring the Cascades their heaviest rain of the year",
+                  "The ground thaws and lets go of water that froze in it over winter"
+                ],
+                "answer": 0,
+                "why": "Snow is stored water. What falls as snow from November to March waits on the mountains and melts from May into July, so the river carries winter's precipitation months after it fell."
+              },
+              {
+                "ask": "In the winter of 2014 to 2015, Washington's mountains got close to their usual precipitation, yet rivers ran very low that summer. What is the best explanation?",
+                "choices": [
+                  "The storms were warm, so it rained where it usually snows, and the water left in winter",
+                  "Most of the snow evaporated straight into the air during a sunny, dry spring",
+                  "The snow fell mostly east of the crest, so its water drained to the Columbia"
+                ],
+                "answer": 0,
+                "why": "With warmer air the freezing level sat higher, so rain fell where snow usually would and ran straight to the rivers. The snow that normally melts out in June was missing: a snow drought."
+              },
+              {
+                "ask": "What did John Wesley Powell propose for the arid West, in his 1878 report and his 1890 map?",
+                "choices": [
+                  "Governing it by drainage basins, so people sharing a river decide on its water",
+                  "Building a large dam on every western river to store the winter floods",
+                  "Giving each settler 160 acres with a right to water from the nearest stream"
+                ],
+                "answer": 0,
+                "why": "Powell argued that in a dry country land is worth only the water it can get, and that water taken upstream is missing downstream, so the natural unit of government is the watershed. Congress never adopted his drainage districts."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
   "footnotes": {
-    "distance": {"kind": "technical", "title": "How far", "text": "Both distances are along the rivers and rounded: roughly 150 km from the pass to Everett by the South Fork, the Snoqualmie and the Snohomish, and roughly 350 km down the Yakima plus 540 km down the Columbia from Richland to the sea."},
-    "word": {"kind": "digression", "title": "Two meanings of watershed", "text": "In Britain a watershed traditionally means the divide itself, the ridge that sheds water two ways, which is why a 'watershed moment' is a turning point. In North America it came to mean the whole basin that drains to a point. This course uses the American sense."},
-    "wria": {"kind": "digression", "title": "WRIAs", "text": "The Snoqualmie and Skykomish are in WRIA 7, the Snohomish; the Cedar and Lake Washington are in WRIA 8, the Cedar-Sammamish. Planning for salmon recovery is organised by the same areas."},
-    "et": {"kind": "technical", "title": "Evapotranspiration", "text": "Evaporation is water turning to vapour from a wet surface; transpiration is water drawn from the soil by roots and lost through the small pores in leaves. They are hard to measure apart over a forest, so hydrologists usually work out their sum, evapotranspiration, as whatever is left over in the water balance."},
-    "shadow": {"kind": "digression", "title": "The rain shadow", "text": "Air from the Pacific rises over the Cascades, cools and drops most of its water on the west slopes, then sinks and warms on the east side, where it rains far less. The Clouds course follows the air."},
-    "swe": {"kind": "technical", "title": "SNOTEL", "text": "The US Department of Agriculture runs a network of automatic snow stations, called SNOTEL, across the western mountains. Each weighs the snow on a large flat pillow filled with antifreeze and radios the reading in, so the water in the pack is known day by day."},
-    "thomson": {"kind": "digression", "title": "R. H. Thomson", "text": "Thomson, Seattle's city engineer for most of the years from 1892 to 1911, is better remembered for moving earth than water: he led the regrades that washed Denny Hill and others into Elliott Bay with jets of water."}
+    "word": {
+      "kind": "digression",
+      "title": "Two meanings of watershed",
+      "text": "In Britain a watershed traditionally means the divide itself, the ridge that sheds water two ways, which is why a 'watershed moment' is a turning point. In North America it came to mean the whole basin that drains to a point. This course uses the American sense."
+    },
+    "wria": {
+      "kind": "digression",
+      "title": "WRIAs",
+      "text": "Each Water Resource Inventory Area has a number and a name. The Snoqualmie and Skykomish are in WRIA 7, named for the Snohomish; the Cedar and Lake Washington are in WRIA 8, the Cedar-Sammamish."
+    },
+    "et": {
+      "kind": "technical",
+      "title": "Evapotranspiration",
+      "text": "Evaporation is water turning to vapour from a wet surface; transpiration is water drawn from the soil by roots and lost through the small pores in leaves. They are hard to measure apart over a forest, so hydrologists usually work out their sum, evapotranspiration, as whatever is left over in the water balance."
+    },
+    "shadow": {
+      "kind": "digression",
+      "title": "The rain shadow",
+      "text": "Air from the Pacific rises over the Cascades, cools and drops most of its water on the west slopes, then sinks and warms on the east side, where it rains far less. The Clouds course follows the air."
+    },
+    "swe": {
+      "kind": "technical",
+      "title": "SNOTEL",
+      "text": "The US Department of Agriculture runs a network of automatic snow stations, called SNOTEL, across the western mountains. Each weighs the snow on a large flat pillow filled with antifreeze and radios the reading in, so the water in the pack is known day by day."
+    }
   }
 }

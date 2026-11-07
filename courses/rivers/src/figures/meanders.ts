@@ -442,7 +442,7 @@ export const braidFigure = figure(['both'], (_ctx, t) => {
   const f = frame(W, 260, 3);
   const g = svg('g');
   f.svg.append(g);
-  let slope = 0.0005;
+  let slope = 0.001;
   let supply = 1;
   let sawBraid = false;
   let sawMeander = false;

@@ -7,98 +7,404 @@
     "**The tide grows on its way into the Sound.** The usual daily range is about 8.5 ft at Port Townsend, 11.4 ft at Seattle, 11.8 ft at Tacoma and 14.6 ft at Olympia.",
     "**The tide is a long wave.** Its wavelength is hundreds of kilometres, so even the deep ocean is shallow to it, and it travels at √(g h), set by the depth alone.",
     "**In the Sound the tide wave moves at about 90 km/h.** At about 60 m deep it crosses the 150 km from Admiralty Inlet to Olympia in under two hours.",
-    "**The wave bounces off the Sound's closed southern end.** The returning wave adds to the incoming one into a standing wave, like the seiche in lesson 6, with its largest swing at the closed end.",
-    "**A basin a quarter of a wavelength long resonates.** The nearer its length comes to that, the more the range at the closed end grows; the Sound is about half way there, which makes Olympia's tide about 1.7 times Port Townsend's.",
+    "**The wave bounces off the Sound's closed southern end.** The returning wave adds to the incoming one into a standing wave, like the seiche in lesson 6, with its largest swing at the closed end and a quiet spot a quarter wavelength away.",
+    "**A basin a quarter of a wavelength long resonates.** The nearer its length comes to that, the more the range at the closed end grows; the Sound is about half way there, which accounts for most of Olympia's range being 1.7 times Port Townsend's.",
     "**King tides are the year's highest predicted tides.** They come when springs, the Moon's closest approach and the solstice's strong daily wave line up, in winter at Seattle.",
     "**Weather adds to the prediction.** Every hectopascal of low pressure lifts the sea about a centimetre, and south winds pile more water in; Seattle's record, about 14.5 ft on 27 December 2022, was a king tide raised by stormy low pressure.",
-    "**The sea is rising under the tides.** The Seattle gauge shows about 2 mm a year since 1898, and the rise is expected to speed up, so today's king tide level will become an ordinary high tide."
+    "**The sea is rising under the tides.** The Seattle gauge shows about 2 mm a year since 1898, and the rise is expected to speed up; at a faster pace, today's king tide height would become an ordinary high tide this century."
   ],
   "parts": [
     {
       "title": "More tide at the far end",
       "blocks": [
-        {"type": "text", "text": "The shellfish growers of the South Sound work the tide. In the long, shallow inlets west of Olympia (Totten, Eld and Little Skookum), oysters and clams grow on flats that the water leaves bare at the lowest tides, and the crews go out on foot when it does, in summer often in the middle of the day. The flats are wide because the tide there is large. On an ordinary day the water at the head of Budd Inlet in Olympia rises and falls about 14.6 feet (4.5 m) between the day's higher high and its lower low. At Port Townsend, where the Sound opens to the Strait of Juan de Fuca, the same measure is about 8.5 feet (2.6 m)."},
-        {"type": "text", "text": "That is backwards from what most people expect. All the Sound's tide comes in from the Strait through Admiralty Inlet, past Port Townsend. Nothing pulls harder on the South Sound than on the north; the Moon is the same Moon. Yet the water at the far end of this long dead-end sea rises and falls 1.7 times as much as the water at the door."},
-        {"type": "interactive_diagram", "id": "scale-guess", "caption": "The great diurnal range, from an average day's higher high water down to its lower low, at four NOAA tide stations along the Sound (about).", "task": "Guess Olympia's range", "goal": "guess", "aspect_ratio": 1.9, "options": {"unit": "ft", "items": [
-          {"label": "Port Townsend", "value": 8.5, "says": "8.5 ft (2.6 m)", "color": "salt"},
-          {"label": "Seattle", "value": 11.4, "says": "11.4 ft (3.5 m)", "color": "salt"},
-          {"label": "Tacoma", "value": 11.8, "says": "11.8 ft (3.6 m)", "color": "salt"},
-          {"label": "Olympia", "value": 14.6, "says": "14.6 ft (4.5 m)", "color": "salt", "bold": true}
-        ], "guess": {"item": 3, "ask": "The tide grows from Port Townsend to Tacoma. Olympia is further in. How big is its range?", "options": [8.5, 11.8, 14.6, 20]}}},
-        {"type": "text", "text": "The range grows in two steps: from Port Townsend into the Main Basin, and again in the shallow southern end beyond Tacoma. Something about the shape of the Sound is making the tide bigger, and the way into it is to stop thinking of the tide as water rising in place, as lesson 8 drew it, and to treat it as a wave."}
+        {
+          "type": "text",
+          "text": "The shellfish growers of the South Sound work the tide. In the long, shallow inlets west of Olympia, at the southern end of Puget Sound, oysters and clams grow on flats that the water leaves bare at the lowest tides, and the crews go out on foot when it does, in summer often in the middle of the day. A gently sloping shore under a large tide uncovers a wide strip, and the tide here is large. Its **range**, the drop from an ordinary day's higher high water to its lower low water, is about 14.6 feet (4.5 m) at Olympia, at the head of Budd Inlet. At Port Townsend, where the Sound opens to the Strait of Juan de Fuca, the range is about 8.5 feet (2.6 m)."
+        },
+        {
+          "type": "text",
+          "text": "That is backwards from what most people expect. All of Puget Sound's tide comes in from the Strait through **Admiralty Inlet**, the channel that starts beside Port Townsend and runs south past Whidbey Island. Nothing pulls harder on the South Sound than on the north; the Moon is the same Moon. Yet the water at the far end of this long dead-end sea rises and falls 1.7 times as much as the water at its entrance."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "scale-guess",
+          "caption": "The range, from an average day's higher high water to its lower low, at four NOAA tide stations along the Sound, in order from the entrance. All four are approximate.",
+          "task": "Guess Olympia's range before it is drawn",
+          "goal": "guess",
+          "aspect_ratio": 1.9,
+          "options": {
+            "unit": "ft",
+            "items": [
+              {
+                "label": "Port Townsend",
+                "value": 8.5,
+                "says": "8.5 ft (2.6 m)",
+                "color": "salt"
+              },
+              {
+                "label": "Seattle",
+                "value": 11.4,
+                "says": "11.4 ft (3.5 m)",
+                "color": "salt"
+              },
+              {
+                "label": "Tacoma",
+                "value": 11.8,
+                "says": "11.8 ft (3.6 m)",
+                "color": "salt"
+              },
+              {
+                "label": "Olympia",
+                "value": 14.6,
+                "says": "14.6 ft (4.5 m)",
+                "color": "salt",
+                "bold": true
+              }
+            ],
+            "guess": {
+              "item": 3,
+              "ask": "Seattle and Tacoma are about 3 ft above Port Townsend. What range does Olympia have?",
+              "options": [
+                7,
+                11.8,
+                14.6,
+                20
+              ]
+            }
+          }
+        },
+        {
+          "type": "text",
+          "text": "Most of the growth comes in two places: about 3 feet between Port Townsend and the Main Basin off Seattle, and about 3 feet more beyond Tacoma, in the shallow South Sound; between Seattle and Tacoma it hardly changes. Something about the shape of the Sound is making the tide bigger, and the way into it is to stop thinking of the tide as water rising in place, as lesson 8 drew it, and to treat it as a wave."
+        }
       ]
     },
     {
       "title": "The tide is a wave",
       "blocks": [
-        {"type": "text", "text": "Lesson 7 found that a wave's speed depends on how its length compares with the depth. Ripples and wind waves are short, and the bottom does not touch them in deep water. A wave much longer than the water is deep feels the bottom all the way through, and its speed then depends on the depth alone: √(g h), where g is gravity's 9.8 m/s² and h the depth in metres. Tsunamis are waves of this kind, and so is the tide.[^long]"},
-        {"type": "text", "text": "The tide's wavelength is enormous. A crest follows the one before by 12.42 hours, and in the open Pacific, about 4,000 m deep, the wave goes at √(9.8 × 4,000), about 200 m/s or 700 km/h, the speed of an airliner. In 12.42 hours it covers nearly 9,000 km, so to the tide even the deepest ocean is a shallow film. That is why the bulges of lesson 8 cannot simply stay under the Moon: on most of the Earth the water cannot keep up, and the tide sweeps around each ocean basin as a wave instead.[^amphidrome]"},
-        {"type": "text", "text": "The same sum works for the Sound. Its average depth is about 60 m (200 ft), deeper in the Main Basin, much shallower in the south, so the tide wave runs at √(9.8 × 60), about 24 m/s, which is close to 90 km/h, the speed of a car on the freeway. By water it is about 150 km from Admiralty Inlet to Olympia."},
-        {"type": "diagram", "id": "map", "caption": "The tide's way into the Sound: in past Port Townsend through Admiralty Inlet, down the Main Basin past Seattle and Tacoma, through the Narrows and into the shallow South Sound. About 150 km by water.", "options": {"relief": "maps/puget", "water": 0, "sun": {"azimuth": 315, "altitude": 40}, "scale": "right", "lines": [
-          {"points": [[-122.76, 48.13], [-122.67, 48.03], [-122.53, 47.92], [-122.45, 47.78], [-122.43, 47.62], [-122.38, 47.45], [-122.45, 47.32], [-122.55, 47.29], [-122.57, 47.23], [-122.6, 47.17], [-122.7, 47.13], [-122.82, 47.15], [-122.88, 47.14], [-122.9, 47.09], [-122.9, 47.05]], "color": "flow", "dashed": true}
-        ], "labels": [
-          {"lon": -122.76, "lat": 48.117, "text": "Port Townsend", "side": "left"},
-          {"lon": -122.335, "lat": 47.606, "text": "Seattle"},
-          {"lon": -122.44, "lat": 47.253, "text": "Tacoma"},
-          {"lon": -122.55, "lat": 47.27, "text": "Narrows", "side": "left"},
-          {"lon": -122.9, "lat": 47.04, "text": "Olympia", "side": "below"}
-        ]}},
-        {"type": "text", "text": "At 24 m/s the wave covers 150 km in about 6,000 seconds, a little under two hours. So if the tide simply ran down the Sound, like a wave rolling along a very long beach, high water would reach Olympia nearly two hours after Port Townsend. It would also arrive weaker, worn down by friction against the bottom along the way. Neither is what happens: the delay is shorter than that and the wave arrives bigger. Both come from what happens when the wave reaches the end of the Sound."},
-        {"type": "text", "text": "A common picture of the flood tide is ocean water pouring into the Sound and piling up at the far end. The water does move, back and forth a few kilometres on each tide, faster in the narrows, which lesson 11 takes up. But the rise at Olympia is carried by the wave, the way a ripple crosses a pond while the water stays roughly where it was. The water rising at Olympia on the flood is mostly water that was already in the South Sound."}
+        {
+          "type": "text",
+          "text": "Lesson 7 found that a wave's speed depends on how its length compares with the depth. Ripples and wind waves are short, and the bottom does not touch them in deep water. A wave much longer than the water is deep feels the bottom all the way through, and its speed then depends on the depth alone: √(g h), where g is gravity's 9.8 m/s² and h the depth in metres. Tsunamis are waves of this kind, and so is the tide.[^long]"
+        },
+        {
+          "type": "text",
+          "text": "The tide's wavelength is enormous. The crests of the Moon's main wave, lesson 9's M2, come 12.42 hours apart, and in the open Pacific, about 4,000 m deep, the wave goes at √(9.8 × 4,000), about 200 m/s or 700 km/h, the speed of an airliner. In 12.42 hours it covers nearly 9,000 km, so to the tide even the open ocean is a shallow film. That is why the bulges of lesson 8 cannot simply stay under the Moon: on most of the Earth the water cannot keep up, and the tide sweeps around each ocean basin as a wave instead.[^amphidrome]"
+        },
+        {
+          "type": "text",
+          "text": "The same sum works for the Sound. Its average depth is about 60 m (200 ft), deeper in the Main Basin, much shallower in the south, so the tide wave runs at √(9.8 × 60), about 24 m/s, which is close to 90 km/h, the speed of a car on the freeway. By water it is about 150 km from Admiralty Inlet to Olympia."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "The tide's way into the Sound (the dashed line): in past Port Townsend through Admiralty Inlet, down the Main Basin past Seattle and Tacoma, through the Narrows and into the shallow South Sound. About 150 km by water.",
+          "options": {
+            "relief": "maps/puget",
+            "water": 0,
+            "sun": {
+              "azimuth": 315,
+              "altitude": 40
+            },
+            "scale": "right",
+            "lines": [
+              {
+                "points": [
+                  [
+                    -122.76,
+                    48.13
+                  ],
+                  [
+                    -122.67,
+                    48.03
+                  ],
+                  [
+                    -122.53,
+                    47.92
+                  ],
+                  [
+                    -122.45,
+                    47.78
+                  ],
+                  [
+                    -122.43,
+                    47.62
+                  ],
+                  [
+                    -122.38,
+                    47.45
+                  ],
+                  [
+                    -122.45,
+                    47.32
+                  ],
+                  [
+                    -122.55,
+                    47.29
+                  ],
+                  [
+                    -122.57,
+                    47.23
+                  ],
+                  [
+                    -122.6,
+                    47.17
+                  ],
+                  [
+                    -122.7,
+                    47.13
+                  ],
+                  [
+                    -122.82,
+                    47.15
+                  ],
+                  [
+                    -122.88,
+                    47.14
+                  ],
+                  [
+                    -122.9,
+                    47.09
+                  ],
+                  [
+                    -122.9,
+                    47.05
+                  ]
+                ],
+                "color": "flow",
+                "dashed": true
+              }
+            ],
+            "labels": [
+              {
+                "lon": -122.76,
+                "lat": 48.117,
+                "text": "Port Townsend",
+                "side": "left"
+              },
+              {
+                "lon": -122.335,
+                "lat": 47.606,
+                "text": "Seattle"
+              },
+              {
+                "lon": -122.44,
+                "lat": 47.253,
+                "text": "Tacoma"
+              },
+              {
+                "lon": -122.55,
+                "lat": 47.27,
+                "text": "Narrows",
+                "side": "left"
+              },
+              {
+                "lon": -122.9,
+                "lat": 47.04,
+                "text": "Olympia",
+                "side": "below"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "At 24 m/s the wave covers 150 km in about 6,000 seconds, a little under two hours. So if the tide simply ran down the Sound, like a wave rolling along a very long beach, high water would reach Olympia nearly two hours after Port Townsend, and the wave would arrive somewhat weaker, worn down by friction against the bottom. Neither is what happens: high water at Olympia trails Port Townsend's by less than that, and the range there is larger. The next part shows why."
+        },
+        {
+          "type": "text",
+          "text": "A common picture of the flood tide is ocean water pouring into the Sound and piling up at the far end. The water does move: on a big flood the current through the Tacoma Narrows runs for about six hours, and the water it carries, of the order of a couple of cubic kilometres, spread over the few hundred square kilometres of the South Sound, is enough to raise it by metres. But that flow is local, a few kilometres back and forth, and it is driven by the wave: the water surface slopes between crest and trough, and the slope pushes the current along (lesson 11 takes this up at Deception Pass). The water rising at Olympia on the flood is mostly water that was already in the South Sound, moved a little way north and south."
+        }
       ]
     },
     {
       "title": "The wave comes back",
       "blocks": [
-        {"type": "text", "text": "The Sound is closed at its southern end. A wave that reaches a wall cannot go on, and it reflects, running back the way it came. In the Sound the returning wave meets the next one coming in, and the two add. At the closed end, the incoming wave and its reflection rise and fall together, so the water there swings twice as far as either would alone. A quarter of a wavelength back from the wall they work against each other, and the water there barely rises at all while the current through it runs hardest. Waves added this way make a **standing wave**: the water sloshes from end to end instead of moving along."},
-        {"type": "text", "text": "Lesson 6 met one already. A seiche on Lake Washington is the lake sloshing from end to end at its own natural period, once something sets it going.[^seiche] The difference here is that the Sound is open at one end and never left alone: the ocean pushes on the mouth every 12.42 hours, as steadily as a parent pushing a child on a swing. A swing pushed in time with its own natural rhythm goes higher with every push. A basin pushed at a period close to its own sloshing period does the same, and that is **resonance**."},
-        {"type": "text", "text": "For a basin open at one end and closed at the other, the natural sloshing period is the one whose wavelength is four times the basin's length: the open end sits where the water barely rises and the closed end where it swings most. So the tide at the closed end grows as the basin's length approaches a quarter of the tide's wavelength. Before reading on, it is worth guessing what happens to the tide at the closed end as a channel gets longer."},
-        {"type": "interactive_diagram", "id": "olympia-channel", "caption": "A model channel of even depth, open to the sea on the left, where the tide rises and falls 2.6 m (8.5 ft), as at Port Townsend, and closed on the right. The dashed lines are the highest and lowest the water gets at each point; the drawing's heights are much exaggerated. Puget Sound sets a length and depth like the Sound's.", "task": "Guess, then find the length at which the closed end's range peaks", "goal": "peak", "aspect_ratio": 1.87},
-        {"type": "text", "text": "At 60 m deep the tide's wavelength is about 1,080 km, and a quarter of it is about 270 km. The Sound, at about 150 km, is a little over half that length. The model then puts the closed end's range at about 1.5 times the mouth's, close to the 1.7 measured between Port Townsend and Olympia; the real Sound is not one even channel, and its shallow southern end slows the wave and makes it shorter there, which helps.[^daily] The same reflection is why the high water comes sooner than the two-hour estimate: in a standing wave the whole basin rises together, more or less, instead of waiting for a crest to travel down it."},
-        {"type": "text", "text": "Resonance is also why the world's largest tides are where they are. The Bay of Fundy, between Nova Scotia and New Brunswick, together with the Gulf of Maine outside it, has a natural sloshing period close to 12.42 hours. Its range at the head of the bay reaches about 16 m (over 50 ft), while the open Atlantic tide outside is a metre or two."}
+        {
+          "type": "text",
+          "text": "The Sound is closed at its southern end. A wave that reaches a wall cannot go on, and it reflects, running back the way it came. In the Sound the returning wave meets the next one coming in, and the two add. At the wall the incoming wave and its reflection always rise and fall together, so the water there swings twice as far as either would alone. A quarter of a wavelength back from the wall the two always work against each other, so the water there barely rises at all, while the current through that spot runs hardest. Waves added this way make a **standing wave**: the water sloshes from end to end instead of travelling along, swinging most at the wall and least at the quiet spot a quarter wavelength away."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 6 met one already. A seiche on Lake Washington is the lake sloshing from end to end at its own natural period, once something sets it going.[^seiche] The difference here is that the Sound is open at one end and never left alone: the ocean pushes on the mouth every 12.42 hours, as steadily as a parent pushing a child on a swing. A swing pushed in time with its own natural rhythm goes higher with every push. A basin pushed at a period close to its own sloshing period does the same, and that is **resonance**."
+        },
+        {
+          "type": "text",
+          "text": "The model below is a channel of even depth, open to the sea on the left, where the tide rises and falls 2.6 m as at Port Townsend, and closed on the right. Before moving anything, guess what happens to the range at the closed end as the channel gets longer."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "olympia-channel",
+          "caption": "A model channel of even depth, open to the sea on the left and closed on the right. The solid line is the water now; the dashed lines are the highest and lowest it gets at each point, with heights much exaggerated. The scale below marks a quarter of the tide's wavelength. Puget Sound sets a length and depth like the Sound's.",
+          "task": "Guess, then lengthen the channel to find where the closed end's range peaks",
+          "goal": "peak",
+          "aspect_ratio": 1.87
+        },
+        {
+          "type": "text",
+          "text": "The range peaks when the channel is a quarter of the tide's wavelength long, about 270 km at 60 m deep, and falls again beyond it. At that length the quiet spot of the standing wave sits right at the mouth. The sea outside still moves the mouth up and down a little, and to fit that small movement at the quiet spot, the swing at the wall has to be huge. A quarter wavelength is the distance from a quiet spot to the place of biggest swing, so that is the length at which the basin's own sloshing keeps time with the push. Longer than that, the quiet spot moves inside the channel and the wall's swing shrinks again."
+        },
+        {
+          "type": "text",
+          "text": "The Sound, at about 150 km, is a little over half that length, so its quiet spot would lie beyond the mouth, out in the Strait. Everything inside rises and falls more or less together, growing toward the wall, which is why high water at Olympia comes sooner than a travelling wave would bring it. The model puts the closed end's range at about 1.5 times the mouth's, a little short of the 1.7 measured between Port Townsend and Olympia. The real Sound is not one even channel: its shallow southern end slows the wave and shortens its wavelength there, which puts the Sound nearer resonance than its average depth suggests.[^daily]"
+        },
+        {
+          "type": "text",
+          "text": "Resonance is also why the world's largest tides are where they are. The Bay of Fundy, between Nova Scotia and New Brunswick, together with the Gulf of Maine outside it, has a natural sloshing period of about 13 hours, close to the tide's 12.42. Its range at the head of the bay reaches about 16 m (over 50 ft), while the open Atlantic tide outside is a metre or two."
+        }
       ]
     },
     {
       "title": "King tides",
       "blocks": [
-        {"type": "text", "text": "A few times each winter the high tides at Seattle reach over the tops of the beach logs, lap at the seawalls along Alki and Harbor Avenue and come up the storm drains into low streets. These are the **king tides**, a popular name for the year's highest predicted tides. They come when several cycles line up. The tide is a spring tide, with the Sun and Moon in line (lesson 8). The Moon is near **perigee**, the closest point of its slightly oval orbit, where its pull is strongest. And it is near the solstice, when the Sun's tilt makes its daily wave strongest; around the December solstice that wave lifts Seattle's higher high waters, the mirror image of the summer lows in daylight of lesson 9."},
-        {"type": "text", "text": "Predictions only cover the Moon and Sun. Weather comes on top. Air presses on the sea, and when a deep low passes, the sea under it rises to take up the slack: about a centimetre for every hectopascal the pressure drops. An ordinary day's pressure is about 1013 hPa, and a strong Pacific storm can bring it down to 980 hPa, which lifts the sea about 33 cm, a foot. Strong south winds along the coast push water toward the shore and into the Strait, adding more, and the extra arrives in the Sound with the tide.[^surge]"},
-        {"type": "text", "text": "On 27 December 2022 all of it came together. A high king tide was predicted for that morning, and a stormy spell of low pressure lifted the water above the prediction. The Seattle gauge reached about 14.5 feet above the chart's zero, the highest it had recorded since it began in 1898, a little above its previous record from January 1983. Water came over the seawall at Alki and flooded streets and homes in South Park, along the Duwamish."}
+        {
+          "type": "text",
+          "text": "A few times each winter the high tides at Seattle reach over the tops of the beach logs, lap at the seawalls along Alki and Harbor Avenue and come up the storm drains into low streets. These are the **king tides**, a popular name for the year's highest predicted tides. They come when several cycles line up. The tide is a spring tide, with the Sun and Moon in line (lesson 8). The Moon is near **perigee**, the closest point of its slightly oval orbit, where its pull is strongest. And it is near the solstice, when the Sun's daily wave from lesson 9 is strongest. In December that wave has its low near midnight, so its high comes near midday, and it lifts whichever of the day's high waters falls then."
+        },
+        {
+          "type": "text",
+          "text": "Predictions cover only the Moon and the Sun. Weather comes on top. Air presses on the sea, and when a deep low passes, the sea under it rises: about a centimetre for every **hectopascal** the pressure drops (the hectopascal is the same unit as the millibar of weather reports). An ordinary day's pressure is about 1013 hPa, and a strong Pacific storm can bring it down to 980 hPa, which lifts the sea about 33 cm, a foot. Strong south winds along the coast add more: the Earth's spin turns the current a wind drives to the right of the wind, so a wind from the south pushes surface water east against the shore and into the Strait, and the extra arrives in the Sound with the tide.[^surge]"
+        },
+        {
+          "type": "text",
+          "text": "On 27 December 2022 it came together. A high king tide was predicted for that morning, and a stormy spell of low pressure lifted the water above the prediction. The Seattle gauge reached about 14.5 feet above the chart's zero (mean lower low water, from lesson 9), the highest it had recorded since it began in 1898, a little above its previous record from January 1983. Water came over the seawall at Alki and flooded streets and homes in South Park, along the Duwamish."
+        }
       ]
     },
     {
       "title": "The sea under the tides",
       "blocks": [
-        {"type": "text", "text": "The Seattle tide gauge has been measuring the water on the waterfront since 1898, one of the longest records on the Pacific coast. Averaged over the tides and over each year, its sea level has risen about 2 mm a year, about 20 cm (8 inches) a century. That number includes the land: some places along the coast are rising and some sinking, and a gauge measures the sea against its own pier. Around the world the rise has sped up, to more than 3 mm a year since the 1990s, as warming water expands and land ice melts, and projections for Seattle under continued high emissions put the rise by 2100 at roughly half a metre to a metre."},
-        {"type": "text", "text": "A small rise matters more than its size suggests, because the tide rides on top of it. What floods a street is the highest water, and that is reached only on the few days a year when the king tides and the weather line up. Raise the sea a little and the same height is reached more often, by smaller coincidences, until an ordinary day's high tide gets there."},
-        {"type": "interactive_diagram", "id": "olympia-rise", "caption": "Top: Seattle's sea level, rising about 2 mm a year since 1898 (the gauge's trend, drawn as a line), and three paces for the future. Bottom: three ordinary days of a model Seattle tide, lifted by the sea's rise, against the height of today's king tides and the December 2022 record. The dotted line is the average day's higher high water.", "task": "Pick a pace and run the years until an ordinary high tide reaches today's king tides", "goal": "reach", "aspect_ratio": 1.6},
-        {"type": "text", "text": "At the old pace of 2 mm a year an ordinary high tide would not reach today's king tide height for about two centuries. At 5 mm a year it gets there around 2100, and at 10 mm a year by about 2060. The king tides of this decade show the reader of 2100 what an ordinary winter morning at Alki might look like, which is why Washington's coastal agencies ask people to photograph them."},
-        {"type": "key_ideas", "title": "Outdoors: a king tide", "points": [
-          "Find the year's highest predicted high tides for Seattle on NOAA's tide predictions; they usually fall between November and February, often in the morning.",
-          "Go to the Alki seawall, the Elliott Bay Trail at Myrtle Edwards Park or the beach at Golden Gardens half an hour before the predicted high.",
-          "Note how far up the beach logs the water comes, then compare the gauge's measured height, which NOAA posts online, with the prediction: the difference is the weather's share."
-        ]}
+        {
+          "type": "text",
+          "text": "The Seattle tide gauge has been measuring the water on the waterfront since 1898, one of the longest records on the Pacific coast. Averaged over the tides and over each year, its sea level has risen about 2 mm a year, about 20 cm (8 inches) a century. A gauge measures the sea against the land it stands on, so if the land sinks the gauge shows more rise, and if it rises, less. Around the world the rise has sped up, from under 2 mm a year through most of the twentieth century to more than 3 mm a year since the 1990s, as warming water expands and land ice melts. Washington's 2018 sea level projections put Seattle's rise by 2100, under continued high emissions, at roughly half a metre to a metre."
+        },
+        {
+          "type": "text",
+          "text": "A small rise matters more than its size suggests, because the tide rides on top of it. What floods a street is the highest water, reached only on the few days a year when the king tides and the weather line up. Raise the sea a little and the same height is reached more often, with less help from the Moon and the weather, until an ordinary day's high tide gets there. Today, in the model below, an ordinary day's higher high water sits about 40 cm (15 inches) below the king tides."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "olympia-rise",
+          "caption": "Top: Seattle's sea level, rising about 2 mm a year since 1898 (the gauge's trend, drawn as a line), and three possible rates for the future. Bottom: three ordinary days of a model Seattle tide, lifted by the sea's rise, against the height of today's king tides and the December 2022 record. The dotted line is the average day's higher high water.",
+          "task": "Pick a rate and run the years until an ordinary high tide reaches today's king tides",
+          "goal": "reach",
+          "aspect_ratio": 1.6
+        },
+        {
+          "type": "text",
+          "text": "At the gauge's old pace the gap takes about two centuries to close. At the rates expected later this century it closes within the lives of children born now. The king tides of this decade are a preview of what an ordinary winter morning at Alki would look like then."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Outdoors: a king tide",
+          "points": [
+            "Find the year's highest predicted high tides for Seattle on NOAA's tide predictions; they usually fall between November and February, often in the morning.",
+            "Go to the Alki seawall, the Elliott Bay Trail at Myrtle Edwards Park or the beach at Golden Gardens half an hour before the predicted high.",
+            "Note how far up the beach logs the water comes, then compare the gauge's measured height, which NOAA posts online, with the prediction: the difference is the weather's share."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        {"type": "quiz", "id": "check", "caption": "Six questions on the tide as a wave", "task": "Choose the best answer to each", "options": {"items": [
-          {"ask": "Why is the tide's range at Olympia much larger than at Port Townsend?", "choices": ["The tide wave reflects off the Sound's closed south end, and the Sound is long enough to resonate partly, so the swing builds toward the end", "The Moon's pull is stronger on the South Sound because it lies further south than Port Townsend", "Ocean water flowing in through Admiralty Inlet piles up at the far end because it has nowhere else to go"], "answer": 0, "why": "The incoming and reflected waves add into a standing wave with its largest swing at the closed end, and a basin near a quarter of a wavelength long amplifies it further. Water does not simply pile up; the rise is carried by the wave."},
-          {"ask": "Why does the tide travel as a shallow-water wave even across the deep Pacific?", "choices": ["Its wavelength, thousands of kilometres, is far longer than the ocean is deep", "The Moon's pull only reaches the top few hundred metres of the sea", "Tides travel along the continental shelves, where the water is shallow"], "answer": 0, "why": "A wave feels the bottom when its length is many times the depth. A tide's crests are thousands of kilometres apart, so even 4 km of ocean is shallow to it, and its speed is √(g h)."},
-          {"ask": "Water 60 m deep. About how fast does the tide wave travel?", "choices": ["About 24 m/s, close to 90 km/h", "About 2.4 m/s, a fast walk", "About 240 m/s, the speed of an airliner"], "answer": 0, "why": "√(9.8 × 60) is about 24 m/s, which is about 87 km/h. The airliner's speed belongs to the open ocean, 4,000 m deep."},
-          {"ask": "A basin open to the sea at one end is made gradually longer. What happens to the tide at its closed end?", "choices": ["It grows to a peak when the basin is a quarter of the tide's wavelength long, then falls again", "It shrinks steadily, because the wave loses energy to friction on a longer trip", "It grows steadily without limit, because a longer basin holds more water"], "answer": 0, "why": "At a quarter wavelength the basin's own sloshing period matches the tide's, so each push at the mouth adds to the swing: resonance. Longer or shorter, the push and the sloshing fall out of time."},
-          {"ask": "Seattle's tide reached about 14.5 ft on 27 December 2022, well above that morning's prediction. What added the extra?", "choices": ["Low air pressure and south winds lifted the sea on top of a king tide", "The Moon was at its closest in 18.6 years, which the prediction left out", "Heavy rain on the city drained into Elliott Bay faster than the tide could carry it out"], "answer": 0, "why": "Predictions include only the Moon and Sun. A deep low lifts the sea about a centimetre per hectopascal, and south winds push more water toward the coast; on that morning both came with a high king tide."},
-          {"ask": "Why does a slow rise of sea level, a few millimetres a year, matter for flooding?", "choices": ["The tide rides on top of it, so a height now reached only by the year's highest tides is reached more and more often", "Rising water makes each year's tides bigger, so the king tides grow faster than the sea", "It does not matter until the rise exceeds the tide's range, several metres"], "answer": 0, "why": "Flooding depends on the highest water. A small rise lifts every tide by the same amount, so the king-tide height becomes reachable on ordinary days, sooner the faster the sea rises."}
-        ]}}
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the tide as a wave",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why is the tide's range at Olympia much larger than at Port Townsend?",
+                "choices": [
+                  "The wave reflects off the closed south end, and the Sound is about half way to resonance",
+                  "The Moon pulls harder on the South Sound, which lies further south",
+                  "Ocean water flowing in piles up at the far end with nowhere else to go"
+                ],
+                "answer": 0,
+                "why": "The incoming and reflected waves add into a standing wave that swings most at the closed end, and a basin approaching a quarter of a wavelength long amplifies it. The rise is carried by the wave, not by ocean water piling up."
+              },
+              {
+                "ask": "Why does the tide travel as a shallow-water wave even across the deep Pacific?",
+                "choices": [
+                  "Its crests are thousands of kilometres apart, far more than the ocean is deep",
+                  "The Moon's pull only moves the top few hundred metres of the sea",
+                  "It travels along the continental shelves, where the water is shallow"
+                ],
+                "answer": 0,
+                "why": "A wave feels the bottom when its length is many times the depth. Even 4 km of ocean is shallow to a wave thousands of kilometres long, so its speed is √(g h)."
+              },
+              {
+                "ask": "A tide wave enters a bay 15 m deep. About how fast does it travel, compared with the 60 m deep Sound?",
+                "choices": [
+                  "Half as fast",
+                  "A quarter as fast",
+                  "Four times as fast"
+                ],
+                "answer": 0,
+                "why": "The speed is √(g h). A quarter of the depth gives the square root of a quarter, a half: about 12 m/s instead of 24."
+              },
+              {
+                "ask": "A basin open to the sea at one end is made gradually longer. What happens to the tide at its closed end?",
+                "choices": [
+                  "It peaks at a quarter wavelength, then falls",
+                  "It shrinks steadily, lost to friction on the way",
+                  "It keeps growing for as long as the basin does"
+                ],
+                "answer": 0,
+                "why": "At a quarter wavelength the basin's own sloshing keeps time with the push at the mouth: resonance. Longer than that, the quiet spot of the standing wave moves inside the basin and the swing at the closed end shrinks."
+              },
+              {
+                "ask": "Seattle's tide reached about 14.5 ft on 27 December 2022, above that morning's prediction. What added the extra?",
+                "choices": [
+                  "Low air pressure lifting the sea",
+                  "The Moon at its closest of the year, which predictions leave out",
+                  "Rain on the city draining into Elliott Bay"
+                ],
+                "answer": 0,
+                "why": "Predictions include the Moon's distance but not the weather. A deep low lifts the sea about a centimetre per hectopascal, and south winds push more water toward the coast."
+              },
+              {
+                "ask": "Why does a slow rise of sea level, a few millimetres a year, matter for flooding?",
+                "choices": [
+                  "Every tide rides on it, so king-tide heights come more often",
+                  "It makes the tides themselves larger every year",
+                  "It matters only once the rise exceeds the tidal range"
+                ],
+                "answer": 0,
+                "why": "Flooding depends on the highest water. A rise lifts every tide by the same amount, so a height now reached only by the year's highest tides is reached on more and more ordinary days."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
   "footnotes": {
-    "long": {"kind": "technical", "title": "How long is long?", "text": "A wave behaves as a shallow-water wave when its wavelength is more than about twenty times the depth. Tsunamis, with wavelengths of a hundred kilometres or more, qualify even in the deep ocean, which is why they cross the Pacific at the speed of a jet. Lesson 6's seiche and the tide are waves of the same kind."},
-    "amphidrome": {"kind": "digression", "title": "Tides that go round", "text": "In each ocean basin the tide wave, turned by the Earth's spin, sweeps around points where the twice-daily tide is almost nil, called amphidromic points. Along the coast from California to British Columbia the high water travels northward, and it enters the Strait of Juan de Fuca from the Pacific."},
-    "daily": {"kind": "technical", "title": "The daily tide grows less", "text": "A daily constituent such as K1 has twice the period of M2, so its wavelength is twice as long and the Sound is a smaller fraction of it. It is amplified much less on the way to Olympia. The twice-daily part of the tide grows more than the daily part, so the tide in the South Sound is a little less unequal than at the entrance."},
-    "surge": {"kind": "technical", "title": "Why low pressure lifts the sea", "text": "The sea under a low has less air pressing on it than the sea around, and water flows in until the extra height makes up the difference. A hectopascal is a hundred pascals, and water's weight per metre of depth is about 10,000 pascals, so each hectopascal is worth about a centimetre. This is called the inverse barometer effect."},
-    "seiche": {"kind": "digression", "title": "Other waves in the Sound", "text": "The Sound has carried other long waves. The Seattle Fault earthquake about 1,100 years ago sent a tsunami that left sand at West Point in Discovery Park. The great Alaska earthquake of 1964 set Lake Union and other local waters sloshing, as seiches. And in April 1949 a landslide into the Tacoma Narrows raised a wave that struck the cabins at Salmon Beach."}
+    "long": {
+      "kind": "technical",
+      "title": "How long is long?",
+      "text": "A wave behaves as a shallow-water wave when its wavelength is more than about twenty times the depth. Tsunamis, with wavelengths of a hundred kilometres or more, qualify even in the deep ocean, which is why they cross the Pacific at the speed of a jet. Lesson 6's seiche and the tide are waves of the same kind."
+    },
+    "amphidrome": {
+      "kind": "digression",
+      "title": "Tides that go round",
+      "text": "In each ocean basin the tide wave, turned by the Earth's spin, sweeps around points where the twice-daily tide is almost nil, called amphidromic points. Along the coast from California to British Columbia the high water travels northward, and it enters the Strait of Juan de Fuca from the Pacific."
+    },
+    "daily": {
+      "kind": "technical",
+      "title": "The daily tide grows less",
+      "text": "A daily constituent such as K1 has twice the period of M2, so its wavelength is twice as long and the Sound is a smaller fraction of it. It is amplified much less on the way to Olympia. The twice-daily part of the tide grows more than the daily part, so the tide in the South Sound is a little less unequal than at the entrance."
+    },
+    "surge": {
+      "kind": "technical",
+      "title": "Why low pressure lifts the sea",
+      "text": "The sea under a low has less air pressing on it than the sea around, and water flows in until the extra height makes up the difference. A hectopascal is a hundred pascals, and water's weight per metre of depth is about 10,000 pascals, so each hectopascal is worth about a centimetre. This is called the inverse barometer effect."
+    },
+    "seiche": {
+      "kind": "digression",
+      "title": "Other waves in the Sound",
+      "text": "The Sound has carried other long waves. The Seattle Fault earthquake about 1,100 years ago sent a tsunami that left sand at West Point in Discovery Park. The great Alaska earthquake of 1964 set Lake Union and other local waters sloshing, as seiches. And in April 1949 a landslide into the Tacoma Narrows raised a wave that struck the cabins at Salmon Beach."
+    }
   }
 }

@@ -321,8 +321,53 @@ export const locksStill = () => {
   return { node: s.node };
 };
 
+// ---- Internal waves and slicks (still) --------------------------------------------------------
+
+export const slicksStill = () => {
+  const s = still(W, 190);
+  const sea = 40;
+  const mid = 110;
+  const wave = (x: number) => mid + 22 * Math.sin(((x - 20) / 180) * 2 * Math.PI);
+  const pts: P[] = [];
+  for (let x = 0; x <= W; x += 4) pts.push([x, wave(x)]);
+  const iface = pts.map((p) => p.join(',')).join(' ');
+  // Slicks sit where the surface water converges: just ahead of each trough, for a wave travelling right.
+  const slickAt = [110, 290];
+  const parts: SVGElement[] = [
+    svg('rect', { x: 0, y: sea, width: W, height: 150, fill: tint(COL.salt, 0.5) }),
+    svg('polygon', { points: `0,${sea} ${iface} ${W},${sea}`, fill: tint(COL.water, 0.4) }),
+    svg('polyline', { points: iface, fill: 'none', stroke: COL.salt, 'stroke-width': 2 }),
+    line(0, sea, W, sea, COL.salt, 1.5),
+  ];
+  // Ripples everywhere except over the slicks.
+  for (let x = 8; x < W; x += 12) {
+    if (slickAt.some((c) => Math.abs(x - c) < 24)) continue;
+    parts.push(svg('path', { d: `M${x},${sea} q3,-4 6,0`, fill: 'none', stroke: COL.salt, 'stroke-width': 1.2 }));
+  }
+  for (const c of slickAt) {
+    parts.push(
+      svg('rect', { x: c - 24, y: sea - 3, width: 48, height: 4, rx: 2, fill: COL.paper, stroke: COL.soft, 'stroke-width': 0.8 }),
+      arrow(c - 52, sea + 9, c - 28, sea + 9, COL.flow, 1.5),
+      arrow(c + 52, sea + 9, c + 28, sea + 9, COL.flow, 1.5),
+      small(c, sea - 10, 'slick', { anchor: 'middle', bold: true }),
+    );
+  }
+  parts.push(
+    small(W - 12, 16, 'ripples elsewhere', { anchor: 'end', soft: true }),
+    small(10, 16, 'surface water squeezed together under each slick', { fill: COL.flow }),
+    small(10, sea + 26, 'fresher layer', { bold: true, fill: COL.salt }),
+    small(10, 176, 'salty layer', { bold: true, fill: COL.paper }),
+    small(W - 12, wave(W - 12) + 22, 'internal wave on the boundary', { anchor: 'end', bold: true, fill: COL.paper }),
+    arrow(300, 160, 360, 160, COL.ink, 1.5),
+    small(296, 164, 'travels', { anchor: 'end', fill: COL.paper }),
+  );
+  s.svg.append(...parts);
+  return { node: s.node };
+};
+
 export const figures = {
   'estuary-sill': sillFigure,
   'estuary-wedge': wedgeFigure,
   'estuary-locks': locksStill,
+  'estuary-slicks': slicksStill,
 };

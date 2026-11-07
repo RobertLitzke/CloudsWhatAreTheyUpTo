@@ -203,8 +203,8 @@ export const fallsStill = () => {
     const ledge = 60;
     parts.push(
       svg('rect', { x: X(0), y: 36, width: pw, height: 170, fill: COL.paper }),
-      svg('rect', { x: X(0), y: p.below, width: ledge, height: 206 - p.below, fill: tint(COL.water, 0.5) }),
-      svg('rect', { x: X(ledge), y: p.above, width: pw - ledge, height: 206 - p.above, fill: tint(COL.water, 0.5) }),
+      svg('rect', { x: X(0), y: p.below, width: p.above === p.below ? pw : ledge, height: 206 - p.below, fill: tint(COL.water, 0.5) }),
+      ...(p.above === p.below ? [] : [svg('rect', { x: X(ledge), y: p.above, width: pw - ledge, height: 206 - p.above, fill: tint(COL.water, 0.5) })]),
       line(X(0), p.below, X(ledge - 6), p.below, COL.water, 1.6),
       line(X(ledge), p.above, X(pw), p.above, COL.water, 1.6),
     );
@@ -220,15 +220,14 @@ export const fallsStill = () => {
         line(X(ledge + 2), 112, X(ledge + 2), 121, COL.land, 1.4),
         line(X(ledge - 22), 112, X(ledge - 34), 156, COL.ink, 0.9),
         svg('ellipse', { cx: X(ledge - 35), cy: 160, rx: 5, ry: 3.5, fill: 'none', stroke: COL.ink, 'stroke-width': 0.8 }),
-        small(X(ledge - 20), 106, 'platform', { anchor: 'middle', soft: true }),
-        line(X(18), p.above, X(18), p.below, COL.flow, 1),
-        line(X(14), p.above, X(22), p.above, COL.flow, 1),
-        line(X(14), p.below, X(22), p.below, COL.flow, 1),
-        line(X(22), p.above, X(ledge), p.above, COL.flow, 0.6, { 'stroke-dasharray': '2 2' }),
-        small(X(4), p.below + 13, 'the drop', { fill: COL.flow }),
+        line(X(10), p.above, X(10), p.below, COL.flow, 1),
+        line(X(6), p.above, X(14), p.above, COL.flow, 1),
+        line(X(6), p.below, X(14), p.below, COL.flow, 1),
+        line(X(14), p.above, X(ledge - 28), p.above, COL.flow, 0.6, { 'stroke-dasharray': '2 2' }),
+        small(X(3), p.above - 6, 'the drop', { fill: COL.flow }),
       );
     }
-    if (i === 1) parts.push(small(X(30), p.below + 14, 'step nearly gone', { anchor: 'middle', fill: COL.salt }));
+    if (i === 1) parts.push(small(X(26), p.below + 22, 'step', { anchor: 'middle', fill: COL.salt }), small(X(26), p.below + 33, 'nearly gone', { anchor: 'middle', fill: COL.salt }));
     if (i === 2) parts.push(small(X(pw / 2), 92, 'the ledge is still here,', { anchor: 'middle', fill: COL.salt }), small(X(pw / 2), 103, 'under still water', { anchor: 'middle', fill: COL.salt }));
     parts.push(
       label(X(pw / 2), 14, p.title, { anchor: 'middle', bold: true }),

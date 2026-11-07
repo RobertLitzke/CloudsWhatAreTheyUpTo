@@ -55,3 +55,12 @@ describe('narrows: the figure', () => {
     expect(done).toBe(true);
   });
 });
+
+describe('narrows: the text', () => {
+  it('at high water the default tide still floods at a few knots', () => {
+    const r = narrowsTide(2.5, 160);
+    const i = r.hours.findIndex((h) => h >= r.high);
+    expect(r.speed[i] / KNOT).toBeGreaterThan(1.5);
+    expect(r.speed[i] / KNOT).toBeLessThan(5);
+  });
+});

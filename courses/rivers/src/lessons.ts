@@ -25,7 +25,7 @@ const COMING: RiverLesson[] = [
   coming('inequality', 9, 'Why one low tide is lower', "The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight"),
   coming('olympia', 10, "Why Olympia's tide is nearly twice Port Townsend's", 'The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level'),
   coming('narrows', 11, 'Why Deception Pass runs at eight knots', 'Currents driven by a difference in level, and why slack water comes after high water'),
-  coming('estuary', 12, 'Why the Sound stays cold in July', 'Salt and density, the two-layer exchange over the sills, and the salt wedge at the locks'),
+  coming('estuary', 12, 'Why the Sound stays cold in July', 'Salt and density, the two-layer exchange over the sills, renewal at neap tides, upwelling, and the salt wedge at a river mouth'),
   coming('hoodcanal', 13, 'Why Hood Canal runs out of breath', "A fjord's slow flushing, and how new ocean water lifts the old water to the surface"),
   coming('beach', 14, 'Where the beach comes from', 'Feeder bluffs, longshore drift and spits, what a bulkhead does, and the Elwha\'s sand returning'),
   coming('cedar', 101, 'The hill that drained a reservoir', "Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918", { branch: 'seattle', needs: ['baseflow'] }),
