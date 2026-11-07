@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** Here are four chords, each held for a bar, played through a short pluck. Then the same four chords, held the same way, but now each comes out as a running stream of notes, faster and wider than one hand could play. Nobody played the stream. The synth did."
+          "text": "**The sound.** Here are four chords, each held for a bar (four beats), played through a short pluck. Then the same four chords, held the same way, but now each comes out as a running stream of notes, faster and wider than one hand could play. Nobody played the stream. The synth did."
         },
         {
           "type": "diagram",
@@ -58,7 +58,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An arpeggiator has a handful of settings, and the first is the **order**. **Up** plays the held notes from the lowest to the highest, then starts again. **Down** goes the other way. **Order** plays them in the order the keys went down, so the same chord can give different patterns. **Random** picks a held note at each step. **Octaves** repeats the pattern one, two or three octaves higher before going round again, which is how a small chord becomes a wide sweep."
+          "text": "An arpeggiator has a handful of settings, and the first is its **mode**, which sets the order the notes come in. **Up** plays the held notes from the lowest to the highest, then starts again. **Down** goes the other way. **Order** plays them as the keys went down, first key first, so the same chord can give different patterns. **Random** picks a held note at each step. A separate setting, **Octaves**, widens whichever mode you choose: at 2 the pattern plays as held and then again an octave higher before going round, at 3 a third time two octaves up. That is how a small chord becomes a wide sweep."
         },
         {
           "type": "interactive_diagram",
@@ -70,7 +70,7 @@
         },
         {
           "type": "text",
-          "text": "The **rate** is how many notes fit in a beat, and like the LFO's rate it is counted against the tempo: eighth notes, sixteenths, thirty-seconds. An arpeggiator is therefore always in time with whatever else is playing, which is what made it so useful in dance music."
+          "text": "The **rate** is how many notes fit in a beat, and like the LFO's rate it is counted against the tempo: eighth notes, sixteenths, thirty-seconds, written 1/8, 1/16 and 1/32 on the knob. An arpeggiator is therefore always in time with whatever else is playing, which is what made it so useful in dance music."
         }
       ]
     },
@@ -79,7 +79,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Below, the arpeggiator is off and the loop holds its chords. Switch it on and try its settings. Then stop the loop and hold three keys on the keyboard: the arpeggiator plays whatever you hold."
+          "text": "Below, the arpeggiator is off and the loop holds its chords. Switch it on and try its settings. Then stop the looping chords and hold three keys on the figure's keyboard: the arpeggiator plays whatever you hold."
         },
         {
           "type": "interactive_diagram",
@@ -121,7 +121,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The last setting frees your hand. With **Hold** on, the arpeggiator keeps playing the last chord after you let go, until you play a new one; then it starts on that. Keys pressed while another is still down add to the chord instead. A player can set a pattern going with one hand and spend both on the knobs."
+          "text": "The last setting frees your hand. With **Hold** on, the arpeggiator keeps playing the last chord after you let go, until you play a new chord, which it then plays instead. Keys pressed while another is still down add to the chord instead. A player can set a pattern going with one hand and spend both on the knobs."
         },
         {
           "type": "interactive_diagram",
@@ -154,7 +154,7 @@
         },
         {
           "type": "text",
-          "text": "With Hold on, the arpeggiator becomes a crude sequencer: a pattern that plays itself while you change the sound. Sweeping the cutoff or the envelope amount over a running arpeggio is one of the oldest moves in synth music. The arpeggiator follows the tempo of the synth's clock, and two machines that share a clock stay together.[^clock]"
+          "text": "With Hold on, the arpeggiator becomes a crude sequencer: a pattern that plays itself while you change the sound. Sweeping the cutoff or the envelope amount over a running arpeggio is one of the oldest moves in synth music. The arpeggiator follows the tempo of the synth's clock, the steady beat set by its tempo control, and two machines that share a clock stay together.[^clock]"
         }
       ]
     },

@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In 1948 the radio engineer [[Pierre Schaeffer]] was working in a studio of French radio in Paris, recording sounds onto lacquer discs and playing them back in every way the machines allowed: backwards, faster, slower, in loops. One day he recorded a struck bell, catching the sound only after the hammer hit, with the first clang left out. What remained no longer sounded like a bell. It sounded like an oboe: a smooth, held tone.[^cloche]"
+          "text": "**The mystery.** In 1948 the radio engineer [[Pierre Schaeffer]] was working in a studio of French radio in Paris, recording sounds onto lacquer discs and playing them back in every way the machines allowed: backwards, faster, slower, in loops. One day he recorded a struck bell and, with the studio's volume fader, shut out the first clang after the hammer hit. What remained no longer sounded like a bell. It sounded like an oboe: a smooth, held tone.[^cloche]"
         },
         {
           "type": "text",
@@ -144,7 +144,7 @@
         },
         {
           "type": "text",
-          "text": "With sustain at half or more there is little left to fall, so the decay knob has almost nothing to do and goes dark."
+          "text": "Above half sustain the fall is too small for the ear to tell one decay time from another, so the synth darkens the decay knob, as it darkened Width on a saw in lesson 1: a dark knob is one whose setting you can't hear."
         }
       ]
     },
@@ -153,7 +153,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Release** is how long the note takes to fade after the key comes up. Short, and each note stops dead. Long, and every note rings on under the next, the way a piano does with its sustain pedal down, or a voice in a stone church."
+          "text": "**Release** is how long the note takes to fade after the key comes up. Short, and each note stops dead. Long, and every note rings on under the next, the way a piano's notes do when its right-hand pedal holds the dampers off the strings, or a voice in a stone church."
         },
         {
           "type": "interactive_diagram",
@@ -203,7 +203,7 @@
         },
         {
           "type": "text",
-          "text": "A synth copies this by sending the same envelope to the filter as well as to the volume. **Env amt** says how far each note opens the filter, counted in octaves above the cutoff. Each note then starts bright and settles darker along the decay. It needs a low cutoff, to leave room above it."
+          "text": "A synth copies this by sending the envelope, with the same attack, decay, sustain and release, to the filter as well as to the volume. **Env amt** says how far each note opens the filter, counted in octaves above the cutoff. Each note then starts bright and settles darker along the decay. It needs a low cutoff to start from, so that each note has room to open the filter upward and fall back."
         },
         {
           "type": "interactive_diagram",
@@ -321,7 +321,7 @@
         },
         {
           "type": "text",
-          "text": "Nothing about the oscillator moved. Schaeffer's cut and these three knobs do the same thing: they change a sound's shape in time, and the ear changes its mind about what made it."
+          "text": "Nothing about the oscillator moved. Schaeffer's cut and the three knobs Env amt, Decay and Sustain do the same thing: they change a sound's shape in time, and the ear changes its mind about what made it."
         }
       ]
     },
@@ -403,7 +403,7 @@
   ],
   "summary": [
     "**The start of a note tells us what made it.** Cut it off and a bell sounds like an oboe, a piano like an organ.",
-    "**Schaeffer (1948) found it by editing recordings**, the beginning of musique concrète.",
+    "**Schaeffer (1948) found it by cutting the start off a recorded bell**, the beginning of the music he called musique concrète.",
     "**An envelope shapes each note in time: attack, decay, sustain, release.**",
     "**Sustain is a level; the others are times.** A piano has no sustain; an organ has full sustain.",
     "**Release is the fade after the key comes up.**",

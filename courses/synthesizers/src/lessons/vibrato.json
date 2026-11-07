@@ -50,15 +50,15 @@
         },
         {
           "type": "text",
-          "text": "Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way. Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
+          "text": "Listen to an opera singer hold a long note. The pitch is not steady. It swings up and down five to seven times a second, sometimes by as much as a semitone either way. (A semitone is the step from one piano key to the next, black or white: about 6 percent in pitch.) Measured, the singer is hardly ever on the note. Yet the audience hears one clear pitch, the note itself, and hears it as richer and warmer than a dead-straight tone. Strings do the same: violinists rock a finger on the string to make a vibrato, and a cello section without one sounds pale and thin."
         },
         {
           "type": "text",
-          "text": "In the 1920s and 1930s the psychologist Carl Seashore and his students at the University of Iowa photographed thousands of sung notes as wavy traces on film, and found that good singers' vibratos were strikingly alike: about six cycles a second, about half a semitone each way (a whole tone from trough to peak).[^seashore] At that rate the ear doesn't track the wobble as a melody. It averages it into a pitch in the middle, and hears the movement as life."
+          "text": "In the 1920s and 1930s the psychologist Carl Seashore and his students at the University of Iowa photographed thousands of sung notes as wavy traces on film, and found that good singers' vibratos were strikingly alike: about six cycles a second, about half a semitone each way (a full semitone from trough to peak).[^seashore] At that rate the ear doesn't track the wobble as a melody. It averages it into a pitch in the middle, and hears the movement as life."
         },
         {
           "type": "text",
-          "text": "A synth makes vibrato with a second oscillator too slow to hear as a tone, a **low-frequency oscillator** or **[[LFO]]**. It makes no sound itself. It turns a knob, up and down, over and over."
+          "text": "A synth makes vibrato with a second oscillator too slow to hear as a tone, a **low-frequency oscillator** or **[[LFO]]**. It makes no sound itself. It turns a knob, up and down, over and over. Turning a setting this way is called **modulating** it."
         }
       ]
     },
@@ -100,7 +100,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Rate** is how fast the LFO goes round. On this synth it is counted against the tempo of the riff, from one sweep a bar up to sixteen, so that a wobble stays in time with the music. It restarts with every loop, so a target's wobble and yours always line up in a puzzle."
+          "text": "**Rate** is how fast the LFO goes round; one sweep is one full cycle, up and back. On this synth it is counted against the beat of the looping riff, from one sweep a bar (a bar is four beats) up to sixteen, so that a wobble stays in time with the music. It restarts each time the riff starts again, so when you match a sound, its wobble and yours always line up."
         },
         {
           "type": "interactive_diagram",
@@ -137,7 +137,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**Dest** is which knob the LFO turns. **Pitch** gives vibrato. **Cutoff** gives a wah, sweeping the brightness the way a wah-wah pedal or a mouth opening and closing does. **Width** sweeps the pulse width for a slow shimmer. **Level** gives **tremolo**, a pulsing volume. Bigger synths drop the switch and let one LFO reach several of these at once, each by its own amount, through a *modulation matrix* (lesson 15)."
+          "text": "**Dest** is which knob the LFO turns. **Pitch** gives vibrato. **Cutoff** gives a wah, sweeping the brightness the way a wah-wah pedal or a mouth opening and closing does. **Width** sweeps the pulse width for a slow shimmer. **Level** turns the volume, which gives **tremolo**, a pulsing volume. Bigger synths drop this one-choice switch and let one LFO reach several of these at once, each by its own amount, through a *modulation matrix* (lesson 15)."
         },
         {
           "type": "interactive_diagram",
@@ -202,7 +202,7 @@
           "type": "interactive_diagram",
           "id": "synth",
           "caption": "Two knobs as one square: across is the rate, up is the depth, with the LFO on the cutoff.",
-          "task": "Find a fast, deep wah: rate 1/8 or quicker, depth 65 % or more",
+          "task": "Find a fast, deep wah: rate 1/8 (eight sweeps a bar) or quicker, depth 65 % or more",
           "goal": "lfo-wah",
           "options": {
             "stage": 4,
@@ -264,12 +264,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now the singing tone from the start. Three questions, one for each knob. What is moving, the pitch, the brightness or the volume? How fast: a slow sway, or the quick shimmer Seashore measured, about six times a second? How far: a gentle half semitone, or a seasick swing? On this riff's tempo the quickest rate, a sixteenth note, is about seven a second."
+          "text": "Now the singing tone from the start. Three questions, one for each knob. What is moving, the pitch, the brightness or the volume? How fast: a slow sway, or the quick shimmer Seashore measured, about six times a second? How far: a gentle half semitone, or a seasick swing? On this riff's tempo the quickest rate, sixteen sweeps a bar, is about seven a second."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "The LFO, wired somewhere it shouldn't be, with the singing tone to match.",
+          "caption": "The LFO starts wired somewhere it shouldn't be. Set where it goes, how fast and how far, until your tone sings like the target.",
           "task": "Make the tone sing like the target",
           "goal": "match",
           "options": {
@@ -373,7 +373,7 @@
     "**An LFO is an oscillator too slow to hear** that turns another knob for you.",
     "**Depth is how far; rate is how fast.**",
     "**Pitch gives vibrato, cutoff gives wah, level gives tremolo.**",
-    "**A Leslie speaker's spinning horn makes vibrato by the Doppler effect**, and tremolo as it points away."
+    "**A Leslie speaker's spinning horn makes vibrato by the Doppler effect**, and tremolo as it turns towards you and away."
   ],
   "footnotes": {
     "seashore": {

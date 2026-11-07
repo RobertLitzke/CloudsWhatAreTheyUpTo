@@ -68,12 +68,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Put the drive first and it clips the raw oscillator, ahead of the filter. The filter then takes the fizz off whatever the clipping made, so the sound is thick but tidy. The oscillator always reaches the drive at full level there, so the drive no longer follows the envelope: every note is clipped the same."
+          "text": "Put the drive first and it clips the raw oscillator, ahead of the filter. The filter then takes the fizz off whatever the clipping made, so the sound is thick but tidy. Normally the envelope sets how loud each note is by the time it reaches the drive, so the quiet end of a note clips less. With the drive first, the oscillator reaches it at full level before the envelope has acted, so every note is clipped the same."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "The signal chain drawn above its switch. A resonant saw with the drive in the middle.",
+          "caption": "The signal chain drawn above the chain switch, which moves the drive to First, Middle or Last. A resonant saw with the drive in the middle.",
           "task": "Put the drive First",
           "goal": "chain-first",
           "options": {
@@ -105,7 +105,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "In the middle, the drive clips what the filter and the envelope have already shaped. The clipping puts back harmonics the filter took out, so the cutoff can no longer make the sound truly dark, and a resonant peak turns into a snarl. Try closing the filter both ways round."
+          "text": "In the middle, the drive clips what the filter and the envelope have already shaped. The clipping puts back harmonics the filter took out, so the cutoff can no longer make the sound truly dark, and a resonant peak turns into a snarl. Close the filter with the drive first, then with it in the middle, and listen for which one can still go truly dark."
         },
         {
           "type": "interactive_diagram",
@@ -182,15 +182,15 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A filter, an echo and a volume knob have something in common. Whatever goes in, what comes out is made only of scaled and delayed copies of it, added up. Double the input and the output doubles. Feed in two sounds at once and the output is just the two outputs added together. Systems like that are called **[[linear]]**, and for linear systems the order never matters: a filter after an echo is the same as an echo after a filter, exactly, for every sound.[^linear]"
+          "text": "A filter, an echo and a volume knob have something in common. Whatever goes in, what comes out is made only of copies of the input, each turned up or down and some delayed, added together. A filter does this with copies delayed by tiny fractions of a cycle, which is also why a resonant one rings on. Double the input and the output doubles. Feed in two sounds at once and the output is just the two outputs added together. Systems like that are called **[[linear]]**, and for linear systems the order never matters: a filter after an echo is the same as an echo after a filter, exactly, for every sound, as long as nobody turns a knob while it plays.[^linear]"
         },
         {
           "type": "text",
-          "text": "Clipping breaks the rule. Double the input to a drive and the output does not double; it hits the ceiling. Two notes together come out with new tones that neither made alone (lesson 7). A non-linear part has to be placed, and everything before it changes what it makes. So the guitarists are right, but only about part of their board: a chain of filters, EQs, volume pedals and clean delays could be plugged in any order, and only the drives, fuzzes and compressors make the argument worth having.[^real-pedals]"
+          "text": "Clipping breaks the rule. Double the input to a drive and the output does not double; it hits the ceiling. Two notes together come out with new tones that neither made alone (lesson 7). A non-linear part has to be placed, and everything before it changes what it makes. So the guitarists are right, but only about part of their pedalboard: a chain of filters, EQs (tone controls with several bands), volume pedals and clean delays could be plugged in any order, and only the drives, fuzzes and compressors make the argument worth having.[^real-pedals]"
         },
         {
           "type": "text",
-          "text": "Physicists lean on the same idea everywhere. Sound waves in air, light in glass and ripples on a pond are linear, very nearly, so two of them pass through each other unchanged; that is why you can hear one voice across a noisy room. When waves are pushed so hard that they stop being linear, in a sonic boom or a laser in a crystal, new frequencies appear, just as they do in a fuzz pedal.[^green-laser]"
+          "text": "Physicists lean on the same idea everywhere. Sound waves in air, light in glass and ripples on a pond are linear, very nearly, so two of them pass through each other unchanged; that is why two voices in a room reach your ear without mixing into new sounds, and your ear is left free to pick one out. When waves are pushed so hard that they stop being linear, in a sonic boom or a laser in a crystal, new frequencies appear, just as they do in a fuzz pedal.[^green-laser]"
         }
       ]
     },
@@ -199,7 +199,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "With the echo off there is nothing between Middle and Last, so they are the same place and a puzzle accepts either. With the drive off the pedal is out of the chain, and the switch goes dark. One more: a drive placed First can't reshape a plain pulse wave, which has only two levels and no tops to flatten."
+          "text": "With the echo off there is nothing between Middle and Last, so they are the same place and a PatchMatch puzzle accepts either. With the drive off the pedal is out of the chain, and the chain switch goes dark, because it has nothing to move. One more: a drive placed First can't reshape a plain pulse wave, which has only two levels and no tops to flatten."
         },
         {
           "type": "interactive_diagram",
@@ -229,7 +229,7 @@
         },
         {
           "type": "text",
-          "text": "That is the whole synth: oscillators, filter, envelopes, LFO, FM, drive and echo, in a line you can rearrange. One last puzzle, on the full panel as [PatchMatch](#/ear) shows it. The sound below is a dirty wash: the echoes come back nearly as loud as the notes and smear into them. Where must the drive be for that to happen? And how long is the trail? The [Synth lab](#/lab) has the same panel with a keyboard to play it."
+          "text": "That is the whole synth so far: oscillators, filter, envelopes, LFO, FM, drive and echo, with the drive free to move along the line. One last puzzle, on the full panel as [PatchMatch](#/ear) shows it. The sound below is a dirty wash: the echoes come back nearly as loud as the notes and smear into them. Where must the drive be for that to happen? And how long is the trail of echoes, which is the Repeats knob? The [Synth lab](#/lab) has the same panel with a keyboard to play it."
         },
         {
           "type": "interactive_diagram",
@@ -346,7 +346,7 @@
     "**A synth is a chain: oscillator, filter, then pedals**, each working on what the one before handed on.",
     "**Drive before the filter is thick but tidy; after it, clipping puts back what the filter removed.**",
     "**Drive after the echo clips the echoes too**, smearing them up to the note's level.",
-    "**Filters, echoes and volume are linear**: scaled, delayed copies added up. They can go in any order.",
+    "**Filters, echoes and volume are linear**: scaled, delayed copies added up. While no knob moves, they can go in any order.",
     "**Clipping is non-linear**, so where it sits changes the sound.",
     "**Linear waves pass through each other unchanged**; push them hard enough and new frequencies appear."
   ],

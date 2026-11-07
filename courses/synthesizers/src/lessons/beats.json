@@ -57,7 +57,7 @@
         },
         {
           "type": "text",
-          "text": "These are **[[beats]]**. Two tones a few hertz apart drift in and out of step. When their peaks line up they add and the sound swells; half a cycle later one pushes while the other pulls, they cancel, and it fades. The number of swells a second is simply the difference between the two frequencies: 440 and 443 beat three times a second. It is the most precise tool a tuner has, sensitive to a fraction of a hertz."
+          "text": "These are **[[beats]]**. Two tones a few hertz apart drift in and out of step. When their peaks line up they add and the sound swells; half a cycle later (half of one wave's rise and fall) one pushes while the other pulls, they cancel, and it fades. The number of swells a second is simply the difference between the two frequencies: 440 and 443 beat three times a second. It is the most precise tool a tuner has, sensitive to a fraction of a hertz."
         }
       ]
     },
@@ -71,7 +71,7 @@
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "The synth with a second oscillator, so far off.",
+          "caption": "The synth with a second oscillator, so far switched off.",
           "task": "Bring Level up to 55 % or more",
           "goal": "osc2-up",
           "options": {
@@ -140,7 +140,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Move the second oscillator further, by a whole musical interval, and it stops thickening the note and starts making a chord. **Interval** sets it an octave down, in unison, a fifth up or an octave up. An octave is a frequency twice as high. A fifth is one and a half times as high, the ratio 3 to 2, the interval of the first two notes of “Twinkle, Twinkle”."
+          "text": "Move the second oscillator further, by a whole musical interval, and it stops thickening the note and starts making a chord. **Interval** sets it an octave down, in unison, a fifth up or an octave up. An octave is a frequency twice as high. A fifth is one and a half times as high, the ratio 3 to 2, the jump from the first “twinkle” to the second in “Twinkle, Twinkle, Little Star”."
         },
         {
           "type": "interactive_diagram",
@@ -186,13 +186,13 @@
       "blocks": [
         {
           "type": "text",
-          "text": "With Level at Off there is only one oscillator, so Detune and Interval go dark. And in unison with no detune the two are the same tone, only louder, which the filter and the envelope already let you match. There it is Level itself that goes dark: you can't tell how loud the second oscillator is when it is indistinguishable from the first."
+          "text": "With Level at Off there is only one oscillator, so Detune and Interval go dark. And in unison with no detune the two are the same tone, only louder. Then Level itself goes dark: you can't tell how loud the second oscillator is when it is indistinguishable from the first."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
           "caption": "Level, Detune and Interval together.",
-          "task": "Turn Level dark without touching it",
+          "task": "Turn Level dark without touching it: use Interval and Detune",
           "goal": "osc2-dark",
           "options": {
             "stage": 5,
@@ -261,12 +261,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Back to the big sound from the start. Its pitch is the same as the thin saw's, so it is one note made thick rather than a chord, and the second oscillator is in unison. How fast it swells or shimmers sets the detune, and how strongly the beats dip sets the balance between the two oscillators."
+          "text": "Back to the big sound from the start. Its pitch is the same as the thin saw's, so it is one note made thick rather than a chord, and the second oscillator is in unison. How fast it swells or shimmers sets the detune, and how strongly the beats dip sets the balance between the two oscillators: the swells fade all the way to silence only when both are equally loud."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "Both oscillators, the second set a fifth up and switched off, with the section to match.",
+          "caption": "Both oscillators, the second starting a fifth up and switched off. Find the section's settings.",
           "task": "Make the thin saw into the section",
           "goal": "match",
           "options": {
@@ -401,7 +401,7 @@
     "cents": {
       "kind": "technical",
       "title": "Why cents and not hertz?",
-      "text": "An octave is always a doubling of frequency, whether from 110 to 220 Hz or from 440 to 880 Hz. Because the ear hears pitch in ratios, musicians divide every octave into 1200 equal steps called cents, 100 to each semitone. Ten cents of detune sounds the same amount sharp anywhere on the keyboard, even though it is about 0.6 Hz near the bottom of a piano and 20 Hz near the top."
+      "text": "An octave is always a doubling of frequency, whether from 110 to 220 Hz or from 440 to 880 Hz. Because the ear hears pitch in ratios, musicians divide every octave into 1200 equal steps called cents, 100 to each semitone. Ten cents of detune sounds the same amount sharp anywhere on the keyboard, even though it is under 0.2 Hz near the bottom of a piano and about 24 Hz near the top."
     },
     "solina": {
       "kind": "digression",

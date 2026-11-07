@@ -63,7 +63,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The synth's first pedal is a **drive**. It turns the signal up until it no longer fits, and squashes the tops. This starts on a pure sine, so that every new harmonic shows plainly in the spectrum."
+          "text": "The synth has effects modelled on a guitarist's foot pedals, and the first is a **drive**. It turns the signal up until it no longer fits in the range the circuit can carry, and squashes the tops flat against that limit, the ceiling. Drive is measured in decibels (dB), the usual unit for turning a sound up: 24 dB is about sixteen times. This starts on a pure sine, so that every new harmonic shows plainly in the spectrum."
         },
         {
           "type": "interactive_diagram",
@@ -88,7 +88,7 @@
         },
         {
           "type": "text",
-          "text": "A sine has one harmonic. Clipped, it grows a buzz of new ones above it, and the harder it is pushed the more there are. Nothing is taken away, as a filter does: clipping *adds*."
+          "text": "A sine has one harmonic, the note itself. Clipped, it grows a buzz of new ones above it, and the harder it is pushed the more there are. Nothing is taken away, as a filter does: clipping *adds*."
         }
       ]
     },
@@ -103,13 +103,13 @@
           "type": "interactive_diagram",
           "id": "clip",
           "caption": "A sine wave into a clipper, and what comes out. The bars are the harmonics of the output: orange odd, purple even.",
-          "task": "Push a lopsided clipper to ×4 or more and find the even harmonics",
+          "task": "Push a lopsided clipper to ×4 (the sine turned up four times) or more and find the even harmonics",
           "goal": "even",
           "aspect_ratio": 1.7391304347826086
         },
         {
           "type": "text",
-          "text": "This is a large part of an old argument about valves and transistors. Valve amplifiers driven hard tend to clip gently and lopsidedly, and many players hear them as warm. Early transistor fuzz clipped hard and symmetrically, and sounded raspy.[^valves] Both are the same physics: a curve that bends a sine into something else."
+          "text": "This is a large part of an old argument about valves and transistors. Valve amplifiers (vacuum tubes, in American) driven hard tend to clip gently and lopsidedly, and many players hear them as warm. Early transistor fuzz clipped hard and symmetrically, and sounded raspy.[^valves] Both are the same physics: a circuit whose output stops following its input past some point, and so bends a sine into something else."
         }
       ]
     },
@@ -118,7 +118,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The drive pedal turns its output back down, so more drive is not much louder. But the quiet tail of a note is turned up and never reaches the ceiling, so it comes out nearly as loud as the start. Notes hang on longer, and a short pluck turns into a held note. This is why rock guitar solos can sustain for bars on end: the distortion is also a **compressor**."
+          "text": "The drive pedal turns its output back down, so more drive is not much louder. The loud start of a note is squashed against the ceiling, while the quiet tail is turned up just as far and climbs to nearly the same level, so it comes out nearly as loud as the start. Notes hang on longer, and a short pluck turns into a held note. This is why rock guitar solos can sustain for bars on end: the distortion is also a **compressor**, something that squeezes loud and quiet towards one level."
         },
         {
           "type": "interactive_diagram",
@@ -152,7 +152,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Clip two notes at once and each one grows harmonics, while together they also make new tones at the sum and the difference of their frequencies, called **intermodulation**. For two notes a fifth apart, 200 Hz and 300 Hz, the difference is 100 Hz: exactly an octave below the lower note, a deep extra bass that fits. For a major third, 200 Hz and about 252 Hz, the difference is 52 Hz, a muddy tone that belongs to neither note."
+          "text": "Clip two notes at once and each one grows harmonics, while together they also make new tones at the sum and the difference of their frequencies, called **intermodulation**. For two notes a fifth apart, 200 Hz and 300 Hz, the difference is 100 Hz: exactly an octave below the lower note, a deep extra bass that fits. For a major third, where the upper note is about 1.26 times the lower (200 Hz and about 252 Hz), the difference is 52 Hz, a muddy tone that belongs to neither note."
         },
         {
           "type": "text",
@@ -192,7 +192,7 @@
         },
         {
           "type": "text",
-          "text": "Both the pedal's tone and the synth's cutoff darken the sound, which is why they get mixed up. The cutoff comes before the clipping, so closing it gives the pedal less to bite on and the grit itself thins out. The tone comes after, so the grit stays and only its top is shaved off."
+          "text": "Both the pedal's tone and the synth's cutoff darken the sound, which is why they get mixed up. On this synth the filter comes before the drive pedal (lesson 9 is about why the order matters), so lowering the cutoff gives the pedal less to bite on and the grit itself thins out. The tone comes after, so the grit stays and only its top is shaved off."
         },
         {
           "type": "interactive_diagram",
@@ -401,7 +401,7 @@
     "maestro": {
       "kind": "digression",
       "title": "The first fuzz box",
-      "text": "By then you could also buy the sound in a box. In 1960 a faulty channel in a Nashville mixing desk turned Grady Martin's bass into a buzz on Marty Robbins's “Don't Worry”. Engineer Glenn Snoddy copied the flaw with three germanium transistors and sold the circuit to Gibson, which brought out the Maestro Fuzz-Tone in 1962. Keith Richards used one on “(I Can't Get No) Satisfaction” in 1965, and shops sold out of the pedal before the summer was over."
+      "text": "By the mid-1960s you could also buy the sound in a box. In 1960 a faulty channel in a Nashville mixing desk turned Grady Martin's bass into a buzz on Marty Robbins's “Don't Worry”. Engineer Glenn Snoddy copied the flaw with three germanium transistors and sold the circuit to Gibson, which brought out the Maestro Fuzz-Tone in 1962. Keith Richards used one on “(I Can't Get No) Satisfaction” in 1965, and shops sold out of the pedal before the summer was over."
     }
   },
   "journal": []

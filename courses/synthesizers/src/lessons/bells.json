@@ -92,7 +92,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Swing a pitch around fast and its spectrum grows **sidebands**: new lines on either side of the carrier, spaced by the modulator's frequency. A carrier on 220 Hz modulated at 220 Hz grows lines at 440, 660, 880: the harmonics of the note. The further the pitch swings (the **index**), the more lines appear, and their sizes rise and fall in a pattern that mathematicians had worked out a century earlier for the motion of planets, the Bessel functions.[^bessel]"
+          "text": "Swing a pitch around fast and its spectrum grows **sidebands**: new lines on either side of the carrier, spaced by the modulator's frequency. A carrier on 220 Hz modulated at 220 Hz grows lines at 440, 660, 880: the harmonics of the note. The further the pitch swings (the **index**), the more lines appear, and their sizes rise and fall in a pattern that mathematicians had worked out a century and a half earlier for the motion of planets, the Bessel functions.[^bessel]"
         },
         {
           "type": "interactive_diagram",
@@ -113,7 +113,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "On the synth, **Ratio** is how fast the modulator runs compared with the note. ×1 fills in every harmonic, like brass. ×2 gives only the odd ones, hollow like a square. ×3 and ×4 leave gaps. ×½ adds a line an octave below, a growl."
+          "text": "On the synth, **Ratio** is how fast the modulator runs compared with the note. ×1 fills in every harmonic, like brass. ×2 gives only the odd ones, hollow like a square. ×3 and ×4 leave gaps in the stack, with some harmonics missing and strong lines far above the note, which already sounds metallic. ×½ adds a line an octave below, a growl."
         },
         {
           "type": "interactive_diagram",
@@ -146,7 +146,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A struck bell does not make a stack of harmonics. Its metal shell flexes in several shapes at once, and their frequencies are not whole-number multiples of one note: a well-tuned church bell has a hum tone, a prime, a minor third (which gives bells their faintly sad sound), a fifth and more, and the higher ones drift off any harmonic series.[^bellmodes] Our ears try to fit them to one note and can't, and that failure is the clang. FM with a ratio that puts sidebands between the harmonics does the same, which is why it makes such convincing bells, chimes and electric pianos."
+          "text": "A struck bell does not make a stack of harmonics. Its metal shell flexes in several shapes at once, and their frequencies are not whole-number multiples of one note: a well-tuned church bell has a hum tone an octave below the note, a prime on the note, a minor third (which gives bells their faintly sad sound), a fifth and more, and the higher ones drift off any harmonic series.[^bellmodes] Our ears try to fit them to one note and can't, and that failure is the clang. FM with a ratio that puts sidebands between the harmonics does the same, which is why it makes such convincing bells, chimes and electric pianos. This synth's Ratio knob has only whole numbers, so its bells are a near miss: ×3 or ×4 with plenty of amount piles strong, widely spaced lines high above the note, and on a struck envelope the ear hears metal. The sidebands figure above goes further, to a ratio such as ×3.5, where the lines fall between the harmonics and the clang is real."
         },
         {
           "type": "interactive_diagram",
@@ -299,12 +299,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Back to the bell from the start. Its envelope is already set: struck, no sustain, a long ring. What Remains is the FM. A clang needs a ratio that puts sidebands between the harmonics, and the amount sets how bright the strike is."
+          "text": "Back to the bell from the start. Its envelope is already set: struck, no sustain, a long ring. What remains is the FM. On this synth the nearest thing to a clang is a ratio with gaps, and the amount sets how bright the strike is."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "Two sines, struck like a bell, with the FM off.",
+          "caption": "Two sines, struck like a bell, with the FM off: bring it in.",
           "task": "Ring the bell",
           "goal": "match",
           "options": {
@@ -336,7 +336,7 @@
         },
         {
           "type": "text",
-          "text": "A real bell's partials start bright and the high ones die first. Send the envelope to the FM amount as well, as the DX7 does, and the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
+          "text": "A real bell's partials start bright and the high ones die first. The DX7 sends each note's envelope to the FM amount as well, so the strike rings with metal then mellows into a hum: two sines and an envelope, a better bell than a room of filters."
         }
       ]
     },
@@ -419,9 +419,9 @@
   "summary": [
     "**FM is a vibrato so fast it becomes timbre**, found by Chowning at Stanford in 1967.",
     "**Swinging a carrier's pitch grows sidebands**, spaced by the modulator's frequency; more swing, more sidebands.",
-    "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow.",
+    "**Whole-number ratios keep the sidebands on harmonics**: a note, brassy or hollow, or metallic when the ratio leaves gaps; a ratio such as ×3.5 puts them between the harmonics, a true clang.",
     "**Other ratios put them between harmonics**: a clang, like a bell, whose tones aren't a harmonic series.",
-    "**The DX7 (1983) brought FM to everyone**: six sine oscillators per voice and no filter.",
+    "**The DX7 (1983) made FM the sound of the 1980s**: six sine oscillators per voice and no filter.",
     "**FM radio is the same mathematics** at a hundred million cycles a second."
   ],
   "footnotes": {

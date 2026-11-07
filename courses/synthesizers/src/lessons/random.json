@@ -44,7 +44,7 @@
         },
         {
           "type": "text",
-          "text": "The burble is the LFO from lesson 4, moving the filter's cutoff, as it did for the wah. What is different is the *shape* of its movement. A sine glides smoothly up and down. This one jumps to a new place at random, sixteen times a bar, and stays there until the next jump."
+          "text": "The burble is the LFO from lesson 4, moving the filter's cutoff, as it did for the wah. What is different is the *shape* of its movement. A sine glides smoothly up and down. This one jumps to a new place at random, sixteen times a bar (once every sixteenth note), and stays there until the next jump."
         }
       ]
     },
@@ -53,7 +53,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An LFO, like an audio oscillator, can have a shape: the path it takes from top to bottom and back. Most synths offer the same few. A **sine** or a **triangle** glides, the triangle at a steady speed. A **saw** rises steadily and drops at once, or the reverse. A **square** sits at the top, then jumps to the bottom and sits there."
+          "text": "An LFO, like an audio oscillator, can have a shape: the path it takes from top to bottom and back. Most synths offer the same few. A **sine** or a **triangle** glides: the sine slows as it turns at the top and bottom, the triangle moves at one steady speed all the way. A **saw** rises steadily and drops at once, or the reverse. A **square** sits at the top, then jumps to the bottom and sits there."
         },
         {
           "type": "text",
@@ -112,7 +112,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "An LFO's speed can be set two ways. Free, it is a rate in hertz, cycles per second, and it drifts against whatever else is playing. **Synced**, it is counted in notes of the beat: once a bar, once a quarter note, once a sixteenth. Change the tempo and a synced LFO keeps step. This synth's LFO is always synced, which is why its rate knob reads in bars and notes."
+          "text": "An LFO's speed can be set two ways. Free, it is a rate in hertz, cycles per second, and it drifts against whatever else is playing. **Synced**, it is counted in notes of the beat: once a bar, once a quarter note, once a sixteenth. Change the tempo and a synced LFO keeps step. The synth in these lessons always syncs its LFO, which is why its rate knob reads in bars and notes: 1/8 is eight cycles a bar."
         },
         {
           "type": "interactive_diagram",
@@ -143,7 +143,7 @@
         },
         {
           "type": "text",
-          "text": "The other choice is where each cycle starts. A **free-running** LFO carries on through every note, so each note catches it somewhere different. A **retriggered** one restarts at each new note, so every note gets the same movement: a vibrato that always starts at its middle, or a rise that begins from the bottom. This synth restarts its LFO each time the loop comes round, and lets it run free when you play the keys yourself. Many synths also offer **smooth random**: the S&H's steps with glides between them, a slow, aimless wander that suits a drifting pad.[^uncertainty]"
+          "text": "The other choice is where each cycle starts. A **free-running** LFO carries on through every note, so each note catches it somewhere different. A **retriggered** one restarts at each new note, so every note gets the same movement: a vibrato that always starts at its middle, or a rise that begins from the bottom. The synth in these lessons restarts its LFO each time the looping riff starts again, and leaves it running through the notes when you play the keys yourself. Many synths also offer **smooth random**: the S&H's steps with glides between them, a slow, aimless wander that suits a drifting pad (a soft chord held under a whole piece).[^uncertainty]"
         }
       ]
     },
@@ -152,7 +152,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now the burble. Its parts: the LFO's random shape, sent to the cutoff, fast enough to be busy, deep enough to be heard, and a resonance high enough that each step rings. The resonance is set low here, the LFO is a slow sine on pitch, and the depth is at zero."
+          "text": "Now the burble. Its parts: the LFO's S&H shape, sent to the cutoff, fast enough to be busy, deep enough to be heard, and a resonance high enough that each step rings. Here they all start wrong: the resonance is low, the LFO is a slow sine on pitch, and the depth is at zero."
         },
         {
           "type": "interactive_diagram",
@@ -206,7 +206,7 @@
         {
           "type": "quiz",
           "id": "check",
-          "caption": "Five questions on LFO shapes",
+          "caption": "Five questions on LFO shapes, sync and retrigger",
           "task": "Choose the best answer to each",
           "options": {
             "items": [
@@ -279,7 +279,7 @@
     "circuit": {
       "kind": "technical",
       "title": "The circuit",
-      "text": "In its simplest form, sample and hold is a switch and a capacitor. At each tick the switch closes for an instant and the capacitor charges to the input's voltage; then the switch opens and the capacitor keeps that voltage until the next tick. Every digital recording starts with the same circuit, sampling the microphone's voltage tens of thousands of times a second."
+      "text": "In its simplest form, sample and hold is a switch and a capacitor. At each tick the switch closes for an instant and the capacitor charges to the input's voltage; then the switch opens and the capacitor keeps that voltage until the next tick. Every digital recording starts with the same idea, sampling the microphone's voltage tens of thousands of times a second."
     },
     "uncertainty": {
       "kind": "digression",

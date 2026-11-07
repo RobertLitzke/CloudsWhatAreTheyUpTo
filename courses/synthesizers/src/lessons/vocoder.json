@@ -13,7 +13,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** Here is a plain buzz, then the same buzz singing \"ah\", then whispering it. Nothing here was recorded. The buzz went through three resonances set where your mouth puts them for that vowel, and for the whisper, breath noise took the buzz's place. You'll set up the sung \"ah\" at the end."
+          "text": "**The sound.** Here is a plain buzz, then the same buzz singing \"ah\", then whispering it. Nothing here was recorded. The buzz went through three **formants**, the resonances your mouth makes, set where your mouth puts them for that vowel, and for the whisper, breath noise took the buzz's place. You'll set up the sung \"ah\" at the end."
         },
         {
           "type": "diagram",
@@ -55,7 +55,7 @@
         },
         {
           "type": "text",
-          "text": "Lesson 2 showed how this works in your own throat. Your vocal folds make a buzz full of harmonics, and the shape of your mouth makes a few resonances, called **formants**, that pick some of them out. Two formants are enough to tell most vowels apart. A synth only has to copy the buzz and move the resonances."
+          "text": "Lesson 2 showed how this works in your own throat. Your vocal folds make a buzz full of harmonics, and the shape of your mouth makes a few resonances, called **formants**, that pick some of them out. The lowest two are enough to tell most vowels apart; the ones above make the voice sound more like a person. A synth only has to copy the buzz and move the resonances."
         }
       ]
     },
@@ -132,7 +132,7 @@
         },
         {
           "type": "text",
-          "text": "The machine was the **Voder**, designed by Homer Dudley at Bell Labs. It had two sources, a buzz for voiced sounds and a hiss for sounds like \"s\" and \"f\". Ten keys each opened one band of a bank of filters, so the operator shaped the formants by hand, and the foot pedal set the pitch of the buzz. It was the vowel engine, played live. Operators trained for a year, and it was hard work, but in the right hands it was understandable.[^voder]"
+          "text": "The machine was the **Voder**, designed by Homer Dudley at Bell Labs. It had two sources, a buzz for voiced sounds and a hiss for sounds like \"s\" and \"f\". Its filters were a **bank**, a row of ten side by side, each letting through one **band**, a slice of the range of pitches from low to high. Ten keys each opened one band, so the operator shaped the formants by hand, and the foot pedal set the pitch of the buzz. It was the vowel engine, played live. Operators trained for a year, and it was hard work, but in the right hands it was understandable.[^voder]"
         },
         {
           "type": "diagram",
@@ -150,7 +150,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Dudley's bigger idea had come first, and went the other way. Instead of a person setting the bands, a real voice would set them. A **vocoder** splits a voice into bands and measures how loud each one is from moment to moment. Those levels then open and close the same bands of a different sound, the **carrier**. The carrier can be a synth playing chords; the voice is the **modulator**. What comes out has the synth's pitch and the voice's words."
+          "text": "Dudley's bigger idea, the vocoder, was older than the Voder; he had worked on it since the late 1920s. It went the other way. Instead of a person setting the bands, a real voice would set them. A **vocoder** splits a voice into bands and measures how loud each one is from moment to moment. Those levels then open and close the same bands of a different sound, the **carrier**. The carrier can be a synth playing chords; the voice is the **modulator**. What comes out has the synth's pitch and the voice's words."
         },
         {
           "type": "interactive_diagram",
@@ -162,7 +162,7 @@
         },
         {
           "type": "text",
-          "text": "The number of bands decides how clearly it talks. With four, the bands are too coarse to show where the formants are, and every vowel sounds much the same. With sixteen or more, the synth speaks. Dudley built it for the telephone. The levels of a few bands change slowly, so they need far less sending than the voice itself. In the Second World War the same idea, scrambled, carried secret calls between Churchill and Roosevelt.[^sigsaly]"
+          "text": "The number of bands decides how clearly it talks. Each band is a slice of the pitch range, so the fewer the bands, the wider each slice. With four, each band is so wide that a formant could be anywhere inside it, and every vowel sounds much the same. Around ten bands, words come through, if buzzy. With sixteen or more, the synth speaks clearly. Dudley built the vocoder for the telephone. The levels of a few bands change slowly, so they need far less sending than the voice itself. In the Second World War the same idea, scrambled, carried secret calls between Churchill and Roosevelt.[^sigsaly]"
         }
       ]
     },
@@ -171,11 +171,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Musicians found the vocoder in the 1970s, and it became the sound of robots and of a good deal of pop and funk. Most hardware vocoders need a microphone for the modulator. A **speech engine** on a small synth gets by without one. It stores a few words or phrases as sequences of formant settings, buzz and hiss, and plays them back at the note's pitch. That's the same thing the Voder operator did by hand, now done by a programme."
+          "text": "Musicians found the vocoder in the 1970s, and it became the sound of robots and of a good deal of pop and funk. Most hardware vocoders need a microphone for the modulator. A **speech engine** on a small synth is a different machine: it needs no microphone and no voice coming in. It stores a few words or phrases as sequences of formant settings, buzz and hiss, and plays them back at the note's pitch. That's the same thing the Voder operator did by hand, now done by a programme."
         },
         {
           "type": "text",
-          "text": "The best-known talking machine of all worked the same way: Texas Instruments' Speak & Spell toy of 1978. It stored speech as a stream of filter settings, only about a thousand bits a second.[^lpc] That was compact enough to fit the vocabulary of a spelling game on two small memory chips. The three knobs of a speech engine usually pick the word, stretch or squeeze it in time, and shift the mouth's size, just as the vowel engine's Timbre does."
+          "text": "The best-known talking machine of all worked the same way: Texas Instruments' Speak & Spell toy of 1978. It stored speech as a stream of filter settings, only about a thousand bits a second.[^lpc] That was compact enough to fit the vocabulary of a spelling game on two small memory chips. On most synths that have one, the three knobs of a speech engine pick the word, stretch or squeeze it in time, and shift the mouth's size, just as the vowel engine's Timbre does."
         }
       ]
     },
@@ -184,7 +184,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now set up the sung \"ah\" from the opening, starting from the plain buzz. You need the engine, the vowel, the mouth's size, and a little breath."
+          "text": "Now set up the sung \"ah\" from the opening, starting from the plain buzz. Switch the Engine to the vowel engine, then set Wave to the vowel (\"ah\" sits at the middle of its travel), Timbre to the mouth's size, and Shape to a little breath. Play the target and yours in turn until they sound alike."
         },
         {
           "type": "interactive_diagram",
@@ -220,7 +220,7 @@
         },
         {
           "type": "text",
-          "text": "A touch of breath makes a synth voice sound more like a person, as a real singer's voice is never a pure buzz. Pressure and the matrix (lessons 15 and 16) can move it as you play."
+          "text": "A touch of breath makes a synth voice sound more like a person, as a real singer's voice is never a pure buzz. The matrix and pressure (lessons 15 and 16) can move the breath as you play."
         }
       ]
     },
@@ -281,7 +281,7 @@
     }
   ],
   "summary": [
-    "**A voice is a buzz through formants**; two formants are enough to tell most vowels apart.",
+    "**A voice is a buzz through formants**; the lowest two are enough to tell most vowels apart.",
     "**A vowel engine copies that**: Wave moves the vowel, Timbre the size of the mouth, Shape the breath.",
     "**Homer Dudley’s Voder (1939)** was played by hand: keys shaped the formants, a pedal set the pitch.",
     "**A vocoder lets a voice set the bands**: the voice’s band levels shape a synth’s sound.",
@@ -292,7 +292,7 @@
     "voder": {
       "kind": "digression",
       "title": "The operators",
-      "text": "Bell trained a group of twenty-four telephone operators to play the Voder, and the training took about a year. Stops like \"p\" and \"t\" had their own keys, and a wrist bar switched between the buzz and the hiss. The best operators could make it sing, and even say a sentence with a rising question at the end."
+      "text": "Bell trained a group of twenty-four telephone operators to play the Voder, and the training took about a year. Consonants that stop the air for an instant, like \"p\" and \"t\", had their own keys, and a wrist bar switched between the buzz and the hiss. The best operators could make it sing, and even say a sentence with a rising question at the end."
     },
     "sigsaly": {
       "kind": "digression",
@@ -302,7 +302,7 @@
     "lpc": {
       "kind": "technical",
       "title": "Linear predictive coding",
-      "text": "The Speak & Spell used a method called linear predictive coding, or LPC. Rather than fixed frequency bands like a channel vocoder, LPC models the throat as a single filter of ten resonances whose frequencies and widths shift about forty times a second, driven by a buzz at the voice's pitch or by white noise."
+      "text": "The Speak & Spell used a method called linear predictive coding, or LPC. Rather than fixed frequency bands like a channel vocoder, LPC models the throat as a single filter set by ten numbers, enough for about five formants, whose settings shift about forty times a second, driven by a buzz at the voice's pitch or by white noise."
     }
   },
   "journal": []

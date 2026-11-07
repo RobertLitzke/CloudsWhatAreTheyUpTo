@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** Play the A above middle C on a clarinet, then on a flute. The pitch is the same: both make the air shake 440 times a second. Play them equally loud. Anyone can still tell which is which, with their eyes shut, from a single held note. Pitch and loudness are only two numbers, and the two instruments agree on both. Whatever is left over has a name, **[[timbre]]**, and for most of history nobody could say what it was."
+          "text": "**The mystery.** Play the A above middle C on a clarinet, then on a flute. The pitch is the same: both make the air shake 440 times a second, or 440 hertz (Hz for short). Play them equally loud. Anyone can still tell which is which, with their eyes shut, from a single held note. Pitch and loudness are only two numbers, and the two instruments agree on both. Whatever is left over has a name, **[[timbre]]**, and for most of history nobody could say what it was."
         },
         {
           "type": "diagram",
@@ -46,16 +46,16 @@
         },
         {
           "type": "text",
-          "text": "A synthesizer has the same puzzle in miniature. Its oscillator can play the riff above as a bright buzz, a hollow woodwind or a soft one, and nothing changes but one switch. By the end of the lesson you will know what that switch changes, and you will find a fourth woodwind by ear."
+          "text": "A synthesizer has the same puzzle in miniature. Its **oscillator**, the part that makes the raw tone by swinging back and forth at the note's pitch, can play the riff above as a bright buzz, a hollow woodwind or a soft one, and nothing changes but one switch: the shape of the wave it swings through. By the end of the lesson you will know what that switch changes, and you will find a fourth sound, a reed, by ear."
         },
         {
           "type": "text",
-          "text": "In 1863 the German physicist [[Hermann von Helmholtz]] published his answer, worked out with a box of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches two, three, four and more times higher. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
+          "text": "In 1863 the German physicist [[Hermann von Helmholtz]] published his answer, worked out with a box of hollow brass spheres.[^resonators] Each sphere had a wide opening on one side and a small nipple on the other that fitted into the ear, and each was tuned, by its size, to ring at one pitch only. Hold one to your ear while a note is played and it stays silent, unless the note contains that one pitch, when it booms. Helmholtz found that a single note from a violin or a voice set off not one sphere but a whole row of them: the note's own pitch, and the pitches at two, three, four and more times its rate. The note's own pitch counts as the first harmonic, twice it the second, three times it the third. A musical note, he concluded, is not one tone. It is a stack of pure tones, the **[[harmonic series]]**, and timbre is how loud each one is."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "The synth plays a riff on one oscillator. On the left of the display is the wave, on the right its harmonics, low to high.",
+          "caption": "The synth plays a riff on one oscillator. Its four waves are saw, pulse, triangle and sine. On the left of the display is the wave, on the right its harmonics, low to high.",
           "task": "Listen to all four waves",
           "goal": "wave-all",
           "options": {
@@ -80,7 +80,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Helmholtz had a theorem behind him. Forty years earlier the French mathematician [[Joseph Fourier]], working on how heat spreads through a metal bar, had shown that any shape that repeats can be built by adding up sine waves: one at the repeat rate, and others at two, three, four times it, each with its own size.[^fourier] Fourier was thinking about temperatures. Helmholtz saw that it was also a description of the ear, which seems to do the same sum in reverse and hear the pieces."
+          "text": "Helmholtz had a theorem behind him. Forty years earlier the French mathematician [[Joseph Fourier]], working on how heat spreads through a metal bar, had shown that any shape that repeats can be built by adding up sine waves: one at the repeat rate, and others at two, three, four times it, each with its own size.[^fourier] Fourier was thinking about temperatures. Helmholtz saw that it was also a description of the ear, which seems to run the sum backwards: it splits a sound into its sines and hears each one."
         },
         {
           "type": "interactive_diagram",
@@ -92,7 +92,7 @@
         },
         {
           "type": "text",
-          "text": "Every wave on the synth is one of these recipes. The saw has every harmonic, each weaker than the one before in a simple ratio: a half, a third, a quarter. The square has only the odd ones. The triangle has the odd ones too, but they fade so fast that it is nearly a sine. Nothing else about the shapes matters to the ear: two waves that look different but have the same harmonics at the same sizes sound the same.[^phase]"
+          "text": "Every wave on the synth is one of these recipes. The saw has every harmonic: the second half as strong as the first, the third a third as strong, the fourth a quarter, and so on. The square (the pulse wave at its middle setting, of which more below) has only the odd ones. The triangle has the odd ones too, but they fade so fast that it is nearly a sine. Almost nothing else about the shapes matters to the ear: two waves that look different but have the same harmonics at the same sizes sound the same.[^phase]"
         },
         {
           "type": "key_ideas",
@@ -110,7 +110,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The synth's display shows both halves of Fourier's idea at once. The left side is the wave itself, the air pressure rising and falling over a few cycles. The right side is the same sound as a **spectrum**: one bar for each harmonic, the lowest pitch on the left, the highest on the right. A bright sound fills the right-hand side with bars. A dull one leaves it empty."
+          "text": "The synth's display shows both sides of Fourier's idea at once: the wave, and the sines it is made of. The left side is the wave itself, the air pressure rising and falling over a few cycles. The right side is the same sound as a **spectrum**: one bar for each harmonic, the lowest pitch on the left, the highest on the right. A bright sound fills the right-hand side with bars. A dull one leaves it empty."
         },
         {
           "type": "interactive_diagram",
@@ -144,7 +144,7 @@
         },
         {
           "type": "text",
-          "text": "A pulse wave is a square that need not be square. It flips between high and low, and its **width** is how much of each cycle it spends high. At 50 % it is a square. Narrower, the low harmonics thin out and a reedy, nasal edge is left, more oboe than clarinet."
+          "text": "A pulse wave is a square that need not be square. It flips between high and low, and its **width** is how much of each cycle it spends high. At 50 % it is a square. Narrower, the high harmonics grow as strong as the low ones and a reedy, nasal edge is left, more oboe than clarinet."
         },
         {
           "type": "interactive_diagram",
@@ -175,7 +175,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Width shapes the pulse and nothing else. On the saw, the triangle and the sine it has nothing to act on, so it goes dark. This matters in [PatchMatch](#/ear), the ear-training game beside this course: a knob that is dark in the target sound is never part of a puzzle's answer, because no ear could hear where it is set."
+          "text": "Width shapes the pulse and nothing else. On the saw, the triangle and the sine it has nothing to act on, so it goes dark. This matters in [PatchMatch](#/ear), the ear-training game beside this course: a knob that is dark in the sound you are trying to match is never part of a puzzle's answer, because no ear could hear where it is set."
         },
         {
           "type": "interactive_diagram",
@@ -374,8 +374,8 @@
   ],
   "summary": [
     "**A note is a stack of pure tones**, at one, two, three and more times its pitch: the harmonic series.",
-    "**Timbre is the mix**: how loud each harmonic is. Two instruments on the same note differ only in that.",
-    "**Helmholtz (1863) heard the harmonics** one at a time with tuned brass resonators.",
+    "**Timbre is the mix**: how loud each harmonic is. On a steady held note, that is what tells two instruments apart.",
+    "**Helmholtz (1863) heard the harmonics** with tuned brass resonators, each ringing for one harmonic.",
     "**Fourier: any repeating wave is a sum of sines** at whole-number multiples of its rate.",
     "**Saw: every harmonic. Square: the odd ones. Triangle: odd, fading fast. Sine: one.**",
     "**A clarinet's closed tube favours odd harmonics**, which is why a square sounds like one.",

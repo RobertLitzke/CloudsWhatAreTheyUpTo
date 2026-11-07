@@ -67,7 +67,7 @@
         },
         {
           "type": "text",
-          "text": "Sabine spent his nights measuring. He sounded an organ pipe and timed with a chronograph how long the sound took to die away to silence. Then his assistants carried in seat cushions from the theatre across the yard, a few at a time, and he timed it again.[^cushions] More cushions always shortened the time in a predictable curve. After years of this he had a law. The time a sound takes to die away by 60 decibels, the **reverberation time**, is proportional to the room's volume divided by how much its surfaces soak up.[^law]"
+          "text": "Sabine spent his nights measuring. He sounded an organ pipe and timed with a stopwatch how long the sound took, after the pipe stopped, to die away until he could no longer hear it. Then his assistants carried in seat cushions from the theatre across the yard, a few at a time, and he timed it again.[^cushions] More cushions always shortened the time in a predictable curve. After years of this he had a law. Today the **reverberation time** is defined as the time a sound takes to fall to a millionth of its starting power, a drop of 60 **decibels**, the usual unit for comparing loudness; that is close to what Sabine's ear measured. It is proportional to the room's volume divided by how much its surfaces soak up.[^law]"
         },
         {
           "type": "interactive_diagram",
@@ -92,7 +92,7 @@
         },
         {
           "type": "text",
-          "text": "A reverb on a synth copies all three. On this one, **Type** chooses what is being copied, **Size** sets the reverberation time, and **Mix** sets how loud the reverb is against the dry sound. A little mix places a sound in a room, and a lot pushes it far away, to the back of a hall."
+          "text": "A reverb on a synth copies all three. On this one, **Type** chooses what is being copied: a Room, or one of the two machines below, a Plate or a Spring. **Size** sets the reverberation time, as a bigger or harder room would, and **Mix** sets how loud the reverb is against the dry sound. A little mix places a sound in a room, and a lot pushes it far away, to the back of a hall."
         },
         {
           "type": "interactive_diagram",
@@ -119,7 +119,7 @@
         },
         {
           "type": "text",
-          "text": "Reverb and echo (lesson 8) are the same thing at different speeds. An echo is one reflection, late enough to hear separately. A reverb is thousands of them, too close together to tell apart."
+          "text": "Reverb and echo (lesson 8) are the same thing with different spacing. An echo is one reflection, late enough to hear separately. A reverb is thousands of them, too close together to tell apart."
         }
       ]
     },
@@ -132,7 +132,7 @@
         },
         {
           "type": "text",
-          "text": "Cheaper still was the **spring**: a coiled spring with a driver at one end and a pickup at the other, small enough to fit in a guitar amplifier. A sound runs along the spring and back, low frequencies faster than high ones,[^dispersion] so every reflection arrives as a little rising \"boing\". Kick a spring reverb and it crashes. That twang is the sound of surf guitar and of dub reggae, where producers played the spring like an instrument."
+          "text": "Cheaper still was the **spring**: a coiled spring with a driver at one end and a pickup at the other, small enough to fit in a guitar amplifier. A sound runs along the spring and back, low frequencies faster than high ones,[^dispersion] so every reflection arrives as a little rising \"boing\". Knock a guitar amplifier with a spring inside, and the spring crashes. That twang is the sound of surf guitar and of dub reggae, where producers played the spring like an instrument."
         },
         {
           "type": "interactive_diagram",
@@ -165,7 +165,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now set up the opening's third sound from the dry pluck: the type, how long it rings, and how much of it there is."
+          "text": "Now set up the opening's third sound from the dry pluck: Type for the plate, Size for how long it rings, and Mix for how loud it is against the dry sound."
         },
         {
           "type": "interactive_diagram",
@@ -200,7 +200,7 @@
         },
         {
           "type": "text",
-          "text": "A digital reverb like this one doesn't bounce anything. It takes the room's answer to a single click, its **impulse response**, and adds up a copy of it for every sample of the sound, a calculation called **convolution**. Record the answer of a real cathedral to a starting pistol, and any sound can be played in that cathedral."
+          "text": "This synth's reverb bounces nothing. For each Type it works out how a room, a plate or a spring would answer a single click, its **impulse response**. Digital sound is a stream of numbers, tens of thousands a second, each called a **sample**, and the reverb adds up a copy of that answer for every sample, scaled by the sample's height. The calculation is called **convolution**. Record the answer of a real cathedral to a starting pistol, and any sound can be played in that cathedral."
         }
       ]
     },
@@ -272,7 +272,7 @@
     "law": {
       "kind": "technical",
       "title": "Sabine’s formula",
-      "text": "In metric units, the time in seconds is 0.161 times the volume in cubic metres, divided by the absorption, measured in square metres of open window. An open window absorbs everything that reaches it, so a square metre of it counts as 1. A square metre of plaster counts as about 0.03 and a person as about 0.4. Sabine worked in metres from the start, measuring absorption in cushions before converting to open windows."
+      "text": "In metric units, the time in seconds is 0.161 times the volume in cubic metres, divided by the absorption, measured in square metres of open window. An open window absorbs everything that reaches it, so a square metre of it counts as 1. A square metre of plaster counts as about 0.03, and a seated person soaks up about as much as 0.4 square metres of open window. Sabine himself worked in feet, and at first measured absorption in lengths of cushion, converting to open windows later."
     },
     "cushions": {
       "kind": "digression",
@@ -286,8 +286,8 @@
     },
     "dispersion": {
       "kind": "technical",
-      "title": "Why plates and springs chirp",
-      "text": "In open air, all frequencies travel at the same speed. In steel, they don't. On a flat plate, bending waves carry high frequencies faster than low ones, giving a subtle downward sweep. In a tightly coiled spring, the curve of the wire reverses this up to a few kilohertz: low frequencies travel faster and arrive first, giving the upward chirp you hear on a guitar amp."
+      "title": "Why springs chirp",
+      "text": "In open air, all frequencies travel at the same speed. In steel, they don't. On a flat plate, bending waves carry high frequencies faster than low ones, giving a subtle downward sweep. In a tightly coiled spring, the curve of the wire turns this round below a few kilohertz: low frequencies travel faster and arrive first, giving the upward chirp you hear on a guitar amp."
     }
   },
   "journal": []

@@ -44,7 +44,7 @@
         },
         {
           "type": "text",
-          "text": "In 1779 the Imperial Academy in St Petersburg offered a prize (awarded in 1780) to anyone who could explain the vowels and build a machine to make them. Christian Kratzenstein won it with five oddly shaped tubes, four of them blown through a vibrating reed, each sounding one vowel.[^kratzenstein] The reed was the same in all four; only the shape of the tube after it differed. Kratzenstein had found the answer without quite saying it: a vowel is made not by what buzzes, but by what the buzz passes through."
+          "text": "In 1779 the Imperial Academy in St Petersburg offered a prize (awarded in 1780) to anyone who could explain the vowels and build a machine to make them. Christian Kratzenstein won it with five oddly shaped tubes, one for each vowel; four were blown through a vibrating reed, and the fifth was simply blown into.[^kratzenstein] The reed was the same in all four; only the shape of the tube after it differed. Kratzenstein had found the answer without quite saying it: a vowel is made not by what buzzes, but by what the buzz passes through."
         },
         {
           "type": "text",
@@ -59,13 +59,13 @@
           "type": "interactive_diagram",
           "id": "vowel",
           "caption": "A buzz on 110 Hz and its harmonics, passed through two resonant peaks as a mouth would. Move the peaks and the same buzz says a different vowel.",
-          "task": "Make an “ee”: the first peak low, the second high",
+          "task": "Make an “ee”: the first (lower) peak low, the second high",
           "goal": "ee",
           "aspect_ratio": 1.8181818181818181
         },
         {
           "type": "text",
-          "text": "The first formant moves mostly with your jaw: open it for “ah” and the peak rises. The second follows your tongue, high when the tongue is forward for “ee”, low when it is pulled back for “oo”. This is why you can still make out a whisper, which has no pitch at all, and why a parrot, with no lips and a quite different throat, can still be understood: the ear is listening for the peaks, not the buzz."
+          "text": "The first formant moves mostly with your jaw: open it for “ah” and the peak rises. The second follows your tongue, high when the tongue is forward for “ee”, low when it is pulled back for “oo”. This is why you can still make out a whisper, which has no pitch at all (its source is the hiss of breath, not a buzz, but it passes through the same peaks), and why a parrot, with no lips and a quite different throat, can still be understood: the ear is listening for the peaks, not the buzz."
         },
         {
           "type": "key_ideas",
@@ -83,7 +83,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A classic synthesizer works like a voice. Start with a bright wave, full of harmonics, and take away what you don't want. This is **[[subtractive synthesis]]**, and the part that takes away is the **filter**. The synth's filter is a low-pass: it lets the harmonics below its **cutoff** through and removes those above. Set it high, and the sound is bright and open. Set it low, and the sound is dark and muffled, while the pitch of the note does not change."
+          "text": "A classic synthesizer works like a voice. Start with a bright wave, full of harmonics, and take away what you don't want. This is **[[subtractive synthesis]]**, and the part that takes away is the **filter**. The synth's filter is a low-pass: it lets the harmonics below its **cutoff** through and removes those above, so the cutoff is the filter's edge. Set it high, and the sound is bright and open. Set it low, and the sound is dark and muffled, while the pitch of the note does not change."
         },
         {
           "type": "interactive_diagram",
@@ -115,7 +115,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A filter can also ring. **Resonance** boosts a narrow band of pitches right at the cutoff, the way a formant boosts a band in the mouth.[^q-factor] A little adds a nasal edge, like the peaks of a vowel. A lot makes the filter ring by itself, and you hear a whistle right where the cutoff sits."
+          "text": "A filter can also ring. **Resonance** boosts a narrow band of pitches right at the cutoff, the way a formant boosts a band in the mouth.[^q-factor] A little adds a nasal edge, like the peaks of a vowel. A lot makes the filter ring by itself, and you hear a whistle right where the cutoff sits. The synth measures resonance as Q: at Q 0.7 there is no bump at all, and by Q 8 the filter whistles."
         },
         {
           "type": "interactive_diagram",
@@ -275,12 +275,12 @@
         },
         {
           "type": "text",
-          "text": "A single resonant low-pass gives one formant, so it can only suggest a vowel, an “aw” or an “oo”. Two or three peaks moving together, as in the figure earlier, make speech. Machines that do this from a real voice, the **talk box** and the **vocoder**, put a singer's mouth on a guitar or a synth.[^vocoder]"
+          "text": "A single resonant low-pass gives one formant, so it can only suggest a vowel, an “aw” or an “oo”. Two or three peaks moving together, as in the vowel figure above, make speech. Machines that do this from a real voice, the **talk box** and the **vocoder**, put a human mouth on a guitar or a synth.[^vocoder]"
         },
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "Wendy Carlos in 1985. Her Switched-On Bach of 1968, played on a Moog modular, made the synthesizer famous, and she made one sing through a vocoder for A Clockwork Orange.",
+          "caption": "Wendy Carlos in 1985. Her Switched-On Bach of 1968, played on a Moog modular, made the synthesizer famous, and she made a synthesizer sing through a vocoder for A Clockwork Orange.",
           "options": {
             "photo": "wendy-carlos",
             "aspect": 0.8,
@@ -350,7 +350,7 @@
                 "why": "A ringing peak at the cutoff boosts whichever harmonic it lands on."
               },
               {
-                "ask": "A sound gets duller with no new peak. Which knob most likely moved?",
+                "ask": "A sound gets duller, and no peak appears or disappears. Which knob most likely moved?",
                 "choices": [
                   "Cutoff, down",
                   "Resonance, up",

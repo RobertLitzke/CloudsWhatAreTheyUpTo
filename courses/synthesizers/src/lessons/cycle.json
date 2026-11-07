@@ -14,7 +14,7 @@
         {
           "type": "diagram",
           "id": "sound",
-          "caption": "Envelope 2 on the filter, once a note and repeating",
+          "caption": "Envelope 2 on the filter's cutoff, once a note and looping",
           "options": {
             "stage": 14,
             "riff": 103,
@@ -37,7 +37,7 @@
                 }
               },
               {
-                "name": "Repeating",
+                "name": "Looping",
                 "set": {
                   "env2Mode": 1
                 }
@@ -62,7 +62,7 @@
           "type": "interactive_diagram",
           "id": "synth",
           "caption": "Envelope 2 on the cutoff, once a note. Lengthen its rise.",
-          "task": "Lengthen the rise to 300 ms or more",
+          "task": "Lengthen the rise to 300 ms (milliseconds, thousandths of a second) or more",
           "goal": "env2-rise",
           "options": {
             "stage": 14,
@@ -88,7 +88,7 @@
         },
         {
           "type": "text",
-          "text": "A slow rise on the cutoff makes each note open up gradually after it starts, like a brass player pushing into a note. With a quick rise and a slow fall, it gives the bright-then-darkening shape from lesson 3, done by a second envelope while the first keeps the loudness organ-steady. Having two envelopes means loudness and brightness can take different shapes."
+          "text": "A slow rise on the cutoff makes each note open up gradually after it starts, like a brass player pushing into a note. With a quick rise and a slow fall, it gives the bright-then-darkening shape from lesson 3, done by a second envelope while the first holds the loudness steady, like an organ. Having two envelopes means loudness and brightness can take different shapes."
         }
       ]
     },
@@ -102,14 +102,14 @@
         {
           "type": "interactive_diagram",
           "id": "cycle",
-          "caption": "Envelope 2 over two bars of notes. Change the mode, the rise and the fall.",
+          "caption": "Envelope 2 over two bars (eight beats) of notes. Change the mode, the rise and the fall.",
           "task": "See Loop and Run, with the rise at 300 ms or more",
           "goal": "loop-slow",
           "aspect_ratio": 2.1
         },
         {
           "type": "text",
-          "text": "Looping and running free look alike on a held note, but differ when the notes change. A looping envelope begins every note at the start of its cycle, so each note begins the same way. A free-running one is caught by each note wherever it happens to be. The first works like a retriggered LFO and the second like a free-running one, the same choice as in lesson 13."
+          "text": "Looping and running free look alike on a held note, but differ when the notes change. A looping envelope begins every note at the start of its cycle, so each note begins the same way. A free-running one pays the notes no attention, so each new note finds it wherever it happens to be in its cycle. The first works like a retriggered LFO and the second like a free-running one, the same choice between restarting and running on as in lesson 13."
         },
         {
           "type": "interactive_diagram",
@@ -147,11 +147,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Synth makers love this module because it does so much with so little. Set to pitch with no rise and a quick fall, it is lesson 12's drum. Set to cutoff once a note, it is a second filter envelope. Looping with a slow rise and quick fall, it gives a breathing pad, or a pulsing sequence of swells in time with nothing in particular. With the rise and fall equal, it becomes a triangle LFO.[^function]"
+          "text": "Synth makers love this module because it does so much with so little. Set to pitch with no rise and a quick fall, it is lesson 12's drum. Set to cutoff once a note, it is a second filter envelope. Looping with a slow rise and quick fall, it gives a breathing pad, or a pulsing run of swells that keeps its own time rather than the beat's. Set to Run with the rise and fall equal, it becomes a triangle LFO.[^function]"
         },
         {
           "type": "text",
-          "text": "A small synth with one envelope, one LFO and one looping envelope can therefore cover a lot of ground. Faced with a panel you don't know, it is worth finding out which of its envelopes can loop. Look for a mode switch beside it, with words like *Env*, *Loop*, *Cycle* or *Run*."
+          "text": "A small synth with one envelope, one LFO and one looping envelope can therefore cover a lot of ground. Faced with a panel you don't know, it is worth finding out which of its envelopes can loop. Look for a mode switch beside it, with words like *Env*, *Loop* or *Run*; some makers call looping *Cycle*."
         }
       ]
     },
@@ -211,7 +211,7 @@
         {
           "type": "quiz",
           "id": "check",
-          "caption": "Five questions on looping envelopes",
+          "caption": "Five questions on envelope 2 and its modes",
           "task": "Choose the best answer to each",
           "options": {
             "items": [
@@ -278,7 +278,7 @@
     "**Run** ignores the notes: it is a free-running LFO with a separate rise and fall.",
     "**A slow rise and quick fall, looping, on the cutoff** makes a pad breathe.",
     "**Equal rise and fall, running free,** is a triangle LFO.",
-    "**On an unfamiliar panel, look for the envelope with a mode switch**: Env, Loop, Cycle, Run."
+    "**On an unfamiliar panel, look for the envelope with a mode switch**: Env, Loop (or Cycle), Run."
   ],
   "footnotes": {
     "function": {

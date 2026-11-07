@@ -9,7 +9,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** Here is a hiss, like a radio tuned between stations. Then the same hiss twice more: once as surf rolling onto a beach, once as wind whistling past a window. No recording of the sea went into either, and nothing in them has a pitch. All three are the same raw sound with different parts of it taken away. By the end of the lesson you will make the wind yourself."
+          "text": "**The sound.** Here is a hiss, like a radio tuned between stations. Then the same hiss twice more: once as surf rolling onto a beach, once as wind whistling past a window. No recording of the sea went into either, and nothing in them is a played note. All three are the same raw sound with different parts of it taken away. By the end of the lesson you will make the wind yourself."
         },
         {
           "type": "diagram",
@@ -96,7 +96,7 @@
         },
         {
           "type": "text",
-          "text": "This hiss is **[[white noise]]**, named by analogy with white light, which holds every colour. Its energy is spread evenly over every *hertz*, and since there are far more hertz between 10,000 and 20,000 than between 100 and 200, most of it sits high up, which is why it sounds so bright.[^pink] An analogue synth makes it by amplifying the random jostling of electrons in a transistor; a digital one draws a fresh random number for every sample.[^source]"
+          "text": "This hiss is **[[white noise]]**, named by analogy with white light, which holds every colour. Its energy is spread evenly over every *hertz*. The ear, though, hears in octaves, and each octave up spans twice as many hertz as the one below (100 to 200 is a hundred hertz wide, 10,000 to 20,000 is ten thousand), so each octave up carries twice the energy. To the ear most of it sits high up, which is why it sounds so bright.[^pink] An analogue synth makes it by amplifying the random jostling of electrons in a transistor; a digital one draws a fresh random number for every sample.[^source]"
         }
       ]
     },
@@ -105,11 +105,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Lesson 2's filter was a **low-pass**: it keeps what lies below the cutoff and takes away what lies above. Many filters can be switched to two other shapes. A **high-pass** does the opposite and keeps only what lies above the cutoff. A **band-pass** keeps a band around the cutoff and takes away both sides. The switch is usually labelled *mode* or *type*, with the letters LP, HP and BP."
+          "text": "Lesson 2's filter was a **low-pass**: it keeps what lies below the cutoff and takes away what lies above. Many filters can be switched to two other shapes. A **high-pass** does the opposite and keeps only what lies above the cutoff. A **band-pass** keeps a band around the cutoff and takes away both sides. The switch is usually labelled *mode* or *type*, with the letters LP, HP and BP. This synth's has four positions: two low-passes, LP 24 and LP 12 (the numbers are explained below), then BP and HP."
         },
         {
           "type": "text",
-          "text": "Noise is the best sound to learn them on, because it has something at every frequency for a filter to remove. Watch the spectrum as you change mode: the low-pass leaves a slope falling to the right, the high-pass a slope falling to the left, and the band-pass a hill."
+          "text": "Noise is the best sound to learn them on, because it has something at every frequency for a filter to remove. Watch the spectrum, low pitches on the left and high on the right, as you change mode: the low-pass leaves a slope falling to the right, the high-pass a slope falling to the left, and the band-pass a hill."
         },
         {
           "type": "interactive_diagram",
@@ -136,7 +136,7 @@
         },
         {
           "type": "text",
-          "text": "Low-pass noise rumbles, like surf or distant traffic. High-pass noise fizzes, like steam or a cymbal's shimmer. Band-pass noise breathes: a narrow band of it sounds almost like a sung *ooh* or *ahh*, because a mouth is a band-pass filter too, as lesson 2 found."
+          "text": "Low-pass noise rumbles, like surf or distant traffic. High-pass noise fizzes, like steam or a cymbal's shimmer. Band-pass noise breathes: a narrow band of it sounds almost like a whispered *ooh* or *ahh*, because a mouth is a band-pass filter too, as lesson 2 found."
         }
       ]
     },
@@ -180,7 +180,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Filters differ in how sharply they cut, as well as where. The figure in a synth's manual is the **slope**, in decibels per octave: how much quieter the sound gets for each octave past the cutoff. A 12 dB filter cuts a harmonic's amplitude to a quarter for every octave; a 24 dB filter cuts it to a sixteenth, a steeper wall. The low-pass in lessons 1 to 9 was 24 dB, the slope of Moog's ladder. Listen to the two at the same cutoff."
+          "text": "Filters differ in how sharply they cut, as well as where. The number in a synth's manual is the **slope**, in decibels per octave: how much quieter the sound gets for each octave past the cutoff. A 12 dB filter cuts a harmonic's amplitude to a quarter for every octave; a 24 dB filter cuts it to a sixteenth, a steeper wall. The low-pass in lessons 1 to 9 was 24 dB, the slope of Moog's ladder filter from lesson 2. Listen to the two at the same cutoff."
         },
         {
           "type": "diagram",
@@ -217,7 +217,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now the wind. A band-pass with its resonance turned up keeps only a narrow band of noise, so narrow that it starts to have a pitch: a whistle, like wind in a wire. Find it first. Set band-pass, raise the resonance, and listen to the hiss turn into a hollow, breathy tone."
+          "text": "Now the wind. A band-pass with its resonance turned up keeps only a narrow band of noise, so narrow that it starts to have a pitch: a whistle, like wind in a wire. Find the whistle first. Set band-pass, raise the resonance, and listen to the hiss turn into a hollow, breathy tone."
         },
         {
           "type": "interactive_diagram",
@@ -245,7 +245,7 @@
         },
         {
           "type": "text",
-          "text": "Wind is that whistle, moving. Gusts push its pitch up and let it fall back, and the LFO from lesson 4 can do the pushing, set to the cutoff and slowed right down. Make the wind: the noise is already on, and the LFO is already sent to the cutoff at its slowest rate, with its depth at zero."
+          "text": "Wind is that whistle, moving. Gusts push its pitch up and let it fall back, and the LFO from lesson 4 can do the pushing, set to the cutoff and slowed right down. Make the wind: the noise is already on, and the LFO is already sent to the cutoff at its slowest rate, with its depth at zero. Choose the mode and the resonance, then bring the depth up until the whistle gusts."
         },
         {
           "type": "interactive_diagram",
@@ -369,7 +369,7 @@
   ],
   "summary": [
     "**Noise is a random signal with no pitch**: its energy is spread over every frequency at once.",
-    "**White noise** has equal energy per hertz, so most of it is high and it sounds bright; pink sounds darker.",
+    "**White noise** has equal energy per hertz, so to the ear, which hears in octaves, most of it is high and it sounds bright.",
     "**A synth's mixer** sets how much of each oscillator and of the noise goes on to the filter.",
     "**Low-pass keeps the lows, high-pass the highs, band-pass a band** around the cutoff.",
     "**A telephone line is a band-pass** of about 300 to 3,400 hertz, which is why voices on it sound thin.",

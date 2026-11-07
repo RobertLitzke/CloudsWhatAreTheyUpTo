@@ -104,7 +104,7 @@
         },
         {
           "type": "text",
-          "text": "Pitch is counted in semitones and the cutoff in octaves, as before. A third of a semitone of LFO on pitch is a gentle vibrato; a whole octave on the cutoff is a strong wah. Notice that the LFO's own Depth knob is still at zero. The matrix takes the LFO before the Depth knob, so the two ways of using it add up."
+          "text": "Pitch is counted in semitones and the cutoff in octaves, as before. A third of a semitone of LFO on pitch is a gentle vibrato; a whole octave on the cutoff is a strong wah. Notice that the LFO's own Depth knob is still at zero. The matrix takes the LFO's raw wobble from before the Depth knob, so a route works with Depth at zero; turn Depth up as well, and its wobble on the Dest switch's target simply adds to the route's."
         }
       ]
     },
@@ -139,7 +139,7 @@
         },
         {
           "type": "text",
-          "text": "Upside down, the note starts dark and opens as it fades, a backwards pluck that sounds like a tape played in reverse. A negative amount on pitch makes each note swoop up into place instead of down. Negative routes look like a curiosity, but they are how a lot of the subtler patches work: one source pushing two things in opposite directions, so that as a sound gets brighter it also gets a little quieter, and the overall level seems steady."
+          "text": "Upside down, the note starts dark and opens as it fades, a backwards pluck that sounds like a tape played in reverse. A negative amount on pitch makes each note swoop up into place instead of down. Negative routes look like a curiosity, but they are how a lot of the subtler patches work: one source pushing two things in opposite directions, so that as a sound gets brighter it also gets a little quieter. A brighter sound seems louder to the ear, and the small drop in level makes up for it."
         }
       ]
     },
@@ -148,7 +148,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Not every source moves on its own. **Key** is the note you are playing, counted in octaves above or below middle C. Sent to the cutoff, it makes the filter follow the keyboard. This loop shows why that matters: it plays the same note in four octaves, through a filter set to 900 Hz. The low A has sixteen harmonics under the cutoff and fizzes. The high A has two, and sounds like a whistle. They don't sound like the same instrument."
+          "text": "Not every source moves on its own. **Key** is the note you are playing, counted in octaves above or below middle C, the C near the middle of a piano keyboard. Sent to the cutoff, it makes the filter follow the keyboard. This loop shows why that matters: it plays the same note in four octaves, A at 55, 110, 220 and 440 Hz, through a filter set to 900 Hz. The low A has sixteen harmonics under the cutoff and fizzes. The high A has two, and sounds like a whistle. They don't sound like the same instrument."
         },
         {
           "type": "interactive_diagram",
@@ -172,7 +172,7 @@
         },
         {
           "type": "text",
-          "text": "At +1 octave, every octave up the keyboard moves the cutoff up an octave too, so every note keeps the same harmonics under the filter and the same tone. That is called **full key tracking**, and acoustic instruments mostly behave that way. At +0.5, high notes still get a little darker, which suits a bass. Many synths have a knob for nothing else, labelled **Key track** or **KBD**.[^tracking]"
+          "text": "At +1 octave, every octave up the keyboard moves the cutoff up an octave too, so every note keeps the same harmonics under the filter and the same tone. That is called **full key tracking**, and acoustic instruments mostly behave that way. At +0.5, high notes still get a little darker, which suits a bass line, where high notes shouldn't stab through. Many synths have a knob that does only this, labelled **Key track** or **KBD**.[^tracking]"
         }
       ]
     },
@@ -181,7 +181,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Two columns are different. **Level** is how loud the note is, and **LFO amt** is how strong the LFO is, everywhere it goes. A route to either one takes over part of it: at +50 %, half the level is fixed and half follows the source; at +100 %, all of it follows. A negative route works the other way and pulls it down as the source goes up."
+          "text": "Two columns are different. **Level** is how loud the note is, and **LFO amt** is how strong the LFO is, everywhere it goes. Their amounts are in percent. A route to either one hands part of it over to the source: at +50 %, half the level stays where the knob sets it and the other half rises and falls with the source; at +100 %, all of it does. A negative route works the other way and pulls it down as the source goes up."
         },
         {
           "type": "text",
@@ -223,7 +223,7 @@
         },
         {
           "type": "text",
-          "text": "The late vibrato uses envelope 2, once a note, but the envelope never touches the pitch directly. Its own amount knob is at zero. Instead, it goes to the LFO's amount at −100 %. Envelope 2 jumps to the top at each note, which pulls the LFO all the way down: no vibrato. As envelope 2 falls away, the LFO comes back. The Fall knob sets how long the note stays straight."
+          "text": "The late vibrato uses envelope 2, once a note, but the envelope never touches the pitch directly. Its own amount on pitch is at zero. Instead, it goes to the LFO's amount at −100 %. Envelope 2 jumps to the top at each note, which pulls the LFO's amount all the way down: no vibrato. As envelope 2 falls away, the LFO comes back. The Fall knob sets how long the note stays straight."
         }
       ]
     },
@@ -318,7 +318,7 @@
               {
                 "ask": "Envelope 2 goes to the LFO's amount at −100 %. What does the LFO do at the start of a note?",
                 "choices": [
-                  "Almost nothing, then more as the envelope falls",
+                  "Nothing, then more as the envelope falls",
                   "Its most, then less",
                   "It speeds up"
                 ],

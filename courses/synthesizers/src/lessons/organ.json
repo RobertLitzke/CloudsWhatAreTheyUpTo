@@ -13,7 +13,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** Every sound in this course so far has started bright and been cut down by a filter. These three started from nothing and were built up, one sine at a time. The first is a single sine. The second has a few soft harmonics added, and sounds like a flute. The third has only the odd harmonics, which gives it a hollow, reedy sound. You'll build that third one at the end."
+          "text": "**The sound.** Most sounds in this course so far have started from a bright wave and been cut down by a filter. These three started from nothing and were built up, one sine at a time. The first is a single sine. The second has a few soft harmonics added, and sounds like a flute. The third has only the odd harmonics, which gives it a hollow, reedy sound. You'll build that third one at the end."
         },
         {
           "type": "diagram",
@@ -53,7 +53,7 @@
         },
         {
           "type": "text",
-          "text": "Building a sound from sines is called **additive synthesis**. It is the most direct use of what lesson 1 showed: any steady sound is a stack of sines, so a synth that can set the size of each sine can make any steady sound. Its first use came nearly half a century before anyone called an instrument a synthesizer."
+          "text": "Building a sound from sines is called **additive synthesis**. It is the most direct use of what lesson 1 showed: any steady sound is a stack of sines, so a synth that can set the size of each sine can make any steady sound. Its first use came about fifty years before the RCA Synthesizer of 1957, one of the first machines to carry the name."
         }
       ]
     },
@@ -62,11 +62,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In 1906 New Yorkers could pick up a telephone and listen to live music, with no musicians on the line. The music came from a machine in a building on Broadway that weighed about two hundred tons. It was the **Telharmonium**, built by Thaddeus Cahill, and it made every note from spinning alternators, each one making a single, nearly pure tone.[^cahill]"
+          "text": "**The mystery.** In 1906 New Yorkers could pick up a telephone and listen to live music, with no musicians on the line. The music came from a machine in a building on Broadway that weighed about two hundred tons. It was the **Telharmonium**, built by Thaddeus Cahill, and it made every note from spinning **alternators**, giant wheels turning beside coils, each one making a single, nearly pure tone.[^cahill]"
         },
         {
           "type": "text",
-          "text": "The player didn't choose a wave. For each note, keys and stops mixed several alternators' tones at the note's harmonics, louder or softer, and the mixture was the instrument's colour. That's additive synthesis exactly. The scheme failed for reasons that had nothing to do with sound. The machine needed power-station currents, and its signals leaked into ordinary phone calls.[^crosstalk] Before long, nobody wanted to pay for music by telephone."
+          "text": "The player didn't choose a wave. For each note, the keys and the **stops**, switches borrowed from the pipe organ that bring in or shut off a set of tones, mixed several alternators' tones at the note's harmonics, louder or softer, and the mixture was the instrument's colour. That's additive synthesis exactly. The scheme failed for reasons that had nothing to do with sound. The machine needed power-station currents, and its signals leaked into ordinary phone calls.[^crosstalk] Before long, nobody wanted to pay for music by telephone."
         },
         {
           "type": "diagram",
@@ -84,12 +84,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Thirty years later, Laurens Hammond made the same idea fit in a living room. His organ of 1935 had small **tonewheels**, metal discs spinning next to magnets, each giving a near-sine. Above the keys sat the **drawbars**: nine sliders, each one a sine at a different harmonic of the note, pulled out in eight steps from silent to full."
+          "text": "Thirty years later, Laurens Hammond made the same idea fit in a living room. His organ of 1935 had small **tonewheels**, a shrunken version of Cahill's alternators: metal discs spinning next to magnets, each giving a near-sine. Above the keys sat the **drawbars**: nine sliders, each one a sine at a different harmonic of the note, pulled out in eight steps from silent to full."
         },
         {
           "type": "diagram",
           "id": "photo",
-          "caption": "A Hammond B-3 of 1958, the best known of Hammond's tonewheel organs, with its drawbars above the keys.",
+          "caption": "A Hammond B-3 of 1958, the best known of Hammond's tonewheel organs. It works the same way as the 1935 organ, with its drawbars above the keys.",
           "options": {
             "photo": "hammond-b3",
             "aspect": 1.5
@@ -97,7 +97,7 @@
         },
         {
           "type": "text",
-          "text": "The drawbars are named in feet, after the lengths of organ pipes.[^pipe-feet] The 8′ bar is the note itself; 4′ is an octave up, 2′ two octaves, and so on. The two brown bars are sub-harmonics, an octave below the note and a fifth above that, to fill it out. An organist sets up a sound by pulling bars out, and writes it down as nine digits, a **registration**: \"00 8000 000\" is the 8′ alone, a pure sine."
+          "text": "The drawbars are named in feet, after the lengths of organ pipes.[^pipe-feet] The 8′ bar is the note itself; 4′ is an octave up, 2′ two octaves, and so on. Counted from the left, the first two bars are brown. The first, 16′, is an octave below the note, and the second, 5⅓′, is a fifth above the note. Together they add depth underneath the 8′. An organist sets up a sound by pulling bars out, and writes it down as nine digits, a **registration**: \"00 8000 000\" is the 8′ alone, a pure sine."
         },
         {
           "type": "interactive_diagram",
@@ -109,7 +109,7 @@
         },
         {
           "type": "text",
-          "text": "Pull the first three bars all the way out and leave the rest in: 88 8000 000. That registration, a deep, round sound, is on a great many jazz and gospel records. Every Hammond sound is a mixture like this one: a handful of sines, each at a level you chose."
+          "text": "Pull the first three bars from the left all the way out, and push the other six all the way in, to silent: 88 8000 000. That registration, a deep, round sound, is on a great many jazz and gospel records. Every Hammond sound is a mixture like this one: a handful of sines, each at a level you chose."
         }
       ]
     },
@@ -118,7 +118,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Nine sliders is about as many as a player can handle, and a sound with thirty harmonics would need thirty. So an additive engine on a synth puts its sines under three knobs, each of which sets many of them at once. On this one, **Wave** is the brightness: how quickly the harmonics fall away as they go up. **Timbre** is the level of the even harmonics, against the odd ones. **Shape** is how many harmonics there are, from the fundamental alone to thirty-two."
+          "text": "Nine sliders is about as many as a player can handle, and a sound with thirty harmonics would need thirty. So an additive engine on a synth puts its sines under three knobs, each of which sets many of them at once. On this one, **Wave** sets the brightness: how quickly the harmonics fall away as they go up. **Timbre** sets how loud the even harmonics are: at 0 there are none, and turning it up brings them back in beside the odd ones. **Shape** is how many harmonics there are, from the fundamental alone to thirty-two. (The knob names are only names here; Timbre isn't the tone colour of lesson 1 in general.)"
         },
         {
           "type": "text",
@@ -160,7 +160,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now build the third sound from the opening. Here the synth plays the plain saw, with the classic oscillator. Pick the additive engine, and then set the brightness, the number of harmonics and the balance of even to odd."
+          "text": "Now build the third sound from the opening. The figure starts on the plain saw of the classic oscillator. Switch the Engine to additive, which replaces the saw, and then build the reed with Wave for brightness, Shape for the number of harmonics and Timbre for the even ones."
         },
         {
           "type": "interactive_diagram",
@@ -195,7 +195,7 @@
         },
         {
           "type": "text",
-          "text": "Additive synthesis came back in the 1980s and 1990s, when computers became fast enough to run hundreds of sines at once, each with its own envelope. Its strength is that it can change each harmonic separately as a note plays. A bell's high partials die away before its low ones, for instance. Its weakness is the same thing: someone has to decide what all those harmonics do."
+          "text": "Additive synthesis was too costly in hardware for decades after the Hammond, and came back in the 1980s and 1990s, when computers became fast enough to run hundreds of sines at once, each with its own envelope. Its strength is that it can change each harmonic separately as a note plays. A bell's high **partials**, the sines in a sound whether or not they are true harmonics, die away before its low ones, for instance. Its weakness is the same thing: someone has to decide what all those harmonics do."
         }
       ]
     },
@@ -227,7 +227,7 @@
                   "Vacuum-tube oscillators"
                 ],
                 "answer": 0,
-                "why": "Cahill's alternators were giant tonewheels; their tones were mixed at the harmonics of each note."
+                "why": "Each alternator gave one near-sine; their tones were mixed at the harmonics of each note."
               },
               {
                 "ask": "On a Hammond, what does the 4′ drawbar add?",
@@ -258,9 +258,9 @@
   "summary": [
     "**Additive synthesis builds a sound from sines**, each at a chosen level, instead of filtering a bright wave.",
     "**Cahill’s Telharmonium (1906)** made tones with spinning alternators and sent music down New York’s phone lines.",
-    "**Hammond’s organ (1935)** made the idea small: tonewheels and nine drawbars, each a sine at one harmonic.",
+    "**Hammond’s organ (1935)** made the idea small: tonewheels and nine drawbars, each a sine at one pitch above or below the note.",
     "**Drawbars are named in feet**: 8′ is the note, 4′ an octave up; a setting is written as nine digits.",
-    "**An additive engine puts many sines under three knobs**: brightness, even harmonics and how many.",
+    "**An additive engine puts many sines under three knobs**: Wave for brightness, Timbre for the even harmonics and Shape for how many.",
     "**Odd harmonics alone sound hollow**, like a low clarinet."
   ],
   "footnotes": {

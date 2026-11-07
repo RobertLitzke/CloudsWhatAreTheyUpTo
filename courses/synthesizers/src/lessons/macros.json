@@ -94,11 +94,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The simplest engine is the oscillator you already know, with one change. In the classic oscillator, the wave switch jumps from saw to pulse to triangle to sine. In **Morph**, the Wave knob slides between them, so between saw and square there is a wave that is partly both. Because the waves start together, a blend of two is a real wave in between, with harmonics in between too.[^morph]"
+          "text": "The simplest engine is the oscillator you already know, with one change. In the classic oscillator, the wave switch jumps from saw to pulse to triangle to sine. In **Morph**, the Wave knob slides between them, so between saw and pulse (here a square, the pulse at its middle width) there is a wave that is partly both. Because the waves start together, a blend of two is a real wave in between, with harmonics in between too.[^morph]"
         },
         {
           "type": "text",
-          "text": "Timbre sets the width of the pulse, as the Width knob did in lesson 3, and is heard only while the pulse is in the blend. Shape adds a square wave an octave below the note, a **sub-oscillator**. A sub adds weight underneath without changing the colour on top, which is why it's on almost every bass synth."
+          "text": "Timbre sets the width of the pulse, as the Width knob did in lesson 1, and is heard only while some pulse is in the blend, in the first two thirds of Wave's travel. Shape adds a square wave an octave below the note, a **sub-oscillator**. A sub adds weight underneath without changing the colour on top, which is why it's on almost every bass synth."
         },
         {
           "type": "interactive_diagram",
@@ -153,7 +153,7 @@
         },
         {
           "type": "text",
-          "text": "**Folding** works like this. Push a sine harder and harder into a circuit. When the wave would rise past the top, the circuit sends it back down, as if it had hit a mirror. A little push folds the tips over, which adds a few harmonics. A big push folds the wave many times, and it is full of harmonics. Turning the push up and down sweeps the colour much as a filter does, but it sounds hollower, almost vocal, because harmonics come and go in an uneven order.[^folding]"
+          "text": "**Folding** works like this. Push a sine harder and harder into a circuit. When the wave would rise past the top, the circuit sends it back down, as if it had hit a mirror. A little push folds the tips over, which adds a few harmonics. A big push folds the wave many times, and it is full of harmonics. Turning the push up and down sweeps the colour much as a filter does, but it sounds hollower, almost vocal, because as the push grows, harmonics rise and fall again one after another, instead of fading in from the top as they do when a filter opens.[^folding]"
         },
         {
           "type": "text",
@@ -188,7 +188,7 @@
         },
         {
           "type": "text",
-          "text": "A filter can only take away what the oscillator gives it, but a folder makes new harmonics. Here they still go through this synth's filter, which smooths the very highest ones. Buchla's instruments mostly had no filter of that kind at all.[^lpg]"
+          "text": "A filter can only take away what the oscillator gives it, but a folder makes new harmonics. Here they still go through this synth's filter, which trims the very highest of them. Buchla's instruments mostly had no filter of that kind at all.[^lpg]"
         },
         {
           "type": "diagram",
@@ -210,7 +210,7 @@
         },
         {
           "type": "text",
-          "text": "In the **Supersaw** engine, Wave is the **detune**: how far the outer saws are tuned from the middle one. Timbre is how loud the six outer saws are, against the middle one. Shape is how many of them there are: two, four or six. Each saw's harmonics are slightly out of step with the others, so every harmonic turns into a little cluster that shimmers, and the clusters are wider the higher the harmonic."
+          "text": "In the **Supersaw** engine, Wave is the **detune**: how far the outer saws are tuned from the middle one. Timbre is how loud the six outer saws are, against the middle one. Shape is how many outer saws there are around the middle one: two, four or six. Each saw's harmonics are slightly out of step with the others, so every harmonic turns into a little cluster that shimmers, and the clusters are wider the higher the harmonic."
         },
         {
           "type": "interactive_diagram",
@@ -242,7 +242,7 @@
         },
         {
           "type": "text",
-          "text": "Too little detune sounds like a saw that wobbles slowly. Too much sounds out of tune. Between them is a wide band where it just sounds big. Notice that the sound gets wider but no louder. The engine turns its saws down as it adds them, so the total stays about the same."
+          "text": "Too little detune sounds like a saw that wobbles slowly. Too much sounds out of tune. Between them is a wide band where it just sounds big. Notice that the sound gets wider but no louder. The engine turns all the saws down a little as you add them, on top of what Timbre sets, so the total stays about the same."
         }
       ]
     },
@@ -251,7 +251,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the last of the opening's four sounds. This is the synth with the classic oscillator, playing a plain saw. Choose the engine, then find the three knob settings by ear. Remember that in the opening the three knobs were in the same places for every engine."
+          "text": "Now make the last of the opening's four sounds. This is the synth with the classic oscillator, playing a plain saw. Choose the engine, then find the three knob settings by ear. Wave spreads the saws, Timbre brings the outer ones up, and Shape says how many."
         },
         {
           "type": "interactive_diagram",
@@ -291,7 +291,7 @@
         },
         {
           "type": "text",
-          "text": "The real hardware has far more engines than this, often a dozen or more. Some of them are the subject of the Other oscillators branch: wavetables, organs, plucked strings, talking synths, samples and grains. Each one puts three knobs in front of you and gives them three new jobs."
+          "text": "The real hardware has far more engines than this, often a dozen or more. Some of them are the subject of this course's Other oscillators branch, lessons O1 to O6: wavetables, organs, plucked strings, talking synths, samples and grains. Each one puts three knobs in front of you and gives them three new jobs."
         }
       ]
     },
@@ -338,7 +338,7 @@
               {
                 "ask": "A subtractive synth starts with a bright wave and filters it. What did a Buchla synth mostly do instead?",
                 "choices": [
-                  "Start with a plain wave and add harmonics, by folding it",
+                  "Start with a plain wave and add harmonics, for example by folding it",
                   "Start with noise",
                   "Use no oscillators"
                 ],
@@ -346,7 +346,7 @@
                 "why": "East Coast takes away; West Coast adds."
               },
               {
-                "ask": "What does the supersaw's detune knob do?",
+                "ask": "In the Supersaw engine, what does Wave, the detune, do?",
                 "choices": [
                   "Tunes the outer saws further from the middle one",
                   "Adds more saws",

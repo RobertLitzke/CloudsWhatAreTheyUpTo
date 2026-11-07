@@ -1,4 +1,4 @@
-// Branch lesson O1, Stepping through tables: a wavetable drawn the way synth
+// Branch lesson O1, Scanning through tables: a wavetable drawn the way synth
 // screens draw it, as its single-cycle frames stacked one behind the other.
 // The place knob picks a spot in the stack; between two frames the wave is a
 // blend of both, drawn bold in front, with its harmonics underneath. Play it

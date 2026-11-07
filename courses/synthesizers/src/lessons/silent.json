@@ -83,7 +83,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The commonest silent synth is a filter set to take everything away. Remember that a filter only removes: it has nothing to work with but what the sources give it. A low-pass filter with its cutoff far below the note leaves almost nothing of a bright wave, and nothing at all of a sine above it. Most filters can also be switched to keep the top instead of the bottom, a **high-pass**, and then a cutoff set high leaves nothing of a low note. That is what had happened in the shop: a pure sine, and a filter set to keep only what lies above nine thousand hertz."
+          "text": "The commonest silent synth is a filter set to take everything away. Remember that a filter only removes: it has nothing to work with but what the sources give it. A low-pass filter with its cutoff far below the note leaves almost nothing of a bright wave, and nothing at all of a sine whose note lies above the cutoff. Most filters can also be switched to keep the top instead of the bottom, a **high-pass**, and then a cutoff set high leaves nothing of a low note. That is what had happened in the shop: a pure sine on a note of a few hundred hertz, and a filter set to keep only what lies above nine thousand."
         },
         {
           "type": "interactive_diagram",
@@ -108,7 +108,7 @@
         },
         {
           "type": "text",
-          "text": "Either knob fixes it. Switch the mode back to low-pass, or bring the cutoff down below the note. The strip shows the difference between the two cures: the first lets the whole note through, the second only what lies above the new cutoff. Lesson 11 takes the filter's modes in turn; for now the rule is enough. **If the filter box is dark, open the filter.**"
+          "text": "Either knob fixes it. Switch the mode back to low-pass, or bring the cutoff down below the note. The strip shows the difference between the two cures: the first lets everything through, the second everything above the new cutoff. For this sine that is the whole note, but on a bright wave the lowest harmonics would stay out. Lesson 11 takes the filter's modes in turn; for now the rule is enough. **If the filter box is dark, open the filter.**"
         }
       ]
     },
@@ -117,7 +117,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A key does two jobs. It says **which note** to play, and it says **when**.[^cv-gate] The when comes in two parts. The moment it goes down is the **trigger**, which starts the envelope from the beginning. The time it is held is the **gate**, which keeps the envelope at its sustain level until the key comes up, when the release begins. An organ note lasts exactly as long as the gate. A piano note starts with the trigger and then fades on its own, until the key comes up and the damper drops."
+          "text": "A key does two jobs. It says **which note** to play, and it says **when**.[^cv-gate] The when comes in two parts. The moment it goes down is the **trigger**, which starts the envelope from the beginning. The time it is held is the **gate**, which keeps the envelope at its sustain level until the key comes up, when the release begins. An organ note lasts exactly as long as the gate. A piano note starts with the trigger and then fades on its own, until the key comes up and the damper, a felt pad, drops onto the string to silence it."
         },
         {
           "type": "text",
@@ -163,7 +163,7 @@
         },
         {
           "type": "key_ideas",
-          "title": "What to check, in order",
+          "title": "What to check, quickest first",
           "points": [
             "Volume and octave: is anything coming out, and in a range you can hear?",
             "Sources and mixer: is any oscillator or noise turned up?",
@@ -179,12 +179,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Here is a patch with two faults, as a patch someone has played with usually has. Walk along the chain: the strip will show you the first dark box, and when that is fixed it will show you the next. The tune's sound is not hard to find. It is a plain triangle wave, which a reader of lesson 1 will know as soft and slightly hollow."
+          "text": "Here is a patch with two faults, as a patch someone has played with usually has. Walk along the chain: the strip will show you the first dark box, and when that is fixed it will show you the next. When it plays, it is a plain triangle wave, soft and slightly hollow, so you will know when you have it."
         },
         {
           "type": "interactive_diagram",
           "id": "synth",
-          "caption": "Two stages are shut. Find them both, using the strip to see where the sound stops.",
+          "caption": "Two stages are shut, so two of these four knobs are wrong. Find them both, using the strip to see where the sound stops.",
           "task": "Make the tune sound",
           "goal": "heard",
           "options": {

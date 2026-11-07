@@ -52,11 +52,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Velocity means speed: a keyboard doesn't feel force, it times the key's fall. Each key has two contacts, one near the top of its travel and one near the bottom, and the time between them says how fast the key went down.[^contacts] A fast fall is a hard strike. The number is sent once, as the note starts, and doesn't change while the note is held. The matrix below has two new rows, for velocity and for pressure."
+          "text": "Velocity means speed: a keyboard doesn't feel force, it times the key's fall. Each key has two contacts, one near the top of its travel and one near the bottom, and the time between them says how fast the key went down.[^contacts] A fast fall is a hard strike. The number is sent once, as the note starts, and doesn't change while the note is held. The matrix in the figure below has two new rows, for velocity and for pressure."
         },
         {
           "type": "text",
-          "text": "The keyboard on screen has no contacts to time, so here, where you touch a key stands in for how hard you strike it: near the far end of a key is gentle, near your end is hard. The loop plays the notes from the first sound. Route velocity to the cutoff, so harder notes are brighter."
+          "text": "The keyboard on screen has no contacts to time, so here, where you touch a key stands in for how hard you strike it: near the far end of a key is gentle, near your end is hard. The loop plays the same seven notes as the sound at the top of the lesson. Route velocity to the cutoff, so harder notes are brighter."
         },
         {
           "type": "interactive_diagram",
@@ -82,7 +82,7 @@
         },
         {
           "type": "text",
-          "text": "At +2 octaves, the gentlest note keeps the dark sound and the hardest opens the filter two octaves. That is most of what makes a synth feel like an instrument rather than a switch. Velocity to **level** is the obvious route, and most synths have it built in, but on its own it only makes a note louder. Velocity to brightness is the one the ear believes. Velocity to the envelope's attack, or to the amount of FM, are other favourites."
+          "text": "At +2 octaves, the gentlest note keeps the dark sound and the hardest opens the filter two octaves. That is most of what makes a synth feel like an instrument rather than a switch. Velocity to **level**, the loudness column from lesson 15, is the obvious route, and most synths have it built in, but on its own it only makes a note louder. Velocity to brightness is the one the ear believes. Velocity to the envelope's attack, or to the amount of FM, are other favourites."
         }
       ]
     },
@@ -112,11 +112,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Velocity is settled the moment a note starts. **Pressure**, also called **aftertouch**, is what happens next: once the key is down, pressing it harder into the bed. It changes all the time the note is held, so it can do what velocity can't, such as bring in a vibrato halfway through a note, or swell a note that has already started."
+          "text": "Velocity is settled the moment a note starts. **Pressure**, also called **aftertouch**, is what happens next: once the key is down, pressing it harder against the bottom of its travel. It changes all the time the note is held, so it can do what velocity can't, such as bring in a vibrato halfway through a note, or swell a note that has already started."
         },
         {
           "type": "text",
-          "text": "Like velocity, pressure is just a source in the matrix. Here it goes to the LFO's amount, which (lesson 15) is how strong the LFO is everywhere it goes. The LFO is set to a vibrato. The loop leans into each note as it is held."
+          "text": "Like velocity, pressure is just a source in the matrix. Here it goes to the LFO's amount, which, as lesson 15 showed, scales the LFO wherever it is sent. The LFO is set to a vibrato. The loop leans into each note as it is held."
         },
         {
           "type": "diagram",
@@ -192,7 +192,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the expressive version. The LFO is a vibrato from the first instant, and the notes are struck one soft and one hard, but nothing listens to how they are played. Make the harder note brighter, and let the vibrato come in only as the notes are leaned on. Then play the keys yourself: touch near your end for a hard note, and slide towards you as you hold it."
+          "text": "Now make the expressive version. The LFO is a vibrato from the first instant, and the notes are struck one soft and one hard, but nothing listens to how they are played. Make the harder note brighter, and let the vibrato come in only as the notes are leaned on: a route at +100 % hands all of the LFO's amount to the pressure. Then play the keys yourself: touch near your end for a hard note, and slide towards you as you hold it."
         },
         {
           "type": "interactive_diagram",
@@ -228,7 +228,7 @@
         },
         {
           "type": "text",
-          "text": "Two routes and the sound changes with every note you play. When you sit down at a synth you don't know, it is worth checking these four sources first: velocity, pressure, and the two wheels or strips. Find out where each is going, by turning them and listening, before you start turning the knobs on the panel. A patch that sounds dead may simply be waiting to be played."
+          "text": "Two routes and the sound changes with every note you play. When you sit down at a synth you don't know, it is worth checking these sources first: velocity, pressure, and whatever wheels or strips it has. Find out where each is going, by turning them and listening, before you start turning the knobs on the panel. A patch that sounds dead may simply be waiting to be played."
         }
       ]
     },
@@ -253,7 +253,7 @@
                 "why": "Two contacts per key, and the time between them."
               },
               {
-                "ask": "A synth ignores how hard you play. What is the likeliest reason?",
+                "ask": "A synth's sound doesn't change at all however hard you play. What is the likeliest reason?",
                 "choices": [
                   "Velocity isn't routed anywhere",
                   "The velocity curve is too soft",
@@ -301,7 +301,7 @@
   "summary": [
     "**Velocity is how fast a key goes down**, sent as a number from 1 to 127 when the note starts.",
     "**Velocity does nothing until it is routed**: to level for loudness, to the cutoff for brightness.",
-    "**Velocity to the cutoff** is what makes harder notes sound harder, as on a piano.",
+    "**Velocity to the cutoff** is what makes harder notes sound brighter, as on a piano.",
     "**The velocity curve** decides how a strike becomes a number; set it once for your hands.",
     "**Pressure, or aftertouch**, is pressing a held key harder, and it changes all through the note.",
     "**Pressure to the LFO's amount** gives a vibrato the player brings in note by note.",

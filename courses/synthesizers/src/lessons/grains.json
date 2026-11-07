@@ -13,12 +13,12 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** First, the sung \"wow\" from the last lesson, played as a sample on two long notes. It runs out after a second and a half, however long the key is held. Second, the same sample held for as long as the note lasts, frozen in the middle of its vowel. Third, the same sample turned into a fizzing cloud. All three play the same recording; the second and third play it in crumbs. You'll make the frozen one at the end."
+          "text": "**The sound.** First, the sung \"wow\" from the last lesson, played as a sample on two long notes. It runs out after a second and a half, however long the key is held. Second, the same sample held for as long as the note lasts, frozen in the middle of its vowel. Third, the same sample turned into a fizzing cloud. All three play the same recording; the second and third play it in tiny pieces. You'll make the frozen one at the end."
         },
         {
           "type": "diagram",
           "id": "sound",
-          "caption": "Two long notes: the sample, the sample frozen, and the sample as a cloud",
+          "caption": "Two long notes, played three ways: the sample, the sample frozen, and the sample as a cloud",
           "options": {
             "stage": 22,
             "riff": 103,
@@ -58,7 +58,7 @@
         },
         {
           "type": "text",
-          "text": "The crumbs are called **grains**: pieces of the sample a few hundredths of a second long, each faded in and out so it starts and stops without a click, and many of them overlapping. Playing sound this way is **granular synthesis**."
+          "text": "Those pieces, the crumbs of the title, are called **grains**: pieces of the sample a few hundredths of a second long, each faded in and out so it starts and stops without a click, and many of them overlapping. Playing sound this way is **granular synthesis**."
         }
       ]
     },
@@ -100,7 +100,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A grains engine takes its grains from one place in a sample. **Wave** is that place. Move it and the grains come from a different part of the recording, without its speed changing: you can stop at a single vowel and hold it as long as you like, or scrub slowly through the whole word. **Timbre** is the grain size. **Shape** is how many grains start each second, and how widely their places are scattered around Wave."
+          "text": "A grains engine takes its grains from one place in a sample. **Wave** is that place. Move it and the grains come from a different part of the recording, and the grains themselves play no faster or slower: you can stop at a single vowel and hold it as long as you like, or scrub slowly through the whole word. **Timbre** is the grain size, from about 12 **ms** (milliseconds, thousandths of a second) at 0 to 200 ms at full; 30 ms is about a third of the way up, and 100 ms about three quarters. **Shape** turns up two things together: the **density**, how many grains start each second, and the **scatter**, how widely their places spread around Wave. As before, the names are only names; Timbre here isn't the tone colour of lesson 1."
         },
         {
           "type": "interactive_diagram",
@@ -112,7 +112,7 @@
         },
         {
           "type": "text",
-          "text": "The grain size decides what you hear, as Gabor said. Grains of a tenth of a second or more are heard as bits of the voice, overlapping like a crowd. Grains shorter than about thirty thousandths of a second are too short to carry the voice's vowel or pitch clearly. They are heard as texture, a fizz or a buzz, whose own rhythm, the number of grains a second, becomes a pitch of its own."
+          "text": "The grain size decides what you hear, and Gabor's limit is the reason. Grains of a tenth of a second or more are heard as bits of the voice, overlapping like a crowd. Grains shorter than about 30 ms are so short that the voice's pitch smears and its vowel is lost. They are heard as texture, a fizz or a buzz. If they start regularly, their own rhythm turns into a pitch: eighty grains a second is a low hum at 80 Hz, as eighty clicks a second would be. In between, from about 30 to 100 ms, you hear both at once, a voice breaking up into grit."
         }
       ]
     },
@@ -121,7 +121,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Because each grain is a new copy taken from the same place, the grains engine separates the two things a sampler ties together: how fast the sound moves through the recording, and its pitch. Playing a key higher plays each grain faster, so the pitch rises, but the place they come from doesn't move faster. That is how samplers change pitch without the chipmunk, and how a recording can be stretched to ten times its length."
+          "text": "Because each grain is a new copy taken from the same place, the grains engine separates the two things the simple sampler of the last lesson ties together: how fast the sound moves through the recording, and its pitch. Playing a key higher plays each grain faster, so the pitch rises, but the place they come from doesn't move faster. That is how modern samplers change pitch without the chipmunk, and how a recording can be stretched to ten times its length."
         },
         {
           "type": "interactive_diagram",
@@ -152,7 +152,7 @@
         },
         {
           "type": "text",
-          "text": "With few grains, all from one spot, the voice holds still in the middle of its vowel. Turn Wave slowly while a note is held, and you move through the word at your own speed."
+          "text": "Long grains keep the vowel clear, and turning Shape down takes the scatter away, so every grain comes from the one spot Wave sets. With few grains, all from that spot, the voice holds still in the middle of its vowel. Turn Wave slowly while a note is held, and you move through the word at your own speed."
         }
       ]
     },
@@ -161,7 +161,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the opening's frozen voice from a plain saw: the engine, the place in the sample, the grain size, and how few grains, all from the same spot."
+          "text": "Now make the frozen voice from the start of the lesson. The figure starts on the plain saw of the classic oscillator; switch the Engine to grains, which brings in the sung \"wow\" in place of the saw. Then set the place in the sample with Wave, the grain size with Timbre, and few grains, all from the same spot, with Shape."
         },
         {
           "type": "interactive_diagram",
@@ -197,7 +197,7 @@
         },
         {
           "type": "text",
-          "text": "This is the end of the branch on other oscillators. Every engine here had three knobs with three new jobs, and the filter, envelopes and modulation after them worked as before. On a new synth with a new engine, the habit from lesson 22 still works: turn each knob all the way and back, and listen."
+          "text": "This is the end of the branch on other oscillators. Every engine here had three knobs with three new jobs, and the filter, envelopes and modulation after them worked as before. On a new synth with a new engine, the habit from lesson 22 still works: turn each knob all the way one way, then all the way the other, and listen to what it does."
         }
       ]
     },
@@ -215,11 +215,11 @@
                 "ask": "What is a grain?",
                 "choices": [
                   "A piece of a sample a few hundredths of a second long, faded in and out",
-                  "One sample of a recording",
+                  "A single note of a recording",
                   "A kind of filter"
                 ],
                 "answer": 0,
-                "why": "Grains overlap by the dozen to make one sound."
+                "why": "A grain is a short, faded piece of a recording; dozens overlap to make one sound."
               },
               {
                 "ask": "What did Gabor show about very short sounds?",
@@ -259,10 +259,10 @@
   ],
   "summary": [
     "**Granular synthesis plays a sample as many short, overlapping grains**, each faded in and out.",
-    "**Gabor (1946)**: the shorter a sound, the less exact its pitch; a sound is a mosaic of tiny quanta.",
+    "**Gabor (1946)**: the shorter a sound, the less exact its pitch; he suggested hearing every sound as a mosaic of tiny quanta.",
     "**Wave is where the grains come from**; moving it scrubs through the recording at any speed.",
     "**Grain size decides what you hear**: long grains are bits of the sound, short ones are texture.",
-    "**Density and scatter** set how thick and how smeared the cloud is.",
+    "**Shape sets density and scatter**: how thick and how smeared the cloud is.",
     "**Grains separate pitch from speed**: a sound can be frozen, stretched or pitched without the chipmunk."
   ],
   "footnotes": {

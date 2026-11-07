@@ -69,16 +69,16 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A bar is cut into sixteen equal **steps**, sixteenth notes at the tempo. Each step holds a note or a **rest**, and the sequencer plays them in order, then loops. That's all a step sequencer is. Unlike the arpeggiator, which plays whatever you hold, a sequencer plays a pattern you wrote, and needs no hands at all once it is going."
+          "text": "A bar of four beats is cut into sixteen equal **steps**, four to a beat: sixteenth notes, in the language of lesson 8. Each step holds a note or a **rest**, and the sequencer plays them in order, then loops. That's all a step sequencer is. Unlike the arpeggiator, which plays whatever you hold, a sequencer plays a pattern you wrote, and needs no hands at all once it is going."
         },
         {
           "type": "text",
-          "text": "Each step can carry a little more than a pitch. An **accent** strikes it harder: through the synth's velocity routes (lesson 16), it sounds louder and brighter. A **slide** holds the note into the next step, which glides to its pitch without a new pluck (lesson 17's legato). A **tie** makes a step carry on the note before it, for a note two or more steps long. Below is a sequencer with sixteen steps over two octaves of a bass line's notes. Change the pattern while it plays."
+          "text": "Each step can carry a little more than a pitch. An **accent** strikes it harder: through the synth's velocity routes (lesson 16), it sounds louder and brighter. A **slide** holds a note into the next step, and the next step's new pitch is reached by gliding, without a new pluck (lesson 17's legato). A **tie** makes a step play no new note at all: the note before it simply carries on, for a note two or more steps long. Below is a sequencer with sixteen steps over two octaves of a bass line's notes. Change the pattern while it plays."
         },
         {
           "type": "interactive_diagram",
           "id": "seq",
-          "caption": "A sixteen-step sequencer playing the synth. Tap squares for notes; mark accents and slides below.",
+          "caption": "A sixteen-step sequencer playing the synth. Tap squares for notes; mark accents and slides below. The knobs beside it shape the sound, for later.",
           "task": "Make a pattern of six notes or more, with an accent and a slide",
           "goal": "seq-made",
           "options": {
@@ -101,7 +101,7 @@
         },
         {
           "type": "text",
-          "text": "The **Feel** buttons add **swing**: every second step is pushed a little late, so the pattern lopes instead of ticking evenly, the way a drummer plays a shuffle. A third of a step is a gentle swing; half a step is heavy. Swing is one of the settings that makes a sequence sound played rather than typed."
+          "text": "The **Feel** buttons on the figure add **swing**: every second step is pushed a little late, so the pattern lopes instead of ticking evenly, the way a drummer plays a shuffle. Pushed a third of a step late (at 120 beats a minute, about 40 milliseconds) is a gentle swing; half a step is heavy. Swing is one of the settings that makes a sequence sound played rather than typed."
         }
       ]
     },
@@ -136,7 +136,7 @@
         },
         {
           "type": "text",
-          "text": "A sequence usually belongs to the patch, so loading a sound can load a pattern with it, which is why a synth will sometimes start playing a line by itself when you press Play. It is worth finding the sequencer's **Play**, **Record** and **Hold** or **Latch** buttons early on an unfamiliar synth, along with the tempo."
+          "text": "A sequence is usually saved as part of the patch. Load a sound and you may load a pattern with it, so a synth can surprise you by playing a line of its own when you start its sequencer. It is worth finding the sequencer's **Play**, **Record** and **Hold** or **Latch** buttons (which keep a pattern going after you let go, as the arpeggiator's Hold did) early on an unfamiliar synth, along with the tempo."
         }
       ]
     },
@@ -145,7 +145,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the acid sound. The sequence below is the one from the start of the lesson, with its accents and slides already in. The synth is plain and dull. Close the cutoff, turn the resonance right up, send plenty of envelope to the filter and shorten its decay, so every note squelches and the accented ones bite."
+          "text": "Now make the acid sound. The sequence below is the one from the start of the lesson, with its accents and slides already in. The synth is plain and dull. Turn the cutoff down, turn the resonance (res) right up, raise the envelope amount (envAmt) and shorten the decay, so every note squelches and the accented ones bite."
         },
         {
           "type": "interactive_diagram",

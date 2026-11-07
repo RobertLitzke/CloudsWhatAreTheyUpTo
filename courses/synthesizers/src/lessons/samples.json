@@ -13,7 +13,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The sound.** Here is a short sung \"wow\", stored as numbers, played on three keys an octave apart. On the low key it plays as it was sung. An octave up it plays twice as fast, so it is higher and shorter, and the voice turns into a cartoon. The second sound is the same thing cut short and deliberately made coarse, a sound from 1980s hip hop. You'll make that one at the end."
+          "text": "**The sound.** Here is a short sung \"wow\", stored as numbers, played first on a low key and then an octave up. On the low key it plays as it was sung. An octave up it plays twice as fast, so it is higher and shorter, and the voice turns into a cartoon. The second sound is the same thing cut short and deliberately made coarse, a sound from 1980s hip hop. You'll make that one at the end."
         },
         {
           "type": "diagram",
@@ -55,11 +55,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A sample is a list of numbers, each one the pressure of the sound at one instant: the height of the wave, measured many thousands of times a second. The number of measurements a second is the **sample rate**. A CD uses 44,100.[^forty-four-one] Playing back means turning the numbers back into pressure, one after another, at the same rate."
+          "text": "A sample is a list of numbers, each one the air pressure of the sound at one instant: the height of the wave, measured many thousands of times a second. The number of measurements a second is the **sample rate**. A CD uses 44,100.[^forty-four-one] Playing back means turning the numbers back into pressure, one after another, at the same rate."
         },
         {
           "type": "text",
-          "text": "On the sample engine, **Wave** is where in the sample a note starts, and **Timbre** is how much of it plays from there. Start late, and the note skips the breath at the beginning and goes straight into the vowel. Play only a little, and you have a short slice of it. Cutting samples into slices like this is the basis of a great deal of music."
+          "text": "On the sample engine, the three knobs take new jobs again, and their names are only names. **Wave** is where in the sample a note starts, and **Timbre** is how much of it plays from there. Start late, and the note skips the breath at the beginning and goes straight into the vowel. Play only a little, and you have a short slice of it. Cutting samples into slices like this is the basis of a great deal of music."
         },
         {
           "type": "interactive_diagram",
@@ -92,11 +92,11 @@
       "blocks": [
         {
           "type": "text",
-          "text": "**The mystery.** In old Westerns a wagon rolls forward, faster and faster, and its spoked wheels seem to slow down, stop and turn backwards. The wheels are fine. The film is the trouble: it takes 24 pictures a second, and when a spoke moves nearly the gap to the next spoke between two pictures, it looks as if it moved a little backwards instead."
+          "text": "**The mystery.** In old Westerns a wagon rolls forward, faster and faster, and its spoked wheels seem to slow down, stop and turn backwards. The wheels are fine. The film is the trouble: it takes 24 pictures a second, and when, between one picture and the next, each spoke moves almost all the way to where the next spoke was, it looks as if it moved a little backwards instead."
         },
         {
           "type": "text",
-          "text": "Sampling a sound does the same thing to a tone. If the tone rises and falls more than once between two samples, the samples can't tell, and they trace out a slower tone that was never there. A sample rate can only hold tones below half itself. That limit is called the **Nyquist frequency**, after Harry Nyquist of Bell Labs.[^nyquist] A tone above it doesn't disappear. It comes back down, folded under the limit, as a false tone called an **alias**."
+          "text": "Sampling a sound does the same thing to a tone. If the tone rises and falls more than once between two samples, the samples can't tell, and they trace out a slower tone that was never there. A recording can only hold tones below half its sample rate. That limit is called the **Nyquist frequency**, after Harry Nyquist of Bell Labs.[^nyquist] A tone above it doesn't disappear. It comes back down, folded under the limit, as a false tone called an **alias**."
         },
         {
           "type": "interactive_diagram",
@@ -108,7 +108,7 @@
         },
         {
           "type": "text",
-          "text": "As the tone rises past half the sample rate, what you hear goes down. That's the backwards wagon wheel for the ear. Recorders avoid it with a filter that removes everything above the limit before sampling, and the 44,100 of a CD puts the limit just above the highest pitch most people can hear."
+          "text": "Here the limit is half of 4,000, or 2,000 Hz (2 **kHz**, kilohertz). As the tone rises past it, what you hear goes down. That's the backwards wagon wheel for the ear. Recorders avoid it with a filter that removes everything above the limit before sampling, and the 44,100 of a CD puts the limit just above the highest pitch most people can hear."
         }
       ]
     },
@@ -117,7 +117,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Early samplers had little memory, so they sampled slowly and stored each number coarsely. The Fairlight CMI of 1979 cost as much as a house, and the Emulator of 1981 as much as a new car, and their samples had a grainy edge. A drum machine of 1987, the E-mu SP-1200, sampled at about 26,000 a second in 12-bit numbers,[^bit-depth] and its gritty drums became part of the sound of hip hop. When memory grew cheap, producers kept the grit on purpose."
+          "text": "Early samplers had little memory, so they sampled slowly and stored each number coarsely, with few steps between quiet and loud. The Fairlight CMI of 1979 cost as much as a house, and the Emulator of 1981 as much as a new car, and their samples had a grainy edge. A drum machine of 1987, the E-mu SP-1200, sampled at about 26,000 a second in 12-bit numbers,[^bit-depth] and its gritty drums became part of the sound of hip hop. When memory grew cheap, producers kept the grit on purpose."
         },
         {
           "type": "diagram",
@@ -130,7 +130,7 @@
         },
         {
           "type": "text",
-          "text": "On this engine, **Shape** lowers the sample rate after the sample, with no filter in front, so the aliases come through. A little adds a fizzy edge, and a lot turns the voice into a metallic, ringing version of itself. The false tones don't follow the note's pitch the way harmonics do, so a crushed note sounds slightly out of tune with itself."
+          "text": "On this engine, **Shape** copies the slow sampling: it lowers the sample rate as the sample plays. Nothing removes the high tones before it does, as a recorder's filter would, so the aliases come through. A little adds a fizzy edge, and a lot turns the voice into a metallic, ringing version of itself. The false tones don't follow the note's pitch the way harmonics do, so a crushed note sounds slightly out of tune with itself."
         },
         {
           "type": "interactive_diagram",
@@ -163,7 +163,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the opening's second sound from a plain saw. You need the engine, where the slice starts, how much of it plays, and how coarse it is."
+          "text": "Now make the cut and crushed sound from the start of the lesson. The figure starts on the plain saw of the classic oscillator; switch the Engine to the sampler, which replaces the saw with the sung \"wow\". Then set where the slice starts, how much of it plays, and how coarse it is."
         },
         {
           "type": "interactive_diagram",
@@ -260,10 +260,10 @@
   ],
   "summary": [
     "**A sampler plays back a stored sound**, the sample, instead of making a wave.",
-    "**Played higher, a sample plays faster**: pitch, vowels and speed all rise together, like a sped-up tape.",
+    "**Played higher, a simple sampler plays faster**: pitch, vowels and speed all rise together, like a sped-up tape.",
     "**A sample is a list of measurements**; how many a second is the sample rate (44,100 on a CD).",
     "**Start point and length cut a slice** out of the sample.",
-    "**A sample rate holds only tones below half itself**, the Nyquist frequency.",
+    "**A recording holds only tones below half its sample rate**, the Nyquist frequency.",
     "**Tones above it fold back down as aliases**, as film makes wagon wheels turn backwards.",
     "**Coarse sampling on purpose** gives the grit of early samplers."
   ],
@@ -276,7 +276,7 @@
     "forty-four-one": {
       "kind": "digression",
       "title": "Why 44,100?",
-      "text": "Before recordable hard drives, the only cheap machines that could store millions of numbers a second were video tape recorders. Sony and Philips chose 44,100 for the CD because it worked with both American and European television frame rates: three samples on each of 245 picture lines across 60 fields a second (3 × 245 × 60 = 44,100), and three on each of 294 lines across 50 fields in Europe (3 × 294 × 50 = 44,100)."
+      "text": "Before recordable hard drives, the only cheap machines that could store millions of numbers a second were video tape recorders. Sony and Philips chose 44,100 for the CD because it worked with both American and European television, which drew a picture as horizontal lines, half of them in each pass down the screen (a **field**): three samples on each of 245 picture lines across 60 fields a second (3 × 245 × 60 = 44,100), and three on each of 294 lines across 50 fields in Europe (3 × 294 × 50 = 44,100)."
     },
     "nyquist": {
       "kind": "digression",

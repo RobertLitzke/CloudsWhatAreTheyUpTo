@@ -51,7 +51,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The **Glide** knob sets how long the slide takes. At a few hundredths of a second it is barely a slide at all, more a softening of each note's start. At a fifth of a second it sounds like a deliberate swoop, and at half a second the line starts to sound drunk. Most of the useful settings are short."
+          "text": "The **Glide** knob sets how long the slide takes. At a few hundredths of a second it is barely a slide at all, more a softening of each note's start. At a fifth of a second it sounds like a deliberate swoop, and at half a second the line starts to sound drunk. Most of the useful settings lie between those, under a quarter of a second."
         },
         {
           "type": "interactive_diagram",
@@ -104,7 +104,7 @@
         },
         {
           "type": "text",
-          "text": "Legato mode usually changes the glide too: only notes played over a held one slide, and notes played separately jump. The player then decides, note by note, which notes slide, by holding the last key down or not. In the figure, the second note is held until the third starts."
+          "text": "On most synths, and on this one, Legato mode changes the glide too: only notes played over a held one slide, and notes played separately jump. The player then decides, note by note, which notes slide, by keeping the previous key held down when pressing the next, or not. In the figure, the second note is held until the third starts."
         },
         {
           "type": "interactive_diagram",
@@ -116,7 +116,7 @@
         },
         {
           "type": "text",
-          "text": "In Retrig mode every jump is a slide and every note starts again; it is smooth but samey. In Legato mode the separate notes stay crisp and only the slurred pair glides, without a new attack. That mixture of crisp and sliding notes is the sound of a great deal of electronic bass."
+          "text": "In Retrig mode, with the glide up, every jump is a slide and every note starts again; it is smooth but samey. In Legato mode the separate notes stay crisp and only the slurred pair glides, without a new attack. That mixture of crisp and sliding notes is the sound of a great deal of electronic bass."
         }
       ]
     },
@@ -125,7 +125,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make it. This bass line has two places where a note is held into the next. The synth is in Retrig mode with no glide, so every note is a separate pluck. Make only those two slide, and let them carry on without a new pluck."
+          "text": "Now make it. This bass line has two places where a note is held into the next. The synth is in Retrig mode with no glide, so every note is a separate pluck. Make only those two slide, and let them carry on without a new pluck: that means Legato, and some glide."
         },
         {
           "type": "interactive_diagram",
@@ -161,7 +161,7 @@
         },
         {
           "type": "text",
-          "text": "Play it yourself on the keys: hold a note, press the next before you let go, and that note slides; play them apart, and it doesn't. This is the control that a step sequencer's **slide** switch flips (lesson 20), and it is most of the character of the bass lines in acid house."
+          "text": "Play it yourself on the keys, in Legato: hold a note, press the next before you let go, and the new note slides; play them apart, and it doesn't. A step sequencer, which plays a pattern of notes for you (lesson 20), has a **slide** switch on each step that does the same, and it is most of the character of the bass lines in acid house, the Chicago dance music of the late 1980s."
         }
       ]
     },
@@ -233,7 +233,7 @@
   ],
   "summary": [
     "**Glide, or portamento, slides the pitch** from one note to the next instead of jumping.",
-    "**Short glide softens, long glide swoops**: most useful settings are a few hundredths of a second.",
+    "**Short glide softens, long glide swoops**: most useful settings are under a quarter of a second.",
     "**A monophonic synth plays one note at a time**; the last key pressed wins, and the held key comes back when the new one is lifted.",
     "**Retrig mode restarts the envelopes** on every key.",
     "**Legato mode carries on** when a key is pressed over a held one: no new attack, only the pitch moves.",

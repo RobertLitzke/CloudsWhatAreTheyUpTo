@@ -5,7 +5,7 @@
   "needs": [
     "macros"
   ],
-  "title": "Stepping through tables",
+  "title": "Scanning through tables",
   "teaches": "Wavetables: a stack of waves scanned by an envelope or LFO",
   "parts": [
     {
@@ -50,7 +50,7 @@
         },
         {
           "type": "text",
-          "text": "The engine is a **wavetable**: not one wave, but a numbered stack of them, and a knob that picks where in the stack to play from. Turn the knob while a note sounds, or let an envelope turn it, and the wave changes under your fingers."
+          "text": "The engine is a **wavetable**: not one wave, but a numbered stack of them, and a knob, called **Wave**, that picks where in the stack to play from. It is the first of the three macro knobs from lesson 22, Wave, Timbre and Shape, which do a new job in each engine. Turn the knob while a note sounds, or let an envelope turn it, and the wave changes under your fingers."
         }
       ]
     },
@@ -59,7 +59,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Each wave in the table is a single cycle, called a **frame**, stored as a list of numbers. The oscillator reads one frame round and round, as fast as the note's pitch says. In this table, eight frames run from a sine, through the triangle, square and saw you know, to hollow, vowel-like waves and a bright buzz at the far end. Between two frames the engine plays a blend of both, so a slow turn of the knob is a smooth change."
+          "text": "Each wave in the table is a single cycle, called a **frame**, stored as a list of numbers. The oscillator reads one frame round and round, as fast as the note's pitch says. In this table, eight frames run from a sine at the bottom, through the triangle, square and saw you know, to hollow, vowel-like waves and a bright buzz at the top. Moving **up** the table means moving toward the buzz. The table stops at each end; it doesn't wrap round. Between two frames the engine plays a blend of both, so a slow turn of the knob is a smooth change."
         },
         {
           "type": "interactive_diagram",
@@ -71,7 +71,7 @@
         },
         {
           "type": "text",
-          "text": "Notice that a sweep through the table can do things a filter can't. Going from the saw to the hollow \"ah\" doesn't remove the top harmonics. It takes away the lowest few and leaves a hump in the middle, which is roughly what your mouth does to the buzz of your voice when you say \"ah\" (lesson 2). A low-pass filter can only take harmonics away from the top; a table can go anywhere."
+          "text": "Notice that a sweep through the table can do things a low-pass filter can't. Going from the saw to the hollow \"ah\" doesn't remove the top harmonics. It takes away the lowest few and leaves a hump in the middle, the shape your mouth gives the buzz of your voice when you say \"ah\" (lesson 2). A low-pass filter can only take harmonics away from the top. A band-pass filter can leave a hump, but only one, and only by cutting. A frame can hold any mix of harmonics at all, and the table moves smoothly from one mix to the next."
         }
       ]
     },
@@ -80,7 +80,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Wavetables came from memory chips. In the late 1970s, in Hamburg, Wolfgang Palm realised that a digital oscillator didn't need a circuit for each wave. It could read its wave from memory, so memory could hold many waves, and the synth could move between them. His PPG Wave synths of the early 1980s did exactly that, and the analogue filter that followed gave them a sound of their own.[^steps] Tables are now standard on synths of every kind, and many let you draw or load your own."
+          "text": "Wavetables came from memory chips. In the late 1970s, in Hamburg, Wolfgang Palm realised that a digital oscillator didn't need a circuit for each wave. It could read its wave from memory, so memory could hold many waves, and the synth could move between them. His PPG Wave synths of the early 1980s did exactly that, and the analogue filter each one had after its oscillators gave them a sound of their own.[^steps] Tables are now standard on synths of every kind, and many let you draw or load your own."
         },
         {
           "type": "diagram",
@@ -93,7 +93,7 @@
         },
         {
           "type": "text",
-          "text": "On a table engine of this kind, Wave is the place in the table. The other two knobs set how far two of the synth's movers scan it. **Shape** is how far the envelope pushes the place up the table as each note starts, and **Timbre** is how far the LFO swings it back and forth."
+          "text": "On a table engine of this kind, Wave is the place in the table. The other two knobs hand the scanning to the two things on the synth that already move by themselves, the envelope and the LFO. **Shape** is how far the envelope pushes the place up the table as each note starts, and **Timbre** is how far the LFO swings it back and forth. (Here Timbre is only the knob's name; it isn't the tone colour of lesson 1 in general.)"
         }
       ]
     },
@@ -102,7 +102,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Let the envelope do the turning. As each note starts, the envelope rises, carrying the wave up the table. It then falls back to the sustain level, and the wave comes partway back down. With the envelope's attack slow, as here, the change is a bloom. With a short decay, it is a quick flick of colour at the start of every note."
+          "text": "Let the envelope do the turning. As each note starts, the envelope rises, carrying the wave up the table. It then falls back to the sustain level, and the wave comes partway back down. With the envelope's attack slow, as in this pad, the change is a bloom. With a short decay, it is a quick flick of colour at the start of every note."
         },
         {
           "type": "interactive_diagram",
@@ -133,7 +133,7 @@
         },
         {
           "type": "text",
-          "text": "Try the attack and decay too, in the Envelope module of the Synth lab: the scan follows them exactly, because it is the same envelope. A sound that changes like this needs no filter sweep at all."
+          "text": "Try the attack and decay too, in the Envelope module of the Synth lab: the scan follows them exactly, because it is the same envelope that shapes the loudness. A sound that changes like this needs no filter sweep at all."
         }
       ]
     },
@@ -142,7 +142,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The LFO does the same job, but it swings the place back and forth for as long as the note lasts. Slowly, it is a sound that drifts between colours. Fast, it is a rhythmic wobble of the kind that runs through a lot of electronic bass music."
+          "text": "The LFO does the same job, but it swings the place back and forth for as long as the note lasts. The LFO's Rate knob sets how fast. Slowly, it is a sound that drifts between colours. Fast, it is a rhythmic wobble of the kind that runs through a lot of electronic bass music."
         },
         {
           "type": "interactive_diagram",
@@ -183,7 +183,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the opening's second sound. Here the synth is playing a plain saw, with the classic oscillator. Pick the engine, then find where in the table the notes start and how far the envelope carries them."
+          "text": "Now make the opening's second sound. Here the synth is playing a plain saw on its classic oscillator, the one you've used since lesson 1. Switch the Engine to the table, then use Wave to find where in the table the notes start, and Shape for how far the envelope carries them."
         },
         {
           "type": "interactive_diagram",
@@ -221,7 +221,7 @@
         },
         {
           "type": "text",
-          "text": "Tables are a good place to see the idea of this branch: a new engine is a new source, and everything after it, the filter, envelopes, LFO and effects, works as before."
+          "text": "Every lesson in this branch swaps the oscillator for a different engine, and tables show the pattern clearly: only the source of the sound changes, and everything after it, the filter, envelopes, LFO and effects, works as before."
         }
       ]
     },
@@ -256,14 +256,14 @@
                 "why": "The blend makes a slow turn of the knob a smooth change of wave."
               },
               {
-                "ask": "Why can a table change a sound in ways a filter can't?",
+                "ask": "Why can a table change a sound in ways a low-pass filter can't?",
                 "choices": [
                   "Its frames can have any harmonics, so it can take away the low ones or leave a hump in the middle",
                   "It is louder",
                   "It changes the pitch"
                 ],
                 "answer": 0,
-                "why": "A low-pass filter only takes away from the top."
+                "why": "A low-pass filter only takes away from the top, while a frame can hold any mix of harmonics."
               },
               {
                 "ask": "The envelope scans the table. What happens as a note starts and settles?",

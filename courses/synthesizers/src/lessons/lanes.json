@@ -55,7 +55,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "A **lane** is a row of values, one per step, for one knob. The sequencer below has a lane for the cutoff under its steps: each bar is how far that step moves the cutoff, up to two octaves either way. Drag across the lane to draw a shape, and hear the filter follow it."
+          "text": "A **lane** is a row of values, one per step, for one knob. The sequencer below has a lane for the cutoff under its steps: each bar is how far that step moves the cutoff away from where the knob is set, up to two octaves either way, so turning the knob by hand still moves the whole shape up or down. Drag across the lane to draw a shape, and hear the filter follow it."
         },
         {
           "type": "interactive_diagram",
@@ -82,7 +82,7 @@
         },
         {
           "type": "text",
-          "text": "On a real synth a lane is usually recorded rather than drawn. Put the sequencer into record, turn a knob while the pattern plays, and the sequencer keeps each step's value. Most synths that have lanes give a sequence about four, each for any knob you choose: the cutoff on one, the resonance on another, the wave or the LFO's rate on a third. Some step from value to value; others glide, so a recorded sweep stays smooth."
+          "text": "On a real synth a lane is usually recorded rather than drawn. Put the sequencer into record, turn a knob while the pattern plays, and the sequencer keeps each step's value. Synths with lanes usually give each sequence a handful of them, often four, each assigned to any knob you choose: the cutoff on one, the resonance on another, the wave or the LFO's rate on a third. Some jump from one step's value to the next; others slide smoothly between them, so a recorded sweep stays smooth."
         }
       ]
     },
@@ -91,7 +91,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "The other way to stop a loop sounding like a loop is to let it change itself, a little. Some sequencers have a pair of controls for this.[^spice-dice] **Dice** works out a new set of small changes to the pattern: a note dropped here, an octave jump there, an accent moved. **Spice** sets how many of those changes are heard, from none to all of them. Turn Spice up, then roll the Dice until you like what you hear."
+          "text": "The other way to stop a loop sounding like a loop is to let it change itself, a little. Some sequencers have a pair of controls for this.[^spice-dice] **Dice** works out a new set of small changes to the pattern: a note dropped here, an octave jump there, an accent moved. **Spice** sets how many of those changes are heard, from none to all of them. Turn Spice up, then roll the Dice until you like what you hear. (On the MicroFreak, Dice is a button and the touch strip sets the Spice.)"
         },
         {
           "type": "interactive_diagram",
@@ -131,7 +131,7 @@
         },
         {
           "type": "text",
-          "text": "On an unfamiliar synth, the sequencer's lanes are often hidden behind a Record button and a knob turned while it plays; the dice and spice behind a pair of buttons or a shifted function. If a pattern seems to change the sound by itself, a lane is the likely reason. Clearing a lane is usually as easy as recording it."
+          "text": "On an unfamiliar synth, the sequencer's lanes are often hidden behind a Record button and a knob turned while it plays; the dice and spice behind a pair of buttons, or a button's second job, reached by holding Shift. If a pattern seems to change the sound by itself, a lane is the likely reason. Recording over a lane replaces what was there, and every synth with lanes has some way to clear one; it is worth finding early."
         }
       ]
     },
@@ -140,7 +140,7 @@
       "blocks": [
         {
           "type": "text",
-          "text": "Now make the climb from the start of the lesson. Draw the cutoff lane rising through the bar: lowest on the first beat, higher on each beat after, and at least an octave up by the last. Play it and listen to the filter open as the bar goes on."
+          "text": "Now make the climb from the start of the lesson. Draw the cutoff lane rising through the bar: lowest on the first of its four beats, higher on each beat after, and at least an octave up by the last. Play it and listen to the filter open as the bar goes on."
         },
         {
           "type": "interactive_diagram",
@@ -219,7 +219,7 @@
                   "It only changes the pitch"
                 ],
                 "answer": 0,
-                "why": "A roll can be kept; sample and hold never repeats."
+                "why": "A roll can be kept; sample and hold moves on at every tick."
               },
               {
                 "ask": "A pattern changes its sound by itself, the same way every bar. What is the likely cause?",
