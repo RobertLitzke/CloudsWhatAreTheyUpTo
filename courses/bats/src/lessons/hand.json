@@ -1,0 +1,124 @@
+{
+  "id": "hand",
+  "n": 2,
+  "title": "A hand with skin between the fingers",
+  "teaches": "What a bat is: a wing made of a hand, one mammal species in five, closer kin to horses and cats than to mice, and how wing shape sets where each bat hunts",
+  "summary": [
+    "**A bat's wing is a hand.** Four very long fingers hold out a sheet of living skin, and the thumb stays free, with a claw for climbing.",
+    "**The wing feels and shapes the air.** Its skin carries muscles that tighten it and touch hairs that sense the flow over it, and the bat changes the wing's shape on every beat.",
+    "**One mammal species in five is a bat.** About 1,480 species are known, more than any other group of mammals except the rodents.",
+    "**Bats are not flying mice.** Their genes place them with horses, cats and pangolins, not with rodents.",
+    "**The old split into megabats and microbats is gone.** Fruit bats sit beside the horseshoe bats, which echolocate, so echolocation either arose twice or was lost in the fruit bats.",
+    "**Light wings for small spaces.** Low wing loading lets a bat fly slowly and turn tightly among branches, as the long-eared myotis does.",
+    "**Long narrow wings for open sky.** A high aspect ratio makes flight cheap over distance, and a high wing loading makes it fast, as in the hoary bat.",
+    "**The earliest bats already flew.** *Onychonycteris*, 52 million years old, had flapping wings, and whether it could echolocate is still argued."
+  ],
+  "parts": [
+    {
+      "title": "A fossil from Wyoming",
+      "blocks": [
+        {"type": "text", "text": "In south-western Wyoming there are beds of fine limestone, laid down about 52 million years ago on the floor of a great lake, that split into thin sheets like the pages of a book. They are the Green River Formation, and they hold fish, insects, birds and palm leaves in such detail that a scale or a feather can be counted. Quarry workers and collectors have split them for more than a century, and in 2008 Nancy Simmons of the American Museum of Natural History and her colleagues described a skeleton from them that was laid out on its stone like a spread bat in a museum drawer."},
+        {"type": "text", "text": "They named it *Onychonycteris finneyi*, the clawed bat, because it had a claw on every finger where living bats have one or two. Its arm and finger bones were long, its breastbone had a keel for big flight muscles, and the shape of its shoulder said that it flapped. It was a bat, and it flew. Yet its inner ear, the coiled tube where sound is turned into nerve signals, was small, about the size of the inner ear of a fruit bat that does not echolocate. The first bats known well enough to tell might have flown in silence, or the ear might mislead. Before deciding which, it helps to know what a bat is."}
+      ]
+    },
+    {
+      "title": "A hand for a wing",
+      "blocks": [
+        {"type": "text", "text": "The bat's order is called **Chiroptera**, Greek for hand-wing, and the name is exact. A bird's wing is an arm with the hand bones fused into a stub, and its flying surface is made of feathers. A bat's wing is an arm and a hand. The upper arm is short and strong, the forearm long, and from the wrist four fingers spread out, each longer than the bat's body. The thumb stays short and free, with a claw, for climbing and for gripping when the bat crawls about a roost."},
+        {"type": "diagram", "id": "hand-wing", "caption": "A human hand and a bat's wing, bone for bone, with the fingers numbered from the thumb. The bat's four long fingers hold out the skin of the wing; its thumb stays free. Not to the same scale.", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Between the fingers, and from the last finger back to the leg, runs the flying skin, a double layer so thin that light shows through it.[^membrane] It is alive in a way feathers are not. Fine muscles run through it and tighten it, and it is dotted with tiny hairs, each wired to a touch nerve, that sense how the air flows over the wing. When those hairs were removed in experiments, bats flew less steadily and took corners more widely. Because the fingers can bend, the bat changes the shape of its wing all through each beat, cupping it on the downstroke and folding it partly on the way up. A small myotis beats its wings 10 to 15 times a second."},
+        {"type": "text", "text": "The legs pay for the wings. They are slender, joined to the hip so that the knees point backwards, and too weak for a bat to run or to leap into the air from the ground as a bird does. A bat starts flying by dropping, which is why it hangs upside down: from a ceiling it only has to let go. A tendon in each foot locks the toes round the perch under the bat's own weight, so hanging costs it no effort, and a dead bat can stay hanging."}
+      ]
+    },
+    {
+      "title": "One mammal in five",
+      "blocks": [
+        {"type": "text", "text": "There are about 1,480 species of bat, and new ones are named every year. That is roughly one mammal species in five, more than any other group but the rodents. They range from the bumblebee bat of Thailand and Myanmar, which weighs two grams, to flying foxes with wings a metre and a half across.[^fruitbats] Fifteen species live in Washington, all of them insect-eaters."},
+        {"type": "text", "text": "A small brown furry animal that comes out at night looks like a mouse with wings, and the German word for bat, *Fledermaus*, says so. The skeleton already argues against it; a mouse's gnawing teeth, which grow all its life, are nothing like a bat's sharp little teeth. The question was settled from the 1990s on by comparing genes across mammals, which sorted them into a few great branches. Before turning the figure to that view, guess."},
+        {"type": "interactive_diagram", "id": "regroup", "caption": "Seven mammals sorted by look and by their genes. Only a few branches are shown, and branch lengths mean nothing.", "task": "Guess, then switch to the genes", "goal": "switched", "aspect_ratio": 1.2, "options": {
+          "guess": {"ask": "By its genes, which is a bat's closer relative?", "options": ["The mouse", "The horse", "Neither; they are equally far"], "answer": 1},
+          "follow": "Bat",
+          "views": [
+            {"label": "By looks", "title": "Small and furry, or large", "text": "Sorted by size and coat, the bat goes in with the mouse and the shrew, as the name flying mouse suggests.", "root": {"label": "", "children": [
+              {"label": "Small and furry", "children": [{"label": "Bat", "color": "bat"}, {"label": "Mouse"}, {"label": "Shrew"}]},
+              {"label": "Larger", "children": [{"label": "Human"}, {"label": "Cat"}, {"label": "Pangolin"}, {"label": "Horse"}]}
+            ]}},
+            {"label": "By genes", "title": "Sorted by shared genes", "text": "Bats belong to a branch with shrews, cats, pangolins and horses. Mice sit on another branch, with us.", "root": {"label": "", "children": [
+              {"label": "Rodents and primates", "children": [{"label": "Mouse"}, {"label": "Human"}]},
+              {"label": "Laurasiatheres", "children": [{"label": "Shrew"}, {"label": "", "children": [{"label": "Bat"}, {"label": "", "children": [{"label": "", "children": [{"label": "Cat"}, {"label": "Pangolin"}]}, {"label": "Horse"}]}]}]}
+            ]}}
+          ]
+        }},
+        {"type": "text", "text": "Bats belong to the **Laurasiatheria**, a branch of the mammals named after Laurasia, the old northern supercontinent where it probably arose.[^laurasia] Their nearest relatives among living animals are the carnivores, the pangolins, the horses and rhinos, and the cattle, pigs and whales. Exactly where on that branch bats sit is still argued, but nobody now places them near the rodents; a bat is closer kin to a horse than to a mouse."},
+        {"type": "text", "text": "The genes also rearranged the bats themselves. For a long time they were split into **megabats**, the big fruit bats of the Old World, which mostly do not echolocate, and **microbats**, all the rest, which do. The genes put the horseshoe bats and a few other families of echolocating bats with the fruit bats, in a group called **Yinpterochiroptera**, and everything else, including every bat in North America, in **Yangochiroptera**. So either echolocation arose twice, once on each side, or the ancestor of all bats had it and the fruit bats lost it. Neither answer is settled."},
+        {"type": "diagram", "id": "tree", "caption": "The two great branches of bats and some of the families on each. Numbers of species are rounded.", "aspect_ratio": 1.6, "options": {
+          "layout": "across",
+          "root": {"label": "Bats, about 1,480 species", "children": [
+            {"label": "Yinpterochiroptera", "note": "fruit bats and kin", "children": [
+              {"label": "Old World fruit bats", "note": "about 200 species; most do not echolocate"},
+              {"label": "Horseshoe bats", "note": "long calls on one pitch", "color": "call"},
+              {"label": "Old World leaf-nosed bats and others", "color": "call"}
+            ]},
+            {"label": "Yangochiroptera", "note": "most other bats", "children": [
+              {"label": "Vesper bats", "note": "over 500 species; all of Washington's", "color": "call"},
+              {"label": "Free-tailed bats", "color": "call"},
+              {"label": "New World leaf-nosed bats", "note": "nectar, fruit and vampire bats", "color": "call"},
+              {"label": "Sheath-tailed bats and others", "color": "call"}
+            ]}
+          ]},
+          "note": "Violet: families that echolocate with calls from the throat."
+        }}
+      ]
+    },
+    {
+      "title": "Wings for clutter, wings for sky",
+      "blocks": [
+        {"type": "text", "text": "Wings come in different shapes, and two numbers describe most of what matters. The **aspect ratio** is how long and narrow a wing is: the wingspan squared, divided by the wing's area. A swift or an albatross has long narrow wings and a high aspect ratio; a pheasant's are short and broad. The **wing loading** is the animal's weight divided by its wing area, in newtons per square metre: how many grams each square centimetre of wing has to hold up, in other words.[^loading] A light animal with big wings has a low wing loading."},
+        {"type": "text", "text": "Each does something different. A low wing loading lets a bat fly slowly without falling and turn in a tight circle, since the wing makes enough lift at low speed. A high wing loading forces faster flight and wider turns. A high aspect ratio wastes less energy in the swirl of air shed at the wingtips, so the bat flies a kilometre for less fuel, but the long span snags on twigs and is slow to roll into a turn."},
+        {"type": "interactive_diagram", "id": "wing-shape", "caption": "A wing's shape and what it can do. Change the aspect ratio and the wing loading; the drawing shows the wing of a 12 g bat and the tightest circle it can turn in between two trunks. Dots are some Washington bats, from rough published measurements. A model: real bats also change the wing's shape in flight.", "task": "Build a wing that can hunt among branches, then one for open sky", "goal": "both", "aspect_ratio": 1.6},
+        {"type": "text", "text": "The long-eared myotis, a 6 g bat of western forests, sits low on both counts. It flies slowly among branches and picks moths and spiders off leaves and bark, often hovering for a moment to do it, a way of hunting called **gleaning**. Its huge ears catch the faint rustle of an insect walking, so it often hunts by listening without calling at all. At the other corner is the hoary bat, the biggest bat in Washington at 25 to 30 g, with long narrow wings and a high wing loading. It hunts in open air above the trees, fast and in straight lines, catching insects in flight, which is called **hawking**, and it migrates hundreds of kilometres each autumn. The little brown and big brown bats sit in between, at the edges of woods and over water."}
+      ]
+    },
+    {
+      "title": "Flight or sound first?",
+      "blocks": [
+        {"type": "text", "text": "Back to the fossil. Every living insect-eating bat both flies and echolocates, and each skill helps the other: echolocation is what lets a bat hunt insects in the dark, and flight is what takes it to them. Which came first has been argued for decades. One idea is that the ancestors of bats were climbers that glided from tree to tree, became fliers, and only later learned to hunt by sound. Another is that a small climbing mammal first used calls to find insects close by, and flight followed. A third is that the two grew up together. *Onychonycteris* is the oldest bat preserved well enough to test them."},
+        {"type": "interactive_diagram", "id": "clue-board", "caption": "Three things *Onychonycteris* might have been, and three clues from its skeleton. If it flew without echolocating, flight came first.", "task": "Turn on every clue", "goal": "clues", "aspect_ratio": 1.4, "options": {
+          "ideas": [
+            {"name": "A glider", "text": "It could not yet flap"},
+            {"name": "A silent flier", "text": "It flew but did not echolocate"},
+            {"name": "An echolocating flier", "text": "It flew and hunted by sound"}
+          ],
+          "clues": [
+            {"name": "Flapping wings", "text": "Long finger bones, a keeled breastbone and a flapper's shoulder", "rules": ["A glider"]},
+            {"name": "A small inner ear", "text": "Its inner ear is the size of a fruit bat's, smaller than in bats that echolocate (Simmons and others, 2008)", "rules": ["An echolocating flier"]},
+            {"name": "Joined throat and ear bones", "text": "A bone at the top of its throat touches the ear bone, as only in echolocating bats (Veselka and others, 2010)", "rules": ["A silent flier"]}
+          ],
+          "intro": "Three ideas about what Onychonycteris could do. Turn on the clues in any order.",
+          "end": "No idea survives every clue. It certainly flapped; its ear says it did not echolocate, its throat bones that it did. The question is open.",
+          "textLines": 3
+        }},
+        {"type": "text", "text": "The two clues from the head point opposite ways. In 2008 Simmons's team read the small inner ear as a sign that *Onychonycteris* flew in silence, so flight came first. In 2010 Nina Veselka and her colleagues pointed to a small bone at the top of the throat, the stylohyoid, which in this fossil seems to touch the bone of the ear, a link they found in every bat that calls from the throat to echolocate and in no other. Others replied that the fossil is crushed flat, so the bones may have been pushed together. Its legs were long for a bat, and its claws suggest it climbed a good deal; its short, broad wings may have flown with stretches of gliding."},
+        {"type": "text", "text": "What the fossil settles is that bats were already fliers 52 million years ago, with wings close to the modern pattern. Another bat from the same rocks, *Icaronycteris*, had a larger inner ear and probably did echolocate. Older bats, from the time when the transition happened, have not been found, perhaps because small bones on land rarely survive, and that is where the answer lies."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on what a bat is", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Which bones hold out the main part of a bat's wing?", "choices": ["Four very long fingers, with the thumb left free", "A long forearm and the fused bones of the wrist", "Extra rods of cartilage that grow from the ribs"], "answer": 0, "why": "A bat's wing is a hand: fingers 2 to 5 are each longer than the body and hold the skin out, while the short thumb keeps a claw for climbing."},
+          {"ask": "Why does a bat hang upside down to roost?", "choices": ["Its legs are too weak to launch it, so it starts flying by letting go", "Blood must flow to its head to keep its brain warm in the cold", "It can only fold its wings when its body hangs below its feet"], "answer": 0, "why": "A bat cannot run or leap into the air like a bird. From a ceiling it simply drops into flight, and a tendon locks its toes so hanging costs nothing."},
+          {"ask": "Comparing genes, which of these is a bat's closest relative?", "choices": ["A horse", "A mouse", "A sparrow"], "answer": 0, "why": "Bats belong to the Laurasiatheria, with shrews, carnivores, pangolins and hoofed mammals. Rodents are on a separate great branch, with primates, and birds are not mammals at all."},
+          {"ask": "A bat hunts moths among the leaves of a dense forest, often hovering to pick them off. What wing would you expect?", "choices": ["Short and broad, with a low wing loading", "Long and narrow, with a high wing loading", "Long and narrow, with a low wing loading"], "answer": 0, "why": "A low wing loading lets it fly slowly and turn tightly, and a short span clears twigs and rolls fast. Long narrow wings are for cheap, fast flight in open air."},
+          {"ask": "Fruit bats mostly do not echolocate, yet their closest relatives, the horseshoe bats, do. What follows?", "choices": ["Either echolocation arose twice, or fruit bats lost it", "Horseshoe bats must have learned it from other bats", "Echolocation must have come before flight"], "answer": 0, "why": "If the common ancestor of fruit bats and horseshoe bats echolocated, the fruit bats lost it; if it did not, the horseshoe bats and the other branch of bats each evolved it separately."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "membrane": {"kind": "technical", "title": "The wing membrane", "text": "Anatomists name the parts of the flying skin: the **plagiopatagium** from the body and leg out to the fifth finger, the **dactylopatagium** between the fingers, the small **propatagium** in front of the arm, and the **uropatagium** between the legs and round the tail, which many bats use as a scoop to catch insects."},
+    "laurasia": {"kind": "digression", "title": "Laurasia", "text": "Laurasia was the northern of two supercontinents, made of what are now North America, Europe and most of Asia, that split from the southern one, Gondwana, from about 200 million years ago."},
+    "loading": {"kind": "technical", "title": "Newtons per square metre", "text": "A newton is the weight of about 102 grams. A little brown bat weighing 8 g with 100 square centimetres of wing has a wing loading of about 8 newtons per square metre. A pigeon's is about 50 and a goose's well over 100."},
+    "fruitbats": {"kind": "digression", "title": "Flying foxes", "text": "The biggest bats, the flying foxes of southern Asia and the Pacific, weigh over a kilogram. They see well in dim light, with eyes much bigger than an insect-eater's, and they find ripe fruit and flowers largely by smell."}
+  }
+}

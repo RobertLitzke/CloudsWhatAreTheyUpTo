@@ -1,0 +1,77 @@
+{
+  "id": "sonograms",
+  "n": 102,
+  "branch": "listening",
+  "needs": ["heterodyne"],
+  "title": "Reading a sonogram",
+  "teaches": "Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls",
+  "summary": [
+    "**A heterodyne detector hears a slice.** It plays only the 10 kHz around its dial, so two bats can tick alike while their calls differ.",
+    "**Frequency division counts waves.** It sends out one pulse for every ten waves of the call, so the whole call comes out at a tenth of its pitch, live, but without its loudness or harmonics.",
+    "**Time expansion records, then slows.** A short recording played back ten times slower keeps every detail of the call, at a tenth of its pitch and ten times its length.",
+    "**A sonogram is a picture of sound.** Time runs across, frequency runs up, and darker means louder.",
+    "**Four measurements describe a call.** Its characteristic frequency, the flattest part; its slope; its duration; and the interval to the next call.",
+    "**Call shape follows the hunting.** Long, shallow, low calls suit open sky; short, steep sweeps suit bats working close to trees and water.",
+    "**Washington's common bats fall into frequency groups.** Hoary near 20 kHz, big brown and silver-haired near 25 to 28, little brown near 40, Yuma and California myotis near 50.",
+    "**Some bats cannot be told apart by call.** Many surveys leave Yuma and California myotis as one \"50 kHz myotis\", and Townsend's big-eared bat is often too quiet to record."
+  ],
+  "parts": [
+    {
+      "title": "Two ticks over the water",
+      "blocks": [
+        {"type": "text", "text": "Two bats cross the light of a lamp on the shore, a few seconds apart, both skimming low over the water. A heterodyne detector set to 45 kHz ticks for each of them. One is probably a Yuma myotis and the other a little brown bat, the two commonest bats over Seattle's lakes, but the detector cannot say which. It hears only the slice of each call that passes within 5 kHz of its dial, and both calls pass through that slice."},
+        {"type": "text", "text": "What tells them apart is the rest of the call: where its sweep starts and ends, how steeply it falls and how long it lasts. A Yuma myotis's call ends near 50 kHz, a little brown's near 40. To see that, a listener needs the whole call, from top to bottom, and a way to look at it."}
+      ]
+    },
+    {
+      "title": "Counting, and slowing down",
+      "blocks": [
+        {"type": "text", "text": "Two other kinds of detector bring the whole call down into hearing. A **frequency division** detector counts the waves of the call as they arrive, by counting each time the signal crosses zero, and sends out one short pulse for every ten waves. A call that sweeps from 90 to 45 kHz comes out as a click train sweeping from 9 to 4.5 kHz, at the same moment the bat calls. The cost is everything except frequency: each pulse is the same size, so the output says nothing about which part of the call was loud, and when a call has two frequencies at once the counter follows only the stronger.[^zero]"},
+        {"type": "text", "text": "A **time expansion** detector records instead. It takes in a second or two of sound, sampled hundreds of thousands of times a second,[^samples] then plays it back ten times slower. Every frequency falls tenfold and every call lasts ten times as long, so a 5 ms sweep from 90 to 45 kHz becomes a 50 ms chirp from 9 to 4.5 kHz, with its loudness and harmonics intact. The price is time: while it plays back, it hears nothing new. Every call in this course's figures is played this way, slowed ten times."},
+        {"type": "diagram", "id": "sono-methods", "caption": "The same Myotis call through three detectors. A heterodyne detector hears the slice in the green band; frequency division gives the whole shape as counted dots; time expansion keeps the whole call, loudness and all.", "aspect_ratio": 1.69}
+      ]
+    },
+    {
+      "title": "A picture of sound",
+      "blocks": [
+        {"type": "text", "text": "Hearing a slowed call is a start, but bat workers read calls by eye. The picture they use was invented for speech. In 1946 three engineers at Bell Telephone Laboratories in New Jersey, Ralph Koenig, H. K. Dunn and L. Y. Lacy, described the sound spectrograph, a machine that drew a sound as a picture: time across the page, frequency up it, and loudness as the darkness of the mark.[^bell] Bird song was soon being read the same way, and bat calls after that. The picture is a **sonogram**, or spectrogram."},
+        {"type": "text", "text": "On a sonogram an FM call is a line falling from upper left to lower right. Four measurements describe it. Its **characteristic frequency** is the frequency of the flattest part, usually near the end, where the call spends the most time; it is what the dial of a heterodyne detector finds by ear. Its **slope** is how fast it falls, in kilohertz per millisecond. Its **duration** is its length, a few milliseconds for most bats. And its **interval** is the time from the start of one call to the start of the next, which shrinks as a bat closes in on an insect."},
+        {"type": "diagram", "id": "sono-anatomy", "caption": "A big brown bat's search call on a sonogram, with the measurements used to identify it. The call is synthesised from typical values.", "aspect_ratio": 1.72}
+      ]
+    },
+    {
+      "title": "Why calls differ",
+      "blocks": [
+        {"type": "text", "text": "Call shape follows how a bat hunts, for reasons lessons 3 and 4 built. A bat hunting insects in open air, far from anything, needs range: its calls are long, low and shallow, holding nearly one frequency for 10 ms or more. Low frequencies fade less in air, and a call that stays near one pitch puts all its energy into a narrow band, so a faint echo from a moth 20 metres off still stands out. A bat working close to leaves or a lake surface needs precision instead: short, steep sweeps that cover a wide band of frequencies. A short call finishes before echoes from nearby objects return, and a wide sweep times each echo exactly."},
+        {"type": "interactive_diagram", "id": "sono-build", "caption": "Build a call on a sonogram. The panel reads its slope, what it sounds like slowed ten times, and the Washington bat whose search call is nearest. Play is synthesised and slowed ten times.", "task": "Build a call that would pass for a Yuma myotis", "goal": "yuma", "aspect_ratio": 2},
+        {"type": "text", "text": "The same bat changes its call with the place. A big brown bat in open air calls long and shallow near 27 kHz; in among trees it shortens and steepens its calls; and every bat's calls shorten into the buzz when it attacks. Comparisons only work between like calls, so identification guides use **search calls**, the regular calls of a bat cruising in the open, not the ones it makes while turning, approaching an insect or flying in a crowd.[^vary]"}
+      ]
+    },
+    {
+      "title": "Washington's voices",
+      "blocks": [
+        {"type": "text", "text": "Washington's commonest bats fall into groups by the frequency where their search calls end. The **hoary bat**, the state's largest, calls lowest: long, shallow calls near 20 kHz, with long gaps between them, sometimes low enough for a young listener to hear the bottom of the call. The **big brown** and **silver-haired bats** call near 25 to 28 kHz, a steep start bending into a long flat tail; they are hard to separate from one call, and an experienced listener uses the whole sequence and still often leaves them together."},
+        {"type": "text", "text": "The Myotis call higher and shorter. The **little brown myotis** ends near 40 kHz after a steep sweep of about 5 ms. The **Yuma myotis** ends near 50 kHz, short and steep; the **California myotis** calls near 50 kHz too, often a little shorter and steeper, and the two overlap so much that many surveys record them only as \"50 kHz myotis\". **Townsend's big-eared bat** is the whisperer. It hunts close to vegetation and listens with its huge ears, and its calls are so faint, with a second harmonic as strong as the first, that a detector picks it up only within a few metres."},
+        {"type": "interactive_diagram", "id": "sono-drill", "caption": "Search calls of five of Washington's bat groups on a sonogram: one call stretched out on the left, a second of calls on the right. Play them slowed ten times. The calls are synthesised from typical values; real calls vary more.", "task": "Name each of the five groups correctly", "goal": "named", "aspect_ratio": 2.04}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on sonograms", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "A frequency division detector shows a bat call's whole shape as it happens. What does it give up to do so?", "choices": ["How loud each part of the call is, and any weaker harmonic", "Everything below 20 kHz, which it cannot count", "The time between calls, which it cannot measure", "The start of each call, which it misses while counting"], "answer": 0, "why": "It sends out one equal pulse for every ten waves, so it keeps the frequency and the timing but loses the loudness, and follows only the strongest frequency at each moment."},
+          {"ask": "A time expansion detector plays back a 5 ms call that swept from 90 to 45 kHz. What does a listener hear?", "choices": ["A 50 ms chirp falling from 9 to 4.5 kHz", "A 5 ms chirp falling from 9 to 4.5 kHz", "A 50 ms chirp falling from 90 to 45 kHz", "A click, since the call is too short to hear"], "answer": 0, "why": "Slowing a recording tenfold divides every frequency by ten and multiplies every duration by ten."},
+          {"ask": "Why do bats hunting in open sky tend to use long, shallow, low calls?", "choices": ["Low frequencies fade less in air and a nearly steady call packs its energy into a narrow band, so faint distant echoes stand out", "Long calls are quieter, so insects far away cannot hear them coming", "Shallow calls give the most precise timing of each echo", "Low calls are the only ones that bounce off insects"], "answer": 0, "why": "In open air the problem is range. Steep, broadband sweeps time echoes precisely and suit clutter; long narrowband calls reach farther."},
+          {"ask": "A sonogram shows calls about 12 ms long, nearly flat near 20 kHz, with long gaps between them. Which Washington bat is most likely?", "choices": ["A hoary bat hunting in open air", "A Yuma myotis over water", "A Townsend's big-eared bat near trees", "A little brown myotis approaching an insect"], "answer": 0, "why": "Long, shallow calls near 20 kHz with long intervals mark the hoary bat. The Myotis call higher, shorter and steeper."},
+          {"ask": "Two recorded sequences both show short, steep calls ending near 50 kHz. What is the most careful identification?", "choices": ["A 50 kHz myotis, either Yuma or California", "Certainly a Yuma myotis, the commonest bat over water", "A little brown myotis calling higher than usual", "A big brown bat flying in clutter"], "answer": 0, "why": "Yuma and California myotis calls overlap so much that many surveys group them. A call alone rarely settles which."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "zero": {"kind": "technical", "title": "Counting zero crossings", "text": "A wave crosses zero twice in each cycle, going up and coming down. A counter that changes its output once every ten upward crossings makes a square wave at a tenth of the call's frequency. Survey recorders built on this idea, such as the Anabat system designed by the Australian Chris Corben, draw the counted frequencies as dots, and have been used in a great deal of North American bat survey work."},
+    "samples": {"kind": "technical", "title": "Sampling fast enough", "text": "A digital recording has to take more than two samples for each wave to capture it, so recording calls up to 100 kHz needs more than 200,000 samples a second, against the 44,100 of a music CD. Modern full-spectrum recorders do this all night long, and the slowing happens later, on a computer."},
+    "bell": {"kind": "digression", "title": "Visible speech", "text": "Bell Labs built the spectrograph partly in the hope that deaf people could learn to read speech from it. Few could read it fast enough for conversation, but the machine became a standard tool for phoneticians, ornithologists and later people studying bats."},
+    "vary": {"kind": "digression", "title": "Calls that change", "text": "Bats also shift their calls away from a neighbour's in a crowd (lesson 5), and call differently near the roost, when commuting and when chasing. Social calls, used between bats, look nothing like echolocation calls. An identification made from one call is a guess; one made from a long sequence of search calls in the open is far safer."}
+  }
+}

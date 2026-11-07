@@ -1,0 +1,112 @@
+{
+  "id": "dark",
+  "n": 1,
+  "title": "How does a bat fly in the dark?",
+  "teaches": "Spallanzani's and Jurine's experiments, why nobody believed them for almost 150 years, and Pierce and Griffin hearing bats' calls in 1938",
+  "summary": [
+    "**Bats do not need light to fly.** Spallanzani's blinded bats in 1793 flew through dark rooms hung with threads and caught insects outdoors.",
+    "**They need their ears.** Jurine in 1794 plugged bats' ears and they blundered into walls; open tubes in the ears let them fly well again.",
+    "**The answer waited almost 150 years.** Nobody could hear a bat make a sound in flight, so a sense that worked by hearing seemed absurd, and Cuvier's idea of touch held the field.",
+    "**Bats call above human hearing.** Pierce's detector at Harvard picked up their calls in 1938, at frequencies people cannot hear.",
+    "**The bat listens to its own calls.** Griffin and Galambos showed that a bat needs both its voice and its ears to dodge wires; Griffin named this echolocation.",
+    "**Bats are not blind.** Insect-eating bats see well enough to use the dusk and landmarks, and most fruit bats find their way by sight and smell.",
+    "**Not every bat echolocates.** Most of the big fruit bats of the Old World do not; one group clicks with its tongue instead of calling."
+  ],
+  "parts": [
+    {
+      "title": "Pavia, 1793",
+      "blocks": [
+        {"type": "text", "text": "In the summer of 1793 Lazzaro Spallanzani, professor of natural history at the University of Pavia in northern Italy, had a tame owl that would fly about his rooms. He noticed that when he put out the candle the owl stopped flying, and if he threw it into the air in the dark it blundered into walls and furniture. He was then 64, and had spent a long career settling questions by experiment.[^spallanzani] The owl's failure made him wonder about the bats he caught around the town, which flew about the same dark rooms without touching anything."},
+        {"type": "text", "text": "He tried them in a room so dark he could not see his own hand, and the bats flew as well as ever. He covered their heads with little hoods, and they would not fly. That might mean they needed their eyes, or only that a hood is a miserable thing to wear, so he did something cruel by modern standards: he blinded several bats and let them go. They flew as before, round the room and out along the corridors, swerving away from the walls and landing on the ceiling."},
+        {"type": "text", "text": "To make the test harder he strung silk threads from floor to ceiling, close enough together that a bat would have to weave between them, with small bells tied on so that any touch would ring. The blinded bats flew through and the bells stayed almost silent. Others he released outdoors and caught again some days later in the bell tower of Pavia cathedral, where they roosted, with their stomachs as full of insects as those of bats that could see. Whatever the bats used to find their way, it was not their eyes."}
+      ]
+    },
+    {
+      "title": "The room of wires",
+      "blocks": [
+        {"type": "text", "text": "A bat in flight could be using any of its senses besides sight. It could feel the air, as a hand held near a wall feels a draught come back off it, or it could smell or hear the things around it. Spallanzani and the people he wrote to took the senses away one at a time, and so can you, in a room built on the plan that settled the question in the end: wires about a millimetre thick hanging from the ceiling, in rows a bat has to cross."},
+        {"type": "interactive_diagram", "id": "wire-room", "caption": "A dark room hung with wires, seen from above. Cover the bat's eyes, plug its ears or tie its mouth shut, and count the wires it touches in 20 flights. A model: the bat's skill and the counts are round numbers, not any experiment's scores.", "task": "Take away each of the three on its own", "goal": "senses", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Covering the eyes changes nothing: in the dark they were no use anyway. The ears are another matter. Spallanzani's letters about his blinded bats were read to the natural history society in Geneva, and one of its members, the surgeon Louis Jurine, tried the experiment nobody else had thought of. In 1794 he reported that bats with their ears stopped with wax flew hesitantly and struck the walls. Spallanzani repeated it at once and got the same result."},
+        {"type": "text", "text": "He also met the obvious objection, that stuffing a bat's ears might simply hurt it so much that it could not fly well. He made small brass tubes that fitted in the ear. With the tubes open the bats flew normally; with the tubes stopped, they blundered. The ears mattered because they could hear, not merely because they were whole."}
+      ]
+    },
+    {
+      "title": "Which sense?",
+      "blocks": [
+        {"type": "text", "text": "The wire room also lets you do what nobody in the 1790s did: tie the bat's mouth shut and leave its ears open. A bat treated so still hears the room around it, the rustle of its own wings and any sound the wires make in the draught, and it still flies almost as if it were blind. That last test was made in 1940, and it separates two ideas about hearing that look alike."},
+        {"type": "interactive_diagram", "id": "clue-board", "caption": "Five ideas about how a bat finds its way in the dark, and three experiments that bear on them.", "task": "Guess, then turn on every clue", "goal": "clues", "aspect_ratio": 1.1, "options": {
+          "ideas": [
+            {"name": "Sight", "text": "It sees by the faintest light"},
+            {"name": "Touch", "text": "Its wings feel the air pushed back off things"},
+            {"name": "Smell", "text": "It smells walls and wires"},
+            {"name": "Hearing the room", "text": "It hears sounds already there"},
+            {"name": "Hearing its own calls", "text": "It hears echoes of sounds it makes"}
+          ],
+          "clues": [
+            {"name": "Blinded", "text": "Blinded bats fly through threads and catch insects (Spallanzani, 1793)", "rules": ["Sight"]},
+            {"name": "Ears plugged", "text": "Bats with stopped ears blunder; with open tubes in their ears they fly well (Jurine and Spallanzani, 1794)", "rules": ["Touch", "Smell"]},
+            {"name": "Mouth tied", "text": "Bats with their mouths shut and their ears open blunder too (Griffin and Galambos, 1940)", "rules": ["Hearing the room"]}
+          ],
+          "guess": "Which idea survives all three experiments?",
+          "end": "Only one idea fits every result: the bat makes sounds and listens for them to come back off whatever is ahead.",
+          "textLines": 3
+        }},
+        {"type": "text", "text": "The surviving idea is **echolocation**: the bat [[calls|call]], the sound spreads out ahead of it, and a little of it bounces off anything in the way and comes back as an [[echo|echo]]. The bat hears the echo and knows something is there. A wire a millimetre thick returns only a faint echo, and a bat that can detect it is listening very hard."},
+        {"type": "diagram", "id": "dark-echo", "caption": "A bat's call spreads out ahead of it (violet) and a small part of it comes back off a wire as an echo (teal). Seen from above; not to scale.", "aspect_ratio": 2.35}
+      ]
+    },
+    {
+      "title": "Cuvier's sixth sense",
+      "blocks": [
+        {"type": "text", "text": "The trouble in 1794 was that nobody could hear the bats make a sound. A bat flitting about a room seems silent, apart from the odd squeak when it is handled or quarrelling at the roost. Spallanzani himself could not see how the ears did their work; he wrote that a bat perhaps had some sense we lack and cannot picture. A sense that worked by hearing something no one could hear sounded like nonsense, and most naturalists treated it that way."},
+        {"type": "text", "text": "They preferred an idea put forward in Paris by Georges Cuvier, the most respected anatomist of his day, in his lectures on comparative anatomy around 1800. A bat's wings and the great ears of some species are thin bare skin, packed with nerves. Cuvier suggested that the bat felt the air move as it was pushed back from walls and branches, a kind of touch at a distance. As for Jurine's result, he put it down to the damage the plugs did. The idea was reasonable, it needed nothing unheard, and it came with Cuvier's authority. It was repeated in textbooks for more than a century, and Spallanzani's and Jurine's experiments were remembered, when they were remembered, as a curiosity."},
+        {"type": "text", "text": "There was a deeper reason for the silence, which nobody then could have checked. How high a sound is, its **pitch**, depends on how many times a second the air shakes, its **frequency**, counted in **hertz** (Hz). A young person can hear up to about 20,000 hertz, or 20 **kilohertz** (kHz); with age the top of the range falls. Sound above that is **ultrasound**, and it is as real as any other sound. The bats were calling, loudly, above the top of human hearing.[^hearing]"}
+      ]
+    },
+    {
+      "title": "Harvard, 1938",
+      "blocks": [
+        {"type": "text", "text": "Ideas came closer as engineers learned to use sound underwater. After the *Titanic* sank in 1912, the inventor Hiram Maxim proposed that bats felt the echoes of the low hum of their own wingbeats, too low to hear, and that ships could do the same.[^maxim] In 1920 Hamilton Hartridge, a physiologist at Cambridge who had worked on detecting submarines by sound in the war, suggested the opposite end of the scale: bats might find their way with sounds too high for us to hear. Nobody had an instrument to check."},
+        {"type": "text", "text": "In 1938 one existed. G. W. Pierce, a physicist at Harvard, had built a detector that picked up sound far above human hearing and turned it into clicks a person could hear, to study the songs of crickets and katydids. Donald Griffin, a Harvard undergraduate who had been banding bats in New England caves since his school days, heard about it and carried a cage of little brown bats to Pierce's laboratory. Held up to the detector, the bats filled the loudspeaker with chattering. They were calling all the time, and almost all of it was ultrasound. Pierce and Griffin published the result that year."},
+        {"type": "text", "text": "Hearing the calls was not yet proof that the bats used them. In 1940 Griffin and a fellow student, Robert Galambos, flew bats through rows of wires hung from the ceiling of a room at Harvard and recorded the calls as they went. Bats whose ears were plugged, or whose mouths were tied shut, hit far more wires than bats left alone, and the plugged bats went on calling, uselessly. The bats called faster as they came up to the wires, which a later lesson explains. Galambos and Griffin's papers in 1941 and 1942 settled the matter, and in 1944 Griffin coined the word **echolocation** for it.[^dijkgraaf]"},
+        {"type": "interactive_diagram", "id": "timeline-live", "caption": "The experiments that took a bat's way in the dark from a puzzle to an answer, over about 150 years.", "task": "Tap them from earliest to latest", "goal": "order", "aspect_ratio": 1.5, "options": {
+          "events": [
+            {"at": 1793, "label": "Blinded bats dodge threads", "when": "1793", "text": "Spallanzani, Pavia: bats fly without their eyes."},
+            {"at": 1794, "label": "Plugged ears, crashing bats", "when": "1794", "text": "Jurine, Geneva, repeated by Spallanzani with brass tubes."},
+            {"at": 1800, "label": "Touch at a distance", "when": "about 1800", "text": "Cuvier, Paris: the wings feel the air. The idea holds for a century."},
+            {"at": 1920, "label": "A guess: sound too high to hear", "when": "1920", "text": "Hartridge, Cambridge, after wartime work on underwater sound."},
+            {"at": 1938, "label": "A detector hears the calls", "when": "1938", "text": "Pierce and Griffin, Harvard: bats call in ultrasound."},
+            {"at": 1940, "label": "Voice and ears both needed", "when": "1940", "text": "Griffin and Galambos: bats with tied mouths hit the wires too."}
+          ],
+          "textLines": 2
+        }}
+      ]
+    },
+    {
+      "title": "Blind as a bat?",
+      "blocks": [
+        {"type": "text", "text": "Spallanzani's result is sometimes taken to mean that bats are blind. They are not. Every bat has working eyes, and the insect-eating bats of North America use them for what light shows at a range sound cannot reach, such as the glow of the western sky at dusk or the dark line of a forest edge on a long flight. A bat's eyes are small and built for dim light, and its echoes take over for the near and the small, where a moth is."},
+        {"type": "text", "text": "Nor does every bat echolocate. The big fruit bats and flying foxes of Africa, Asia and Australia, with wingspans up to a metre and a half, have large eyes and a fine sense of smell, and nearly all of them find their way and their fruit by sight and scent. One group of them, the rousette fruit bats, which roost in dark caves, makes clicks with its tongue and listens to the echoes, a cruder version of what the insect-eaters do with their voices.[^rousettus] The bats over a lake at dusk in North America all call, and all the rest of this course is about how they use it."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on how a bat finds its way", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "A bat with its eyes covered and its ears open is let go in a dark room hung with fine threads. What do the 1790s experiments predict?", "choices": ["It dodges the threads about as well as a bat left alone", "It flies more slowly and touches a thread on every pass", "It lands at once and refuses to fly until the room is lit"], "answer": 0, "why": "Spallanzani's blinded bats flew through threads and caught insects outdoors. In the dark the eyes are no use anyway, so covering them changes nothing."},
+          {"ask": "Cuvier argued that bats with plugged ears flew badly only because the plugs injured them. Which experiment answers him best?", "choices": ["Open tubes in the ears let bats fly well, and stopping the tubes made them blunder", "Blinding the plugged bats as well made them fly no worse than before", "Flying plugged bats in daylight let them avoid the threads by sight"], "answer": 0, "why": "With open tubes the ears were handled just as roughly but could still hear, and the bats flew well. Only stopping the sound made them blunder, so hearing was what mattered."},
+          {"ask": "Why did most naturalists reject the idea that bats find their way by hearing, for well over a century?", "choices": ["Nobody could hear bats making any sound in flight", "Plugged bats were found to fly well when the experiment was repeated", "Bats' ears were thought too small to hear anything at all"], "answer": 0, "why": "The calls are above about 20 kilohertz, the top of human hearing. A sense that seemed to work by hearing silence looked absurd until a detector heard the calls in 1938."},
+          {"ask": "A bat with its mouth tied shut and its ears open hits many more wires than an untouched bat. What does this show that ear plugs alone could not?", "choices": ["The bat listens to sounds it makes itself, not to sounds already in the room", "The bat smells the wires, and needs its mouth open to do it", "The bat needs to breathe through its mouth to fly fast enough"], "answer": 0, "why": "With its ears open it still hears the room around it, so if it found its way by those sounds it would fly well. It needs its own calls coming back as echoes."},
+          {"ask": "Which statement about bats' senses is right?", "choices": ["Bats can see, and most big fruit bats find their way by sight and smell instead of echoes", "Bats are blind, which is why every species depends on echoes", "Every bat echolocates, and only the fruit bats can also see"], "answer": 0, "why": "All bats have working eyes. The insect-eating bats echolocate with their voices; most Old World fruit bats do not echolocate at all, and one group uses tongue clicks."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "spallanzani": {"kind": "digression", "title": "Spallanzani", "text": "Lazzaro Spallanzani (1729 to 1799) was a priest as well as a naturalist. He showed that broth boiled in a sealed flask stays free of life, a century before Pasteur; that stomach juice digests food outside the body, by swallowing linen bags and pulling them back up on a string; and that salamanders regrow lost legs and tails."},
+    "hearing": {"kind": "technical", "title": "The range of hearing", "text": "People hear from about 20 hertz, a deep rumble, to about 20,000 hertz, a thin hiss. Most adults lose the top few thousand hertz by middle age. Some bats call low enough that part of the call is audible, and a few people can hear the lowest-pitched bats as a faint tick."},
+    "maxim": {"kind": "digression", "title": "Maxim's idea", "text": "Hiram Maxim, the inventor of the machine gun, published his idea in 1912, months after the *Titanic* sank. He thought bats sensed the echo of their wingbeats, at about 15 beats a second, far below what we hear, and proposed ships send out powerful low sounds to detect icebergs."},
+    "dijkgraaf": {"kind": "digression", "title": "Dijkgraaf's ticks", "text": "In the Netherlands, cut off from American journals during the Second World War, Sven Dijkgraaf noticed that a flying bat opens and shuts its mouth, and that with a quiet room and young ears he could just hear faint ticks. Taping the mouth shut made the bats collide, and he reached the same answer as Griffin by 1943."},
+    "rousettus": {"kind": "technical", "title": "Tongue clicks", "text": "Rousette fruit bats, such as the Egyptian fruit bat, click their tongues in pairs. The clicks are brief and broad, and good enough for finding their way in a dark cave, though not for catching insects."}
+  }
+}

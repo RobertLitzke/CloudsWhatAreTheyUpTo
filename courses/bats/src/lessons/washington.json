@@ -1,0 +1,109 @@
+{
+  "id": "washington",
+  "n": 202,
+  "branch": "northwest",
+  "needs": ["green-lake"],
+  "title": "Washington's fifteen",
+  "teaches": "Washington's fifteen species, where they live and roost, the dry-side bats, and what a bat house needs",
+  "summary": [
+    "**Washington has fifteen kinds of bat.** Eight are Myotis; the rest are the big brown, silver-haired, hoary, Townsend's big-eared, pallid, spotted and canyon bats.",
+    "**The Cascades split them.** Most species live on both sides, but the pallid, spotted and canyon bats and the western small-footed myotis belong to the dry east, and Keen's myotis to the Olympic Peninsula.",
+    "**The spotted bat is the one you can hear.** It calls near 10 kHz over the basalt cliffs of the Columbia country, within reach of human hearing.",
+    "**Bats spend the day in crevices.** Loose bark, tree hollows, foliage, attics, bridges, caves and old mines all serve, and each species has its favourites.",
+    "**Townsend's big-eared bat is easily driven out.** It roosts in the open in caves, mines and old buildings and leaves when disturbed.",
+    "**A few features separate the common bats.** Size, ears, fur and the frequency of the call narrow most bats to one.",
+    "**A nursery colony needs warmth.** Mothers and pups do best between about 27 and 38 °C, which in Seattle means a dark house with six hours or more of sun.",
+    "**A bat house is a tall, narrow crevice.** Chambers 50 to 80 cm tall with 2 cm gaps, a rough landing surface, 3 to 5 m up on a pole or wall, near water."
+  ],
+  "parts": [
+    {
+      "title": "A bat you can hear",
+      "blocks": [
+        {"type": "text", "text": "Camp below the basalt cliffs along the Columbia River in central Washington on a still night in July, and an hour after dark something overhead starts to tick: a sharp, high, metallic click, once a second or so, moving along the cliff and out over the sagebrush. It is a bat, and you are hearing its echolocation calls with your own ears. Nothing like it happens at Green Lake."},
+        {"type": "text", "text": "The bat is a **spotted bat**, black with three white spots on its back and pink ears 4 to 5 cm long, the largest of any bat in North America. It calls near 10 kHz, low enough for human hearing, and hunts moths over open ground. It lives only on the dry side of the state, among cliffs and canyons. The Washington Department of Fish and Wildlife counts fifteen species of bat in the state, and the spotted bat is one of several that a Seattle bat watcher will never see at home."},
+        {"type": "text", "text": "The fifteen are eight Myotis (the little brown, Yuma, California, western small-footed, long-eared, long-legged, fringed and Keen's), and seven others: the big brown, silver-haired, hoary, Townsend's big-eared, pallid, spotted and canyon bats. All of them eat insects or other small invertebrates, and all belong to one family, the Vespertilionidae, the evening bats."}
+      ]
+    },
+    {
+      "title": "Two Washingtons",
+      "blocks": [
+        {"type": "text", "text": "The Cascade Range divides Washington in two. Wet air from the Pacific drops its rain on the western slopes, so western Washington is forest: Douglas fir, western hemlock and red cedar, with lakes and rivers everywhere. East of the crest lies the rain shadow: shrub-steppe of sagebrush and bunchgrass, cut by the canyons and coulees the Ice Age floods scoured into the basalt, with pine forest on the mountain flanks. The two halves have different bats."},
+        {"type": "text", "text": "Most of the fifteen live on both sides. The little brown, Yuma and big brown bats turn up from Seattle attics to barns near Spokane. But four belong to the dry east: the spotted bat; the **pallid bat**, pale cream with big ears, which lands to take crickets, beetles and even scorpions from the ground, finding them by the sound of their footsteps;[^pallid] the **canyon bat**, the smallest bat in the state at 3 to 6 grams, which often starts hunting before sunset; and the **western small-footed myotis** of rocky outcrops. One belongs to the west alone: **Keen's myotis**, known in Washington mainly from the old forests of the Olympic Peninsula."},
+        {"type": "interactive_diagram", "id": "groups", "caption": "Ten of Washington's bats, by where in the state they live. Ranges are simplified; a few individuals turn up outside them.", "task": "Sort all ten", "goal": "sorted", "aspect_ratio": 1.5, "options": {"ask": "Where in Washington?", "groups": [{"name": "West only"}, {"name": "Dry east", "color": "fat"}, {"name": "Both sides", "color": "plant"}], "items": [
+          {"name": "Little brown myotis", "group": "Both sides", "clue": "attics, lakes", "why": "Statewide, from city attics to mountain lakes, wherever there is water and insects."},
+          {"name": "Spotted bat", "group": "Dry east", "clue": "cliffs, audible call", "why": "Basalt cliffs and canyons of the Columbia country; it needs cliff cracks to roost and open ground to hunt."},
+          {"name": "Keen's myotis", "group": "West only", "clue": "old forest", "why": "Known in Washington mainly from the Olympic Peninsula, at the south end of a range that runs up the coast to Alaska."},
+          {"name": "Big brown bat", "group": "Both sides", "clue": "buildings, beetles", "why": "One of the commonest bats in the state, in buildings, bridges and trees on both sides."},
+          {"name": "Pallid bat", "group": "Dry east", "clue": "ground hunter", "why": "Shrub-steppe and rock outcrops, where it hunts large insects and scorpions on the ground."},
+          {"name": "Hoary bat", "group": "Both sides", "clue": "tree foliage", "why": "A tree bat of forests across the state, roosting alone among leaves, most often seen as it migrates in late summer."},
+          {"name": "Canyon bat", "group": "Dry east", "clue": "tiny, early", "why": "Rocky canyons of the dry east, often flying before dark."},
+          {"name": "Yuma myotis", "group": "Both sides", "clue": "over water", "why": "Over lakes and rivers on both sides; the commonest bat over Seattle's lakes."},
+          {"name": "Western small-footed myotis", "group": "Dry east", "clue": "rock outcrops", "why": "Cliffs, talus and outcrops in dry country, roosting in rock crevices."},
+          {"name": "Townsend's big-eared bat", "group": "Both sides", "clue": "caves, mines", "why": "Caves, mines and old buildings on both sides of the mountains, wherever it can find a large, quiet space."}
+        ]}}
+      ]
+    },
+    {
+      "title": "Where bats spend the day",
+      "blocks": [
+        {"type": "text", "text": "A bat's day is spent in a **roost**, and most roosts are crevices: a gap a couple of centimetres wide, dark, sheltered and safe from owls, jays and cats. In a forest that means loose bark on dead trees, woodpecker holes and splits in old trunks; silver-haired bats favour such places. The hoary bat is the exception, hanging alone among the leaves of a conifer, its frosted fur passing for a dead cone or a clump of lichen."},
+        {"type": "text", "text": "People have added many more crevices. Attics, the gaps behind siding and the spaces under roof tiles hold the summer nursery colonies of little brown, Yuma and big brown bats, sometimes hundreds strong. Concrete bridges, with their expansion joints and warm undersides, are used both as day roosts and as night roosts, where bats rest and digest between bouts of hunting. In the dry east, cracks in basalt cliffs serve the spotted, canyon and small-footed bats."},
+        {"type": "text", "text": "**Townsend's big-eared bat** roosts differently. It hangs in the open from the ceilings of caves, old mines and empty buildings, in small clusters, its huge ears curled back against its head while it rests. It is easily disturbed: a few visits with lights and voices can make a colony abandon a roost for good, and waking it in winter costs fat it cannot spare (lesson 7).[^wnsnote] Washington lists it as a candidate species, under review for protection, and many old mines where it roosts are now closed with gates that let bats through but not people.[^gates]"}
+      ]
+    },
+    {
+      "title": "Telling them apart",
+      "blocks": [
+        {"type": "text", "text": "In flight most bats are only shapes, and the heterodyne detector and sonogram of the listening branch (lessons L1 and L2) do more than the eye. In the hand, or in a good photograph, a few features go a long way: the bat's size, its ears, its fur and, from a recording, the frequency where its call ends. Biologists who handle bats wear gloves and are vaccinated against rabies; a bat on the ground should be left alone or picked up only in thick gloves.[^handle]"},
+        {"type": "interactive_diagram", "id": "id-key", "caption": "Nine of Washington's bats by four features, which can be ticked in any order. Townsend's and the pallid bat call too faintly to record easily, so their calls are left open. Yuma and California myotis cannot be separated this way; only the Yuma is shown.", "task": "Key out the three bats described", "goal": "keyed", "aspect_ratio": 1.4, "options": {"title": "Nine Washington bats", "features": [
+          {"name": "Size", "values": ["Under 10 g", "10 to 20 g", "Over 20 g"]},
+          {"name": "Ears", "values": ["Ordinary", "Huge"]},
+          {"name": "Fur", "values": ["Plain brown", "Frosted", "Black, silver tips", "Pale", "Black, white spots"]},
+          {"name": "Call ends near", "values": ["10 kHz", "20 kHz", "25 to 30 kHz", "40 kHz", "50 kHz"]}
+        ], "taxa": [
+          {"name": "Hoary bat", "traits": {"Size": "Over 20 g", "Ears": "Ordinary", "Fur": "Frosted", "Call ends near": "20 kHz"}, "about": "Washington's largest bat, a migrant through the state in late summer."},
+          {"name": "Silver-haired bat", "traits": {"Size": ["Under 10 g", "10 to 20 g"], "Ears": "Ordinary", "Fur": "Black, silver tips", "Call ends near": "25 to 30 kHz"}, "about": "A tree bat of the forests, one of the few that fly on mild winter nights."},
+          {"name": "Big brown bat", "traits": {"Size": ["10 to 20 g", "Over 20 g"], "Ears": "Ordinary", "Fur": "Plain brown", "Call ends near": "25 to 30 kHz"}, "about": "Glossy brown, heavy-jawed, a beetle eater of buildings and bridges."},
+          {"name": "Little brown myotis", "traits": {"Size": "Under 10 g", "Ears": "Ordinary", "Fur": "Plain brown", "Call ends near": "40 kHz"}, "about": "Glossy brown fur, common over water and in attic nurseries."},
+          {"name": "Yuma myotis", "traits": {"Size": "Under 10 g", "Ears": "Ordinary", "Fur": "Plain brown", "Call ends near": "50 kHz"}, "about": "Duller fur than the little brown, and almost always near water."},
+          {"name": "Canyon bat", "traits": {"Size": "Under 10 g", "Ears": "Ordinary", "Fur": "Pale", "Call ends near": "50 kHz"}, "about": "Pale grey-yellow with a black face mask, the smallest bat in Washington."},
+          {"name": "Townsend's big-eared bat", "traits": {"Size": ["Under 10 g", "10 to 20 g"], "Ears": "Huge", "Fur": "Plain brown"}, "about": "Two lumps on the nose and ears a third of its length; it whispers its calls."},
+          {"name": "Pallid bat", "traits": {"Size": "10 to 20 g", "Ears": "Huge", "Fur": "Pale"}, "about": "Cream fur and large eyes; it hunts on the ground by listening."},
+          {"name": "Spotted bat", "traits": {"Size": "10 to 20 g", "Ears": "Huge", "Fur": "Black, white spots", "Call ends near": "10 kHz"}, "about": "Pink ears, white spots, and a call you can hear."}
+        ], "specimens": [
+          {"name": "Hoary bat", "hint": "a big bat with grizzled, frosted fur, high over the lake in August"},
+          {"name": "Yuma myotis", "hint": "a small plain brown bat over the water, calls ending near 50 kHz"},
+          {"name": "Pallid bat", "hint": "a cream-coloured bat with big ears, caught over sagebrush near Yakima"}
+        ]}}
+      ]
+    },
+    {
+      "title": "A house for bats",
+      "blocks": [
+        {"type": "text", "text": "Many of the crevices bats used are going: dead trees are cut, old barns come down, and attics are sealed. A **bat house** is a substitute crevice, a flat wooden box open at the bottom, and its design has been worked out by trial over decades, much of it by Bat Conservation International in the United States, from which houses bats moved into and which they ignored."},
+        {"type": "text", "text": "A good one is tall and narrow: chambers 50 to 80 cm tall and about 2 cm wide, so bats can crawl up and down to find the temperature they want. The wood inside is roughened or grooved, and a rough landing pad extends below the opening, because a bat lands and climbs in; it does not fly in like a bird. It goes on a pole or a building wall 3 to 5 metres up, clear of branches, where bats can drop from it into flight and cats and raccoons cannot reach. Water within a few hundred metres helps: a lake, a stream, a large pond."},
+        {"type": "text", "text": "The hardest part is warmth. The houses that fill are the summer nurseries, and the mothers and pups in them do best at about 27 to 38 °C. A pup grows fast in a warm roost and slowly in a cool one, and a mother saves the energy she would spend keeping it warm. In Seattle's mild summers that means a dark house in the sun for six hours or more; in the heat east of the mountains, the same house would cook its bats."},
+        {"type": "interactive_diagram", "id": "wa-house", "caption": "The temperature inside a bat house over a fair July day, by town, paint, what it is mounted on, hours of direct sun and height. A simple model of a single-chamber house; real houses vary with their wood and how many bats are inside.", "task": "Find a house a Seattle nursery colony could use", "goal": "warm", "aspect_ratio": 1.87},
+        {"type": "text", "text": "Even a good house may stand empty for a year or two before bats find it, and many never fill. They are most likely to be taken where bats are already common and short of roosts, such as near a building from which a colony has been excluded. A bat house on a tree trunk, in shade and within easy reach of predators, is the most common mistake."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on Washington's bats", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Camping under basalt cliffs in eastern Washington, you hear a sharp, high tick overhead every second or so, moving along the cliff. What is the best explanation?", "choices": ["A spotted bat, whose echolocation calls near 10 kHz are low enough to hear", "A little brown bat, whose calls are audible in dry air", "A big brown bat's feeding buzz, slowed by the cliff's echo", "An insect, since no bat's calls can be heard by people"], "answer": 0, "why": "Almost all bats call above human hearing. The spotted bat, a bat of the dry east's cliffs, calls near 10 kHz, which people can hear."},
+          {"ask": "Which pattern best describes how Washington's bats divide between the two sides of the Cascades?", "choices": ["Most live on both sides, a few dry-country bats only in the east, and Keen's myotis only in the west", "Half live only in the west and half only in the east", "All fifteen live on both sides; only their numbers differ", "Most live only in the west, where the forests are, with none special to the east"], "answer": 0, "why": "Little brown, Yuma, big brown and most others are statewide. The pallid, spotted and canyon bats and the small-footed myotis are dry-side bats; Keen's myotis is known mainly from the Olympic Peninsula."},
+          {"ask": "Why is Townsend's big-eared bat especially hurt by people visiting caves and old mines?", "choices": ["It roosts in the open in small clusters and abandons roosts when disturbed", "It needs complete silence to echolocate inside a cave", "It feeds only on insects that live in caves", "Its huge ears are damaged by loud voices"], "answer": 0, "why": "It hangs exposed from ceilings rather than hiding in cracks, so lights and voices reach it, and a disturbed colony may leave for good. In winter each waking also costs fat."},
+          {"ask": "A bat house in Seattle is painted white and gets three hours of morning sun. Why is it unlikely to hold a nursery colony?", "choices": ["It stays too cool for mothers and pups, which need about 27 to 38 °C", "White paint smells of chemicals bats avoid", "Bats cannot find a white house in the dark", "Morning sun makes the house too hot by noon"], "answer": 0, "why": "In Seattle's mild summer a pale, little-sunned box barely warms above the air. Nursery colonies choose warm roosts, so the house needs a dark colour and six hours or more of sun."},
+          {"ask": "Why should a bat house go 3 to 5 metres up on a pole or wall rather than low on a tree trunk?", "choices": ["Up high and in the open it is warmer, clear for bats to drop into flight, and out of predators' reach", "Bats can only find houses above the height of the trees", "A tree trunk's sap gets into the wood and drives bats away", "The law forbids fixing anything to trees in most cities"], "answer": 0, "why": "A trunk is shaded and easy for cats and raccoons to climb. A house high on a pole or wall gets sun, gives bats a clear drop into flight, and keeps predators off."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "pallid": {"kind": "digression", "title": "A bat that eats scorpions", "text": "In the deserts of the American Southwest, pallid bats catch Arizona bark scorpions, whose sting is dangerous to people. A study published in 2017 by Bryan Hopp and colleagues found the bats barely react to the venom, thanks to a change in a sodium channel in their nerves."},
+    "gates": {"kind": "technical", "title": "Bat gates", "text": "A bat gate is a grid of horizontal steel bars across a mine or cave entrance, spaced about 15 cm apart, wide enough for a bat to fly through and narrow enough to stop a person. Badly designed gates have driven colonies out, so they are built to tested patterns."},
+    "handle": {"kind": "technical", "title": "Why not to handle bats", "text": "Fewer than one wild bat in a hundred carries rabies, but a bat on the ground is more likely than most to be sick, and bat bites can be too small to notice. Anyone bitten or scratched, or who wakes to find a bat in the room, should ask a doctor or the health department about the vaccine. The branch on bats and people covers this."},
+    "wnsnote": {"kind": "digression", "title": "White-nose in Washington", "text": "Washington's first case of white-nose syndrome, a little brown bat found by hikers near North Bend in March 2016, was the first in western North America (lesson 7). The fungus has since been found in more counties, and little brown and Yuma myotis are the species most watched."}
+  }
+}

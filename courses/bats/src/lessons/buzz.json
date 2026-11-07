@@ -1,0 +1,81 @@
+{
+  "id": "buzz",
+  "n": 4,
+  "title": "The feeding buzz",
+  "teaches": "Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay",
+  "summary": [
+    "**An echo takes 5.8 ms per metre of distance.** Sound covers about 343 metres a second, and the echo has to go out and come back.",
+    "**A bat calls again once the last echo is home.** Otherwise it cannot tell which call an echo belongs to, so the distance to its target sets the fastest it can call.",
+    "**A hunt has three phases.** Search at 5 to 15 calls a second, approach at 20 to 80, and a terminal buzz at 150 to 200 in the last half metre or so.",
+    "**The buzz follows from distance alone.** At 200 calls a second there are 5 ms between calls, which only works with the target less than a metre away.",
+    "**Calls shorten as the target nears.** From 5 to 10 ms while searching to under a millisecond in the buzz, so the bat's own loud call never covers its faint echo.",
+    "**Calling is nearly free in flight.** Each call rides on a breath that the wingbeat pushes out anyway.",
+    "**The brain turns delay into place.** In the mustached bat, cells that fire only to a call and echo a set time apart are laid out in order along the cortex, a map of range."
+  ],
+  "parts": [
+    {
+      "title": "A zipper in the dark",
+      "blocks": [
+        {"type": "text", "text": "In the summers of the early 1950s Donald Griffin took his ultrasonic microphone outdoors. A dozen years earlier, as an undergraduate, he had carried a cage of bats to a physicist's detector and heard their calls for the first time; now, at Cornell University in upstate New York, he wanted to know what bats did with those calls when nobody was holding them. He set up beside ponds and over fields at dusk, and listened to wild bats hunting."},
+        {"type": "text", "text": "A bat cruising over the water gave a steady patter of [[calls|call]], about ten a second. Every so often the patter quickened, ran together, and ended in a burst so fast that the separate ticks fused into one short rasp, like a zipper pulled shut. Then the bat went back to its patter. The bursts came when a bat swerved after something. A small pebble tossed up near a hunting bat, an old trick of bat watchers, draws the same burst as the bat turns after it and then veers away. He called the sound the **feeding buzz**.[^griffin]"},
+        {"type": "text", "text": "More calls mean more news about the [[moth|moth]], so a bat might be expected to call fast all the time. It does not. It saves its fastest calling for the last fraction of a second, and the reason is how long sound takes to come back."}
+      ]
+    },
+    {
+      "title": "Waiting for the echo",
+      "blocks": [
+        {"type": "text", "text": "Sound in air travels about 343 metres a second.[^speed] A call to a moth one metre away goes out a metre and its [[echo|echo]] comes back a metre, two metres in all, which takes 5.8 thousandths of a second, or milliseconds (ms). Each metre of distance adds another 5.8 ms to the wait."},
+        {"type": "text", "text": "A bat that calls again before an echo is home has a problem. A faint echo arriving just after a new call could be a near echo of the new call or a far echo of the old one, and the bat cannot tell which. So a hunting bat, roughly, waits for each echo before it calls again, and the distance to its target sets the fastest it can call."},
+        {"type": "text", "text": "This gives a back-of-the-envelope estimate. A moth 5 m away returns its echo after 2 × 5 ÷ 343 of a second, 29 ms. A bat that waits out each echo can call at most 1 ÷ 0.029, about 34 times a second, and once the length of the call itself is added, nearer 30. Now run it backwards. At 200 calls a second the gap between calls is 5 ms, long enough for sound to travel 1.7 metres: 85 cm out and 85 cm back. A buzz at 200 calls a second can only happen with the moth less than a metre away."},
+        {"type": "interactive_diagram", "id": "buzz-rate", "caption": "The most calls a second a bat can make, against the distance to its target, if it calls again as soon as each echo is back and its own call has ended. Beyond about 7 m the moth returns no echo the bat can hear, and the bat calls once a wingbeat. A model.", "task": "Guess, then bring the moth within a metre", "goal": "near", "aspect_ratio": 1.74},
+        {"type": "text", "text": "The curve is nearly flat far out and steep at the end because the rate goes as one over the distance. Going from 6 m to 5 m raises it by a fifth; going from a metre to half a metre doubles it."}
+      ]
+    },
+    {
+      "title": "Search, approach, buzz",
+      "blocks": [
+        {"type": "text", "text": "Griffin and his students, recording bats catching fruit flies in a flight room, divided a hunt into three phases, and the names have stuck. While **searching**, a little brown bat or a big brown bat calls 5 to 15 times a second, often once for every beat of its wings. The calls are long for a bat, 5 to 10 ms, and loud, to reach as far as possible."},
+        {"type": "text", "text": "Calling in step with the wings is no accident. Each call rides out on a breath, and the breath is timed to the wingbeat, so the big flight muscles squeezing the chest do most of the work of pushing the air through the larynx. A bat hanging still pays heavily to call, but a bat in flight pays almost nothing extra.[^cost]"},
+        {"type": "text", "text": "Once an echo shows something worth chasing, typically a moth at 5 to 10 m, the bat turns toward it and the **approach** begins: 20 to 80 calls a second, each shorter and sweeping across a wider band of pitches, which sharpens the bat's reading of range. In the last half metre or so comes the **terminal buzz**, 150 to 200 calls a second, each under a millisecond long. Many bats then scoop the insect into the membrane between their legs and tail and bend down to take it in the mouth."},
+        {"type": "text", "text": "The calls must shorten as the moth nears. With the moth a metre away the echo is back after 5.8 ms; a search call 8 ms long would still be going out when it arrived, and the bat's own call, far louder at its ears than any echo, would drown it. A bat keeps each call shorter than the round trip, so call and echo never overlap."},
+        {"type": "interactive_diagram", "id": "buzz-approach", "caption": "A bat closing on a moth at 5 metres a second, calling again as soon as each echo is back. Outgoing calls are violet and echoes teal; the strip below marks every call of the hunt. A model; the calls you hear are synthesised and slowed ten times, as a time-expansion bat detector plays them, so 200 calls a second sound as 20.", "task": "Play a hunt through to the catch", "goal": "catch", "aspect_ratio": 1.6},
+        {"type": "text", "text": "Change the starting distance and the buzz always begins in the same place, under a metre from the moth. Nothing in the model tells the bat to buzz: the rate follows from the echo's round trip alone. Real bats leave some slack and call more slowly than this limit through most of the approach, but the shape of a hunt is the same, and so is the zipper at the end."}
+      ]
+    },
+    {
+      "title": "A map of distance",
+      "blocks": [
+        {"type": "text", "text": "In the buzz a bat gets a fresh reading of range every five milliseconds or so, and something in its brain must turn each delay into a distance. The clearest picture of how came from Nobuo Suga, at Washington University in St. Louis from the 1970s onward, working on the mustached bat, *Pteronotus parnellii*, an insect-eater of Central and South America and the Caribbean. Its call is a long steady tone followed by a short downward sweep, sounded in several harmonics at once.[^harmonics]"},
+        {"type": "text", "text": "Suga and his colleagues played pairs of sounds to bats while recording from single cells in the **auditory cortex**, the part of the brain's outer layer that handles hearing: first a sweep like the bat's call, then a fainter sweep like its echo, with a gap between. Many cells ignored a call alone and an echo alone, and fired strongly to the pair only when the gap was right. One cell answered best to a gap of 2 ms, another to 8 ms. A gap of 2 ms is an object 34 cm away, so each such cell stands for a range."},
+        {"type": "text", "text": "In 1979 Suga and William O'Neill showed that these **delay-tuned cells** are not scattered at random. Along a strip of cortex, cells tuned to short delays sit at one end and cells tuned to long delays at the other, from about 0.4 ms to 18 ms, objects from 7 cm to about 3 metres away. A target's distance becomes a place in the brain: which cells along the strip are firing."},
+        {"type": "diagram", "id": "buzz-delay-map", "caption": "Delay-tuned cells as Suga found them in the mustached bat, much simplified. Each target sends back an echo after its own delay, and the cells tuned to that delay fire. In the buzz, as the moth closes, the activity slides toward the near end of the strip.", "aspect_ratio": 1.72},
+        {"type": "text", "text": "Other strips of the same cortex hold cells tuned to small changes in the pitch of the echo, which tell the bat how fast a target is moving relative to it. That is the subject of the next lesson. Big brown bats, which do not make the mustached bat's harmonics, also have delay-tuned cells, so this way of reading range is not one species' peculiarity."}
+      ]
+    },
+    {
+      "title": "What is it like to be a bat?",
+      "blocks": [
+        {"type": "text", "text": "In 1974 the philosopher Thomas Nagel published an essay called \"What is it like to be a bat?\". He chose bats because their main sense is so unlike any of ours. His argument was that we could learn every fact about a bat's sonar, down to each delay-tuned cell, and still not know what it is like, from the inside, to perceive the world by echo. Whether a bat's world feels more like hearing or like seeing is still unknown. Suga's map says how the range is worked out; it says nothing about how a moth at 30 cm seems to the bat that is about to catch it.[^nagel]"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on the feeding buzz", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "A bat chasing an insect calls about 30 times a second at 5 metres, but about 200 times a second just before the catch. What best explains the rise?", "choices": ["Each echo returns sooner as the gap closes, so the bat can call again sooner without mixing up its echoes", "The bat breathes faster as it speeds up for the catch, and each breath carries one call", "The insect grows louder as it nears, so the bat must call faster to keep its echoes above the noise"], "answer": 0, "why": "An echo takes 5.8 ms per metre to come back. A bat waits for each echo before calling again, so as the distance shrinks the wait shrinks and the calls can come faster."},
+          {"ask": "A bat a metre from a moth makes a call 8 milliseconds long. What goes wrong?", "choices": ["The echo starts to arrive while the loud call is still going out, and the call drowns it", "The echo takes too long to return for the bat to react before the moth moves", "A call that long is too low in pitch to reflect from something as small as a moth"], "answer": 0, "why": "From a metre away the echo is back after 5.8 ms, before an 8 ms call has ended. That is why calls shorten to under a millisecond in the buzz."},
+          {"ask": "A bat swoops low over someone's head at dusk. Why is it very unlikely to get tangled in their hair?", "choices": ["It is chasing insects near the person, with an echo picture fine enough to dodge a wire thinner than a hair", "Its sonar cannot pick up soft hair, so it flies higher than people to stay clear of them", "Bats avoid warm-blooded animals entirely and only swoop when they mistake a person for a tree"], "answer": 0, "why": "Bats find midges and dodge fine wires in the dark. A bat close to a person is usually after the insects that gather around people, and it can place a head far more precisely than it needs to."},
+          {"ask": "In a mustached bat's brain, a cell fires only when an echo follows the bat's own call by about 6 milliseconds. What is that cell reporting?", "choices": ["Something about a metre away", "Something about 2 metres away", "Something about 6 metres away"], "answer": 0, "why": "An echo takes 5.8 ms per metre of distance, so 6 ms means about a metre. Cells tuned to longer delays report farther targets, and they lie in order along the cortex."},
+          {"ask": "Why does calling cost a flying bat almost nothing extra, though its calls are among the loudest sounds any animal makes?", "choices": ["Each call rides on a breath that the wingbeat already pushes out, so the flight muscles do the work", "Sounds too high for people to hear take far less energy to make than sounds we can hear", "Bats call only while gliding between wingbeats, when the flight muscles are resting"], "answer": 0, "why": "Calls are timed to the breath and the breath to the wingbeat. Hanging still, a bat pays a lot to call; in flight the cost almost vanishes into the cost of flying."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "griffin": {"kind": "digression", "title": "Griffin's buzz", "text": "Griffin described bats' calls under natural conditions in 1953. In 1960 he and his students Frederic Webster and Charles Michael filmed little brown bats catching fruit flies and mosquitoes released in a room, with the calls recorded alongside. Each catch was marked by a buzz, which let them count catches from the sound alone: at best, several a minute."},
+    "speed": {"kind": "technical", "title": "The speed of sound", "text": "Sound travels about 331 metres a second in air at freezing and about 0.6 m/s faster for each degree warmer, so 343 m/s at 20 °C. A bat hunting on a cool night has a slightly shorter echo wait than one on a warm night, by a few per cent."},
+    "cost": {"kind": "technical", "title": "What calling costs", "text": "John Speakman and Paul Racey measured it in 1991 by the oxygen bats used. A bat hanging still and calling burned energy several times faster than one at rest, but bats flying and calling used no more than flight alone was expected to cost. The call is timed to the moment the chest is squeezed by the wingbeat."},
+    "harmonics": {"kind": "technical", "title": "The mustached bat's harmonics", "text": "Its call holds a fundamental near 30 kHz and harmonics near 60, 90 and 120 kHz. The fundamental goes out very faint, but the bat hears it loudly through its own head. Suga found that many delay-tuned cells need the fundamental's sweep from the call followed by a higher harmonic's sweep in the echo, which may help each bat ignore its neighbours' calls."},
+    "nagel": {"kind": "digression", "title": "Nagel's choice", "text": "Nagel's essay appeared in *The Philosophical Review* in 1974. It is about consciousness in general, and the bat is his example of a mind whose senses are close enough to ours to be taken seriously and different enough that we cannot think our way inside."}
+  }
+}

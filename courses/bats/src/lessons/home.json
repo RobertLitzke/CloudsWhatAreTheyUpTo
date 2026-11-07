@@ -1,0 +1,110 @@
+{
+  "id": "home",
+  "n": 10,
+  "title": "The way home",
+  "teaches": "How Egyptian fruit bats find home from places they have never been, big brown bats' compass set by the sunset, and migrating tree bats and wind turbines",
+  "summary": [
+    "**Egyptian fruit bats fly straight to particular trees and back.** GPS loggers in Israel showed nightly flights of about 15 km in nearly straight lines.",
+    "**Carried to a place they had never seen, they still flew home.** That needs a map, a sense of where you are, as well as a compass, a sense of which way you face.",
+    "**The fruit bats' map seems to be made of distant landmarks.** On a crater floor with only cliffs in view they flew in loops; on the rim, a few kilometres away, they flew straight north.",
+    "**Echolocation is too short-ranged for finding home.** Its echoes come back from tens of metres at most, so bats steer long flights by sight, and perhaps smell and magnetism.",
+    "**Big brown bats carry a magnetic compass and set it at sunset.** Bats that saw the sunset in a turned field flew off a quarter turn wrong; a field turned after dark changed nothing.",
+    "**Some bats migrate instead of hibernating.** Hoary, silver-haired and eastern red bats leave the north each autumn, and the Northwest's hoary bats head south from late summer.",
+    "**Wind turbines kill hundreds of thousands of bats a year in North America.** About three quarters are migrating tree bats, killed mostly on calm nights in late summer and autumn.",
+    "**Letting the blades wait for more wind saves most of those bats.** Starting turbines at 5 to 6.5 m/s instead of 3.5 on autumn nights cut kills by half or more for about 1% of a year's power."
+  ],
+  "parts": [
+    {
+      "title": "A crater in the Negev",
+      "blocks": [
+        {"type": "text", "text": "In a cave in the low hills west of Jerusalem lived a colony of a few hundred Egyptian fruit bats, *Rousettus aegyptiacus*. They are big bats for the region, about 150 grams, with large eyes and faces like small dogs. Each evening they leave to feed on fruit in the orchards and gardens of central Israel and return before dawn. In the late 2000s Asaf Tsoar of the Hebrew University of Jerusalem, with Ran Nathan there and Nachum Ulanovsky of the Weizmann Institute of Science, glued small GPS loggers to the backs of some of them. The loggers recorded where each bat flew through the night, and fell off or were recovered later."},
+        {"type": "text", "text": "The tracks, published in 2011, were startling for their straightness. A bat left the cave and flew at about 35 kilometres an hour, usually under a hundred metres up, in a nearly straight line to one particular fruit tree, on average 15 kilometres away. It fed there and flew straight back. Most bats went to the same tree night after night."},
+        {"type": "text", "text": "Straight lines over familiar ground could just mean the bats knew the way. So the team caught bats, carried them in closed boxes far to the south, into the Negev Desert where they had almost certainly never been, and let them go at night. Some went 44 kilometres south. Others went 84 kilometres, to the floor of HaMakhtesh HaGadol, a crater several kilometres across with steep walls of rock. A third group was let go on the crater's rim, only five kilometres from the floor site but with a view across the desert."},
+        {"type": "interactive_diagram", "id": "fruitbat-gps", "caption": "Flights of Egyptian fruit bats from a cave in central Israel, and from three places to the south where bats were let go. Schematic tracks drawn to the published distances and straightness (Tsoar and colleagues, 2011); the map is simplified.", "task": "Guess, then play all four flights", "goal": "all", "aspect_ratio": 1.33}
+      ]
+    },
+    {
+      "title": "A map or a compass",
+      "blocks": [
+        {"type": "text", "text": "Finding home from a strange place takes two things, and it helps to keep them apart. A **compass** tells an animal which way it is facing: north is that way. A **map** tells it where it is relative to home: home is to the north of here. A compass alone is no help to a bat dropped somewhere new, because it cannot know which way to turn until it knows where it is. Carried to an unknown place in a closed box, unable to count the turns on the way, a bat that flies straight home must have something like a map."},
+        {"type": "text", "text": "Echolocation can be ruled out at once. Egyptian fruit bats do echolocate, unusually, with clicks of the tongue rather than calls from the larynx, the voice box, but they use it in dark caves and close to obstacles. An echo comes back from tens of metres at most, and the cave was 80 kilometres away."},
+        {"type": "interactive_diagram", "id": "clue-board", "caption": "How did the fruit bats know which way home lay? Turn on each piece of evidence and see which ideas it rules out.", "task": "Turn on every clue", "goal": "clues", "options": {
+          "ideas": [
+            {"name": "Echolocation", "text": "Listening to echoes of tongue clicks."},
+            {"name": "Retracing the trip out", "text": "Remembering each turn of the trip south."},
+            {"name": "A compass alone", "text": "Sun, stars or the Earth's magnetism, with no sense of position."},
+            {"name": "A map of distant landmarks", "text": "Recognising hills, ridges and lights seen far off."}
+          ],
+          "clues": [
+            {"name": "Echoes are short", "text": "Tongue clicks return echoes from tens of metres away, and home was 80 km off.", "rules": ["Echolocation"]},
+            {"name": "A closed box", "text": "The bats travelled south in closed boxes, unable to see the way or track the turns.", "rules": ["Retracing the trip out"]},
+            {"name": "Straight home from new ground", "text": "From 44 km and 79 km away, in desert they had never visited, most bats flew fairly straight to the cave.", "rules": ["A compass alone"]},
+            {"name": "Lost in the crater", "text": "On the crater floor, only cliffs in view, they flew loops for a long time; on the rim 5 km away, under the same sky and the same magnetic field, they turned north at once.", "rules": ["A compass alone"]}
+          ],
+          "guess": "Which idea survives?",
+          "end": "Only a map of distant landmarks fits every clue. On the rim the bats could see far hills, ridges and perhaps the glow of towns; on the crater floor they could not, until perhaps they had climbed high enough to see past the walls."
+        }},
+        {"type": "text", "text": "The crater was the telling test. On the floor and on the rim the bats had the same stars, the same magnetic field and nearly the same smells on the wind, which was light on those nights. What differed was the view. Tsoar and his colleagues concluded that the bats were finding their position mostly by sight, from landmarks far away. The bats on the floor did all leave heading north in the end, perhaps once they had climbed high enough to see past the walls, perhaps helped by other cues; the loggers could not tell what the bats were looking at. Smell and magnetism may help, but the crater suggests that a fruit bat's map is mainly made of things it can see.[^dark]"},
+        {"type": "text", "text": "Ran Nathan's group later followed this up on a far larger scale in the Hula Valley in northern Israel, with a system of radio receivers that tracked 172 fruit bats over four years, more than 18 million positions. The bats often took shortcuts between trees, flying routes they had never flown, which is what an animal with a map can do and an animal that only remembers routes cannot. The results appeared in *Science* in 2020."},
+        {"type": "text", "text": "How such a map might be held in a brain has been studied in the same species. In rats and mice, certain cells in the hippocampus, a curled structure deep in the brain, fire only when the animal is in one place in a room; they are called **place cells**. In 2013 Michael Yartsev and Ulanovsky recorded from these cells in fruit bats flying freely around a room and found that each cell fired in one region of the room's three-dimensional space, a rough ball of air, rather than a patch of floor.[^place]"}
+      ]
+    },
+    {
+      "title": "A compass set by the sunset",
+      "blocks": [
+        {"type": "text", "text": "A map is not enough on its own either: an animal that knows home is to the north still has to tell which way north is. Many birds have a magnetic compass, a sense of the direction of the Earth's magnetic field. Whether bats had one was unknown until 2006, when Richard Holland, then at Princeton, with Martin Wikelski, William Cochran and others, tested it in **big brown bats**, *Eptesicus fuscus*, a common bat across North America and one of those that fly over Seattle's lakes at dusk."},
+        {"type": "text", "text": "They put bats in boxes inside a frame of wire coils. A current in the coils makes a magnetic field that adds to the Earth's, and by choosing the current they could turn the field the bats felt, so that magnetic north pointed east or west instead of north. The bats sat in the turned field from 45 minutes before sunset to 45 minutes after, able to see the sky. Then, after dark, the bats were taken 20 kilometres north of their roost and let go, with small radio tags whose signals the team followed from a light aircraft. By then the bats were back in the Earth's own field."},
+        {"type": "interactive_diagram", "id": "sunset-compass", "caption": "Holland's experiment, simplified. Set how far the field was turned and when, then let the bat go 20 km north of its roost. The field is normal again when it flies. Drawn from the published results of Holland and colleagues (2006) and of the 2010 test on mouse-eared bats.", "task": "Guess, then let a bat go after a turned field at sunset and after dark", "goal": "both", "aspect_ratio": 1.74},
+        {"type": "text", "text": "Untreated bats flew south, towards home. Bats that had sat in a field turned clockwise flew east; those in a field turned anticlockwise flew west. The bats were steering by a magnetic compass, but not by the field they flew in. Something about the turned field at sunset had set their compass wrong, and they carried that setting into the night."},
+        {"type": "text", "text": "The obvious suspect was the sunset itself. The sun sets in the west, at a point that shifts only slowly through the year, so a bat that notes where it went down, against the magnetic field it feels at that moment, can line up its magnetic compass with geography each evening. A bat that watched the sun set in a field turned a quarter turn would line its compass up a quarter turn wrong. In 2010 Holland, Ivailo Borissov and Björn Siemers tested this with greater mouse-eared bats in Bulgaria. Bats in a field turned at sunset flew off at right angles to home. Bats in the same turned field after all trace of twilight had gone flew home normally. The compass is set at sunset and kept through the night.[^magnet]"}
+      ]
+    },
+    {
+      "title": "Bats that leave",
+      "blocks": [
+        {"type": "text", "text": "Most bats in cold countries stay put for the winter and hibernate in caves, mines or buildings, living on the fat they built up in autumn, as lesson 7 described. A few species fly south instead. In North America the main migrants are three **tree bats**, so called because they roost alone among leaves or under bark rather than in colonies in caves: the **hoary bat**, the **silver-haired bat** and the **eastern red bat**. The hoary bat is the biggest bat in Washington, about 30 grams, with frosted fur and long narrow wings built for fast, straight flight in the open."},
+        {"type": "diagram", "id": "timeline", "caption": "A hoary bat's year in the Pacific Northwest, as far as it is known. Where exactly Northwest hoary bats spend the winter is still uncertain; most probably go to California and Mexico.", "options": {
+          "title": "The hoary bat's year",
+          "spacing": "even",
+          "events": [
+            {"at": 4, "to": 5, "label": "Arrive from the south", "when": "Apr to May"},
+            {"at": 6, "label": "Twins born in the trees", "when": "June"},
+            {"at": 7, "to": 8, "label": "Feeding high over lakes and fields", "when": "Jul to Aug"},
+            {"at": 8, "to": 10, "label": "Migrate south; most turbine deaths", "when": "Aug to Oct", "color": "bad", "bold": true},
+            {"at": 11, "to": 13, "label": "Winter further south", "when": "Nov to Mar"}
+          ]
+        }},
+        {"type": "text", "text": "Hoary bats are seen over Seattle mostly in late summer, flying high and fast, with calls near 20 kHz that some people with young ears can just hear as ticks. By then many are on the move, and they and the other tree bats travel south through August, September and October. Their routes are not well known, because a bat too small for a satellite tag and flying alone at night is hard to follow. One clue to where they go turned up where nobody wanted it."}
+      ]
+    },
+    {
+      "title": "Turbines on the route",
+      "blocks": [
+        {"type": "text", "text": "When wind farms spread across North America in the 2000s, people searching under the turbines for dead birds found more dead bats. About three quarters were the migrating tree bats, and most died in late summer and autumn, the season of migration. Estimates for the United States and Canada run to hundreds of thousands of bats a year. The bats are struck by the blades, whose tips move at well over 200 kilometres an hour even when the hub seems to turn slowly. Thermal cameras have shown bats approaching turbines and circling them, as if exploring a tall tree, which may be part of why tree bats in particular are killed.[^trees]"},
+        {"type": "text", "text": "Lesson 8 explained why such losses matter more for bats than for most small animals: most bats raise one young a year, and even tree bats, which often have twins or more, raise far fewer than a mouse of their size, so a population cannot quickly replace adults that are killed. A study led by Winifred Frick in 2017 estimated that if turbine deaths kept growing, the hoary bat population could fall by as much as nine tenths within fifty years."},
+        {"type": "text", "text": "The deaths cluster on calm nights, because bats fly most when the wind is light and insects are up. A turbine normally starts turning, and producing, at the **cut-in speed**, around 3 to 4 metres a second at the hub. Below it the blades are turned edge-on to the wind, feathered, and barely move. Edward Arnett and colleagues tested raising the cut-in speed at a wind farm in Pennsylvania on late-summer and autumn nights in 2008 and 2009."},
+        {"type": "interactive_diagram", "id": "turbine-cutin", "caption": "Bats in the air, wind and a turbine's output on autumn nights, against wind speed. Raise the speed at which the blades start turning. An illustrative model scaled to the results of Arnett and colleagues (2011).", "task": "Guess, then save at least half the bats for 1% of the power or less", "goal": "half", "aspect_ratio": 1.74},
+        {"type": "text", "text": "At the Pennsylvania farm, turbines held until 5 or 6.5 metres a second killed between about half and nine tenths fewer bats than turbines running normally, and the power given up was 1% of the year's output or less. The trick is in the shape of the curves. A turbine's output grows with the cube of the wind speed, so the light winds the bats fly in make very little electricity; and the rule applies only for a few months, only at night. Since then many wind farms in North America and Europe have adopted some version of it, and newer systems stop turbines only when detectors hear bats nearby.[^detect]"}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Five questions on finding the way", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Bats let go on the floor of a deep crater flew in loops, while bats let go on its rim, five kilometres away, flew straight home. What does this suggest they navigate by?", "choices": ["Distant landmarks they can see, which the crater walls hid", "The Earth's magnetic field, which is weaker inside a crater", "The smell of home, which cannot reach the crater floor in still air"], "answer": 0, "why": "Floor and rim shared the same sky, the same magnetic field and much the same air. Only the view differed, so the bats were most likely finding their position from what they could see."},
+          {"ask": "Why can a compass alone not take an animal home from a place it has never been?", "choices": ["It shows which way is north, but not which direction home lies from an unknown spot", "It only works over ground the animal has already flown across at least once", "It gives directions only by day, and most bats are released at night"], "answer": 0, "why": "A compass gives direction; to choose a heading the animal also needs a map, a sense of where it is relative to home."},
+          {"ask": "A big brown bat sits in a magnetic field turned 90° anticlockwise around sunset, then is let go after dark in the normal field, 20 km north of home. Which way does it most likely fly?", "choices": ["West, a quarter turn off course", "South, straight home, since the field is normal again", "East, the opposite way from the turn"], "answer": 0, "why": "The bat sets its magnetic compass against the sunset. Set in a turned field, the compass stays a quarter turn wrong all night, and anticlockwise sends it west, as Holland's bats did."},
+          {"ask": "Why does raising a wind turbine's cut-in speed on autumn nights save many bats for so little power?", "choices": ["Bats fly mostly in light winds, and light winds make very little power because output grows with the cube of wind speed", "Bats can hear a stopped turbine more easily and learn to avoid the whole wind farm", "Turbines make most of their power in winter, when there are no bats about"], "answer": 0, "why": "The hours given up are calm ones, when bats are flying and a turbine makes little electricity. Pennsylvania's trials cut kills by half or more for about 1% of the year's output."},
+          {"ask": "Why are the bats killed at North American wind turbines mostly hoary, silver-haired and eastern red bats?", "choices": ["They migrate through in late summer and autumn, flying high in the open, and may approach turbines as if they were tall trees", "They are the only bats tall enough to reach the blades when they hunt near the ground", "They hibernate in the hollow towers of turbines and wake up when the blades start to turn"], "answer": 0, "why": "These tree bats migrate in open sky in the season when kills peak, and thermal cameras show bats investigating turbines much as they might a tall tree."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "dark": {"kind": "digression", "title": "Can a fruit bat see at night?", "text": "Egyptian fruit bats have large eyes with many rods, the cells that work in dim light, and see well by starlight. The trip home starts at night, so the landmarks would have been dark ridges against the sky and the lights of towns."},
+    "place": {"kind": "technical", "title": "Recording from a flying bat", "text": "The recordings used a tiny wireless logger carried on the bat's head, connected to fine wires in the hippocampus, which stored the cells' signals while the bat flew. John O'Keefe shared the 2014 Nobel Prize in Physiology or Medicine for discovering place cells in rats in 1971."},
+    "magnet": {"kind": "technical", "title": "How a bat feels the field", "text": "Nobody knows yet. In 2008 Holland and colleagues gave big brown bats a brief strong magnetic pulse, which would remagnetise tiny crystals of magnetite, a magnetic iron oxide, if the bats had any, and the treated bats flew in a different direction from untreated ones. That points to magnetite somewhere in the body, but the cells have not been found."},
+    "trees": {"kind": "digression", "title": "Not the pressure", "text": "For a time it was thought that many bats died of burst lungs from the sudden drop in air pressure behind a blade, without being hit. Later examinations found that most dead bats had injuries from being struck, and the pressure idea is now thought to explain few deaths, if any."},
+    "detect": {"kind": "digression", "title": "Listening turbines", "text": "Bat detectors on the nacelle, the housing at the top of the tower, can hear bats passing near the rotor. Some wind farms stop their turbines only when bats are heard and the wind is light, which gives up even less power than a fixed rule."}
+  }
+}

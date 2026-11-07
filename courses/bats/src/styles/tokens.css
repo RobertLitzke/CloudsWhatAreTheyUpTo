@@ -1,0 +1,32 @@
+/* Design tokens: dusk over a lake. The page is the blue-black of the sky
+   after sunset, lessons are on pale paper like a field notebook, and the
+   accents are the last light: a moon's amber, the rose of the afterglow, the
+   teal of the water and the violet of a sonogram's trace. */
+
+:root {
+  --bg: #1a1d30; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #2a2e47;
+  --panel: #f1eee6;
+  --panel-2: #dcd8cb;
+  --ink: #22232b;
+  --ink-soft: #5d5f6b;
+  --text: #ece9f2;
+  --muted: #a9a8bd;
+  --sun: #e8b45a;
+  --sun-deep: #d98b4a;
+  --rose: #c96b7d;
+  --teal: #5fa8a6;
+  --violet: #9a86d0; /* branch colours */
+  --leaf: #8fa66a;
+  --ice: #8fb8d8;
+  --ember: #b0603a;
+  --title: #f2d9a8;
+  --paper: #fbf9f3;
+  --good: #3f8f5a;
+  --bad: #c0392b;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }
