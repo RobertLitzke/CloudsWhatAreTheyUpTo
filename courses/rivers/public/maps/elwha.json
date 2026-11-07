@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "elwha.png",
+  "width": 510,
+  "height": 589,
+  "zoom": 12,
+  "x0": 163985,
+  "y0": 363758,
+  "step": 2,
+  "bounds": [
+    -123.70022,
+    47.89977,
+    -123.35003,
+    48.17021
+  ],
+  "range": [
+    -2,
+    2083
+  ],
+  "credit": "Copernicus GLO-30 (© DLR, Airbus; EU/ESA) and Terrain Tiles on AWS",
+  "licence": "Copernicus DEM: free to use with the attribution in source. Terrain Tiles: mostly public domain.",
+  "source": "Copernicus GLO-30 DEM (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved) for the land; the sea floor from Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-07",
+  "made": "node tools/geo/relief.mjs --name elwha --bbox -123.7,47.9,-123.35,48.17 --zoom 12 --max 520 --precision 1 --coast --out courses/rivers/public/maps"
+}
