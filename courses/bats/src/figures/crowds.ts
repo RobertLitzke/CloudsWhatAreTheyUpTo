@@ -195,8 +195,8 @@ export const jamFigure = figure(['clear'], (_ctx, t) => {
   const f = frame(W, 220, 3);
   const g = svg('g');
   f.svg.append(g);
-  const A = 26000;
-  let b = 26400;
+  let A = 26400;
+  const b = 26000;
   let jamCall = false;
   let cleared = false;
   const LO = 18000;
@@ -215,7 +215,7 @@ export const jamFigure = figure(['clear'], (_ctx, t) => {
     // B's jamming call: a wavering sweep across A's band.
     const sweep: string[] = [];
     for (let k = 0; k <= 60; k++) {
-      const hz = 22000 + 8000 * (k / 60);
+      const hz = A - 4000 + 8000 * (k / 60);
       sweep.push(`${X(hz).toFixed(1)},${(118 + 10 * Math.sin(k * 0.9)).toFixed(1)}`);
     }
     redraw(g,
@@ -234,18 +234,18 @@ export const jamFigure = figure(['clear'], (_ctx, t) => {
       small(X(A - BAND / 2) - 4, 108, 'A listens here', { anchor: 'end', fill: COL.call }),
       ...bandRect(A, COL.echo, 176, 'A’s echo', true),
       ...(jamCall
-        ? [svg('polyline', { points: sweep.join(' '), fill: 'none', stroke: COL.noise, 'stroke-width': 3 }), small(X(31000), 108, 'B’s jamming call', { anchor: 'middle', fill: COL.noise, bold: true })]
+        ? [svg('polyline', { points: sweep.join(' '), fill: 'none', stroke: COL.noise, 'stroke-width': 3 }), small(X(Math.min(A + 5000, 33000)), 108, 'B’s jamming call', { anchor: 'middle', fill: COL.noise, bold: true })]
         : bandRect(b, COL.noise, 128, 'B’s call')),
     );
     if (!jamCall && o === 0) cleared = true;
     f.readout.textContent = jamCall
       ? 'Mexican free-tailed bats have a call for this: a wavering sweep that covers the pitches of a rival\'s buzz just as it closes on a moth. The rival misses far more often.'
       : jammed
-        ? `B calls at ${(b / 1000).toFixed(1)} kHz, inside the band A listens in. B's call reaches A far louder than A's own echo from the moth, which is lost under it.`
-        : `B calls at ${(b / 1000).toFixed(1)} kHz, clear of A's band. A's faint echo is the loudest thing in the band it listens in, and the two bats can hunt side by side.`;
+        ? `A calls at ${(A / 1000).toFixed(1)} kHz, and B's call at ${(b / 1000).toFixed(1)} kHz falls inside the band A listens in. B's call reaches A far louder than A's own echo from the moth, which is lost under it.`
+        : `A has moved its call to ${(A / 1000).toFixed(1)} kHz, clear of B's. A's faint echo is now the loudest thing in the band it listens in, and the two bats can hunt side by side.`;
     if (cleared) t.done();
   };
-  const s = slider('Bat B’s call', 20000, 32000, 100, b, (v) => `${(v / 1000).toFixed(1)} kHz`, (v) => { b = v; paint(); }, 'noise');
+  const s = slider('Bat A’s call', 20000, 32000, 100, A, (v) => `${(v / 1000).toFixed(1)} kHz`, (v) => { A = v; paint(); }, 'call');
   const jc = toggles(['B jams A’s buzz'], [false], (on) => { jamCall = on[0]; paint(); });
   f.controls.append(s.node, jc.node);
   paint();

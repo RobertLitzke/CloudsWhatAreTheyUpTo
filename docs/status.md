@@ -17,6 +17,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Synthesizers](#synthesizers) | 0.2 beta | 30 | 0 | 0 | 30 | 30 | 0 | 0 |
 | [Money That Lasts](#finance) | 0.2 beta | 32 | 0 | 0 | 32 | 32 | 0 | 0 |
 | [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 3 | 25 | 24 | 0 |
+| [Bats](#bats) | 0.1 beta | 15 | 0 | 0 | 15 | 15 | 15 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
 
@@ -33,6 +34,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Synthesizers | 0.2 beta | 2026-11-07 | no: 30 to copy-edit, 30 to fact-check |
 | Money That Lasts | 0.2 beta | 2026-11-07 | no: 32 to copy-edit, 32 to fact-check |
 | Fungi | 0.2 beta | 2026-11-04 | no: 3 to copy-edit, 25 to fact-check, 24 awaiting photos |
+| Bats | 0.1 beta | 2026-11-07 | no: 15 to copy-edit, 15 to fact-check, 15 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
 
@@ -435,6 +437,28 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | M1 | A spore print and a microscope (`spore-print`) | Looking closely | awaiting fact check | Photos (no photos chosen yet) | How mycologists examine a fungus: spore prints, gills and spores under the microscope, and why they measure many spores. |
 | M2 | Names written in DNA (`barcode`) | Looking closely | awaiting fact check |  | Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen. |
 | M3 | How many kinds of fungi? (`how-many`) | Looking closely | awaiting fact check | Photos (no photos chosen yet) | About 150,000 kinds named against 2 to 4 million estimated, how that estimate is made, and where the unnamed fungi are. |
+
+## Bats <a id="bats"></a>
+
+`courses/bats`, version 0.1 (beta, 2026-11-07). Bats: seeing with sound. Outline v2 (7 Nov 2026), revised after a biologist, teacher, explainer and student review: project files bats/outline.md and bats/review-2026-11-07/. All 15 lessons (trunk 1-10, branches L, N, P) written 7 Nov 2026 with live figures; student read-through and revisions done the same day; queued for Gemini. Photos are queued in tools/pending-photos.json with search hints (none verified); calls are synthesised from published parameters.
+
+| Code | Lesson | Branch | Status | Also waiting on | What it covers |
+| --- | --- | --- | --- | --- | --- |
+| 1 | How does a bat fly in the dark? (`dark`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Spallanzani's and Jurine's experiments, why nobody believed them for almost 150 years, and Pierce and Griffin hearing bats' calls in 1938. |
+| 2 | A hand with skin between the fingers (`hand`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | What a bat is: a wing made of a hand, one mammal species in five, closer kin to horses and cats than to mice, and how wing shape sets where each bat hunts. |
+| 3 | Why so high? (`ultrasound`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Wavelength against the size of an insect, why higher calls find smaller prey but carry less far, and the two shapes of call: sweeps and steady tones. |
+| 4 | The feeding buzz (`buzz`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Why a bat calls faster as it closes on prey (it waits for each echo), the buzz at 200 calls a second, and brain cells that read distance from delay. |
+| 5 | Twenty million voices (`crowds`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | The Doppler shift and how horseshoe bats lower their call to keep the echo in their sharpest hearing, and how bats in a crowd avoid jamming each other, or jam on purpose. |
+| 6 | The moth that hears the bat (`moths`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | Moth ears with two cells, turning away and diving, tiger moths that click back and jam, and the bats that answer with whispers. |
+| 7 | The winter fat budget (`winter`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Torpor, how two grams of fat last a little brown bat the winter, why each waking costs so much, and how white-nose syndrome starves bats. |
+| 8 | Long lives, slow births (`lives`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Why bats live several times longer than mammals their size, one pup a year and slow recovery, and what bats and viruses really show. |
+| 9 | Blood, nectar and fruit (`diets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | Why vampire bats feed hungry roost-mates, how bats live on blood, nectar, fruit, fish and meat, and what nectar and fruit bats do for plants. |
+| 10 | The way home (`home`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | How Egyptian fruit bats find home from places they have never been, big brown bats' compass set by the sunset, and migrating tree bats and wind turbines. |
+| L1 | Hearing the unhearable (`heterodyne`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | How a heterodyne detector mixes a bat's call down into hearing, how to tune one, and how to build one on a breadboard. |
+| L2 | Reading a sonogram (`sonograms`) | Listening in | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Frequency division and time expansion, the parts of a sonogram, and telling Washington's bats apart by the shape and pitch of their calls. |
+| N1 | Dusk at Green Lake (`green-lake`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Who comes out when over a Seattle lake, high flyers and water skimmers, what they eat, and the season. |
+| N2 | Washington's fifteen (`washington`) | Northwest bats | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Washington's fifteen species, where they live and roost, the dry-side bats, and what a bat house needs. |
+| P1 | Bats and people (`people`) | Bats and people | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | The 1943 bat bomb, Austin's bridge colony, guano and gunpowder, what bats are worth to farms, and what to do about a bat in the house. |
 
 ## Not started
 
