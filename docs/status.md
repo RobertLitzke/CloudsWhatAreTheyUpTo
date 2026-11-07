@@ -1,6 +1,6 @@
 # Course status
 
-Made by `npm run status` on 2026-11-06. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
+Made by `npm run status` on 2026-11-07. Don't edit this file: change the lessons, the review queues or `tools/lesson-status.json` and run it again. How to keep it current: [CLAUDE.md](../CLAUDE.md#keeping-the-status-table-current).
 
 A lesson's status is the first step it still waits for, in the order: student read-through, Gemini copy edit, fact check, photos. "Also waiting on" lists the later ones.
 
@@ -14,8 +14,8 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Astronomy](#astronomy) | 0.1 beta | 25 | 43 | 0 | 2 | 25 | 15 | 0 |
 | [Ecology](#ecology) | 0.1 beta | 37 | 0 | 0 | 4 | 37 | 16 | 0 |
 | [Botany](#botany) | 0.1 beta | 33 | 0 | 0 | 2 | 33 | 33 | 0 |
-| [Synthesizers](#synthesizers) | 0.1 beta | 30 | 0 | 30 | 0 | 30 | 0 | 0 |
-| [Money That Lasts](#finance) | 0.1 beta | 32 | 0 | 32 | 0 | 32 | 0 | 0 |
+| [Synthesizers](#synthesizers) | 0.2 beta | 30 | 0 | 0 | 30 | 30 | 0 | 0 |
+| [Money That Lasts](#finance) | 0.2 beta | 32 | 0 | 0 | 32 | 32 | 0 | 0 |
 | [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 3 | 25 | 24 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
@@ -30,8 +30,8 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Astronomy | 0.1 beta | 2026-11-04 | no: 43 lessons to write, 2 to copy-edit, 25 to fact-check, 15 awaiting photos |
 | Ecology | 0.1 beta | 2026-11-04 | no: 4 to copy-edit, 37 to fact-check, 16 awaiting photos |
 | Botany | 0.1 beta | 2026-11-04 | no: 2 to copy-edit, 33 to fact-check, 33 awaiting photos |
-| Synthesizers | 0.1 beta | 2026-11-04 | no: 30 to read through, 30 to fact-check |
-| Money That Lasts | 0.1 beta | 2026-11-04 | no: 32 to read through, 32 to fact-check |
+| Synthesizers | 0.2 beta | 2026-11-07 | no: 30 to copy-edit, 30 to fact-check |
+| Money That Lasts | 0.2 beta | 2026-11-07 | no: 32 to copy-edit, 32 to fact-check |
 | Fungi | 0.2 beta | 2026-11-04 | no: 3 to copy-edit, 25 to fact-check, 24 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
@@ -330,79 +330,79 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 
 ## Synthesizers <a id="synthesizers"></a>
 
-`courses/synthesizers`, version 0.1 (beta, 2026-11-04). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. No student read-through yet for any lesson.
+`courses/synthesizers`, version 0.2 (beta, 2026-11-07). Lessons are built on the live synth; its 28 photos of instruments and people were fetched and restored on 4 Nov. Student read-through of all 30 lessons and revisions done 7 Nov; all queued for a Gemini copy edit. For the fact check: bells says Stanford licensed FM to Yamaha in 1973 while its timeline says 1975.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | The clarinet and the flute (`timbre`) |  | needs student read-through | Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
-| 2 | The buzz in your throat (`vowels`) |  | needs student read-through | Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
-| 3 | The bell with its start cut off (`tape`) |  | needs student read-through | Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
-| 4 | Why singers wobble (`vibrato`) |  | needs student read-through | Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
-| 5 | Counting beats (`beats`) |  | needs student read-through | Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
-| 6 | The accidental bell (`bells`) |  | needs student read-through | Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
-| 7 | The torn speaker (`fuzz`) |  | needs student read-through | Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
-| 8 | Echoes on purpose (`echo`) |  | needs student read-through | Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
-| 9 | Does the order matter? (`order`) |  | needs student read-through | Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
-| 10 | The silent key (`silent`) |  | needs student read-through | Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
-| 11 | Wind from nothing (`noise`) |  | needs student read-through | Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
-| 12 | A drum with no drum (`drums`) |  | needs student read-through | Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
-| 13 | The computer that burbles (`random`) |  | needs student read-through | Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
-| 14 | The envelope that wouldn't stop (`cycle`) |  | needs student read-through | Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
-| 15 | The invisible patch cord (`matrix`) |  | needs student read-through | Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
-| 16 | Leaning on a note (`pressure`) |  | needs student read-through | Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
-| 17 | The slide (`glide`) |  | needs student read-through | Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
-| 18 | Four fingers, one filter (`voices`) |  | needs student read-through | Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
-| 19 | One hand, many notes (`arp`) |  | needs student read-through | Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
-| 20 | The bass line nobody played (`sequencer`) |  | needs student read-through | Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
-| 21 | Knobs that remember (`lanes`) |  | needs student read-through | Fact check | Recorded knob moves in a sequence, and controlled randomness. |
-| 22 | Same knob, different job (`macros`) |  | needs student read-through | Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
-| 23 | The blank patch (`blank`) |  | needs student read-through | Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
-| O1 | Stepping through tables (`tables`) | Other oscillators | needs student read-through | Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
-| O2 | Organs by telephone (`organ`) | Other oscillators | needs student read-through | Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
-| O3 | A string from a delay line (`pluck`) | Other oscillators | needs student read-through | Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
-| O4 | The talking synth (`vocoder`) | Other oscillators | needs student read-through | Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
-| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | needs student read-through | Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
-| O6 | Crumbs of sound (`grains`) | Other oscillators | needs student read-through | Fact check | Granular synthesis: grain size, density and position. |
-| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | needs student read-through | Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
+| 1 | The clarinet and the flute (`timbre`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Timbre: a note is a stack of harmonics, and the wave's shape decides which ones. |
+| 2 | The buzz in your throat (`vowels`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The filter: a bright buzz with harmonics taken away, as your mouth does to make vowels. |
+| 3 | The bell with its start cut off (`tape`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The envelope: how a note starts, holds and ends shapes what instrument we think it is. |
+| 4 | Why singers wobble (`vibrato`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The LFO: a slow oscillator that turns a knob for you, for vibrato, wah and tremolo. |
+| 5 | Counting beats (`beats`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Two oscillators: beating, detune, thickness, and the intervals of music. |
+| 6 | The accidental bell (`bells`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | FM: a vibrato so fast it becomes new harmonics, and why bells clang. |
+| 7 | The torn speaker (`fuzz`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Drive: clipping a wave adds harmonics, and why distorted guitars play power chords. |
+| 8 | Echoes on purpose (`echo`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Echo: the speed of sound, slapback, delay times in step with the beat, and repeats. |
+| 9 | Does the order matter? (`order`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The signal chain: why filters and echoes can be swapped but drive can't (linearity). |
+| 10 | The silent key (`silent`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Signal flow, gate and trigger, the blank patch, and what to turn first when a key makes no sound. |
+| 11 | Wind from nothing (`noise`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Noise, and low-pass, band-pass and high-pass filters: surf, wind and a telephone voice. |
+| 12 | A drum with no drum (`drums`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | An envelope sent to pitch instead of volume: a kick and a snare built from nothing. |
+| 13 | The computer that burbles (`random`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | LFO shapes, sample-and-hold, tempo sync and retrigger. |
+| 14 | The envelope that wouldn't stop (`cycle`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | A second envelope that loops: rise, fall, and once-a-note, looping or free-running modes. |
+| 15 | The invisible patch cord (`matrix`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The modulation matrix: sources, destinations, amounts that go both ways, key tracking. |
+| 16 | Leaning on a note (`pressure`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Velocity, pressure and the touch strip, and where each one is routed. |
+| 17 | The slide (`glide`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Mono, legato, glide and retrigger: notes that slide into each other. |
+| 18 | Four fingers, one filter (`voices`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Paraphonic and unison voices, voice stealing, and chords from one key. |
+| 19 | One hand, many notes (`arp`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The arpeggiator: modes, octave range, rate, swing and hold. |
+| 20 | The bass line nobody played (`sequencer`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The step sequencer: rests, ties, slide and accent, from Moroder to the TB-303. |
+| 21 | Knobs that remember (`lanes`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Recorded knob moves in a sequence, and controlled randomness. |
+| 22 | Same knob, different job (`macros`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Oscillator engines whose three knobs change meaning: morph, wavefolder and supersaw. |
+| 23 | The blank patch (`blank`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Five sounds built from a blank patch, saved and recalled; what this course leaves out. |
+| O1 | Scanning through tables (`tables`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Wavetables: a stack of waves scanned by an envelope or LFO. |
+| O2 | Organs by telephone (`organ`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Additive synthesis: the Telharmonium, Hammond drawbars and a sound built from sines. |
+| O3 | A string from a delay line (`pluck`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Physical models: Karplus and Strong’s plucked string, and struck bars and bells. |
+| O4 | The talking synth (`vocoder`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Formants, speech engines and Homer Dudley’s vocoder. |
+| O5 | Wagon wheels and aliasing (`samples`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Sampling, Nyquist and why a recording played faster turns into a chipmunk. |
+| O6 | Crumbs of sound (`grains`) | Other oscillators | awaiting Gemini review (queued 2026-11-07) | Fact check | Granular synthesis: grain size, density and position. |
+| S1 | Sabine’s lecture hall (`rooms`) | Around the synth | awaiting Gemini review (queued 2026-11-07) | Fact check | Reverb: how a room answers, and the plates and springs that fake one. |
 
 ## Money That Lasts <a id="finance"></a>
 
-`courses/finance`, version 0.1 (beta, 2026-11-04). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026, no student read-through yet. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, and Portugal's treatment of Social Security and Roth IRAs.
+`courses/finance`, version 0.2 (beta, 2026-11-07). Money That Lasts. Outline v2: https://claude.ai/artifact/DET1mpVWYLfSQDCU9bWzsg. US federal rules for 2026, Washington and Portugal in branches; every lesson carries a not-personal-advice note with the rules year. All 32 lessons (trunk 1-14, P, W, T, E, C, H, S) written 4 Nov 2026; student read-through and revisions done 7 Nov, all queued for a Gemini copy edit. Fact check: every 2026 number marked 'check' in src/data/rules-2026.json against irs.gov, ssa.gov, dor.wa.gov and the Portuguese tables; above all the result of Initiative 645 (3 Nov 2026) on WA's tax on incomes over $1M, the 2026 WA gains deduction (2025's $278,000 used), whether the WA estate exclusion is indexed, the AMT 28 percent line, Portugal's treatment of Social Security and Roth IRAs, the household-model figures quoted in filling-brackets ($780,000 more to heirs) and capstone, Portugal's tax on a $32,200 pension (about $2,400 in portugal-residency), WA's March 2026 estate-rate law, and SECURE/Medicare details added in the read-through revisions.
 
 | Code | Lesson | Branch | Status | Also waiting on | What it covers |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Why the savings rate beats the return (`savings-rate`) |  | needs student read-through | Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
-| 2 | Where 4 percent came from (`four-percent`) |  | needs student read-through | Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
-| 3 | The same average, a different order (`sequence`) |  | needs student read-through | Fact check | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
-| 4 | A fifty-year retirement (`long-retirement`) |  | needs student read-through | Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
-| 5 | Spending rules that bend (`flexible-spending`) |  | needs student read-through | Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
-| 6 | Stocks, bonds and the glide path (`allocation`) |  | needs student read-through | Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
-| 7 | How a federal return stacks (`brackets`) |  | needs student read-through | Fact check | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
-| 8 | Four buckets (`accounts`) |  | needs student read-through | Fact check | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
-| 9 | Money before 59 and a half (`early-access`) |  | needs student read-through | Fact check | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
-| 10 | Filling the low brackets (`filling-brackets`) |  | needs student read-through | Fact check | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
-| 11 | Health insurance before 65 (`aca`) |  | needs student read-through | Fact check | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
-| 12 | Which account to spend first (`withdrawal-order`) |  | needs student read-through | Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
-| 13 | Social Security, worked out (`social-security`) |  | needs student read-through | Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
-| 14 | Build the plan (`capstone`) |  | needs student read-through | Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
-| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | needs student read-through | Fact check | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
-| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | needs student read-through | Fact check | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
-| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | needs student read-through | Fact check | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
-| W1 | What Washington taxes instead (`wa-taxes`) | Washington | needs student read-through | Fact check | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
-| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | needs student read-through | Fact check | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
-| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | needs student read-through | Fact check | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
-| T1 | Where to hold what (`asset-location`) | Taxable-account craft | needs student read-through | Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
-| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | needs student read-through | Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
-| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | needs student read-through | Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
-| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | needs student read-through | Fact check | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
-| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | needs student read-through | Fact check | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
-| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | needs student read-through | Fact check | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
-| C1 | Two people, one plan (`filing-status`) | Couples and heirs | needs student read-through | Fact check | When marriage raises or lowers a couple's tax, how unmarried partners are treated for tax and health credits, and the higher tax a survivor pays on the same savings. |
-| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | needs student read-through | Fact check | Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax. |
-| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | needs student read-through | Fact check | What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance. |
-| H2 | Long-term care (`long-term-care`) | Health after 65 | needs student read-through | Fact check | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
-| S1 | Coast, part-time and partial (`coast`) | Other shapes | needs student read-through | Fact check | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
-| S2 | The house (`housing`) | Other shapes | needs student read-through | Fact check | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
+| 1 | Why the savings rate beats the return (`savings-rate`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the share of income saved sets the years until savings can cover spending, and why income and returns matter less. |
+| 2 | Where 4 percent came from (`four-percent`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Bengen's rule and the Trinity study, run on every start since 1871, and what a success rate does and doesn't measure. |
+| 3 | The same average, a different order (`sequence`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Sequence-of-returns risk: why the order of returns matters once you are spending, and why the first decade decides most of a retirement. |
+| 4 | A fifty-year retirement (`long-retirement`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the safe withdrawal rate falls as retirement lengthens, what most long retirements end with, and how much the price of shares at the start tells you. |
+| 5 | Spending rules that bend (`flexible-spending`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Withdrawal rules that adjust spending to the markets (a share of the balance, guardrails, variable percentage withdrawal, a floor and ceiling) and what each trades away; floors from annuities and bond ladders. |
+| 6 | Stocks, bonds and the glide path (`allocation`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | What bonds do in a portfolio that is being spent, why all-bond portfolios failed, how glide paths (falling, rising and the bond tent) fared in history, and the Japan warning. |
+| 7 | How a federal return stacks (`brackets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the brackets fill from the bottom, why long-term gains stacked on top can be taxed at 0 percent, and why the rate on the next dollar can differ from the bracket. |
+| 8 | Four buckets (`accounts`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Pre-tax, Roth, HSA and taxable accounts compared by the tax rate on the way in and on the way out, why pre-tax often wins for someone with low-income years ahead, and the 2026 limits. |
+| 9 | Money before 59 and a half (`early-access`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | The ways to reach retirement-account money before 59½ without the 10 percent penalty (Roth contributions, a Roth conversion ladder, the rule of 55, 72(t) payments, 457(b) plans) and how a taxable account bridges the gap. |
+| 10 | Filling the low brackets (`filling-brackets`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Why low-income years are worth using on purpose: Roth conversions and 0 percent gains up to the top of a bracket, how the two compete for the same space, and what filling saves over a lifetime. |
+| 11 | Health insurance before 65 (`aca`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How ACA marketplace premium credits work as a tax on income, the 400 percent cliff in 2026, what counts as income for them, and how to plan income in the years before Medicare. |
+| 12 | Which account to spend first (`withdrawal-order`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Withdrawal order over a whole retirement: why the textbook order can cost more, required withdrawals, the Social Security tax torpedo, Medicare's income surcharge and the survivor's single brackets. |
+| 13 | Social Security, worked out (`social-security`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | How the benefit is worked out from 35 years of earnings and the bend points, what stopping work early costs, how claiming age changes it, survivors' benefits, and delay as the cheapest inflation-linked income. |
+| 14 | Build the plan (`capstone`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check | Putting the course together for one household: a spending rate, a bridge, a yearly income target, Social Security timing, and a test against every stretch of US history. |
+| P1 | Becoming a Portuguese tax resident (`portugal-residency`) | Portugal | awaiting Gemini review (queued 2026-11-07) | Fact check | When Portugal taxes you, how its income tax is built and how steeply it climbs, and what replaced the old tax break for new residents. |
+| P2 | Two tax systems on one income (`portugal-two-countries`) | Portugal | awaiting Gemini review (queued 2026-11-07) | Fact check | How the US and Portugal share the tax on an American living in Portugal, what happens to each kind of US account, and the paperwork that comes with money in two countries. |
+| P3 | Health, homes and heirs in Portugal (`portugal-life`) | Portugal | awaiting Gemini review (queued 2026-11-07) | Fact check | What health care costs an American in Portugal and what happens to Medicare, the taxes on buying, owning and selling a home, and what heirs pay. |
+| W1 | What Washington taxes instead (`wa-taxes`) | Washington | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's taxes on a household with no state income tax: sales and property tax, the 7 percent tax on long-term gains, the coming tax on incomes above $1 million, and what changes when you move states. |
+| W2 | Apple Health and Cascade Care (`wa-health`) | Washington | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's health cover for people under 65: Apple Health below 138 percent of the poverty line with no asset test, the state's own premium help above it, and what the state can recover from an estate. |
+| W3 | WA Cares and the estate tax (`wa-estate`) | Washington | awaiting Gemini review (queued 2026-11-07) | Fact check | Washington's payroll premium for long-term care and what it pays, and the state estate tax, which starts at $3 million and isn't shared between spouses. |
+| T1 | Where to hold what (`asset-location`) | Taxable-account craft | awaiting Gemini review (queued 2026-11-07) | Fact check | Which investments belong in pre-tax, Roth and taxable accounts, why, and how much the right placement is worth. |
+| T2 | Harvesting losses and gains (`harvesting`) | Taxable-account craft | awaiting Gemini review (queued 2026-11-07) | Fact check | Selling at a loss to bank a deduction, the wash-sale rule, choosing which lots to sell, and selling at a gain in years when the rate is 0 percent. |
+| T3 | Giving and heirs (`giving-heirs`) | Taxable-account craft | awaiting Gemini review (queued 2026-11-07) | Fact check | The step-up in basis at death, why each kind of account is worth a different amount to an heir, giving appreciated shares, donor-advised funds and gifts from an IRA after 70 and a half. |
+| E1 | The mega backdoor and the pro-rata rule (`mega-backdoor`) | Equity pay and big-company plans | awaiting Gemini review (queued 2026-11-07) | Fact check | How high earners put money into Roth accounts above the income limits: the backdoor Roth IRA, the pro-rata rule that can spoil it, and after-tax 401(k) contributions converted to Roth. |
+| E2 | RSUs and ESPP (`rsus-espp`) | Equity pay and big-company plans | awaiting Gemini review (queued 2026-11-07) | Fact check | How restricted stock units are taxed when they vest, why the tax withheld often falls short, when to sell, and how an employee stock purchase plan's discount is taxed. |
+| E3 | Options and the AMT (`options`) | Equity pay and big-company plans | awaiting Gemini review (queued 2026-11-07) | Fact check | How non-qualified and incentive stock options are taxed, the alternative minimum tax that incentive options can trigger, and the 83(b) election on early exercise. |
+| C1 | Two people, one plan (`filing-status`) | Couples and heirs | awaiting Gemini review (queued 2026-11-07) | Fact check | When marriage raises or lowers a couple's tax, how unmarried partners are treated for tax and health credits, and the higher tax a survivor pays on the same savings. |
+| C2 | Beneficiaries and inherited accounts (`beneficiaries`) | Couples and heirs | awaiting Gemini review (queued 2026-11-07) | Fact check | Why beneficiary forms override wills, the choices a surviving spouse has with an IRA, the ten-year rule for other heirs, and how to withdraw an inherited IRA with the least tax. |
+| H1 | Medicare and IRMAA (`medicare`) | Health after 65 | awaiting Gemini review (queued 2026-11-07) | Fact check | What Medicare's parts cover and cost, when to enrol and the penalties for missing it, and the income surcharges set two years in advance. |
+| H2 | Long-term care (`long-term-care`) | Health after 65 | awaiting Gemini review (queued 2026-11-07) | Fact check | How likely long-term care is and what it costs, what Medicare and Medicaid pay, and the choice between insurance and paying for it from savings. |
+| S1 | Coast, part-time and partial (`coast`) | Other shapes | awaiting Gemini review (queued 2026-11-07) | Fact check | How a little earned income after leaving full-time work raises the spending a portfolio can sustain, the coast number that lets saving stop early, and what part-time pay does to taxes and health credits. |
+| S2 | The house (`housing`) | Other shapes | awaiting Gemini review (queued 2026-11-07) | Fact check | Paying off a mortgage against investing, what a paid-off house does to taxes and health credits, the tax-free gain on selling a home, Washington's tax on sales, and drawing on the house late in life. |
 
 ## Fungi <a id="fungi"></a>
 

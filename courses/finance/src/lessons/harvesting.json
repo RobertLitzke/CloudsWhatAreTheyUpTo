@@ -9,16 +9,16 @@
     {
       "title": "Two harvests",
       "blocks": [
-        { "type": "text", "text": "A taxable account's tax depends on when its gains and losses are realised, and its owner chooses when. Two techniques use that choice. Loss harvesting sells holdings that have fallen, to bank a loss for the tax return, and buys something similar so the portfolio barely changes. Gain harvesting, met in lesson 10, sells holdings that have risen in a year when the gain is taxed at 0 percent, and buys them straight back to raise the basis." },
-        { "type": "text", "text": "Both trades leave the portfolio as it was. What they change is the basis, and with it the tax due later." }
+        { "type": "text", "text": "A gain or loss is **realised** when the holding is sold; until then it exists only on paper and isn't taxed. A taxable account's tax depends on when its gains and losses are realised, and its owner chooses when. Two techniques use that choice. Loss harvesting sells holdings that have fallen, to bank a loss for the tax return, and buys something similar so the portfolio barely changes. Gain harvesting, met in lesson 10, sells holdings that have risen in a year when the gain is taxed at 0 percent, and buys them straight back to raise the basis." },
+        { "type": "text", "text": "Both trades leave the portfolio much as it was: the same holding, or a very close substitute. What they change is the basis, what the holding counts as having cost (lesson 7), and with it the tax due later." }
       ]
     },
     {
       "title": "Harvesting a loss",
       "blocks": [
         { "type": "text", "text": "Realised losses first cancel realised gains of the same year. Any loss left over reduces ordinary income by up to $3,000 a year, and whatever remains carries forward without limit, to future years' gains or $3,000 a year of income.[^order]" },
-        { "type": "text", "text": "Suppose an index fund bought for $50,000 is worth $40,000 after a fall. Selling it and buying a similar fund books a $10,000 loss. The new fund's basis is $40,000, so if it recovers to $50,000 there is now a $10,000 gain where there would have been none. The loss today is paid back by a gain later." },
-        { "type": "text", "text": "So harvesting a loss is worth the difference between the rate it saves now and the rate the extra gain pays later, plus the use of the money in between. Where the loss offsets ordinary income at 22 percent and the gain is later taxed at 15, each $10,000 is worth $700. Where the extra gain is never taxed, because the shares are held until death or given to charity, the whole saving is kept." },
+        { "type": "text", "text": "Suppose an **index fund**, a fund that simply owns every share in a market index such as the S&P 500, bought for $50,000 is worth $40,000 after a fall. Selling it and buying a similar fund books a $10,000 loss. The new fund's basis is $40,000, so if it recovers to $50,000 there is now a $10,000 gain where there would have been none. The loss today is paid back by a gain later." },
+        { "type": "text", "text": "So harvesting a loss is worth the difference between the rate it saves now and the rate the extra gain pays later, plus the use of the money in between. Where the loss offsets ordinary income at 22 percent, $3,000 a year over a few years, and the gain is later taxed at 15, each $10,000 is worth $700, plus the use of the tax saved meanwhile. Where the extra gain is never taxed, because the shares are held until death or given to charity, the whole saving is kept. The figure sets out the value for each pair of rates, leaving out the smaller gain from the years in between." },
         { "type": "diagram", "id": "scale", "caption": "What a $10,000 harvested loss is worth over a lifetime, by the rate it saves now and the rate later paid on the extra gain, ignoring the time in between.", "options": { "title": "The value of a $10,000 loss", "unit": "dollars", "items": [
           { "label": "Saves 15% now, gain taxed at 15% later", "value": 0, "says": "$0, only deferral", "color": "soft" },
           { "label": "Saves 22% now, gain taxed at 15% later", "value": 700, "says": "$700", "color": "taxable" },
@@ -31,15 +31,15 @@
     {
       "title": "The wash-sale rule",
       "blocks": [
-        { "type": "text", "text": "A loss is disallowed if the same or a substantially identical security is bought within 30 days before or after the sale. The disallowed loss isn't lost, only postponed: it is added to the basis of the new purchase. But a purchase inside an IRA or Roth, including a reinvested dividend, counts too, and there the loss is gone for good.[^ira-wash]" },
-        { "type": "text", "text": "The usual way through is to switch between two funds that track different indexes of the same market, such as a total US market fund and an S&P 500 fund. Their returns are nearly identical; whether they are substantially identical has never been ruled on, and the common practice is to treat different indexes as different.[^identical] Switching off automatic dividend reinvestment around the sale avoids small accidental wash sales." }
+        { "type": "text", "text": "A loss is disallowed, in proportion to how much is bought back, if the same or a substantially identical security is bought within 30 days before or after the sale. The disallowed loss isn't lost, only postponed: it is added to the basis of the new purchase. But a purchase inside an IRA or Roth, including a reinvested dividend, counts too, and there the loss is gone for good.[^ira-wash]" },
+        { "type": "text", "text": "The usual way through is to switch between two funds that track different indexes of the same market, such as a total US market fund and an S&P 500 fund. Their returns are nearly identical; whether they are substantially identical has never been ruled on, and the common practice is to treat different indexes as different.[^identical] A dividend automatically reinvested in the same fund, in the taxable account itself or an IRA, is a purchase too, so switching off automatic reinvestment for the month either side of the sale avoids small accidental wash sales." }
       ]
     },
     {
       "title": "Lots and gains",
       "blocks": [
-        { "type": "text", "text": "Shares bought at different times are different lots, each with its own basis. When selling part of a holding, the seller can name which lots go. Choosing the lots with the highest basis, and those held more than a year, keeps the taxable gain smallest. Most brokers default to first in, first out, which usually sells the oldest, cheapest lots first; changing the default to specific identification is a one-time setting." },
-        { "type": "text", "text": "Gain harvesting is the mirror image. A couple whose taxable income is under $98,900 in 2026 pays 0 percent on long-term gains up to that line. Selling winners and buying them back the same day realises the gain at 0 percent and raises the basis, with no wash-sale problem, because the rule only applies to losses. The two harvests compete: a carried-forward loss is used up against gains first, so a household planning to harvest gains at 0 percent gets less from its banked losses, which would otherwise have been used against income." },
+        { "type": "text", "text": "Shares bought at different times are different lots, each with its own basis. When selling part of a holding, the seller can name which lots go. Choosing the lots with the highest basis keeps the gain smallest, and choosing lots held more than a year keeps its rate at the lower long-term rates instead of ordinary ones. Most brokers default to first in, first out, which usually sells the oldest, cheapest lots first; changing the default to specific identification is a one-time setting." },
+        { "type": "text", "text": "Gain harvesting is the mirror image. For a couple in 2026, long-term gains are taxed at 0 percent as long as taxable income, counting the gains themselves, stays under $98,900 (about $49,450 for a single person). Only the part of a gain that crosses the line pays 15 percent. Selling winners and buying them back the same day realises the gain at 0 percent and raises the basis, with no wash-sale problem, because the rule only applies to losses. The two harvests compete. A loss carried forward must be used against any gains realised first, before it can touch income. So a household that harvests gains at 0 percent spends its banked loss on gains that would have been taxed at nothing anyway, and less of it is left to save tax on income." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "A harvested loss lowers basis: it is worth the rate saved now minus the rate the extra gain pays later.",
           "Losses offset gains, then $3,000 a year of income, and carry forward without limit.",
@@ -57,13 +57,13 @@
           { "ask": "How much of a net capital loss can reduce ordinary income in one year?", "choices": ["$3,000, with the rest carried forward", "All of it", "None; losses only offset gains"], "answer": 0, "why": "Up to $3,000 a year against income, and the remainder carries forward indefinitely." },
           { "ask": "You sell a fund at a loss in your brokerage account and your IRA reinvests a dividend into the same fund a week later. What happens?", "choices": ["Part of the loss is disallowed permanently", "Nothing: IRAs are separate", "The loss doubles"], "answer": 0, "why": "A purchase in an IRA triggers a wash sale, and the basis can't be added to an IRA, so that part of the loss is lost." },
           { "ask": "Why does a wash sale not apply to gain harvesting?", "choices": ["The rule covers only sales at a loss", "Gains are always taxed at 0 percent", "Gain harvesting is done inside an IRA"], "answer": 0, "why": "Selling at a gain and rebuying at once is allowed; it simply raises the basis." },
-          { "ask": "When does a harvested loss become a permanent saving?", "choices": ["When the extra gain is never taxed, for example shares held until death", "Always", "Never"], "answer": 0, "why": "The step-up at death or a gift to charity erases the gain the harvest created." }
+          { "ask": "When does a harvested loss become a permanent saving?", "choices": ["When the extra gain is never taxed, for example shares held until death", "Always", "Never"], "answer": 0, "why": "At death the basis is reset to the day's price (the step-up of the next lesson), and a charity pays no tax, so either erases the gain the harvest created." }
         ] } }
       ]
     }
   ],
   "summary": [
-    "**Harvesting changes the basis, not the portfolio.** Sell and replace, so the holdings stay the same.",
+    "**Harvesting changes the basis, not the portfolio.** Sell and replace with the same or a close substitute, so the holdings barely change.",
     "**A loss is a loan from the future.** It lowers basis, so its worth is the rate saved now minus the rate paid later.",
     "**Losses offset gains, then $3,000 of income.** The rest carries forward without limit.",
     "**Watch the wash-sale rule.** 30 days either side, IRAs included; switch to a fund on a different index.",

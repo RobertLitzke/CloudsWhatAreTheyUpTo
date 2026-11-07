@@ -10,8 +10,8 @@
       "title": "Three doors before 65",
       "blocks": [
         { "type": "text", "text": "Lesson 11 treated the ACA's premium credit as a tax on income, with a cliff at 400 percent of the poverty line. In Washington the marketplace is run by the state, through Washington Healthplanfinder, and the same application leads to one of three places depending on the household's expected income." },
-        { "type": "text", "text": "Below 138 percent of the poverty line, about $29,000 a year for a couple, adults under 65 qualify for Apple Health, Washington's Medicaid. From 138 to 400 percent, the federal credit applies, and the state adds its own help for the lower part of that range. Above 400 percent, the household pays the full premium." },
-        { "type": "diagram", "id": "scale", "caption": "What a couple of 60 pays a year for the benchmark silver plan, at five incomes, with a benchmark costing $24,000 before credits. Federal credits only; the state's help would lower the middle bars further.", "options": { "title": "A couple's health premium by income, 2026", "unit": "dollars a year", "items": [
+        { "type": "text", "text": "Below 138 percent of the poverty line, about $29,000 a year for a couple, adults under 65 qualify for Apple Health, Washington's Medicaid. From 138 to 400 percent, the federal credit applies, and the state adds its own help for the lower part of that range. Above 400 percent, the household pays the full premium. The figure shows what that means in dollars at five incomes." },
+        { "type": "diagram", "id": "scale", "caption": "What a couple, both aged 60, pays a year for the benchmark plan (lesson 11's second-cheapest silver plan), at five incomes, with a benchmark costing $24,000 before credits. Federal credits only; the state's help would lower the middle bars further.", "options": { "title": "A couple's health premium by income, 2026", "unit": "dollars a year", "items": [
           { "label": "$25,000: Apple Health", "value": 0, "says": "$0", "color": "good" },
           { "label": "$40,000", "value": 2430, "says": "$2,430", "color": "health" },
           { "label": "$60,000", "value": 5680, "says": "$5,680", "color": "health" },
@@ -23,23 +23,23 @@
     {
       "title": "Apple Health for an early retiree",
       "blocks": [
-        { "type": "text", "text": "For adults under 65, Apple Health looks only at income, measured as MAGI, the same figure as the ACA's. There is no limit on savings. A couple with $2 million invested and $25,000 of MAGI qualifies, and the cover costs them nothing: no premium, and no or very small charges for care." },
-        { "type": "text", "text": "An early retiree can produce a low MAGI on purpose. Spending from a taxable account's basis, withdrawing Roth contributions, and drawing down cash all fund a year without adding income. Dividends, interest and realised gains do count, and so does any conversion. Apple Health measures income month by month as well as for the year, so a large gain in one month matters more than it would for the ACA.[^monthly]" },
-        { "type": "text", "text": "The trade is with lesson 10. A year on Apple Health is a year with almost no room for Roth conversions, since a couple's conversions would carry them over 138 percent at once. A couple with a large pre-tax balance may do better converting $60,000 and paying a few thousand dollars for an ACA plan than staying on Apple Health and facing larger withdrawals at higher brackets later. Lesson 12's figure can test both." },
+        { "type": "text", "text": "For adults under 65, Apple Health looks only at income, measured as MAGI, the same modified adjusted gross income that sets the ACA credit in lesson 11. There is no limit on savings. A couple with $2 million invested and $25,000 of MAGI qualifies, and the cover costs them nothing: no premium, and no or very small charges for care." },
+        { "type": "text", "text": "An early retiree can produce a low MAGI on purpose. Spending from a taxable account's basis (the part of a sale that returns what you paid, which isn't income), withdrawing Roth contributions, and drawing down cash all fund a year without adding income. Dividends, interest and realised gains do count, and so does any conversion. Apple Health looks at current monthly income when you apply and whenever your circumstances change, while the ACA looks at the year's total, so a large gain in one month can matter more for Apple Health.[^monthly]" },
+        { "type": "text", "text": "The trade is with lesson 10. A year on Apple Health is a year with almost no room for Roth conversions, since a couple's conversions would carry them over 138 percent at once. A couple with a large pre-tax balance and little other income may do better converting $60,000, which keeps them under the $84,600 cliff, and paying a few thousand dollars for an ACA plan than staying on Apple Health and facing larger withdrawals at higher brackets later. Lesson 12's figure on withdrawal order can test both, by comparing its orders at your own pre-tax balance." },
         { "type": "text", "text": "Apple Health is a managed-care plan with its own networks, and fewer doctors take it than take commercial plans in some areas. Some people with substantial savings are also uncomfortable using a programme meant for low incomes, even where the law is written to include them. Both are reasonable considerations; neither changes the eligibility." }
       ]
     },
     {
       "title": "Estate recovery",
       "blocks": [
-        { "type": "text", "text": "Federal law requires states to recover some Medicaid costs from the estates of people who received care after 55. Washington applies that as narrowly as federal law allows: it recovers only the costs of long-term care, such as a nursing home or care at home, and the hospital and drug costs that go with it.[^recovery]" },
-        { "type": "text", "text": "So Apple Health's ordinary medical cover for an early retiree, the doctor visits, prescriptions and hospital stays of a healthy 58-year-old, is not reclaimed from their estate. Long-term care paid by Medicaid later in life is a different matter, which branch H takes up." }
+        { "type": "text", "text": "Federal law requires states to recover some Medicaid costs from the estates of people who received care at 55 or older. Washington applies that as narrowly as federal law allows: it recovers only the costs of long-term care, such as a nursing home or care at home, and the hospital and drug costs that go with it.[^recovery]" },
+        { "type": "text", "text": "So Apple Health's ordinary medical cover for an early retiree, the doctor visits, prescriptions and hospital stays of a healthy 58-year-old, is not reclaimed from their estate. Long-term care paid by Medicaid later in life is a different matter, which the long-term care lesson, in the branch on life after 65, takes up." }
       ]
     },
     {
       "title": "Cascade Care",
       "blocks": [
-        { "type": "text", "text": "Above the Apple Health line, Washington adds two things to the federal marketplace. Cascade Care plans are standardised, so the same deductible and copays apply across insurers and plans can be compared on price alone. Cascade Select is the state's public option, a set of those plans whose payments to hospitals the state limits." },
+        { "type": "text", "text": "Above the Apple Health line, Washington adds three things to the federal marketplace. Cascade Care plans are standardised, so the same deductible and copays apply across insurers and plans can be compared on price alone. Cascade Select is the state's **public option**: plans sold by private insurers on terms the state sets, including a limit on what they pay hospitals, which keeps premiums down." },
         { "type": "text", "text": "Cascade Care Savings is a state premium credit on top of the federal one, for households up to 250 percent of the poverty line, about $53,000 for a couple, on qualifying plans. It is set each year by the state budget, so the amount is checked at enrolment rather than planned on years ahead." },
         { "type": "text", "text": "None of this moves the cliff. At 400 percent of the poverty line, about $84,600 for a couple in 2026, the federal credit stops, and the state's help stops well before. Lesson 11's planning still applies in Washington unchanged." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
@@ -65,14 +65,14 @@
   ],
   "summary": [
     "**Washington runs its own marketplace.** One application leads to Apple Health, federal credits with state help, or full price.",
-    "**Apple Health has no asset test before 65.** Below 138 percent of the poverty line, about $29,000 for a couple, cover is free.",
+    "**Apple Health has no asset test before 65.** Below 138 percent of the poverty line, about $29,000 for a couple, there is no premium and care costs little or nothing.",
     "**Low MAGI can be planned.** Spending basis, Roth contributions or cash adds nothing; dividends, gains and conversions do.",
     "**It trades against conversions.** A year on Apple Health is a year with no room to convert.",
     "**Recovery is limited to long-term care.** Ordinary medical cover before 65 isn't reclaimed from the estate.",
     "**The cliff is still the cliff.** State help ends by 250 percent; the federal credit at 400."
   ],
   "footnotes": {
-    "monthly": { "kind": "technical", "title": "Monthly income", "text": "Apple Health checks current monthly income at application and when circumstances change, and the marketplace credit uses the year's total. Someone whose income for the year ends up above 138 percent after a mid-year sale is moved to the marketplace from the next month, without repaying the months already covered." },
+    "monthly": { "kind": "technical", "title": "Monthly income", "text": "Apple Health checks current monthly income at application and when circumstances change, and the marketplace credit uses the year's total. Someone whose income rises above the line after a mid-year sale, and reports it, is moved to the marketplace from the next month, without repaying the months already covered." },
     "recovery": { "kind": "technical", "title": "What Washington recovers", "text": "Since 2014 the state recovers only long-term services and supports received at 55 or older: nursing facility care, home and community-based services, and related hospital and prescription costs. Recovery waits until the death of a surviving spouse, and a home can be protected in some cases of hardship." }
   }
 }

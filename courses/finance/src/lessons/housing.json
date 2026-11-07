@@ -9,22 +9,22 @@
     {
       "title": "The largest asset most people own",
       "blocks": [
-        { "type": "text", "text": "For most households the house is worth more than any account, yet the trunk left it out. It produces no income, but it removes rent from spending, and it can be sold, downsized or borrowed against. Three decisions come up in almost every retirement: whether to pay off the mortgage, whether and when to sell, and whether to use the house as a last reserve." }
+        { "type": "text", "text": "For most households the house is worth more than any account, yet the main course left it out. It produces no income, but it removes rent from spending, and it can be sold, downsized or borrowed against. Three decisions come up in almost every retirement: whether to pay off the mortgage, whether and when to sell, and whether to use the house as a last reserve." }
       ]
     },
     {
       "title": "Paying off the mortgage",
       "blocks": [
-        { "type": "text", "text": "Paying off a mortgage early earns its interest rate, with no risk. A 3 percent mortgage from 2021 is a poor use of money that could earn 4 percent in Treasury bonds. A 7 percent mortgage from 2024 is a good one: few safe investments pay that much. Most retirees take the standard deduction, so the mortgage interest usually saves no tax at all." },
-        { "type": "text", "text": "For an early retiree there is a second effect. A paid-off house cuts the spending the portfolio has to cover, and with it the income that has to be drawn. A couple spending $70,000 including $20,000 of mortgage payments needs $20,000 less a year from their accounts once it is paid. Before 65 that can mean lower MAGI, a larger ACA credit and more room for conversions; after, less tax and less IRMAA." },
+        { "type": "text", "text": "Paying off a mortgage early earns its interest rate, with no market risk, though the money is then locked in the house. A 3 percent mortgage from 2021 is a poor use of money that could earn about 4 percent in Treasury bonds, the federal government's own loans and the usual safe comparison, at 2026 yields. A 7 percent mortgage from 2024 is a good one: few safe investments pay that much. Mortgage interest is deductible only for those who itemise instead of taking the standard deduction, and most retirees take the standard deduction, so the interest usually saves no tax at all." },
+        { "type": "text", "text": "For an early retiree there is a second effect. A paid-off house cuts the spending the portfolio has to cover, and with it the income that has to be drawn. A couple spending $70,000 including $20,000 of mortgage payments needs $20,000 less a year from their accounts once it is paid. If that money would have come from a pre-tax account, or from share sales with gains, drawing less means lower MAGI. Before 65 that means a larger ACA credit and more room for conversions; after, less tax and a lower chance of Medicare's IRMAA surcharge. Money drawn from a Roth, or the basis of a taxable sale, wasn't counted as income anyway." },
         { "type": "text", "text": "Against that, money in the house is hard to reach. A household that empties its taxable account to pay off a mortgage at 50 may have nothing left for the bridge years of lesson 9 except a home equity loan. The usual middle course is to pay off a high-rate mortgage, keep a low-rate one, and never pay it off with money that would need to be withdrawn from a pre-tax account at a high bracket." }
       ]
     },
     {
       "title": "Selling",
       "blocks": [
-        { "type": "text", "text": "Up to $250,000 of gain on a main home, or $500,000 for a married couple, is free of federal tax when it has been owned and lived in for two of the five years before the sale.[^section-121] A surviving spouse keeps the $500,000 if they sell within two years of the death. Washington doesn't tax the gain at all: real estate is outside its capital gains tax." },
-        { "type": "text", "text": "Washington taxes the sale instead. The seller pays a real estate excise tax on the price, graduated from 1.1 percent to 3 percent, plus a local rate of up to 0.5 percent in most cities and counties.[^reet]" },
+        { "type": "text", "text": "Up to $250,000 of gain on a main home, or $500,000 for a married couple, is free of federal tax when it has been owned and lived in for two of the five years before the sale.[^section-121] A surviving spouse keeps the full $500,000 exclusion if they sell within two years of the death. Washington doesn't tax the gain at all: real estate is outside its capital gains tax." },
+        { "type": "text", "text": "Washington taxes the sale instead. The seller pays a real estate excise tax on the price, in bands, like income tax brackets: 1.1 percent on the part of the price up to $525,000, rising by steps to 3 percent on the part above $3,025,000, plus a local rate of up to 0.5 percent in most cities and counties.[^reet] The figure shows what that comes to at four prices." },
         { "type": "diagram", "id": "scale", "caption": "Washington's real estate excise tax on a home sale at four prices, state rates from 2023 plus a local rate of 0.5 percent as in Seattle. Paid by the seller.", "options": { "title": "Excise tax on selling a Washington home", "unit": "dollars", "items": [
           { "label": "Sold for $600,000", "value": 9700, "says": "about $9,700", "color": "tax" },
           { "label": "Sold for $1 million", "value": 16900, "says": "about $16,900", "color": "tax" },
@@ -64,7 +64,7 @@
     "**Paying off a mortgage earns its rate.** Worth it for a high rate, rarely for a low one.",
     "**A paid-off house lowers the income needed.** Which helps an early retiree's ACA credit and conversions.",
     "**Keep money reachable.** Don't empty the bridge or draw pre-tax money at high brackets to pay a cheap loan.",
-    "**A couple's gain up to $500,000 is tax-free.** And Washington doesn't tax real estate gains.",
+    "**A couple's gain up to $500,000 on a main home is federally tax-free,** if they lived in it two of the last five years. And Washington doesn't tax real estate gains.",
     "**Washington taxes the sale price instead.** 1.1 to 3 percent, plus up to 0.5 percent in most cities and counties.",
     "**The house is a last reserve.** A reverse mortgage line or a property tax deferral can extend the plan."
   ],
@@ -79,7 +79,7 @@
     "wa-prop-tax": {
       "kind": "technical",
       "title": "What Washington counts as income",
-      "text": "Washington's disposable income test for the senior property tax exemption starts with federal adjusted gross income and adds back tax-exempt interest, non-taxable Social Security and capital losses, then subtracts out-of-pocket medical, prescription and care costs. Qualified Roth withdrawals and the return of basis from a taxable sale are not in AGI and are not added back."
+      "text": "Washington's disposable income test for the senior property tax exemption starts with federal adjusted gross income and adds back tax-exempt interest, non-taxable Social Security and capital losses, then subtracts out-of-pocket medical, prescription and care costs. Qualified Roth withdrawals, and the part of a share sale that returns what was paid for the shares, are not income for federal tax, and Washington doesn't add them back, so neither counts."
     }
   }
 }

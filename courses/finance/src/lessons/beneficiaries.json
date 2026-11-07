@@ -10,23 +10,23 @@
       "title": "The form beats the will",
       "blocks": [
         { "type": "text", "text": "Retirement accounts, life insurance and accounts marked payable or transfer on death pass by their beneficiary forms, not by the will. A will written last year that leaves everything to the children doesn't touch a 401(k) whose form, filled in at a first job, names a parent who has since died or an ex-spouse." },
-        { "type": "text", "text": "For many households these forms control most of the money. Each account needs a primary beneficiary and a contingent one, checked after every marriage, divorce, birth and death. Washington law revokes an ex-spouse's designation automatically on divorce for most assets, but not for employer plans governed by federal law, as a Washington case decided.[^egelhoff] A 401(k) also needs the spouse's written consent to name anyone else." },
-        { "type": "text", "text": "Taxable brokerage and bank accounts can carry a transfer-on-death designation too, and Washington allows a transfer-on-death deed for a house. With all of them, the probate estate can be close to empty." }
+        { "type": "text", "text": "For many households these forms control most of the money. Each account needs a primary beneficiary, who inherits first, and a contingent one, who inherits if the primary has died, checked after every marriage, divorce, birth and death. Washington law revokes an ex-spouse's designation automatically on divorce for most assets, but not for employer plans governed by federal law, as the US Supreme Court decided in a case from Washington.[^egelhoff] A 401(k) also needs the spouse's written consent to name anyone else." },
+        { "type": "text", "text": "Taxable brokerage and bank accounts can carry a transfer-on-death designation too, which names who receives them, and Washington allows a transfer-on-death deed for a house. With all of them, little is left to pass through **probate**, the court process that carries out a will." }
       ]
     },
     {
       "title": "A surviving spouse's choice",
       "blocks": [
         { "type": "text", "text": "A spouse who inherits an IRA can roll it into their own IRA and treat it as theirs from then on, with required withdrawals based on their own age. That is usually best for an older survivor." },
-        { "type": "text", "text": "A younger survivor may do better leaving it as an inherited IRA for a while. Withdrawals from an inherited IRA carry no 10 percent penalty before 59 and a half, which a widow of 50 living on the account needs. They can roll it into their own IRA later, once past 59 and a half." }
+        { "type": "text", "text": "A younger survivor may do better leaving it as an inherited IRA for a while. Withdrawals from an inherited IRA carry no 10 percent penalty before 59 and a half. A widow of 50 who needs to live on the account can draw from it freely; rolled into her own IRA, the same withdrawals would be penalised. They can roll it into their own IRA later, once past 59 and a half." }
       ]
     },
     {
       "title": "Everyone else: ten years",
       "blocks": [
         { "type": "text", "text": "Since 2020, most other heirs must empty an inherited IRA or 401(k) by the end of the tenth year after the death. If the owner had already begun required withdrawals, the heir must also take a withdrawal each year in between; if not, they can take any amounts in any years, as long as the account is empty by year ten.[^edb]" },
-        { "type": "text", "text": "The freedom over timing is worth a lot. An heir earning $150,000 who takes a $1 million IRA in one lump pays most of it at 35 and 37 percent. Spread evenly over ten years, the same money is taxed mostly at 24 and 32 percent. An heir who retires during the ten years can do better still, taking most of it in the years with no salary." },
-        { "type": "diagram", "id": "scale", "caption": "Federal tax a single heir pays on a $1 million inherited traditional IRA, by how it is withdrawn within the ten years, ignoring growth. 2026 rules.", "options": { "title": "Tax on inheriting a $1 million IRA", "unit": "dollars", "items": [
+        { "type": "text", "text": "The freedom over timing is worth a lot. An heir earning $150,000 who takes a $1 million IRA in one lump pays most of it at 35 and 37 percent. Spread evenly over ten years, the same money is taxed mostly at 24 and 32 percent, about a quarter less tax in all. An heir with no salary in those years does better still: a tenth a year then costs about $131,700, under 40 percent of the lump sum's $350,800. One who retires partway through can move most of the withdrawals into the years after." },
+        { "type": "diagram", "id": "scale", "caption": "Federal tax a single heir earning $150,000 pays on a $1 million inherited traditional IRA, by how it is withdrawn within the ten years, ignoring growth. 2026 rules.", "options": { "title": "Tax on inheriting a $1 million IRA", "unit": "dollars", "items": [
           { "label": "All in one year, earning $150,000", "value": 350800, "says": "$350,800", "color": "bad" },
           { "label": "A tenth a year, earning $150,000", "value": 265700, "says": "$265,700", "color": "tax" },
           { "label": "A tenth a year, after retiring", "value": 131700, "says": "$131,700", "color": "taxable" },
@@ -38,12 +38,12 @@
     {
       "title": "Trusts as beneficiaries",
       "blocks": [
-        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money: for a young heir, a spendthrift, or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust,[^see-through] or the account may have to be emptied within five years. A trust that keeps the withdrawals rather than paying them out pays the top 37 percent rate above about $16,000 of income, so these trusts are written with care." },
+        { "type": "text", "text": "Naming a trust as beneficiary lets the owner control what happens to the money: for a young heir, a spendthrift, or someone receiving disability benefits. The trust must be drafted to qualify as a see-through trust,[^see-through] or, if the owner died before their required withdrawals began, the account may have to be emptied within five years, a stricter rule than the ten. A trust that holds on to the money it withdraws, rather than paying it out to the heir, pays tax itself, and trusts have compressed brackets: the top 37 percent rate starts at about $16,000 of income. So these trusts are written with care." },
         { "type": "key_ideas", "title": "Hold on to", "points": [
           "Beneficiary forms, not the will, decide where retirement accounts go: name a contingent and review them after every change in the family.",
           "A surviving spouse can roll an IRA into their own, or keep it inherited to draw without penalty before 59 and a half.",
           "Most other heirs must empty an inherited account within ten years.",
-          "Spreading withdrawals over the ten years, especially into low-income years, can halve the tax.",
+          "Spreading withdrawals over the ten years saves tax, and moving them into years with no salary can halve it.",
           "Inherited Roths are best left to grow until the tenth year."
         ] }
       ]
