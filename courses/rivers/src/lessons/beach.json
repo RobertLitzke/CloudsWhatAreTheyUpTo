@@ -18,142 +18,575 @@
     {
       "title": "A breakwater that was wasting away",
       "blocks": [
-        { "type": "text", "text": "Port Angeles has one of the best harbours on the Strait of Juan de Fuca, and it did not have to build it. A narrow, curving bar of sand and gravel called [[Ediz Hook]] reaches about 5 km (3 miles) east from the shore just west of town, and the harbour lies in its shelter. The Pacific swell that runs down the Strait breaks on its outer side. Inside, ships load in calm water. A road runs out along it, a mill stands at its base, and the Coast Guard flies its rescue helicopters from an air station at its tip." },
-        { "type": "text", "text": "Through the twentieth century the Hook began to waste away. Its outer beach narrowed and storm waves ate at the road along its spine, and the people who depended on it feared it could be cut through. Since the 1970s the Army Corps of Engineers has lined its outer side with heavy rock and dumped gravel on its beach to make up for what the sea takes.[^corps]" },
-        { "type": "text", "text": "Storms had not grown worse. The Hook is a pile of loose stones lying in the sea, and the waves move those stones every day. A bar like that lasts only while new material keeps arriving to replace what is carried off, and by the middle of the century the supply had been cut. This lesson follows where a beach's sand comes from, how it travels, and what happens when its source is closed." }
+        {
+          "type": "text",
+          "text": "Port Angeles has one of the best harbours on the Strait of Juan de Fuca, and it did not have to build it. A narrow, curving bar of sand and gravel called Ediz Hook reaches about 5 km (3 miles) east from the shore just west of town, and the harbour lies in its shelter. The Pacific swell that runs down the Strait breaks on its outer side. Inside, ships load in calm water. A road runs out along it, a mill stands at its base, and the Coast Guard flies its rescue helicopters from an air station at its tip."
+        },
+        {
+          "type": "text",
+          "text": "Through the twentieth century the Hook began to waste away. Its outer beach narrowed and storm waves ate at the road along its spine, and the people who depended on it feared it could be cut through. Since the 1970s the Army Corps of Engineers has lined its outer side with heavy rock and dumped gravel on its beach to make up for what the sea takes.[^corps]"
+        },
+        {
+          "type": "text",
+          "text": "The trouble was not the storms, which had always come down the Strait. The Hook is a pile of loose stones lying in the sea, and the waves move those stones every day. A bar like that lasts only while new material keeps arriving to replace what is carried off. From 1913 on, that supply was being cut, and as the decades passed the Hook lost more than it gained. This lesson follows where a beach's sand comes from, how it travels, and what happens when its source is closed."
+        }
       ]
     },
     {
       "title": "Sand from the cliffs",
       "blocks": [
-        { "type": "text", "text": "Walk the beaches of Puget Sound or the Strait and you are usually walking under a bluff: a steep slope of loose sand, gravel and clay, from a few metres to more than 100 m (300 feet) high. The Geology course tells where it came from. The Vashon ice sheet, which reached south past Olympia about 16,000 years ago, spread sand and gravel ahead of it as it advanced and laid a hard, rubbly till over the top, and when the ice melted the Sound flooded the troughs between these deposits. The bluffs are cut into them." },
-        { "type": "text", "text": "Waves work at the foot of a bluff. At high tide in a storm they pluck sand and gravel from its base, and the slope above is left steeper and steeper until, in a wet winter, a slab of it slides down onto the beach. Then the waves go to work on the pile. The beach sorts what they bring down: silt and clay stay in the water as a brown cloud and drift off to settle in deep water, as lesson 4's fine grains do, while sand and gravel stay on the beach. A bluff that supplies a beach this way is called a **feeder bluff**. Along much of the Sound's shore, feeder bluffs give the beaches more of their sand and gravel than rivers do.[^rivers]" },
-        { "type": "key_ideas", "title": "An estimate", "points": ["A feeder bluff 30 m high, retreating 10 cm a year along 1 km of shore, gives 30 × 0.1 × 1,000 = 3,000 cubic metres a year. A dump truck carries about 10 cubic metres, so that is some 300 truckloads a year from one kilometre of cliff. Perhaps half of it is sand and gravel the beach keeps."] }
+        {
+          "type": "text",
+          "text": "Walk the beaches of Puget Sound or the Strait and you are usually walking under a bluff: a steep slope of loose sand, gravel and clay, from a few metres to more than 100 m (300 feet) high. The bluffs are cut into what the last ice sheet left behind. The Vashon ice sheet, a tongue of ice from Canada that reached south past Olympia about 16,000 years ago, spread sand and gravel ahead of it as it advanced and laid a hard, rubbly till over the top; when the ice melted, the sea flooded the troughs between these deposits. The Geology course tells that story."
+        },
+        {
+          "type": "text",
+          "text": "Waves work at the foot of a bluff. At high tide in a storm they pluck sand and gravel from its base, and the slope above is left steeper and steeper until, in a wet winter, a slab of it slides down onto the beach. Then the waves go to work on the pile. The beach sorts what they bring down: silt and clay stay in the water as a brown cloud and drift off to settle in deep water, as lesson 4's fine grains do, while sand and gravel stay on the beach. A bluff that supplies a beach this way is called a **feeder bluff**. Along much of the Sound's shore, feeder bluffs give the beaches more of their sand and gravel than rivers do.[^rivers]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "An estimate",
+          "points": [
+            "Take a feeder bluff 30 m high, retreating 10 cm a year (a middling rate; Puget Sound bluffs range from a few centimetres to tens of centimetres a year, often in sudden slides) along 1 km of shore. It gives 30 × 0.1 × 1,000 = 3,000 cubic metres a year. A dump truck carries about 10 cubic metres, so that is some 300 truckloads a year from one kilometre of cliff. How much of it the beach keeps depends on the bluff: suppose half is sand and gravel and half the silt and clay that wash away."
+          ]
+        }
       ]
     },
     {
       "title": "Waves at an angle",
       "blocks": [
-        { "type": "text", "text": "Lesson 7 showed that a wave carries energy, while the water in it mostly circles in place. That changes in the last few metres. When a wave breaks on a beach, the water rushes up the slope, a sheet of foam called the **swash**, and then slides back down as the **backwash**." },
-        { "type": "text", "text": "Waves seldom meet a shore head-on. As they reach shallow water they slow, as lesson 7 described, and the end of each crest that reaches shallow water first slows first, so the crests swing round toward the shore. They rarely swing all the way. The swash runs up the beach in the direction the wave was travelling, slantwise. The backwash runs straight back down the slope, because gravity pulls it downhill. A pebble carried up in one and down in the other ends a little way along the beach from where it started. The next wave moves it again." },
-        { "type": "diagram", "id": "beach-swash", "caption": "Seen from above: each wave's swash carries a pebble up the beach at an angle and its backwash brings it straight down, so the pebble zigzags along the shore.", "aspect_ratio": 2 },
-        { "type": "text", "text": "Thousands of waves a day move sand and gravel along the shore this way, and in the surf the breaking waves also drive a current that runs along the beach. Together they make **longshore drift**. Waves that come in head-on move sand up and down the beach but not along it; waves travelling almost along the shore push little water up the slope. The drift is strongest when waves arrive at about 45 degrees.[^cerc] Its direction is set by the waves that do the most work, the biggest ones. On the Strait, the Pacific swell and the westerly storm waves come from the west, and drift along that coast runs east." }
+        {
+          "type": "text",
+          "text": "Lesson 7 showed that a wave carries energy, while the water in it mostly circles in place. In the last few metres that changes: the wave breaks, and its water runs forward up the beach as a thin sheet, the **swash**, then slides back down as the **backwash**."
+        },
+        {
+          "type": "text",
+          "text": "Waves seldom meet a shore head-on. A wave slows as the water gets shallower, as lesson 7 described. When a crest comes in at a slant, the end nearer the beach is already in shallow water and slows, while the far end, still in deeper water, keeps going, so the crest swings round to lie more nearly along the shore. It rarely swings all the way. The swash runs up the beach in the direction the wave was travelling, slantwise. The backwash runs straight back down the slope, because gravity pulls it downhill. A pebble carried up in one and down in the other ends a little way along the beach from where it started. The next wave moves it again."
+        },
+        {
+          "type": "diagram",
+          "id": "beach-swash",
+          "caption": "Seen from above, waves (green crests) arrive from the upper left at an angle to the shore. Each wave's swash (solid arrow) carries a pebble up the beach in the waves' direction and its backwash (dashed) brings it straight down, so the pebble zigzags along the shore.",
+          "aspect_ratio": 2
+        },
+        {
+          "type": "text",
+          "text": "Thousands of waves a day move sand and gravel along the shore this way, and in the surf the breaking waves also drive a current that runs along the beach. Together they make **longshore drift**. Its strength depends on the angle between the wave crests and the shoreline. At 0 degrees the crests arrive parallel to the beach, head-on: the swash and backwash run straight up and straight down, and nothing moves along. At a small angle each wave nudges sand only a little way along. At a large angle, with the waves running nearly along the shore, they push little water up the beach at all. In between, at about 45 degrees, the drift is strongest.[^cerc] Its direction is set by the waves that do the most work, the biggest ones. On the Strait, the Pacific swell and the westerly storm waves come from the west, and drift along that coast runs east."
+        }
       ]
     },
     {
       "title": "Drift cells and spits",
       "blocks": [
-        { "type": "text", "text": "Put a feeder bluff and a stretch of drifting beach together and you have a **drift cell**: a length of shore with a source where sand and gravel are supplied, a beach along which they travel, and a sink where they come to rest. The Washington Department of Ecology has mapped the Sound's whole shore into drift cells. Some are a few hundred metres long; some run for many kilometres." },
-        { "type": "text", "text": "Where the shore turns away, at the mouth of a bay or the end of a headland, the drift does not turn with it. Sand and gravel carry straight on into deeper water, building a ridge that grows out from the land: a **spit**. Waves bending around its end curl the tip back toward the shore, so many spits end in a hook." },
-        { "type": "diagram", "id": "map", "caption": "Dungeness Spit, the long arm reaching east into the Strait. The tall bluffs to its west are its feeder bluffs, and drift runs east along them (dashed).", "options": { "relief": "maps/dungeness", "water": 0, "sun": { "azimuth": 315, "altitude": 40 }, "labels": [
-          { "lon": -123.214, "lat": 48.117, "text": "Feeder bluffs", "side": "right" },
-          { "lon": -123.185, "lat": 48.17, "text": "Dungeness Spit", "area": true },
-          { "lon": -123.1106, "lat": 48.1817, "text": "Lighthouse", "side": "right" },
-          { "lon": -123.11, "lat": 48.152, "text": "Dungeness Bay", "area": true },
-          { "lon": -123.10, "lat": 48.195, "text": "Strait of Juan de Fuca", "area": true }
-        ], "lines": [
-          { "points": [[-123.219, 48.125], [-123.20, 48.132], [-123.17, 48.149], [-123.14, 48.166], [-123.117, 48.181]], "color": "flow", "dashed": true, "width": 2.5 }
-        ], "scale": "right" } },
-        { "type": "text", "text": "[[Dungeness Spit]] is about 8.9 km (5.5 miles) long, often called the longest natural sand spit in the United States, though much of it is gravel. It grows from the foot of the bluffs west of it and reaches east into the Strait, with a lighthouse near its end since 1857. Ediz Hook is the same kind of thing, fed from the west by the Elwha River and the bluffs between the river and Port Angeles. A spit is the visible end of a long chain: it stands only as long as the bluffs and rivers up-drift keep feeding the beach that leads to it." }
+        {
+          "type": "text",
+          "text": "Put a feeder bluff and a stretch of drifting beach together and you have a **drift cell**: a length of shore with a source where sand and gravel are supplied, a beach along which they travel, and a sink where they come to rest. Along a cell, **up-drift** is the direction the sand comes from and **down-drift** the direction it is going. Anything laid across the beach, a log or a pipe, blocks the drift, so sand piles against its up-drift side. The Washington Department of Ecology has mapped the Sound's whole shore into drift cells. Some are a few hundred metres long; some run for many kilometres."
+        },
+        {
+          "type": "text",
+          "text": "Where the shore turns away, at the mouth of a bay or the end of a headland, the drift does not turn with it. The waves that drive it still come from the same direction, so they keep pushing sand and gravel the same way, straight on past the corner into deeper water, where it builds a ridge that grows out from the land: a **spit**. Waves bending around its end curl the tip back toward the shore, so many spits end in a hook."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Dungeness Spit, the long arm reaching north-east into the Strait. The tall bluffs to its west are its feeder bluffs, and drift runs east and north-east along them and the spit (dashed).",
+          "options": {
+            "relief": "maps/dungeness",
+            "water": 0,
+            "sun": {
+              "azimuth": 315,
+              "altitude": 40
+            },
+            "labels": [
+              {
+                "lon": -123.214,
+                "lat": 48.117,
+                "text": "Feeder bluffs",
+                "side": "right"
+              },
+              {
+                "lon": -123.185,
+                "lat": 48.17,
+                "text": "Dungeness Spit",
+                "area": true
+              },
+              {
+                "lon": -123.1106,
+                "lat": 48.1817,
+                "text": "Lighthouse",
+                "side": "right"
+              },
+              {
+                "lon": -123.11,
+                "lat": 48.152,
+                "text": "Dungeness Bay",
+                "area": true
+              },
+              {
+                "lon": -123.1,
+                "lat": 48.195,
+                "text": "Strait of Juan de Fuca",
+                "area": true
+              }
+            ],
+            "lines": [
+              {
+                "points": [
+                  [
+                    -123.219,
+                    48.125
+                  ],
+                  [
+                    -123.2,
+                    48.132
+                  ],
+                  [
+                    -123.17,
+                    48.149
+                  ],
+                  [
+                    -123.14,
+                    48.166
+                  ],
+                  [
+                    -123.117,
+                    48.181
+                  ]
+                ],
+                "color": "flow",
+                "dashed": true,
+                "width": 2.5
+              }
+            ],
+            "scale": "right"
+          }
+        },
+        {
+          "type": "text",
+          "text": "Dungeness Spit is about 8.9 km (5.5 miles) long, often called the longest natural sand spit in the United States, though much of it is gravel. It grows from the foot of the bluffs west of it and reaches east into the Strait, with a lighthouse near its end since 1857. Ediz Hook is the same kind of thing, fed from the west by the Elwha River and the bluffs between the river and Port Angeles. A spit is the visible end of a long chain: it stands only as long as the bluffs and rivers up-drift keep feeding the beach that leads to it."
+        }
       ]
     },
     {
       "title": "What a bulkhead does",
       "blocks": [
-        { "type": "text", "text": "A house on top of a feeder bluff is in a fine spot with a view and a slow problem: the bluff it stands on is moving toward the sea. The usual answer is a **bulkhead**, a wall of concrete, timber or piled rock built at the foot of the bluff or along the top of the beach, so the waves cannot reach the toe. Around the Sound, many owners of low banks have built them too, to keep the beach from their lawns." },
-        { "type": "interactive_diagram", "id": "beach-cell", "caption": "A model drift cell seen from above: a feeder bluff, a beach of houses down-drift, and a spit at the end. Waves (green) come from the left; the arrows show the drift.", "task": "Guess, then build a bulkhead and play the years", "goal": "starve", "aspect_ratio": 1.75 },
-        { "type": "text", "text": "The wall does what it was built for: the bluff behind it stops retreating. But the waves keep coming, and they keep carrying sand along the beach. What they carry away is no longer replaced from the bluff, so the beach down-drift, past the houses and out to the spit, gets less and narrows. In front of the wall itself, waves that once spent themselves running up a beach and into a bluff now hit a hard face and bounce back, and the reflected water scours the beach, carrying off sand and leaving coarse gravel and cobbles. Over years the beach in front of a bulkhead drops and steepens. The upper beach it buries is also where small fish such as surf smelt and sand lance lay their eggs.[^fish]" },
-        { "type": "key_ideas", "title": "A misconception", "points": ["\"A bulkhead protects the beach.\" It protects the land behind it. The beach in front of it and down-drift of it is what pays."] },
-        { "type": "text", "text": "Roughly a quarter to a third of Puget Sound's shoreline is now armoured with bulkheads, seawalls and rock. In the last twenty years some of it has been taken out. Seahurst Park in Burien removed its seawall and let the bluff feed its beach again, and owners elsewhere have swapped walls for logs and gravel laid on the upper beach, which soak up the waves instead of throwing them back." }
+        {
+          "type": "text",
+          "text": "A house on top of a feeder bluff is in a fine spot with a view and a slow problem: the bluff it stands on is moving toward the sea. The usual answer is a **bulkhead**, a wall of concrete, timber or piled rock built at the foot of the bluff or along the top of the beach, so the waves cannot reach the toe. Around the Sound, many owners of low banks have built them too, to keep the beach from their lawns. In the figure, guess first: in the years after a bulkhead goes in at the foot of the bluff, does the beach down-drift, in front of the houses further along, narrow, widen or stay the same? Then play the Years (Play or the slider), switch the Bulkhead off and on, move it with Bulkhead at, and try the Wave angle and Bluff retreat sliders."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "beach-cell",
+          "caption": "A model drift cell seen from above: a feeder bluff, a low bank of houses down-drift, and a spit at the end. Waves (green crests) come from the left; the orange arrows show the drift, thicker for more; the dashed line is the beach's edge before the wall.",
+          "task": "Guess, then build a bulkhead and play the years",
+          "goal": "starve",
+          "aspect_ratio": 1.75
+        },
+        {
+          "type": "text",
+          "text": "The wall does what it was built for: the bluff behind it stops retreating. But the waves keep coming, and they keep carrying sand along the beach. What they carry away is no longer replaced from the bluff, so the beach down-drift, past the houses and out to the spit, gets less and narrows. In front of the wall itself, waves that once spent themselves running up a beach and into a bluff now hit a hard face and bounce back, and the reflected water scours the beach, carrying off sand and leaving coarse gravel and cobbles. Over years the beach in front of a bulkhead drops and steepens. A bulkhead built out onto the upper beach also covers the high band of fine gravel where small fish such as surf smelt and sand lance lay their eggs.[^fish]"
+        },
+        {
+          "type": "key_ideas",
+          "title": "A misconception",
+          "points": [
+            "\"A bulkhead protects the beach.\" It protects the land behind it. The beach in front of it and down-drift of it is what pays."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Shoreline mapping by Washington state agencies finds roughly a quarter to a third of Puget Sound's shoreline armoured with bulkheads, seawalls and rock. In the last twenty years some of it has been taken out. Seahurst Park in Burien removed its seawall and let the bluff feed its beach again, and owners elsewhere have swapped walls for logs and gravel laid on the upper beach, which soak up the waves instead of throwing them back."
+        }
       ]
     },
     {
       "title": "The Elwha's sand comes back",
       "blocks": [
-        { "type": "text", "text": "Lesson 4 followed the Elwha River's side of this story. The Elwha Dam, finished in 1913, and the Glines Canyon Dam above it, finished in 1927, blocked the river's sediment for a century, and the reservoirs behind them filled with it. The gravel and sand that once came down to the river mouth and drifted east along the shore to Ediz Hook stopped. At the same time, parts of the bluffs between the river and the Hook were armoured, so they gave less too. The Hook's supply fell to a small part of what it had been, and the waves kept carrying off what was there." },
-        { "type": "interactive_diagram", "id": "map-live", "caption": "The Elwha River's mouth and Ediz Hook, in four steps from before the dams to after their removal. Drift runs east along the shore (dashed).", "task": "Play through the four steps", "goal": "end", "options": { "relief": "maps/elwha", "water": 0, "sun": { "azimuth": 315, "altitude": 40 }, "textLines": 4, "seconds": 10, "labels": [
-          { "lon": -123.565, "lat": 48.147, "text": "Elwha mouth", "side": "left" },
-          { "lon": -123.43, "lat": 48.116, "text": "Port Angeles", "side": "below" },
-          { "lon": -123.415, "lat": 48.141, "text": "Ediz Hook", "side": "above" },
-          { "lon": -123.557, "lat": 48.094, "text": "Elwha Dam", "side": "right" },
-          { "lon": -123.599, "lat": 48.0, "text": "Glines Canyon Dam", "side": "right" }
-        ], "stages": [
-          { "label": "Before 1913", "text": "The river carries sand and gravel from the Olympics to its mouth. Drift runs east along the bluffs and feeds Ediz Hook.", "lines": [
-            { "points": [[-123.552, 48.150], [-123.535, 48.145], [-123.51, 48.140], [-123.485, 48.138], [-123.462, 48.137], [-123.44, 48.141], [-123.418, 48.143]], "color": "sediment", "dashed": true, "width": 3 }
-          ] },
-          { "label": "1913 to 2011", "text": "The two dams trap the river's sediment in their reservoirs, and parts of the bluffs are armoured. The Hook starves, and from the 1970s it is held with rock and dumped gravel.", "lines": [
-            { "points": [[-123.566, 48.094], [-123.549, 48.094]], "color": "works", "width": 5 },
-            { "points": [[-123.607, 47.999], [-123.592, 48.001]], "color": "works", "width": 5 },
-            { "points": [[-123.552, 48.150], [-123.535, 48.145]], "color": "sediment", "dashed": true, "width": 1 }
-          ] },
-          { "label": "2011 to 2014", "text": "Both dams are taken down. In the first years the river runs brown with the sediment it had held back, lesson 4's plume.", "areas": [
-            { "points": [[-123.59, 48.149], [-123.582, 48.160], [-123.555, 48.164], [-123.530, 48.156], [-123.545, 48.148]], "color": "sediment", "opacity": 0.35 }
-          ] },
-          { "label": "After 2014", "text": "The delta builds out by hundreds of metres, with new beaches and tidal flats. Sand and gravel drift east again toward the Hook; how much reaches it, and how fast, is still being measured.", "areas": [
-            { "points": [[-123.578, 48.148], [-123.573, 48.152], [-123.560, 48.1535], [-123.550, 48.150], [-123.556, 48.147]], "color": "sediment", "opacity": 0.75 }
-          ], "lines": [
-            { "points": [[-123.552, 48.150], [-123.535, 48.145], [-123.51, 48.140], [-123.485, 48.138], [-123.462, 48.137], [-123.44, 48.141], [-123.418, 48.143]], "color": "sediment", "dashed": true, "width": 3 }
-          ] }
-        ] } },
-        { "type": "text", "text": "The two dams came down between September 2011 and August 2014, the largest dam removal anywhere up to that time. The reservoirs had trapped on the order of twenty million cubic metres of sediment, and over the next few years the river carried much of it to the sea. The river's mouth built out by hundreds of metres, with new beaches and tidal flats where there had been a narrowing shore of cobbles. Some of that sand and gravel is drifting east along the beaches toward Port Angeles. The Hook is far down the line and is still held by its rock, so how much of the river's sand will reach it, and how soon, is something the people measuring the shore are still waiting to see.[^plume]" }
+        {
+          "type": "text",
+          "text": "Lesson 4 followed the Elwha River's side of this story. The Elwha Dam, finished in 1913, and the Glines Canyon Dam above it, finished in 1927, blocked the river's sediment for a century, and the reservoirs behind them filled with it. The gravel and sand that once came down to the river mouth and drifted east along the shore to Ediz Hook stopped. At the same time, parts of the bluffs between the river and the Hook were armoured, so they gave less too. The Hook's supply fell to a small part of what it had been, and the waves kept carrying off what was there."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "The Elwha River's mouth and Ediz Hook, in four steps from before the dams to after their removal. Drift runs east along the shore (dashed); the key is under the map.",
+          "task": "Play through the four steps",
+          "goal": "end",
+          "options": {
+            "relief": "maps/elwha",
+            "water": 0,
+            "sun": {
+              "azimuth": 315,
+              "altitude": 40
+            },
+            "textLines": 4,
+            "seconds": 10,
+            "labels": [
+              {
+                "lon": -123.565,
+                "lat": 48.147,
+                "text": "Elwha mouth",
+                "side": "left"
+              },
+              {
+                "lon": -123.43,
+                "lat": 48.116,
+                "text": "Port Angeles",
+                "side": "below"
+              },
+              {
+                "lon": -123.415,
+                "lat": 48.141,
+                "text": "Ediz Hook",
+                "side": "above"
+              },
+              {
+                "lon": -123.557,
+                "lat": 48.094,
+                "text": "Elwha Dam",
+                "side": "right"
+              },
+              {
+                "lon": -123.599,
+                "lat": 48.0,
+                "text": "Glines Canyon Dam",
+                "side": "right"
+              }
+            ],
+            "stages": [
+              {
+                "label": "Before 1913",
+                "text": "The river carries sand and gravel from the Olympics to its mouth. Drift runs east along the bluffs and feeds Ediz Hook.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.552,
+                        48.15
+                      ],
+                      [
+                        -123.535,
+                        48.145
+                      ],
+                      [
+                        -123.51,
+                        48.14
+                      ],
+                      [
+                        -123.485,
+                        48.138
+                      ],
+                      [
+                        -123.462,
+                        48.137
+                      ],
+                      [
+                        -123.44,
+                        48.141
+                      ],
+                      [
+                        -123.418,
+                        48.143
+                      ]
+                    ],
+                    "color": "sediment",
+                    "dashed": true,
+                    "width": 3
+                  }
+                ]
+              },
+              {
+                "label": "1913 to 2011",
+                "text": "From 1913 the two dams (purple bars) trap the river's sediment in their reservoirs, and parts of the bluffs are armoured. Over the following decades the Hook starves; from the 1970s it is held with rock and dumped gravel.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.566,
+                        48.094
+                      ],
+                      [
+                        -123.549,
+                        48.094
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 5
+                  },
+                  {
+                    "points": [
+                      [
+                        -123.607,
+                        47.999
+                      ],
+                      [
+                        -123.592,
+                        48.001
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 5
+                  },
+                  {
+                    "points": [
+                      [
+                        -123.552,
+                        48.15
+                      ],
+                      [
+                        -123.535,
+                        48.145
+                      ]
+                    ],
+                    "color": "sediment",
+                    "dashed": true,
+                    "width": 1
+                  }
+                ]
+              },
+              {
+                "label": "2011 to 2014",
+                "text": "Both dams are taken down. In the first years the river runs brown with the sediment it had held back, lesson 4's plume.",
+                "areas": [
+                  {
+                    "points": [
+                      [
+                        -123.59,
+                        48.149
+                      ],
+                      [
+                        -123.582,
+                        48.16
+                      ],
+                      [
+                        -123.555,
+                        48.164
+                      ],
+                      [
+                        -123.53,
+                        48.156
+                      ],
+                      [
+                        -123.545,
+                        48.148
+                      ]
+                    ],
+                    "color": "sediment",
+                    "opacity": 0.35
+                  }
+                ]
+              },
+              {
+                "label": "After 2014",
+                "text": "The delta builds out by hundreds of metres, with new beaches and tidal flats. Sand and gravel drift east again toward the Hook; how much reaches it, and how fast, is still being measured.",
+                "areas": [
+                  {
+                    "points": [
+                      [
+                        -123.578,
+                        48.148
+                      ],
+                      [
+                        -123.573,
+                        48.152
+                      ],
+                      [
+                        -123.56,
+                        48.1535
+                      ],
+                      [
+                        -123.55,
+                        48.15
+                      ],
+                      [
+                        -123.556,
+                        48.147
+                      ]
+                    ],
+                    "color": "sediment",
+                    "opacity": 0.75
+                  }
+                ],
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.552,
+                        48.15
+                      ],
+                      [
+                        -123.535,
+                        48.145
+                      ],
+                      [
+                        -123.51,
+                        48.14
+                      ],
+                      [
+                        -123.485,
+                        48.138
+                      ],
+                      [
+                        -123.462,
+                        48.137
+                      ],
+                      [
+                        -123.44,
+                        48.141
+                      ],
+                      [
+                        -123.418,
+                        48.143
+                      ]
+                    ],
+                    "color": "sediment",
+                    "dashed": true,
+                    "width": 3
+                  }
+                ]
+              }
+            ],
+            "key": [
+              {
+                "color": "sediment",
+                "text": "River sand and gravel; dashed: drift along the shore"
+              },
+              {
+                "color": "works",
+                "text": "Dams"
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The two dams came down between September 2011 and August 2014, the largest dam removal anywhere up to that time. The reservoirs had trapped on the order of twenty million cubic metres of sediment, and over the next few years the river carried much of it to the sea. The river's mouth built out by hundreds of metres, with new beaches and tidal flats where there had been a narrowing shore of cobbles. Some of that sand and gravel is drifting east along the beaches toward Port Angeles. The Hook is far down the line and is still held by its rock, so how much of the river's sand will reach it, and how soon, is something the people measuring the shore are still waiting to see.[^plume]"
+        }
       ]
     },
     {
       "title": "Beaches and a rising sea",
       "blocks": [
-        { "type": "text", "text": "Lesson 10 found that the sea at Seattle's gauge has risen about 2 mm a year since 1898, roughly 25 cm (10 inches) in all, and it is expected to rise faster this century. A beach with room behind it responds by moving inland: waves wash sand up and over its crest, the bluff behind it retreats a little faster and supplies a little more, and the beach keeps its shape a step further back. A beach held in front of a wall cannot move. The sea climbs the wall, the strip of beach between the water and the wall gets narrower, and in time there is no beach at high tide at all. Engineers call it coastal squeeze." },
-        { "type": "key_ideas", "title": "Outside", "points": ["Go to South Beach in Discovery Park, below the bluff of Magnolia, at a low tide from a table (the field branch shows how to read one). Look at the bluff from the beach, not from its edge: find the layers of sand, gravel and clay, and any fresh slide. Then look at the beach under your feet and match its pebbles to the gravel in the bluff. Walk north toward West Point, built largely of sand that drift has carried there, and watch which side of each log or outfall the sand piles against: that is the up-drift side. Edmonds' beaches, north of the ferry dock, show the same, with bulkheads to compare. Keep off the bluffs themselves; they slide."] }
+        {
+          "type": "text",
+          "text": "Lesson 10 found that the sea at Seattle's gauge has risen about 2 mm a year since 1898, roughly 25 cm (10 inches) in all, and it is expected to rise faster this century. A beach with room behind it responds by moving inland. Waves wash sand up and over the top of the beach, and the bluff behind, reached by the waves more often, retreats a little faster and so supplies a little more; the beach keeps its shape a step further back. A beach held in front of a wall cannot move. The sea climbs the wall, the strip of beach between the water and the wall gets narrower, and in time there is no beach at high tide at all. Engineers call it coastal squeeze."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Outside",
+          "points": [
+            "Go to South Beach in Discovery Park, below the bluff of Magnolia, at a low tide from a tide table (the In the field branch, F1, shows how to read one). Look at the bluff from the beach, not from its edge: find the layers of sand, gravel and clay, and any fresh slide. Then look at the beach under your feet and match its pebbles to the gravel in the bluff. Walk north toward West Point, built largely of sand that drift has carried there, and watch which side of each log or outfall the sand piles against: that is the up-drift side. Edmonds' beaches, north of the ferry dock, show the same, with bulkheads to compare. Keep off the bluffs themselves; they slide."
+          ]
+        }
       ]
     },
     {
       "title": "Check",
       "blocks": [
-        { "type": "quiz", "id": "check", "caption": "Six questions on beaches", "task": "Choose the best answer to each", "options": { "items": [
-          { "ask": "Where does most of the sand and gravel on Puget Sound's beaches come from?", "choices": [
-            "Bluffs of loose glacial sediment that waves undercut and slides bring down",
-            "Sand carried in from the Pacific Ocean through the Strait by the tide",
-            "Shells and coral broken up by the waves on the beach itself",
-            "Mud from the rivers, which turns into sand as it dries on the beach"
-          ], "answer": 0, "why": "Feeder bluffs of Vashon-age sand, gravel and clay supply much of the Sound's beach sediment; the beach keeps the sand and gravel and the mud washes away." },
-          { "ask": "Which explanation is best for why a pebble moves along a beach when waves arrive at an angle?", "choices": [
-            "The swash carries it up the beach at the waves' angle and the backwash brings it straight down the slope",
-            "The tide carries it along the shore twice a day, and the waves only lift it off the bottom",
-            "The wind blows it along the beach whenever it is dry between waves",
-            "The swash carries it straight up the beach and the backwash carries it back at the waves' angle"
-          ], "answer": 0, "why": "Up slantwise, down straight: each wave leaves the pebble a step further along. Gravity sets the backwash's path." },
-          { "ask": "At what angle between the wave crests and the shore is longshore drift strongest?", "choices": [
-            "About 45 degrees",
-            "Head-on, with crests parallel to the shore",
-            "Almost along the shore, at 80 degrees or more",
-            "It does not depend on the angle, only on the size of the waves"
-          ], "answer": 0, "why": "Head-on waves move sand only up and down the beach; waves travelling almost along the shore push little water up it. The product peaks near 45 degrees." },
-          { "ask": "How does a spit like Dungeness Spit form?", "choices": [
-            "Drift carries sand and gravel past the point where the shore turns, and it piles up into a ridge in open water",
-            "A river deposits sand at its mouth, which the tide pushes out into a straight line",
-            "Waves cut a channel through a headland, leaving its end standing as a narrow bar",
-            "The glacier left a ridge of gravel there, which the sea has slowly uncovered"
-          ], "answer": 0, "why": "The drift does not turn with the shore; it carries on into deeper water and builds out from the land, fed by bluffs up-drift." },
-          { "ask": "A homeowner builds a bulkhead at the foot of a feeder bluff. What happens to the beach down-drift of it over the years?", "choices": [
-            "It narrows, because waves keep carrying sand away but the bluff no longer replaces it",
-            "It widens, because the wall stops the waves and the sand settles behind it",
-            "It stays the same, because sand reaching it comes from offshore, not from the bluff",
-            "It widens, because the waves reflected from the wall carry more sand along"
-          ], "answer": 0, "why": "The supply is cut but the drift goes on, so the down-drift beach is starved; the reflected waves also scour the beach in front of the wall." },
-          { "ask": "Why did Ediz Hook waste away through the twentieth century?", "choices": [
-            "The Elwha's dams trapped the river's sediment and some bluffs were armoured, so its supply fell while the waves kept taking",
-            "Storms on the Strait grew steadily larger, and the bigger waves broke the Hook apart",
-            "The sea rose by several metres and covered the Hook's lower parts",
-            "Ships dredging Port Angeles harbour dug away the inner side of the Hook"
-          ], "answer": 0, "why": "A spit is sand on the move. With the river's supply held in the reservoirs and parts of the bluffs walled, the drift took away more than arrived." }
-        ] } }
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on beaches",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Along much of Puget Sound's shore, where does most of a beach's sand and gravel come from?",
+                "choices": [
+                  "Bluffs of loose glacial sediment that waves undercut and slides bring down",
+                  "The big rivers, like the Skagit, whose sand the tide spreads along the shore",
+                  "The Pacific, whose sand the deep inflow carries in along the Strait's floor",
+                  "Gravel the glacier left on the beaches, only stirred about by waves since"
+                ],
+                "answer": 0,
+                "why": "Feeder bluffs cut into the sand, gravel and clay left by the Vashon ice supply much of the Sound's beach sediment; most river sediment stays in deltas and deep water."
+              },
+              {
+                "ask": "Which explanation is best for why a pebble moves along a beach when waves arrive at an angle?",
+                "choices": [
+                  "The swash carries it up the beach at the waves' angle and the backwash brings it straight down",
+                  "The swash carries it straight up the beach and the backwash takes it back at the waves' angle",
+                  "The tide carries it along the shore twice a day, and the waves only lift it off the bottom",
+                  "The wind rolls it along the beach whenever it lies dry between one wave and the next"
+                ],
+                "answer": 0,
+                "why": "Up slantwise, down straight: each wave leaves the pebble a step further along. Gravity sets the backwash's path."
+              },
+              {
+                "ask": "At what angle between the wave crests and the shoreline is longshore drift strongest?",
+                "choices": [
+                  "About 45 degrees",
+                  "Head-on, with the crests parallel to the shore",
+                  "Almost along the shore, with crests nearly square to it",
+                  "Any angle: only the height of the waves matters"
+                ],
+                "answer": 0,
+                "why": "Head-on waves move sand only up and down the beach; waves running nearly along the shore push little water up it. The drift is greatest in between, near 45 degrees."
+              },
+              {
+                "ask": "A homeowner builds a bulkhead at the foot of a feeder bluff. What happens to the beach down-drift of it over the years?",
+                "choices": [
+                  "It narrows, because waves keep carrying sand off but the bluff no longer replaces it",
+                  "It widens, because the wall stops the waves and sand settles in its shelter",
+                  "It stays the same, because the sand reaching it comes from offshore, not the bluff",
+                  "It widens, because waves reflected off the wall carry more sand along to it"
+                ],
+                "answer": 0,
+                "why": "The supply is cut but the drift goes on, so the down-drift beach is starved; the reflected waves also scour the beach in front of the wall."
+              },
+              {
+                "ask": "Why did Ediz Hook waste away through the twentieth century?",
+                "choices": [
+                  "The dams held back the Elwha's sediment and bluffs were walled, so less arrived than the waves took",
+                  "Dredging for ships deepened the harbour, and the Hook's sand slumped into the hole",
+                  "The Elwha's sand still came, but the tide carried it out past the Hook to deep water",
+                  "The bluffs were walled, but the river's supply went on as before and could not keep up"
+                ],
+                "answer": 0,
+                "why": "A spit is sand on the move. With the river's supply held in the reservoirs and parts of the bluffs walled, the drift took away more than arrived."
+              },
+              {
+                "ask": "The sea rises along two beaches, one backed by an open bluff and one by a seawall. What happens?",
+                "choices": [
+                  "The bluff-backed beach shifts inland and keeps its width; the walled beach narrows",
+                  "Both shift inland, because waves carry sand up and over any wall behind them",
+                  "The walled beach keeps its width, because the wall holds the sea back from it",
+                  "Both narrow at the same pace, because the sea rises by the same amount at each"
+                ],
+                "answer": 0,
+                "why": "A beach with room moves back as the bluff behind it retreats and feeds it. A beach held by a wall cannot move, so it is squeezed between the rising water and the wall: coastal squeeze."
+              }
+            ]
+          }
+        }
       ]
     }
   ],
   "footnotes": {
-    "corps": { "kind": "digression", "title": "Holding a spit still", "text": "Rock armour stops a beach from retreating, but it does not supply it. So on Ediz Hook the rock is backed by nourishment: loads of gravel placed on the beach every so often, which the waves then spread along it, standing in for the sediment the river and bluffs used to bring." },
-    "rivers": { "kind": "technical", "title": "Rivers and beaches", "text": "Most of the sediment the Sound's big rivers carry settles in their deltas and tidal flats, as at the Skagit and the Nisqually, or sinks into deep water. Little of it reaches the beaches along the main shore. Rivers that run straight into an exposed coast, as the Elwha does into the Strait, are the exception." },
-    "cerc": { "kind": "technical", "title": "How much the drift carries", "text": "Engineers estimate drift with a rule from the 1950s and 1960s, often called the CERC formula after the Army Corps' Coastal Engineering Research Center: the sand moved along the shore grows with the wave height to the power of about 2.5, times the sine of twice the angle between crest and shore. Doubling the wave height moves more than five times as much sand, and sine of twice the angle is greatest at 45 degrees." },
-    "fish": { "kind": "digression", "title": "Fish eggs on the beach", "text": "Surf smelt and Pacific sand lance spawn in the fine gravel and sand high on the beach, where the eggs stay damp under shading vegetation. They are food for salmon, seabirds and bigger fish. The biology is the next course's; the physics here is that a bulkhead takes away the upper beach they need." },
-    "plume": { "kind": "digression", "title": "The largest experiment", "text": "Because the removal was planned years ahead, the US Geological Survey and others surveyed the river, the delta and the sea floor before, during and after it. It is the best-watched test anywhere of what a river does when its sediment is given back, and its findings are being used for dam removals elsewhere." }
+    "corps": {
+      "kind": "digression",
+      "title": "Holding a spit still",
+      "text": "Rock armour stops a beach from retreating, but it does not supply it. So on Ediz Hook the rock is backed by nourishment: loads of gravel placed on the beach every so often, which the waves then spread along it, standing in for the sediment the river and bluffs used to bring."
+    },
+    "rivers": {
+      "kind": "technical",
+      "title": "Rivers and beaches",
+      "text": "Most of the sediment the Sound's big rivers carry settles in their deltas and tidal flats, as at the Skagit and the Nisqually, or sinks into deep water. Little of it reaches the beaches along the main shore. Rivers that run straight into an exposed coast, as the Elwha does into the Strait, are the exception."
+    },
+    "cerc": {
+      "kind": "technical",
+      "title": "How much the drift carries",
+      "text": "Engineers estimate drift with a rule from the 1950s and 1960s, often called the CERC formula after the Army Corps' Coastal Engineering Research Center. In words: the sand moved along the shore rises steeply with the height of the waves, so that waves twice as high move more than five times as much sand; and it depends on the angle as the text says, nothing head-on, most at about 45 degrees, and less again as the waves turn to run along the shore."
+    },
+    "fish": {
+      "kind": "digression",
+      "title": "Fish eggs on the beach",
+      "text": "Surf smelt and Pacific sand lance spawn in the fine gravel and sand high on the beach, where the eggs stay damp under shading vegetation. They are food for salmon, seabirds and bigger fish. The biology is the next course's; the physics here is that a bulkhead takes away the upper beach they need."
+    },
+    "plume": {
+      "kind": "digression",
+      "title": "The largest experiment",
+      "text": "Because the removal was planned years ahead, the US Geological Survey and others surveyed the river, the delta and the sea floor before, during and after it. It is the best-watched test anywhere of what a river does when its sediment is given back, and its findings are being used for dam removals elsewhere."
+    }
   }
 }

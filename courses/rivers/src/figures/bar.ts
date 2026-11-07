@@ -153,7 +153,7 @@ export const barFigure = figure(['closed'], (ctx, t) => {
     if (!open()) return;
     const b = overBar(swell, BAR.period, BAR.depth, U);
     const state = barState(b);
-    const flowing = Math.abs(U) < 0.15 ? 'slack water' : U > 0 ? `flood running in at ${(U * KNOTS).toFixed(1)} knots` : `ebb running out at ${(-U * KNOTS).toFixed(1)} knots`;
+    const flowing = Math.abs(U) < 0.15 ? 'slack water' : U > 0 ? `flood tide running in at ${(U * KNOTS).toFixed(1)} knots` : `ebb tide running out at ${(-U * KNOTS).toFixed(1)} knots`;
     const waves = b.blocked ? 'the ebb stops the swell outright and it breaks' : `the ${swell.toFixed(1)} m swell is ${b.height.toFixed(1)} m over the bar, ${Math.round(b.length)} m crest to crest`;
     const verdict = state === 'open' ? 'Bar open.' : state === 'rough' ? 'Rough: small boats should wait.' : 'Breaking: the bar is closed to small boats.';
     f.readout.textContent = `Hour ${hour.toFixed(1)} after low water, ${flowing}: ${waves}. ${verdict}`;
@@ -167,7 +167,7 @@ export const barFigure = figure(['closed'], (ctx, t) => {
       const y = SURF + 40;
       out.push(U > 0 ? arrow(x - len / 2, y, x + len / 2, y, COL.flow, 1.6) : arrow(x + len / 2, y, x - len / 2, y, COL.flow, 1.6));
     }
-    out.push(small(160, SURF + 44, U > 0 ? 'flood' : 'ebb', { anchor: 'end', fill: COL.flow, bold: true }));
+    out.push(small(160, SURF + 44, U > 0 ? 'flood tide' : 'ebb tide', { anchor: 'end', fill: COL.flow, bold: true }));
     return out;
   };
   const paintSea = () => {
@@ -213,7 +213,7 @@ export const barFigure = figure(['closed'], (ctx, t) => {
   f.controls.append(play.node, hours.node, sw.node, rv.node);
   const open = guessFirst(t, f, {
     ask: 'The same 2 m swell rolls in from the Pacific all day. When is the Columbia bar worse to cross?',
-    options: ['On the flood, as the sea runs in', 'On the ebb, as the river runs out', 'No difference: the waves come from the sea'],
+    options: ['On the flood tide, as the sea runs in', 'On the ebb tide, as the river runs out', 'No difference: the waves come from the sea'],
     answer: 1,
     sliders: [hours, sw, rv],
     buttons: [play.node],

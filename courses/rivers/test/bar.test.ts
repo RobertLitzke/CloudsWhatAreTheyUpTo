@@ -40,7 +40,7 @@ describe('waves on a current', () => {
 
   it('is closed with a 3 m swell on a freshet ebb', async () => {
     const h = FIGURES['bar-waves'](context(), 'closed');
-    guess(h.node, 'On the ebb, as the river runs out');
+    guess(h.node, 'On the ebb tide, as the river runs out');
     setSlider(h.node, 0, 9.4);
     setSlider(h.node, 1, 3);
     setSlider(h.node, 2, 15000);

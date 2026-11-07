@@ -15,7 +15,7 @@ const W = 400;
  * 40 °C. Densest at 3.98 °C.
  */
 export function density(t: number): number {
-  return 1000 * (1 - ((t + 288.9414) / (508929.2 * (t + 68.12963))) * (t - 3.9863) ** 2);
+  return 999.972 * (1 - ((t + 288.9414) / (508929.2 * (t + 68.12963))) * (t - 3.9863) ** 2);
 }
 
 /** A colour from cold (6 °C and below) to warm (22 °C and above). */
@@ -47,8 +47,8 @@ export const densityStill = () => {
     ...ax.parts,
     ax.path(pts, COL.water, 2.5),
     ...mark(3.98, 'densest, 4 °C', COL.ink, -8),
-    ...mark(7, 'lake bottom in August, 7 °C', COL.cold, 18, true),
-    ...mark(22, 'top in August, 22 °C', COL.warm, 4, true),
+    ...mark(7, 'bottom, 7 °C', COL.cold, 20, true),
+    ...mark(22, 'top, 22 °C', COL.warm, 4, true),
     line(ax.X(4), ax.Y(density(4)), ax.X(5), ax.Y(density(5)), COL.ink, 1),
     small(ax.X(0.3), ax.Y(997.2), 'ice: 917, far below', { soft: true }),
     small(ax.X(12.5), 244, 'Each degree matters more the warmer the water: the curve steepens.', { anchor: 'middle', soft: true }),

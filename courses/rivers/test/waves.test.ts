@@ -95,7 +95,7 @@ describe('waves: the goals', () => {
     const f = FIGURES['waves-ebb'](context(), 'break');
     let done = false;
     void f.done?.then(() => (done = true));
-    guess(f.node, 'About two knots');
+    guess(f.node, 'Two or three knots');
     setSlider(f.node, 0, 2);
     await tick();
     expect(done).toBe(false);

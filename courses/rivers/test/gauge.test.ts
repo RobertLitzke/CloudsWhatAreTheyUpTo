@@ -67,7 +67,7 @@ describe('F2 figures reach their goals', () => {
 
   it('storm: guess, then play both through', async () => {
     const done = await reach('gauge-storm', 'storm', (n) => {
-      guess(n, 'Half a day later');
+      guess(n, 'About half a day later');
       setSlider(n, 0, 72);
       click(n, 'City creek');
       setSlider(n, 0, 0);

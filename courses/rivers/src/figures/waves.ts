@@ -349,7 +349,7 @@ export const ebbFigure = figure(['break'], (ctx, t) => {
   f.controls.append(cur.node);
   const open = guessFirst(t, f, {
     ask: 'A 4-second sea, 0.8 m high, runs into an ebb flowing against it. How fast must the ebb run before the waves begin to break?',
-    options: ['Under half a knot', 'About two knots', 'About ten knots'],
+    options: ['Under half a knot', 'Two or three knots', 'About ten knots'],
     answer: 1,
     sliders: [cur],
     after: () => paint(),

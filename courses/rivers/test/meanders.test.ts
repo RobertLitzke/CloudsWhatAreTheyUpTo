@@ -64,7 +64,7 @@ describe('the figures', () => {
 
   it('meanders-migrate: guess, then play on bare banks to a cutoff', async () => {
     const h = build('meanders-migrate', 'cutoff');
-    guess(h.node, 'The outside bank');
+    guess(h.node, 'Downstream');
     await Promise.resolve();
     click(h.node, 'Bare banks');
     setSlider(h.node, 0, 40);

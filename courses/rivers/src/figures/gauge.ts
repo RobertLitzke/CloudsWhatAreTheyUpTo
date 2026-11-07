@@ -329,7 +329,7 @@ const stormFig = figure(['storm'], (ctx, t) => {
   f.controls.append(chips.node, p.node, s.node);
   const open = guessFirst(t, f, {
     ask: 'The rain is heaviest on Tuesday at 20:00. When does the big river peak at its gauge?',
-    options: ['With the rain', 'Half a day later', 'Three days later'],
+    options: ['With the rain', 'About half a day later', 'Three days later'],
     answer: 1,
     sliders: [s],
     buttons: chips.buttons,

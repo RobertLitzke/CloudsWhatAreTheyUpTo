@@ -178,6 +178,44 @@ export const sectionStill = () => {
   return { node: s.node };
 };
 
+// ---- The two pushes in a stirred cup (still) ------------------------------------------------------
+
+export const pushesStill = () => {
+  const s = still(W, 200);
+  const parts: SVGElement[] = [];
+  const x0 = 160;
+  const x1 = 296;
+  const bottom = 180;
+  const surf = (x: number) => 40 + 18 * (1 - ((x - 228) / 68) ** 2);
+  const xs = Array.from({ length: 21 }, (_, i) => x0 + (6.8 * i));
+  parts.push(
+    svg('path', { d: `M${x0},${surf(x0)} ${xs.map((x) => `L${x},${surf(x)}`).join(' ')} L${x1},${bottom} L${x0},${bottom} Z`, fill: tint(COL.water, 0.25) }),
+    svg('polyline', { points: xs.map((x) => `${x},${surf(x)}`).join(' '), fill: 'none', stroke: COL.water, 'stroke-width': 2 }),
+    svg('path', { d: `M${x0 - 5},28 L${x0 - 5},${bottom + 5} L${x1 + 5},${bottom + 5} L${x1 + 5},28`, fill: 'none', stroke: COL.soft, 'stroke-width': 3 }),
+    small(x1 + 10, 44, 'higher at the rim', { soft: true }),
+  );
+  // At the top and at the bottom, near the right-hand wall: inward push (same) and outward swirl push (strong, then weak).
+  const row = (y: number, out: number, name: string, net: string) => {
+    const x = 250;
+    parts.push(
+      arrow(x, y - 6, x - 45, y - 6, COL.soft, 2.5),
+      arrow(x, y + 6, x + out, y + 6, COL.flow, 2.5),
+      small(14, y - 2, name, { bold: true }),
+      small(14, y + 12, net, { soft: true }),
+    );
+  };
+  row(78, 40, 'Near the top', 'out wins: water moves out');
+  row(160, 12, 'At the bottom', 'in wins: water moves in');
+  parts.push(
+    small(x1 + 10, 72, 'grey: push toward', { fill: COL.soft }),
+    small(x1 + 10, 84, 'the middle', { fill: COL.soft }),
+    small(x1 + 10, 102, 'red: the swirl’s', { fill: COL.flow }),
+    small(x1 + 10, 114, 'outward push', { fill: COL.flow }),
+  );
+  s.svg.append(...parts);
+  return { node: s.node };
+};
+
 // ---- A meander migrating across its floodplain ----------------------------------------------------
 
 /** What holds the banks, and how fast each lets the river move (bare banks = 1). */
@@ -405,8 +443,8 @@ export const migrateFigure = figure(['cutoff'], (ctx, t) => {
   const bp = pick(BANKS.map((b) => b.name), bank, (i) => { bank = i; paint(); });
   f.controls.append(bp.node, play.node, ys.node);
   const open = guessFirst(t, f, {
-    ask: 'Over the years, which bank of a bend is eaten away?',
-    options: ['The outside bank', 'The inside bank', 'Both, equally'],
+    ask: 'As the loops grow, which way do they travel along the valley?',
+    options: ['Downstream', 'Upstream', 'They stay put'],
     answer: 0,
     sliders: [ys],
     buttons: [...bp.buttons],
@@ -561,6 +599,7 @@ export const avulsionStill = () => {
 
 export const figures: Record<string, FigureFactory> = {
   'meanders-teacup': teacupFigure,
+  'meanders-pushes': pushesStill,
   'meanders-section': sectionStill,
   'meanders-migrate': migrateFigure,
   'meanders-braid': braidFigure,
