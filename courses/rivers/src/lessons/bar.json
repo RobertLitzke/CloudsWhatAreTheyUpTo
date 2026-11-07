@@ -1,0 +1,94 @@
+{
+  "id": "bar",
+  "n": 203,
+  "title": "The bar at the mouth",
+  "teaches": "Where the Columbia meets the Pacific swell, and why the bar is one of the most dangerous in the world",
+  "branch": "columbia",
+  "needs": ["waves"],
+  "summary": [
+    "**The bar is where the river's sand meets the sea.** The Columbia drops its sand where its outflow slows in the ocean, and swell and storms shove it back into a shifting arc of shoals across the mouth.",
+    "**The ebb tide makes the waves worse.** Swell running into the outgoing current is slowed, so its crests crowd closer together and, carrying the same energy forward more slowly, grow taller.",
+    "**A wave breaks when it gets too steep or too tall for the depth.** In deep water that is when its height reaches about a seventh of its length; over a shoal, when its height nears the depth.",
+    "**The same swell can be safe at one hour and breaking at another.** Over a tide the current swings from flood tide to ebb tide, so the bar is kindest near high slack and worst at the height of the ebb.",
+    "**A spring freshet strengthens the ebb.** More river water running out means a stronger current against the swell.",
+    "**The jetties squeezed the ebb into one channel.** The South Jetty (from 1885), the North Jetty (1913 to 1917) and Jetty A (1939) scoured a deeper, steadier channel, and dredges keep it deep.",
+    "**Pilots and lifeboat crews read the bar for a living.** Bar pilots take every large ship across, and the Coast Guard trains its surf crews at Cape Disappointment."
+  ],
+  "parts": [
+    {
+      "title": "The river behind the breakers",
+      "blocks": [
+        {"type": "text", "text": "In August 1775 the Spanish navigator Bruno de Heceta, sailing north along the coast, found a bay where the current ran so strongly out to sea that he could barely hold his ship in it. He judged it the mouth of a great river. Across the mouth lay a line of breakers, waves crashing over a bank of sand, and his crew was too weak with scurvy to work the ship through them. He sailed on. In the spring of 1792 George Vancouver's ships passed the same line of breakers and went on north to the Strait and Puget Sound."},
+        {"type": "text", "text": "On 11 May 1792 the American trader Robert Gray, in the *Columbia Rediviva*, waited for his moment and took his ship through the breakers into fresh water. He named the river after his ship. Gray found a channel through the sand deep enough on the day he crossed; the next captain could find it moved. In July 1841 the US Navy's *Peacock*, part of Charles Wilkes's survey of the coast and the Sound, ran aground on the shoal north of the entrance and broke up; no one died, and the shoal has been Peacock Spit ever since. Hundreds of ships have been wrecked on and near the bar since, and this stretch of coast is called the Graveyard of the Pacific."},
+        {"type": "text", "text": "The bank of sand across the river's mouth is the **bar**, and the waves that break on it are mostly **swell**, the long, regular waves that arrive from storms far out in the Pacific. The bar's danger comes and goes on a timetable. The same swell from the same storm can roll across it in long, low hills at one hour and stand up in breaking walls six hours later."}
+      ]
+    },
+    {
+      "title": "Swell against the ebb tide",
+      "blocks": [
+        {"type": "text", "text": "Lesson 7 (waves) showed that a wave carries energy, not water, and that its energy travels at a definite speed set by its period and the depth beneath it. Swell from a distant storm reaches the Columbia's mouth with a period of ten seconds or more: a crest every ten seconds."},
+        {"type": "text", "text": "Twice a day the tide runs in through the mouth, the **flood tide**, and twice a day it runs out, the **ebb tide**. Between them come short pauses called **slack water**; high slack is the pause around high tide, just before the ebb begins. On the ebb the river's own outflow runs out with the tide. The river's fresh water is lighter than seawater, so it slides out over the salt water in a layer a few metres thick, and all that water squeezed into a thin layer has to move fast. At the surface, where the waves are, the ebb runs especially hard."},
+        {"type": "text", "text": "Swell running into that current is moving through water that is flowing the other way. The crests still arrive every ten seconds, but each one makes less headway over the ground, so they crowd closer together: the waves get shorter. And the ocean keeps sending in the same energy every second, while the waves now carry it forward more slowly, so each wave has to hold more of it: the waves get taller.[^action] A strong enough ebb stops short, choppy waves outright, and they break where they stand.[^blocking]"},
+        {"type": "text", "text": "Taller and shorter means steeper, and a wave can only get so steep. In deep water, once its height reaches about a seventh of its length, the crest outruns the water beneath it and topples. Over a shoal a wave has a second limit: once its height comes near the depth of the water, roughly four fifths of it, it breaks however long it is, as lesson 7's waves do coming onto a beach. The bar puts both limits in one place. And the waves in a swell are not all the same size. A forecast gives the **significant wave height**, about the average of the highest third of the waves, and the biggest in a set can be nearly twice that. They are the ones that break first.[^biggest]"},
+        {"type": "interactive_diagram", "id": "bar-waves", "caption": "A model of swell crossing the Columbia bar through a tide: the swell comes in from the left and the river's mouth is on the right. Arrows show the current; white marks are breaking crests. The swell's period is 10 seconds; the model's bar is 12 m deep, between the dredged ship channel and the shoals beside it. Wave heights are exaggerated twice as much as depths, and heights in the text are significant heights.", "task": "Guess, then find a swell of 3 m or less that breaks over the bar, using the hour of the tide, the swell and the river", "goal": "closed", "aspect_ratio": 1.87},
+        {"type": "text", "text": "So the best time to cross is near the end of the flood tide or at high slack, when the current is weak or running in with the waves, and the worst is the height of the ebb tide. In late spring the freshet, the snowmelt flood of the Celilo lesson (C1), adds its water to every ebb. In winter the river is lower, but the North Pacific's storms are at their strongest and send in the biggest swell. Small boats that use the bar plan their crossings on the tide table as much as on the forecast."}
+      ]
+    },
+    {
+      "title": "A bar that moves",
+      "blocks": [
+        {"type": "text", "text": "Lesson 4 (sediment) showed that a river drops what it carries when it slows. The Columbia carries sand down to its mouth, and where its outflow fans out into the ocean and slows, the sand settles. The swell pushes it back toward land, and storms shift it north and south along the coast. Between the river pushing out and the sea pushing in, the sand builds a broad arc of shoals across the mouth. Oceanographers call such a shape an ebb-tidal delta."},
+        {"type": "diagram", "id": "bar-mouth", "caption": "The mouth of the Columbia from above, north at the top and the Pacific on the left: Cape Disappointment and Peacock Spit on the Washington side, Clatsop Spit on the Oregon side, the three jetties, the dredged channel and the bar beyond them. A sketch, not a chart.", "aspect_ratio": 1.48},
+        {"type": "text", "text": "Before the jetties, the bar had no fixed channel. The river's outflow cut one channel across it for a few years, then another, sometimes north near Cape Disappointment, sometimes south toward Clatsop Spit, and in places the water over the bar was no deeper than about 6 m (20 feet) at low tide. A channel that was safe last season could be a shoal this one, which is why ships waited outside for days for a captain who knew this year's bar."}
+      ]
+    },
+    {
+      "title": "Jetties and dredges",
+      "blocks": [
+        {"type": "text", "text": "From 1885 the Army Corps of Engineers built a **jetty**, a wall of rock several kilometres long, out from the south shore. A second, the North Jetty, followed from 1913 to 1917, and in 1939 a short spur from the north shore, Jetty A, to keep the channel off the cape. A jetty works on the river's current: it squeezes the ebb into one channel, and the faster current scours that channel deeper and keeps it in one place. Within a few decades the channel over the bar was far deeper than it had been, and it stopped wandering."},
+        {"type": "diagram", "id": "timeline", "caption": "Taming the bar. Dates of the jetties from the Corps of Engineers' histories, rounded to the year.", "options": {"spacing": "even", "events": [
+          {"at": 1775, "label": "Heceta finds the current"},
+          {"at": 1792, "label": "Gray crosses the bar"},
+          {"at": 1841, "label": "The Peacock wrecked"},
+          {"at": 1885, "to": 1895, "label": "South Jetty built"},
+          {"at": 1903, "to": 1913, "label": "South Jetty lengthened"},
+          {"at": 1913, "to": 1917, "label": "North Jetty built"},
+          {"at": 1939, "label": "Jetty A"}
+        ]}},
+        {"type": "text", "text": "The jetties also caught sand. The sand moving along the coast piled up against them, and the beaches beside them grew out to sea: Clatsop Spit on the Oregon side and Benson Beach, under Peacock Spit, on the Washington side. Today the ship channel is dredged to about 17 m (55 feet) every year,[^dredge] and the Corps has rebuilt the jetties' ends more than once as storms knock the rock down."},
+        {"type": "text", "text": "None of this made the bar calm. A deeper channel means the swell steepens less from the shallow bottom, but the ebb is as strong as ever, and squeezed between the jetties it runs faster still."}
+      ]
+    },
+    {
+      "title": "Across the bar",
+      "blocks": [
+        {"type": "text", "text": "Every large ship that crosses the bar has a **bar pilot** aboard, a mariner licensed to take ships across this one piece of water, who knows its channel, its currents and how it behaves in every sea. Pilots have worked the bar since the 1840s. They meet ships offshore and climb aboard from a pilot boat by rope ladder, or in rough weather are lowered to the deck from a helicopter, then take the ship in to Astoria, where river pilots take over."},
+        {"type": "text", "text": "Small boats rely on the Coast Guard, which closes the bar to small boats, or to all but the largest, when waves are breaking across it, and sends lifeboats out to those caught on it. The Coast Guard's school for motor lifeboat crews is at Cape Disappointment, on the north side of the mouth, because the bar offers surf to train in through most of the year."},
+        {"type": "key_ideas", "title": "Outdoors: watch the bar on an ebb tide", "points": [
+          "Pick a winter day with a big swell forecast, and find the time of high tide at the river mouth in a tide table. High slack comes around then, before the ebb begins.",
+          "Watch from Cape Disappointment State Park in Washington, or from the viewing platform by the South Jetty in Fort Stevens State Park in Oregon.",
+          "Look at the breakers over the bar near high slack, then again two or three hours into the ebb tide, and watch the lines of white water thicken and spread across the channel as the current builds."
+        ]}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on the Columbia bar", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "With the same swell offshore, why are the waves on the Columbia bar steeper on the ebb tide than on the flood tide?", "choices": ["Against the current they crowd closer and grow taller", "The falling tide leaves the bar shallower, nothing more", "The ebb's wind blows from land and heaps the crests up"], "answer": 0, "why": "The crests keep their period but make less headway against the current, so they crowd closer. The same energy still arrives each second but travels on more slowly, so each wave holds more of it and grows taller."},
+          {"ask": "A 3 m swell rolls in unbroken, then starts breaking over the bar on a strong ebb tide. What changed?", "choices": ["Shorter and taller, the waves passed the steepest shape a wave can hold", "The fresh water on top is lighter, so it can't hold up a tall crest", "The ebb's foam on the surface tripped the crests and spilled them"], "answer": 0, "why": "In deep water a wave breaks once its height reaches about a seventh of its length. The ebb shortens the waves and makes them taller until the biggest pass that limit; over a shoal the depth limit adds to it."},
+          {"ask": "Why does the Columbia bar shift from year to year?", "choices": ["River and swell keep pushing its sand about", "Each winter flood tide carries new sand far up the river", "Its channel follows the river bed upstream as it meanders"], "answer": 0, "why": "The river drops sand where its outflow slows at sea, and swell and storms push it back and along the coast. Before the jetties the channel across it wandered between the north and south sides of the mouth."},
+          {"ask": "What did the jetties built at the mouth from 1885 onward do?", "choices": ["Held the ebb in one channel that scoured itself deep", "Sheltered the channel so the swell could no longer reach it", "Trapped the river's sand upstream so the bar wore away"], "answer": 0, "why": "A jetty works on the current: the faster ebb between the jetties keeps one deep channel open. The swell still meets the ebb there, so the bar still breaks."},
+          {"ask": "A small boat inside the Columbia's mouth waits for a winter swell to cross the bar. When is the best time to go?", "choices": ["At high slack, before the ebb tide begins", "At low slack, before the flood tide begins", "Midway through the ebb tide, while it runs out"], "answer": 0, "why": "At high slack, or late in the flood tide, the current is weak or running in with the waves, and the water is deepest. At low slack the bar is shallowest, and in the ebb the swell is shortest and tallest."},
+          {"ask": "Why does a big spring freshet make the bar more dangerous?", "choices": ["It strengthens the ebb tide's current", "It raises the sea level at the mouth", "It brings more swell down the river"], "answer": 0, "why": "The ebb at the surface carries the river's outflow as well as the falling tide. A larger river means a stronger current for the swell to meet."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "action": {"kind": "technical", "title": "Wave action", "text": "The current itself can push energy into the waves or take it out, so oceanographers don't count energy alone but what they call wave action, the energy divided by how often crests pass in the moving water. It gives the same answer as the simple picture, a little larger: against the ebb the waves grow somewhat more than the energy alone would say. The figure's model keeps the flow of wave action, with the waves' speed in water of the bar's depth."},
+    "biggest": {"kind": "technical", "title": "Significant wave height", "text": "Buoys and forecasts report the significant wave height because it is close to what an experienced sailor judges by eye. In a few hundred waves a few come near twice that height. The figure counts the bar as breaking once those biggest waves reach a breaking limit."},
+    "dredge": {"kind": "digression", "title": "Three depths", "text": "Before the jetties the shallowest crossings were about 6 m (20 feet) deep at low tide. Today the ship channel is dredged to about 17 m (55 feet), deeper than the river channel above it, to leave room for ships rising and falling in the swell. The shoals beside the channel are shallower, and the figure's 12 m bar sits between the two. The sand dredged out is dumped at sea, and some is placed close to shore to feed the beaches."},
+    "blocking": {"kind": "technical", "title": "When the ebb stops the waves", "text": "In deep water a wave's energy travels at half the speed of its crests. A 10 second swell's crests move at about 15.6 m/s and its energy at about 7.8 m/s, far faster than any ebb. A 4 second chop's crests move at about 6.2 m/s and its energy at about 3.1 m/s, yet an ebb running at only a quarter of the crests' speed, about 1.6 m/s or 3 knots, holds its energy still, because the current also shortens the waves and shorter waves carry their energy more slowly. The chop piles up and breaks where it stands. A strong ebb on the bar does this to the wind waves while the long swell steepens."}
+  }
+}

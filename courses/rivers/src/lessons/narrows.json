@@ -1,0 +1,682 @@
+{
+  "id": "narrows",
+  "n": 11,
+  "title": "Why Deception Pass runs at eight knots",
+  "teaches": "Currents driven by a difference in level, and why slack water comes after high water",
+  "summary": [
+    "**A tidal current in a narrows runs downhill.** The water flows from the side where the sea stands higher to the side where it stands lower.",
+    "**The two ends of Deception Pass get their tide by different routes.** Rosario Strait gets it straight from the Strait of Juan de Fuca; Skagit Bay gets it late, round Whidbey Island, and through the pass, which can't pass water fast enough to keep it level.",
+    "**A level difference of a little over a metre drives eight knots.** Water falling a height h reaches a speed of about √(2gh), and friction takes about a tenth of it.",
+    "**Slack water comes after high water, not at it.** The current stops when the two levels are equal, which is when the basin behind the gap reaches its own high water.",
+    "**A narrower gap runs faster but carries less.** The basin behind it rises and falls less and later, so the difference across the gap grows.",
+    "**Eight knots comes only with the biggest tides.** Spring tides and the larger of each day's two tides make the biggest difference; on most tides the peak is lower.",
+    "**Admiralty Inlet works differently.** It is wide and deep, so the levels on its two sides stay close, and its current is the volume the whole Sound needs to rise and fall.",
+    "**Tide tables and current tables are separate for a reason.** The time of high water does not tell you when the current turns."
+  ],
+  "parts": [
+    {
+      "title": "The passage Vancouver missed",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the spring of 1792 George Vancouver's two ships, HMS *Discovery* and HMS *Chatham*, spent weeks charting the inland waters behind the Strait of Juan de Fuca. The ships anchored and the work was done from open boats, rowed and sailed for days at a time into every inlet. Early in June one of those boat parties, led by Joseph Whidbey, the *Discovery*'s master, worked north up the long channel east of a large wooded shore that Vancouver had taken to be a peninsula joined to the mainland. Near its northern end the channel did not close. It led into a narrow, rock-walled gap, and through the gap to the open water of the Strait.[^whidbey]"
+        },
+        {
+          "type": "text",
+          "text": "The \"peninsula\" was an island. Vancouver named it Whidbey's Island for the man who had found the way round it, and he named the gap Deception Passage, because the coast had fooled them: from the west, among the rocks and islets, the opening is easy to take for a small bay. Today it is called Deception Pass."
+        },
+        {
+          "type": "text",
+          "text": "Since 1935 a bridge has crossed the pass high above the water. Stand on it near the strongest flow of a big tide and the water below runs like a river in flood, with standing waves, boils and whirlpools, at up to eight **knots**. A knot is one nautical mile an hour, about half a metre a second, so eight knots is about 15 km/h or 9 mph, a fast running pace.[^knot] Many small boats cannot make headway against it. An hour or two later the same water lies still. That pause, when the current stops before it turns and runs the other way, is called **slack water**, or slack."
+        },
+        {
+          "type": "text",
+          "text": "Out in the open Sound a few miles away, the tide lifts and lowers the water gently, and a swimmer barely feels it move. Something about this gap turns the gentle tide into a torrent. The clue is the height of the sea surface on each side of the gap, which, at Deception Pass, is often not the same."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Deception Pass, between Fidalgo Island to the north and Whidbey Island to the south. Pass Island splits the gap in two, and the bridge crosses both channels by way of it. The main channel, south of Pass Island, is less than 200 metres wide.",
+          "options": {
+            "relief": "maps/deception",
+            "sun": {
+              "azimuth": 315,
+              "altitude": 35
+            },
+            "water": 1,
+            "labels": [
+              {
+                "lon": -122.645,
+                "lat": 48.4285,
+                "text": "Fidalgo Island",
+                "area": true
+              },
+              {
+                "lon": -122.66,
+                "lat": 48.385,
+                "text": "Whidbey Island",
+                "area": true
+              },
+              {
+                "lon": -122.6455,
+                "lat": 48.4072,
+                "text": "Pass Island",
+                "side": "above"
+              },
+              {
+                "lon": -122.703,
+                "lat": 48.413,
+                "text": "to Rosario Strait",
+                "area": true,
+                "color": "salt"
+              },
+              {
+                "lon": -122.6,
+                "lat": 48.405,
+                "text": "to Skagit Bay",
+                "area": true,
+                "color": "salt"
+              }
+            ],
+            "scale": "left"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Water runs downhill",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 2 measured a river by its **discharge**, the volume that passes each second: width times depth times speed. A river runs because its bed slopes. Water at one end stands higher than water at the other, and gravity pulls it down the slope."
+        },
+        {
+          "type": "text",
+          "text": "A tidal current in a narrows runs downhill too, only the slope is in the sea surface itself, running through the gap from one sea to the other. If the sea on one side of a gap stands higher than the sea on the other, water pours through from the high side to the low side. The current does not depend on the level on either side by itself, only on the difference between them, and the bigger the difference, the faster the water runs."
+        },
+        {
+          "type": "text",
+          "text": "The speed follows from the size of the drop. Water that falls through a height *h* picks up the same speed as a stone dropped from that height: about √(2*gh*), where *g* is 9.8 metres per second per second. For a drop of one metre that is √(2 × 9.8 × 1), about 4.4 metres a second, or eight and a half knots. A real gap loses some of that speed to friction against the rock and to the eddies that tumble off its walls, roughly a tenth of it at Deception Pass, so one metre gives about seven and a half knots, and eight knots takes a little over 1.1 metres.[^torricelli] Across a gap less than 200 metres wide, that small step in the sea drives one of the fastest tidal currents in the state."
+        },
+        {
+          "type": "text",
+          "text": "Both sides of Deception Pass are part of the same Salish Sea, yet the sea can stand a metre higher on one side than the other, because the tide reaches the two ends by different routes. Lesson 10 showed the tide as a long wave moving into the inland waters from the Pacific. The western end of the pass opens onto Rosario Strait, which takes the tide almost straight from the Strait of Juan de Fuca. The eastern end opens onto Skagit Bay, which sits at the end of a long way round, traced on the map below: in through Admiralty Inlet, round the southern tip of Whidbey Island, and north up Saratoga Passage. The tide arriving by that route comes later. Skagit Bay also takes water through the pass itself, but the gap lets only so much through each second, so the bay's level cannot rise as fast as the Strait's."
+        },
+        {
+          "type": "text",
+          "text": "Follow one tide. As the tide rises, the Strait side rises first and stands above Skagit Bay, so the pass runs east into the bay: the **flood**. Around the Strait's high water the bay is still catching up. Then the Strait side starts to fall while the bay is still high, the bay ends up the higher of the two, and the pass runs west, back to the Strait: the **ebb**. Twice each tide the difference changes sign, and each time the current turns with it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "The two routes the tide takes to the ends of Deception Pass.",
+          "task": "Step through to the last stage",
+          "goal": "end",
+          "options": {
+            "relief": "maps/puget",
+            "sun": {
+              "azimuth": 315,
+              "altitude": 35
+            },
+            "water": 0,
+            "labels": [
+              {
+                "lon": -122.645,
+                "lat": 48.406,
+                "text": "Deception Pass",
+                "side": "right"
+              },
+              {
+                "lon": -122.47,
+                "lat": 48.3,
+                "text": "Skagit Bay",
+                "area": true
+              },
+              {
+                "lon": -122.8,
+                "lat": 48.56,
+                "text": "Rosario Strait",
+                "area": true
+              }
+            ],
+            "textLines": 3,
+            "stages": [
+              {
+                "label": "The pass",
+                "text": "Deception Pass joins Rosario Strait, to the west, to Skagit Bay, to the east. Its western end is a short way from the open Strait of Juan de Fuca."
+              },
+              {
+                "label": "The short way",
+                "text": "The tide comes in from the Pacific along the Strait of Juan de Fuca and turns north into Rosario Strait. The western end of the pass rises and falls with the Strait.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.39,
+                        48.27
+                      ],
+                      [
+                        -123.0,
+                        48.25
+                      ],
+                      [
+                        -122.85,
+                        48.35
+                      ],
+                      [
+                        -122.76,
+                        48.45
+                      ],
+                      [
+                        -122.68,
+                        48.405
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 3
+                  }
+                ]
+              },
+              {
+                "label": "The long way",
+                "text": "To reach Skagit Bay by water the tide must go in through Admiralty Inlet, round the south end of Whidbey Island and north up Saratoga Passage. Along this route it arrives later and at a different height.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.39,
+                        48.27
+                      ],
+                      [
+                        -123.0,
+                        48.25
+                      ],
+                      [
+                        -122.85,
+                        48.3
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.85,
+                        48.3
+                      ],
+                      [
+                        -122.72,
+                        48.15
+                      ],
+                      [
+                        -122.66,
+                        48.04
+                      ],
+                      [
+                        -122.62,
+                        47.98
+                      ],
+                      [
+                        -122.5,
+                        47.92
+                      ],
+                      [
+                        -122.4,
+                        47.9
+                      ],
+                      [
+                        -122.32,
+                        47.96
+                      ],
+                      [
+                        -122.3,
+                        48.0
+                      ],
+                      [
+                        -122.36,
+                        48.04
+                      ],
+                      [
+                        -122.42,
+                        48.08
+                      ],
+                      [
+                        -122.42,
+                        48.16
+                      ],
+                      [
+                        -122.42,
+                        48.22
+                      ],
+                      [
+                        -122.46,
+                        48.28
+                      ],
+                      [
+                        -122.5,
+                        48.32
+                      ],
+                      [
+                        -122.54,
+                        48.36
+                      ],
+                      [
+                        -122.58,
+                        48.4
+                      ],
+                      [
+                        -122.62,
+                        48.405
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 3,
+                    "dashed": true
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.72,
+                    "lat": 48.15,
+                    "text": "Admiralty Inlet",
+                    "side": "left"
+                  },
+                  {
+                    "lon": -122.43,
+                    "lat": 48.12,
+                    "text": "Saratoga Passage",
+                    "side": "right"
+                  },
+                  {
+                    "lon": -122.62,
+                    "lat": 48.2,
+                    "text": "Whidbey Island",
+                    "area": true
+                  }
+                ]
+              },
+              {
+                "label": "A difference",
+                "text": "The two ends of the pass rise and fall at different times and by different amounts. At times the Strait side stands a metre or more above Skagit Bay, and at others below it. The pass runs downhill between them.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -123.39,
+                        48.27
+                      ],
+                      [
+                        -123.0,
+                        48.25
+                      ],
+                      [
+                        -122.85,
+                        48.35
+                      ],
+                      [
+                        -122.76,
+                        48.45
+                      ],
+                      [
+                        -122.68,
+                        48.405
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.85,
+                        48.3
+                      ],
+                      [
+                        -122.72,
+                        48.15
+                      ],
+                      [
+                        -122.66,
+                        48.04
+                      ],
+                      [
+                        -122.62,
+                        47.98
+                      ],
+                      [
+                        -122.5,
+                        47.92
+                      ],
+                      [
+                        -122.4,
+                        47.9
+                      ],
+                      [
+                        -122.32,
+                        47.96
+                      ],
+                      [
+                        -122.3,
+                        48.0
+                      ],
+                      [
+                        -122.36,
+                        48.04
+                      ],
+                      [
+                        -122.42,
+                        48.08
+                      ],
+                      [
+                        -122.42,
+                        48.16
+                      ],
+                      [
+                        -122.42,
+                        48.22
+                      ],
+                      [
+                        -122.46,
+                        48.28
+                      ],
+                      [
+                        -122.5,
+                        48.32
+                      ],
+                      [
+                        -122.54,
+                        48.36
+                      ],
+                      [
+                        -122.58,
+                        48.4
+                      ],
+                      [
+                        -122.62,
+                        48.405
+                      ]
+                    ],
+                    "color": "flow",
+                    "width": 3,
+                    "dashed": true
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.66,
+                    "lat": 48.43,
+                    "text": "level difference",
+                    "side": "left",
+                    "color": "flow"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Slack comes late",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Most people who live near salt water carry a picture of the tide in which high tide and slack go together: the tide comes in, stops at the top, and goes out. On an open beach that is close enough. In a narrows it is wrong, often by an hour or more. The figure below is a model with the same parts as Deception Pass: a sea on the left whose level rises and falls with the tide, a gap, and a bay on the right that, in the model, can only fill and empty through the gap. Before its controls open it asks you one question: at the moment of high water on the Strait side, has the current stopped, is it still running in, or is it already running out? Once you have answered, Play runs one tide. The drawing shows the gap from above with the current's arrow and speed, and the two water surfaces from the side. The chart traces the Strait side's level (solid), the bay's level (dashed) and the current in knots (orange, above zero while it floods into the bay), and marks high water and slack as they pass."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "narrows-basins",
+          "caption": "A sea and a bay joined by a narrows, through one tide. A model: one tide of the same size each half day, and a bay that fills only through the gap.",
+          "task": "Answer the question, then play the tide past high water until the current stops",
+          "goal": "slack",
+          "aspect_ratio": 1.2
+        },
+        {
+          "type": "text",
+          "text": "At high water on the Strait side the current is still running in, at a few knots. The reason is in the levels. All through the rising tide the bay has lagged behind the sea, because the gap can only pass so much water each second. When the sea outside reaches its highest and starts to fall, the bay is still lower, so water keeps pouring in, and the bay keeps rising. The bay stops rising only when water stops flowing into it, and that happens when the falling sea and the rising bay reach the same level. So slack and the bay's own high water are the same moment, and it comes later than the sea's high water. After it the sea is the lower of the two, and the pass starts to run out."
+        },
+        {
+          "type": "text",
+          "text": "Sailors learn the hard way that a tide table and a current table are two different books. The tide table gives the times of high and low water; the current table gives the times of slack and of the strongest flow. At a narrows like Deception Pass they can be far apart."
+        },
+        {
+          "type": "text",
+          "text": "Now move the slider for the width of the pass. Make it wide, and the bay keeps up with the sea: the two levels rise and fall almost together, the difference across the gap stays small, the current is gentle, and slack comes close to high water. Make it narrow, and the bay can't keep up. Its tide grows smaller and later, the difference across the gap grows, and the water in the gap runs faster, even though less of it gets through in all."
+        }
+      ]
+    },
+    {
+      "title": "Eight knots, sometimes",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The figure's other slider sets the size of the tide outside. A bigger tide means a bigger difference across the gap and a faster current. Lesson 8 showed the range swelling and shrinking twice a month, from spring tides to neaps, and lesson 9 showed that the Salish Sea's two tides each day are unequal, one large and one small. So the strongest currents in Deception Pass come on the larger tide of the day near spring tides. Those are the tides that run at eight knots or a little more. On an ordinary day the strongest flow is a few knots less, and on the small tide of a neap day the pass is tame by comparison.[^mixed]"
+        },
+        {
+          "type": "text",
+          "text": "**An estimate** of the water that goes through. The main channel is less than 200 metres wide, call it 150, and roughly 30 metres deep on average, so its cross-section is about 150 × 30 = 4,500 square metres. At the peak of a big flood the water runs at about 4 metres a second, so the discharge, lesson 2's width times depth times speed, is about 18,000 cubic metres a second. That is more than twice the average flow of the Columbia at its mouth, and about the average flow of the Mississippi. The flood doesn't hold that peak for long; averaged over the six hours or so that it runs, the speed is nearer 2.5 metres a second. Over a whole flood that comes to 4,500 × 2.5 × 22,000 seconds, about a quarter of a cubic kilometre: enough to fill a lake a kilometre square and 250 metres deep, poured through the gap in six hours and then poured back."
+        },
+        {
+          "type": "diagram",
+          "id": "scale",
+          "caption": "The peak flood in Deception Pass against the average flow of three rivers. Each step along the scale is ten times the last, which is why 17,000 and 18,000 look nearly the same. The pass's number is an estimate, and it holds for an hour or so at a time.",
+          "options": {
+            "title": "Water passing each second",
+            "unit": "m³/s",
+            "log": true,
+            "items": [
+              {
+                "label": "Skagit River, average",
+                "value": 470,
+                "says": "about 470",
+                "color": "water"
+              },
+              {
+                "label": "Columbia River at its mouth, average",
+                "value": 7500,
+                "says": "about 7,500",
+                "color": "water"
+              },
+              {
+                "label": "Mississippi River, average",
+                "value": 17000,
+                "says": "about 17,000",
+                "color": "water"
+              },
+              {
+                "label": "Deception Pass, peak of a big flood",
+                "value": 18000,
+                "says": "about 18,000 (estimate)",
+                "color": "flow",
+                "bold": true
+              }
+            ]
+          }
+        },
+        {
+          "type": "text",
+          "text": "The square-root rule also explains why slack is short. Near slack the two levels are within a centimetre or so of each other, and a centimetre drives well under a knot. But the speed grows with the square root of the difference, so it picks up fast: a 10 centimetre difference already drives over two knots. Divers, kayakers and boats wait for slack to go through, and they have to be quick about it."
+        }
+      ]
+    },
+    {
+      "title": "The other narrows",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every basin of the Sound is joined to the next by a narrows, and each has its own current. They don't all work the same way. The map at the end of this part shows four of them."
+        },
+        {
+          "type": "text",
+          "text": "**Tacoma Narrows** is the door to South Sound. Everything south of it, from Carr Inlet to Olympia's Budd Inlet, fills and empties through a channel about a mile wide. South Sound is large and its tide is the biggest in the region (lesson 10), so a great deal of water must pass each tide, and the Narrows runs at several knots. **Rich Passage**, the winding gap the Bremerton ferries take, is a smaller case of the same kind: Sinclair and Dyes Inlets behind it fill and empty through it."
+        },
+        {
+          "type": "text",
+          "text": "**Admiralty Inlet**, between Whidbey Island and the Quimper Peninsula near Port Townsend, is the main door of the whole Sound. Here too water runs from the higher side to the lower, but the door is so large that a few centimetres of difference is enough to pass the water the Sound needs, so the bay behind it, the whole Sound, keeps up with the sea. Its current is set by how much water must go through, not by how far it falls. A rough estimate: the Sound inside covers a little over 2,000 square kilometres; call it 2,000. On a large tide it rises about 3 metres in about six hours. That is 6 cubic kilometres in 22,000 seconds, nearly 300,000 cubic metres a second. The doorway is about 6 kilometres wide, and at most about 60 metres deep in its channel, shallower toward the shores; call the average 40 metres. Then the water must move at a little over a metre a second on average, faster at the peak: a few knots."
+        },
+        {
+          "type": "text",
+          "text": "Admiralty Inlet and Tacoma Narrows have something else in common. Each is a **sill**, a shallow rise in the floor between deeper basins, left by the glaciers that carved the Sound (the Geology course tells that story). The tide drags all the water over these rises, top to bottom, back and forth at a few knots, and the water tumbles and churns as it goes. That stirring will matter a great deal for what lies in the basins behind them, which is lesson 12's subject."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "Four narrows of Puget Sound and what drives each current.",
+          "task": "Tap each narrows",
+          "goal": "explore",
+          "options": {
+            "relief": "maps/puget",
+            "sun": {
+              "azimuth": 315,
+              "altitude": 35
+            },
+            "water": 0,
+            "textLines": 4,
+            "spots": [
+              {
+                "lon": -122.645,
+                "lat": 48.406,
+                "name": "Deception Pass",
+                "text": "A small gap between two sides that get the tide by different routes. A level difference of up to a metre or more drives up to eight knots on the biggest tides."
+              },
+              {
+                "lon": -122.72,
+                "lat": 48.15,
+                "name": "Admiralty Inlet",
+                "text": "The Sound's main door, several kilometres wide, with a sill about 60 metres down at its deepest. The levels on each side stay close; the current is the volume the Sound needs to fill and empty, a few knots."
+              },
+              {
+                "lon": -122.55,
+                "lat": 47.27,
+                "name": "Tacoma Narrows",
+                "text": "The door to South Sound, about a mile wide, with the region's biggest tides behind it. Several knots, and a sill that stirs the water."
+              },
+              {
+                "lon": -122.55,
+                "lat": 47.585,
+                "name": "Rich Passage",
+                "text": "A narrow, winding gap between Bainbridge Island and the Kitsap shore. Sinclair and Dyes Inlets behind it fill and empty through it, so it works like a small Deception Pass, at a few knots."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "At the bridge",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "**Outdoors.** Deception Pass State Park is about an hour and a half north of Seattle. Look up the day's current predictions for Deception Pass (NOAA publishes them; the field branch, F1, shows how to read them) and go twice: once near the strongest flood or ebb, and once near slack. Walk out on the bridge each time and watch the same water. At full flow it will be streaked and boiling, with whirlpools spinning off Pass Island and a visible tilt in the surface through the narrowest part. At slack it will be glassy. Then look up the tide prediction for a station nearby and see how far apart high water and slack really were that day. Watch from the bridge and the trails: the water is cold and fast, and the rocks at its edge are slippery."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Hold on to",
+          "points": [
+            "The current in a narrows follows the difference in level across it, not the level on one side.",
+            "Slack comes when the levels are equal, which is after high water outside.",
+            "A narrow gap runs fast because the basin behind it cannot keep up."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on currents in a narrows",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "What drives the fast tidal current through a narrows such as Deception Pass?",
+                "choices": [
+                  "The Moon pulls the water through the gap hardest at the moment it is overhead",
+                  "The gap squeezes the slow stream of the open Strait, as a thumb over a hose does",
+                  "The sea stands higher on one side of the gap than the other, and runs downhill"
+                ],
+                "answer": 2,
+                "why": "The tide reaches the two ends at different times and heights, so a level difference builds up across the gap and the water runs from the high side to the low."
+              },
+              {
+                "ask": "At a narrows between the sea and a bay that fills only through it, when is slack water?",
+                "choices": [
+                  "At high water outside, the moment the sea stops rising and starts to fall",
+                  "At the bay's own high water, when the two levels are the same",
+                  "When the sea outside is back at its average level, halfway down the ebb"
+                ],
+                "answer": 1,
+                "why": "The bay lags the sea. At the sea's high water the bay is still lower, so the flood runs on until the bay catches up; the bay stops rising exactly when the flow stops."
+              },
+              {
+                "ask": "A narrows is made narrower while the tide outside stays the same. What happens to its current?",
+                "choices": [
+                  "It slows down, because a smaller gap lets less water through on each tide",
+                  "It stays the same, because the current is set only by the size of the tide outside",
+                  "It speeds up, though less water gets through and the bay's tide shrinks"
+                ],
+                "answer": 2,
+                "why": "The bay behind keeps up less well, so the level difference across the gap grows and drives a faster current, while the smaller opening passes less volume."
+              },
+              {
+                "ask": "Why does Deception Pass reach eight knots on only some days?",
+                "choices": [
+                  "Only the biggest tides make a difference of over a metre across the gap",
+                  "It needs a westerly gale to pile water up at the Strait end of the gap",
+                  "It runs fastest when the Skagit River is high and pours out through the bay"
+                ],
+                "answer": 0,
+                "why": "A bigger tide outside means a bigger level difference across the gap, and the speed follows the difference. That happens on the larger tide of the day near springs."
+              },
+              {
+                "ask": "Why is the current in Admiralty Inlet a different case from Deception Pass's?",
+                "choices": [
+                  "It is mostly river water leaving the Sound, which runs out on every tide alike",
+                  "Its door is so wide that the levels barely differ; its speed is set by the water the Sound needs",
+                  "It is driven by the wind blowing along the Strait rather than by the tide"
+                ],
+                "answer": 1,
+                "why": "In a big doorway the basin keeps up with the sea, so there is little fall across it; the current is the Sound filling and emptying through the opening."
+              },
+              {
+                "ask": "A kayaker wants to cross Deception Pass while the water is still. What should they look up?",
+                "choices": [
+                  "The current prediction for the pass, since slack there can be an hour or more after high water",
+                  "The time of high water nearby, since the current stops when the tide stops rising",
+                  "The time of sunrise, since tidal currents in the Salish Sea are weakest in the early morning"
+                ],
+                "answer": 0,
+                "why": "At a narrows slack is set by the level difference, not by high water, so the two times can be an hour or more apart."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "whidbey": {
+      "kind": "digression",
+      "title": "Joseph Whidbey",
+      "text": "Whidbey was the *Discovery*'s master, the officer in charge of navigation, and did much of the expedition's surveying from its boats. Back in England he became an engineer, and with John Rennie he built the great breakwater across Plymouth Sound, begun in 1812."
+    },
+    "knot": {
+      "kind": "technical",
+      "title": "Knots",
+      "text": "A knot is one nautical mile an hour, 1.852 km/h, or about half a metre a second. Sailors once measured speed by letting a log on a line run out behind the ship for a set time and counting the knots tied along the line as they slipped over the stern."
+    },
+    "torricelli": {
+      "kind": "technical",
+      "title": "Falling water",
+      "text": "Evangelista Torricelli showed in the 1640s that water spouting from a hole a depth *h* below the surface leaves at about √(2*gh*), the speed of something dropped from that height. The same rule, with a correction for friction, gives the speed through a gap with a level difference *h* across it."
+    },
+    "mixed": {
+      "kind": "technical",
+      "title": "One tide in the model",
+      "text": "The model uses one plain tide, the same size every half day. The real tide in the Salish Sea is mixed (lesson 9), so the two floods and two ebbs of a day differ, and so do the currents and the gaps between high water and slack."
+    }
+  }
+}

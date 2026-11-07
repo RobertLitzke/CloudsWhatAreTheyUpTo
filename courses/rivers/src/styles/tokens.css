@@ -1,0 +1,32 @@
+/* Design tokens: a river mouth on a grey November day. The page is the deep
+   green-blue of the Sound in winter, lessons are on pale paper like a tide
+   table, and the accents are the river's colours: glacial teal, the silt
+   brown of a flood, the gold of a gravel bar and the violet of the tide. */
+
+:root {
+  --bg: #14262e; /* keep in sync with theme_color in vite.config.ts and index.html */
+  --bg-2: #213a44;
+  --panel: #eef1ec;
+  --panel-2: #d7ddd5;
+  --ink: #1f2a2e;
+  --ink-soft: #56656a;
+  --text: #e8eee9;
+  --muted: #a9b9b8;
+  --sun: #e2b04a;
+  --sun-deep: #d08a3c;
+  --rose: #c76a5b;
+  --teal: #4fb0a8;
+  --violet: #8f7fc8; /* branch colours */
+  --leaf: #8fa66a;
+  --ice: #8fc0dc;
+  --ember: #a8643a;
+  --title: #cfe6dc;
+  --paper: #f8faf6;
+  --good: #3f8f5a;
+  --bad: #c0392b;
+  --display: 'Fraunces', Georgia, serif;
+  --font: system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+.photo .credit { margin: 4px 14px 8px; font-size: 0.72rem; color: var(--ink-soft); }
+.photo .credit a { color: inherit; }

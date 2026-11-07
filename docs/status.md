@@ -17,6 +17,7 @@ A lesson's status is the first step it still waits for, in the order: student re
 | [Synthesizers](#synthesizers) | 0.2 beta | 30 | 0 | 0 | 30 | 30 | 0 | 0 |
 | [Money That Lasts](#finance) | 0.2 beta | 32 | 0 | 0 | 32 | 32 | 0 | 0 |
 | [Fungi](#fungi) | 0.2 beta | 25 | 0 | 0 | 3 | 25 | 24 | 0 |
+| [Rivers and the Salish Sea](#rivers) | 0.1 beta | 22 | 0 | 0 | 22 | 22 | 22 | 0 |
 | [Bats](#bats) | 0.1 beta | 15 | 0 | 0 | 15 | 15 | 15 | 0 |
 
 A course is in beta (version 0.x) until Rob releases it (1.0). The bar for asking him: every planned lesson written, and every lesson through the read-through, the Gemini copy edit, the fact check and its photos. Versions go up only when someone runs `npm run release` (tools/release.mjs), not with every change.
@@ -34,6 +35,7 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | Synthesizers | 0.2 beta | 2026-11-07 | no: 30 to copy-edit, 30 to fact-check |
 | Money That Lasts | 0.2 beta | 2026-11-07 | no: 32 to copy-edit, 32 to fact-check |
 | Fungi | 0.2 beta | 2026-11-04 | no: 3 to copy-edit, 25 to fact-check, 24 awaiting photos |
+| Rivers and the Salish Sea | 0.1 beta | 2026-11-07 | no: 22 to copy-edit, 22 to fact-check, 22 awaiting photos |
 | Bats | 0.1 beta | 2026-11-07 | no: 15 to copy-edit, 15 to fact-check, 15 awaiting photos |
 
 ## Clouds <a id="clouds"></a>
@@ -437,6 +439,35 @@ A course is in beta (version 0.x) until Rob releases it (1.0). The bar for askin
 | M1 | A spore print and a microscope (`spore-print`) | Looking closely | awaiting fact check | Photos (no photos chosen yet) | How mycologists examine a fungus: spore prints, gills and spores under the microscope, and why they measure many spores. |
 | M2 | Names written in DNA (`barcode`) | Looking closely | awaiting fact check |  | Naming fungi by a short DNA barcode, and how sequencing soil found whole groups of fungi that no one had seen. |
 | M3 | How many kinds of fungi? (`how-many`) | Looking closely | awaiting fact check | Photos (no photos chosen yet) | About 150,000 kinds named against 2 to 4 million estimated, how that estimate is made, and where the unnamed fungi are. |
+
+## Rivers and the Salish Sea <a id="rivers"></a>
+
+`courses/rivers`, version 0.1 (beta, 2026-11-07). Rivers and the Salish Sea: why the water does what it does. Outline revised after a five-reader panel on 7 Nov 2026 (project files rivers/outline.md, reviews in rivers/review-2026-11-07/). Every lesson had one student read-through and a revision; the writers' uncertain facts are listed in rivers/writer-notes.md for the fact check. Photos are parked in tools/pending-photos.json.
+
+| Code | Lesson | Branch | Status | Also waiting on | What it covers |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Which sea does a raindrop reach? (`watershed`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Watersheds and divides, where rain goes once it lands, and snow as a reservoir. |
+| 2 | The same storm, twice the flood (`floods`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Discharge, the river gauge and its hydrograph, rain on snow, and what a "100-year flood" means. |
+| 3 | Where August's river comes from (`baseflow`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Groundwater in the spaces between grains, Darcy's law, baseflow, and gaining and losing streams. |
+| 4 | Why the river runs brown in November (`sediment`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | What a river carries, the speed a grain needs to move (Hjulström), and the Elwha's century of trapped sediment. |
+| 5 | The river that changed its mind (`meanders`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (4 photos parked in pending-photos.json) | Why bends grow and cut off, braided and meandering rivers, log jams and avulsion. |
+| 6 | Why the bottom of the lake stays cold (`lake`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Density and temperature, a lake's layers, Lake Washington's one winter mixing, and seiches. |
+| 7 | What a wave knows about the wind (`waves`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Waves carry energy, not water; fetch and duration, chop and swell, wave speed in deep and shallow water, and waves against a current. |
+| 8 | Two tides a day (`tides`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Why the Moon raises two bulges, the Sun's share, and spring and neap tides. |
+| 9 | Why one low tide is lower (`inequality`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The Moon's tilt, the tide as a sum of regular waves, Kelvin's tide-predicting machine, and why summer's lowest tides come in daylight. |
+| 10 | Why Olympia's tide is nearly twice Port Townsend's (`olympia`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The tide as a long wave, its speed in shallow water, a basin that resonates, king tides and rising sea level. |
+| 11 | Why Deception Pass runs at eight knots (`narrows`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Currents driven by a difference in level, and why slack water comes after high water. |
+| 12 | Why the Sound stays cold in July (`estuary`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (5 photos parked in pending-photos.json) | Salt and density, the two-layer exchange over the sills, renewal at neap tides, upwelling, and the salt wedge at a river mouth. |
+| 13 | Why Hood Canal runs out of breath (`hoodcanal`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | A fjord's slow flushing, and how new ocean water lifts the old water to the surface. |
+| 14 | Where the beach comes from (`beach`) |  | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Feeder bluffs, longshore drift and spits, what a bulkhead does, and the Elwha's sand returning. |
+| 101 | The hill that drained a reservoir (`cedar`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918. |
+| 102 | The summer Lake Washington fell (`lowering`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The 1916 lowering, the vanished Black River, and the locks that keep the salt out. |
+| 103 | Straightening the Duwamish (`duwamish`) | seattle | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | How a meandering estuary became a waterway, and the rivers that were moved away from it. |
+| C1 | The falls that went under (`celilo`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | The Columbia turned into a stair of reservoirs, and Celilo Falls drowned in 1957. |
+| C2 | The town behind the embankment (`vanport`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (2 photos parked in pending-photos.json) | Vanport, 1948: levees, a snowmelt flood and a regulated river. |
+| C3 | The bar at the mouth (`bar`) | The Columbia | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Where the Columbia meets the Pacific swell, and why the bar is one of the most dangerous in the world. |
+| F1 | Reading a tide table and a current table (`tables`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | Planning a beach walk at a minus tide and a crossing at slack water. |
+| F2 | Measuring a creek (`gauge`) | In the field | awaiting Gemini review (queued 2026-11-07) | Fact check; Photos (3 photos parked in pending-photos.json) | An orange, a stopwatch and a USGS gauge page: discharge measured by hand. |
 
 ## Bats <a id="bats"></a>
 

@@ -1,0 +1,248 @@
+{
+  "id": "duwamish",
+  "n": 103,
+  "branch": "seattle",
+  "needs": [
+    "lowering"
+  ],
+  "title": "Straightening the Duwamish",
+  "teaches": "How a meandering estuary became a waterway, and the rivers that were moved away from it",
+  "summary": [
+    "**The Duwamish once gathered several rivers.** In 1900 the White (carrying the Green) and the Black (carrying Lake Washington and the Cedar) joined to form it.",
+    "**Most of that water was moved away.** The White went to the Puyallup in 1906, the Cedar into the lake in 1912, and the Black River all but dried in 1916, leaving the Green.",
+    "**Even the Green is held back.** Since 1962 Howard Hanson Dam has stored its winter floods and let water out in late summer.",
+    "**The lower river was straightened from about 1913 to 1920.** Dredges cut a straight, deep waterway of about 8 km through some 14 km of meanders.",
+    "**A straighter channel is a steeper one.** Cutting off bends shortens the path for the same fall, as lesson 5 showed.",
+    "**The tideflats were filled.** Harbor Island and the industrial district south of downtown stand on fill laid over the river's old flats.",
+    "**Salt water creeps up the waterway along the bed.** Sea water is heavier than river water and slides upstream under it wherever the river is too slow to push it back.",
+    "**Deeper channels and less river let the salt reach farther.** In late summer the salt wedge now runs up the dredged channel well beyond where it could reach in the shallow winding river of 1900."
+  ],
+  "parts": [
+    {
+      "title": "A river that lost its rivers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In 1900 the Duwamish wound north across a flat valley floor of farms and marsh, swinging in long loops from Tukwila to the head of Elliott Bay, where it spread out over a wide sheet of tideflats. At low tide the flats ran from the foot of Beacon Hill almost to West Seattle, mud and eelgrass with channels through them, and Seattle's waterfront ended at their edge."
+        },
+        {
+          "type": "text",
+          "text": "That river was the meeting of several. The White River came down from Mount Rainier's glaciers, picked up the Green at Auburn and ran north; near Tukwila the Black River joined it, carrying the outflow of Lake Washington and, below the lake, the Cedar. Together they made the Duwamish. Today the river through the same valley carries the Green River and the creeks of its own valley, a fraction of what it carried a century ago.[^green] Before reading on, try to say where the White, the Cedar and the Black went. The White's story is in lesson 5, and the Cedar's and the Black's in S2."
+        }
+      ]
+    },
+    {
+      "title": "Where the water went",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The first to go was the White River. In November 1906, as lesson 5 told, a flood and a log jam near Auburn, just above where the Green came in, turned the White out of its channel and sent it south down the Stuck River, a small stream, to the Puyallup and Tacoma. Below the jam, the Green now ran north on its own. Floods could still send the White back north until a concrete diversion at Auburn, finished about 1915, held it in its new course.[^diversion] The Cedar was turned into Lake Washington in 1912, and in 1916 the lowering of the lake left the Black River all but dry, as S2 described. Within ten years the Duwamish lost the White's glacier water, the Cedar and the lake's steady outflow."
+        },
+        {
+          "type": "text",
+          "text": "Even the Green is not the river it was. Since 1962, Howard Hanson Dam in its upper valley has held back its winter floods to protect the towns along it, and lets water out again in late summer to keep the river from running too low."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "timeline-live",
+          "caption": "The Duwamish and its rivers, 1900 to 1920.",
+          "task": "Play through the years",
+          "goal": "end",
+          "options": {
+            "spacing": "time",
+            "textLines": 3,
+            "events": [
+              {
+                "at": 1900,
+                "label": "Several rivers",
+                "color": "water",
+                "text": "The White, carrying the Green, and the Black, carrying Lake Washington and the Cedar, join near Tukwila to form the Duwamish."
+              },
+              {
+                "at": 1906,
+                "label": "White River leaves",
+                "color": "flow",
+                "text": "A log jam near Auburn turns the White River south down the Stuck River to the Puyallup (lesson 5)."
+              },
+              {
+                "at": 1909,
+                "label": "Harbor Island",
+                "color": "works",
+                "text": "Harbor Island is finished at the river's mouth, built of fill on the tideflats."
+              },
+              {
+                "at": 1912,
+                "label": "Cedar to the lake",
+                "color": "water",
+                "text": "The Cedar is turned north into Lake Washington instead of the Black River (S2)."
+              },
+              {
+                "at": 1913,
+                "to": 1920,
+                "label": "Waterway dredged",
+                "color": "works",
+                "text": "Dredges cut a straight, deep waterway through the lower river's meanders, and the spoil fills the old bends and flats."
+              },
+              {
+                "at": 1916,
+                "label": "Black River dries",
+                "color": "soft",
+                "text": "The Montlake Cut lowers the lake below the Black River's bed, and the river all but stops (S2)."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cutting off the bends",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Seattle's business people wanted a port where ships could reach the valley's flat land, and the Duwamish's shallow loops were no use to a ship. From about 1913 to 1920, dredges, floating machines that scoop or suck mud and sand from a river's bed, cut a new channel straight up the lower valley for a public waterway district set up to build it and pay for it. The new channel was about 8 km (5 miles) long, in place of some 14 km (9 miles) of winding river.[^miles] It was dug several metres deeper than the old river's bed and much wider, with a turning basin at its upper end, a wide pool where ships can turn round. The dredges pumped the mud and sand they raised onto the flats and into the old loops, which disappeared under fill."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 5 showed what straightening does to a river. The fall from the valley to the sea stays the same, but the path is shorter, so the river is steeper along it and runs faster. On the Duwamish that matters less than it might, because the lower river's fall is small and the tide reaches far up it. The bigger change was in depth: the straight channel is a deep trench open to the sea, with much less river running down it."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "duwamish-channel",
+          "caption": "A model of the lower Duwamish, from Elliott Bay to about Tukwila, as a winding river in 1900 and as the dredged waterway: the plan above, and the bed along the valley below. Dark blue is sea water, lighter blue river water, and the dashed line marks how far the salt reaches. The chips switch channel; the slider sets the river's flow. Depths and widths are rounded, and the tide is held at its middle height.",
+          "task": "Guess how far the salt reaches, then look at both channels with the flow at 20 m³/s (700 ft³/s) or less",
+          "goal": "compare",
+          "aspect_ratio": 1.56
+        },
+        {
+          "type": "text",
+          "text": "Lesson 12 showed why the sea gets in at all. Salt water is heavier than fresh, so where a river meets the sea, the sea slides in underneath it as a [[salt wedge|salt]], with the river running out over the top. The river's flow drags on the top of the wedge and holds it back. The same flow runs slowly where the channel is deep, because it has more depth to spread through, and fast where the channel is shallow. So the wedge pushes far upstream over a deep bed and stops where the bed rises and the river speeds up; more river pushes it back toward the sea.[^wedge] In 1900, the shallow, winding Duwamish with several rivers in it kept the sea near the mouth for much of the year, though in the low water of late summer salt crept some way up it. The dredged waterway is a deep trench with less river in it. In late summer, sea water now runs along its floor for kilometres, to the turning basin and beyond."
+        }
+      ]
+    },
+    {
+      "title": "Filling the flats",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "At the mouth, the tideflats went too. Harbor Island, built on fill where the river met the bay, was finished in 1909 and splits the river's mouth into the East and West Waterways, the two channels on either side of it.[^harbor] South of downtown, around where the stadiums stand now, the flats were filled with earth washed off Seattle's hills by jets of water when the city cut the hills down in the regrades of the early 1900s, and the industrial district stands on it. Of the marsh and mudflats that once lined the estuary, only scraps remain."
+        },
+        {
+          "type": "text",
+          "text": "The waterway still has to be kept open. Lesson 4 described what a river does when it slows: it drops what it carries. The Green brings sand and silt down from the hills, and the turning basin is the first deep, wide, slow water it meets, so it lets most of its load fall there. The Army Corps of Engineers dredges the basin every few years."
+        },
+        {
+          "type": "text",
+          "text": "**Go and look.** Herring's House Park, on the west bank of the waterway a little south of the West Seattle bridges, looks across at Kellogg Island, one of the last pieces of the old estuary, with tidal marsh restored along the shore. Come at a low tide and again at a high one: the water rises and falls here by several metres, as much as at the Seattle waterfront, because as far as the tide is concerned the waterway is an arm of the sea. The Duwamish Longhouse, across West Marginal Way, tells the river's story from the Duwamish people's side."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the Duwamish",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does the Duwamish carry much less water than it did in 1900?",
+                "choices": [
+                  "Three of the rivers that fed it were moved away or dried up",
+                  "Tacoma now pipes most of the Green away for its water supply",
+                  "The Cascades now get much less rain and snow than in 1900",
+                  "The river now sinks into the deep bed of the dredged waterway"
+                ],
+                "answer": 0,
+                "why": "Between 1906 and 1916 the White went to the Puyallup, the Cedar into Lake Washington, and the Black River all but dried, leaving the Green."
+              },
+              {
+                "ask": "A winding river is straightened, and the fall from its top to the sea stays the same. What happens to its slope?",
+                "choices": [
+                  "It gets steeper",
+                  "It gets gentler",
+                  "It stays the same",
+                  "It depends on the depth dredged"
+                ],
+                "answer": 0,
+                "why": "Slope is fall divided by length; cutting off bends shortens the length."
+              },
+              {
+                "ask": "Why does sea water slide upstream under a river instead of mixing evenly into it?",
+                "choices": [
+                  "It is heavier, so it sinks and creeps in along the bed",
+                  "The tide pushes it up the river as a wave on the surface",
+                  "It is warmer than the river, so it rises over it",
+                  "Salt and fresh water cannot mix at all"
+                ],
+                "answer": 0,
+                "why": "Dense sea water slides under the lighter river water as a salt wedge; the two do mix, but only where something stirs them."
+              },
+              {
+                "ask": "In which season does salt water reach farthest up the Duwamish Waterway, and why?",
+                "choices": [
+                  "Late summer, when the river is lowest and pushes it back least",
+                  "Winter, when storms and high tides drive the sea inland",
+                  "Spring, when snowmelt makes the river water heavier",
+                  "It reaches the same distance all year, set by the dredged depth"
+                ],
+                "answer": 0,
+                "why": "Less river flow means a slower river over the deep bed, which cannot hold the wedge back."
+              },
+              {
+                "ask": "Why does salt water reach farther up today's waterway than up the river of 1900?",
+                "choices": [
+                  "The channel is deeper and carries less river",
+                  "Sea level has risen by several metres since 1900",
+                  "Salt water from the Ballard locks drains into it",
+                  "The waterway is shallower, so the sea flows in easily"
+                ],
+                "answer": 0,
+                "why": "A slow river over a deep bed cannot hold back the wedge; dredging and losing rivers both slowed it. Sea level has risen, but by centimetres, not metres."
+              },
+              {
+                "ask": "What became of the Duwamish's tideflats at Elliott Bay?",
+                "choices": [
+                  "They were filled for Harbor Island and the industrial district",
+                  "They were dredged away to deepen the harbour for ships",
+                  "They are still there, under water at every tide",
+                  "They were scoured away by floods after 1906"
+                ],
+                "answer": 0,
+                "why": "Fill from dredging and from the regrades of Seattle's hills was laid over the flats, south of downtown."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "green": {
+      "kind": "technical",
+      "title": "The Green alone",
+      "text": "In a dry August, even with water let out from Howard Hanson Dam, the river at Tukwila can drop to around 10 cubic metres a second (350 cubic feet a second) or less."
+    },
+    "diversion": {
+      "kind": "digression",
+      "title": "Fixing the White",
+      "text": "After 1906, King and Pierce counties argued over where the White should go, since its floods would fall on one or the other. They settled on the Puyallup, and a concrete diversion at Auburn, finished by about 1915, has held it there since."
+    },
+    "miles": {
+      "kind": "technical",
+      "title": "Rounded lengths",
+      "text": "The figures usually given are about nine miles of old river replaced by about five miles of waterway. The exact lengths depend on where one counts the river's mouth and the waterway's head."
+    },
+    "wedge": {
+      "kind": "technical",
+      "title": "When the wedge stops",
+      "text": "The figure's model stops the salt where the river runs fast enough to push it back. That speed is small, some tens of centimetres a second, because the two waters differ in weight by only about 2 per cent; it is a little higher where the water is deeper. The rule is rough, but it gets the direction of each change right: more flow pushes the salt back, and more depth lets it in."
+    },
+    "harbor": {
+      "kind": "digression",
+      "title": "Harbor Island",
+      "text": "When it was finished, Harbor Island was often called the largest artificial island in the world. Much of its fill came from dredging the river's mouth and the waterways on either side of it."
+    }
+  }
+}

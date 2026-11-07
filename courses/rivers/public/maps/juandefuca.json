@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "juandefuca.png",
+  "width": 478,
+  "height": 460,
+  "zoom": 7,
+  "x0": 4414,
+  "y0": 11183,
+  "step": 2,
+  "bounds": [
+    -131.50635,
+    42.4964,
+    -121.00342,
+    49.50381
+  ],
+  "range": [
+    -4500,
+    4050
+  ],
+  "credit": "Terrain Tiles on AWS (USGS 3DEP, SRTM and others)",
+  "licence": "Mostly public domain; some sources ask for attribution (see source).",
+  "source": "Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-10-31",
+  "made": "node tools/geo/relief.mjs --name juandefuca --bbox -131.5,42.5,-121,49.5 --zoom 7 --max 640 --precision 5 --out courses/geology/public/maps"
+}

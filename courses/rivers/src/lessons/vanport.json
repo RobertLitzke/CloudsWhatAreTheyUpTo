@@ -1,0 +1,93 @@
+{
+  "id": "vanport",
+  "n": 202,
+  "title": "The town behind the embankment",
+  "teaches": "Vanport, 1948: levees, a snowmelt flood and a regulated river",
+  "branch": "columbia",
+  "needs": ["celilo"],
+  "summary": [
+    "**Vanport was built on low ground behind embankments.** A wartime town of shipyard workers between Portland and the Columbia, it lay below the level the river reaches in a big flood.",
+    "**On 30 May 1948 the railway fill on its west side gave way.** The flooded lowland poured in, the town was gone within hours, 15 people died, and it was never rebuilt.",
+    "**The 1948 flood was a snowmelt flood.** A deep winter snowpack, melted fast by a warm, wet late May, raised the Columbia for weeks from a basin that reaches to the Rockies.",
+    "**The biggest flood in memory is not the biggest possible.** The 1894 flood was larger, and the odds of a big flood come round every year.",
+    "**A levee confines a river and raises it.** The same discharge squeezed into a narrower section has to stand deeper, so levees built close to the bank raise the flood against them.",
+    "**Levees fail by going over, through or under.** Water pours over the crest, or seeps through or beneath a soaked bank until it slumps or a pipe washes out under it.",
+    "**Storage upstream cuts the Columbia's floods.** After 1948 came more storage dams, and the Columbia River Treaty (signed 1961, in force 1964) added Canada's; since 2024 the United States calls on Canada's flood storage when a big flood is forecast instead of having it reserved every spring."
+  ],
+  "parts": [
+    {
+      "title": "Memorial Day, 1948",
+      "blocks": [
+        {"type": "text", "text": "In 1942 Henry J. Kaiser's company was building ships for the war in yards on both sides of the Columbia, and it needed somewhere to house tens of thousands of workers fast. It built a town on empty low ground between Portland and the Columbia, and named it Vanport, for Vancouver and Portland. At its wartime height around 40,000 people lived there, in long rows of two-storey wooden apartment blocks. Many of them were Black families who had come west for the shipyards and found most of Portland's housing closed to them, and many were still there in 1948.[^kaiser]"},
+        {"type": "text", "text": "By the spring of 1948 the war was over and about 18,000 people still lived in Vanport. The site had been chosen because it was cheap and empty, and it was empty because it was wetland that flooded. Embankments surrounded it on every side: the river's dike to the north, a raised road to the east, and to the west the embankment of a railway, built to carry the tracks across wet ground, which in a flood ended up holding back water too."},
+        {"type": "diagram", "id": "vanport-bowl", "caption": "Vanport in its bowl. The plan at the top is a sketch, not a map: the river's dike runs along the north, the road fill along the east and the railway embankment along the west, where the break came. The section at the bottom shows how the river in flood stood above the streets, with only an embankment between.", "aspect_ratio": 1.33},
+        {"type": "text", "text": "Through the second half of May the Columbia rose and stayed high. The lowland west of the railway filled with water. On the morning of Sunday 30 May, Memorial Day, the Housing Authority put a notice under every door saying that the dikes were safe for now and that residents would be warned in time if they had to leave."},
+        {"type": "text", "text": "A little after four in the afternoon the railway embankment gave way. A gap opened, widened quickly, and the water on the far side poured into the bowl. Within an hour or two the town was under water to its upper floors, and buildings floated off their foundations and broke up against one another. Fifteen people are known to have died. Vanport was never rebuilt, and its families, Black families above all, had to find homes in a city that had kept many of them out. The site is now Delta Park, a golf course and a racetrack."}
+      ]
+    },
+    {
+      "title": "A slow flood",
+      "blocks": [
+        {"type": "text", "text": "Lesson 2 (floods) followed floods on the Snoqualmie that rose and fell in a day or two, when one storm's warm rain fell on fresh snow. The Columbia at Portland floods on a larger, slower scale. Its basin reaches across the Cascades to the Rockies in Idaho, Montana and British Columbia, and the Celilo lesson (C1) showed its year: low all winter, then one great snowmelt freshet in May and June. In 1948 the snowpack built up over the winter was deep, and in late May warm weather and heavy rain arrived together and melted it fast across the whole basin. The river rose for weeks."},
+        {"type": "text", "text": "The gauge at The Dalles, about 140 km upstream of Portland, measures nearly all the water that passes Vanport, since the rivers joining below it add only a little in a June flood. In 1948 it peaked at around 28,000 m³/s, about a million cubic feet a second, twice an ordinary June."},
+        {"type": "diagram", "id": "scale", "caption": "Flows of the Columbia at The Dalles, rounded. The 1894 and 1948 peaks are estimates from the gauge there, which began in the 1870s; the June average is the model's from the Celilo lesson (C1).", "options": {"title": "The Columbia at The Dalles", "unit": "m³/s", "items": [
+          {"label": "Average over a year", "value": 5100, "color": "water"},
+          {"label": "Average June, before the dams", "value": 13600, "color": "water"},
+          {"label": "Flood of 1948", "value": 28000, "color": "flow", "bold": true},
+          {"label": "Flood of 1894", "value": 35000, "color": "flow"}
+        ]}},
+        {"type": "text", "text": "Big as it was, 1948 was not the largest flood on record. In June 1894 the Columbia ran about a quarter higher, before there was much in its floodplain to destroy. The ground Vanport was built on had been under water in 1894."},
+        {"type": "key_ideas", "title": "Misconception: \"a flood that big comes once in a lifetime\"", "points": [
+          "Lesson 2's \"100-year flood\" is a flood with a 1% chance in any year. The odds don't wait for the last one to be forgotten.",
+          "The biggest flood anyone remembers is only one lifetime's sample. The gauge at The Dalles began in the 1870s, so 1894 is the largest of barely 150 years.",
+          "A river's odds also change when people change the river. The storage dams from the Celilo lesson now cut the Columbia's freshets, so its old flood record overstates today's risk."
+        ]}
+      ]
+    },
+    {
+      "title": "What a levee does",
+      "blocks": [
+        {"type": "text", "text": "A **levee** is a bank of earth built along a river to keep its floods off the land behind; a **dike** is the same thing by an older name. Left alone, a river in flood spills out of its channel and spreads across its floodplain, wide and shallow. A levee stops it spreading. The water that would have spread sideways has to go downstream through the space between the levees, and the closer the levees stand to the river, the narrower that space is."},
+        {"type": "text", "text": "Lesson 2's discharge is width × depth × speed. Make the space narrower and, to pass the same discharge, the water has to run faster or stand deeper. In practice it mostly stands deeper. A river's speed is set by its slope and the roughness of its bed, and deeper water runs only somewhat faster, so most of the missing width has to be made up in depth.[^manning] So a levee that keeps the flood off one piece of land raises the flood against itself."},
+        {"type": "text", "text": "In the figure you can set the levees back from the bank or build them right beside it, change their height, and run the flow up to the 1948 flood. Before you move anything, guess which levees the flood stands higher against."},
+        {"type": "interactive_diagram", "id": "vanport-levee", "caption": "A model of a big river's floodplain in cross-section, with levees on both banks and a town on low ground behind the left one. The dashed line is where the same flood would stand with no levees at all. The flows are like the Columbia's at Portland; the channel and floodplain are made up.", "task": "Guess, then run the 1948 flow (about 28,600 m³/s) with the levees 2 km or more back, then 300 m or less from the bank", "goal": "squeeze", "aspect_ratio": 1.82},
+        {"type": "text", "text": "The narrower the space between the levees, the higher the same flood stands, and a levee high enough for a flood with room to spread can be overtopped once the levees are moved closer to the river. There is a cost downstream too. A floodplain holds water: while the river is spread out across it, part of the flood sits there and drains back slowly. Levees take that storage away, so the flood is not held back on the way, and it reaches the towns downstream sooner and with a higher peak."}
+      ]
+    },
+    {
+      "title": "How an embankment fails",
+      "blocks": [
+        {"type": "text", "text": "The most obvious way for a levee to fail is for the river to go over the top. Water pouring over a crest of earth cuts into the back slope, and a small overflow can quickly widen into a breach. That is why levees are built with spare height, called **freeboard**, above the flood they are meant for."},
+        {"type": "text", "text": "Many levees fail without being overtopped. Water seeps slowly through a bank of earth, and much faster under it, through any layer of sand or gravel the river laid down long ago. On the dry side it comes up through the ground in little fountains of sand, called **sand boils**. Each one carries sand from under the levee, and if it runs long enough it hollows out a pipe beneath the bank, which can collapse it from below.[^boils] A bank soaked for days also grows heavy and weak, and its back slope can slump. Flood fighters watch for all of these, and stack sandbags in rings around boils to slow them."},
+        {"type": "text", "text": "The embankment on Vanport's west side was railway fill, built to carry tracks over wet ground, not designed or tended as a dike. It had stood with the river against it for days. No one can say exactly how it gave way, but a bank of loose fill, soaked through and holding back several metres of water, was the weak side of the bowl."}
+      ]
+    },
+    {
+      "title": "Holding the flood upstream",
+      "blocks": [
+        {"type": "text", "text": "After 1948 the answer to the Columbia's floods moved upstream. Levees along the lower river were raised and strengthened, but the bigger change was storage: if lakes high in the basin could hold back part of the freshet, it would never reach Portland at all. Grand Coulee and a few tributary dams already did a little of this. In 1950 Congress authorized new storage dams, among them Libby in Montana. Much of the snowmelt that reaches The Dalles starts in British Columbia, so dams there could catch it near its source."},
+        {"type": "text", "text": "The **Columbia River Treaty** between Canada and the United States was signed in 1961 and came into force in 1964. Canada built three storage dams in British Columbia, Duncan, Keenleyside and Mica, and for sixty years agreed to keep a set amount of room in them every spring to catch floods; the United States paid for that room in advance and returned to Canada half of the extra power the stored water made at American dams. Under the same treaty the United States built Libby Dam, whose lake reaches back into Canada. With all of these, the stair of the Celilo lesson gained the storage that shaves the June peak."},
+        {"type": "text", "text": "The sixty years of prepaid flood room ended in September 2024. The dams and their lakes are still there, and so are the American storage dams. What changed is that Canada's flood room is no longer reserved every spring: the United States now asks for it when a big flood is forecast, and pays for it then. The two countries have been negotiating the rest of the treaty's future.[^treaty] A freshet like 1948's would still be held back in part before it reached Portland, but how much now depends on those calls and agreements, not only on the dams."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on Vanport and levees", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Why do levees built close to a river's banks raise a flood's level against them?", "choices": ["The flood can't spread out, so it must stand deeper", "Levees speed the flood so much that the water heaps up", "Water seeping under the levees lifts the river from below"], "answer": 0, "why": "Discharge is width × depth × speed. Squeezed into a narrower space, the river runs only a little faster, so most of the missing width has to be made up in depth."},
+          {"ask": "Vanport's streets lay below the level the Columbia reaches in a big flood. Why was the town dry until 30 May 1948?", "choices": ["Embankments on every side held the water out", "The 1948 flood was the first to reach that level", "The town stood on a ridge left by the 1894 flood"], "answer": 0, "why": "Vanport was built in a bowl of embankments: the river's dike, a raised road and a railway fill. When the railway fill gave way, the bowl filled. The 1894 flood had already covered the same ground."},
+          {"ask": "What made the Columbia's 1948 flood last for weeks, unlike a Snoqualmie flood that rises and falls in a day or two?", "choices": ["Melting a whole winter's snowpack across a huge basin", "One very long atmospheric river over the Cascades", "Tides at the mouth holding the water back for weeks"], "answer": 0, "why": "Warm rain helped melt it, but the water came from snow stored all winter across a basin reaching to the Rockies, and it took weeks to come down."},
+          {"ask": "The 1894 Columbia flood was larger than the one that destroyed Vanport in 1948. What does that suggest?", "choices": ["The biggest flood in memory can still be exceeded", "Floods that size return in a fixed cycle of years", "A record flood makes another unlikely for decades"], "answer": 0, "why": "A 1% flood has a 1% chance every year, whatever happened last year. Most of Vanport's people had never seen 1894, and the gauge record itself goes back only to the 1870s."},
+          {"ask": "How does the Columbia River Treaty (signed 1961, in force 1964) reduce floods at Portland?", "choices": ["Lakes behind Canadian dams hold back part of the snowmelt", "Canada sends part of the snowmelt down the Fraser instead", "It sets how high levees on the lower river must be built"], "answer": 0, "why": "Duncan, Keenleyside and Mica, with Libby in Montana, store part of the freshet high in the basin. Since 2024 the United States calls on Canada's flood room when a big flood is forecast instead of having it reserved every spring."},
+          {"ask": "How can a levee fail without the river ever going over the top?", "choices": ["Water seeps under it and washes out its base", "The river pushes the whole levee sideways", "Rain on the crest dissolves the earth fill"], "answer": 0, "why": "Most failures without overtopping start with seepage: sand boils behind the levee carry its foundation away until it collapses, or a waterlogged bank slumps. Vanport's railway fill had been soaked for days."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "kaiser": {"kind": "digression", "title": "A town built in months", "text": "Henry J. Kaiser's yards in Portland and Vancouver built ships at a rate never seen before, and the workforce grew far faster than the region's housing. Vanport went up in a matter of months in 1942 and 1943, and for a time it was the largest public housing project in the country and the second biggest town in Oregon."},
+    "manning": {"kind": "technical", "title": "How fast a river runs", "text": "Engineers estimate a river's speed with Manning's formula: speed = R^(2/3) × S^(1/2) / n, where R is roughly the depth, S the slope of the water surface and n the roughness of the bed. Doubling the depth makes the water only about 1.6 times faster, so a squeezed flood rises much more than it speeds up. The figure's model uses this formula for the channel and the floodplain separately."},
+    "boils": {"kind": "technical", "title": "Sand boils", "text": "Under many levees lies sand or gravel laid down by the river itself. In a flood, water under pressure runs through it beneath the levee and comes up on the dry side. A boil running clear is seeping; one carrying sand is eating the ground away, and that is the one flood fighters ring with sandbags, so the water inside the ring rises and pushes back."},
+    "treaty": {"kind": "digression", "title": "The treaty since 2024", "text": "The treaty set a fixed amount of flood room in Canada's lakes for its first sixty years, paid for in advance. From September 2024 that changed to called-upon flood control: when a big flood is forecast, the United States can ask Canada to hold water back and pays for it then. The two countries reached an agreement in principle on the treaty's future in 2024 and have been working out the details."}
+  }
+}

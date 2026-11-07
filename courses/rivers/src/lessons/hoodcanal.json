@@ -1,0 +1,341 @@
+{
+  "id": "hoodcanal",
+  "n": 13,
+  "title": "Why Hood Canal runs out of breath",
+  "teaches": "A fjord's slow flushing, and how new ocean water lifts the old water to the surface",
+  "summary": [
+    "**Hood Canal is a fjord.** A trough about 110 km long cut by ice, up to about 180 m deep, closed near its mouth by a sill about 50 m deep.",
+    "**Its deep water is replaced slowly.** Residence time is the volume divided by the exchange: a few months for the canal as a whole, about a year for the deep water at its south end, renewed only by the late-summer inflow.",
+    "**Decay uses up oxygen that nothing replaces.** Below the sunlit top, bacteria eating sunken plankton draw the oxygen down day after day, and the longer the water stays, the less is left.",
+    "**A fresh surface layer is a lid.** River water from the Olympics floats on top and keeps wind and tide from stirring oxygen down.",
+    "**New ocean water lifts the old.** In late summer the densest water of the year spills over the sill, sinks to the floor and shoulders the old, oxygen-poor water up toward the surface.",
+    "**A south wind finishes it.** It pushes the surface layer north, the lifted water wells up at the south end, and fish that crowded up toward the last oxygen have nowhere left to go.",
+    "**Human nitrogen is a small share in most of the canal.** It matters more at Lynch Cove, the shallow far end where water is replaced most slowly.",
+    "**The kills of 2003, 2006 and 2010 came in late summer or early autumn.** That is when the old water is at its worst and the new water arrives."
+  ],
+  "parts": [
+    {
+      "title": "Fish at the surface",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In September 2006, people along the southern reach of Hood Canal, around the small town of Hoodsport on its western shore, began to find fish where fish do not belong. Rockfish, lingcod and other fish that keep to the rocks and mud near the bottom were hanging in the top few metres of water, barely moving. Divers reported dead fish lying on the bottom. Instruments lowered over the side measured the reason: below the top few metres, the water had almost no oxygen left in it."
+        },
+        {
+          "type": "text",
+          "text": "It had happened before. A kill struck the same waters in 2003, and another came in 2010, both like this one in late summer or early autumn. Smaller episodes have been reported in other years."
+        },
+        {
+          "type": "text",
+          "text": "Four things about it need explaining. Hood Canal is open to the sea, and the tide runs in and out of it twice a day, so it is strange that any of its water could be starved of oxygen. The trouble comes at the south end, far from the mouth. It comes at the end of summer. And it strikes within a day or two, after weeks in which nothing seemed wrong. Each has a cause in the physics of earlier lessons, and the last one is a surprise: the trigger is a fresh supply of ocean water."
+        }
+      ]
+    },
+    {
+      "title": "A trench with a doorstep",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Hood Canal is not a canal.[^name] It is a **fjord**: a long, steep-sided trough scoured by ice and then flooded by the sea. It was dug by the Vashon ice sheet, the last great tongue of ice to push south from Canada into the Puget Lowland, about 17,000 years ago; the Geology course follows it. From its mouth near Foulweather Bluff the canal runs about 110 km (70 miles) south past Hoodsport to the Great Bend, then hooks east to Lynch Cove at Belfair. A side branch, Dabob Bay, opens to the north partway along. The canal is mostly 2 to 3 km wide, and its floor drops to about 180 m (600 feet) in the middle reaches."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Hood Canal, from its mouth at the top to the Great Bend and Lynch Cove at the bottom. The dashed line marks the sill near the entrance.",
+          "options": {
+            "relief": "maps/hoodcanal",
+            "water": 0,
+            "sun": {
+              "azimuth": 315,
+              "altitude": 40
+            },
+            "labels": [
+              {
+                "lon": -122.62,
+                "lat": 47.915,
+                "text": "Mouth",
+                "side": "left"
+              },
+              {
+                "lon": -122.66,
+                "lat": 47.86,
+                "text": "Sill",
+                "side": "right"
+              },
+              {
+                "lon": -122.862,
+                "lat": 47.76,
+                "text": "Dabob Bay",
+                "side": "left"
+              },
+              {
+                "lon": -123.14,
+                "lat": 47.405,
+                "text": "Hoodsport",
+                "side": "left"
+              },
+              {
+                "lon": -123.08,
+                "lat": 47.36,
+                "text": "Great Bend",
+                "side": "right"
+              },
+              {
+                "lon": -122.86,
+                "lat": 47.43,
+                "text": "Lynch Cove",
+                "side": "right"
+              },
+              {
+                "lon": -123.16,
+                "lat": 47.345,
+                "text": "Skokomish River",
+                "side": "below"
+              }
+            ],
+            "lines": [
+              {
+                "points": [
+                  [
+                    -122.685,
+                    47.857
+                  ],
+                  [
+                    -122.625,
+                    47.86
+                  ]
+                ],
+                "color": "rock",
+                "dashed": true,
+                "width": 3
+              }
+            ],
+            "scale": "right"
+          }
+        },
+        {
+          "type": "text",
+          "text": "Near the mouth the floor rises to a **sill**, a ridge whose crest, its highest point, lies about 50 m (160 feet) below the surface, like the ridges that lesson 11 found at the Sound's narrows.[^sill] Behind it lies the deep basin. Lesson 12's two-layer exchange works here as it does in the Sound: fresher water leaves at the surface and denser ocean water comes in below. Only water from above the crest can get over. Once over, the inflow sinks until it meets water as dense as itself, and spreads out at that level. If it is denser than everything in the basin, it runs all the way to the floor. If it is not, it stops partway down and slides in over the top of the deep water, leaving the bottom of the basin alone. Most of the year the inflow is the second kind. The tide moves water in and out over the sill twice a day, but it mostly stirs the upper layers near the mouth and does little to the deep water far behind."
+        },
+        {
+          "type": "text",
+          "text": "The rivers make it worse. The Skokomish, the largest, enters near the Great Bend, and four smaller rivers, the Hamma Hamma, the Duckabush, the Dosewallips and the Quilcene, come down from the Olympics along the western shore. Together they lay a layer of fresher, lighter water over the top. As lesson 6 found in Lake Washington, a light layer over a heavy one resists being stirred. Wind and tide churn the top few metres, where the water takes in oxygen from the air, but they cannot easily push that oxygen down through the layering to the water beneath. The fresh layer is a lid.[^basins]"
+        }
+      ]
+    },
+    {
+      "title": "How long the water stays",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A useful number for any basin is its **residence time**: how long, on average, a parcel of water stays before it is replaced. It is the basin's volume divided by the rate at which water is exchanged, in the same way that a bathtub holding 200 litres, with a tap running 10 litres a minute and the drain open to match, turns over its water in about 20 minutes."
+        },
+        {
+          "type": "key_ideas",
+          "title": "An estimate",
+          "points": [
+            "Treat Hood Canal as a long box: 110 km long, 3 km wide and about 60 m deep on average. In metres that is 110,000 × 3,000 × 60 ≈ 20,000,000,000 cubic metres, or 20 cubic kilometres. Measurements of the canal's salt and temperature, and computer models of its circulation made at the University of Washington, put the time to replace the canal's water as a whole at a few months. Four months is about 120 days, or 10 million seconds. To swap 20 billion cubic metres in 10 million seconds, about 2,000 cubic metres a second must come in over the sill at depth, and as much leave at the surface: about a quarter of the Columbia River's average flow, each way."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "Water that sits for months would not matter if nothing used its oxygen. But something does. Each summer the sunlit top of the canal grows blooms of drifting algae, the plankton; when they die they sink, and bacteria decaying them use oxygen as they go.[^bio] Near the surface, the air and the algae themselves put oxygen back. Below the lid, nothing does. Every day the deep water loses a little, and the only fresh supply is new water from over the sill. At the far south end that new water comes once a year, with the late-summer inflow described in the next part, so the deep water there is renewed about once a year."
+        },
+        {
+          "type": "text",
+          "text": "Oxygen dissolved in water is measured in milligrams per litre (mg/L). Cold sea water in touch with the air holds about 9 mg/L.[^mgl] Many fish become stressed below about 4 or 5 mg/L, and below about 2 mg/L, a level called **hypoxic**, most fish leave or die. The figure is a model of one deep basin. Water arrives over the sill with 7 mg/L, less than full, for a reason the next part gives. Decay then takes a steady amount each day: the Decay slider sets it, starting at 0.03 mg/L a day, a round number of the right size. The Exchange slider sets how many cubic metres a second come over the sill, which fixes the residence time for a basin of 20 km³."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "hoodcanal-flush",
+          "caption": "A model of a basin's deep water. The green line follows a parcel's oxygen (mg/L) from the day it crosses the sill; the dashed line and dot mark the residence time, when on average it is replaced. The shaded band is hypoxic.",
+          "task": "Slow the exchange until the deep water becomes hypoxic",
+          "goal": "hypoxic",
+          "aspect_ratio": 1.9
+        },
+        {
+          "type": "text",
+          "text": "The rule the figure follows is simple: the oxygen left is what the water came in with, less the daily loss times the days it stays. At 0.03 mg/L a day, water that stays 30 days loses about 1 mg/L and water that stays 200 days loses 6. Double the residence time and the loss doubles. A basin that is replaced in a month, like much of the Sound's Main Basin, barely notices its decay. A basin replaced once a year can use up everything it had. Hood Canal's south end is the second kind, and through each summer its deep water slides steadily toward empty. That explains the place and the season. It does not yet explain why fish at the surface die, or why it happens in a day."
+        }
+      ]
+    },
+    {
+      "title": "New water from below",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Lesson 12 described upwelling: in late summer, northerly winds along the outer coast push the surface water offshore, and cold, salty water rises from the deep Pacific to take its place. Cold and salty together make it the densest water of the year. By August and September it reaches the Strait and the Sound along the bottom, and some of it comes over Hood Canal's sill. It is denser than anything in the basin, so it does not stop partway down. It runs down the slope behind the sill and south along the floor, a heavy river under the canal's old water. Before you play the figure, guess: in the week that new ocean water arrives, does it help the fish at the south end near Hoodsport, hurt them, or do nothing? Lock in your guess, then play the year (Play or the Week slider) and turn the Dense inflow and South wind switches on and off."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "hoodcanal-year",
+          "caption": "A section along Hood Canal from the sill (left, north) to the south end (right), through a year. Colour is oxygen in mg/L, from red (none) through pale to green (full); the key is under the drawing. A model with depths and timing simplified.",
+          "task": "Guess, then play the year with the inflow and a south wind both on",
+          "goal": "kill",
+          "aspect_ratio": 1.65
+        },
+        {
+          "type": "text",
+          "text": "The new water does not stir into the old. It slides underneath and lifts it, the way the salty water under a fresh layer in lesson 6 stays below: heavy water poured in at the bottom raises everything above it. The water lifted is the worst in the basin: the oldest water, which has been losing oxygen since spring. As the new water piles up on the floor, that old water is pushed up until it lies just under the fresh lid, and the oxygen-rich layer the fish need is squeezed to a few metres. This is when divers see bottom fish crowding into the shallows. The new water itself is no great gift either. It spent a long time deep in the Pacific before it was upwelled, and much of its own oxygen was used up there, which is why the flushing model gave it only 7 mg/L."
+        },
+        {
+          "type": "text",
+          "text": "Then the wind. A south wind, one blowing from the south, pushes the light surface layer north along the canal. Something has to take its place at the south end, and the only water available is what lies beneath. Lesson 6 found the same in a lake, where wind piling up warm water at one end makes the cold water below rise at the other.[^tilt] In an ordinary year the water that wells up comes from mid-depth and still holds some oxygen, and nothing much happens. In a year when the old water has been lifted to just under the lid, the water that wells up is the old water itself. It reaches the surface at the south end within hours, and the fish that had crowded upward have nowhere left to go. This pairing, low-oxygen water lifted high by a late-summer inflow and a south wind to bring it up, is how oceanographers explain the kills."
+        },
+        {
+          "type": "text",
+          "text": "So the answer to the guess is that it hurts: fresh ocean water, the thing that will eventually renew the canal, is what sets off the kill. Through the autumn the new water stays on the floor, while storms mix the lifted old water into the surface layer, which carries it out of the canal toward Admiralty Inlet. By winter the canal has its oxygen back. In a year with no strong inflow, the old water stays down, keeps losing oxygen and is not replaced, so the next year begins with a worse bottom."
+        }
+      ]
+    },
+    {
+      "title": "Whose nitrogen",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Algae need nitrogen to grow, and more nitrogen means bigger blooms, more sinking dead algae and more oxygen used. People add nitrogen to Hood Canal: from the septic systems of the homes along its shore, from fertiliser on lawns and fields, from animals, all washed in by streams and groundwater. The ocean adds far more. Deep Pacific water is rich in nitrogen, set free over years by the decay of everything that sank into it, and the upwelled inflow brings it over the sill. When the kills of the early 2000s made news, many people around the canal assumed that the septic tanks were the whole cause."
+        },
+        {
+          "type": "key_ideas",
+          "title": "A misconception",
+          "points": [
+            "\"Septic tanks made the dead zone.\" The Hood Canal Dissolved Oxygen Program, a study led by the University of Washington with state and local agencies from the mid 2000s, measured where the canal's nitrogen comes from. In most of the canal the nitrogen from people is a small share of the total; most of it comes in from the ocean with the deep inflow. The exception is Lynch Cove, the shallow far end past the Great Bend, where water is replaced most slowly and human nitrogen is a larger share."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "The flushing figure shows why the place matters. Move its Decay slider up a little, as extra nitrogen would, and a basin with a short residence time barely changes; a basin that keeps its water for most of a year loses a great deal more. Lynch Cove has low oxygen at depth almost every late summer, and there, the same study found, the nitrogen people add is a real part of the cause."
+        }
+      ]
+    },
+    {
+      "title": "Watching it happen",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The canal is now watched closely. The University of Washington keeps moored buoys in it, at Hoodsport, Twanoh and elsewhere, whose instruments run up and down the water column several times a day measuring temperature, salt and oxygen. Their records show the year this lesson describes: oxygen falling in the deep water through summer, the low-oxygen layer rising in late summer as the dense water comes in, and the recovery in autumn. When the low-oxygen layer is already high and a south wind is forecast, a kill at the south end is likely within days."
+        },
+        {
+          "type": "key_ideas",
+          "title": "Outside",
+          "points": [
+            "In late August or September, look up the Hoodsport or Twanoh buoy on NANOOS, the Northwest's ocean data site (nanoos.org), and find its oxygen plot by depth. Watch for the low-oxygen layer creeping toward the surface, and check the wind forecast for southern Hood Canal. If you visit the canal then, at Potlatch or Twanoh State Park, the water at the surface looks no different; the trouble is all below."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on Hood Canal",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Why does the deep water at the south end of Hood Canal stay so long?",
+                "choices": [
+                  "A shallow sill near the mouth admits only some ocean water, and the far end lies off its path",
+                  "The tide is too weak at the south end to move water in or out of the deep basin at all",
+                  "The rivers at the south end drive a current toward the mouth that holds ocean water back",
+                  "The deep water at the south end is warmer and lighter, so ocean water cannot sink beneath it"
+                ],
+                "answer": 0,
+                "why": "Only water from above the sill's crest gets in, only the densest reaches the floor, and the far south end is renewed about once a year, when the late-summer inflow reaches it."
+              },
+              {
+                "ask": "A basin holds 20 cubic kilometres (20 billion cubic metres) and exchanges 2,000 cubic metres a second. About how long is its residence time?",
+                "choices": [
+                  "About four months",
+                  "About two weeks",
+                  "About one year",
+                  "About forty days"
+                ],
+                "answer": 0,
+                "why": "20,000,000,000 ÷ 2,000 = 10 million seconds, which is about 116 days."
+              },
+              {
+                "ask": "Which explanation is best for why oxygen falls in the canal's deep water through the summer?",
+                "choices": [
+                  "Decay of sunken plankton uses it, and below the fresh lid nothing puts it back",
+                  "Summer sun warms the deep water until it can no longer hold its oxygen",
+                  "Fresh river water with no oxygen in it soaks down and replaces the deep water",
+                  "Upwelled water with no oxygen at all pours in over the sill all summer long"
+                ],
+                "answer": 0,
+                "why": "Decay takes oxygen every day; the air and the algae replace it only near the surface, and the lid of lighter water keeps it from being stirred down. The deep water stays cold, and the inflow arrives in late summer with some oxygen."
+              },
+              {
+                "ask": "In late summer, dense new ocean water crosses Hood Canal's sill. What does it do to the fish near the surface at the south end?",
+                "choices": [
+                  "It endangers them, because it lifts the old low-oxygen water up toward them",
+                  "It helps them, because it carries fresh oxygen up into the surface layer",
+                  "It does nothing to them, because dense water stays below the sill near the mouth",
+                  "It helps them, because it pushes the old low-oxygen water out of the canal at once"
+                ],
+                "answer": 0,
+                "why": "The new water sinks to the floor and does not stir into the old; the oldest, worst water is pushed up to just under the surface layer."
+              },
+              {
+                "ask": "Why does a south wind set off a fish kill at the south end of the canal?",
+                "choices": [
+                  "It pushes the surface layer north, and the lifted water below wells up in its place",
+                  "It blows warm air over the water and drives the oxygen out of the surface layer",
+                  "It piles surface water at the south end and presses the fish down into deep water",
+                  "It stirs mud from the shallows, and the decaying mud uses up the surface oxygen"
+                ],
+                "answer": 0,
+                "why": "Water pushed away at the surface is replaced from below, as with the tilted layers of a lake in lesson 6."
+              },
+              {
+                "ask": "What did the Hood Canal Dissolved Oxygen Program find about nitrogen from people?",
+                "choices": [
+                  "It is a small share in most of the canal and a larger one at Lynch Cove",
+                  "It is the main cause in most of the canal, though the ocean adds some at the mouth",
+                  "It is a small share everywhere, Lynch Cove included, where the ocean supplies nearly all",
+                  "It matters most near the mouth, where the inflow and the busiest shores meet"
+                ],
+                "answer": 0,
+                "why": "Most nitrogen comes in with deep ocean water, but in the slowly flushed far end what people add is a real part of the cause."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "name": {
+      "kind": "digression",
+      "title": "Hood's Canal",
+      "text": "George Vancouver's expedition charted it in May 1792, and Vancouver named it Hood's Channel, after Admiral Samuel Hood; on his published chart it became Hood's Canal. The name stuck, though the water was never dug by anyone."
+    },
+    "sill": {
+      "kind": "technical",
+      "title": "Why fjords have sills",
+      "text": "A glacier scours hardest where its ice is thickest and fastest, in the middle of its trough, and less at the mouth, where it spreads out and thins. It often leaves a ridge of rock or of dumped sediment (a moraine) at the mouth. Many fjords, from Norway to British Columbia, have a sill near their entrance and a deeper basin behind it."
+    },
+    "bio": {
+      "kind": "technical",
+      "title": "Decay",
+      "text": "Bacteria break down dead plankton the way we digest food, using oxygen and giving off carbon dioxide. The biology is the next course's subject; here all that matters is that it uses oxygen at a fairly steady rate wherever dead matter sinks."
+    },
+    "mgl": {
+      "kind": "technical",
+      "title": "Milligrams per litre",
+      "text": "A litre of water weighs a kilogram, so 9 milligrams per litre is 9 parts per million by weight. Cold water holds more oxygen than warm, and fresh water slightly more than salt: about 11 mg/L for fresh water near freezing, about 9 for sea water at 10 °C."
+    },
+    "tilt": {
+      "kind": "technical",
+      "title": "Why the deep layer tilts the other way",
+      "text": "Wind drags the light top layer downwind, so the water surface rises slightly at that end. The extra weight of water there presses the boundary between the layers down, and at the upwind end it rises. The surface tilts by centimetres, the boundary by metres, because the two layers differ so little in density. Lesson 6 met the same tilt in Lake Washington, where it sets off a seiche when the wind drops."
+    },
+    "basins": {
+      "kind": "digression",
+      "title": "Other basins",
+      "text": "Hood Canal's pattern is common in fjords and enclosed seas: a sill, a lid of fresh water and slow renewal. Parts of the southern Sound's inlets have low oxygen in late summer for the same reasons, and the Baltic Sea's deep basins have gone without oxygen for years at a time between rare inflows of North Sea water over its sills."
+    }
+  }
+}

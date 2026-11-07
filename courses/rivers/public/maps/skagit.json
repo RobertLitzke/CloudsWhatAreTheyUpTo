@@ -1,0 +1,26 @@
+{
+  "format": "didactics-relief",
+  "version": 1,
+  "image": "skagit.png",
+  "width": 446,
+  "height": 497,
+  "zoom": 12,
+  "x0": 167306,
+  "y0": 362049,
+  "step": 3,
+  "bounds": [
+    -122.56004,
+    48.2201,
+    -122.10068,
+    48.56002
+  ],
+  "range": [
+    -1068,
+    1247
+  ],
+  "credit": "Copernicus GLO-30 (© DLR, Airbus; EU/ESA) and Terrain Tiles on AWS",
+  "licence": "Copernicus DEM: free to use with the attribution in source. Terrain Tiles: mostly public domain.",
+  "source": "Copernicus GLO-30 DEM (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA; all rights reserved) for the land; the sea floor from Terrain Tiles on AWS (Mapzen/Linux Foundation): USGS 3DEP and SRTM (public domain), Copernicus/EU-DEM, GMTED2010, ETOPO1 and others, as listed at https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "fetched": "2026-11-07",
+  "made": "node tools/geo/relief.mjs --name skagit --bbox -122.56,48.22,-122.1,48.56 --zoom 12 --max 560 --precision 1 --coast --out courses/rivers/public/maps"
+}

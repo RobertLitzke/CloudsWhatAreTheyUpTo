@@ -1,0 +1,774 @@
+{
+  "id": "lowering",
+  "n": 102,
+  "branch": "seattle",
+  "needs": [
+    "cedar"
+  ],
+  "title": "The summer Lake Washington fell",
+  "teaches": "The 1916 lowering, the vanished Black River, and the locks that keep the salt out",
+  "summary": [
+    "**A lake's level is set by its outlet.** The water rises until it spills over the lowest point of its rim, and settles a little above that lip.",
+    "**Lake Washington once drained south.** Before 1916 it spilled into the Black River at Renton, which joined the White River to form the Duwamish.",
+    "**The Cedar was turned into the lake in 1912.** Before that it joined the Black River below the lake.",
+    "**The Montlake Cut gave the lake a lower outlet.** When the cut opened in 1916 the lake drained west into Lake Union and fell about 2.7 metres (8.8 feet), to Lake Union's level, over about two months.",
+    "**The Black River all but dried up.** The lake fell below its bed, so the river was left with only a trickle of rain from its own small valley.",
+    "**The locks at Ballard now set the lake's level.** Since 1917 the Hiram M. Chittenden Locks have held Lake Union and Lake Washington about 6 metres above low tide in the Sound.",
+    "**Every lockage lets salt water in.** Heavy sea water left in the lock chamber slides out along the bottom of Salmon Bay and creeps upstream as a salt wedge.",
+    "**A barrier and a drain keep the salt from the lake.** A barrier on the lock chamber's floor holds salt water back, and a drain on the lake side returns what gets past to the Sound."
+  ],
+  "parts": [
+    {
+      "title": "Docks on mud",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "In the autumn of 1916, people along the south end of Lake Washington watched their lake go away. At Rainier Beach, on the southwest shore, docks built out into deep enough water for a launch ended over mud, and boathouses sat on the ground. Week by week the shoreline crept outward. At Renton, the Black River, which had carried the lake's water south for as long as anyone there remembered, ran thinner, and then all but stopped."
+        },
+        {
+          "type": "text",
+          "text": "Nobody had dammed the Black River, and the summer had not been unusually dry. What had changed was some 15 km away, at the far north end of the lake, where workmen had just finished cutting a channel through a low neck of land into Lake Union. Lesson 6, on lakes and their layers, looked at what goes on inside a lake. This lesson is about what holds one up. Before reading on, try to explain how a ditch dug at one end of a lake can dry up a river at the other."
+        }
+      ]
+    },
+    {
+      "title": "A lake with one way out",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A lake is a hollow that has filled until it spills. The water rises until it reaches the lowest point on the hollow's rim, which this lesson calls the lip, and pours over it as the lake's outlet river. The higher the water stands above the lip, the faster it pours out, and the outflow climbs steeply: double the depth over the lip and the outflow nearly triples.[^lip] So a lake settles only a little above its lip, just high enough that the outflow matches what flows in. In a wet winter the lake rides a little higher and in late summer a little lower. The lip decides the level."
+        },
+        {
+          "type": "text",
+          "text": "Before 1916, Lake Washington's lip was at its south end. The lake spilled into the Black River, a short, slow river that wound southwest from Renton and joined the White River near present-day Tukwila; together they became the Duwamish, which ran on to Elliott Bay. The Cedar River did not then flow into the lake at all. It came down through Renton and joined the Black River just below the lake. In 1912, to ease Renton's floods and to give the planned canal more water, the Cedar was turned north into a new channel straight into the lake."
+        },
+        {
+          "type": "text",
+          "text": "West of the lake, across the narrow neck of land at Montlake, lay Lake Union, some 2.7 metres lower, draining west through Salmon Bay to the Sound. That difference is the whole story of 1916: once the two lakes were joined, Lake Washington would fall to Lake Union's level. People had talked of joining the lakes to the Sound since the 1850s, when Lake Union got its name for just that hope.[^union] The plan that was finally built had two parts: a cut through the Montlake neck, and locks at Ballard to hold the lakes up above the tide and lift ships into them."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "map-live",
+          "caption": "Lake Washington and its outlets from 1911 to 1917. The rivers and canals are drawn roughly; the shading shows today's lakes and shore, not the old ones.",
+          "task": "Step through to 1917",
+          "goal": "end",
+          "options": {
+            "relief": "maps/lakewashington",
+            "water": 3,
+            "sun": {
+              "azimuth": 315,
+              "altitude": 35
+            },
+            "textLines": 3,
+            "labels": [
+              {
+                "lon": -122.26,
+                "lat": 47.62,
+                "text": "Lake Washington",
+                "area": true
+              },
+              {
+                "lon": -122.335,
+                "lat": 47.636,
+                "text": "Lake Union",
+                "side": "left"
+              },
+              {
+                "lon": -122.252,
+                "lat": 47.513,
+                "text": "Rainier Beach",
+                "side": "left"
+              },
+              {
+                "lon": -122.205,
+                "lat": 47.484,
+                "text": "Renton",
+                "side": "right"
+              },
+              {
+                "lon": -122.36,
+                "lat": 47.59,
+                "text": "Elliott Bay",
+                "area": true
+              }
+            ],
+            "stages": [
+              {
+                "label": "1911",
+                "text": "The lake spills south into the Black River. The Cedar joins the Black below the lake, and the Black joins the White near Tukwila to make the Duwamish.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -122.214,
+                        47.503
+                      ],
+                      [
+                        -122.212,
+                        47.49
+                      ],
+                      [
+                        -122.215,
+                        47.478
+                      ],
+                      [
+                        -122.235,
+                        47.473
+                      ],
+                      [
+                        -122.25,
+                        47.471
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.17,
+                        47.483
+                      ],
+                      [
+                        -122.195,
+                        47.481
+                      ],
+                      [
+                        -122.215,
+                        47.478
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.235,
+                        47.45
+                      ],
+                      [
+                        -122.245,
+                        47.471
+                      ],
+                      [
+                        -122.268,
+                        47.485
+                      ],
+                      [
+                        -122.285,
+                        47.495
+                      ],
+                      [
+                        -122.292,
+                        47.507
+                      ],
+                      [
+                        -122.302,
+                        47.52
+                      ],
+                      [
+                        -122.32,
+                        47.535
+                      ],
+                      [
+                        -122.333,
+                        47.552
+                      ],
+                      [
+                        -122.342,
+                        47.57
+                      ],
+                      [
+                        -122.35,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.225,
+                    "lat": 47.474,
+                    "text": "Black River",
+                    "side": "below",
+                    "color": "water"
+                  },
+                  {
+                    "lon": -122.185,
+                    "lat": 47.482,
+                    "text": "Cedar",
+                    "side": "below",
+                    "color": "water"
+                  }
+                ]
+              },
+              {
+                "label": "1912",
+                "text": "The Cedar is turned north into a new channel and runs straight into the lake. The Black River now carries only the lake's own outflow.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -122.214,
+                        47.503
+                      ],
+                      [
+                        -122.212,
+                        47.49
+                      ],
+                      [
+                        -122.215,
+                        47.478
+                      ],
+                      [
+                        -122.235,
+                        47.473
+                      ],
+                      [
+                        -122.25,
+                        47.471
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.17,
+                        47.483
+                      ],
+                      [
+                        -122.2,
+                        47.483
+                      ],
+                      [
+                        -122.209,
+                        47.492
+                      ],
+                      [
+                        -122.212,
+                        47.502
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.235,
+                        47.45
+                      ],
+                      [
+                        -122.245,
+                        47.471
+                      ],
+                      [
+                        -122.268,
+                        47.485
+                      ],
+                      [
+                        -122.285,
+                        47.495
+                      ],
+                      [
+                        -122.292,
+                        47.507
+                      ],
+                      [
+                        -122.302,
+                        47.52
+                      ],
+                      [
+                        -122.32,
+                        47.535
+                      ],
+                      [
+                        -122.333,
+                        47.552
+                      ],
+                      [
+                        -122.342,
+                        47.57
+                      ],
+                      [
+                        -122.35,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.225,
+                    "lat": 47.474,
+                    "text": "Black River",
+                    "side": "below",
+                    "color": "water"
+                  },
+                  {
+                    "lon": -122.185,
+                    "lat": 47.483,
+                    "text": "Cedar",
+                    "side": "above",
+                    "color": "water"
+                  }
+                ]
+              },
+              {
+                "label": "1916",
+                "text": "The Montlake Cut opens. The lake drains west into Lake Union and falls about 2.7 m over about two months; the Black River's channel is left all but dry.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -122.214,
+                        47.503
+                      ],
+                      [
+                        -122.212,
+                        47.49
+                      ],
+                      [
+                        -122.215,
+                        47.478
+                      ],
+                      [
+                        -122.235,
+                        47.473
+                      ],
+                      [
+                        -122.25,
+                        47.471
+                      ]
+                    ],
+                    "color": "soft",
+                    "width": 2,
+                    "dashed": true
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.17,
+                        47.483
+                      ],
+                      [
+                        -122.2,
+                        47.483
+                      ],
+                      [
+                        -122.209,
+                        47.492
+                      ],
+                      [
+                        -122.212,
+                        47.502
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.235,
+                        47.45
+                      ],
+                      [
+                        -122.245,
+                        47.471
+                      ],
+                      [
+                        -122.268,
+                        47.485
+                      ],
+                      [
+                        -122.285,
+                        47.495
+                      ],
+                      [
+                        -122.292,
+                        47.507
+                      ],
+                      [
+                        -122.302,
+                        47.52
+                      ],
+                      [
+                        -122.32,
+                        47.535
+                      ],
+                      [
+                        -122.333,
+                        47.552
+                      ],
+                      [
+                        -122.342,
+                        47.57
+                      ],
+                      [
+                        -122.35,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.29,
+                        47.651
+                      ],
+                      [
+                        -122.3,
+                        47.6475
+                      ],
+                      [
+                        -122.31,
+                        47.647
+                      ],
+                      [
+                        -122.32,
+                        47.646
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 4
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.225,
+                    "lat": 47.474,
+                    "text": "dry bed",
+                    "side": "below",
+                    "color": "bad"
+                  },
+                  {
+                    "lon": -122.3,
+                    "lat": 47.6475,
+                    "text": "Montlake Cut",
+                    "side": "above",
+                    "color": "works"
+                  }
+                ]
+              },
+              {
+                "label": "1917",
+                "text": "The locks at Ballard open. The ship canal runs from Lake Washington through Lake Union and Salmon Bay to the Sound, and the locks hold the lakes about 6 m above low tide.",
+                "lines": [
+                  {
+                    "points": [
+                      [
+                        -122.17,
+                        47.483
+                      ],
+                      [
+                        -122.2,
+                        47.483
+                      ],
+                      [
+                        -122.209,
+                        47.492
+                      ],
+                      [
+                        -122.212,
+                        47.502
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.235,
+                        47.45
+                      ],
+                      [
+                        -122.245,
+                        47.471
+                      ],
+                      [
+                        -122.268,
+                        47.485
+                      ],
+                      [
+                        -122.285,
+                        47.495
+                      ],
+                      [
+                        -122.292,
+                        47.507
+                      ],
+                      [
+                        -122.302,
+                        47.52
+                      ],
+                      [
+                        -122.32,
+                        47.535
+                      ],
+                      [
+                        -122.333,
+                        47.552
+                      ],
+                      [
+                        -122.342,
+                        47.57
+                      ],
+                      [
+                        -122.35,
+                        47.585
+                      ]
+                    ],
+                    "color": "water",
+                    "width": 3
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.29,
+                        47.651
+                      ],
+                      [
+                        -122.3,
+                        47.6475
+                      ],
+                      [
+                        -122.31,
+                        47.647
+                      ],
+                      [
+                        -122.32,
+                        47.646
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 4
+                  },
+                  {
+                    "points": [
+                      [
+                        -122.338,
+                        47.648
+                      ],
+                      [
+                        -122.355,
+                        47.6525
+                      ],
+                      [
+                        -122.375,
+                        47.6615
+                      ],
+                      [
+                        -122.397,
+                        47.6655
+                      ]
+                    ],
+                    "color": "works",
+                    "width": 4
+                  }
+                ],
+                "labels": [
+                  {
+                    "lon": -122.3,
+                    "lat": 47.6475,
+                    "text": "Montlake Cut",
+                    "side": "above",
+                    "color": "works"
+                  },
+                  {
+                    "lon": -122.397,
+                    "lat": 47.6655,
+                    "text": "Locks",
+                    "side": "below",
+                    "color": "works"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "The cut opens",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Montlake Cut was dug on dry ground, with a strip of earth left at its east end as a temporary dam, a cofferdam, to hold Lake Washington back while the work went on.[^cofferdam] In late August 1916 the cofferdam was opened and the lake began to pour west into Lake Union, through a channel dug far below the Black River's bed. From that day the lake had a new lip, 2.7 metres lower than the old one."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "lowering-outlet",
+          "caption": "A model of the lake and its two outlets, south (left) to north and west (right), heights above low tide in the Sound. The first slider runs the days after the cut opens; the second sets the level the locks hold Lake Union at. The inflow is a late summer's, and the cut's flow is set so the lake falls over about two months, as it did.",
+          "task": "Guess what happens to the Black River, then run the days until it stops",
+          "goal": "dry",
+          "aspect_ratio": 1.7
+        },
+        {
+          "type": "text",
+          "text": "Once the lake fell below the Black River's bed, all its outflow went north, and the Black River had only a trickle of rain from its own small valley; its channel was left all but dry. The model's second slider is the level at which the locks at Ballard, described below, hold Lake Union, and so the new lip. As long as that is below the Black River's bed, the old river gets no lake water. Only if the locks held Lake Union above the Black River's bed would it run again."
+        },
+        {
+          "type": "text",
+          "text": "**An estimate.** A fall of 2.7 m over the lake's 88 km² lets out about 0.24 km³ of water. The Cedar River averages about 18 m³ a second (650 cubic feet a second) at Renton, so that is about five months of its flow. Spread over about two months, the 0.24 km³ comes to roughly 45 m³ a second through the cut on top of the lake's ordinary outflow: a big river's worth, running through a ditch that had been dry ground a few years before."
+        }
+      ]
+    },
+    {
+      "title": "What the lake lost and gained",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "A drop of 2.7 metres around a lake with gently sloping shores uncovers a lot of ground. Marshes grew where shallow bays had been, at Union Bay below the University of Washington and at the mouth of Mercer Slough near Bellevue. Docks had to be lengthened all round the lake. At Renton, the fan of sand and gravel the Cedar had begun to build where it entered the lake, its delta (lesson 4), stood above water; much of it now lies under Renton's airport."
+        },
+        {
+          "type": "text",
+          "text": "The Duwamish people, after whom the Duwamish River is named, had villages along these rivers, and they lost the Black River and the salmon that ran up it. The Duwamish River lost the lake's water as well. S3 follows what happened to it."
+        }
+      ]
+    },
+    {
+      "title": "The locks and the salt",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The locks at Ballard, named for Hiram M. Chittenden, the Army engineer who planned them, were formally opened on 4 July 1917. Since then they, not any natural lip, have set the level of Lake Union and Lake Washington: about 6 metres above low tide in the Sound, let down a little each autumn to make room for winter rain and raised again in spring.[^datum] The Sound's tide at Seattle rises and falls about 3.5 metres (11 feet) between an ordinary low and high, and more at the biggest tides, so the lift from the Sound to the lake runs from about 2 metres at a high tide to about 8 at a very low one."
+        },
+        {
+          "type": "text",
+          "text": "Each time a boat goes through, the Sound gets a way in. Call the gates at the Sound end of the chamber the lower gates and those at the lake end the upper gates. A boat coming in from the Sound enters through the open lower gates, so the chamber is full of sea water at the Sound's level. The lower gates close and fresh water is let in from the lake side; it lifts the boat, but much of the heavier sea water stays on the chamber's floor. When the upper gates open, that salt water slumps out along the bottom into Salmon Bay and creeps on upstream, toward the lake, under the fresh water."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 12 showed what salt water does where it meets a river: being heavier, it slides in underneath as a [[salt wedge|salt]] and stays there unless something stirs it. Left alone, it would creep along the floor of the ship canal into Lake Union, and then into Lake Washington, where it would sit on the bottom. Lesson 6 showed that a heavy bottom layer stops a lake from mixing in winter, and Lake Washington's deep water would be cut off from the air above."
+        },
+        {
+          "type": "diagram",
+          "id": "lowering-locks",
+          "caption": "The large lock in section, seen from the side with the Sound on the left, just after a boat has been lifted. Sea water (dark) is left on the chamber's floor and creeps up Salmon Bay along the bottom; the barrier holds it back, and the drain sends what gets past back to the Sound. Not to scale."
+        },
+        {
+          "type": "text",
+          "text": "Two works keep it out. On the floor of the large lock, near the upper gates, is a barrier that can be raised to hold back the bottom layer of salt water when those gates open. A little way above the locks, on the lake side, a large pipe opening on the bed of Salmon Bay, the saltwater drain, draws off the salty bottom water that gets past and sends it back into the Sound below the locks. Even so, a thin layer of salt water reaches some way up the canal in late summer, when the rivers feeding the lake run low and little fresh water flows out past the locks to push it back."
+        },
+        {
+          "type": "text",
+          "text": "**Go and look.** The locks are open to walk across most of the day. Stand by the large lock as it fills and watch the boats rise; look up the day's tide first, since the lift is largest at a low tide. Across the locks on the south side, the Magnolia side, the fish ladder's windows show salmon heading upstream from July to September."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the lowered lake",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "A lake's inflow doubles after a week of rain. What happens to its level?",
+                "choices": [
+                  "It rises a little, until the outflow over its lip matches",
+                  "It rises until the lake has doubled in depth",
+                  "It stays exactly where it was, held by the lip",
+                  "It falls, because the outlet river scours its bed"
+                ],
+                "answer": 0,
+                "why": "The outflow over a lip climbs steeply as the water rises above it, so a modest rise is enough to pass twice the water."
+              },
+              {
+                "ask": "Before 1916, which way did Lake Washington drain?",
+                "choices": [
+                  "South, by the Black River to the Duwamish",
+                  "West, by Lake Union and Salmon Bay to the Sound",
+                  "North, by the Sammamish River to the Snohomish",
+                  "Nowhere on the surface; only through the ground"
+                ],
+                "answer": 0,
+                "why": "The Black River was the lake's outlet until the Montlake Cut gave it a lower one in 1916."
+              },
+              {
+                "ask": "Nobody dammed the Black River, yet in 1916 it all but dried up. Why?",
+                "choices": [
+                  "A new, lower outlet let the lake fall below the river's bed",
+                  "The Cedar River was turned away from it that same autumn",
+                  "A dry summer dropped the water table under Renton",
+                  "Pumps at the locks drew the lake down to fill Lake Union"
+                ],
+                "answer": 0,
+                "why": "With a new lip 2.7 m lower, the lake drained west and fell below the old one. The Cedar had been turned into the lake four years earlier."
+              },
+              {
+                "ask": "How far did Lake Washington fall after the Montlake Cut opened in 1916, and why that far?",
+                "choices": [
+                  "About 2.7 m, down to Lake Union's level",
+                  "About 30 cm, until the cut silted up",
+                  "About 9 m, down to the level of the Sound",
+                  "About 2.7 m, the depth the cut was dug to"
+                ],
+                "answer": 0,
+                "why": "Joined to Lake Union, the lake fell to Lake Union's level, which the locks hold."
+              },
+              {
+                "ask": "Why does sea water get into Salmon Bay, above the locks?",
+                "choices": [
+                  "Sea water left in the lock chamber slides out along the floor",
+                  "High tides spill over the spillway dam into the bay",
+                  "Salt seeps through the locks' concrete from the Sound",
+                  "Road salt washes into the canal and gathers there"
+                ],
+                "answer": 0,
+                "why": "The chamber holds sea water from the Sound's side; when the upper gates open, that heavy water slides out along the bottom and creeps upstream as a salt wedge."
+              },
+              {
+                "ask": "Why does it matter if a salty layer reaches the bottom of Lake Washington?",
+                "choices": [
+                  "It would not mix in winter, cutting the deep water off",
+                  "It would make the lake too salty to drink within years",
+                  "It would freeze over the deep water every winter",
+                  "It would dissolve the lake bed and move the shoreline"
+                ],
+                "answer": 0,
+                "why": "Lake Washington mixes top to bottom once a winter; a denser salty layer on the floor would stay put and stop that mixing."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "lip": {
+      "kind": "technical",
+      "title": "Over the lip",
+      "text": "The outflow over a broad lip grows faster than the depth of water over it: roughly, double the depth and the outflow nearly triples (engineers write it as the depth to the power one and a half). That is why a lake's level swings much less than its inflow."
+    },
+    "union": {
+      "kind": "digression",
+      "title": "Lake Union",
+      "text": "The settler Thomas Mercer is said to have named Lake Union at a Fourth of July picnic in 1854, for the union of waters he expected a canal to bring. A small log canal was cut at Montlake in the 1880s, but ships waited until the 1910s."
+    },
+    "cofferdam": {
+      "kind": "technical",
+      "title": "Cofferdam",
+      "text": "A cofferdam is a temporary wall that keeps water out of a place being dug or built, then is removed."
+    },
+    "datum": {
+      "kind": "technical",
+      "title": "Measured from low tide",
+      "text": "A datum is the zero a height is measured from. At the locks it is close to the average of the lower of each day's two low tides in the Sound. On that scale Lake Washington is held between about 20 feet (6.1 m) in winter and about 22 feet (6.7 m) in summer."
+    }
+  }
+}
