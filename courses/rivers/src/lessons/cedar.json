@@ -1,0 +1,258 @@
+{
+  "id": "cedar",
+  "n": 101,
+  "branch": "seattle",
+  "needs": ["baseflow"],
+  "title": "The hill that drained a reservoir",
+  "teaches": "Where Seattle's water comes from, and the Masonry Dam's leak through glacial gravel in 1918",
+  "summary": [
+    "**Seattle drinks from two Cascade rivers.** The Cedar gives about two thirds of the water for about 1.5 million people, the South Fork Tolt about a third.",
+    "**The Cedar's water is not filtered.** Its watershed is owned by the city and closed to the public, so the water is only treated with ozone and ultraviolet light to kill germs.",
+    "**The city takes a small share of the rain.** Something like an eighth of what falls on the Cedar watershed reaches taps; the rest goes back to the air or down the river.",
+    "**The Masonry Dam stands beside a moraine.** The ridge on one side of its reservoir is sand and gravel the ice sheet left, not rock.",
+    "**Water seeps through gravel by Darcy's law.** The flow grows with how easily the ground passes water, with the push of the water behind it, and with the thickness of wet ground it moves through.",
+    "**A deeper reservoir leaks much more.** Doubling the water's depth against a gravel bank roughly quadruples the seepage, because the push and the wet thickness both double.",
+    "**Seepage that carries grains is dangerous.** Springs that wash sand out of a slope hollow it from below, and in December 1918 the hillside above Boxley Creek burst and the flood destroyed the town of Edgewick.",
+    "**The reservoir is still kept low.** The city never filled the Masonry Pool to the height it was built for, and water from the Cedar still seeps through the moraine toward the Snoqualmie."
+  ],
+  "parts": [
+    {
+      "title": "A flood from the wrong valley",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Just before Christmas in 1918, a flood of water, mud, boulders and logs came down Boxley Creek, a small stream in the Cascade foothills east of North Bend, and swept through the mill town of Edgewick where the creek meets the South Fork of the Snoqualmie River. It wrecked the mill and the houses near the creek and tore out the railway where it crossed the creek on the hillside above.[^date] Edgewick was never rebuilt."
+        },
+        {
+          "type": "text",
+          "text": "Boxley Creek is a small stream draining a small patch of hillside, and no rain on that hillside could have made a flood like this. The water had come from the next valley to the south, from the reservoir Seattle had just built on the Cedar River, behind a concrete wall called the Masonry Dam. The dam itself held. It never cracked or spilled over. The water went another way, through the hill beside it."
+        },
+        {
+          "type": "text",
+          "text": "Before reading on, look at the map below and see if you can work out how water held behind a sound dam in one valley could come out in another valley, more than a kilometre away and well downhill. Lesson 3 holds the answer."
+        },
+        {
+          "type": "diagram",
+          "id": "map",
+          "caption": "Seattle's two sources and the place where the Cedar reservoir lost its water. The Masonry Dam sits a short way from Rattlesnake Lake and the head of Boxley Creek, which drain north to the Snoqualmie. Lakes in the mountains are not shaded on this relief.",
+          "options": {
+            "relief": "maps/cascades",
+            "water": 0,
+            "sun": { "azimuth": 315, "altitude": 35 },
+            "labels": [
+              { "lon": -122.33, "lat": 47.61, "text": "Seattle", "side": "left" },
+              { "lon": -122.115, "lat": 47.41, "text": "Lake Youngs", "side": "below" },
+              { "lon": -121.96, "lat": 47.377, "text": "Landsburg", "side": "below" },
+              { "lon": -121.763, "lat": 47.414, "text": "Masonry Dam", "side": "below" },
+              { "lon": -121.775, "lat": 47.433, "text": "Rattlesnake Lake", "side": "left" },
+              { "lon": -121.728, "lat": 47.466, "text": "Edgewick", "side": "right" },
+              { "lon": -121.66, "lat": 47.37, "text": "Chester Morse Lake", "side": "right" },
+              { "lon": -121.69, "lat": 47.695, "text": "South Fork Tolt Reservoir", "side": "right" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "Seattle's two rivers",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Every tap in Seattle, and in many of the towns around it, draws on two rivers in the Cascades. The Cedar River supplies about two thirds of the water for about 1.5 million people; the South Fork of the Tolt River, to the north, supplies most of the rest. On the Cedar, the city owns almost the whole upper watershed, some 370 square kilometres of forest (about 90,000 acres), and keeps it closed. No one lives in it and no one may walk in it without a permit. Rain and snow that land there run through forest soil and into the river with nothing upstream to dirty them."
+        },
+        {
+          "type": "text",
+          "text": "The water is stored in Chester Morse Lake and in the smaller pool behind the Masonry Dam, then let down the river to Landsburg, some 20 km downstream, where most of what the city takes is drawn off into pipelines. It is treated with ozone and ultraviolet light, which kill germs, and flows on to Lake Youngs, a storage reservoir southeast of Renton, and from there to the city. The Cedar's water is not filtered. A source this clean, from a watershed this well guarded, is allowed to skip that step, and Seattle is one of only a handful of large American cities that does.[^unfiltered] The Tolt's water is filtered."
+        },
+        {
+          "type": "text",
+          "text": "**An estimate.** The Cedar watershed gets something like 2.5 metres of rain and snow a year on average, much more on the crest than near Landsburg. Over 370 km², that is about 0.9 km³ of water a year. The whole supply system delivers something like 0.17 km³ a year, about two thirds of it from the Cedar, so the city takes roughly an eighth of what falls on the watershed. As lesson 1 described, part of the rest goes back to the air from leaves and the ground. Most of the remainder runs on down the Cedar to Lake Washington, and the city is bound to leave enough in the river for its salmon."
+        },
+        {
+          "type": "diagram",
+          "id": "scale",
+          "caption": "Water in a year on the Cedar, in cubic kilometres: the rain and snow on the closed watershed, against what the region's taps draw from both rivers and the Cedar's share of it. Rough figures.",
+          "options": {
+            "title": "Water a year, km³",
+            "unit": "km³",
+            "items": [
+              { "label": "Rain and snow on the Cedar watershed", "value": 0.9, "color": "rain" },
+              { "label": "All Seattle's supply, both rivers", "value": 0.17, "color": "works" },
+              { "label": "The Cedar's share of the supply", "value": 0.11, "color": "water", "bold": true }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "title": "A dam beside a heap of gravel",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "The Masonry Dam was finished in 1914, in a narrow rocky part of the Cedar's valley a little above Cedar Falls. Its foundations are in rock. The trouble was beside it. On the north side, the reservoir rests against a broad, low ridge that is not rock at all but a **moraine**: a heap of sand, gravel and boulders dropped by the edge of the ice sheet that filled the Puget lowland until some 16,000 years ago (the Geology course tells that story).[^moraine] The ice pushed a tongue up the Cedar's valley and left this heap as a dam across it. The moraine now forms the low divide between the Cedar and the South Fork of the Snoqualmie. On its far side the ground drops away, well below the reservoir, to Rattlesnake Lake and the head of Boxley Creek."
+        },
+        {
+          "type": "text",
+          "text": "Lesson 3 showed what water does in ground like this. It moves through the spaces between the grains, and **Darcy's law** sets how fast: the flow is the ground's conductivity, how easily it passes water, times the slope of the water table, times the area the water moves through. Clay passes water a million times more slowly than clean gravel, and a moraine is often full of clean gravel. Put a reservoir against one side of a gravel ridge, with lower ground on the other side, and water will flow through the ridge and come out as [[springs|water]] wherever the far slope cuts the [[water table|ground]]."
+        },
+        {
+          "type": "interactive_diagram",
+          "id": "cedar-seep",
+          "caption": "A model of the moraine, in section: the reservoir on the left, the gravel bank, and springs where the water comes out on the far side. The flow is figured for a path 1.5 km long along 3 km of shore; the real moraine's size and makeup are only roughly known.",
+          "task": "Guess, then raise the reservoir from 20 m to 40 m up the moraine",
+          "goal": "double",
+          "aspect_ratio": 1.7
+        },
+        {
+          "type": "text",
+          "text": "The answer surprises most people. When the water stands twice as deep against the bank, the push through it doubles, and so does the thickness of wet gravel the water can flow through. The seepage goes up by both factors at once: four times as much.[^dupuit] A test of the reservoir at a low level could look reassuring and still say little about the reservoir full. Change the ground to coarser gravel and the seepage climbs ten times or more at each step."
+        },
+        {
+          "type": "text",
+          "text": "The first warning came in 1915. As the new reservoir rose, Rattlesnake Lake, on the far side of the moraine, began to rise too, though nothing new was flowing into it on the surface. It rose until it flooded the small railway town of Moncton on its shore, and the city ended by buying the town out.[^moncton] The reservoir was leaking through the hill, and the leak was large."
+        }
+      ]
+    },
+    {
+      "title": "The burst",
+      "blocks": [
+        {
+          "type": "text",
+          "text": "Seattle's engineers went on raising the reservoir, and in late 1918 it stood higher than it ever had. The springs at the head of Boxley Creek, on the far side of the moraine, grew. Water coming out of a slope fast enough can carry the grains around it with it. Each grain that leaves makes the path a little wider and shorter, so more water comes through, faster, and carries more grains. A hollow eats back into the hill along the line of the flow. Engineers call this **piping**, and it is how many earth dams and levees fail.[^piping]"
+        },
+        {
+          "type": "text",
+          "text": "In December 1918 the side of the moraine at the head of Boxley Creek gave way. Water stored in the gravel, and water from the reservoir behind it, poured out down the creek, carving a canyon as it went, and the flood reached Edgewick. The accounts tell of a town lost but not of lives lost. The city faced years of claims for the damage."
+        },
+        {
+          "type": "key_ideas",
+          "title": "A misconception",
+          "points": [
+            "**\"A dam fails when the wall breaks.\"** Plenty of dams and levees fail around or under their walls instead: water finds a way through the ground beside or beneath them, and once it carries grains, the way grows. The Masonry Dam never broke."
+          ]
+        },
+        {
+          "type": "text",
+          "text": "After 1918 the city never filled the Masonry Pool to the height the dam was built for. It is kept lower, the dam serves mainly to steady the river and feed the Cedar Falls powerhouse below it, and most of the Cedar's storage is in Chester Morse Lake upstream. Water still seeps through the moraine: Rattlesnake Lake rises and falls through the year with the water behind it, fed from underground across the divide."
+        },
+        {
+          "type": "text",
+          "text": "**Go and look.** Rattlesnake Lake, a short drive past North Bend beside the Cedar River Watershed Education Center, is open to everyone. Walk its shore and look for a surface stream big enough to fill it; there is none that could. In a dry autumn, when the lake is low, stumps of the forest that stood there before 1915 stand out of the water and the mud. The climb to Rattlesnake Ledge looks down over the lake and across the low, wooded moraine toward the Cedar valley on the other side."
+        }
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {
+          "type": "quiz",
+          "id": "check",
+          "caption": "Six questions on the Cedar and the moraine",
+          "task": "Choose the best answer to each",
+          "options": {
+            "items": [
+              {
+                "ask": "Where does most of Seattle's tap water come from?",
+                "choices": [
+                  "The Cedar River, about two thirds, with most of the rest from the South Fork Tolt",
+                  "Lake Washington, pumped from intakes along its eastern shore near Bellevue",
+                  "Wells drilled into the gravels beneath the city, topped up by winter rain",
+                  "The Snoqualmie River, taken below the falls and piped west to the city"
+                ],
+                "answer": 0,
+                "why": "Two Cascade rivers supply the city: the Cedar about two thirds and the South Fork Tolt about a third."
+              },
+              {
+                "ask": "Why can Seattle use the Cedar's water without filtering it?",
+                "choices": [
+                  "Its watershed is owned by the city and closed, so the water is clean enough for ozone and ultraviolet treatment alone",
+                  "Snowmelt is pure water with nothing in it, so a mountain river needs no treatment of any kind",
+                  "The water is filtered naturally on its way through Lake Washington before it reaches the pipes",
+                  "Chlorine added at Landsburg removes all the particles that a filter would otherwise catch"
+                ],
+                "answer": 0,
+                "why": "A closed, protected watershed keeps the water clean enough that killing germs with ozone and ultraviolet light is enough."
+              },
+              {
+                "ask": "Water held behind a sound concrete dam came out as springs in the next valley. Which explanation is best?",
+                "choices": [
+                  "It seeped through a ridge of glacial sand and gravel beside the reservoir, from the higher water to the lower ground",
+                  "It ran through cracks in the concrete of the dam and then along the river bed downstream",
+                  "It evaporated from the reservoir and fell again as rain on the next valley",
+                  "It was pumped over the ridge by the city to keep the reservoir from overflowing"
+                ],
+                "answer": 0,
+                "why": "Gravel passes water easily, and the reservoir stood above the ground on the far side of the moraine, so water flowed through it by Darcy's law."
+              },
+              {
+                "ask": "A reservoir stands against a bank of gravel with springs on the far side. If the water's depth against the bank doubles, roughly how does the seepage change?",
+                "choices": [
+                  "About four times as much, since the push and the wet thickness of gravel both double",
+                  "About twice as much, since the seepage follows the depth of the water in step",
+                  "About the same, since the gravel can pass only so much water whatever the depth",
+                  "Somewhat less, since the deeper water packs the gravel tighter and closes its spaces"
+                ],
+                "answer": 0,
+                "why": "Darcy's law multiplies the push by the area the water flows through, and both grow with the depth."
+              },
+              {
+                "ask": "Why is seepage that carries sand out of a slope more dangerous than clear seepage?",
+                "choices": [
+                  "Each grain removed widens the path, so the flow grows and carries more grains, hollowing the slope from below",
+                  "Sandy water is heavier than clear water, so it presses harder on the slope and pushes it over",
+                  "The sand settles in the reservoir and raises the water level until it overflows the dam",
+                  "Sandy water freezes more easily in winter, and the ice splits the hillside apart"
+                ],
+                "answer": 0,
+                "why": "This runaway is called piping: the flow and the hole feed each other."
+              },
+              {
+                "ask": "Why does Rattlesnake Lake, near North Bend, rise and fall with the Cedar reservoir across the ridge?",
+                "choices": [
+                  "Water seeps from the reservoir through the moraine and feeds the lake from underground",
+                  "A tunnel built in 1914 carries water from the reservoir to the lake to keep it full",
+                  "Both lakes fill with the same snowmelt at the same time, so they rise together by chance",
+                  "The lake is the reservoir's overflow, joined to it by a stream over the top of the ridge"
+                ],
+                "answer": 0,
+                "why": "The moraine passes water, so the lake on its far side is fed by seepage from the higher water behind it."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "footnotes": {
+    "date": {
+      "kind": "digression",
+      "title": "The Boxley burst",
+      "text": "The flood is usually dated to 23 December 1918 and called the Boxley burst, after the creek. The railway was the Chicago, Milwaukee and St. Paul's line over Snoqualmie Pass (the Milwaukee Road), which ran past Rattlesnake Lake and crossed Boxley Creek on the slope above the town."
+    },
+    "unfiltered": {
+      "kind": "technical",
+      "title": "Skipping the filter",
+      "text": "Federal rules on drinking water require surface water to be filtered unless the source meets strict standards for cleanness and the utility controls what happens in the watershed. Filtering takes out particles; ozone and ultraviolet light kill bacteria and parasites such as Cryptosporidium, which can slip through chlorine. Seattle added the ozone and ultraviolet treatment for the Cedar in the early 2000s."
+    },
+    "moraine": {
+      "kind": "technical",
+      "title": "Moraine",
+      "text": "A moraine is the debris a glacier or ice sheet leaves where its edge stood: everything from clay to boulders, often washed by meltwater into beds of clean sand and gravel. Clean gravel can pass water about as easily as anything in the ground."
+    },
+    "dupuit": {
+      "kind": "technical",
+      "title": "The square",
+      "text": "For water flowing with a free surface through a level bed of gravel, the French engineer Jules Dupuit worked out in 1863 that the flow for each metre of bank is the conductivity times the difference of the squares of the water's depths at the two ends, divided by twice the length of the path. With the springs at the foot of the far side, that is the conductivity times the depth squared, over twice the path."
+    },
+    "moncton": {
+      "kind": "digression",
+      "title": "Moncton",
+      "text": "Moncton was a stop on the railway at Rattlesnake Lake. When the lake flooded it in 1915 its people sued the city, and the city took the land. Little of the town remains."
+    },
+    "piping": {
+      "kind": "technical",
+      "title": "Piping",
+      "text": "Piping starts where seepage leaves the ground: at the toe of a slope or the foot of a levee, the water's push upward or outward can match the weight of the grains and lift them free. Engineers watch for boils of muddy water at the foot of a levee in flood for this reason, and lay filters of graded sand and gravel at the toes of earth dams so water can leave but grains cannot."
+    }
+  }
+}

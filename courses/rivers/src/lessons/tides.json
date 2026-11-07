@@ -1,0 +1,102 @@
+{
+  "id": "tides",
+  "n": 8,
+  "title": "Two tides a day",
+  "teaches": "Why the Moon raises two bulges, the Sun's share, and spring and neap tides",
+  "summary": [
+    "**The tide keeps the Moon's time.** Most coasts have two high tides about 12 hours 25 minutes apart, coming about 50 minutes later each day.",
+    "**The Moon does not simply pull the water toward it.** That would make one bulge, under the Moon, and one high tide a day.",
+    "**Tides come from a difference in pull.** The Moon pulls the near side of the Earth harder than its centre and the far side less, and what is left over stretches the ocean.",
+    "**So there are two bulges.** One lies under the Moon and one opposite it, and each place is carried through both as the Earth turns.",
+    "**The Sun raises a tide a bit under half the Moon's.** Its pull is 180 times stronger, but it is so far away that its pull hardly changes across the Earth.",
+    "**Spring tides come at new and full moon.** The Sun's and Moon's bulges line up and add; at the quarter moons they lie across each other and give the smaller neap tides.",
+    "**The real tide is bigger and later than this picture.** Seattle's range is several times the half metre the bulges predict, and its two daily tides are unequal: lessons 9 and 10 take up why."
+  ],
+  "parts": [
+    {
+      "title": "A tide on the far side",
+      "blocks": [
+        {"type": "text", "text": "Anyone who lives by the sea learns the tide's rhythm. The water rises for about six hours and falls for about six, and the whole pattern comes about fifty minutes later each day, keeping time with the Moon rather than the Sun. Writers in the ancient world already tied the tide to the Moon. What nobody could say was how the Moon did it."},
+        {"type": "text", "text": "In 1609 Johannes Kepler suggested that the Moon draws the water toward it, much as a magnet draws iron. Galileo, in his *Dialogue* of 1632, dismissed that as a return to occult influences and offered his own theory: the seas slosh because the Earth both spins and travels round the Sun. His theory gave one tide a day where the sea plainly gave two, and he put the difference down to the shapes of the seas."},
+        {"type": "text", "text": "Isaac Newton gave the answer in 1687, in the *Principia*, the book in which he set out his law of gravity. Kepler was partly right: the Moon's gravity does raise the tide. But his picture has a hole in it, which is worth finding before reading on. If the Moon simply pulled the water toward it, the sea would heap up on the side of the Earth facing the Moon, and every coast would have one high tide a day, when the Moon was overhead. Instead most coasts have two, about twelve and a half hours apart, and the second comes when the Moon is on the far side of the Earth, under your feet. Something raises the water on the side facing away from the Moon."},
+        {"type": "text", "text": "**A common misconception**, then and now, is that the tide is the Moon pulling the water toward it. That picture gives one bulge and one high tide a day. The far bulge needs a different idea."},
+        {"type": "diagram", "id": "timeline", "caption": "Four answers to the tide, over a century and a half.", "options": {"spacing": "even", "events": [
+          {"at": 1609, "label": "Kepler: the Moon draws the water to it"},
+          {"at": 1632, "label": "Galileo: the Earth's motions slosh the seas"},
+          {"at": 1687, "label": "Newton: a difference in the Moon's pull", "color": "moon"},
+          {"at": 1775, "label": "Laplace: the tide as the ocean's answer, a wave"}
+        ]}}
+      ]
+    },
+    {
+      "title": "A difference in pull",
+      "blocks": [
+        {"type": "text", "text": "Gravity weakens with distance: twice as far away, a pull is a quarter as strong. The Moon is about 384,000 km away, sixty times the Earth's radius of 6,400 km. So the side of the Earth facing the Moon is a sixtieth closer to it than the Earth's centre is, and the far side a sixtieth farther. The near side is pulled about 3% harder than the centre, and the far side about 3% less."},
+        {"type": "text", "text": "The Earth as a whole is pulled toward the Moon as if all its pull acted at the centre; the Earth and Moon fall round each other, about a shared balance point, once a month. Every rock and every drop of water shares that motion. What raises a tide is what is left at each place when that shared pull is taken away: the difference between the Moon's pull there and its pull at the Earth's centre. That leftover is the **tide-raising force**."},
+        {"type": "interactive_diagram", "id": "tides-pull", "caption": "The Moon's pull at twelve points round the Earth, and what is left when the pull at the centre is taken away. Seen from above the North Pole, with the Moon far off to the right. The bulges are drawn hugely exaggerated.", "task": "Guess, then step through to what is left", "goal": "left", "aspect_ratio": 1.75},
+        {"type": "text", "text": "On the near side the Moon pulls a little harder than at the centre, so the water there is pulled toward the Moon, away from the Earth's centre. On the far side the Moon pulls a little less than at the centre: the Earth is pulled toward the Moon more than that water is, and the water is left behind, which also takes it away from the Earth's centre. Round the middle, where the Moon is on the horizon, the pull toward the Moon slants slightly inward, and what is left squeezes the water down. The ocean is stretched into two bulges, one under the Moon and one opposite it.[^centrifugal]"},
+        {"type": "text", "text": "**Estimate.** The Moon's whole pull on the Earth is about three millionths of the pull of the Earth's own gravity, g. The tide-raising force is the difference between two numbers that are nearly equal: at its strongest, under the Moon, about a nine-millionth of g. It makes a 70 kg person lighter by about 8 milligrams, less than a grain of rice. Nobody could feel it, and it lifts nothing directly. What moves the ocean is its sideways part, which acts on every drop of the ocean at once, across thousands of kilometres, and pushes water toward the points under and opposite the Moon.[^tractive]"}
+      ]
+    },
+    {
+      "title": "Two highs a day",
+      "blocks": [
+        {"type": "text", "text": "The bulges stay lined up with the Moon while the Earth turns beneath them. A place on the coast is carried through one bulge, then a low, then the other bulge, then a second low: two high tides and two low tides each time round."},
+        {"type": "diagram", "id": "tides-turn", "caption": "The Earth turns under the two bulges, carrying a place through high, low, high and low water. A picture of the bulges alone, drawn hugely exaggerated; the real tide at any coast arrives later and in its own shape.", "aspect_ratio": 1.55},
+        {"type": "text", "text": "Meanwhile the Moon moves on along its orbit, about 13 degrees a day in the same direction as the Earth turns. After one full turn of the Earth a place has to turn a little farther to catch the Moon up, and it takes 24 hours and 50 minutes to come back under it. So the high tides come about 12 hours 25 minutes apart, and fifty minutes later each day, which is the rhythm the ancients noticed."},
+        {"type": "text", "text": "If the ocean could rise and fall freely, keeping up with the Moon, the bulges would stand about half a metre above the lows between them. This is the **equilibrium tide**, the tide the ocean would have if it had time to settle into the shape the forces ask for. Hold on to that half metre. The real tide at Seattle is a good deal larger."}
+      ]
+    },
+    {
+      "title": "The Sun's share",
+      "blocks": [
+        {"type": "text", "text": "The Sun raises a tide in the same way. Its pull on the Earth is about 180 times the Moon's: it is what holds the Earth in its orbit. By that measure the Sun ought to swamp the Moon's tide. It doesn't, because a tide comes from the difference in pull across the Earth, and the Sun is about 390 times farther away than the Moon. Seen from that distance the Earth is very small, and the Sun's pull on the near side is hardly different from its pull on the far side."},
+        {"type": "text", "text": "The difference in pull across the Earth falls off with the cube of distance, faster than the pull itself, which falls with the square.[^cube] The Sun is about 27 million times as massive as the Moon, and 390 cubed is about 59 million, so the Sun's tide-raising force is about 27/59 of the Moon's: **a bit under half**."},
+        {"type": "diagram", "id": "scale", "caption": "The pulls of the Sun and Moon on the Earth, and their tide-raising forces, on a ratio scale, in millionths of g (µg, where g is the pull of the Earth's own gravity). The Sun pulls far harder; the Moon raises the bigger tide.", "options": {"title": "Pull, and the difference across the Earth", "unit": "µg", "log": true, "items": [
+          {"label": "The Sun's pull on the Earth", "value": 605, "color": "sun"},
+          {"label": "The Moon's pull on the Earth", "value": 3.4, "color": "moon"},
+          {"label": "The Moon's tide-raising force", "value": 0.11, "color": "moon", "bold": true},
+          {"label": "The Sun's tide-raising force", "value": 0.05, "color": "sun", "bold": true}
+        ]}}
+      ]
+    },
+    {
+      "title": "Spring and neap",
+      "blocks": [
+        {"type": "text", "text": "So the Earth carries two pairs of bulges: the Moon's, and the Sun's, a bit under half as tall. The Moon goes round the Earth once a month, 29.5 days from one new moon to the next, and the angle between its bulges and the Sun's goes round with it. (Why the Moon's phases follow from where it is in its orbit is in the Astronomy course.) Before playing the month through, guess when the range of the tide, from high water to low, will be biggest."},
+        {"type": "interactive_diagram", "id": "tides-month", "caption": "A month of the Moon's bulge (purple, dashed) and the Sun's (gold, dashed) and their sum (blue), seen from above the North Pole, with the tide they raise at one place on the equator. The equilibrium tide, a model; the real ocean answers later and unequally.", "task": "Guess, then play the month through", "goal": "month", "aspect_ratio": 1.49},
+        {"type": "text", "text": "At new moon the Moon lies between the Earth and the Sun, and at full moon it lies opposite the Sun. Either way the two pairs of bulges line up, because each pair has a bulge on both sides of the Earth: the highs are higher and the lows lower. These are **spring tides**, about 1.46 times the Moon's own range in this picture.[^spring] At the first and last quarter moons the Sun's bulges lie across the Moon's and fill in its lows, and the range drops to about 0.54 of the Moon's own: the **neap tides**. Springs and neaps take turns, about 7.4 days apart, so that springs come round every two weeks.[^age]"},
+        {"type": "text", "text": "**Out in the field.** NOAA's tide predictions for Seattle (station 9447130) are free online. Look up the ranges for the days around a full or new moon and for the days around a quarter moon. The biggest ranges do cluster near new and full moon. The pattern is untidier than the figure: the biggest ranges come a day or two late, some springs are much bigger than others,[^perigee] and the two tides on the same day are often far from equal."}
+      ]
+    },
+    {
+      "title": "What the picture leaves out",
+      "blocks": [
+        {"type": "text", "text": "Newton's picture explains the forcing: why there are two tides a day, why they come fifty minutes later each day, and why their range swells and shrinks over two weeks. It does not explain the tide at Seattle."},
+        {"type": "text", "text": "It gets the size wrong. On an average day Seattle's tide rises and falls about 3.5 m (11 feet) between the lower low water and the higher high, seven times the half metre the bulges allow. It gets the shape wrong too. On most days Seattle's two low tides are very different, one far lower than the other, which this picture of two equal bulges cannot do. And it does not set the timing: the tide reaches Seattle as water that has come in from the Pacific, through the Strait and up the Sound, and the Moon overhead is no guide to when high water will come."},
+        {"type": "text", "text": "Pierre-Simon Laplace saw what was missing in 1775: the ocean cannot heap itself into the equilibrium shape, because the bulges sweep round the Earth faster than water can follow. The tide is the ocean's answer to the forcing, a set of waves running round the ocean basins, slowed by their depth and turned by their coasts. His equations were right, but nobody could solve them for real oceans. Lesson 9 takes the route that worked, measuring the tide instead and taking it apart into regular waves, and finds the cause of Seattle's unequal lows in the tilt of the Moon's orbit. Lesson 10 follows the tide as a wave in a basin, and shows why it grows as it runs up the Sound."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on the tide", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Why is there a high tide on the side of the Earth facing away from the Moon?", "choices": ["The Moon pulls that side less than the Earth's centre, so its water is left behind as the Earth is pulled away", "The Moon's pull passes through the Earth and lifts the water on the far side as well as the near side", "The Earth's spin flings water outward most strongly on the side facing away from the Moon"], "answer": 0, "why": "The tide comes from the difference between the Moon's pull at a place and its pull at the Earth's centre. On the far side the Moon pulls less than at the centre, so the water there is left behind, away from the centre: a second bulge."},
+          {"ask": "Why do high tides come about fifty minutes later each day?", "choices": ["The Moon moves along its orbit, so the Earth takes 24 hours 50 minutes to bring a place back under it", "The tide slows a little each day as it crosses the ocean, and arrives later and later", "The Earth's spin slows a little every day as the tides drag on it, delaying each tide"], "answer": 0, "why": "While the Earth turns once, the Moon moves about 13 degrees along its orbit, and the Earth must turn a little farther to catch it up. The bulges follow the Moon, so the tides keep the Moon's time."},
+          {"ask": "The Sun pulls on the Earth about 180 times harder than the Moon. Why does it raise less than half as much tide?", "choices": ["A tide comes from the difference in pull across the Earth, and the Sun is so far away that its pull barely changes from side to side", "The Sun's pull acts on rock and water alike, while the Moon's pull acts mostly on the water of the oceans", "Most of the Sun's pull is spent holding the Moon in its orbit, leaving little to raise the sea"], "answer": 0, "why": "The difference in pull across the Earth falls with the cube of distance. The Sun is about 27 million times as massive as the Moon but about 390 times farther away, and 390 cubed is about 59 million: a bit under half."},
+          {"ask": "When do spring tides, the biggest ranges of the month, come?", "choices": ["Near new moon and full moon, when the Sun's and Moon's bulges line up and add", "In the spring, when the Sun crosses the equator and its tide is at its strongest", "At the quarter moons, when the Sun and Moon pull at right angles and stretch the sea two ways"], "answer": 0, "why": "At new and full moon the Sun, Earth and Moon are in a line. Each raises a bulge on both sides of the Earth, so either way the bulges line up. The word spring here means a rising, not the season."},
+          {"ask": "Why is the range of the tide smallest around the first and last quarter moons?", "choices": ["The Sun's bulges lie across the Moon's and partly fill in its lows", "The Moon is at its farthest from the Earth at the quarters", "Only half the Moon is lit, and its dark half pulls more weakly"], "answer": 0, "why": "At the quarters the Sun and Moon are at right angles as seen from the Earth. The Sun's bulges sit where the Moon's lows are, so the highs are lower and the lows higher: neap tides."},
+          {"ask": "The equilibrium tide predicts two equal bulges about half a metre high. What does the tide at Seattle show instead?", "choices": ["A range several times bigger, with two very unequal tides on most days, because the real ocean answers as waves in basins", "Very nearly the predicted half metre, with two equal tides, because the Sound is open to the Pacific", "Almost no tide at all, because inland seas are sheltered from the Moon's pull by the land around them"], "answer": 0, "why": "Seattle's average range from lower low to higher high is about 3.5 m, and its two daily lows are often very different. The forcing is Newton's, but the size, shape and timing come from how the ocean and the Sound respond, the subject of lessons 9 and 10."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "centrifugal": {"kind": "technical", "title": "The centrifugal explanation", "text": "Many books explain the far bulge by the Earth and Moon swinging round their shared centre, which flings the far side's water outward. Done carefully it gives the same answer as the difference in pull, and for the same reason: the swing is the Earth's fall toward the Moon, and it is the same at every point of the Earth. Done carelessly it suggests the Earth's daily spin matters, which it does not."},
+    "tractive": {"kind": "technical", "title": "Lifting and sliding", "text": "Straight up, the tide-raising force is hopeless against the Earth's gravity, ten million times stronger. Sideways nothing opposes it: the ocean sits on the Earth like water in a dish, and a slight sideways push on every drop across a whole ocean moves the water. Oceanographers call this sideways part the **tractive force**. It is strongest about 45 degrees from the point under the Moon."},
+    "cube": {"kind": "technical", "title": "Why the cube", "text": "A pull that falls as 1/d² changes, across a small width a, by about 2a/d times the pull itself. So the difference goes as (mass/d²) × (2a/d), or 2 × mass × a / d³: the cube of distance."},
+    "spring": {"kind": "digression", "title": "Spring", "text": "Spring tides have nothing to do with the season. The word is the old sense of spring as a leap or rising, as in a spring of water, and spring tides come every two weeks all year round. Neap is an old word for the low tides between them; where it comes from is unknown."},
+    "age": {"kind": "technical", "title": "Late springs", "text": "On many coasts the biggest tides come a day or two after new and full moon, a delay called the **age of the tide**. The ocean takes time to respond to the forcing, the first sign that the real tide is a wave and not a bulge that keeps up with the Moon."},
+    "perigee": {"kind": "technical", "title": "The Moon's distance", "text": "The Moon's orbit is not a circle. Its distance varies from about 363,000 km at its nearest (perigee) to about 406,000 km at its farthest (apogee), and since the tide-raising force goes with the cube of distance, it is about 40% stronger at perigee than at apogee. A spring tide near perigee is a perigean spring tide, one ingredient of the king tides of lesson 10."}
+  }
+}

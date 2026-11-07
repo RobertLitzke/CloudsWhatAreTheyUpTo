@@ -1,0 +1,96 @@
+{
+  "id": "gauge",
+  "n": 302,
+  "branch": "field",
+  "needs": ["tables"],
+  "title": "Measuring a creek",
+  "teaches": "An orange, a stopwatch and a USGS gauge page: discharge measured by hand",
+  "summary": [
+    "**Discharge is volume per second.** It is the average speed of the water times the area of the cross-section.",
+    "**An orange times the surface speed.** It floats low, so it moves with the water and the wind barely pushes it.",
+    "**The surface is the fastest water.** The bed holds back the water near it, and the average over the depth is about 0.8 of the surface speed.",
+    "**Measure the cross-section in pieces.** Width with a tape and depths at even steps; adding up panels gives a better total than one average.",
+    "**The deep middle carries most of the water.** It is both deeper and faster, so a third of the width can carry two thirds of the flow.",
+    "**A gauge measures stage, not discharge.** Stage is the height of the water above the gauge's own zero, read every fifteen minutes.",
+    "**A rating curve turns stage into discharge.** It is drawn through measurements made by hand, bends upward, and shifts when a flood moves the gravel.",
+    "**Big rivers peak late.** A city creek peaks within hours of the heaviest rain; a big river half a day or more after it."
+  ],
+  "parts": [
+    {
+      "title": "How much water is that?",
+      "blocks": [
+        {"type": "text", "text": "Piper's Creek runs down a wooded ravine in Carkeek Park, in north Seattle, to the Sound. On a summer afternoon it is a few strides wide and ankle deep in most places, clear over gravel. How much water goes past, in litres every second? That number is the creek's **discharge**, from lesson 2: the volume of water crossing a line across the stream each second."},
+        {"type": "text", "text": "The United States Geological Survey (USGS) runs gauges on many Washington rivers that report discharge every fifteen minutes. You can measure a creek's discharge yourself with an orange, a stopwatch and a tape measure, and get close enough to be useful. This lesson does that, then reads a USGS gauge page to see how the same job is done every quarter of an hour on the Cedar River at Renton and the Snoqualmie near Carnation."},
+        {"type": "interactive_diagram", "id": "map-live", "caption": "Three Seattle creeks that suit a measurement, and the USGS gauge on the Cedar River near its mouth.", "task": "Tap each ringed place", "goal": "explore", "aspect_ratio": 0.6, "options": {
+          "relief": "maps/lakewashington", "water": 5,
+          "sun": {"azimuth": 300, "altitude": 35},
+          "spots": [
+            {"lon": -122.3760, "lat": 47.7115, "name": "Piper's Creek, Carkeek Park", "text": "A small creek in a wooded ravine, reaching the Sound at Carkeek Park's beach."},
+            {"lon": -122.2850, "lat": 47.6985, "name": "Thornton Creek", "text": "Seattle's largest creek system by basin, draining much of north Seattle into Lake Washington at Matthews Beach."},
+            {"lon": -122.3640, "lat": 47.5560, "name": "Longfellow Creek", "text": "A creek in the Delridge valley of West Seattle, with a trail along much of its length."},
+            {"lon": -122.2037, "lat": 47.4831, "name": "Cedar River at Renton, USGS 12119000", "text": "A USGS gauge near the Cedar's mouth at Lake Washington, below Seattle's reservoir in the Cascades."}
+          ]
+        }}
+      ]
+    },
+    {
+      "title": "The orange",
+      "blocks": [
+        {"type": "text", "text": "Speed first. Find a straight stretch where the water runs smoothly, without eddies or snags, and mark 10 m along the bank with two sticks. Drop an orange in the water a few metres above the first stick, so it is moving at the creek's speed when it passes. Start the stopwatch as it passes the first stick and stop it at the second. Do it three times and take the average. If the orange takes 25 s to go 10 m, the surface water is moving at 0.4 m/s."},
+        {"type": "text", "text": "An orange suits the job because it floats low. Most of it rides under the surface, so it moves with the water and the wind barely pushes it, and it is bright enough to follow. A leaf or a stick sits on top and catches the breeze. Fish the orange out at the end."},
+        {"type": "text", "text": "The orange measures the surface, and the surface carries the fastest water in the creek. The bed holds back the water touching it, that water slows the layer above, and so on upward, so the speed grows from near zero at the bed to its greatest at the top. Over a gravel bed the average over the whole depth comes out at about 0.8 of the surface speed, a little more over smooth sand and a little less over boulders.[^sixtenths] So 0.4 m/s at the surface means about 0.32 m/s on average."},
+        {"type": "diagram", "id": "gauge-profile", "caption": "The speed of the water at each depth over a rough bed, in a model. The average over the depth is about 0.8 of the surface speed, and the water about six-tenths of the way down moves at that average.", "aspect_ratio": 1.9}
+      ]
+    },
+    {
+      "title": "Across the creek",
+      "blocks": [
+        {"type": "text", "text": "Now the size of the stream. Stretch the tape across at one end of your 10 m, from water's edge to water's edge, and measure the depth with a metre stick at even steps across it, every half metre in a small creek. Suppose the creek is 3.0 m wide and the depths at six points are 6, 16, 30, 34, 20 and 8 cm. Their average, 19 cm, times the width gives the area of the cross-section, 0.57 m²."},
+        {"type": "text", "text": "The quick estimate is then average speed times area: 0.32 m/s × 0.57 m² ≈ 0.18 m³/s. That is 180 litres a second, or about 6.4 cubic feet a second (cfs), the unit on American gauge pages.[^cfs] A bathtub holds something like 150 to 200 litres, so about a bathtub's worth goes past every second."},
+        {"type": "text", "text": "That treats the whole creek as moving at one average speed, and it doesn't. The shallow water at the edges, with the bed close beneath it, is slow, while the deep middle is fast. Hydrographers, the people who measure rivers for a living, split the stream into panels, a strip of width around each measuring point, and multiply each panel's own area by its own speed.[^midsection] The figure does that with your numbers, taking the speed at each point to grow with its depth."},
+        {"type": "interactive_diagram", "id": "gauge-section", "caption": "A model creek 3 m wide, measured at six points half a metre apart. Each panel's shading and number give its share of the discharge; the speed at each point grows with its depth.", "task": "Guess, then set the creek after a storm: the water 20 cm higher and the orange taking 8 s", "goal": "storm", "aspect_ratio": 1.9},
+        {"type": "text", "text": "Two things come out of it. In summer the middle third of the width carries about two thirds of the water, since it is both the deepest and the fastest part, so a depth misread in the middle matters far more than one misread at the edge. And the panel sum, 0.14 m³/s, is lower than the quick estimate, because the orange ran in the fastest lane. For a measurement with an orange either is a fair answer. A USGS hydrographer with a current meter at twenty or more points aims to come within about five percent."},
+        {"type": "text", "text": "Raise the water by 20 cm and let the orange cover the 10 m in 8 s, as after a winter storm, and the discharge grows nearly sevenfold. Deeper water moves faster, and there is more of it moving. That pairing is why a gauge needs only the height of the water to know its discharge, as the next part shows."},
+        {"type": "text", "text": "**Measure your own.** In late summer, when the creeks are lowest and clearest, take an orange, a stopwatch, a tape and a metre stick to Piper's Creek, Thornton Creek or Longfellow Creek and work out the discharge. Then come back after a big November rain and time an orange from the bank. Stay out of water deeper than your knees or fast enough to push at your legs, which in a city creek can arrive within minutes of heavy rain; keep off the gravel in autumn and winter, when salmon returning to several of Seattle's creeks may have laid eggs in it; and wash your hands afterwards, since city creeks carry what washes off the streets."}
+      ]
+    },
+    {
+      "title": "What a gauge measures",
+      "blocks": [
+        {"type": "text", "text": "The USGS gauge on the Cedar River at Renton, station 12119000, stands near the river's mouth at Lake Washington. Like most USGS gauges it does not measure discharge at all. It measures **stage**: the height of the water surface above a fixed zero of the gauge's own, which is not the depth of the river. It reads the stage every fifteen minutes, with a float in a stilling well,[^well] a pressure sensor in the water or a radar looking down from a bridge, and sends the readings out by satellite. Search the station number on the USGS water data site and its page shows two lines: gage height in feet, and discharge in cubic feet per second."},
+        {"type": "text", "text": "The discharge comes from the stage through a **rating curve**. Every month or two, and during floods when they can, hydrographers go to the gauge and measure the discharge the long way: wading across with a current meter at many points, as you did with the orange, or crossing from a bridge or a boat with an acoustic instrument that reads the speed of the water at every depth. Each visit gives one point, a stage and a discharge measured together. Over the years the points trace a curve, and every fifteen minutes the gauge's stage is read off it."},
+        {"type": "interactive_diagram", "id": "gauge-rating", "caption": "A model rating curve for a large river: the channel at the gauge, and the curve through the hydrographers' measurements. The switch shows the gauge after a flood has piled gravel on the bar below it.", "task": "Guess, then take the river to 8 ft and switch on the flood's gravel", "goal": "rating", "aspect_ratio": 1.38},
+        {"type": "text", "text": "The curve bends upward for the reason the creek showed: as the water rises it gets wider and deeper and faster, so each foot of stage adds more flow than the foot before. On this model gauge, the rise from 4 ft to 8 ft multiplies the discharge about eight times."},
+        {"type": "text", "text": "A rating curve is only as good as the channel is steady. The stage at a gauge is set by a **control**, a gravel bar, a rock ledge or a narrowing just downstream that holds the water back. A flood can scour the bar away or pile more gravel on it, and then the same stage means a different discharge. Hydrographers look for these shifts at every visit and correct the record, which is why the newest readings on a gauge page are marked provisional until someone has checked them."}
+      ]
+    },
+    {
+      "title": "Watching a storm go by",
+      "blocks": [
+        {"type": "text", "text": "A gauge page is best watched during a storm. When an atmospheric river is forecast (the Clouds course follows one in from the Pacific), open the page for the Snoqualmie near Carnation, station 12149000, and keep it open for three days. Before the river starts to rise, sketch what you expect: when the peak will come, how high, and how fast the river will fall afterwards."},
+        {"type": "text", "text": "Rain that falls near the gauge reaches it within an hour or two. Rain on the far side of the basin, high on the forks of the Snoqualmie, has many miles of slope and channel to cross first. The river at the gauge is the sum of all of it, so it goes on rising long after the heaviest rain and peaks when the water from the far parts arrives. It falls more slowly than it rose, as the slopes go on draining for days. A city creek, with a small basin and much of it paved, rises and falls within hours."},
+        {"type": "interactive_diagram", "id": "gauge-storm", "caption": "A model storm: the rain over the basin, and the discharge at a gauge on a small city creek or a big river, drawn as the hours pass.", "task": "Guess, then play the storm through for both", "goal": "storm", "aspect_ratio": 1.6},
+        {"type": "text", "text": "In the model the big river peaks about eleven hours after the heaviest rain and is still far above its starting flow a day later, while the creek peaks within two hours and has nearly settled by the next morning. Real rivers add more: snow that melts in a warm rain (lesson 2) and, on some rivers, a dam or a lake that holds back part of a flood, as Seattle's Masonry Dam does on the Cedar. A sketch made before the storm and set against the page afterwards shows which of these your river has."}
+      ]
+    },
+    {
+      "title": "Check",
+      "blocks": [
+        {"type": "quiz", "id": "check", "caption": "Six questions on measuring a creek", "task": "Choose the best answer to each", "options": {"items": [
+          {"ask": "Why is an orange a good float for timing a creek's surface speed?", "choices": ["It rides mostly under the surface, so it moves with the water and the wind barely pushes it", "It is heavy enough to sink to mid-depth, so it moves at the average speed of the whole creek", "Its rough peel grips the water, so it keeps up with the current around bends and eddies"], "answer": 0, "why": "A float that sits high, like a leaf, is pushed by the breeze. An orange floats low and follows the surface water."},
+          {"ask": "Why multiply the orange's speed by about 0.8 to get a creek's average speed?", "choices": ["The bed holds back the water near it, so the speed grows from near zero at the bed to its greatest at the surface", "The orange drifts from side to side as it floats, so it covers more than the 10 m it is timed over", "Water at the surface is warmed by the Sun, so it is thinner and slips faster than the cold water below"], "answer": 0, "why": "Friction at the bed slows the bottom water, and each layer slows the one above. Over a gravel bed the average comes out near 0.8 of the surface speed."},
+          {"ask": "Why does the middle third of a creek's width often carry far more than a third of its water?", "choices": ["It is the deepest part and also the fastest, and depth and speed multiply together in the flow", "The water at the edges is held in by the banks, so it flows back upstream in eddies", "The middle is where the orange floats, so the measurement counts the middle more than the edges"], "answer": 0, "why": "Each panel's flow is its area times its speed. In the middle both are largest, so in the lesson's creek the middle third carried about two thirds of the water."},
+          {"ask": "A USGS gauge page gives a river's discharge every fifteen minutes. How is that number made?", "choices": ["The gauge measures the water's height and reads the discharge off a rating curve built from measurements made by hand", "A current meter fixed in the river reads the speed at every depth and multiplies it by the river's width", "It is worked out from the rain measured over the basin in the hours before, using the size of the basin"], "answer": 0, "why": "Gauges measure stage. Hydrographers visit every month or two to measure discharge directly, and the curve through those visits turns each stage into a discharge."},
+          {"ask": "A flood piles gravel on the bar just downstream of a gauge. What happens to the discharge the page reports, until hydrographers measure again?", "choices": ["It reads too high, since the same stage now means less water flowing over the raised bar", "It stays right, since the gauge measures the height of the water and the gravel does not change that", "It reads too low, since the gravel takes up room in the channel and slows the gauge's sensor"], "answer": 0, "why": "The bar holds the water back, so a higher bar raises the stage for the same flow. The old rating curve then gives too much water for each stage."},
+          {"ask": "Heavy rain falls at the same time over a big river's basin and over a small city creek's. Which describes their gauges best?", "choices": ["The creek peaks within a couple of hours; the river peaks half a day or more later, as water from the far parts of its basin arrives", "Both peak at the hour of the heaviest rain, since the rain falls on the river and the creek alike", "The creek peaks later than the river, since paved ground holds water back longer than a forested basin"], "answer": 0, "why": "Water from the far side of a big basin has many miles of slope and channel to cross, so the river keeps rising after the rain eases. A small, paved basin drains in hours."}
+        ]}}
+      ]
+    }
+  ],
+  "footnotes": {
+    "sixtenths": {"kind": "technical", "title": "Six-tenths of the way down", "text": "Hydrographers use the shape of the speed profile directly. In shallow water the speed six-tenths of the way down from the surface is close to the average for the whole depth, so they hold the current meter there. In deeper water they average two readings, at two-tenths and eight-tenths of the depth."},
+    "cfs": {"kind": "technical", "title": "Cubic feet a second", "text": "One cubic metre a second is 35.3 cfs. The Snoqualmie near Carnation runs at a few hundred cfs in a dry late summer and at tens of thousands in its biggest winter floods."},
+    "midsection": {"kind": "technical", "title": "How many panels", "text": "USGS practice is to measure at twenty or more points across a stream, spaced so that no one panel carries much more than a twentieth of the flow. A mistake at a single point then cannot spoil the total."},
+    "well": {"kind": "technical", "title": "The stilling well", "text": "The classic gauge is a vertical pipe or concrete well on the bank, joined to the river by pipes near the bottom. Ripples and waves cannot pass through the narrow pipes, so the water in the well rises and falls with the river but stays calm, and a float on it reads the stage to a hundredth of a foot."}
+  }
+}
